@@ -4,7 +4,11 @@ Each test mutates a throwaway copy of the project and asserts the gates react. E
 import os, shutil, subprocess, tempfile, json, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # repo root
-IGNORE = shutil.ignore_patterns("dist", "site", "claims", "data", "__pycache__", ".git", "_site", "qwen3.8-27b")
+_BASE = shutil.ignore_patterns("dist", "site", "claims", "data", "__pycache__", ".git", "_site", "work", "maps")
+def IGNORE(d, names):   # copy only the Flash-Next data root (the tests mutate it); skip every other model
+    skip = set(_BASE(d, names))
+    if os.path.basename(d) == "models": skip |= {n for n in names if n != "qwen3.8-flash-next"}
+    return skip
 FN = "models/qwen3.8-flash-next"   # data root the gates default to
 results = []
 

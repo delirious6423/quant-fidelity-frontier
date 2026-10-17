@@ -445,7 +445,22 @@ def auto_sets(rows, repos, curated_by):
     return out
 
 # ---------- page ----------
-OTHERS = CFG.get("others", [])          # [{"name":..,"href":..}] sibling model pages
+def _others():
+    """Sibling model pages: every other models/<slug>/model.json, in watch-list order. A hand-set entry in this model's
+    "others" only adds its claude.ai preview link ("artifact"); nothing needs editing when a model is added."""
+    arts = {o.get("name"): o.get("artifact") for o in CFG.get("others", [])}
+    order, status = [], {}
+    wl = os.path.join(CODE, "watchlist.json")
+    if os.path.exists(wl):
+        for m in json.load(open(wl)).get("models", []): order.append(m["slug"]); status[m["slug"]] = m.get("status")
+    out = []
+    for mj in glob.glob(os.path.join(CODE, "models", "*", "model.json")):
+        c = json.load(open(mj)); slug = c.get("slug")
+        if not slug or slug == SLUG or status.get(slug, "live") != "live": continue   # link only models that are on the site
+        nm = c.get("name") or c.get("model", "").split("/")[-1]
+        out.append({"name": nm, "href": f"../{slug}/", "artifact": arts.get(nm), "_k": order.index(slug) if slug in order else 999})
+    return [{k: v for k, v in o.items() if k != "_k"} for o in sorted(out, key=lambda o: (o["_k"], o["name"]))]
+OTHERS = _others()
 def render(rows, repos, stats, verify_counts, highlights, exdata=''):
     OTHER_MODELS = "".join(f' · <a href="{E(o["href"])}">{E(o["name"])}</a>' for o in OTHERS)
     captured = IDX["captured_at"][:10]

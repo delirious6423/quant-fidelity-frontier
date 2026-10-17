@@ -16,8 +16,12 @@ def copy(src, dst):
         p = os.path.join(src, f)
         if os.path.isfile(p): shutil.copy2(p, os.path.join(dst, f))
 shutil.rmtree(OUT, ignore_errors=True)
-for mj in sorted(glob.glob(os.path.join(CODE, "models", "*", "model.json"))):
+WL = os.path.join(CODE, "watchlist.json")
+STATUS = {m["slug"]: m.get("status") for m in json.load(open(WL))["models"]} if os.path.exists(WL) else {}
+ORDER = list(STATUS)
+for mj in sorted(glob.glob(os.path.join(CODE, "models", "*", "model.json")), key=lambda p: (ORDER.index(os.path.basename(os.path.dirname(p))) if os.path.basename(os.path.dirname(p)) in ORDER else 999, p)):
     slug = json.load(open(mj)).get("slug"); site = os.path.join(os.path.dirname(mj), "site")
+    if STATUS.get(slug, "live") != "live": continue          # a model mid-ingest stays off the public site until it goes live
     if slug and os.path.isdir(site): copy(site, os.path.join(OUT, slug))
 import re                                      # one sitemap and one robots.txt, at the site root (crawlers ignore nested ones)
 locs = []
@@ -30,7 +34,7 @@ open(os.path.join(OUT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSite
 locs.insert(0, f"<url><loc>{BASE}</loc></url>")
 open(os.path.join(OUT, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + "".join(locs) + "</urlset>")
 man = []                                       # machine-readable index for agents and the MCP server
-for dj in sorted(glob.glob(os.path.join(OUT, "**", "data.json"), recursive=True)):
+for dj in sorted(glob.glob(os.path.join(OUT, "**", "data.json"), recursive=True), key=lambda p: (ORDER.index(os.path.basename(os.path.dirname(p))) if os.path.basename(os.path.dirname(p)) in ORDER else 999, p)):
     d = json.load(open(dj)); rel = os.path.relpath(os.path.dirname(dj), OUT)
     man.append({"model": d["model"], "slug": rel, "data": rel + "/data.json",
                 "captured_at": d.get("captured_at"), "repos": len(d.get("repos", [])), "rows": len(d.get("rows", [])), "sets": len(d.get("sets", []))})

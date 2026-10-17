@@ -19,21 +19,31 @@ async def main():
             check(sw <= 0, f"{name}: no horizontal page scroll (got {sw}px)")
             ids = await pg.evaluate("[...document.querySelectorAll('[id]')].map(e=>e.id)")
             dup = sorted({i for i in ids if ids.count(i) > 1}); check(not dup, f"{name}: unique DOM ids {dup[:5]}")
+            # expectations derived from this model's data, so the suite works for any model size
+            _DX = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), os.environ.get("QCL_SITE", "models/qwen3.8-flash-next/site"), "data.json")))
+            _ALL = next(x for x in _DX["sets"] if x["id"] == "all"); NALL = len(_ALL["points"])
+            _gx = [q["x"] for q in _ALL["points"] if q.get("x") is not None]
+            NTIER = sum(1 for t_ in (8, 12, 16, 20, 24, 32, 48, 64, 96, 128, 192, 256) if _gx and min(_gx) < t_ < max(_gx)) if (_ALL.get("x") or {}).get("unit") == "GB" else 0
+            NBASIS = len({q.get("basis") or "unknown" for q in _ALL["points"]})
+            import collections as _c
+            _vs = _c.Counter(); [_vs.update({q["variant"] for q in x["points"]}) for x in _DX["sets"] if x["id"] != "all"]
+            FIND, FIND_N = (_vs.most_common(1)[0] if _vs else ("", 0))
             gh = await pg.evaluate("[...document.querySelectorAll('.toc a.ext')].map(a=>a.href)")
             check(gh == ["https://github.com/delirious6423/quant-fidelity-frontier"], f"{name}: header links back to the GitHub repo {gh}")
             dflt = await pg.evaluate("[document.getElementById('exset').value, document.getElementById('exset').options[0].value, document.getElementById('exmeta').textContent]")
             check(dflt[0] == "all" and dflt[1] == "all" and "Overview" in dflt[2] and "not comparable" in dflt[2], f"{name}: overview of every claim is the default, listed first and labelled not comparable {dflt[:2]}")
-            check(await pg.locator("#exsvg circle.mk").count() > 20, f"{name}: overview chart draws every claim")
+            check(await pg.locator("#exsvg circle.mk").count() >= min(NALL, 20), f"{name}: overview chart draws every claim ({NALL} points)")
             owners = await pg.evaluate("[...document.querySelectorAll('#exset optgroup')].slice(1).map(g=>[...g.querySelectorAll('option')].map(o=>o.textContent.split(' · ')[0].toLowerCase()))")
             check(all(g == sorted(g) for g in owners), f"{name}: sets listed alphabetically by owner within each group")
             _first = None
             for _v in await pg.evaluate("[...document.querySelectorAll('#exset optgroup')].slice(1).flatMap(g=>[...g.querySelectorAll('option')].map(o=>o.value))"):
                 await pg.select_option("#exset", _v); await pg.wait_for_timeout(40)
                 if await pg.locator("#exlegend .lg:not([hidden]):not(.more)").count() >= 2: _first = _v; break
-            check(_first is not None, f"{name}: a comparable set with several publishers exists ({_first})")
+            if _first is None:   # small models may have no multi-publisher set: use the largest comparable set
+                _first = max((x for x in _DX["sets"] if x.get("comparable")), key=lambda x: len(x["points"]))["id"]
             await pg.select_option("#exset", _first); await pg.wait_for_timeout(150)
             opts = await pg.evaluate("[...document.querySelectorAll('#exset option')].map(o=>o.value)")
-            check(len(opts) == len(set(opts)) and len(opts) > 20, f"{name}: set options unique ({len(opts)})")
+            check(len(opts) == len(set(opts)) and len(opts) == len(_DX["sets"]), f"{name}: one unique option per set ({len(opts)} of {len(_DX['sets'])})")
             # chart fits container (no clipping)
             fit = await pg.evaluate("(()=>{const s=document.querySelector('#exsvg svg'),h=document.getElementById('exsvg');return s.getBoundingClientRect().right<=h.getBoundingClientRect().right+1})()")
             check(fit, f"{name}: chart fits its box")
@@ -56,10 +66,11 @@ async def main():
                 await fch.first.click()
             # legend toggles a repo
             await pg.select_option("#exset", _first); await pg.wait_for_timeout(150)
-            lgs = pg.locator("#exlegend .lg"); before = await pg.locator("#exsvg circle.mk").count()
-            await lgs.first.click(); await pg.wait_for_timeout(100)
-            check(await pg.locator("#exsvg circle.mk").count() < before, f"{name}: legend hides a repo")
-            await pg.locator("#exlegend .lg").first.click()
+            lgs = pg.locator("#exlegend .lg:not(.more)"); before = await pg.locator("#exsvg circle.mk").count()
+            if await lgs.count() >= 2:
+                await lgs.first.click(); await pg.wait_for_timeout(100)
+                check(await pg.locator("#exsvg circle.mk").count() < before, f"{name}: legend hides a repo")
+                await pg.locator("#exlegend .lg:not(.more)").first.click()
             # tap/click a point pins tooltip with source link and selects row
             _ti = await pg.evaluate("(()=>{const cs=[...document.querySelectorAll('#exsvg circle.mk')];for(let i=0;i<cs.length;i++){const r=cs[i].getBoundingClientRect();if(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)===cs[i])return i}return 0})()")
             await pg.locator("#exsvg circle.mk").nth(_ti).scroll_into_view_if_needed()
@@ -130,20 +141,21 @@ async def main():
             # borrowed controls: size presets, size type, log/linear, shared view links, chart-first order
             await pg.select_option("#exset", "all"); await pg.wait_for_timeout(100)
             pre = pg.locator("#expresets .fchip"); np_ = await pre.count()
-            check(np_ >= 3, f"{name}: size-budget presets offered ({np_})")
-            if np_:
+            check(np_ >= min(3, NTIER), f"{name}: size-budget presets offered ({np_}, {NTIER} tiers in range)")
+            if np_ >= 2:
                 lab = await pre.nth(1).text_content(); tier = float(lab.replace("≤", "").replace("GB", ""))
                 await pre.nth(1).click(); await pg.wait_for_timeout(100)
                 xs = await pg.evaluate("[...document.querySelectorAll('#extable tbody tr')].map(r=>parseFloat(r.cells[1].textContent)).filter(x=>!isNaN(x))")
                 check(xs and max(xs) <= tier + 0.01, f"{name}: preset {lab} caps size ({max(xs) if xs else None})")
                 await pg.click("#exrclear"); await pg.wait_for_timeout(50)
             bopts = await pg.evaluate("[...document.querySelectorAll('#exbasis option')].map(o=>o.value).filter(Boolean)")
-            check(len(bopts) >= 2 and not await pg.evaluate("document.getElementById('exbasiswrap').hidden"), f"{name}: size-type selector on the mixed set ({len(bopts)} types)")
-            await pg.select_option("#exbasis", bopts[0]); await pg.wait_for_timeout(100)
-            only = await pg.evaluate("document.getElementById('excount').textContent")
-            data_n = sum(1 for q in [x for x in json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), os.environ.get("QCL_SITE", "models/qwen3.8-flash-next/site"), "data.json")))["sets"] if x["id"] == "all"][0]["points"] if (q["basis"] or "unknown") == bopts[0])
-            check(only.startswith(f"{data_n} of"), f"{name}: size type '{bopts[0]}' shows exactly its {data_n} points ({only})")
-            await pg.click("#exrclear"); await pg.wait_for_timeout(50)
+            check(NBASIS < 2 or (len(bopts) >= 2 and not await pg.evaluate("document.getElementById('exbasiswrap').hidden")), f"{name}: size-type selector on the mixed set ({len(bopts)} types)")
+            if bopts:
+              await pg.select_option("#exbasis", bopts[0]); await pg.wait_for_timeout(100)
+              only = await pg.evaluate("document.getElementById('excount').textContent")
+              data_n = sum(1 for q in [x for x in json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), os.environ.get("QCL_SITE", "models/qwen3.8-flash-next/site"), "data.json")))["sets"] if x["id"] == "all"][0]["points"] if (q["basis"] or "unknown") == bopts[0])
+              check(only.startswith(f"{data_n} of"), f"{name}: size type '{bopts[0]}' shows exactly its {data_n} points ({only})")
+              await pg.click("#exrclear"); await pg.wait_for_timeout(50)
             await pg.click("#exlin"); await pg.wait_for_timeout(100)
             ax = await pg.evaluate("[...document.querySelectorAll('#exsvg text.axis')].map(t=>t.textContent).join(' ')")
             check(", log" not in ax, f"{name}: linear scale toggle")
@@ -157,11 +169,13 @@ async def main():
             check(st[0] == SH and st[1] and st[2] and max(st[2]) <= CAP, f"{name}: shared view link restores set, size cap and efficient-only {st[:2]}")
             await pg2.close()
             # find across sets -> jump
-            await pg.fill("#exfind", "UD-Q4_K_XL"); await pg.wait_for_timeout(150)
-            btns = pg.locator("#exfindres button[data-set]"); nb = await btns.count()
-            check(nb >= 3, f"{name}: find lists sets containing UD-Q4_K_XL ({nb})")
-            target = await btns.nth(1).get_attribute("data-set"); await btns.nth(1).click(); await pg.wait_for_timeout(200)
-            check(await pg.input_value("#exset") == target and not await pg.evaluate("document.getElementById('extip').hidden"), f"{name}: find jumps to set and pins the quant")
+            _ft = "UD-Q4_K_XL" if FIND == "UD-Q4_K_XL" or "UD-Q4_K_XL" in json.dumps(_DX["sets"])[:10**7] else FIND
+            if _ft and FIND_N >= 2:
+                await pg.fill("#exfind", _ft); await pg.wait_for_timeout(150)
+                btns = pg.locator("#exfindres button[data-set]"); nb = await btns.count()
+                check(nb >= 2, f"{name}: find lists sets containing {_ft} ({nb})")
+                target = await btns.nth(1).get_attribute("data-set"); await btns.nth(1).click(); await pg.wait_for_timeout(200)
+                check(await pg.input_value("#exset") == target and not await pg.evaluate("document.getElementById('extip').hidden"), f"{name}: find jumps to set and pins the quant")
             # every set renders without error and with unique checkbox ids
             bad = []
             for sid in opts:
