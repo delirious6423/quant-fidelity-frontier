@@ -31,7 +31,9 @@ def load_verified(skip_machine=True):
 def applied_from(d):
     out = {}
     for m in sorted(glob.glob(f"{d}/*.map.json")):
-        a = Q.apply(json.load(open(m)), json.load(open(m.replace(".map.json", ".cands.json")))); out[a["repo"]] = a
+        cf = m.replace(".map.json", ".cands.json")
+        if not os.path.exists(cf): cf = os.path.join(os.path.dirname(os.path.dirname(m)), "cands", os.path.basename(cf))   # models/<slug>/maps/cands/
+        a = Q.apply(json.load(open(m)), json.load(open(cf))); out[a["repo"]] = a
     return out
 
 def agree(a, b):
@@ -109,4 +111,4 @@ if __name__ == "__main__":
         new = json.load(open(sys.argv[2]))["repos"]; old = json.load(open(f"{ROOT}/snapshots/index.json"))["repos"]
         d = sorted(r for r, m in new.items() if old.get(r, {}).get("sha") != m.get("sha"))
         print(json.dumps(d))
-    elif cmd == "merge": merge(sys.argv[2:])
+    elif cmd == "merge": merge(sys.argv[2:] or [f"{ROOT}/maps/A", f"{ROOT}/maps/B"])   # default: the maps stored with the model

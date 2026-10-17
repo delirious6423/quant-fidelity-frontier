@@ -1,0 +1,10 @@
+{"repo":"glyd/Qwen3.8-27B-swift","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 original","dataset":"WikiText-2 (KL); GSM8K 10-shot 1319 questions non-thinking","ctx":"not stated","tool":"glyd serve with Inspect AI 0.3.278 / inspect_evals 0.24.0; bf16 served by vLLM","L":[32,52]},
+"entries":[
+{"role":"own","name":"swift (this repo)","metrics":{"mean_kld":"c15","bench:GSM8K":"c17"},"size":"c13","unit":"GB","basis":"disk","bpw":null,"flags":["about 5.5 bits per weight in prose [L15]","text only, vision excluded [L57]"]},
+{"role":"ladder","name":"penguin","metrics":{"mean_kld":"c8"},"size":"c6","unit":"GB","basis":"disk","bpw":null,"flags":["KL listed as 0 [L28]"]},
+{"role":"ladder","name":"kestrel","metrics":{"mean_kld":"c11"},"size":"c9","unit":"GB","basis":"disk","bpw":null,"flags":["[L29]"]},
+{"role":"ladder","name":"bf16 (original)","metrics":{"mean_kld":"c2","bench:GSM8K":"c18"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["reference row [L26]; GSM8K from vLLM-served bf16 [L52]"]},
+{"role":"cross","name":"Qwen FP8","of":"not named on card","metrics":{"mean_kld":"c5"},"size":"c3","unit":"GB","basis":"disk","bpw":null,"flags":["[L27]"]}
+],
+"prose":[]}

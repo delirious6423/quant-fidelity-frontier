@@ -8,8 +8,20 @@ sha "main" because the connector exposes no commit sha; every card is pinned by 
 and creates empty stubs for model-specific inputs that this model does not have (sizes listing, branch sizes)."""
 import glob, json, os, sys, time
 R = sys.argv[1]
-cat = {e["path"]: e for e in json.load(open(f"{R}/cache/catalogue.json"))}
+def _load_cat():
+    """Hub listing: hub_catalogue.json (from qcl_catalogue.py) or catalogue.json (list of {path, updated_at} or the API form {catalogue: [{id, lastModified}]})."""
+    out = {}
+    for p in (f"{R}/cache/catalogue.json", f"{R}/cache/hub_catalogue.json"):          # the hub listing wins when both exist
+        if not os.path.exists(p): continue
+        d = json.load(open(p)); d = d.get("catalogue", []) if isinstance(d, dict) else d
+        for e in d:
+            rid = e.get("path") or e.get("id")
+            if rid: out[rid] = {"updated_at": e.get("updated_at") or e.get("lastModified"), "downloads": e.get("downloads"), "likes": e.get("likes")}
+    return out
+cat = _load_cat()
 repos = {}
+if os.path.exists(f"{R}/snapshots/index.json"):   # keep what is already pinned (e.g. commit-pinned snapshots); cache entries add or replace
+    repos.update(json.load(open(f"{R}/snapshots/index.json")).get("repos", {}))
 for f in sorted(glob.glob(f"{R}/cache/index*.json")):
     for rid, m in json.load(open(f)).get("repos", {}).items():
         c = cat.get(rid, {})

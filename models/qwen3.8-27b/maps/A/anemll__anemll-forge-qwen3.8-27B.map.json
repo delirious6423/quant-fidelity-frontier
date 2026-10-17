@@ -1,0 +1,162 @@
+{
+ "repo": "anemll/anemll-forge-qwen3.8-27B",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "BF16 Qwen3.8-27B (teacher-forced KL, top-512 plus tail on ANE trace)",
+  "dataset": "KL-512: 64 chats (40,023 positions); held-out chats 37,076; WikiText 16x1,024; last 2K of 16 x 16,384-token windows from 12 long sessions",
+  "ctx": "short chat traces (longest 857 tokens); 8K/64K ppl; 16K windows",
+  "tool": "ANEMLL harness on M6 ANE and PyTorch; GGUFs scored with llama.cpp on M3 Ultra",
+  "L": [
+   56,
+   87,
+   174
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "ANEMLL release 0.2 (ANE M6, compiled)",
+   "metrics": {
+    "mean_kld": "c4",
+    "top1_pct": "c8",
+    "kld_99": "c6.1",
+    "ppl": "c11",
+    "ppl:verify_path": "c13",
+    "ppl:8k": "c15",
+    "ppl:64k": "c17"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "KL-512 trace, BF16 ppl 2.136 [L64]; M5 Max KL-512 0.0517 (c9) [L63]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "ANEMLL release 0.2 (PyTorch, comparison table)",
+   "metrics": {
+    "kld:dev": "c19",
+    "kld:heldout": "c20",
+    "kld:dev_full": "c21",
+    "top1_pct": "c22",
+    "kld_99": "c23",
+    "kld:wikitext": "c24",
+    "kld:16k_last2k": "c25"
+   },
+   "size": "c18",
+   "unit": "GiB",
+   "basis": "text_weights",
+   "bpw": null,
+   "flags": [
+    "Size excludes embedding; ANEMLL adds 0.30 GiB rank-64 FP16 factors [L97]; bpw is inside the size cell (9.44 (3.17)) with no separate id",
+    "top-1 and p99 from the ANE run of the same trace [L97]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "ANEMLL previous packages / release 1 (ANE M6)",
+   "metrics": {
+    "mean_kld": "c3",
+    "top1_pct": "c7",
+    "kld_99": "c5.1",
+    "ppl": "c10",
+    "ppl:verify_path": "c12",
+    "ppl:8k": "c14",
+    "ppl:64k": "c16"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L60-67]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "ANEMLL release 1 (PyTorch, comparison table)",
+   "metrics": {
+    "kld:dev": "c50",
+    "kld:heldout": "c51",
+    "kld:dev_full": "c52",
+    "top1_pct": "c53",
+    "kld_99": "c54",
+    "kld:16k_last2k": "c55"
+   },
+   "size": "c49",
+   "unit": "GiB",
+   "basis": "text_weights",
+   "bpw": null,
+   "flags": [
+    "Size excludes embedding; ANEMLL adds 0.30 GiB rank-64 FP16 factors [L97]; bpw is inside the size cell (9.44 (3.17)) with no separate id",
+    "no WikiText KL given [L95]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Unsloth UD-IQ3_XXS",
+   "of": "unsloth (repo link truncated in prompt)",
+   "metrics": {
+    "kld:dev": "c27",
+    "kld:heldout": "c28",
+    "kld:dev_full": "c29",
+    "top1_pct": "c30",
+    "kld_99": "c31",
+    "kld:wikitext": "c32",
+    "kld:16k_last2k": "c33"
+   },
+   "size": "c26",
+   "unit": "GiB",
+   "basis": "text_weights",
+   "bpw": null,
+   "flags": [
+    "GGUF scored with llama.cpp on M3 Ultra [L87]; bpw in size cell"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "DT-IQ3_XXS",
+   "of": "drawthingsai (repo link truncated in prompt)",
+   "metrics": {
+    "kld:dev": "c35",
+    "kld:heldout": "c36",
+    "kld:dev_full": "c37",
+    "top1_pct": "c38",
+    "kld_99": "c39",
+    "kld:wikitext": "c40",
+    "kld:16k_last2k": "c41"
+   },
+   "size": "c34",
+   "unit": "GiB",
+   "basis": "text_weights",
+   "bpw": null,
+   "flags": [
+    "bpw in size cell [L93]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Mirai S (2.4-bit trellis)",
+   "of": "not named on card",
+   "metrics": {
+    "kld:dev": "c43",
+    "kld:heldout": "c44",
+    "kld:dev_full": "c45",
+    "top1_pct": "c46",
+    "kld_99": "c47",
+    "kld:wikitext": "c48"
+   },
+   "size": "c42",
+   "unit": "GiB",
+   "basis": "text_weights",
+   "bpw": null,
+   "flags": [
+    "decoded to BF16, scored in PyTorch [L87]; bpw in size cell"
+   ]
+  }
+ ],
+ "prose": []
+}

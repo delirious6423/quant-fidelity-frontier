@@ -1,0 +1,185 @@
+{
+ "repo": "ToBeStyled/Qwen3.8-27B-ColdFusion-GAIN-Blackwell-DFlash2-Ultra-V1.0",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "unsloth UD-Q4_K_M as-is (accuracy and speed); for perplexity, Q4_K_M of the same finetune",
+  "dataset": "HumanEval-50, GSM8K-50, GSM8K-100 stratified; perplexity 24 chunks x 2048 ctx on mixed code/markdown corpus",
+  "ctx": "2048 ctx perplexity chunks, KV f16",
+  "tool": "llama-perplexity, llama.cpp CUDA, temperature 0 numeric checking",
+  "L": [
+   49,
+   67,
+   77,
+   107,
+   108
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "this model (NVFP4 + Q8_0 head/embed + DFlash2)",
+   "metrics": {
+    "ppl": "c37",
+    "bench:HumanEval50_pass@1": "c17",
+    "bench:GSM8K50": "c19"
+   },
+   "size": "c36",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "'This model' in accuracy table L67-68 is the headline model; perplexity and size rows are the NVFP4 file [L112]; model is a finetune, not a plain quant [L113]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "this model reasoning_effort=medium",
+   "metrics": {
+    "bench:GSM8K100_passed": "c20.0",
+    "bench:GSM8K100_total": "c20.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L83]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "this model reasoning_effort=low",
+   "metrics": {
+    "bench:GSM8K100_passed": "c24.0",
+    "bench:GSM8K100_total": "c24.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L84]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Q4_K_M of the same finetune + DFlash2",
+   "metrics": {
+    "ppl": "c40"
+   },
+   "size": "c39",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "[L113]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "NVFP4 + imatrix scale search",
+   "metrics": {
+    "ppl": "c43"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "16.0 GB per notes [L128]; hand-requantized variant [L123]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "NVFP4 legacy fixed amax/6",
+   "metrics": {
+    "ppl": "c45"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L129]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "NVFP4 + FFN/attention in Q6_K",
+   "metrics": {
+    "ppl": "c46"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "22 GB per notes [L130]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Q4_K_M (the bar)",
+   "metrics": {
+    "ppl": "c42"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L127]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Base Q4_K_M (unsloth UD-Q4_K_M, no speculation)",
+   "metrics": {
+    "bench:HumanEval50_pass@1": "c16",
+    "bench:GSM8K50": "c18"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L49,L67-68]"
+   ],
+   "of": "unsloth/Qwen3.8-27B-GGUF"
+  },
+  {
+   "role": "cross",
+   "name": "TWIN-TURBO Fable low (Q4_K_M, MTP draft)",
+   "metrics": {
+    "bench:GSM8K100_passed": "c28.0",
+    "bench:GSM8K100_total": "c28.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L85]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "TWIN-TURBO Fable medium (Q4_K_M, MTP draft)",
+   "metrics": {
+    "bench:GSM8K100_passed": "c32.0",
+    "bench:GSM8K100_total": "c32.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L86]"
+   ],
+   "of": "not named on card"
+  }
+ ],
+ "prose": []
+}

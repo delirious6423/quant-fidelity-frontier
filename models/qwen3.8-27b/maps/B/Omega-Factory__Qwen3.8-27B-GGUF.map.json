@@ -1,0 +1,11 @@
+{"repo":"Omega-Factory/Qwen3.8-27B-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"unquantized FP16 base Qwen/Qwen3.8-27B @ 1d4bf0f2","dataset":"holdout split y_exam, N=200 per category (ARC-MC, GSM8K, MATH-500), 600 prompts","ctx":"not stated","tool":"deterministic seed-controlled evaluation; per-item McNemar flip analysis","L":[27,40,56]},
+"entries":[
+{"role":"ladder","name":"FP16 Baseline","metrics":{"bench:ARC-MC":"c3","bench:GSM8K":"c4","bench:MATH-500":"c5"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["babble rate c6 [L33]","FP16 GSM8K 59.0% and MATH-500 23.0% are low for this model; reported as printed"]},
+{"role":"own","name":"Q8_0","metrics":{"bench:ARC-MC":"c10","bench:GSM8K":"c11","bench:MATH-500":"c12"},"size":"c8","unit":"GB","basis":"disk","bpw":null,"flags":["cells include delta vs FP16 in pp [L34]","flips broke/fixed: ARC c30/0, GSM8K c36/c37, MATH c43/c44 [L44-46]","babble rate c13 [L34]; seeds c87 (one seed) [L60]"]},
+{"role":"own","name":"Q4_K_M","metrics":{"bench:ARC-MC":"c17","bench:GSM8K":"c18","bench:MATH-500":"c19"},"size":"c15","unit":"GB","basis":"disk","bpw":null,"flags":["cells include delta vs FP16 in pp [L35]","GSM8K -25.5 pp, flips broke c56 vs fixed c57 [L48]","babble rate c20 [L35]; one seed c91 [L61]"]},
+{"role":"own","name":"Q2_K","metrics":{"bench:ARC-MC":"c24","bench:GSM8K":"c25","bench:MATH-500":"c26"},"size":"c22","unit":"GB","basis":"disk","bpw":null,"flags":["Q2_K GSM8K 86.0% is +27.0 pp above FP16 baseline (flips fixed c77 vs broke c76), an anomalous direction as printed [L36,L51]","babble rate c27 [L36]; one seed c95 [L62]"]}
+],
+"prose":[]}

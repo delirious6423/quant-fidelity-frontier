@@ -1,0 +1,19 @@
+{"repo":"kaushikvira/Qwen3.8-27B-thinkingcap-nvfp4full-dflash2-NInfer-v3",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"no BF16 reference; same-session A/B vs publisher's Swift-1.5 production artifact","dataset":"GSM8K-200, IFBench (n=300)","ctx":"not stated","tool":"same engine build, temp 0, single RTX 5090, NVFP4 via llm-compressor (512 Ultrachat samples, seq 2048)","L":[70,71,127,129,130,132]},
+"entries":[
+{"role":"own","name":"ThinkingCap (this artifact)","metrics":{"bench:GSM8K-200":"c3","bench:IFBench_prompt-strict":"c6","bench:IFBench_prompt-loose":"c9","bench:IFBench_instr-strict":"c12","bench:IFBench_instr-loose":"c15"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["mean IFBench completion tokens c18 vs c17 for Swift-1.5 [L142]","live weights 18.0 GiB c56 stated in prose [L122]"]},
+{"role":"ladder","name":"Swift-1.5 (our prod)","metrics":{"bench:GSM8K-200":"c2","bench:IFBench_prompt-strict":"c5","bench:IFBench_prompt-loose":"c8","bench:IFBench_instr-strict":"c11","bench:IFBench_instr-loose":"c14"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["publisher's own production artifact, same-session A/B [L132-141]"]},
+{"role":"ladder","name":"nvfp4full-dflash2.v3 (family table)","metrics":{"bench:GSM8K-200":"c35","bench:IFBench_prompt-strict":"c34"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["cross-card rows are from different sessions, indicative only; asterisk-marked cells [L198,L203]"]},
+{"role":"ladder","name":"swift-abliterated v3 (family table)","metrics":{"bench:GSM8K-200":"c39","bench:IFBench_prompt-strict":"c38"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L204]"]},
+{"role":"ladder","name":"swift15 v3 (family table)","metrics":{"bench:GSM8K-200":"c43","bench:IFBench_prompt-strict":"c42"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L205]"]},
+{"role":"ladder","name":"thinkingcap v3 (family table)","metrics":{"bench:GSM8K-200":"c47","bench:IFBench_prompt-strict":"c46"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["same artifact as this repo, cross-session row [L206]"]},
+{"role":"ladder","name":"swift15-uncensored-ajgazin v3 (family table)","metrics":{"bench:GSM8K-200":"c51","bench:IFBench_prompt-strict":"c50"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L207]"]},
+{"role":"quoted","name":"ThinkingCap source checkpoint (upstream eval)","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["macro accuracy from upstream BottleCap H200/vLLM evaluation [L40-43,L149-150]"]},
+{"role":"quoted","name":"Qwen3.8-27B base (upstream eval)","of":"Qwen/Qwen3.8-27B","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L41-42]"]}
+],
+"prose":[
+{"entry":"ThinkingCap source checkpoint (upstream eval)","key":"bench:macro_accuracy","L":41,"raw":"85.8% macro accuracy"},
+{"entry":"Qwen3.8-27B base (upstream eval)","key":"bench:macro_accuracy","L":42,"raw":"86.6%"}
+]}

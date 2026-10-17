@@ -1,0 +1,7 @@
+{"repo":"baa-ai/Qwen3.8-27B-RAM-13GB-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"not stated (card claims no loss vs full-precision model)","dataset":"WikiText-2 (perplexity); GSM8K 50 questions; MMLU-math 60 questions","ctx":"not stated","tool":"llama.cpp (llama-server for context tests)","L":[21,41,42,43,50,83]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-RAM-13GB.gguf (v2, RAM mixed Q2_K-Q8_0)","metrics":{"ppl:wikitext2":"c28","bench:GSM8K":"c6","bench:MMLU-math":"c7","bench:deference":"c3","bench:reading_accuracy":"c4"},"size":"c29","unit":"GB","basis":"disk","bpw":"c2","flags":["bpw is average bits per weight [L36]","perplexity reference model not stated [L83]","[L39-43]"]},
+{"role":"ladder","name":"v1 (llama.cpp IQ3_M)","metrics":{"ppl:wikitext2":"c32"},"size":"c33","unit":"GB","basis":"disk","bpw":null,"flags":["[L84]"]}
+],
+"prose":[]}

@@ -1,0 +1,9 @@
+{"repo":"penkia/TernaryQuench-Qwen3.8-27B-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"Qwen3.8-27B BF16 (five-task); Qwen3.8-27B 4-bit MLX (PPL)","dataset":"WikiText-2 test, first 20,480 tokens as 40 independent 512-token chunks; PIQA, ARC-Easy, ARC-Challenge, HellaSwag, WinoGrande full sets","ctx":"512-token chunks","tool":"llama.cpp (Q2_K file) for PPL; lm-eval 0.4.7 zero-shot on llama.cpp CUDA FP32 acc; reference rows MLX / native PyTorch","L":[50,58,59,60,66,77,78]},
+"entries":[
+{"role":"own","name":"TernaryQuench 27B (Q2_K)","metrics":{"ppl:wikitext2":"c3","ppl_second_half:wikitext2":"c4","bench:MeanAcc5":"c13","bench:PIQA":"c14","bench:ARC-Easy":"c15","bench:ARC-Challenge":"c16","bench:HellaSwag":"c17","bench:WinoGrande":"c18"},"size":"c26","unit":"GB","basis":"disk","bpw":null,"flags":["download 10.86 GB [L40]","second-half PPL scores last 256 tokens of each chunk [L59]","1.55% relative RMS weight error from packing [L107]"]},
+{"role":"ladder","name":"Qwen3.8-27B 4-bit","metrics":{"ppl:wikitext2":"c1","ppl_second_half:wikitext2":"c2"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["reference row measured with MLX [L60-61]"]},
+{"role":"ladder","name":"Qwen3.8-27B BF16","metrics":{"bench:MeanAcc5":"c7","bench:PIQA":"c8","bench:ARC-Easy":"c9","bench:ARC-Challenge":"c10","bench:HellaSwag":"c11","bench:WinoGrande":"c12"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["reference rows use native PyTorch [L79]"]},
+{"role":"cross","name":"Ternary-Bonsai-27B","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["based on Qwen3.6, different model; scores c5,c6,c19-c24 omitted [L62]"]}
+],
+"prose":[]}

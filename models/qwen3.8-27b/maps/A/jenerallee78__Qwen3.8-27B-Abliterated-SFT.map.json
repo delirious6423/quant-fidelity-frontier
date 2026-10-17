@@ -1,0 +1,13 @@
+{"repo":"jenerallee78/Qwen3.8-27B-Abliterated-SFT","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"base Qwen/Qwen3.8-27B","dataset":"100 benign prompts for KL; MMLU-1k, ARC-C, Winogrande for utility; HarmBench-400 for refusal","ctx":"not stated (greedy, thinking off, 1024-token cap)","tool":"OBLITERATUS harness; canonical full-vocab final-token KL","L":[22,127,158,168,230]},
+"entries":[
+{"role":"own","name":"this model (e2)","metrics":{"mean_kld":"c36","bench:MMLU-1k":"c46","bench:ARC-C":"c47","bench:Winogrande":"c48"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["This is a refusal-removal SFT fine-tune, not a quantization [L116]","KL is final-token KL vs base on 100 benign prompts [L158]"]},
+{"role":"own","name":"this model (e1, lower-KL sibling)","metrics":{"mean_kld":"c31"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Sibling build, KL only [L175]"]},
+{"role":"ladder","name":"vanilla base","metrics":{"bench:MMLU-1k":"c41","bench:ARC-C":"c42","bench:Winogrande":"c43"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Base Qwen3.8-27B measured by card author [L234]"]},
+{"role":"cross","name":"PocketAiHub (norm-preserved edit, 80 tensors)","of":"not named on card","metrics":{"mean_kld":"c6"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Competitor re-measured by card author; only owner name given [L170]"]},
+{"role":"cross","name":"huihui-ai (mean-diff PoC)","of":"not named on card","metrics":{"mean_kld":"c11"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Re-measured by card author [L171]"]},
+{"role":"cross","name":"orcarouter FP8 (weight edit)","of":"not named on card","metrics":{"mean_kld":"c16"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Re-measured by card author [L172]"]},
+{"role":"cross","name":"msuiche cvec (rank-1 projective LoRA)","of":"not named on card","metrics":{"mean_kld":"c21"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Re-measured by card author [L173]"]},
+{"role":"cross","name":"JonathanColetti (Heretic, 200 tensors)","of":"not named on card","metrics":{"mean_kld":"c26"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Re-measured by card author [L174]","Utility ranges for five competitors given only as ranges [L236], not mapped"]}
+],
+"prose":[]}

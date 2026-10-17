@@ -1,0 +1,14 @@
+{"repo":"inferencerlabs/Qwen3.8-27B-MLX-Q9",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"Base model","dataset":"not stated","ctx":"not stated","tool":"Inferencer app on M3 Ultra; modified MLX","L":[17,50]},
+"entries":[
+{"role":"ladder","name":"Q3.5","metrics":{"ppl":"c2","top1_pct":"c3"},"size":null,"unit":null,"basis":null,"bpw":"c1","flags":["Missed Divergence c4 (no matching key) [L34]","Perplexity 168.0 as printed [L34]"]},
+{"role":"ladder","name":"Q4.5","metrics":{"ppl":"c6","top1_pct":"c7"},"size":null,"unit":null,"basis":null,"bpw":"c5","flags":["Missed Divergence c8 [L35]","'Token Accuracy' mapped to top1_pct; defined as percentage of correctly generated base tokens [L46]"]},
+{"role":"ladder","name":"Q5.5","metrics":{"ppl":"c10","top1_pct":"c11"},"size":null,"unit":null,"basis":null,"bpw":"c9","flags":["Missed Divergence c12 [L36]"]},
+{"role":"ladder","name":"Q6.5","metrics":{"ppl":"c14","top1_pct":"c15"},"size":null,"unit":null,"basis":null,"bpw":"c13","flags":["Missed Divergence c16 [L37]"]},
+{"role":"ladder","name":"Q8.5","metrics":{"ppl":"c18","top1_pct":"c19"},"size":null,"unit":null,"basis":null,"bpw":"c17","flags":["Missed Divergence c20 [L38]"]},
+{"role":"own","name":"Q9","metrics":{"ppl":"c22","top1_pct":"c23"},"size":null,"unit":null,"basis":null,"bpw":"c21","flags":["Missed Divergence c24 [L39]","card claims near lossless [L27]"]},
+{"role":"ladder","name":"Base","metrics":{"ppl":"c25","top1_pct":"c26"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Missed Divergence c27 [L40]; Base perplexity equals Q9 row to printed precision"]}
+],
+"prose":[]}

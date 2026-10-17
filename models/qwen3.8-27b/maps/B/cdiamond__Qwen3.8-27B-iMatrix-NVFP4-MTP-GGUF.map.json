@@ -1,0 +1,13 @@
+{"repo":"cdiamond/Qwen3.8-27B-iMatrix-NVFP4-MTP-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"none (absolute perplexity compared against other quants on the same sample)","dataset":"short WikiText-2 control sample","ctx":"not stated","tool":"llama-imatrix calibration on 153,600 private-session tokens; llama.cpp perplexity","L":[20,26,55]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B iMatrix NVFP4 MTP GGUF","metrics":{"ppl:wikitext2-short":"c8.0"},"size":"c3.0","unit":"GB","basis":"disk","bpw":"c3.1","flags":["short-control PPL gap to Q4_1 (0.11%) is smaller than the check's error, author treats them as tied [L55]"]},
+{"role":"cross","name":"Q4_1","of":"not named on card","metrics":{"ppl:wikitext2-short":"c8.3"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L55]"]},
+{"role":"cross","name":"plain Q4_0","of":"not named on card","metrics":{"ppl:wikitext2-short":"c1.2"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L20]"]},
+{"role":"cross","name":"ready-made FP4 file","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["PPL stated in prose only [L20]"]}
+],
+"prose":[
+{"entry":"ready-made FP4 file","key":"ppl:wikitext2-short","L":20,"raw":"6.4949"}
+]}

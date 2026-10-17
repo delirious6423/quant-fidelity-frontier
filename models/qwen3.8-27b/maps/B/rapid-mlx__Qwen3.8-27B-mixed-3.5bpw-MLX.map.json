@@ -1,0 +1,11 @@
+{"repo":"rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"bf16 Qwen3.8-27B on an identical subset (200 questions / 60 problems / 150 images); 4-bit and uniform 3-bit builds as comparison","dataset":"MMLU-Pro, GSM8K, HumanEval+ (thinking), MMBench-EN; greedy decoding, identical harness","ctx":"not stated","tool":"activation-aware mixed-precision MLX quantization, group size 64, affine","L":[101,103,117,118,123]},
+"entries":[
+{"role":"ladder","name":"bf16 (51 GB)","metrics":{"bench:MMLU-Pro n=200":"c12","bench:GSM8K n=60":"c15","bench:MMBench-EN n=150":"c18"},"size":"c28","unit":"GB","basis":"disk","bpw":null,"flags":["Identical-subset table; n=200 gives about +/-7 point 95% CI [L119-121, L125-127]","Size is approximate, from the sweet-spot table [L151]"]},
+{"role":"ladder","name":"4-bit (16 GB)","metrics":{"bench:MMLU-Pro n=500":"c1","bench:GSM8K n=150":"c4","bench:HumanEval+ n=40":"c7","bench:MMBench-EN n=300":"c9","bench:MMLU-Pro n=200":"c13","bench:GSM8K n=60":"c16","bench:MMBench-EN n=150":"c19"},"size":"c32","unit":"GB","basis":"disk","bpw":null,"flags":["Main eval table [L105-108] and identical-subset table [L125-127]","MMLU-Pro 60.8 repeated in sweet-spot table [L152]"]},
+{"role":"own","name":"mixed 3.5bpw (this)","metrics":{"bench:MMLU-Pro n=500":"c2","bench:GSM8K n=150":"c5","bench:HumanEval+ n=40":"c8","bench:MMBench-EN n=300":"c10","bench:MMLU-Pro n=200":"c14","bench:GSM8K n=60":"c17","bench:MMBench-EN n=150":"c20"},"size":"c36","unit":"GB","basis":"disk","bpw":"c44","flags":["Size is approximate, from the sweet-spot table [L153]","MMLU-Pro 61.0 repeated in sweet-spot table [L153]","Vision about 3.6 points below 4-bit on MMBench-EN [L189]"]},
+{"role":"ladder","name":"uniform 3-bit (12 GB)","metrics":{"bench:MMLU-Pro n=500":"c3","bench:GSM8K n=150":"c6","bench:MMBench-EN n=300":"c11"},"size":"c40","unit":"GB","basis":"disk","bpw":null,"flags":["HumanEval+ cell for this build has no candidate id [L107]","MMLU-Pro 54.2 repeated in sweet-spot table [L154]","Size is approximate [L154]"]}
+],
+"prose":[]}

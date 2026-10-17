@@ -1,0 +1,12 @@
+{"repo":"malekoo/Qwen3.8-27B-MLX-8bit","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 MLX conversion in the identical harness","dataset":"wikitext-2 test","ctx":"disjoint 2048-token windows, single token stream","tool":"mlx-lm (mlx_lm.convert), M5 Max MacBook Pro","L":[33,68]},
+"entries":[
+{"role":"own","name":"MLX 8-bit (group size 64, affine)","metrics":{"ppl:wikitext-2":"c7.0"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["size ~29 GB on disk; 8.501 effective bits/weight in prose only [L22]","decode speed and peak memory also reported, not quality [L33]"]},
+{"role":"ladder","name":"bf16 MLX conversion","metrics":{"ppl:wikitext-2":"c7.1"},"size":"c3","unit":"GB","basis":"disk","bpw":null,"flags":["reference build, ~54 GB on disk [L22]"]},
+{"role":"ladder","name":"MLX 4-bit","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["4-bit perplexity only in prose [L33]"]}
+],
+"prose":[
+{"entry":"MLX 8-bit (group size 64, affine)","key":"ppl_delta_pct","L":33,"raw":"+0.14%"},
+{"entry":"MLX 8-bit (group size 64, affine)","key":"bpw","L":22,"raw":"8.501"},
+{"entry":"MLX 4-bit","key":"ppl:wikitext-2","L":33,"raw":"7.0871"}
+]}

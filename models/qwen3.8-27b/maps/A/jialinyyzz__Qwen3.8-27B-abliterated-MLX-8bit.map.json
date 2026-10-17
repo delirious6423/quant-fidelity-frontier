@@ -1,0 +1,7 @@
+{"repo":"jialinyyzz/Qwen3.8-27B-abliterated-MLX-8bit","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"original Qwen3.8-27B (pre-abliteration), harmless-prompt first-token distribution for KL","dataset":"ARC-Challenge, HellaSwag, Winogrande, OpenBookQA (loglikelihood), GSM8K CoT generative; refusals on mlabonne/harmful_behaviors test[:100]","ctx":"not stated","tool":"lm-eval-harness; Heretic refusal scorer","L":[51,64,77]},
+"entries":[
+{"role":"own","name":"abliterated MLX 8-bit (w177)","metrics":{"mean_kld":"c1","bench:ARC-Challenge":"c5","bench:Winogrande":"c10","bench:OpenBookQA":"c13","bench:GSM8K":"c16"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["KL (orig || abliterated) measures the abliteration edit on harmless prompts, 8-bit MLX affine group size 64 [L32, L44]","HellaSwag w177 value not in candidates (only original and delta 0.000)","Refusal counts (base 98, w177 11 of 100) are not a mapped quality metric [L55-56]"]},
+{"role":"ladder","name":"original (unmodified base)","metrics":{"bench:ARC-Challenge":"c4","bench:HellaSwag":"c7","bench:Winogrande":"c9","bench:OpenBookQA":"c12","bench:GSM8K":"c15"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Unclear whether original column is bf16 or quantized; card says 'Original vs. this abliteration' [L64]"]}
+],
+"prose":[]}

@@ -1,0 +1,8 @@
+{"repo":"malaiwah/Qwen3.8-27B-EXL3-EDA-research","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 (shared BF16 head and shared BF16 reference capture)","dataset":"shard 0 of the v5 held-out suite: 512 contexts, 1,048,064 scored positions, 330 source clusters","ctx":"not stated","tool":"tools/fidelity.py replay; hidden state after final norm replayed through shared BF16 lm_head","L":[26,27,88,89]},
+"entries":[
+{"role":"own","name":"error-driven allocation (this build)","of":"","metrics":{"mean_kld":"c11","bench:median_kld":"c12","bench:p99.9_kld":"c13","bench:max_kld":"c14","top1_pct":"c15"},"size":"c27","unit":"bytes","basis":"disk","bpw":null,"flags":["research artifact: measured worse than hydrated by +0.000366 mean KLD, 95% CI [+0.000334, +0.000398] [L28]","serialized size is byte-identical to hydrated build, 21,586,964,548 bytes [L30]"]},
+{"role":"ladder","name":"hydrated, published","of":"not named on card","metrics":{"mean_kld":"c1","bench:median_kld":"c2","bench:p99.9_kld":"c3","bench:max_kld":"c4","top1_pct":"c5"},"size":"c27","unit":"bytes","basis":"disk","bpw":null,"flags":["[L93]"]},
+{"role":"ladder","name":"hydrated, re-captured for this comparison","of":"not named on card","metrics":{"mean_kld":"c6","bench:median_kld":"c7","bench:p99.9_kld":"c8","bench:max_kld":"c9","top1_pct":"c10"},"size":"c27","unit":"bytes","basis":"disk","bpw":null,"flags":["bit-identical to the published hydrated report [L102-106]"]}
+],
+"prose":[]}

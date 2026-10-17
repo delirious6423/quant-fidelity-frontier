@@ -1,0 +1,16 @@
+{"repo":"prakharprasad/Qwen3.8-27B-Uncensored-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"baseline ground truth weights (tensor-level dequantization audit); no model-output KLD/PPL numbers given","dataset":"not stated (tensor-level audit; KL/Divergence-300 described but no values)","ctx":"not stated","tool":"tensor-level dequantization audits (RMSE, SQNR, cosine similarity)","L":[82,64]},
+"entries":[
+{"role":"own","name":"UD-Q2_K_XL","metrics":{},"size":"c3","unit":"GiB","basis":"disk","bpw":"c4","flags":["table reports tensor-level RMSE/SQNR/cosine only, no KLD/PPL/top1 metric keys apply [L84-96]","no-MTP file; overall RMSE 17.1% (c8), SQNR 15.6 dB (c7), cosine 0.9908 (c9)"]},
+{"role":"own","name":"UD-Q2_K_XL-MTP","metrics":{},"size":"c13","unit":"GiB","basis":"disk","bpw":"c14","flags":["tensor-level only [L87]"]},
+{"role":"own","name":"UD-Q3_K_XL-MTP","metrics":{},"size":"c23","unit":"GiB","basis":"disk","bpw":"c24","flags":["tensor-level only [L88]"]},
+{"role":"own","name":"UD-Q4_K_S-MTP","metrics":{},"size":"c33","unit":"GiB","basis":"disk","bpw":"c34","flags":["tensor-level only [L89]"]},
+{"role":"own","name":"UD-Q4_K_M-MTP","metrics":{},"size":"c43","unit":"GiB","basis":"disk","bpw":"c44","flags":["tensor-level only [L90]"]},
+{"role":"own","name":"UD-Q4_K_XL-MTP","metrics":{},"size":"c53","unit":"GiB","basis":"disk","bpw":"c54","flags":["tensor-level only [L91]"]},
+{"role":"own","name":"UD-Q5_K_M-MTP","metrics":{},"size":"c63","unit":"GiB","basis":"disk","bpw":"c64","flags":["tensor-level only [L92]"]},
+{"role":"own","name":"UD-Q5_K_XL-MTP","metrics":{},"size":"c73","unit":"GiB","basis":"disk","bpw":"c74","flags":["tensor-level only [L93]"]},
+{"role":"own","name":"UD-Q6_K-MTP","metrics":{},"size":"c83","unit":"GiB","basis":"disk","bpw":"c84","flags":["tensor-level only [L94]"]},
+{"role":"own","name":"UD-Q6_K_XL-MTP","metrics":{},"size":"c93","unit":"GiB","basis":"disk","bpw":"c94","flags":["tensor-level only [L95]"]},
+{"role":"own","name":"UD-Q8_K_XL-MTP","metrics":{},"size":"c103","unit":"GiB","basis":"disk","bpw":"c104","flags":["tensor-level only [L96]"]}
+],
+"prose":[]}

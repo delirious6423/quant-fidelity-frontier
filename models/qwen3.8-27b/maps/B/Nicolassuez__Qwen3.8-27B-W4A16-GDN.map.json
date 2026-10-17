@@ -1,0 +1,10 @@
+{"repo":"Nicolassuez/Qwen3.8-27B-W4A16-GDN",
+"no_quality_claims":true,
+"no_claims_reason":"size and decode-speed tables; quality section is a qualitative not-broken gate with no delta against bf16 [L63-78,L80-95]",
+"method":{"reference":"none (no delta against bf16 measured)","dataset":"512 samples of HuggingFaceH4/ultrachat_200k","ctx":"2048 tokens (calibration)","tool":"llmcompressor GPTQ W4A16, symmetric int4 group size 128","L":[31,95]},
+"entries":[
+{"role":"own","name":"this checkpoint","metrics":{},"size":"c26","unit":"GB","basis":"disk","bpw":null,"flags":["weights column of the speed table [L66]","smoke checks (multilingual 4/4, 249,887-token needle) are pass/fail, not mapped [L88-92]"]},
+{"role":"ladder","name":"Qwen3.8-27B-W4A16","metrics":{},"size":"c22","unit":"GB","basis":"disk","bpw":null,"flags":["conventional W4A16 pass without Gated DeltaNet quantized [L65]"]},
+{"role":"cross","name":"Qwen/Qwen3.8-27B-FP8","of":"Qwen/Qwen3.8-27B-FP8","metrics":{},"size":"c31","unit":"GB","basis":"disk","bpw":null,"flags":["[L76]"]}
+],
+"prose":[]}

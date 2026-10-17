@@ -1,0 +1,9 @@
+{"repo":"timteh673/Qwen3.8-27B-Opus-Abliterix-Reasoning-MLX-8bit",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"control-bf16 (reasoning-merged BF16 model before abliteration)","dataset":"frozen local project benchmarks (harmful-prompt suite, capability macro, code, HumanEval, long-form, MMMU30)","ctx":"not stated","tool":"same local harness; MLX 8-bit conversion with mlx-vlm","L":[39,40,41]},
+"entries":[
+{"role":"own","name":"abliterix-pass1-bf16 (winner)","metrics":{"mean_kld":"c20","bench:Capability macro":"c8","bench:Full code":"c10.0","bench:HumanEval":"c12","bench:Long-form pass":"c14","bench:MMMU30":"c16.0","bench:Harmful hard refusal":"c2","bench:Harmful soft deflection":"c4","bench:Harmful substantive response":"c6"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["table compares BF16 models, not the MLX 8-bit release itself [L39]","Benign KL is divergence from control, an abliteration effect, not quantization KL [L52]","Full code count is passes out of 421 [L47]","held-out loss ratio omitted as ambiguous [L51]"]},
+{"role":"ladder","name":"control-bf16","metrics":{"mean_kld":"c19","bench:Capability macro":"c7","bench:Full code":"c9.0","bench:HumanEval":"c11","bench:Long-form pass":"c13","bench:MMMU30":"c15.0","bench:Harmful hard refusal":"c1","bench:Harmful soft deflection":"c3","bench:Harmful substantive response":"c5"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["reference row; KL 0 by definition [L52]"]}
+],
+"prose":[]}

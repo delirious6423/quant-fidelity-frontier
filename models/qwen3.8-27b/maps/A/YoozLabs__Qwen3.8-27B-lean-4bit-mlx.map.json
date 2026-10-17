@@ -1,0 +1,14 @@
+{"repo":"YoozLabs/Qwen3.8-27B-lean-4bit-mlx","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"8-bit reference","dataset":"RULER-style long-context tasks plus MRCR 2-needle, 5 tasks x 4 context lengths (8K-131K), 20 cells","ctx":"8K, 32K, 65K, 131K","tool":"mlx-lm 0.31.3 (MLX rows), llama.cpp (GGUF rows)","L":[21,23,220,221,225,255]},
+"entries":[
+{"role":"own","name":"This build MLX","metrics":{},"size":"c11","unit":"GiB","basis":"disk","bpw":"c10","flags":["accuracy grid scores are in image/other tables not in candidates; variable tracking 1.000 at 131K from prose [L36]"]},
+{"role":"cross","name":"mlx-community/Qwen3.8-27B-4bit MLX","of":"mlx-community/Qwen3.8-27B-4bit","metrics":{},"size":"c13","unit":"GiB","basis":"disk","bpw":"c12","flags":["variable tracking falls to 0.700 at 131K per prose [L35]"]},
+{"role":"ladder","name":"Mixed 3/6 (failed attempt, unpublished) MLX","metrics":{},"size":"c15","unit":"GiB","basis":"disk","bpw":"c14","flags":["publisher's own unpublished build [L158]"]},
+{"role":"cross","name":"unsloth UD-Q3_K_XL GGUF","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{},"size":"c17","unit":"GiB","basis":"disk","bpw":"c16","flags":["placement reference [L126]"]},
+{"role":"cross","name":"unsloth Q4_K_M GGUF","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{},"size":"c19","unit":"GiB","basis":"disk","bpw":"c18","flags":["[L160]"]},
+{"role":"cross","name":"unsloth Q8_0 (reference) GGUF","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{},"size":"c21","unit":"GiB","basis":"disk","bpw":"c20","flags":["[L161]"]}
+],
+"prose":[
+{"entry":"mlx-community/Qwen3.8-27B-4bit MLX","key":"bench:Variable tracking 131K","L":35,"raw":"scoring 0.700 at 131K"},
+{"entry":"This build MLX","key":"bench:Variable tracking 131K","L":36,"raw":"scores 1.000"}
+]}

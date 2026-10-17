@@ -1,0 +1,14 @@
+{"repo":"airagrp/Qwen3.8-27B-mlx-nvfp4-M","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 Qwen3.8-27B","dataset":"WikiText-2 raw test split, 297,053 tokens","ctx":"2048-token windows, fresh KV cache per window","tool":"benchmark_ppl_kld.py, mlx-vlm 0.6.17","L":[75,89,90,91]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-mlx-nvfp4-M","metrics":{"ppl:wikitext2":"c8","ppl_delta:wikitext2":"c9","kld:wikitext2":"c10"},"size":"c7","unit":"GiB","basis":"disk","bpw":null,"flags":["effective ~23 GB, 7.4 bits per weight [L35]"]},
+{"role":"ladder","name":"Qwen3.8-27B bf16 reference","metrics":{"ppl:wikitext2":"c2"},"size":"c1","unit":"GiB","basis":"disk","bpw":null,"flags":[]},
+{"role":"ladder","name":"mlx-nvfp4-S","metrics":{"ppl:wikitext2":"c4","ppl_delta:wikitext2":"c5","kld:wikitext2":"c6"},"size":"c3","unit":"GiB","basis":"disk","bpw":null,"flags":[]},
+{"role":"ladder","name":"mlx-nvfp4-L","metrics":{"ppl:wikitext2":"c12","ppl_delta:wikitext2":"c13","kld:wikitext2":"c14"},"size":"c11","unit":"GiB","basis":"disk","bpw":null,"flags":[]},
+{"role":"ladder","name":"mlx-nvfp4-XL","metrics":{"ppl:wikitext2":"c20","ppl_delta:wikitext2":"c21","kld:wikitext2":"c22"},"size":"c19","unit":"GiB","basis":"disk","bpw":null,"flags":[]},
+{"role":"ladder","name":"mlx-mxfp8-S","metrics":{"ppl:wikitext2":"c16","ppl_delta:wikitext2":"c17","kld:wikitext2":"c18"},"size":"c15","unit":"GiB","basis":"disk","bpw":null,"flags":[]},
+{"role":"ladder","name":"mlx-mxfp8-M","metrics":{"ppl:wikitext2":"c24","ppl_delta:wikitext2":"c25","kld:wikitext2":"c26"},"size":"c23","unit":"GiB","basis":"disk","bpw":null,"flags":[]},
+{"role":"ladder","name":"mlx-mxfp8-L","metrics":{"ppl:wikitext2":"c28","ppl_delta:wikitext2":"c29","kld:wikitext2":"c30"},"size":"c27","unit":"GiB","basis":"disk","bpw":null,"flags":[]},
+{"role":"ladder","name":"mlx-mxfp8-XL","metrics":{"ppl:wikitext2":"c32","ppl_delta:wikitext2":"c33","kld:wikitext2":"c34"},"size":"c31","unit":"GiB","basis":"disk","bpw":null,"flags":[]}
+],
+"prose":[{"entry":"Qwen3.8-27B-mlx-nvfp4-M","key":"bpw","L":35,"raw":"7.4 bits per weight"}]}

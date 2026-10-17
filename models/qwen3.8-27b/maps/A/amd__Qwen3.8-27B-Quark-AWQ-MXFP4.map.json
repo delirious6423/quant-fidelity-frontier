@@ -1,0 +1,7 @@
+{"repo":"amd/Qwen3.8-27B-Quark-AWQ-MXFP4","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 base Qwen3.8-27B","dataset":"GSM8K 5-shot (thinking and no-think variants)","ctx":"max_gen_toks 3072 (thinking) / 1024 (no-think)","tool":"lm-eval, Quark AWQ (calibration pileval 128 samples, seq_len 512)","L":[21,27,40,101]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-Quark-AWQ-MXFP4","metrics":{"bench:GSM8K_thinking_flexible":"c1.0","bench:GSM8K_thinking_strict":"c1.1","bench:GSM8K_nothink_flexible":"c4.0","bench:GSM8K_nothink_strict":"c4.1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["weights and activations MXFP4 group 32 [L18-19]","thinking recovery 101.8% [L29], non-thinking 99.2% [L30]"]},
+{"role":"ladder","name":"BF16 base","metrics":{"bench:GSM8K_thinking_flexible":"c2.0","bench:GSM8K_thinking_strict":"c2.1","bench:GSM8K_nothink_flexible":"c5.0","bench:GSM8K_nothink_strict":"c5.1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["reference [L29-30]"]}
+],
+"prose":[]}

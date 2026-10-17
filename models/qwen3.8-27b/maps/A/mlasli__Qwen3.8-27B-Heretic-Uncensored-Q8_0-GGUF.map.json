@@ -1,0 +1,13 @@
+{"repo":"mlasli/Qwen3.8-27B-Heretic-Uncensored-Q8_0-GGUF",
+"no_quality_claims":true,
+"no_claims_reason":"sizes table plus a refusal-rate smoke test (behavioral direct/refuse percentages), no PPL, KLD or benchmark fidelity numbers [L42-62]",
+"method":{"reference":"not stated","dataset":"imatrix calibrated on wikitext-103; smoke test 50 harmful + 20 benign prompts","ctx":"not stated","tool":"llama-server --spec-type draft-mtp","L":[36,38,39]},
+"entries":[
+{"role":"own","name":"Q8_0","metrics":{},"size":"c2","unit":"GB","basis":"disk","bpw":null,"flags":["[L46]"]},
+{"role":"own","name":"Q6_K","metrics":{},"size":"c5","unit":"GB","basis":"disk","bpw":null,"flags":["[L47]"]},
+{"role":"own","name":"Q5_K_M","metrics":{},"size":"c8","unit":"GB","basis":"disk","bpw":null,"flags":["[L48]"]},
+{"role":"own","name":"Q4_K_M","metrics":{},"size":"c11","unit":"GB","basis":"disk","bpw":null,"flags":["[L49]"]},
+{"role":"own","name":"IQ4_XS","metrics":{},"size":"c14","unit":"GB","basis":"disk","bpw":null,"flags":["[L50]"]},
+{"role":"own","name":"IQ2_M","metrics":{},"size":"c17","unit":"GB","basis":"disk","bpw":null,"flags":["[L51]"]}
+],
+"prose":[]}

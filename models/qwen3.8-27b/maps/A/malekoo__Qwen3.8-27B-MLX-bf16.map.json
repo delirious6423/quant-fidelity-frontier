@@ -1,0 +1,7 @@
+{"repo":"malekoo/Qwen3.8-27B-MLX-bf16","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"none (perplexity only)","dataset":"wikitext-2 test","ctx":"disjoint 2048-token windows, single token stream","tool":"mlx-lm harness on Apple silicon (Metal)","L":[124,125]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-MLX-bf16","metrics":{},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["lossless bf16 conversion, ~54 GB on disk [L31]","peak memory ~54 GB on M5 Max [L126]"]},
+{"role":"ladder","name":"malekoo/Qwen3.8-27B-MLX-4bit","metrics":{"ppl":"c6.0"},"size":"c7.0","unit":"GB","basis":null,"bpw":null,"flags":["measured in identical harness [L126-129]"]}
+],
+"prose":[{"entry":"Qwen3.8-27B-MLX-bf16","key":"ppl","L":124,"raw":"6.9352"}]}

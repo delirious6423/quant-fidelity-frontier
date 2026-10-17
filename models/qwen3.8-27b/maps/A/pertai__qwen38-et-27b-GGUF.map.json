@@ -1,0 +1,6 @@
+{"repo":"pertai/qwen38-et-27b-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"base Qwen3.8 model (fine-tune comparison, not quant vs bf16)","dataset":"200-task Estonian development set; held-out fiction perplexity; HumanEval; EstQA","ctx":"not stated","tool":"method on github.com/pertlomp/qwen38-et","L":[27,28,29,38]},
+"entries":[
+{"role":"own","name":"qwen38-et-27b Q6_K","metrics":{},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["Q6_K 21 GB [L10]","scores describe the merged fine-tune, not quantization loss; perplexity 22.2 to 15.4 is vs base model [L28]","Q4_K_M reportedly brought back orthographic errors, not repeated across several runs [L12-14]"]}
+],
+"prose":[{"entry":"qwen38-et-27b Q6_K","key":"bench:Estonian dev set","L":27,"raw":"86.1% on the 200-task Estonian development set"},{"entry":"qwen38-et-27b Q6_K","key":"bench:HumanEval","L":29,"raw":"HumanEval 85.4%"}]}

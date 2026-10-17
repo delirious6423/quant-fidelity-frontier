@@ -1,0 +1,9 @@
+{"repo":"cloudnathan5/Qwen3.8-27B-NVFP4a16-GPTQ",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"Qwen/Qwen3.8-27B (BF16) served through vLLM with identical settings","dataset":"wikitext-2-raw-v1 (test), 48 non-overlapping 4096-token windows, 196,560 tokens scored","ctx":"4096","tool":"vLLM token-level perplexity; GPTQ NVFP4 weights, BF16 activations","L":[94]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-NVFP4a16-GPTQ (this checkpoint)","metrics":{"ppl":"c11","ppl_delta_pct":"c12"},"size":"c14","unit":"GB","basis":"disk","bpw":null,"flags":["checkpoint size stated in prose, not in the PPL row [L30]"]},
+{"role":"cross","name":"Qwen/Qwen3.8-27B (BF16)","of":"Qwen/Qwen3.8-27B","metrics":{"ppl":"c13"},"size":"c17.0","unit":"GB","basis":"disk","bpw":null,"flags":["BF16 base size stated in prose [L30]"]}
+],
+"prose":[]}

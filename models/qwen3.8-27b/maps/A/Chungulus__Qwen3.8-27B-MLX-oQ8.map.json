@@ -1,0 +1,9 @@
+{"repo":"Chungulus/Qwen3.8-27B-MLX-oQ8","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 log-probabilities of Qwen3.8-27B (stored float16 after float32 log-softmax)","dataset":"fixed original text, 106 positions, not a public benchmark","ctx":"longest validation prompt 73 tokens","tool":"MLX-VLM logit scorer / oMLX validation","L":[56,160,161,170,171]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B MLX-oQ8","metrics":{"ppl":"c9","ppl_delta_abs":"c10","top1_agreement_fraction":"c11.1"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["decimal GB artifact size [L38]","only 106 positions, tiny sample [L161]","bit width described as mixed around 8.6 bpw, no numeric cell [L28]","mean KL only in JSON prose [L163]"]},
+{"role":"cross","name":"BF16 reference","of":"Qwen/Qwen3.8-27B","metrics":{"ppl":"c8"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["reference perplexity on same fixed text [L164]"]}
+],
+"prose":[
+{"entry":"Qwen3.8-27B MLX-oQ8","key":"mean_kld","L":163,"raw":"0.0007939068249092912"}
+]}

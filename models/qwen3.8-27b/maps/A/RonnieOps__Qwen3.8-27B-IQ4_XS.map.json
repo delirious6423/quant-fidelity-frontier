@@ -1,0 +1,8 @@
+{"repo":"RonnieOps/Qwen3.8-27B-IQ4_XS","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"saved BF16 logits (KL); BF16 base","dataset":"full wiki validation corpus (fidelity); 59-task domain harness at temp 0; 115-task extended suite","ctx":"24K/32K for 115-task gate","tool":"llama.cpp-based harness, single RTX 5060 Ti 16 GB","L":[42,58,69,73]},
+"entries":[
+{"role":"own","name":"Full-vocab build (Qwen3.8-27B-IQ4_XS-fullvocab-E3.gguf)","metrics":{"bench:Domain harness 59 tasks":"c1","bench:wiki KL RMS dp pct":"c19","bench:wiki same top-p agreement pct":"c21"},"size":"c13","unit":"GiB","basis":"disk","bpw":null,"flags":["KL RMS dp and same top-p are not mean KLD / top-1; metric definitions ambiguous [L77-78]","all card numbers measured on this full-vocab build [L66]","115-task gate 91/115 @24K [L66]"]},
+{"role":"own","name":"Vocabulary-pruned variant (published file)","metrics":{},"size":"c16","unit":"GiB","basis":"disk","bpw":null,"flags":["115-task gate 92/115 @32K [L67]","KL vs BF16 undefined for pruned variant [L69]","perplexity 6.4248 is for the ASCII-pruned sibling of this family [L80]"]},
+{"role":"cross","name":"Unsloth UD-IQ4_XS","of":"unsloth (repo not named on card)","metrics":{"bench:Domain harness 59 tasks":"c2","bench:wiki KL RMS dp pct":"c20","bench:wiki same top-p agreement pct":"c22"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["run identically on same engine and GPU [L42]"]}
+],
+"prose":[]}

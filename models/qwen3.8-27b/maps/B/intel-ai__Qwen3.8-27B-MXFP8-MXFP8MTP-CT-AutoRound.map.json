@@ -1,0 +1,10 @@
+{"repo":"intel-ai/Qwen3.8-27B-MXFP8-MXFP8MTP-CT-AutoRound",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"BF16 Qwen/Qwen3.8-27B baseline scores (upstream-reported, not re-run)","dataset":"lm-eval: gsm8k 5-shot, piqa, mmlu (57 subtasks), hellaswag, 0-shot","ctx":"max_model_len 8192, max_gen_toks 2048","tool":"lm-eval with vllm backend (vLLM 0.22.1), seed 42, single B200","L":[35,36,83,84,92,247]},
+"entries":[
+{"role":"own","name":"MXFP8 + MTP-MXFP8 (this checkpoint)","metrics":{"bench:gsm8k_strict":"c5","bench:piqa_acc":"c8","bench:piqa_acc_norm":"c11","bench:mmlu":"c14","bench:hellaswag_acc":"c17","bench:hellaswag_acc_norm":"c20","bench:AVG":"c37"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["compression ratio 1.76x c4 vs base [L48]","MTP draft acceptance 0.9451 c38, mean accept len c39 [L132]","text scores do not exercise MTP head [L243]"]},
+{"role":"quoted","name":"full-MXFP8 (MTP BF16) reference sibling","of":"not named on card","metrics":{"bench:gsm8k_strict":"c28","bench:mmlu":"c29","bench:piqa_acc":"c30","bench:hellaswag_acc":"c31","bench:AVG":"c32"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["sibling numbers cross-linked from reference card [L36-37,L114]"]},
+{"role":"quoted","name":"BF16 Qwen/Qwen3.8-27B baseline","of":"Qwen/Qwen3.8-27B","metrics":{"bench:gsm8k_strict":"c23","bench:mmlu":"c24","bench:piqa_acc":"c25","bench:hellaswag_acc":"c26","bench:AVG":"c27"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["upstream-reported table, not re-run on this stack [L36,L247]"]}
+],
+"prose":[]}

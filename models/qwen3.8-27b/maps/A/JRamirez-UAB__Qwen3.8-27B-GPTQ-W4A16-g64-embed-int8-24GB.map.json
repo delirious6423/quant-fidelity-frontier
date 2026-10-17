@@ -1,0 +1,10 @@
+{"repo":"JRamirez-UAB/Qwen3.8-27B-GPTQ-W4A16-g64-embed-int8-24GB",
+"no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 Qwen3.8-27B","dataset":"internal sysadmin/agent set (unpublished) and turboderp qbench_prompts_gen.json (public)","ctx":"not stated","tool":"exllamav3 qbench","L":[78,95,150,158]},
+"entries":[
+{"role":"own","name":"GPTQ W4A16 g64 + INT8 embeddings (v4)","metrics":{"kld:internal":"c34.0","kld:public":"c34.2","ppl:internal":"c35.0","ppl:public":"c35.1"},"size":"c33","unit":"GiB","basis":"disk","bpw":null,"flags":["median KLD also reported [L83]","GPTQ evaluated as BF16 copy of dequantized weights [L95]"]},
+{"role":"ladder","name":"GPTQ W4A16 + INT4 embeddings","metrics":{"kld:internal":"c26.0","kld:public":"c26.2","ppl:internal":"c27.0","ppl:public":"c27.1"},"size":"c25","unit":"GiB","basis":"disk","bpw":null,"flags":["[L82]"]},
+{"role":"ladder","name":"EXL3 3.85 bpw","metrics":{"kld:internal":"c42.0","kld:public":"c42.2","ppl:internal":"c43.0","ppl:public":"c43.1"},"size":"c41","unit":"GiB","basis":"disk","bpw":"c184","flags":["[L84]"]},
+{"role":"ladder","name":"EXL3 3.70 bpw","metrics":{"kld:internal":"c50.0","kld:public":"c50.2","ppl:internal":"c51.0","ppl:public":"c51.1"},"size":"c49","unit":"GiB","basis":"disk","bpw":"c185","flags":["[L85]"]}
+],
+"prose":[]}

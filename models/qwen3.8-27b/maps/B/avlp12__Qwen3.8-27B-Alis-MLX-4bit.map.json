@@ -1,0 +1,18 @@
+{"repo":"avlp12/Qwen3.8-27B-Alis-MLX-4bit",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"bf16","dataset":"wikitext-2 test (en), Korean Wikipedia (ko), CPython stdlib (code); KL sweep over ~100K en+ko+code tokens","ctx":"2048 window, stride 512 (PPL); paired non-overlapping ctx-2048 windows (KL)","tool":"not stated (custom harness; full-vocab fp32 KL)","L":[38,338,365]},
+"entries":[
+{"role":"ladder","name":"bf16 reference","metrics":{"ppl:en":"c62","ppl:ko":"c63","ppl:code":"c64"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["PPL columns en/ko/code [L342]","size from At a glance table [L33]"]},
+{"role":"ladder","name":"8-bit","metrics":{"ppl:en":"c66","ppl:ko":"c67","ppl:code":"c68"},"size":"c7","unit":"GB","basis":"disk","bpw":null,"flags":["PPL measured on pre-graded weights [L349]; 8-bit marked † [L34]"]},
+{"role":"ladder","name":"6-bit","metrics":{"ppl:en":"c70","ppl:ko":"c71","ppl:code":"c72"},"size":"c13","unit":"GB","basis":"disk","bpw":null,"flags":["PPL marked † [L35]"]},
+{"role":"own","name":"4-bit AWQ + graded (this repo)","metrics":{"ppl:en":"c73","ppl:ko":"c74","ppl:code":"c75","ppl_delta_pct:en":"c117.0","ppl_delta_pct:ko":"c117.1","ppl_delta_pct:code":"c117.2"},"size":"c18","unit":"GB","basis":"disk","bpw":null,"flags":["PPL table measured on pre-graded weights and not re-run; upper bound for graded build [L349-352]","ppl_delta_pct is over bf16 [L90]"]},
+{"role":"own","name":"4-bit AWQ + graded (this repo) KL sweep","metrics":{"mean_kld":"c77","top1_pct":"c78"},"size":"c76","unit":"GB","basis":"disk","bpw":null,"flags":["KL pooled over en+ko+code [L365]"]},
+{"role":"ladder","name":"4-bit AWQ, pre-graded (pre-graded branch)","metrics":{"mean_kld":"c80","top1_pct":"c81"},"size":"c79","unit":"GB","basis":"disk","bpw":null,"flags":["[L370]"]},
+{"role":"cross","name":"uniform 4-bit (= mlx-community 4bit)","of":"mlx-community/Qwen3.8-27B-4bit","metrics":{"mean_kld":"c83","top1_pct":"c84"},"size":"c82","unit":"GB","basis":"disk","bpw":null,"flags":["card says byte-identical to author's uniform 4-bit build [L377]"]},
+{"role":"cross","name":"orcarouter 4-bit","of":"not named on card","metrics":{"mean_kld":"c86","top1_pct":"c87"},"size":"c85","unit":"GB","basis":"disk","bpw":null,"flags":["[L372]"]},
+{"role":"cross","name":"nvfp4 (mlx-community)","of":"mlx-community/Qwen3.8-27B-nvfp4","metrics":{"mean_kld":"c89","top1_pct":"c90"},"size":"c88","unit":"GB","basis":"disk","bpw":null,"flags":["[L373]"]},
+{"role":"cross","name":"mxfp4 (mlx-community)","of":"mlx-community/Qwen3.8-27B-mxfp4","metrics":{"mean_kld":"c92","top1_pct":"c93"},"size":"c91","unit":"GB","basis":"disk","bpw":null,"flags":["[L374]"]},
+{"role":"ladder","name":"6-bit (this collection) KL sweep","metrics":{"mean_kld":"c95","top1_pct":"c96"},"size":"c94","unit":"GB","basis":"disk","bpw":null,"flags":["[L375]"]}
+],
+"prose":[]}

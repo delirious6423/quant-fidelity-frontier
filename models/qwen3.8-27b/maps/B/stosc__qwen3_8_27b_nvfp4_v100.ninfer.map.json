@@ -1,0 +1,7 @@
+{"repo":"stosc/qwen3_8_27b_nvfp4_v100.ninfer","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"none (task benchmarks; BF16 figures quoted from upstream card)","dataset":"IFBench, AIME 2025, AIME 2026, GPQA-Diamond, ERQA, RealWorldQA (1,723 samples)","ctx":"252,928 token cap text; 81,920 multimodal","tool":"EvalScope 1.9.0 via NInfer, thinking on, MTP=3, INT8 group-64 KV, temp 1.0 top-p 0.95 top-k 20, seed 42, 1 sample per question","L":[260,271,273]},
+"entries":[
+{"role":"own","name":"NInfer NVFP4","metrics":{"bench:IFBench":"c22","bench:AIME2025":"c25","bench:AIME2026":"c27","bench:GPQA-Diamond":"c29","bench:ERQA":"c32","bench:RealWorldQA":"c35"},"size":"c1.0","unit":"bytes","basis":"disk","bpw":null,"flags":["IFBench is prompt-level strict [L264]","single-sample results, not pass@k [L271]"]},
+{"role":"quoted","name":"Official Qwen3.8-27B BF16","of":"Qwen/Qwen3.8-27B","metrics":{"bench:IFBench":"c24","bench:GPQA-Diamond":"c31","bench:ERQA":"c34","bench:RealWorldQA":"c37"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["copied from upstream card; card says not same-protocol comparison [L273]"]}
+],
+"prose":[]}

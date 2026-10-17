@@ -1,0 +1,8 @@
+{"repo":"orcarouter/OrcaSAQ-2-27B","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 Qwen3.8-27B","dataset":"WikiText-2, 16,376 predicted tokens","ctx":"not stated","tool":"not stated (same evaluation path as BF16)","L":[110,112,114]},
+"entries":[
+{"role":"own","name":"OrcaSAQ2 27B","metrics":{"mean_kld":"c22","top1_pct":"c23","ppl":"c24","ppl_delta_pct":"c10"},"size":"c20","unit":"GB","basis":"disk","bpw":"c21","flags":["WikiText-2 table [L116-119]","3.21 bpw is decoder average [L273]"]},
+{"role":"ladder","name":"Qwen3.8-27B BF16","metrics":{"top1_pct":"c18","ppl":"c19"},"size":"c16","unit":"GB","basis":"disk","bpw":"c17","flags":["reference row [L118]"]},
+{"role":"quoted","name":"SWE-bench Verified / Terminal-Bench 2.1 (OrcaSAQ2)","of":"not named on card","metrics":{"bench:SWE-bench Verified":"c28","bench:Terminal-Bench 2.1":"c36"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["'Reported score' tables, public reference points not apples-to-apples [L222]; other models' scores omitted"]}
+],
+"prose":[]}

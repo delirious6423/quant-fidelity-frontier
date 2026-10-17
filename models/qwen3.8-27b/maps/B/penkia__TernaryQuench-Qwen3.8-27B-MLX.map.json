@@ -1,0 +1,9 @@
+{"repo":"penkia/TernaryQuench-Qwen3.8-27B-MLX","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"Qwen3.8-27B 4-bit (perplexity table); Qwen3.8-27B BF16 (lm-eval table)","dataset":"WikiText-2 test, first 20,480 tokens in 40 independent 512-token chunks; five-task zero-shot lm-eval (PIQA, ARC-E, ARC-C, HellaSwag, WinoGrande)","ctx":"512","tool":"MLX; lm-eval 0.4.7, zero-shot, native PyTorch","L":[54,62,63,69,80,81]},
+"entries":[
+{"role":"own","name":"TernaryQuench 27B (MLX artifact)","of":"","metrics":{"ppl:wikitext-2":"c3","ppl:wikitext-2_second_half":"c4"},"size":"c25","unit":"GB","basis":"disk","bpw":null,"flags":["download size 10.53 GB [L42]"]},
+{"role":"own","name":"TernaryQuench 27B (full-ternary training checkpoint)","of":"","metrics":{"bench:Mean":"c13","bench:PIQA":"c14","bench:ARC-Easy":"c15","bench:ARC-Challenge":"c16","bench:HellaSwag":"c17","bench:WinoGrande":"c18"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["not scores for the MLX artifact, which keeps higher precision in final two layers [L69-70]"]},
+{"role":"ladder","name":"Qwen3.8-27B 4-bit","of":"not named on card","metrics":{"ppl:wikitext-2":"c1","ppl:wikitext-2_second_half":"c2"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L58]"]},
+{"role":"ladder","name":"Qwen3.8-27B BF16","of":"Qwen/Qwen3.8-27B","metrics":{"bench:Mean":"c7","bench:PIQA":"c8","bench:ARC-Easy":"c9","bench:ARC-Challenge":"c10","bench:HellaSwag":"c11","bench:WinoGrande":"c12"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L74]"]}
+],
+"prose":[]}

@@ -1,0 +1,12 @@
+{"repo":"kingjones777/Qwen3.8-27B-Uncensored-ROCmFP4-STRIX-MTP-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"not stated","dataset":"24 harmful / 12 harmless / 8 quality research set, greedy","ctx":"8192 (speed runs)","tool":"llama.cpp ROCmFPX fork, Strix Halo","L":[50,111]},
+"entries":[
+{"role":"own","name":"Qwen3.8 uncensored Q6 AGENT (114)","metrics":{"bench:Quality 8 score":"c22.0"},"size":"c32","unit":"GiB","basis":"disk","bpw":null,"flags":["Score is 6 of 8 (denominator c22.1) on a small quality smoke set; counts only [L111, L116]","Refusal scored on this file; 4-bit 103/106 said to be the same checkpoint [L111]"]},
+{"role":"own","name":"Qwen3.8-27B-Uncensored-ROCmFP4-FAST.gguf","metrics":{},"size":"c26","unit":"GiB","basis":"disk","bpw":null,"flags":["Speed-only row; described as dominated on aligned PPL with no number given [L42, L130]"]},
+{"role":"own","name":"Qwen3.8-27B-Uncensored-ROCmFP4-STRIX_LEAN.gguf","metrics":{},"size":"c29","unit":"GiB","basis":"disk","bpw":null,"flags":["Speed-only row; recommended 4-bit [L131]"]},
+{"role":"own","name":"Qwen3.8-27B-Uncensored-Q6_0_ROCMFPX_LEAN.gguf","metrics":{},"size":"c35","unit":"GiB","basis":"disk","bpw":null,"flags":["Speed-only row [L133]"]},
+{"role":"ladder","name":"Qwen3.8 aligned Q8 AGENT","metrics":{"bench:Quality 8 score":"c21.0"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Score is 6 of 8 (denominator c21.1); aligned repo is the publisher's other build [L25, L115]"]}
+],
+"prose":[]}

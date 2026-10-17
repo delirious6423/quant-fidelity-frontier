@@ -1,0 +1,12 @@
+{"repo":"cafonez/Qwen3.8-27B-ROCmI4-MTP-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"local Q4_K_M reference","dataset":"not stated","ctx":"not stated","tool":"ROCmFPX build of llama.cpp on gfx1151","L":[190,206,207]},
+"entries":[
+{"role":"own","name":"ROCmI4 artifact","metrics":{"ppl":"c2.0","bench:HumanEval":"c1.0","bench:HumanEval+":"c1.1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["perplexity corpus not stated [L206]","W4A4 path adds ~5.4% PPL on a 25-chunk sample [L208-209]"]},
+{"role":"ladder","name":"local Q4_K_M reference","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["reference for ROCmI4 comparison [L207]"]}
+],
+"prose":[
+{"entry":"ROCmI4 artifact","key":"ppl_delta_pct","L":207,"raw":"+6.1%"},
+{"entry":"local Q4_K_M reference","key":"ppl","L":207,"raw":"5.9455"}
+]}

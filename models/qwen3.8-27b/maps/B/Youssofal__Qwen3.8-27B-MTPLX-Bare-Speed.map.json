@@ -1,0 +1,11 @@
+{"repo":"Youssofal/Qwen3.8-27B-MTPLX-Bare-Speed","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 Qwen3.8-27B checkpoint","dataset":"2,389 positions of code, prose, JSON and a multilingual notice (pack quality, L60); 'our coding battery' (Bare Speed KL, L90)","ctx":"not stated","tool":"MTPLX 2.11.3, teacher-forced","L":[60,90]},
+"entries":[
+{"role":"own","name":"Bare Speed","of":"","metrics":{},"size":"c5","unit":"GB","basis":"disk","bpw":null,"flags":["KL 0.0376 on coding battery stated in prose [L90]; a different battery than the 2,389-position check","peak unified memory 17.0 GB [L97]"]},
+{"role":"ladder","name":"Optimized Speed (4-bit dynamic)","of":"not named on card","metrics":{"mean_kld":"c10.1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["top-1 96.0 percent [L60]"]},
+{"role":"ladder","name":"Optimized Quality (8-bit dynamic)","of":"Youssofal/Qwen3.8-27B-MTPLX-Optimized-Quality","metrics":{"mean_kld":"c9"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["top-1 99.3 percent [L60]"]}
+],
+"prose":[
+{"entry":"Bare Speed","key":"mean_kld","L":90,"raw":"0.0376"},
+{"entry":"Optimized Speed (4-bit dynamic)","key":"top1_pct","L":60,"raw":"96.0 percent top-1 agreement"},
+{"entry":"Optimized Quality (8-bit dynamic)","key":"top1_pct","L":60,"raw":"99.3 percent"}]}

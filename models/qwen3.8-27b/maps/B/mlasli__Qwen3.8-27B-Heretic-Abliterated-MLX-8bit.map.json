@@ -1,0 +1,9 @@
+{"repo":"mlasli/Qwen3.8-27B-Heretic-Abliterated-MLX-8bit","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"base Qwen/Qwen3.8-27B (capability table, bf16, greedy)","dataset":"held-out harmful/benign sets with 3-way direct/deflect/refuse judge; MMLU, ARC-Challenge, HellaSwag, Winogrande, GSM8K","ctx":"not stated","tool":"3-way judge; lm-eval style capability benchmarks","L":[53,64,74]},
+"entries":[
+{"role":"own","name":"MLX 8-bit (group size 64)","of":"","metrics":{},"size":"c32","unit":"GB","basis":"disk","bpw":null,"flags":["8-bit smoke test table (30 harmful/15 benign, thinking OFF) at L64-69 has no values in candidate list","card says 8-bit matches BF16 3-way numbers closely [L71]"]},
+{"role":"ladder","name":"MLX 6-bit","of":"not named on card","metrics":{},"size":"c35","unit":"GB","basis":"disk","bpw":null,"flags":["[L115]"]},
+{"role":"ladder","name":"v2.1.0 BF16 abliterated checkpoint","of":"mlasli/Qwen3.8-27B-Heretic-Uncensored-BF16","metrics":{"bench:MMLU":"c14","bench:ARC-Challenge":"c17","bench:HellaSwag":"c20","bench:Winogrande":"c23","bench:GSM8K_flexible":"c26","bench:GSM8K_strict":"c29","bench:harmful_direct_thinking_off":"c1","bench:harmful_deflect_thinking_off":"c2","bench:harmful_refuse_thinking_off":"c3","bench:benign_refuse_thinking_off":"c11"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["abliteration effect on the unquantized checkpoint, not 8-bit quantization loss [L53, L74]","GSM8K delta described as measurement artifact [L85]"]},
+{"role":"cross","name":"Base Qwen3.8-27B (bf16)","of":"Qwen/Qwen3.8-27B","metrics":{"bench:MMLU":"c13","bench:ARC-Challenge":"c16","bench:HellaSwag":"c19","bench:Winogrande":"c22","bench:GSM8K_flexible":"c25","bench:GSM8K_strict":"c28"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L78-83]"]}
+],
+"prose":[]}

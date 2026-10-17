@@ -1,0 +1,10 @@
+{"repo":"JRamirez-UAB/Qwen3.8-27B-GPTQ-W4A16-embed-int4-24GB","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 Qwen3.8-27B","dataset":"internal sysadmin/agent evaluation set (unpublished) and turboderp's public qbench_prompts_gen.json","ctx":"not stated","tool":"exllamav3 qbench (KLD and perplexity); GPTQ checkpoints evaluated as BF16 copy of dequantized weights","L":[104,198,199]},
+"entries":[
+{"role":"own","name":"GPTQ W4A16 + INT4 embeddings (mtp-int8 revision is recommended)","of":"","metrics":{"kld:internal":"c30.0","kld:public":"c30.2","ppl:internal":"c31.0","ppl:public":"c31.1"},"size":"c29","unit":"GiB","basis":"disk","bpw":null,"flags":["internal set unpublished; mean/median pairs per corpus [L91]","also lists median KLD internal 0.0127 and public 0.0017 [L91]","least faithful of the family per card [L454]"]},
+{"role":"ladder","name":"GPTQ W4A16 g64 + INT8 embeddings","of":"","metrics":{"kld:internal":"c38.0","kld:public":"c38.2","ppl:internal":"c39.0","ppl:public":"c39.1"},"size":"c37","unit":"GiB","basis":"disk","bpw":null,"flags":["[L92]"]},
+{"role":"ladder","name":"EXL3 3.85 bpw (main)","of":"JRamirez-UAB/Qwen3.8-27B-EXL3-3.85bpw-24GB","metrics":{"kld:internal":"c46.0","kld:public":"c46.2","ppl:internal":"c47.0","ppl:public":"c47.1"},"size":"c45","unit":"GiB","basis":"disk","bpw":"c213","flags":["[L93]"]},
+{"role":"ladder","name":"EXL3 3.70 bpw (3.70bpw branch)","of":"JRamirez-UAB/Qwen3.8-27B-EXL3-3.85bpw-24GB","metrics":{"kld:internal":"c54.0","kld:public":"c54.2","ppl:internal":"c55.0","ppl:public":"c55.1"},"size":"c53","unit":"GiB","basis":"disk","bpw":"c214","flags":["branch 3.70bpw of the EXL3 repo [L94]"]},
+{"role":"ladder","name":"BF16 reference","of":"","metrics":{"ppl:public":"c247.1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["internal-set BF16 perplexity 1.5860 given in table header [L89]"]}
+],
+"prose":[{"entry":"BF16 reference","key":"ppl:internal","L":89,"raw":"BF16 1.5860"}]}

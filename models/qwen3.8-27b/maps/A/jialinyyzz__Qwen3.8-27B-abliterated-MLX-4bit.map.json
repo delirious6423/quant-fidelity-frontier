@@ -1,0 +1,10 @@
+{"repo":"jialinyyzz/Qwen3.8-27B-abliterated-MLX-4bit","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"original Qwen3.8-27B (bf16 master, unabliterated)","dataset":"mlabonne/harmful_behaviors test[:100] (refusals); ARC-Challenge, HellaSwag, Winogrande, OpenBookQA, GSM8K CoT","ctx":"not stated","tool":"Heretic keyword-refusal scorer; lm-eval-harness loglikelihood, GSM8K generative CoT; measured on bf16 master, not the 4-bit file","L":[52,65,66]},
+"entries":[
+{"role":"own","name":"abliterated MLX 4-bit (w177)","metrics":{},"size":"c21","unit":"GB","basis":"disk","bpw":null,"flags":["4.695 bits/weight stated in prose [L32]","capability and refusal numbers measured on bf16 master; 4-bit quant error not measured [L65-66,L78-79]","~19 GB peak RAM [L33]"]},
+{"role":"ladder","name":"w177 (bf16 master)","metrics":{"mean_kld":"c1","bench:Refusals_per_100":"c3","bench:ARC-Challenge":"c5","bench:Winogrande":"c10","bench:OpenBookQA":"c13","bench:GSM8K_CoT":"c16"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["KL 0.056 is orig vs abliterated bf16, not quantization KL [L45]","HellaSwag w177 value missing; delta 0.000 (c8) [L71]"]},
+{"role":"ladder","name":"original (unabliterated base)","metrics":{"bench:Refusals_per_100":"c2","bench:ARC-Challenge":"c4","bench:HellaSwag":"c7","bench:Winogrande":"c9","bench:OpenBookQA":"c12","bench:GSM8K_CoT":"c15"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L56,L70-74]"]}
+],
+"prose":[
+{"entry":"abliterated MLX 4-bit (w177)","key":"bpw","L":32,"raw":"4.695 bits/weight"}
+]}

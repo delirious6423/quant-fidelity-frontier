@@ -1,0 +1,230 @@
+{
+ "repo": "TelperionAI/Qwen3.8-27B-EXL3-5.5bpw-v2",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "BF16 base Qwen3.8-27B",
+  "dataset": "231 documents, 142,727 scored positions (own corpus); n=33,812 in confident bucket",
+  "ctx": "not stated",
+  "tool": "paired McNemar significance; divmed = median first-divergence token under free greedy decode",
+  "L": [
+   35,
+   36,
+   54,
+   55
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "TelperionAI EXL3 5.5bpw-v2",
+   "metrics": {
+    "top1_pct": "c2",
+    "bench:near_tie_disagree_pct": "c3",
+    "bench:moderate_disagree_pct": "c4",
+    "bench:confident_disagree_pct": "c5",
+    "bench:certain_disagree_pct": "c6",
+    "bench:divmed_tokens": "c7"
+   },
+   "size": "c1",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c71",
+   "flags": [
+    "disagreement vs BF16 base by confidence bucket; 'confident' is the pre-registered decider [L35-38]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "TelperionAI FP8-block-AWQ",
+   "metrics": {
+    "top1_pct": "c9",
+    "bench:near_tie_disagree_pct": "c10",
+    "bench:moderate_disagree_pct": "c11",
+    "bench:confident_disagree_pct": "c12",
+    "bench:certain_disagree_pct": "c13",
+    "bench:divmed_tokens": "c14"
+   },
+   "size": "c8",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "disagreement vs BF16 base by confidence bucket; 'confident' is the pre-registered decider [L35-38]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "TelperionAI INT4-AWQ-GPTQ",
+   "metrics": {
+    "top1_pct": "c16",
+    "bench:near_tie_disagree_pct": "c17",
+    "bench:moderate_disagree_pct": "c18",
+    "bench:confident_disagree_pct": "c19",
+    "bench:certain_disagree_pct": "c20",
+    "bench:divmed_tokens": "c21"
+   },
+   "size": "c15",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "disagreement vs BF16 base by confidence bucket; 'confident' is the pre-registered decider [L35-38]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "TelperionAI EXL3 4.0bpw-v2",
+   "metrics": {
+    "top1_pct": "c23",
+    "bench:near_tie_disagree_pct": "c24",
+    "bench:moderate_disagree_pct": "c25",
+    "bench:confident_disagree_pct": "c26",
+    "bench:certain_disagree_pct": "c27",
+    "bench:divmed_tokens": "c28"
+   },
+   "size": "c22",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c72",
+   "flags": [
+    "disagreement vs BF16 base by confidence bucket; 'confident' is the pre-registered decider [L35-38]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Qwen3.8-27B-FP8 (official)",
+   "metrics": {
+    "top1_pct": "c30",
+    "bench:near_tie_disagree_pct": "c31",
+    "bench:moderate_disagree_pct": "c32",
+    "bench:confident_disagree_pct": "c33",
+    "bench:certain_disagree_pct": "c34",
+    "bench:divmed_tokens": "c35"
+   },
+   "size": "c29",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "disagreement vs BF16 base by confidence bucket; 'confident' is the pre-registered decider [L35-38]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "ladder",
+   "name": "TelperionAI EXL3 4.0bpw (v1)",
+   "metrics": {
+    "top1_pct": "c37",
+    "bench:near_tie_disagree_pct": "c38",
+    "bench:moderate_disagree_pct": "c39",
+    "bench:confident_disagree_pct": "c40",
+    "bench:certain_disagree_pct": "c41",
+    "bench:divmed_tokens": "c42"
+   },
+   "size": "c36",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c73",
+   "flags": [
+    "disagreement vs BF16 base by confidence bucket; 'confident' is the pre-registered decider [L35-38]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "TelperionAI EXL3 5.5bpw (v1)",
+   "metrics": {
+    "top1_pct": "c44",
+    "bench:near_tie_disagree_pct": "c45",
+    "bench:moderate_disagree_pct": "c46",
+    "bench:confident_disagree_pct": "c47",
+    "bench:certain_disagree_pct": "c48",
+    "bench:divmed_tokens": "c49"
+   },
+   "size": "c43",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c74",
+   "flags": [
+    "disagreement vs BF16 base by confidence bucket; 'confident' is the pre-registered decider [L35-38]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "TelperionAI EXL3 6.5bpw (v1)",
+   "metrics": {
+    "top1_pct": "c51",
+    "bench:near_tie_disagree_pct": "c52",
+    "bench:moderate_disagree_pct": "c53",
+    "bench:confident_disagree_pct": "c54",
+    "bench:certain_disagree_pct": "c55",
+    "bench:divmed_tokens": "c56"
+   },
+   "size": "c50",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c75",
+   "flags": [
+    "disagreement vs BF16 base by confidence bucket; 'confident' is the pre-registered decider [L35-38]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "TelperionAI NVFP4 (mixed)",
+   "metrics": {
+    "top1_pct": "c58",
+    "bench:near_tie_disagree_pct": "c59",
+    "bench:moderate_disagree_pct": "c60",
+    "bench:confident_disagree_pct": "c61",
+    "bench:certain_disagree_pct": "c62",
+    "bench:divmed_tokens": "c63"
+   },
+   "size": "c57",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "disagreement vs BF16 base by confidence bucket; 'confident' is the pre-registered decider [L35-38]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "TelperionAI NVFP4 (full)",
+   "metrics": {
+    "top1_pct": "c65",
+    "bench:near_tie_disagree_pct": "c66",
+    "bench:moderate_disagree_pct": "c67",
+    "bench:confident_disagree_pct": "c68",
+    "bench:certain_disagree_pct": "c69",
+    "bench:divmed_tokens": "c70"
+   },
+   "size": "c64",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "disagreement vs BF16 base by confidence bucket; 'confident' is the pre-registered decider [L35-38]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "EXL3 3.5bpw (built and rejected)",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "not in table; confident-bucket figure in prose [L76]"
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "EXL3 3.5bpw (built and rejected)",
+   "key": "bench:confident_disagree_pct",
+   "L": 76,
+   "raw": "2.63%"
+  }
+ ]
+}

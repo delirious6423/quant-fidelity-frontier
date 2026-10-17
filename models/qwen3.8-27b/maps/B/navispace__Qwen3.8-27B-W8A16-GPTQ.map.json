@@ -1,0 +1,6 @@
+{"repo":"navispace/Qwen3.8-27B-W8A16-GPTQ","no_quality_claims":true,"no_claims_reason":"only weight reconstruction error 0.567% [L32,L72-82] and upstream BF16 benchmarks [L206-370]; card says no benchmark vs BF16 run [L143]",
+"method":{"reference":"BF16 original weights","dataset":"not stated","ctx":"not stated","tool":"relative Frobenius error of dequantized weights","L":[68,70]},
+"entries":[
+{"role":"own","name":"W8A16 GPTQ g32","metrics":{},"size":"c59.1","unit":"GiB","basis":"disk","bpw":null,"flags":["size 51.7 GiB -> 31.2 GiB [L20]","relative Frobenius error 0.567% over 8 tensors [L82] is not a model-output metric","benchmark tables [L206-370] are upstream Qwen/Qwen3.8-27B BF16 figures, omitted"]}
+],
+"prose":[]}

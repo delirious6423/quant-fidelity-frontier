@@ -1,0 +1,9 @@
+{"repo":"dealignai/Bonsai-2-27B-1bit-CRACK-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"base PTQ1_0 ternary quant (prism-ml/Ternary-Bonsai-2-27B-gguf) vs CRACK-abliterated build","dataset":"MMLU n=2,280 (40 questions x 57 subjects); HarmBench-320","ctx":"not stated","tool":"next-token letter-logit MMLU scoring; tiered refusal classifier","L":[46,64,102]},
+"entries":[
+{"role":"own","name":"CRACK PTQ1_0","metrics":{"bench:MMLU":"c76","bench:HarmBench-320_refuse_rate":"c2"},"size":null,"unit":null,"basis":null,"bpw":"c300","flags":["bpw label at L54 reads 2.13 bpw while L33 prose says 1.75 bpw","size 5.9 GB stated only in prose [L33,L46]","MMLU delta vs base c77 [L107]","abliteration build, refusal rate is not a fidelity metric"]},
+{"role":"cross","name":"base PTQ1_0","of":"prism-ml/Ternary-Bonsai-2-27B-gguf","metrics":{"bench:MMLU":"c75","bench:HarmBench-320_refuse_rate":"c1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["PrismML ternary compression of Qwen3.8-27B, measured by this card's author [L46,L106]"]}
+],
+"prose":[]}

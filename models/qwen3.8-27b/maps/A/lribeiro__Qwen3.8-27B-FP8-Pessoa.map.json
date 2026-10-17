@@ -1,0 +1,22 @@
+{"repo":"lribeiro/Qwen3.8-27B-FP8-Pessoa",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"BF16 Qwen3.8-27B (shared BF16 LM head replay)","dataset":"fidelity suite v3, 136 contexts, 278,392 scored positions (calibration: malaiwah/qwen38-27b-fidelity-suite-v3, 181 contexts)","ctx":"2048 tokens","tool":"custom hidden-state KLD harness, two-pass log-sum-exp; llm-compressor GPTQ","L":[133,180,181,182,183]},
+"entries":[
+{"role":"own","name":"Pessoa (FP8 W8A16 weight-only, GPTQ)","metrics":{"mean_kld":"c1","kld_99":"c4","top1_pct":"c8","kld:multilingual":"c10","kld:scientific":"c12","kld:encyclopedic":"c14","kld:code":"c16","kld:literary":"c18"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Body-only KLD against a shared BF16 LM head [L538]","Size stated only as ~28 GB in prose/row label [L276]","Throughput and composite score also reported [L249]"]},
+{"role":"ladder","name":"FP8 W8A8 (GPTQ)","metrics":{"mean_kld":"c24"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L250]"]},
+{"role":"ladder","name":"FP8 W8A16 (ModelOpt)","metrics":{"mean_kld":"c28"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L251]"]},
+{"role":"ladder","name":"gptq-fp8-att (best quality, any size)","metrics":{"mean_kld":"c44"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Labeled way too big [L275]"]},
+{"role":"ladder","name":"gptq-mxfp8-mixed","metrics":{"mean_kld":"c52"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["~28 GB [L277]"]},
+{"role":"ladder","name":"gptq-nvfp4-mixed-8","metrics":{"mean_kld":"c56"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["~27 GB [L278]"]},
+{"role":"ladder","name":"v17 (best all-FP8 W8A8)","metrics":{"mean_kld":"c61"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L279]"]},
+{"role":"ladder","name":"ModelOpt best FP8 (weight-only)","metrics":{"mean_kld":"c32"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L262]"]},
+{"role":"ladder","name":"GPTQ best FP8 (weight-only)","metrics":{"mean_kld":"c33"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L262]"]},
+{"role":"ladder","name":"ModelOpt best FP8 (W8A8 mixed)","metrics":{"mean_kld":"c35"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L263]"]},
+{"role":"ladder","name":"GPTQ best FP8 (W8A8 mixed)","metrics":{"mean_kld":"c36"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L263]"]},
+{"role":"ladder","name":"ModelOpt best MXFP8 (weight-only)","metrics":{"mean_kld":"c38"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L264]"]},
+{"role":"ladder","name":"GPTQ best MXFP8 (weight-only)","metrics":{"mean_kld":"c39"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L264]"]},
+{"role":"ladder","name":"ModelOpt best NVFP4 (mixed)","metrics":{"mean_kld":"c41"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L265]"]},
+{"role":"ladder","name":"GPTQ best NVFP4 (mixed)","metrics":{"mean_kld":"c42"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L265]"]}
+],
+"prose":[]}

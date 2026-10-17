@@ -1,0 +1,86 @@
+{
+ "repo": "jaakkomoller/Qwen3.8-27B-q3mix-NInfer",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "pure-q4 profile of same model (head-to-head); stored vLLM reference run",
+  "dataset": "LiveCodeBench v6 175-problem subset; small quality gate (35 items)",
+  "ctx": "greedy, max 2,000 tokens, single sample",
+  "tool": "NInfer",
+  "L": [
+   179,
+   182
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "q3mix",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "MTP3 acceptance 86.67% in front-matter metadata [L37]; pass counts out of 175 and 35"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "q4",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "pure-Q4 16 GB profile [L88]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "stored vLLM reference",
+   "of": "not named on card",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "gap attributed to runtime/decode budget, not quantization [L181]"
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "q3mix",
+   "key": "bench:LiveCodeBench_v6_175",
+   "L": 179,
+   "raw": "43/175"
+  },
+  {
+   "entry": "q4",
+   "key": "bench:LiveCodeBench_v6_175",
+   "L": 180,
+   "raw": "41/175"
+  },
+  {
+   "entry": "stored vLLM reference",
+   "key": "bench:LiveCodeBench_v6_175",
+   "L": 181,
+   "raw": "60/175"
+  },
+  {
+   "entry": "q3mix",
+   "key": "bench:quality_gate_35",
+   "L": 182,
+   "raw": "29/35"
+  },
+  {
+   "entry": "q4",
+   "key": "bench:quality_gate_35",
+   "L": 182,
+   "raw": "28/35"
+  }
+ ]
+}

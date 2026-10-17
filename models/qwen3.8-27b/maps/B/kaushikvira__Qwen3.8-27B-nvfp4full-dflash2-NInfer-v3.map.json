@@ -1,0 +1,12 @@
+{"repo":"kaushikvira/Qwen3.8-27B-nvfp4full-dflash2-NInfer-v3",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"not stated","dataset":"IFBench prompt-strict, GSM8K-200 (family table); gate probes needle/tool/streaming","ctx":"262,144 context, conc 4 (gate run)","tool":"NInfer engine gate.sh + perf.py; llama-benchy 0.4.0 for speed","L":[169,170,207,233]},
+"entries":[
+{"role":"own","name":"nvfp4full-dflash2.v3","metrics":{"bench:IFBench_prompt_strict":"c20","bench:GSM8K-200":"c21"},"size":"c1","unit":"GiB","basis":"vram","bpw":null,"flags":["IFBench and GSM8K cells carry an asterisk [L236]","weights on device from validation table [L175]","needle 12/12 and tool-call 10/10 gate probes are pass counts, not scored metrics [L177-178]","cross-card rows from different sessions, small deltas indicative [L230-231]"]},
+{"role":"ladder","name":"swift-abliterated v3","metrics":{"bench:IFBench_prompt_strict":"c24","bench:GSM8K-200":"c25"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["same-author family artifact (different base/finetune) [L237]"]},
+{"role":"ladder","name":"swift15 v3","metrics":{"bench:IFBench_prompt_strict":"c28","bench:GSM8K-200":"c29"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["same-author family artifact (different base/finetune) [L238]"]},
+{"role":"ladder","name":"thinkingcap v3","metrics":{"bench:IFBench_prompt_strict":"c32","bench:GSM8K-200":"c33"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["same-author family artifact (different base/finetune) [L239]"]},
+{"role":"ladder","name":"swift15-uncensored-ajgazin v3","metrics":{"bench:IFBench_prompt_strict":"c36","bench:GSM8K-200":"c37"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["same-author family artifact (different base/finetune) [L240]"]}
+],
+"prose":[]}

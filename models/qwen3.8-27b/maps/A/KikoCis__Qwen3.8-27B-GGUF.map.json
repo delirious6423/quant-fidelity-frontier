@@ -1,0 +1,12 @@
+{"repo":"KikoCis/Qwen3.8-27B-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"objective tool-use benchmark, 40 tasks checked by running the produced artifact, no LLM judge; BF16 original used only for an argmax disagreement remark","dataset":"40-task agentic tool-use benchmark","ctx":"not stated","tool":"Ollama (llama-server for one re-run)","L":[59,60,61,90,91,92]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-Q4_K_M.gguf","metrics":{},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["not put through the benchmark [L29-30]"]},
+{"role":"own","name":"Qwen3.8-27B-IQ4_XS.gguf","metrics":{},"size":"c2","unit":"GB","basis":"disk","bpw":null,"flags":["not put through the benchmark [L29-30]"]},
+{"role":"own","name":"Qwen3.8-27B-Q3_K_M.gguf","metrics":{"bench:agentic_tasks":"c5.0"},"size":"c3","unit":"GB","basis":"disk","bpw":"c4","flags":["40/40 verdict; denominator c5.1 [L24]"]},
+{"role":"own","name":"Qwen3.8-27B-IQ2_M.gguf","metrics":{},"size":"c6","unit":"GB","basis":"disk","bpw":"c7","flags":["verdict cell has no count in the table; card text says it matches the 3.40-bpw build [L25,L75]"]},
+{"role":"own","name":"Qwen3.8-27B-IQ2_XS.gguf","metrics":{"bench:agentic_tasks":"c10.0"},"size":"c8","unit":"GB","basis":"disk","bpw":"c9","flags":["72/80 verdict; denominator c10.1 (two rounds) [L26]"]},
+{"role":"own","name":"Qwen3.8-27B-IQ1_M-compact.gguf","metrics":{},"size":"c11","unit":"GB","basis":"disk","bpw":"c12","flags":["card reports 30.6 % via Ollama in the cliff table and 19/40 via llama-server [L92]"]},
+{"role":"own","name":"Qwen3.8-27B-IQ1_M-compact.gguf (llama-server)","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["backend caveat [L90-94]"]}
+],
+"prose":[{"entry":"Qwen3.8-27B-IQ1_M-compact.gguf (llama-server)","key":"bench:agentic_tasks","L":92,"raw":"19/40 (47.5 %)"}]}

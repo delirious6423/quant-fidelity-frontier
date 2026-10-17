@@ -1,0 +1,11 @@
+{"repo": "philbert440/Qwen3.8-27B-W4A16-AWQ",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "not stated", "dataset": "calibration: 256 samples @ 1024 tokens of real think traces; validation GSM8K sample 3/3", "ctx": "not stated", "tool": "llm-compressor AWQ g128", "L": [79, 80, 113]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B W4A16 (AWQ, g128)", "metrics": {}, "size": "c35", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["only quality evidence is a 3-problem GSM8K smoke test and MTP acceptance 92.5% at K=2 [L79-80,L146]", "official base benchmarks are not re-measured on this checkpoint [L90-92]"]},
+  {"role": "quoted", "name": "Qwen3.8-27B (BF16) official", "of": "Qwen/Qwen3.8-27B", "metrics": {"bench:TerminalBench2.1": "c11", "bench:SWE-bench_Pro": "c13", "bench:NL2Repo": "c15", "bench:GPQA_Diamond": "c17", "bench:HLE": "c19", "bench:LiveCodeBench_v6": "c21", "bench:IFBench": "c23", "bench:OmniDocBench_1.5": "c25", "bench:RealWorldQA": "c27", "bench:ERQA": "c29", "bench:OSWorld-Verified": "c31"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["base-model figures copied from the Qwen card, not quant measurements [L90-92]", "Qwen3.8 column is below the Qwen3.6 column on SWE-bench Pro, LiveCodeBench, IFBench and OSWorld in this table [L97,L101,L102,L106]"]}
+ ],
+ "prose": [
+  {"entry": "Qwen3.8-27B W4A16 (AWQ, g128)", "key": "bench:GSM8K_sample", "L": 80, "raw": "3/3"}
+ ]}

@@ -1,0 +1,7 @@
+{"repo":"ayushcluster00/Qwen3.8-27B-Heretic-Abliterated-Uncensored-GGUF-Config","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"Qwen3.8-27B base (KL vs base of the abliterated weights, not a quant comparison)","dataset":"100 harmful-behaviors prompts (refusals); imatrix over wikitext-2-raw / tiny_shakespeare","ctx":"not stated","tool":"heretic ARA","L":[124,125,168]},
+"entries":[
+{"role":"own","name":"RVN (this repo)","metrics":{"mean_kld":"c8"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["KL vs base measures abliteration damage, not quantization [L119,L126-130]","refusals 0-1/100 [L130]","file sizes in L136-163 are not tied to any quality metric"]},
+{"role":"cross","name":"trohrbaugh -ara (source)","of":"trohrbaugh/Qwen3.8-27B-heretic-ara","metrics":{"mean_kld":"c6"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["KL vs base of source abliteration [L129]"]}
+],
+"prose":[]}

@@ -1,0 +1,6 @@
+{"repo":"Pilcothink/Qwen3.8-27B-MixedInt4-AutoRound","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"original Qwen3.8-27B","dataset":"MMLU, GSM8K, ARC-Challenge, BoolQ, HellaSwag, PIQA, WinoGrande","ctx":"not stated","tool":"AutoRound evaluation interface with LM Evaluation Harness","L":[52,54]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-MixedInt4-AutoRound","metrics":{"bench:MMLU":"c4","bench:GSM8K flexible-extract":"c8","bench:GSM8K strict-match":"c54","bench:BoolQ":"c15","bench:HellaSwag":"c19","bench:PIQA":"c23","bench:WinoGrande":"c27","bench:Average":"c31"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["ARC-Challenge quantized score has no candidate id; difference 0.00 pp [L60]","group size 32 [L43]","[L58-65,L81-82]"]},
+{"role":"cross","name":"Qwen3.8-27B","of":"Qwen/Qwen3.8-27B","metrics":{"bench:MMLU":"c3","bench:GSM8K flexible-extract":"c7","bench:GSM8K strict-match":"c53","bench:ARC-Challenge":"c11","bench:BoolQ":"c14","bench:HellaSwag":"c18","bench:PIQA":"c22","bench:WinoGrande":"c26","bench:Average":"c30"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["original model measured by same harness [L58-65]"]}
+],"prose":[]}

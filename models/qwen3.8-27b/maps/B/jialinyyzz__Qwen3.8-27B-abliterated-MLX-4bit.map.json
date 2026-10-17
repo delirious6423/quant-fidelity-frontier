@@ -1,0 +1,7 @@
+{"repo":"jialinyyzz/Qwen3.8-27B-abliterated-MLX-4bit","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"original Qwen3.8-27B (bf16 master of abliteration)","dataset":"lm-eval-harness loglikelihood (ARC-Challenge, HellaSwag, Winogrande, OpenBookQA), GSM8K generative CoT","ctx":"not stated","tool":"lm-eval-harness; Heretic","L":[45,65,66]},
+"entries":[
+{"role":"own","name":"w177 abliterated (bf16 master, benchmarks)","of":"","metrics":{"mean_kld":"c1","bench:ARC-Challenge":"c5","bench:Winogrande":"c10","bench:OpenBookQA":"c13","bench:GSM8K":"c16"},"size":"c21","unit":"GB","basis":"disk","bpw":null,"flags":["KL 0.056 is orig vs abliterated, not quantization loss [L45]","benchmarks measured on bf16 master, not on the 4-bit file [L65-66]","HellaSwag w177 value not in candidates (delta 0.000) [L71]","4.695 bits/weight stated in prose [L32]"]},
+{"role":"cross","name":"original Qwen3.8-27B","of":"Qwen/Qwen3.8-27B","metrics":{"bench:ARC-Challenge":"c4","bench:HellaSwag":"c7","bench:Winogrande":"c9","bench:OpenBookQA":"c12","bench:GSM8K":"c15"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["baseline measured by card author [L70-74]"]}
+],
+"prose":[{"entry":"w177 abliterated (bf16 master, benchmarks)","key":"bpw","L":32,"raw":"4.695 bits/weight"}]}

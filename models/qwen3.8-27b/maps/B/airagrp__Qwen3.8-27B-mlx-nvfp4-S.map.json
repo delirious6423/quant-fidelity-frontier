@@ -1,0 +1,14 @@
+{"repo":"airagrp/Qwen3.8-27B-mlx-nvfp4-S","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 Qwen3.8-27B","dataset":"WikiText-2 raw test split (297,053 tokens)","ctx":"2048-token windows, fresh KV cache per window","tool":"benchmark_ppl_kld.py, mlx-vlm 0.6.17; KLD = mean per-token D_KL(p_bf16 || p_model) over full vocab","L":[74,88,89,90]},
+"entries":[
+{"role":"own","name":"nvfp4-S","of":"","metrics":{"mean_kld":"c6","ppl":"c4"},"size":"c3","unit":"GiB","basis":"disk","bpw":null,"flags":["ΔPPL +0.088 given as absolute difference, not percent, so left out [L79]","prose says ~21 GB / 5.9 bpw [L34] which conflicts with 19.15 GiB table size"]},
+{"role":"ladder","name":"nvfp4-M","of":"airagrp/Qwen3.8-27B-mlx-nvfp4-M","metrics":{"mean_kld":"c10","ppl":"c8"},"size":"c7","unit":"GiB","basis":"disk","bpw":null,"flags":["[L80]"]},
+{"role":"ladder","name":"nvfp4-L","of":"airagrp/Qwen3.8-27B-mlx-nvfp4-L","metrics":{"mean_kld":"c14","ppl":"c12"},"size":"c11","unit":"GiB","basis":"disk","bpw":null,"flags":["[L81]"]},
+{"role":"ladder","name":"mxfp8-S","of":"airagrp/Qwen3.8-27B-mlx-mxfp8-S","metrics":{"mean_kld":"c18","ppl":"c16"},"size":"c15","unit":"GiB","basis":"disk","bpw":null,"flags":["[L82]"]},
+{"role":"ladder","name":"nvfp4-XL","of":"airagrp/Qwen3.8-27B-mlx-nvfp4-XL","metrics":{"mean_kld":"c22","ppl":"c20"},"size":"c19","unit":"GiB","basis":"disk","bpw":null,"flags":["[L83]"]},
+{"role":"ladder","name":"mxfp8-M","of":"airagrp/Qwen3.8-27B-mlx-mxfp8-M","metrics":{"mean_kld":"c26","ppl":"c24"},"size":"c23","unit":"GiB","basis":"disk","bpw":null,"flags":["[L84]"]},
+{"role":"ladder","name":"mxfp8-L","of":"airagrp/Qwen3.8-27B-mlx-mxfp8-L","metrics":{"mean_kld":"c30","ppl":"c28"},"size":"c27","unit":"GiB","basis":"disk","bpw":null,"flags":["[L85]"]},
+{"role":"ladder","name":"mxfp8-XL","of":"airagrp/Qwen3.8-27B-mlx-mxfp8-XL","metrics":{"mean_kld":"c34","ppl":"c32"},"size":"c31","unit":"GiB","basis":"disk","bpw":null,"flags":["[L86]"]},
+{"role":"ladder","name":"Qwen3.8-27B bf16 reference","of":"Qwen/Qwen3.8-27B","metrics":{"ppl":"c2"},"size":"c1","unit":"GiB","basis":"disk","bpw":null,"flags":["reference [L78]"]}
+],
+"prose":[]}

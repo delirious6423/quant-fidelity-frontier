@@ -1,0 +1,10 @@
+{"repo":"Youssofal/Qwen3.8-27B-MTPLX-Optimized-Speed-FP16","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 Qwen3.8-27B checkpoint","dataset":"2,389 positions of code, prose, JSON and a multilingual notice, teacher-forced","ctx":"not stated","tool":"MTPLX 2.11.3","L":[68]},
+"entries":[
+{"role":"own","name":"Optimized Speed FP16 (4-bit dynamic)","metrics":{"mean_kld":"c12.1"},"size":"c5","unit":"GB","basis":"disk","bpw":null,"flags":["quality numbers are for the parent Optimized Speed pack; this FP16 build has the same weights [L76]","peak unified memory 23.6 GB c6 measured on M5 Max [L83]"]},
+{"role":"ladder","name":"Optimized Quality (8-bit dynamic)","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["parent pack figures [L68]"]}
+],
+"prose":[
+{"entry":"Optimized Speed FP16 (4-bit dynamic)","key":"top1_pct","L":68,"raw":"96.0 percent top-1"},
+{"entry":"Optimized Quality (8-bit dynamic)","key":"top1_pct","L":68,"raw":"99.3 percent"},
+{"entry":"Optimized Quality (8-bit dynamic)","key":"mean_kld","L":68,"raw":"KL 0.0005"}]}

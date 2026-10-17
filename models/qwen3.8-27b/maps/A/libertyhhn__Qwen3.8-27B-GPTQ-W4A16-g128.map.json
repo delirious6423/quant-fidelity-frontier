@@ -1,0 +1,7 @@
+{"repo":"libertyhhn/Qwen3.8-27B-GPTQ-W4A16-g128","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"Dense bf16 of same model, same pipeline","dataset":"wikitext-2 test (12 windows of 2,048 tokens); MMLU up to 512 questions per subject (12,233 total, no chat template); GSM8K full test 1,319, flexible-extract, chat template, thinking off","ctx":"2,048-token windows for perplexity","tool":"vLLM 0.31.0 and lm-eval 0.4.13, bf16 activations","L":[48,57,58,60]},
+"entries":[
+{"role":"own","name":"GPTQ W4A16 g128 (This model)","metrics":{"ppl:wikitext2":"c2","bench:MMLU 0-shot":"c4","bench:MMLU 5-shot":"c7","bench:GSM8K":"c10"},"size":"c26","unit":"GB","basis":"disk","bpw":null,"flags":["Weights file 18.6 GB from prose [L24]","Paired differences with 95% intervals reported in table [L53-55], not mapped (no matching key)"]},
+{"role":"ladder","name":"Dense (bf16)","metrics":{"ppl:wikitext2":"c1","bench:MMLU 0-shot":"c3","bench:MMLU 5-shot":"c6","bench:GSM8K":"c9"},"size":"c29","unit":"GB","basis":"disk","bpw":null,"flags":["Dense bf16 size 55.6 GB from prose [L24]"]}
+],
+"prose":[]}

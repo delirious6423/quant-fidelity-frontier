@@ -1,0 +1,10 @@
+{"repo": "Archsloth/Qwen3.8-27B-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "bf16 original, KL divergence from bf16 (lower is better)", "dataset": "held-out Korean and English text not in calibration set", "ctx": "ctx 512, 60 chunks", "tool": "llama-perplexity --kl-divergence", "L": [79, 80, 161, 162, 165, 166]},
+ "entries": [
+  {"role": "own", "name": "ARCHsloth Q6_K", "metrics": {"kld:korean": "c4", "kld:english": "c5"}, "size": "c3", "unit": "bytes", "basis": "disk", "bpw": null, "flags": ["file size 22.43 GB (c1) [L66]"]},
+  {"role": "cross", "name": "unsloth UD-Q6_K", "of": "unsloth/Qwen3.8-27B-GGUF", "metrics": {"kld:korean": "c7", "kld:english": "c8"}, "size": "c6", "unit": "bytes", "basis": "disk", "bpw": null, "flags": ["[L87]"]},
+  {"role": "cross", "name": "unsloth UD-Q6_K_M", "of": "unsloth/Qwen3.8-27B-GGUF", "metrics": {"kld:korean": "c10", "kld:english": "c11"}, "size": "c9", "unit": "bytes", "basis": "disk", "bpw": null, "flags": ["[L88]; keeps English lead, 2.9 percent larger file [L141]"]}
+ ],
+ "prose": []}

@@ -1,0 +1,9 @@
+{"repo": "OptimizeLLM/Qwen3.8-27B-heretic-MTP-FP8",
+ "no_quality_claims": true,
+ "no_claims_reason": "only size/speed figures; the KL 0.065 is abliteration drift vs base on harmless prompts, not a quantization-fidelity number [L29, L68-69]",
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": []},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B-heretic-MTP-FP8", "metrics": {}, "size": "c2", "unit": "GB", "basis": "vram", "bpw": null, "flags": ["~30GB weights on GPU [L69]; prose says Size 30GB [L31]", "KL 0.065 against base on harmless prompts measures abliteration, not FP8 quantization [L29]", "MTP acceptance rate 0.68 is a speed metric [L68]"]}
+ ],
+ "prose": []
+}

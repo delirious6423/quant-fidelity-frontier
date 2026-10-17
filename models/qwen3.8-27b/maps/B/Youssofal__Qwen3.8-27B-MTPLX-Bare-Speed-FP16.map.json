@@ -1,0 +1,13 @@
+{"repo":"Youssofal/Qwen3.8-27B-MTPLX-Bare-Speed-FP16",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"bf16 Qwen3.8-27B checkpoint","dataset":"2,389 positions of code, prose, JSON and a multilingual notice","ctx":"teacher-forced; context length not stated","tool":"MTPLX 2.11.3","L":[69]},
+"entries":[
+{"role":"own","name":"Bare Speed FP16","metrics":{},"size":"c5","unit":"GB","basis":"disk","bpw":null,"flags":["no quality figure for this FP16 build itself; quality line covers sibling packs [L69]","size labelled Download; peak unified memory 17.0 GB c6 measured on parent [L83-84]"]},
+{"role":"ladder","name":"Optimized Speed (4-bit dynamic)","metrics":{"mean_kld":"c10.1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["pack quality measured on a sibling pack, not this repo's weights [L69]"]},
+{"role":"ladder","name":"Optimized Quality (8-bit dynamic)","metrics":{"mean_kld":"c9"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["c9 cell text starts with KL 0.0005 [L69]","pack quality measured on a sibling pack [L69]"]}
+],
+"prose":[
+{"entry":"Optimized Speed (4-bit dynamic)","key":"top1_pct","L":69,"raw":"96.0 percent top-1 agreement"},
+{"entry":"Optimized Quality (8-bit dynamic)","key":"top1_pct","L":69,"raw":"99.3 percent"}
+]}

@@ -1,0 +1,12 @@
+{"repo":"ubergarm/Qwen3.8-27B-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 (PPL 6.9540)","dataset":"not stated (ubergarm imatrix corpus is for calibration)","ctx":"n_ctx=512, 580 chunks","tool":"ik_llama.cpp","L":[34,36,39,145]},
+"entries":[
+{"role":"ladder","name":"BF16","metrics":{},"size":"c1","unit":"GiB","basis":"disk","bpw":null,"flags":["16.002 BPW stated [L33]; test quant not available for download [L32]"]},
+{"role":"ladder","name":"Q8_0","metrics":{},"size":"c7","unit":"GiB","basis":"disk","bpw":null,"flags":["8.502 BPW stated [L35]; test quant not available for download [L32]"]},
+{"role":"own","name":"MTP IQ4_KS","metrics":{},"size":"c13","unit":"GiB","basis":"disk","bpw":null,"flags":["4.731 BPW stated [L38]; size includes iq4_ks MTP head"]}
+],
+"prose":[
+{"entry":"BF16","key":"ppl","L":34,"raw":"6.9540"},
+{"entry":"Q8_0","key":"ppl","L":36,"raw":"6.9554"},
+{"entry":"MTP IQ4_KS","key":"ppl","L":39,"raw":"6.9938"}
+]}

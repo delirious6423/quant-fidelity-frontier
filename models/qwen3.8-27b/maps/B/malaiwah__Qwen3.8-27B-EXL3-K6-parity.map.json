@@ -1,0 +1,11 @@
+{"repo": "malaiwah/Qwen3.8-27B-EXL3-K6-parity",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "BF16 reference capture; paired per-context KL(BF16 || candidate) with one shared BF16 lm_head, cluster bootstrap 10,000 resamples", "dataset": "shard 0 of the v5 held-out suite: 512 contexts, 1,048,064 scored positions, 330 source clusters", "ctx": "2,048 tokens per context", "tool": "vLLM capture + replay (tools/fidelity.py); llama.cpp for the GGUF row (engines differ)", "L": [19, 20, 21, 22, 102, 103, 104]},
+ "entries": [
+  {"role": "own", "name": "K6-parity (this build)", "metrics": {"mean_kld": "c9", "top1_pct": "c13"}, "size": "c14", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["shard 0 only (512 of 5,120 contexts) [L153]", "payload bytes, not VRAM [L109]", "pre-registered prediction missed; parity verdict withdrawn [L25, L141]", "p99.9 and max columns omitted (no metric key)"]},
+  {"role": "ladder", "name": "hydrated K5/K6", "metrics": {"mean_kld": "c15", "top1_pct": "c19"}, "size": "c20", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["same engine and reference capture as this build [L113]", "[L110]"]},
+  {"role": "cross", "name": "GGUF Q6_K (llama.cpp)", "of": "not named on card", "metrics": {"mean_kld": "c21", "top1_pct": "c23"}, "size": "c24", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["different engine (llama.cpp vs vLLM): complete-pipeline comparison only, cross-engine control 0.000507 not subtracted [L25, L116-119]", "[L111]"]}
+ ],
+ "prose": []
+}

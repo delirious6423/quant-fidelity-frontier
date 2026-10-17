@@ -1,0 +1,67 @@
+{
+ "repo": "talxcc/Tals-coder-flash-01",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "unsloth Q4_K_M (100% baseline)",
+  "dataset": "HumanEval, MBPP, multi-file generation, refactoring; MMLU, GSM8k (named, no per-bench scores)",
+  "ctx": "not stated",
+  "tool": "not stated",
+  "L": [
+   47,
+   48,
+   61
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "Tals-coder-flash-01",
+   "metrics": {
+    "bench:Coding_Retention": "c12",
+    "bench:General_vs_Q4_K_M_pts_a": "c13.0",
+    "bench:General_vs_Q4_K_M_pts_b": "c13.1"
+   },
+   "size": "c11",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c18",
+   "flags": [
+    "retention % vs Q4_K_M with no per-benchmark scores or method [L47-48,65]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Unsloth Q4_K_M (Standard)",
+   "of": "unsloth (repo not named on card)",
+   "metrics": {
+    "bench:Coding_Retention": "c2"
+   },
+   "size": "c1",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c16",
+   "flags": [
+    "baseline row; General Benches cell is 'Baseline (100%)' [L63]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Standard Q3_K_L",
+   "of": "not named on card",
+   "metrics": {
+    "bench:Coding_Retention": "c7",
+    "bench:General_vs_Q4_K_M_pts_a": "c8.0",
+    "bench:General_vs_Q4_K_M_pts_b": "c8.1"
+   },
+   "size": "c6",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c17",
+   "flags": [
+    "[L64]"
+   ]
+  }
+ ],
+ "prose": []
+}

@@ -1,0 +1,20 @@
+{"repo":"mudler/Qwen3.8-27B-APEX-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"BF16 reference logits","dataset":"wikitext-2-raw, 200 chunks; imatrix from diverse chat/code/reasoning/tool/agentic/Wikipedia data, 200 chunks","ctx":"512","tool":"llama.cpp KL; 19 arms sharing one imatrix and one reference cache","L":[103,105]},
+"entries":[
+{"role":"own","name":"APEX Balanced (trunk-only comparison arm)","metrics":{"mean_kld":"c7"},"size":"c6","unit":"GB","basis":"disk","bpw":null,"flags":["Comparison arm, not a published file; published files carry an MTP head and are about 0.45 GB larger [L69]","14.0% worse than the flat control at the same size [L60]"]},
+{"role":"ladder","name":"flat per-role allocation at Balanced size","metrics":{"mean_kld":"c8"},"size":"c6","unit":"GB","basis":"disk","bpw":null,"flags":["Interpolated flat curve to the arm's exact size [L56]"]},
+{"role":"own","name":"APEX Compact (trunk-only comparison arm)","metrics":{"mean_kld":"c11"},"size":"c10","unit":"GB","basis":"disk","bpw":null,"flags":["[L61]"]},
+{"role":"ladder","name":"flat per-role allocation at Compact size","metrics":{"mean_kld":"c12"},"size":"c10","unit":"GB","basis":"disk","bpw":null,"flags":["[L61]"]},
+{"role":"own","name":"APEX Mini (trunk-only comparison arm)","metrics":{"mean_kld":"c14"},"size":"c13","unit":"GB","basis":"disk","bpw":null,"flags":["25.0% better than flat control [L62]"]},
+{"role":"ladder","name":"flat per-role allocation at Mini size","metrics":{"mean_kld":"c15"},"size":"c13","unit":"GB","basis":"disk","bpw":null,"flags":["[L62]"]},
+{"role":"own","name":"APEX Nano (trunk-only comparison arm)","metrics":{"mean_kld":"c18"},"size":"c17","unit":"GB","basis":"disk","bpw":null,"flags":["22.1% better than flat control [L63]"]},
+{"role":"ladder","name":"flat per-role allocation at Nano size","metrics":{"mean_kld":"c19"},"size":"c17","unit":"GB","basis":"disk","bpw":null,"flags":["[L63]"]},
+{"role":"own","name":"Qwen3.8-27B-APEX-I-Mini.gguf","metrics":{},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["Published file with MTP head; KL measured on the trunk-only arm [L32, L69]"]},
+{"role":"own","name":"Qwen3.8-27B-APEX-I-Nano.gguf","metrics":{},"size":"c3","unit":"GB","basis":"disk","bpw":null,"flags":["Published file with MTP head; KL measured on the trunk-only arm [L33, L69]"]},
+{"role":"ladder","name":"flat per-role Q6_K","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Perplexity not quoted per file; stated not to separate the files [L105]"]}
+],
+"prose":[
+{"entry":"flat per-role Q6_K","key":"mean_kld","L":65,"raw":"0.0021"}
+]}

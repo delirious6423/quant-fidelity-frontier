@@ -1,0 +1,11 @@
+{"repo": "Chungulus/Qwen3.8-27B-MLX-8bit-Group32",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "BF16 fixed-logit comparison on fixed original text, 106 positions; BF16 log-probs stored as float16", "dataset": "fixed original text, not a public benchmark", "ctx": "not stated", "tool": "mlx-vlm 0.6.1 validation_result.json", "L": [121, 122, 124, 131, 132]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B MLX-8bit-Group32", "metrics": {"ppl": "c9", "top1_pct": "c11.1"}, "size": "c1", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["top1 is a fraction 0.9811, not percent [L128]", "only 106 positions [L122]", "perplexity_delta 0.0060 absolute (c10) [L127]"]},
+  {"role": "ladder", "name": "BF16 reference", "metrics": {"ppl": "c8"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["reference perplexity [L125]"]}
+ ],
+ "prose": [
+  {"entry": "Qwen3.8-27B MLX-8bit-Group32", "key": "mean_kld", "L": 124, "raw": "0.0003183703201840509"}
+ ]}

@@ -1,0 +1,6 @@
+{"repo":"caiovicentino1/Qwen3.8-27B-GPTQ-gs64-FOEM","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"none (no BF16 baseline run)","dataset":"C4 perplexity 40 docs / 16,683 tokens; HellaSwag 20, ARC-C 20, MMLU 8 q x 4 subjects, GSM8K 12 samples","ctx":"not stated","tool":"gptqmodel 6.0.3 + transformers 5.15.0, RTX PRO 6000","L":[78,80,84,97]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-GPTQ-gs64-FOEM","metrics":{"ppl:C4":"c3","bench:HellaSwag":"c4","bench:ARC-Challenge":"c5","bench:MMLU":"c6","bench:GSM8K":"c11"},"size":"c12","unit":"GB","basis":"disk","bpw":null,"flags":["tiny sub-samples, indicative only [L97]","no BF16 baseline [L80]","4-bit gs64 with fp16/bf16 skip-list layers [L37]"]}
+],
+"prose":[]}

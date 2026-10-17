@@ -1,0 +1,8 @@
+{"repo":"PassingByPixels/Qwen3.8-27B-NVFP4",
+"no_quality_claims":true,
+"no_claims_reason":"card explicitly states no quality evaluation was run; only size and throughput [L29-30,L201-203]",
+"method":{"reference":"not stated","dataset":"cnn_dailymail (calibration only, 512 samples)","ctx":"2048 (calibration sequence length)","tool":"NVIDIA TensorRT Model Optimizer 0.45.0","L":[23,24,187,194]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-NVFP4","metrics":{},"size":"c2","unit":"GiB","basis":"disk","bpw":null,"flags":["bf16 source is 51.75 GiB c1 [L230]","mixed-precision checkpoint, not uniformly 4-bit [L41]"]}
+],
+"prose":[]}

@@ -1,0 +1,9 @@
+{"repo":"ddalcu/Qwen3.8-27B-MLX-Serve-6bit","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16","dataset":"64 held-out windows x 32 sampled positions (2048 distributions)","ctx":"not stated","tool":"not stated (top-1 agreement and mean KL(bf16 || pack); SE 0.4-0.9 points)","L":[50]},
+"entries":[
+{"role":"own","name":"6-bit (this one)","metrics":{"top1_pct":"c38","mean_kld":"c39"},"size":"c37","unit":"GB","basis":"disk","bpw":null,"flags":["gs-64 ablation of 95.5% top-1 / KL 0.056 vs 93.4% / 0.088 for gs-128 is a different run, not used [L25]","6.50 bits per weight averaged [L21]"]},
+{"role":"ladder","name":"8-bit","of":"ddalcu/Qwen3.8-27B-MLX-Serve-8bit","metrics":{"top1_pct":"c34","mean_kld":"c35"},"size":"c33","unit":"GB","basis":"disk","bpw":null,"flags":["repo id inferred from link text, not verified"]},
+{"role":"ladder","name":"4-bit","metrics":{"top1_pct":"c43","mean_kld":"c44"},"size":"c42","unit":"GB","basis":"disk","bpw":null,"flags":[]},
+{"role":"ladder","name":"iQ-MLX 3.8bpw","metrics":{"top1_pct":"c48","mean_kld":"c49"},"size":"c47","unit":"GB","basis":"disk","bpw":"c51","flags":[]}
+],
+"prose":[{"entry":"6-bit (this one)","key":"bpw","L":21,"raw":"6.50 bits per weight"}]}

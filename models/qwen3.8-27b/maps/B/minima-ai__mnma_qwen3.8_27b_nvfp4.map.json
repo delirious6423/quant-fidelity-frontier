@@ -1,0 +1,7 @@
+{"repo":"minima-ai/mnma_qwen3.8_27b_nvfp4","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 model served identically","dataset":"WikiText-2 PPL at 4K/32K, MMLU-Pro, GSM8K, AIME'25, GPQA-Diamond, LiveCodeBench v6, RULER NIAH","ctx":"4K and 32K","tool":"vLLM 0.27.1, TP=1, one 96 GB RTX PRO 6000, FP8 KV cache","L":[69,70,85,86]},
+"entries":[
+{"role":"own","name":"mnma Qwen3.8-27B NVFP4","of":"","metrics":{"ppl:wikitext-2@4K":"c2.0","ppl:wikitext-2@32K":"c2.1","bench:MMLU-Pro":"c4","bench:GPQA-Diamond":"c8","bench:LiveCodeBench-v6":"c10"},"size":"c13","unit":"GiB","basis":"vram","bpw":null,"flags":["this-model cells for GSM8K and AIME'25 are not in the candidate list; left out [L76-77]","task rows measured on scale-free twin checkpoint (identical weights) [L85-88]","perplexity gap +0.73 @4K, +0.15 @32K stated [L89]"]},
+{"role":"ladder","name":"BF16","of":"not named on card","metrics":{"ppl:wikitext-2@4K":"c1.0","ppl:wikitext-2@32K":"c1.1","bench:MMLU-Pro":"c3","bench:GSM8K":"c5","bench:AIME25":"c6","bench:GPQA-Diamond":"c7","bench:LiveCodeBench-v6":"c9"},"size":"c12","unit":"GiB","basis":"vram","bpw":null,"flags":["reference [L72-83]"]}
+],
+"prose":[]}

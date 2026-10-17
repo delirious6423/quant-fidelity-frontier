@@ -1,0 +1,11 @@
+{"repo":"Freaksterz/Qwen3.8-27B-SmoothQuant-W8A8-INT8","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 captured offline with transformers","dataset":"WikiText-2, 240 x 512-token windows = 122,640 positions","ctx":"512-token windows","tool":"teacher-forced full-vocab KLD (top-K 512 with tail bound), candidates served through vLLM; floor-free paired estimator","L":[21,24]},
+"entries":[
+{"role":"own","name":"v3 W8A8 (main)","metrics":{"mean_kld":"c6","top1_pct":"c8"},"size":"c50","unit":"GB","basis":"disk","bpw":null,"flags":["floor-free KLD 0.00371 (c7), PPL delta-ln +0.0030 (c9) and DFlash2 acceptance length 4.34 (c10) also in table [L29]","size from prose, 29 GB on disk [L103]"]},
+{"role":"ladder","name":"v2-rotated W8A8","metrics":{"mean_kld":"c14","top1_pct":"c16"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["floor-free KLD c15, PPL delta-ln c17 [L31]; breaks DFlash2 [L16]"]},
+{"role":"ladder","name":"v1-smoothquant-rtn W8A8","metrics":{"mean_kld":"c19","top1_pct":"c20"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["same table [L32]"]},
+{"role":"cross","name":"Minachist W8A16 AutoRound gs128 (weight-only)","of":"not named on card","metrics":{"mean_kld":"c1","top1_pct":"c3"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["measured on same harness [L19, L28]"]},
+{"role":"cross","name":"Qwen official FP8 (block-128)","of":"Qwen/Qwen3.8-27B-FP8","metrics":{"mean_kld":"c11","top1_pct":"c13"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["repo named in prose [L10]; measured on same harness [L30]"]},
+{"role":"cross","name":"lokeshe09 INT8 W8A8 (264 modules)","of":"not named on card","metrics":{"mean_kld":"c22","top1_pct":"c23"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["measured on same harness [L33]"]}
+],
+"prose":[]}

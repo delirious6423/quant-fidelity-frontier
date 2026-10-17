@@ -1,0 +1,14 @@
+{"repo":"notnaurw/Qwen3.8-27B-oQ5e-SAGE-mtp",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"bf16 source checkpoint (common reference cache)","dataset":"32 held-out batches / 130,944 tokens; full-vocab audit 64 x 1024 tokens","ctx":"not stated","tool":"not stated","L":[200,202,217]},
+"entries":[
+{"role":"own","name":"SAGE oQ5e mtp (shipped build)","metrics":{"mean_kld":"c39.0","top1_pct":"c39.2"},"size":"c1","unit":"GB","basis":"disk","bpw":"c7.1","flags":["mean_kld is head-KL over bf16 top-1024 logits, not full-vocab KL [L200]","top-1 agreement is a fraction (0.9523), not a percent [L264]","per-rung HTML tables (stock, ladder, top-5, ppl ratio) have no candidate ids; only prose values mapped","21.13 GB (19.68 GiB) shipped size incl. bf16 MTP head [L77]"]},
+{"role":"ladder","name":"stock 6-bit build","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["+2.87 GiB over shipped build [L262]"]},
+{"role":"ladder","name":"uniform affine 8-bit reference","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["+8.68 GiB over shipped build [L262]"]}
+],
+"prose":[
+{"entry":"SAGE oQ5e mtp (shipped build)","key":"kld:full_vocab","L":255,"raw":"0.011516"},
+{"entry":"stock 6-bit build","key":"mean_kld","L":262,"raw":"0.00593"},
+{"entry":"uniform affine 8-bit reference","key":"mean_kld","L":262,"raw":"0.00306"}
+]}

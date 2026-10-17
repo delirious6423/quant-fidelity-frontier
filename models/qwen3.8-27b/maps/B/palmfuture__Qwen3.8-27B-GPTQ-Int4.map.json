@@ -1,0 +1,8 @@
+{"repo":"palmfuture/Qwen3.8-27B-GPTQ-Int4","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"not stated","dataset":"calibration mix: allenai/c4, tulu-3-sft-mixture, codeparrot, MATH-500, wikimedia/wikipedia (incl. Thai)","ctx":"not stated","tool":"GPTQ per-module reconstruction loss (llm-compressor-style), 4x RTX 3060","L":[32,38,57,65]},
+"entries":[
+{"role":"own","name":"GPTQ Int4 (group_size=32)","of":"","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["GPTQ success rate 100%, RTN fallback 0%, 400 modules [L34-38]","benchmark tables at L180-345 are the official Qwen3.8-27B results, not this quant; omitted","no fidelity metric (KLD/PPL) versus a reference stated"]}
+],
+"prose":[
+{"entry":"GPTQ Int4 (group_size=32)","key":"bench:GPTQ_loss_mean","L":36,"raw":"1.59e-04"},
+{"entry":"GPTQ Int4 (group_size=32)","key":"bench:GPTQ_loss_max","L":37,"raw":"9.22e-04"}]}

@@ -1,0 +1,33 @@
+{
+ "repo": "curvedinf/Qwen3.8-27B-GPTQ-INT8-W8A8-GS128",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "gs32 reference checkpoint (not BF16)",
+  "dataset": "not stated",
+  "ctx": "not stated",
+  "tool": "teacher-forced KL-divergence sweep over 6 precision configurations",
+  "L": [
+   47,
+   48,
+   49
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "GPTQ INT8 W8A8 GS128",
+   "metrics": {
+    "mean_kld": "c4.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c1",
+   "flags": [
+    "KLD measured vs the gs32 reference, not vs BF16 [L48]; group size 128 (c2) [L35]; gate 0.02 and +0.0032 activation-quant KLD stated in prose"
+   ]
+  }
+ ],
+ "prose": []
+}

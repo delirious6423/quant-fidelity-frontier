@@ -1,0 +1,11 @@
+{"repo":"TelperionAI/Qwen3.8-27B-EXL3-5.5bpw","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 base","dataset":"231 documents, 142,727 scored token positions","ctx":"not stated","tool":"next-token disagreement vs BF16 base, bucketed by base top1-top2 logprob margin; paired McNemar n=33,812","L":[23,24,43,91]},
+"entries":[
+{"role":"own","name":"EXL3 5.5 bpw (this model, AWQ-smoothed)","metrics":{"top1_pct":"c21","bench:confident disagreement pct":"c24"},"size":"c20","unit":"GB","basis":"disk","bpw":"c19","flags":["[L31]","near-tie/moderate/certain/divmed columns and KV-cache table (L132-134) not mapped","confident is the pre-registered decider, lower is better [L126]"]},
+{"role":"ladder","name":"EXL3 4.0 bpw","metrics":{"top1_pct":"c48","bench:confident disagreement pct":"c51"},"size":"c47","unit":"GB","basis":"disk","bpw":"c46","flags":["sibling checkpoint in series [L34]"]},
+{"role":"ladder","name":"EXL3 4.0 bpw, no AWQ pre-pass","metrics":{"top1_pct":"c57","bench:confident disagreement pct":"c60"},"size":"c56","unit":"GB","basis":"disk","bpw":"c55","flags":["[L35]"]},
+{"role":"ladder","name":"EXL3 6.5 bpw","metrics":{"top1_pct":"c12","bench:confident disagreement pct":"c15"},"size":"c11","unit":"GB","basis":"disk","bpw":"c10","flags":["sibling checkpoint in series [L30]"]},
+{"role":"ladder","name":"TelperionAI INT4-AWQ-GPTQ (vLLM)","metrics":{"top1_pct":"c3","bench:confident disagreement pct":"c6"},"size":"c2","unit":"GB","basis":"disk","bpw":"c1","flags":["publisher's own comparison build [L29]"]},
+{"role":"ladder","name":"TelperionAI NVFP4 (vLLM)","metrics":{"top1_pct":"c39","bench:confident disagreement pct":"c42"},"size":"c38","unit":"GB","basis":"disk","bpw":"c37","flags":["publisher's own comparison build [L33]"]},
+{"role":"cross","name":"Qwen FP8 (reference, vLLM)","of":"not named on card","metrics":{"top1_pct":"c30","bench:confident disagreement pct":"c33"},"size":"c29","unit":"GB","basis":"disk","bpw":"c28","flags":["size ~30 GB [L32]"]}
+],"prose":[]}

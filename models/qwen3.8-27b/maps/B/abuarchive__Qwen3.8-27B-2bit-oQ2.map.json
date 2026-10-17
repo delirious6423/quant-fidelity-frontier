@@ -1,0 +1,60 @@
+{
+ "repo": "abuarchive/Qwen3.8-27B-2bit-oQ2",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "official 4-bit release (mlx-community/Qwen3.8-27B-4bit)",
+  "dataset": "40 held-out samples of allenai/tulu-3-sft-mixture; 16-prompt battery",
+  "ctx": "sequence length 256, seed 42; greedy, 300-token budget",
+  "tool": "MLX perplexity",
+  "L": [
+   25,
+   27
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "oQ2 (this model)",
+   "metrics": {
+    "ppl": "c6"
+   },
+   "size": "c2",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c4",
+   "flags": [
+    "perplexity has +- error [L31]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "4-bit (mlx-community)",
+   "metrics": {
+    "ppl": "c5"
+   },
+   "size": "c1",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c3",
+   "flags": [
+    "[L29-31]"
+   ],
+   "of": "mlx-community/Qwen3.8-27B-4bit"
+  }
+ ],
+ "prose": [
+  {
+   "entry": "oQ2 (this model)",
+   "key": "bench:prompt_battery_completed_of_16",
+   "L": 35,
+   "raw": "completed 8"
+  },
+  {
+   "entry": "4-bit (mlx-community)",
+   "key": "bench:prompt_battery_completed_of_16",
+   "L": 35,
+   "raw": "completed 15 of 16 prompts"
+  }
+ ]
+}

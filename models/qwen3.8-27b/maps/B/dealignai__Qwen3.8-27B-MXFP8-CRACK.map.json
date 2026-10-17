@@ -1,0 +1,10 @@
+{"repo":"dealignai/Qwen3.8-27B-MXFP8-CRACK","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"unmodified base model on the identical harness","dataset":"MMLU 57-subject (logit mode); HarmBench harm-240","ctx":"not stated","tool":"MLX runtime","L":[77,78,110,111,112]},
+"entries":[
+{"role":"own","name":"MXFP8 CRACK","metrics":{"bench:MMLU":"c2","bench:HarmBench-240":"c3"},"size":"c19","unit":"GB","basis":"disk","bpw":null,"flags":["CRACK is an abliteration, MMLU deltas measure that edit [L85]","HarmBench value is compliance (ASR) [L83]"]},
+{"role":"cross","name":"Base (unmodified)","of":"not named on card","metrics":{"bench:MMLU":"c1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["same table [L82]"]},
+{"role":"ladder","name":"2D CRACK","of":"not named on card","metrics":{"bench:MMLU":"c6","bench:HarmBench-240":"c8"},"size":"c4","unit":"GB","basis":null,"bpw":null,"flags":["base MMLU 80.0% on this row [L116]; base differs per row"]},
+{"role":"ladder","name":"4D CRACK","of":"not named on card","metrics":{"bench:MMLU":"c11","bench:HarmBench-240":"c13"},"size":"c9","unit":"GB","basis":null,"bpw":null,"flags":["base MMLU 88.77% on this row [L117]"]},
+{"role":"ladder","name":"6D CRACK","of":"not named on card","metrics":{"bench:MMLU":"c16","bench:HarmBench-240":"c18"},"size":"c14","unit":"GB","basis":null,"bpw":null,"flags":["base MMLU 88.77% on this row [L118]"]}
+],
+"prose":[]}

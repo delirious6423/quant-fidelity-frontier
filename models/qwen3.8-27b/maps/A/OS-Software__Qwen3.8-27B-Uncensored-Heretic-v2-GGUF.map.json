@@ -1,0 +1,9 @@
+{"repo":"OS-Software/Qwen3.8-27B-Uncensored-Heretic-v2-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"Original Qwen/Qwen3.8-27B","dataset":"new custom mixed-language dataset (Japanese-language sets used for KLD and refusal rate)","ctx":"not stated","tool":"Heretic v1.4.0+custom, ARA method","L":[13,30,35]},
+"entries":[
+{"role":"own","name":"Uncensored-Heretic-v2 (this model)","metrics":{"mean_kld":"c47"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["KL divergence here measures the abliterated model vs the original, not quantization loss [L33]","Refusal keywords score is 0/100 for this model vs 98/100 original; not a fidelity metric [L32]","No per-quant GGUF sizes or quant levels listed in the card"]},
+{"role":"ladder","name":"Original Qwen/Qwen3.8-27B (reference)","metrics":{"mean_kld":"c48"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["KL 0 by definition [L33]"]}
+],
+"prose":[]}

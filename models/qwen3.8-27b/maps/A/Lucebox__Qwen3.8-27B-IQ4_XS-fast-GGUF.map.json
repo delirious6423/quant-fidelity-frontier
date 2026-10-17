@@ -1,0 +1,58 @@
+{
+ "repo": "Lucebox/Qwen3.8-27B-IQ4_XS-fast-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "Q8_0 of Qwen3.8-27B",
+  "dataset": "wikitext-2 (300 x 512-token chunks) for KLD/PPL; HumanEval-164 and GSM8K first 200 through serving path",
+  "ctx": "512-token chunks",
+  "tool": "llama.cpp paired KL; lucebox serving path with exact-verify speculation",
+  "L": [
+   19
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "pure IQ4_XS (this file)",
+   "metrics": {
+    "ppl_delta_pct": "c3",
+    "mean_kld": "c5",
+    "top1_pct": "c7",
+    "bench:HumanEval_passed": "c9.0",
+    "bench:HumanEval_total": "c9.1",
+    "bench:GSM8K200_passed": "c11.0",
+    "bench:GSM8K200_total": "c11.1"
+   },
+   "size": "c1",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "requantized from bartowski imatrix IQ4_XS with --pure [L17]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Unsloth UD-IQ4_XS",
+   "of": "unsloth/Qwen3.8-27B-GGUF",
+   "metrics": {
+    "ppl_delta_pct": "c4",
+    "mean_kld": "c6",
+    "top1_pct": "c8",
+    "bench:HumanEval_passed": "c10.0",
+    "bench:HumanEval_total": "c10.1",
+    "bench:GSM8K200_passed": "c12.0",
+    "bench:GSM8K200_total": "c12.1"
+   },
+   "size": "c2",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "measured by card author as comparison [L21]"
+   ]
+  }
+ ],
+ "prose": []
+}

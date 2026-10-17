@@ -1,0 +1,9 @@
+{"repo":"TelperionAI/Qwen3.8-27B-NVFP4-AWQ-GPTQ","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 base model","dataset":"142,727 tokens of self-distilled thinking-mode output plus 200 free greedy generations","ctx":"not stated","tool":"vLLM 0.27.1, TP=2, 2xB300","L":[51,52,66]},
+"entries":[
+{"role":"own","name":"this model (NVFP4+AWQ)","metrics":{"top1_pct":"c10","bench:disagree near-tie":"c11","bench:disagree moderate":"c12","bench:disagree confident":"c13","bench:disagree certain":"c14"},"size":"c9","unit":"GB","basis":"disk","bpw":null,"flags":["size includes ~0.85 GB BF16 MTP head [L63]","perplexity deliberately excluded [L74]"]},
+{"role":"cross","name":"Qwen/Qwen3.8-27B-FP8 (8-bit ref)","of":"Qwen/Qwen3.8-27B-FP8","metrics":{"top1_pct":"c2","bench:disagree near-tie":"c3","bench:disagree moderate":"c4","bench:disagree confident":"c5","bench:disagree certain":"c6"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["reference at different precision, excluded from comparison [L62]"]},
+{"role":"cross","name":"RadixArk/Qwen3.8-27B-NVFP4","of":"RadixArk/Qwen3.8-27B-NVFP4","metrics":{"top1_pct":"c18","bench:disagree near-tie":"c19","bench:disagree moderate":"c20","bench:disagree confident":"c21","bench:disagree certain":"c22"},"size":"c17","unit":"GB","basis":"disk","bpw":null,"flags":[]},
+{"role":"cross","name":"unsloth/Qwen3.8-27B-NVFP4","of":"unsloth/Qwen3.8-27B-NVFP4","metrics":{"top1_pct":"c26","bench:disagree near-tie":"c27","bench:disagree moderate":"c28","bench:disagree confident":"c29","bench:disagree certain":"c30"},"size":"c25","unit":"GB","basis":"disk","bpw":null,"flags":[]}
+],
+"prose":[]}

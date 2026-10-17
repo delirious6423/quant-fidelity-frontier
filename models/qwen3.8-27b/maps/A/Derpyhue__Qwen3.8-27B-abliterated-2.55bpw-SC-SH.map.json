@@ -1,0 +1,9 @@
+{"repo":"Derpyhue/Qwen3.8-27B-abliterated-2.55bpw-SC-SH","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"abliterated BF16 (Huihui-Qwen3.8-27B-abliterated), not the original Qwen model","dataset":"not stated for measurement; calibration traces from this model, 217 rows x 2048 columns","ctx":"not stated","tool":"EXL3 with sc_optimize; KL measured against abliterated BF16","L":[19,41]},
+"entries":[
+{"role":"own","name":"2.55 H4 -sh","metrics":{"mean_kld":"c8"},"size":"c7","unit":"GiB","basis":"text_weights","bpw":"c22","flags":["median KLD c9, p90 KLD c10 [L46]","Perplexity (increase) column c11 left out: ambiguous metric, BF16 reference 1.3418 is not a normal perplexity [L45-46]","predicted KL 0.0706 (sc_optimize estimate) c1 is not a measurement [L28]","weights count quantized tensors only; about 11.81 GB total on disk [L41]","measured against abliterated BF16, not comparable with main series [L19]"]},
+{"role":"ladder","name":"2.60 H4 -sh","metrics":{"mean_kld":"c13"},"size":"c12","unit":"GiB","basis":"text_weights","bpw":null,"flags":["median c14, p90 c15; perplexity column left out [L47]"]},
+{"role":"ladder","name":"2.65 H4 -sh","metrics":{"mean_kld":"c18"},"size":"c17","unit":"GiB","basis":"text_weights","bpw":null,"flags":["median c19, p90 c20; perplexity column left out [L48]"]},
+{"role":"ladder","name":"Abliterated BF16 (reference)","metrics":{},"size":"c5","unit":"GiB","basis":"text_weights","bpw":null,"flags":["reference row [L45]"]}
+],
+"prose":[]}

@@ -1,0 +1,7 @@
+{"repo":"kirillbilchenko/Qwen3.8-27B-MXFP4-MxWave-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"official Q4_K_M","dataset":"GSM8K first 25 examples (directional pilot), qualification suite, 64K retrieval","ctx":"65,536","tool":"Ollama on DGX Spark","L":[229,245,250]},
+"entries":[
+{"role":"own","name":"MxWave GGUF","metrics":{"bench:GSM8K_pilot_correct_of_25":"c7.0","bench:qualification_suite_passed_of_10":"c5.0"},"size":"c2","unit":"GiB","basis":"disk","bpw":null,"flags":["size is package size incl. embedded MTP and BF16 projector [L225]","one-answer GSM8K difference not significant [L245]"]},
+{"role":"cross","name":"Official Q4_K_M","of":"not named on card","metrics":{"bench:GSM8K_pilot_correct_of_25":"c8.0"},"size":"c3","unit":"GiB","basis":"disk","bpw":null,"flags":["measured by card author [L238]","package size excludes MTP sidecar [L226]"]}
+],
+"prose":[]}

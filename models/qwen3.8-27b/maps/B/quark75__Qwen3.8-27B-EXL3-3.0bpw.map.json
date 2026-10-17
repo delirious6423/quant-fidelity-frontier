@@ -1,0 +1,10 @@
+{"repo": "quark75/Qwen3.8-27B-EXL3-3.0bpw",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "original BF16 weights", "dataset": "held-out evaluation set (not described further)", "ctx": "not stated", "tool": "not stated", "L": [24, 26, 33]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B EXL3 3.0bpw (mul1)", "metrics": {"mean_kld": "c1", "top1_pct": "c2", "ppl": "c4"}, "size": "c6", "unit": "GB", "basis": "disk", "bpw": "c5", "flags": ["on-disk size ~13 GB down from ~54 GB BF16 [L19]", "KLD cell does not say mean; 'KL divergence (quantized vs. BF16)' [L28]"]},
+  {"role": "cross", "name": "Qwen3.8-27B BF16 original", "of": "Qwen/Qwen3.8-27B", "metrics": {"ppl": "c3"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["reference perplexity [L30]"]}
+ ],
+ "prose": []
+}

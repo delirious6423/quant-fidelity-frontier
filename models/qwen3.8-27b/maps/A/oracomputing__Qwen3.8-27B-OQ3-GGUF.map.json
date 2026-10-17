@@ -1,0 +1,8 @@
+{"repo":"oracomputing/Qwen3.8-27B-OQ3-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"original 16-bit Qwen/Qwen3.8-27B","dataset":"MMLU-Pro (5-shot CoT generative, 12,032 questions); AIME-25 (8 seeds x 30 problems, 65,536 max new tokens)","ctx":"not stated","tool":"not stated; same setup for all models, matched total byte budget (10.17 vs 10.15 GB live weights)","L":[42,44,50]},
+"entries":[
+{"role":"own","name":"OQ3 (this repo)","metrics":{"bench:MMLU-Pro":"c10","bench:AIME-25":"c11","bench:Average":"c12"},"size":"c1","unit":"GB","basis":"disk","bpw":"c13","flags":["retention 95.4% (c15) [L47]","size from Files table [L35]; body BPW c14"]},
+{"role":"ladder","name":"Qwen3.8-27B (bf16)","metrics":{"bench:MMLU-Pro":"c5","bench:AIME-25":"c6","bench:Average":"c7"},"size":null,"unit":null,"basis":null,"bpw":"c8","flags":["reference, retention 100% [L46]"]},
+{"role":"cross","name":"Escha W2","of":"not named on card","metrics":{"bench:MMLU-Pro":"c16","bench:AIME-25":"c17","bench:Average":"c18"},"size":null,"unit":null,"basis":null,"bpw":"c19","flags":["retention 92.1% (c21), body BPW c20 [L48]"]}
+],
+"prose":[]}

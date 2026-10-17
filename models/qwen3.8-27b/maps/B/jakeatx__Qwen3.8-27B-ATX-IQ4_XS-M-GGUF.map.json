@@ -1,0 +1,8 @@
+{"repo":"jakeatx/Qwen3.8-27B-ATX-IQ4_XS-M-GGUF","no_quality_claims":true,"no_claims_reason":"speed/size/context table only; quality stated only qualitatively as expected between Q3_K_XL and Q4_K_M, matched benchmarks in progress [L47-55]",
+"method":{"reference":"not stated","dataset":"not stated","ctx":"not stated","tool":"not stated","L":[55]},
+"entries":[
+{"role":"own","name":"ATX-IQ4_XS-M","of":"","metrics":{},"size":"c1","unit":"GiB","basis":"vram","bpw":null,"flags":["GPU-resident weights 13.9 GiB [L21]","'45-prompt protocol' column (17 / 70) is unlabelled and ambiguous, left out [L49-53]","bits per weight 4.56 stated in prose [L23]"]},
+{"role":"ladder","name":"Q3_K_XL (Unsloth)","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["size 11.7 GiB in row label [L51]; speed only"]},
+{"role":"ladder","name":"Q4_K_M (Unsloth)","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["size 14.6 GiB in row label [L52]; speed only"]}
+],
+"prose":[{"entry":"ATX-IQ4_XS-M","key":"bpw","L":23,"raw":"4.56 bits per weight"}]}

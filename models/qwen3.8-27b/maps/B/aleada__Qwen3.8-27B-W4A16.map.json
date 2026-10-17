@@ -1,0 +1,8 @@
+{"repo":"aleada/Qwen3.8-27B-W4A16",
+"no_quality_claims":true,
+"no_claims_reason":"only size and speculative-decoding draft acceptance/speed-up; no fidelity or accuracy metric [L77-85,L112-118]",
+"method":{"reference":"not stated","dataset":"256 calibration samples","ctx":"max_seq_length 2048 (calibration)","tool":"compressed-tensors W4A16, GPTQ-style, dampening_frac 0.01","L":[42,47,49,50]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-W4A16","metrics":{},"size":"c5","unit":"GiB","basis":"disk","bpw":null,"flags":["draft acceptance c9/c11 and speed-up c10 are drafter figures, not quant quality [L79-85]"]}
+],
+"prose":[]}

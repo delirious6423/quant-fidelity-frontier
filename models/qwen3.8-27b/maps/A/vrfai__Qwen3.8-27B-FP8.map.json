@@ -1,0 +1,8 @@
+{"repo":"vrfai/Qwen3.8-27B-FP8","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 weights of the same model (measured by author); also Qwen published card figures","dataset":"10 tasks, 13,046 documents, deterministic scorers only (drift table); MathVision testmini and ERQA absolute scores","ctx":"not stated","tool":"not stated (vLLM >= 0.27.1 for serving)","L":[65,84,98,118,150]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-FP8 (This model)","metrics":{"bench:MathVision":"c41","bench:ERQA":"c45"},"size":"c79","unit":"GB","basis":"disk","bpw":null,"flags":["Drift table [L99-110] reports delta vs bf16 and noise floor per task (AI2D, ChartQA, ScienceQA-IMG, MMStar, OCRBench, CountBenchQA, RealWorldQA, OmniDocBench, MathVision, ERQA); deltas not mapped, no matching metric key","Size 28.3 GB is the Quantized weights row [L124]; base model 52 GB [L23]"]},
+{"role":"ladder","name":"bf16 (unquantized reference run)","metrics":{"bench:MathVision":"c42","bench:ERQA":"c46"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Author's own bf16 run, same harness [L75-76]"]},
+{"role":"quoted","name":"Qwen card","of":"Qwen/Qwen3.8-27B","metrics":{"bench:MathVision":"c43","bench:ERQA":"c47"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Published Qwen figures for bf16 weights [L75-76]; base-card benchmark tables below L155 were not measured on this quant"]}
+],
+"prose":[]}

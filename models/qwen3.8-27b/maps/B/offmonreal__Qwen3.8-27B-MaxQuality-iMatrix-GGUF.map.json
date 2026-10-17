@@ -1,0 +1,10 @@
+{"repo": "offmonreal/Qwen3.8-27B-MaxQuality-iMatrix-GGUF",
+ "no_quality_claims": true,
+ "no_claims_reason": "speed, context and draft-acceptance tables only [L22-62]; the benchmark tables are the upstream Qwen3.8-27B BF16 model card reproduced unchanged [L165-385]",
+ "method": {"reference": "not stated", "dataset": "iMatrix calibration_datav5.txt, 802 chunks", "ctx": "not stated", "tool": "llama-cpp-turboquant fork", "L": [91]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B_Q4_K_M.gguf", "metrics": {}, "size": "c84", "unit": "GiB", "basis": "disk", "bpw": "c85", "flags": ["size and bpw only [L87]"]},
+  {"role": "own", "name": "Qwen3.8-27B_Q3_K_M.gguf", "metrics": {}, "size": "c87", "unit": "GiB", "basis": "disk", "bpw": "c88", "flags": ["size and bpw only [L88]"]},
+  {"role": "own", "name": "Qwen3.8-27B_Q2_K.gguf", "metrics": {}, "size": "c90", "unit": "GiB", "basis": "disk", "bpw": "c91", "flags": ["size and bpw only [L89]"]}
+ ],
+ "prose": []}

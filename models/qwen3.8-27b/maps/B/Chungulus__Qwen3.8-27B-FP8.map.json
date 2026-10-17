@@ -1,0 +1,8 @@
+{"repo":"Chungulus/Qwen3.8-27B-FP8",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"not stated (full-vocabulary held-out comparison against the unquantized model)","dataset":"held-out comparison on 64 token positions","ctx":"64 positions","tool":"GPTQModel FP8 (float8_e4m3fn, row scale), RTN fallback, no calibration","L":[21,42,43]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-FP8","metrics":{"mean_kld":"c1","top1_pct":"c6","ppl_delta_pct":"c5"},"size":"c9","unit":"GiB","basis":"disk","bpw":null,"flags":["top-1 agreement is printed as a fraction (0.968750), not a percent [L50]","only 64 positions scored, very small sample [L42]","P95 KL c4 not mapped to kld_99; median KL c2; top-5 overlap c7; logit cosine c8 [L47-52]"]}
+],
+"prose":[]}

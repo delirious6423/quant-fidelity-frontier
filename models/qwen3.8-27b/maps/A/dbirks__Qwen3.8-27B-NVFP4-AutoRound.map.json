@@ -1,0 +1,7 @@
+{"repo":"dbirks/Qwen3.8-27B-NVFP4-AutoRound","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 base Qwen3.8-27B","dataset":"GSM8K full 1319, HumanEval pass@1 instruct, MMLU-Pro 100 questions per subject","ctx":"not stated","tool":"EleutherAI lm-evaluation-harness, thinking mode, temp 1.0, top-p 0.95, top-k 20","L":[84,85,87]},
+"entries":[
+{"role":"own","name":"NVFP4 W4A4","metrics":{"bench:GSM8K":"c2","bench:HumanEval":"c4","bench:MMLU-Pro":"c6"},"size":"c7","unit":"GB","basis":"disk","bpw":null,"flags":["values shown with +- confidence intervals [L89-91]","MMLU-Pro subsample not comparable with full-split numbers elsewhere [L94-95]","size from prose, 20.6 GB on disk [L25]"]},
+{"role":"ladder","name":"BF16 base","metrics":{"bench:GSM8K":"c1","bench:HumanEval":"c3","bench:MMLU-Pro":"c5"},"size":"c10.0","unit":"GB","basis":"disk","bpw":null,"flags":["size from prose, roughly 52 GB at BF16 [L26]"]}
+],
+"prose":[]}

@@ -1,0 +1,12 @@
+{"repo":"trevest/Qwen3.8-27B-Tetris-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"Q8_0 (measured +0.13% vs BF16 on matched chunks, treated as about BF16)","dataset":"120 x 512-token chunks of wikitext-2-test plus code files held out of the calibration set","ctx":"512","tool":"llama.cpp perplexity; imatrix 40% bartowski datav3, 48% code, 12% ChatML tool-call","L":[24,30,31,64]},
+"entries":[
+{"role":"ladder","name":"Q8_0 reference","metrics":{"ppl":"c3"},"size":"c1","unit":"GiB","basis":"disk","bpw":"c2","flags":["+0.13% vs BF16 on matched chunks [L31]"]},
+{"role":"cross","name":"unsloth UD-Q4_K_XL","of":"not named on card","metrics":{"ppl":"c6","ppl_delta_pct_vs_q8":"c7"},"size":"c4","unit":"GiB","basis":"disk","bpw":"c5","flags":["Delta is vs Q8_0, not BF16 [L27]"]},
+{"role":"own","name":"Qwen3.8-27B-Tetris-4.4bpw.gguf","metrics":{"ppl":"c10","ppl_delta_pct_vs_q8":"c11"},"size":"c8","unit":"GiB","basis":"disk","bpw":"c9","flags":["Delta is vs Q8_0, not BF16 [L28]","Draft-depth and speed tables omitted [L39-44]"]}
+],
+"prose":[
+{"entry":"Q8_0 reference","key":"ppl_delta_pct","L":31,"raw":"+0.13%"}
+]}

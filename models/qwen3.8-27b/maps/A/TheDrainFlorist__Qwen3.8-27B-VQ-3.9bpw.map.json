@@ -1,0 +1,16 @@
+{"repo":"TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 teacher (cached top-64)","dataset":"three house corpora: prose, public code, literary (old table: prose only)","ctx":"12288 tokens (old table: 2048 tokens)","tool":"unmodified mlx-lm / KL instrument; tool name not otherwise stated","L":[41,42,43,45,113]},
+"entries":[
+{"role":"own","name":"VQ-3.9bpw","metrics":{"kl_mnats:prose":"c3","kl_mnats:code":"c4","kl_mnats:literary":"c5","mean_kl_mnats":"c6","top1_pct":"c7"},"size":"c2","unit":"GiB","basis":"disk","bpw":"c64","flags":["three-corpus table, KL in millinats/token [L51,L57]","bpw taken from row label"]},
+{"role":"ladder","name":"affine q4 (ours)","metrics":{"kl_mnats:prose":"c9","kl_mnats:code":"c10","kl_mnats:literary":"c11","mean_kl_mnats":"c12","top1_pct":"c13"},"size":"c8","unit":"GiB","basis":"disk","bpw":null,"flags":["publisher's own conversion [L52,L58]"]},
+{"role":"ladder","name":"VQ-4.5bpw","metrics":{"kl_mnats:prose":"c16","kl_mnats:code":"c17","kl_mnats:literary":"c18","mean_kl_mnats":"c19","top1_pct":"c20"},"size":"c15","unit":"GiB","basis":"disk","bpw":"c65","flags":["[L53]","bpw taken from row label"]},
+{"role":"ladder","name":"VQ-4.8bpw","metrics":{"kl_mnats:prose":"c23","kl_mnats:code":"c24","kl_mnats:literary":"c25","mean_kl_mnats":"c26","top1_pct":"c27"},"size":"c22","unit":"GiB","basis":"disk","bpw":"c66","flags":["[L54]","bpw taken from row label"]},
+{"role":"ladder","name":"affine q8 (ours)","metrics":{"kl_mnats:prose":"c29","kl_mnats:code":"c30","kl_mnats:literary":"c31","mean_kl_mnats":"c32","top1_pct":"c33"},"size":"c28","unit":"GiB","basis":"disk","bpw":null,"flags":["publisher's own conversion [L55]"]},
+{"role":"ladder","name":"affine q2 (ours) [old prose-only 2048 table]","metrics":{"kl_mnats:prose":"c35","top1:prose":"c36","ppl":"c37"},"size":"c34","unit":"GiB","basis":"disk","bpw":null,"flags":["superseded table, prose-only 2048 tokens, not comparable with three-corpus table [L111,L119]"]},
+{"role":"ladder","name":"affine q3 (ours) [old prose-only 2048 table]","metrics":{"kl_mnats:prose":"c39","top1:prose":"c40","ppl":"c41"},"size":"c38","unit":"GiB","basis":"disk","bpw":null,"flags":["superseded table [L120]"]},
+{"role":"own","name":"this model [old prose-only 2048 table]","metrics":{"kl_mnats:prose":"c43","top1:prose":"c44","ppl":"c45"},"size":"c42","unit":"GiB","basis":"disk","bpw":null,"flags":["superseded table [L121]"]},
+{"role":"ladder","name":"affine q4 (ours) [old prose-only 2048 table]","metrics":{"kl_mnats:prose":"c47","top1:prose":"c48","ppl":"c49"},"size":"c46","unit":"GiB","basis":"disk","bpw":null,"flags":["superseded table [L122]"]},
+{"role":"ladder","name":"affine q6 (ours) [old prose-only 2048 table]","metrics":{"kl_mnats:prose":"c51","top1:prose":"c52","ppl":"c53"},"size":"c50","unit":"GiB","basis":"disk","bpw":null,"flags":["superseded table [L123]"]},
+{"role":"ladder","name":"affine q8 (ours) [old prose-only 2048 table]","metrics":{"kl_mnats:prose":"c55","top1:prose":"c56","ppl":"c57"},"size":"c54","unit":"GiB","basis":"disk","bpw":null,"flags":["superseded table [L124]"]},
+{"role":"ladder","name":"bf16 [old prose-only 2048 table]","metrics":{"kl_mnats:prose":"c60","top1:prose":"c61"},"size":"c59","unit":"GiB","basis":"disk","bpw":null,"flags":["reference [L125]"]}
+],"prose":[]}

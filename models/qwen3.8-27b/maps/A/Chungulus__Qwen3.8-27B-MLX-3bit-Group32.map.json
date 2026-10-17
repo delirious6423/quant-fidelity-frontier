@@ -1,0 +1,7 @@
+{"repo":"Chungulus/Qwen3.8-27B-MLX-3bit-Group32","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 (fixed-logit comparison)","dataset":"fixed original text, 106 positions, not a public benchmark","ctx":"not stated (longest validation prompt 73 tokens)","tool":"mlx-vlm 0.6.1 validation_result.json","L":[56,121,122,131,132]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B MLX 3-bit group32","metrics":{"ppl":"c9","top1_pct":"c11.1","bench:ppl_delta":"c10"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["top1_token_agreement is a fraction (0.83), not percent [L128]","BF16 reference perplexity 9.847 [L125]; only 106 positions [L122]","mean KL 0.0918 given in prose only [L124]","artifact size 15.266 GB decimal [L38]"]},
+{"role":"ladder","name":"BF16 reference","metrics":{"ppl":"c8"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L125]"]}
+],
+"prose":[{"entry":"Qwen3.8-27B MLX 3-bit group32","key":"mean_kld","L":124,"raw":"0.09177716048258655"}]}

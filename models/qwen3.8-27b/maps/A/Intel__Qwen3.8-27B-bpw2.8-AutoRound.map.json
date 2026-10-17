@@ -1,0 +1,11 @@
+{"repo":"Intel/Qwen3.8-27B-bpw2.8-AutoRound","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 Qwen3.8-27B","dataset":"MMLU, GSM8K, MMLU-Pro","ctx":"not stated; evalscope max_tokens 8192","tool":"lmeval hf table and evalscope vllm table","L":[52,60,67]},
+"entries":[
+{"role":"own","name":"SignRoundv2 (main branch), lmeval hf","metrics":{"bench:MMLU (lmeval hf)":"c8","bench:GSM8K (lmeval hf)":"c9","bench:MMLU-Pro (lmeval hf)":"c10"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["avg 2.8 bits target [L81]","which row is the shipped checkpoint is not stated; v2 assumed from main branch [L56]"]},
+{"role":"own","name":"SignRoundv2 (main branch), evalscope vllm","metrics":{"bench:MMLU (evalscope vllm)":"c17","bench:GSM8K (evalscope vllm)":"c18","bench:MMLU-Pro (evalscope vllm)":"c19"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L64]"]},
+{"role":"ladder","name":"SignRoundv1 (67565e1), lmeval hf","metrics":{"bench:MMLU (lmeval hf)":"c5","bench:GSM8K (lmeval hf)":"c6","bench:MMLU-Pro (lmeval hf)":"c7"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["earlier algorithm version [L55]"]},
+{"role":"ladder","name":"SignRoundv1 (67565e1), evalscope vllm","metrics":{"bench:MMLU (evalscope vllm)":"c15","bench:GSM8K (evalscope vllm)":"c16"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["no MMLU-Pro cell in this row [L63]"]},
+{"role":"ladder","name":"BF16, lmeval hf","metrics":{"bench:MMLU (lmeval hf)":"c2","bench:GSM8K (lmeval hf)":"c3","bench:MMLU-Pro (lmeval hf)":"c4"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["reference [L54]"]},
+{"role":"ladder","name":"BF16, evalscope vllm","metrics":{"bench:MMLU (evalscope vllm)":"c12","bench:GSM8K (evalscope vllm)":"c13","bench:MMLU-Pro (evalscope vllm)":"c14"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["reference [L62]"]}
+],
+"prose":[]}

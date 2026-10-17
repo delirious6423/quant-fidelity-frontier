@@ -1,0 +1,10 @@
+{"repo":"p4ik/Qwen3.8-27B-MLX-OptiQ-4bit",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"bf16 base (allocation by exact KL); 8-bit anchor for trajectory checks","dataset":"paired next-token NLL over 196k tokens (agentic transcripts with thinking and tool calls, German prose, WikiText); 168 held-out prompts for greedy trajectories","ctx":"not stated","tool":"optiq quantizer (--method optiq --reference bf16 --candidate-bits 4,8)","L":[34,81,91,135,164]},
+"entries":[
+{"role":"own","name":"OptiQ 4bit (this repo)","metrics":{},"size":null,"unit":null,"basis":null,"bpw":"c1","flags":["comparison table vs uniform 8bit, OptiQ 5bit, OptiQ 4bit (mlx-community), uniform 4bit at L48-94 has no numeric cells among the candidates, so its values were not mapped","trajectory identity after 8 tokens 46 / 48 / 46 / 35 % in column order of the table [L93-94]","effective BPW 5.63 stated in the Property table [L145]; target-bpw 5.0 in the command [L136]"]},
+{"role":"cross","name":"OptiQ 4bit (mlx-community)","of":"mlx-community/Qwen3.8-27B-OptiQ-4bit","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["column in comparison table; values not mappable [L48]"]},
+{"role":"ladder","name":"uniform 4bit / uniform 8bit / OptiQ 5bit","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["same-publisher comparison columns; values not mappable [L48,L69]"]}
+],
+"prose":[]}

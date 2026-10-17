@@ -1,0 +1,6 @@
+{"repo":"malaiwah/Qwen3.8-27B-EXL3-EDA-research","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"shared BF16 reference capture, shared BF16 lm_head","dataset":"shard 0 of v5 held-out suite, 512 contexts, 1,048,064 scored positions, 330 source clusters","ctx":"not stated","tool":"tools/fidelity.py replay (hidden state after final norm replayed through BF16 lm_head); paired per context","L":[26,27,88,89]},
+"entries":[
+{"role":"own","name":"error-driven allocation (this build)","metrics":{"mean_kld":"c11","top1_pct":"c15"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["worse than hydrated by +0.000366 mean KLD, 95% CI [+0.000334, +0.000398] [L28]","serialized size 21,586,964,548 B identical to hydrated [L30]; bytes cell c29 belongs to another table","median/p99.9/exact max columns not mapped (p99.9 is not p99) [L95]"]},
+{"role":"ladder","name":"hydrated, published","metrics":{"mean_kld":"c1","top1_pct":"c5"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["incumbent hand-designed recipe [L93]","re-captured row [L94] is bit-identical and omitted as duplicate"]}
+],"prose":[]}

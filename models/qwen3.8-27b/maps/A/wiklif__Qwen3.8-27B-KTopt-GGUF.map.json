@@ -1,0 +1,15 @@
+{"repo":"wiklif/Qwen3.8-27B-KTopt-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"unsloth/Qwen3.8-27B-GGUF Q8_0 (benchmarks); BF16 (KLD)","dataset":"GPQA Diamond, IFBench, LiveCodeBench v6 (629 questions); KLD on code corpus (14 GitHub repos) and prose corpus (arXiv abstracts + Polish Wikipedia)","ctx":"KLD context 4096; benchmark output limit 200k","tool":"ik_llama.cpp fork; KLD vs BF16","L":[53,55,104,106,107]},
+"entries":[
+{"role":"own","name":"KTopt + EoRA r64","metrics":{"bench:GPQA Diamond":"c5","bench:IFBench_loose":"c9.0","bench:IFBench_strict":"c9.1","bench:LiveCodeBench v6":"c13","bench:avg3":"c17","kld:code":"c59","kld:prose":"c60"},"size":"c58.0","unit":"GB","basis":"disk","bpw":null,"flags":["Benchmark table header gives 10.3 GB [L65]; size from KLD table, GGUF + 32 MB adapter [L115]","Benchmarks at 200k output limit with q8_0 KV [L63,L101]"]},
+{"role":"own","name":"KTopt","metrics":{"kld:code":"c62","kld:prose":"c63"},"size":"c61","unit":"GB","basis":"disk","bpw":null,"flags":["without EoRA adapter [L116]"]},
+{"role":"cross","name":"Q8_0","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{"bench:GPQA Diamond":"c4","bench:IFBench_loose":"c8.0","bench:IFBench_strict":"c8.1","bench:LiveCodeBench v6":"c12","bench:avg3":"c16"},"size":null,"unit":"GB","basis":"disk","bpw":null,"flags":["29.1 GB only in table header, no candidate [L65]"]},
+{"role":"cross","name":"Unsloth UD-IQ3_XXS","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{"bench:GPQA Diamond":"c6","bench:IFBench_loose":"c10.0","bench:IFBench_strict":"c10.1","bench:LiveCodeBench v6":"c14","bench:avg3":"c18","kld:code":"c65","kld:prose":"c66"},"size":"c64","unit":"GB","basis":"disk","bpw":null,"flags":["repo inferred from reference/credits lines [L55,L391]"]},
+{"role":"cross","name":"Unsloth UD-IQ4_XS","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{"kld:code":"c50","kld:prose":"c51"},"size":"c49","unit":"GB","basis":"disk","bpw":null,"flags":["repo inferred [L391]"]},
+{"role":"cross","name":"Unsloth UD-Q3_K_XL","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{"kld:code":"c53","kld:prose":"c54"},"size":"c52","unit":"GB","basis":"disk","bpw":null,"flags":["repo inferred [L391]"]},
+{"role":"cross","name":"Unsloth UD-IQ3_S","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{"kld:code":"c56","kld:prose":"c57"},"size":"c55","unit":"GB","basis":"disk","bpw":null,"flags":["repo inferred [L391]"]},
+{"role":"cross","name":"Unsloth UD-Q2_K_XL","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{"kld:code":"c71","kld:prose":"c72"},"size":"c70","unit":"GB","basis":"disk","bpw":null,"flags":["repo inferred [L391]"]},
+{"role":"cross","name":"ISTA-DASLab GSQ-RCO IQ3_XXS","of":"not named on card","metrics":{"kld:code":"c68","kld:prose":"c69"},"size":"c67","unit":"GB","basis":"disk","bpw":null,"flags":["[L118]"]},
+{"role":"quoted","name":"Qwen card (BF16)","of":"Qwen/Qwen3.8-27B","metrics":{"bench:GPQA Diamond":"c7","bench:IFBench":"c11","bench:LiveCodeBench v6":"c15"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Qwen-published figures; token budget and LCB window not stated by Qwen [L99-100]"]}
+],
+"prose":[]}

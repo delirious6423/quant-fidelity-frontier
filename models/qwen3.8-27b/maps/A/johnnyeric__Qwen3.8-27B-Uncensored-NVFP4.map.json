@@ -1,0 +1,17 @@
+{"repo":"johnnyeric/Qwen3.8-27B-Uncensored-NVFP4","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"base Qwen3.8-27B (for the quoted FP8-build figures)","dataset":"MMLU, MMLU-Pro, GSM8K, CMMLU (FP8 sibling card)","ctx":"not stated","tool":"not stated","L":[190,195,199]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-Uncensored-NVFP4","metrics":{},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["NVFP4+FP8 build quality 'not yet measured' [L199-201]","weights approx 23 GB vs approx 56 GB BF16 [L291]"]},
+{"role":"quoted","name":"Qwen3.8-27B-Uncensored-FP8 (sibling)","of":"orcarouter/Qwen3.8-27B-Uncensored-FP8","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["capability numbers quoted from the FP8 sibling build, not this checkpoint [L192-196]"]},
+{"role":"quoted","name":"base Qwen3.8-27B (as quoted)","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["base-model comparison figures from the FP8 sibling card [L195]"]}
+],
+"prose":[
+{"entry":"Qwen3.8-27B-Uncensored-FP8 (sibling)","key":"bench:MMLU","L":195,"raw":"84.7"},
+{"entry":"Qwen3.8-27B-Uncensored-FP8 (sibling)","key":"bench:MMLU-Pro","L":195,"raw":"76.8"},
+{"entry":"Qwen3.8-27B-Uncensored-FP8 (sibling)","key":"bench:GSM8K","L":195,"raw":"88.7"},
+{"entry":"Qwen3.8-27B-Uncensored-FP8 (sibling)","key":"bench:CMMLU","L":195,"raw":"80.8"},
+{"entry":"base Qwen3.8-27B (as quoted)","key":"bench:MMLU","L":195,"raw":"84.3"},
+{"entry":"base Qwen3.8-27B (as quoted)","key":"bench:MMLU-Pro","L":195,"raw":"77.6"},
+{"entry":"base Qwen3.8-27B (as quoted)","key":"bench:GSM8K","L":195,"raw":"90.0"},
+{"entry":"base Qwen3.8-27B (as quoted)","key":"bench:CMMLU","L":195,"raw":"81.4"}
+]}

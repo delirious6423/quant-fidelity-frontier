@@ -1,0 +1,42 @@
+{
+ "repo": "mattbucci/Qwen3.8-27B-AWQ",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "none stated (absolute probe scores)",
+  "dataset": "MMLU (30 samples), HumanEval (25 samples), LAB-Bench 56-question probe",
+  "ctx": "not stated",
+  "tool": "SGLang v0.5.17 + local patches, TP=2, 2x RTX 3090",
+  "L": [
+   29,
+   33,
+   34,
+   104
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "Qwen3.8-27B-AWQ (INT4 W4A16)",
+   "metrics": {
+    "bench:MMLU_30": "c1",
+    "bench:HumanEval_25": "c2"
+   },
+   "size": "c7",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "weights ~18.7 GB [L24]; small-sample probes"
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "Qwen3.8-27B-AWQ (INT4 W4A16)",
+   "key": "bench:LAB-Bench_56q",
+   "L": 104,
+   "raw": "LAB-Bench 0.16"
+  }
+ ]
+}

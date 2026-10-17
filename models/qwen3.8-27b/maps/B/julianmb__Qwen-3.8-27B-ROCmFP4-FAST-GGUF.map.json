@@ -1,0 +1,17 @@
+{"repo":"julianmb/Qwen-3.8-27B-ROCmFP4-FAST-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"FP16 mentioned for PPL-loss claim; PPL table has no reference row","dataset":"wikitext-2 validation","ctx":"512","tool":"llama-perplexity, ROCm0","L":[182,184,186]},
+"entries":[
+{"role":"own","name":"ROCmFP4_FAST (original build)","metrics":{"ppl":"c75"},"size":"c2","unit":"GiB","basis":"disk","bpw":"c1","flags":["PPL cell carries +/- error [L188]","About 99% benchmark retention claimed without numbers [L92]"]},
+{"role":"own","name":"ROCmFP4_FAST requantized from unsloth Q8_0","metrics":{"ppl":"c76"},"size":"c2","unit":"GiB","basis":"disk","bpw":"c1","flags":["Same 4.26 bpw / 13.55 GiB file figures as the original build; PPL cell carries +/- error [L189, L191]"]},
+{"role":"own","name":"Qwen3.8-27B-ROCmFP8.gguf","metrics":{},"size":"c7","unit":"GiB","basis":"disk","bpw":"c6","flags":["Claimed under 0.003 PPL loss vs FP16, no PPL number given [L79, L91]"]},
+{"role":"own","name":"Qwen3.8-27B-ROCmFP4-STRIX_LEAN.gguf","metrics":{},"size":"c12","unit":"GiB","basis":"disk","bpw":"c11","flags":["Speed-only row [L80]"]},
+{"role":"ladder","name":"Qwen3.8-27B-Q3_K_S.gguf","metrics":{},"size":"c17","unit":"GiB","basis":"disk","bpw":"c16","flags":["Speed-only row [L81]"]},
+{"role":"ladder","name":"Qwen3.8-27B-Q3_K_M.gguf","metrics":{},"size":"c21","unit":"GiB","basis":"disk","bpw":"c20","flags":["Speed-only row [L82]"]},
+{"role":"own","name":"Qwen3.8-27B-ROCmFP2.gguf","metrics":{},"size":"c26","unit":"GiB","basis":"disk","bpw":"c25","flags":["Speed-only row [L83]"]},
+{"role":"ladder","name":"Stock Q4_K_M (baseline)","metrics":{},"size":"c29","unit":"GiB","basis":"disk","bpw":null,"flags":["Speed baseline [L113]"]}
+],
+"prose":[
+{"entry":"Qwen3.8-27B-ROCmFP8.gguf","key":"ppl_delta_abs_vs_fp16_upper_bound","L":91,"raw":"<0.003 PPL loss vs FP16"}
+]}

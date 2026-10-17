@@ -1,0 +1,7 @@
+{"repo":"CorVous/Qwen3.8-27B-heretic-ara-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"base model (for KL); GPTQ Int4 export of the same ARA weights for quality checks","dataset":"not stated","ctx":"not stated","tool":"Optuna search on 80GB H100","L":[18,45]},
+"entries":[
+{"role":"own","name":"qwen38-27b-heretic-ara-Q4_K_M.gguf","metrics":{"mean_kld":"c5"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["KL 0.0454 is the ablation's divergence from the base model, shared by all files [L18]","GSM8K 92.0% was measured on the GPTQ Int4 export, not these GGUFs [L45]"]},
+{"role":"own","name":"qwen38-27b-heretic-ara-Q8_0.gguf","metrics":{},"size":"c3","unit":"GB","basis":"disk","bpw":null,"flags":["size only [L25]"]}
+],
+"prose":[]}

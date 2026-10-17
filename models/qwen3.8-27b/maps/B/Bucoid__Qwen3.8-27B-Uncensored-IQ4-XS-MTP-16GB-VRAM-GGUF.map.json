@@ -1,0 +1,9 @@
+{"repo":"Bucoid/Qwen3.8-27B-Uncensored-IQ4-XS-MTP-16GB-VRAM-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"base model (corpus and exact reference file not stated)","dataset":"not stated","ctx":"not stated","tool":"not stated (llama.cpp-style PPL/KLD output)","L":[24,54,56,57]},
+"entries":[
+{"role":"own","name":"IQ4_XS","metrics":{"ppl":"c26","mean_kld":"c30","kld_999":"c33","top1_pct":"c35","ppl_correlation_pct":"c28","max_kld":"c11","mean_dp":"c18","rms_dp":"c20"},"size":"c22","unit":"GB","basis":"disk","bpw":null,"flags":["Table says GB but prose says 12.9 GiB [L22, L52, L60]","Max KLD, mean dp and RMS dp taken from the Chinese table because the English rows lost the IQ4_XS cell [L35, L38, L39]","PPL, KLD and top-1 values carry +/- errors in the cell [L62, L64, L67]"]},
+{"role":"cross","name":"UD_IQ3_K_XL","of":"not named on card","metrics":{"ppl":"c27","mean_kld":"c31","kld_999":"c34","top1_pct":"c36","ppl_correlation_pct":"c29","max_kld":"c32","mean_dp":"c37","rms_dp":"c38"},"size":"c23","unit":"GB","basis":"disk","bpw":null,"flags":["Comparison quant of similar size, approximately 3-bit [L61, L54]","Prose gives 12.5 GiB while table says GB [L24, L60]"]}
+],
+"prose":[]}

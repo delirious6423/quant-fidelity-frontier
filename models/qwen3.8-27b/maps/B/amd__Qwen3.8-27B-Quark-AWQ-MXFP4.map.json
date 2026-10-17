@@ -1,0 +1,9 @@
+{"repo":"amd/Qwen3.8-27B-Quark-AWQ-MXFP4",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"BF16 base Qwen/Qwen3.8-27B","dataset":"GSM8K 5-shot (thinking and no-thinking); calibration pileval 128 samples","ctx":"calibration seq_len 512","tool":"lm-evaluation-harness; Quark AWQ","L":[21,22,27]},
+"entries":[
+{"role":"ladder","name":"BF16 base","metrics":{"bench:GSM8K thinking flexible-extract":"c2.0","bench:GSM8K thinking strict-match":"c2.1","bench:GSM8K no-think flexible-extract":"c5.0","bench:GSM8K no-think strict-match":"c5.1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L29-30]"]},
+{"role":"own","name":"Qwen3.8-27B-Quark-AWQ-MXFP4","metrics":{"bench:GSM8K thinking flexible-extract":"c1.0","bench:GSM8K thinking strict-match":"c1.1","bench:GSM8K thinking recovery_pct":"c3","bench:GSM8K no-think flexible-extract":"c4.0","bench:GSM8K no-think strict-match":"c4.1","bench:GSM8K no-think recovery_pct":"c6"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["MXFP4 weights and dynamic MXFP4 activations, group size 32 [L18-19]","Quantized scores exceed BF16 in thinking mode (recovery over 100%) [L29]"]}
+],
+"prose":[]}

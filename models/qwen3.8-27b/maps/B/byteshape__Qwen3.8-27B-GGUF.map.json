@@ -1,0 +1,13 @@
+{"repo": "byteshape/Qwen3.8-27B-GGUF",
+ "no_quality_claims": true,
+ "no_claims_reason": "size/bpw and tokens-per-second tables only; quality is shown only as a quality-vs-TPS chart image, no numbers [L49-57, L62-68, L104-110]",
+ "method": {"reference": "BF16 baseline (average benchmark score relative to BF16)", "dataset": "GSM8K, IFEval, MMLU, LiveCodeBench V6, Multi-IF, ACEBench (instruct); ACEBench, Multiple HumanEval, BFCL V4 (thinking)", "ctx": "not stated", "tool": "ShapeLearn; llama.cpp on RTX 5090", "L": [21, 49, 50, 51, 52]},
+ "entries": [
+  {"role": "own", "name": "GPU-1 Qwen3.8-27B-IQ2_XXS-2.56bpw", "metrics": {}, "size": "c2", "unit": "GB", "basis": "disk", "bpw": "c1", "flags": ["[L64]"]},
+  {"role": "own", "name": "GPU-2 Qwen3.8-27B-IQ3_XXS-2.88bpw", "metrics": {}, "size": "c6", "unit": "GB", "basis": "disk", "bpw": "c5", "flags": ["[L65]"]},
+  {"role": "own", "name": "GPU-3 Qwen3.8-27B-IQ3_XS-3.01bpw", "metrics": {}, "size": "c10", "unit": "GB", "basis": "disk", "bpw": "c9", "flags": ["[L66]"]},
+  {"role": "own", "name": "GPU-4 Qwen3.8-27B-IQ3_S-3.23bpw", "metrics": {}, "size": "c14", "unit": "GB", "basis": "disk", "bpw": "c13", "flags": ["[L67]"]},
+  {"role": "own", "name": "GPU-5 Qwen3.8-27B-IQ4_XS-3.84bpw", "metrics": {}, "size": "c18", "unit": "GB", "basis": "disk", "bpw": "c17", "flags": ["[L68]", "labels like IQ4_XS are size-class names, not llama.cpp profiles [L133]"]}
+ ],
+ "prose": []
+}

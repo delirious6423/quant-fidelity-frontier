@@ -1,0 +1,12 @@
+{"repo":"inferencerlabs/Qwen3.8-27B-MLX-Q9","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"Base (unquantized Qwen3.8-27B)","dataset":"not stated","ctx":"not stated","tool":"Inferencer app on M3 Ultra, modified MLX","L":[17,45,46,47,50]},
+"entries":[
+{"role":"own","name":"Q9","metrics":{"ppl":"c22","top1_pct":"c23","bench:Missed Divergence":"c24"},"size":null,"unit":null,"basis":null,"bpw":"c21","flags":["Token Accuracy = percent correctly generated base tokens [L46]","bpw taken from row label 'Q9' [L39]"]},
+{"role":"ladder","name":"Q3.5","metrics":{"ppl":"c2","top1_pct":"c3","bench:Missed Divergence":"c4"},"size":null,"unit":null,"basis":null,"bpw":"c1","flags":["bpw from row label [L34]"]},
+{"role":"ladder","name":"Q4.5","metrics":{"ppl":"c6","top1_pct":"c7","bench:Missed Divergence":"c8"},"size":null,"unit":null,"basis":null,"bpw":"c5","flags":["bpw from row label [L35]"]},
+{"role":"ladder","name":"Q5.5","metrics":{"ppl":"c10","top1_pct":"c11","bench:Missed Divergence":"c12"},"size":null,"unit":null,"basis":null,"bpw":"c9","flags":["bpw from row label [L36]"]},
+{"role":"ladder","name":"Q6.5","metrics":{"ppl":"c14","top1_pct":"c15","bench:Missed Divergence":"c16"},"size":null,"unit":null,"basis":null,"bpw":"c13","flags":["bpw from row label [L37]"]},
+{"role":"ladder","name":"Q8.5","metrics":{"ppl":"c18","top1_pct":"c19","bench:Missed Divergence":"c20"},"size":null,"unit":null,"basis":null,"bpw":"c17","flags":["bpw from row label [L38]"]},
+{"role":"cross","name":"Base","of":"Qwen/Qwen3.8-27B","metrics":{"ppl":"c25","top1_pct":"c26","bench:Missed Divergence":"c27"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["unquantized reference row; repo inferred from L51 link [L40]"]}
+],
+"prose":[]}

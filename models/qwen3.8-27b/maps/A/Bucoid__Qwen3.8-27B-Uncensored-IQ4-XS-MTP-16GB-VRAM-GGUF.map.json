@@ -1,0 +1,7 @@
+{"repo":"Bucoid/Qwen3.8-27B-Uncensored-IQ4-XS-MTP-16GB-VRAM-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"base Qwen3.8-27B Uncensored (precision and file not stated)","dataset":"not stated","ctx":"not stated","tool":"llama.cpp-style perplexity/KLD output (Mean PPL, Mean KLD, Same top p, Delta p); version not stated","L":[26,28,56,58]},
+"entries":[
+{"role":"own","name":"IQ4_XS","metrics":{"ppl":"c26","ppl_correlation_with_base":"c28","mean_kld":"c30","kld_max":"c11","kld_999":"c33","top1_pct":"c35","mean_delta_p":"c18","rms_delta_p":"c20"},"size":"c22","unit":"GB","basis":"disk","bpw":null,"flags":["table cell says GB, prose says 12.9 GiB [L22,L52,L60]","English table omits own max KLD, mean dp, RMS dp values; taken from Chinese table [L35,L38,L39]","99.9% KL quantile, not 99.0%"]},
+{"role":"cross","name":"UD_IQ3_K_XL","of":"not named on card","metrics":{"ppl":"c27","ppl_correlation_with_base":"c29","mean_kld":"c31","kld_max":"c32","kld_999":"c34","top1_pct":"c36","mean_delta_p":"c37","rms_delta_p":"c38"},"size":"c23","unit":"GB","basis":"disk","bpw":null,"flags":["baseline same-size build; publisher/repo not named; card calls it roughly 3-bit [L61,L54]"]}
+],
+"prose":[]}

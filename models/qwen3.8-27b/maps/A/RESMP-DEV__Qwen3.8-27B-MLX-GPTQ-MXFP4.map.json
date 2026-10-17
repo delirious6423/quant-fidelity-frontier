@@ -1,0 +1,7 @@
+{"repo":"RESMP-DEV/Qwen3.8-27B-MLX-GPTQ-MXFP4","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"pinned BF16 source","dataset":"one diagnostic prompt, 256 generated token IDs, greedy","ctx":"not stated","tool":"MLX-LM 0.32.2, Apple M4 Max","L":[101,116,117,120]},
+"entries":[
+{"role":"own","name":"Calibrated MXFP4","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["generated-ID agreement with BF16 on one prompt, not a general quality benchmark [L120]","speed/peak-memory rows omitted"]},
+{"role":"cross","name":"Community 4-bit control","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["generated-ID agreement with BF16, first divergence at position 3 [L119]"]}
+],
+"prose":[{"entry":"Calibrated MXFP4","key":"top1_pct","L":118,"raw":"44.141%"},{"entry":"Community 4-bit control","key":"top1_pct","L":119,"raw":"1.953%"}]}

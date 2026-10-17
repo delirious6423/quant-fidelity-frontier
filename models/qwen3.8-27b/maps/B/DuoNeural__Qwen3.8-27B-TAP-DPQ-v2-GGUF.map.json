@@ -1,0 +1,15 @@
+{"repo": "DuoNeural/Qwen3.8-27B-TAP-DPQ-v2-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "Vanilla BF16 (author-run baseline); Wikitext-2 holdout perplexity, no KLD", "dataset": "Wikitext-2 holdout (PPL); GSM8K N=100, HumanEval N=50, tool calling N=15; academic suite N=40 per item", "ctx": "not stated", "tool": "native llama.cpp CUDA backend on A100 80GB PCIe", "L": [45, 53, 66, 68]},
+ "entries": [
+  {"role": "ladder", "name": "Vanilla_BF16 (Reference)", "metrics": {"ppl:wikitext2-holdout": "c3", "bench:GSM8K": "c4", "bench:HumanEval": "c5", "bench:ToolCalling": "c6", "bench:ARC-Challenge": "c49"}, "size": "c2", "unit": "GiB", "basis": "disk", "bpw": "c1", "flags": ["author-run BF16 baseline [L57, L72]"]},
+  {"role": "own", "name": "Qwen3.8-27B-TAP-DPQ-v2-Q4_K_M.gguf", "metrics": {"ppl:wikitext2-holdout": "c11", "bench:GSM8K": "c12", "bench:HumanEval": "c13", "bench:ToolCalling": "c14"}, "size": "c10", "unit": "GiB", "basis": "disk", "bpw": "c9", "flags": ["card claims lower PPL than BF16; 'cavity-adjusted' framing [L45, L154]", "small-N task benchmarks"]},
+  {"role": "own", "name": "Qwen3.8-27B-TAP-DPQ-v2-IQ3_XXS.gguf", "metrics": {"ppl:wikitext2-holdout": "c19", "bench:GSM8K": "c20", "bench:HumanEval": "c21", "bench:ToolCalling": "c22"}, "size": "c18", "unit": "GiB", "basis": "disk", "bpw": "c17", "flags": ["[L59]"]},
+  {"role": "own", "name": "Qwen3.8-27B-TAP-DPQ-v2-IQ2_M.gguf", "metrics": {"ppl:wikitext2-holdout": "c27", "bench:GSM8K": "c28", "bench:HumanEval": "c29", "bench:ToolCalling": "c30"}, "size": "c26", "unit": "GiB", "basis": "disk", "bpw": "c25", "flags": ["[L60]"]},
+  {"role": "own", "name": "Qwen3.8-27B-TAP-DPQ-v2-IQ2_XXS.gguf", "metrics": {"ppl:wikitext2-holdout": "c34", "bench:GSM8K": "c35", "bench:HumanEval": "c36", "bench:ToolCalling": "c37", "bench:ARC-Challenge": "c50", "bench:Winogrande": "c57", "bench:HellaSwag": "c67", "bench:TruthfulQA": "c70", "bench:MMLU-AbstractAlgebra": "c71"}, "size": "c33", "unit": "GiB", "basis": "disk", "bpw": "c32", "flags": ["academic suite items are N=40 each [L72-79]", "card claims it beats uncompressed BF16 on several items; differences are within small-N noise", "MMLU abstract algebra BF16 figure 84.3% appears only in the row label [L79]"]},
+  {"role": "own", "name": "Qwen3.8-27B-TAP-DPQ-v2-IQ1_S.gguf", "metrics": {"ppl:wikitext2-holdout": "c42", "bench:GSM8K": "c43", "bench:HumanEval": "c44", "bench:ToolCalling": "c45"}, "size": "c41", "unit": "GiB", "basis": "disk", "bpw": "c40", "flags": ["bpw cell ~2.21 is larger than IQ2_XXS ~2.06 as printed [L61-62]"]},
+  {"role": "quoted", "name": "Official Uncompressed BF16", "of": "not named on card", "metrics": {"bench:ARC-Challenge": "c48", "bench:ToolCalling": "c52", "bench:Winogrande": "c56", "bench:GSM8K": "c59", "bench:HumanEval": "c63", "bench:HellaSwag": "c66", "bench:TruthfulQA": "c69"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["column labelled 'Official Uncompressed BF16', source not cited [L70-79]"]}
+ ],
+ "prose": []
+}

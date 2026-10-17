@@ -1,0 +1,9 @@
+{"repo":"TelperionAI/Qwen3.8-27B-INT4-AWQ-GPTQ-gdn4","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 base","dataset":"142,727 tokens of self-distilled thinking-mode output plus 200 free greedy generations","ctx":"not stated","tool":"vLLM 0.27.1, TP=2, 2xB300; top-1 argmax agreement, disagreement rate by confidence bucket, divmed (median first-divergence token)","L":[53,54,66,67,68,69,70,71]},
+"entries":[
+{"role":"own","name":"GDN 4-bit (this model)","of":"","metrics":{"top1_pct":"c10","bench:near-tie_disagree":"c11","bench:moderate_disagree":"c12","bench:confident_disagree":"c13","bench:certain_disagree":"c14","bench:divmed":"c15"},"size":"c9","unit":"GB","basis":"disk","bpw":null,"flags":["perplexity deliberately excluded by card [L73]","[L59]"]},
+{"role":"ladder","name":"GDN 8-bit sibling","of":"TelperionAI/Qwen3.8-27B-INT4-AWQ-GPTQ","metrics":{"top1_pct":"c18","bench:near-tie_disagree":"c19","bench:moderate_disagree":"c20","bench:confident_disagree":"c21","bench:certain_disagree":"c22","bench:divmed":"c23"},"size":"c17","unit":"GB","basis":"disk","bpw":null,"flags":["[L60]"]},
+{"role":"cross","name":"Qwen3.8-27B-FP8 (8-bit reference)","of":"Qwen/Qwen3.8-27B-FP8","metrics":{"top1_pct":"c2","bench:near-tie_disagree":"c3","bench:moderate_disagree":"c4","bench:confident_disagree":"c5","bench:certain_disagree":"c6","bench:divmed":"c7"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["[L58]"]},
+{"role":"cross","name":"cyankiwi Qwen3.8-27B-AWQ-INT4","of":"cyankiwi/Qwen3.8-27B-AWQ-INT4","metrics":{"top1_pct":"c26","bench:near-tie_disagree":"c27","bench:moderate_disagree":"c28","bench:confident_disagree":"c29","bench:certain_disagree":"c30","bench:divmed":"c31"},"size":"c25","unit":"GB","basis":"disk","bpw":null,"flags":["[L61]"]}
+],
+"prose":[]}

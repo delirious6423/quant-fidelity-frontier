@@ -1,0 +1,11 @@
+{"repo":"atakans/Qwen3.8-27B-NVFP4-BF16head",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"BF16 (perplexity 8.30)","dataset":"WikiText-2 test, 100 x 512 tokens, top-20 logprobs","ctx":"512 tokens","tool":"author's script with vLLM 0.30.0 on DGX Spark; quantized with ModelOpt 0.47.0 Local-Hessian","L":[12,24,25]},
+"entries":[
+{"role":"ladder","name":"BF16","metrics":{"ppl":"c22"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["BF16 perplexity 8.30 stated in prose [L24]"]},
+{"role":"cross","name":"FP8 (Qwen)","of":"Qwen/Qwen3.8-2... (link truncated in digest)","metrics":{"ppl_ratio":"c1","mean_kld":"c2","kld_99":"c3","top1_pct":"c4"},"size":"c13","unit":"GiB","basis":"disk","bpw":null,"flags":["all rows measured by the author with the same script [L25]","decode 8.5 tok/s c14, TTFT 8k c15 [L37]"]},
+{"role":"own","name":"This model (NVFP4, BF16 lm_head)","metrics":{"ppl_ratio":"c5","mean_kld":"c6","kld_99":"c7","top1_pct":"c8"},"size":"c16","unit":"GiB","basis":"disk","bpw":null,"flags":["BF16 lm_head adds 1.7 GiB [L41]","decode 10.9 tok/s c17, TTFT c18 [L38]"]},
+{"role":"cross","name":"NVFP4 (NVIDIA)","of":"nvidia/Qwe... (link truncated in digest)","metrics":{"ppl_ratio":"c9","mean_kld":"c10","kld_99":"c11","top1_pct":"c12"},"size":"c19","unit":"GiB","basis":"disk","bpw":null,"flags":["decode 12.5 tok/s c20, TTFT c21 [L39]"]}
+],
+"prose":[]}

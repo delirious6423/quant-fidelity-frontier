@@ -1,0 +1,71 @@
+{
+ "repo": "zedongpeng/Qwen3.8-27B-NInfer-4090",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "FP32-compute reference over the BF16 checkpoint",
+  "dataset": "46,059 next-token predictions in 44 windows of 2,048 tokens, half Wikipedia prose and half CPython source",
+  "ctx": "2048",
+  "tool": "KL64 = KL(reference || model) on the reference's top-64 tokens",
+  "L": [
+   47,
+   48,
+   49
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "this model (NInfer .ninfer 4090 build)",
+   "metrics": {
+    "kld:prose": "c16",
+    "kld:code": "c17",
+    "mean_kld": "c18",
+    "top1_pct": "c19",
+    "ppl": "c20"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "KL64 is truncated to top-64 [L48-49]; top-1 printed as fraction 0.9250 not percent [L54]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "NInfer release (RTN Q4/Q5)",
+   "metrics": {
+    "kld:prose": "c11",
+    "kld:code": "c12",
+    "mean_kld": "c13",
+    "top1_pct": "c14",
+    "ppl": "c15"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "top-1 printed as fraction [L53]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "BF16 checkpoint",
+   "metrics": {
+    "ppl": "c21"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L55]"
+   ],
+   "of": "Qwen/Qwen3.8-27B"
+  }
+ ],
+ "prose": []
+}

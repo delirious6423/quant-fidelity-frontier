@@ -1,0 +1,38 @@
+{
+ "repo": "QQZ2026/Qwen3.8-27B-ZeroRefusal-UD-IQ4_XS-MTP-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "not stated for quality; refusal test on fixed prompts",
+  "dataset": "mlabonne/harmful_behaviors first 64 prompts, max 64 output tokens",
+  "ctx": "not stated",
+  "tool": "llama.cpp b10435",
+  "L": [
+   127,
+   141,
+   144
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "ZeroRefusal UD-IQ4_XS V3 Final (native MTP)",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "refusal test only, not general quality [L148]; 'BF16 KL 0.009713646' at L172 belongs to the ZeroFuse-edited BF16 weights (edited layers 9-56), not this quant, so left unmapped; llama.cpp reports IQ4_XS 4.25 bpw [L59]"
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "ZeroRefusal UD-IQ4_XS V3 Final (native MTP)",
+   "key": "bench:refusal_harmful_behaviors_64",
+   "L": 136,
+   "raw": "0/64 refusal"
+  }
+ ]
+}

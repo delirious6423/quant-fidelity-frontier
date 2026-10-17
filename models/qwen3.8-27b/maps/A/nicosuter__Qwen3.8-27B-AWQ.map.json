@@ -1,0 +1,68 @@
+{
+ "repo": "nicosuter/Qwen3.8-27B-AWQ",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "FP8 checkpoint of Qwen3.8-27B (same items, same order); recovery = AWQ/FP8 geometric mean",
+  "dataset": "BFCL, GPQA Diamond, LiveCodeBench v6, MMMU-Pro, Multimodal (DocVQA/ChartQA/TextVQA), RULER (not counted)",
+  "ctx": "RULER synthesized at 4k, 32k, 128k",
+  "tool": "EVAL.md protocol on H200 NVL; bootstrap 20,000 resamples",
+  "L": [
+   102,
+   108,
+   110,
+   134
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "Qwen3.8-27B-AWQ",
+   "metrics": {
+    "bench:BFCL": "c21",
+    "bench:BFCL_recovery_pct": "c23",
+    "bench:GPQA_Diamond": "c26",
+    "bench:GPQA_Diamond_recovery_pct": "c28",
+    "bench:LiveCodeBench_v6": "c31",
+    "bench:LiveCodeBench_v6_recovery_pct": "c33",
+    "bench:MMMU-Pro": "c36",
+    "bench:MMMU-Pro_recovery_pct": "c38",
+    "bench:Multimodal": "c41",
+    "bench:Multimodal_recovery_pct": "c43",
+    "bench:macro_5_suites": "c45",
+    "bench:macro_5_suites_recovery_pct": "c47",
+    "bench:RULER": "c50",
+    "bench:RULER_recovery_pct": "c52"
+   },
+   "size": "c53",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "weights size before KV cache [L194]; recovery has 95% CI; scores pooled over two passes for GPQA, LCB, MMMU-Pro [L105-107]; table does not report delta ids here (deltas c22,c27,c32,c37,c42,c46,c51)"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "FP8 checkpoint (baseline arm)",
+   "of": "not named on card",
+   "metrics": {
+    "bench:BFCL": "c20",
+    "bench:GPQA_Diamond": "c25",
+    "bench:LiveCodeBench_v6": "c30",
+    "bench:MMMU-Pro": "c35",
+    "bench:Multimodal": "c40",
+    "bench:macro_5_suites": "c44",
+    "bench:RULER": "c49"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "baseline measured by same author on same items [L102-104]"
+   ]
+  }
+ ],
+ "prose": []
+}

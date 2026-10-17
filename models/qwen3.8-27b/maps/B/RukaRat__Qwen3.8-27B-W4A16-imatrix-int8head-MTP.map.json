@@ -1,0 +1,11 @@
+{"repo":"RukaRat/Qwen3.8-27B-W4A16-imatrix-int8head-MTP","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"ground truth answers (not a BF16 baseline); also replay vs plain W4A16 output","dataset":"200-item five-task battery (T=0); 160-item ground-truth scored set","ctx":"not stated","tool":"vLLM, 2x RTX 3090","L":[51,52,207,208]},
+"entries":[
+{"role":"own","name":"W4A16 + int8 head (this one)","metrics":{"bench:Battery160-correct":"c42"},"size":"c11","unit":"GiB","basis":null,"bpw":null,"flags":["200/200 answers identical to plain W4A16 build (c2.0) [L57]","table spans 130-135 of 160, card calls it a tie [L222-224]"]},
+{"role":"ladder","name":"W4A16 plain","metrics":{"bench:Battery160-correct":"c51"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L216]"]},
+{"role":"ladder","name":"INT8 W8A8","metrics":{"bench:Battery160-correct":"c36"},"size":"c6","unit":"GiB","basis":null,"bpw":null,"flags":["[L211]"]},
+{"role":"ladder","name":"INT8 W8A8, abliterated","metrics":{"bench:Battery160-correct":"c39"},"size":"c9","unit":"GiB","basis":null,"bpw":null,"flags":["[L212]"]},
+{"role":"ladder","name":"W4A16 + int8 head, abliterated","metrics":{"bench:Battery160-correct":"c45"},"size":"c14","unit":"GiB","basis":null,"bpw":null,"flags":["[L214]"]},
+{"role":"ladder","name":"W4A16 plain, abliterated","metrics":{"bench:Battery160-correct":"c48"},"size":"c17","unit":"GiB","basis":null,"bpw":null,"flags":["[L215]"]}
+],
+"prose":[]}

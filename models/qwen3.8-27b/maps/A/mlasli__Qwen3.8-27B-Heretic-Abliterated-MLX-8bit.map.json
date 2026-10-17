@@ -1,0 +1,4 @@
+{"repo":"mlasli/Qwen3.8-27B-Heretic-Abliterated-MLX-8bit","no_quality_claims":true,"no_claims_reason":"no quant-fidelity metric (no KLD/ppl); refusal and capability tables are for the BF16 checkpoint [L53-59, L74-83]; 8-bit smoke-test rows are refusal rates only [L64-69]","method":{"reference":"not stated","dataset":"not stated","ctx":"not stated","tool":"3-way direct/deflect/refuse judge; greedy capability benchmarks (bf16)","L":[31,53,74]},"entries":[
+{"role":"own","name":"8-bit MLX","metrics":{},"size":"c32","unit":"GB","basis":"disk","bpw":null,"flags":["size only; group size 64 [L110,L114]","quality tables are BF16 v2.1.0 vs base, not this quant [L53,L74]"]},
+{"role":"ladder","name":"6-bit MLX","metrics":{},"size":"c35","unit":"GB","basis":"disk","bpw":null,"flags":["size only [L115]"]}
+],"prose":[]}

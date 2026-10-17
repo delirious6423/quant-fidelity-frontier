@@ -1,0 +1,14 @@
+{"repo":"CodeMasterCody3D/taardis-27b-full-ternary",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"none given; comparison against FP16 teacher stated as still outstanding","dataset":"wikitext, 274 chunks, identical binary/kernels/text","ctx":"512","tool":"llama-perplexity from the TAARDIS llama.cpp fork","L":[37,97,224,225]},
+"entries":[
+{"role":"own","name":"TAARDIS-27B-Full-Ternary-V1 (weights alone)","metrics":{"ppl":"c9.0"},"size":"c7","unit":"GB","basis":"disk","bpw":"c11","flags":["Size shown as 7.16 GB in files table and 7.17 GB in V1-vs-V2 table [L35, L63]","Same weights as V2, byte for byte [L53]"]},
+{"role":"own","name":"TAARDIS-27B-Full-Ternary-V2-1.75bit.gguf (weights alone)","metrics":{"ppl":"c9.1"},"size":"c1","unit":"GB","basis":"disk","bpw":"c12","flags":["Lossless repack of V1 [L53]","[L32, L41]"]},
+{"role":"own","name":"V2 + Doctors V3 (recommended)","metrics":{"ppl":"c10"},"size":"c19","unit":"GB","basis":"disk","bpw":null,"flags":["Size is weights plus corrections [L107]","Research artifact; quality expected below the fp16 original [L321-323]"]},
+{"role":"cross","name":"Ternary-Bonsai-27B (PrismML)","of":"not named on card","metrics":{"ppl":"c20"},"size":"c18","unit":"GB","basis":"disk","bpw":"c11","flags":["Measured head-to-head by the author on the same binary and text [L102]","bpw 2.125 per the size cell; shares id with V1 label value only in meaning [L106]"]},
+{"role":"own","name":"V2+Doctors with q4_0 KV cache","metrics":{"ppl_delta_pct":"c35"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["PPL cost is of the KV-cache type vs f16 KV, not of the weights [L237]"]},
+{"role":"own","name":"V2+Doctors with q1_0_g128 KV cache","metrics":{"ppl_delta_pct":"c41"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["KV-cache quantization cost vs f16 KV [L238]"]},
+{"role":"own","name":"V2+Doctors with q1_t_g128 ternary KV cache","metrics":{"ppl_delta_pct":"c47"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["KV-cache quantization cost vs f16 KV [L239]"]}
+],
+"prose":[]}

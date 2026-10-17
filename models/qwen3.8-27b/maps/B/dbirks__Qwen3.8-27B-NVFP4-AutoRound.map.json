@@ -1,0 +1,7 @@
+{"repo":"dbirks/Qwen3.8-27B-NVFP4-AutoRound","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 base measured by author with same harness","dataset":"GSM8K full 1319 (thinking); HumanEval pass@1 instruct; MMLU-Pro 100 per subject (thinking)","ctx":"not stated","tool":"EleutherAI lm-evaluation-harness, default thinking mode, temp 1.0 top-p 0.95 top-k 20","L":[84,85,94]},
+"entries":[
+{"role":"own","name":"NVFP4 W4A4 AutoRound","metrics":{"bench:GSM8K":"c2","bench:HumanEval":"c4","bench:MMLU-Pro":"c6"},"size":"c7","unit":"GB","basis":"disk","bpw":null,"flags":["values are accuracy with +/- CI [L89-91]","MMLU-Pro is 100 per subject, not comparable to full split [L94]"]},
+{"role":"cross","name":"BF16 base","of":"Qwen/Qwen3.8-27B","metrics":{"bench:GSM8K":"c1","bench:HumanEval":"c3","bench:MMLU-Pro":"c5"},"size":"c10.0","unit":"GB","basis":"disk","bpw":null,"flags":["size 'roughly 52 GB at BF16' [L26]"]}
+],
+"prose":[]}

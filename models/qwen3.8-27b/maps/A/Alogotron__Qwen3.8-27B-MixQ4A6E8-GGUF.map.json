@@ -1,0 +1,11 @@
+{"repo":"Alogotron/Qwen3.8-27B-MixQ4A6E8-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 base logits (freshly generated)","dataset":"WikiText-2 test, full set, 602 chunks","ctx":"512 (ctx/batch/ubatch 512)","tool":"llama.cpp b10442 Vulkan perplexity lane","L":[43,44,45]},
+"entries":[
+{"role":"own","name":"MixQ4A6E8-v0","metrics":{"mean_kld":"c23","ppl":"c24"},"size":"c22","unit":"bytes","basis":"disk","bpw":null,"flags":["same values at L49 [c1,c2]; PPL delta vs BF16 6.648031: +0.0350 [c3]"]},
+{"role":"ladder","name":"Q4_K_M","metrics":{"mean_kld":"c17","ppl":"c18"},"size":"c16","unit":"bytes","basis":"disk","bpw":null,"flags":["sealed comparison baseline [L50,L96]"]},
+{"role":"ladder","name":"Q5_K_M","metrics":{"mean_kld":"c30","ppl":"c31"},"size":"c29","unit":"bytes","basis":"disk","bpw":null,"flags":["[L98]"]},
+{"role":"ladder","name":"MixQ5A6E8-v0 (sibling)","metrics":{"mean_kld":"c36","ppl":"c37"},"size":"c35","unit":"bytes","basis":"disk","bpw":null,"flags":["sibling release [L99]"]},
+{"role":"ladder","name":"Q6_K","metrics":{"mean_kld":"c43","ppl":"c44"},"size":"c42","unit":"bytes","basis":"disk","bpw":null,"flags":["[L100]"]},
+{"role":"ladder","name":"Q8_0","metrics":{},"size":"c49","unit":"bytes","basis":"disk","bpw":null,"flags":["not KL/PPL-measured [L92]"]}
+],
+"prose":[]}

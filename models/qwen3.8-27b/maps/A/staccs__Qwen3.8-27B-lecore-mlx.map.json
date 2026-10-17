@@ -1,0 +1,8 @@
+{"repo":"staccs/Qwen3.8-27B-lecore-mlx","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 reference","dataset":"WikiText-2 test (32704 tok) and a different Python-source slice (8176 tok); MMLU 5-shot first 10 questions of each of 57 subjects; GSM8K 5-shot first 100 test problems","ctx":"seq 512","tool":"MLX perplexity on dequantized shipped weights; lm-eval-harness 0.4.9","L":[23,24,34]},
+"entries":[
+{"role":"own","name":"leCore Unicron mix (this repo)","metrics":{"ppl:wikitext2":"c6","ppl:python-code":"c7","bench:MMLU 5-shot":"c12","bench:GSM8K strict":"c13","bench:GSM8K flexible":"c14"},"size":"c4","unit":"GB","basis":"text_weights","bpw":"c5","flags":["Card admits the export is uniform 4-bit group 64 with 4-bit embeddings and 6-bit lm_head, not a mix; fair baseline is stock MLX 4-bit [L20]","Benchmarks are subsets, about +-2-4 points noise [L34]"]},
+{"role":"ladder","name":"bf16 reference","metrics":{"ppl:wikitext2":"c2","ppl:python-code":"c3"},"size":null,"unit":null,"basis":null,"bpw":"c1","flags":[]},
+{"role":"ladder","name":"stock MLX 3-bit, group 64","metrics":{"ppl:wikitext2":"c10","ppl:python-code":"c11","bench:MMLU 5-shot":"c15","bench:GSM8K strict":"c16","bench:GSM8K flexible":"c17"},"size":"c8","unit":"GB","basis":"text_weights","bpw":"c9","flags":["Benchmark row is labelled 'simulated' [L39]"]}
+],
+"prose":[]}

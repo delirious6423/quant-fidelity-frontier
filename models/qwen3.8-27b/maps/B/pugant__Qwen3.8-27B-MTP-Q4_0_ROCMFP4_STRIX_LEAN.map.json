@@ -1,0 +1,10 @@
+{"repo": "pugant/Qwen3.8-27B-MTP-Q4_0_ROCMFP4_STRIX_LEAN",
+ "no_quality_claims": true,
+ "no_claims_reason": "decode speed and MTP draft-acceptance benchmarks only [L52-99,L131-144]; imatrix coverage gate is not a quality metric [L168]",
+ "method": {"reference": "not stated", "dataset": "imatrix calibration 256 chunks x 512 ctx on 1.7 MB composite", "ctx": "not stated", "tool": "llama-imatrix (fork)", "L": [163, 164, 165]},
+ "entries": [
+  {"role": "own", "name": "Q4_0_ROCMFP4_STRIX_LEAN", "metrics": {}, "size": "c1", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["4.34 BPW effective in prose [L31]"]}
+ ],
+ "prose": [
+  {"entry": "Q4_0_ROCMFP4_STRIX_LEAN", "key": "bpw", "L": 31, "raw": "4.34"}
+ ]}

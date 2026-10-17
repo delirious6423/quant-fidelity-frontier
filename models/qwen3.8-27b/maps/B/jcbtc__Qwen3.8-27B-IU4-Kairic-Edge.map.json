@@ -1,0 +1,10 @@
+{"repo":"jcbtc/Qwen3.8-27B-IU4-Kairic-Edge",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"none (task pass counts, no BF16 reference run)","dataset":"164-task chat-adapted HumanEval/EvalPlus (Base and Plus)","ctx":"Kairic 262,144 vs comparison runs 65,536","tool":"custom Kairic Edge llama.cpp fork on gfx1151, deterministic sampling, one trajectory per task","L":[100,115]},
+"entries":[
+{"role":"own","name":"Kairic Edge IU4 v1/v1.1","metrics":{"bench:HumanEval":"c1","bench:HumanEval+":"c2"},"size":"c111","unit":"GiB","basis":"disk","bpw":null,"flags":["configured-system comparison, not one-variable quantization experiment [L115,L354]","size is the authoritative GGUF only; total with native companions 26.05 GiB c119 [L225-229]","not comparable to EvalPlus leaderboard [L115]"]},
+{"role":"cross","name":"Unsloth Dynamic Q4","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{"bench:HumanEval":"c7","bench:HumanEval+":"c8"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Unsloth Dynamic 3.0 comparison file, exact filename in identity table [L119-129]"]},
+{"role":"cross","name":"Unsloth Dynamic Q6","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{"bench:HumanEval":"c13","bench:HumanEval+":"c14"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Unsloth Dynamic 3.0 comparison file [L119-129]"]}
+],
+"prose":[]}

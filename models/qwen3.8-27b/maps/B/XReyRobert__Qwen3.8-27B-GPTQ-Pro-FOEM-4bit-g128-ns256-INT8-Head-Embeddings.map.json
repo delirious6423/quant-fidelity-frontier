@@ -1,0 +1,8 @@
+{"repo":"XReyRobert/Qwen3.8-27B-GPTQ-Pro-FOEM-4bit-g128-ns256-INT8-Head-Embeddings","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"none (no BF16 comparison; absolute agentic task scores)","dataset":"Terminal-Bench 2.0 Smoke24 (24 fixed tasks), one pass per effort","ctx":"210K text profile","tool":"Terminal-Bench 2.0, Terminus-2, parser=json, vLLM 0.27.1, one RTX 3090","L":[217,228,229]},
+"entries":[
+{"role":"own","name":"this checkpoint, reasoning_effort low","metrics":{"bench:TB2-Smoke24-low":"c6"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["score is tasks solved of 24; no BF16 baseline [L224]","relative L2 reconstruction errors c4/c5 are tensor errors, not mapped [L87-88]"]},
+{"role":"own","name":"this checkpoint, reasoning_effort medium","metrics":{"bench:TB2-Smoke24-medium":"c16"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L225]"]},
+{"role":"own","name":"this checkpoint, reasoning_effort xhigh","metrics":{"bench:TB2-Smoke24-xhigh":"c26"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["one-task differences not statistically decisive [L236-239]"]}
+],
+"prose":[]}

@@ -1,0 +1,12 @@
+{"repo":"Rabbit-Hole-Ai/Qwen3.8-27B-5090-goldilocks-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"true BF16 reference GGUF (PPL 8.1090)","dataset":"143 chunks of a mixed corpus; also corpus A (literary prose) and GPQA-style science prose","ctx":"n_ctx 512","tool":"llama-perplexity --kl-divergence, llama.cpp build 10437","L":[180,217,281]},
+"entries":[
+{"role":"own","name":"imatrix build (thireus-7.4bpw-imatrix)","metrics":{"mean_kld":"c41","kld_99":"c43","top1_pct":"c44"},"size":"c93.1","unit":"GiB","basis":"disk","bpw":"c48","flags":["size 23.4 GiB from prose [L283]; bpw label 7.36 [L185]","median KLD c42 also reported [L222]"]},
+{"role":"own","name":"RTN build (thireus-7.4bpw, original)","metrics":{"mean_kld":"c37","kld_99":"c39","top1_pct":"c40"},"size":null,"unit":null,"basis":null,"bpw":"c45","flags":["median KLD c38 [L221]"]},
+{"role":"own","name":"this cook (7.36 bpw class), corpus A","metrics":{"kld:corpus A":"c22","top1:corpus A":"c23"},"size":null,"unit":null,"basis":null,"bpw":"c21","flags":["table of builds vs this cook [L185]"]},
+{"role":"cross","name":"Unsloth UD-Q6_K","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{"kld:corpus A":"c26","top1:corpus A":"c27"},"size":null,"unit":null,"basis":null,"bpw":"c25","flags":["repo inferred from card links [L288]; 2.17x this cook KLD [L186]"]},
+{"role":"cross","name":"Unsloth UD-Q5_K_XL","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{"kld:corpus A":"c30","top1:corpus A":"c31"},"size":null,"unit":null,"basis":null,"bpw":"c29","flags":["repo inferred from card links [L288]; 3.22x this cook KLD [L187]"]},
+{"role":"cross","name":"Unsloth UD-Q5_K_M","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{"kld:corpus A":"c34","top1:corpus A":"c35"},"size":null,"unit":null,"basis":null,"bpw":"c33","flags":["repo inferred from card links [L288]; 4.19x this cook KLD [L188]"]},
+{"role":"cross","name":"web-generated 7.4726 bpw recipe","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["mean KLD 0.001474 on corpus A, author-built comparison file [L314]"]}
+],
+"prose":[{"entry":"web-generated 7.4726 bpw recipe","key":"kld:corpus A","L":314,"raw":"mean KLD **0.001474** on corpus A"}]}

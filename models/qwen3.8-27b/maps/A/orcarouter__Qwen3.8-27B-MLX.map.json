@@ -1,0 +1,8 @@
+{"repo":"orcarouter/Qwen3.8-27B-MLX","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16","dataset":"wikitext-2","ctx":"1024 tokens","tool":"MLX CUDA backend","L":[106,107]},
+"entries":[
+{"role":"own","name":"8-bit","metrics":{"mean_kld":"c19","top1_pct":"c21"},"size":"c4","unit":"GB","basis":"disk","bpw":null,"flags":["KLD p95 0.00233 in table [L112] not mapped (no key)","group size 32"]},
+{"role":"own","name":"6-bit","metrics":{"mean_kld":"c23","top1_pct":"c25"},"size":"c9","unit":"GB","basis":"disk","bpw":null,"flags":["KLD p95 in table [L113] not mapped","group size 32"]},
+{"role":"own","name":"4-bit","metrics":{"mean_kld":"c27","top1_pct":"c29"},"size":"c14","unit":"GB","basis":"disk","bpw":null,"flags":["KLD p95 in table [L114] not mapped","group size 64"]}
+],
+"prose":[]}

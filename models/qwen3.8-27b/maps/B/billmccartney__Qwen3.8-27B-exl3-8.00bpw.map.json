@@ -1,0 +1,10 @@
+{"repo": "billmccartney/Qwen3.8-27B-exl3-8.00bpw",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "BF16 checkpoint (cached BF16 distributions)", "dataset": "100 non-overlapping WikiText2 test rows (PPL r-100); KL over 204,800 logit positions", "ctx": "2,048 tokens, stride 2,048, no chat wrapper", "tool": "pinned exllamav3 1.4.2 qbench", "L": [183, 184, 191, 192, 193, 194]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B EXL3 8.0bpw", "metrics": {"mean_kld": "c18", "ppl:wikitext2-r100": "c19"}, "size": "c20", "unit": "GiB", "basis": "disk", "bpw": "c2", "flags": ["size is safetensors shard bytes [L195]", "mean KL unadjusted (BF16 self-noise-floor pass not run); median 0.00036012 and p90 in prose [L194]", "single WikiText2 distribution, not a reasoning benchmark [L218]"]},
+  {"role": "cross", "name": "bf16", "of": "Qwen/Qwen3.8-27B", "metrics": {"mean_kld": "c22", "ppl:wikitext2-r100": "c23"}, "size": "c24", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["reference row [L189]"]}
+ ],
+ "prose": []
+}

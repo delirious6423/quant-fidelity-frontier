@@ -1,0 +1,15 @@
+{"repo": "OBLITERATUS/Qwen3.8-27B-OBLITERATED",
+ "no_quality_claims": true,
+ "no_claims_reason": "MMLU and task scores compare abliteration versions V1-V3 against stock, not quantization fidelity; GGUF table is sizes only [L27-33, L124-140, L197-207]",
+ "method": {"reference": "stock Qwen3.8-27B (abliteration comparison, not quant)", "dataset": "MMLU lm-eval 0-shot, n=100 per subject, 5700 questions", "ctx": "not stated", "tool": "lm-eval-harness", "L": [124]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B-OBLITERATED-Q8_0.gguf", "metrics": {}, "size": "c35", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["approximate size [L201]", "MMLU figures describe abliteration versions, omitted [L29, L128-131]"]},
+  {"role": "own", "name": "Qwen3.8-27B-OBLITERATED-Q6_K.gguf", "metrics": {}, "size": "c37", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["approximate size [L202]"]},
+  {"role": "own", "name": "Qwen3.8-27B-OBLITERATED-Q5_K_M.gguf", "metrics": {}, "size": "c39", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["approximate size [L203]"]},
+  {"role": "own", "name": "Qwen3.8-27B-OBLITERATED-Q4_K_M.gguf", "metrics": {}, "size": "c41", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["approximate size [L204]"]},
+  {"role": "own", "name": "Qwen3.8-27B-OBLITERATED-Q3_K_M.gguf", "metrics": {}, "size": "c43", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["approximate size [L205]"]},
+  {"role": "own", "name": "Qwen3.8-27B-OBLITERATED-Q2_K.gguf", "metrics": {}, "size": "c45", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["approximate size [L206]"]},
+  {"role": "own", "name": "Qwen3.8-27B-OBLITERATED-IQ4_XS.gguf", "metrics": {}, "size": "c47", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["approximate size [L207]"]}
+ ],
+ "prose": []
+}

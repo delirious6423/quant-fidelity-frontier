@@ -1,0 +1,12 @@
+{"repo":"pottokao/Qwen3.8-27B-NVFP4-MTP-2x16GB",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"no BF16 reference; no external anchor (upstream publishes no AIME figure)","dataset":"AIME 2026 I+II, 30 problems, first sample per problem; calibration cnn_dailymail","ctx":"not stated","tool":"NVIDIA ModelOpt NVFP4; vLLM TP2 on 2x RTX 5060 Ti, temperature 0.6","L":[56,57,251,252,254,257,292]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B NVFP4 + MTP","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Speed, acceptance-length and ITL tables omitted: throughput only [L135-145, L212-221]","Second full pass over problems 10-30 scored 19/21, so single-sample 29/30 is not a ceiling [L298-300]","Weights about 10.5 GiB per card in prose [L188]"]}
+],
+"prose":[
+{"entry":"Qwen3.8-27B NVFP4 + MTP","key":"bench:AIME 2026 pass@1","L":257,"raw":"29/30"},
+{"entry":"Qwen3.8-27B NVFP4 + MTP","key":"bench:AIME 2026 any-correct","L":258,"raw":"30/30"},
+{"entry":"Qwen3.8-27B NVFP4 + MTP","key":"bench:AIME 2026 second pass problems 10-30","L":299,"raw":"19/21"}
+]}

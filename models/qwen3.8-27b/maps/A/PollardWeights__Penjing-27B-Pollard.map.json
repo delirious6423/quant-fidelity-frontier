@@ -1,0 +1,12 @@
+{"repo":"PollardWeights/Penjing-27B-Pollard","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"f16 (PPL 4.1422)","dataset":"wikitext2 test","ctx":"-c 2048","tool":"llama-perplexity (Same top p for top-1 agree)","L":[62,64,75]},
+"entries":[
+{"role":"own","name":"Penjing-27B-IQ1_KT.gguf","metrics":{"ppl:wikitext2":"c2","mean_kld":"c4","top1_pct":"c5","ppl_delta_pct":"c6.0"},"size":"c3","unit":"GB","basis":"disk","bpw":null,"flags":["Smallest rung; runs in ik_llama.cpp [L60]"]},
+{"role":"own","name":"Penjing-27B-IQ2_XXS.gguf","metrics":{"ppl:wikitext2":"c7","mean_kld":"c9","top1_pct":"c10","ppl_delta_pct":"c11.0"},"size":"c8","unit":"GB","basis":"disk","bpw":null,"flags":[]},
+{"role":"own","name":"Penjing-27B-IQ2_KT.gguf","metrics":{"ppl:wikitext2":"c12","mean_kld":"c14","top1_pct":"c15","ppl_delta_pct":"c16.0"},"size":"c13","unit":"GB","basis":"disk","bpw":null,"flags":["Recommended default; ik_llama.cpp [L58]"]},
+{"role":"own","name":"Penjing-27B-IQ3_S.gguf","metrics":{},"size":"c17","unit":"GB","basis":"disk","bpw":null,"flags":["Row has size only in candidates [L71]"]},
+{"role":"own","name":"Penjing-27B-IQ4_XS.gguf","metrics":{},"size":"c18","unit":"GB","basis":"disk","bpw":null,"flags":["Row has size only in candidates [L72]"]},
+{"role":"own","name":"Penjing-27B-Q6_K.gguf","metrics":{},"size":"c19","unit":"GB","basis":"disk","bpw":null,"flags":["Row has size only in candidates [L73]"]},
+{"role":"ladder","name":"f16 reference","metrics":{"ppl:wikitext2":"c82"},"size":"c20","unit":"GB","basis":"disk","bpw":null,"flags":["f16 reference PPL 4.1422 [L64]; size 54.64 GB from prose headline [L26]"]}
+],
+"prose":[]}

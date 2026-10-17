@@ -1,0 +1,10 @@
+{"repo": "vrfai/Qwen3.8-27B-FP8",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "bf16 weights of the same model, run in the card author's harness", "dataset": "MathVision testmini (n=304) and ERQA (n=400) absolute; 10 deterministic-scorer tasks, 13,046 documents for drift", "ctx": "not stated", "tool": "not named; thinking on, greedy; floor = movement between two runs of unmodified bf16 at different batch size", "L": [65, 70, 84, 97, 112, 118]},
+ "entries": [
+  {"role": "own", "name": "FP8 (W8A8, compressed-tensors)", "metrics": {"bench:MathVision": "c41", "bench:ERQA": "c45", "bench:AI2D_delta_vs_bf16": "c50", "bench:ChartQA_delta_vs_bf16": "c53", "bench:ScienceQA-IMG_delta_vs_bf16": "c56", "bench:MMStar_delta_vs_bf16": "c59", "bench:OCRBench_delta_vs_bf16": "c62", "bench:CountBenchQA_delta_vs_bf16": "c65", "bench:RealWorldQA_delta_vs_bf16": "c68", "bench:OmniDocBench_delta_vs_bf16": "c71", "bench:MathVision_delta_vs_bf16": "c74", "bench:ERQA_delta_vs_bf16": "c77"}, "size": "c79", "unit": "GB", "basis": null, "bpw": null, "flags": ["absolute scores L75-76, drift deltas in points vs bf16 L101-110 [L99-110]", "per-task noise floors (c51, c54, ...) not mapped", "207 modules held at bf16 [L63]", "size 28.3 GB quantized weights [L124]; base model 52 GB [L23]"]},
+  {"role": "ladder", "name": "bf16 (same model)", "metrics": {"bench:MathVision": "c42", "bench:ERQA": "c46"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["measured by card author in same harness [L75-76]"]},
+  {"role": "quoted", "name": "Qwen card", "of": "Qwen/Qwen3.8-27B", "metrics": {"bench:MathVision": "c43", "bench:ERQA": "c47"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["published base figures; text after L155 is verbatim base card, not measured on this checkpoint [L155-159]"]}
+ ],
+ "prose": []}

@@ -1,0 +1,12 @@
+{"repo": "guideboardlabs/Qwen3.8-27B-Q3-DOWN-XS-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "UD-IQ3_XXS 3-bit control (PPL 7.1553); no bf16 anchor was built", "dataset": "wikitext-2-raw-v1 test, 8 x 512 chunks", "ctx": "512 tokens, batch 128", "tool": "llama.cpp (Vulkan build), llama-quantize with iMatrix", "L": [32, 40, 112]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B-Q3-DOWN-XS.gguf", "metrics": {"ppl:wikitext2": "c3"}, "size": "c1", "unit": "GiB", "basis": "disk", "bpw": "c2", "flags": ["Quality % (86.5%) is relative to the UD-IQ3_XXS control, not bf16; not mapped [L32]"]},
+  {"role": "cross", "name": "UD-IQ3_XXS (control, 11.9GB)", "of": "not named on card", "metrics": {"ppl:wikitext2": "c6"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["does not fit 8 GB; used as quality reference [L44]"]},
+  {"role": "ladder", "name": "Q3-DOWN-UP-XS (ceiling)", "metrics": {"ppl:wikitext2": "c9"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["overflows 8 GB, rejected [L50]"]},
+  {"role": "ladder", "name": "Q3-UP-XS", "metrics": {"ppl:wikitext2": "c15"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": []},
+  {"role": "ladder", "name": "Q3-GATE-PROTECT (old prod)", "metrics": {"ppl:wikitext2": "c18"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": []}
+ ],
+ "prose": []}

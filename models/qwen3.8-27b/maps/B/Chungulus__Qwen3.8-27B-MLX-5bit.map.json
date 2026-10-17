@@ -1,0 +1,10 @@
+{"repo":"Chungulus/Qwen3.8-27B-MLX-5bit",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"not stated (semantic-similarity proxy vs reference output)","dataset":"short validation prompts, longest 73 prompt tokens","ctx":"73 prompt tokens max recorded","tool":"validation_result.json (mlx-vlm 0.6.1, mlx 0.31.2, mlx-lm 0.31.3), no calibration","L":[28,37,55,56,105]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-MLX-5bit","metrics":{},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["5-bit, group size 64 [L28-29]","semantic-similarity proxy, not ground-truth accuracy [L55]","MTP drafter acceptance rate is a speed figure, not mapped [L94]"]}
+],
+"prose":[
+{"entry":"Qwen3.8-27B-MLX-5bit","key":"bench:mean_semantic_similarity","L":105,"raw":"0.9520436644554138"}
+]}

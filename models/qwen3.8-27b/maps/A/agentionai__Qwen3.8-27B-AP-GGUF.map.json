@@ -1,0 +1,33 @@
+{"repo":"agentionai/Qwen3.8-27B-AP-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"Qwen/Qwen3.8-27B BF16 logits, one base per corpus","dataset":"3 corpora: held-out (1.85 MB internal technical prose, unpublished), neutral web mixedweb-v1, wikitext-2 test","ctx":"2048 x 60 chunks","tool":"llama.cpp llama-perplexity --kl-divergence (build 26bc85e42), all files measured with identical commands","L":[56,58,60,61,62,66,78,81,85,86,87]},
+"entries":[
+{"role":"own","name":"AP-Q4_K_XL","metrics":{"kld:held-out":"c95","kld:neutral-web":"c96","kld:wikitext-2":"c97","kld_99":"c52"},"size":"c94","unit":"GiB","basis":"disk","bpw":null,"flags":["kld_99 is worst-1% tokens on held-out corpus [L94-105]","held-out corpus is not published [L60]"]},
+{"role":"cross","name":"UD-Q4_K_XL","of":"not named on card","metrics":{"kld:held-out":"c99","kld:neutral-web":"c100","kld:wikitext-2":"c101","kld_99":"c47"},"size":"c98","unit":"GiB","basis":"disk","bpw":null,"flags":["card labels it unsloth; repo not named [L116]"]},
+{"role":"own","name":"AP-Q4_K_M","metrics":{"kld:held-out":"c104","kld:neutral-web":"c105","kld:wikitext-2":"c106","kld_99":"c62"},"size":"c103","unit":"GiB","basis":"disk","bpw":null,"flags":[]},
+{"role":"cross","name":"UD-Q4_K_M","of":"not named on card","metrics":{"kld:held-out":"c108","kld:neutral-web":"c109","kld:wikitext-2":"c110","kld_99":"c57"},"size":"c107","unit":"GiB","basis":"disk","bpw":null,"flags":["card labels it unsloth; repo not named [L118]"]},
+{"role":"cross","name":"AD-IQ4_XS-IQ3_S","of":"not named on card","metrics":{"kld:held-out":"c112","kld:neutral-web":"c113","kld:wikitext-2":"c114"},"size":"c111","unit":"GiB","basis":"disk","bpw":null,"flags":["card labels it AtomicChat; repo not named [L119]"]},
+{"role":"own","name":"AP-IQ4_XS","metrics":{"kld:held-out":"c117","kld:neutral-web":"c118","kld:wikitext-2":"c119","kld_99":"c72"},"size":"c116","unit":"GiB","basis":"disk","bpw":null,"flags":[]},
+{"role":"cross","name":"UD-IQ4_XS","of":"not named on card","metrics":{"kld:held-out":"c121","kld:neutral-web":"c122","kld:wikitext-2":"c123","kld_99":"c67"},"size":"c120","unit":"GiB","basis":"disk","bpw":null,"flags":["card labels it unsloth; repo not named [L121]"]},
+{"role":"cross","name":"AD-IQ3_S","of":"not named on card","metrics":{"kld:held-out":"c125","kld:neutral-web":"c126"},"size":"c124","unit":"GiB","basis":"disk","bpw":null,"flags":["card labels it AtomicChat; no wikitext-2 value [L122]"]},
+{"role":"own","name":"AP-Q3_K_XL","metrics":{"kld:held-out":"c129","kld:neutral-web":"c130","kld:wikitext-2":"c131","kld_99":"c82"},"size":"c128","unit":"GiB","basis":"disk","bpw":null,"flags":["held-out measured on 95% non-overlapping subset after rebuild with extended calibration; subset reads about 3% higher [L138]"]},
+{"role":"cross","name":"UD-Q3_K_XL","of":"not named on card","metrics":{"kld:held-out":"c133","kld:neutral-web":"c134","kld:wikitext-2":"c135","kld_99":"c77"},"size":"c132","unit":"GiB","basis":"disk","bpw":null,"flags":["card labels it unsloth; repo not named [L124]"]},
+{"role":"cross","name":"GSQ-RCO-IQ3_S","of":"not named on card","metrics":{"kld:held-out":"c137","kld:neutral-web":"c138","kld:wikitext-2":"c139"},"size":"c136","unit":"GiB","basis":"disk","bpw":null,"flags":["card labels it ISTA-DASLab; repo not named [L125]"]},
+{"role":"own","name":"AP-IQ3_S","metrics":{"kld:held-out":"c142","kld:neutral-web":"c143","kld:wikitext-2":"c144","kld_99":"c92"},"size":"c141","unit":"GiB","basis":"disk","bpw":null,"flags":["held-out on 95% non-overlapping subset [L138]"]},
+{"role":"cross","name":"UD-IQ3_S","of":"not named on card","metrics":{"kld:held-out":"c146","kld:neutral-web":"c147","kld:wikitext-2":"c148","kld_99":"c87"},"size":"c145","unit":"GiB","basis":"disk","bpw":null,"flags":["card labels it unsloth; repo not named [L127]"]},
+{"role":"own","name":"AP-IQ3_XS","metrics":{"kld:held-out":"c151","kld:neutral-web":"c152","kld:wikitext-2":"c153"},"size":"c150","unit":"GiB","basis":"disk","bpw":null,"flags":["held-out on 95% non-overlapping subset [L138]"]},
+{"role":"cross","name":"AD-IQ2_S","of":"not named on card","metrics":{"kld:held-out":"c155","kld:neutral-web":"c156","kld:wikitext-2":"c157"},"size":"c154","unit":"GiB","basis":"disk","bpw":null,"flags":["card labels it AtomicChat; repo not named [L129]"]},
+{"role":"own","name":"AP-IQ3_XXS","metrics":{"kld:held-out":"c159","kld:neutral-web":"c160","kld:wikitext-2":"c161"},"size":"c158","unit":"GiB","basis":"disk","bpw":null,"flags":["held-out on 95% non-overlapping subset [L138]"]},
+{"role":"cross","name":"GSQ-RCO-IQ3_XXS","of":"not named on card","metrics":{"kld:held-out":"c163","kld:neutral-web":"c164","kld:wikitext-2":"c165"},"size":"c162","unit":"GiB","basis":"disk","bpw":null,"flags":["card labels it ISTA-DASLab; repo not named [L131]"]},
+{"role":"cross","name":"GSQ-RCO-IQ2_S","of":"not named on card","metrics":{"kld:held-out":"c167","kld:neutral-web":"c168","kld:wikitext-2":"c169","bench:MMLU-Pro":"c183"},"size":"c166","unit":"GiB","basis":"disk","bpw":null,"flags":["card labels it ISTA-DASLab; repo not named [L132]","MMLU-Pro n=70, one run [L142]"]},
+{"role":"own","name":"AP-IQ2_S","metrics":{"kld:held-out":"c172","kld:neutral-web":"c173","kld:wikitext-2":"c174","bench:MMLU-Pro":"c181"},"size":"c171","unit":"GiB","basis":"disk","bpw":null,"flags":["held-out on 95% non-overlapping subset [L138]","MMLU-Pro n=70, one run [L142]"]},
+{"role":"cross","name":"GSQ-RCO-IQ2_XS","of":"not named on card","metrics":{"kld:held-out":"c176","kld:neutral-web":"c177","kld:wikitext-2":"c178"},"size":"c175","unit":"GiB","basis":"disk","bpw":null,"flags":["card labels it ISTA-DASLab; repo not named [L134]"]}
+],
+"prose":[
+{"entry":"AP-Q4_K_XL","key":"top1:held-out","L":109,"raw":"92.8%"},
+{"entry":"AP-Q4_K_M","key":"top1:held-out","L":109,"raw":"92.2%"},
+{"entry":"AP-IQ4_XS","key":"top1:held-out","L":109,"raw":"90.4%"},
+{"entry":"AP-Q3_K_XL","key":"top1:held-out","L":109,"raw":"90.1%"},
+{"entry":"AP-IQ3_S","key":"top1:held-out","L":109,"raw":"88.6%"},
+{"entry":"AP-IQ3_XS","key":"top1:held-out","L":109,"raw":"87.7%"},
+{"entry":"AP-IQ3_XXS","key":"top1:held-out","L":109,"raw":"85.8%"}
+]}

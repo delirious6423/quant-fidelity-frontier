@@ -1,0 +1,11 @@
+{"repo":"malekoo/Qwen3.8-27B-MLX-8bit","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 MLX conversion of Qwen/Qwen3.8-27B","dataset":"wikitext-2 (test)","ctx":"disjoint 2048-token windows, single token stream","tool":"not stated","L":[33]},
+"entries":[
+{"role":"own","name":"MLX 8-bit (group size 64, affine)","of":"","metrics":{"ppl:wikitext-2":"c7.0"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["+0.14% relative to bf16 stated [L33]","effective bits/weight 8.501 stated in prose [L22]"]},
+{"role":"ladder","name":"bf16 conversion","of":"","metrics":{"ppl:wikitext-2":"c7.1"},"size":"c3","unit":"GB","basis":"disk","bpw":null,"flags":["~54 GB MLX bf16 artifact [L22]"]},
+{"role":"ladder","name":"MLX 4-bit","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["perplexity 7.0871 in parentheses [L33]; sibling build not named"]}
+],
+"prose":[
+{"entry":"MLX 8-bit (group size 64, affine)","key":"ppl_delta_pct","L":33,"raw":"+0.14%"},
+{"entry":"MLX 8-bit (group size 64, affine)","key":"bpw","L":22,"raw":"8.501 effective bits/weight"},
+{"entry":"MLX 4-bit","key":"ppl:wikitext-2","L":33,"raw":"7.0871"}]}

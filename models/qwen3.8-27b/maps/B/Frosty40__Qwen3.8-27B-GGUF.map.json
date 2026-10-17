@@ -1,0 +1,8 @@
+{"repo":"Frosty40/Qwen3.8-27B-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"full bf16 model","dataset":"three corpora: wikitext-2 prose, real code, real agent transcripts (512-token windows x 8)","ctx":"512-token windows","tool":"llama.cpp KL-divergence; same-top = greedy-token agreement with bf16","L":[46,47,48]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-Q6_K-QKV8(-MTP).gguf","metrics":{"kld:prose":"c9.0","top1:prose":"c9.1","kld:code":"c10.0","top1:code":"c10.2","kld:agentic":"c11.0","top1:agentic":"c11.2"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["tail (p99.9 per-token KLD) code 0.051 / agentic 0.053 not mapped (no key) [L52]","size shown is the -MTP file; non-MTP file 22.7 GB [L29]","same-top differences of few tenths are inside noise [L56]"]},
+{"role":"ladder","name":"Qwen3.8-27B-Q6_K-OQ8(-MTP).gguf","metrics":{"kld:prose":"c12.0","top1:prose":"c12.1","kld:code":"c13.0","top1:code":"c13.2","kld:agentic":"c14.0","top1:agentic":"c14.2"},"size":"c4","unit":"GB","basis":"disk","bpw":null,"flags":["tail code 0.090 / agentic 0.111 not mapped [L53]","size shown is the -MTP file [L30]"]},
+{"role":"ladder","name":"Q8_0 (reference ceiling, not published)","metrics":{"kld:code":"c15.0","top1:code":"c15.2","kld:agentic":"c16.0","top1:agentic":"c16.2"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["tail code 0.010 / agentic 0.022 not mapped [L54]"]}
+],
+"prose":[]}

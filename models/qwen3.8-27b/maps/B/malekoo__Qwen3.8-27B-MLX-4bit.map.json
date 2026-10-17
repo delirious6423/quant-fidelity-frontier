@@ -1,0 +1,12 @@
+{"repo":"malekoo/Qwen3.8-27B-MLX-4bit",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"bf16 MLX conversion in the identical harness","dataset":"wikitext-2 test","ctx":"disjoint 2048-token windows, no overlap, single token stream","tool":"mlx_lm.convert -q --q-bits 4 --q-group-size 64","L":[33,67]},
+"entries":[
+{"role":"ladder","name":"bf16 MLX conversion","metrics":{"ppl":"c7.1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L33]"]},
+{"role":"own","name":"Qwen3.8-27B-MLX-4bit (group 64, affine)","metrics":{"ppl":"c7.0"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["About 15 GB on disk at 4.501 effective bits/weight [L22]"]}
+],
+"prose":[
+{"entry":"Qwen3.8-27B-MLX-4bit (group 64, affine)","key":"ppl_delta_pct","L":33,"raw":"+2.2%"},
+{"entry":"Qwen3.8-27B-MLX-4bit (group 64, affine)","key":"bpw","L":22,"raw":"4.501"}
+]}

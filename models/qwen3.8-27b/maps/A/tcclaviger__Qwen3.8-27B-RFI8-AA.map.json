@@ -1,0 +1,9 @@
+{"repo":"tcclaviger/Qwen3.8-27B-RFI8-AA","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 original","dataset":"WikiText-2","ctx":"n_ctx 2048","tool":"PPL tool included with the checkpoint","L":[33,44]},
+"entries":[
+{"role":"ladder","name":"BF16 original","metrics":{"ppl":"c38"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["reference row [L37]"]},
+{"role":"own","name":"W8A16, bf16 KV cache","metrics":{"ppl":"c39"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["config variant of this checkpoint [L38]"]},
+{"role":"own","name":"W8A8, bf16 KV cache","metrics":{"ppl":"c40"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["config variant [L39]"]},
+{"role":"own","name":"W8A16, fp8 KV cache","metrics":{"ppl":"c41"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["config variant [L40]"]},
+{"role":"own","name":"W8A8, fp8 KV cache (as shipped)","metrics":{"ppl":"c42"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["as shipped [L41]","Qwen3.8-27B upstream benchmark tables (L135-285) are the base model's, omitted"]}
+],"prose":[]}

@@ -1,0 +1,7 @@
+{"repo":"ionos/Qwen3.8-27B-GPTQ-Int4","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"unquantized base (BF16)","dataset":"OmniDocBench, MathVista, MMMU, V*Bench, MMLU-Pro, MMLU-DE, BFCL, IFEval","ctx":"not stated","tool":"paired comparisons, same prompts and settings, greedy decoding","L":[35,36,38]},
+"entries":[
+{"role":"own","name":"This checkpoint (GPTQ-Int4)","metrics":{"bench:OmniDocBench_text":"c2","bench:OmniDocBench_reading_order":"c4","bench:OmniDocBench_display_formula":"c6","bench:MathVista":"c8","bench:V*Bench":"c11","bench:MMLU-Pro":"c13","bench:MMLU-DE":"c15","bench:BFCL":"c17","bench:IFEval":"c19"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["MMMU checkpoint cell missing from table (only base 81.0% present) [L44]"]},
+{"role":"ladder","name":"Base (BF16)","metrics":{"bench:OmniDocBench_text":"c1","bench:OmniDocBench_reading_order":"c3","bench:OmniDocBench_display_formula":"c5","bench:MathVista":"c7","bench:MMMU":"c9","bench:V*Bench":"c10","bench:MMLU-Pro":"c12","bench:MMLU-DE":"c14","bench:BFCL":"c16","bench:IFEval":"c18"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["measured by card author, paired [L35-36]"]}
+],
+"prose":[]}

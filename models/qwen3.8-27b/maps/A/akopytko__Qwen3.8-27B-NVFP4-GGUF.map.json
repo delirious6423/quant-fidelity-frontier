@@ -1,0 +1,11 @@
+{"repo":"akopytko/Qwen3.8-27B-NVFP4-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"base bf16 model","dataset":"wikitext test set","ctx":"not stated","tool":"KLD and Top P agreement (llama.cpp style); base perplexity 6.7945","L":[60]},
+"entries":[
+{"role":"own","name":"N4_0","metrics":{"mean_kld":"c20","top1_pct":"c21"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["quality table row N4_0 [L66]; speed table calls this quant 'this NVFP4' [L31]; assumed same file","Q4_0 w/o imatrix 'matches the size and density of our quant byte by byte' (14.63 GiB, 4.60 BPW) [L62]"]},
+{"role":"cross","name":"unsloth NVFP4","of":"not named on card","metrics":{"mean_kld":"c22","top1_pct":"c23"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L67]"]},
+{"role":"cross","name":"NVIDIA+Q6_K","of":"not named on card","metrics":{"mean_kld":"c24","top1_pct":"c25"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L68]"]},
+{"role":"ladder","name":"Q4_0 w/o imatrix","metrics":{"mean_kld":"c26","top1_pct":"c27"},"size":"c37.0","unit":"GiB","basis":"disk","bpw":"c37.1","flags":["author-made plain Q4_0 [L62,L69]"]},
+{"role":"cross","name":"unsloth Q4_0","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{"mean_kld":"c28","top1_pct":"c29"},"size":"c33","unit":"GiB","basis":"disk","bpw":null,"flags":["[L62,L70]"]},
+{"role":"cross","name":"unsloth Q6_K","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{"mean_kld":"c30","top1_pct":"c31"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["repo inferred from the unsloth link at [L62]; [L71]"]}
+],
+"prose":[]}

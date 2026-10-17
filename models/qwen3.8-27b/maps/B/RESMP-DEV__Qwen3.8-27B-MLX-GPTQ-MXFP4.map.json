@@ -1,0 +1,12 @@
+{"repo":"RESMP-DEV/Qwen3.8-27B-MLX-GPTQ-MXFP4",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"pinned BF16 source, one prompt","dataset":"one diagnostic prompt, 256 generated token IDs (not a quality benchmark)","ctx":"256 generated tokens","tool":"Apple M4 Max, MLX-LM 0.32.2, three-repeat diagnostic","L":[96,101,116,117,118,119,120]},
+"entries":[
+{"role":"own","name":"Calibrated MXFP4","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["generated-ID agreement with BF16 source 44.141% of 256, first divergence at position 97 [L118-119] (see prose)","calibration reconstruction median relative error 0.1165285, range 0.11245 to 0.146238 [L96-97]","peak device memory 18.685 GB (c14) in smoke test [L59]; DFlash diagnostic speeds are not quality"]},
+{"role":"cross","name":"Community 4-bit (control)","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["generated-ID agreement with BF16 source 1.953%, first diverged at position 3 [L119-120] (see prose)"]}
+],
+"prose":[
+{"entry":"Calibrated MXFP4","key":"gen_id_agreement_pct","L":118,"raw":"44.141%"},
+{"entry":"Community 4-bit (control)","key":"gen_id_agreement_pct","L":119,"raw":"1.953%"}
+]}

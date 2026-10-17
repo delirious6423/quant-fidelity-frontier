@@ -1,0 +1,9 @@
+{"repo":"Jon-Nielsen/Qwen3.8-27B-exl3-4.00bpw",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"none (absolute perplexity)","dataset":"40K-token technical text","ctx":"262K context config, 16K-token prompt / 512 gen for speed","tool":"ExLlamaV3, RTX PRO 6000, Q6 KV, vision disabled","L":[16,18,20,21]},
+"entries":[
+{"role":"own","name":"EXL3 4.00bpw","metrics":{"ppl:40K-tech":"c42"},"size":"c48","unit":"GB","basis":"disk","bpw":"c38","flags":["size approximate (~16 GB) in intro prose [L11]","pre-release benchmark [L14]","official Qwen3.8-27B benchmark tables below (c1-c37) are for the unquantized model and are omitted [L80-244]"]},
+{"role":"ladder","name":"EXL3 6.00bpw (sibling repo)","metrics":{"ppl:40K-tech":"c47"},"size":null,"unit":null,"basis":null,"bpw":"c43","flags":["sibling repo Jon-Nielsen/Qwen3.8-27B-exl3-6.00bpw [L11,L21]"]}
+],
+"prose":[]}

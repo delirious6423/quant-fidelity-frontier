@@ -1,0 +1,9 @@
+{"repo":"jaromer/0bserverx-Qwen3.8-27B-Heretic-Abliterated-Uncensored-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"base Qwen3.8-27B (KL vs base)","dataset":"100 harmful-behaviors prompts for refusals; KL corpus not stated","ctx":"not stated","tool":"Heretic ARA abliteration","L":[124,125]},
+"entries":[
+{"role":"own","name":"RVN (this repo)","metrics":{"mean_kld":"c8"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["KL vs base measures abliteration damage, not quantization loss [L130]","Refusals 0-1/100 vs base ~99/100 and source 3/100, behavioral only [L128-130]","File sizes in the quant table are approximate (~) with no per-quant quality numbers [L136-156]","imatrix computed over wikitext-2-raw, 563 chunks [L161]"]},
+{"role":"cross","name":"trohrbaugh heretic-ara (source)","of":"trohrbaugh/Qwen3.8-27B-heretic-ara","metrics":{"mean_kld":"c6"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["KL vs base of the upstream abliteration [L129]"]}
+],
+"prose":[]}

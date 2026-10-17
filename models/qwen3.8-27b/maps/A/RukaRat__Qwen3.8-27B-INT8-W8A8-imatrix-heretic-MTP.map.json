@@ -1,0 +1,10 @@
+{"repo":"RukaRat/Qwen3.8-27B-INT8-W8A8-imatrix-heretic-MTP","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"ground truth answers of an in-house battery (160 items); unmodified W8A8 build as comparison","dataset":"in-house battery, four tasks of 40 (incl. NER and extraction); refusal tests on harmful_behaviors and OR-Bench-Hard-1K","ctx":"286,720 context for serving","tool":"vLLM TP=2 on 2x RTX 3090, MTP on, fp8 KV","L":[43,79,93,170,199]},
+"entries":[
+{"role":"own","name":"INT8 W8A8 imatrix heretic MTP (this one)","metrics":{"bench:quality/160":"c5"},"size":"c4","unit":"GiB","basis":"disk","bpw":null,"flags":["noise floor about 2 items [L93-94]","NER 28/40 vs 33-35 on other builds [L96-97]","refusal rates: harmful 0% off c19, 3.3% on c20; benign-but-refused 0% on c21 [L67]","trial-time Heretic KL 0.0621 is not deployed behaviour [L60-62]"]},
+{"role":"ladder","name":"INT8 W8A8 (unmodified)","metrics":{"bench:quality/160":"c2"},"size":"c1","unit":"GiB","basis":"disk","bpw":null,"flags":["same battery, same box [L43-47]","refusal rates harmful 96% off c22, 94% on c23 [L68]"]},
+{"role":"ladder","name":"W4A16 + int8 head","metrics":{"bench:quality/160":"c9"},"size":"c7","unit":"GiB","basis":"disk","bpw":null,"flags":["[L49]"]},
+{"role":"ladder","name":"W4A16 + int8 head, abliterated","metrics":{"bench:quality/160":"c13"},"size":"c11","unit":"GiB","basis":"disk","bpw":null,"flags":["[L50]"]},
+{"role":"ladder","name":"W4A16 plain, abliterated","metrics":{"bench:quality/160":"c17"},"size":"c15","unit":"GiB","basis":"disk","bpw":null,"flags":["[L51]"]}
+],
+"prose":[]}

@@ -1,0 +1,9 @@
+{"repo":"kdqemre/Qwen3.8-27B-RQ2_K_L-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"none (compared against Q5_K_M baseline, not bf16)","dataset":"GSM8K-100, 8-shot, exact match","ctx":"not stated","tool":"author's llama.cpp fork, greedy decode, MTP off, RTX 4090 power-limited to 150W","L":[85]},
+"entries":[
+{"role":"ladder","name":"Q5_K_M (Baseline)","metrics":{"bench:GSM8K-100":"c5.0"},"size":"c3","unit":"GB","basis":"disk","bpw":"c1","flags":["accuracy shown as 98/100 [L93]"]},
+{"role":"own","name":"RQ2_K_L (Mixed 2-bit)","metrics":{"bench:GSM8K-100":"c6.0"},"size":"c4","unit":"GB","basis":"disk","bpw":"c2","flags":["accuracy shown as 98/100 [L93]","single 100-problem run; no bf16 reference [L85]"]}
+],
+"prose":[]}

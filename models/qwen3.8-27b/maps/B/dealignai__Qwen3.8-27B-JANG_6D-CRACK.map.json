@@ -1,0 +1,9 @@
+{"repo":"dealignai/Qwen3.8-27B-JANG_6D-CRACK","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"base model at the same quant level (identical harness)","dataset":"MMLU 57-subject (logit mode); HarmBench harm-240","ctx":"not stated","tool":"MLX runtime","L":[79,80,112,113,114]},
+"entries":[
+{"role":"own","name":"JANG_6D CRACK","of":"","metrics":{"bench:MMLU":"c16","bench:MMLU_base":"c15","bench:HarmBench-240_compliance":"c18"},"size":"c14","unit":"GB","basis":"disk","bpw":null,"flags":["MMLU delta +0.35pp [L120]","CRACK is abliteration, quant fidelity vs unmodified quant not separated"]},
+{"role":"ladder","name":"JANG_2D CRACK","of":"dealignai/Qwen3.8-27B-JANG_2D-CRACK","metrics":{"bench:MMLU":"c6","bench:MMLU_base":"c5","bench:HarmBench-240_compliance":"c8"},"size":"c4","unit":"GB","basis":"disk","bpw":null,"flags":["[L118]; repo id guessed from link pattern, not confirmed"]},
+{"role":"ladder","name":"JANG_4D CRACK","of":"dealignai/Qwen3.8-27B-JANG_4D-CRACK","metrics":{"bench:MMLU":"c11","bench:MMLU_base":"c10","bench:HarmBench-240_compliance":"c13"},"size":"c9","unit":"GB","basis":"disk","bpw":null,"flags":["[L119]; repo id guessed from link pattern, not confirmed"]},
+{"role":"ladder","name":"MXFP8 CRACK","of":"not named on card","metrics":{"bench:MMLU_base":"c20","bench:HarmBench-240_compliance":"c22"},"size":"c19","unit":"GB","basis":"disk","bpw":null,"flags":["CRACK MMLU cell not in candidates (delta +0.0pp) [L121]"]}
+],
+"prose":[]}

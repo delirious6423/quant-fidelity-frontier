@@ -1,0 +1,8 @@
+{"repo":"barrydeen/Qwen3.8-27B-AWQ-4bit",
+"no_quality_claims":true,
+"no_claims_reason":"measured performance is MTP acceptance and tokens per step only [L96-106]; card states no formal benchmark suite was run [L130]",
+"method":{"reference":"not stated","dataset":"not stated (calibration: 512 ultrachat_200k samples, 1024-token sequences)","ctx":"not stated","tool":"llm-compressor AWQ W4A16_ASYM group size 128; vLLM 0.26.0 on 2x RTX 3090","L":[96,110,111,123,130]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-AWQ-4bit","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["MTP acceptance 67.1% c1, 3.01 tokens per forward step c2 are speed measures [L101-102]","keeps 48 DeltaNet layers in BF16, about 7 GB larger than all-quantized builds [L48-50]"]}
+],
+"prose":[]}

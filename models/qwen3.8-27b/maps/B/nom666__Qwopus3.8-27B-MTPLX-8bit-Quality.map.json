@@ -1,0 +1,8 @@
+{"repo":"nom666/Qwopus3.8-27B-MTPLX-8bit-Quality","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"Qwen3.8-27B 8-bit on same harness","dataset":"non-thinking suite; 13-task hard suite (thinking)","ctx":"not stated","tool":"MTPLX on Apple M5 Max","L":[33,44,46]},
+"entries":[
+{"role":"own","name":"Qwopus3.8 8-bit (this build)","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["task-vector merge of a distilled model, results compare it to base 8-bit, not quant-vs-BF16 [L19,L33]"]},
+{"role":"cross","name":"Qwen3.8 8-bit","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["hard-suite 13/13 for both [L46]"]},
+{"role":"ladder","name":"Qwopus3.8-27B-MTPLX-4bit-Speed","of":"nom666/Qwopus3.8-27B-MTPLX-4bit-Speed","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["sibling scored 37/38 on non-thinking suite [L44]"]}
+],
+"prose":[{"entry":"Qwopus3.8 8-bit (this build)","key":"bench:HardSuite-13","L":46,"raw":"13/13"},{"entry":"Qwopus3.8-27B-MTPLX-4bit-Speed","key":"bench:NonThinkingSuite","L":44,"raw":"37/38"}]}

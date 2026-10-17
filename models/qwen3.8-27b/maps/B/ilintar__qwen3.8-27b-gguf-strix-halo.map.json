@@ -1,0 +1,7 @@
+{"repo":"ilintar/qwen3.8-27b-gguf-strix-halo","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"source BF16 GGUF","dataset":"16 held-out chunks","ctx":"512-token chunks","tool":"perplexity (llama.cpp)","L":[40]},
+"entries":[
+{"role":"own","name":"main-model quantization (quant type not named in digest)","metrics":{"ppl":"c28"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["small local eval, not a general benchmark [L40]","PPL 15.3977 +/- 0.73357; speed/acceptance tables are not quality [L62-72]"]},
+{"role":"cross","name":"source BF16 GGUF","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["reference perplexity 15.1721 +/- 0.72292 [L40]"]}
+],
+"prose":[{"entry":"source BF16 GGUF","key":"ppl","L":40,"raw":"15.1721"}]}

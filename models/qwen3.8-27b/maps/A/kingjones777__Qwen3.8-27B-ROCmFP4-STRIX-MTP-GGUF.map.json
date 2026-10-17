@@ -1,0 +1,9 @@
+{"repo":"kingjones777/Qwen3.8-27B-ROCmFP4-STRIX-MTP-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"perplexity only, compared against Q4_K_M reference; no KLD","dataset":"held-out wikitext-2","ctx":"2048, 40 chunks","tool":"llama.cpp (ROCmFPX fork)","L":[87,415]},
+"entries":[
+{"role":"own","name":"ROCmFP4-STRIX","metrics":{"ppl":"c9"},"size":"c5","unit":"GiB","basis":"disk","bpw":"c6","flags":["ppl ±0.068 [L104]","[L89]"]},
+{"role":"own","name":"ROCmFP4-STRIX_LEAN","metrics":{"ppl":"c14"},"size":"c11","unit":"GiB","basis":"disk","bpw":"c12","flags":["[L90]"]},
+{"role":"own","name":"ROCmFP4-FAST","metrics":{"ppl":"c20"},"size":"c16","unit":"GiB","basis":"disk","bpw":"c17","flags":["[L91]"]},
+{"role":"cross","name":"Q4_K_M (reference, ggml-org)","of":"not named on card","metrics":{"ppl":"c23"},"size":"c21","unit":"GiB","basis":"disk","bpw":null,"flags":["measured by card author; ggml-org build, repo not named for this file [L92]"]}
+],
+"prose":[]}

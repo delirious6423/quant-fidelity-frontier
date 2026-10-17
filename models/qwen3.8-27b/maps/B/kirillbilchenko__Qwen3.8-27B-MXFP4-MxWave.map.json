@@ -1,0 +1,10 @@
+{"repo":"kirillbilchenko/Qwen3.8-27B-MXFP4-MxWave",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"BF16 Qwen/Qwen3.8-27B (revision 1d4bf0f2)","dataset":"WikiText-2 raw test: 316 windows of 4,096 characters, 297,199 scored tokens (PPL); 128 held-out WikiText contexts for KL; GSM8K 100-example 5-shot pilot","ctx":"up to 512 tokens for KL contexts","tool":"all 248,320 next-token log probabilities compared with BF16; paired cluster bootstrap","L":[34,133,135,152,154,155,173,175]},
+"entries":[
+{"role":"own","name":"MxWave (H64)","metrics":{"ppl:wikitext2":"c4","ppl_delta_pct":"c5","mean_kld":"c8","top1_pct":"c18","bench:GSM8K_flexible":"c24","bench:GSM8K_strict":"c25"},"size":"c27","unit":"GiB","basis":"disk","bpw":null,"flags":["KL p95 c10 is not mapped to kld_99 [L160]","paired KL interval vs AMD crosses zero [L168-170,L266]","GSM8K is a 100-sample pilot, directional only [L175,L267]"]},
+{"role":"cross","name":"AMD Quark-AWQ MXFP4","of":"not named on card","metrics":{"ppl:wikitext2":"c6","ppl_delta_pct":"c7","mean_kld":"c9","top1_pct":"c19","bench:GSM8K_flexible":"c26"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["AMD release, repo not named in candidates [L142]","strict GSM8K cell not shown in candidates"]},
+{"role":"cross","name":"BF16 source","of":"Qwen/Qwen3.8-27B","metrics":{"ppl:wikitext2":"c3","bench:GSM8K_flexible":"c22","bench:GSM8K_strict":"c23"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L140,L179]"]}
+],
+"prose":[]}

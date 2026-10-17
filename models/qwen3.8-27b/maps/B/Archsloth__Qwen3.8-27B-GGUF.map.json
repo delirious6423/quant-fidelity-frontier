@@ -1,0 +1,8 @@
+{"repo":"Archsloth/Qwen3.8-27B-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 GGUF original","dataset":"held-out Korean and English text not in calibration set","ctx":"512, 60 chunks","tool":"llama-perplexity --kl-divergence","L":[79,80]},
+"entries":[
+{"role":"own","name":"ARCHsloth Q6_K","metrics":{"kld:korean":"c4","kld:english":"c5"},"size":"c3","unit":"bytes","basis":"disk","bpw":null,"flags":["lower is better [L79]"]},
+{"role":"cross","name":"unsloth UD-Q6_K","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{"kld:korean":"c7","kld:english":"c8"},"size":"c6","unit":"bytes","basis":"disk","bpw":null,"flags":["measured by card author [L38,L87]"]},
+{"role":"cross","name":"unsloth UD-Q6_K_M","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{"kld:korean":"c10","kld:english":"c11"},"size":"c9","unit":"bytes","basis":"disk","bpw":null,"flags":["measured by card author [L88]"]}
+],
+"prose":[]}

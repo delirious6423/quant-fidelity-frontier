@@ -1,0 +1,6 @@
+{"repo":"thomasgardiner/Qwen3.8-27B-DFlash2-FP8","no_quality_claims":true,"no_claims_reason":"draft-model acceptance length and decode throughput tables only [L35-40, L50-55]; target tokens are unchanged under greedy verification [L42]",
+"method":{"reference":"incoai/Qwen3.8-27B-DFlash2 bf16 draft","dataset":"MT-Bench, HumanEval, GSM8K, MATH-500","ctx":"max_tokens 1024","tool":"SGLang, RTX 5090, target RadixArk/Qwen3.8-27B-NVFP4","L":[33,46]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-DFlash2-FP8","metrics":{},"size":"c21","unit":"GB","basis":"disk","bpw":null,"flags":["FP8 speculative draft model, not the target; 2.41 GB vs bf16 draft 3.85 GB [L26-27]"]}
+],
+"prose":[]}

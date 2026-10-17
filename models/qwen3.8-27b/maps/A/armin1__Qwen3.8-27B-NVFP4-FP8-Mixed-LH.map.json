@@ -1,0 +1,12 @@
+{"repo":"armin1/Qwen3.8-27B-NVFP4-FP8-Mixed-LH","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 original (teacher-forced)","dataset":"58 documents of code, prose, long context (16K/32K) and chat, 110,155 positions; GSM8K test (1,319 questions) for reasoning","ctx":"documents up to 16K/32K; GSM8K 16K cap","tool":"SGLang on DGX Spark; KL over top-20 tokens (lower bound on full KL)","L":[83,84,94]},
+"entries":[
+{"role":"own","name":"This model","metrics":{"mean_kld":"c9","kld_99":"c10","top1_pct":"c11","bench:GSM8K":"c28"},"size":"c35","unit":"GB","basis":"disk","bpw":null,"flags":["size from prose '23.4 GB on disk' [L53]","DeltaNLL +0.0111 [L89] not a mapped key","GSM8K thinking on, 16K cap [L94,L99]"]},
+{"role":"cross","name":"Qwen/Qwen3.8-27B-FP8","of":"Qwen/Qwen3.8-27B-FP8","metrics":{"mean_kld":"c5","kld_99":"c6","top1_pct":"c7","bench:GSM8K":"c31"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L88,L100]"]},
+{"role":"cross","name":"nvidia/Qwen3.8-27B-NVFP4","of":"nvidia/Qwen3.8-27B-NVFP4","metrics":{"mean_kld":"c13","kld_99":"c14","top1_pct":"c15"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L90]"]},
+{"role":"cross","name":"RadixArk/Qwen3.8-27B-NVFP4-BF16-LMHead","of":"RadixArk/Qwen3.8-27B-NVFP4-BF16-LMHead","metrics":{"mean_kld":"c17","kld_99":"c18","top1_pct":"c19","bench:GSM8K":"c25"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L91,L98]"]},
+{"role":"cross","name":"RadixArk/Qwen3.8-27B-NVFP4","of":"RadixArk/Qwen3.8-27B-NVFP4","metrics":{"mean_kld":"c21","kld_99":"c22","top1_pct":"c23"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L92]"]},
+{"role":"ladder","name":"RadixArk recipe reproduced bit for bit (max calibration)","metrics":{"mean_kld":"c1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["recipe ablation step, publisher's own build [L69]"]},
+{"role":"ladder","name":"NVIDIA Local-Hessian recipe + BF16 lm_head","metrics":{"mean_kld":"c2"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["recipe ablation step [L70]"]},
+{"role":"ladder","name":"+ last 8 MLPs in FP8","metrics":{"mean_kld":"c3"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["recipe ablation step [L71]"]}
+],"prose":[]}

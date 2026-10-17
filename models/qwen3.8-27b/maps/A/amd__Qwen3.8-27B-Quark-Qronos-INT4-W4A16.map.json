@@ -1,0 +1,7 @@
+{"repo":"amd/Qwen3.8-27B-Quark-Qronos-INT4-W4A16","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"Qwen/Qwen3.8-27B BF16, measured by the card author","dataset":"GSM8K 5-shot (thinking and no-thinking), Wikitext perplexity, BFCL single_turn","ctx":"not stated","tool":"lm-evaluation-harness (vLLM backend), bfcl_eval; Quark Qronos INT4 W4A16 group 128, 128 calibration samples x 512 tokens","L":[19,22,36,40]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-Quark-Qronos-INT4-W4A16","metrics":{"bench:GSM8K-thinking-flexible":"c1.0","bench:GSM8K-thinking-strict":"c1.1","bench:GSM8K-nothink-flexible":"c4.0","bench:GSM8K-nothink-strict":"c4.1","ppl:wikitext":"c7","bench:BFCL-single-turn":"c10","recovery_pct:GSM8K-thinking":"c3","recovery_pct:GSM8K-nothink":"c6","recovery_pct:ppl-wikitext":"c9","recovery_pct:BFCL":"c12"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["recovery % for perplexity is inverted base/quant [L36]","no model size stated"]},
+{"role":"cross","name":"BF16 base","of":"Qwen/Qwen3.8-27B","metrics":{"bench:GSM8K-thinking-flexible":"c2.0","bench:GSM8K-thinking-strict":"c2.1","bench:GSM8K-nothink-flexible":"c5.0","bench:GSM8K-nothink-strict":"c5.1","ppl:wikitext":"c8","bench:BFCL-single-turn":"c11"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["author-measured reference [L36]"]}
+],
+"prose":[]}

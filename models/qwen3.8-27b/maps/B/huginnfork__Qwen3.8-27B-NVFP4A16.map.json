@@ -1,0 +1,11 @@
+{"repo": "huginnfork/Qwen3.8-27B-NVFP4A16",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "bf16 Qwen/Qwen3.8-27B itself", "dataset": "KLD: 8 samples from neuralmagic/calibration (LLM split); PPL: wikitext-2-raw test", "ctx": "KLD max_seq=1024; PPL non-overlapping 2048-token chunks", "tool": "custom harness (transformers; official FP8 hand-dequantised)", "L": [55, 56, 57, 63, 64, 125, 126, 127]},
+ "entries": [
+  {"role": "own", "name": "This model (NVFP4A16, MLPs only)", "metrics": {"kld:weight-only": "c9", "ppl": "c10", "ppl_delta_pct": "c11"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["192 modules quantised [L70]", "no as-deployed KLD printed for this model"]},
+  {"role": "cross", "name": "Qwen/Qwen3.8-27B-FP8 (official)", "of": "Qwen/Qwen3.8-27B-FP8", "metrics": {"kld:weight-only": "c4", "kld:as-deployed": "c5", "ppl": "c6", "ppl_delta_pct": "c7"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["407 modules quantised [L69]", "as-deployed vs weight-only KLD explained because W8A8 vs W8A16 comparison flatters the dequantised model [L63-64]"]},
+  {"role": "cross", "name": "Qwen/Qwen3.8-27B (bf16 baseline)", "of": "Qwen/Qwen3.8-27B", "metrics": {"ppl": "c2"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["reference row, KLD 0 by definition [L68]"]}
+ ],
+ "prose": []
+}

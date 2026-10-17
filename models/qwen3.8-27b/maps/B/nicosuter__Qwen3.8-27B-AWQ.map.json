@@ -1,0 +1,6 @@
+{"repo":"nicosuter/Qwen3.8-27B-AWQ","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"FP8 checkpoint (same items, same order)","dataset":"BFCL, GPQA Diamond, LiveCodeBench v6, MMMU-Pro, Multimodal (DocVQA/ChartQA/TextVQA), RULER (not counted)","ctx":"RULER at 4k, 32k, 128k","tool":"bootstrap 20,000 resamples clustered by item; protocol in EVAL.md; H200 NVL","L":[94,98,102,103,104,105,129,130]},
+"entries":[
+{"role":"own","name":"AWQ","metrics":{"bench:BFCL":"c21","bench:GPQA Diamond":"c26","bench:LiveCodeBench v6":"c31","bench:MMMU-Pro":"c36","bench:Multimodal":"c41","bench:macro 5 suites":"c45","bench:RULER":"c50"},"size":"c53","unit":"GB","basis":"disk","bpw":null,"flags":["weights 21.5 GB before KV cache [L194]","recovery vs FP8 reported separately, e.g. macro 99.84% [L117]","[L112-118]"]},
+{"role":"cross","name":"FP8","of":"not named on card","metrics":{"bench:BFCL":"c20","bench:GPQA Diamond":"c25","bench:LiveCodeBench v6":"c30","bench:MMMU-Pro":"c35","bench:Multimodal":"c40","bench:macro 5 suites":"c44","bench:RULER":"c49"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["baseline arm [L112-118]"]}
+],"prose":[]}

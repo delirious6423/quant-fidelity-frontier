@@ -1,0 +1,14 @@
+{"repo":"primitive-ai/Qwen3.8-27B-mixed-NVFP4-FP8","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"Qwen BF16 (Qwen/Qwen3.8-27B) as accuracy baseline; no KL/PPL","dataset":"1,370 items over 14 public benchmarks: 1,170-item knowledge suite + 200-item tool-calling suite","ctx":"16,384-token budget, concurrency 32, thinking forced on","tool":"temperature 0.6, top_p 0.95, top_k 20, vLLM, one RTX PRO 6000 Blackwell, all rows back to back","L":[74,75,76,77,79]},
+"entries":[
+{"role":"own","name":"this repo","metrics":{"bench:overall":"c46","bench:knowledge":"c47","bench:call":"c48","bench:abstain":"c49"},"size":"c45","unit":"GiB","basis":"disk","bpw":null,"flags":["table header prints 'G'; prose [L45] states GiB","single-leg row [L90] is the same repo, not a separate build"]},
+{"role":"cross","name":"Qwen BF16","of":"Qwen/Qwen3.8-27B","metrics":{"bench:overall":"c2","bench:knowledge":"c3","bench:call":"c4","bench:abstain":"c5"},"size":"c1","unit":"GiB","basis":"disk","bpw":null,"flags":["reference row [L81]"]},
+{"role":"cross","name":"Qwen FP8","of":"Qwen (link truncated in prompt)","metrics":{"bench:overall":"c13","bench:knowledge":"c14","bench:call":"c15","bench:abstain":"c16"},"size":"c12","unit":"GiB","basis":"disk","bpw":null,"flags":["[L82]"]},
+{"role":"cross","name":"rdtand PrismaAQUA 5.5bit","of":"rdtand (link truncated in prompt)","metrics":{"bench:overall":"c24","bench:knowledge":"c25","bench:call":"c26","bench:abstain":"c27"},"size":"c23","unit":"GiB","basis":"disk","bpw":null,"flags":["[L83]"]},
+{"role":"cross","name":"unsloth NVFP4","of":"unsloth (link truncated in prompt)","metrics":{"bench:overall":"c35","bench:knowledge":"c36","bench:call":"c37","bench:abstain":"c38"},"size":"c34","unit":"GiB","basis":"disk","bpw":null,"flags":["[L84]"]},
+{"role":"cross","name":"RadixArk NVFP4","of":"RadixArk (link truncated in prompt)","metrics":{"bench:overall":"c57","bench:knowledge":"c58","bench:call":"c59","bench:abstain":"c60"},"size":"c56","unit":"GiB","basis":"disk","bpw":null,"flags":["[L86]"]},
+{"role":"cross","name":"cyankiwi AWQ-INT4","of":"cyankiwi (link truncated in prompt)","metrics":{"bench:overall":"c68","bench:knowledge":"c69","bench:call":"c70","bench:abstain":"c71"},"size":"c67","unit":"GiB","basis":"disk","bpw":null,"flags":["[L87]"]},
+{"role":"cross","name":"sakamakismile MTP-NVFP4","of":"sakamakismile (link truncated in prompt)","metrics":{"bench:overall":"c79","bench:knowledge":"c80","bench:call":"c81","bench:abstain":"c82"},"size":"c78","unit":"GiB","basis":"disk","bpw":null,"flags":["[L88]"]},
+{"role":"cross","name":"gittensor NVFP4-RTX5090","of":"gittensor (link truncated in prompt)","metrics":{"bench:overall":"c90","bench:knowledge":"c91","bench:call":"c92","bench:abstain":"c93"},"size":"c89","unit":"GiB","basis":"disk","bpw":null,"flags":["[L89]"]}
+],
+"prose":[]}

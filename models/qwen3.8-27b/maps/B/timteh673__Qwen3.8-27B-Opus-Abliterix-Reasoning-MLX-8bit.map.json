@@ -1,0 +1,9 @@
+{"repo": "timteh673/Qwen3.8-27B-Opus-Abliterix-Reasoning-MLX-8bit",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "control-bf16 (reasoning QLoRA merged, before Abliterix)", "dataset": "frozen local project benchmarks, self-run", "ctx": "512-token generation cap on code [L65]", "tool": "local harness comparing control-bf16 with abliterix-pass1-bf16", "L": [39, 41, 65]},
+ "entries": [
+  {"role": "own", "name": "Abliterix winner (measured on bf16, released as MLX 8-bit)", "metrics": {"bench:harmful_hard_refusal": "c2", "bench:capability_macro": "c8", "bench:full_code": "c10.0", "bench:HumanEval": "c12", "bench:long_form_pass": "c14", "bench:MMMU30": "c16.0", "bench:heldout_loss_ratio": "c18", "mean_kld": "c20"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["measurements are on BF16 winner, not on the MLX 8-bit files [L39]", "full code and MMMU30 ids point at the numerator of x/421 and x/30", "benign KL 0.093614 above the strict 0.05 limit [L60]"]},
+  {"role": "ladder", "name": "Control (bf16)", "metrics": {"bench:harmful_hard_refusal": "c1", "bench:capability_macro": "c7", "bench:full_code": "c9.0", "bench:HumanEval": "c11", "bench:long_form_pass": "c13", "bench:MMMU30": "c15.0", "bench:heldout_loss_ratio": "c17", "mean_kld": "c19"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["KL 0 and loss ratio 1 by construction [L51-52]"]}
+ ],
+ "prose": []}

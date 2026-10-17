@@ -1,0 +1,13 @@
+{"repo":"andrew-paul/Qwen3.8-27B-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16","dataset":"not stated","ctx":"not stated","tool":"not stated","L":[22,15,28]},
+"entries":[
+{"role":"own","name":"KERN-eqQ4","of":"","metrics":{"mean_kld":"c2","bench:28Q_pct_of_BF16":"c3"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["[L17]"]},
+{"role":"own","name":"KERN-eqQ3_M","of":"","metrics":{"mean_kld":"c5","bench:28Q_pct_of_BF16":"c6"},"size":"c4","unit":"GB","basis":"disk","bpw":null,"flags":["[L18]"]},
+{"role":"own","name":"KERN-eqQ3_S","of":"","metrics":{"mean_kld":"c8","bench:28Q_pct_of_BF16":"c9"},"size":"c7","unit":"GB","basis":"disk","bpw":null,"flags":["[L19]"]},
+{"role":"own","name":"KERN-eqIQ2_M","of":"","metrics":{"mean_kld":"c11","bench:28Q_pct_of_BF16":"c12"},"size":"c10","unit":"GB","basis":"disk","bpw":null,"flags":["[L20]"]},
+{"role":"cross","name":"BF16","of":"not named on card","metrics":{"bench:28Q_pct_of_BF16":"c16"},"size":"c14","unit":"GB","basis":"disk","bpw":null,"flags":["reference, KLD 0 by definition [L30]"]},
+{"role":"cross","name":"Stock Q4_K_M","of":"not named on card","metrics":{"mean_kld":"c18","bench:28Q_pct_of_BF16":"c19"},"size":"c17","unit":"GB","basis":"disk","bpw":null,"flags":["[L31]"]},
+{"role":"cross","name":"Stock Q3_K_S","of":"not named on card","metrics":{"mean_kld":"c21","bench:28Q_pct_of_BF16":"c22"},"size":"c20","unit":"GB","basis":"disk","bpw":null,"flags":["[L32]"]},
+{"role":"cross","name":"Stock IQ2_M","of":"not named on card","metrics":{"mean_kld":"c24","bench:28Q_pct_of_BF16":"c25"},"size":"c23","unit":"GB","basis":"disk","bpw":null,"flags":["KLD printed as approximate (≈) [L33]"]}
+],
+"prose":[]}

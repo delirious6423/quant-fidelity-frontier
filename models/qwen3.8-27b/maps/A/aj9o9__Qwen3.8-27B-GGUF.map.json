@@ -1,0 +1,10 @@
+{"repo":"aj9o9/Qwen3.8-27B-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"official BF16 logits","dataset":"wiki.test.raw (KLD); author's locked GLSL / hard suite, think off, t=0","ctx":"n_ctx=512","tool":"llama.cpp","L":[87]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-gdn8-q6attn-iq3ffn.gguf (this mix)","metrics":{"mean_kld":"c25","bench:GLSL":"c26"},"size":"c24","unit":"GB","basis":"disk","bpw":"c37","flags":["KLD on wiki.test.raw [L87,L94]","hard 5/6 not mapped"]},
+{"role":"cross","name":"Unsloth Q4_K_M","of":"not named on card","metrics":{"mean_kld":"c13","bench:GLSL":"c14"},"size":"c12","unit":"GB","basis":"disk","bpw":null,"flags":["[L91]","hard 6/6 not mapped"]},
+{"role":"cross","name":"Unsloth UD-Q3_K_XL","of":"not named on card","metrics":{"mean_kld":"c17","bench:GLSL":"c18"},"size":"c16","unit":"GB","basis":"disk","bpw":null,"flags":["[L92]","hard 6/6 not mapped"]},
+{"role":"cross","name":"bartowski Q3_K_S","of":"not named on card","metrics":{"mean_kld":"c21","bench:GLSL":"c22"},"size":"c20","unit":"GB","basis":"disk","bpw":null,"flags":["[L93]","hard 5/6 not mapped"]},
+{"role":"cross","name":"Unsloth Q5_K_M","of":"not named on card","metrics":{"mean_kld":"c29","bench:GLSL":"c30"},"size":"c28","unit":"GB","basis":"disk","bpw":null,"flags":["[L95]","hard 5/6 not mapped"]},
+{"role":"cross","name":"bartowski IQ3_M","of":"not named on card","metrics":{"mean_kld":"c33","bench:GLSL":"c34"},"size":"c32","unit":"GB","basis":"disk","bpw":null,"flags":["[L96]","hard 5/6 not mapped"]}
+],"prose":[]}

@@ -1,0 +1,16 @@
+{"repo":"Derpyhue/Qwen3.8-27B-exl3-2.70bpw-SC-SH",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"BF16 original","dataset":"not stated","ctx":"not stated","tool":"not stated (EXL3 quilter sc_optimize for quant; eval tool unnamed)","L":[38,16]},
+"entries":[
+{"role":"ladder","name":"2.65 H4","metrics":{"mean_kld":"c6","ppl":"c9"},"size":"c5","unit":"GB","basis":"disk","bpw":null,"flags":["median c7, p90 c8 [L42]; bpw 2.65 from row label","Perplexity values ~1.37 as printed; definition not stated [L40-50]"]},
+{"role":"ladder","name":"2.65 H4 -sh","metrics":{"mean_kld":"c11","ppl":"c14"},"size":"c10","unit":"GB","basis":"disk","bpw":null,"flags":["median c12, p90 c13 [L43]"]},
+{"role":"ladder","name":"2.67 H4 -sh","metrics":{"mean_kld":"c16","ppl":"c19"},"size":"c15","unit":"GB","basis":"disk","bpw":null,"flags":["median c17, p90 c18 [L44]"]},
+{"role":"ladder","name":"2.70 H4","metrics":{"mean_kld":"c21","ppl":"c24"},"size":"c20","unit":"GB","basis":"disk","bpw":null,"flags":["median c22, p90 c23 [L45]; card's non-SH base of this repo [L16]"]},
+{"role":"own","name":"2.70 H4 -sh","metrics":{"mean_kld":"c26","ppl":"c29"},"size":"c25","unit":"GB","basis":"disk","bpw":"c50","flags":["median c27, p90 c28 [L46]; bold row is this quant [L38]","predicted KL (sc_optimize estimate) c1 is an estimate [L25]","size is full repo footprint [L38]"]},
+{"role":"ladder","name":"2.75 H4","metrics":{"mean_kld":"c31","ppl":"c34"},"size":"c30","unit":"GB","basis":"disk","bpw":null,"flags":["median c32, p90 c33 [L47]"]},
+{"role":"ladder","name":"2.75 H4 -sh","metrics":{"mean_kld":"c36","ppl":"c39"},"size":"c35","unit":"GB","basis":"disk","bpw":null,"flags":["median c37, p90 c38 [L48]"]},
+{"role":"ladder","name":"2.80 H4","metrics":{"mean_kld":"c41","ppl":"c44"},"size":"c40","unit":"GB","basis":"disk","bpw":null,"flags":["median c42, p90 c43 [L49]"]},
+{"role":"ladder","name":"2.80 H4 -sh","metrics":{"mean_kld":"c46","ppl":"c49"},"size":"c45","unit":"GB","basis":"disk","bpw":null,"flags":["median c47, p90 c48 [L50]"]}
+],
+"prose":[]}

@@ -1,0 +1,12 @@
+{"repo":"guideboardlabs/Qwen3.8-27B-Q3-DOWN-XS-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"UD-IQ3_XXS 3-bit control (no bf16 anchor built)","dataset":"wikitext-2-raw-v1 test set","ctx":"8 x 512 chunks, batch 128","tool":"llama.cpp llama-perplexity, Vulkan, RX 5700 XT","L":[32,112]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-Q3-DOWN-XS.gguf","metrics":{"ppl:wikitext-2":"c3"},"size":"c1","unit":"GiB","basis":"disk","bpw":"c2","flags":["Quality % is relative to UD-IQ3_XXS PPL, not bf16; omitted [L32]","prose gives 7.91 GiB vs table 7.68 GiB [L22,L30]"]},
+{"role":"ladder","name":"Q3-DOWN-UP-XS (ceiling)","metrics":{"ppl:wikitext-2":"c9"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["overflows 8 GB [L50]"]},
+{"role":"ladder","name":"Q3-UP-XS","metrics":{"ppl:wikitext-2":"c15"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L47]"]},
+{"role":"ladder","name":"Q3-GATE-PROTECT (old prod)","metrics":{"ppl:wikitext-2":"c18"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L48]"]},
+{"role":"cross","name":"UD-IQ3_XXS (control)","of":"not named on card","metrics":{"ppl:wikitext-2":"c6"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["row label states 11.9GB, no table size cell [L44]"]}
+],
+"prose":[]}

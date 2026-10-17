@@ -1,0 +1,12 @@
+{"repo": "TelperionAI/Qwen3.8-27B-INT4-AWQ-GPTQ",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "BF16 base; raw argmax agreement plus disagreement rates bucketed by the base model's top1-top2 logprob margin; divmed = median token index of first greedy divergence", "dataset": "142,727 tokens of self-distilled thinking-mode output plus 200 free greedy generations", "ctx": "not stated", "tool": "vLLM 0.27.1, TP=2, 2xB300; perplexity deliberately excluded", "L": [49, 50, 64, 65, 66, 67, 68, 69, 71, 72]},
+ "entries": [
+  {"role": "own", "name": "this model (INT4 AWQ+GPTQ)", "metrics": {"top1_pct": "c10", "bench:Disagree-confident": "c13", "bench:Disagree-certain": "c14", "bench:DivergenceMedian": "c15"}, "size": "c9", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["sizes are on-disk tensor bytes including ~0.85 GB BF16 MTP head [L61-62]", "near-tie and moderate bucket cells omitted; only confident/certain are called real damage [L67]"]},
+  {"role": "cross", "name": "Qwen/Qwen3.8-27B-FP8 (8-bit ref)", "of": "Qwen/Qwen3.8-27B-FP8", "metrics": {"top1_pct": "c2", "bench:Disagree-confident": "c5", "bench:Disagree-certain": "c6", "bench:DivergenceMedian": "c7"}, "size": "c1", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["reference at a different precision and size class, excluded from the comparison [L60]"]},
+  {"role": "cross", "name": "cyankiwi/Qwen3.8-27B-AWQ-INT4", "of": "cyankiwi/Qwen3.8-27B-AWQ-INT4", "metrics": {"top1_pct": "c18", "bench:Disagree-confident": "c21", "bench:Disagree-certain": "c22", "bench:DivergenceMedian": "c23"}, "size": "c17", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["[L56]"]},
+  {"role": "ladder", "name": "our NVFP4 build (AWQ+AutoRound)", "metrics": {"top1_pct": "c26", "bench:Disagree-confident": "c29", "bench:Disagree-certain": "c30", "bench:DivergenceMedian": "c31"}, "size": "c25", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["[L57]"]}
+ ],
+ "prose": []
+}

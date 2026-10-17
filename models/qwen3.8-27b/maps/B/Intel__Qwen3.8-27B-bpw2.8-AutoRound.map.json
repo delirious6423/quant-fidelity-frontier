@@ -1,0 +1,13 @@
+{"repo":"Intel/Qwen3.8-27B-bpw2.8-AutoRound",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"BF16 Qwen/Qwen3.8-27B measured by same backends","dataset":"MMLU, GSM8K, MMLU-Pro","ctx":"not stated (evalscope max_tokens 8192)","tool":"lmeval hf and evalscope vllm; AutoRound avg_bits 2.8 mixed W2A16G64/W3A16","L":[52,60,67,81]},
+"entries":[
+{"role":"own","name":"SignRoundv2 (main branch) lmeval hf","metrics":{"bench:MMLU":"c8","bench:GSM8K":"c9","bench:MMLU-Pro":"c10"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["which row is this checkpoint is inferred: the generate command enables alg_ext [L81]; avg 2.8 bits stated only in command [L81]"]},
+{"role":"own","name":"SignRoundv2 (main branch) evalscope vllm","metrics":{"bench:MMLU":"c17","bench:GSM8K":"c18","bench:MMLU-Pro":"c19"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L64]"]},
+{"role":"ladder","name":"SignRoundv1(67565e1) lmeval hf","metrics":{"bench:MMLU":"c5","bench:GSM8K":"c6","bench:MMLU-Pro":"c7"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["earlier algorithm version [L55]"]},
+{"role":"ladder","name":"SignRoundv1(67565e1) evalscope vllm","metrics":{"bench:MMLU":"c15","bench:GSM8K":"c16"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["MMLU-Pro not reported [L63]"]},
+{"role":"cross","name":"BF16 lmeval hf","of":"Qwen/Qwen3.8-27B","metrics":{"bench:MMLU":"c2","bench:GSM8K":"c3","bench:MMLU-Pro":"c4"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["BF16 baseline, repo not named on card; assumed from quantize command [L54,L81]"]},
+{"role":"cross","name":"BF16 evalscope vllm","of":"Qwen/Qwen3.8-27B","metrics":{"bench:MMLU":"c12","bench:GSM8K":"c13","bench:MMLU-Pro":"c14"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L62]"]}
+],
+"prose":[]}

@@ -1,0 +1,10 @@
+{"repo":"kaushikvira/Qwen3.8-27B-thinkingcap-nvfp4full-dflash2-NInfer-v3","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"Swift-1.5 production artifact (same engine build, same session A/B); upstream base Qwen3.8-27B for BottleCap's own eval","dataset":"GSM8K-200, IFBench (n=300)","ctx":"not stated","tool":"NInfer engine, temp 0, single RTX 5090, fresh generations, no cache reuse","L":[127,129,130,132]},
+"entries":[
+{"role":"own","name":"ThinkingCap (this artifact)","metrics":{"bench:GSM8K-200":"c3","bench:IFBench prompt-strict":"c6","bench:IFBench prompt-loose":"c9","bench:IFBench instr-strict":"c12","bench:IFBench instr-loose":"c15"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["same-session A/B [L137-141]","GSM8K delta +0.5 pp is n=200 noise [L137]"]},
+{"role":"ladder","name":"Swift-1.5 (our prod)","metrics":{"bench:GSM8K-200":"c2","bench:IFBench prompt-strict":"c5","bench:IFBench prompt-loose":"c8","bench:IFBench instr-strict":"c11","bench:IFBench instr-loose":"c14"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["comparison build in A/B table [L137-141]"]},
+{"role":"ladder","name":"nvfp4full-dflash2.v3","metrics":{"bench:GSM8K-200":"c35","bench:IFBench prompt-strict":"c34"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["asterisked values in family table [L203]; cross-card rows from different sessions [L198]"]},
+{"role":"ladder","name":"swift-abliterated v3","metrics":{"bench:GSM8K-200":"c39","bench:IFBench prompt-strict":"c38"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["family table [L204]; different sessions [L198]"]},
+{"role":"ladder","name":"swift15-uncensored-ajgazin v3","metrics":{"bench:GSM8K-200":"c51","bench:IFBench prompt-strict":"c50"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["family table [L207]; different sessions [L198]"]}
+],
+"prose":[]}

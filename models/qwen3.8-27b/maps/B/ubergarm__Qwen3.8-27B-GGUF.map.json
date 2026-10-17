@@ -1,0 +1,17 @@
+{"repo":"ubergarm/Qwen3.8-27B-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"BF16 (ik_llama.cpp test quant)","dataset":"not stated (perplexity corpus unnamed; imatrix corpus is ubergarm-imatrix-calibration-corpus-v02)","ctx":"n_ctx=512, 580 chunks","tool":"ik_llama.cpp perplexity","L":[15,34,36,39,145]},
+"entries":[
+{"role":"ladder","name":"BF16","metrics":{},"size":"c1","unit":"GiB","basis":"disk","bpw":null,"flags":["test quant, not available for download [L32-33]","PPL candidate id is truncated to 6.95; full value given in prose [L34]"]},
+{"role":"ladder","name":"Q8_0","metrics":{},"size":"c7","unit":"GiB","basis":"disk","bpw":null,"flags":["test quant, not available for download [L32,L35]","PPL candidate id is truncated to 6.95; full value given in prose [L36]"]},
+{"role":"own","name":"MTP IQ4_KS","metrics":{},"size":"c13","unit":"GiB","basis":"disk","bpw":null,"flags":["size includes extra iq4_ks MTP head [L41]","PPL candidate id is truncated to 6.99; full value given in prose [L39]"]}
+],
+"prose":[
+{"entry":"BF16","key":"ppl","L":34,"raw":"6.9540 +/- 0.04500"},
+{"entry":"BF16","key":"bpw","L":33,"raw":"16.002 BPW"},
+{"entry":"Q8_0","key":"ppl","L":36,"raw":"6.9554 +/- 0.04500"},
+{"entry":"Q8_0","key":"bpw","L":35,"raw":"8.502 BPW"},
+{"entry":"MTP IQ4_KS","key":"ppl","L":39,"raw":"6.9938 +/- 0.04527"},
+{"entry":"MTP IQ4_KS","key":"bpw","L":38,"raw":"4.731 BPW"}
+]}

@@ -1,0 +1,15 @@
+{"repo":"Zynerji/Ektome-Qwen3.8-27B-PristinelyUncensored","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"pristine Qwen3.8-27B (before abliteration)","dataset":"MMLU-validation loglikelihood accuracy 0-shot; AdvBench refusal (n=100) with keyword classifier","ctx":"not stated","tool":"ektome_abliterate","L":[109,114,115,127,128]},
+"entries":[
+{"role":"own","name":"Ektome (this repo, bf16 safetensors)","metrics":{"bench:MMLU-val":"c9","bench:RefusalOnHarmful":"c10"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["quality figures are for the bf16 abliterated parent, not for any quant [L103]"]},
+{"role":"cross","name":"pristine Qwen3.8-27B (before)","of":"Qwen/Qwen3.8-27B","metrics":{"bench:MMLU-val":"c7","bench:RefusalOnHarmful":"c8"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["author-measured baseline [L111]"]},
+{"role":"ladder","name":"HOMEUSER-16-24","metrics":{},"size":"c2","unit":"GB","basis":"disk","bpw":null,"flags":["sibling repo; max context on 24 GB is a context length not a quality value [L44]","quality figures only in prose [L54]"]},
+{"role":"ladder","name":"GPTQ-MTP","metrics":{},"size":"c4","unit":"GB","basis":"disk","bpw":null,"flags":["sibling repo, size only [L45]"]},
+{"role":"ladder","name":"HYBRID","metrics":{},"size":"c5","unit":"GB","basis":"disk","bpw":null,"flags":["sibling repo, size only [L46]"]},
+{"role":"ladder","name":"GGUF Q4_K_M","metrics":{},"size":"c6","unit":"GB","basis":"disk","bpw":null,"flags":["no quality metric on card for the GGUF [L47,L26-33]"]}
+],
+"prose":[
+{"entry":"HOMEUSER-16-24","key":"bench:MMLU","L":54,"raw":"0.7995"},
+{"entry":"HOMEUSER-16-24","key":"bench:HumanEval","L":54,"raw":"0.8902"},
+{"entry":"HOMEUSER-16-24","key":"bench:MMStar","L":54,"raw":"0.6633"}
+]}

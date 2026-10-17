@@ -1,0 +1,11 @@
+{"repo": "talxcc/Tals-coder-flash-01",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "Unsloth Q4_K_M as baseline (100%), not BF16", "dataset": "coding tasks (HumanEval, MBPP, multi-file generation, refactoring); general benches MMLU, GSM8k; details not given", "ctx": "not stated", "tool": "not stated (llama.cpp; speed on RTX 4060 Ti 16GB)", "L": [47, 48, 61]},
+ "entries": [
+  {"role": "own", "name": "Tals-coder-flash-01", "metrics": {"bench:CodingRetention": "c12", "bench:GeneralBenches-delta-pts-best": "c13.0", "bench:GeneralBenches-delta-pts-worst": "c13.1"}, "size": "c11", "unit": "GB", "basis": "disk", "bpw": "c18", "flags": ["retention and general deltas are relative to Q4_K_M, not BF16 [L61]", "general delta printed as a range '-0.3 to -0.5 pts' [L65]"]},
+  {"role": "cross", "name": "Unsloth Q4_K_M (Standard)", "of": "not named on card", "metrics": {"bench:CodingRetention": "c2"}, "size": "c1", "unit": "GB", "basis": "disk", "bpw": "c16", "flags": ["baseline row, 100% by definition [L63]"]},
+  {"role": "cross", "name": "Standard Q3_K_L", "of": "not named on card", "metrics": {"bench:CodingRetention": "c7", "bench:GeneralBenches-delta-pts-best": "c8.0", "bench:GeneralBenches-delta-pts-worst": "c8.1"}, "size": "c6", "unit": "GB", "basis": "disk", "bpw": "c17", "flags": ["[L64]"]}
+ ],
+ "prose": []
+}

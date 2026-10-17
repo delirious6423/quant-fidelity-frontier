@@ -1,0 +1,49 @@
+{
+ "repo": "Atomic-Germ/Qwen3.8-Whittle-MoE-27B-A17.8B-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "previous releases of same model (loop rates); knowledge battery of 39 questions",
+  "dataset": "fixed harness, same prompts and seeds; 24-prompt structural probe; 36 held-out counted prompts + 8 conversations",
+  "ctx": "not stated",
+  "tool": "llama.cpp; small one-person harness [L72]",
+  "L": [
+   51,
+   143
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "v2.2 Q4_K_M",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "MoE carve-up (A17.8B) of Qwen3.8-27B, not a plain quant of the dense model [L49]; per-release tables at L111, L145 not in candidates"
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "v2.2 Q4_K_M",
+   "key": "bench:knowledge_battery_of_39",
+   "L": 51,
+   "raw": "28 of 39"
+  },
+  {
+   "entry": "v2.2 Q4_K_M",
+   "key": "bench:loop_rate_long_single_answers_pct",
+   "L": 51,
+   "raw": "8 percent on long single answers"
+  },
+  {
+   "entry": "v2.2 Q4_K_M",
+   "key": "bench:loop_rate_structured_output_pct",
+   "L": 51,
+   "raw": "22 percent on structured output"
+  }
+ ]
+}

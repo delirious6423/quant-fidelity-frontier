@@ -1,0 +1,17 @@
+{"repo":"MiawTeam/Qwen3.8-27B-Uncensored-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"unmodified Qwen3.8-27B base (for capability and refusal deltas); no BF16 reference for quant PPL","dataset":"wikitext-2 (PPL); MMLU, ARC-Challenge, HellaSwag, Winogrande 0-shot; 100 held-out harmful prompts","ctx":"not stated","tool":"lm-evaluation-harness (bf16, 0-shot); Heretic abliteration search; llama.cpp perplexity","L":[77,141,152,167,172,208,223]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-Uncensored-Q4_K_M.gguf","metrics":{"ppl:wikitext-2":"c8"},"size":"c7","unit":"GB","basis":"disk","bpw":null,"flags":["only file with a PPL value in Files table [L77-89]"]},
+{"role":"own","name":"Qwen3.8-27B-Uncensored-IQ4_XS.gguf","metrics":{},"size":"c6","unit":"GB","basis":"disk","bpw":null,"flags":["size only [L79]"]},
+{"role":"own","name":"Qwen3.8-27B-Uncensored-Q5_K_M.gguf","metrics":{},"size":"c9","unit":"GB","basis":"disk","bpw":null,"flags":["size only [L81]"]},
+{"role":"own","name":"Qwen3.8-27B-Uncensored-Q6_K.gguf","metrics":{},"size":"c10","unit":"GB","basis":"disk","bpw":null,"flags":["size only [L82]"]},
+{"role":"own","name":"Qwen3.8-27B-Uncensored-Q8_0.gguf","metrics":{},"size":"c11","unit":"GB","basis":"disk","bpw":null,"flags":["size only [L83]"]},
+{"role":"own","name":"Qwen3.8-27B-Uncensored-noMTP-IQ4_XS.gguf","metrics":{},"size":"c13","unit":"GB","basis":"disk","bpw":null,"flags":["size only [L85]"]},
+{"role":"own","name":"Qwen3.8-27B-Uncensored-noMTP-Q4_K_M.gguf","metrics":{},"size":"c14","unit":"GB","basis":"disk","bpw":null,"flags":["size only [L86]"]},
+{"role":"own","name":"Qwen3.8-27B-Uncensored-noMTP-Q5_K_M.gguf","metrics":{},"size":"c15","unit":"GB","basis":"disk","bpw":null,"flags":["size only [L87]"]},
+{"role":"own","name":"Qwen3.8-27B-Uncensored-noMTP-Q6_K.gguf","metrics":{},"size":"c16","unit":"GB","basis":"disk","bpw":null,"flags":["size only [L88]"]},
+{"role":"own","name":"Qwen3.8-27B-Uncensored-noMTP-Q8_0.gguf","metrics":{},"size":"c17","unit":"GB","basis":"disk","bpw":null,"flags":["size only [L89]"]},
+{"role":"own","name":"Qwen3.8-27B-Uncensored (bf16, abliterated)","metrics":{"bench:MMLU":"c31","bench:ARC-Challenge":"c34","bench:HellaSwag":"c37","bench:Winogrande":"c40","bench_delta_vs_base:MMLU":"c32","bench_delta_vs_base:ARC-Challenge":"c35","bench_delta_vs_base:HellaSwag":"c38","bench_delta_vs_base:Winogrande":"c41","bench_delta_vs_base:mean":"c42","kld:first-token-vs-base":"c46"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["benchmarks are on bf16 abliterated weights, not on the GGUF quants [L152-153]","KL is first-token divergence from the base caused by abliteration, not quantization error [L208]","0-shot, deltas within standard error [L152-155]"]},
+{"role":"cross","name":"Qwen3.8-27B base (bf16)","of":"Qwen/Qwen3.8-27B","metrics":{"bench:MMLU":"c30","bench:ARC-Challenge":"c33","bench:HellaSwag":"c36","bench:Winogrande":"c39","kld:first-token-vs-base":"c45"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["author-measured reference in same session [L152-153]"]}
+],
+"prose":[]}

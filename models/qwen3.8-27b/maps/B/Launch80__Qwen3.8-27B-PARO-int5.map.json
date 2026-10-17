@@ -1,0 +1,8 @@
+{"repo":"Launch80/Qwen3.8-27B-PARO-int5","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 served on the same stack","dataset":"wikitext, 96 x 500-char chunks, top-256","ctx":"not stated","tool":"2 x R9700, TP=2, fp8 KV, DFlash2-FP8 drafter","L":[70,72,73,74]},
+"entries":[
+{"role":"own","name":"this checkpoint (PARO int5)","metrics":{"mean_kld":"c5.1","top1_pct":"c8","bench:GSM8K":"c11"},"size":"c22","unit":"GB","basis":"disk","bpw":"c2","flags":["mean_kld is the top-256 KL in nats; top-5 KL 0.0070 [L79]","GSM8K 500q greedy served path [L81]"]},
+{"role":"ladder","name":"PARO-MXFP4","of":"Launch80/Qwen3.8-27B-PARO-MXFP4","metrics":{"mean_kld":"c4.1","top1_pct":"c7"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["GSM8K given only as range 97.4-97.6% [L81]","top-256 KL; top-5 0.0296 [L79]"]},
+{"role":"cross","name":"int4 ParoQuant","of":"not named on card","metrics":{"mean_kld":"c3.1","top1_pct":"c6"},"size":"c21","unit":"GB","basis":"disk","bpw":"c1","flags":["GSM8K given only as range 97.4-98.0% [L81]","top-256 KL; top-5 0.0195 [L79]"]}
+],
+"prose":[]}

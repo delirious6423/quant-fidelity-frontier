@@ -1,0 +1,88 @@
+{
+ "repo": "malaiwah/Qwen3.8-27B-EXL3-K6-parity",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "shared BF16 reference capture (vLLM)",
+  "dataset": "shard 0 of v5 held-out suite: 512 contexts, 1,048,064 scored positions, 330 source clusters",
+  "ctx": "not stated",
+  "tool": "tools/fidelity.py replay; cluster bootstrap 10,000 resamples; cross-engine for GGUF (llama.cpp)",
+  "L": [
+   19,
+   20,
+   21,
+   102,
+   103,
+   104
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "this build (K6 parity, EXL3)",
+   "metrics": {
+    "mean_kld": "c9",
+    "top1_pct": "c13"
+   },
+   "size": "c14",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "p99.9 (c11) and max (c12) not mapped: no matching key [L109]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "hydrated K5/K6",
+   "metrics": {
+    "mean_kld": "c15",
+    "top1_pct": "c19"
+   },
+   "size": "c20",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "same engine and reference as this build [L113]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "GGUF Q6_K (llama.cpp)",
+   "of": "not named on card",
+   "metrics": {
+    "mean_kld": "c21",
+    "top1_pct": "c23"
+   },
+   "size": "c24",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "different engine (llama.cpp) so not a format-only comparison [L25,L116-119]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "BF16 cross-engine control",
+   "of": "not named on card",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "unquantized BF16 under the other engine [L45]"
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "BF16 cross-engine control",
+   "key": "mean_kld",
+   "L": 45,
+   "raw": "0.000507"
+  }
+ ]
+}

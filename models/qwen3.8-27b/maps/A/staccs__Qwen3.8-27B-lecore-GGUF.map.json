@@ -1,0 +1,9 @@
+{"repo":"staccs/Qwen3.8-27B-lecore-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"not stated (weights dequantized to bf16 for evaluation)","dataset":"MMLU 5-shot first 10 questions of each of 57 subjects; GSM8K 5-shot first 100 test problems","ctx":"not stated","tool":"lm-eval-harness 0.4.9, greedy, 320 new tokens, no chat template","L":[37,38]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-lecore-mix.gguf","metrics":{},"size":"c3","unit":"GB","basis":"disk","bpw":null,"flags":["no metrics measured on the GGUF itself; card says numbers are close to but not identical to the MLX export [L17]"]},
+{"role":"own","name":"Qwen3.8-27B-Q4_K_M.gguf","metrics":{},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["stock llama.cpp Q4_K_M, size only [L14]"]},
+{"role":"ladder","name":"leCore MLX export","of":"staccs/Qwen3.8-27B-lecore-mlx","metrics":{"bench:MMLU-5shot":"c5","bench:GSM8K-strict":"c6","bench:GSM8K-flexible":"c7"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["numbers measured on the companion MLX export, not the GGUF [L42,L10]","subsets, expect about 2-4 points sampling noise [L38]"]},
+{"role":"ladder","name":"stock 3-bit affine, group 64 (simulated)","metrics":{"bench:MMLU-5shot":"c8","bench:GSM8K-strict":"c9","bench:GSM8K-flexible":"c10"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["simulated comparison build, same subsets [L43]"]}
+],
+"prose":[]}

@@ -1,0 +1,7 @@
+{"repo":"VikramPal/Qwen3.8-27B-DynQuant-3bit","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 (unquantized) text-to-SQL fine-tune","dataset":"held-out validation split of spider, gretel, wikisql; 400 problems","ctx":"1024 new-token decode budget","tool":"DynQuant 0.5.2, greedy decode, execution accuracy","L":[32,34]},
+"entries":[
+{"role":"own","name":"this checkpoint (DynQuant 2.999 bits)","metrics":{"bench:text-to-SQL execution accuracy":"c5"},"size":"c4","unit":"GiB","basis":"disk","bpw":"c3","flags":["delta vs bf16 -6.00, p 1.93e-05 [L37]","deliberately over-compressed below the 4.0196-bit floor budget [L24-26]","fine-tuned for text-to-SQL; general ability not measured [L143]"]},
+{"role":"ladder","name":"bf16 (unquantized)","metrics":{"bench:text-to-SQL execution accuracy":"c2"},"size":null,"unit":null,"basis":null,"bpw":"c1","flags":["reference row [L36]"]}
+],
+"prose":[]}

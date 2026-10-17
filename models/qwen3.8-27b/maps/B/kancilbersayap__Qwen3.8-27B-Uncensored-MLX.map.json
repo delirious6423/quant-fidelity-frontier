@@ -1,0 +1,9 @@
+{"repo":"kancilbersayap/Qwen3.8-27B-Uncensored-MLX","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"same abliterated BF16 source","dataset":"dequantized weights vs source (cosine); generation tests","ctx":"not stated","tool":"numerical weight verification + GPU generation tests","L":[139,140,142]},
+"entries":[
+{"role":"own","name":"8-bit","metrics":{"bench:weight cosine vs BF16":"c22"},"size":"c3","unit":"GB","basis":"disk","bpw":"c2","flags":["refusal probes 0 refusals [L144]; cosine is weights-vs-source, not output KL"]},
+{"role":"own","name":"6-bit","metrics":{"bench:weight cosine vs BF16":"c25"},"size":"c8","unit":"GB","basis":"disk","bpw":"c7","flags":["[L145]"]},
+{"role":"own","name":"4-bit","metrics":{"bench:weight cosine vs BF16":"c28"},"size":"c13","unit":"GB","basis":"disk","bpw":"c12","flags":["[L146]"]},
+{"role":"own","name":"2-bit","metrics":{"bench:weight cosine vs BF16":"c31"},"size":"c18","unit":"GB","basis":"disk","bpw":"c17","flags":["card warns 2-bit collapses generation quality [L127]"]}
+],
+"prose":[]}

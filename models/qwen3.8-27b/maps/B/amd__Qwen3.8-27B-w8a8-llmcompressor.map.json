@@ -1,0 +1,7 @@
+{"repo":"amd/Qwen3.8-27B-w8a8-llmcompressor","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 unquantized baseline","dataset":"GSM8K 5-shot","ctx":"not stated","tool":"lm-evaluation-harness with vLLM, language_model_only=True; LLM Compressor RTN (data-free)","L":[160,171]},
+"entries":[
+{"role":"own","name":"W8A8 (this model)","metrics":{"bench:GSM8K":"c2"},"size":"c4.1","unit":"GiB","basis":"disk","bpw":null,"flags":["linear-attention blocks, vision encoder, lm_head and embeddings stay BF16 [L60]"]},
+{"role":"cross","name":"BF16 Baseline","of":"Qwen/Qwen3.8-27B","metrics":{"bench:GSM8K":"c1"},"size":"c4.0","unit":"GiB","basis":"disk","bpw":null,"flags":["51.8 GiB on disk [L48]"]}
+],
+"prose":[]}

@@ -1,0 +1,8 @@
+{"repo":"malaiwah/Qwen3.8-27B-EXL3-S16-V-research","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 (shared BF16 head and shared BF16 reference capture)","dataset":"shard 0 of the v5 held-out suite: 512 contexts, 1,048,064 scored positions, 330 source clusters","ctx":"not stated","tool":"tools/fidelity.py replay; token_mean_kld, cluster bootstrap 10,000 resamples; hidden state replayed through shared BF16 lm_head","L":[22,23,24,122,125,126]},
+"entries":[
+{"role":"own","name":"S16-V (this build)","of":"","metrics":{"mean_kld":"c42","bench:median_kld":"c43","bench:p95_kld":"c44","kld_99":"c45","bench:p99.9_kld":"c46","bench:max_kld":"c47","top1_pct":"c48"},"size":"c73","unit":"GiB","basis":"disk","bpw":null,"flags":["research artifact measured and rejected against pre-registered NO threshold 0.030 [L22-26]","mean KLD 0.045374 with 95% CI [0.041959, 0.049351] [L24]","whole tree 13,735,527,028 B over 21 files, 12.7922 GiB [L88-89]"]},
+{"role":"ladder","name":"K4","of":"not named on card","metrics":{"mean_kld":"c35","bench:median_kld":"c36","bench:p95_kld":"c37","kld_99":"c38","bench:p99.9_kld":"c39","bench:max_kld":"c40","top1_pct":"c41"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["asterisked median/p95/p99/p99.9 are binned estimates (exact to 5.6% bin width) [L131-135]"]},
+{"role":"ladder","name":"context edition","of":"malaiwah/Qwen3.8-27B-EXL3-K5K6-context","metrics":{"mean_kld":"c27","bench:median_kld":"c28","bench:p95_kld":"c29","kld_99":"c30","bench:p99.9_kld":"c31","bench:max_kld":"c32","top1_pct":"c33"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["asterisked values are binned estimates [L130]"]}
+],
+"prose":[]}

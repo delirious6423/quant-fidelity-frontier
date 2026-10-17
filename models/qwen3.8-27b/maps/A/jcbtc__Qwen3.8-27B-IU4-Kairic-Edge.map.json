@@ -1,0 +1,8 @@
+{"repo":"jcbtc/Qwen3.8-27B-IU4-Kairic-Edge","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"not stated (pass counts on tasks; no BF16 reference metric)","dataset":"164-task chat-adapted HumanEval/EvalPlus harness","ctx":"Kairic 262,144 context with 8 GiB prompt cache; comparison runs 65,536 context","tool":"EvalPlus-based chat-adapted harness, deterministic sampling, one trajectory per task, no repair retry","L":[100,115]},
+"entries":[
+{"role":"own","name":"Kairic Edge IU4 v1/v1.1","metrics":{"bench:HumanEval":"c1","bench:HumanEval+":"c2"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Configured-system comparison, not a one-variable quantization experiment [L115]","Run predates v1.2 correction [L117]","GGUF is 15.48 GiB (16,617,792,672 bytes) in separate files table [L225]; total with companions 26.05 GiB [L229]"]},
+{"role":"cross","name":"Unsloth Dynamic Q4","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{"bench:HumanEval":"c7","bench:HumanEval+":"c8"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Comparison files from Unsloth Dynamic 3.0, revision 4ca720788d1e [L121]; run at 65,536 context [L115]"]},
+{"role":"cross","name":"Unsloth Dynamic Q6","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{"bench:HumanEval":"c13","bench:HumanEval+":"c14"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Comparison files from Unsloth Dynamic 3.0 [L121]; run at 65,536 context [L115]"]}
+],
+"prose":[]}

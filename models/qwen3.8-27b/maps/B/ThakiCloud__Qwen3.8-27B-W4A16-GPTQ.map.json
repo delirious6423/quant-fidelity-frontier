@@ -1,0 +1,104 @@
+{
+ "repo": "ThakiCloud/Qwen3.8-27B-W4A16-GPTQ",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "bf16 Qwen3.8-27B (same serving session)",
+  "dataset": "GSM8K full 1,319-item set, English and Korean; RAG absent-information fabrication (n=240)",
+  "ctx": "greedy",
+  "tool": "vLLM 0.27.1 + lm-eval 0.4.12; one serving session for all arms",
+  "L": [
+   34,
+   35,
+   64
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "this build (W4A16 GPTQ, Marlin)",
+   "metrics": {
+    "bench:GSM8K_en_strict": "c6",
+    "bench:GSM8K_en_flexible": "c7",
+    "bench:GSM8K_ko_strict": "c8",
+    "bench:GSM8K_ko_flexible": "c9"
+   },
+   "size": "c19",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "rebuild noise floor: an identical-recipe rebuild moved GSM8K en strict by 3.56pp (c10) and RAG fabrication by 27.08pp (c13) [L56-61]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "second build of the same recipe",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "identical recipe rebuilt [L53-54]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "bf16",
+   "metrics": {
+    "bench:GSM8K_en_strict": "c2",
+    "bench:GSM8K_en_flexible": "c3",
+    "bench:GSM8K_ko_strict": "c4",
+    "bench:GSM8K_ko_flexible": "c5"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L39]"
+   ],
+   "of": "Qwen/Qwen3.8-27B"
+  },
+  {
+   "role": "cross",
+   "name": "third-party INT4 build",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L65]"
+   ],
+   "of": "not named on card"
+  }
+ ],
+ "prose": [
+  {
+   "entry": "this build (W4A16 GPTQ, Marlin)",
+   "key": "bench:RAG_absent_info_fabrication_pct",
+   "L": 64,
+   "raw": "9.17%"
+  },
+  {
+   "entry": "second build of the same recipe",
+   "key": "bench:RAG_absent_info_fabrication_pct",
+   "L": 65,
+   "raw": "36.25%"
+  },
+  {
+   "entry": "third-party INT4 build",
+   "key": "bench:RAG_absent_info_fabrication_pct",
+   "L": 65,
+   "raw": "1.25%"
+  },
+  {
+   "entry": "bf16",
+   "key": "bench:RAG_absent_info_fabrication_pct",
+   "L": 65,
+   "raw": "3.33%"
+  }
+ ]
+}

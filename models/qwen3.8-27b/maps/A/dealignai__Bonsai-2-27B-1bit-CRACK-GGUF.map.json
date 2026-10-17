@@ -1,0 +1,7 @@
+{"repo":"dealignai/Bonsai-2-27B-1bit-CRACK-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"base PTQ1_0 ternary quant (prism-ml/Ternary-Bonsai-2-27B-gguf)","dataset":"MMLU n=2,280 (40 questions x 57 subjects, next-token letter-logit); HarmBench-320 refusal","ctx":"not stated","tool":"not stated","L":[64,102]},
+"entries":[
+{"role":"own","name":"CRACK PTQ1_0","metrics":{"bench:MMLU":"c76"},"size":null,"unit":null,"basis":null,"bpw":"c300","flags":["MMLU delta vs base -1.23 pp [L107]","refusal-rate tables are not quality-vs-reference metrics; omitted","bpw label 2.13 [L54] conflicts with header 1.75 bpw [L33]; unclear"]},
+{"role":"ladder","name":"Base PTQ1_0","metrics":{"bench:MMLU":"c75"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["base ternary quant [L106]"]}
+],
+"prose":[]}

@@ -1,0 +1,10 @@
+{"repo":"BoldingBuilds/Qwen3.8-27B-Abliterated-ThinkFix-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"stock Qwen3.8-27B and same weights without the edit (benchmark comparison, no KLD/PPL)","dataset":"MATH 200 hard, HumanEval 164, IFEval 541/534, sensitive prompts","ctx":"output caps 4k/8k/16k","tool":"llama.cpp llama-server, RTX 3090s","L":[48,96,151,205,245]},
+"entries":[
+{"role":"own","name":"Q4_K_M (main file)","metrics":{"bench:MATH_8k_correct_of_200":"c81","bench:MATH_16k":"c60","bench:HumanEval_4k":"c66","bench:IFEval_16k_all541":"c71","bench:IFEval_16k_534":"c74"},"size":"c76","unit":"GB","basis":"disk","bpw":null,"flags":["MATH 8k from quant table [L211]; 16k/HumanEval/IFEval from this-build vs stock table [L153-158]","judge-score and sensitive-prompt rows omitted as not per-quant quality metrics"]},
+{"role":"own","name":"Q5_K_M","metrics":{"bench:MATH_8k_correct_of_200":"c89"},"size":"c84","unit":"GB","basis":"disk","bpw":null,"flags":["[L212]"]},
+{"role":"own","name":"Q6_K","metrics":{"bench:MATH_8k_correct_of_200":"c97"},"size":"c92","unit":"GB","basis":"disk","bpw":null,"flags":["[L213]"]},
+{"role":"own","name":"Q8_0","metrics":{"bench:MATH_8k_correct_of_200":"c105"},"size":"c100","unit":"GB","basis":"disk","bpw":null,"flags":["[L214]"]},
+{"role":"ladder","name":"stock Qwen3.8-27B","metrics":{"bench:MATH_16k":"c61","bench:MATH_8k":"c64","bench:HumanEval_4k":"c67","bench:IFEval_16k_all541":"c72","bench:IFEval_16k_534":"c75"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["unmodified base comparator, quant not stated [L153-158]","MATH cells include hit-limit counts in parentheses"]}
+],
+"prose":[]}

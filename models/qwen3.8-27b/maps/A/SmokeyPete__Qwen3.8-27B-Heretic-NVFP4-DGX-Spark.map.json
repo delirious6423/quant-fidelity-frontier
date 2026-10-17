@@ -1,0 +1,9 @@
+{"repo": "SmokeyPete/Qwen3.8-27B-Heretic-NVFP4-DGX-Spark",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "BF16 = the abliterated model before quantization", "dataset": "GSM8K (1,319 questions), HumanEval+ (164, EvalPlus 0.3.1)", "ctx": "not stated", "tool": "SGLang 0.5.19, greedy, thinking on reasoning_effort medium, no speculative decoding", "L": [107, 108, 110]},
+ "entries": [
+  {"role": "own", "name": "Heretic NVFP4 (this model)", "metrics": {"bench:GSM8K": "c12", "bench:HumanEval+": "c14"}, "size": "c38", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["calibration abisee/cnn_dailymail 1,024 x 512 tokens [L205]", "HumanEval base BF16 97.56% given but this-model value not in candidates [L114]"]},
+  {"role": "ladder", "name": "BF16 (abliterated, pre-quantization)", "metrics": {"bench:GSM8K": "c11", "bench:HumanEval+": "c13", "bench:HumanEval": "c15"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["reference is the abliterated BF16, not original Qwen [L108]", "first-token KL 0.061 on harmless prompts is for the abliteration edit, not the quant [L200]"]}
+ ],
+ "prose": []}

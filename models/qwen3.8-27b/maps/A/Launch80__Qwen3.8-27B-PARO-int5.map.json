@@ -1,0 +1,8 @@
+{"repo":"Launch80/Qwen3.8-27B-PARO-int5","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 served on the same stack","dataset":"wikitext, 96 x 500-char chunks (KL); GSM8K 500q greedy","ctx":"not stated","tool":"KL(bf16 || candidate) top-5 and top-256, 2 x R9700 TP=2, fp8 KV","L":[70,72,76]},
+"entries":[
+{"role":"own","name":"this checkpoint (PARO-int5)","metrics":{"kld:top5":"c5.0","kld:top256":"c5.1","top1_pct":"c8","bench:GSM8K":"c11"},"size":"c22","unit":"GB","basis":"disk","bpw":"c2","flags":["[L79-85]"]},
+{"role":"ladder","name":"int4 ParoQuant","metrics":{"kld:top5":"c3.0","kld:top256":"c3.1","top1_pct":"c6","bench:GSM8K":"c9.0"},"size":"c21","unit":"GB","basis":"disk","bpw":"c1","flags":["GSM8K is a range 97.4-98.0%; only the low end has an id [L81]"]},
+{"role":"ladder","name":"PARO-MXFP4","metrics":{"kld:top5":"c4.0","kld:top256":"c4.1","top1_pct":"c7","bench:GSM8K":"c10.0"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["GSM8K is a range 97.4-97.6%; only the low end has an id [L81]","no disk size in table"]}
+],
+"prose":[]}

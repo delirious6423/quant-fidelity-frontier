@@ -1,0 +1,8 @@
+{"repo":"Chungulus/Qwen3.8-27B-MLX-MXFP4",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"not stated in digest (validation_result.json compares generations; semantic similarity described as a proxy, not ground-truth accuracy)","dataset":"short validation prompts (longest 73 prompt tokens)","ctx":"73 prompt tokens maximum","tool":"mlx-vlm / mlx-mtp with MXFP4 support","L":[55,56,105]},
+"entries":[
+{"role":"own","name":"MLX MXFP4 (group size 32)","metrics":{},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["mean_semantic_similarity 0.9432 and 3 exact matches in validation JSON (see prose) [L105-106]","digest shows no bf16 KL, perplexity or top-1 lines for this card, unlike the sibling 5-bit card","peak memory 14.99 GB measured [L109]"]}
+],
+"prose":[{"entry":"MLX MXFP4 (group size 32)","key":"mean_semantic_similarity","L":105,"raw":"0.9432224094867706"}]}

@@ -1,0 +1,67 @@
+{
+ "repo": "orcarouter/Qwen3.8-27B-MLX",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "BF16",
+  "dataset": "wikitext-2",
+  "ctx": "1024 tokens",
+  "tool": "MLX CUDA backend",
+  "L": [
+   106,
+   107,
+   108
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "8-bit",
+   "metrics": {
+    "mean_kld": "c19",
+    "kld_95": "c20",
+    "top1_pct": "c21"
+   },
+   "size": "c4",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c2",
+   "flags": [
+    "group size 32 (c3); size is approximate (~31 GB) [L95]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "6-bit",
+   "metrics": {
+    "mean_kld": "c23",
+    "kld_95": "c24",
+    "top1_pct": "c25"
+   },
+   "size": "c9",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c7",
+   "flags": [
+    "group size 32 [L96]; size approximate"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "4-bit",
+   "metrics": {
+    "mean_kld": "c27",
+    "kld_95": "c28",
+    "top1_pct": "c29"
+   },
+   "size": "c14",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c12",
+   "flags": [
+    "group size 64 [L97]; size approximate"
+   ]
+  }
+ ],
+ "prose": []
+}

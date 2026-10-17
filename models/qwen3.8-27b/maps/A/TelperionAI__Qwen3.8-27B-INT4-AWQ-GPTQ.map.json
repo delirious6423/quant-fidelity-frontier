@@ -1,0 +1,9 @@
+{"repo":"TelperionAI/Qwen3.8-27B-INT4-AWQ-GPTQ","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 base","dataset":"142,727 tokens of self-distilled thinking-mode output plus 200 free greedy generations","ctx":"not stated","tool":"vLLM 0.27.1, TP=2, 2xB300","L":[49,50,64,65,66]},
+"entries":[
+{"role":"own","name":"this model (INT4 AWQ+GPTQ)","metrics":{"top1_pct":"c10","bench:near-tie":"c11","bench:moderate":"c12","bench:confident":"c13","bench:certain":"c14","bench:divmed":"c15"},"size":"c9","unit":"GB","basis":"disk","bpw":null,"flags":["size includes ~0.85 GB BF16 MTP head [L61]","perplexity deliberately excluded [L71]","bucket columns are disagreement rates; divmed higher is better"]},
+{"role":"cross","name":"Qwen/Qwen3.8-27B-FP8 (8-bit ref)","of":"Qwen/Qwen3.8-27B-FP8","metrics":{"top1_pct":"c2","bench:near-tie":"c3","bench:moderate":"c4","bench:confident":"c5","bench:certain":"c6","bench:divmed":"c7"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["official FP8 release as reference; card excludes it from comparison [L60]"]},
+{"role":"cross","name":"cyankiwi/Qwen3.8-27B-AWQ-INT4","of":"cyankiwi/Qwen3.8-27B-AWQ-INT4","metrics":{"top1_pct":"c18","bench:near-tie":"c19","bench:moderate":"c20","bench:confident":"c21","bench:certain":"c22","bench:divmed":"c23"},"size":"c17","unit":"GB","basis":"disk","bpw":null,"flags":[]},
+{"role":"ladder","name":"our NVFP4 build (AWQ+AutoRound)","metrics":{"top1_pct":"c26","bench:near-tie":"c27","bench:moderate":"c28","bench:confident":"c29","bench:certain":"c30","bench:divmed":"c31"},"size":"c25","unit":"GB","basis":"disk","bpw":null,"flags":["repo not named on card"]}
+],
+"prose":[]}

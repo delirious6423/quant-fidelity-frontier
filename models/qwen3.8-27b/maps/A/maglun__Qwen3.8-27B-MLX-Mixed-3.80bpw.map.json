@@ -1,0 +1,10 @@
+{"repo":"maglun/Qwen3.8-27B-MLX-Mixed-3.80bpw","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 text model (measured on a different machine, M4 Pro, for the 2nd table)","dataset":"held-out chat-framed corpus: 6 documents (launch table), 4 documents / 6,057 tokens (2026-10-15 table); HumanEval+ n=8, GSM8K n=12","ctx":"not stated","tool":"mlx 0.32.3 / mlx-vlm 0.7.6 / mlx-lm 0.32.0, greedy, reasoning_effort=low, 8192-token cap, Apple M5 Pro 64 GB","L":[63,67,69,86,88,89,91]},
+"entries":[
+{"role":"own","name":"mixed affine 3.80 bpw (this release)","metrics":{"ppl:heldout-4doc":"c44","ppl:heldout-6doc":"c10","bench:HumanEval+":"c45","bench:GSM8K":"c46"},"size":"c41","unit":"GiB","basis":"disk","bpw":"c43","flags":["PPL values from the two tables use different corpora and are not interchangeable [L91-93]","n=8 and n=12 samples, screening-tier only [L119-122]","decode tok/s is not a quality metric [L101]"]},
+{"role":"ladder","name":"mixed affine 4.95 bpw (sibling release)","metrics":{"ppl:heldout-4doc":"c23","ppl:heldout-6doc":"c9","bench:HumanEval+":"c24","bench:GSM8K":"c25"},"size":"c20","unit":"GiB","basis":"disk","bpw":"c22","flags":["publisher's own earlier release [L98]"]},
+{"role":"ladder","name":"MXFP4, text only","metrics":{"ppl:heldout-4doc":"c30","bench:HumanEval+":"c31","bench:GSM8K":"c32"},"size":"c27","unit":"GiB","basis":"text_weights","bpw":"c29","flags":["builder of this MXFP4 file not stated on card [L99]"]},
+{"role":"ladder","name":"MXFP4, with BF16 vision + MTP drafter","metrics":{"ppl:heldout-4doc":"c37","bench:HumanEval+":"c38","bench:GSM8K":"c39"},"size":"c34","unit":"GiB","basis":"disk","bpw":"c36","flags":["builder of this MXFP4 file not stated on card [L100]"]},
+{"role":"ladder","name":"BF16 text source (cross-host)","metrics":{"ppl:heldout-4doc":"c17","ppl:heldout-6doc":"c8","bench:HumanEval+":"c18","bench:GSM8K":"c19"},"size":"c14","unit":"GiB","basis":"text_weights","bpw":"c16","flags":["measured on a different machine than the rest of the table [L131]"]}
+],
+"prose":[]}

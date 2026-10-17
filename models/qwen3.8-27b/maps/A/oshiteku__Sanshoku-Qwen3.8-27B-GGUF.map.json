@@ -1,0 +1,9 @@
+{"repo":"oshiteku/Sanshoku-Qwen3.8-27B-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16","dataset":"60 in-house prompts, 32 tokens each (top-1/KL); fixed subsets of GSM8K (100), MATH-500 (50), MGSM Japanese (100) for Math; SWE-bench Verified Mini (50 tasks) with mini-SWE-agent","ctx":"not stated","tool":"not stated for top-1/KL; llama.cpp 1a67982 and PrismML fork bdc23b5 tested","L":[66,76,78,79,80]},
+"entries":[
+{"role":"own","name":"Sanshoku","metrics":{"top1_pct":"c25","mean_kld":"c28","bench:Math":"c31","bench:SWE-bench Verified Mini":"c34"},"size":"c22","unit":"GB","basis":"disk","bpw":null,"flags":["Small-scale local evaluation [L66]; top-1 and KL averaged over chat and coding-agent prompts, thinking and non-thinking [L76]","Per-file sizes: Q2_0 7.70, PQ2_0 7.28, PTQ1_0 6.00 GB [L35-37]; eval table does not say which file"]},
+{"role":"cross","name":"Ternary Bonsai 2","of":"prism-ml/Ternary-Bonsai-2-27B-gguf","metrics":{"top1_pct":"c26","mean_kld":"c29","bench:Math":"c32","bench:SWE-bench Verified Mini":"c35"},"size":"c23","unit":"GB","basis":"disk","bpw":null,"flags":["Measured by card author with same prompts and settings [L66]"]},
+{"role":"cross","name":"Qwen3.8 UD-Q4_K_M","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{"top1_pct":"c27","mean_kld":"c30","bench:Math":"c33"},"size":"c24","unit":"GB","basis":"disk","bpw":null,"flags":["No SWE-bench value in this column"]},
+{"role":"cross","name":"UD-IQ2_XXS","of":"not named on card","metrics":{"top1_pct":"c73.1"},"size":"c73.0","unit":"GB","basis":"disk","bpw":null,"flags":["Footnote 1 only: 7.3 GB, 84.0% / 0.311 [L77]"]}
+],
+"prose":[{"entry":"UD-IQ2_XXS","key":"mean_kld","L":77,"raw":"0.311"}]}

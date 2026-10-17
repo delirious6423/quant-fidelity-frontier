@@ -1,0 +1,8 @@
+{"repo":"kingjones777/Qwen3.8-27B-ROCmFPX-Q8_0-GGUF","no_quality_claims":true,"no_claims_reason":"speed/size table only [L60-64]; card states no perplexity and no quality A/B vs BF16 [L140-141]; only a tools 7/7 functional check [L15]",
+"method":{"reference":"not stated","dataset":"not stated","ctx":"32768 serving ctx","tool":"decode speed with MTP draft on Ryzen AI MAX+ 395","L":[54,56,140]},
+"entries":[
+{"role":"own","name":"Q8_0_ROCMFPX (this)","metrics":{},"size":"c2","unit":"GiB","basis":"disk","bpw":"c1","flags":["speed 25.07 tok/s only [L62]"]},
+{"role":"ladder","name":"Q8_0_ROCMFPX_AGENT","metrics":{},"size":"c6","unit":"GiB","basis":"disk","bpw":null,"flags":["[L63]"]},
+{"role":"ladder","name":"Q4_0_ROCMFP4_STRIX","metrics":{},"size":"c10","unit":"GiB","basis":"disk","bpw":null,"flags":["[L64]"]}
+],
+"prose":[]}

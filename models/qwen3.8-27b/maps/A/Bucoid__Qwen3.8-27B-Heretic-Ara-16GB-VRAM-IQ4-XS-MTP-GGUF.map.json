@@ -1,0 +1,9 @@
+{"repo":"Bucoid/Qwen3.8-27B-Heretic-Ara-16GB-VRAM-IQ4-XS-MTP-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"Heretic-Ara BF16 (base)","dataset":"not stated","ctx":"not stated","tool":"not stated (PPL/KLD table, llama.cpp-style output)","L":[27,29,42,58,60]},
+"entries":[
+{"role":"own","name":"IQ4_XS-3.0","metrics":{"ppl":"c9","mean_kld":"c17","top1_pct":"c30","kld_99":"c26"},"size":"c2","unit":"GiB","basis":"disk","bpw":null,"flags":["kld_99 is the 99.9% KL quantile [L37]","size 13 GiB, 13.3 GiB with MTP [L31]","same table duplicated in English L62-71"]},
+{"role":"own","name":"IQ4_XS-2.0","metrics":{"ppl":"c10","mean_kld":"c18","top1_pct":"c31","kld_99":"c27"},"size":"c3","unit":"GiB","basis":"disk","bpw":null,"flags":["older release; kld_99 is 99.9% quantile [L37]"]},
+{"role":"ladder","name":"Heretic-Ara-Q3_K_M","metrics":{"ppl":"c11","mean_kld":"c19","top1_pct":"c32","kld_99":"c28"},"size":"c4","unit":"GiB","basis":"disk","bpw":null,"flags":["comparison build [L23]; kld_99 is 99.9% quantile"]},
+{"role":"ladder","name":"Heretic-Ara BF16 (base)","metrics":{"ppl":"c8","mean_kld":"c16","top1_pct":"c29"},"size":"c1","unit":"GiB","basis":"disk","bpw":null,"flags":["reference row; KLD/top-1 are self-comparison [L42]"]}
+],
+"prose":[]}

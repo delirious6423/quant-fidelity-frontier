@@ -1,0 +1,81 @@
+{
+ "repo": "sammyblues/Qwen3.8-27B-IQ2_XS-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "BF16 reference with MTP head removed (like-for-like)",
+  "dataset": "WikiText-2 test, all 453 512-token chunks; HellaSwag fixed 100-task subset",
+  "ctx": "512-token chunks",
+  "tool": "llama.cpp perplexity on A100 80GB",
+  "L": [
+   98,
+   100,
+   101,
+   102
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "64L IQ2_XS (published)",
+   "metrics": {
+    "ppl:wikitext2": "c13",
+    "bench:HellaSwag100": "c14"
+   },
+   "size": "c8",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "MTP head removed before quantization [L57-61]; HellaSwag CI wide [L102]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "48L IQ2_XS experiment (pruned, failed)",
+   "metrics": {
+    "ppl:wikitext2": "c20",
+    "bench:HellaSwag100": "c21"
+   },
+   "size": "c15",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "layer-pruned experiment, not published [L124]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "40L IQ2_XS experiment (pruned, failed)",
+   "metrics": {
+    "ppl:wikitext2": "c27",
+    "bench:HellaSwag100": "c28"
+   },
+   "size": "c22",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "layer-pruned experiment, not published [L124]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "64L BF16 reference",
+   "metrics": {
+    "ppl:wikitext2": "c6",
+    "bench:HellaSwag100": "c7"
+   },
+   "size": "c2",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "[L107]"
+   ],
+   "of": "Qwen/Qwen3.8-27B"
+  }
+ ],
+ "prose": []
+}

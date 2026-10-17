@@ -1,0 +1,13 @@
+{"repo": "Chungulus/Qwen3.8-27B-MLX-8bit-Group32",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "BF16 fixed-logit comparison (BF16 log-probabilities stored float16 after float32 log-softmax)", "dataset": "fixed original text, not a public benchmark", "ctx": "106 positions", "tool": "mlx-vlm 0.6.1", "L": [121, 122, 124, 125, 126, 127, 128, 131, 132]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B MLX-8bit-Group32", "metrics": {"ppl": "c9", "top1_pct": "c11.1"}, "size": "c1", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["top-1 agreement printed as fraction 0.9811 in JSON, not percent [L128]", "perplexity_delta is an absolute difference (c10), not percent [L127]", "only 106 positions [L122]; reported KL has finite-storage approximation error [L132]", "artifact size 32.074 GB decimal [L38]"]},
+  {"role": "ladder", "name": "BF16 reference", "metrics": {"ppl": "c8"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["reference perplexity on the same 106 positions [L125]"]}
+ ],
+ "prose": [
+  {"entry": "Qwen3.8-27B MLX-8bit-Group32", "key": "mean_kld", "L": 124, "raw": "0.0003183703201840509"},
+  {"entry": "Qwen3.8-27B MLX-8bit-Group32", "key": "bench:SemanticSimilarity", "L": 105, "raw": "0.9863808214664459"}
+ ]
+}

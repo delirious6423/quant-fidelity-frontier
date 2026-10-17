@@ -1,0 +1,15 @@
+{"repo":"ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"BF16 base model and Unsloth Dynamic (UD) quants of the same model","dataset":"perplexity on wikitext2, C4, FineWeb-Edu; zero-shot arc_easy, arc_challenge, hellaswag, winogrande, piqa; AIME25, GPQA-Diamond, LiveCodeBench v6","ctx":"not stated","tool":"not stated","L":[92]},
+"entries":[
+{"role":"ladder","name":"BF16","metrics":{"ppl:wikitext2":"c16","ppl:c4":"c17","ppl:fineweb-edu":"c18","bench:ZS avg":"c19","bench:ZS recovery":"c20","bench:AIME25":"c21","bench:GPQA-D":"c22","bench:LCB v6":"c23"},"size":"c15","unit":"GB","basis":"disk","bpw":"c14","flags":["[L98]"]},
+{"role":"own","name":"GSQ-RCO IQ2_XS","metrics":{"ppl:wikitext2":"c26","ppl:c4":"c27","ppl:fineweb-edu":"c28","bench:ZS avg":"c29","bench:ZS recovery":"c30","bench:AIME25":"c31","bench:GPQA-D":"c32","bench:LCB v6":"c33"},"size":"c25","unit":"GB","basis":"disk","bpw":"c24","flags":["[L99]"]},
+{"role":"own","name":"GSQ-RCO IQ2_S","metrics":{"ppl:wikitext2":"c36","ppl:c4":"c37","ppl:fineweb-edu":"c38","bench:ZS avg":"c39","bench:ZS recovery":"c40","bench:AIME25":"c41","bench:GPQA-D":"c42","bench:LCB v6":"c43"},"size":"c35","unit":"GB","basis":"disk","bpw":"c34","flags":["[L100]"]},
+{"role":"own","name":"GSQ-RCO IQ3_XXS","metrics":{"ppl:wikitext2":"c46","ppl:c4":"c47","ppl:fineweb-edu":"c48","bench:ZS avg":"c49","bench:ZS recovery":"c50","bench:AIME25":"c51","bench:GPQA-D":"c52","bench:LCB v6":"c53"},"size":"c45","unit":"GB","basis":"disk","bpw":"c44","flags":["[L101]"]},
+{"role":"own","name":"GSQ-RCO IQ3_S","metrics":{"ppl:wikitext2":"c56","ppl:c4":"c57","ppl:fineweb-edu":"c58","bench:ZS avg":"c59","bench:ZS recovery":"c60","bench:AIME25":"c61","bench:GPQA-D":"c62","bench:LCB v6":"c63"},"size":"c55","unit":"GB","basis":"disk","bpw":"c54","flags":["[L102]"]},
+{"role":"cross","name":"UD-IQ2_S","of":"not named on card","metrics":{"ppl:wikitext2":"c67","ppl:c4":"c68","ppl:fineweb-edu":"c69","bench:ZS avg":"c70","bench:ZS recovery":"c71","bench:AIME25":"c72","bench:GPQA-D":"c73","bench:LCB v6":"c74"},"size":"c66","unit":"GB","basis":"disk","bpw":"c65","flags":["Unsloth Dynamic quant of the same base [L92, L103]"]},
+{"role":"cross","name":"UD-Q2_K_XL","of":"not named on card","metrics":{"ppl:wikitext2":"c78","ppl:c4":"c79","ppl:fineweb-edu":"c80","bench:ZS avg":"c81","bench:ZS recovery":"c82","bench:AIME25":"c83","bench:GPQA-D":"c84","bench:LCB v6":"c85"},"size":"c77","unit":"GB","basis":"disk","bpw":"c76","flags":["[L104]"]},
+{"role":"cross","name":"UD-IQ3_S","of":"not named on card","metrics":{"ppl:wikitext2":"c89","ppl:c4":"c90","ppl:fineweb-edu":"c91","bench:ZS avg":"c92","bench:ZS recovery":"c93","bench:AIME25":"c94","bench:GPQA-D":"c95","bench:LCB v6":"c96"},"size":"c88","unit":"GB","basis":"disk","bpw":"c87","flags":["[L105]"]}
+],
+"prose":[]}

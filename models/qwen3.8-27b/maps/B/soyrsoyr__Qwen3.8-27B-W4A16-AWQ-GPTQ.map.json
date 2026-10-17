@@ -1,0 +1,9 @@
+{"repo":"soyrsoyr/Qwen3.8-27B-W4A16-AWQ-GPTQ",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"bf16 base Qwen3.8-27B","dataset":"OpenLLM v1 (ARC-C 25-shot, HellaSwag 10-shot, TruthfulQA-mc2 0-shot, Winogrande 5-shot); AIME-24/25 avg@4, MATH-500 pass@1","ctx":"generative: temperature 0.6, top_p 0.95, up to 32k tokens","tool":"lm-evaluation-harness and lighteval via vLLM","L":[72,73,74,75,102]},
+"entries":[
+{"role":"ladder","name":"Qwen3.8-27B (bf16 base)","metrics":{"bench:ARC-Challenge_25shot":"c1","bench:HellaSwag_10shot":"c4","bench:TruthfulQA-mc2_0shot":"c7","bench:Winogrande_5shot":"c10","bench:OpenLLM_v1_average":"c13","bench:AIME-24_avg4":"c16","bench:AIME-25_avg4":"c19","bench:MATH-500_pass1":"c22","bench:reasoning_average":"c25"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["MMLU and GSM8K deliberately omitted as harness artifacts for a reasoning model [L87-90]","base and quant scored in the same run under identical settings [L102]"]},
+{"role":"own","name":"W4A16-AWQ-GPTQ","metrics":{"bench:ARC-Challenge_25shot":"c2","bench:HellaSwag_10shot":"c5","bench:TruthfulQA-mc2_0shot":"c8","bench:Winogrande_5shot":"c11","bench:OpenLLM_v1_average":"c14","bench:AIME-24_avg4":"c17","bench:AIME-25_avg4":"c20","bench:MATH-500_pass1":"c23","bench:reasoning_average":"c26"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Recovery vs bf16: ARC c3, HellaSwag c6, TruthfulQA c9, Winogrande c12, OpenLLM avg c15, AIME-24 c18, AIME-25 c21, MATH-500 c24, reasoning avg c27 [L81-100]","AIME stderr about 4 points [L102]","INT4 W4A16 group size 128, AWQ then GPTQ [L24]"]}
+],
+"prose":[]}

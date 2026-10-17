@@ -1,0 +1,13 @@
+{"repo": "lackonendes/PAW-27B-X3.1-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "published BF16 Base column of the Qwen card (not run by author)", "dataset": "AIME 2026, GPQA-Diamond, MMLU-Pro, LiveCodeBench v6, IFBench", "ctx": "not stated", "tool": "not stated; item counts as correct if solved on any pass [L50]", "L": [47, 50, 55, 57, 58]},
+ "entries": [
+  {"role": "own", "name": "PAW-27B-X3.1 (3.5 bpw)", "metrics": {"bench:AIME2026": "c3", "bench:GPQA-Diamond": "c6", "bench:MMLU-Pro": "c9", "bench:LiveCodeBench_v6": "c12", "bench:IFBench": "c15", "bench:AIME2026_retention": "c4", "bench:GPQA-Diamond_retention": "c7", "bench:MMLU-Pro_retention": "c10", "bench:LiveCodeBench_v6_retention": "c13", "bench:IFBench_retention": "c16"}, "size": "c18", "unit": "GiB", "basis": "disk", "bpw": "c17", "flags": ["cells include counts and pending/running notes [L62-66]", "LiveCodeBench partial, retention is a floor [L65,L141]", "retention above 100% called a measurement quirk [L72]"]},
+  {"role": "quoted", "name": "BF16 Base (published)", "of": "Qwen/Qwen3.8-27B", "metrics": {"bench:AIME2026": "c2", "bench:GPQA-Diamond": "c5", "bench:MMLU-Pro": "c8", "bench:LiveCodeBench_v6": "c11", "bench:IFBench": "c14"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["publisher's own numbers, not run by card author [L57-58]"]},
+  {"role": "ladder", "name": "PAW-27B-X3.1-3.0bpw", "metrics": {}, "size": "c20", "unit": "GiB", "basis": "disk", "bpw": "c19", "flags": ["no benchmark results yet [L44]"]},
+  {"role": "ladder", "name": "PAW-27B-X3.1-2.5bpw", "metrics": {}, "size": "c22", "unit": "GiB", "basis": "disk", "bpw": "c21", "flags": ["no benchmark results yet [L44]"]},
+  {"role": "ladder", "name": "PAW-27B-X3.1-2.0bpw", "metrics": {}, "size": "c24", "unit": "GiB", "basis": "disk", "bpw": "c23", "flags": ["no benchmark results yet [L44]"]},
+  {"role": "ladder", "name": "PAW-27B-X3.1-1.5bpw", "metrics": {}, "size": "c26", "unit": "GiB", "basis": "disk", "bpw": "c25", "flags": ["no benchmark results yet [L44]"]}
+ ],
+ "prose": []}

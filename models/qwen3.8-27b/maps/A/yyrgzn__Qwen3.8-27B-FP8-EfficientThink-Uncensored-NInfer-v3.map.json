@@ -1,0 +1,16 @@
+{"repo": "yyrgzn/Qwen3.8-27B-FP8-EfficientThink-Uncensored-NInfer-v3",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "original Qwen3.8-27B (FP8)", "dataset": "GPQA, MMLU, LiveCodeBench (full suites)", "ctx": "100K context, static FP8 tier", "tool": "not stated (numbers copied from the source card)", "L": [41, 42, 43, 44]},
+ "entries": [
+  {"role": "quoted", "name": "Qwen3.8-27B-FP8-EfficientThink-Uncensored (source model)", "of": "nerkyor/Qwen3.8-27B-Coder390-EfficientThink-Opus5.5-GPT6Astra-Grok4.7-DSV4Pro-K3-SFT-RLOO-MTP-DFlash2", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["scores quoted from the source card, not measured on this NInfer artifact [L41]", "fine-tune comparison, not quant fidelity", "FP8 conversion error: per-object relative L2 2.05-2.66% (mean 2.48%) [L121]"]},
+  {"role": "quoted", "name": "original Qwen3.8-27B (FP8)", "of": "not named on card", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["comparison figures quoted from the source card [L43]"]}
+ ],
+ "prose": [
+  {"entry": "Qwen3.8-27B-FP8-EfficientThink-Uncensored (source model)", "key": "bench:GPQA", "L": 42, "raw": "178/198"},
+  {"entry": "Qwen3.8-27B-FP8-EfficientThink-Uncensored (source model)", "key": "bench:MMLU", "L": 42, "raw": "450/500"},
+  {"entry": "Qwen3.8-27B-FP8-EfficientThink-Uncensored (source model)", "key": "bench:LCB", "L": 42, "raw": "90/100"},
+  {"entry": "original Qwen3.8-27B (FP8)", "key": "bench:GPQA", "L": 43, "raw": "177"},
+  {"entry": "original Qwen3.8-27B (FP8)", "key": "bench:MMLU", "L": 43, "raw": "444"},
+  {"entry": "original Qwen3.8-27B (FP8)", "key": "bench:LCB", "L": 43, "raw": "83"}
+ ]}

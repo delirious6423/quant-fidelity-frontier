@@ -1,0 +1,10 @@
+{"repo": "Bucoid/Qwen3.8-27B-IQ4-XS-MTP-16GB-VRAM-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "base model (unquantized Qwen3.8-27B implied; not stated)", "dataset": "not stated", "ctx": "not stated", "tool": "not stated (llama.cpp-style Mean PPL / Same top p / KLD statistics)", "L": [44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]},
+ "entries": [
+  {"role": "own", "name": "IQ4_XS", "metrics": {"ppl": "c26", "mean_kld": "c30", "top1_pct": "c35"}, "size": "c22", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["table says GB [L46] while intro prose says 12.9 GiB [L9]", "99.9% KLD quantile (1.134) and max KLD omitted: no matching metric key", "values also in the Chinese table L19-28"]},
+  {"role": "cross", "name": "UD_IQ3_K_XL", "of": "not named on card", "metrics": {"ppl": "c27", "mean_kld": "c31", "top1_pct": "c36"}, "size": "c23", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["comparison build measured by the card author [L38, L44]", "table says GB [L46] while prose says 12.5 GiB [L11]", "table labels it ~3-bit with a question mark [L47]"]}
+ ],
+ "prose": []
+}

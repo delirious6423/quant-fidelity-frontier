@@ -1,0 +1,21 @@
+{"repo":"dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"un-abliterated base quant of the same type (base -> CRACK)","dataset":"MMLU 500-question balanced set (all 57 subjects); HarmBench-240","ctx":"not stated","tool":"chat-templated next-token A-D logit scoring, reasoning off","L":[116,118,119,124]},
+"entries":[
+{"role":"own","name":"CRACK Q8_0","metrics":{"bench:MMLU":"c15.1","bench:HarmBench-240_compliance":"c14"},"size":"c13","unit":"GB","basis":"disk","bpw":null,"flags":["MTP acceptance c17 not mapped [L126]"]},
+{"role":"ladder","name":"base Q8_0 (pre-CRACK)","metrics":{"bench:MMLU":"c15.0"},"size":"c13","unit":"GB","basis":"disk","bpw":null,"flags":["base value of base -> CRACK column [L126]"]},
+{"role":"own","name":"CRACK Q6_K_L","metrics":{"bench:MMLU":"c21.1","bench:HarmBench-240_compliance":"c20"},"size":"c19","unit":"GB","basis":"disk","bpw":null,"flags":["[L127]"]},
+{"role":"ladder","name":"base Q6_K_L (pre-CRACK)","metrics":{"bench:MMLU":"c21.0"},"size":"c19","unit":"GB","basis":"disk","bpw":null,"flags":["[L127]"]},
+{"role":"own","name":"CRACK Q6_K","metrics":{"bench:MMLU":"c27.1","bench:HarmBench-240_compliance":"c26"},"size":"c25","unit":"GB","basis":"disk","bpw":null,"flags":["[L128]"]},
+{"role":"ladder","name":"base Q6_K (pre-CRACK)","metrics":{"bench:MMLU":"c27.0"},"size":"c25","unit":"GB","basis":"disk","bpw":null,"flags":["[L128]"]},
+{"role":"own","name":"CRACK Q4_K_M","metrics":{"bench:MMLU":"c33.1","bench:HarmBench-240_compliance":"c32"},"size":"c31","unit":"GB","basis":"disk","bpw":null,"flags":["[L129]"]},
+{"role":"ladder","name":"base Q4_K_M (pre-CRACK)","metrics":{"bench:MMLU":"c33.0"},"size":"c31","unit":"GB","basis":"disk","bpw":null,"flags":["[L129]"]},
+{"role":"own","name":"CRACK IQ4_XS","metrics":{"bench:MMLU":"c39.1","bench:HarmBench-240_compliance":"c38"},"size":"c37","unit":"GB","basis":"disk","bpw":null,"flags":["imatrix; printed delta c40 (-0.2 pp) disagrees in sign with base 83.2 -> CRACK 83.4 [L130]"]},
+{"role":"ladder","name":"base IQ4_XS (pre-CRACK)","metrics":{"bench:MMLU":"c39.0"},"size":"c37","unit":"GB","basis":"disk","bpw":null,"flags":["[L130]"]},
+{"role":"own","name":"CRACK IQ3_M","metrics":{"bench:MMLU":"c45.1","bench:HarmBench-240_compliance":"c44"},"size":"c43","unit":"GB","basis":"disk","bpw":null,"flags":["imatrix; printed delta c46 (+1.8 pp) disagrees in sign with base 83.4 -> CRACK 81.6 [L131]"]},
+{"role":"ladder","name":"base IQ3_M (pre-CRACK)","metrics":{"bench:MMLU":"c45.0"},"size":"c43","unit":"GB","basis":"disk","bpw":null,"flags":["[L131]"]},
+{"role":"own","name":"CRACK IQ2_M","metrics":{"bench:MMLU":"c51.1","bench:HarmBench-240_compliance":"c50"},"size":"c49","unit":"GB","basis":"disk","bpw":null,"flags":["non-uniform surgery at 2-bit [L135-136]"]},
+{"role":"ladder","name":"base IQ2_M (pre-CRACK)","metrics":{"bench:MMLU":"c51.0"},"size":"c49","unit":"GB","basis":"disk","bpw":null,"flags":["[L132]"]}
+],
+"prose":[]}

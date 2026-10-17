@@ -1,0 +1,7 @@
+{"repo":"Jon-Nielsen/Qwen3.8-27B-exl3-6.00bpw","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"not stated (absolute PPL)","dataset":"PPL (40K tech)","ctx":"262K context config, 16K-token prompt / 512 gen, Q6 KV","tool":"ExLlamaV3 / TabbyAPI, RTX PRO 6000, MTP draft","L":[16,18]},
+"entries":[
+{"role":"own","name":"6.00bpw","metrics":{"ppl:40K-tech":"c47"},"size":"c44","unit":"GB","basis":"vram","bpw":"c43","flags":["size is VRAM peak; ~21 GB on disk [L11,L21]"]},
+{"role":"ladder","name":"4.00bpw","metrics":{"ppl:40K-tech":"c42"},"size":"c39","unit":"GB","basis":"vram","bpw":"c38","flags":["VRAM peak [L20]","Qwen upstream benchmark table (c1-c37) is the original model README, omitted [L27]"]}
+],
+"prose":[{"entry":"6.00bpw","key":"size","L":11,"raw":"~21 GB"}]}

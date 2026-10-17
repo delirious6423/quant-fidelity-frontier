@@ -1,0 +1,10 @@
+{"repo":"avlp12/Qwen3.8-27B-Alis-MLX-8bit","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 original (Qwen/Qwen3.8-27B)","dataset":"wikitext-2 test (en, 35,981 tok), Korean Wikipedia (35,179 tok), CPython stdlib (code, 32,295 tok); KL sweep over ~100K en+ko+code tokens","ctx":"window 2048, stride 512 (PPL); ctx 2048 non-overlapping windows (KL)","tool":"MLX strided perplexity, paired blockwise SE; exact full-vocab KL","L":[33,290,316]},
+"entries":[
+{"role":"ladder","name":"bf16 reference","metrics":{"ppl:en":"c61","ppl:ko":"c62","ppl:code":"c63"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["reference row [L294]"]},
+{"role":"own","name":"8-bit (this repo)","metrics":{"ppl:en":"c64","ppl:ko":"c65","ppl:code":"c66","mean_kld":"c146.0","top1_pct":"c146.2"},"size":"c6","unit":"GB","basis":"disk","bpw":null,"flags":["PPL measured on pre-graded weights, not re-run [L303]","KL/top-1 vs bf16 from exact-KL sweep [L318]"]},
+{"role":"ladder","name":"6-bit","metrics":{"ppl:en":"c68","ppl:ko":"c69","ppl:code":"c70"},"size":"c12","unit":"GB","basis":"disk","bpw":null,"flags":["PPL on pre-graded weights [L303]"]},
+{"role":"ladder","name":"4-bit AWQ","metrics":{"ppl:en":"c21.0","ppl:ko":"c21.1","ppl:code":"c21.2","ppl_delta_pct:en":"c104.0","ppl_delta_pct:ko":"c104.1","ppl_delta_pct:code":"c104.2"},"size":"c17","unit":"GB","basis":"disk","bpw":null,"flags":["quality-table row for 4-bit is mis-rendered; values taken from at-a-glance table [L31]"]},
+{"role":"cross","name":"mlx-community 8-bit","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["KL 0.00105 / top-1 98.47% on same 35 windows, a tie with this build [L324]"]}
+],
+"prose":[{"entry":"mlx-community 8-bit","key":"mean_kld","L":324,"raw":"0.00105"},{"entry":"mlx-community 8-bit","key":"top1_pct","L":324,"raw":"98.47%"}]}

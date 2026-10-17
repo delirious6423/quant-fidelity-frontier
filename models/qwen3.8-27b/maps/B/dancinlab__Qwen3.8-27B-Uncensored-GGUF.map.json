@@ -1,0 +1,23 @@
+{"repo":"dancinlab/Qwen3.8-27B-Uncensored-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"official Qwen/Qwen3.8-27B-FP8 (same scripts)","dataset":"MMLU 0-shot n=300, MMLU-Pro CoT n=250, GSM8K CoT n=150, CMMLU 0-shot n=500; WikiText-2 perplexity","ctx":"not stated","tool":"vLLM-served abliterated build (not the GGUF files)","L":[184,221,229]},
+"entries":[
+{"role":"own","name":"abliterated model (evaluated via vLLM)","metrics":{"bench:MMLU":"c91","bench:MMLU-Pro":"c95","bench:GSM8K":"c99","bench:CMMLU":"c103","ppl:wikitext-2":"c105"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["measured on the abliterated build served with vLLM, not on the GGUF quants [L184]","perplexity row has no quant named and no reference [L229]","safety/refusal tables omitted [L189-219]"]},
+{"role":"cross","name":"Base FP8","of":"Qwen/Qwen3.8-27B-FP8","metrics":{"bench:MMLU":"c90","bench:MMLU-Pro":"c94","bench:GSM8K":"c98","bench:CMMLU":"c102"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":[]},
+{"role":"own","name":"Q2_K","metrics":{},"size":"c2","unit":"GB","basis":"disk","bpw":"c1","flags":["nominal bits label [L101]"]},
+{"role":"own","name":"Q3_K_S","metrics":{},"size":"c4","unit":"GB","basis":"disk","bpw":"c3","flags":[]},
+{"role":"own","name":"Q3_K_M","metrics":{},"size":"c6","unit":"GB","basis":"disk","bpw":"c5","flags":[]},
+{"role":"own","name":"Q3_K_L","metrics":{},"size":"c8","unit":"GB","basis":"disk","bpw":"c7","flags":[]},
+{"role":"own","name":"Q4_K_S","metrics":{},"size":"c10","unit":"GB","basis":"disk","bpw":"c9","flags":[]},
+{"role":"own","name":"Q4_K_M","metrics":{},"size":"c12","unit":"GB","basis":"disk","bpw":"c11","flags":[]},
+{"role":"own","name":"Q5_K_S","metrics":{},"size":"c14","unit":"GB","basis":"disk","bpw":"c13","flags":[]},
+{"role":"own","name":"Q5_K_M","metrics":{},"size":"c16","unit":"GB","basis":"disk","bpw":"c15","flags":[]},
+{"role":"own","name":"Q6_K","metrics":{},"size":"c18","unit":"GB","basis":"disk","bpw":"c17","flags":[]},
+{"role":"own","name":"Q8_0","metrics":{},"size":"c20","unit":"GB","basis":"disk","bpw":"c19","flags":[]},
+{"role":"own","name":"F16","metrics":{},"size":"c22","unit":"GB","basis":"disk","bpw":"c21","flags":[]},
+{"role":"own","name":"IQ4_XS","metrics":{},"size":"c25","unit":"GB","basis":"disk","bpw":"c24","flags":["imatrix on English + Chinese text [L115]"]},
+{"role":"own","name":"IQ3_M","metrics":{},"size":"c28","unit":"GB","basis":"disk","bpw":"c27","flags":[]},
+{"role":"own","name":"IQ3_XXS","metrics":{},"size":"c31","unit":"GB","basis":"disk","bpw":"c30","flags":[]},
+{"role":"own","name":"IQ2_M","metrics":{},"size":"c34","unit":"GB","basis":"disk","bpw":"c33","flags":[]},
+{"role":"own","name":"IQ2_XXS","metrics":{},"size":"c36","unit":"GB","basis":"disk","bpw":"c35","flags":[]}
+],
+"prose":[]}

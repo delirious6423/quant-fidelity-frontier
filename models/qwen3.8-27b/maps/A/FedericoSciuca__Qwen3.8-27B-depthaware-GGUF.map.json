@@ -1,0 +1,8 @@
+{"repo":"FedericoSciuca/Qwen3.8-27B-depthaware-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"Q8_0 reference build (PPL baseline)","dataset":"held-out WikiText-2, 32 chunks","ctx":"not stated","tool":"quantprobe / llama.cpp perplexity","L":[33,80]},
+"entries":[
+{"role":"own","name":"this model, measured band 51-63 (depth-aware 2-bit)","metrics":{"ppl":"c5"},"size":"c4","unit":"bytes","basis":"disk","bpw":null,"flags":["excess over reference +0.4640 c6 is absolute PPL difference, not percent [L36]","perplexity is a proxy, not a task score [L80]"]},
+{"role":"ladder","name":"control 13 blocks spread evenly","metrics":{"ppl":"c8"},"size":"c7","unit":"bytes","basis":"disk","bpw":null,"flags":["byte-identical size to this model [L37]","excess +0.8186 c9 absolute"]},
+{"role":"ladder","name":"reference (Q8_0)","metrics":{"ppl":"c3"},"size":"c2","unit":"bytes","basis":"disk","bpw":"c1","flags":["reference row [L35]"]}
+],
+"prose":[]}

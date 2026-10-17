@@ -1,0 +1,9 @@
+{"repo":"pearsonkyle/Qwen3.8-27B-GPTQ-W4A16",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"bf16 reference served identically on vLLM","dataset":"174 held-out tool-calling turns; 6 KLD distributions; 3-shape vision probe","ctx":"not stated","tool":"vLLM 0.27.1, GPTQ int4 g128 symmetric, calibrated at 32,768 ctx on 4.26M agentic tokens","L":[94,95,104,131]},
+"entries":[
+{"role":"own","name":"W4A16 GPTQ (this repo)","metrics":{"bench:tool_selection_accuracy":"c2","bench:parameter_accuracy":"c4","bench:schema_valid_rate":"c6","bench:malformed_tool_calls":"c8","kld:agentic_text":"c9.0","kld:general_english":"c9.1"},"size":"c11.0","unit":"GiB","basis":"disk","bpw":null,"flags":["KLD values are medians over 6 distributions, lowest on agentic text (calibration domain) and highest on general English [L104,L109-110]","5.2 bpw overall (trunk 4.05 bpw) stated in prose without candidate id [L60,L127]","size is download size [L42,L146]"]},
+{"role":"cross","name":"bf16 (ref)","of":"Qwen/Qwen3.8-27B","metrics":{"bench:tool_selection_accuracy":"c1","bench:parameter_accuracy":"c3","bench:schema_valid_rate":"c5","bench:malformed_tool_calls":"c7"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["bf16 reference served on vLLM; same reference scores differently on llama.cpp [L94-96]"]}
+],
+"prose":[]}

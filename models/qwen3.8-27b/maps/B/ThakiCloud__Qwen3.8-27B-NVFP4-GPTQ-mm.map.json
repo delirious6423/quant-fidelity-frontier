@@ -1,0 +1,10 @@
+{"repo":"ThakiCloud/Qwen3.8-27B-NVFP4-GPTQ-mm",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"Qwen/Qwen3.8-27B bf16, same B200 harness and serving config","dataset":"MMMU validation multiple-choice (246 paired items); GSM8K full 1,319 items (sibling only)","ctx":"max_model_len 32768, max_new_tokens 16384","tool":"vLLM; lm-eval 0.4.12 for GSM8K; McNemar paired test","L":[77,98,100,136]},
+"entries":[
+{"role":"own","name":"this build (NVFP4-GPTQ-mm)","metrics":{"bench:MMMU-val-MC":"c2"},"size":"c17","unit":"GB","basis":"disk","bpw":null,"flags":["McNemar p c4 (10 discordant pairs), +0.8pp vs bf16 c3 [L107]","GSM8K was not run on this build [L134]"]},
+{"role":"cross","name":"Qwen/Qwen3.8-27B (bf16)","of":"Qwen/Qwen3.8-27B","metrics":{"bench:MMMU-val-MC":"c1","bench:GSM8K_strict":"c5","bench:GSM8K_flexible":"c6"},"size":"c21.0","unit":"GB","basis":"disk","bpw":null,"flags":["an earlier bf16 MMMU figure of 0.4511 was withdrawn by the author [L115]"]},
+{"role":"ladder","name":"Qwen3.8-27B-NVFP4-GPTQ-txt (sibling)","metrics":{"bench:GSM8K_strict":"c7","bench:GSM8K_flexible":"c8"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["measured on the -txt sibling, not on this build; author says transfer is plausible but unmeasured [L129-134]"]}
+],
+"prose":[]}

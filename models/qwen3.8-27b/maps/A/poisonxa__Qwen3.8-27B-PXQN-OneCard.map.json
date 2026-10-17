@@ -1,0 +1,11 @@
+{"repo":"poisonxa/Qwen3.8-27B-PXQN-OneCard",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"Q8_0 file of the same model","dataset":"held-out chat-format corpus, assistant-role tokens only (15,065 tokens) for KLD; wikitext-2 test set for PPL","ctx":"KLD: 24 chunks of 2048 tokens; PPL: 200 chunks of 512 tokens","tool":"PXA v2026.10 engine","L":[96,97,98,99,100]},
+"entries":[
+{"role":"own","name":"PXQN OneCard (this file)","metrics":{"mean_kld":"c25","top1_pct":"c26","ppl:wikitext-2":"c27","ppl_ratio":"c62"},"size":"c23","unit":"GiB","basis":"disk","bpw":"c24","flags":["ppl_ratio is assistant-token perplexity vs Q8_0 [L118]","KLD is vs Q8_0, not bf16 [L96]"]},
+{"role":"ladder","name":"Classic PXQ3 (our earlier format, same size class)","metrics":{"mean_kld":"c30","top1_pct":"c31","ppl:wikitext-2":"c32"},"size":"c28","unit":"GiB","basis":"disk","bpw":"c29","flags":["[L105]"]},
+{"role":"ladder","name":"Q4_K_S (K-quant)","metrics":{"mean_kld":"c36","top1_pct":"c37","ppl:wikitext-2":"c38"},"size":"c34","unit":"GiB","basis":"disk","bpw":"c35","flags":["[L106]"]},
+{"role":"ladder","name":"Classic PXQ4 (our earlier format)","metrics":{"mean_kld":"c42","top1_pct":"c43","ppl:wikitext-2":"c44"},"size":"c40","unit":"GiB","basis":"disk","bpw":"c41","flags":["[L107]"]}
+],
+"prose":[]}

@@ -1,0 +1,9 @@
+{"repo":"Litwein/Qwen3.8-27B-oQ4e-DWQ-MTP-Vision-MLX","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"oQ8e teacher made from the same base model (not BF16) for the held-out table; teacher itself is 0.019 KL vs bf16 base","dataset":"held-out calibration distribution (code/agent heavy mix, 62.5% agent + code)","ctx":"512-token windows","tool":"KL over teacher's top-1024 logits at temperature 2.0 (DWQ objective); oMLX","L":[84,99,101,125,134]},
+"entries":[
+{"role":"own","name":"oQ4e -> M4Q -> DWQ (this repo)","metrics":{"kld:heldout_teacher":"c19"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Held-out top-K teacher KL vs oQ8e teacher, not task accuracy and not comparable to other datasets/teachers [L99-101]","20% reduction vs M4Q init [L130]"]},
+{"role":"ladder","name":"Raw oQ4e-XL","metrics":{"kld:heldout_teacher":"c17"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Measured on a 16-batch subset [L134]"]},
+{"role":"ladder","name":"M4Q init","metrics":{"kld:heldout_teacher":"c18"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":[]},
+{"role":"ladder","name":"oQ8e teacher","metrics":{"mean_kld":"c23"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["KL 0.019 vs the bf16 base [L101-102]; different reference from the held-out teacher KL rows"]}
+],
+"prose":[]}

@@ -1,0 +1,10 @@
+{"repo":"mtrskeen/qwen3.8-27b-ninfer-minq4-mtpq4-visionq4-5080",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"simulated PPL gate against the IQ3_XXS anchor (no BF16 reference stated)","dataset":"gsm8k_cot 8-shot 50 samples; RULER NIAH 8K/32K/64K","ctx":"not stated","tool":"lm-evaluation-harness; ninfer-5080 fork","L":[50,94]},
+"entries":[
+{"role":"own","name":"qwen3_8_27b_minq4_mtpq4_visionq4.ninfer","metrics":{"ppl_delta_abs_vs_iq3_xxs_anchor":"c9.0"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["PPL +0.04 is simulated and relative to the IQ3_XXS anchor, not BF16 [L50]","RULER NIAH retrieval 3/3 at each of 8K/32K/64K [L94]","Speed and VRAM figures omitted"]}
+],
+"prose":[
+{"entry":"qwen3_8_27b_minq4_mtpq4_visionq4.ninfer","key":"bench:gsm8k_cot","L":94,"raw":"0.96"}
+]}

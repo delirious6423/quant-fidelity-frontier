@@ -1,0 +1,11 @@
+{"repo": "mlx-bun/Qwen3.8-27B-Trellis-3.2bpw",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "BF16 baselines from Red Hat's published evaluation (not run by this author)", "dataset": "GSM8K-Platinum, IFEval, GPQA Diamond; full datasets, zero-shot, thinking enabled", "ctx": "not stated", "tool": "mlx-bun runtime, seed 1234, MTP off", "L": [85, 99, 111]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B-Trellis-3.2bpw", "metrics": {"bench:GSM8K-Platinum_flexible": "c1", "bench:GSM8K-Platinum_strict": "c10", "bench:IFEval_prompt_strict": "c3", "bench:GPQA_Diamond": "c5"}, "size": "c18", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["13 GPQA responses hit token limit and scored incorrect [L85]", "bpw 3.23 stated in prose [L65]", "single seed, mlx-bun, different KV settings vs the BF16 baselines [L111]", "difference columns c11, c14, c17 not mapped"]},
+  {"role": "quoted", "name": "BF16 base", "of": "RedHatAI/Qwen3.8-27B-NVFP4", "metrics": {"bench:GSM8K-Platinum_strict": "c9", "bench:IFEval_prompt_strict": "c12", "bench:GPQA_Diamond": "c15"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["card cites Red Hat evaluation page for baselines; three-seed averages [L111]"]}
+ ],
+ "prose": [
+  {"entry": "Qwen3.8-27B-Trellis-3.2bpw", "key": "bpw", "L": 65, "raw": "3.23"}
+ ]}

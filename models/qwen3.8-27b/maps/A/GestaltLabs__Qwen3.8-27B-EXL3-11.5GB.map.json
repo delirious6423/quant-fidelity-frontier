@@ -1,0 +1,15 @@
+{"repo": "GestaltLabs/Qwen3.8-27B-EXL3-11.5GB",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "Official FP8 Qwen3.8-27B", "dataset": "8 frozen prompt-prefix positions per task, 128 tasks (64 dev, 64 acceptance); task accuracy on same 128 tasks", "ctx": "not stated", "tool": "full-vocabulary natural-log KL (248,320 columns); greedy argmax decoding, non-thinking, max_new_tokens=512, Docker sandbox", "L": [122, 124, 142]},
+ "entries": [
+  {"role": "own", "name": "This Release (Expanded 8K, 598 rows)", "metrics": {"kld:development": "c1", "kld:acceptance": "c2", "kld:combined": "c3", "kld:acceptance_general": "c50", "kld:acceptance_math": "c51", "kld:acceptance_code": "c52", "kld:acceptance_structured": "c53", "bench:TaskAcc_development": "c16", "bench:TaskAcc_acceptance": "c17", "bench:TaskAcc_combined": "c18"}, "size": "c56", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["KL measured against FP8, not BF16 [L122]", "domain KL values live in prose lines; ids c50-c53 point at those cells [L133-136]", "task accuracy is a pass count on 128 tasks, lower than prior release [L146-148]"]},
+  {"role": "ladder", "name": "Prior Release (Pilot Calibration)", "metrics": {"kld:development": "c4", "kld:acceptance": "c5", "kld:combined": "c6", "bench:TaskAcc_development": "c13", "bench:TaskAcc_acceptance": "c14", "bench:TaskAcc_combined": "c15"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": []},
+  {"role": "ladder", "name": "Pilot 8K Candidate (64 rows)", "metrics": {"kld:development": "c7", "kld:acceptance": "c8", "kld:combined": "c9"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": []},
+  {"role": "ladder", "name": "Official FP8 (Audited Reference)", "metrics": {"bench:TaskAcc_development": "c10", "bench:TaskAcc_acceptance": "c11", "bench:TaskAcc_combined": "c12"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["reference model for accuracy [L146]"]}
+ ],
+ "prose": [
+  {"entry": "Prior Release (Pilot Calibration)", "key": "kld:acceptance_general", "L": 133, "raw": "0.23461"},
+  {"entry": "Prior Release (Pilot Calibration)", "key": "kld:acceptance_math", "L": 134, "raw": "0.30028"},
+  {"entry": "Prior Release (Pilot Calibration)", "key": "kld:acceptance_code", "L": 135, "raw": "0.19573"}
+ ]}

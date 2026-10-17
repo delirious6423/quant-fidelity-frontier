@@ -1,0 +1,14 @@
+{"repo": "RukaRat/Qwen3.8-27B-INT8-W8A8-imatrix-heretic-MTP",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "unmodified W8A8 build of the same model", "dataset": "author's own 160-item battery; refusals on harmful prompts and OR-Bench-Hard-1K", "ctx": "not stated", "tool": "vLLM at TP=2, 2x RTX 3090; Heretic 1.4.0 for abliteration", "L": [43, 59, 65, 70, 79]},
+ "entries": [
+  {"role": "own", "name": "INT8 W8A8 heretic (this one)", "metrics": {"bench:quality_160": "c5", "bench:refusal_harmful_thinking_off": "c19", "bench:refusal_harmful_thinking_on": "c20", "bench:refusal_benign_on": "c21"}, "size": "c4", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["quality /160 is ground-truth correct count; 130 vs 132 within the card's +-2 noise floor [L53-54,L93-94]", "L67 refusal cells include counts in the cell text"]},
+  {"role": "ladder", "name": "INT8 W8A8 unmodified", "metrics": {"bench:quality_160": "c27", "bench:refusal_harmful_thinking_off": "c22", "bench:refusal_harmful_thinking_on": "c23", "bench:refusal_benign_off": "c24", "bench:refusal_benign_on": "c25"}, "size": "c1", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["refusal rates L68"]},
+  {"role": "ladder", "name": "W4A16 + int8 head", "metrics": {"bench:quality_160": "c9"}, "size": "c7", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["family table [L45-51]"]},
+  {"role": "ladder", "name": "W4A16 + int8 head, abliterated", "metrics": {"bench:quality_160": "c13"}, "size": "c11", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["family table [L45-51]"]},
+  {"role": "ladder", "name": "W4A16 plain, abliterated", "metrics": {"bench:quality_160": "c17"}, "size": "c15", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["family table [L45-51]"]}
+ ],
+ "prose": [
+  {"entry": "INT8 W8A8 heretic (this one)", "key": "mean_kld", "L": 61, "raw": "0.0621"}
+ ]}

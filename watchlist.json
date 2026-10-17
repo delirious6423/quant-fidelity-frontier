@@ -1,0 +1,15 @@
+{
+ "about": "Models the hourly scan keeps current. status: live = on the site, deltas every hour; queued = ingested one per 5-hour window, in this order. Source: OpenRouter and OpenCode weekly top 10 (open weights with Hub quants), 18 Oct 2026.",
+ "min_hours_between_ingests": 5,
+ "last_ingest_at": "2026-10-18T03:30:00+08:00",
+ "models": [
+  {"model": "Qwen/Qwen3.8-Flash-Next", "slug": "qwen3.8-flash-next", "status": "live"},
+  {"model": "Qwen/Qwen3.8-27B", "slug": "qwen3.8-27b", "status": "live"},
+  {"model": "deepseek-ai/DeepSeek-V4.1-Flash", "slug": "deepseek-v4.1-flash", "status": "queued"},
+  {"model": "zai-org/GLM-5.3-Flash", "slug": "glm-5.3-flash", "status": "queued"},
+  {"model": "deepseek-ai/DeepSeek-V4-Flash-0731", "slug": "deepseek-v4-flash-0731", "status": "queued"},
+  {"model": "zai-org/GLM-5.3", "slug": "glm-5.3", "status": "queued"},
+  {"model": "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16", "slug": "nemotron-3-ultra", "status": "queued"},
+  {"model": "meta-models/Muse-Spark-Open-816B-A42B", "slug": "muse-spark-open", "status": "queued"}
+ ]
+}

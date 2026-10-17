@@ -1,0 +1,77 @@
+{
+ "repo": "HivenetQuant/Qwen3.8-27B-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "original FP16 weights, paired head-to-head, identical prompts/harness/decoding",
+  "dataset": "mmlu_pro, gpqa_diamond, aime25, ifeval, mmmu_pro, ai2d, livecodebench v6, bfcl, niah, mtp accept rate",
+  "ctx": "256k max context, FP8 KV cache",
+  "tool": "vLLM serve config in card; harness details in REPRODUCIBILITY.md",
+  "L": [
+   48,
+   55,
+   59,
+   65
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "NVFP4 (FP8-protected release)",
+   "metrics": {
+    "bench:mmlu_pro": "c2",
+    "bench:mmlu_pro_delta": "c3",
+    "bench:gpqa_diamond_cot_zeroshot": "c5",
+    "bench:gpqa_diamond_cot_zeroshot_delta": "c6",
+    "bench:aime25": "c8",
+    "bench:aime25_delta": "c9",
+    "bench:ifeval": "c11",
+    "bench:ifeval_delta": "c12",
+    "bench:mmmu_pro_standard_cot": "c14",
+    "bench:mmmu_pro_standard_cot_delta": "c15",
+    "bench:ai2d_no_mask": "c17",
+    "bench:ai2d_no_mask_delta": "c18",
+    "bench:livecodebench_v6": "c20",
+    "bench:livecodebench_v6_delta": "c21",
+    "bench:bfcl": "c23",
+    "bench:bfcl_delta": "c24",
+    "bench:niah_delta": "c26",
+    "bench:mtp_accept": "c28",
+    "bench:mtp_accept_delta": "c29"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "niah NVFP4 cell not a candidate; only delta c26 given [L77]",
+    "Delta columns are as printed (points)"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "FP16 original weights",
+   "of": "not named on card",
+   "metrics": {
+    "bench:mmlu_pro": "c1",
+    "bench:gpqa_diamond_cot_zeroshot": "c4",
+    "bench:aime25": "c7",
+    "bench:ifeval": "c10",
+    "bench:mmmu_pro_standard_cot": "c13",
+    "bench:ai2d_no_mask": "c16",
+    "bench:livecodebench_v6": "c19",
+    "bench:bfcl": "c22",
+    "bench:niah": "c25",
+    "bench:mtp_accept": "c27"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "baseline measured by card author [L55,L67]"
+   ]
+  }
+ ],
+ "prose": []
+}

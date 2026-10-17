@@ -1,0 +1,8 @@
+{"repo":"ddalcu/Qwen3.8-27B-MLX-Serve-iQ-MLX-3.8bpw","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 source","dataset":"32 held-out windows never seen in calibration corpus, 16 sampled positions each (512 positions)","ctx":"not stated","tool":"llmprobe (decode bench); top-1/KL tool not named","L":[41,52,54]},
+"entries":[
+{"role":"own","name":"iQ-MLX (this one)","metrics":{"top1_pct":"c49","mean_kld":"c50"},"size":"c48","unit":"GB","basis":"resident","bpw":null,"flags":["resident weights as shipped [L48]","12.89 GB on disk total quantized [L39]"]},
+{"role":"ladder","name":"8-bit","metrics":{"top1_pct":"c34","mean_kld":"c35"},"size":"c33","unit":"GB","basis":"resident","bpw":null,"flags":["publisher's own 8-bit build [L45]"]},
+{"role":"ladder","name":"6-bit","metrics":{"top1_pct":"c39","mean_kld":"c40"},"size":"c38","unit":"GB","basis":"resident","bpw":null,"flags":["publisher's own 6-bit build [L46]"]},
+{"role":"ladder","name":"4-bit","metrics":{"top1_pct":"c44","mean_kld":"c45"},"size":"c43","unit":"GB","basis":"resident","bpw":null,"flags":["publisher's own 4-bit build [L47]"]}
+],"prose":[{"entry":"iQ-MLX (this one)","key":"bpw","L":21,"raw":"3.78 bits per weight"}]}

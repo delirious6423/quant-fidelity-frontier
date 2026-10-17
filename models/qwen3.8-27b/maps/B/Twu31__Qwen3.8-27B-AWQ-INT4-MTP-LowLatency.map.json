@@ -1,0 +1,11 @@
+{"repo":"Twu31/Qwen3.8-27B-AWQ-INT4-MTP-LowLatency","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 base Qwen3.8-27B; NLL = per-token negative log-likelihood of the BF16 base's own greedy answers under the quantized model (lower = closer)","dataset":"18 conversational prompts (~1.5k-token system prompt + history), calibration pool of 530 chat sequences","ctx":"not stated","tool":"vLLM 0.27.1 on RTX 5090 32 GB; AutoRound 0.14.2 / llm-compressor 0.13.0","L":[89,143,227,235,293]},
+"entries":[
+{"role":"own","name":"main (AutoRound W4A16 g128, INT8 lm_head)","metrics":{"bench:NLL":"c174.0"},"size":"c186","unit":"GB","basis":null,"bpw":null,"flags":["NLL mean 0.325 in algorithm table [L231]; 0.326 in head-precision table [L148]; only 18 prompts, card says indicative not a benchmark [L235]","size 18.2 GB from TL;DR [L37]; BF16 base 55.6 GB"]},
+{"role":"ladder","name":"INT4 body, BF16 lm_head","metrics":{"bench:NLL":"c92"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["head-precision table, RTX 5090, vLLM 0.27.1 [L147]"]},
+{"role":"ladder","name":"INT4 + INT4 lm_head (lm-head-int4)","metrics":{"bench:NLL":"c100"},"size":"c218","unit":"GB","basis":null,"bpw":null,"flags":["size 17.6 GB from sizes line [L248]"]},
+{"role":"ladder","name":"MTP head also INT4 (mtp-int4-autoround)","metrics":{"bench:NLL":"c104"},"size":"c222","unit":"GB","basis":null,"bpw":null,"flags":["size 19.0 GB from sizes line [L248]"]},
+{"role":"ladder","name":"AWQ (llm-compressor, awq-llmcompressor branch)","metrics":{"bench:NLL":"c179.0"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["NLL mean; median 0.322; calibration 256x2048 [L232]","branch size 18.2 GB [L248]"]},
+{"role":"ladder","name":"GPTQ (llm-compressor, gptq-llmcompressor branch)","metrics":{"bench:NLL":"c184.0"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["NLL mean; median 0.342; calibration 384x2048 [L233]","branch size 18.2 GB [L248]"]}
+],
+"prose":[]}

@@ -1,0 +1,10 @@
+{"repo":"kingjones777/Qwen3.8-27B-ROCmFPX-Q8_0-AGENT-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"none (no perplexity or BF16 A/B run) [L149]","dataset":"7-case tool-calling suite","ctx":"32768 for speed runs","tool":"llama.cpp ROCmFPX fork, gfx1151","L":[14,63,149]},
+"entries":[
+{"role":"own","name":"Q8_0_ROCMFPX_AGENT","metrics":{},"size":"c10","unit":"GiB","basis":"disk","bpw":"c1","flags":["Only quality figure is tool calling 7/7 in both modes (7-case suite) [L14,L63]; draft acceptance 0.953 and 26.62 tok/s are speed figures","Card states no perplexity or quality A/B vs BF16 [L149]"]},
+{"role":"ladder","name":"plain Q8_0_ROCMFPX","metrics":{},"size":"c6","unit":"GiB","basis":"disk","bpw":null,"flags":["Also 7/7 tool calling [L63]"]},
+{"role":"ladder","name":"Q4_0_ROCMFP4_STRIX (4-bit)","metrics":{},"size":"c14","unit":"GiB","basis":"disk","bpw":null,"flags":["Speed/size only"]}
+],
+"prose":[
+{"entry":"Q8_0_ROCMFPX_AGENT","key":"bench:ToolCalling","L":14,"raw":"7/7"}
+]}

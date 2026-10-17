@@ -1,0 +1,9 @@
+{"repo":"OBLITERATUS/Qwen3.8-27B-OBLITERATED","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"stock Qwen3.8-27B","dataset":"MMLU, n=100 per subject, 5700 questions","ctx":"0-shot","tool":"lm-eval-harness","L":[124,128]},
+"entries":[
+{"role":"own","name":"V3 (iterative + targeted)","metrics":{"bench:MMLU":"c18"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["abliteration capability cost vs stock (-2.12pp, c20), not a quantization comparison; GGUF files listed [L201-207] have no per-quant metrics","stderr c19"]},
+{"role":"ladder","name":"V2 (complementary blend)","metrics":{"bench:MMLU":"c15"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L130]"]},
+{"role":"ladder","name":"V1 (aggressive, 5-dir)","metrics":{"bench:MMLU":"c13"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L129]"]},
+{"role":"ladder","name":"Stock Qwen3.8-27B","metrics":{"bench:MMLU":"c11"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["reference, stderr c12 [L128]"]}
+],
+"prose":[]}

@@ -1,0 +1,9 @@
+{"repo": "nm-testing/Qwen3.8-27B-MXFP6A8",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "Qwen/Qwen3.8-27B (BF16)", "dataset": "GSM8K, 5-shot, all 1319 questions", "ctx": "not stated", "tool": "vLLM tests/evals/gsm8k/gsm8k_eval.py on one B300, greedy", "L": [34]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B-MXFP6A8", "metrics": {"bench:GSM8K": "c2"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["calibration-free compressed-tensors quant [L16]"]},
+  {"role": "ladder", "name": "Qwen/Qwen3.8-27B (BF16)", "metrics": {"bench:GSM8K": "c1"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": []}
+ ],
+ "prose": []}

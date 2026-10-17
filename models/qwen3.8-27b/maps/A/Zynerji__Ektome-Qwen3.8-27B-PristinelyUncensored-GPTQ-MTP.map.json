@@ -1,0 +1,10 @@
+{"repo":"Zynerji/Ektome-Qwen3.8-27B-PristinelyUncensored-GPTQ-MTP","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 parent (Ektome-Qwen3.8-27B-PristinelyUncensored)","dataset":"cais/mmlu validation, 400 questions, seed 0; refusal compliance n=100 greedy","ctx":"not stated","tool":"vLLM 0.27.1 on RTX PRO 6000 (sm_120), single-letter generative answers","L":[140,145,168,169,170]},
+"entries":[
+{"role":"own","name":"this 4-bit build (GPTQ-MTP)","metrics":{"bench:MMLU-val":"c13","bench:RefusalCompliance":"c10"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["MMLU delta -0.015 within SE 0.0195 [L148]","receipts measured on the 4-bit weights [L140-143]","L231-232 limitation says receipts are from bf16 parent, contradicting L142-143","weights 17.7 GiB in prose [L93]; 19.56 GB table size [L38]","calibration: 512 wikitext-2 samples, g128 [L225]"]},
+{"role":"ladder","name":"bf16 parent","metrics":{"bench:MMLU-val":"c12","bench:RefusalCompliance":"c9"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L147-148]"]},
+{"role":"ladder","name":"pristine (bf16, pre-edit)","metrics":{"bench:MMLU-val":"c6","bench:RefusalCompliance":"c4"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["bf16 parent receipts [L73-77]"]},
+{"role":"ladder","name":"edited (bf16, post-edit)","metrics":{"bench:MMLU-val":"c7","bench:RefusalCompliance":"c5"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["bf16 parent receipts [L75-76]"]},
+{"role":"ladder","name":"HOMEUSER-16-24","metrics":{},"size":"c2","unit":"GB","basis":"disk","bpw":null,"flags":["no quality measured [L36-39]"]}
+],
+"prose":[]}

@@ -1,0 +1,10 @@
+{"repo":"r0b0tlab/Qwen3.8-27B-EXL3-4.00bpw","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"none (absolute task scores)","dataset":"Q200v2 text-180 (gsm8k, humaneval, ifeval); GSM8K greedy acceptance length; multi-needle NIAH at 262,080 tokens","ctx":"8k decode, 262k NIAH","tool":"ExLlamaV3 v1.5.0 convert.py -b 4.00 -vb 6 -mb 4 -hb 6","L":[22,23,57,60,61]},
+"entries":[
+{"role":"own","name":"EXL3 4.00 bpw","of":"","metrics":{},"size":"c5","unit":"GiB","basis":"disk","bpw":null,"flags":["4.00 bpw decoder, 6 bpw lm_head, 4 bpw MTP head [L23]","no KLD or perplexity versus a reference given; benchmark scores are absolute [L61]","NIAH PASS at 262,080 tokens [L60]"]}
+],
+"prose":[
+{"entry":"EXL3 4.00 bpw","key":"bpw","L":17,"raw":"4.00 bpw"},
+{"entry":"EXL3 4.00 bpw","key":"bench:gsm8k","L":61,"raw":"98.75 %"},
+{"entry":"EXL3 4.00 bpw","key":"bench:humaneval","L":61,"raw":"100 %"},
+{"entry":"EXL3 4.00 bpw","key":"bench:ifeval","L":61,"raw":"84.62 %"}]}

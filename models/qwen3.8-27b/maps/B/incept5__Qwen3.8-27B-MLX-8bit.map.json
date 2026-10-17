@@ -1,0 +1,9 @@
+{"repo": "incept5/Qwen3.8-27B-MLX-8bit",
+ "no_quality_claims": true,
+ "no_claims_reason": "benchmark tables are the upstream Qwen3.8-27B base-model scores, not quant measurements; only a qualitative vision smoke test and nominal bpw/peak memory [L22-23, L99-100, L157-322]",
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": []},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B MLX 8-bit", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["peak memory ~34.8 GB during the vision smoke run, not a file size [L100]", "~9.4 bpw expected because vision tower stays bf16 [L22-23]", "benchmark tables [L296-309] are copied upstream base-model results, omitted"]}
+ ],
+ "prose": []
+}

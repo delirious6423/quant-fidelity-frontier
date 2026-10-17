@@ -1,0 +1,7 @@
+{"repo":"Pilcothink/Qwen3.8-27B-MixedInt4-AutoRound","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"original Qwen3.8-27B","dataset":"MMLU, GSM8K, ARC-Challenge, BoolQ, HellaSwag, PIQA, WinoGrande","ctx":"not stated","tool":"AutoRound evaluation interface with LM Evaluation Harness","L":[52,54,56]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-MixedInt4-AutoRound","metrics":{"bench:MMLU":"c4","bench:GSM8K_flexible":"c8","bench:GSM8K_strict":"c54","bench:BoolQ":"c15","bench:HellaSwag":"c19","bench:PIQA":"c23","bench:WinoGrande":"c27","bench:Average":"c31","bench:MMLU_Other":"c38","bench:MMLU_SocialSciences":"c42","bench:MMLU_STEM":"c46"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["ARC-Challenge and MMLU Humanities quantized cells missing from table (difference 0.00 pp, recovery 100%) [L60,L72]","recovery rates e.g. MMLU 99.50% (c6), avg 99.38% (c33)","group size 32 [L43]"]},
+{"role":"ladder","name":"Qwen3.8-27B (original)","metrics":{"bench:MMLU":"c3","bench:GSM8K_flexible":"c7","bench:GSM8K_strict":"c53","bench:ARC-Challenge":"c11","bench:BoolQ":"c14","bench:HellaSwag":"c18","bench:PIQA":"c22","bench:WinoGrande":"c26","bench:Average":"c30","bench:MMLU_Humanities":"c34","bench:MMLU_Other":"c37","bench:MMLU_SocialSciences":"c41","bench:MMLU_STEM":"c45"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["reference scores measured by card author [L54]"]}
+],
+"prose":[]}

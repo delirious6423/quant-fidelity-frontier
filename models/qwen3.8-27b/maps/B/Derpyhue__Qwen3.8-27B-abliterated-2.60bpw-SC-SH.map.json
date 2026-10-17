@@ -1,0 +1,9 @@
+{"repo":"Derpyhue/Qwen3.8-27B-abliterated-2.60bpw-SC-SH","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"abliterated BF16 (Huihui-Qwen3.8-27B-abliterated)","dataset":"not stated (calibration: 217 rows x 2048 columns from this model's traces)","ctx":"not stated","tool":"EXL3 quilter with sc_optimize, scaled-Hessian (-sh)","L":[19,41]},
+"entries":[
+{"role":"own","name":"2.60 H4 -sh","metrics":{"mean_kld":"c13","ppl":"c16","ppl_delta_pct":"c16"},"size":"c12","unit":"GiB","basis":"text_weights","bpw":"c22","flags":["weights GiB counts quantized tensors only; about 11.96 GB total on disk [L41]","PPL cell reads '1.4048 (+4.7%)' under header 'Perplexity (increase)'; meaning ambiguous [L47]","median KLD 0.0023 and p90 KLD 0.122 not mapped","measurements are vs the abliterated BF16, not comparable with main series [L19]"]},
+{"role":"ladder","name":"2.55 H4 -sh","metrics":{"mean_kld":"c8","ppl":"c11","ppl_delta_pct":"c11"},"size":"c7","unit":"GiB","basis":"text_weights","bpw":null,"flags":["[L46]"]},
+{"role":"ladder","name":"2.65 H4 -sh","metrics":{"mean_kld":"c18","ppl":"c21","ppl_delta_pct":"c21"},"size":"c17","unit":"GiB","basis":"text_weights","bpw":null,"flags":["[L48]"]},
+{"role":"ladder","name":"Abliterated BF16 (reference)","metrics":{"ppl":"c6"},"size":"c5","unit":"GiB","basis":"text_weights","bpw":null,"flags":["reference row [L45]"]}
+],
+"prose":[]}

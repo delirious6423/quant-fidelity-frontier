@@ -1,0 +1,12 @@
+{"repo":"dfed24/Qwen3.8-27B-GPTQ-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 model (PyTorch evaluator, L29-30); unsloth Q8_0 file for the llama.cpp check (L38)","dataset":"held-out wiki, code, multilingual sets","ctx":"6 windows of 2,048 tokens per set","tool":"PyTorch evaluator; llama-perplexity --kl-divergence (CPU build)","L":[29,30,37,38,39]},
+"entries":[
+{"role":"own","name":"this file (PyTorch eval vs bf16)","metrics":{"kld:wiki":"c6.0","top1:wiki":"c6.1","kld:code":"c7.0","top1:code":"c7.1","kld:multilingual":"c8.0","top1:multilingual":"c8.1"},"size":"c5","unit":null,"basis":"disk","bpw":null,"flags":["size in MiB (unit not in enum) [L32-35]","4.9 bits per weight, 15.4 GiB in title [L14]"]},
+{"role":"cross","name":"unsloth UD-Q4_K_M (PyTorch eval vs bf16)","of":"not named on card","metrics":{"kld:wiki":"c2.0","top1:wiki":"c2.1","kld:code":"c3.0","top1:code":"c3.1","kld:multilingual":"c4.0","top1:multilingual":"c4.1"},"size":"c1","unit":null,"basis":"disk","bpw":null,"flags":["size in MiB [L34]"]},
+{"role":"own","name":"this file (llama.cpp vs unsloth Q8_0 reference)","metrics":{"kld:wiki":"c12.0","top1:wiki":"c12.1","kld:code":"c13.0","top1:code":"c13.1","kld:multilingual":"c14.0","top1:multilingual":"c14.1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["reference is Q8_0, not bf16 [L38]"]},
+{"role":"cross","name":"unsloth UD-Q4_K_M (llama.cpp vs unsloth Q8_0 reference)","of":"not named on card","metrics":{"kld:wiki":"c9.0","top1:wiki":"c9.1","kld:code":"c10.0","top1:code":"c10.1","kld:multilingual":"c11.0","top1:multilingual":"c11.1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["reference is Q8_0, not bf16 [L38]"]}
+],
+"prose":[
+{"entry":"this file (PyTorch eval vs bf16)","key":"bench:HumanEval","L":54,"raw":"150/164"},
+{"entry":"unsloth UD-Q4_K_M (PyTorch eval vs bf16)","key":"bench:HumanEval","L":55,"raw":"154/164 (93.9%)"}
+]}

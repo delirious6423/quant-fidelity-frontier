@@ -1,0 +1,6 @@
+{"repo":"pottokao/Qwen3.8-27B-NVFP4-MTP-2x16GB","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"none (absolute task score, no bf16 comparison)","dataset":"AIME 2026 I+II, 30 problems","ctx":"not stated","tool":"vLLM TP2 on 2x RTX 5060 Ti, temperature 0.6, concurrency 1","L":[249,254,257,299]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B NVFP4 + MTP","metrics":{},"size":"c83","unit":"GiB","basis":"vram","bpw":null,"flags":["weights 10.5 GiB per card [L188]","speed tables (tok/s, accept_len) only, not quality [L135-145, L212-221]","AIME 2026 pass@1 29/30 (second pass on problems 10-30 scored 19/21) [L257,L298]"]}
+],
+"prose":[{"entry":"Qwen3.8-27B NVFP4 + MTP","key":"bench:AIME 2026","L":257,"raw":"**pass@1 = 29/30**"}]}

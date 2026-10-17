@@ -1,0 +1,10 @@
+{"repo": "0xBakeer/TandemLLM-Qwen3.8-27B-EXL3-3.0",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "BF16 Qwen/Qwen3.8-27B", "dataset": "wikitext-2", "ctx": "not stated", "tool": "exllamav3 1.6.0 conversion; quality raw output in quality/; speed in TandemLLM 0.6.2 on DGX Spark", "L": [12, 18]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B EXL3 3.0 bpw", "metrics": {}, "size": "c1", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["13.5 GB in total at 3.0 bits per weight [L12]; bpw not a candidate id", "per-size quality/speed table at L19-27 is not in the candidate list or digest, so no quant quality value could be mapped"]},
+  {"role": "cross", "name": "Qwen3.8-27B BF16", "of": "Qwen/Qwen3.8-27B", "metrics": {"ppl:wikitext2": "c4"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["BF16 perplexity 6.849 measured by the card author on wikitext-2 [L18]"]}
+ ],
+ "prose": []
+}

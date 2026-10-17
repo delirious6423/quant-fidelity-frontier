@@ -1,0 +1,7 @@
+{"repo":"curvedinf/Qwen3.8-27B-GPTQ-INT8-W8A8-GS128-PTQR","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 teacher / baseline","dataset":"not stated","ctx":"not stated","tool":"teacher-forced KL-divergence probe at the serving gate (gate 0.02)","L":[59,60,61]},
+"entries":[
+{"role":"own","name":"GPTQ INT8 W8A8 GS128 PTQR","metrics":{"mean_kld":"c3"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["greedy agreement 42/52 and speculative acceptance 3.88/13 vs BF16 3.67 also stated [L61-62]"]},
+{"role":"ladder","name":"original GPTQ checkpoint","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["KLD 0.0110, greedy agreement 38/52 [L61]"]}
+],
+"prose":[{"entry":"original GPTQ checkpoint","key":"mean_kld","L":61,"raw":"0.0110"}]}

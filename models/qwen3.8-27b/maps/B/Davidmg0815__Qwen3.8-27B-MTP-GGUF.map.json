@@ -1,0 +1,7 @@
+{"repo":"Davidmg0815/Qwen3.8-27B-MTP-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"unquantized Qwen3.8-27B BF16 as one variant among seven; no KLD/PPL reference","dataset":"HumanEval+ (164 tasks, execution-checked), MATH-500 (150 tasks)","ctx":"16K context, one session for throughput; MATH-500 24k token budget for headline","tool":"llama.cpp / llama-server, own bench scripts","L":[49,48,424,461,525]},
+"entries":[
+{"role":"own","name":"qwen3.8-27b-Q8_0.gguf","metrics":{"bench:HumanEval+":"c63","bench:MATH-500":"c1","bench:MATH-500 variant table":"c80"},"size":"c9","unit":"GB","basis":"disk","bpw":"c10","flags":["MATH-500 98,0 % is 150 tasks at 24k budget [L48]; variant-table value 76,0 % [L466] uses a different token budget","HumanEval+ variant table [L430]"]},
+{"role":"own","name":"qwen3.8-27b-Q6_K.gguf","metrics":{"bench:HumanEval+":"c57","bench:MATH-500 variant table":"c74"},"size":"c11","unit":"GB","basis":"disk","bpw":"c12","flags":["[L428,L464,L68]"]},
+{"role":"ladder","name":"Qwen3.8-27B BF16","metrics":{"bench:HumanEval+":"c66","bench:MATH-500 variant table":"c71"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["unquantized reference variant; 51 GB [L473]","[L431,L463]"]}
+],"prose":[]}

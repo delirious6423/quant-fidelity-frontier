@@ -1,0 +1,7 @@
+{"repo":"RadixArk/Qwen3.8-27B-NVFP4-BF16-LMHead","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"not stated (absolute GSM8K accuracy)","dataset":"GSM8K full 1,319 split, thinking mode","ctx":"not stated","tool":"SGLang main d287880a, TP4 on 4x GB300, temperature 1.0, seed 0","L":[119,121,123,126]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-NVFP4-BF16-LMHead","metrics":{"bench:GSM8K":"c1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["also evaluated on Terminal-Bench 2.1 per L89; only GSM8K in candidates","calibration: 1,024 cnn_dailymail samples, seq len 512 [L81]"]},
+{"role":"ladder","name":"RadixArk/Qwen3.8-27B-NVFP4 (source, quantized lm_head)","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["same protocol; difference within single-run noise [L126]"]}
+],
+"prose":[{"entry":"RadixArk/Qwen3.8-27B-NVFP4 (source, quantized lm_head)","key":"bench:GSM8K","L":126,"raw":"96.36% (1,271/1,319)"}]}

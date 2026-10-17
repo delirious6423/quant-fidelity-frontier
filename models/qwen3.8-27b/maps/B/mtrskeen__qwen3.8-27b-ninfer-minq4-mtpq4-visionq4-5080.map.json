@@ -1,0 +1,10 @@
+{"repo": "mtrskeen/qwen3.8-27b-ninfer-minq4-mtpq4-visionq4-5080",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "IQ3_XXS anchor (simulated PPL gate); no bf16 reference stated", "dataset": "GSM8K CoT 8-shot (50 samples); RULER NIAH at 8K/32K/64K", "ctx": "8K, 32K, 64K for NIAH", "tool": "lm-evaluation-harness; ninfer-5080 fork", "L": [49, 50, 94]},
+ "entries": [
+  {"role": "own", "name": "qwen3_8_27b_minq4_mtpq4_visionq4.ninfer", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["simulated PPL +0.04 vs IQ3_XXS anchor is absolute and anchor-relative, not mapped [L50]", "RULER NIAH 3/3 at each length [L94]"]}
+ ],
+ "prose": [
+  {"entry": "qwen3_8_27b_minq4_mtpq4_visionq4.ninfer", "key": "bench:gsm8k_cot", "L": 94, "raw": "0.96"}
+ ]}

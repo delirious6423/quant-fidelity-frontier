@@ -1,0 +1,18 @@
+{"repo": "TelperionAI/Qwen3.8-27B-EXL3-5.5bpw-v2",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "BF16 base; disagreement rates bucketed by the base model's top1-top2 logprob margin; confident bucket is the pre-registered decider; divmed = median first-divergence token under free greedy decode", "dataset": "231 documents, 142,727 scored positions", "ctx": "not stated", "tool": "paired McNemar over matched token positions, n=33,812 in the confident bucket", "L": [35, 36, 37, 38, 54, 55]},
+ "entries": [
+  {"role": "own", "name": "TelperionAI EXL3 5.5bpw-v2", "metrics": {"top1_pct": "c2", "bench:Disagree-confident": "c5", "bench:Disagree-certain": "c6", "bench:DivergenceMedian": "c7"}, "size": "c1", "unit": "GB", "basis": "disk", "bpw": "c71", "flags": ["rounded size [L43]"]},
+  {"role": "ladder", "name": "TelperionAI EXL3 4.0bpw-v2", "metrics": {"top1_pct": "c23", "bench:Disagree-confident": "c26", "bench:Disagree-certain": "c27", "bench:DivergenceMedian": "c28"}, "size": "c22", "unit": "GB", "basis": "disk", "bpw": "c72", "flags": ["[L46]"]},
+  {"role": "ladder", "name": "TelperionAI EXL3 4.0bpw (v1)", "metrics": {"top1_pct": "c37", "bench:Disagree-confident": "c40", "bench:Disagree-certain": "c41", "bench:DivergenceMedian": "c42"}, "size": "c36", "unit": "GB", "basis": "disk", "bpw": "c73", "flags": ["[L48]"]},
+  {"role": "ladder", "name": "TelperionAI EXL3 5.5bpw (v1)", "metrics": {"top1_pct": "c44", "bench:Disagree-confident": "c47", "bench:Disagree-certain": "c48", "bench:DivergenceMedian": "c49"}, "size": "c43", "unit": "GB", "basis": "disk", "bpw": "c74", "flags": ["[L49]"]},
+  {"role": "ladder", "name": "TelperionAI EXL3 6.5bpw (v1)", "metrics": {"top1_pct": "c51", "bench:Disagree-confident": "c54", "bench:Disagree-certain": "c55", "bench:DivergenceMedian": "c56"}, "size": "c50", "unit": "GB", "basis": "disk", "bpw": "c75", "flags": ["[L50]"]},
+  {"role": "ladder", "name": "TelperionAI FP8-block-AWQ", "metrics": {"top1_pct": "c9", "bench:Disagree-confident": "c12", "bench:Disagree-certain": "c13", "bench:DivergenceMedian": "c14"}, "size": "c8", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["[L44]"]},
+  {"role": "ladder", "name": "TelperionAI INT4-AWQ-GPTQ", "metrics": {"top1_pct": "c16", "bench:Disagree-confident": "c19", "bench:Disagree-certain": "c20", "bench:DivergenceMedian": "c21"}, "size": "c15", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["[L45]"]},
+  {"role": "ladder", "name": "TelperionAI NVFP4 (mixed)", "metrics": {"top1_pct": "c58", "bench:Disagree-confident": "c61", "bench:Disagree-certain": "c62", "bench:DivergenceMedian": "c63"}, "size": "c57", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["[L51]"]},
+  {"role": "ladder", "name": "TelperionAI NVFP4 (full)", "metrics": {"top1_pct": "c65", "bench:Disagree-confident": "c68", "bench:Disagree-certain": "c69", "bench:DivergenceMedian": "c70"}, "size": "c64", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["[L52]"]},
+  {"role": "cross", "name": "Qwen3.8-27B-FP8 (official)", "of": "Qwen/Qwen3.8-27B-FP8", "metrics": {"top1_pct": "c30", "bench:Disagree-confident": "c33", "bench:Disagree-certain": "c34", "bench:DivergenceMedian": "c35"}, "size": "c29", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["[L47]"]}
+ ],
+ "prose": []
+}

@@ -1,0 +1,16 @@
+{"repo": "singulared/Qwen3.8-27B-ROCmFP4-MTP-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "none (absolute PPL)", "dataset": "held-out wikitext-2, 145 chunks", "ctx": "2048", "tool": "llama-perplexity, AMD Ryzen AI MAX+ 395 (gfx1151)", "L": [61, 139, 140]},
+ "entries": [
+  {"role": "own", "name": "ROCMFP4-STRIX", "metrics": {"ppl:wikitext2": "c48"}, "size": "c47", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["PPL with +-0.0402 [L145]"]},
+  {"role": "own", "name": "ROCMFP4-FAST", "metrics": {"ppl:wikitext2": "c50"}, "size": "c49", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["card states 4.25 bpw in prose [L218]"]},
+  {"role": "own", "name": "ROCMFP4-COHERENT", "metrics": {"ppl:wikitext2": "c53"}, "size": "c52", "unit": "GiB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "cross", "name": "mainline Q4_K_M (reference)", "of": "not named on card", "metrics": {"ppl:wikitext2": "c45"}, "size": "c44", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["measured by card author on same chunks [L144]"]},
+  {"role": "quoted", "name": "ROCMFP4-STRIX (40 chunks)", "of": "kingjones777/Qwen3.8-27B-ROCmFP4-STRIX-MTP-GGUF", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["other publisher's 40-chunk figure [L229]"]},
+  {"role": "quoted", "name": "ROCMFP4-FAST (40 chunks)", "of": "kingjones777/Qwen3.8-27B-ROCmFP4-STRIX-MTP-GGUF", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["other publisher's 40-chunk figure [L229]"]}
+ ],
+ "prose": [
+  {"entry": "ROCMFP4-STRIX (40 chunks)", "key": "ppl:wikitext2", "L": 229, "raw": "5.8877"},
+  {"entry": "ROCMFP4-FAST (40 chunks)", "key": "ppl:wikitext2", "L": 229, "raw": "5.9233"}
+ ]}

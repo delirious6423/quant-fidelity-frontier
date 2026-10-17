@@ -1,0 +1,9 @@
+{"repo":"cdiamond/Qwen3.8-27B-iMatrix-NVFP4-MTP-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"none (perplexity only)","dataset":"short WikiText-2 control","ctx":"not stated","tool":"llama.cpp (llama-imatrix for calibration)","L":[20,55]},
+"entries":[
+{"role":"own","name":"iMatrix NVFP4 MTP GGUF (mixed precision)","metrics":{"ppl":"c8.0"},"size":"c3.0","unit":"GB","basis":"disk","bpw":"c3.1","flags":["short WikiText-2 control; author says gap to Q4_1 is within error [L55]"]},
+{"role":"cross","name":"Q4_1","of":"not named on card","metrics":{"ppl":"c8.3"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["same short sample [L55]"]},
+{"role":"cross","name":"Plain Q4_0","of":"not named on card","metrics":{"ppl":"c1.2"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["short WikiText-2 control [L20]"]},
+{"role":"cross","name":"ready-made FP4 file","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["short WikiText-2 control [L20]"]}
+],
+"prose":[{"entry":"ready-made FP4 file","key":"ppl","L":20,"raw":"6.4949"}]}

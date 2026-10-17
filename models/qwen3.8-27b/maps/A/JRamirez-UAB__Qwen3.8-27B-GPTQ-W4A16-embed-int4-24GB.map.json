@@ -1,0 +1,13 @@
+{"repo":"JRamirez-UAB/Qwen3.8-27B-GPTQ-W4A16-embed-int4-24GB","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 Qwen3.8-27B","dataset":"internal sysadmin/agent eval set (unpublished) and turboderp's public qbench_prompts_gen.json","ctx":"not stated","tool":"exllamav3 qbench (GPTQ evaluated as BF16 copy of dequantized weights)","L":[87,104]},
+"entries":[
+{"role":"own","name":"GPTQ W4A16 + INT4 embeddings (mtp-int8 / main)","metrics":{"kld:internal":"c30.0","kld:public":"c30.2","ppl:internal":"c31.0","ppl:public":"c31.1","bench:Agent tasks 10x3 (passed of 30)":"c34.0","bench:Tools opencode (passed of 60)":"c33.0"},"size":"c29","unit":"GiB","basis":"disk","bpw":null,"flags":["Weights column of family table [L91]; mean KLD, medians also reported (internal 0.0127, public 0.0017) [L91]","Agent tasks vary about +-2 of 30 between runs [L105]","Card states quality not evaluated with standard benchmarks [L452]"]},
+{"role":"ladder","name":"GPTQ W4A16 g64 + INT8 embeddings","metrics":{"kld:internal":"c38.0","kld:public":"c38.2","ppl:internal":"c39.0","ppl:public":"c39.1","bench:Agent tasks 10x3 (passed of 30)":"c42.0","bench:Tools opencode (passed of 60)":"c41.0"},"size":"c37","unit":"GiB","basis":"disk","bpw":null,"flags":["same publisher, same conditions [L87]"]},
+{"role":"ladder","name":"EXL3 3.85 bpw (main)","metrics":{"kld:internal":"c46.0","kld:public":"c46.2","ppl:internal":"c47.0","ppl:public":"c47.1","bench:Agent tasks 10x3 (passed of 30)":"c50.0","bench:Tools opencode (passed of 60)":"c49.0"},"size":"c45","unit":"GiB","basis":"disk","bpw":"c213","flags":["publisher's sibling repo JRamirez-UAB/Qwen3.8-27B-EXL3-3.85bpw-24GB [L93]"]},
+{"role":"ladder","name":"EXL3 3.70 bpw (3.70bpw branch)","metrics":{"kld:internal":"c54.0","kld:public":"c54.2","ppl:internal":"c55.0","ppl:public":"c55.1","bench:Agent tasks 10x3 (passed of 30)":"c58.0","bench:Tools opencode (passed of 60)":"c57.0"},"size":"c53","unit":"GiB","basis":"disk","bpw":"c214","flags":["branch of EXL3-3.85bpw-24GB repo [L94]"]},
+{"role":"ladder","name":"BF16 reference","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["BF16 perplexity given in column header [L89]"]}
+],
+"prose":[
+{"entry":"BF16 reference","key":"ppl:internal","L":89,"raw":"BF16 1.5860"},
+{"entry":"BF16 reference","key":"ppl:public","L":89,"raw":"pub. 1.3332"}
+]}

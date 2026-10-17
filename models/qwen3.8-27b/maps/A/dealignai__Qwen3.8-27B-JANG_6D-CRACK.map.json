@@ -1,0 +1,11 @@
+{"repo": "dealignai/Qwen3.8-27B-JANG_6D-CRACK",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "Base (unmodified model at the same quant level), identical harness", "dataset": "MMLU 57-subject (logit mode); HarmBench harm-240", "ctx": "not stated", "tool": "MLX runtime; strict code/chemistry-aware classifier for HarmBench", "L": [79, 80, 112, 113, 114]},
+ "entries": [
+  {"role": "own", "name": "JANG_6D CRACK", "metrics": {"bench:MMLU": "c16", "bench:MMLU_base": "c15"}, "size": "c14", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["CRACK is an abliteration; MMLU compares abliterated vs base, not quant vs bf16 [L84]", "HarmBench compliance is a refusal metric, not mapped [L85]"]},
+  {"role": "ladder", "name": "2D", "metrics": {"bench:MMLU": "c6", "bench:MMLU_base": "c5"}, "size": "c4", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "ladder", "name": "4D", "metrics": {"bench:MMLU": "c11", "bench:MMLU_base": "c10"}, "size": "c9", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "ladder", "name": "MXFP8", "metrics": {"bench:MMLU_base": "c20"}, "size": "c19", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["MMLU CRACK cell absent in table; delta +0.0pp [L121]"]}
+ ],
+ "prose": []}

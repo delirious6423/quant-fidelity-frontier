@@ -1,0 +1,8 @@
+{"repo":"QTML/Qwen3.8-27B-Security-Quark-MXFP4","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"base Qwen3.8-27B BF16","dataset":"first-token KL on benign prompts; 26-prompt refusal benchmark","ctx":"not stated","tool":"heretic full-vocab KL (0.0151); served first-token top-20 truncated logprobs (0.047/0.116/0.106)","L":[97,99,128]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-Security-Quark-MXFP4","metrics":{"mean_kld":"c4"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["0.0151 is first-token KL of the abliteration (security) change vs base, full-vocab instrument; not quant-only error [L30,L97,L128]","Base MXFP4 -> Security MXFP4 KL 0.106 / flips 13% is a different instrument and a different reference; not mapped [L120]","refusal-benchmark counts (e.g. 11/14) are not quality-vs-BF16 metrics; omitted [L72-77]"]},
+{"role":"ladder","name":"Base Qwen3.8-27B MXFP4 (BF16 -> Base MXFP4)","metrics":{"mean_kld":"c18"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["served first-token top-20 truncated logprobs instrument; not comparable with 0.0151 [L119,L128]","top-1 token flips 10% (c19) is a flip rate, not agreement; omitted"]},
+{"role":"cross","name":"AMD reference MXFP4","of":"not named on card","metrics":{"mean_kld":"c23"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["BF16 -> MXFP4 KL of AMD's reference release compared against this release (0.116, c22) [L276-280]"]}
+],
+"prose":[]}

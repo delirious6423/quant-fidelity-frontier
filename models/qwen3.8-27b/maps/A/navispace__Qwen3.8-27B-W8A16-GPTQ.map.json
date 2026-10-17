@@ -1,0 +1,7 @@
+{"repo":"navispace/Qwen3.8-27B-W8A16-GPTQ","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 original weights (weight-space comparison only)","dataset":"not stated","ctx":"not stated","tool":"RTN-style INT8 group-size 32 (no Hessian, no calibration), vLLM serving","L":[26,32,68,70,143,144]},
+"entries":[
+{"role":"own","name":"W8A16 GPTQ (INT8, group size 32)","metrics":{},"size":"c59.1","unit":"GiB","basis":"disk","bpw":null,"flags":["Only quality figure is mean relative Frobenius weight error 0.567% over 8 tensors [L32,L82]; no output-level metric (KLD/PPL/bench) [L142-144]","Card states no benchmark comparison against BF16 was run [L143]","Benchmark tables at L208-370 are the upstream Qwen model card (other models), omitted"]},
+{"role":"ladder","name":"BF16 original","metrics":{},"size":"c59.0","unit":"GiB","basis":"disk","bpw":null,"flags":["Size only [L20]"]}
+],
+"prose":[]}

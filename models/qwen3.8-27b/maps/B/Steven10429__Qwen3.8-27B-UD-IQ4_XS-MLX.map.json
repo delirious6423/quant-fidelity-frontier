@@ -1,0 +1,10 @@
+{"repo": "Steven10429/Qwen3.8-27B-UD-IQ4_XS-MLX",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "not stated (direct comparison against a bf16 -> MLX 4-bit conversion)", "dataset": "wikitext-2, 16 windows", "ctx": "2048 tokens", "tool": "MLX on Apple Silicon 24 GB", "L": [28, 33, 37, 113]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B UD-IQ4_XS MLX (this repo)", "metrics": {"ppl:wikitext2": "c2"}, "size": null, "unit": "GB", "basis": "disk", "bpw": null, "flags": ["size on disk 16.45 GB (text ~15.5 GB + bf16 vision) is in the row label, not a cell id [L32]", "peak memory 19.1 GB (c4) is a 2k-token forward, not a file size [L34]", "re-quantization of a quantized GGUF; no task benchmarks [L113]"]},
+  {"role": "cross", "name": "lmstudio-community/Qwen3.8-27B-MLX-4bit (made from bf16)", "of": "lmstudio-community/Qwen3.8-27B-MLX-4bit", "metrics": {"ppl:wikitext2": "c3"}, "size": "c1", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["direct bf16 -> 4-bit comparison build [L28-35]"]}
+ ],
+ "prose": []
+}

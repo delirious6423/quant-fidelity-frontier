@@ -1,0 +1,8 @@
+{"repo":"EschaLabs/Qwen3.8-27B-Escha-W2","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"same base model served as FP8 on the same SGLang fork","dataset":"Commonsense-6 full sets (thinking off); GPQA-Diamond n=198 and LiveCodeBench v6 since 2025-01-01 n=182 (thinking on, 28k budget)","ctx":"not stated","tool":"SGLang runtime fork; Commonsense on L40, GPQA/LCB on RTX 4090 (cross-box)","L":[424,430,437,482]},
+"entries":[
+{"role":"own","name":"Escha-W2","metrics":{"bench:ARC-Challenge":"c80","bench:ARC-Easy":"c81","bench:BoolQ":"c82","bench:HellaSwag":"c83","bench:PIQA":"c84","bench:Winogrande":"c85","bench:Commonsense-6":"c86","bench:GPQA-Diamond":"c88","bench:LiveCodeBench-v6":"c91"},"size":"c79","unit":"GB","basis":"disk","bpw":null,"flags":["quality figures measured with SPEC=0, not under MTP [L298]","arc_easy scored on raw acc, other five on acc_norm [L457]","FP8 arm run on different box than W2 for GPQA/LCB [L482]"]},
+{"role":"cross","name":"FP8 reference","of":"not named on card","metrics":{"bench:ARC-Challenge":"c72","bench:ARC-Easy":"c73","bench:BoolQ":"c74","bench:HellaSwag":"c75","bench:PIQA":"c76","bench:Winogrande":"c77","bench:Commonsense-6":"c78","bench:GPQA-Diamond":"c87","bench:LiveCodeBench-v6":"c90"},"size":"c71","unit":"GB","basis":"disk","bpw":null,"flags":["size printed as ~29 [L434]"]},
+{"role":"quoted","name":"Qwen published GPQA-Diamond","of":"Qwen/Qwen3.8-27B","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["figure Qwen publishes, cited as FP8 sanity check [L427]"]}
+],
+"prose":[{"entry":"Qwen published GPQA-Diamond","key":"bench:GPQA-Diamond","L":427,"raw":"89.2"}]}

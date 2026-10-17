@@ -1,0 +1,7 @@
+{"repo":"mlx-bun/Qwen3.8-27B-Trellis-3.2bpw","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 base figures from Red Hat's published evaluation (three-seed averages), not measured by author","dataset":"GSM8K-Platinum, IFEval, GPQA Diamond; full datasets, zero-shot, thinking enabled","ctx":"seed 1234, MTP off, one seed","tool":"mlx-bun (refactor/monorepo at 7c6155b7)","L":[85,105,111,130]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-Trellis-3.2bpw","metrics":{"bench:GSM8K-Platinum_flexible":"c1","bench:GSM8K-Platinum_strict":"c10","bench:IFEval":"c13","bench:GPQA Diamond":"c16"},"size":"c18","unit":"GB","basis":"disk","bpw":null,"flags":["Size 11.99 GB is from prose [L67]; complete download with MTP companion 12.25 GB [L69]","Card states 3.23 bpw [L65]","Differences vs BF16 compare complete inference configurations, not weight quantization alone [L111]","Thirteen GPQA responses hit the token limit and scored incorrect [L85]"]},
+{"role":"quoted","name":"BF16 base","of":"RedHatAI/Qwen3.8-27B-NVFP4","metrics":{"bench:GSM8K-Platinum_strict":"c9","bench:IFEval":"c12","bench:GPQA Diamond":"c15"},"size":"c22.0","unit":"GB","basis":"disk","bpw":null,"flags":["Baselines from Red Hat's published evaluation, linked at the RedHatAI/Qwen3.8-27B-NVFP4 evaluation section [L111]; approx BF16 size 54 GB from prose [L67]"]}
+],
+"prose":[]}

@@ -1,0 +1,12 @@
+{"repo":"Twu31/Qwen3.8-27B-AWQ-INT4-MTP-LowLatency","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 base Qwen/Qwen3.8-27B (per-token NLL of the BF16 base's own greedy answers under the quantized model)","dataset":"18 conversational prompts (~1.5k-token system prompt + history), 384x2048 calibration for AutoRound","ctx":"not stated","tool":"vLLM 0.27.1 on RTX 5090 (fidelity tables); AutoRound 0.14.2, llm-compressor 0.13.0","L":[143,227,229,293]},
+"entries":[
+{"role":"own","name":"main (INT4 + INT8 lm_head, AutoRound)","metrics":{"bench:NLL":"c96"},"size":null,"unit":"GB","basis":"disk","bpw":null,"flags":["NLL from head-precision table, RTX 5090 vLLM 0.27.1 [L143-148]","same weights in 'Which algorithm' table: NLL mean c174.0 / median c174.1 [L231]","size 18.2 GB for main stated in prose [L248]"]},
+{"role":"own","name":"main (AutoRound) NLL mean","metrics":{"bench:NLL_mean":"c174.0","bench:NLL_median":"c174.1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["'Which algorithm' table [L231]; box reads differently from the head table [L235]"]},
+{"role":"ladder","name":"INT4 body, BF16 lm_head","metrics":{"bench:NLL":"c92"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L147]"]},
+{"role":"ladder","name":"INT4 + INT4 lm_head (lm-head-int4)","metrics":{"bench:NLL":"c100"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L149]; 17.6 GB in prose [L248]"]},
+{"role":"ladder","name":"MTP head also INT4 (mtp-int4-autoround)","metrics":{"bench:NLL":"c104"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L150]; 19.0 GB in prose [L248]"]},
+{"role":"ladder","name":"AWQ (llm-compressor) awq-llmcompressor","metrics":{"bench:NLL_mean":"c179.0","bench:NLL_median":"c179.1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L232]; 256x2048 calibration"]},
+{"role":"ladder","name":"GPTQ (llm-compressor) gptq-llmcompressor","metrics":{"bench:NLL_mean":"c184.0","bench:NLL_median":"c184.1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L233]; 384x2048 calibration"]}
+],
+"prose":[]}

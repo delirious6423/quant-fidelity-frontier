@@ -1,0 +1,14 @@
+{"repo":"thederby/Qwen3.8-27B-oQ8e-mtp","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"original bf16 model","dataset":"48 windows x 2048 tokens of English prose, Python code, Japanese and Korean text","ctx":"2048","tool":"oMLX oQe; KL computed on reference top-256 tokens plus one remainder bucket (slightly underestimates full KL)","L":[41,42,43,44,45]},
+"entries":[
+{"role":"own","name":"oQ8e bf16","of":"","metrics":{"mean_kld":"c40","top1_pct":"c41","ppl":"c42"},"size":"c39","unit":"GB","basis":"disk","bpw":null,"flags":["[L32]"]},
+{"role":"ladder","name":"oQ4e bf16","of":"","metrics":{"mean_kld":"c4","top1_pct":"c5","ppl":"c6"},"size":"c3","unit":"GB","basis":"disk","bpw":null,"flags":["[L26]"]},
+{"role":"ladder","name":"oQ4e fp16","of":"","metrics":{"mean_kld":"c10","top1_pct":"c11","ppl":"c12"},"size":"c9","unit":"GB","basis":"disk","bpw":null,"flags":["[L27]"]},
+{"role":"ladder","name":"oQ5e bf16","of":"","metrics":{"mean_kld":"c16","top1_pct":"c17","ppl":"c18"},"size":"c15","unit":"GB","basis":"disk","bpw":null,"flags":["[L28]"]},
+{"role":"ladder","name":"oQ5e fp16","of":"","metrics":{"mean_kld":"c22","top1_pct":"c23","ppl":"c24"},"size":"c21","unit":"GB","basis":"disk","bpw":null,"flags":["[L29]"]},
+{"role":"ladder","name":"oQ6e bf16","of":"","metrics":{"mean_kld":"c28","top1_pct":"c29","ppl":"c30"},"size":"c27","unit":"GB","basis":"disk","bpw":null,"flags":["[L30]"]},
+{"role":"ladder","name":"oQ6e fp16","of":"","metrics":{"mean_kld":"c34","top1_pct":"c35","ppl":"c36"},"size":"c33","unit":"GB","basis":"disk","bpw":null,"flags":["[L31]"]},
+{"role":"ladder","name":"oQ8e fp16","of":"","metrics":{"mean_kld":"c46","top1_pct":"c47","ppl":"c48"},"size":"c45","unit":"GB","basis":"disk","bpw":null,"flags":["[L33]"]},
+{"role":"ladder","name":"original bf16","of":"not named on card","metrics":{"mean_kld":"c51","top1_pct":"c52","ppl":"c53"},"size":"c50","unit":"GB","basis":"disk","bpw":null,"flags":["reference [L34]"]}
+],
+"prose":[]}

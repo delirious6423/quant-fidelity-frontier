@@ -1,0 +1,17 @@
+{"repo":"avlp12/Qwen3.8-27B-Alis-MLX-6bit","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 original Qwen/Qwen3.8-27B","dataset":"wikitext-2 test (en, 35,981 tok), Korean Wikipedia (ko, 35,179 tok), CPython stdlib (code, 32,295 tok); exact-KL sweep over ~100K en+ko+code tokens","ctx":"ctx 2048, stride 512 (PPL); ctx-2048 windows (KL); ctx 1024 x35 windows wikitext-2 (cross-check)","tool":"MLX strided PPL with paired per-token excess NLL, blockwise SE; full-vocab fp32 KL","L":[33,289,314,319]},
+"entries":[
+{"role":"own","name":"6-bit (this repo)","metrics":{"ppl:en":"c16.0","ppl:ko":"c16.1","ppl:code":"c16.2","mean_kld":"c158.0","top1_pct":"c158.2"},"size":"c12","unit":"GB","basis":"disk","bpw":null,"flags":["PPL table measured on pre-graded weights, not re-run [L308-310]","KL 0.00499 / top-1 97.5% is the graded build, exact full-vocab KL over ~100K en+ko+code tokens [L316]","graded-allocation before/after table (L274-279) has unlabeled metric; omitted","stated 6.501 bits per weight in prose [L250]"]},
+{"role":"ladder","name":"bf16 reference","metrics":{"ppl:en":"c5.0","ppl:ko":"c5.1","ppl:code":"c5.2"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["bf16 row carried over from earlier batch [L33]"]},
+{"role":"ladder","name":"8-bit","metrics":{"ppl:en":"c11.0","ppl:ko":"c11.1","ppl:code":"c11.2"},"size":"c7","unit":"GB","basis":"disk","bpw":null,"flags":["PPL measured on pre-graded weights [L308]","exact KL 0.00105 in prose [L316]"]},
+{"role":"ladder","name":"4-bit AWQ","metrics":{"ppl:en":"c21.0","ppl:ko":"c21.1","ppl:code":"c21.2"},"size":"c17","unit":"GB","basis":"disk","bpw":null,"flags":["PPL measured on pre-graded weights [L308]","exact KL 0.0592 in prose [L316]","duplicate table at L291-296 is misparsed; L28-31 table used"]},
+{"role":"own","name":"6-bit (this repo), WikiText-2 ctx 1024 x35 windows","metrics":{"top1_pct":"c164.1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["KL 0.00311 in prose [L319]; compared against a third-party 6-bit [L319-323]"]},
+{"role":"cross","name":"mlx-community 6-bit (their 6-bit)","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["measured by card author on same 35 windows: KL 0.00322, top-1 97.33% [L320]; their published 0.00216 is single-window [L321]"]}
+],
+"prose":[
+{"entry":"6-bit (this repo), WikiText-2 ctx 1024 x35 windows","key":"mean_kld","L":319,"raw":"0.00311"},
+{"entry":"8-bit","key":"mean_kld","L":316,"raw":"0.00105"},
+{"entry":"4-bit AWQ","key":"mean_kld","L":316,"raw":"0.0592"},
+{"entry":"mlx-community 6-bit (their 6-bit)","key":"mean_kld","L":320,"raw":"0.00322"},
+{"entry":"mlx-community 6-bit (their 6-bit)","key":"top1_pct","L":320,"raw":"97.33%"}
+]}

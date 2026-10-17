@@ -1,0 +1,153 @@
+{
+ "repo": "anemll/anemll-quantized-qwen3.8-27b-for-CoreAI",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "BF16 Qwen3.8-27B (teacher-forced KL)",
+  "dataset": "64 chats (40,023 positions), held-out chats (37,076), WikiText 16x1,024, last 2K of 16 x 16,384-token windows from 12 long sessions",
+  "ctx": "short chat traces and 16K windows",
+  "tool": "PyTorch for ANEMLL and Mirai S; llama.cpp on M3 Ultra for GGUFs",
+  "L": [
+   80,
+   92
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "ANEMLL release 0.2 (PyTorch)",
+   "metrics": {
+    "kld:dev": "c2",
+    "kld:heldout": "c3",
+    "kld:dev_full": "c4",
+    "top1_pct": "c5",
+    "kld_99": "c6",
+    "kld:wikitext": "c7",
+    "kld:16k_last2k": "c8"
+   },
+   "size": "c1",
+   "unit": "GiB",
+   "basis": "text_weights",
+   "bpw": null,
+   "flags": [
+    "Size excludes embedding; ANEMLL adds 0.30 GiB rank-64 FP16 factors [L90]; bpw is inside the size cell (9.44 (3.17)) with no separate id",
+    "top-1 and p99 from ANE run of same trace [L90]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "ANEMLL release 0.2 (compiled ANE, M6 and M5 Max)",
+   "metrics": {
+    "mean_kld": "c64.1",
+    "top1_pct": "c66.1",
+    "ppl": "c66.2"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "KL-512 trace; teacher ppl 2.136 [L92]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "ANEMLL release 1 (PyTorch)",
+   "metrics": {
+    "kld:dev": "c33",
+    "kld:heldout": "c34",
+    "kld:dev_full": "c35",
+    "top1_pct": "c36",
+    "kld_99": "c37",
+    "kld:16k_last2k": "c38"
+   },
+   "size": "c32",
+   "unit": "GiB",
+   "basis": "text_weights",
+   "bpw": null,
+   "flags": [
+    "no WikiText KL [L88]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Unsloth UD-IQ3_XXS",
+   "of": "unsloth (repo link truncated in prompt)",
+   "metrics": {
+    "kld:dev": "c10",
+    "kld:heldout": "c11",
+    "kld:dev_full": "c12",
+    "top1_pct": "c13",
+    "kld_99": "c14",
+    "kld:wikitext": "c15",
+    "kld:16k_last2k": "c16"
+   },
+   "size": "c9",
+   "unit": "GiB",
+   "basis": "text_weights",
+   "bpw": null,
+   "flags": [
+    "llama.cpp on M3 Ultra [L80]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "DT-IQ3_XXS",
+   "of": "drawthingsai (repo link truncated in prompt)",
+   "metrics": {
+    "kld:dev": "c18",
+    "kld:heldout": "c19",
+    "kld:dev_full": "c20",
+    "top1_pct": "c21",
+    "kld_99": "c22",
+    "kld:wikitext": "c23",
+    "kld:16k_last2k": "c24"
+   },
+   "size": "c17",
+   "unit": "GiB",
+   "basis": "text_weights",
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "cross",
+   "name": "Mirai S (2.4-bit trellis)",
+   "of": "not named on card",
+   "metrics": {
+    "kld:dev": "c26",
+    "kld:heldout": "c27",
+    "kld:dev_full": "c28",
+    "top1_pct": "c29",
+    "kld_99": "c30",
+    "kld:wikitext": "c31"
+   },
+   "size": "c25",
+   "unit": "GiB",
+   "basis": "text_weights",
+   "bpw": null,
+   "flags": [
+    "decoded to BF16, scored in PyTorch [L80]"
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "ANEMLL release 1 (compiled ANE)",
+   "key": "mean_kld",
+   "L": 92,
+   "raw": "0.184"
+  },
+  {
+   "entry": "ANEMLL release 1 (compiled ANE)",
+   "key": "top1_pct",
+   "L": 92,
+   "raw": "86.0%"
+  },
+  {
+   "entry": "ANEMLL release 1 (compiled ANE)",
+   "key": "ppl",
+   "L": 92,
+   "raw": "2.414"
+  }
+ ]
+}

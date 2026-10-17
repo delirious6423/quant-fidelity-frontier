@@ -1,0 +1,9 @@
+{"repo":"kirillbilchenko/Qwen3.8-27B-MxWave-MXFP4-FP8","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 source","dataset":"WikiText-2 prompt perplexity, 316 windows of 4,096 characters (297,199 scored tokens); 96-context holdout for KL; GSM8K 1,319 test 5-shot","ctx":"4,096-character windows","tool":"lm-evaluation-harness 0.4.13 (GSM8K greedy, 1,024 max tokens); DGX Spark runtime","L":[132,133,147,161,162]},
+"entries":[
+{"role":"own","name":"MxWave MXFP4/FP8","metrics":{"ppl:wikitext-2":"c7","mean_kld":"c11","bench:GSM8K-strict":"c14","bench:GSM8K-flexible":"c17"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["mean forward KL measured on untouched 96-context holdout, interval crosses zero vs H64 [L147-157]","absolute PPL specific to character-window protocol [L143-144]","GSM8K gain statistically inconclusive [L172-176]"]},
+{"role":"ladder","name":"MxWave H64","metrics":{"ppl:wikitext-2":"c5","mean_kld":"c10","bench:GSM8K-strict":"c13","bench:GSM8K-flexible":"c16"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["top-1 agreement 89/96 is a count, not mapped [L152]"]},
+{"role":"cross","name":"BF16 source","of":"Qwen/Qwen3.8-27B","metrics":{"ppl:wikitext-2":"c3"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":[]},
+{"role":"cross","name":"AMD Quark-AWQ MXFP4","of":"not named on card","metrics":{"ppl:wikitext-2":"c8"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":[]}
+],
+"prose":[]}

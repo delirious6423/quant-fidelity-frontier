@@ -1,0 +1,11 @@
+{"repo":"rdtand/Qwen3.8-27B-PrismaScout-AQUA-Vision-20GB","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"pinned BF16 Qwen3.8 source","dataset":"KL: eight 512-token samples (4,088 positions); PPL: WikiText-2 test, 8,176 tokens in 16 non-overlapping 512-token chunks","ctx":"512","tool":"not stated","L":[124,129,130,131,132,133]},
+"entries":[
+{"role":"own","name":"PrismaScout-AQUA-Vision-20GB","metrics":{"mean_kld":"c1","kld_99":"c4.0","ppl":"c5"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["size 19978899058 bytes (18.6068 GiB) and 5.0737 bits per quantizable parameter are prose only [L50-53]","KL confident-positions 0.0254206691 [c2]; KL max 2.379668877 [c4.1]"]},
+{"role":"ladder","name":"BF16 source","metrics":{"ppl":"c6"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["reference PPL [L119]"]},
+{"role":"ladder","name":"PrismaScout-AQUA-20GB (visionless sibling)","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["sibling rdtand/Qwen3.8-27B-PrismaScout-AQUA-20GB [L154,L161,L431]","Qwen3.6 PrismaScout figures (0.0779318074 KL) are a different model, omitted [L138-139]"]}
+],
+"prose":[
+{"entry":"PrismaScout-AQUA-20GB (visionless sibling)","key":"mean_kld","L":154,"raw":"0.0402201669"},
+{"entry":"PrismaScout-AQUA-20GB (visionless sibling)","key":"ppl","L":161,"raw":"9.731222170"}
+]}

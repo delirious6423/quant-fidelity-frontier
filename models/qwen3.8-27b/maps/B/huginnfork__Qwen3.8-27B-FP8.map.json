@@ -1,0 +1,73 @@
+{
+ "repo": "huginnfork/Qwen3.8-27B-FP8",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "bf16 Qwen/Qwen3.8-27B itself",
+  "dataset": "KLD: 8 samples from neuralmagic/calibration (LLM split); PPL: wikitext-2-raw test",
+  "ctx": "KLD max_seq=1024; PPL non-overlapping 2048-token chunks",
+  "tool": "per-token KLD; PPL; weight-only vs as-deployed (dynamic FP8 activations)",
+  "L": [
+   55,
+   56,
+   57,
+   63,
+   64,
+   73
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "This model (192 modules quantised, FP8 MLPs)",
+   "metrics": {
+    "kld:weight_only": "c9",
+    "kld:as_deployed": "c10",
+    "ppl": "c11",
+    "ppl_delta_pct": "c12"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "negative dPPL is noise, not better than parent [L81]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Qwen/Qwen3.8-27B-FP8 (official, 407 modules)",
+   "metrics": {
+    "kld:weight_only": "c4",
+    "kld:as_deployed": "c5",
+    "ppl": "c6",
+    "ppl_delta_pct": "c7"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "hand-dequantised to evaluate [L125-128]"
+   ],
+   "of": "Qwen/Qwen3.8-27B-FP8"
+  },
+  {
+   "role": "cross",
+   "name": "bf16 Qwen/Qwen3.8-27B",
+   "metrics": {
+    "kld:weight_only": "c1",
+    "ppl": "c2"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "baseline [L68]"
+   ],
+   "of": "Qwen/Qwen3.8-27B"
+  }
+ ],
+ "prose": []
+}

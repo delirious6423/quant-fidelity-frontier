@@ -1,0 +1,7 @@
+{"repo":"darioooooo0o/Qwen3.8-27B-GPTQ-Int4-asym","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16","dataset":"held-out windows of code, technical prose and chat (private samples), 'all' aggregate","ctx":"2048-token windows","tool":"KL divergence over the top-20 logits; tool not named","L":[21,27,29]},
+"entries":[
+{"role":"own","name":"this quant","metrics":{"kld:code":"c6","kld:technical prose":"c7","kld:chat":"c8","mean_kld":"c9","top1_pct":"c10"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["KL over top-20 logits only, lower bound on full KL [L27]","[L32]"]},
+{"role":"own","name":"this quant + fp8 lm_head (as served in the cookbook)","metrics":{"kld:code":"c11","kld:technical prose":"c12","kld:chat":"c13","mean_kld":"c14","top1_pct":"c15"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L33]"]},
+{"role":"cross","name":"SergiioB's GPTQ int4 (symmetric)","of":"not named on card","metrics":{"kld:code":"c1","kld:technical prose":"c2","kld:chat":"c3","mean_kld":"c4","top1_pct":"c5"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["linked to github.com/SergiioB, repo id not on card [L31]"]}
+],"prose":[]}

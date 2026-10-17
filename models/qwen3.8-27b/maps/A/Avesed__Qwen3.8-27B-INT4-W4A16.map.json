@@ -1,0 +1,10 @@
+{"repo":"Avesed/Qwen3.8-27B-INT4-W4A16","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"none (absolute accuracy, no bf16 row)","dataset":"GSM8K, 250 questions","ctx":"max_tokens=24576","tool":"vLLM tp2 over OpenAI API, thinking on, temp 1.0 top_p 0.95 top_k 20, boxed-answer extraction","L":[43,44,45,46]},
+"entries":[
+{"role":"own","name":"INT4-W4A16","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["GSM8K 96.4% (241/250) in prose; MMLU-Pro not run [L43,L51]","~20 GB size in prose without a candidate id [L23]"]},
+{"role":"ladder","name":"INT8-W8A8","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["GSM8K 96.8% (242/250) same protocol [L46-47]"]}
+],
+"prose":[
+{"entry":"INT4-W4A16","key":"bench:GSM8K","L":43,"raw":"96.4 %"},
+{"entry":"INT8-W8A8","key":"bench:GSM8K","L":46,"raw":"96.8 %"}
+]}

@@ -1,0 +1,17 @@
+{"repo": "BoldingBuilds/Qwen3.8-27B-Reasoning-Termination-Fix-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "stock quant of the same file (only the </think> output-layer row changed)", "dataset": "MATH-500 first 200 problems (seed 7 shuffle); HumanEval 164", "ctx": "4,096 output tokens (also 16,384 on 100 problems)", "tool": "llama.cpp (PrismML fork) llama-server, exact-match scorer", "L": [22, 34, 287, 293, 349, 353]},
+ "entries": [
+  {"role": "own", "name": "Reasoning-Termination-Fix Q4_K_M", "metrics": {"bench:HumanEval_passed_of_164": "c16"}, "size": "c7", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["behavior edit to </think> row, not a fidelity comparison", "MATH-500 correct 169/200 in prose [L23]", "selected candidate, not held-out [L285-287]"]},
+  {"role": "ladder", "name": "stock (same Q4_K_M file)", "metrics": {"bench:HumanEval_passed_of_164": "c18"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["MATH-500 correct 150/200 in prose [L23]"]},
+  {"role": "ladder", "name": "stock + --reasoning-budget 3072", "metrics": {"bench:HumanEval_passed_of_164": "c20"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["MATH-500 correct 166/200 in prose [L48]"]},
+  {"role": "own", "name": "Reasoning-Termination-Fix Q5_K_M", "metrics": {}, "size": "c8", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["MATH and HumanEval pair tested against its own stock quant [L168-190]"]},
+  {"role": "own", "name": "Reasoning-Termination-Fix Q6_K", "metrics": {}, "size": "c9", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["MATH only [L393-395]"]},
+  {"role": "own", "name": "Reasoning-Termination-Fix Q8_0", "metrics": {}, "size": "c10", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["MATH only [L393-395]"]}
+ ],
+ "prose": [
+  {"entry": "Reasoning-Termination-Fix Q4_K_M", "key": "bench:MATH500_correct_of_200", "L": 23, "raw": "169"},
+  {"entry": "stock (same Q4_K_M file)", "key": "bench:MATH500_correct_of_200", "L": 23, "raw": "150"},
+  {"entry": "stock + --reasoning-budget 3072", "key": "bench:MATH500_correct_of_200", "L": 48, "raw": "166"}
+ ]}

@@ -1,0 +1,11 @@
+{"repo":"dealignai/Qwen3.8-27B-JANG_2D-CRACK",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"base model at the same profile, identical harness","dataset":"MMLU 57-subject logit mode; HarmBench harm-240 thinking-off with strict code/chemistry-aware classifier","ctx":"not stated","tool":"MLX runtime","L":[79,80,112,113,114]},
+"entries":[
+{"role":"own","name":"JANG_2D CRACK","metrics":{"bench:MMLU base":"c5","bench:MMLU CRACK":"c6","bench:MMLU delta_pp":"c7","bench:HarmBench-240 compliance":"c8"},"size":"c4","unit":"GB","basis":"disk","bpw":null,"flags":["CRACK is abliteration plus ~2-bit quantization; MMLU delta mixes both effects [L72-73, L87]","Same values appear in the Results table (c1, c2) [L84]"]},
+{"role":"ladder","name":"JANG_4D CRACK","metrics":{"bench:MMLU base":"c10","bench:MMLU CRACK":"c11","bench:MMLU delta_pp":"c12","bench:HarmBench-240 compliance":"c13"},"size":"c9","unit":"GB","basis":"disk","bpw":null,"flags":["[L119]"]},
+{"role":"ladder","name":"JANG_6D CRACK","metrics":{"bench:MMLU base":"c15","bench:MMLU CRACK":"c16","bench:MMLU delta_pp":"c17","bench:HarmBench-240 compliance":"c18"},"size":"c14","unit":"GB","basis":"disk","bpw":null,"flags":["[L120]"]},
+{"role":"ladder","name":"MXFP8 CRACK","metrics":{"bench:MMLU base":"c20","bench:MMLU delta_pp":"c21","bench:HarmBench-240 compliance":"c22"},"size":"c19","unit":"GB","basis":"disk","bpw":null,"flags":["No separate CRACK MMLU cell; reference 8-bit [L121, L125]"]}
+],
+"prose":[]}

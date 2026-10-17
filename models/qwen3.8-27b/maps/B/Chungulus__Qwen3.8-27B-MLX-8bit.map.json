@@ -1,0 +1,11 @@
+{"repo": "Chungulus/Qwen3.8-27B-MLX-8bit",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "not stated (semantic-similarity proxy against an unnamed reference)", "dataset": "short validation prompts, longest 73 prompt tokens", "ctx": "73 prompt tokens longest", "tool": "mlx-vlm 0.6.1, mlx 0.31.2, mlx-lm 0.31.3", "L": [37, 55, 56, 105]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B MLX-8bit", "metrics": {}, "size": "c1", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["artifact size 30.393 GB decimal [L38]", "mean_semantic_similarity is a proxy, not ground-truth accuracy [L55]; reference not shown in the digest", "peak_memory_gb 33.26 is runtime memory [L109]"]}
+ ],
+ "prose": [
+  {"entry": "Qwen3.8-27B MLX-8bit", "key": "bench:SemanticSimilarity", "L": 105, "raw": "0.981384402513504"}
+ ]
+}

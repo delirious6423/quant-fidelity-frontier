@@ -1,0 +1,11 @@
+{"repo":"rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"none for main table; bf16 included in subset comparison","dataset":"MMLU-Pro n=500, GSM8K n=150, HumanEval+ n=40, MMBench-EN n=300; identical subset (200 questions / 60 problems / 150 images) for bf16 comparison","ctx":"not stated","tool":"identical harness, greedy decoding","L":[101,103,118]},
+"entries":[
+{"role":"own","name":"mixed 3.5bpw","metrics":{"bench:MMLU-Pro":"c2","bench:GSM8K":"c5","bench:HumanEval+":"c8","bench:MMBench-EN":"c10"},"size":"c36","unit":"GB","basis":"disk","bpw":"c44","flags":["main eval table n=500/150/40/300 [L103-108]","approximate disk size (~13 GB) [L153]"]},
+{"role":"ladder","name":"4-bit","metrics":{"bench:MMLU-Pro":"c1","bench:GSM8K":"c4","bench:HumanEval+":"c7","bench:MMBench-EN":"c9"},"size":"c32","unit":"GB","basis":"disk","bpw":null,"flags":["standard 4-bit build by same publisher [L103]"]},
+{"role":"ladder","name":"uniform 3-bit","metrics":{"bench:MMLU-Pro":"c3","bench:GSM8K":"c6","bench:MMBench-EN":"c11"},"size":"c40","unit":"GB","basis":"disk","bpw":null,"flags":["no HumanEval+ value in table [L107]"]},
+{"role":"ladder","name":"bf16 (subset)","metrics":{"bench:MMLU-Pro (n=200)":"c12","bench:GSM8K (n=60)":"c15","bench:MMBench-EN (n=150)":"c18"},"size":"c28","unit":"GB","basis":"disk","bpw":null,"flags":["identical-subset comparison, 95% CI about +-7 points at n=200 [L118-121]"]},
+{"role":"ladder","name":"4-bit (subset)","metrics":{"bench:MMLU-Pro (n=200)":"c13","bench:GSM8K (n=60)":"c16","bench:MMBench-EN (n=150)":"c19"},"size":"c32","unit":"GB","basis":"disk","bpw":null,"flags":["identical-subset comparison [L123-127]"]},
+{"role":"own","name":"mixed 3.5bpw (subset)","metrics":{"bench:MMLU-Pro (n=200)":"c14","bench:GSM8K (n=60)":"c17","bench:MMBench-EN (n=150)":"c20"},"size":"c36","unit":"GB","basis":"disk","bpw":"c44","flags":["identical-subset comparison [L123-127]"]}
+],
+"prose":[]}

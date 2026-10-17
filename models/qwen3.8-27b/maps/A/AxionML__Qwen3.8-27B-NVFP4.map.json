@@ -1,0 +1,9 @@
+{"repo":"AxionML/Qwen3.8-27B-NVFP4",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"not stated","dataset":"calibration abisee/cnn_dailymail train, 1,024 samples; eval GSM8K full 1,319 split and Terminal-Bench 2.1 84-task subset","ctx":"calibration seq length 512","tool":"NVIDIA Model Optimizer commit 87c9f8cf; SGLang TP4 for evals","L":[44,45,47,53,54]},
+"entries":[
+{"role":"quoted","name":"NVFP4 (mixed NVFP4/FP8)","of":"AxionML/Qwen3.8-27B-NVFP4 (scores reported by RadixArk, not named repo of their own)","metrics":{"bench:GSM8K":"c3","bench:Terminal-Bench 2.1":"c4"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Scores reported by RadixArk on 4x B300/GB300, SGLang TP4, temperature 1.0 [L47]","GSM8K thinking mode, text-only; Terminal-Bench is an 84-task subset pass@1 [L44-45]","No BF16 comparison scores on card"]},
+{"role":"own","name":"AxionML Qwen3.8-27B-NVFP4 checkpoint","metrics":{},"size":"c2","unit":"GB","basis":"disk","bpw":null,"flags":["Checkpoint size from model summary [L38]"]}
+],
+"prose":[]}

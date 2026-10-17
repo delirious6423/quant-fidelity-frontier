@@ -1,0 +1,6 @@
+{"repo":"Steven10429/Qwen3.8-27B-UD-IQ4_XS-MLX","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"direct bf16 to 4-bit MLX conversion (lmstudio-community)","dataset":"wikitext-2","ctx":"16 windows x 2048 tokens","tool":"not stated","L":[33,113]},
+"entries":[
+{"role":"own","name":"this repo (UD-IQ4_XS to MLX)","metrics":{"ppl:wikitext2":"c2"},"size":null,"unit":"GB","basis":"disk","bpw":null,"flags":["size on disk 16.45 GB is in the row label of [L32], no candidate id","re-quantization of a quantized model [L113]"]},
+{"role":"cross","name":"lmstudio-community/Qwen3.8-27B-MLX-4bit","of":"lmstudio-community/Qwen3.8-27B-MLX-4bit","metrics":{"ppl:wikitext2":"c3"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["made from bf16 [L28]"]}
+],"prose":[]}

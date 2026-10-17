@@ -1,0 +1,19 @@
+{"repo": "avlp12/Qwen3.8-27B-Alis-MLX-6bit",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "bf16 Qwen3.8-27B", "dataset": "PPL: wikitext-2 test (35,981 tok), Korean Wikipedia (35,179 tok), CPython stdlib code (32,295 tok); exact KL: about 100K en+ko+code tokens", "ctx": "ctx 2048, stride 512 for PPL; non-overlapping ctx-2048 windows for exact KL", "tool": "strided perplexity; exact full-vocab (248,320-way) fp32 KL, paired blockwise SE", "L": [33, 289, 314]},
+ "entries": [
+  {"role": "own", "name": "6-bit (this repo)", "metrics": {"ppl:en": "c16.0", "ppl:ko": "c16.1", "ppl:code": "c16.2", "mean_kld": "c158.0", "top1_pct": "c158.2", "top1:wikitext2_ctx1024": "c164.1"}, "size": "c12", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["PPL measured on pre-graded weights; KL measured on graded build [L308-310,L316]", "6.501 bits per weight in prose [L250]", "ctx-1024 KL 0.00311 given via prose entry [L319]"]},
+  {"role": "ladder", "name": "bf16 reference", "metrics": {"ppl:en": "c5.0", "ppl:ko": "c5.1", "ppl:code": "c5.2"}, "size": "c1", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "ladder", "name": "8-bit", "metrics": {"ppl:en": "c11.0", "ppl:ko": "c11.1", "ppl:code": "c11.2"}, "size": "c7", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["exact KL 0.00105 in prose [L316]"]},
+  {"role": "ladder", "name": "4-bit AWQ", "metrics": {"ppl:en": "c21.0", "ppl:ko": "c21.1", "ppl:code": "c21.2"}, "size": "c17", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["exact KL 0.0592 in prose [L316]"]},
+  {"role": "cross", "name": "mlx-community 6-bit", "of": "not named on card", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["re-measured by card author over 35 windows, WikiText-2 ctx 1024 [L319-322]", "publisher's own reported KL 0.00216 for that build is single-window [L321]"]}
+ ],
+ "prose": [
+  {"entry": "6-bit (this repo)", "key": "bpw", "L": 250, "raw": "6.501"},
+  {"entry": "6-bit (this repo)", "key": "kld:wikitext2_ctx1024", "L": 319, "raw": "0.00311"},
+  {"entry": "8-bit", "key": "mean_kld", "L": 316, "raw": "0.00105"},
+  {"entry": "4-bit AWQ", "key": "mean_kld", "L": 316, "raw": "0.0592"},
+  {"entry": "mlx-community 6-bit", "key": "kld:wikitext2_ctx1024", "L": 320, "raw": "0.00322"},
+  {"entry": "mlx-community 6-bit", "key": "top1:wikitext2_ctx1024", "L": 320, "raw": "97.33"}
+ ]}

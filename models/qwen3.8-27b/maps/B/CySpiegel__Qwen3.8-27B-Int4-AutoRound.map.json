@@ -1,0 +1,7 @@
+{"repo":"CySpiegel/Qwen3.8-27B-Int4-AutoRound","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"FP8 online per-tensor W8A16 baseline of the same base model","dataset":"HumanEval (n=164), HumanEval+, GSM8K 5-shot raw-completions harness","ctx":"not stated","tool":"vLLM, identical harness, greedy decoding, thinking disabled","L":[37,39,40,48,49]},
+"entries":[
+{"role":"own","name":"Int4 AutoRound (bits=4, group_size=128)","of":"","metrics":{"bench:HumanEval":"c2","bench:HumanEval+":"c4","bench:GSM8K-5shot":"c6"},"size":"c9","unit":"GB","basis":"disk","bpw":null,"flags":["GSM8K absolutes are low on both sides due to the raw-completions harness (about half of responses unparseable) [L49-50]","coding performance statistically indistinguishable from FP8 (n=164, ±2.3 pts) [L48]"]},
+{"role":"ladder","name":"FP8 (online per-tensor W8A16)","of":"not named on card","metrics":{"bench:HumanEval":"c1","bench:HumanEval+":"c3","bench:GSM8K-5shot":"c5"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["baseline served via vLLM online quantization [L44-46]"]}
+],
+"prose":[]}

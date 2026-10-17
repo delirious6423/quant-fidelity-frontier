@@ -1,0 +1,6 @@
+{"repo":"Chungulus/Qwen3.8-27B-MLX-4bit-Group32","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 fixed logits","dataset":"fixed original text, 106 positions (not a public benchmark)","ctx":"longest validation prompt 73 tokens","tool":"mlx-vlm 0.6.1","L":[56,122,131]},
+"entries":[
+{"role":"own","name":"MLX affine 4-bit group size 32","metrics":{"ppl":"c9","top1_pct":"c11.1"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["top1 value is a fraction (0.943), not percent [L128]","reference BF16 perplexity 9.847 [L125]; perplexity delta 0.198 [L127]","very small sample: 106 positions [L122]"]}
+],
+"prose":[{"entry":"MLX affine 4-bit group size 32","key":"mean_kld","L":124,"raw":"0.01875024640335227"}]}

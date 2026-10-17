@@ -1,0 +1,6 @@
+{"repo":"CorVous/Qwen3.8-27B-heretic-ara-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"base model","dataset":"not stated for KL; refusal count out of 100 prompts","ctx":"not stated","tool":"Heretic ARA Optuna search (~85 trials)","L":[18,45]},
+"entries":[
+{"role":"own","name":"heretic-ara best trial (weights behind the GGUF files)","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["KL 0.0454 vs base is in prose; 4/100 refusals vs base 92/100 [L18]","Quality checks (GSM8K 92.0% vs base quant 90.5%, probes 5/5) ran on the GPTQ Int4 export of the same weights, not on these GGUF files, so omitted [L45]","GGUF sizes in separate table: Q4_K_M 16.5 GB, Q8_0 28.6 GB [L24-25]"]}
+],
+"prose":[{"entry":"heretic-ara best trial (weights behind the GGUF files)","key":"mean_kld","L":18,"raw":"0.0454"}]}

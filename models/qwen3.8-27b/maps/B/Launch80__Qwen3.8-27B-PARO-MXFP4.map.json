@@ -1,0 +1,12 @@
+{"repo":"Launch80/Qwen3.8-27B-PARO-MXFP4",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"none; peer checkpoints compared on the same stack","dataset":"GSM8K 500 questions, greedy, served path","ctx":"not stated","tool":"2 x R9700, TP=2, fp8 KV, DFlash2-FP8 drafter, SPEC=7; perplexity explicitly not the gate","L":[55,59,66,67]},
+"entries":[
+{"role":"own","name":"this checkpoint (ParoQuant MXFP4)","metrics":{"bench:GSM8K 500q low":"c2.0","bench:GSM8K 500q high":"c2.1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Result given as a range across runs [L59]","About 4.25 bits/weight, same as int4 g128 [L66]"]},
+{"role":"cross","name":"int4 ParoQuant (z-lab)","of":"not named on card","metrics":{"bench:GSM8K 500q low":"c1.0","bench:GSM8K 500q high":"c1.1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Range across runs [L59]"]},
+{"role":"cross","name":"AMD MXFP4 (Quark)","of":"not named on card","metrics":{"bench:GSM8K 500q":"c3"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L59]"]}
+],
+"prose":[
+{"entry":"this checkpoint (ParoQuant MXFP4)","key":"bpw","L":66,"raw":"4.25 bits/weight"}
+]}

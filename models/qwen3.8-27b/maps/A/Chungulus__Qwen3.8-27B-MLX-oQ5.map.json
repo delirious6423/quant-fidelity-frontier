@@ -1,0 +1,58 @@
+{
+ "repo": "Chungulus/Qwen3.8-27B-MLX-oQ5",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "BF16 fixed-logit comparison",
+  "dataset": "fixed original text, 106 positions (not a public benchmark)",
+  "ctx": "short; longest validation prompt 73 tokens",
+  "tool": "oMLX / MLX-VLM logit scorer",
+  "L": [
+   160,
+   170,
+   56
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "MLX-oQ5",
+   "metrics": {
+    "ppl": "c9",
+    "top1_pct": "c11.1"
+   },
+   "size": "c1",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "top1_token_agreement printed as fraction 0.981..., not percent [L167]",
+    "perplexity_delta -0.0966 (c10) is absolute not percent, omitted [L166]",
+    "bpw stated only as 'mixed around 5.5 bpw' [L28]; size is decimal GB [L38]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "BF16 reference",
+   "of": "not named on card",
+   "metrics": {
+    "ppl": "c8"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "reference perplexity on the same 106 positions [L164]"
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "MLX-oQ5",
+   "key": "mean_kld",
+   "L": 163,
+   "raw": "0.00603105514398161"
+  }
+ ]
+}

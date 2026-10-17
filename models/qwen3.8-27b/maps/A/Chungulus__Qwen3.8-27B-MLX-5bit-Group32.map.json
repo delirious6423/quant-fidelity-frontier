@@ -1,0 +1,7 @@
+{"repo":"Chungulus/Qwen3.8-27B-MLX-5bit-Group32","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 fixed-logit comparison","dataset":"fixed original text, 106 positions; not a public benchmark","ctx":"longest validation prompt 73 prompt tokens","tool":"mlx-vlm 0.6.1; MLX affine 5-bit group size 32, no calibration; BF16 log-probs stored in float16 after float32 log-softmax","L":[28,56,121,131,132]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B MLX-5bit-Group32","metrics":{"ppl":"c9","top1_pct":"c11.1"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["top1_token_agreement is a fraction (0.9528...) not a percent [L128]","perplexity_delta 0.0367 absolute, not percent [L127]","Size is decimal GB artifact size [L38]"]},
+{"role":"ladder","name":"BF16 reference","metrics":{"ppl":"c8"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["reference_perplexity [L125]"]}
+],
+"prose":[{"entry":"Qwen3.8-27B MLX-5bit-Group32","key":"mean_kld","L":124,"raw":"0.004990289304054009"}]}

@@ -1,0 +1,8 @@
+{"repo":"xv0y5ncu/Qwen3.8-27B-GLQ-trellis-3inst-3bpw",
+"no_quality_claims":true,
+"no_claims_reason":"only avg weight SQNR 16.14 dB [L22] and a vLLM weight-size row [L127]; benchmark tables [L192-356] are the upstream Qwen3.8-27B model card, not this quant",
+"method":{"reference":"not stated","dataset":"WikiText-2 (calibration only)","ctx":"128 samples x 2048 tokens (calibration)","tool":"not stated","L":[22,23]},
+"entries":[
+{"role":"own","name":"GLQ 3bpw","metrics":{},"size":"c38","unit":"GiB","basis":"vram","bpw":null,"flags":["size cell also lists bf16 50.22 and 4bpw 16.68 GiB; weights loaded in vLLM, text-only [L127]","3.0 bpw uniform stated in prose [L21]","avg weight SQNR 16.14 dB over 400 layers [L22], no matching metric key"]}
+],
+"prose":[]}

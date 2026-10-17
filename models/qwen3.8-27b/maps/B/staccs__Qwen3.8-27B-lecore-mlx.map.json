@@ -1,0 +1,7 @@
+{"repo":"staccs/Qwen3.8-27B-lecore-mlx","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 reference","dataset":"WikiText-2 test (32704 tok), Python-source slice (8176 tok); MMLU 5-shot first 10 questions of each of 57 subjects; GSM8K 5-shot first 100 problems","ctx":"seq 512","tool":"MLX tensors dequantized with mx.dequantize and run in bf16; lm-eval-harness 0.4.9","L":[23,24,27,33,34]},
+"entries":[
+{"role":"own","name":"this repo (leCore Unicron mix)","metrics":{"ppl:wikitext2":"c6","ppl:python":"c7","bench:MMLU 5-shot":"c12","bench:GSM8K strict":"c13","bench:GSM8K flexible":"c14"},"size":"c4","unit":"GB","basis":"text_weights","bpw":"c5","flags":["card notes export is in practice uniform 4-bit group 64 [L20]","MMLU/GSM8K are subsets, +/-2-4 pt noise [L34]"]},
+{"role":"ladder","name":"bf16 reference","metrics":{"ppl:wikitext2":"c2","ppl:python":"c3"},"size":null,"unit":null,"basis":null,"bpw":"c1","flags":["[L29]"]},
+{"role":"ladder","name":"stock MLX 3-bit, group 64","metrics":{"ppl:wikitext2":"c10","ppl:python":"c11","bench:MMLU 5-shot":"c15","bench:GSM8K strict":"c16","bench:GSM8K flexible":"c17"},"size":"c8","unit":"GB","basis":"text_weights","bpw":"c9","flags":["benchmark row labelled simulated [L39]","card says fair baseline is stock 4-bit, not 3-bit [L20]"]}
+],"prose":[]}

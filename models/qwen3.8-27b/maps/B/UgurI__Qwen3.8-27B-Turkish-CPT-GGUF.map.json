@@ -1,0 +1,9 @@
+{"repo": "UgurI/Qwen3.8-27B-Turkish-CPT-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "Base Model (Qwen3.8-27B); quantization precision of the base column not stated", "dataset": "Turkish validation/test perplexity, TurkishMMLU 90-question stratified, Belebele TR/EN", "ctx": "not stated", "tool": "not stated", "L": [36, 38, 39, 40, 41, 42]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B-Turkish-CPT-Q4_K_M.gguf", "metrics": {"ppl:turkish_validation": "c5", "ppl:turkish_test": "c8", "bench:TurkishMMLU": "c11", "bench:Belebele_TR": "c14", "bench:Belebele_EN": "c17"}, "size": "c2", "unit": "GB", "basis": "disk", "bpw": "c19.1", "flags": ["continued-pretraining fine-tune compared against the base model, not a quant-fidelity comparison [L19,L36]"]},
+  {"role": "ladder", "name": "Base Model (Qwen3.8-27B)", "metrics": {"ppl:turkish_validation": "c4", "ppl:turkish_test": "c7", "bench:TurkishMMLU": "c10", "bench:Belebele_TR": "c13", "bench:Belebele_EN": "c16"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": []}
+ ],
+ "prose": []}

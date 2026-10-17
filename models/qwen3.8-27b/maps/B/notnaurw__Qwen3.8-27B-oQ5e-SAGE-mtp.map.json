@@ -1,0 +1,92 @@
+{
+ "repo": "notnaurw/Qwen3.8-27B-oQ5e-SAGE-mtp",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "bf16 source checkpoint (common reference cache)",
+  "dataset": "32 held-out batches, 130,944 tokens, text-only; full-vocab audit 64 x 1024 tokens",
+  "ctx": "1024-token batches",
+  "tool": "head-KL = KL(bf16 || quantized) over bf16 top-1024 logits renormalised; plus full-vocabulary audit",
+  "L": [
+   144,
+   146,
+   200,
+   217
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "oQ5e SAGE (shipped build, MTP head bf16)",
+   "metrics": {
+    "kld:head_top1024": "c39.0",
+    "top1_pct": "c39.2"
+   },
+   "size": "c1",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c7.1",
+   "flags": [
+    "top-1 printed as fraction (0.9523) [L264]; size 21.13 GB = 19.68 GiB [L77]; per-rung table at L108-170 is HTML with no candidates"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "stock 6-bit build of this source (oMLX)",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "+2.87 GiB over shipped [L262]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "uniform affine 8-bit reference",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "+8.68 GiB over shipped [L262]"
+   ],
+   "of": "not named on card"
+  }
+ ],
+ "prose": [
+  {
+   "entry": "oQ5e SAGE (shipped build, MTP head bf16)",
+   "key": "bench:delta_CE_nats",
+   "L": 196,
+   "raw": "+0.00203"
+  },
+  {
+   "entry": "oQ5e SAGE (shipped build, MTP head bf16)",
+   "key": "kld:full_vocab_audit",
+   "L": 255,
+   "raw": "0.011516"
+  },
+  {
+   "entry": "oQ5e SAGE (shipped build, MTP head bf16)",
+   "key": "kld:head_audit",
+   "L": 255,
+   "raw": "0.011191"
+  },
+  {
+   "entry": "stock 6-bit build of this source (oMLX)",
+   "key": "kld:head_top1024",
+   "L": 262,
+   "raw": "0.00593"
+  },
+  {
+   "entry": "uniform affine 8-bit reference",
+   "key": "kld:head_top1024",
+   "L": 262,
+   "raw": "0.00306"
+  }
+ ]
+}

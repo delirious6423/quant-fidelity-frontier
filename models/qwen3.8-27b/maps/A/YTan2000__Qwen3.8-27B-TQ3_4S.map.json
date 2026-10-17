@@ -1,0 +1,8 @@
+{"repo":"YTan2000/Qwen3.8-27B-TQ3_4S","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"none (absolute task scores; no bf16 comparison)","dataset":"Hard86 (20 tasks/86 checks), HumanEval/HumanEval+/MBPP/MBPP+ (official scorer pass@1), custom coding/reason-math/tool-call/data-extract/instruction-follow suites","ctx":"not stated","tool":"llama.cpp, draft-MTP --spec-draft-n-max 2, reasoning off; evalplus under budget-256","L":[125,127,167]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-TQ3_4S-v2.gguf (recommended)","metrics":{"bench:Hard86":"c13","bench:HumanEval":"c15","bench:HumanEval+":"c17","bench:MBPP":"c19","bench:MBPP+":"c21","bench:CodingSuite":"c23","bench:ReasonMathSuite":"c24","bench:ToolCallSuite":"c25","bench:DataExtractSuite":"c27","bench:InstructionFollowSuite":"c28"},"size":"c5","unit":"GB","basis":"disk","bpw":"c6","flags":["first-pass battery; reasoning-off [L167]","tool-call 86.7 uses v2 template; v1 81.7 in prose [L52]"]},
+{"role":"own","name":"Qwen3.8-27B-TQ3_4S.gguf (v1)","metrics":{},"size":"c1","unit":"GB","basis":"disk","bpw":"c2","flags":["same weights as v2, only template differs [L52]"]},
+{"role":"ladder","name":"Qwen3.6-27B-MTP-TQ3_4S (published card)","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["different model (Qwen3.6); scores c31-c41 omitted, quoted from its card [L155-165]"]}
+],
+"prose":[]}

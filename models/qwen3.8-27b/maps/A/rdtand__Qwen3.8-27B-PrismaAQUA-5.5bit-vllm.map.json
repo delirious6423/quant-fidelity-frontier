@@ -1,0 +1,12 @@
+{"repo": "rdtand/Qwen3.8-27B-PrismaAQUA-5.5bit-vllm",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "BF16 source (teacher), top-1024 logprobs plus a lumped residual bucket", "dataset": "WikiText test (calibration windows from WikiText train), 8 x 512 = 4088 positions", "ctx": "512 tokens", "tool": "not stated by name (pipeline tool with shipcard.json)", "L": [45, 55, 56, 57, 60]},
+ "entries": [
+  {"role": "own", "name": "PrismaQuant AQUA-AURA 5.5 bpp", "metrics": {"kld:all_positions": "c1", "kld:confident_positions": "c2", "kld_99": "c4.0"}, "size": "c8", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["max KL 1.3292 (c4.1) not mapped", "KL is truncated to teacher top-1024 plus lumped bucket, coverage mean 0.988 min 0.573 [L56-57]", "5.5002 bits per parameter excludes BF16 lm_head and embed_tokens [L32,L198]", "no downstream task suite run by the pipeline [L209]"]},
+  {"role": "quoted", "name": "PrismaQuant AQUA-AURA 5.5 bpp (community ToolEvalBench)", "of": "not named on card", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["user-reported tool-eval-bench v2.5.1 score under vLLM 0.27.2rc1 [L212-214]"]}
+ ],
+ "prose": [
+  {"entry": "PrismaQuant AQUA-AURA 5.5 bpp", "key": "bpw", "L": 32, "raw": "5.5002"},
+  {"entry": "PrismaQuant AQUA-AURA 5.5 bpp (community ToolEvalBench)", "key": "bench:tool-eval-bench", "L": 213, "raw": "93/100"}
+ ]}

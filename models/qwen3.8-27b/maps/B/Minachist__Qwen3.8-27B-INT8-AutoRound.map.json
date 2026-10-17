@@ -1,0 +1,12 @@
+{"repo":"Minachist/Qwen3.8-27B-INT8-AutoRound",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"Qwen/Qwen3.8-27B BF16 teacher (revision 1d4bf0f2), HF path, use_cache=False","dataset":"WikiText-2 raw test, 240 sequences x 512 tokens = 122,640 scored positions","ctx":"512","tool":"KL(P_teacher || Q_candidate) over full 248,320 vocab in nats, FP32 log_softmax, one shared reference pass","L":[71,87,104,105,106,107]},
+"entries":[
+{"role":"own","name":"main (per-channel)","metrics":{"mean_kld":"c9","kld_99":"c17.2","top1_pct":"c25","ppl":"c29.1"},"size":"c1","unit":"GiB","basis":"disk","bpw":null,"flags":["PPL cell is base 7.9112 to quantized; quantized value mapped, base is c29.0 [L84]","ln(PPL ratio) c33 not mapped [L85]","KLD not comparable to other cards [L73-75]"]},
+{"role":"own","name":"linear-attn-bf16 (per-channel)","metrics":{"mean_kld":"c10","kld_99":"c18.2","top1_pct":"c26","ppl":"c30.1"},"size":"c2","unit":"GiB","basis":"disk","bpw":null,"flags":["ln(PPL ratio) c34 [L85]"]},
+{"role":"own","name":"main-gs128","metrics":{"mean_kld":"c11","kld_99":"c19.2","top1_pct":"c27","ppl":"c31.1"},"size":"c3","unit":"GiB","basis":"disk","bpw":null,"flags":["ln(PPL ratio) c35 [L85]"]},
+{"role":"own","name":"linear-attn-bf16-gs128","metrics":{"mean_kld":"c12","kld_99":"c20.2","top1_pct":"c28","ppl":"c32.1"},"size":"c4","unit":"GiB","basis":"disk","bpw":null,"flags":["ln(PPL ratio) c36 [L85]"]},
+{"role":"cross","name":"BF16 base","of":"Qwen/Qwen3.8-27B","metrics":{"ppl":"c29.0"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["base PPL from the PPL (Base to Quantized) row [L84,L104]"]}
+],
+"prose":[]}

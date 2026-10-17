@@ -1,0 +1,65 @@
+{
+ "repo": "Launch80/Qwen3.8-27B-PARO-MXFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "none (task accuracy compared across int4 ParoQuant, this checkpoint, AMD MXFP4)",
+  "dataset": "GSM8K 500 questions, greedy, served path",
+  "ctx": "not stated",
+  "tool": "2 x R9700, TP=2, fp8 KV, DFlash2-FP8 drafter; perplexity explicitly not used [L66]",
+  "L": [
+   55,
+   59,
+   66
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "this checkpoint (PARO-MXFP4)",
+   "metrics": {
+    "bench:GSM8K_500_low": "c2.0",
+    "bench:GSM8K_500_high": "c2.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "GSM8K printed as range 97.4-97.6% [L59]; 4.25 bits/weight stated in prose [L66]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "int4 ParoQuant (z-lab)",
+   "of": "not named on card",
+   "metrics": {
+    "bench:GSM8K_500_low": "c1.0",
+    "bench:GSM8K_500_high": "c1.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "range 97.4-98.0%; c1.1 candidate text shows -98.0 (range upper bound) [L59]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "AMD MXFP4 (Quark)",
+   "of": "not named on card",
+   "metrics": {
+    "bench:GSM8K_500": "c3"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L59]"
+   ]
+  }
+ ],
+ "prose": []
+}

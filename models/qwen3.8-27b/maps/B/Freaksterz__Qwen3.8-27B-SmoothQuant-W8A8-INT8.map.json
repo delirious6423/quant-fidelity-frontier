@@ -1,0 +1,10 @@
+{"repo":"Freaksterz/Qwen3.8-27B-SmoothQuant-W8A8-INT8","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 reference captured offline (transformers); candidates served through vLLM","dataset":"WikiText-2, 240 x 512-token windows = 122,640 positions","ctx":"512-token windows","tool":"teacher-forced full-vocab KLD, top-K 512 with tail bound; 'floor-free' paired estimator (eval/kld-fullvocab.py, kld-paired-floorfree.py)","L":[21,22,23,24,115]},
+"entries":[
+{"role":"own","name":"this, v3 W8A8 (main)","metrics":{"mean_kld":"c6","kld:floor-free":"c7","top1_pct":"c8","bench:DFlash2 acceptance length":"c10"},"size":"c50","unit":"GB","basis":"disk","bpw":null,"flags":["29 GB on disk from prose [L103]","PPL delta-ln column not mapped [L29]","[L29]"]},
+{"role":"ladder","name":"this, v2-rotated W8A8","metrics":{"mean_kld":"c14","kld:floor-free":"c15","top1_pct":"c16","bench:DFlash2 acceptance length":"c18"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["earlier revision; breaks DFlash2 [L15]","[L31]"]},
+{"role":"ladder","name":"this, v1-smoothquant-rtn W8A8","metrics":{"mean_kld":"c19","top1_pct":"c20","bench:DFlash2 acceptance length":"c21"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["earlier revision [L32]"]},
+{"role":"cross","name":"Qwen official FP8 (block-128)","of":"Qwen/Qwen3.8-27B-FP8","metrics":{"mean_kld":"c11","kld:floor-free":"c12","top1_pct":"c13"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L30]"]},
+{"role":"cross","name":"Minachist W8A16 AutoRound gs128 (weight-only)","of":"not named on card","metrics":{"mean_kld":"c1","kld:floor-free":"c2","top1_pct":"c3","bench:DFlash2 acceptance length":"c5"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L28]"]},
+{"role":"cross","name":"lokeshe09 INT8 W8A8 (264 modules)","of":"not named on card","metrics":{"mean_kld":"c22","top1_pct":"c23"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L33]"]}
+],"prose":[]}

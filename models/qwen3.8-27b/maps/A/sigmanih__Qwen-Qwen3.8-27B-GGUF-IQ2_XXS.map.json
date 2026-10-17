@@ -1,0 +1,6 @@
+{"repo":"sigmanih/Qwen-Qwen3.8-27B-GGUF-IQ2_XXS","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"absolute benchmark accuracy, no bf16 reference","dataset":"small slices of ARC-Challenge, BBH, GPQA, GSM8K, HellaSwag, HumanEval, MATH, MBPP, MMLU, MMLU-Pro, TruthfulQA (100 questions total)","ctx":"not stated","tool":"Sigma Studio Training Lab (code_execution, continuation_logprob, cot_generation, letter_logprob; temp 0.0, seed 42)","L":[52,98,100]},
+"entries":[
+{"role":"own","name":"IQ2_XXS","metrics":{"bench:ARC-Challenge":"c14","bench:BIG-Bench Hard":"c16","bench:GPQA":"c18","bench:GSM8K":"c20","bench:HellaSwag":"c22","bench:HumanEval":"c24","bench:MATH":"c26","bench:MBPP":"c28","bench:MMLU":"c30","bench:MMLU-Pro":"c32","bench:TruthfulQA":"c34","bench:Overall":"c36"},"size":"c4","unit":"GB","basis":"disk","bpw":null,"flags":["measured on a slice of each dataset, not full suite; not comparable with full-suite runs [L100]","per-dataset n is 7-14 questions [L85-96]","no-thinking 80.7% (c8) vs thinking 67.4% (c10) [L78-79]","tool protocol 75.0% adherence, autonomous completion 0.0% [L107-108]"]}
+],
+"prose":[]}

@@ -1,0 +1,14 @@
+{"repo":"Pilcothink/Qwen3.8-27B-MixedInt2-ultra-lite","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"Qwen/Qwen3.8-27B","dataset":"MMLU, GSM8K (ARC-Challenge row empty)","ctx":"not stated","tool":"AutoRound evaluation interface with LM Evaluation Harness","L":[56,60,62,63,85]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-MixedInt2-ultra-lite","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["ARC-Challenge row has no values [L64]"]},
+{"role":"cross","name":"Qwen3.8-27B (reference)","of":"Qwen/Qwen3.8-27B","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":[]}
+],
+"prose":[
+{"entry":"Qwen3.8-27B-MixedInt2-ultra-lite","key":"bench:MMLU","L":62,"raw":"78.30%"},
+{"entry":"Qwen3.8-27B-MixedInt2-ultra-lite","key":"bench:GSM8K-flexible","L":63,"raw":"43.29%"},
+{"entry":"Qwen3.8-27B-MixedInt2-ultra-lite","key":"bench:GSM8K-strict","L":85,"raw":"35.33%"},
+{"entry":"Qwen3.8-27B (reference)","key":"bench:MMLU","L":62,"raw":"83.49%"},
+{"entry":"Qwen3.8-27B (reference)","key":"bench:GSM8K-flexible","L":63,"raw":"72.86%"},
+{"entry":"Qwen3.8-27B (reference)","key":"bench:GSM8K-strict","L":85,"raw":"70.36%"}
+]}

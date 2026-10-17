@@ -1,0 +1,14 @@
+{"repo":"nchapman/Qwen3.8-27B-W4A16-GPTQ","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 base","dataset":"378-conversation held-out probe, 7 domains + 9 languages","ctx":"not stated","tool":"perplexity delta and KL(base||quant); llm-compressor calibration (calib-cascade-v1)","L":[22,34,36,39]},
+"entries":[
+{"role":"own","name":"W4A16 GPTQ (llm-compressor)","metrics":{"ppl_delta_pct":"c3.0"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["PPL delta +1.00% aggregate; -0.52% on out-of-distribution guard set [L36-38]","long-tail KL elevated, p99.9 ~25 (c5) - not p99, omitted [L56]","terminal-agent KL 0.486 highest [L40]"]}
+],
+"prose":[
+{"entry":"W4A16 GPTQ (llm-compressor)","key":"ppl_delta_pct:guard_ood","L":36,"raw":"-0.52%"},
+{"entry":"W4A16 GPTQ (llm-compressor)","key":"kld:chat","L":39,"raw":"0.033"},
+{"entry":"W4A16 GPTQ (llm-compressor)","key":"kld:instruction_following","L":39,"raw":"0.053"},
+{"entry":"W4A16 GPTQ (llm-compressor)","key":"kld:math","L":39,"raw":"0.098"},
+{"entry":"W4A16 GPTQ (llm-compressor)","key":"kld:science","L":39,"raw":"0.097"},
+{"entry":"W4A16 GPTQ (llm-compressor)","key":"kld:multilingual","L":40,"raw":"0.109"},
+{"entry":"W4A16 GPTQ (llm-compressor)","key":"kld:terminal_agent","L":40,"raw":"0.486"}
+]}

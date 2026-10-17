@@ -1,0 +1,11 @@
+{"repo": "Minachist/Qwen3.8-27B-INT6-Mixed-AutoRound",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "BF16 base model", "dataset": "WikiText-2 test, 240 sequences x 512 tokens, 122,640 scored positions", "ctx": "512 tokens", "tool": "KL(P_base || Q_quant) in nats (custom)", "L": [28]},
+ "entries": [
+  {"role": "own", "name": "INT6-Mixed", "metrics": {"mean_kld": "c1", "kld_99": "c9", "top1_pct": "c13", "ppl": "c15"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["bpw 7.30 stated in prose [L20]", "loaded weights 12.19 GiB per GPU under TP2, not a total size [L123]", "median/p90/p95/p99.9/max KL also reported [L36-41]"]},
+  {"role": "ladder", "name": "BF16 base", "metrics": {"mean_kld": "c2", "top1_pct": "c14", "ppl": "c16"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["reference row [L35-43]"]}
+ ],
+ "prose": [
+  {"entry": "INT6-Mixed", "key": "bpw", "L": 20, "raw": "7.30bpw"}
+ ]}

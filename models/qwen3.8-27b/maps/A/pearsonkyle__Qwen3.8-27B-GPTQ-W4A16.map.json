@@ -1,0 +1,9 @@
+{"repo":"pearsonkyle/Qwen3.8-27B-GPTQ-W4A16","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 served identically on vLLM","dataset":"174 held-out tool-calling turns; KLD over 6 distributions (agentic text lowest, general English highest)","ctx":"not stated for eval (calibration at ctx 32,768)","tool":"vLLM","L":[94,98,104,109]},
+"entries":[
+{"role":"own","name":"W4A16 (GPTQ int4 g128 sym)","metrics":{"bench:ToolSelectionAcc":"c2","bench:ParamAcc":"c4","bench:SchemaValidRate":"c6","bench:MalformedToolCalls":"c8","kld:agentic":"c9.0","kld:general_english":"c9.1"},"size":"c11.0","unit":"GiB","basis":"disk","bpw":null,"flags":["KLD values are medians, range 0.0021-0.0205 across 6 distributions; lowest on agentic, highest on general English [L104,L109]","5.2 bpw overall, trunk 4.05 bpw [L60,L127]","vision 3/3 probe [L106]"]},
+{"role":"ladder","name":"bf16 (ref)","metrics":{"bench:ToolSelectionAcc":"c1","bench:ParamAcc":"c3","bench:SchemaValidRate":"c5","bench:MalformedToolCalls":"c7"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["same bf16 scores 0.494 on llama.cpp; not comparable across stacks [L95-96]"]}
+],
+"prose":[
+{"entry":"W4A16 (GPTQ int4 g128 sym)","key":"bpw","L":60,"raw":"5.2 bits per weight overall"}
+]}

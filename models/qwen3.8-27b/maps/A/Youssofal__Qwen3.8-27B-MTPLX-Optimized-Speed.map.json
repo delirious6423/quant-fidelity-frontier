@@ -1,0 +1,10 @@
+{"repo":"Youssofal/Qwen3.8-27B-MTPLX-Optimized-Speed","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 Qwen3.8-27B checkpoint (teacher-forced)","dataset":"2,389 positions of code, prose, JSON and a multilingual notice","ctx":"not stated","tool":"MTPLX 2.11.3","L":[58]},
+"entries":[
+{"role":"own","name":"Optimized Speed (4-bit dynamic)","metrics":{"mean_kld":"c12.1"},"size":"c5","unit":"GB","basis":"disk","bpw":null,"flags":["size is download [L98]","peak unified memory 23.6 GB [L99]","KL 0.0220 on coding battery [L93] is a different measurement"]},
+{"role":"ladder","name":"Optimized Quality (8-bit dynamic)","metrics":{"mean_kld":"c11"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["separate repo Youssofal/Qwen3.8-27B-MTPLX-Optimized-Quality [L130]"]}
+],"prose":[
+{"entry":"Optimized Speed (4-bit dynamic)","key":"top1_pct","L":58,"raw":"96.0 percent top-1 agreement"},
+{"entry":"Optimized Quality (8-bit dynamic)","key":"top1_pct","L":58,"raw":"99.3 percent"},
+{"entry":"Optimized Speed (4-bit dynamic)","key":"kld:code","L":93,"raw":"0.0220"}
+]}

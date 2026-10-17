@@ -1,0 +1,49 @@
+{
+ "repo": "quark75/Qwen3.8-27B-EXL3-3.0bpw",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "original BF16 weights",
+  "dataset": "held-out evaluation set (not named)",
+  "ctx": "not stated",
+  "tool": "not stated",
+  "L": [
+   24,
+   26
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "EXL3 3.0bpw",
+   "metrics": {
+    "mean_kld": "c1",
+    "top1_pct": "c2",
+    "ppl": "c4"
+   },
+   "size": "c6",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c5",
+   "flags": [
+    "~13 GB on disk [L19]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "BF16 original",
+   "of": "Qwen/Qwen3.8-27B",
+   "metrics": {
+    "ppl": "c3"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L30]"
+   ]
+  }
+ ],
+ "prose": []
+}

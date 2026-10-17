@@ -1,0 +1,5 @@
+{"repo":"RedHatAI/Qwen3.8-27B-NVFP4","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 baseline (recovery %)","dataset":"GSM8K Platinum, MATH-500, AIME 2025, GPQA Diamond, IFEval, SWE Bench","ctx":"max_length 69632 for GSM8K Platinum","tool":"lm-evaluation-harness, lighteval, Inspect AI; vLLM on 1x B200; mean over seeds (3 reps, 8 for AIME 2025)","L":[141,145,247]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-NVFP4","metrics":{},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["recovery-vs-BF16 percentages sit in two unlabeled HTML tables [L158-225] with no candidate ids; left unmapped as ambiguous","size ~24.7 GB vs ~54 GB BF16 [L33]"]}
+],"prose":[]}

@@ -1,0 +1,7 @@
+{"repo":"rdtand/Qwen3.8-27B-PrismaAQUA-gridbook-13GB-5080-vllm","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"unquantized BF16 Qwen3.8-27B text checkpoint","dataset":"WikiText-2 PPL (8176 tokens, seqlen 512); KL/top-1 on 4088 served positions","ctx":"seqlen 512 for PPL","tool":"vLLM-served artifact, top-K prompt logprobs (not full 248,320-way KL)","L":[314,318,328,338,356]},
+"entries":[
+{"role":"own","name":"PrismaAQUA gridbook 13GB","metrics":{"mean_kld":"c35","kld:confident":"c33","top1_pct":"c39","top1:confident":"c37","ppl":"c40.0","ppl_delta_pct":"c40.3","kld_99":null},"size":"c1.1","unit":"GB","basis":"disk","bpw":"c14","flags":["KL is top-K served-logprob KL, not full-vocab [L338]","confident = positions where BF16 is confident, 2108 of 4088 [L322]","3.855 bpp over all 498 allocated units; body-only 3.604 [L54-57]","worst single position KL 2.762 [L324]"]},
+{"role":"ladder","name":"BF16 reference","metrics":{"ppl":"c40.1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["BF16 perplexity measured through the same tool [L356]"]}
+],
+"prose":[]}

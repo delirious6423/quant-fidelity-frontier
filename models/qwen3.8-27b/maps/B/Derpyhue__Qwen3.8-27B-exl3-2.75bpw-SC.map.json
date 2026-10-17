@@ -1,0 +1,16 @@
+{"repo": "Derpyhue/Qwen3.8-27B-exl3-2.75bpw-SC",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "BF16 original", "dataset": "not stated", "ctx": "not stated", "tool": "not stated (EXL3 quilter sc_optimize)", "L": [37]},
+ "entries": [
+  {"role": "own", "name": "2.75 H4", "metrics": {"mean_kld": "c31", "ppl": "c34"}, "size": "c30", "unit": "GB", "basis": "disk", "bpw": "c50", "flags": ["perplexity values near 1.37 look like a ratio or differently-based metric; basis unclear [L39-49]", "median and p90 KLD not mapped", "sc_optimize predicted KL 0.0514 is an estimate [L25]"]},
+  {"role": "ladder", "name": "2.65 H4", "metrics": {"mean_kld": "c6", "ppl": "c9"}, "size": "c5", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "ladder", "name": "2.65 H4 -sh", "metrics": {"mean_kld": "c11", "ppl": "c14"}, "size": "c10", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "ladder", "name": "2.67 H4 -sh", "metrics": {"mean_kld": "c16", "ppl": "c19"}, "size": "c15", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "ladder", "name": "2.70 H4", "metrics": {"mean_kld": "c21", "ppl": "c24"}, "size": "c20", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "ladder", "name": "2.70 H4 -sh", "metrics": {"mean_kld": "c26", "ppl": "c29"}, "size": "c25", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "ladder", "name": "2.75 H4 -sh", "metrics": {"mean_kld": "c36", "ppl": "c39"}, "size": "c35", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "ladder", "name": "2.80 H4", "metrics": {"mean_kld": "c41", "ppl": "c44"}, "size": "c40", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "ladder", "name": "2.80 H4 -sh", "metrics": {"mean_kld": "c46", "ppl": "c49"}, "size": "c45", "unit": "GB", "basis": "disk", "bpw": null, "flags": []}
+ ],
+ "prose": []}

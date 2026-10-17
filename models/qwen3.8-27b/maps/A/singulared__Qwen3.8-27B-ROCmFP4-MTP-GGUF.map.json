@@ -1,0 +1,11 @@
+{"repo":"singulared/Qwen3.8-27B-ROCmFP4-MTP-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"mainline llama.cpp Q4_K_M (no BF16 reference)","dataset":"held-out wikitext-2, 145 chunks","ctx":"2048","tool":"llama-perplexity","L":[139,140]},
+"entries":[
+{"role":"own","name":"ROCMFP4-STRIX","metrics":{"ppl":"c48"},"size":"c47","unit":"GiB","basis":"disk","bpw":null,"flags":["PPL +/- 0.0402 [L145]","vs-STRIX delta column not mapped (not a listed key) [L142-147]"]},
+{"role":"own","name":"ROCMFP4-FAST","metrics":{"ppl":"c50"},"size":"c49","unit":"GiB","basis":"disk","bpw":null,"flags":["PPL +/- 0.0404; +0.025 vs STRIX (c51) [L146]","card says FAST is 4.25 bpw [L218]"]},
+{"role":"own","name":"ROCMFP4-COHERENT","metrics":{"ppl":"c53"},"size":"c52","unit":"GiB","basis":"disk","bpw":null,"flags":["PPL +/- 0.0417; +0.129 vs STRIX (c54) [L147]"]},
+{"role":"cross","name":"mainline Q4_K_M (reference)","of":"not named on card","metrics":{"ppl":"c45"},"size":"c44","unit":"GiB","basis":"disk","bpw":null,"flags":["PPL +/- 0.0402; -0.033 vs STRIX (c46) [L144]"]},
+{"role":"quoted","name":"STRIX (40-chunk ppl)","of":"kingjones777/Qwen3.8-27B-ROCmFP4-STRIX-MTP-GGUF","metrics":{"ppl":"c89.0"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["other publisher's 40-chunk run, not comparable to 145-chunk [L229-233]"]},
+{"role":"quoted","name":"FAST (40-chunk ppl)","of":"kingjones777/Qwen3.8-27B-ROCmFP4-STRIX-MTP-GGUF","metrics":{"ppl":"c89.1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["other publisher's 40-chunk run [L229]"]}
+],
+"prose":[]}

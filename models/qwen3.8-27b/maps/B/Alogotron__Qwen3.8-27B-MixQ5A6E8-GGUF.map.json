@@ -1,0 +1,16 @@
+{"repo": "Alogotron/Qwen3.8-27B-MixQ5A6E8-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "BF16", "dataset": "full WikiText-2 PPL", "ctx": "not stated", "tool": "llama.cpp b10442 Vulkan perplexity lane; speed on CUDA sm_86 and Vulkan", "L": [95, 96, 97, 108]},
+ "entries": [
+  {"role": "own", "name": "MixQ5A6E8-v0", "metrics": {"mean_kld": "c39", "ppl": "c40"}, "size": "c38", "unit": "bytes", "basis": "disk", "bpw": null, "flags": ["same KL 0.003083 in Vulkan comparison table [L56]", "card says PPL gap vs Q5_K_M too close to claim superiority [L64-65]"]},
+  {"role": "ladder", "name": "Q4_K_M", "metrics": {"mean_kld": "c20", "ppl": "c21"}, "size": "c19", "unit": "bytes", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "ladder", "name": "MixQ4A6E8-v0 (sibling candidate)", "metrics": {"mean_kld": "c26", "ppl": "c27"}, "size": "c25", "unit": "bytes", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "ladder", "name": "Q5_K_M", "metrics": {"mean_kld": "c33", "ppl": "c34"}, "size": "c32", "unit": "bytes", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "ladder", "name": "Q6_K", "metrics": {"mean_kld": "c46", "ppl": "c47"}, "size": "c45", "unit": "bytes", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "ladder", "name": "Q8_0", "metrics": {}, "size": "c52", "unit": "bytes", "basis": "disk", "bpw": null, "flags": ["not KL/PPL-measured [L97]"]},
+  {"role": "ladder", "name": "BF16 reference", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["reference PPL [L108]"]}
+ ],
+ "prose": [
+  {"entry": "BF16 reference", "key": "ppl", "L": 108, "raw": "6.648031"}
+ ]}

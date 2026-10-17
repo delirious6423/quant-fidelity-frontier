@@ -1,0 +1,8 @@
+{"repo":"ThakiCloud/Qwen3.8-27B-NVFP4-GPTQ-txt","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"Qwen/Qwen3.8-27B bf16, identical serving config","dataset":"MMMU-val MC (246 paired), GSM8K full 1,319, HAERAE/KoBEST/belebele-ko/ARC-Challenge/IFEval (n=600 per task)","ctx":"max_model_len=32768","tool":"vLLM v0.27.1 server + lm-eval 0.4.12, single B200","L":[77,98,131,145]},
+"entries":[
+{"role":"own","name":"this build (NVFP4 GPTQ, text calibration)","metrics":{"bench:MMMU-val-MC":"c2","bench:GSM8K-strict":"c7","bench:GSM8K-flexible":"c8","bench:HAERAE":"c10","bench:KoBEST":"c14","bench:belebele-ko":"c18","bench:ARC-Challenge":"c22","bench:IFEval-prompt-strict":"c25"},"size":"c45.0","unit":"GB","basis":"disk","bpw":null,"flags":["GSM8K gap lies within the card's own rebuild-to-rebuild noise floor [L219-240]","MMLU delta +1.2pp p=0.453 not significant [L107]","only MLP stack quantized; attention stays bf16 [L34,L52]"]},
+{"role":"cross","name":"Qwen/Qwen3.8-27B (bf16)","of":"Qwen/Qwen3.8-27B","metrics":{"bench:MMMU-val-MC":"c1","bench:GSM8K-strict":"c5","bench:GSM8K-flexible":"c6","bench:HAERAE":"c9","bench:KoBEST":"c13","bench:belebele-ko":"c17","bench:ARC-Challenge":"c21","bench:IFEval-prompt-strict":"c24"},"size":"c53.0","unit":"GB","basis":"disk","bpw":null,"flags":["[L36]"]},
+{"role":"ladder","name":"ThakiCloud/Qwen3.8-27B-NVFP4-FP8ATTN","of":"ThakiCloud/Qwen3.8-27B-NVFP4-FP8ATTN","metrics":{},"size":null,"unit":"GB","basis":"disk","bpw":null,"flags":["sibling mixed build, size only (22.90 GB) [L26]"]}
+],
+"prose":[{"entry":"ThakiCloud/Qwen3.8-27B-NVFP4-FP8ATTN","key":"size","L":26,"raw":"22.90 GB"}]}

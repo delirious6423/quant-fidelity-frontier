@@ -1,0 +1,9 @@
+{"repo":"dealignai/Bonsai-2-27B-Ternary-CRACK-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"base ternary quant (Bonsai 2 27B PQ2_0), not bf16","dataset":"MMLU n=2,280 (40 questions x 57 subjects), HarmBench-320 refusal","ctx":"next-token letter-logit for MMLU; T=0","tool":"not stated","L":[64,102]},
+"entries":[
+{"role":"cross","name":"Base PQ2_0 (Bonsai 2 27B)","of":"prism-ml/Ternary-Bonsai-2-27B-gguf","metrics":{"bench:MMLU":"c74","bench:HarmBench320_refuse_rate":"c1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["base ternary quant by PrismML measured by this card's author [L46,L106]"]},
+{"role":"own","name":"CRACK PQ2_0 (abliterated)","metrics":{"bench:MMLU":"c75","bench:HarmBench320_refuse_rate":"c2"},"size":"c299","unit":"GB","basis":"disk","bpw":"c298","flags":["MMLU delta vs base -0.62 pp c76 [L107]","abliteration (refusal removal), not a requantization; compared to base quant, not bf16 [L48]"]}
+],
+"prose":[]}

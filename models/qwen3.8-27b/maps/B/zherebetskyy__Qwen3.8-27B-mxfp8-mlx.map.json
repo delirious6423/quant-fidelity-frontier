@@ -1,0 +1,11 @@
+{"repo":"zherebetskyy/Qwen3.8-27B-mxfp8-mlx",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"FP16","dataset":"not stated","ctx":"not stated","tool":"not stated","L":[88,90]},
+"entries":[
+{"role":"own","name":"MXFP8 (this model)","metrics":{"bench:relative_accuracy_pct_of_fp16_low":"c3.0","bench:relative_accuracy_pct_of_fp16_high":"c3.1"},"size":null,"unit":null,"basis":null,"bpw":"c1","flags":["Approximate range with no stated method or benchmark [L90]","Memory about 28-30 GB in prose [L104]"]},
+{"role":"ladder","name":"6-bit MLX","metrics":{"bench:relative_accuracy_pct_of_fp16_low":"c5.0","bench:relative_accuracy_pct_of_fp16_high":"c5.1"},"size":null,"unit":null,"basis":null,"bpw":"c4","flags":["Approximate range, no method [L91]"]},
+{"role":"ladder","name":"4-bit MLX","metrics":{"bench:relative_accuracy_pct_of_fp16_low":"c8.0","bench:relative_accuracy_pct_of_fp16_high":"c8.1"},"size":null,"unit":null,"basis":null,"bpw":"c6","flags":["Approximate range, no method [L92]"]},
+{"role":"ladder","name":"NVFP4 MLX","metrics":{"bench:relative_accuracy_pct_of_fp16_low":"c11.0","bench:relative_accuracy_pct_of_fp16_high":"c11.1"},"size":null,"unit":null,"basis":null,"bpw":"c9","flags":["Approximate range, no method [L93]"]}
+],
+"prose":[]}

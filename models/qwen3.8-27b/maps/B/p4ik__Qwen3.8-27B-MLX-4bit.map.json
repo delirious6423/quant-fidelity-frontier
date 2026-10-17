@@ -1,0 +1,7 @@
+{"repo":"p4ik/Qwen3.8-27B-MLX-4bit","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"8-bit anchor (uniform 8bit build)","dataset":"mixed set incl. tool-call/thinking, German prose, WikiText (footnote only partially visible)","ctx":"not stated","tool":"not stated","L":[75,81,85,87]},
+"entries":[
+{"role":"own","name":"uniform 4-bit (group size 64)","of":"","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["card has a comparison table (flip-rate metrics vs 8-bit anchor) at L42-62 but its cell values are not in the provided candidate list or digest; no values mapped","trajectory-identical-after-8-tokens shares 46 / 48 / 46 / 35 % stated in footnote [L88] without per-column labels; left out"]},
+{"role":"ladder","name":"OptiQ-5bit","of":"p4ik/Qwen3.8-27B-MLX-OptiQ-5bit","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["card says OptiQ-5bit has a third of the flip rate at +3.6 GiB [L25-26]; values not mapped"]}
+],
+"prose":[]}

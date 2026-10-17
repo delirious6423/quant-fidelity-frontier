@@ -1,0 +1,9 @@
+{"repo":"peculiar-ragdoll/Dirk-Qwen3.8-27B-MLX-oQ4e",
+"no_quality_claims":true,
+"no_claims_reason":"template (terseness) comparison measured on Dagger / ThinkingCap Qwen3.6-based model, a different model, plus sizes; Dirk results only appear in image alt text, not as quant fidelity numbers [L64-72, L34, L38]",
+"method":{"reference":"not stated","dataset":"not stated","ctx":"not stated","tool":"imatrix-calibrated MLX oQ tiers","L":[91]},
+"entries":[
+{"role":"own","name":"oQ4e","metrics":{},"size":"c10","unit":"GB","basis":"disk","bpw":"c11.0","flags":["Approximately 4.9 bpw [L91]","Claw-Eval and MMLU-Pro token cells (c1-c9) omitted: measured on Dagger's ThinkingCap-27B base, different model [L64-72]"]},
+{"role":"ladder","name":"oQ6e","metrics":{},"size":"c12","unit":"GB","basis":"disk","bpw":"c13.0","flags":["Approximately 6.9 bpw [L92]"]}
+],
+"prose":[]}

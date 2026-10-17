@@ -1,0 +1,48 @@
+{
+ "repo": "empero-ai/Qwen3.8-27B-Ridge-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "own BF16 GGUF convert of the official checkpoint",
+  "dataset": "wiki-style calibration file, 80 chunks",
+  "ctx": "-c 512 -b 512",
+  "tool": "llama-perplexity",
+  "L": [
+   105,
+   106
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "Ridge-3.7bpw",
+   "metrics": {
+    "ppl:wiki_style": "c9",
+    "ppl_delta_pct": "c10"
+   },
+   "size": "c7",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": "c8",
+   "flags": [
+    "PPL has +- error bars in cell [L111]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "BF16 GGUF (this convert)",
+   "metrics": {
+    "ppl:wiki_style": "c6"
+   },
+   "size": "c4",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": "c5",
+   "flags": [
+    "author's own BF16 convert as reference [L106,L110]"
+   ],
+   "of": "Qwen/Qwen3.8-27B"
+  }
+ ],
+ "prose": []
+}

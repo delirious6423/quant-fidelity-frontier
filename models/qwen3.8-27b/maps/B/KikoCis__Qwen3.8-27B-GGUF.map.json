@@ -1,0 +1,16 @@
+{"repo":"KikoCis/Qwen3.8-27B-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"none per tier (no fidelity table); one BF16 argmax-disagreement figure for Q3_K_M","dataset":"objective tool-use benchmark, 40 tasks checked by running the produced artifact (no LLM judge)","ctx":"not stated","tool":"Ollama (rows) and llama-server (one cross-check); sampling temp 1 / top_p 0.95 / top_k 20","L":[59,60,61,86,87,90,91,92,110]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-Q4_K_M.gguf","metrics":{},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["not put through the agentic benchmark [L29-30]"]},
+{"role":"own","name":"Qwen3.8-27B-IQ4_XS.gguf","metrics":{},"size":"c2","unit":"GB","basis":"disk","bpw":null,"flags":["not put through the agentic benchmark [L29-30]"]},
+{"role":"own","name":"Qwen3.8-27B-Q3_K_M.gguf","metrics":{"bench:agentic_tasks_passed_of_40":"c5.0"},"size":"c3","unit":"GB","basis":"disk","bpw":"c4","flags":["40/40 agentic verdict [L24]","card says build disagrees with BF16 on next-token argmax for 9.5% of positions yet scores 40/40 (see prose) [L86-87]"]},
+{"role":"own","name":"Qwen3.8-27B-IQ2_M.gguf","metrics":{},"size":"c6","unit":"GB","basis":"disk","bpw":"c7","flags":["agentic verdict cell not among candidates; prose says it matches the 3.40-bpw build at 28 % less size [L75]"]},
+{"role":"own","name":"Qwen3.8-27B-IQ2_XS.gguf","metrics":{"bench:agentic_tasks_passed_of_80":"c10.0"},"size":"c8","unit":"GB","basis":"disk","bpw":"c9","flags":["72/80 across two rounds, measurably worse than IQ2_M, paired p = 0.031 [L26,L76]"]},
+{"role":"own","name":"Qwen3.8-27B-IQ1_M-compact.gguf","metrics":{},"size":"c11","unit":"GB","basis":"disk","bpw":"c12","flags":["score 30.6% through Ollama but 19/40 (47.5%) through llama-server; 'for text, not for driving tools' [L38-39,L90-94]","single runs of one unchanged build spread 17,12,16,15 of 40 [L82-83]"]}
+],
+"prose":[
+{"entry":"Qwen3.8-27B-Q3_K_M.gguf","key":"top1_disagree_pct","L":87,"raw":"9.5 %"},
+{"entry":"Qwen3.8-27B-IQ1_M-compact.gguf","key":"bench:agentic_pct_ollama","L":93,"raw":"30.6 %"}
+]}

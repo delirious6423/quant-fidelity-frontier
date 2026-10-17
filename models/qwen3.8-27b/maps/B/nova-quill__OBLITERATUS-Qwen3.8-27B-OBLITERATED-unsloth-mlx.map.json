@@ -1,0 +1,17 @@
+{"repo":"nova-quill/OBLITERATUS-Qwen3.8-27B-OBLITERATED-unsloth-mlx",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"stock Qwen3.8-27B (MMLU compared against stock)","dataset":"MMLU n=2,850 (50 per subject); 842-prompt refusal corpus","ctx":"not stated","tool":"lm-eval-harness 0-shot","L":[40,110,111,112]},
+"entries":[
+{"role":"own","name":"V2 (s78, blend)","metrics":{"bench:MMLU":"c23","bench:refusal_rate_842":"c29"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["MMLU is for the abliterated model; the build/precision (bf16 vs MLX/GGUF quant) it was run on is not stated [L110-116]","abliteration, not a pure quantization; MMLU delta vs stock c26 [L116]","full 14k MMLU validation in progress [L118]"]},
+{"role":"ladder","name":"V1 (s51, aggressive)","metrics":{"bench:MMLU":"c20","bench:refusal_rate_842":"c28"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["MMLU measured at n=285 c21 (smaller sample) [L115]"]},
+{"role":"cross","name":"Stock Qwen3.8-27B","of":"Qwen/Qwen3.8-27B","metrics":{"bench:MMLU":"c17"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["n=2,850 [L114]"]},
+{"role":"own","name":"mlx-4bit","metrics":{},"size":"c44","unit":"GB","basis":"disk","bpw":null,"flags":["approximate size [L200]"]},
+{"role":"own","name":"mlx-8bit","metrics":{},"size":"c47","unit":"GB","basis":"disk","bpw":null,"flags":["approximate size [L201]"]},
+{"role":"own","name":"GGUF Q8_0","metrics":{},"size":"c33","unit":"GB","basis":"disk","bpw":null,"flags":["approximate size [L186]"]},
+{"role":"own","name":"GGUF Q6_K","metrics":{},"size":"c35","unit":"GB","basis":"disk","bpw":null,"flags":["approximate size [L187]"]},
+{"role":"own","name":"GGUF Q5_K_M","metrics":{},"size":"c37","unit":"GB","basis":"disk","bpw":null,"flags":["approximate size [L188]"]},
+{"role":"own","name":"GGUF Q4_K_M","metrics":{},"size":"c39","unit":"GB","basis":"disk","bpw":null,"flags":["approximate size [L189]"]},
+{"role":"own","name":"GGUF IQ4_XS","metrics":{},"size":"c41","unit":"GB","basis":"disk","bpw":null,"flags":["approximate size [L190]"]}
+],
+"prose":[]}

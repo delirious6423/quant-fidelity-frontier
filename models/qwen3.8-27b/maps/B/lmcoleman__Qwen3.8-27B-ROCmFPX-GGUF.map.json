@@ -1,0 +1,20 @@
+{"repo":"lmcoleman/Qwen3.8-27B-ROCmFPX-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 baseline, wikitext-2 perplexity 6.7443","dataset":"wikitext-2","ctx":"512, 100 chunks","tool":"llama.cpp perplexity (ROCmFPX fork)","L":[30,101]},
+"entries":[
+{"role":"own","name":"MQ-Q4 (file table)","of":"","metrics":{"ppl:wikitext-2":"c3"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["file table shows 6.7611 (+0.25%) [L96] but the header note reports 6.9240 (+2.7%) for MQ-Q4 [L32]; the card is inconsistent","header measurement dated 2026-08-16 [L30]","Q4 recommended size 14.64 GiB [L103]"]},
+{"role":"own","name":"MQ-Q6 (file table)","of":"","metrics":{"ppl:wikitext-2":"c6"},"size":"c4","unit":"GB","basis":"disk","bpw":null,"flags":["file table shows 6.7579 (+0.20%) [L97] but the header note reports 6.7412 [L31]; the card is inconsistent"]},
+{"role":"own","name":"MQ-Q4 (header note)","of":"","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["header note values [L32]"]},
+{"role":"own","name":"MQ-Q6 (header note)","of":"","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["header note values [L31]"]},
+{"role":"ladder","name":"Q4_K_M (sibling repo)","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["MagicQuant source for MQ-Q4 [L33]"]},
+{"role":"cross","name":"stock Q6_K","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L32]"]},
+{"role":"ladder","name":"BF16 baseline","of":"","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L101]"]}
+],
+"prose":[
+{"entry":"MQ-Q4 (file table)","key":"ppl_delta_pct","L":96,"raw":"+0.25%"},
+{"entry":"MQ-Q6 (file table)","key":"ppl_delta_pct","L":97,"raw":"+0.20%"},
+{"entry":"MQ-Q4 (header note)","key":"ppl:wikitext-2","L":32,"raw":"6.9240"},
+{"entry":"MQ-Q4 (header note)","key":"ppl_delta_pct","L":32,"raw":"+2.7%"},
+{"entry":"MQ-Q6 (header note)","key":"ppl:wikitext-2","L":31,"raw":"6.7412"},
+{"entry":"Q4_K_M (sibling repo)","key":"ppl:wikitext-2","L":33,"raw":"6.7522"},
+{"entry":"stock Q6_K","key":"ppl:wikitext-2","L":32,"raw":"6.7470"},
+{"entry":"BF16 baseline","key":"ppl:wikitext-2","L":101,"raw":"6.7443"}]}

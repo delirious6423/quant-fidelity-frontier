@@ -1,0 +1,16 @@
+{"repo": "dowands/NeoJev-Qwen3.8-27B-L56-MLX",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "same base model with all 64 layers, zero-shot option logits (not bf16 distribution)", "dataset": "11 held-out tasks x 500 items (5,500 calls); JevBench 231 public items", "ctx": "160-token budget default", "tool": "custom eval; JevBench TypeSafeAdapter", "L": [94, 161]},
+ "entries": [
+  {"role": "own", "name": "NeoJev MLX (4-bit, 56 layers)", "metrics": {"bench:HeldOut11_mean_acc": "c1", "bench:JevBench_public231": "c75"}, "size": "c74", "unit": "GB", "basis": "text_weights", "bpw": null, "flags": ["not a bf16-fidelity comparison; task accuracy of a modified early-exit model with readout head [L85-86]", "mean ECE 0.114 c35.1 not mapped"]},
+  {"role": "own", "name": "NeoJev CUDA (FP8, 56 layers)", "metrics": {"bench:HeldOut11_mean_acc": "c4", "bench:JevBench_public231": "c71"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["different repo (dowands/NeoJev-Qwen3.8-27B-L56) [L37]"]},
+  {"role": "ladder", "name": "Qwen3.8-27B, all 64 layers, option logits (baseline)", "metrics": {"bench:HeldOut11_mean_acc": "c34.0"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["baseline for the 11-task eval [L94,L112]"]},
+  {"role": "quoted", "name": "Jev 1.13.0 (TypeSafe AI, closed)", "of": "not named on card", "metrics": {"bench:JevBench_public231": "c78"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["peer numbers from JevBench published v1.4 results [L161]"]},
+  {"role": "quoted", "name": "SimpleJev Qwen3.8-27B", "of": "not named on card", "metrics": {"bench:JevBench_public231": "c100"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["peer from JevBench [L161]"]},
+  {"role": "quoted", "name": "Winnow-12B Q8", "of": "not named on card", "metrics": {"bench:JevBench_public231": "c86"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["peer from JevBench [L161]; memory is an estimate"]},
+  {"role": "quoted", "name": "JevOne (Juspay) Qwen3.6-35B-A3B", "of": "not named on card", "metrics": {"bench:JevBench_public231": "c92"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["peer from JevBench [L161]; different base model"]},
+  {"role": "quoted", "name": "decider-2b (Mapika) Qwen3.5-2B", "of": "not named on card", "metrics": {"bench:JevBench_public231": "c81"}, "size": "c80", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["peer from JevBench [L161]; different base model"]},
+  {"role": "quoted", "name": "JevK5 v0.2 Qwen3.5-4B", "of": "not named on card", "metrics": {"bench:JevBench_public231": "c91"}, "size": "c90", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["peer from JevBench [L161]; different base model"]}
+ ],
+ "prose": []}

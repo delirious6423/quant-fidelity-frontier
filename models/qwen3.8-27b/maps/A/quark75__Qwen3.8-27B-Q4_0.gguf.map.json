@@ -1,0 +1,7 @@
+{"repo":"quark75/Qwen3.8-27B-Q4_0.gguf","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"original BF16 weights","dataset":"not stated","ctx":"n_ctx=512, 580 chunks","tool":"llama.cpp llama-perplexity --kl-divergence","L":[20]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-Q4_0","metrics":{"mean_kld":"c1","top1_pct":"c2","ppl":"c4"},"size":"c5","unit":"GB","basis":"disk","bpw":null,"flags":["~15 GB file size from prose [L15]","~4.5 bits/weight effective stated in prose only [L14]","values carry +/- error terms [L24-27]"]},
+{"role":"ladder","name":"BF16 original","metrics":{"ppl":"c3"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["reference perplexity [L26]"]}
+],
+"prose":[]}

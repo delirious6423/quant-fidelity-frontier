@@ -1,0 +1,12 @@
+{"repo":"kaushikvira/Qwen3.8-27B-swift15-uncensored-ajgazin-nvfp4full-dflash2-NInfer-v3",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"Swift-1.5 (prod, censored) same-session A/B; no bf16 reference","dataset":"IFBench prompt-strict (n=300), GSM8K-200, harmful_behaviors test[:100] refusal, harmless sanity n=50","ctx":"temp 0, same-session on one RTX 5090","tool":"NInfer v3 engine gate/perf; llm-compressor NVFP4 with 512 Ultrachat samples seq 2048","L":[55,63,65]},
+"entries":[
+{"role":"own","name":"this artifact (swift15-uncensored-ajgazin v3)","metrics":{"bench:IFBench_prompt_strict":"c6","bench:GSM8K-200":"c8"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["differs from Swift-1.5 by abliteration plus NVFP4 quantization, so deltas mix both effects [L40-41,L207]","refusal rate 8/100 c2, harmless sanity 45/50 c4.0 [L67-68]","GSM8K delta -0.5 pp described as n=200 noise [L70]"]},
+{"role":"ladder","name":"Swift-1.5 (prod, censored)","metrics":{"bench:IFBench_prompt_strict":"c5","bench:GSM8K-200":"c7"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["unquantized-status of this row not stated; refusal 59/100 c1.0, harmless 43/50 c3.0 [L67-68]"]},
+{"role":"ladder","name":"nvfp4full-dflash2.v3","metrics":{"bench:IFBench_prompt_strict":"c30","bench:GSM8K-200":"c31"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["family table, cells carry asterisk; cross-card rows from different sessions [L179,L184]"]},
+{"role":"ladder","name":"swift-abliterated v3","metrics":{"bench:IFBench_prompt_strict":"c34","bench:GSM8K-200":"c35"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["family table [L185]"]},
+{"role":"ladder","name":"thinkingcap v3","metrics":{"bench:IFBench_prompt_strict":"c42","bench:GSM8K-200":"c43"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["family table [L187]"]}
+],
+"prose":[]}

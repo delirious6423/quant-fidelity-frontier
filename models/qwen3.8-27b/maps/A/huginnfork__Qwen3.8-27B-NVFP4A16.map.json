@@ -1,0 +1,10 @@
+{"repo":"huginnfork/Qwen3.8-27B-NVFP4A16",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"bf16 Qwen/Qwen3.8-27B","dataset":"KLD: 8 samples from neuralmagic/calibration (LLM split); PPL: wikitext-2-raw test","ctx":"KLD max_seq=1024; PPL non-overlapping 2048-token chunks","tool":"custom harness, transformers","L":[55,56,57]},
+"entries":[
+{"role":"ladder","name":"Qwen/Qwen3.8-27B (bf16)","metrics":{"mean_kld":"c1","ppl":"c2"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Reference row [L68]"]},
+{"role":"own","name":"This model (NVFP4A16, MLPs only)","metrics":{"mean_kld":"c9","ppl":"c10","ppl_delta_pct":"c11"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["KLD is the weight-only column; no as-deployed value given [L70]","192 modules quantised [L70]"]},
+{"role":"cross","name":"Qwen/Qwen3.8-27B-FP8","of":"Qwen/Qwen3.8-27B-FP8","metrics":{"mean_kld":"c4","kld_as_deployed":"c5","ppl":"c6","ppl_delta_pct":"c7"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["mean_kld is weight-only column, kld_as_deployed is the other column; official checkpoint hand-dequantised for evaluation [L125-128]","407 modules quantised [L69]"]}
+],
+"prose":[]}

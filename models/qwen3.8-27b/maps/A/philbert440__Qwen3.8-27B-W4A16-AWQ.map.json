@@ -1,0 +1,7 @@
+{"repo":"philbert440/Qwen3.8-27B-W4A16-AWQ","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"not stated (no bf16 comparison of the quant; base-model benchmarks quoted from Qwen card, not re-measured)","dataset":"Qwen model-card benchmarks (quoted); GSM8K sample 3/3 sanity check","ctx":"not stated","tool":"not stated (llm-compressor AWQ calibration; vLLM speed benchmarks)","L":[79,90,92]},
+"entries":[
+{"role":"own","name":"W4A16 (AWQ, g128)","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["no quality metric for the quant; only speed table [L64-70] and GSM8K sample 3/3 sanity check [L79-80]","badge size 19.5 GB [L24, L33-prose c34.2]"]},
+{"role":"quoted","name":"Qwen3.8-27B (BF16 base)","of":"Qwen/Qwen3.8-27B","metrics":{"bench:Terminal Bench 2.1":"c11","bench:SWE-bench Pro":"c13","bench:NL2Repo-Bench":"c15","bench:GPQA Diamond":"c17","bench:HLE":"c19","bench:LiveCodeBench v6":"c21","bench:IFBench":"c23","bench:OmniDocBench 1.5":"c25","bench:RealWorldQA":"c27","bench:ERQA":"c29","bench:OSWorld-Verified":"c31"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["official base-model BF16 benchmarks copied from Qwen card; not re-measured on this checkpoint [L90-92]","Qwen3.6-27B comparison column omitted"]}
+],
+"prose":[]}

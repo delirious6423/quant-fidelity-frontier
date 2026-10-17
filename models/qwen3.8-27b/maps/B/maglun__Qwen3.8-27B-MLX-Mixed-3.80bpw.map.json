@@ -1,0 +1,9 @@
+{"repo":"maglun/Qwen3.8-27B-MLX-Mixed-3.80bpw","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 text (measured on retired M4 Pro, not host-matched)","dataset":"fixed held-out corpus of 4 documents / 6,057 tokens (second table); 6-document corpus in launch-day table; HumanEval+ n=8, GSM8K n=12","ctx":"not stated; 8,192-token generation cap","tool":"mlx 0.32.3 / mlx-vlm 0.7.6 / mlx-lm 0.32.0 on Apple M5 Pro, greedy, reasoning_effort=low","L":[63,66,86,87,88,89,91]},
+"entries":[
+{"role":"own","name":"this release - mixed affine 3.80 bpw","metrics":{"ppl":"c44","bench:HumanEval+":"c45","bench:GSM8K":"c46","ppl:launch 6-doc corpus":"c10"},"size":"c41","unit":"GiB","basis":"disk","bpw":"c43","flags":["host-matched table [L101]; launch-day PPL not comparable across tables [L91-93]","HumanEval+ n=8 does not discriminate [L119]"]},
+{"role":"ladder","name":"sibling release - mixed affine 4.95 bpw","metrics":{"ppl":"c23","bench:HumanEval+":"c24","bench:GSM8K":"c25","ppl:launch 6-doc corpus":"c9","bench:GSM8K launch-day":"c13"},"size":"c20","unit":"GiB","basis":"disk","bpw":"c22","flags":["[L98,L74,L76]"]},
+{"role":"cross","name":"MXFP4, text only","of":"not named on card","metrics":{"ppl":"c30","bench:HumanEval+":"c31","bench:GSM8K":"c32"},"size":"c27","unit":"GiB","basis":"disk","bpw":"c29","flags":["[L99]"]},
+{"role":"cross","name":"MXFP4, with BF16 vision + MTP drafter","of":"not named on card","metrics":{"ppl":"c37","bench:HumanEval+":"c38","bench:GSM8K":"c39"},"size":"c34","unit":"GiB","basis":"disk","bpw":"c36","flags":["[L100]"]},
+{"role":"ladder","name":"BF16 text source (cross-host)","metrics":{"ppl":"c17","bench:HumanEval+":"c18","bench:GSM8K":"c19","ppl:launch 6-doc corpus":"c8","bench:GSM8K launch-day":"c12"},"size":"c14","unit":"GiB","basis":"disk","bpw":"c16","flags":["measured on different machine, quality reference only [L131]","[L97,L74-76]"]}
+],"prose":[]}

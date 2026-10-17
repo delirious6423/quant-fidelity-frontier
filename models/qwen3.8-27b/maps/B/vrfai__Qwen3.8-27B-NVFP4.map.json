@@ -1,0 +1,8 @@
+{"repo":"vrfai/Qwen3.8-27B-NVFP4","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 weights of the same model, same harness","dataset":"10 deterministic-scorer tasks, 13,046 documents","ctx":"not stated","tool":"vLLM on H100 (Marlin path, effectively W4A16)","L":[29,90,124,126]},
+"entries":[
+{"role":"own","name":"This model (NVFP4)","metrics":{"bench:MathVision":"c40","bench:ERQA":"c44","bench:delta AI2D":"c49","bench:delta ChartQA":"c52","bench:delta ScienceQA-IMG":"c55","bench:delta MMStar":"c58","bench:delta OCRBench":"c61","bench:delta CountBenchQA":"c64","bench:delta RealWorldQA":"c67","bench:delta OmniDocBench":"c70","bench:delta MathVision":"c73","bench:delta ERQA":"c76"},"size":"c78","unit":"GB","basis":"disk","bpw":null,"flags":["scores measured on H100, effectively W4A16, not W4A4 [L29]","delta rows are points vs bf16; floor is bf16 run-to-run noise [L118-119]"]},
+{"role":"ladder","name":"bf16","metrics":{"bench:MathVision":"c41","bench:ERQA":"c45"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["author's own bf16 run [L81-82]"]},
+{"role":"quoted","name":"Qwen card","of":"Qwen/Qwen3.8-27B","metrics":{"bench:MathVision":"c42","bench:ERQA":"c46"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Qwen's published bf16 figures [L81-82]; Qwen3.8-27B comparison tables L357-370 are base-model results, omitted"]}
+],
+"prose":[]}

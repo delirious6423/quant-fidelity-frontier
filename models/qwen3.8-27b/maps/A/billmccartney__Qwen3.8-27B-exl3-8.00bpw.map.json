@@ -1,0 +1,98 @@
+{
+ "repo": "billmccartney/Qwen3.8-27B-exl3-8.00bpw",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "cached BF16 distributions (Qwen3.8-27B BF16)",
+  "dataset": "WikiText2 test: 100 rows x 2,048 tokens (PPL r-100); KL over 204,800 logit positions",
+  "ctx": "2,048-token rows, stride 2,048, no chat wrapper",
+  "tool": "exllamav3 1.4.2 qbench",
+  "L": [
+   184,
+   191,
+   192,
+   218
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "EXL3 8.0bpw",
+   "metrics": {
+    "mean_kld": "c18",
+    "ppl:wikitext2_r100": "c19"
+   },
+   "size": "c20",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": "c2",
+   "flags": [
+    "size is safetensors shard bytes [L195]; mean KL unadjusted, no BF16 self-noise pass [L193-194]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "EXL3 8.0bpw, greedy decode (repetition probe)",
+   "metrics": {
+    "bench:distinct_12gram_ratio": "c13",
+    "bench:worst_repeated_12gram": "c14"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c2",
+   "flags": [
+    "identical long-reasoning prompt [L138]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "BF16",
+   "of": "Qwen/Qwen3.8-27B",
+   "metrics": {
+    "mean_kld": "c22",
+    "ppl:wikitext2_r100": "c23"
+   },
+   "size": "c24",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "reference row [L189]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Q8_0 GGUF, vendor sampling",
+   "of": "not named on card",
+   "metrics": {
+    "bench:distinct_12gram_ratio": "c9",
+    "bench:worst_repeated_12gram": "c10"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L142]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Q8_0 GGUF, greedy",
+   "of": "not named on card",
+   "metrics": {
+    "bench:distinct_12gram_ratio": "c11",
+    "bench:worst_repeated_12gram": "c12"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "repetition collapse [L146]"
+   ]
+  }
+ ],
+ "prose": []
+}

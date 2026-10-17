@@ -1,0 +1,9 @@
+{"repo":"Chungulus/Qwen3.8-27B-MLX-5bit-Group128",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"BF16 fixed-logit comparison","dataset":"fixed original text, not a public benchmark (106 positions)","ctx":"longest validation prompt 73 tokens","tool":"mlx-vlm 0.6.1 (conversion); validation_result.json","L":[37,56,121,131]},
+"entries":[
+{"role":"ladder","name":"bf16 reference","metrics":{"ppl":"c8"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["reference_perplexity on 106 fixed positions [L122-125]"]},
+{"role":"own","name":"MLX 5-bit group128","metrics":{"ppl":"c9","top1_pct":"c11.1"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["top1_token_agreement is a fraction (0.9906), not a percent [L128]","perplexity_delta c10 = candidate minus reference, negative [L127]","KL measured on fixed text with float16-stored BF16 logprobs, approximation error [L131-132]","tiny sample: 106 positions, prompts up to 73 tokens [L56,L122]"]}
+],
+"prose":[{"entry":"MLX 5-bit group128","key":"mean_kld","L":124,"raw":"0.007879387376443395"}]}

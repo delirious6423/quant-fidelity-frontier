@@ -1,0 +1,8 @@
+{"repo":"greghavens/Qwen3.8-27B-bnb-4bit","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"Qwen/Qwen3.8-27B bf16 base","dataset":"wikitext-2 (ppl); IFEval 541 prompts; BFCL v4 single-turn 3641 prompts; NoveltyBench NB-Curated","ctx":"4096-token windows (ppl)","tool":"not stated","L":[54,176,184,284,365]},
+"entries":[
+{"role":"own","name":"NF4 (bitsandbytes, bf16 vision tower)","metrics":{"ppl":"c1","bench:IFEval_prompt_loose":"c11","bench:IFEval_inst_strict":"c14","bench:IFEval_inst_loose":"c17","bench:BFCL_overall":"c28","bench:NoveltyBench_distinct_10":"c44","bench:NoveltyBench_utility_10":"c45"},"size":"c23","unit":"GiB","basis":"resident","bpw":null,"flags":["ppl cell c1 is a combined string with the bf16 value; bf16 ppl given as prose entry [L54]","IFEval prompt-level strict NF4 value not a candidate cell (delta c9 +0.00pp vs bf16 c8) [L192]"]},
+{"role":"ladder","name":"all-NF4 control (NF4 vision tower)","metrics":{},"size":"c26","unit":"GiB","basis":"resident","bpw":null,"flags":["control for VQA; VQA scores appear only in prose/deltas [L153-155,L228-232]"]},
+{"role":"cross","name":"bf16 base","of":"Qwen/Qwen3.8-27B","metrics":{"bench:IFEval_prompt_strict":"c8","bench:IFEval_prompt_loose":"c10","bench:IFEval_inst_strict":"c13","bench:IFEval_inst_loose":"c16","bench:BFCL_overall":"c27","bench:NoveltyBench_distinct_10":"c42","bench:NoveltyBench_utility_10":"c43"},"size":"c20","unit":"GiB","basis":"resident","bpw":null,"flags":["NoveltyBench values are seed 0; seed 1 noise floor distinct_10 c46 utility_10 c47 [L387]"]}
+],
+"prose":[{"entry":"bf16 base","key":"ppl","L":176,"raw":"6.4833"}]}

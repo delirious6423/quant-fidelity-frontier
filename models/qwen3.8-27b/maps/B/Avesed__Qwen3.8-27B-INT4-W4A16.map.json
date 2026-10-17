@@ -1,0 +1,12 @@
+{"repo":"Avesed/Qwen3.8-27B-INT4-W4A16",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"none (absolute GSM8K accuracy; compared with sibling INT8-W8A8 build)","dataset":"GSM8K, 250 questions","ctx":"max_tokens=24576, thinking enabled, temperature 1.0 top_p 0.95 top_k 20","tool":"vLLM tp2 over OpenAI API; llm-compressor for quantization","L":[27,43,44,45,46]},
+"entries":[
+{"role":"own","name":"INT4-W4A16","metrics":{},"size":"c5","unit":"GB","basis":"disk","bpw":null,"flags":["checkpoint ~20 GB, BF16 base ~56 GB [L23]","AWQ + symmetric INT4 group_size 32 [L27]"]},
+{"role":"ladder","name":"INT8-W8A8","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["same-protocol sibling build; 96.8% (242/250) [L46-47]"]}
+],
+"prose":[
+{"entry":"INT4-W4A16","key":"bench:GSM8K","L":43,"raw":"96.4 %"},
+{"entry":"INT8-W8A8","key":"bench:GSM8K","L":46,"raw":"96.8 %"}
+]}

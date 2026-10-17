@@ -1,0 +1,20 @@
+{"repo": "Krasnopjorovs/Qwen3.8-27B-Imatrix-GGUF",
+ "no_quality_claims": true,
+ "no_claims_reason": "size table and MTP speculative-decode acceptance/speed only; no quant fidelity number [L39-45, L66-79]",
+ "method": {"reference": "not stated", "dataset": "imatrix calibration only (reapmix, ~400K tokens)", "ctx": "not stated", "tool": "llama.cpp version 10358 (030ebb558)", "L": [18, 83]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B-Q8_0.gguf", "metrics": {}, "size": "c8", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["column header says GiB while cells print GB [L66-68]"]},
+  {"role": "own", "name": "Qwen3.8-27B-Q6_K_L.gguf", "metrics": {}, "size": "c10", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["Q6_K with Q8_0 embed/output [L69]"]},
+  {"role": "own", "name": "Qwen3.8-27B-Q6_K.gguf", "metrics": {}, "size": "c13", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["[L70]"]},
+  {"role": "own", "name": "Qwen3.8-27B-Q5_K_L.gguf", "metrics": {}, "size": "c15", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["[L71]"]},
+  {"role": "own", "name": "Qwen3.8-27B-Q5_K_M.gguf", "metrics": {}, "size": "c18", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["[L72]"]},
+  {"role": "own", "name": "Qwen3.8-27B-Q5_K_S.gguf", "metrics": {}, "size": "c20", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["[L73]"]},
+  {"role": "own", "name": "Qwen3.8-27B-Q4_K_L.gguf", "metrics": {}, "size": "c23", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["[L74]"]},
+  {"role": "own", "name": "Qwen3.8-27B-Q4_K_M.gguf", "metrics": {}, "size": "c26", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["[L75]"]},
+  {"role": "own", "name": "Qwen3.8-27B-Q4_K_M_MTP8.gguf", "metrics": {}, "size": "c28", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["MTP head at Q8_0 instead of Q4_0 [L76]"]},
+  {"role": "own", "name": "Qwen3.8-27B-Q4_K_S.gguf", "metrics": {}, "size": "c31", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["[L77]"]},
+  {"role": "own", "name": "Qwen3.8-27B-IQ4_NL.gguf", "metrics": {}, "size": "c34", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["[L78]"]},
+  {"role": "own", "name": "Qwen3.8-27B-IQ4_XS.gguf", "metrics": {}, "size": "c37", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["[L79]"]}
+ ],
+ "prose": []
+}

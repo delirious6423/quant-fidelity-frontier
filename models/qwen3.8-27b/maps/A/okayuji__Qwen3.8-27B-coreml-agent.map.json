@@ -1,0 +1,6 @@
+{"repo":"okayuji/Qwen3.8-27B-coreml-agent","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 reference implementation","dataset":"10 prompts x 64 positions (author's lab record, not published)","ctx":"16,384-token context build","tool":"Core ML runtime / agent benchmark","L":[256,257,258]},
+"entries":[
+{"role":"own","name":"int8 Core ML bundle","metrics":{"bench:AgentBenchmark48":"c4"},"size":"c54.0","unit":"GB","basis":"disk","bpw":null,"flags":["agent benchmark 48/48 runs passed [L124]","top-1 agreement vs bf16 633/640 (98.9%), 0 hard flips [L256-258]","int4 build (unpublished): 11 hard top-1 flips in 640 positions vs 0 for int8 [L238-240]"]}
+],
+"prose":[{"entry":"int8 Core ML bundle","key":"top1_pct","L":258,"raw":"633/640 (98.9%)"}]}

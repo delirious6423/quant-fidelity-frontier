@@ -1,0 +1,7 @@
+{"repo":"baa-ai/Qwen3.8-27B-RAM-31GB-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 (for the sibling MLX MMLU claim)","dataset":"imatrix: 100 chunks wikitext-2 + 200 MMLU-Pro questions","ctx":"not stated","tool":"llama-quantize with imatrix","L":[54,89,90]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-RAM-31GB.gguf","metrics":{},"size":"c2","unit":"GB","basis":"disk","bpw":"c3","flags":["quality benchmarks for this GGUF are pending [L54]"]},
+{"role":"quoted","name":"Qwen3.8-27B-RAM-24GB-MLX (sibling)","of":"baa-ai/Qwen3.8-27B-RAM-24GB-MLX","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["MMLU 90.0% matching BF16, quoted from the MLX sibling card, different artifact [L54]"]}
+],
+"prose":[{"entry":"Qwen3.8-27B-RAM-24GB-MLX (sibling)","key":"bench:MMLU","L":54,"raw":"90.0%"}]}

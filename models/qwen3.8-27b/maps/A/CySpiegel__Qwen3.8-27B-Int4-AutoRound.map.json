@@ -1,0 +1,7 @@
+{"repo":"CySpiegel/Qwen3.8-27B-Int4-AutoRound","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"FP8 online per-tensor W8A16 build of the same base model","dataset":"HumanEval, HumanEval+, GSM8K 5-shot (raw-completions harness)","ctx":"not stated","tool":"vLLM, greedy decoding, thinking disabled","L":[37,39,40,42]},
+"entries":[
+{"role":"own","name":"This model (INT4)","metrics":{"bench:HumanEval pass@1":"c2","bench:HumanEval+ pass@1":"c4","bench:GSM8K 5-shot":"c6"},"size":"c9","unit":"GB","basis":"disk","bpw":null,"flags":["size from prose '19 GB on disk' [L21]","low GSM8K absolutes attributed to harness artifact for both sides [L49]","calibration pile-10k, 4-bit group 128 [L26,L27]"]},
+{"role":"ladder","name":"FP8 (online per-tensor W8A16)","metrics":{"bench:HumanEval pass@1":"c1","bench:HumanEval+ pass@1":"c3","bench:GSM8K 5-shot":"c5"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["baseline served on same vLLM build [L39]"]},
+{"role":"ladder","name":"BF16","metrics":{},"size":"c11","unit":"GB","basis":"disk","bpw":null,"flags":["[L21]"]}
+],"prose":[]}

@@ -1,0 +1,37 @@
+{
+ "repo": "hitsfmdj/Qwen3.8-27B-GGUF-4.2BPW-16GB",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "a near-lossless reference (not named)",
+  "dataset": "held-out text (not named)",
+  "ctx": "not stated",
+  "tool": "Omenator pipeline perplexity / KL measurements (values not given)",
+  "L": [
+   54,
+   102
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "Qwen3.8-27B-4.2BPW-16GB.gguf",
+   "metrics": {},
+   "size": "c1",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c8.1",
+   "flags": [
+    "effective bpw 4.189 stated in headline [L20]; only an estimated degradation percentage is given, no KL/ppl values [L54]"
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "Qwen3.8-27B-4.2BPW-16GB.gguf",
+   "key": "bench:estimated_degradation_pct",
+   "L": 54,
+   "raw": "~2.6% degradation"
+  }
+ ]
+}

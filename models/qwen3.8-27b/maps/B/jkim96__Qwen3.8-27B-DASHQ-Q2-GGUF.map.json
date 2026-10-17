@@ -1,0 +1,14 @@
+{"repo":"jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"not stated (absolute perplexity, no BF16 reference)","dataset":"WikiText-2 test; C4 validation (256 x 2048 tokens)","ctx":"2048","tool":"llama-perplexity","L":[45]},
+"entries":[
+{"role":"own","name":"DASH-Q IQ2_XXS","metrics":{"ppl:wikitext-2":"c19","ppl:c4":"c20"},"size":"c18","unit":"GB","basis":"disk","bpw":"c2","flags":[]},
+{"role":"own","name":"DASH-Q IQ2_XS","metrics":{"ppl:wikitext-2":"c29","ppl:c4":"c30"},"size":"c28","unit":"GB","basis":"disk","bpw":"c5","flags":[]},
+{"role":"own","name":"DASH-Q IQ2_S","metrics":{"ppl:wikitext-2":"c39","ppl:c4":"c40"},"size":"c38","unit":"GB","basis":"disk","bpw":"c8","flags":[]},
+{"role":"own","name":"DASH-Q Q2_K_XL","metrics":{"ppl:wikitext-2":"c49","ppl:c4":"c50"},"size":"c48","unit":"GB","basis":"disk","bpw":"c11","flags":[]},
+{"role":"cross","name":"llama.cpp IQ2_XXS (imatrix)","of":"not named on card","metrics":{"ppl:wikitext-2":"c13","ppl:c4":"c14"},"size":"c12","unit":"GB","basis":"disk","bpw":null,"flags":[]},
+{"role":"cross","name":"unsloth UD-IQ2_XXS","of":"not named on card","metrics":{"ppl:wikitext-2":"c16","ppl:c4":"c17"},"size":"c15","unit":"GB","basis":"disk","bpw":null,"flags":[]},
+{"role":"cross","name":"llama.cpp IQ2_XS (imatrix)","of":"not named on card","metrics":{"ppl:wikitext-2":"c24","ppl:c4":"c25"},"size":"c23","unit":"GB","basis":"disk","bpw":null,"flags":[]},
+{"role":"cross","name":"unsloth UD-IQ2_S","of":"not named on card","metrics":{"ppl:wikitext-2":"c34","ppl:c4":"c35"},"size":"c33","unit":"GB","basis":"disk","bpw":null,"flags":[]},
+{"role":"cross","name":"llama.cpp IQ2_M (imatrix)","of":"not named on card","metrics":{"ppl:wikitext-2":"c44","ppl:c4":"c45"},"size":"c43","unit":"GB","basis":"disk","bpw":null,"flags":[]}
+],
+"prose":[]}

@@ -1,0 +1,13 @@
+{"repo":"oshiteku/Sanshoku-Qwen3.8-27B-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"BF16 (top-1 agreement and KL from BF16)","dataset":"60 in-house prompts of 32 tokens, chat and coding-agent, thinking and non-thinking; math = fixed subsets of GSM8K (100), MATH-500 (50), MGSM-ja (100); SWE-bench Verified Mini (50 tasks)","ctx":"32 tokens per prompt for KL; math output capped at 4,096 tokens","tool":"local small-scale evaluation, same prompts and settings for all models; mini-SWE-agent","L":[66,76,78,79,80]},
+"entries":[
+{"role":"own","name":"Sanshoku","metrics":{"top1_pct":"c25","mean_kld":"c28","bench:Math-subsets":"c31","bench:SWE-bench-Verified-Mini":"c34"},"size":"c22","unit":"GB","basis":"disk","bpw":null,"flags":["three GGUF packings of the same weights (Q2_0, PQ2_0, PTQ1_0) share one eval column [L31,L70]","footnote 1 prompt set is small and in-house [L76]"]},
+{"role":"cross","name":"Ternary Bonsai 2","of":"prism-ml/Ternary-Bonsai-2-27B-gguf","metrics":{"top1_pct":"c26","mean_kld":"c29","bench:Math-subsets":"c32","bench:SWE-bench-Verified-Mini":"c35"},"size":"c23","unit":"GB","basis":"disk","bpw":null,"flags":["[L68-74]"]},
+{"role":"cross","name":"Qwen3.8 UD-Q4_K_M","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{"top1_pct":"c27","mean_kld":"c30","bench:Math-subsets":"c33"},"size":"c24","unit":"GB","basis":"disk","bpw":null,"flags":["SWE-bench cell empty [L74]"]},
+{"role":"cross","name":"UD-IQ2_XXS (footnote 1)","of":"not named on card","metrics":{"top1_pct":"c73.1"},"size":"c73.0","unit":"GB","basis":"disk","bpw":null,"flags":["same-size comparison given in footnote only [L77]"]}
+],
+"prose":[
+{"entry":"UD-IQ2_XXS (footnote 1)","key":"mean_kld","L":77,"raw":"0.311"}
+]}

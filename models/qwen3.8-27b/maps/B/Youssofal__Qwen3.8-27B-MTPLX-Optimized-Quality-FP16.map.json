@@ -1,0 +1,10 @@
+{"repo":"Youssofal/Qwen3.8-27B-MTPLX-Optimized-Quality-FP16","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 Qwen3.8-27B checkpoint","dataset":"2,389 positions of code, prose, JSON and a multilingual notice","ctx":"not stated","tool":"MTPLX 2.11.3, teacher-forced","L":[68]},
+"entries":[
+{"role":"own","name":"Optimized Quality FP16","of":"","metrics":{},"size":"c5","unit":"GB","basis":"disk","bpw":null,"flags":["FP16 sibling with the same weights as parent; no separate quality measurement [L43-51]","peak unified memory 32.7 GB measured on parent [L83]"]},
+{"role":"ladder","name":"Optimized Quality (8-bit dynamic, parent)","of":"Youssofal/Qwen3.8-27B-MTPLX-Optimized-Quality","metrics":{"mean_kld":"c11"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["top-1 99.3 percent [L68]"]},
+{"role":"ladder","name":"Optimized Speed (4-bit dynamic)","of":"not named on card","metrics":{"mean_kld":"c12.1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["top-1 96.0 percent [L68]"]}
+],
+"prose":[
+{"entry":"Optimized Quality (8-bit dynamic, parent)","key":"top1_pct","L":68,"raw":"99.3 percent"},
+{"entry":"Optimized Speed (4-bit dynamic)","key":"top1_pct","L":68,"raw":"96.0 percent top-1 agreement"}]}

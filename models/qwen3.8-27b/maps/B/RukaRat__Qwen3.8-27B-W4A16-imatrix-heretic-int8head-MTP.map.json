@@ -1,0 +1,13 @@
+{"repo":"RukaRat/Qwen3.8-27B-W4A16-imatrix-heretic-int8head-MTP",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"ground-truth scoring of a five-task, 160-item battery; no BF16 control row","dataset":"200-item five-task battery (160 ground-truth scored); OR-Bench-Hard-1K refusal prompts","ctx":"not stated","tool":"measured on the served checkpoint on vLLM","L":[54,55,211,213,222]},
+"entries":[
+{"role":"own","name":"W4A16 + int8 head, abliterated (this one)","metrics":{"bench:five-task-battery_correct_of_160":"c49"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["size 16.6 GiB c18 appears only in the context table, not the quality table [L178]","abliterated; refusal keyword counts c6.0/c6.1 and c7 not mapped [L66-67]","whole column spans 130-135 of 160, author calls it a tie [L226-228]"]},
+{"role":"ladder","name":"W4A16 plain, abliterated","metrics":{"bench:five-task-battery_correct_of_160":"c52"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["size 18.1 GiB c21 in context table [L179]"]},
+{"role":"ladder","name":"W4A16 + int8 head (non-abliterated)","metrics":{"bench:five-task-battery_correct_of_160":"c46"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["size 16.6 GiB c15 in context table [L177]"]},
+{"role":"ladder","name":"W4A16 plain (non-abliterated)","metrics":{"bench:five-task-battery_correct_of_160":"c55"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L220]"]},
+{"role":"ladder","name":"INT8 W8A8","metrics":{"bench:five-task-battery_correct_of_160":"c40"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["size 29.1 GiB c10 in context table [L175]"]},
+{"role":"ladder","name":"INT8 W8A8, abliterated","metrics":{"bench:five-task-battery_correct_of_160":"c43"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["size 29.1 GiB c13 [L176]"]}
+],
+"prose":[]}

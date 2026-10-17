@@ -1,0 +1,7 @@
+{"repo":"quark75/Qwen3.8-27B-MXFP4-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"original Q4_K_M quantization of the same base model","dataset":"39-prompt suite (logic, coding, hallucination, instruction-following, tool-calling, multi-turn, Rust/Yew/Python), graded by two LLM judges","ctx":"65536 serving ctx","tool":"LLM judges (granite-8b, gemma4-31); speed via llama-benchy","L":[26,44,46]},
+"entries":[
+{"role":"own","name":"MXFP4","metrics":{"bench:judge granite-8b avg":"c14","bench:judge gemma4-31 avg":"c17"},"size":"c19","unit":"GB","basis":"disk","bpw":null,"flags":["judge averages out of 10; scored 38/39 each (c13, c16) [L48-49]","Q4_K_M judge rows not shown in table candidates; failures<7.0: 2 (granite) / 5 (gemma) [L48-49]","size from prose [L38]"]},
+{"role":"cross","name":"Q4_K_M","of":"not named on card","metrics":{},"size":"c22","unit":"GB","basis":"disk","bpw":null,"flags":["reference file; 'original Q4_K_M of same base model'; size from prose [L26,L38]"]}
+],
+"prose":[]}

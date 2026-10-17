@@ -1,0 +1,11 @@
+{"repo":"BoldingBuilds/Qwen3.8-27B-Abliterated-ThinkFix-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"same abliterated weights without the ThinkFix edit; stock Qwen3.8-27B for MATH/HumanEval/IFEval (no bf16 fidelity metric)","dataset":"128-150 sensitive prompts (StrongREJECT), MATH 200 hard problems, HumanEval 164, IFEval 541","ctx":"output caps 4k/8k/16k tokens, thinking included","tool":"llama.cpp llama-server on RTX 3090; judge Qwen3.8-27B-OBLITERATED Q8_0","L":[48,52,96,110,205,206,243,257]},
+"entries":[
+{"role":"own","name":"Q4_K_M (main file)","metrics":{"bench:MATH_correct_of_200_8k":"c81"},"size":"c76","unit":"GB","basis":"disk","bpw":null,"flags":["quant retest at 4k on 128 sensitive prompts: answered c77, clean finish c78, hit limit c79, empty c80 [L211]","MATH 8k hit the limit c82 [L211]","all main results measured on this file [L48-49]"]},
+{"role":"own","name":"Q5_K_M","metrics":{"bench:MATH_correct_of_200_8k":"c89"},"size":"c84","unit":"GB","basis":"disk","bpw":null,"flags":["answered c85, clean finish c86, hit limit c87, empty c88; MATH hit limit c90 [L212]"]},
+{"role":"own","name":"Q6_K","metrics":{"bench:MATH_correct_of_200_8k":"c97"},"size":"c92","unit":"GB","basis":"disk","bpw":null,"flags":["answered c93, clean finish c94, hit limit c95, empty c96; MATH hit limit c98 [L213]"]},
+{"role":"own","name":"Q8_0","metrics":{"bench:MATH_correct_of_200_8k":"c105"},"size":"c100","unit":"GB","basis":"disk","bpw":null,"flags":["answered c101, clean finish c102, hit limit c103, empty c104; MATH hit limit c106 [L214]"]}
+],
+"prose":[]}

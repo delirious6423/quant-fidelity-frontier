@@ -1,0 +1,16 @@
+{"repo":"airagrp/Qwen3.8-27B-mlx-mxfp8-S",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"bf16 Qwen3.8-27B","dataset":"WikiText-2 raw test split (297,053 tokens)","ctx":"2048-token windows, fresh KV cache per window","tool":"benchmark_ppl_kld.py, mlx-vlm 0.6.17","L":[75,89,90,91]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-mlx-mxfp8-S","metrics":{"mean_kld":"c18","ppl:wikitext-2":"c16","ppl_delta":"c17"},"size":"c15","unit":"GiB","basis":"disk","bpw":null,"flags":["KLD over full vocabulary [L89]","ppl_delta is absolute, not percent [L77]","prose says effective size ~29 GB (6.5 bits per weight) vs table 26.62 GiB [L35,L83]"]},
+{"role":"ladder","name":"Qwen3.8-27B (bf16 reference)","metrics":{"ppl:wikitext-2":"c2"},"size":"c1","unit":"GiB","basis":"disk","bpw":null,"flags":["reference [L79]"]},
+{"role":"ladder","name":"Qwen3.8-27B-mlx-nvfp4-S","metrics":{"mean_kld":"c6","ppl:wikitext-2":"c4","ppl_delta":"c5"},"size":"c3","unit":"GiB","basis":"disk","bpw":null,"flags":[]},
+{"role":"ladder","name":"Qwen3.8-27B-mlx-nvfp4-M","metrics":{"mean_kld":"c10","ppl:wikitext-2":"c8","ppl_delta":"c9"},"size":"c7","unit":"GiB","basis":"disk","bpw":null,"flags":[]},
+{"role":"ladder","name":"Qwen3.8-27B-mlx-nvfp4-L","metrics":{"mean_kld":"c14","ppl:wikitext-2":"c12","ppl_delta":"c13"},"size":"c11","unit":"GiB","basis":"disk","bpw":null,"flags":[]},
+{"role":"ladder","name":"Qwen3.8-27B-mlx-nvfp4-XL","metrics":{"mean_kld":"c22","ppl:wikitext-2":"c20","ppl_delta":"c21"},"size":"c19","unit":"GiB","basis":"disk","bpw":null,"flags":[]},
+{"role":"ladder","name":"Qwen3.8-27B-mlx-mxfp8-M","metrics":{"mean_kld":"c26","ppl:wikitext-2":"c24","ppl_delta":"c25"},"size":"c23","unit":"GiB","basis":"disk","bpw":null,"flags":[]},
+{"role":"ladder","name":"Qwen3.8-27B-mlx-mxfp8-L","metrics":{"mean_kld":"c30","ppl:wikitext-2":"c28","ppl_delta":"c29"},"size":"c27","unit":"GiB","basis":"disk","bpw":null,"flags":[]},
+{"role":"ladder","name":"Qwen3.8-27B-mlx-mxfp8-XL","metrics":{"mean_kld":"c34","ppl:wikitext-2":"c32","ppl_delta":"c33"},"size":"c31","unit":"GiB","basis":"disk","bpw":null,"flags":[]}
+],
+"prose":[]}

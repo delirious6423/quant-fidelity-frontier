@@ -1,0 +1,11 @@
+{"repo": "sakamakismile/Qwen3.8-27B-EXL3-6.5bpw",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "task accuracy only; no KL/perplexity reference (BF16 on vLLM used for a Qwopus reference row)", "dataset": "MMLU-Pro first 20 questions; 8-task agent battery", "ctx": "not stated", "tool": "ExLlamaV3 v1.4.5, 8 x RTX PRO 2000 Blackwell 16 GiB, TP=8", "L": [14, 22, 24, 26, 33, 34]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B EXL3 6.5bpw casting a", "metrics": {"bench:MMLU-Pro-first20": "c1.0"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["same recipe baked three times (castings a/b/c); 20 questions cannot rank models [L33-34, L52-56]", "6.5 bpw stated in prose, not a candidate id [L14]", "other bases (Huihui-abliterated, Qwopus) in the table are different models and omitted [L29-31]"]},
+  {"role": "own", "name": "Qwen3.8-27B EXL3 6.5bpw casting b", "metrics": {"bench:MMLU-Pro-first20": "c1.1"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["[L28]"]},
+  {"role": "own", "name": "Qwen3.8-27B EXL3 6.5bpw casting c", "metrics": {"bench:MMLU-Pro-first20": "c1.2"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["[L28]", "card says the published casting is the best seconds-per-correct of the three, a choice inside the noise band [L56]"]}
+ ],
+ "prose": []
+}

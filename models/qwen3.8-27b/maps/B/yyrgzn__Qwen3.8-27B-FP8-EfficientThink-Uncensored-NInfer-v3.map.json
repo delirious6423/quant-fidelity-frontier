@@ -1,0 +1,17 @@
+{"repo":"yyrgzn/Qwen3.8-27B-FP8-EfficientThink-Uncensored-NInfer-v3",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"not stated","dataset":"full GPQA, MMLU, LCB suites (quoted from source card)","ctx":"100K context, static FP8 tier (source card)","tool":"not stated","L":[41,42,43,117,118]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-FP8-EfficientThink-Uncensored NInfer v3","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["no quality measurement of the NInfer artifact itself; per-object FP8 re-encode error stated as relative L2 only, not mapped [L117-123]"]},
+{"role":"quoted","name":"EfficientThink-Uncensored source (static FP8)","of":"nerkyor/Qwen3.8-27B-Coder390-EfficientThink-Opus5.5-GPT6Astra-Grok4.7-DSV4Pro-K3-SFT-RLOO-MTP-DFlash2","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["figures copied from source card per L42 'Per the source card'; source repo identified from link at L376"]},
+{"role":"quoted","name":"original Qwen3.8-27B (FP8) as quoted on source card","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["baseline figures quoted from source card [L43,L145]"]}
+],
+"prose":[
+{"entry":"EfficientThink-Uncensored source (static FP8)","key":"bench:GPQA","L":42,"raw":"GPQA **178/198**"},
+{"entry":"EfficientThink-Uncensored source (static FP8)","key":"bench:MMLU","L":42,"raw":"MMLU **450/500**"},
+{"entry":"EfficientThink-Uncensored source (static FP8)","key":"bench:LCB","L":42,"raw":"LCB **90/100**"},
+{"entry":"original Qwen3.8-27B (FP8) as quoted on source card","key":"bench:GPQA","L":43,"raw":"177 / 444 / 83"},
+{"entry":"original Qwen3.8-27B (FP8) as quoted on source card","key":"bench:MMLU","L":43,"raw":"177 / 444 / 83"},
+{"entry":"original Qwen3.8-27B (FP8) as quoted on source card","key":"bench:LCB","L":43,"raw":"177 / 444 / 83"}
+]}

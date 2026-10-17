@@ -1,0 +1,62 @@
+{
+ "repo": "btbtyler09/Qwen3.8-27B-GPTQ-8bit",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "BF16 original",
+  "dataset": "wikitext-2-raw-v1 test",
+  "ctx": "seq_len 2048, stride 512",
+  "tool": "perplexity",
+  "L": [
+   77
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "GPTQ 8-bit (this)",
+   "metrics": {
+    "ppl": "c7",
+    "ppl_delta_pct": "c8"
+   },
+   "size": "c2",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "size includes BF16 vision encoder and MTP head [L73]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "GPTQ 4-bit FOEM",
+   "metrics": {
+    "ppl": "c9",
+    "ppl_delta_pct": "c10"
+   },
+   "size": "c4",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "[L83]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "BF16 (original)",
+   "metrics": {
+    "ppl": "c6"
+   },
+   "size": "c1",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "[L69,L81]"
+   ],
+   "of": "Qwen/Qwen3.8-27B"
+  }
+ ],
+ "prose": []
+}

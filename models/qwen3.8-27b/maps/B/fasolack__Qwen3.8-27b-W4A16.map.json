@@ -1,0 +1,7 @@
+{"repo":"fasolack/Qwen3.8-27b-W4A16","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"none measured for this build; reference numbers published by dbirks","dataset":"GSM8K, HumanEval, MMLU-Pro (100/subject)","ctx":"not stated","tool":"EleutherAI lm-evaluation-harness against served vLLM endpoint","L":[230,231,274]},
+"entries":[
+{"role":"own","name":"This build (int4 W4A16)","metrics":{"bench:GSM8K":"c2","bench:HumanEval-temp1.0":"c3","bench:HumanEval-greedy":"c4","bench:MMLU-Pro":"c6"},"size":"c7.0","unit":"GB","basis":"disk","bpw":null,"flags":["HumanEval temperature=1.0 n=1 and greedy re-run reported separately [L246-256]","own BF16 baseline was not measured [L231]","size ~19.5 GB vs ~52 GB BF16 [L35]"]},
+{"role":"quoted","name":"Reference column (labelled BF16, dbirks)","of":"dbirks/Qwen3.8-27B-W4A16-AutoRound","metrics":{"bench:GSM8K":"c1","bench:MMLU-Pro":"c5"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["card text says these figures come from the dbirks W4A16 build, 'vs' BF16 0.911/0.819, despite the column label [L37-40]","HumanEval reference decoding undisclosed [L277-278]"]}
+],
+"prose":[{"entry":"Reference column (labelled BF16, dbirks)","key":"bench:HumanEval","L":39,"raw":"0.957"}]}

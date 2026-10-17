@@ -1,0 +1,6 @@
+{"repo":"lackonendes/PAW-125B-FLASH-NEXT-X3","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"none; absolute scores only, no BF16 comparison (KL vs BF16 parent explicitly unmeasured)","dataset":"MMLU-Pro 500 items, GPQA 198, IFBench-64 (64-item sentinel), HumanEval/HumanEval+ 164, MBPP/MBPP+ 378, GSM8K 100","ctx":"not stated","tool":"no-think fastgate harness, greedy, max_tokens per benchmark","L":[70,76,85,136,145]},
+"entries":[
+{"role":"own","name":"PAW-125B-FLASH-NEXT-X3 q8_0 (2-shard GGUF, expert bank 2.631 bpw)","metrics":{"bench:MMLU-Pro":"c5","bench:GPQA":"c8","bench:IFBench-64":"c11","bench:HumanEval":"c14.1","bench:HumanEval+":"c17.1","bench:MBPP":"c20.1","bench:MBPP+":"c23.1","bench:GSM8K":"c26"},"size":null,"unit":"GiB","basis":"disk","bpw":"c27","flags":["two shards listed separately (42.08 and 48.28 GiB); no total cell [L60-61]","bpw applies to expert bank only, decoder at Q8_0 [L18-19]","MMLU-Pro and GPQA use a rescue pass with larger token cap [L78-83]","model-level KL vs BF16 parent not measured [L145-146]"]}
+],
+"prose":[]}

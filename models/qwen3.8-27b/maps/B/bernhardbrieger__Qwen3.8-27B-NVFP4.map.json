@@ -1,0 +1,8 @@
+{"repo":"bernhardbrieger/Qwen3.8-27B-NVFP4",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"none (absolute perplexity; no base-vs-quant delta reported)","dataset":"single 260-token sample","ctx":"not stated","tool":"scripts/measure_ppl_quant.py on live server; NVIDIA ModelOpt 0.46.0 quantization","L":[47,50,214,223,584]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-NVFP4","metrics":{"ppl":"c10"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["absolute PPL on a single 260-token sample, sanity check not a benchmark [L223,L271]","no base-vs-quant comparison [L260-263]","checkpoint weights 20.59 GB decimal c41 / 19.7 GB main shard c45.0 stated in prose, not in the PPL row [L37-38]"]}
+],
+"prose":[]}

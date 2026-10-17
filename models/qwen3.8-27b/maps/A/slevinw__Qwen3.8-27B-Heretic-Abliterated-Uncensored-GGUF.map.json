@@ -1,0 +1,17 @@
+{"repo":"slevinw/Qwen3.8-27B-Heretic-Abliterated-Uncensored-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"RVN-F16.gguf (F16 reference) for perplexity table","dataset":"tiny_shakespeare corpus","ctx":"2048","tool":"llama-perplexity on RTX PRO 6000 Blackwell, llama.cpp master","L":[339,340,342,343,344,345,346,347,348]},
+"entries":[
+{"role":"own","name":"RVN-F16.gguf","metrics":{"ppl:tiny_shakespeare":"c207"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["F16 reference row [L344]"]},
+{"role":"own","name":"RVN-Q5_K_M.gguf (standard)","metrics":{"ppl:tiny_shakespeare":"c208","ppl_delta_pct":"c209"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["delta vs F16 [L345]"]},
+{"role":"own","name":"RVN-Q5_K_M-vision.gguf","metrics":{"ppl:tiny_shakespeare":"c210","ppl_delta_pct":"c211"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["text perplexity only; vision not measured [L346,L350]"]},
+{"role":"own","name":"RVN-Q4_K_M-vision.gguf","metrics":{"ppl:tiny_shakespeare":"c212","ppl_delta_pct":"c213"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L347]"]},
+{"role":"own","name":"RVN-Q3_K_M-vision.gguf","metrics":{"ppl:tiny_shakespeare":"c214","ppl_delta_pct":"c215"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L348]"]},
+{"role":"own","name":"RVN (this repo, abliteration vs base)","metrics":{"mean_kld":"c8","bench:Refusals_low_of_100":"c7.0","bench:Refusals_high_of_100":"c7.1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["KL is abliteration damage vs base model, not quantization KL; refusals 0-1/100 range on 100 harmful prompts [L128-132]"]},
+{"role":"cross","name":"trohrbaugh -ara (source)","of":"trohrbaugh/Qwen3.8-27B-heretic-ara","metrics":{"mean_kld":"c6","bench:Refusals_of_100":"c5.0"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["KL vs base model (abliteration), not quantization [L131]"]},
+{"role":"cross","name":"Qwen3.8-27B (base)","of":"Qwen/Qwen3.8-27B","metrics":{"bench:Refusals_of_100":"c4.0"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["approx value [L130]"]},
+{"role":"own","name":"Q4_K_M multilingual (pilot)","metrics":{"ppl_delta:wiki_imatrix_vs_F16":"c21","ppl_delta:wiki_imatrix_vs_legacy":"c22","ppl_delta:multilingual_vs_F16":"c23","ppl_delta:multilingual_vs_legacy":"c24"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["absolute PPL deltas, eval corpus not stated [L239-243]"]},
+{"role":"own","name":"IQ4_XS multilingual (pilot)","metrics":{"ppl_delta:wiki_imatrix_vs_F16":"c26","ppl_delta:wiki_imatrix_vs_legacy":"c27","ppl_delta:multilingual_vs_F16":"c28","ppl_delta:multilingual_vs_legacy":"c29"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["absolute PPL deltas, eval corpus not stated [L239-244]"]}
+],
+"prose":[]}

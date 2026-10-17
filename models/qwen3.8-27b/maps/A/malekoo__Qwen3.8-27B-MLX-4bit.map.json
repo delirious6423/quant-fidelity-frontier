@@ -1,0 +1,7 @@
+{"repo":"malekoo/Qwen3.8-27B-MLX-4bit","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 MLX conversion in identical harness","dataset":"wikitext-2 (test)","ctx":"disjoint 2048-token windows, single token stream","tool":"mlx_lm","L":[33]},
+"entries":[
+{"role":"own","name":"MLX 4-bit (group size 64, affine)","metrics":{"ppl:wikitext2":"c7.0"},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["+2.2% relative to bf16 [L33]","4.501 effective bits/weight in prose [L22]"]},
+{"role":"ladder","name":"bf16 MLX conversion","metrics":{"ppl:wikitext2":"c7.1"},"size":"c3","unit":"GB","basis":"disk","bpw":null,"flags":["~54 GB bf16 MLX artifact [L22]"]}
+],
+"prose":[{"entry":"MLX 4-bit (group size 64, affine)","key":"bpw","L":22,"raw":"4.501 effective bits/weight"}]}

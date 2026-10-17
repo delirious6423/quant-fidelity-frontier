@@ -1,0 +1,10 @@
+{"repo":"notnaurw/Qwen3.8-27B-oQ5e-SAGE-ARCS-mtp","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"bf16 source (shared bf16 reference cache)","dataset":"agentic basis: 96 sequences x 2048 tokens, 48 batches, 196,512 positions; stock basis: 128 sequences x 1024 tokens, 32 batches, 130,944 positions","ctx":"2048 and 1024 input tokens; long-context held-out rungs 2K/8K/16K","tool":"head-KL = KL(bf16 || quantized) over bf16 top-1024 logits renormalized; full-vocabulary KL as audit","L":[111,133,404,437,465,498]},
+"entries":[
+{"role":"own","name":"SAGE-ARCS (oQ5e, MTP bf16)","of":"","metrics":{"kld:agentic_head":"c35.0","kld:stock_head":"c44.0"},"size":"c5.0","unit":"GiB","basis":"disk","bpw":"c7.1","flags":["head-KL 0.3166 pooled agentic [L261]; KL values only comparable within one corpus [L263]","21.13 GB (19.68 GiB) stated [L79]","ppl ratios 0.993 and 0.997 cannot be assigned to builds, left out [L336]","stock-basis head-KL is worse than SAGE's [L506]"]},
+{"role":"ladder","name":"SAGE","of":"","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["sibling build; agentic head-KL table cells not in candidate list; full-vocab and stock values from prose [L158, L498]"]}
+],
+"prose":[
+{"entry":"SAGE-ARCS (oQ5e, MTP bf16)","key":"kld:agentic_full","L":498,"raw":"0.352813"},
+{"entry":"SAGE","key":"kld:agentic_full","L":498,"raw":"0.434296"},
+{"entry":"SAGE","key":"kld:stock_head","L":158,"raw":"0.010348"}]}

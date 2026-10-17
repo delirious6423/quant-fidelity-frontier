@@ -1,0 +1,10 @@
+{"repo":"penkia/TernaryQuench-Qwen3.8-27B-MLX","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"not stated (absolute perplexity and zero-shot accuracy, no BF16 delta)","dataset":"WikiText-2 test sample (first 20,480 tokens, 40 chunks); lm-eval PIQA/ARC/HellaSwag/WinoGrande","ctx":"512-token chunks","tool":"MLX; lm-eval 0.4.7 zero-shot","L":[54,62,63,80,81]},
+"entries":[
+{"role":"own","name":"TernaryQuench 27B (MLX)","metrics":{"ppl:wikitext2":"c3","bench:second_half_ppl":"c4"},"size":"c25","unit":"GB","basis":"disk","bpw":null,"flags":["size is download size [L42]","zero-shot accuracies in L75 are for the full-ternary training checkpoint, not this MLX artifact [L68-70]"]},
+{"role":"own","name":"TernaryQuench 27B (full-ternary training checkpoint, lm-eval)","metrics":{"bench:mean_accuracy":"c13","bench:PIQA":"c14","bench:ARC-Easy":"c15","bench:ARC-Challenge":"c16","bench:HellaSwag":"c17","bench:WinoGrande":"c18"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["not the MLX artifact [L68-70]"]},
+{"role":"cross","name":"Qwen3.8-27B 4-bit","of":"not named on card","metrics":{"ppl:wikitext2":"c1","bench:second_half_ppl":"c2"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L58]"]},
+{"role":"cross","name":"Ternary-Bonsai-27B","of":"not named on card","metrics":{"ppl:wikitext2":"c5","bench:second_half_ppl":"c6","bench:mean_accuracy":"c19","bench:PIQA":"c20","bench:ARC-Easy":"c21","bench:ARC-Challenge":"c22","bench:HellaSwag":"c23","bench:WinoGrande":"c24"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["uses Qwen3.6 as base, so different model [L64]","[L60,L76]"]},
+{"role":"cross","name":"Qwen3.8-27B BF16","of":"Qwen/Qwen3.8-27B","metrics":{"bench:mean_accuracy":"c7","bench:PIQA":"c8","bench:ARC-Easy":"c9","bench:ARC-Challenge":"c10","bench:HellaSwag":"c11","bench:WinoGrande":"c12"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["reference [L74]"]}
+],
+"prose":[]}

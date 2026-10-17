@@ -1,0 +1,12 @@
+{"repo": "Litwein/Qwen3.8-27B-oQ4e-DWQ-MTP-Vision-MLX",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "oQ8e teacher made from the same base model (top-1024 teacher logits, temperature 2.0); teacher itself sits at KL 0.019 vs bf16", "dataset": "held-out split of the DWQ calibration mix (agent/code/math/reasoning/chat, 62.5% agent+code)", "ctx": "512-token windows", "tool": "oMLX (oQ4e-XL -> M4Q -> DWQ)", "L": [83, 84, 85, 99, 100, 101, 102, 125, 126, 127, 134]},
+ "entries": [
+  {"role": "own", "name": "oQ4e -> M4Q -> DWQ (this repo)", "metrics": {"kld:held-out-top-K-teacher": "c19"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["held-out top-K teacher KL against the recipe's own oQ8e teacher, not against bf16 [L99-102]", "card says it is not task accuracy and not comparable to other datasets/teachers [L99-101]", "20% relative reduction vs M4Q init [L39]"]},
+  {"role": "ladder", "name": "M4Q init", "metrics": {"kld:held-out-top-K-teacher": "c18"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["same teacher/held-out set [L127-129]"]},
+  {"role": "ladder", "name": "Raw oQ4e-XL", "metrics": {"kld:held-out-top-K-teacher": "c17"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["measured on a 16-batch subset only [L134]"]},
+  {"role": "ladder", "name": "oQ8e teacher", "metrics": {"kld:held-out-calibration-vs-bf16": "c23"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["KL 0.019 vs the bf16 base on the held-out calibration distribution [L101]"]}
+ ],
+ "prose": []
+}

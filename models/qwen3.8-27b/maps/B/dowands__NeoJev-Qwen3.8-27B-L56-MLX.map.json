@@ -1,0 +1,122 @@
+{
+ "repo": "dowands/NeoJev-Qwen3.8-27B-L56-MLX",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {
+  "reference": "same base model, all 64 layers, option logits zero-shot (not BF16 logits)",
+  "dataset": "11 held-out tasks, 500 items each (5,500 calls); JevBench 231 public items",
+  "ctx": "160-token budget per call",
+  "tool": "decider.py, JevBench TypeSafeAdapter",
+  "L": [
+   94,
+   129,
+   161
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "NeoJev L56 MLX 4-bit (56 of 64 layers + readout head)",
+   "metrics": {
+    "bench:customer-support-tickets/queue_acc": "c7.0",
+    "bench:customer-support-tickets/queue_ece": "c7.1",
+    "bench:customer-support-tickets/priority_acc": "c9.0",
+    "bench:customer-support-tickets/priority_ece": "c9.1",
+    "bench:customer-support-tickets/type_acc": "c11.0",
+    "bench:customer-support-tickets/type_ece": "c11.1",
+    "bench:yelp_review_full/stars_acc": "c13.0",
+    "bench:yelp_review_full/stars_ece": "c13.1",
+    "bench:yelp_review_full/4-5_stars_acc": "c15.0",
+    "bench:yelp_review_full/4-5_stars_ece": "c15.1",
+    "bench:ag_news/topic_acc": "c17.0",
+    "bench:ag_news/topic_ece": "c17.1",
+    "bench:boolq_acc": "c19.0",
+    "bench:boolq_ece": "c19.1",
+    "bench:dair-ai/emotion_acc": "c21.0",
+    "bench:dair-ai/emotion_ece": "c21.1",
+    "bench:glue/mnli_acc": "c23.0",
+    "bench:glue/mnli_ece": "c23.1",
+    "bench:commonsense_qa_acc": "c25.0",
+    "bench:commonsense_qa_ece": "c25.1",
+    "bench:openbookqa_acc": "c27.0",
+    "bench:openbookqa_ece": "c27.1",
+    "bench:ai2_arc_challenge_acc": "c29.0",
+    "bench:ai2_arc_challenge_ece": "c29.1",
+    "bench:sciq_acc": "c31.0",
+    "bench:sciq_ece": "c31.1",
+    "bench:tweet_eval/irony_acc": "c33.0",
+    "bench:tweet_eval/irony_ece": "c33.1",
+    "bench:mean_acc": "c35.0",
+    "bench:mean_ece": "c35.1",
+    "bench:JevBench_public_231_acc": "c75"
+   },
+   "size": "c74",
+   "unit": "GB",
+   "basis": "text_weights",
+   "bpw": null,
+   "flags": [
+    "early-exit 56-layer model with trained readout head, not a plain quant [L85-86]; decision accuracy, not KL/ppl",
+    "per-task cells hold 'acc / ECE' pairs: .0 = accuracy, .1 = ECE [L96]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "NeoJev L56 (NVIDIA PyTorch backend, FP8 first 56 layers)",
+   "metrics": {
+    "bench:mean_acc": "c4"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "sibling repo dowands/NeoJev-Qwen3.8-27B-L56 [L37,L116]; JevBench CUDA accuracy c71 not mapped here"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Qwen3.8-27B all 64 layers, option logits (baseline)",
+   "metrics": {
+    "bench:customer-support-tickets/queue_acc": "c6.0",
+    "bench:customer-support-tickets/queue_ece": "c6.1",
+    "bench:customer-support-tickets/priority_acc": "c8.0",
+    "bench:customer-support-tickets/priority_ece": "c8.1",
+    "bench:customer-support-tickets/type_acc": "c10.0",
+    "bench:customer-support-tickets/type_ece": "c10.1",
+    "bench:yelp_review_full/stars_acc": "c12.0",
+    "bench:yelp_review_full/stars_ece": "c12.1",
+    "bench:yelp_review_full/4-5_stars_acc": "c14.0",
+    "bench:yelp_review_full/4-5_stars_ece": "c14.1",
+    "bench:ag_news/topic_acc": "c16.0",
+    "bench:ag_news/topic_ece": "c16.1",
+    "bench:boolq_acc": "c18.0",
+    "bench:boolq_ece": "c18.1",
+    "bench:dair-ai/emotion_acc": "c20.0",
+    "bench:dair-ai/emotion_ece": "c20.1",
+    "bench:glue/mnli_acc": "c22.0",
+    "bench:glue/mnli_ece": "c22.1",
+    "bench:commonsense_qa_acc": "c24.0",
+    "bench:commonsense_qa_ece": "c24.1",
+    "bench:openbookqa_acc": "c26.0",
+    "bench:openbookqa_ece": "c26.1",
+    "bench:ai2_arc_challenge_acc": "c28.0",
+    "bench:ai2_arc_challenge_ece": "c28.1",
+    "bench:sciq_acc": "c30.0",
+    "bench:sciq_ece": "c30.1",
+    "bench:tweet_eval/irony_acc": "c32.0",
+    "bench:tweet_eval/irony_ece": "c32.1",
+    "bench:mean_acc": "c34.0",
+    "bench:mean_ece": "c34.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "baseline measured by card author [L94]"
+   ],
+   "of": "Qwen/Qwen3.8-27B"
+  }
+ ],
+ "prose": []
+}

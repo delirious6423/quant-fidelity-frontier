@@ -1,0 +1,10 @@
+{"repo":"armin1/Qwen3.8-27B-NVFP4-FP8-Mixed-LH-Heretic","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 original (teacher-forced)","dataset":"58 documents (code, prose, 16K/32K long context, chat), 110,155 positions; GSM8K test 1,319 questions thinking on","ctx":"16K/32K documents; 16K generation cap for GSM8K","tool":"one DGX Spark, SGLang; KL over top-20 tokens only (lower bound on full KL)","L":[105,106,118]},
+"entries":[
+{"role":"own","name":"This model (trial 134)","metrics":{"mean_kld":"c18","kld_99":"c19","top1_pct":"c20","bench:delta NLL":"c21","bench:GSM8K":"c42"},"size":"c46","unit":"GB","basis":"disk","bpw":null,"flags":["KL is top-20 truncated [L106]","Heretic KL 0.0638 is a different ruler, first-token only [L81]","refusals 28/100 omitted [L71]"]},
+{"role":"ladder","name":"NVFP4-FP8-Mixed-LH (not abliterated)","metrics":{"mean_kld":"c14","kld_99":"c15","top1_pct":"c16","bench:delta NLL":"c17","bench:GSM8K":"c34"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L110, L123]"]},
+{"role":"cross","name":"nvidia/Qwen3.8-27B-NVFP4","of":"nvidia/Qwen3.8-27B-NVFP4","metrics":{"mean_kld":"c22","kld_99":"c23","top1_pct":"c24","bench:delta NLL":"c25"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L112]"]},
+{"role":"cross","name":"RadixArk/Qwen3.8-27B-NVFP4-BF16-LMHead","of":"RadixArk/Qwen3.8-27B-NVFP4-BF16-LMHead","metrics":{"mean_kld":"c26","kld_99":"c27","top1_pct":"c28","bench:delta NLL":"c29","bench:GSM8K":"c30"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L113, L122]"]},
+{"role":"cross","name":"Qwen FP8","of":"not named on card","metrics":{"bench:GSM8K":"c38"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Qwen's official FP8 per prose [L46]; [L124]"]}
+],
+"prose":[]}

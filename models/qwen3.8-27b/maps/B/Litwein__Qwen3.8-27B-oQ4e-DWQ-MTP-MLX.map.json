@@ -1,0 +1,11 @@
+{"repo":"Litwein/Qwen3.8-27B-oQ4e-DWQ-MTP-MLX",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"oQ8e teacher made from the same base model (not bf16)","dataset":"held-out calibration partition (SWE trajectories, reasoning, math, code, chat mix)","ctx":"512-token windows","tool":"oMLX oQ4e-XL -> M4Q -> DWQ; KL over teacher top-1024 logits at temperature 2.0","L":[77,80,94,96,120]},
+"entries":[
+{"role":"own","name":"oQ4e -> M4Q -> DWQ (this repo)","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["held-out top-K teacher KL c19 not mapped: reference is the oQ8e teacher, top-1024 at T=2.0, explicitly not comparable to bf16 KLD [L94-96,L122]","relative reduction vs M4Q init c20 [L123]"]},
+{"role":"ladder","name":"M4Q init","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["held-out top-K teacher KL c18 not mapped, same non-bf16 reference [L122]"]},
+{"role":"ladder","name":"Raw oQ4e-XL donor","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["held-out top-K teacher KL c17 not mapped, measured on a 16-batch subset [L122,L127]"]},
+{"role":"ladder","name":"oQ8e teacher","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["stated KL vs bf16 base c23 in prose, protocol not specified, not mapped [L96]"]}
+],
+"prose":[]}

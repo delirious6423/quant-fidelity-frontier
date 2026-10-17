@@ -1,0 +1,8 @@
+{"repo":"NikiKrutan/Qwen3.8-27B-MTP-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"Q8_0 standard quant","dataset":"niki-small-plus-2 (~400K tokens, agentic/code/reasoning, unpublished) and independent-v2 (~390K tokens, multilingual/legal/math/science)","ctx":"6144 tokens (niki-small-plus-2), 2304 tokens (independent-v2)","tool":"llama-perplexity","L":[175,177,178,191,192,193,203]},
+"entries":[
+{"role":"own","name":"Niki quants (15 sizes, 8500-23000 MiB)","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["per-quant metric values are in HTML tables (Mean KLD, RMS dp, KLD p95/p99/p99.9, same-top-p, PPL) [L221-2560] but no candidate ids were provided for cells; not mapped"]},
+{"role":"cross","name":"byteshape quants (IQ3_S-3.44bpw to Q5_K_M-5.60bpw)","of":"byteshape/Qwen3.8-27B-GGUF","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["measured by card author on both corpora; values not in candidates [L543-2235]"]},
+{"role":"cross","name":"Unsloth v3.0 quants","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["compared in tables, with MTP-size-subtracted variant; values not in candidates [L86-88]"]}
+],
+"prose":[]}

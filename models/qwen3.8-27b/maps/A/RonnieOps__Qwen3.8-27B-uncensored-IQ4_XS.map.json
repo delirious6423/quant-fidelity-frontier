@@ -1,0 +1,16 @@
+{"repo":"RonnieOps/Qwen3.8-27B-uncensored-IQ4_XS","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"saved BF16 logits (same engine); PPL anchors BF16","dataset":"wiki validation corpus (PPL, KL); custom 59-task SEC/finance domain harness; 115/127-task suites","ctx":"32K for task suites; not stated for PPL/KL","tool":"llama.cpp (KL RMS dp / top-p agreement vs BF16)","L":[55,75,80,81,177]},
+"entries":[
+{"role":"own","name":"E4-ASCII pruned IQ4_XS (this quant)","metrics":{"bench:Domain59":"c1","bench:Ext115_32K_MTP":"c4.0","bench:Suite127_32K_MTP":"c10.0"},"size":"c9","unit":"GiB","basis":"disk","bpw":null,"flags":["KL vs BF16 undefined for pruned vocab, not measured [L75,L81]","standalone PPL 6.4248 +/- 0.04 in prose [L80]","custom domain suite, not public benchmark [L167]"]},
+{"role":"ladder","name":"Full-vocab build (same recipe, E4)","metrics":{"bench:Domain59":"c2","bench:Ext115_32K_MTP":"c5.1"},"size":"c12","unit":"GiB","basis":"disk","bpw":null,"flags":["KL RMS dp 4.33% / top-p agreement 93.9% vs BF16 (c14.0,c14.1) - metric not standard KLD/top1, omitted [L61,L73]","ext115 score reported as range 91-92 (c5.0-c5.1) [L58]","L73 suite gate 91/115 (c13.0,c13.1)"]},
+{"role":"cross","name":"Unsloth UD-IQ4_XS","of":"not named on card","metrics":{"bench:Domain59":"c37","bench:Ext115_32K_MTP":"c6.0"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["KL RMS dp 4.35% / top-p 93.9% (c8.0,c8.1) [L61,L182] not standard KLD/top1","L57 domain score given as 53-54/59 range (c3)"]},
+{"role":"ladder","name":"General only (no domain imatrix)","metrics":{"bench:Domain59":"c32"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["calibration study variant [L179]"]},
+{"role":"ladder","name":"General + 377K finance SEC","metrics":{"bench:Domain59":"c33"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["wiki KL RMS 4.93 / top-p 91.7 (c34.0,c34.1) [L180]"]},
+{"role":"quoted","name":"BF16 full-file PPL anchor","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["external anchor [L80]"]},
+{"role":"quoted","name":"community IQ4_XS full-file PPL anchor","of":"not named on card","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["external anchor [L80]"]}
+],
+"prose":[
+{"entry":"E4-ASCII pruned IQ4_XS (this quant)","key":"ppl","L":80,"raw":"6.4248"},
+{"entry":"BF16 full-file PPL anchor","key":"ppl","L":80,"raw":"6.744"},
+{"entry":"community IQ4_XS full-file PPL anchor","key":"ppl","L":80,"raw":"6.77"}
+]}

@@ -1,0 +1,12 @@
+{"repo":"deucebucket/Qwen3.8-27B-Cerebellum-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"none (benchmarks, self-reported)","dataset":"ARC-Challenge, HellaSwag, MMLU-Redux, HumanEval/HumanEval+, perplexity 145 chunks","ctx":"512 for perplexity; server -c 24576","tool":"llama-server -ngl 99 --parallel 4 --jinja","L":[108,117,123]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B Cerebellum Q2_K Mixed 12GB","metrics":{"ppl":"c14"},"size":"c21","unit":"GiB","basis":"disk","bpw":"c16","flags":["self-reported, not HF-verified [L108]","size is weight-file arithmetic [L96]","ppl 145 chunks ctx 512 [L117]"]}
+],
+"prose":[
+{"entry":"Qwen3.8-27B Cerebellum Q2_K Mixed 12GB","key":"bench:ARC-Challenge","L":112,"raw":"95.48% accuracy"},
+{"entry":"Qwen3.8-27B Cerebellum Q2_K Mixed 12GB","key":"bench:HellaSwag","L":113,"raw":"91.15% accuracy"},
+{"entry":"Qwen3.8-27B Cerebellum Q2_K Mixed 12GB","key":"bench:MMLU-Redux","L":114,"raw":"71.21% accuracy"},
+{"entry":"Qwen3.8-27B Cerebellum Q2_K Mixed 12GB","key":"bench:HumanEval","L":115,"raw":"91.46% pass@1"},
+{"entry":"Qwen3.8-27B Cerebellum Q2_K Mixed 12GB","key":"bench:HumanEval+","L":116,"raw":"87.80% pass@1"}
+]}

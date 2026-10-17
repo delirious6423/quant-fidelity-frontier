@@ -1,0 +1,13 @@
+{"repo":"kaushikvira/Qwen3.8-27B-swift15-nvfp4full-dflash2-NInfer-v3",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"no BF16 reference; same-session A/B vs the publisher's Swift-1.0-abliterated build, temp 0, no cache reuse","dataset":"IFBench (n=300), GSM8K-200; quantization calibration 512 Ultrachat samples","ctx":"2048 (calibration seq)","tool":"llm-compressor NVFP4; NInfer engine","L":[61,113,114,116]},
+"entries":[
+{"role":"own","name":"Swift-1.5 (this artifact)","metrics":{"bench:IFBench prompt-strict":"c2","bench:IFBench prompt-loose":"c5","bench:IFBench instr-strict":"c8","bench:IFBench instr-loose":"c11","bench:GSM8K-200":"c14"},"size":"c18","unit":"GiB","basis":"disk","bpw":null,"flags":["Size cell c18 is the Swift-1.0 column of the artifact-size row; this artifact column not a separate candidate [L127]","Family table repeats swift15 v3 IFBench 69.0 and GSM8K 95.0% [L184]","Weights in VRAM 18.0 GiB [L108]"]},
+{"role":"ladder","name":"Swift-1.0-abliterated (prev. prod)","metrics":{"bench:IFBench prompt-strict":"c1","bench:IFBench prompt-loose":"c4","bench:IFBench instr-strict":"c7","bench:IFBench instr-loose":"c10","bench:GSM8K-200":"c13"},"size":"c17","unit":"GiB","basis":"vram","bpw":null,"flags":["Weights in VRAM [L126]"]},
+{"role":"ladder","name":"nvfp4full-dflash2.v3","metrics":{"bench:IFBench prompt-strict":"c33","bench:GSM8K-200":"c34"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Cross-session row, asterisked [L182]"]},
+{"role":"ladder","name":"swift-abliterated v3","metrics":{"bench:IFBench prompt-strict":"c37","bench:GSM8K-200":"c38"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Cross-session row [L183]"]},
+{"role":"ladder","name":"thinkingcap v3","metrics":{"bench:IFBench prompt-strict":"c45","bench:GSM8K-200":"c46"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L185]"]},
+{"role":"ladder","name":"swift15-uncensored-ajgazin v3","metrics":{"bench:IFBench prompt-strict":"c49","bench:GSM8K-200":"c50"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L186]"]}
+],
+"prose":[]}

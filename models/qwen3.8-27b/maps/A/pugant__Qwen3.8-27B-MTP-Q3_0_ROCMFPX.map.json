@@ -1,0 +1,9 @@
+{"repo":"pugant/Qwen3.8-27B-MTP-Q3_0_ROCMFPX","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 historical references (6.6409 en / 11.7156 it)","dataset":"wikitext-2-en 150k tokens + Italian technical corpus 51.5k tokens","ctx":"512","tool":"llama-perplexity -c 512 -b 512 -fa on -ngl 999, Vulkan RADV, Strix Halo","L":[74,75,76]},
+"entries":[
+{"role":"own","name":"base Q3_0_ROCMFPX","metrics":{"ppl:en":"c9","ppl:it":"c10","ppl_delta_pct:en":"c9","ppl_delta_pct:it":"c10"},"size":"c8","unit":"GiB","basis":"disk","bpw":"c7","flags":["PPL and delta share one cell, e.g. '6.9943 (+5.32%)' [L81]","effective bpw 4.44 vs nominal 3.50 [L146]"]},
+{"role":"own","name":"agent Q3_0_ROCMFPX_AGENT","metrics":{"ppl:en":"c15","ppl:it":"c16","ppl_delta_pct:en":"c15","ppl_delta_pct:it":"c16"},"size":"c14","unit":"GiB","basis":"disk","bpw":"c13","flags":["PPL and delta share one cell [L82]"]},
+{"role":"ladder","name":"STRIX_LEAN Q4_0_ROCMFP4_STRIX_LEAN (baseline)","metrics":{"ppl:en":"c3","ppl:it":"c4","ppl_delta_pct:en":"c3","ppl_delta_pct:it":"c4"},"size":"c2","unit":"GiB","basis":"disk","bpw":"c1","flags":["control reproduced within sigma [L76]; PPL and delta share one cell [L80]"]},
+{"role":"ladder","name":"BF16 baseline","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["historical reference values [L85]"]}
+],
+"prose":[{"entry":"BF16 baseline","key":"ppl:en","L":75,"raw":"6.6409"},{"entry":"BF16 baseline","key":"ppl:it","L":75,"raw":"11.7156"}]}

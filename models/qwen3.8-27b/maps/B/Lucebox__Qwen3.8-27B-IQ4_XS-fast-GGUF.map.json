@@ -1,0 +1,9 @@
+{"repo": "Lucebox/Qwen3.8-27B-IQ4_XS-fast-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "Q8_0 (not bf16)", "dataset": "wikitext-2, 300 x 512-token chunks paired KL; HumanEval-164; GSM8K first 200", "ctx": "512-token chunks", "tool": "llama.cpp paired KL; lucebox serving path with exact-verify speculation", "L": [19]},
+ "entries": [
+  {"role": "own", "name": "this file (pure IQ4_XS)", "metrics": {"ppl_delta_pct": "c3", "mean_kld": "c5", "top1_pct": "c7", "bench:HumanEval": "c9.0", "bench:GSM8K_first200": "c11.0"}, "size": "c1", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["all deltas are versus a Q8_0 reference, not bf16 [L19]", "HumanEval 144/164 and GSM8K 171/200 are pass counts"]},
+  {"role": "cross", "name": "Unsloth UD-IQ4_XS", "of": "unsloth/Qwen3.8-27B-GGUF", "metrics": {"ppl_delta_pct": "c4", "mean_kld": "c6", "top1_pct": "c8", "bench:HumanEval": "c10.0", "bench:GSM8K_first200": "c12.0"}, "size": "c2", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["measured by card author against Q8_0 [L19-21]"]}
+ ],
+ "prose": []}

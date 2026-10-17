@@ -1,0 +1,12 @@
+{"repo": "tooltd/Qwen3.8-27B-GSQ-RCO-BuffedMod-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "BF16 base model (q38f16baseline.kld), PPL(base) 6.950493", "dataset": "wikitext-2-raw test", "ctx": "not stated", "tool": "llama-perplexity --kl-divergence", "L": [47, 50, 52, 90]},
+ "entries": [
+  {"role": "own", "name": "BuffedMod (IQ4XS MTP)", "metrics": {"ppl": "c26", "mean_kld": "c28", "top1_pct": "c30"}, "size": "c25", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["Top-Token Match column mapped to top1_pct; label ambiguous [L74]", "median KLD and PPL diff vs base not mapped"]},
+  {"role": "own", "name": "BuffedMod (Q6_K MTP)", "metrics": {"ppl": "c32", "mean_kld": "c34", "top1_pct": "c36"}, "size": "c31", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["Q6_K output.weight [L36]; same Mean KLD/PPL as above [L82]"]},
+  {"role": "own", "name": "BuffedMod (Q6_K Output) full stats", "metrics": {"ppl": "c2", "mean_kld": "c8", "top1_pct": "c14", "kld_99": "c72"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["higher-precision values from the summary table and llama-perplexity output [L61-65,L127]"]},
+  {"role": "own", "name": "Original (IQ3_S-mtp)", "metrics": {"ppl": "c1", "mean_kld": "c7", "top1_pct": "c13", "kld_99": "c54"}, "size": "c19", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["IQ3_S with Q4_K output.weight [L86]"]},
+  {"role": "ladder", "name": "BF16 base", "metrics": {"ppl": "c42"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["reference PPL line [L90]"]}
+ ],
+ "prose": []}

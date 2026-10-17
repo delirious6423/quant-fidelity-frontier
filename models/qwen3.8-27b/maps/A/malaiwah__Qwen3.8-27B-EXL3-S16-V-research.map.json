@@ -1,0 +1,7 @@
+{"repo":"malaiwah/Qwen3.8-27B-EXL3-S16-V-research","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"shared BF16 reference capture, shared BF16 head","dataset":"shard 0 of v5 held-out suite, 512 contexts, 1,048,064 scored positions, 330 source clusters","ctx":"not stated","tool":"hidden state captured after final norm, replayed through BF16 lm_head; token_mean_kld, cluster bootstrap 10,000 resamples","L":[22,23,122,126]},
+"entries":[
+{"role":"own","name":"S16-V (this build)","metrics":{"mean_kld":"c42","kld_99":"c45","top1_pct":"c48"},"size":"c73","unit":"GiB","basis":"disk","bpw":null,"flags":["12.7922 GiB whole tree as built [L89]","rejected: 1.5x the pre-registered 0.030 threshold [L26]"]},
+{"role":"ladder","name":"K4","metrics":{"mean_kld":"c35","kld_99":"c38","top1_pct":"c41"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["nearest neighbour build [L74]","percentile columns marked * are binned approximations [L131,L135]"]},
+{"role":"ladder","name":"context edition (malaiwah/Qwen3.8-27B-EXL3-K5K6-context)","of":"malaiwah/Qwen3.8-27B-EXL3-K5K6-context","metrics":{"mean_kld":"c27","kld_99":"c30","top1_pct":"c33"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["recommended build by same publisher [L37]","percentile columns marked * are binned approximations [L130]"]}
+],"prose":[]}

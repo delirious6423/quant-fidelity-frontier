@@ -1,0 +1,21 @@
+{"repo":"notnaurw/Qwen3.8-27B-oQ5e-SAGE-CREST-mtp",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"bf16 source (shared bf16 reference cache)","dataset":"agentic SWE/terminal corpus 96 seq x 2048 tokens (48 batches, 196,512 positions); generalist corpus 128 seq x 1024 (32 batches, 130,944 positions); 16 held-out sessions at 131,072 tokens","ctx":"2048 / 1024 / 131072","tool":"head-KL = KL(bf16 || quantized) over bf16 top-1024 logits; full-vocabulary KL as audit","L":[68,139,167,203,553,583]},
+"entries":[
+{"role":"own","name":"SAGE-CREST (oQ5e, text-only, bf16 MTP head)","metrics":{},"size":"c1","unit":"GB","basis":"disk","bpw":"c7.1","flags":["Whole-checkpoint bpw includes the bf16 MTP head [L100]","Main comparison tables are HTML with no numeric candidate cells, so only prose-quoted values are recorded [L114-126, L420-458]","Agentic and generalist KL are on different corpora and not comparable to each other [L193, L577]","Fidelity is not task accuracy; benchmark counts are separate [L668]"]},
+{"role":"ladder","name":"uniform 6-bit (group 64, text-only, bf16 MTP)","metrics":{},"size":"c15.0","unit":"GB","basis":"disk","bpw":"c15.1","flags":["Standard MLX affine quantization comparator built by the publisher [L102]","[L100]"]},
+{"role":"ladder","name":"SAGE-PATHS","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["1.54 GB smaller than SAGE-CREST [L100]"]},
+{"role":"ladder","name":"SAGE","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["Level with SAGE-CREST on generalist head-KL [L197]"]}
+],
+"prose":[
+{"entry":"SAGE-CREST (oQ5e, text-only, bf16 MTP head)","key":"kld:agentic_head_pooled","L":390,"raw":"0.2433"},
+{"entry":"SAGE-CREST (oQ5e, text-only, bf16 MTP head)","key":"kld:agentic_full_vocab","L":644,"raw":"0.268643"},
+{"entry":"SAGE-CREST (oQ5e, text-only, bf16 MTP head)","key":"kld:generalist_head","L":197,"raw":"0.010114"},
+{"entry":"SAGE-CREST (oQ5e, text-only, bf16 MTP head)","key":"bench:Tier A questions correct (of 1064)","L":668,"raw":"799 (75.1%)"},
+{"entry":"SAGE-CREST (oQ5e, text-only, bf16 MTP head)","key":"bench:964-question run correct","L":668,"raw":"758"},
+{"entry":"SAGE-PATHS","key":"kld:generalist_head","L":197,"raw":"0.012280"},
+{"entry":"SAGE-PATHS","key":"bench:964-question run correct","L":668,"raw":"768"},
+{"entry":"SAGE","key":"kld:generalist_head","L":197,"raw":"0.010153"},
+{"entry":"uniform 6-bit (group 64, text-only, bf16 MTP)","key":"kld:generalist_head","L":197,"raw":"0.008508"}
+]}

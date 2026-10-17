@@ -1,0 +1,8 @@
+{"repo":"1bit-MONSTER/Qwen3.8-27B-Q4_0-H32-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16","dataset":"wikitext-2 (40 x 512)","ctx":"512","tool":"llama-bench for pp512; KLD via 1bit engine on Strix Halo","L":[34,36]},
+"entries":[
+{"role":"own","name":"this file, W4A4 (Q4_0-H32 Hadamard-rotated)","metrics":{"mean_kld":"c11","top1_pct":"c12","ppl":"c10","bench:pp512":"c9"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["[L42]"]},
+{"role":"ladder","name":"Q4_0, exact int8","metrics":{"mean_kld":"c3","top1_pct":"c4","ppl":"c2","bench:pp512":"c1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["pp512 approximate (~400) [L40]"]},
+{"role":"ladder","name":"Q4_0, W4A4 without rotation","metrics":{"mean_kld":"c7","top1_pct":"c8","ppl":"c6"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["pp512 given as a range 461-488, not mapped [L41]"]}
+],
+"prose":[]}

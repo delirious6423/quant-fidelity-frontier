@@ -1,0 +1,12 @@
+{"repo":"MiawTeam/Qwen3.8-27B-Uncensored-GGUF","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"unmodified base model (first-token KL); wikitext-2 PPL for GGUF","dataset":"lm-evaluation-harness 0-shot MMLU/ARC-Challenge/HellaSwag/Winogrande; wikitext-2 PPL; 100 held-out harmful prompts","ctx":"not stated","tool":"lm-evaluation-harness, bf16, same session; llama.cpp perplexity (inferred)","L":[152,170,223]},
+"entries":[
+{"role":"own","name":"Uncensored (bf16 weights, lm-eval)","metrics":{"bench:MMLU":"c31","bench:ARC-Challenge":"c34","bench:HellaSwag":"c37","bench:Winogrande":"c40","mean_kld":"c46"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["mean_kld is first-token KL of abliterated vs base, not quantization error [L170]","refusals 12/100 vs base 98/100 [L169]","0-shot, not comparable to Qwen's published scores [L157]"]},
+{"role":"cross","name":"Base (unmodified)","of":"Qwen/Qwen3.8-27B","metrics":{"bench:MMLU":"c30","bench:ARC-Challenge":"c33","bench:HellaSwag":"c36","bench:Winogrande":"c39","mean_kld":"c45"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["of inferred from license line [L250]"]},
+{"role":"own","name":"Q4_K_M","metrics":{"ppl:wikitext-2":"c8"},"size":"c7","unit":"GB","basis":"disk","bpw":null,"flags":["PPL is wikitext-2 only, only Q4_K_M reported [L80,L223]"]},
+{"role":"own","name":"IQ4_XS","metrics":{},"size":"c6","unit":"GB","basis":"disk","bpw":null,"flags":[]},
+{"role":"own","name":"Q5_K_M","metrics":{},"size":"c9","unit":"GB","basis":"disk","bpw":null,"flags":[]},
+{"role":"own","name":"Q6_K","metrics":{},"size":"c10","unit":"GB","basis":"disk","bpw":null,"flags":[]},
+{"role":"own","name":"Q8_0","metrics":{},"size":"c11","unit":"GB","basis":"disk","bpw":null,"flags":[]}
+],
+"prose":[]}

@@ -1,0 +1,7 @@
+{"repo":"sunnyyy/Qwen3.8-27B-NInfer","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"official Qwen3.8-27B BF16 figures from upstream card (not same protocol)","dataset":"IFBench, AIME 2025, AIME 2026, GPQA-Diamond, ERQA, RealWorldQA (1,723 samples)","ctx":"262,144 text limit; 81,920 multimodal","tool":"NInfer EvalScope 1.9.0, 0-shot, thinking on, MTP=3, INT8 group-64 KV, temp 1.0 top-p 0.95 top-k 20, seed 42","L":[179,183,198,200]},
+"entries":[
+{"role":"own","name":"NInfer groupwise-int","metrics":{"bench:IFBench":"c2","bench:AIME2025":"c5","bench:AIME2026":"c7","bench:GPQA-Diamond":"c9","bench:ERQA":"c12","bench:RealWorldQA":"c15"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["IFBench is prompt-level strict [L187]","deltas within +/-3.1 points on four overlapping benchmarks [L201]"]},
+{"role":"quoted","name":"Official Qwen3.8-27B BF16","of":"Qwen/Qwen3.8-27B","metrics":{"bench:IFBench":"c4","bench:GPQA-Diamond":"c11","bench:ERQA":"c14","bench:RealWorldQA":"c17"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["from upstream model card; sampling and IFBench level not stated, not same-protocol [L198-200]","upstream reports no AIME [L202]"]}
+],
+"prose":[]}

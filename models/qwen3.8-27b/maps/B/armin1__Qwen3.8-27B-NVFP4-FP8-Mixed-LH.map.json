@@ -1,0 +1,13 @@
+{"repo":"armin1/Qwen3.8-27B-NVFP4-FP8-Mixed-LH","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 original, teacher-forced","dataset":"58 documents (code, prose, long context 16K/32K, chat), 110,155 positions; GSM8K test 1,319 questions","ctx":"up to 32K for KL docs; GSM8K 16K cap","tool":"SGLang on one DGX Spark; KL over top-20 tokens (lower bound on full KL)","L":[83,84,94]},
+"entries":[
+{"role":"own","name":"this model (NVFP4/FP8 mixed Local-Hessian, FP8 lm_head)","metrics":{"mean_kld":"c9","kld_99":"c10","top1_pct":"c11","bench:DeltaNLL":"c12","bench:GSM8K":"c28"},"size":"c35","unit":"GB","basis":"disk","bpw":null,"flags":["KL over top-20 only [L84]","GSM8K thinking on, 16K cap [L94]","BF16 original is 55.6 GB [L53]"]},
+{"role":"ladder","name":"RadixArk recipe reproduced bit for bit","metrics":{"mean_kld":"c1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["recipe ladder [L69]"]},
+{"role":"ladder","name":"NVIDIA Local-Hessian recipe + BF16 lm_head","metrics":{"mean_kld":"c2"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["recipe ladder [L70]"]},
+{"role":"ladder","name":"+ last 8 MLPs in FP8","metrics":{"mean_kld":"c3"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["recipe ladder [L71]"]},
+{"role":"cross","name":"Qwen/Qwen3.8-27B-FP8","of":"Qwen/Qwen3.8-27B-FP8","metrics":{"mean_kld":"c5","kld_99":"c6","top1_pct":"c7","bench:DeltaNLL":"c8","bench:GSM8K":"c31"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["measured on same harness [L81]"]},
+{"role":"cross","name":"nvidia/Qwen3.8-27B-NVFP4","of":"nvidia/Qwen3.8-27B-NVFP4","metrics":{"mean_kld":"c13","kld_99":"c14","top1_pct":"c15","bench:DeltaNLL":"c16"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":[]},
+{"role":"cross","name":"RadixArk/Qwen3.8-27B-NVFP4-BF16-LMHead","of":"RadixArk/Qwen3.8-27B-NVFP4-BF16-LMHead","metrics":{"mean_kld":"c17","kld_99":"c18","top1_pct":"c19","bench:DeltaNLL":"c20","bench:GSM8K":"c25"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":[]},
+{"role":"cross","name":"RadixArk/Qwen3.8-27B-NVFP4","of":"RadixArk/Qwen3.8-27B-NVFP4","metrics":{"mean_kld":"c21","kld_99":"c22","top1_pct":"c23","bench:DeltaNLL":"c24"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":[]}
+],
+"prose":[]}

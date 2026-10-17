@@ -1,0 +1,16 @@
+{"repo": "notnaurw/Qwen3.8-27B-oQ5e-SAGE-PATHS-mtp",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "bf16 source (Qwen3.8-27B), shared bf16 reference cache", "dataset": "agentic SWE/terminal corpus (96 seq x 2048 tok, 48 batches); generalist/stock corpus (128 seq x 1024 tok, 32 batches); 16 held-out agent sessions at 131072 tok", "ctx": "2048 / 1024 / 131072 tokens", "tool": "head-KL over bf16 top-1024 logits plus full-vocabulary KL audit (custom harness)", "L": [115, 142, 168, 203, 549]},
+ "entries": [
+  {"role": "own", "name": "SAGE-PATHS", "metrics": {"kld:generalist_head": "c66.0"}, "size": "c4", "unit": "GB", "basis": "disk", "bpw": "c10.1", "flags": ["head-KL values are not comparable across corpora [L573]", "agentic-basis head-KL 0.2794 and full-vocab KL 0.310274 given in prose only [L396,L637]", "vision tower removed; text-only [L72]", "bpw counted over whole checkpoint incl. bf16 MTP head [L104]"]},
+  {"role": "ladder", "name": "SAGE", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["generalist head-KL 0.010153 prose only [L645]; 5.92 bpw prose only [L104]"]},
+  {"role": "ladder", "name": "SAGE-ARCS", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["generalist head-KL 0.014043 prose only [L197]"]},
+  {"role": "ladder", "name": "uniform 6-bit (MLX affine, group 64, text-only)", "metrics": {"kld:generalist_head": "c67.0"}, "size": "c12.0", "unit": "GB", "basis": "disk", "bpw": "c12.1", "flags": ["comparator built by the card author [L140]"]}
+ ],
+ "prose": [
+  {"entry": "SAGE-PATHS", "key": "kld:agentic_head", "L": 396, "raw": "0.2794"},
+  {"entry": "SAGE-PATHS", "key": "kld:agentic_full_vocab", "L": 637, "raw": "0.310274"},
+  {"entry": "SAGE", "key": "kld:generalist_head", "L": 645, "raw": "0.010153"},
+  {"entry": "SAGE-ARCS", "key": "kld:generalist_head", "L": 197, "raw": "0.014043"}
+ ]}

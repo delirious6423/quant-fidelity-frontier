@@ -1,0 +1,14 @@
+{"repo": "maglun/Qwen3.8-27B-MLX-Mixed-4.95bpw",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "method": {"reference": "BF16 text model (measured on a different, retired host for the main table)", "dataset": "held-out chat-framed corpus of 4 documents / 6,057 tokens (PPL); HumanEval+ n=8; GSM8K n=12", "ctx": "not stated", "tool": "mlx-vlm 0.7.6 / mlx-lm 0.32.0, greedy, reasoning_effort low, 8,192-token cap", "L": [83, 85, 86, 118, 127]},
+ "entries": [
+  {"role": "own", "name": "this release - mixed affine 4.95 bpw", "metrics": {"ppl": "c25", "bench:HumanEval+": "c26", "bench:GSM8K": "c27"}, "size": "c22", "unit": "GiB", "basis": "disk", "bpw": "c24", "flags": ["tiny sample sizes n=8 / n=12 [L115-118]", "text-tensor payload 15.50 GiB at 4.9510 BPW [L38]"]},
+  {"role": "own", "name": "this release - launch-day measurement (Apple M4 Pro)", "metrics": {"ppl": "c12"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["same corpus, 0.047% from re-measurement [L102-103]"]},
+  {"role": "ladder", "name": "BF16 text source (cross-host)", "metrics": {"ppl": "c19", "bench:HumanEval+": "c20", "bench:GSM8K": "c21"}, "size": "c16", "unit": "GiB", "basis": "disk", "bpw": "c18", "flags": ["measured on a different machine, not host-matched [L127-128]"]},
+  {"role": "ladder", "name": "Reference quant (6.5229 bpw)", "metrics": {"ppl": "c11", "bench:GSM8K": "c15"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["launch-day table, first recipe with BF16 mixer input [L66]"]},
+  {"role": "ladder", "name": "MXFP4, text only", "metrics": {"ppl": "c32", "bench:HumanEval+": "c33", "bench:GSM8K": "c34"}, "size": "c29", "unit": "GiB", "basis": "disk", "bpw": "c31", "flags": []},
+  {"role": "ladder", "name": "MXFP4, with BF16 vision + MTP drafter", "metrics": {"ppl": "c39", "bench:HumanEval+": "c40", "bench:GSM8K": "c41"}, "size": "c36", "unit": "GiB", "basis": "disk", "bpw": "c38", "flags": []},
+  {"role": "ladder", "name": "sibling release - mixed affine 3.80 bpw", "metrics": {"ppl": "c46", "bench:HumanEval+": "c47", "bench:GSM8K": "c48"}, "size": "c43", "unit": "GiB", "basis": "disk", "bpw": "c45", "flags": []}
+ ],
+ "prose": []}

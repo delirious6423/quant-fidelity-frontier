@@ -1,0 +1,14 @@
+{"repo":"malaiwah/Qwen3.8-27B-GGUF-archival-f1bfb127","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"BF16 reference, teacher-forced KL(BF16 || candidate)","dataset":"held-out suite of 512 contexts, 1,048,064 scored positions, full 248,320-entry vocabulary","ctx":"not stated","tool":"all candidates read at post-final-norm state and projected through one shared BF16 LM head","L":[39,44]},
+"entries":[
+{"role":"cross","name":"Qwen3.8-27B-Q8_0.gguf","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{},"size":"c1","unit":"bytes","basis":"disk","bpw":null,"flags":["byte-identical mirror of unsloth file at rev f1bfb127 [L13]","KLD value from prose [L41]"]},
+{"role":"cross","name":"Qwen3.8-27B-Q6_K.gguf","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{},"size":"c2","unit":"bytes","basis":"disk","bpw":null,"flags":["KLD value from prose [L42]"]},
+{"role":"cross","name":"Qwen3.8-27B-UD-Q5_K_XL.gguf","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{},"size":"c3","unit":"bytes","basis":"disk","bpw":null,"flags":["KLD value from prose [L43]"]},
+{"role":"cross","name":"BF16 two-part set (cross-engine floor)","of":"unsloth/Qwen3.8-27B-GGUF","metrics":{"top1_pct":"c14.0"},"size":"c4","unit":"bytes","basis":"disk","bpw":null,"flags":["not a quant row: llama.cpp vs vLLM on identical BF16 weights [L44]","size shown is part 1 of 2; part 2 is c5 [L33]"]}
+],
+"prose":[
+{"entry":"Qwen3.8-27B-Q8_0.gguf","key":"mean_kld","L":41,"raw":"0.001087 mean KLD"},
+{"entry":"Qwen3.8-27B-Q6_K.gguf","key":"mean_kld","L":42,"raw":"0.002035"},
+{"entry":"Qwen3.8-27B-UD-Q5_K_XL.gguf","key":"mean_kld","L":43,"raw":"0.004444"},
+{"entry":"BF16 two-part set (cross-engine floor)","key":"mean_kld","L":44,"raw":"0.000507 mean KLD"}
+]}

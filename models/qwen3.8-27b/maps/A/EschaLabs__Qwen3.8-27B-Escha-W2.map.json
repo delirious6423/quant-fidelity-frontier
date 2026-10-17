@@ -1,0 +1,7 @@
+{"repo":"EschaLabs/Qwen3.8-27B-Escha-W2","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"same base model served as FP8 on same SGLang fork","dataset":"Commonsense-6 (full sets, thinking off); GPQA-Diamond n=198 and LiveCodeBench v6 2025 cut n=182 (thinking on, 28k budget)","ctx":"not stated","tool":"SGLang fork runtime, lm-eval style benchmarks","L":[418,424,430,437,482]},
+"entries":[
+{"role":"own","name":"Escha-W2","metrics":{"bench:arc_c":"c80","bench:arc_e":"c81","bench:boolq":"c82","bench:hellaswag":"c83","bench:piqa":"c84","bench:winogrande":"c85","bench:Commonsense-6 avg":"c86","bench:GPQA-Diamond":"c88","bench:LiveCodeBench v6":"c91"},"size":"c79","unit":"GB","basis":"disk","bpw":null,"flags":["2-bit quant; Commonsense-6 ran on L40, GPQA/LCB on RTX 4090 vs FP8 on different box [L482-485]","Benchmarks measured with SPEC=0 [L298]"]},
+{"role":"ladder","name":"FP8 reference","metrics":{"bench:arc_c":"c72","bench:arc_e":"c73","bench:boolq":"c74","bench:hellaswag":"c75","bench:piqa":"c76","bench:winogrande":"c77","bench:Commonsense-6 avg":"c78","bench:GPQA-Diamond":"c87","bench:LiveCodeBench v6":"c90"},"size":"c71","unit":"GB","basis":"disk","bpw":null,"flags":["Same base model served as FP8 on same SGLang fork [L424]","size is approximate (~29) [L434]"]}
+],
+"prose":[]}

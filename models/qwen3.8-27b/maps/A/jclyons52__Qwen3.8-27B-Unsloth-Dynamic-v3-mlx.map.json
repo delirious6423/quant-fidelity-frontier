@@ -1,0 +1,12 @@
+{"repo":"jclyons52/Qwen3.8-27B-Unsloth-Dynamic-v3-mlx",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"not stated (no bf16 anchor; perplexity only)","dataset":"wikitext-2, 64 x 512-token samples, seed 123","ctx":"512","tool":"not stated; M1 Pro 32 GB","L":[44,46]},
+"entries":[
+{"role":"own","name":"Unsloth Dynamic v3.0 allocation, native MLX","metrics":{"ppl:wikitext-2":"c26"},"size":"c21","unit":"GB","basis":"disk","bpw":null,"flags":["ppl includes +/- 0.212 error [L46]","peak memory 13.8 GB, decode 10.17 t/s [L47-48]"]},
+{"role":"ladder","name":"same checkpoint, Unsloth Dynamic 2.0 static per-tensor table (5.27 bpw)","metrics":{},"size":"c30.0","unit":"GB","basis":"disk","bpw":null,"flags":["author's own re-encoding for comparison [L51]"]}
+],
+"prose":[
+{"entry":"Unsloth Dynamic v3.0 allocation, native MLX","key":"bpw","L":21,"raw":"3.95"},
+{"entry":"same checkpoint, Unsloth Dynamic 2.0 static per-tensor table (5.27 bpw)","key":"ppl:wikitext-2","L":51,"raw":"13.445"}
+]}

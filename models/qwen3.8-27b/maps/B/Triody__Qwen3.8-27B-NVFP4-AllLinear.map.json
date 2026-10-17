@@ -1,0 +1,8 @@
+{"repo":"Triody/Qwen3.8-27B-NVFP4-AllLinear","no_quality_claims":false,"no_claims_reason":"",
+"method":{"reference":"Qwen/Qwen3.8-27B bf16 (no speculation) and nvidia/Qwen3.8-27B-NVFP4","dataset":"GSM8K first 400 test questions; HumanEval 164 problems","ctx":"at most 4096 output tokens, greedy, thinking on","tool":"SGLang 0.5.20; strict counts truncated replies as wrong, lenient reads answer from reasoning","L":[103,105]},
+"entries":[
+{"role":"own","name":"NVFP4-AllLinear (int8 draft)","of":"","metrics":{"bench:GSM8K_lenient":"c17","bench:GSM8K_strict":"c18","bench:HumanEval_lenient":"c19","bench:HumanEval_strict":"c20"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["file sizes given in bytes (9,959,955,840 + 7,034,658,960) in a files table; not mapped as a single size [L126-127]","self-measured, one run per configuration [L72]"]},
+{"role":"cross","name":"nvidia/Qwen3.8-27B-NVFP4","of":"nvidia/Qwen3.8-27B-NVFP4","metrics":{"bench:GSM8K_lenient":"c13","bench:GSM8K_strict":"c14","bench:HumanEval_lenient":"c15","bench:HumanEval_strict":"c16"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["SGLang's recipe row [L109]"]},
+{"role":"cross","name":"Qwen3.8-27B bf16 no speculation","of":"Qwen/Qwen3.8-27B","metrics":{"bench:GSM8K_lenient":"c21","bench:GSM8K_strict":"c22","bench:HumanEval_lenient":"c23","bench:HumanEval_strict":"c24"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["reference [L111]"]}
+],
+"prose":[]}

@@ -1,0 +1,13 @@
+{"repo":"aj9o9/Qwen3.8-27B-GGUF",
+"no_quality_claims":false,
+"no_claims_reason":"",
+"method":{"reference":"official BF16 logits","dataset":"wiki.test.raw for KLD; author's locked GLSL / hard suite (think off, t=0)","ctx":"512","tool":"llama.cpp, same box and same prompts for all rows","L":[75,87]},
+"entries":[
+{"role":"own","name":"Qwen3.8-27B-gdn8-q6attn-iq3ffn.gguf (this mix)","metrics":{"mean_kld":"c25","bench:GLSL":"c26","bench:hard_passed":"c27.0"},"size":"c24","unit":"GB","basis":"disk","bpw":"c37","flags":["Hard suite is passed out of 6 (denominator c27.1); fails lfu_cache [L94, L103]","Full row label gives 13.6 GB (12.7 GiB) / 3.99 bpw [L35]","KLD is wiki KLD vs BF16 [L89]"]},
+{"role":"cross","name":"Unsloth Q4_K_M","of":"not named on card","metrics":{"mean_kld":"c13","bench:GLSL":"c14","bench:hard_passed":"c15.0"},"size":"c12","unit":null,"basis":"disk","bpw":null,"flags":["Size printed as 16G with no GB/GiB marker [L91]"]},
+{"role":"cross","name":"Unsloth UD-Q3_K_XL","of":"not named on card","metrics":{"mean_kld":"c17","bench:GLSL":"c18","bench:hard_passed":"c19.0"},"size":"c16","unit":null,"basis":"disk","bpw":null,"flags":["Size printed as 13.4G with no unit marker [L92]"]},
+{"role":"cross","name":"bartowski Q3_K_S","of":"not named on card","metrics":{"mean_kld":"c21","bench:GLSL":"c22","bench:hard_passed":"c23.0"},"size":"c20","unit":null,"basis":"disk","bpw":null,"flags":["Size printed as 13.7G with no unit marker [L93]"]},
+{"role":"cross","name":"Unsloth Q5_K_M","of":"not named on card","metrics":{"mean_kld":"c29","bench:GLSL":"c30","bench:hard_passed":"c31.0"},"size":"c28","unit":null,"basis":"disk","bpw":null,"flags":["Size printed as 19G with no unit marker [L95]"]},
+{"role":"cross","name":"bartowski IQ3_M","of":"not named on card","metrics":{"mean_kld":"c33","bench:GLSL":"c34","bench:hard_passed":"c35.0"},"size":"c32","unit":null,"basis":"disk","bpw":null,"flags":["Size printed as 13.9G with no unit marker [L96]"]}
+],
+"prose":[]}
