@@ -1,6 +1,8 @@
-# Quant Claims Ledger
+# QFF: Quant Fidelity Frontier
 
-**Live site:** https://delirious6423.github.io/quant-claims/
+What publishers claim about their quants, pinned to the line they said it.
+
+**Live site:** https://delirious6423.github.io/quant-fidelity-frontier/
 
 Hugging Face has dozens of quantizations of every popular model, and each publisher reports quality its own way: KLD against BF16, top-1 agreement against somebody's Q8_0, wikitext perplexity, a handful of benchmarks, or nothing at all. There is no single place that lines those claims up. This repo does that, starting with **Qwen/Qwen3.8-Flash-Next**.
 

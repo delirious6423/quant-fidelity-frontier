@@ -1,4 +1,4 @@
-<title>Quant Claims Ledger</title>
+<title>Qwen3.8-Flash-Next QFF</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap"><style>/* Layout: one 1180px register column; summary strip, then head-to-heads, chart, the full ledger table, publisher notes. */
 [hidden]{display:none!important}
@@ -262,7 +262,7 @@ section[id]{scroll-margin-top:56px}
 </style>
 
 <header class="top"><div class="wrap">
-  <p class="eyebrow">Quant Claims Ledger · Qwen/Qwen3.8-Flash-Next · <a href="https://claude.ai/artifact/7P7WBcX2HtThaDyCY6tKor" target="_blank" rel="noopener">Qwen3.8-27B</a></p>
+  <p class="eyebrow"><abbr title="Quant Fidelity Frontier">QFF</abbr> · Qwen/Qwen3.8-Flash-Next · <a href="https://claude.ai/artifact/7P7WBcX2HtThaDyCY6tKor" target="_blank" rel="noopener">Qwen3.8-27B</a></p>
   <h1>Every Hugging Face quant of Qwen3.8-Flash-Next, compared by what its publisher claims</h1>
   <p class="lede">All 453 repositories Hugging Face tags as quantizations of this model on 2026-10-17. 196 publish quality numbers about their own files; 3506 published values are copied from the card text at a pinned commit and checked against it mechanically. Nothing here was re-measured by us.</p>
   <dl class="stats">
@@ -352,10 +352,10 @@ section[id]{scroll-margin-top:56px}
 <section id="method" class="method-sec"><h2>How this was built</h2>
 <p>We listed every repository Hugging Face tags as a quantization of <a href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next">Qwen/Qwen3.8-Flash-Next</a> (453 on 2026-10-17) and saved each raw <code>README.md</code> at its pinned commit into a local ledger, so nothing is re-fetched. Cards that reproduce another publisher's numbers are detected by comparing claim lines across all cards and are not counted as independent measurements. Results published only as chart images were transcribed from their labels and checked against the marker positions in the image. Numbers were extracted with the line they came from, then a script confirmed that 3506 published values appear verbatim on their cited lines (0 failures). For every card that carried measured claims at the first pass (196 of 453), a second reader re-extracted the numbers without seeing our data, and disagreements were resolved against the source text; the remaining cards were each read in full by one reader. Rows a card quotes from elsewhere are marked "quoted" and are not counted as measurements; rows measured on a different model are left out (7). File sizes without a card figure come from Hugging Face's file listing at the same commit.</p>
 
-<p>Not covered: claims made only off-site (other than Unsloth&#x27;s docs page) or in images other than turboderp&#x27;s, and repos created or changed after 2026-10-17. Found an error or a new quant? <a href="https://github.com/delirious6423/quant-claims">Open an issue or pull request</a>; each claim lives in a plain data file with its source line.</p>
+<p>Not covered: claims made only off-site (other than Unsloth&#x27;s docs page) or in images other than turboderp&#x27;s, and repos created or changed after 2026-10-17. Found an error or a new quant? <a href="https://github.com/delirious6423/quant-fidelity-frontier">Open an issue or pull request</a>; each claim lives in a plain data file with its source line.</p>
 </section>
 </main>
-<footer class="foot"><div class="wrap"><p>Quant Claims Ledger · data captured 2026-10-17 · claims belong to their publishers · <a href="https://github.com/delirious6423/quant-claims">source and data</a></p></div></footer>
+<footer class="foot"><div class="wrap"><p>QFF (Quant Fidelity Frontier): what publishers claim, pinned to the line they said it · data captured 2026-10-17 · claims belong to their publishers · <a href="https://github.com/delirious6423/quant-fidelity-frontier">source and data</a></p></div></footer>
 <script>(function () {
   var t = document.getElementById('t'); if (!t) return;
   var rows = Array.prototype.slice.call(t.tBodies[0].rows);

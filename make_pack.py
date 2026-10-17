@@ -37,7 +37,7 @@ gate_md = "\n\n".join(f"### {n}\nexit code {rc}\n{block(o)}" for n, (o, rc) in g
 link_md = "\n".join(f"| {l['from']} → {sid} | {l['metric']} | {len(l['anchors'])} | {', '.join(l['anchors'])} | {l['loo_rms_pct']}% | {l['loo_worst_pct']}% | {len(l['points'])} |" for sid, l in links)
 set_md = "\n".join(f"| {s['id']} | {s['title']} | {len(s['points'])} | {', '.join(s['metrics'])} | {s['reference']} | {'auto' if s.get('auto') else ('n/a' if not s['comparable'] else 'curated')} |" for s in sets)
 
-doc = f"""# Quant Claims Ledger — review pack
+doc = f"""# QFF (Quant Fidelity Frontier) — review pack
 
 Prepared {datetime.date.today()} for an independent reviewer. You do not need the conversation that produced this; everything needed to re-check the work offline is in this archive.
 

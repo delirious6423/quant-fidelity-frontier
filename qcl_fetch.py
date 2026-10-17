@@ -13,7 +13,7 @@ import argparse, concurrent.futures as cf, hashlib, json, os, sys, time, urllib.
 
 def get(url, token, tries=6):
     for a in range(tries):
-        req = urllib.request.Request(url, headers={"User-Agent": "quant-claims-ledger/1.0", **({"Authorization": f"Bearer {token}"} if token else {})})
+        req = urllib.request.Request(url, headers={"User-Agent": "quant-fidelity-frontier/1.0", **({"Authorization": f"Bearer {token}"} if token else {})})
         try:
             with urllib.request.urlopen(req, timeout=60) as r: return r.status, r.read(), dict(r.headers)
         except urllib.error.HTTPError as e:

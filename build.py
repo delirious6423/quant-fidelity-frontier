@@ -12,8 +12,8 @@ MODEL = CFG.get("model", "Qwen/Qwen3.8-Flash-Next"); MNAME = CFG.get("name", MOD
 SIZE_NOTE = CFG.get("size_note", 'This model carries a 51B-parameter n-gram table that some files keep on disk. A size marked "GPU weights" or "resident" leaves it out. GiB figures are converted to GB.')
 COVER_NOTE = CFG.get("coverage_note", "claims made only off-site (other than Unsloth's docs page) or in images other than turboderp's")
 PIN_NOTE = CFG.get("pin_note", "")
-SITE_URL = "https://delirious6423.github.io/quant-claims/" + (SLUG + "/" if SLUG else "")
-REPO_URL = "https://github.com/delirious6423/quant-claims"
+SITE_URL = "https://delirious6423.github.io/quant-fidelity-frontier/" + (SLUG + "/" if SLUG else "")
+REPO_URL = "https://github.com/delirious6423/quant-fidelity-frontier"
 GIB = 1.073741824
 E = html.escape
 
@@ -507,7 +507,7 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
     s = stats
     body = f"""
 <header class="top"><div class="wrap">
-  <p class="eyebrow">Quant Claims Ledger · {E(MODEL)}{OTHER_MODELS}</p>
+  <p class="eyebrow"><abbr title="Quant Fidelity Frontier">QFF</abbr> · {E(MODEL)}{OTHER_MODELS}</p>
   <h1>Every Hugging Face quant of {E(MNAME)}, compared by what its publisher claims</h1>
   <p class="lede">All {s["repos"]} repositories Hugging Face tags as quantizations of this model on {captured}. {s["with_quality"]} publish quality numbers about their own files; {verify_counts["values"]} published values are copied from the card text at a pinned commit and checked against it mechanically. Nothing here was re-measured by us.</p>
   <dl class="stats">
@@ -600,7 +600,7 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
 <p>Not covered: {E(COVER_NOTE)}, and repos created or changed after {captured}. Found an error or a new quant? <a href="{REPO_URL}">Open an issue or pull request</a>; each claim lives in a plain data file with its source line.</p>
 </section>
 </main>
-<footer class="foot"><div class="wrap"><p>Quant Claims Ledger · data captured {captured} · claims belong to their publishers · <a href="{REPO_URL}">source and data</a></p></div></footer>
+<footer class="foot"><div class="wrap"><p>QFF (Quant Fidelity Frontier): what publishers claim, pinned to the line they said it · data captured {captured} · claims belong to their publishers · <a href="{REPO_URL}">source and data</a></p></div></footer>
 """
     return body.replace("__EXDATA__", exdata)
 
@@ -673,7 +673,7 @@ def main():
     os.makedirs(f"{OUT}", exist_ok=True)
     json.dump({"model": MODEL, "captured_at": IDX["captured_at"], "repos": repos, "rows": rows, "sets": sets},
               open(f"{OUT}/data.json", "w"), separators=(",", ":"))
-    title = "Quant Claims Ledger" if not SLUG else f"{MNAME} Quant Ledger"
+    title = f"{MNAME} QFF"
     desc = (f"Every Hugging Face quant of {MNAME} (GGUF, NVFP4, FP8, MXFP4, AWQ, AutoRound, EXL3, MLX) compared by each publisher's own "
             f"KLD, top-1, perplexity and benchmark claims, with methodology, red flags and source lines. {stats['repos']} repos.")
     head_common = f'<title>{title}</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n'
@@ -682,14 +682,14 @@ def main():
     for o in OTHERS:                                   # inside claude.ai the sibling site is another artifact, not a relative path
         if o.get("artifact"): abody = abody.replace(f'<a href="{E(o["href"])}">{E(o["name"])}</a>', f'<a href="{E(o["artifact"])}" target="_blank" rel="noopener">{E(o["name"])}</a>')
     open(f"{OUT}/artifact.html", "w").write(head_common + fonts + f"<style>{CSS}</style>\n" + abody + f"<script>{JS}</script>")
-    ld = {"@context": "https://schema.org", "@type": "Dataset", "name": f"Quant Claims Ledger: {MNAME} quantizations",
+    ld = {"@context": "https://schema.org", "@type": "Dataset", "name": f"QFF (Quant Fidelity Frontier): {MNAME} quantizations",
           "description": desc, "url": SITE_URL, "license": "https://creativecommons.org/licenses/by/4.0/",
           "creator": {"@type": "Person", "name": "delirious6423", "url": "https://github.com/delirious6423"},
           "dateModified": IDX["captured_at"][:10], "isBasedOn": f"https://huggingface.co/{MODEL}",
           "keywords": [MNAME, "quantization", "GGUF", "KLD", "NVFP4", "llama.cpp", "unsloth", "bartowski", "Hugging Face"],
           "distribution": [{"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": SITE_URL + "data.json"}]}
     full = (f'<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
-            f'<title>{MNAME} quant comparison · Quant Claims Ledger</title>\n<meta name="description" content="{E(desc)}">\n'
+            f'<title>{MNAME} quant comparison · QFF</title>\n<meta name="description" content="{E(desc)}">\n'
             f'<link rel="canonical" href="{SITE_URL}">\n<meta property="og:title" content="{MNAME} quant comparison">\n<meta property="og:description" content="{E(desc)}">\n'
             f'<meta property="og:type" content="website"><meta property="og:url" content="{SITE_URL}">\n'
             f'<script type="application/ld+json">{json.dumps(ld)}</script>\n{fonts}\n<style>:root{{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}}body{{margin:0;font-size:14px}}{CSS}</style></head>\n<body>{body}<script>{JS}</script></body></html>')

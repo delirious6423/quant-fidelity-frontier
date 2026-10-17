@@ -1,4 +1,4 @@
-# Quant Claims Ledger — review pack
+# QFF (Quant Fidelity Frontier) — review pack
 
 Prepared 2026-10-17 for an independent reviewer. You do not need the conversation that produced this; everything needed to re-check the work offline is in this archive.
 

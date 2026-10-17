@@ -1,4 +1,4 @@
-# Prompt: build a Quant Claims Ledger for another model
+# Prompt: build a QFF (Quant Fidelity Frontier) site for another model
 
 Copy everything below the line into a new session. First fill in the three values in **Inputs**. Attach `quant-claims-review-pack.zip`, the finished Qwen3.8-Flash-Next project, as the template. Or, once it is published, point the session at the repo.
 
