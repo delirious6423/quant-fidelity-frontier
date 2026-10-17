@@ -1,0 +1,62 @@
+{
+  "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF",
+  "url": "https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF",
+  "format": "GGUF",
+  "runtime": "llama.cpp (llama-cli; mainline vs fork not stated); also mentions third-party engine Strata",
+  "weights_modified": true,
+  "method": "RCO expert pruning (50% of routed experts removed: 256 of 512 per layer, exact per-layer budget) + GSQ quantization of retained weights at 3.5 bpw (1.89 bpw over original params); n-gram table IQ4_NL 4.5 bpw, not pruned/searched",
+  "imatrix_or_calib_data": "Code and agentic data, plus vision data in final search (no datasets named)",
+  "methodology": {
+    "reference": "BF16 (unpruned base, own eval)",
+    "eval_dataset": "SWE-bench Verified; LiveCodeBench v6 (xhigh reasoning effort)",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+  },
+  "variants": [
+    {
+      "name": "GSQ-RCO Coder (2 shards)",
+      "size_gb": 58.4,
+      "size_unit": "GB",
+      "bpw": 1.89,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "SWE-bench Verified": 75.6,
+          "LiveCodeBench v6": 86.28,
+          "SWE-bench Verified retained %": 91.3,
+          "LCB v6 retained %": 98.7
+        }
+      },
+      "qualitative": "Resident shard 29.6 GB (transformer, 256/512 experts); 28.8 GB n-gram shard can stay on disk"
+    }
+  ],
+  "headline_claims": [
+    "58.4 GB (29.6 GB resident) coder build retains 98.7% of BF16 LiveCodeBench v6 and 91.3% of SWE-bench Verified"
+  ],
+  "baseline_numbers": {
+    "BF16": {
+      "size_gb": 354,
+      "SWE-bench Verified": 82.8,
+      "LiveCodeBench v6": 87.43
+    }
+  },
+  "red_flags": [
+    "Weights modified: 50% routed experts pruned -> not a faithful quant; domain-specialized (code)",
+    "SWE-bench Verified not in official Qwen table; BF16 LCB v6 87.43 vs official 91.9 (own harness)",
+    "No KLD/PPL; no general-domain benchmarks (only a qualitative pelican SVG)",
+    "Example command path 'IQ1_M/...' inconsistent with stated 3.5 bpw (leftover from another release?)",
+    "Calibration datasets unnamed; harness/scaffold for SWE-bench not stated"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF/raw/main/README.md"
+  ],
+  "fetched_at": "2026-10-17"
+}

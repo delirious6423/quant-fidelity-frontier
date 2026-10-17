@@ -1,0 +1,69 @@
+{
+  "repo": "primitive-ai/Qwen3.8-Flash-Next-NVFP4",
+  "url": "https://huggingface.co/primitive-ai/Qwen3.8-Flash-Next-NVFP4",
+  "format": "NVFP4",
+  "runtime": "vLLM stock image vllm/vllm-openai:qwen38-flash-next (no patches), VLLM_PLE_CPU_OFFLOAD=1; 1x RTX PRO 6000 96 GB",
+  "weights_modified": false,
+  "method": "weights-only round-to-nearest, no calibration; routed experts (120.8B params) NVFP4 group 16; n-gram table BF16 pre-scaled from FP8 release values; everything else BF16 byte-identical to source",
+  "imatrix_or_calib_data": null,
+  "methodology": {
+    "reference": "not stated (no BF16/FP8 column on same suite)",
+    "eval_dataset": "own 1,370-item suite: 1,170-item 9-benchmark knowledge set (85.4%) + tool-calling (14.6%); includes GSM8K, MMLU-Pro subsets",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "own script / harness (not named)"
+  },
+  "variants": [
+    {
+      "name": "NVFP4 (RTN)",
+      "size_gb": 186,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "own suite overall": 90.2,
+          "own suite knowledge": 92.2,
+          "tool call accuracy": 84.6,
+          "tool abstain": 56.7,
+          "GSM8K": 98.0,
+          "MMLU-Pro": 90.0,
+          "finished %": 99.4,
+          "tok/s @1": 74.4,
+          "tok/s @32": 483.8
+        }
+      },
+      "qualitative": "fits one 96 GB GPU (88.8 GiB VRAM + ~100 GB host RAM for n-gram table); knowledge runs 92.1 and 92.2"
+    }
+  ],
+  "headline_claims": [
+    "92.2 knowledge on 1,170-item 9-benchmark suite",
+    "GSM8K 98.0, MMLU-Pro 90.0",
+    "74.4 tok/s single-stream, 483.8 tok/s at concurrency 32",
+    "only listed Flash-Next quant that fits one 96 GB GPU on stock vLLM",
+    "MTP preserved (31 tensors byte-identical); MTP n=3 gives +56% decode",
+    "quantized PLE tables keep knowledge 92.2/92.9"
+  ],
+  "baseline_numbers": {
+    "BF16 size_gb": 360,
+    "FP8 size_gb": 185
+  },
+  "red_flags": [
+    "no BF16/FP8 reference on the same suite - cannot quantify degradation",
+    "own unpublished eval suite, not comparable to other cards",
+    "card's comparison table lists two disagreeing Flash-Next rows (185.8 vs 183.7 GB, call 85.0 vs 84.8) without explanation; mixed sibling card lists this build as 186.4 GB",
+    "RTN with no calibration",
+    "MTP/disk-offload tables measured on the mixed sibling, not this repo"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/primitive-ai/Qwen3.8-Flash-Next-NVFP4/raw/main/README.md"
+  ],
+  "fetched_at": "2026-10-17"
+}

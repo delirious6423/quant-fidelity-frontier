@@ -1,0 +1,245 @@
+{
+  "repo": "Maximilian228/Qwen3.8-Flash-Next-NVFP4-GPTQ-Strata",
+  "url": "https://huggingface.co/Maximilian228/Qwen3.8-Flash-Next-NVFP4-GPTQ-Strata",
+  "format": "NVFP4",
+  "runtime": "Strata NVFP4 (sergqwer/strata-nvfp4, Windows, RTX 20-50, 12 GB+ VRAM, 64 GB+ RAM); not loadable in transformers/vLLM/llama.cpp",
+  "weights_modified": false,
+  "method": "GPTQ into NVFP4 for all routed experts from BF16 (rev de4b8e4d): per-matrix FP32 scale, per-16 FP8 E4M3 block scale, 128-col blocks, 1% damping, least-squares block-scale search (tools/requant.py); dense parts in GGUF, PLE table FP8 GGUF",
+  "imatrix_or_calib_data": "~57.5K tokens: Ukrainian + English Wikipedia, llama.cpp and Rust sources, 16 chat answers; MoE inputs dumped from an engine running NVIDIA NVFP4 experts (Hessians only)",
+  "methodology": {
+    "reference": "Q8_0",
+    "eval_dataset": "not stated (held-out tokens)",
+    "ctx": null,
+    "n_tokens": 5153,
+    "tool": "own script (Strata)"
+  },
+  "variants": [
+    {
+      "name": "NVFP4 GPTQ (this repo)",
+      "size_gb": 119.92,
+      "size_unit": "GiB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.038,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 93.6,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "decode tok/s (RTX 5090)": 177,
+          "32K prompt s": 3.9,
+          "RAM in use GiB": 69,
+          "expert rel. MSE vs BF16 (sum 48 layers)": 0.00561
+        }
+      },
+      "qualitative": "size = sum of listed files (63.28+47.68+5.58+1.43+1.18+0.77 GiB)"
+    },
+    {
+      "name": "NVIDIA NVFP4 (converted to Strata)",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.038,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 92.9,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "decode tok/s (RTX 5090)": 167,
+          "32K prompt s": 3.9,
+          "RAM in use GiB": 69,
+          "expert rel. MSE vs BF16 (sum 48 layers)": 0.01252
+        }
+      },
+      "qualitative": "comparison"
+    },
+    {
+      "name": "NVFP4 + Q8_0 mix",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 95.0,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "decode tok/s": 91,
+          "32K prompt s": 4.2,
+          "RAM in use GiB": 105
+        }
+      },
+      "qualitative": "comparison"
+    },
+    {
+      "name": "Unsloth UD-Q4_K_XL",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 94.1,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "decode tok/s": 169,
+          "32K prompt s": 4.9,
+          "RAM in use GiB": 77
+        }
+      },
+      "qualitative": "comparison"
+    },
+    {
+      "name": "Unsloth UD-Q3_K_XL",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 90.7,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "decode tok/s": 208,
+          "32K prompt s": 3.8,
+          "RAM in use GiB": 58
+        }
+      },
+      "qualitative": "comparison"
+    },
+    {
+      "name": "ISTA-DASLab IQ3_S",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 90.0,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "decode tok/s": 228,
+          "32K prompt s": 3.9,
+          "RAM in use GiB": 52
+        }
+      },
+      "qualitative": "comparison"
+    },
+    {
+      "name": "ISTA-DASLab IQ3_XXS",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 87.3,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "decode tok/s": 239,
+          "32K prompt s": 3.9,
+          "RAM in use GiB": 45
+        }
+      },
+      "qualitative": "comparison"
+    },
+    {
+      "name": "ISTA-DASLab IQ2_XS",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 85.0,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "decode tok/s": 265,
+          "32K prompt s": 4.2,
+          "RAM in use GiB": 38
+        }
+      },
+      "qualitative": "comparison"
+    },
+    {
+      "name": "ISTA-DASLab Q2_0",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 84.1,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "decode tok/s": 256,
+          "32K prompt s": 3.9,
+          "RAM in use GiB": 37
+        }
+      },
+      "qualitative": "comparison"
+    }
+  ],
+  "headline_claims": [
+    "93.6% top-token match vs Q8_0, beating NVIDIA NVFP4's 92.9%",
+    "~177 tok/s decode, 3.9 s for 32K prompt, ~69 GiB RAM on RTX 5090",
+    "~45% of NVIDIA's expert quantization error (rel. MSE 0.00561 vs 0.01252; RTN 0.01684)",
+    "decode cost equal to NVIDIA NVFP4",
+    "optional runtime switch to disable refusals"
+  ],
+  "baseline_numbers": {
+    "Q8_0": {
+      "top1_agree_pct": 100,
+      "decode tok/s": 47,
+      "32K prompt s": 10.3,
+      "RAM in use GiB": 106
+    }
+  },
+  "red_flags": [
+    "reference is Q8_0, not BF16",
+    "only 5,153 eval tokens - top-1 differences of <1 pt are within noise",
+    "KLD identical (0.038) to NVIDIA despite claimed better top-1/MSE",
+    "calibration only ~57.5K tokens, Hessians from NVIDIA-NVFP4 engine activations",
+    "Strata-only runtime; NVIDIA comparison is a Strata conversion, not NVIDIA's own runtime",
+    "ships optional refusal-disable switch (weights unmodified, runtime ablation)"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/Maximilian228/Qwen3.8-Flash-Next-NVFP4-GPTQ-Strata/raw/main/README.md"
+  ],
+  "fetched_at": "2026-10-17"
+}

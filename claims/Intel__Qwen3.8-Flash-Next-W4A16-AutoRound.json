@@ -1,0 +1,65 @@
+{
+  "repo": "Intel/Qwen3.8-Flash-Next-W4A16-AutoRound",
+  "url": "https://huggingface.co/Intel/Qwen3.8-Flash-Next-W4A16-AutoRound",
+  "format": "AutoRound",
+  "runtime": "Transformers (auto_round format); no serving engine stated",
+  "weights_modified": false,
+  "method": "Intel auto-round tuning mode, W4A16 INT4, 200 iterations; excluded: lm_head, embed_tokens, visual, linear_attn, self_attn, hyper_connection, mlp.gate, shared_expert, in_proj_a/b, ple, mtp, indexer (i.e. only routed experts quantized)",
+  "imatrix_or_calib_data": "not stated (auto-round default)",
+  "methodology": {
+    "reference": "BF16",
+    "eval_dataset": "GSM8K, MMLU, PIQA, HellaSwag",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated (likely lm-eval; not named)"
+  },
+  "variants": [
+    {
+      "name": "W4A16 INT4",
+      "size_gb": 181.24,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "GSM8K": 0.9682,
+          "MMLU": 0.856,
+          "PIQA": 0.8215,
+          "HellaSwag": 0.6873,
+          "Average": 0.8332,
+          "Relative to BF16": "99.64%"
+        }
+      },
+      "qualitative": "size from HF API sum of file sizes (181,240,433,939 bytes); one shard is 102.4 GB (likely the unquantized PLE table)"
+    }
+  ],
+  "headline_claims": [
+    "INT4 keeps 99.64% of BF16 average across GSM8K/MMLU/PIQA/HellaSwag"
+  ],
+  "baseline_numbers": {
+    "BF16": {
+      "GSM8K": 0.9673,
+      "MMLU": 0.8651,
+      "PIQA": 0.8193,
+      "HellaSwag": 0.6927,
+      "Average": 0.8362
+    }
+  },
+  "red_flags": [
+    "only easy/saturated legacy benches; no shot count, harness or sample settings stated",
+    "no calibration data stated",
+    "size not stated on card; ~181 GB despite 4-bit because PLE and attention stay 16-bit"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/Intel/Qwen3.8-Flash-Next-W4A16-AutoRound/raw/main/README.md",
+    "https://huggingface.co/api/models/Intel/Qwen3.8-Flash-Next-W4A16-AutoRound?blobs=true"
+  ],
+  "fetched_at": "2026-10-17"
+}

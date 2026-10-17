@@ -1,0 +1,78 @@
+{
+  "repo": "ivanfioravanti/Qwen3.8-Flash-Next-DS4-Q4",
+  "url": "https://huggingface.co/ivanfioravanti/Qwen3.8-Flash-Next-DS4-Q4",
+  "format": "GGUF",
+  "runtime": "DS4 engine (ivanfioravanti/ds4, branch qwen3.8-flash-next), Apple Metal",
+  "weights_modified": false,
+  "method": "From official BF16: routed gate/up Q4_K imatrix, routed down MXFP4, dense GDN/QSA/shared/output Q8_0, embeddings/router/norms BF16/F32, PLE n-gram rows Q4_1 in external sidecar; embedded MTP",
+  "imatrix_or_calib_data": "unsloth/Qwen3.8-Flash-Next-GGUF imatrix (pinned), 45 chunks x 18,432 tokens; 24 zero-count part-experts use deterministic fallback",
+  "methodology": {
+    "reference": "BF16",
+    "eval_dataset": "100-case fixture, 24-token greedy continuations, top-20 logprobs, 85 tokenization-aligned cases",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "own script"
+  },
+  "variants": [
+    {
+      "name": "Q4 (main+MTP) + PLE sidecar",
+      "size_gb": 74.9,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 96.6,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "target_logprob_MAE": 0.0431,
+          "greedy_first_token_match": "74/85",
+          "avg_target_NLL": 0.213
+        }
+      },
+      "qualitative": "current release"
+    },
+    {
+      "name": "PLE sidecar (required)",
+      "size_gb": 32.0,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    }
+  ],
+  "headline_claims": [
+    "Top-1 agreement 96.6% vs BF16 (ggml-org Q8_0: 98.7%)",
+    "Prefill ~1,060-1,170 tok/s, decode ~42-46 tok/s, MTP ~45-56 tok/s on M3 Ultra up to 262K ctx",
+    "Main file 69.7 GiB resident; 128 GB+ recommended"
+  ],
+  "baseline_numbers": {
+    "ggml-org_Q8_0_MAE": 0.0211,
+    "ggml-org_Q8_0_top1_pct": 98.7,
+    "prev_Q4_0_routed_MAE": 0.043,
+    "prev_Q4_0_routed_top1_pct": 96.5
+  },
+  "red_flags": [
+    "custom logprob harness (top-20, 24-token continuations), not llama-perplexity KLD; not directly comparable to KLD-based claims",
+    "main size excludes required 32 GB sidecar (total ~106.9 GB)",
+    "DS4 fork runtime only"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/ivanfioravanti/Qwen3.8-Flash-Next-DS4-Q4/raw/main/README.md"
+  ],
+  "fetched_at": "2026-10-17"
+}

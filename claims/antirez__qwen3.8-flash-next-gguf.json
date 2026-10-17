@@ -1,0 +1,67 @@
+{
+  "repo": "antirez/qwen3.8-flash-next-gguf",
+  "url": "https://huggingface.co/antirez/qwen3.8-flash-next-gguf",
+  "fetched_at": "2026-10-17",
+  "format": "GGUF",
+  "runtime": "DwarfStar (ds4, github.com/antirez/ds4) with native BF16 n-gram reader; --mtp; not llama.cpp",
+  "weights_modified": false,
+  "method": "Main/MTP tensors from ivanfioravanti DS4 releases. Q2: imatrix IQ2_XXS gate/up routed experts, Q2_K down experts (down rows padded 640->768). Q4: calibrated Q4_K gate/up, MXFP4 down. Other tensors unchanged; BF16 n-gram table (95.37 GiB) kept unquantized, SSD-resident",
+  "imatrix_or_calib_data": "imatrix/calibrated stated, dataset not named",
+  "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+  },
+  "variants": [
+    {
+      "name": "Q2",
+      "size_gb": 137.1,
+      "size_unit": "GiB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "main/MTP weights 41.73 GiB + 95.37 GiB BF16 n-gram table"
+    },
+    {
+      "name": "Q4",
+      "size_gb": 165.11,
+      "size_unit": "GiB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "main/MTP weights 69.74 GiB + 95.37 GiB BF16 n-gram table"
+    }
+  ],
+  "headline_claims": [
+    "Keeps original BF16 n-gram table (not quantized, not resident) for DwarfStar engine"
+  ],
+  "baseline_numbers": {},
+  "red_flags": [
+    "no quality claims",
+    "Runtime-specific (DwarfStar), not loadable by llama.cpp",
+    "Calibration dataset not named; weights derived from another publisher (ivanfioravanti)"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/antirez/qwen3.8-flash-next-gguf/raw/main/README.md"
+  ]
+}

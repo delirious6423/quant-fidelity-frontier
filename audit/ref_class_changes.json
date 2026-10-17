@@ -1,0 +1,140 @@
+[
+ {
+  "old": "other",
+  "new": "bf16",
+  "repo": "ivanfioravanti/Qwen3.8-Flash-Next-DS4-Q4",
+  "reference": "exact-checkpoint local BF16"
+ },
+ {
+  "old": "other",
+  "new": "bf16",
+  "repo": "OsaurusAI/Allosaurus-v0.1-125B-A6B-JANGH2",
+  "reference": "full bf16 model run layer by layer from disk"
+ },
+ {
+  "old": "other",
+  "new": "bf16",
+  "repo": "amd/Qwen3.8-Flash-Next-Quark-MXFP4-AttnFP8-PLEFP8",
+  "reference": "Qwen/Qwen3.8-Flash-Next (BF16), both with MTP"
+ },
+ {
+  "old": "other",
+  "new": "bf16",
+  "repo": "perkel/Qwen3.8-Flash-Next-MC",
+  "reference": "Qwen's BF16 weights computed with FP32 math"
+ },
+ {
+  "old": "other",
+  "new": "bf16",
+  "repo": "pipenetwork/Qwen3.8-Flash-Next-MLX-6bit",
+  "reference": "bfloat16 (upstream), identical windows through the same runtime"
+ },
+ {
+  "old": "other",
+  "new": "bf16",
+  "repo": "intel-ai/Qwen3.8-Flash-Next-MXFP8-CT-AutoRound",
+  "reference": "BF16 reference table supplied for the base checkpoint (not a local run, no stderr)"
+ },
+ {
+  "old": "other",
+  "new": "bf16",
+  "repo": "scorpoon/Qwen3.8-Flash-Next-exl3-SC",
+  "reference": "Qwen3.8-Flash-Next BF16"
+ },
+ {
+  "old": "other",
+  "new": "bf16",
+  "repo": "pipenetwork/Qwen3.8-Flash-Next-MLX-mixed-4_8bit",
+  "reference": "bfloat16 (upstream), same runtime and windows"
+ },
+ {
+  "old": "other",
+  "new": "bf16",
+  "repo": "pipenetwork/Qwen3.8-Flash-Next-MLX-8bit",
+  "reference": "bfloat16 (upstream), same runtime and windows"
+ },
+ {
+  "old": "other",
+  "new": "bf16",
+  "repo": "pipenetwork/Qwen3.8-Flash-Next-MLX-4bit",
+  "reference": "bfloat16 (upstream), same runtime and windows"
+ },
+ {
+  "old": "other",
+  "new": "q8",
+  "repo": "Maximilian228/Qwen3.8-Flash-Next-Q8_0-Strata",
+  "reference": "this model (Q8_0) is the reference for the comparison table; expert error vs BF16 cited from the GPTQ card"
+ },
+ {
+  "old": "other",
+  "new": "bf16",
+  "repo": "amd/Qwen3.8-Flash-Next-Quark-MXFP4-PLEFP8",
+  "reference": "Qwen/Qwen3.8-Flash-Next (own run)"
+ },
+ {
+  "old": "other",
+  "new": "bf16",
+  "repo": "JANGQ-AI/Qwen3.8-Flash-Next-JANGH4",
+  "reference": "full bf16 model run layer by layer from disk; 'ceiling' = bf16 with 0.001 relative noise on one tensor"
+ },
+ {
+  "old": "other",
+  "new": "bf16",
+  "repo": "INCModel3/Qwen3.8-Flash-Next-MXFP4-Mixed-CT-RTN-AutoRound",
+  "reference": "same-box archived bf16 reference (4-task mean acc_norm only)"
+ },
+ {
+  "old": "bf16",
+  "new": "other",
+  "repo": "codelight-ai/Qwen3.8-Flash-Next-NVFP4-PLE-INT3",
+  "reference": "BF16 PLE weights (weight-space rel-err ||Wq-W||_F/||W||_F and cosine)"
+ },
+ {
+  "old": "other",
+  "new": "bf16",
+  "repo": "intel-ai/Qwen3.8-Flash-Next-MXFP4-BF16Attn-PLEMXFP8-CT-AutoRound",
+  "reference": "Qwen/Qwen3.8-Flash-Next bf16 (own run)"
+ },
+ {
+  "old": "other",
+  "new": "bf16",
+  "repo": "IHaveNoClueAndIMustPost/Qwen3.8-Flash-Next-Simple-Q3_K",
+  "reference": "full BF16"
+ },
+ {
+  "old": "other",
+  "new": "bf16",
+  "repo": "intel-ai/Qwen3.8-Flash-Next-MXFP4-BF16SharedExperts-CT-AutoRound",
+  "reference": "Qwen/Qwen3.8-Flash-Next bf16 baseline row in the same table (whether re-run under this harness not stated)"
+ },
+ {
+  "old": "other",
+  "new": "bf16",
+  "repo": "manuuuel/mica-qwen3.8-flash-next-q4",
+  "reference": "authors' unquantised weights run in the authors' code (single precision on CPU for the KL table)"
+ },
+ {
+  "old": "other",
+  "new": "bf16",
+  "repo": "RedHatAI/Qwen3.8-Flash-Next-NVFP4",
+  "reference": "Qwen/Qwen3.8-Flash-Next (unquantized), same table"
+ },
+ {
+  "old": "other",
+  "new": "bf16",
+  "repo": "beginning-ai/Qwen3.8-Flash-Next-NVFP4",
+  "reference": "Qwen's reported BF16 DeepSWE score (113 tasks, high effort), quoted"
+ },
+ {
+  "old": "other",
+  "new": "bf16",
+  "repo": "intel-ai/Qwen3.8-Flash-Next-MXFP4-BF16Attn-CT-AutoRound",
+  "reference": "Qwen/Qwen3.8-Flash-Next bf16 baseline (same table)"
+ },
+ {
+  "old": "bf16",
+  "new": "other",
+  "repo": "Jon-Nielsen/Qwen3.8-Flash-Next-AWQ-INT4-FP8PLE",
+  "reference": "BF16 PLE shard (weight-level comparison, serving/verify_fp8_ple.py)"
+ }
+]

@@ -1,0 +1,105 @@
+{
+  "repo": "pfeifferj/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+  "url": "https://huggingface.co/pfeifferj/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+  "format": "GGUF",
+  "runtime": "llama.cpp fork/pinned: card says commit f3f1a8f (CUDA); eval used commit de25343596a2 + native-f32-mmf.patch",
+  "weights_modified": false,
+  "method": "Independent community reproduction of GSQ+RCO (per-tensor type allocation under exact size budget), 3.5-bit target (3.065 file bpw); not an IST-DASLab release. Embedding shard separate: BF16 or Q4_0 n-gram/Q8_0 token embeddings - the Q4_0/Q8_0 option copies packed tensors from an existing quantized release without requantizing.",
+  "imatrix_or_calib_data": null,
+  "methodology": {
+    "reference": "BF16 (source revision de4b8e4d...)",
+    "eval_dataset": "PPL: unnamed text; MMLU-Pro 2,000 q zero-shot no-reasoning 2,048-token cap; IFEval 16 prompts; GSM8K 8 prompts",
+    "ctx": 1024,
+    "n_tokens": 4088,
+    "tool": "own scripts; 'approx KL' from native uint16 reference cache (formula not given)"
+  },
+  "variants": [
+    {
+      "name": "GSQ-RCO-3.5bit + Q4_0 embeddings",
+      "size_gb": 77.43,
+      "size_unit": "GB (sum of 47.94 + 29.49 as listed)",
+      "bpw": 3.065,
+      "metrics": {
+        "mean_kld": 0.111225,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": 3.1058,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "MMLU-Pro": 58.25,
+          "MMLU-Pro correct": "1165/2000",
+          "IFEval strict": "13/16",
+          "IFEval completed correct": "12/16",
+          "GSM8K completed correct": "8/8"
+        }
+      },
+      "qualitative": "main weights 47.94 GB require an embedding shard"
+    },
+    {
+      "name": "GSQ-RCO-3.5bit + BF16 embeddings",
+      "size_gb": 151.62,
+      "size_unit": "GB (sum of 47.94 + 103.68)",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "same main weights with BF16 embedding shard"
+    },
+    {
+      "name": "mmproj-BF16",
+      "size_gb": 0.91,
+      "size_unit": "GB",
+      "bpw": 16.173,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Vision encoder + projector"
+    }
+  ],
+  "headline_claims": [
+    "3.5-bit GSQ-RCO quant beats BF16 on MMLU-Pro by +2.85 pp (McNemar p=0.0048)",
+    "PPL +1.72% vs BF16; fits two 24 GB GPUs with embeddings on CPU via mmap"
+  ],
+  "baseline_numbers": {
+    "BF16": {
+      "ppl": 3.0533,
+      "MMLU-Pro": 55.4,
+      "MMLU-Pro correct": "1108/2000",
+      "IFEval strict": "13/16",
+      "IFEval completed correct": "13/16",
+      "GSM8K completed correct": "8/8"
+    }
+  },
+  "red_flags": [
+    "Quant significantly beating BF16 on MMLU-Pro (no-reasoning, 2,048-token cap) suggests harness artifact (truncation/format), not real gain",
+    "PPL/KL on only 4,088 tokens (8 x 1024 ctx), dataset unnamed; 'approx KL' method undocumented - not comparable to llama-perplexity KLD",
+    "IFEval (16) and GSM8K (8) samples are tiny",
+    "Runtime commit on card (f3f1a8f) differs from eval commit (de25343 + patch)",
+    "Q4_0 embedding shard copied from another (unnamed) quantized release",
+    "Not an official DASLab release; same method name as ISTA-DASLab repo but different artifacts/bit-width"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/pfeifferj/Qwen3.8-Flash-Next-GSQ-RCO-GGUF/raw/main/README.md",
+    "https://huggingface.co/pfeifferj/Qwen3.8-Flash-Next-GSQ-RCO-GGUF/raw/main/eval/2026-09-13/README.md"
+  ],
+  "fetched_at": "2026-10-17"
+}

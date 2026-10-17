@@ -1,0 +1,75 @@
+{
+  "repo": "ddalcu/Qwen3.8-Flash-Next-MLX-Serve-iQ-MLX-3.3bpw",
+  "url": "https://huggingface.co/ddalcu/Qwen3.8-Flash-Next-MLX-Serve-iQ-MLX-3.3bpw",
+  "format": "MLX",
+  "runtime": "mlx-serve",
+  "weights_modified": false,
+  "method": "imatrix-guided mixed 2/3/4-bit routed experts (g64/g128, ~3.14 bpw over experts); 8-bit spine; 4-bit embed and n-gram table; bf16 routers/norms",
+  "imatrix_or_calib_data": "~482k tokens of agent traffic, code, prose, math rendered with chat template",
+  "methodology": {
+    "reference": "BF16",
+    "eval_dataset": "1200 held-out positions (not in calibration)",
+    "ctx": null,
+    "n_tokens": 1200,
+    "tool": "own script (mlx-serve tests/)"
+  },
+  "variants": [
+    {
+      "name": "iQ-MLX-3.3bpw",
+      "size_gb": 52,
+      "size_unit": "GB",
+      "bpw": 3.3,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 85.6,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "prob_mass": 0.732
+        }
+      },
+      "qualitative": "for 64 GB Macs"
+    },
+    {
+      "name": "mixed-4-8bit (sibling, comparison)",
+      "size_gb": 73,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 89.1,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "prob_mass": 0.738
+        }
+      },
+      "qualitative": "suggested for 128 GB Macs"
+    }
+  ],
+  "headline_claims": [
+    "Keeps ~99% of the 4-8 pack's probability mass at 21 GB less",
+    "~52 GB resident, 64k ctx on 64 GB Mac",
+    "Decode 52.6 tok/s, prefill 762 tok/s (M4 Max, 2k)"
+  ],
+  "baseline_numbers": {
+    "bf16_prob_mass_ceiling": 0.762
+  },
+  "red_flags": [
+    "only 1200 eval positions",
+    "'probability mass' metric is publisher-specific, not KLD",
+    "sizes are resident GB excluding 32 GB n-gram table"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/ddalcu/Qwen3.8-Flash-Next-MLX-Serve-iQ-MLX-3.3bpw/raw/main/README.md"
+  ],
+  "fetched_at": "2026-10-17"
+}

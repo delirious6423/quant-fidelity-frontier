@@ -1,0 +1,104 @@
+{
+  "repo": "ji-farthing/Qwen3.8-Flash-Next-ik-llama-GGUF_v2",
+  "url": "https://huggingface.co/ji-farthing/Qwen3.8-Flash-Next-ik-llama-GGUF_v2",
+  "fetched_at": "2026-10-17",
+  "format": "GGUF",
+  "runtime": "ik_llama.cpp (main at cb860a9+ / PR #2481)",
+  "weights_modified": false,
+  "method": "ik_llama.cpp quant at bd7c321: token embd Q8_0, PLE IQ4_KT, expert gate/up IQ4_KT, ffn_down_exps/shexp IQ3_KT, PLE conv F16; lossless byte permutation of IQ4_KT tails vs prior release; text-only",
+  "imatrix_or_calib_data": "qwen4exp-agentic-v3.imatrix (same as v1 repo): 700 x 2048; 45% agentic/tech English, 30% code, 15% English prose, 10% Chinese",
+  "methodology": {
+    "reference": "BF16",
+    "eval_dataset": "held-out English text + code (CPython, PostgreSQL), 10 chunks each",
+    "ctx": 2048,
+    "n_tokens": 20480,
+    "tool": "not stated"
+  },
+  "variants": [
+    {
+      "name": "IQ4_KT_v2",
+      "size_gb": 80.72,
+      "size_unit": "GiB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.132805,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 86.276,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {},
+        "code": {
+          "mean_kld": 0.124558,
+          "top1_agree_pct": 93.216
+        },
+        "note": "top-level metrics = English held-out text; 'code' = code held-out text"
+      },
+      "qualitative": "only file in repo (2 shards 44.41 + 36.31 GiB)"
+    },
+    {
+      "name": "Prev. IQ3_KT (IQ4_NL fallbacks)",
+      "size_gb": 80.22,
+      "size_unit": "GiB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.151454,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 85.054,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {},
+        "code": {
+          "mean_kld": 0.13499,
+          "top1_agree_pct": 92.131
+        },
+        "note": "top-level metrics = English held-out text; 'code' = code held-out text"
+      },
+      "qualitative": "previous release, comparison"
+    },
+    {
+      "name": "Prev. IQ4_KT (IQ4_NL fallbacks)",
+      "size_gb": 88.42,
+      "size_unit": "GiB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.132548,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 85.738,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {},
+        "code": {
+          "mean_kld": 0.124749,
+          "top1_agree_pct": 92.414
+        },
+        "note": "top-level metrics = English held-out text; 'code' = code held-out text"
+      },
+      "qualitative": "previous release, comparison"
+    }
+  ],
+  "headline_claims": [
+    "v2 ~same KLD as previous IQ4_KT at ~previous IQ3_KT size, with higher top-1 than both",
+    "CUDA graph matrix 560 cases / 1,124,880 comparisons passed vs scalar reference; four standard prompts identical output"
+  ],
+  "baseline_numbers": {
+    "BF16_ppl_english": 3.3316,
+    "BF16_ppl_code": 1.7218
+  },
+  "red_flags": [
+    "Superseded by v3 IQ4_KT/IQ3_KT in the main ji-farthing repo (v3 IQ4_KT KLD 0.058 vs 0.133)",
+    "Same small eval (20,480 tokens per domain)",
+    "Only CUDA validated"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/ji-farthing/Qwen3.8-Flash-Next-ik-llama-GGUF_v2/raw/main/README.md"
+  ]
+}

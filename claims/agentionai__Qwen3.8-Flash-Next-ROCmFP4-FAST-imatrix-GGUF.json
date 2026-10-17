@@ -1,0 +1,61 @@
+{
+  "repo": "agentionai/Qwen3.8-Flash-Next-ROCmFP4-FAST-imatrix-GGUF",
+  "url": "https://huggingface.co/agentionai/Qwen3.8-Flash-Next-ROCmFP4-FAST-imatrix-GGUF",
+  "fetched_at": "2026-10-17",
+  "format": "GGUF",
+  "runtime": "llama.cpp fork (agentionai, Vulkan; ROCmFPx types + per-head PLE layout) or ghcr.io/agentionai/agention-llama:server",
+  "weights_modified": false,
+  "method": "ROCmFP4-FAST (ROCmFPx types ported from ciru-ai/ROCmFPX) with imatrix; per-tensor distortion solver; n-gram table split per head (or joined in v2/); vision f16; MTP head separate repo",
+  "imatrix_or_calib_data": "1540 chunks from two corpora credited to bartowski and Thireus",
+  "methodology": {
+    "reference": "not stated (own unquantized reference PPL 4.0068 ± 0.02271 'as reported in PR #27742')",
+    "eval_dataset": "wikitext-2 raw, 145 chunks",
+    "ctx": 2048,
+    "n_tokens": 296960,
+    "tool": "not stated (llama-perplexity implied)"
+  },
+  "variants": [
+    {
+      "name": "ROCmFP4-FAST-imatrix",
+      "size_gb": 87.06,
+      "size_unit": "GiB",
+      "bpw": 4.23,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 84.56,
+        "ppl": 4.1062,
+        "ppl_ratio": 1.0248,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "+2.48% PPL vs own reference; agention.ai page lists top-1 84.56% vs 'unquantized Q8_0 reference'"
+    }
+  ],
+  "headline_claims": [
+    "Smaller and lower PPL increase than AesSedai IQ3_S (+6.10%) and IQ4_XS (+3.12%); AesSedai Q4_K_M +0.61% at 135.38 GiB",
+    "Higher prefill/gen than AP-IQ4_XS: pp512 423.3 vs 315.9 (fork) / 245.6 (mainline) t/s; tg 27.77 vs 25.05 / 26.39 t/s",
+    "Mentions tiers measured vs BF16 on held-out 2026 corpus (no figures on card)"
+  ],
+  "baseline_numbers": {
+    "unquantized_ppl_wikitext2": "4.0068 ± 0.02271 (from PR #27742)",
+    "AesSedai_ppl_increase": {
+      "IQ3_S 107.38 GiB": "+6.10%",
+      "IQ4_XS 117.13 GiB": "+3.12%",
+      "Q4_K_M 135.38 GiB": "+0.61%"
+    }
+  },
+  "red_flags": [
+    "wikitext-2 PPL — same publisher (agention.ai) says the model memorized wikitext, so these numbers are inflated/unreliable",
+    "Reference PPL borrowed from upstream PR, not necessarily same build/settings ('own reference' per row)",
+    "ppl_ratio 1.0248 computed from stated +2.48%",
+    "top1 84.56% comes from agention.ai page vs 'Q8_0 reference', not the card",
+    "Requires custom fork (ROCmFPx types)"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/agentionai/Qwen3.8-Flash-Next-ROCmFP4-FAST-imatrix-GGUF/raw/main/README.md",
+    "https://agention.ai/models/qwen3.8-flash-next/"
+  ]
+}

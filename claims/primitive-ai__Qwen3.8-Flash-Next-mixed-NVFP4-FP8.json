@@ -1,0 +1,113 @@
+{
+  "repo": "primitive-ai/Qwen3.8-Flash-Next-mixed-NVFP4-FP8",
+  "url": "https://huggingface.co/primitive-ai/Qwen3.8-Flash-Next-mixed-NVFP4-FP8",
+  "format": "NVFP4",
+  "runtime": "vLLM stock image vllm/vllm-openai:qwen38-flash-next, compressed-tensors, VLLM_GDN_DECODE_KERNEL=triton; 1x 96 GB Blackwell + ~100 GB host RAM",
+  "weights_modified": false,
+  "method": "weights-only RTN, no calibration; routed experts NVFP4 group 16; QSA q/k/v/o and GDN in_proj_qkv/in_proj_z/out_proj FP8 E4M3 per-channel (GDN added in v2); n-gram table, MTP, vision, embeddings, lm_head, shared experts, routers, norms, indexers BF16",
+  "imatrix_or_calib_data": null,
+  "methodology": {
+    "reference": "not stated (compares only against own sibling builds)",
+    "eval_dataset": "own 1,370-item knowledge + tool-calling suite",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "own script / harness (not named)"
+  },
+  "variants": [
+    {
+      "name": "mixed NVFP4-FP8 v2 (this repo)",
+      "size_gb": 183.7,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "own suite overall": 90.3,
+          "own suite knowledge": 92.2,
+          "tool call accuracy": 84.8,
+          "tool abstain": 56.7,
+          "tok/s @32": 526.0,
+          "tok/s @1": 84.4,
+          "MTP n=3 decode tok/s": 142.6
+        }
+      },
+      "qualitative": "current build"
+    },
+    {
+      "name": "v1 (QSA-only FP8)",
+      "size_gb": 185.8,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "own suite overall": 90.3,
+          "own suite knowledge": 92.2,
+          "tool call accuracy": 85.0,
+          "tool abstain": 56.7,
+          "tok/s @32": 491.8,
+          "tok/s @1": 76.4
+        }
+      },
+      "qualitative": "previous version"
+    },
+    {
+      "name": "plain NVFP4 (sibling repo)",
+      "size_gb": 186.4,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "own suite overall": 90.2,
+          "own suite knowledge": 92.2,
+          "tool call accuracy": 84.6,
+          "tool abstain": 56.7,
+          "tok/s @32": 483.8,
+          "tok/s @1": 74.4
+        }
+      },
+      "qualitative": "sibling primitive-ai/Qwen3.8-Flash-Next-NVFP4"
+    }
+  ],
+  "headline_claims": [
+    "~13% faster single-stream than plain NVFP4 build at same accuracy",
+    "three builds statistically tied on accuracy",
+    "runs on one 96 GB GPU with stock vLLM",
+    "MTP preserved: ~142.6 tok/s with 3 spec tokens vs 91.2 without",
+    "quantized PLE tables (49/32/28.8 GB) within noise",
+    "vs four other public 4-bit quants on same hardware: 81.6-84.4 tok/s single-stream, tool-calling 76.0-80.5 (as summarized by fetch)"
+  ],
+  "baseline_numbers": {},
+  "red_flags": [
+    "no BF16/FP8 reference on same suite",
+    "own unpublished eval suite",
+    "RTN, no calibration",
+    "tool-calling 76.0-80.5 range in comparison section conflicts with 84.8 headline - context (disk-backed/other config) unclear from fetch"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/primitive-ai/Qwen3.8-Flash-Next-mixed-NVFP4-FP8/raw/main/README.md"
+  ],
+  "fetched_at": "2026-10-17"
+}

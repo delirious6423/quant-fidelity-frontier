@@ -1,0 +1,68 @@
+{
+  "repo": "ilintar/qwen3.8-flash-next-gguf-strix-halo",
+  "url": "https://huggingface.co/ilintar/qwen3.8-flash-next-gguf-strix-halo",
+  "format": "GGUF",
+  "runtime": "llama.cpp fork (pwilkin/llama.cpp strix-halo branch)",
+  "weights_modified": false,
+  "method": "IQ4_NL (no further detail); separate Q8_0 MTP draft head",
+  "imatrix_or_calib_data": null,
+  "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "paired perplexity vs a reference stack (no numbers)"
+  },
+  "variants": [
+    {
+      "name": "IQ4_NL",
+      "size_gb": 93.16,
+      "size_unit": "GiB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "9 shards"
+    },
+    {
+      "name": "MTP draft head Q8_0",
+      "size_gb": 2.6,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    }
+  ],
+  "headline_claims": [
+    "Prefill 1151.77 t/s, gen 24.13 t/s at depth 0 on Radeon 8060S 128 GB; 1059.82 / 15.43 at 40K",
+    "Requires --load-mode none --lazy-mode on-direct to fit 27.5 GB PLE table"
+  ],
+  "baseline_numbers": {},
+  "red_flags": [
+    "no quality claims (paired perplexity mentioned without numbers)",
+    "quant method/imatrix not stated",
+    "fork-only runtime"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/ilintar/qwen3.8-flash-next-gguf-strix-halo/raw/main/README.md"
+  ],
+  "fetched_at": "2026-10-17"
+}

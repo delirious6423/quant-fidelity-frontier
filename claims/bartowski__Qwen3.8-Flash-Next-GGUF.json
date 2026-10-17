@@ -1,0 +1,537 @@
+{
+  "repo": "bartowski/Qwen3.8-Flash-Next-GGUF",
+  "url": "https://huggingface.co/bartowski/Qwen3.8-Flash-Next-GGUF",
+  "format": "GGUF",
+  "runtime": "llama.cpp mainline (release b10665)",
+  "weights_modified": false,
+  "method": "Standard llama.cpp quant types with imatrix; _L variants use Q8_0 embed/output",
+  "imatrix_or_calib_data": "calibration-v6: chat-template-rendered corpus of prose + tool-calling/reasoning conversations, --parse-special; 583 chunks x 512 tokens (214 prose, 369 tool), 137 conversations, ~63% tool chunks (credits kalomaze, Dampf)",
+  "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+  },
+  "variants": [
+    {
+      "name": "bf16",
+      "size_gb": 354.03,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Full BF16 weights."
+    },
+    {
+      "name": "Q8_0",
+      "size_gb": 188.26,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Extremely high quality, generally unneeded but max available quant."
+    },
+    {
+      "name": "Q6_K",
+      "size_gb": 168.11,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Very high quality, near perfect, *recommended*."
+    },
+    {
+      "name": "Q5_K_L",
+      "size_gb": 151.06,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Uses Q8_0 for embed and output weights. High quality, *recommended*."
+    },
+    {
+      "name": "Q4_K_L",
+      "size_gb": 139.27,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Uses Q8_0 for embed and output weights. Good quality, *recommended*."
+    },
+    {
+      "name": "Q5_K_M",
+      "size_gb": 134.67,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "High quality, *recommended*."
+    },
+    {
+      "name": "Q5_K_S",
+      "size_gb": 128.1,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "High quality, *recommended*."
+    },
+    {
+      "name": "Q4_K_M",
+      "size_gb": 119.6,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Good quality, default size for most use cases, *recommended*."
+    },
+    {
+      "name": "Q3_K_XL",
+      "size_gb": 119.35,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Uses Q8_0 for embed and output weights. Lower quality but usable, good for low RAM availability."
+    },
+    {
+      "name": "Q4_K_S",
+      "size_gb": 113.14,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Slightly lower quality with more space savings, *recommended*."
+    },
+    {
+      "name": "Q4_1",
+      "size_gb": 111.26,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Legacy format, similar performance to Q4_K_S but with improved tokens/watt on Apple silicon."
+    },
+    {
+      "name": "Q2_K_L",
+      "size_gb": 107.15,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Uses Q8_0 for embed and output weights. Very low quality but surprisingly usable."
+    },
+    {
+      "name": "Q4_0",
+      "size_gb": 100.6,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Legacy format, kept for compatibility with older tools."
+    },
+    {
+      "name": "IQ4_NL",
+      "size_gb": 100.29,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Similar to IQ4_XS, but slightly larger."
+    },
+    {
+      "name": "IQ4_XS",
+      "size_gb": 97.68,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Decent quality, smaller than Q4_K_S with similar performance, *recommended*."
+    },
+    {
+      "name": "IQ3_M",
+      "size_gb": 93.23,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Medium-low quality, new method with decent performance comparable to Q3_K_M."
+    },
+    {
+      "name": "Q3_K_L",
+      "size_gb": 93.19,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Lower quality but usable, good for low RAM availability."
+    },
+    {
+      "name": "Q3_K_M",
+      "size_gb": 91.96,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Low quality."
+    },
+    {
+      "name": "IQ3_XS",
+      "size_gb": 91.95,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Lower quality, new method with decent performance, slightly better than Q3_K_S."
+    },
+    {
+      "name": "Q3_K_S",
+      "size_gb": 89.44,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Low quality, not recommended."
+    },
+    {
+      "name": "IQ3_XXS",
+      "size_gb": 88.02,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Lower quality, new method with decent performance, comparable to Q3 quants."
+    },
+    {
+      "name": "Q2_K",
+      "size_gb": 80.93,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Very low quality but surprisingly usable."
+    },
+    {
+      "name": "IQ2_M",
+      "size_gb": 80.37,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Relatively low quality, uses SOTA techniques to be surprisingly usable."
+    },
+    {
+      "name": "IQ2_S",
+      "size_gb": 77.83,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Low quality, uses SOTA techniques to be usable."
+    },
+    {
+      "name": "IQ2_XS",
+      "size_gb": 77.74,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Low quality, uses SOTA techniques to be usable."
+    },
+    {
+      "name": "IQ2_XXS",
+      "size_gb": 75.19,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Very low quality, uses SOTA techniques to be usable."
+    },
+    {
+      "name": "IQ1_M",
+      "size_gb": 72.01,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Extremely low quality, *not* recommended."
+    },
+    {
+      "name": "IQ1_S",
+      "size_gb": 70.1,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Extremely low quality, *not* recommended."
+    }
+  ],
+  "headline_claims": [
+    "Q4_K_M is default recommendation; Q6_K 'near perfect'",
+    "IQ4_XS similar performance to Q4_K_S at smaller size"
+  ],
+  "baseline_numbers": {},
+  "red_flags": [
+    "no quality claims (no KLD/PPL/bench); descriptions are generic boilerplate",
+    "Card states 180B params (=125B + 51B n-gram + 4B MTP), vs Qwen headline 125B",
+    "Q3_K_XL (119.35GB) is about the same size as Q4_K_M - unusual ordering (Q8_0 embed of large n-gram table)"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/bartowski/Qwen3.8-Flash-Next-GGUF/raw/main/README.md",
+    "https://gist.github.com/bartowski1182/e26453c0404e24eb317543ec5360f87a"
+  ],
+  "fetched_at": "2026-10-17"
+}

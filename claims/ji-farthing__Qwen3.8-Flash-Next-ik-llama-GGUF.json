@@ -1,0 +1,158 @@
+{
+  "repo": "ji-farthing/Qwen3.8-Flash-Next-ik-llama-GGUF",
+  "url": "https://huggingface.co/ji-farthing/Qwen3.8-Flash-Next-ik-llama-GGUF",
+  "fetched_at": "2026-10-17",
+  "format": "GGUF",
+  "runtime": "ik_llama.cpp (main at cb860a9+ / PR #2481; 391a95f+ for multi-turn)",
+  "weights_modified": false,
+  "method": "ik_llama.cpp llama-quantize (commit d9e2868, --cuda-quantize) with imatrix and --custom-q per-tensor rules; IQ4_KT / IQ3_KT trellis types; text-only (vision + MTP dropped; MTP head shipped separately IQ4_KT 2.21 GiB)",
+  "imatrix_or_calib_data": "qwen4exp-agentic-v3.imatrix: 700 chunks x 2048; 45% agentic/technical English, 30% code (incl. ik_llama + llama.cpp source), 15% English prose, 10% Chinese prose",
+  "methodology": {
+    "reference": "BF16",
+    "eval_dataset": "two held-out texts disjoint from calib: English text and code (CPython + PostgreSQL), 10 chunks each",
+    "ctx": 2048,
+    "n_tokens": 20480,
+    "tool": "not stated (llama-perplexity KLD implied)"
+  },
+  "variants": [
+    {
+      "name": "v3 IQ4_KT",
+      "size_gb": 82.75,
+      "size_unit": "GiB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.057803,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 91.183,
+        "ppl": 3.3893,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {},
+        "code": {
+          "mean_kld": 0.055726,
+          "top1_agree_pct": 95.142,
+          "ppl": 1.7303
+        },
+        "note": "top-level metrics = English held-out text; 'code' = code held-out text"
+      },
+      "qualitative": "GPU-resident 4.5 GiB, routed experts 52.6 GiB; current"
+    },
+    {
+      "name": "v3 IQ3_KT",
+      "size_gb": 72.52,
+      "size_unit": "GiB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.085269,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 89.384,
+        "ppl": 3.4484,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {},
+        "code": {
+          "mean_kld": 0.077747,
+          "top1_agree_pct": 94.653,
+          "ppl": 1.7522
+        },
+        "note": "top-level metrics = English held-out text; 'code' = code held-out text"
+      },
+      "qualitative": "GPU-resident 4.5 GiB, routed experts 47.2 GiB; current"
+    },
+    {
+      "name": "IQ4_KT_v2",
+      "size_gb": 80.72,
+      "size_unit": "GiB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.132805,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 86.276,
+        "ppl": 3.5335,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {},
+        "code": {
+          "mean_kld": 0.124558,
+          "top1_agree_pct": 93.216,
+          "ppl": 1.8031
+        },
+        "note": "top-level metrics = English held-out text; 'code' = code held-out text"
+      },
+      "qualitative": "GPU-resident 2.4 GiB (lives in _v2 repo)"
+    },
+    {
+      "name": "IQ4_KT (replaced)",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.1325,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 85.74,
+        "ppl": 3.5625,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {},
+        "code": {
+          "mean_kld": 0.1247,
+          "top1_agree_pct": 92.41,
+          "ppl": 1.8209
+        },
+        "note": "top-level metrics = English held-out text; 'code' = code held-out text"
+      },
+      "qualitative": "replaced earlier release"
+    },
+    {
+      "name": "IQ3_KT (replaced)",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.1515,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 85.05,
+        "ppl": 3.6119,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {},
+        "code": {
+          "mean_kld": 0.135,
+          "top1_agree_pct": 92.13,
+          "ppl": 1.8273
+        },
+        "note": "top-level metrics = English held-out text; 'code' = code held-out text"
+      },
+      "qualitative": "replaced earlier release"
+    }
+  ],
+  "headline_claims": [
+    "v3 IQ4_KT: English KLD 0.0578 / top-1 91.18% vs BF16",
+    "v3 recipes keep more tensors GPU-resident (4.5 GiB) and roughly halve KLD vs v2 at similar size",
+    "MTP draft acceptance with v3 IQ4_KT: code 90.41%, extract 79.43%, story 68.21%",
+    "Caveats stated: lower KLD doesn't prove code correctness; no throughput ranking; DSA indexer not exercised at 2048 chunks"
+  ],
+  "baseline_numbers": {
+    "BF16_ppl_english": 3.3316,
+    "BF16_ppl_code": 1.7218
+  },
+  "red_flags": [
+    "Small eval (10 chunks x 2048 per domain = 20,480 tokens each)",
+    "Code eval set includes CPython/PostgreSQL while calib includes other code — disjoint stated but domain overlap",
+    "ctx 2048 equals DSA indexer selection size so sparse attention path not exercised (publisher's own caveat)",
+    "Only CUDA validated"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/ji-farthing/Qwen3.8-Flash-Next-ik-llama-GGUF/raw/main/README.md"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "repo": "ddalcu/Qwen3.8-Flash-Next-MLX-Serve-mixed-4-8bit",
+  "url": "https://huggingface.co/ddalcu/Qwen3.8-Flash-Next-MLX-Serve-mixed-4-8bit",
+  "format": "MLX",
+  "runtime": "mlx-serve 26.8.11",
+  "weights_modified": false,
+  "method": "Mixed affine: routed experts 4-bit g64; attention/GDN/indexer/shared/lm_head 8-bit g64; embed 4-bit g64; n-gram table 4-bit g32; routers/norms bf16",
+  "imatrix_or_calib_data": null,
+  "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+  },
+  "variants": [
+    {
+      "name": "mixed-4-8bit",
+      "size_gb": 75,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "~75 GB resident; n-gram table 32.0 GB separate file"
+    }
+  ],
+  "headline_claims": [
+    "~75 GB resident on 128 GB Mac",
+    "Decode ~60 tok/s, 78 with MTP; prefill ~730 tok/s (M4 Max)",
+    "Needle recovered at 24.8k tokens"
+  ],
+  "baseline_numbers": {
+    "bf16_size_gb": 360
+  },
+  "red_flags": [
+    "no quality claims on own card (sibling 3.3bpw card reports 89.1% top-1 / mass 0.738 for this pack, ~73 GB)",
+    "resident size excludes 32 GB mmapped n-gram table"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/ddalcu/Qwen3.8-Flash-Next-MLX-Serve-mixed-4-8bit/raw/main/README.md",
+    "https://huggingface.co/ddalcu/Qwen3.8-Flash-Next-MLX-Serve-iQ-MLX-3.3bpw/raw/main/README.md"
+  ],
+  "fetched_at": "2026-10-17"
+}

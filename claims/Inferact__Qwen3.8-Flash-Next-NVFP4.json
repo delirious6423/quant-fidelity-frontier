@@ -1,0 +1,69 @@
+{
+  "repo": "Inferact/Qwen3.8-Flash-Next-NVFP4",
+  "url": "https://huggingface.co/Inferact/Qwen3.8-Flash-Next-NVFP4",
+  "format": "NVFP4",
+  "runtime": "Transformers, vLLM, SGLang, TokenSpeed, KTransformers (as listed; copied from base card)",
+  "weights_modified": false,
+  "method": "not stated on card; HF API config shows quant_method=modelopt with a long ignore list (lm_head, embeddings, hyper-connection, linear-attention, MoE gates, shared experts, visual, MTP excluded)",
+  "imatrix_or_calib_data": null,
+  "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+  },
+  "variants": [
+    {
+      "name": "NVFP4",
+      "size_gb": 183,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "size not on card or in fetched API response; 183 GB is as reported by primitive-ai card ('near-unquantized and FP8 table')"
+    }
+  ],
+  "headline_claims": [
+    "card repeats Qwen base-model architecture and benchmark claims; no quant-specific claims"
+  ],
+  "baseline_numbers": {
+    "Qwen3.8-Flash-Next (base, as published)": {
+      "DeepSWE 1.1": 58.7,
+      "SWE-bench Pro": 62.5,
+      "SWE-bench Multilingual": 81.0,
+      "NL2Repo-Bench": 48.1,
+      "CoWorkBench": 73.9,
+      "Toolathlon Verified (Pass@1)": 73.5,
+      "IFBench": 81.3,
+      "GPQA Diamond": 91.7,
+      "HLE": 35.9,
+      "LiveCodeBench v6": 91.9,
+      "AndroidWorld": 84.5,
+      "LVBench": 76.6,
+      "RealWorldQA": 88.5
+    }
+  },
+  "red_flags": [
+    "no quality claims for the quant",
+    "benchmark tables are copied from the Qwen base card",
+    "no method/calibration stated on card",
+    "third party (primitive-ai) describes it as ~183 GB 'near-unquantized' - barely smaller than official FP8 (185 GB)",
+    "HF tags include '8-bit'"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/Inferact/Qwen3.8-Flash-Next-NVFP4/raw/main/README.md",
+    "https://huggingface.co/api/models/Inferact/Qwen3.8-Flash-Next-NVFP4?blobs=true",
+    "https://huggingface.co/primitive-ai/Qwen3.8-Flash-Next-NVFP4/raw/main/README.md"
+  ],
+  "fetched_at": "2026-10-17"
+}

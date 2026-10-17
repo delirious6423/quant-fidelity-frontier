@@ -1,0 +1,83 @@
+{
+  "repo": "lmstudio-community/Qwen3.8-Flash-Next-GGUF",
+  "url": "https://huggingface.co/lmstudio-community/Qwen3.8-Flash-Next-GGUF",
+  "fetched_at": "2026-10-17",
+  "format": "GGUF",
+  "runtime": "llama.cpp mainline (quantized with release b10662)",
+  "weights_modified": false,
+  "method": "Standard llama.cpp quants by LM Studio team; no details",
+  "imatrix_or_calib_data": null,
+  "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+  },
+  "variants": [
+    {
+      "name": "Q4_K_M",
+      "size_gb": 119.15,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "3 shards; size summed from API blob bytes 119,150,722,240"
+    },
+    {
+      "name": "Q6_K",
+      "size_gb": 167.64,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "5 shards; size summed from API blob bytes 167,639,838,624"
+    },
+    {
+      "name": "Q8_0",
+      "size_gb": 188.22,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "6 shards; size summed from API blob bytes 188,224,949,792"
+    }
+  ],
+  "headline_claims": [],
+  "baseline_numbers": {},
+  "red_flags": [
+    "no quality claims",
+    "card gives no variants/sizes; sizes derived from HF API (decimal GB); mmproj BF16 0.91 GB separate"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/lmstudio-community/Qwen3.8-Flash-Next-GGUF/raw/main/README.md",
+    "https://huggingface.co/api/models/lmstudio-community/Qwen3.8-Flash-Next-GGUF?blobs=true"
+  ]
+}

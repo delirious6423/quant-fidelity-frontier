@@ -1,0 +1,190 @@
+---
+license: other
+license_name: qwen-community-1.0
+license_link: LICENSE
+base_model: Qwen/Qwen3.8-Flash-Next
+base_model_relation: quantized
+pipeline_tag: text-generation
+inference: false
+tags:
+  - lily-qwen3.8-flash-next
+  - metal
+  - apple-silicon
+  - quantized
+  - 4-bit
+  - mixed-precision
+  - speculative-decoding
+  - vision
+---
+
+# Qwen3.8-Flash-Next, 4-bit XL, for lily-qwen3.8-flash-next
+
+A mostly 4-bit conversion of [Qwen/Qwen3.8-Flash-Next](https://huggingface.co/Qwen/Qwen3.8-Flash-Next)
+in the checkpoint format used by [lily-qwen3.8-flash-next](https://github.com/fabiogreter/lily-qwen3.8-flash-next),
+a Metal inference server for Apple Silicon. It runs the model, text and
+images, on a single Mac with 128 GB of unified memory, with speculative
+decoding through the checkpoint's own multi-token-prediction head.
+
+**This is the XL variant of
+[fabiogreter/Qwen3.8-Flash-Next-lily-q4](https://huggingface.co/fabiogreter/Qwen3.8-Flash-Next-lily-q4).**
+The routed experts stay 4-bit; attention, the shared expert, the LM head and
+the embedding are kept at 8 bits, which made the model noticeably more
+reliable on long agent turns, at a cost of 2 to 5 % in decode speed with
+speculative decoding and about 15 % without it.
+
+**These weights load only in lily-qwen3.8-flash-next.** They are not readable by Transformers,
+vLLM, SGLang, MLX or llama.cpp. The tensor layout, the quantization metadata
+and the packed n-gram tables are specific to its loader. If you want the
+model in a portable format, start from the base repository instead.
+
+## What is in here
+
+| | |
+|---|---|
+| size on disk | 99.6 GiB across 55 safetensors files; the draft head and the vision tower are inside them |
+| tensors | 3 845, of which 81 belong to the draft head and 333 to the vision tower |
+| format | `qwen4_exp-affine-v1` |
+| source revision | `f5d08274bafd880402bd16f5e3e6c514136ec06c` |
+
+The architecture is unchanged from the source: 48 layers with full attention
+every fourth layer and a gated delta net in between, 512 experts with 10
+active per token, 24 query heads over 2 key-value heads, a hidden size of
+2 560, a 248 320-token vocabulary, and 262 144 positions. The learned n-gram
+embeddings occupy 16 hash tables totalling 320 001 536 rows.
+
+Two things about what is kept:
+
+- **The vision tower is kept in bf16**, byte for byte from the source
+  (`model.visual.*`, 0.9 GB), so the server takes PNG and JPEG images in
+  chat requests.
+- **The multi-token-prediction head is kept and quantized**, so the server
+  can draft with it. It keeps its own 4-bit copy of the LM head
+  (`mtp.lm_head`), see below.
+
+## Quantization
+
+Affine quantization throughout, applied per module rather than uniformly.
+
+| weights | bits | group size |
+|---|---|---|
+| routed experts, GDN projections | 4 | 64 |
+| attention q/k/v/o, shared expert, LM head, embeddings | 8 | 64 |
+| draft head: its attention, shared expert and its copy of the LM head | 4 | 64 |
+| vision tower | bf16, not quantized | |
+| n-gram embedding tables | 4 | 32 |
+| mixture-of-experts gates, shared expert gate, hyper-connection input mixes, block inject, n-gram key and value projections, attention indexer projection | 8 | 64 |
+
+The draft head only proposes tokens; the trunk verifies every one of them
+and speculative sampling is exact, so the draft head's precision changes how
+many drafts are accepted, never the output. Keeping it at 4 bits makes a
+draft step read what it reads on the 4-bit checkpoint. The recipe is the
+converter's `--q4-xl` (`--q8 attn,shared,head,embed --draft-q4`), recorded
+in the `lily` block of `config.json`.
+
+## Why this variant
+
+On a captured opencode turn with 56K tokens of context, sampled 30 times per
+checkpoint with the server's thinking controls on, 23 of 30 samples went on
+to a tool call on this checkpoint against 18 of 30 on the 4-bit one, which
+more often announced its next step and ended the turn. Of the 8-bit sets
+tried, attention carried the difference. This is one prompt, not a
+task-level evaluation; the engine's README has the comparison.
+
+## Requirements
+
+- Apple Silicon, macOS 26 or newer. The server targets the Metal 4 command model
+  and does not build on earlier systems.
+- 128 GB of unified memory. At runtime the server holds about 75 GB of
+  weights and scratch in GPU memory and reads the 32 GB of n-gram tables
+  through the page cache, leaving the rest for the session cache.
+- 107 GB of free disk, plus room for the session cache if you enable its
+  disk tier.
+
+## Use
+
+```bash
+hf download fabiogreter/Qwen3.8-Flash-Next-lily-q4-xl \
+  --local-dir ~/models/Qwen3.8-Flash-Next-lily-q4-xl
+
+git clone https://github.com/fabiogreter/lily-qwen3.8-flash-next
+cargo build --release --locked --manifest-path lily-qwen3.8-flash-next/Cargo.toml
+
+./lily-qwen3.8-flash-next/target/release/lily \
+  --model ~/models/Qwen3.8-Flash-Next-lily-q4-xl \
+  --bind 127.0.0.1:8000 --max-seq 131072
+```
+
+The server speaks the OpenAI chat and completions API:
+
+```bash
+curl -s http://127.0.0.1:8000/v1/chat/completions \
+  -H 'content-type: application/json' \
+  -d '{"model":"Qwen3.8-Flash-Next","messages":[{"role":"user","content":"Say hello."}]}'
+```
+
+Flags, session caching, idle unloading and the launchd service are documented
+in the engine's README.
+
+## Speed
+
+Measured on an M5 Max with a 40-core GPU and 128 GB of memory over the HTTP
+API, on prompts cut from real documentation and code, 256 greedy tokens of
+new text per run, medians of three repeats, 2026-10-07. Prefill is tokens
+per second over the prompt; decode is generated tokens per second. The
+4-bit checkpoint's figures from the same day are in brackets.
+
+| context | prefill | decode | decode with 2 drafts |
+|---:|---:|---:|---:|
+| 4K | 2 219 | 73 (87) | 101 (103) |
+| 16K | 2 370 | 73 (82) | 101 (100) |
+| 32K | 2 373 | 69 (85) | 94 (99) |
+| 64K | 2 180 | 68 (79) | 94 (99) |
+
+Prefill is the same as the 4-bit checkpoint's. Draft acceptance was 64 % on
+this text. Requests that decode together in a batch decode without drafts.
+The method and the noise band are in the engine's
+[performance document](https://github.com/fabiogreter/lily-qwen3.8-flash-next/blob/main/docs/performance.md).
+
+## Limitations
+
+- Images arrive as base64 data URIs (PNG or JPEG), scaled to at most 2
+  megapixels; no video and no URL fetching.
+- Up to four requests decode together; a request decoding alone uses
+  speculative decoding, batched ones do not.
+- Quantized output is not bit-identical to the bf16 reference. Near-ties in
+  the argmax can resolve differently.
+
+## Provenance
+
+Converted from `Qwen/Qwen3.8-Flash-Next` at revision `f5d0827` with the
+converter in the engine repository and its `--q4-xl` option. The conversion
+is deterministic: the same source revision and the same converter produce
+the same shards. The routed experts, the GDN projections and the draft
+head's tensors are byte-identical to the 4-bit checkpoint's. The recorded
+policy, including the 8-bit groups, the per-module group sizes and the
+n-gram hash seed, lives in the `lily` block of `config.json`, and the loader
+refuses a checkpoint whose format string or recorded bit widths it does not
+recognise.
+
+## License
+
+The base model is released under the Qwen Community License 1.0, and this
+derivative is distributed under the same terms. The full text is in
+[LICENSE](LICENSE). Two conditions deserve attention before you build on it:
+
+1. The copyright and permission notice must travel with any copy or
+   substantial portion. Products above 100 million monthly active users or 20
+   million US dollars of monthly revenue must display the model name in their
+   user interface.
+2. A separate license from Qwen is required for commercial use by a Model as
+   a Service business or an AI work assistant product, as those terms are
+   defined in the license. Internal use that does not expose the model or its
+   outputs to third parties is exempt.
+
+Nothing here is legal advice. Read the license.
+
+## Credits
+
+The model is Qwen's. The engine is a fork of Perplexity's
+[pplx-garden/lily](https://github.com/perplexityai/pplx-garden/tree/main/lily),
+which contributed the Metal kernel foundations and the original server.

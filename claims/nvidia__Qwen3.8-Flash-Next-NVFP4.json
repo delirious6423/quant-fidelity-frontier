@@ -1,0 +1,76 @@
+{
+  "repo": "nvidia/Qwen3.8-Flash-Next-NVFP4",
+  "url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-NVFP4",
+  "format": "NVFP4",
+  "runtime": "vLLM (commit d4d703c+; MTP needs unmerged vLLM PR #55513); tested B200/B300",
+  "weights_modified": false,
+  "method": "NVIDIA Model Optimizer v0.46.0 PTQ, mixed: routed MoE experts W4A4 NVFP4 with MSE-calibrated weight scales; attention/shared experts/other layers BF16; MTP routed experts 128x128 block FP8; PLE n-gram embedding per-tensor FP8; no fine-tuning",
+  "imatrix_or_calib_data": "cnn_dailymail + nvidia/Nemotron-Post-Training-Dataset-v2 (multi-turn); sample count not stated",
+  "methodology": {
+    "reference": "FP8 (Qwen/Qwen3.8-Flash-Next-FP8)",
+    "eval_dataset": "GPQA Diamond, HLE, tau2-Bench Telecom, MMMU Pro, SciCode, AA-LCR, IFBench, Omniscience, Terminal-Bench 2.1; temp 1.0, top_p 0.95, max_new_tokens 131072, reasoning_effort xhigh",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+  },
+  "variants": [
+    {
+      "name": "NVFP4",
+      "size_gb": 132.73,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "GPQA Diamond": 91.5,
+          "HLE": 35.4,
+          "tau2-Bench Telecom": 90.1,
+          "MMMU Pro": 78.3,
+          "SciCode": 18.8,
+          "AA-LCR": 74.1,
+          "IFBench": 81.0,
+          "Omniscience": 27.6,
+          "Terminal-Bench 2.1": 82.9
+        }
+      },
+      "qualitative": "size_gb from HF API sum of file sizes (132,734,506,847 bytes); card states only '~2.7x smaller than BF16, ~63% disk reduction'"
+    }
+  ],
+  "headline_claims": [
+    "NVFP4 scores close to the FP8 baseline across 9 agentic/reasoning benches, above FP8 on 5 of 9",
+    "~2.7x smaller than BF16 (~63% disk reduction)",
+    "ready for commercial use"
+  ],
+  "baseline_numbers": {
+    "FP8": {
+      "GPQA Diamond": 92.0,
+      "HLE": 34.7,
+      "tau2-Bench Telecom": 90.8,
+      "MMMU Pro": 77.1,
+      "SciCode": 16.3,
+      "AA-LCR": 71.9,
+      "IFBench": 80.5,
+      "Omniscience": 28.1,
+      "Terminal-Bench 2.1": 83.3
+    }
+  },
+  "red_flags": [
+    "reference is FP8, not BF16",
+    "single run per bench at temp 1.0, no variance/repeat count stated; several NVFP4 > FP8 gaps (SciCode +2.5, AA-LCR +2.2) are likely noise",
+    "no KLD/PPL/top-1 fidelity metrics",
+    "MTP speculative decoding depends on an unmerged vLLM PR",
+    "card's '2.7x smaller' vs 360 GB BF16 implies ~133 GB, consistent with API size"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-NVFP4/raw/main/README.md",
+    "https://huggingface.co/api/models/nvidia/Qwen3.8-Flash-Next-NVFP4?blobs=true"
+  ],
+  "fetched_at": "2026-10-17"
+}

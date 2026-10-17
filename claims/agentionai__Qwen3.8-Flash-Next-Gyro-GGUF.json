@@ -1,0 +1,132 @@
+{
+  "repo": "agentionai/Qwen3.8-Flash-Next-Gyro-GGUF",
+  "url": "https://huggingface.co/agentionai/Qwen3.8-Flash-Next-Gyro-GGUF",
+  "fetched_at": "2026-10-17",
+  "format": "other",
+  "runtime": "llama.cpp fork (agentionai, gitlab.com/agentionai-group/llama.cpp) / Strata rc2 / agentionai/agention-llama:server container; stock llama.cpp cannot load",
+  "weights_modified": false,
+  "method": "Proprietary 'Agention Precision Rotor' (APR): routed experts stored in rotated basis; TQ1_0/TQ2_0/TQ3_0 labels are only Hub size classes, not real types",
+  "imatrix_or_calib_data": "Own encoder/calibration, not published",
+  "methodology": {
+    "reference": "Q8_0 (unsloth Q8_0 source)",
+    "eval_dataset": "held-out 2026 technical writing + code corpus (not published), 60 chunks",
+    "ctx": 2048,
+    "n_tokens": 122880,
+    "tool": "not stated"
+  },
+  "variants": [
+    {
+      "name": "Gyro-S (2026-10-10)",
+      "size_gb": 27.64,
+      "size_unit": "GiB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.401,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 75.29,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "MMLU-Pro (70q sample, first release)": 78.1,
+          "LiveCodeBench v6 30-problem @64k (first release, %)": 67,
+          "LiveCodeBench v6 30-problem @128k (first release, %)": 83
+        }
+      },
+      "qualitative": "GPU memory figure; up to 128k ctx"
+    },
+    {
+      "name": "Gyro-M (2026-10-11)",
+      "size_gb": 34.98,
+      "size_unit": "GiB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.291,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 78.75,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "MMLU-Pro (70q sample, first release)": 80.0,
+          "LiveCodeBench v6 30-problem @64k (%)": 90,
+          "LiveCodeBench v6 30-problem @128k": "30/30"
+        }
+      },
+      "qualitative": "GPU memory figure"
+    },
+    {
+      "name": "Gyro-L (2026-10-12)",
+      "size_gb": 50.21,
+      "size_unit": "GiB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.146,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 83.87,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "GPU memory figure"
+    }
+  ],
+  "headline_claims": [
+    "Gyro-S/M beat larger ISTA-DASLab GSQ, unsloth UD-Q2_K_XL, AtomicChat AD-4.27bpw and ggml-org IQ4_NL on KLD/top-1 at smaller GPU memory",
+    "Gyro-M MMLU-Pro 80.0 vs AP-Q4_K_XL 81.4 (70q sample, 'within noise')",
+    "No looping: 0 loops in 45-run stress test for updated S and M; ISTA IQ2_XS looped 7/10",
+    "Gyro-S 113–221 tok/s decode on RTX 5090 (fork/Strata, MTP)"
+  ],
+  "baseline_numbers": {
+    "comparison_rows_same_method": {
+      "ISTA-DASLab GSQ-RCO IQ2_XS": {
+        "gib": 36.52,
+        "kld": 0.42,
+        "top1": 74.22
+      },
+      "ISTA-DASLab GSQ-RCO IQ3_XXS": {
+        "gib": 43.8,
+        "kld": 0.311,
+        "top1": 77.68
+      },
+      "unsloth UD-Q2_K_XL": {
+        "gib": 46.63,
+        "kld": 0.334,
+        "top1": 76.61
+      },
+      "AtomicChat AD-4.27bpw Q4_K_M": {
+        "gib": 52.26,
+        "kld": 0.228,
+        "top1": 80.58
+      },
+      "ggml-org IQ4_NL": {
+        "gib": 68.21,
+        "kld": 0.2,
+        "top1": 81.29
+      },
+      "Agention AP-Q4_K_XL (reference)": {
+        "gib": 67.38,
+        "kld": 0.107,
+        "top1": 85.52
+      }
+    }
+  },
+  "red_flags": [
+    "Reference is unsloth Q8_0, not BF16 — KLD not directly comparable to BF16-referenced cards",
+    "Sizes are GPU-memory (excludes host/SSD n-gram table), not download size",
+    "Encoder and calibration unpublished; eval corpus unpublished; KLD tool unnamed",
+    "Tiny benchmark samples (70q MMLU-Pro, 30-problem LCB, one seed); bench numbers from first releases not re-run on updates",
+    "Its measurement of AtomicChat AD-4.27bpw (KLD 0.228, top1 80.58) differs strongly from AtomicChat's own (0.0842, 89.49) — different reference/corpus/ctx",
+    "Requires custom fork/container"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/agentionai/Qwen3.8-Flash-Next-Gyro-GGUF/raw/main/README.md"
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "repo": "tcclaviger/Qwen3.8-Flash-Next-MXFP4-FP8-GPTQ",
+  "url": "https://huggingface.co/tcclaviger/Qwen3.8-Flash-Next-MXFP4-FP8-GPTQ",
+  "format": "MXFP4",
+  "runtime": "vLLM fork image tcclaviger/vllm:latest only; AMD AI PRO R9700 only (TP4 or TP2 with expert offload)",
+  "weights_modified": false,
+  "method": "mixed: experts (incl. shared) activation-aware MXFP4 with GPTQ error feedback (AA2: re-quantized from BF16, full-row GPTQ, damping 0.01, static floor/ceil scale snap; <256-token experts fall back to plain scales); attention FP8; MTP FP8; PLE n-gram int6 with fp16 group-32 scales; FP8 KV cache with 36 calibrated scales",
+  "imatrix_or_calib_data": "~2M tokens, 27 domains (code, math, reasoning, tools, dialogue, multilingual, long books, safety...), 232 x 8192-token sequences; validation: frozen 994-prompt 27-domain set, disjoint",
+  "methodology": {
+    "reference": "BF16 (AA2 validation); first-build PPL/KLD table reference not stated",
+    "eval_dataset": "own frozen 994-prompt 27-domain validation set",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "own script"
+  },
+  "variants": [
+    {
+      "name": "AA2 (current)",
+      "size_gb": 116,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.055,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 95.2,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "decode tok/s single (2xR9700)": 100,
+          "aggregate tok/s @16": 323
+        }
+      },
+      "qualitative": "current build"
+    },
+    {
+      "name": "first AA build",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.0549,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 95.17,
+        "ppl": 4.552,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "quality table; same table in AA2 validation lists first AA build as KL 0.086 / top-1 93.0%"
+    },
+    {
+      "name": "old static MXFP4",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.0638,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 93.26,
+        "ppl": 4.603,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "comparison; AA2 validation lists 0.064 / 93.3%"
+    }
+  ],
+  "headline_claims": [
+    "mean KL 0.055, 95.2% top-1 vs BF16, better than static MXFP4",
+    "int6 n-gram table has 18% lower error than FP8 (rel. L2 0.0218 vs 0.0267) in 19% smaller table (41.6 vs 51.3 GB)",
+    "100 tok/s single / 323 tok/s @16 on 2xR9700"
+  ],
+  "baseline_numbers": {
+    "Qwen3.8-Flash-Next (base, as published)": {
+      "DeepSWE 1.1": 58.7,
+      "SWE-bench Pro": 62.5,
+      "SWE-bench Multilingual": 81.0,
+      "NL2Repo-Bench": 48.1,
+      "CoWorkBench": 73.9,
+      "JobBench": 55.7,
+      "Agents' Last Exam (Pass@1 / Score)": "24.3 / 51.2",
+      "Toolathlon Verified (Pass@1)": 73.5,
+      "IFBench": 81.3,
+      "GPQA Diamond": 91.7,
+      "HLE": 35.9,
+      "LiveCodeBench v6": 91.9,
+      "ClawEval-MM (Pass@3 / Average)": "64.4 / 60.4",
+      "RecreationBench": 49.9,
+      "AndroidWorld": 84.5,
+      "OSWorld 2.0 (Binary / Partial)": "19.4 / 52.3",
+      "Vision2Web": 64.0,
+      "ERQA": 72.3,
+      "LVBench": 76.6,
+      "RealWorldQA": 88.5,
+      "MathVision (without CI / with CI)": "90.6 / 95.7",
+      "CharXiv RQ (without CI / with CI)": "84.6 / 90.6"
+    }
+  },
+  "red_flags": [
+    "first-build and AA2 tables contradict: first build reported as KLD 0.0549 / 95.17% in one table and 0.086 / 93.0% in the other, while AA2 is 0.055 / 95.2% (near-identical to first-build numbers)",
+    "own eval set, n_tokens not stated",
+    "runs only on custom vLLM image + AMD R9700",
+    "base-model benchmark tables copied from Qwen card"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/tcclaviger/Qwen3.8-Flash-Next-MXFP4-FP8-GPTQ/raw/main/README.md"
+  ],
+  "fetched_at": "2026-10-17"
+}

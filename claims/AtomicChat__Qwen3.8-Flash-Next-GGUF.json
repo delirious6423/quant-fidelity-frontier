@@ -1,0 +1,209 @@
+{
+  "repo": "AtomicChat/Qwen3.8-Flash-Next-GGUF",
+  "url": "https://huggingface.co/AtomicChat/Qwen3.8-Flash-Next-GGUF",
+  "fetched_at": "2026-10-17",
+  "format": "GGUF",
+  "runtime": "llama.cpp mainline with Qwen3.8-Flash-Next support (PR #27742 'qwen4exp'); also Atomic Chat",
+  "weights_modified": false,
+  "method": "llama-quantize from BF16 with custom imatrix; per-tensor type overrides (n-gram table vs experts differ); n-gram table split into its own shard (SSD-resident, M64 naming). 4.27bpw breakdown: n-gram Q5_1, ffn_gate/up_exps IQ2_S/IQ3_S, ffn_down_exps IQ4_NL, rest Q8_0",
+  "imatrix_or_calib_data": "Own imatrix on BF16: 4000 chunks x 512 ctx, 4,967,044 tokens, 3004 docs, chat-template-rendered; mix agentic 24.7%, code 17.8%, reasoning 14.8%, multilingual 13.8%, long ctx 11.9%, vocab sweep 9.9%, structured 4.1%, graphics 3.0% (dataset AtomicChat/calib-corpora); calib PPL 4.6812",
+  "methodology": {
+    "reference": "BF16",
+    "eval_dataset": "held-out neutral set (not named), 87 chunks",
+    "ctx": 4096,
+    "n_tokens": null,
+    "tool": "not stated (KLD logs in AtomicChat/Qwen3.8-Flash-Next-GGUF-metrics dataset)"
+  },
+  "variants": [
+    {
+      "name": "AD-3.84bpw-IQ4_XS-M64",
+      "size_gb": 84.9,
+      "size_unit": "GB",
+      "bpw": 3.84,
+      "metrics": {
+        "mean_kld": 0.2277,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 82.68,
+        "ppl": null,
+        "ppl_ratio": 1.102,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "in memory 45.8 GB + SSD 39.1 GB"
+    },
+    {
+      "name": "AD-4.27bpw-Q4_K_M-M64",
+      "size_gb": 92.9,
+      "size_unit": "GB",
+      "bpw": 4.27,
+      "metrics": {
+        "mean_kld": 0.0842,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 89.49,
+        "ppl": null,
+        "ppl_ratio": 1.026,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "recommended; in memory 54.5 GB + SSD 38.4 GB; 'matches 5.00bpw within measurement error'"
+    },
+    {
+      "name": "AD-5.00bpw-Q5_K_M-M64",
+      "size_gb": 110.5,
+      "size_unit": "GB",
+      "bpw": 5.0,
+      "metrics": {
+        "mean_kld": 0.0837,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 89.55,
+        "ppl": null,
+        "ppl_ratio": 1.026,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "in memory 56.1 GB + SSD 54.4 GB"
+    },
+    {
+      "name": "IQ2_M",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "listed, sizes/metrics pending upload"
+    },
+    {
+      "name": "IQ3_M",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "listed, sizes/metrics pending upload"
+    },
+    {
+      "name": "Q4_K_M",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "listed, sizes/metrics pending upload"
+    },
+    {
+      "name": "UD-Q4_K_XL",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "listed, sizes/metrics pending upload"
+    },
+    {
+      "name": "Q6_K",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "listed, sizes/metrics pending upload"
+    },
+    {
+      "name": "Q8_0",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "listed, sizes/metrics pending upload"
+    }
+  ],
+  "headline_claims": [
+    "Runs '176B' model on a 64 GB MacBook (M5 Max): 36 tok/s gen, 517.9 tok/s pp512, ~39 GB never enters RAM",
+    "63% KLD reduction and +6.8 pt top-1 — vs its own earlier 3.84bpw build, described as 'same file size' though 84.9 vs 92.9 GB",
+    "4.27bpw matches 5.00bpw within measurement error at 17.6 GB smaller",
+    "Other publishers' quants re-measured locally (no numbers given); claims they need the whole file resident",
+    "Q4_K_M and up 'within a point or two' of full precision on benchmarks (no measurement shown)"
+  ],
+  "baseline_numbers": {
+    "BF16_ppl_eval_set": "4.0445 ± 0.0216",
+    "Qwen_reported_base_bench": {
+      "LiveCodeBench v6": 91.9,
+      "GPQA Diamond": 91.7,
+      "SWE-bench Multilingual": 81.0,
+      "CoWorkBench": 73.9
+    }
+  },
+  "red_flags": [
+    "Parameter count inconsistent (176B / 177B header vs 125B + 51B n-gram + 4B MTP; n-gram described as both '20M embeddings' and 51B)",
+    "'Same file size' claim for 63% KLD reduction contradicted by own table (84.9 vs 92.9 GB)",
+    "n-gram table called 'six bits' but stated type is Q5_1",
+    "GB vs GiB never defined",
+    "Eval set not named; KLD tool not stated (logs said to be in metrics dataset — not fetched)",
+    "Most standard variants (IQ2_M..Q8_0) still uploading; no sizes or metrics",
+    "Benchmarks are Qwen's base-model numbers, not measured on quants"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/AtomicChat/Qwen3.8-Flash-Next-GGUF/raw/main/README.md"
+  ]
+}

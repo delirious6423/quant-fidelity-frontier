@@ -1,0 +1,29 @@
+name: fetch-cards
+# Fetch-once source ledger for a base model, run on a GitHub runner (open internet), committed back to the repo.
+# Trigger from anywhere:  gh workflow run fetch.yml -f model=ORG/MODEL -f slug=model-slug
+on:
+  workflow_dispatch:
+    inputs:
+      model: { description: "Hugging Face base model id, e.g. Qwen/Qwen3.8-Flash-Next", required: true }
+      slug:  { description: "folder under models/, e.g. qwen3.8-flash-next", required: true }
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Fetch catalogue, cards at pinned sha, file trees (resumable, throttled)
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: python3 qcl_fetch.py "${{ inputs.model }}" --out "models/${{ inputs.slug }}/cache" --workers 8
+      - name: Commit the ledger
+        run: |
+          git config user.name "quant-claims-bot"
+          git config user.email "quant-claims-bot@users.noreply.github.com"
+          git add "models/${{ inputs.slug }}/cache"
+          git commit -m "ledger: ${{ inputs.model }} ($(date -u +%F))" || echo "nothing new"
+          git push

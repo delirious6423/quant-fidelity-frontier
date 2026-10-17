@@ -1,0 +1,6523 @@
+{
+ "model": "Qwen/Qwen3.8-Flash-Next",
+ "base": {
+  "repo": "Qwen/Qwen3.8-Flash-Next",
+  "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+  "total_params": "125B (plus 51B n-gram embedding and 4B MTP, listed separately; ~180B stored params)",
+  "active_params": "6B per token",
+  "architecture": {
+   "type": "Causal LM with vision encoder",
+   "layers": 48,
+   "hidden_dim": 2560,
+   "layout": "12 x (3 x (Gated DeltaNet -> MoE) -> 1 x (Qwen Sparse Attention -> MoE))",
+   "gated_deltanet": "48 V heads, 16 QK heads, head dim 128",
+   "qwen_sparse_attention": "24 Q heads, 2 KV heads, head dim 256, RoPE dim 64; indexer MQA 4 query heads / 1 shared key head, indexer head dim 128; budget 512 blocks or 2048 tokens",
+   "moe": "512 experts, 10 routed + 1 shared active, expert intermediate dim 640",
+   "gated_residual": "4 branches, bottleneck rank 320",
+   "ngram_embedding": "20,000,000 entries (bigrams/trigrams at layer 2)",
+   "vocab": "248,320 (padded)",
+   "mtp": "1 layer, multi-step trained"
+  },
+  "context_length": {
+   "native": 262144,
+   "extended": "up to 1,000,000 via YaRN (factor 4.0, original_max_position_embeddings 262144)"
+  },
+  "bf16_size": {
+   "value_gb": 354.03,
+   "source": "Not stated on official card. 354.03 GB = sum of unsloth BF16 GGUF shards (HF API) and bartowski bf16 listing; unsloth docs say 355GB; ISTA-DASLab says 354 GB"
+  },
+  "benchmarks_language": {
+   "columns": [
+    "Qwen3.8-Flash-Next",
+    "Qwen3.8-27B",
+    "Qwen3.7-Plus",
+    "DeepSeek-V4-Flash-0731",
+    "Claude-Opus-4.6 (Max)"
+   ],
+   "rows": [
+    {
+     "benchmark": "# Params",
+     "Qwen3.8-Flash-Next": "125B",
+     "Qwen3.8-27B": "27B",
+     "Qwen3.7-Plus": "397B",
+     "DeepSeek-V4-Flash-0731": "284B",
+     "Claude-Opus-4.6 (Max)": "--"
+    },
+    {
+     "benchmark": "# Activated params",
+     "Qwen3.8-Flash-Next": "6B",
+     "Qwen3.8-27B": "27B",
+     "Qwen3.7-Plus": "17B",
+     "DeepSeek-V4-Flash-0731": "13B",
+     "Claude-Opus-4.6 (Max)": "--"
+    },
+    {
+     "benchmark": "# N-gram embedding params",
+     "Qwen3.8-Flash-Next": "51B",
+     "Qwen3.8-27B": "--",
+     "Qwen3.7-Plus": "--",
+     "DeepSeek-V4-Flash-0731": "--",
+     "Claude-Opus-4.6 (Max)": "--"
+    },
+    {
+     "benchmark": "Agentic coding (DeepSWE 1.1)",
+     "Qwen3.8-Flash-Next": "58.7",
+     "Qwen3.8-27B": "42.2",
+     "Qwen3.7-Plus": "16.5",
+     "DeepSeek-V4-Flash-0731": "54.4",
+     "Claude-Opus-4.6 (Max)": "--"
+    },
+    {
+     "benchmark": "Agentic coding (SWE-bench Pro)",
+     "Qwen3.8-Flash-Next": "62.5",
+     "Qwen3.8-27B": "61.7",
+     "Qwen3.7-Plus": "55.8",
+     "DeepSeek-V4-Flash-0731": "56.0",
+     "Claude-Opus-4.6 (Max)": "53.4"
+    },
+    {
+     "benchmark": "Multilingual software engineering (SWE-bench Multilingual)",
+     "Qwen3.8-Flash-Next": "81.0",
+     "Qwen3.8-27B": "73.8",
+     "Qwen3.7-Plus": "75.8",
+     "DeepSeek-V4-Flash-0731": "--",
+     "Claude-Opus-4.6 (Max)": "77.5"
+    },
+    {
+     "benchmark": "Repo-level code generation (NL2Repo-Bench)",
+     "Qwen3.8-Flash-Next": "48.1",
+     "Qwen3.8-27B": "42.3",
+     "Qwen3.7-Plus": "41.1",
+     "DeepSeek-V4-Flash-0731": "54.2",
+     "Claude-Opus-4.6 (Max)": "47.6"
+    },
+    {
+     "benchmark": "Long-horizon office work (CoWorkBench)",
+     "Qwen3.8-Flash-Next": "73.9",
+     "Qwen3.8-27B": "70.7",
+     "Qwen3.7-Plus": "65.1",
+     "DeepSeek-V4-Flash-0731": "45.1",
+     "Claude-Opus-4.6 (Max)": "68.2"
+    },
+    {
+     "benchmark": "Professional job tasks (JobBench)",
+     "Qwen3.8-Flash-Next": "55.7",
+     "Qwen3.8-27B": "33.4",
+     "Qwen3.7-Plus": "27.6",
+     "DeepSeek-V4-Flash-0731": "41.3",
+     "Claude-Opus-4.6 (Max)": "36.6"
+    },
+    {
+     "benchmark": "Frontier agentic tasks (Agents' Last Exam) Pass@1 / Score",
+     "Qwen3.8-Flash-Next": "24.3 / 51.2",
+     "Qwen3.8-27B": "20.4 / 42.9",
+     "Qwen3.7-Plus": "13.2 / 33.6",
+     "DeepSeek-V4-Flash-0731": "25.2 / --",
+     "Claude-Opus-4.6 (Max)": "--"
+    },
+    {
+     "benchmark": "Real-world tool use (Toolathlon Verified, Pass@1)",
+     "Qwen3.8-Flash-Next": "73.5",
+     "Qwen3.8-27B": "67.1",
+     "Qwen3.7-Plus": "50.6",
+     "DeepSeek-V4-Flash-0731": "70.3",
+     "Claude-Opus-4.6 (Max)": "--"
+    },
+    {
+     "benchmark": "Instruction following (IFBench)",
+     "Qwen3.8-Flash-Next": "81.3",
+     "Qwen3.8-27B": "79.5",
+     "Qwen3.7-Plus": "79.1",
+     "DeepSeek-V4-Flash-0731": "79.2",
+     "Claude-Opus-4.6 (Max)": "62.5"
+    },
+    {
+     "benchmark": "Scientific reasoning (GPQA Diamond)",
+     "Qwen3.8-Flash-Next": "91.7",
+     "Qwen3.8-27B": "89.2",
+     "Qwen3.7-Plus": "90.3",
+     "DeepSeek-V4-Flash-0731": "90.8",
+     "Claude-Opus-4.6 (Max)": "91.3"
+    },
+    {
+     "benchmark": "Multidisciplinary reasoning (HLE)",
+     "Qwen3.8-Flash-Next": "35.9",
+     "Qwen3.8-27B": "30.8",
+     "Qwen3.7-Plus": "34.7",
+     "DeepSeek-V4-Flash-0731": "33.8",
+     "Claude-Opus-4.6 (Max)": "40.0"
+    },
+    {
+     "benchmark": "Competitive coding (LiveCodeBench v6)",
+     "Qwen3.8-Flash-Next": "91.9",
+     "Qwen3.8-27B": "90.3",
+     "Qwen3.7-Plus": "89.6",
+     "DeepSeek-V4-Flash-0731": "90.6",
+     "Claude-Opus-4.6 (Max)": "88.8"
+    }
+   ]
+  },
+  "benchmarks_vision_language": {
+   "columns": [
+    "Qwen3.8-Flash-Next",
+    "Qwen3.8-27B",
+    "Qwen3.7-Plus",
+    "Claude-Opus-4.6 (Max)"
+   ],
+   "rows": [
+    {
+     "benchmark": "Multimodal tool use (ClawEval-MM) Pass@3 / Average",
+     "Qwen3.8-Flash-Next": "64.4 / 60.4",
+     "Qwen3.8-27B": "57.4 / 56.9",
+     "Qwen3.7-Plus": "57.4 / 60.1",
+     "Claude-Opus-4.6 (Max)": "52.5 / 54.7"
+    },
+    {
+     "benchmark": "Application recreation (RecreationBench)",
+     "Qwen3.8-Flash-Next": "49.9",
+     "Qwen3.8-27B": "47.1",
+     "Qwen3.7-Plus": "30.2",
+     "Claude-Opus-4.6 (Max)": "--"
+    },
+    {
+     "benchmark": "Mobile use (AndroidWorld)",
+     "Qwen3.8-Flash-Next": "84.5",
+     "Qwen3.8-27B": "81.9",
+     "Qwen3.7-Plus": "81.0",
+     "Claude-Opus-4.6 (Max)": "62.0"
+    },
+    {
+     "benchmark": "Computer use (OSWorld 2.0) Binary / Partial",
+     "Qwen3.8-Flash-Next": "19.4 / 52.3",
+     "Qwen3.8-27B": "19.4 / 48.0",
+     "Qwen3.7-Plus": "2.8 / 21.5",
+     "Claude-Opus-4.6 (Max)": "--"
+    },
+    {
+     "benchmark": "Visual web development (Vision2Web)",
+     "Qwen3.8-Flash-Next": "64.0",
+     "Qwen3.8-27B": "62.9",
+     "Qwen3.7-Plus": "42.1",
+     "Claude-Opus-4.6 (Max)": "--"
+    },
+    {
+     "benchmark": "Embodied intelligence (ERQA)",
+     "Qwen3.8-Flash-Next": "72.3",
+     "Qwen3.8-27B": "65.5",
+     "Qwen3.7-Plus": "69.8",
+     "Claude-Opus-4.6 (Max)": "40.8"
+    },
+    {
+     "benchmark": "Long video understanding (LVBench)",
+     "Qwen3.8-Flash-Next": "76.6",
+     "Qwen3.8-27B": "72.4",
+     "Qwen3.7-Plus": "76.2",
+     "Claude-Opus-4.6 (Max)": "63.0"
+    },
+    {
+     "benchmark": "Real-world perception (RealWorldQA)",
+     "Qwen3.8-Flash-Next": "88.5",
+     "Qwen3.8-27B": "85.9",
+     "Qwen3.7-Plus": "86.9",
+     "Claude-Opus-4.6 (Max)": "73.9"
+    },
+    {
+     "benchmark": "Visual math problem solving (MathVision) without CI / with CI",
+     "Qwen3.8-Flash-Next": "90.6 / 95.7",
+     "Qwen3.8-27B": "90.0 / 94.6",
+     "Qwen3.7-Plus": "90.3 / 88.7",
+     "Claude-Opus-4.6 (Max)": "65.5 / --"
+    },
+    {
+     "benchmark": "Scientific chart analysis (CharXiv RQ) without CI / with CI",
+     "Qwen3.8-Flash-Next": "84.6 / 90.6",
+     "Qwen3.8-27B": "83.7 / 90.2",
+     "Qwen3.7-Plus": "85.8 / 85.9",
+     "Claude-Opus-4.6 (Max)": "66.0 / --"
+    }
+   ]
+  },
+  "notes": [
+   "Not in official table (so quant claims on these have no official reference): MMLU-Pro, AIME25, SWE-bench Verified, zero-shot ARC/HellaSwag/WinoGrande/PIQA, GSM8K, IFEval",
+   "Official GPQA Diamond 91.7 and LCB v6 91.9 can be compared with ISTA's own BF16 runs (91.92 / 87.43)",
+   "Footnotes omitted by fetch; sampling: thinking temp 1.0 top_p 0.95 top_k 20"
+  ],
+  "evidence_urls": [
+   "https://huggingface.co/Qwen/Qwen3.8-Flash-Next/raw/main/README.md"
+  ],
+  "fetched_at": "2026-10-17"
+ },
+ "repos": [
+  {
+   "repo": "AesSedai/Qwen3.8-Flash-Next-GGUF",
+   "url": "https://huggingface.co/AesSedai/Qwen3.8-Flash-Next-GGUF",
+   "format": "GGUF",
+   "runtime": "llama.cpp mainline (log path .../development/llama.cpp/build/bin/llama-perplexity; build not logged)",
+   "weights_modified": false,
+   "method": "Mixed-precision MoE recipe: default tensors kept high (Q8_0/Q6_K), FFN up/gate/down quantized lower (Mixture column = default / ffn_up / ffn_gate / ffn_down, inferred); original quants use Q8_0 for engram/PLE embedding tensors, '(Q4_0 PLE)' / PLEQ4_0 variants use Q4_0 for them; imatrix",
+   "imatrix_or_calib_data": "imatrix.gguf published; calibration data not stated",
+   "methodology": {
+    "reference": "BF16 (ref-logits file Qwen3.8-Flash-Next-BF16-512ctx-wiki.test.raw.bin, from log)",
+    "eval_dataset": "wikitext-2 test (wiki.test.raw)",
+    "ctx": 512,
+    "n_tokens": "580 chunks x 512 \u2248 296,960 tokens (derived from log, not stated)",
+    "tool": "llama-perplexity --kl-divergence (mainline)"
+   },
+   "headline_claims": [
+    "Mixed-precision MoE quants give better quality at smaller overall size",
+    "Q4_K_M at +0.61% PPL / KLD 0.041; Q4_0 PLE variants save ~20 GiB for small KLD cost"
+   ],
+   "red_flags": [
+    "Methodology not on card; only recoverable from raw logs in kld_data/ (the one log checked is truncated at chunk 263 - no final stats block)",
+    "ppl_ratio column header '1-(Mean PPL(Q)/PPL(base))' but values are positive increases - sign/label inconsistent",
+    "Only mean KLD given; no p99/p99.9/top-1 on card (may be in kld_data/llm_quantization_data.csv, not fetched)",
+    "BPW computed over ~177B params incl. n-gram table, not comparable to bpw quoted by ISTA",
+    "Update notes dated 09/01/2027 and 09/02/2027 (future dates)",
+    "IQ2_S row has nearly same size as IQ3_S (97.66 vs 100.01 GiB) due to n-gram table at Q8_0"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/AesSedai/Qwen3.8-Flash-Next-GGUF/raw/main/README.md",
+    "https://huggingface.co/AesSedai/Qwen3.8-Flash-Next-GGUF",
+    "https://huggingface.co/api/models/AesSedai/Qwen3.8-Flash-Next-GGUF?blobs=true",
+    "https://huggingface.co/AesSedai/Qwen3.8-Flash-Next-GGUF/raw/main/kld_data/wiki-test-raw/aes_sedai/Qwen3.8-Flash-Next-Q4_K_M.md"
+   ],
+   "baseline_numbers": {
+    "note": "PPL(base) value not stated on card (only ratio column '1-(Mean PPL(Q)/PPL(base))')"
+   },
+   "variants": [
+    {
+     "name": "Q5_K_M",
+     "size_gb": 147.17,
+     "size_unit": "GiB",
+     "bpw": 7.14,
+     "qualitative": "Mixture: Q8_0 / Q5_K / Q5_K / Q6_K",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.030432,
+       "err": 0.00021,
+       "unit": null,
+       "raw": "0.030432 \u00b1 0.000210"
+      },
+      {
+       "key": "ppl",
+       "value": 4.600285,
+       "err": 0.027992,
+       "unit": null,
+       "raw": "4.600285 \u00b1 0.027992"
+      },
+      {
+       "key": "ppl_ratio",
+       "value": 0.2179,
+       "err": null,
+       "unit": "%",
+       "raw": "+0.2179%"
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "Q5_K_M (Q4_0 PLE)",
+     "size_gb": 126.64,
+     "size_unit": "GiB",
+     "bpw": 6.15,
+     "qualitative": "Mixture: Q8_0 / Q5_K / Q5_K / Q6_K",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.030814,
+       "err": 0.000217,
+       "unit": null,
+       "raw": "0.030814 \u00b1 0.000217"
+      },
+      {
+       "key": "ppl",
+       "value": 4.616165,
+       "err": 0.028059,
+       "unit": null,
+       "raw": "4.616165 \u00b1 0.028059"
+      },
+      {
+       "key": "ppl_ratio",
+       "value": 0.5638,
+       "err": null,
+       "unit": "%",
+       "raw": "+0.5638%"
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "Q4_K_M",
+     "size_gb": 126.08,
+     "size_unit": "GiB",
+     "bpw": 6.12,
+     "qualitative": "Mixture: Q8_0 / Q4_K / Q4_K / Q5_K",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.041479,
+       "err": 0.000274,
+       "unit": null,
+       "raw": "0.041479 \u00b1 0.000274"
+      },
+      {
+       "key": "ppl",
+       "value": 4.618153,
+       "err": 0.028121,
+       "unit": null,
+       "raw": "4.618153 \u00b1 0.028121"
+      },
+      {
+       "key": "ppl_ratio",
+       "value": 0.6071,
+       "err": null,
+       "unit": "%",
+       "raw": "+0.6071%"
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ4_XS",
+     "size_gb": 109.09,
+     "size_unit": "GiB",
+     "bpw": 5.3,
+     "qualitative": "Mixture: Q8_0 / IQ3_S / IQ3_S / IQ4_XS",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.07973,
+       "err": 0.00051,
+       "unit": null,
+       "raw": "0.079730 \u00b1 0.000510"
+      },
+      {
+       "key": "ppl",
+       "value": 4.733298,
+       "err": 0.029068,
+       "unit": null,
+       "raw": "4.733298 \u00b1 0.029068"
+      },
+      {
+       "key": "ppl_ratio",
+       "value": 3.1156,
+       "err": null,
+       "unit": "%",
+       "raw": "+3.1156%"
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "Q4_K_M (Q4_0 PLE)",
+     "size_gb": 105.55,
+     "size_unit": "GiB",
+     "bpw": 5.12,
+     "qualitative": "Mixture: Q8_0 / Q4_K / Q4_K / Q5_K",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.043324,
+       "err": 0.000287,
+       "unit": null,
+       "raw": "0.043324 \u00b1 0.000287"
+      },
+      {
+       "key": "ppl",
+       "value": 4.633212,
+       "err": 0.028203,
+       "unit": null,
+       "raw": "4.633212 \u00b1 0.028203"
+      },
+      {
+       "key": "ppl_ratio",
+       "value": 0.9352,
+       "err": null,
+       "unit": "%",
+       "raw": "+0.9352%"
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ3_S",
+     "size_gb": 100.01,
+     "size_unit": "GiB",
+     "bpw": 4.85,
+     "qualitative": "Mixture: Q6_K / IQ2_S / IQ2_S / IQ3_S",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.162764,
+       "err": 0.000918,
+       "unit": null,
+       "raw": "0.162764 \u00b1 0.000918"
+      },
+      {
+       "key": "ppl",
+       "value": 4.87032,
+       "err": 0.030101,
+       "unit": null,
+       "raw": "4.870320 \u00b1 0.030101"
+      },
+      {
+       "key": "ppl_ratio",
+       "value": 6.1006,
+       "err": null,
+       "unit": "%",
+       "raw": "+6.1006%"
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ2_S",
+     "size_gb": 97.66,
+     "size_unit": "GiB",
+     "bpw": 4.74,
+     "qualitative": "Mixture: Q6_K / IQ2_XS / IQ2_XS / IQ3_XXS",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.20595,
+       "err": 0.001125,
+       "unit": null,
+       "raw": "0.205950 \u00b1 0.001125"
+      },
+      {
+       "key": "ppl",
+       "value": 5.037301,
+       "err": 0.03145,
+       "unit": null,
+       "raw": "5.037301 \u00b1 0.031450"
+      },
+      {
+       "key": "ppl_ratio",
+       "value": 9.7383,
+       "err": null,
+       "unit": "%",
+       "raw": "+9.7383%"
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ4_XS (Q4_0 PLE)",
+     "size_gb": 88.56,
+     "size_unit": "GiB",
+     "bpw": 4.3,
+     "qualitative": "Mixture: Q8_0 / IQ3_S / IQ3_S / IQ4_XS",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.084118,
+       "err": 0.000515,
+       "unit": null,
+       "raw": "0.084118 \u00b1 0.000515"
+      },
+      {
+       "key": "ppl",
+       "value": 4.750635,
+       "err": 0.029142,
+       "unit": null,
+       "raw": "4.750635 \u00b1 0.029142"
+      },
+      {
+       "key": "ppl_ratio",
+       "value": 3.4933,
+       "err": null,
+       "unit": "%",
+       "raw": "+3.4933%"
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ3_S (Q4_0 PLE)",
+     "size_gb": 79.55,
+     "size_unit": "GiB",
+     "bpw": 3.86,
+     "qualitative": "Mixture: Q6_K / IQ2_S / IQ2_S / IQ3_S",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.167344,
+       "err": 0.00094,
+       "unit": null,
+       "raw": "0.167344 \u00b1 0.000940"
+      },
+      {
+       "key": "ppl",
+       "value": 4.887335,
+       "err": 0.030175,
+       "unit": null,
+       "raw": "4.887335 \u00b1 0.030175"
+      },
+      {
+       "key": "ppl_ratio",
+       "value": 6.4713,
+       "err": null,
+       "unit": "%",
+       "raw": "+6.4713%"
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ2_S (Q4_0 PLE)",
+     "size_gb": 77.21,
+     "size_unit": "GiB",
+     "bpw": 3.75,
+     "qualitative": "Mixture: Q6_K / IQ2_XS / IQ2_XS / IQ3_XXS",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.21334,
+       "err": 0.001164,
+       "unit": null,
+       "raw": "0.213340 \u00b1 0.001164"
+      },
+      {
+       "key": "ppl",
+       "value": 5.076957,
+       "err": 0.031749,
+       "unit": null,
+       "raw": "5.076957 \u00b1 0.031749"
+      },
+      {
+       "key": "ppl_ratio",
+       "value": 10.6023,
+       "err": null,
+       "unit": "%",
+       "raw": "+10.6023%"
+      }
+     ],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "AtomicChat/Qwen3.8-Flash-Next-GGUF",
+   "url": "https://huggingface.co/AtomicChat/Qwen3.8-Flash-Next-GGUF",
+   "format": "GGUF",
+   "runtime": "llama.cpp mainline with Qwen3.8-Flash-Next support (PR #27742 'qwen4exp'); also Atomic Chat",
+   "weights_modified": false,
+   "method": "llama-quantize from BF16 with custom imatrix; per-tensor type overrides (n-gram table vs experts differ); n-gram table split into its own shard (SSD-resident, M64 naming). 4.27bpw breakdown: n-gram Q5_1, ffn_gate/up_exps IQ2_S/IQ3_S, ffn_down_exps IQ4_NL, rest Q8_0",
+   "imatrix_or_calib_data": "Own imatrix on BF16: 4000 chunks x 512 ctx, 4,967,044 tokens, 3004 docs, chat-template-rendered; mix agentic 24.7%, code 17.8%, reasoning 14.8%, multilingual 13.8%, long ctx 11.9%, vocab sweep 9.9%, structured 4.1%, graphics 3.0% (dataset AtomicChat/calib-corpora); calib PPL 4.6812",
+   "methodology": {
+    "reference": "BF16",
+    "eval_dataset": "held-out neutral set (not named), 87 chunks",
+    "ctx": 4096,
+    "n_tokens": null,
+    "tool": "not stated (KLD logs in AtomicChat/Qwen3.8-Flash-Next-GGUF-metrics dataset)"
+   },
+   "headline_claims": [
+    "Runs '176B' model on a 64 GB MacBook (M5 Max): 36 tok/s gen, 517.9 tok/s pp512, ~39 GB never enters RAM",
+    "63% KLD reduction and +6.8 pt top-1 \u2014 vs its own earlier 3.84bpw build, described as 'same file size' though 84.9 vs 92.9 GB",
+    "4.27bpw matches 5.00bpw within measurement error at 17.6 GB smaller",
+    "Other publishers' quants re-measured locally (no numbers given); claims they need the whole file resident",
+    "Q4_K_M and up 'within a point or two' of full precision on benchmarks (no measurement shown)"
+   ],
+   "red_flags": [
+    "Parameter count inconsistent (176B / 177B header vs 125B + 51B n-gram + 4B MTP; n-gram described as both '20M embeddings' and 51B)",
+    "'Same file size' claim for 63% KLD reduction contradicted by own table (84.9 vs 92.9 GB)",
+    "n-gram table called 'six bits' but stated type is Q5_1",
+    "GB vs GiB never defined",
+    "Eval set not named; KLD tool not stated (logs said to be in metrics dataset \u2014 not fetched)",
+    "Most standard variants (IQ2_M..Q8_0) still uploading; no sizes or metrics",
+    "Benchmarks are Qwen's base-model numbers, not measured on quants"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/AtomicChat/Qwen3.8-Flash-Next-GGUF/raw/main/README.md"
+   ],
+   "baseline_numbers": {
+    "BF16_ppl_eval_set": "4.0445 \u00b1 0.0216",
+    "Qwen_reported_base_bench": {
+     "LiveCodeBench v6": 91.9,
+     "GPQA Diamond": 91.7,
+     "SWE-bench Multilingual": 81.0,
+     "CoWorkBench": 73.9
+    }
+   },
+   "variants": [
+    {
+     "name": "AD-3.84bpw-IQ4_XS-M64",
+     "size_gb": 84.9,
+     "size_unit": "GB",
+     "bpw": 3.84,
+     "qualitative": "in memory 45.8 GB + SSD 39.1 GB",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.2277,
+       "err": null,
+       "unit": null,
+       "raw": 0.2277
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 82.68,
+       "err": null,
+       "unit": null,
+       "raw": 82.68
+      },
+      {
+       "key": "ppl_ratio",
+       "value": 1.102,
+       "err": null,
+       "unit": null,
+       "raw": 1.102
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "AD-4.27bpw-Q4_K_M-M64",
+     "size_gb": 92.9,
+     "size_unit": "GB",
+     "bpw": 4.27,
+     "qualitative": "recommended; in memory 54.5 GB + SSD 38.4 GB; 'matches 5.00bpw within measurement error'",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.0842,
+       "err": null,
+       "unit": null,
+       "raw": 0.0842
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 89.49,
+       "err": null,
+       "unit": null,
+       "raw": 89.49
+      },
+      {
+       "key": "ppl_ratio",
+       "value": 1.026,
+       "err": null,
+       "unit": null,
+       "raw": 1.026
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "AD-5.00bpw-Q5_K_M-M64",
+     "size_gb": 110.5,
+     "size_unit": "GB",
+     "bpw": 5.0,
+     "qualitative": "in memory 56.1 GB + SSD 54.4 GB",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.0837,
+       "err": null,
+       "unit": null,
+       "raw": 0.0837
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 89.55,
+       "err": null,
+       "unit": null,
+       "raw": 89.55
+      },
+      {
+       "key": "ppl_ratio",
+       "value": 1.026,
+       "err": null,
+       "unit": null,
+       "raw": 1.026
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ2_M",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": null,
+     "qualitative": "listed, sizes/metrics pending upload",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ3_M",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": null,
+     "qualitative": "listed, sizes/metrics pending upload",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q4_K_M",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": null,
+     "qualitative": "listed, sizes/metrics pending upload",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "UD-Q4_K_XL",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": null,
+     "qualitative": "listed, sizes/metrics pending upload",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q6_K",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": null,
+     "qualitative": "listed, sizes/metrics pending upload",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q8_0",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": null,
+     "qualitative": "listed, sizes/metrics pending upload",
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "FINAL-Bench/POCKET-Qwen3.8-Flash-Next-GGUF",
+   "url": "https://huggingface.co/FINAL-Bench/POCKET-Qwen3.8-Flash-Next-GGUF",
+   "format": "GGUF",
+   "runtime": "llama.cpp mainline (recent build)",
+   "weights_modified": false,
+   "method": "Q4_K_M from BF16 by VIDRAFT; -v2 uses proprietary bit allocation; text-only (vision encoder and MTP head omitted)",
+   "imatrix_or_calib_data": null,
+   "methodology": {
+    "reference": "unsloth UD-IQ4_XS (comparison only; no BF16)",
+    "eval_dataset": "Wikipedia-Korean 20231101.ko, 80 chunks, 40,960 tokens",
+    "ctx": 512,
+    "n_tokens": 40960,
+    "tool": "not stated"
+   },
+   "headline_claims": [
+    "Runs 180B (6B active) on a laptop with RTX 5060 8 GB / 32 GB RAM at ~4 tok/s generation",
+    "Both builds within error of unsloth UD-IQ4_XS on Korean PPL; explicitly no claim of better quantization",
+    "Filling 8 GB VRAM with experts slows gen (3.10 -> 1.75 tok/s)"
+   ],
+   "red_flags": [
+    "No BF16 reference; PPL at ctx 512 on Korean Wikipedia \u2014 not comparable to other cards",
+    "PPL errors \u00b10.103/\u00b10.104; differences within noise (publisher admits)",
+    "v2 bit allocation proprietary; imatrix not stated",
+    "Unit mix: GiB for own builds, GB for unsloth reference",
+    "Prompt processing ~1\u20132 tok/s \u2014 impractical despite headline"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/FINAL-Bench/POCKET-Qwen3.8-Flash-Next-GGUF/raw/main/README.md"
+   ],
+   "baseline_numbers": {
+    "unsloth_UD-IQ4_XS_korean_ppl": "6.013 \u00b1 0.103 (88 GB)"
+   },
+   "variants": [
+    {
+     "name": "Q4_K_M",
+     "size_gb": 111,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "fastest gen on 8GB laptop GPU: 4.17 tok/s tg256",
+     "metrics": [
+      {
+       "key": "ppl",
+       "value": 6.03,
+       "err": null,
+       "unit": null,
+       "raw": 6.03
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "Q4_K_M-v2",
+     "size_gb": 93,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "16% smaller; faster pp at 4 threads",
+     "metrics": [
+      {
+       "key": "ppl",
+       "value": 6.08,
+       "err": null,
+       "unit": null,
+       "raw": 6.08
+      }
+     ],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF",
+   "url": "https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF",
+   "format": "GGUF",
+   "runtime": "llama.cpp (llama-cli; mainline vs fork not stated); also mentions third-party engine Strata",
+   "weights_modified": true,
+   "method": "RCO expert pruning (50% of routed experts removed: 256 of 512 per layer, exact per-layer budget) + GSQ quantization of retained weights at 3.5 bpw (1.89 bpw over original params); n-gram table IQ4_NL 4.5 bpw, not pruned/searched",
+   "imatrix_or_calib_data": "Code and agentic data, plus vision data in final search (no datasets named)",
+   "methodology": {
+    "reference": "BF16 (unpruned base, own eval)",
+    "eval_dataset": "SWE-bench Verified; LiveCodeBench v6 (xhigh reasoning effort)",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+   },
+   "headline_claims": [
+    "58.4 GB (29.6 GB resident) coder build retains 98.7% of BF16 LiveCodeBench v6 and 91.3% of SWE-bench Verified"
+   ],
+   "red_flags": [
+    "Weights modified: 50% routed experts pruned -> not a faithful quant; domain-specialized (code)",
+    "SWE-bench Verified not in official Qwen table; BF16 LCB v6 87.43 vs official 91.9 (own harness)",
+    "No KLD/PPL; no general-domain benchmarks (only a qualitative pelican SVG)",
+    "Example command path 'IQ1_M/...' inconsistent with stated 3.5 bpw (leftover from another release?)",
+    "Calibration datasets unnamed; harness/scaffold for SWE-bench not stated"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF/raw/main/README.md"
+   ],
+   "baseline_numbers": {
+    "BF16": {
+     "size_gb": 354,
+     "SWE-bench Verified": 82.8,
+     "LiveCodeBench v6": 87.43
+    }
+   },
+   "variants": [
+    {
+     "name": "GSQ-RCO Coder (2 shards)",
+     "size_gb": 58.4,
+     "size_unit": "GB",
+     "bpw": 1.89,
+     "qualitative": "Resident shard 29.6 GB (transformer, 256/512 experts); 28.8 GB n-gram shard can stay on disk",
+     "metrics": [
+      {
+       "key": "bench:SWE-bench Verified",
+       "value": 75.6,
+       "err": null,
+       "unit": null,
+       "raw": 75.6
+      },
+      {
+       "key": "bench:LiveCodeBench v6",
+       "value": 86.28,
+       "err": null,
+       "unit": null,
+       "raw": 86.28
+      },
+      {
+       "key": "bench:SWE-bench Verified retained %",
+       "value": 91.3,
+       "err": null,
+       "unit": null,
+       "raw": 91.3
+      },
+      {
+       "key": "bench:LCB v6 retained %",
+       "value": 98.7,
+       "err": null,
+       "unit": null,
+       "raw": 98.7
+      }
+     ],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+   "url": "https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+   "format": "GGUF",
+   "runtime": "llama.cpp (card says standard GGUF, runs unmodified in llama.cpp/Ollama/LM Studio; mainline vs fork not stated; uses flags '-lm mmap --lazy-mode on' that may need a recent build)",
+   "weights_modified": false,
+   "method": "GSQ (Gumbel-Softmax scalar quantization) per tensor + RCO (Riemannian constrained optimization) choosing per-tensor GGUF types under an exact size budget; mixed-precision GGUF. Model split in 2 shards: transformer weights (resident) + n-gram embedding table (28.8 GB, can stay on disk via mmap). Per-tensor allocation files published (tensor-allocation/*.rco-allocation.txt).",
+   "imatrix_or_calib_data": null,
+   "methodology": {
+    "reference": "BF16 (own eval of base model)",
+    "eval_dataset": "Zero-shot avg of arc_easy, arc_challenge, hellaswag, winogrande, piqa; AIME25; GPQA-Diamond; LiveCodeBench v6",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated (ctx, sampling, reasoning effort, n-samples not stated)"
+   },
+   "headline_claims": [
+    "2.4-3.0 bpw (66-76 GB) quants recover >=100% of BF16 zero-shot average",
+    "IQ3_XXS matches BF16 on AIME25 (100.00) and is within ~0.5 on GPQA-D / ~1.1 on LCB v6",
+    "Only shard 1 (37.6-47.0 GB) must be resident; n-gram shard (28.8 GB) can stay on disk",
+    "Q2_0 is ~3.4x faster prompt / 1.3x faster decode than IQ2_XS (55 prompts, 11 categories)"
+   ],
+   "red_flags": [
+    "No methodology for benchmarks: ctx, sampling, number of samples/seeds, reasoning effort not stated",
+    "No KLD/PPL reported",
+    "Calibration data not stated",
+    "BF16 LCB v6 baseline 87.43 vs official card 91.9; GPQA-D 91.92 vs official 91.7 -> own harness, not comparable to official numbers",
+    "Quants scoring >100% recovery on zero-shot avg indicates noise floor of ~1 pt; small differences are not meaningful",
+    "bpw figures (2.40/2.50/3.00) exclude the 28.8 GB n-gram shard; total GB includes it",
+    "'Q2_0' type and '-lm mmap --lazy-mode on' flags: verify mainline llama.cpp support",
+    "AIME25 has only 30 problems (96.67 = 1 miss)"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF/raw/main/README.md",
+    "https://arxiv.org/abs/2604.18556",
+    "https://arxiv.org/abs/2605.00649"
+   ],
+   "baseline_numbers": {
+    "BF16": {
+     "size_gb": 354,
+     "bpw": 16.0,
+     "ZS avg": 76.94,
+     "AIME25": 100.0,
+     "GPQA-D": 91.92,
+     "LCB v6": 87.43,
+     "Task avg": 93.12
+    }
+   },
+   "variants": [
+    {
+     "name": "Q2_0",
+     "size_gb": 66.4,
+     "size_unit": "GB",
+     "bpw": 2.4,
+     "qualitative": "Fastest; avoids lookup-table formats",
+     "metrics": [
+      {
+       "key": "bench:ZS avg",
+       "value": 78.0,
+       "err": null,
+       "unit": null,
+       "raw": 78.0
+      },
+      {
+       "key": "bench:ZS recovery %",
+       "value": 101.4,
+       "err": null,
+       "unit": null,
+       "raw": 101.4
+      },
+      {
+       "key": "bench:AIME25",
+       "value": 96.67,
+       "err": null,
+       "unit": null,
+       "raw": 96.67
+      },
+      {
+       "key": "bench:GPQA-D",
+       "value": 89.39,
+       "err": null,
+       "unit": null,
+       "raw": 89.39
+      },
+      {
+       "key": "bench:LCB v6",
+       "value": 81.14,
+       "err": null,
+       "unit": null,
+       "raw": 81.14
+      },
+      {
+       "key": "bench:Task avg",
+       "value": 89.07,
+       "err": null,
+       "unit": null,
+       "raw": 89.07
+      },
+      {
+       "key": "bench:prompt t/s",
+       "value": 367.49,
+       "err": null,
+       "unit": null,
+       "raw": 367.49
+      },
+      {
+       "key": "bench:decode t/s",
+       "value": 93.79,
+       "err": null,
+       "unit": null,
+       "raw": 93.79
+      },
+      {
+       "key": "bench:avg latency s",
+       "value": 6.7,
+       "err": null,
+       "unit": null,
+       "raw": 6.7
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ2_XS",
+     "size_gb": 68.0,
+     "size_unit": "GB",
+     "bpw": 2.5,
+     "qualitative": "Smallest at equal quality",
+     "metrics": [
+      {
+       "key": "bench:ZS avg",
+       "value": 77.16,
+       "err": null,
+       "unit": null,
+       "raw": 77.16
+      },
+      {
+       "key": "bench:ZS recovery %",
+       "value": 100.3,
+       "err": null,
+       "unit": null,
+       "raw": 100.3
+      },
+      {
+       "key": "bench:AIME25",
+       "value": 96.67,
+       "err": null,
+       "unit": null,
+       "raw": 96.67
+      },
+      {
+       "key": "bench:GPQA-D",
+       "value": 87.37,
+       "err": null,
+       "unit": null,
+       "raw": 87.37
+      },
+      {
+       "key": "bench:LCB v6",
+       "value": 83.43,
+       "err": null,
+       "unit": null,
+       "raw": 83.43
+      },
+      {
+       "key": "bench:Task avg",
+       "value": 89.16,
+       "err": null,
+       "unit": null,
+       "raw": 89.16
+      },
+      {
+       "key": "bench:prompt t/s",
+       "value": 108.19,
+       "err": null,
+       "unit": null,
+       "raw": 108.19
+      },
+      {
+       "key": "bench:decode t/s",
+       "value": 70.3,
+       "err": null,
+       "unit": null,
+       "raw": 70.3
+      },
+      {
+       "key": "bench:avg latency s",
+       "value": 12.68,
+       "err": null,
+       "unit": null,
+       "raw": 12.68
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ3_XXS",
+     "size_gb": 75.8,
+     "size_unit": "GB",
+     "bpw": 3.0,
+     "qualitative": "Recommended; matches the base model on AIME25",
+     "metrics": [
+      {
+       "key": "bench:ZS avg",
+       "value": 77.23,
+       "err": null,
+       "unit": null,
+       "raw": 77.23
+      },
+      {
+       "key": "bench:ZS recovery %",
+       "value": 100.4,
+       "err": null,
+       "unit": null,
+       "raw": 100.4
+      },
+      {
+       "key": "bench:AIME25",
+       "value": 100.0,
+       "err": null,
+       "unit": null,
+       "raw": 100.0
+      },
+      {
+       "key": "bench:GPQA-D",
+       "value": 91.41,
+       "err": null,
+       "unit": null,
+       "raw": 91.41
+      },
+      {
+       "key": "bench:LCB v6",
+       "value": 86.29,
+       "err": null,
+       "unit": null,
+       "raw": 86.29
+      },
+      {
+       "key": "bench:Task avg",
+       "value": 92.57,
+       "err": null,
+       "unit": null,
+       "raw": 92.57
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "mmproj-BF16",
+     "size_gb": 0.91,
+     "size_unit": "GB",
+     "bpw": 16,
+     "qualitative": "Vision encoder + projector",
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "Inferact/Qwen3.8-Flash-Next-NVFP4",
+   "url": "https://huggingface.co/Inferact/Qwen3.8-Flash-Next-NVFP4",
+   "format": "NVFP4",
+   "runtime": "Transformers, vLLM, SGLang, TokenSpeed, KTransformers (as listed; copied from base card)",
+   "weights_modified": false,
+   "method": "not stated on card; HF API config shows quant_method=modelopt with a long ignore list (lm_head, embeddings, hyper-connection, linear-attention, MoE gates, shared experts, visual, MTP excluded)",
+   "imatrix_or_calib_data": null,
+   "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+   },
+   "headline_claims": [
+    "card repeats Qwen base-model architecture and benchmark claims; no quant-specific claims"
+   ],
+   "red_flags": [
+    "no quality claims for the quant",
+    "benchmark tables are copied from the Qwen base card",
+    "no method/calibration stated on card",
+    "third party (primitive-ai) describes it as ~183 GB 'near-unquantized' - barely smaller than official FP8 (185 GB)",
+    "HF tags include '8-bit'"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/Inferact/Qwen3.8-Flash-Next-NVFP4/raw/main/README.md",
+    "https://huggingface.co/api/models/Inferact/Qwen3.8-Flash-Next-NVFP4?blobs=true",
+    "https://huggingface.co/primitive-ai/Qwen3.8-Flash-Next-NVFP4/raw/main/README.md"
+   ],
+   "baseline_numbers": {
+    "Qwen3.8-Flash-Next (base, as published)": {
+     "DeepSWE 1.1": 58.7,
+     "SWE-bench Pro": 62.5,
+     "SWE-bench Multilingual": 81.0,
+     "NL2Repo-Bench": 48.1,
+     "CoWorkBench": 73.9,
+     "Toolathlon Verified (Pass@1)": 73.5,
+     "IFBench": 81.3,
+     "GPQA Diamond": 91.7,
+     "HLE": 35.9,
+     "LiveCodeBench v6": 91.9,
+     "AndroidWorld": 84.5,
+     "LVBench": 76.6,
+     "RealWorldQA": 88.5
+    }
+   },
+   "variants": [
+    {
+     "name": "NVFP4",
+     "size_gb": 183,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "size not on card or in fetched API response; 183 GB is as reported by primitive-ai card ('near-unquantized and FP8 table')",
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "Intel/Qwen3.8-Flash-Next-W4A16-AutoRound",
+   "url": "https://huggingface.co/Intel/Qwen3.8-Flash-Next-W4A16-AutoRound",
+   "format": "AutoRound",
+   "runtime": "Transformers (auto_round format); no serving engine stated",
+   "weights_modified": false,
+   "method": "Intel auto-round tuning mode, W4A16 INT4, 200 iterations; excluded: lm_head, embed_tokens, visual, linear_attn, self_attn, hyper_connection, mlp.gate, shared_expert, in_proj_a/b, ple, mtp, indexer (i.e. only routed experts quantized)",
+   "imatrix_or_calib_data": "not stated (auto-round default)",
+   "methodology": {
+    "reference": "BF16",
+    "eval_dataset": "GSM8K, MMLU, PIQA, HellaSwag",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated (likely lm-eval; not named)"
+   },
+   "headline_claims": [
+    "INT4 keeps 99.64% of BF16 average across GSM8K/MMLU/PIQA/HellaSwag"
+   ],
+   "red_flags": [
+    "only easy/saturated legacy benches; no shot count, harness or sample settings stated",
+    "no calibration data stated",
+    "size not stated on card; ~181 GB despite 4-bit because PLE and attention stay 16-bit"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/Intel/Qwen3.8-Flash-Next-W4A16-AutoRound/raw/main/README.md",
+    "https://huggingface.co/api/models/Intel/Qwen3.8-Flash-Next-W4A16-AutoRound?blobs=true"
+   ],
+   "baseline_numbers": {
+    "BF16": {
+     "GSM8K": 0.9673,
+     "MMLU": 0.8651,
+     "PIQA": 0.8193,
+     "HellaSwag": 0.6927,
+     "Average": 0.8362
+    }
+   },
+   "variants": [
+    {
+     "name": "W4A16 INT4",
+     "size_gb": 181.24,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "size from HF API sum of file sizes (181,240,433,939 bytes); one shard is 102.4 GB (likely the unquantized PLE table)",
+     "metrics": [
+      {
+       "key": "bench:GSM8K",
+       "value": 0.9682,
+       "err": null,
+       "unit": null,
+       "raw": 0.9682
+      },
+      {
+       "key": "bench:MMLU",
+       "value": 0.856,
+       "err": null,
+       "unit": null,
+       "raw": 0.856
+      },
+      {
+       "key": "bench:PIQA",
+       "value": 0.8215,
+       "err": null,
+       "unit": null,
+       "raw": 0.8215
+      },
+      {
+       "key": "bench:HellaSwag",
+       "value": 0.6873,
+       "err": null,
+       "unit": null,
+       "raw": 0.6873
+      },
+      {
+       "key": "bench:Average",
+       "value": 0.8332,
+       "err": null,
+       "unit": null,
+       "raw": 0.8332
+      },
+      {
+       "key": "bench:Relative to BF16",
+       "value": 99.64,
+       "err": null,
+       "unit": "%",
+       "raw": "99.64%"
+      }
+     ],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "Jundot/Qwen3.8-Flash-Next-oQ4e-mtp",
+   "url": "https://huggingface.co/Jundot/Qwen3.8-Flash-Next-oQ4e-mtp",
+   "format": "MLX",
+   "runtime": "MLX (oMLX)",
+   "weights_modified": false,
+   "method": "oQ mixed-precision quantization (oMLX v0.6.3rc3), 4-bit group 64; repo includes oq_imatrix_report.json suggesting imatrix-guided allocation",
+   "imatrix_or_calib_data": "not stated (oq_imatrix_report.json present in repo)",
+   "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+   },
+   "headline_claims": [
+    "oQ mixed-precision 4-bit with MTP head"
+   ],
+   "red_flags": [
+    "no quality claims",
+    "minimal card (321 bytes)",
+    "size computed from HF API blobs (106,318,234,757 bytes total), not stated on card"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/Jundot/Qwen3.8-Flash-Next-oQ4e-mtp/raw/main/README.md",
+    "https://huggingface.co/api/models/Jundot/Qwen3.8-Flash-Next-oQ4e-mtp?blobs=true"
+   ],
+   "baseline_numbers": {},
+   "variants": [
+    {
+     "name": "oQ4e-mtp",
+     "size_gb": 106.32,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "Maximilian228/Qwen3.8-Flash-Next-NVFP4-GPTQ-Strata",
+   "url": "https://huggingface.co/Maximilian228/Qwen3.8-Flash-Next-NVFP4-GPTQ-Strata",
+   "format": "NVFP4",
+   "runtime": "Strata NVFP4 (sergqwer/strata-nvfp4, Windows, RTX 20-50, 12 GB+ VRAM, 64 GB+ RAM); not loadable in transformers/vLLM/llama.cpp",
+   "weights_modified": false,
+   "method": "GPTQ into NVFP4 for all routed experts from BF16 (rev de4b8e4d): per-matrix FP32 scale, per-16 FP8 E4M3 block scale, 128-col blocks, 1% damping, least-squares block-scale search (tools/requant.py); dense parts in GGUF, PLE table FP8 GGUF",
+   "imatrix_or_calib_data": "~57.5K tokens: Ukrainian + English Wikipedia, llama.cpp and Rust sources, 16 chat answers; MoE inputs dumped from an engine running NVIDIA NVFP4 experts (Hessians only)",
+   "methodology": {
+    "reference": "Q8_0",
+    "eval_dataset": "not stated (held-out tokens)",
+    "ctx": null,
+    "n_tokens": 5153,
+    "tool": "own script (Strata)"
+   },
+   "headline_claims": [
+    "93.6% top-token match vs Q8_0, beating NVIDIA NVFP4's 92.9%",
+    "~177 tok/s decode, 3.9 s for 32K prompt, ~69 GiB RAM on RTX 5090",
+    "~45% of NVIDIA's expert quantization error (rel. MSE 0.00561 vs 0.01252; RTN 0.01684)",
+    "decode cost equal to NVIDIA NVFP4",
+    "optional runtime switch to disable refusals"
+   ],
+   "red_flags": [
+    "reference is Q8_0, not BF16",
+    "only 5,153 eval tokens - top-1 differences of <1 pt are within noise",
+    "KLD identical (0.038) to NVIDIA despite claimed better top-1/MSE",
+    "calibration only ~57.5K tokens, Hessians from NVIDIA-NVFP4 engine activations",
+    "Strata-only runtime; NVIDIA comparison is a Strata conversion, not NVIDIA's own runtime",
+    "ships optional refusal-disable switch (weights unmodified, runtime ablation)"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/Maximilian228/Qwen3.8-Flash-Next-NVFP4-GPTQ-Strata/raw/main/README.md"
+   ],
+   "baseline_numbers": {
+    "Q8_0": {
+     "top1_agree_pct": 100,
+     "decode tok/s": 47,
+     "32K prompt s": 10.3,
+     "RAM in use GiB": 106
+    }
+   },
+   "variants": [
+    {
+     "name": "NVFP4 GPTQ (this repo)",
+     "size_gb": 119.92,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "size = sum of listed files (63.28+47.68+5.58+1.43+1.18+0.77 GiB)",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.038,
+       "err": null,
+       "unit": null,
+       "raw": 0.038
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 93.6,
+       "err": null,
+       "unit": null,
+       "raw": 93.6
+      },
+      {
+       "key": "bench:decode tok/s (RTX 5090)",
+       "value": 177.0,
+       "err": null,
+       "unit": null,
+       "raw": 177
+      },
+      {
+       "key": "bench:32K prompt s",
+       "value": 3.9,
+       "err": null,
+       "unit": null,
+       "raw": 3.9
+      },
+      {
+       "key": "bench:RAM in use GiB",
+       "value": 69.0,
+       "err": null,
+       "unit": null,
+       "raw": 69
+      },
+      {
+       "key": "bench:expert rel. MSE vs BF16 (sum 48 layers)",
+       "value": 0.00561,
+       "err": null,
+       "unit": null,
+       "raw": 0.00561
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "NVIDIA NVFP4 (converted to Strata)",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": null,
+     "qualitative": "comparison",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.038,
+       "err": null,
+       "unit": null,
+       "raw": 0.038
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 92.9,
+       "err": null,
+       "unit": null,
+       "raw": 92.9
+      },
+      {
+       "key": "bench:decode tok/s (RTX 5090)",
+       "value": 167.0,
+       "err": null,
+       "unit": null,
+       "raw": 167
+      },
+      {
+       "key": "bench:32K prompt s",
+       "value": 3.9,
+       "err": null,
+       "unit": null,
+       "raw": 3.9
+      },
+      {
+       "key": "bench:RAM in use GiB",
+       "value": 69.0,
+       "err": null,
+       "unit": null,
+       "raw": 69
+      },
+      {
+       "key": "bench:expert rel. MSE vs BF16 (sum 48 layers)",
+       "value": 0.01252,
+       "err": null,
+       "unit": null,
+       "raw": 0.01252
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "NVFP4 + Q8_0 mix",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": null,
+     "qualitative": "comparison",
+     "metrics": [
+      {
+       "key": "top1_agree_pct",
+       "value": 95.0,
+       "err": null,
+       "unit": null,
+       "raw": 95.0
+      },
+      {
+       "key": "bench:decode tok/s",
+       "value": 91.0,
+       "err": null,
+       "unit": null,
+       "raw": 91
+      },
+      {
+       "key": "bench:32K prompt s",
+       "value": 4.2,
+       "err": null,
+       "unit": null,
+       "raw": 4.2
+      },
+      {
+       "key": "bench:RAM in use GiB",
+       "value": 105.0,
+       "err": null,
+       "unit": null,
+       "raw": 105
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "Unsloth UD-Q4_K_XL",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": null,
+     "qualitative": "comparison",
+     "metrics": [
+      {
+       "key": "top1_agree_pct",
+       "value": 94.1,
+       "err": null,
+       "unit": null,
+       "raw": 94.1
+      },
+      {
+       "key": "bench:decode tok/s",
+       "value": 169.0,
+       "err": null,
+       "unit": null,
+       "raw": 169
+      },
+      {
+       "key": "bench:32K prompt s",
+       "value": 4.9,
+       "err": null,
+       "unit": null,
+       "raw": 4.9
+      },
+      {
+       "key": "bench:RAM in use GiB",
+       "value": 77.0,
+       "err": null,
+       "unit": null,
+       "raw": 77
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "Unsloth UD-Q3_K_XL",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": null,
+     "qualitative": "comparison",
+     "metrics": [
+      {
+       "key": "top1_agree_pct",
+       "value": 90.7,
+       "err": null,
+       "unit": null,
+       "raw": 90.7
+      },
+      {
+       "key": "bench:decode tok/s",
+       "value": 208.0,
+       "err": null,
+       "unit": null,
+       "raw": 208
+      },
+      {
+       "key": "bench:32K prompt s",
+       "value": 3.8,
+       "err": null,
+       "unit": null,
+       "raw": 3.8
+      },
+      {
+       "key": "bench:RAM in use GiB",
+       "value": 58.0,
+       "err": null,
+       "unit": null,
+       "raw": 58
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "ISTA-DASLab IQ3_S",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": null,
+     "qualitative": "comparison",
+     "metrics": [
+      {
+       "key": "top1_agree_pct",
+       "value": 90.0,
+       "err": null,
+       "unit": null,
+       "raw": 90.0
+      },
+      {
+       "key": "bench:decode tok/s",
+       "value": 228.0,
+       "err": null,
+       "unit": null,
+       "raw": 228
+      },
+      {
+       "key": "bench:32K prompt s",
+       "value": 3.9,
+       "err": null,
+       "unit": null,
+       "raw": 3.9
+      },
+      {
+       "key": "bench:RAM in use GiB",
+       "value": 52.0,
+       "err": null,
+       "unit": null,
+       "raw": 52
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "ISTA-DASLab IQ3_XXS",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": null,
+     "qualitative": "comparison",
+     "metrics": [
+      {
+       "key": "top1_agree_pct",
+       "value": 87.3,
+       "err": null,
+       "unit": null,
+       "raw": 87.3
+      },
+      {
+       "key": "bench:decode tok/s",
+       "value": 239.0,
+       "err": null,
+       "unit": null,
+       "raw": 239
+      },
+      {
+       "key": "bench:32K prompt s",
+       "value": 3.9,
+       "err": null,
+       "unit": null,
+       "raw": 3.9
+      },
+      {
+       "key": "bench:RAM in use GiB",
+       "value": 45.0,
+       "err": null,
+       "unit": null,
+       "raw": 45
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "ISTA-DASLab IQ2_XS",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": null,
+     "qualitative": "comparison",
+     "metrics": [
+      {
+       "key": "top1_agree_pct",
+       "value": 85.0,
+       "err": null,
+       "unit": null,
+       "raw": 85.0
+      },
+      {
+       "key": "bench:decode tok/s",
+       "value": 265.0,
+       "err": null,
+       "unit": null,
+       "raw": 265
+      },
+      {
+       "key": "bench:32K prompt s",
+       "value": 4.2,
+       "err": null,
+       "unit": null,
+       "raw": 4.2
+      },
+      {
+       "key": "bench:RAM in use GiB",
+       "value": 38.0,
+       "err": null,
+       "unit": null,
+       "raw": 38
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "ISTA-DASLab Q2_0",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": null,
+     "qualitative": "comparison",
+     "metrics": [
+      {
+       "key": "top1_agree_pct",
+       "value": 84.1,
+       "err": null,
+       "unit": null,
+       "raw": 84.1
+      },
+      {
+       "key": "bench:decode tok/s",
+       "value": 256.0,
+       "err": null,
+       "unit": null,
+       "raw": 256
+      },
+      {
+       "key": "bench:32K prompt s",
+       "value": 3.9,
+       "err": null,
+       "unit": null,
+       "raw": 3.9
+      },
+      {
+       "key": "bench:RAM in use GiB",
+       "value": 37.0,
+       "err": null,
+       "unit": null,
+       "raw": 37
+      }
+     ],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "Qwen/Qwen3.8-Flash-Next-FP8",
+   "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next-FP8",
+   "format": "FP8",
+   "runtime": "Transformers, vLLM, SGLang, TokenSpeed",
+   "weights_modified": false,
+   "method": "official fine-grained FP8 quantization, block size 128",
+   "imatrix_or_calib_data": null,
+   "methodology": {
+    "reference": "not stated (benchmarks are for the base model)",
+    "eval_dataset": "Qwen base-model language + VL suite; agentic coding temp 1.0, top_p 0.95, 256K ctx; HLE judged by GPT-4o",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated (Claude Code / mini-SWE-agent harnesses for SWE)"
+   },
+   "headline_claims": [
+    "FP8 performance nearly identical to original model (no numbers given for FP8 itself)",
+    "base model leads many agentic/coding rows vs Qwen3.8-27B, Qwen3.7-Plus, DeepSeek-V4-Flash, Claude Opus 4.6"
+   ],
+   "red_flags": [
+    "no FP8-specific quality numbers - 'nearly identical' is unquantified",
+    "all published tables are base-model numbers",
+    "size not stated on card; HF API sibling list truncated in fetch"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/Qwen/Qwen3.8-Flash-Next-FP8/raw/main/README.md",
+    "https://huggingface.co/api/models/Qwen/Qwen3.8-Flash-Next-FP8?blobs=true",
+    "https://huggingface.co/primitive-ai/Qwen3.8-Flash-Next-NVFP4/raw/main/README.md"
+   ],
+   "baseline_numbers": {
+    "Qwen3.8-Flash-Next (base, as published)": {
+     "DeepSWE 1.1": 58.7,
+     "SWE-bench Pro": 62.5,
+     "SWE-bench Multilingual": 81.0,
+     "NL2Repo-Bench": 48.1,
+     "CoWorkBench": 73.9,
+     "JobBench": 55.7,
+     "Agents' Last Exam (Pass@1 / Score)": "24.3 / 51.2",
+     "Toolathlon Verified (Pass@1)": 73.5,
+     "IFBench": 81.3,
+     "GPQA Diamond": 91.7,
+     "HLE": 35.9,
+     "LiveCodeBench v6": 91.9,
+     "ClawEval-MM (Pass@3 / Average)": "64.4 / 60.4",
+     "RecreationBench": 49.9,
+     "AndroidWorld": 84.5,
+     "OSWorld 2.0 (Binary / Partial)": "19.4 / 52.3",
+     "Vision2Web": 64.0,
+     "ERQA": 72.3,
+     "LVBench": 76.6,
+     "RealWorldQA": 88.5,
+     "MathVision (without CI / with CI)": "90.6 / 95.7",
+     "CharXiv RQ (without CI / with CI)": "84.6 / 90.6"
+    }
+   },
+   "variants": [
+    {
+     "name": "FP8",
+     "size_gb": 185,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "card: performance metrics nearly identical to the original model; size not on card - 185 GB figure is as reported by primitive-ai card (HF API listing was truncated)",
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "RadixArk/Qwen3.8-Flash-Next-NVFP4",
+   "url": "https://huggingface.co/RadixArk/Qwen3.8-Flash-Next-NVFP4",
+   "format": "NVFP4",
+   "runtime": "SGLang (qwen4_exp support, --quantization modelopt_fp4); validated GB300/B300",
+   "weights_modified": false,
+   "method": "nvidia-modelopt v0.46.0 (snapshot 87c9f8cf) NVFP4 W4A4 on routed MoE experts only (E2M1, group 16, FP8 E4M3 block scales, FP32 global scales, dynamic activations); attention/shared experts/routers/embeddings/lm_head/vision/MTP BF16; PLE n-gram tables taken from the FP8 source revision; activations captured from live SGLang prefill (62,139 rows/layer)",
+   "imatrix_or_calib_data": "cnn_dailymail 3.0.0 train, 128 articles (seed 1234) truncated to 512 tokens; GSM8K train rows [0:16] x2 as representativeness probe",
+   "methodology": {
+    "reference": "BF16 (earlier revision)",
+    "eval_dataset": "GSM8K full 1319 (temp 0.6, top-p 0.95, max 8192); AIME26 30 problems x 8 samples (temp 1.0, max 130k)",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated (SGLang serving)"
+   },
+   "headline_claims": [
+    "single-turn accuracy preserved: GSM8K and AIME within BF16 range",
+    "long agentic generations tend to run longer than BF16",
+    "all integrity audits (structural, scale, unchanged-tensor byte equality) pass",
+    "360 GB -> 135 GB, ~2.7x smaller"
+   ],
+   "red_flags": [
+    "BF16 baseline and NVFP4 AIME numbers come from different (earlier) revisions; card itself calls comparison indicative",
+    "only saturated benches (GSM8K ~97, AIME26 ~100) - weak discrimination",
+    "admits longer agentic generations vs BF16 (behavioral drift) without quantifying it",
+    "labelled private candidate release",
+    "no KLD/top-1 metrics"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/RadixArk/Qwen3.8-Flash-Next-NVFP4/raw/main/README.md"
+   ],
+   "baseline_numbers": {
+    "BF16": {
+     "GSM8K": "97.12-97.50 (range over 3 runs, earlier revision)",
+     "AIME26": "100 (240/240)"
+    },
+    "BF16 size_gb": 360
+   },
+   "variants": [
+    {
+     "name": "NVFP4",
+     "size_gb": 135,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "private candidate release; AIME26 figures are from previous revision (differs only in PLE tables)",
+     "metrics": [
+      {
+       "key": "bench:GSM8K",
+       "value": 97.27,
+       "err": null,
+       "unit": null,
+       "raw": 97.27
+      },
+      {
+       "key": "bench:GSM8K stop rate",
+       "value": 98.86,
+       "err": null,
+       "unit": null,
+       "raw": 98.86
+      },
+      {
+       "key": "bench:AIME26 pass@1",
+       "value": 98.75,
+       "err": null,
+       "unit": null,
+       "raw": 98.75
+      },
+      {
+       "key": "bench:AIME26 majority@8",
+       "value": 100.0,
+       "err": null,
+       "unit": null,
+       "raw": 100
+      },
+      {
+       "key": "bench:AIME26 stop rate",
+       "value": 99.17,
+       "err": null,
+       "unit": null,
+       "raw": 99.17
+      }
+     ],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-Flash-Next-VQ-2.1bpw",
+   "url": "https://huggingface.co/TheDrainFlorist/Qwen3.8-Flash-Next-VQ-2.1bpw",
+   "format": "other",
+   "runtime": "Knurlogic >=0.1.3 (MLX-based); plain mlx-lm needs unmerged PR #1788",
+   "weights_modified": false,
+   "method": "Data-free vector quantization: k-means over weight subvectors (seed 1234), no calibration; MoE experts vector codebooks; layers 0-1 and a late band higher-fidelity chosen by KL",
+   "imatrix_or_calib_data": null,
+   "methodology": {
+    "reference": "BF16 teacher (cached top-64 logits)",
+    "eval_dataset": "three house corpora: prose, code, literary",
+    "ctx": null,
+    "n_tokens": 12288,
+    "tool": "own script (vqlab / Knurlogic 0.1.3)"
+   },
+   "headline_claims": [
+    "44.5 GiB lets 335 GiB model run on 64 GB machines",
+    "Mean KL 652.4 vs 1312.4 for affine q3 (75 GiB)",
+    "Decode 16.4 tok/s (0.82x of 3-bit), peak memory 50.6 GB vs 83.7 GB"
+   ],
+   "red_flags": [
+    "KL from cached top-64 logits only",
+    "affine comparison builds are author's own conversions",
+    "no affine build near this size for fair comparison (author notes this)",
+    "n_tokens is per corpus (12288 x 3)"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/TheDrainFlorist/Qwen3.8-Flash-Next-VQ-2.1bpw/raw/main/README.md"
+   ],
+   "baseline_numbers": {
+    "bf16_size_gib": 335,
+    "bf16_ppl_prose": 2.31
+   },
+   "variants": [
+    {
+     "name": "affine q3 (ours)",
+     "size_gb": 75,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "comparison build by same author",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 1312.4,
+       "err": null,
+       "unit": null,
+       "raw": 1312.4
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 49.5,
+       "err": null,
+       "unit": null,
+       "raw": 49.5
+      },
+      {
+       "key": "ppl",
+       "value": 14.054,
+       "err": null,
+       "unit": null,
+       "raw": 14.054
+      },
+      {
+       "key": "bench:kl_prose_mnats",
+       "value": 2027.4,
+       "err": null,
+       "unit": null,
+       "raw": 2027.4
+      },
+      {
+       "key": "bench:kl_code_mnats",
+       "value": 730.0,
+       "err": null,
+       "unit": null,
+       "raw": 730.0
+      },
+      {
+       "key": "bench:kl_literary_mnats",
+       "value": 1180.0,
+       "err": null,
+       "unit": null,
+       "raw": 1180.0
+      }
+     ],
+     "metric_notes": [
+      "bench:note=mean_kld in millinats/token; top1 and ppl on prose"
+     ]
+    },
+    {
+     "name": "VQ-2.1bpw (this repo)",
+     "size_gb": 44.5,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "this model",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 652.4,
+       "err": null,
+       "unit": null,
+       "raw": 652.4
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 72.3,
+       "err": null,
+       "unit": null,
+       "raw": 72.3
+      },
+      {
+       "key": "ppl",
+       "value": 3.559,
+       "err": null,
+       "unit": null,
+       "raw": 3.559
+      },
+      {
+       "key": "bench:kl_prose_mnats",
+       "value": 896.8,
+       "err": null,
+       "unit": null,
+       "raw": 896.8
+      },
+      {
+       "key": "bench:kl_code_mnats",
+       "value": 276.8,
+       "err": null,
+       "unit": null,
+       "raw": 276.8
+      },
+      {
+       "key": "bench:kl_literary_mnats",
+       "value": 783.7,
+       "err": null,
+       "unit": null,
+       "raw": 783.7
+      }
+     ],
+     "metric_notes": [
+      "bench:note=mean_kld in millinats/token; top1 and ppl on prose"
+     ]
+    },
+    {
+     "name": "VQ-3.2bpw",
+     "size_gb": 68.7,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "comparison build by same author",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 147.3,
+       "err": null,
+       "unit": null,
+       "raw": 147.3
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 86.7,
+       "err": null,
+       "unit": null,
+       "raw": 86.7
+      },
+      {
+       "key": "ppl",
+       "value": 2.3,
+       "err": null,
+       "unit": null,
+       "raw": 2.3
+      },
+      {
+       "key": "bench:kl_prose_mnats",
+       "value": 305.6,
+       "err": null,
+       "unit": null,
+       "raw": 305.6
+      },
+      {
+       "key": "bench:kl_code_mnats",
+       "value": 81.8,
+       "err": null,
+       "unit": null,
+       "raw": 81.8
+      },
+      {
+       "key": "bench:kl_literary_mnats",
+       "value": 54.6,
+       "err": null,
+       "unit": null,
+       "raw": 54.6
+      }
+     ],
+     "metric_notes": [
+      "bench:note=mean_kld in millinats/token; top1 and ppl on prose"
+     ]
+    },
+    {
+     "name": "affine q4 (ours)",
+     "size_gb": 96,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "comparison build by same author",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 298.2,
+       "err": null,
+       "unit": null,
+       "raw": 298.2
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 77.8,
+       "err": null,
+       "unit": null,
+       "raw": 77.8
+      },
+      {
+       "key": "ppl",
+       "value": 3.912,
+       "err": null,
+       "unit": null,
+       "raw": 3.912
+      },
+      {
+       "key": "bench:kl_prose_mnats",
+       "value": 624.1,
+       "err": null,
+       "unit": null,
+       "raw": 624.1
+      },
+      {
+       "key": "bench:kl_code_mnats",
+       "value": 169.3,
+       "err": null,
+       "unit": null,
+       "raw": 169.3
+      },
+      {
+       "key": "bench:kl_literary_mnats",
+       "value": 101.1,
+       "err": null,
+       "unit": null,
+       "raw": 101.1
+      }
+     ],
+     "metric_notes": [
+      "bench:note=mean_kld in millinats/token; top1 and ppl on prose"
+     ]
+    },
+    {
+     "name": "VQ-4.4bpw",
+     "size_gb": 93.6,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "comparison build by same author",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 47.7,
+       "err": null,
+       "unit": null,
+       "raw": 47.7
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 92.2,
+       "err": null,
+       "unit": null,
+       "raw": 92.2
+      },
+      {
+       "key": "ppl",
+       "value": 2.323,
+       "err": null,
+       "unit": null,
+       "raw": 2.323
+      },
+      {
+       "key": "bench:kl_prose_mnats",
+       "value": 100.0,
+       "err": null,
+       "unit": null,
+       "raw": 100.0
+      },
+      {
+       "key": "bench:kl_code_mnats",
+       "value": 29.5,
+       "err": null,
+       "unit": null,
+       "raw": 29.5
+      },
+      {
+       "key": "bench:kl_literary_mnats",
+       "value": 13.5,
+       "err": null,
+       "unit": null,
+       "raw": 13.5
+      }
+     ],
+     "metric_notes": [
+      "bench:note=mean_kld in millinats/token; top1 and ppl on prose"
+     ]
+    },
+    {
+     "name": "affine q5 (ours)",
+     "size_gb": 116,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "comparison build by same author",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 97.5,
+       "err": null,
+       "unit": null,
+       "raw": 97.5
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 89.0,
+       "err": null,
+       "unit": null,
+       "raw": 89.0
+      },
+      {
+       "key": "ppl",
+       "value": 2.549,
+       "err": null,
+       "unit": null,
+       "raw": 2.549
+      },
+      {
+       "key": "bench:kl_prose_mnats",
+       "value": 178.4,
+       "err": null,
+       "unit": null,
+       "raw": 178.4
+      },
+      {
+       "key": "bench:kl_code_mnats",
+       "value": 88.4,
+       "err": null,
+       "unit": null,
+       "raw": 88.4
+      },
+      {
+       "key": "bench:kl_literary_mnats",
+       "value": 25.7,
+       "err": null,
+       "unit": null,
+       "raw": 25.7
+      }
+     ],
+     "metric_notes": [
+      "bench:note=mean_kld in millinats/token; top1 and ppl on prose"
+     ]
+    },
+    {
+     "name": "VQ-5.5bpw",
+     "size_gb": 111.6,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "comparison build by same author",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 30.9,
+       "err": null,
+       "unit": null,
+       "raw": 30.9
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 93.7,
+       "err": null,
+       "unit": null,
+       "raw": 93.7
+      },
+      {
+       "key": "ppl",
+       "value": 2.244,
+       "err": null,
+       "unit": null,
+       "raw": 2.244
+      },
+      {
+       "key": "bench:kl_prose_mnats",
+       "value": 68.8,
+       "err": null,
+       "unit": null,
+       "raw": 68.8
+      },
+      {
+       "key": "bench:kl_code_mnats",
+       "value": 16.5,
+       "err": null,
+       "unit": null,
+       "raw": 16.5
+      },
+      {
+       "key": "bench:kl_literary_mnats",
+       "value": 7.3,
+       "err": null,
+       "unit": null,
+       "raw": 7.3
+      }
+     ],
+     "metric_notes": [
+      "bench:note=mean_kld in millinats/token; top1 and ppl on prose"
+     ]
+    },
+    {
+     "name": "affine q6 (ours)",
+     "size_gb": 137,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "comparison build by same author",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 39.9,
+       "err": null,
+       "unit": null,
+       "raw": 39.9
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 93.4,
+       "err": null,
+       "unit": null,
+       "raw": 93.4
+      },
+      {
+       "key": "ppl",
+       "value": 2.276,
+       "err": null,
+       "unit": null,
+       "raw": 2.276
+      },
+      {
+       "key": "bench:kl_prose_mnats",
+       "value": 84.1,
+       "err": null,
+       "unit": null,
+       "raw": 84.1
+      },
+      {
+       "key": "bench:kl_code_mnats",
+       "value": 26.9,
+       "err": null,
+       "unit": null,
+       "raw": 26.9
+      },
+      {
+       "key": "bench:kl_literary_mnats",
+       "value": 8.7,
+       "err": null,
+       "unit": null,
+       "raw": 8.7
+      }
+     ],
+     "metric_notes": [
+      "bench:note=mean_kld in millinats/token; top1 and ppl on prose"
+     ]
+    },
+    {
+     "name": "affine q8 (ours)",
+     "size_gb": 178,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "comparison build by same author",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 22.4,
+       "err": null,
+       "unit": null,
+       "raw": 22.4
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 94.8,
+       "err": null,
+       "unit": null,
+       "raw": 94.8
+      },
+      {
+       "key": "ppl",
+       "value": 2.367,
+       "err": null,
+       "unit": null,
+       "raw": 2.367
+      },
+      {
+       "key": "bench:kl_prose_mnats",
+       "value": 50.4,
+       "err": null,
+       "unit": null,
+       "raw": 50.4
+      },
+      {
+       "key": "bench:kl_code_mnats",
+       "value": 12.1,
+       "err": null,
+       "unit": null,
+       "raw": 12.1
+      },
+      {
+       "key": "bench:kl_literary_mnats",
+       "value": 4.8,
+       "err": null,
+       "unit": null,
+       "raw": 4.8
+      }
+     ],
+     "metric_notes": [
+      "bench:note=mean_kld in millinats/token; top1 and ppl on prose"
+     ]
+    }
+   ]
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-Flash-Next-VQ-4.4bpw",
+   "url": "https://huggingface.co/TheDrainFlorist/Qwen3.8-Flash-Next-VQ-4.4bpw",
+   "format": "other",
+   "runtime": "Knurlogic >=0.1.3 (MLX-based); plain mlx-lm needs unmerged PR #1788",
+   "weights_modified": false,
+   "method": "Data-free vector quantization: k-means over weight subvectors (seed 1234), no Hessian/activations/calibration; experts+PLE d=2/K=256, seven layers K=1024",
+   "imatrix_or_calib_data": null,
+   "methodology": {
+    "reference": "BF16 teacher (cached top-64 logits)",
+    "eval_dataset": "three house corpora: prose, code, literary",
+    "ctx": null,
+    "n_tokens": 12288,
+    "tool": "own script (vqlab / Knurlogic 0.1.3)"
+   },
+   "headline_claims": [
+    "Mean KL 47.7 mnats vs 298.2 for affine q4 at similar size (84-87% lower per corpus)",
+    "Top-1 prose 92.2%",
+    "Decode 0.95x / prefill 1.25x vs 8-bit on two Macs"
+   ],
+   "red_flags": [
+    "KL from cached top-64 logits only (truncated distribution), units millinats",
+    "affine comparison builds are author's own conversions",
+    "n_tokens is per corpus (12288 x 3)",
+    "rendered HF page fetch returned a DIFFERENT single-corpus table (this model 96.3 GiB, KL 50.58, top-1 92.58%, ppl 5.2379, ctx 2048) - raw README used here; versions may differ",
+    "v1->v2 codebook changelog numbers measured on pre-0.1.3 runtime, not comparable"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/TheDrainFlorist/Qwen3.8-Flash-Next-VQ-4.4bpw/raw/main/README.md",
+    "https://huggingface.co/TheDrainFlorist/Qwen3.8-Flash-Next-VQ-4.4bpw"
+   ],
+   "baseline_numbers": {
+    "bf16_size_gib": 335,
+    "bf16_ppl_prose": 2.31
+   },
+   "variants": [
+    {
+     "name": "affine q3 (ours)",
+     "size_gb": 75,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "comparison build by same author",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 1312.4,
+       "err": null,
+       "unit": null,
+       "raw": 1312.4
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 49.5,
+       "err": null,
+       "unit": null,
+       "raw": 49.5
+      },
+      {
+       "key": "ppl",
+       "value": 14.054,
+       "err": null,
+       "unit": null,
+       "raw": 14.054
+      },
+      {
+       "key": "bench:kl_prose_mnats",
+       "value": 2027.4,
+       "err": null,
+       "unit": null,
+       "raw": 2027.4
+      },
+      {
+       "key": "bench:kl_code_mnats",
+       "value": 730.0,
+       "err": null,
+       "unit": null,
+       "raw": 730.0
+      },
+      {
+       "key": "bench:kl_literary_mnats",
+       "value": 1180.0,
+       "err": null,
+       "unit": null,
+       "raw": 1180.0
+      }
+     ],
+     "metric_notes": [
+      "bench:note=mean_kld in millinats/token; top1 and ppl on prose"
+     ]
+    },
+    {
+     "name": "VQ-2.1bpw",
+     "size_gb": 44.5,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "comparison build by same author",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 652.4,
+       "err": null,
+       "unit": null,
+       "raw": 652.4
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 72.3,
+       "err": null,
+       "unit": null,
+       "raw": 72.3
+      },
+      {
+       "key": "ppl",
+       "value": 3.559,
+       "err": null,
+       "unit": null,
+       "raw": 3.559
+      },
+      {
+       "key": "bench:kl_prose_mnats",
+       "value": 896.8,
+       "err": null,
+       "unit": null,
+       "raw": 896.8
+      },
+      {
+       "key": "bench:kl_code_mnats",
+       "value": 276.8,
+       "err": null,
+       "unit": null,
+       "raw": 276.8
+      },
+      {
+       "key": "bench:kl_literary_mnats",
+       "value": 783.7,
+       "err": null,
+       "unit": null,
+       "raw": 783.7
+      }
+     ],
+     "metric_notes": [
+      "bench:note=mean_kld in millinats/token; top1 and ppl on prose"
+     ]
+    },
+    {
+     "name": "VQ-3.2bpw",
+     "size_gb": 68.7,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "comparison build by same author",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 147.3,
+       "err": null,
+       "unit": null,
+       "raw": 147.3
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 86.7,
+       "err": null,
+       "unit": null,
+       "raw": 86.7
+      },
+      {
+       "key": "ppl",
+       "value": 2.3,
+       "err": null,
+       "unit": null,
+       "raw": 2.3
+      },
+      {
+       "key": "bench:kl_prose_mnats",
+       "value": 305.6,
+       "err": null,
+       "unit": null,
+       "raw": 305.6
+      },
+      {
+       "key": "bench:kl_code_mnats",
+       "value": 81.8,
+       "err": null,
+       "unit": null,
+       "raw": 81.8
+      },
+      {
+       "key": "bench:kl_literary_mnats",
+       "value": 54.6,
+       "err": null,
+       "unit": null,
+       "raw": 54.6
+      }
+     ],
+     "metric_notes": [
+      "bench:note=mean_kld in millinats/token; top1 and ppl on prose"
+     ]
+    },
+    {
+     "name": "affine q4 (ours)",
+     "size_gb": 96,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "comparison build by same author",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 298.2,
+       "err": null,
+       "unit": null,
+       "raw": 298.2
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 77.8,
+       "err": null,
+       "unit": null,
+       "raw": 77.8
+      },
+      {
+       "key": "ppl",
+       "value": 3.912,
+       "err": null,
+       "unit": null,
+       "raw": 3.912
+      },
+      {
+       "key": "bench:kl_prose_mnats",
+       "value": 624.1,
+       "err": null,
+       "unit": null,
+       "raw": 624.1
+      },
+      {
+       "key": "bench:kl_code_mnats",
+       "value": 169.3,
+       "err": null,
+       "unit": null,
+       "raw": 169.3
+      },
+      {
+       "key": "bench:kl_literary_mnats",
+       "value": 101.1,
+       "err": null,
+       "unit": null,
+       "raw": 101.1
+      }
+     ],
+     "metric_notes": [
+      "bench:note=mean_kld in millinats/token; top1 and ppl on prose"
+     ]
+    },
+    {
+     "name": "VQ-4.4bpw (this repo)",
+     "size_gb": 93.6,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "this model",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 47.7,
+       "err": null,
+       "unit": null,
+       "raw": 47.7
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 92.2,
+       "err": null,
+       "unit": null,
+       "raw": 92.2
+      },
+      {
+       "key": "ppl",
+       "value": 2.323,
+       "err": null,
+       "unit": null,
+       "raw": 2.323
+      },
+      {
+       "key": "bench:kl_prose_mnats",
+       "value": 100.0,
+       "err": null,
+       "unit": null,
+       "raw": 100.0
+      },
+      {
+       "key": "bench:kl_code_mnats",
+       "value": 29.5,
+       "err": null,
+       "unit": null,
+       "raw": 29.5
+      },
+      {
+       "key": "bench:kl_literary_mnats",
+       "value": 13.5,
+       "err": null,
+       "unit": null,
+       "raw": 13.5
+      }
+     ],
+     "metric_notes": [
+      "bench:note=mean_kld in millinats/token; top1 and ppl on prose"
+     ]
+    },
+    {
+     "name": "affine q5 (ours)",
+     "size_gb": 116,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "comparison build by same author",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 97.5,
+       "err": null,
+       "unit": null,
+       "raw": 97.5
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 89.0,
+       "err": null,
+       "unit": null,
+       "raw": 89.0
+      },
+      {
+       "key": "ppl",
+       "value": 2.549,
+       "err": null,
+       "unit": null,
+       "raw": 2.549
+      },
+      {
+       "key": "bench:kl_prose_mnats",
+       "value": 178.4,
+       "err": null,
+       "unit": null,
+       "raw": 178.4
+      },
+      {
+       "key": "bench:kl_code_mnats",
+       "value": 88.4,
+       "err": null,
+       "unit": null,
+       "raw": 88.4
+      },
+      {
+       "key": "bench:kl_literary_mnats",
+       "value": 25.7,
+       "err": null,
+       "unit": null,
+       "raw": 25.7
+      }
+     ],
+     "metric_notes": [
+      "bench:note=mean_kld in millinats/token; top1 and ppl on prose"
+     ]
+    },
+    {
+     "name": "VQ-5.5bpw",
+     "size_gb": 111.6,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "comparison build by same author",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 30.9,
+       "err": null,
+       "unit": null,
+       "raw": 30.9
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 93.7,
+       "err": null,
+       "unit": null,
+       "raw": 93.7
+      },
+      {
+       "key": "ppl",
+       "value": 2.244,
+       "err": null,
+       "unit": null,
+       "raw": 2.244
+      },
+      {
+       "key": "bench:kl_prose_mnats",
+       "value": 68.8,
+       "err": null,
+       "unit": null,
+       "raw": 68.8
+      },
+      {
+       "key": "bench:kl_code_mnats",
+       "value": 16.5,
+       "err": null,
+       "unit": null,
+       "raw": 16.5
+      },
+      {
+       "key": "bench:kl_literary_mnats",
+       "value": 7.3,
+       "err": null,
+       "unit": null,
+       "raw": 7.3
+      }
+     ],
+     "metric_notes": [
+      "bench:note=mean_kld in millinats/token; top1 and ppl on prose"
+     ]
+    },
+    {
+     "name": "affine q6 (ours)",
+     "size_gb": 137,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "comparison build by same author",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 39.9,
+       "err": null,
+       "unit": null,
+       "raw": 39.9
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 93.4,
+       "err": null,
+       "unit": null,
+       "raw": 93.4
+      },
+      {
+       "key": "ppl",
+       "value": 2.276,
+       "err": null,
+       "unit": null,
+       "raw": 2.276
+      },
+      {
+       "key": "bench:kl_prose_mnats",
+       "value": 84.1,
+       "err": null,
+       "unit": null,
+       "raw": 84.1
+      },
+      {
+       "key": "bench:kl_code_mnats",
+       "value": 26.9,
+       "err": null,
+       "unit": null,
+       "raw": 26.9
+      },
+      {
+       "key": "bench:kl_literary_mnats",
+       "value": 8.7,
+       "err": null,
+       "unit": null,
+       "raw": 8.7
+      }
+     ],
+     "metric_notes": [
+      "bench:note=mean_kld in millinats/token; top1 and ppl on prose"
+     ]
+    },
+    {
+     "name": "affine q8 (ours)",
+     "size_gb": 178,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "comparison build by same author",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 22.4,
+       "err": null,
+       "unit": null,
+       "raw": 22.4
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 94.8,
+       "err": null,
+       "unit": null,
+       "raw": 94.8
+      },
+      {
+       "key": "ppl",
+       "value": 2.367,
+       "err": null,
+       "unit": null,
+       "raw": 2.367
+      },
+      {
+       "key": "bench:kl_prose_mnats",
+       "value": 50.4,
+       "err": null,
+       "unit": null,
+       "raw": 50.4
+      },
+      {
+       "key": "bench:kl_code_mnats",
+       "value": 12.1,
+       "err": null,
+       "unit": null,
+       "raw": 12.1
+      },
+      {
+       "key": "bench:kl_literary_mnats",
+       "value": 4.8,
+       "err": null,
+       "unit": null,
+       "raw": 4.8
+      }
+     ],
+     "metric_notes": [
+      "bench:note=mean_kld in millinats/token; top1 and ppl on prose"
+     ]
+    }
+   ]
+  },
+  {
+   "repo": "agentionai/Qwen3.8-Flash-Next-AP-GGUF",
+   "url": "https://huggingface.co/agentionai/Qwen3.8-Flash-Next-AP-GGUF",
+   "format": "GGUF",
+   "runtime": "llama.cpp mainline (no fork)",
+   "weights_modified": false,
+   "method": "Mixed-precision tiers using only standard llama.cpp types; per tensor-group assignment (experts, n-gram table); tier names follow base ftype and do not describe expert type",
+   "imatrix_or_calib_data": "tagged imatrix; dataset not named",
+   "methodology": {
+    "reference": "not stated on card (agention.ai page: 'unquantized Q8_0 reference'); card says source model",
+    "eval_dataset": "held-out corpus (not named)",
+    "ctx": 2048,
+    "n_tokens": null,
+    "tool": "llama-perplexity --kl-divergence"
+   },
+   "headline_claims": [
+    "Mainline-compatible, no fork needed",
+    "Wikitext results inflated because model memorized wikitext; uses held-out corpus instead",
+    "KLD values given with \u00b1 error bars (e.g. AP-Q5_K_XL 0.0839 \u00b1 0.0008)"
+   ],
+   "red_flags": [
+    "Reference ambiguous: card implies unquantized source, agention.ai page says Q8_0 reference",
+    "Held-out corpus not named/published; n_tokens/chunk count not stated",
+    "Calibration data not named",
+    "Sizes are full download GiB (VRAM + host n-gram); Gyro card from same publisher uses GPU-only sizes"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/agentionai/Qwen3.8-Flash-Next-AP-GGUF/raw/main/README.md",
+    "https://agention.ai/models/qwen3.8-flash-next/"
+   ],
+   "baseline_numbers": {
+    "agention.ai_page_comparisons_top1": {
+     "unsloth UD-Q2_K_XL 73.45 GiB": 76.35,
+     "unsloth UD-IQ4_XS 87.24 GiB": 83.4
+    }
+   },
+   "variants": [
+    {
+     "name": "AP-Q5_K_XL",
+     "size_gb": 112.51,
+     "size_unit": "GiB",
+     "bpw": 5.46,
+     "qualitative": "recommended (per agention.ai); VRAM 76.75 + host n-gram 35.76 GiB; experts Q5_K",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.0839,
+       "err": null,
+       "unit": null,
+       "raw": 0.0839
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 86.63,
+       "err": null,
+       "unit": null,
+       "raw": 86.63
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "AP-Q5_K_M",
+     "size_gb": 103.57,
+     "size_unit": "GiB",
+     "bpw": 5.03,
+     "qualitative": "VRAM 76.75 + host 26.82 GiB; experts Q5_K",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.0853,
+       "err": null,
+       "unit": null,
+       "raw": 0.0853
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 86.48,
+       "err": null,
+       "unit": null,
+       "raw": 86.48
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "AP-Q4_K_XL",
+     "size_gb": 94.2,
+     "size_unit": "GiB",
+     "bpw": 4.57,
+     "qualitative": "VRAM 67.38 + host 26.82 GiB; experts Q4_K",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.0992,
+       "err": null,
+       "unit": null,
+       "raw": 0.0992
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 85.71,
+       "err": null,
+       "unit": null,
+       "raw": 85.71
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "AP-Q4_K_M",
+     "size_gb": 88.04,
+     "size_unit": "GiB",
+     "bpw": 4.27,
+     "qualitative": "VRAM 61.22 + host 26.82 GiB; experts IQ4_XS + IQ3_S",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.1243,
+       "err": null,
+       "unit": null,
+       "raw": 0.1243
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 84.22,
+       "err": null,
+       "unit": null,
+       "raw": 84.22
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "AP-IQ4_XS",
+     "size_gb": 84.24,
+     "size_unit": "GiB",
+     "bpw": 4.09,
+     "qualitative": "VRAM 57.42 + host 26.82 GiB; experts IQ3_S",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.1584,
+       "err": null,
+       "unit": null,
+       "raw": 0.1584
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 82.89,
+       "err": null,
+       "unit": null,
+       "raw": 82.89
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "AP-IQ3_XXS",
+     "size_gb": 80.72,
+     "size_unit": "GiB",
+     "bpw": 3.92,
+     "qualitative": "VRAM 53.90 + host 26.82 GiB; experts IQ3_XXS",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.1844,
+       "err": null,
+       "unit": null,
+       "raw": 0.1844
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 81.85,
+       "err": null,
+       "unit": null,
+       "raw": 81.85
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "AP-IQ2_S",
+     "size_gb": 76.03,
+     "size_unit": "GiB",
+     "bpw": 3.69,
+     "qualitative": "smallest; VRAM 49.21 + host 26.82 GiB; experts IQ2_S",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.2657,
+       "err": null,
+       "unit": null,
+       "raw": 0.2657
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 79.14,
+       "err": null,
+       "unit": null,
+       "raw": 79.14
+      }
+     ],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "agentionai/Qwen3.8-Flash-Next-Gyro-GGUF",
+   "url": "https://huggingface.co/agentionai/Qwen3.8-Flash-Next-Gyro-GGUF",
+   "format": "other",
+   "runtime": "llama.cpp fork (agentionai, gitlab.com/agentionai-group/llama.cpp) / Strata rc2 / agentionai/agention-llama:server container; stock llama.cpp cannot load",
+   "weights_modified": false,
+   "method": "Proprietary 'Agention Precision Rotor' (APR): routed experts stored in rotated basis; TQ1_0/TQ2_0/TQ3_0 labels are only Hub size classes, not real types",
+   "imatrix_or_calib_data": "Own encoder/calibration, not published",
+   "methodology": {
+    "reference": "Q8_0 (unsloth Q8_0 source)",
+    "eval_dataset": "held-out 2026 technical writing + code corpus (not published), 60 chunks",
+    "ctx": 2048,
+    "n_tokens": 122880,
+    "tool": "not stated"
+   },
+   "headline_claims": [
+    "Gyro-S/M beat larger ISTA-DASLab GSQ, unsloth UD-Q2_K_XL, AtomicChat AD-4.27bpw and ggml-org IQ4_NL on KLD/top-1 at smaller GPU memory",
+    "Gyro-M MMLU-Pro 80.0 vs AP-Q4_K_XL 81.4 (70q sample, 'within noise')",
+    "No looping: 0 loops in 45-run stress test for updated S and M; ISTA IQ2_XS looped 7/10",
+    "Gyro-S 113\u2013221 tok/s decode on RTX 5090 (fork/Strata, MTP)"
+   ],
+   "red_flags": [
+    "Reference is unsloth Q8_0, not BF16 \u2014 KLD not directly comparable to BF16-referenced cards",
+    "Sizes are GPU-memory (excludes host/SSD n-gram table), not download size",
+    "Encoder and calibration unpublished; eval corpus unpublished; KLD tool unnamed",
+    "Tiny benchmark samples (70q MMLU-Pro, 30-problem LCB, one seed); bench numbers from first releases not re-run on updates",
+    "Its measurement of AtomicChat AD-4.27bpw (KLD 0.228, top1 80.58) differs strongly from AtomicChat's own (0.0842, 89.49) \u2014 different reference/corpus/ctx",
+    "Requires custom fork/container"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/agentionai/Qwen3.8-Flash-Next-Gyro-GGUF/raw/main/README.md"
+   ],
+   "baseline_numbers": {
+    "comparison_rows_same_method": {
+     "ISTA-DASLab GSQ-RCO IQ2_XS": {
+      "gib": 36.52,
+      "kld": 0.42,
+      "top1": 74.22
+     },
+     "ISTA-DASLab GSQ-RCO IQ3_XXS": {
+      "gib": 43.8,
+      "kld": 0.311,
+      "top1": 77.68
+     },
+     "unsloth UD-Q2_K_XL": {
+      "gib": 46.63,
+      "kld": 0.334,
+      "top1": 76.61
+     },
+     "AtomicChat AD-4.27bpw Q4_K_M": {
+      "gib": 52.26,
+      "kld": 0.228,
+      "top1": 80.58
+     },
+     "ggml-org IQ4_NL": {
+      "gib": 68.21,
+      "kld": 0.2,
+      "top1": 81.29
+     },
+     "Agention AP-Q4_K_XL (reference)": {
+      "gib": 67.38,
+      "kld": 0.107,
+      "top1": 85.52
+     }
+    }
+   },
+   "variants": [
+    {
+     "name": "Gyro-S (2026-10-10)",
+     "size_gb": 27.64,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "GPU memory figure; up to 128k ctx",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.401,
+       "err": null,
+       "unit": null,
+       "raw": 0.401
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 75.29,
+       "err": null,
+       "unit": null,
+       "raw": 75.29
+      },
+      {
+       "key": "bench:MMLU-Pro (70q sample, first release)",
+       "value": 78.1,
+       "err": null,
+       "unit": null,
+       "raw": 78.1
+      },
+      {
+       "key": "bench:LiveCodeBench v6 30-problem @64k (first release, %)",
+       "value": 67.0,
+       "err": null,
+       "unit": null,
+       "raw": 67
+      },
+      {
+       "key": "bench:LiveCodeBench v6 30-problem @128k (first release, %)",
+       "value": 83.0,
+       "err": null,
+       "unit": null,
+       "raw": 83
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "Gyro-M (2026-10-11)",
+     "size_gb": 34.98,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "GPU memory figure",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.291,
+       "err": null,
+       "unit": null,
+       "raw": 0.291
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 78.75,
+       "err": null,
+       "unit": null,
+       "raw": 78.75
+      },
+      {
+       "key": "bench:MMLU-Pro (70q sample, first release)",
+       "value": 80.0,
+       "err": null,
+       "unit": null,
+       "raw": 80.0
+      },
+      {
+       "key": "bench:LiveCodeBench v6 30-problem @64k (%)",
+       "value": 90.0,
+       "err": null,
+       "unit": null,
+       "raw": 90
+      }
+     ],
+     "metric_notes": [
+      "bench:LiveCodeBench v6 30-problem @128k=30/30"
+     ]
+    },
+    {
+     "name": "Gyro-L (2026-10-12)",
+     "size_gb": 50.21,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "GPU memory figure",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.146,
+       "err": null,
+       "unit": null,
+       "raw": 0.146
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 83.87,
+       "err": null,
+       "unit": null,
+       "raw": 83.87
+      }
+     ],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "agentionai/Qwen3.8-Flash-Next-ROCmFP4-FAST-imatrix-GGUF",
+   "url": "https://huggingface.co/agentionai/Qwen3.8-Flash-Next-ROCmFP4-FAST-imatrix-GGUF",
+   "format": "GGUF",
+   "runtime": "llama.cpp fork (agentionai, Vulkan; ROCmFPx types + per-head PLE layout) or ghcr.io/agentionai/agention-llama:server",
+   "weights_modified": false,
+   "method": "ROCmFP4-FAST (ROCmFPx types ported from ciru-ai/ROCmFPX) with imatrix; per-tensor distortion solver; n-gram table split per head (or joined in v2/); vision f16; MTP head separate repo",
+   "imatrix_or_calib_data": "1540 chunks from two corpora credited to bartowski and Thireus",
+   "methodology": {
+    "reference": "not stated (own unquantized reference PPL 4.0068 \u00b1 0.02271 'as reported in PR #27742')",
+    "eval_dataset": "wikitext-2 raw, 145 chunks",
+    "ctx": 2048,
+    "n_tokens": 296960,
+    "tool": "not stated (llama-perplexity implied)"
+   },
+   "headline_claims": [
+    "Smaller and lower PPL increase than AesSedai IQ3_S (+6.10%) and IQ4_XS (+3.12%); AesSedai Q4_K_M +0.61% at 135.38 GiB",
+    "Higher prefill/gen than AP-IQ4_XS: pp512 423.3 vs 315.9 (fork) / 245.6 (mainline) t/s; tg 27.77 vs 25.05 / 26.39 t/s",
+    "Mentions tiers measured vs BF16 on held-out 2026 corpus (no figures on card)"
+   ],
+   "red_flags": [
+    "wikitext-2 PPL \u2014 same publisher (agention.ai) says the model memorized wikitext, so these numbers are inflated/unreliable",
+    "Reference PPL borrowed from upstream PR, not necessarily same build/settings ('own reference' per row)",
+    "ppl_ratio 1.0248 computed from stated +2.48%",
+    "top1 84.56% comes from agention.ai page vs 'Q8_0 reference', not the card",
+    "Requires custom fork (ROCmFPx types)"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/agentionai/Qwen3.8-Flash-Next-ROCmFP4-FAST-imatrix-GGUF/raw/main/README.md",
+    "https://agention.ai/models/qwen3.8-flash-next/"
+   ],
+   "baseline_numbers": {
+    "unquantized_ppl_wikitext2": "4.0068 \u00b1 0.02271 (from PR #27742)",
+    "AesSedai_ppl_increase": {
+     "IQ3_S 107.38 GiB": "+6.10%",
+     "IQ4_XS 117.13 GiB": "+3.12%",
+     "Q4_K_M 135.38 GiB": "+0.61%"
+    }
+   },
+   "variants": [
+    {
+     "name": "ROCmFP4-FAST-imatrix",
+     "size_gb": 87.06,
+     "size_unit": "GiB",
+     "bpw": 4.23,
+     "qualitative": "+2.48% PPL vs own reference; agention.ai page lists top-1 84.56% vs 'unquantized Q8_0 reference'",
+     "metrics": [
+      {
+       "key": "top1_agree_pct",
+       "value": 84.56,
+       "err": null,
+       "unit": null,
+       "raw": 84.56
+      },
+      {
+       "key": "ppl",
+       "value": 4.1062,
+       "err": null,
+       "unit": null,
+       "raw": 4.1062
+      },
+      {
+       "key": "ppl_ratio",
+       "value": 1.0248,
+       "err": null,
+       "unit": null,
+       "raw": 1.0248
+      }
+     ],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "amd/Qwen3.8-Flash-Next-Quark-MXFP4",
+   "url": "https://huggingface.co/amd/Qwen3.8-Flash-Next-Quark-MXFP4",
+   "format": "MXFP4",
+   "runtime": "vLLM ROCm nightly (vllm/vllm-openai-rocm:nightly-73029d4...), AMD MI350/MI355, ROCm 7.2.3",
+   "weights_modified": false,
+   "method": "AMD-Quark v0.12; MoE expert weights (routed and shared) OCP MXFP4, static weight / dynamic activation quant; attention, linear-attn projections, MTP, router gates, vision, lm_head BF16",
+   "imatrix_or_calib_data": null,
+   "methodology": {
+    "reference": "BF16 (Qwen/Qwen3.8-Flash-Next)",
+    "eval_dataset": "gsm8k flexible-extract 5-shot",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "lm-eval (lm-evaluation-harness)"
+   },
+   "headline_claims": [
+    "99.7% recovery on GSM8K vs base"
+   ],
+   "red_flags": [
+    "single saturated benchmark (GSM8K) only",
+    "calibration not stated",
+    "size not stated on card"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/amd/Qwen3.8-Flash-Next-Quark-MXFP4/raw/main/README.md",
+    "https://huggingface.co/api/models/amd/Qwen3.8-Flash-Next-Quark-MXFP4?blobs=true"
+   ],
+   "baseline_numbers": {
+    "BF16": {
+     "GSM8K (flexible-extract, 5-shot)": 96.8
+    }
+   },
+   "variants": [
+    {
+     "name": "MXFP4",
+     "size_gb": 182.3,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "size from HF API sum of file sizes (182,295,097,118 bytes)",
+     "metrics": [
+      {
+       "key": "bench:GSM8K (flexible-extract, 5-shot)",
+       "value": 96.5,
+       "err": null,
+       "unit": null,
+       "raw": 96.5
+      },
+      {
+       "key": "bench:Recovery",
+       "value": 99.7,
+       "err": null,
+       "unit": "%",
+       "raw": "99.7%"
+      }
+     ],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "antirez/qwen3.8-flash-next-gguf",
+   "url": "https://huggingface.co/antirez/qwen3.8-flash-next-gguf",
+   "format": "GGUF",
+   "runtime": "DwarfStar (ds4, github.com/antirez/ds4) with native BF16 n-gram reader; --mtp; not llama.cpp",
+   "weights_modified": false,
+   "method": "Main/MTP tensors from ivanfioravanti DS4 releases. Q2: imatrix IQ2_XXS gate/up routed experts, Q2_K down experts (down rows padded 640->768). Q4: calibrated Q4_K gate/up, MXFP4 down. Other tensors unchanged; BF16 n-gram table (95.37 GiB) kept unquantized, SSD-resident",
+   "imatrix_or_calib_data": "imatrix/calibrated stated, dataset not named",
+   "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+   },
+   "headline_claims": [
+    "Keeps original BF16 n-gram table (not quantized, not resident) for DwarfStar engine"
+   ],
+   "red_flags": [
+    "no quality claims",
+    "Runtime-specific (DwarfStar), not loadable by llama.cpp",
+    "Calibration dataset not named; weights derived from another publisher (ivanfioravanti)"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/antirez/qwen3.8-flash-next-gguf/raw/main/README.md"
+   ],
+   "baseline_numbers": {},
+   "variants": [
+    {
+     "name": "Q2",
+     "size_gb": 137.1,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "main/MTP weights 41.73 GiB + 95.37 GiB BF16 n-gram table",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q4",
+     "size_gb": 165.11,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "main/MTP weights 69.74 GiB + 95.37 GiB BF16 n-gram table",
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "apetersson/Qwen3.8-Flash-Next-GGUF",
+   "url": "https://huggingface.co/apetersson/Qwen3.8-Flash-Next-GGUF",
+   "format": "GGUF",
+   "runtime": "llama.cpp fork: patched llama.cpp with shared-ngram extension (PR #28243); stock llama.cpp cannot resolve n-gram reference",
+   "weights_modified": false,
+   "method": "Q5_K_M trunk quantized locally from BF16 with bartowski imatrix; UD-IQ4_XS trunk taken byte-for-byte from unsloth with quantized n-gram tensor swapped for original BF16 n-gram table; shared BF16 n-gram/mmproj/MTP Q8_0 files",
+   "imatrix_or_calib_data": "Q5 trunk: bartowski imatrix (926 entries, 582 chunks x 512, calibration-v6 corpus: prose, tool calling, reasoning, chat template); IQ4 trunk: unsloth's (not stated)",
+   "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+   },
+   "headline_claims": [
+    "Original BF16 n-gram table instead of quantized one",
+    "262,144 native ctx on 96GB GPU; 1M ctx config (IQ4, Q8 KV, 4x YaRN) loaded; M1 Ultra 1M run recovered 3/3 checkpoint codes",
+    "UD-IQ4_XS: 76\u201385 tok/s TG, 310\u2013656 tok/s PP on RTX PRO 6000 Blackwell"
+   ],
+   "red_flags": [
+    "no quality claims (only smoke tests: string recall, 17x19, red image, long-ctx checkpoint recovery)",
+    "IQ4 trunk is unsloth's file repackaged",
+    "Max-context figures partly estimated, not measured",
+    "Requires unmerged PR #28243 fork"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/apetersson/Qwen3.8-Flash-Next-GGUF/raw/main/README.md"
+   ],
+   "baseline_numbers": {},
+   "variants": [
+    {
+     "name": "Q5_K_M-BF16-Ngrams",
+     "size_gb": 76.24,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "trunk only; needs shared/ngrams BF16 95.37 GiB + MTP Q8_0 2.60 GiB + mmproj 0.84 GiB",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "UD-IQ4_XS-BF16-Ngrams",
+     "size_gb": 60.42,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "trunk only (unsloth UD-IQ4_XS); needs same shared files",
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "bartowski/Qwen3.8-Flash-Next-GGUF",
+   "url": "https://huggingface.co/bartowski/Qwen3.8-Flash-Next-GGUF",
+   "format": "GGUF",
+   "runtime": "llama.cpp mainline (release b10665)",
+   "weights_modified": false,
+   "method": "Standard llama.cpp quant types with imatrix; _L variants use Q8_0 embed/output",
+   "imatrix_or_calib_data": "calibration-v6: chat-template-rendered corpus of prose + tool-calling/reasoning conversations, --parse-special; 583 chunks x 512 tokens (214 prose, 369 tool), 137 conversations, ~63% tool chunks (credits kalomaze, Dampf)",
+   "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+   },
+   "headline_claims": [
+    "Q4_K_M is default recommendation; Q6_K 'near perfect'",
+    "IQ4_XS similar performance to Q4_K_S at smaller size"
+   ],
+   "red_flags": [
+    "no quality claims (no KLD/PPL/bench); descriptions are generic boilerplate",
+    "Card states 180B params (=125B + 51B n-gram + 4B MTP), vs Qwen headline 125B",
+    "Q3_K_XL (119.35GB) is about the same size as Q4_K_M - unusual ordering (Q8_0 embed of large n-gram table)"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/bartowski/Qwen3.8-Flash-Next-GGUF/raw/main/README.md",
+    "https://gist.github.com/bartowski1182/e26453c0404e24eb317543ec5360f87a"
+   ],
+   "baseline_numbers": {},
+   "variants": [
+    {
+     "name": "bf16",
+     "size_gb": 354.03,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Full BF16 weights.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q8_0",
+     "size_gb": 188.26,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Extremely high quality, generally unneeded but max available quant.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q6_K",
+     "size_gb": 168.11,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Very high quality, near perfect, *recommended*.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q5_K_L",
+     "size_gb": 151.06,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Uses Q8_0 for embed and output weights. High quality, *recommended*.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q4_K_L",
+     "size_gb": 139.27,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Uses Q8_0 for embed and output weights. Good quality, *recommended*.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q5_K_M",
+     "size_gb": 134.67,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "High quality, *recommended*.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q5_K_S",
+     "size_gb": 128.1,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "High quality, *recommended*.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q4_K_M",
+     "size_gb": 119.6,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Good quality, default size for most use cases, *recommended*.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q3_K_XL",
+     "size_gb": 119.35,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Uses Q8_0 for embed and output weights. Lower quality but usable, good for low RAM availability.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q4_K_S",
+     "size_gb": 113.14,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Slightly lower quality with more space savings, *recommended*.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q4_1",
+     "size_gb": 111.26,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Legacy format, similar performance to Q4_K_S but with improved tokens/watt on Apple silicon.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q2_K_L",
+     "size_gb": 107.15,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Uses Q8_0 for embed and output weights. Very low quality but surprisingly usable.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q4_0",
+     "size_gb": 100.6,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Legacy format, kept for compatibility with older tools.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ4_NL",
+     "size_gb": 100.29,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Similar to IQ4_XS, but slightly larger.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ4_XS",
+     "size_gb": 97.68,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Decent quality, smaller than Q4_K_S with similar performance, *recommended*.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ3_M",
+     "size_gb": 93.23,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Medium-low quality, new method with decent performance comparable to Q3_K_M.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q3_K_L",
+     "size_gb": 93.19,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Lower quality but usable, good for low RAM availability.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q3_K_M",
+     "size_gb": 91.96,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Low quality.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ3_XS",
+     "size_gb": 91.95,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Lower quality, new method with decent performance, slightly better than Q3_K_S.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q3_K_S",
+     "size_gb": 89.44,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Low quality, not recommended.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ3_XXS",
+     "size_gb": 88.02,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Lower quality, new method with decent performance, comparable to Q3 quants.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q2_K",
+     "size_gb": 80.93,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Very low quality but surprisingly usable.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ2_M",
+     "size_gb": 80.37,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Relatively low quality, uses SOTA techniques to be surprisingly usable.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ2_S",
+     "size_gb": 77.83,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Low quality, uses SOTA techniques to be usable.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ2_XS",
+     "size_gb": 77.74,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Low quality, uses SOTA techniques to be usable.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ2_XXS",
+     "size_gb": 75.19,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Very low quality, uses SOTA techniques to be usable.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ1_M",
+     "size_gb": 72.01,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Extremely low quality, *not* recommended.",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "IQ1_S",
+     "size_gb": 70.1,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "Extremely low quality, *not* recommended.",
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "cyankiwi/Qwen3.8-Flash-Next-AWQ-INT4",
+   "url": "https://huggingface.co/cyankiwi/Qwen3.8-Flash-Next-AWQ-INT4",
+   "format": "AWQ",
+   "runtime": "Transformers, vLLM, SGLang, TokenSpeed (as listed)",
+   "weights_modified": false,
+   "method": "not named in text; banner path 'awq' / 'activation-aware-2.0' implies AWQ-style INT4 (inferred); version 26.05.01",
+   "imatrix_or_calib_data": "'STEM and Agentic' - https://huggingface.co/datasets/cyankiwi/calibration",
+   "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+   },
+   "headline_claims": [
+    "only Qwen's base-model claims (Qwen4 preview architecture); none for the quant"
+   ],
+   "red_flags": [
+    "no quality claims for the quant",
+    "benchmark tables copied from Qwen base card",
+    "quant method not explicitly named",
+    "188.29 GB - larger than official FP8 (185 GB) despite 'INT4' name"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/cyankiwi/Qwen3.8-Flash-Next-AWQ-INT4/raw/main/README.md"
+   ],
+   "baseline_numbers": {
+    "Qwen3.8-Flash-Next (base, as published)": {
+     "DeepSWE 1.1": 58.7,
+     "SWE-bench Pro": 62.5,
+     "SWE-bench Multilingual": 81.0,
+     "NL2Repo-Bench": 48.1,
+     "CoWorkBench": 73.9,
+     "JobBench": 55.7,
+     "Agents' Last Exam (Pass@1 / Score)": "24.3 / 51.2",
+     "Toolathlon Verified (Pass@1)": 73.5,
+     "IFBench": 81.3,
+     "GPQA Diamond": 91.7,
+     "HLE": 35.9,
+     "LiveCodeBench v6": 91.9,
+     "ClawEval-MM (Pass@3 / Average)": "64.4 / 60.4",
+     "RecreationBench": 49.9,
+     "AndroidWorld": 84.5,
+     "OSWorld 2.0 (Binary / Partial)": "19.4 / 52.3",
+     "Vision2Web": 64.0,
+     "ERQA": 72.3,
+     "LVBench": 76.6,
+     "RealWorldQA": 88.5,
+     "MathVision (without CI / with CI)": "90.6 / 95.7",
+     "CharXiv RQ (without CI / with CI)": "84.6 / 90.6"
+    }
+   },
+   "variants": [
+    {
+     "name": "AWQ-INT4",
+     "size_gb": 188.29,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "as stated on card",
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "ddalcu/Qwen3.8-Flash-Next-MLX-Serve-iQ-MLX-3.3bpw",
+   "url": "https://huggingface.co/ddalcu/Qwen3.8-Flash-Next-MLX-Serve-iQ-MLX-3.3bpw",
+   "format": "MLX",
+   "runtime": "mlx-serve",
+   "weights_modified": false,
+   "method": "imatrix-guided mixed 2/3/4-bit routed experts (g64/g128, ~3.14 bpw over experts); 8-bit spine; 4-bit embed and n-gram table; bf16 routers/norms",
+   "imatrix_or_calib_data": "~482k tokens of agent traffic, code, prose, math rendered with chat template",
+   "methodology": {
+    "reference": "BF16",
+    "eval_dataset": "1200 held-out positions (not in calibration)",
+    "ctx": null,
+    "n_tokens": 1200,
+    "tool": "own script (mlx-serve tests/)"
+   },
+   "headline_claims": [
+    "Keeps ~99% of the 4-8 pack's probability mass at 21 GB less",
+    "~52 GB resident, 64k ctx on 64 GB Mac",
+    "Decode 52.6 tok/s, prefill 762 tok/s (M4 Max, 2k)"
+   ],
+   "red_flags": [
+    "only 1200 eval positions",
+    "'probability mass' metric is publisher-specific, not KLD",
+    "sizes are resident GB excluding 32 GB n-gram table"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/ddalcu/Qwen3.8-Flash-Next-MLX-Serve-iQ-MLX-3.3bpw/raw/main/README.md"
+   ],
+   "baseline_numbers": {
+    "bf16_prob_mass_ceiling": 0.762
+   },
+   "variants": [
+    {
+     "name": "iQ-MLX-3.3bpw",
+     "size_gb": 52,
+     "size_unit": "GB",
+     "bpw": 3.3,
+     "qualitative": "for 64 GB Macs",
+     "metrics": [
+      {
+       "key": "top1_agree_pct",
+       "value": 85.6,
+       "err": null,
+       "unit": null,
+       "raw": 85.6
+      },
+      {
+       "key": "bench:prob_mass",
+       "value": 0.732,
+       "err": null,
+       "unit": null,
+       "raw": 0.732
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "mixed-4-8bit (sibling, comparison)",
+     "size_gb": 73,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "suggested for 128 GB Macs",
+     "metrics": [
+      {
+       "key": "top1_agree_pct",
+       "value": 89.1,
+       "err": null,
+       "unit": null,
+       "raw": 89.1
+      },
+      {
+       "key": "bench:prob_mass",
+       "value": 0.738,
+       "err": null,
+       "unit": null,
+       "raw": 0.738
+      }
+     ],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "ddalcu/Qwen3.8-Flash-Next-MLX-Serve-mixed-4-8bit",
+   "url": "https://huggingface.co/ddalcu/Qwen3.8-Flash-Next-MLX-Serve-mixed-4-8bit",
+   "format": "MLX",
+   "runtime": "mlx-serve 26.8.11",
+   "weights_modified": false,
+   "method": "Mixed affine: routed experts 4-bit g64; attention/GDN/indexer/shared/lm_head 8-bit g64; embed 4-bit g64; n-gram table 4-bit g32; routers/norms bf16",
+   "imatrix_or_calib_data": null,
+   "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+   },
+   "headline_claims": [
+    "~75 GB resident on 128 GB Mac",
+    "Decode ~60 tok/s, 78 with MTP; prefill ~730 tok/s (M4 Max)",
+    "Needle recovered at 24.8k tokens"
+   ],
+   "red_flags": [
+    "no quality claims on own card (sibling 3.3bpw card reports 89.1% top-1 / mass 0.738 for this pack, ~73 GB)",
+    "resident size excludes 32 GB mmapped n-gram table"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/ddalcu/Qwen3.8-Flash-Next-MLX-Serve-mixed-4-8bit/raw/main/README.md",
+    "https://huggingface.co/ddalcu/Qwen3.8-Flash-Next-MLX-Serve-iQ-MLX-3.3bpw/raw/main/README.md"
+   ],
+   "baseline_numbers": {
+    "bf16_size_gb": 360
+   },
+   "variants": [
+    {
+     "name": "mixed-4-8bit",
+     "size_gb": 75,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "~75 GB resident; n-gram table 32.0 GB separate file",
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "doth4580/Qwen3.8-Flash-Next-EXL3-4.05bpw",
+   "url": "https://huggingface.co/doth4580/Qwen3.8-Flash-Next-EXL3-4.05bpw",
+   "format": "EXL3",
+   "runtime": "veloGB10 (gb10_inference) >=0.7.2; exllamav3 used as reference impl",
+   "weights_modified": false,
+   "method": "Repack of turboderp 4.05bpw_h6_ng6 (commit 55a732e0); EXL3 trellis mul1 codebook, 4-bit experts, 6-bit dense/lm_head/n-gram table/vision; MTP layer 4-bit experts + 4-6-bit dense; quantized with ExLlamaV3 1.4.4",
+   "imatrix_or_calib_data": "250 x 2048 calibration (dataset not named)",
+   "methodology": {
+    "reference": "none (3.05bpw pack compared; no BF16 reference)",
+    "eval_dataset": "73K-token corpus (unnamed)",
+    "ctx": "8K and 16K windows",
+    "n_tokens": 73000,
+    "tool": "own script (next-token loss)"
+   },
+   "headline_claims": [
+    "~108 GB on disk (68 GB weights, 39 GB n-gram table, 1.5 GB vision) vs ~360 GB bf16",
+    "TP=1/2/4 decode 63/89/120 tok/s; prefill 1399/2612/3496 tok/s (untuned, MTP on)",
+    "Loss essentially equal to 3.05bpw pack (0.621 / 1.578)",
+    "Turboderp reportedly shows a small KLD advantage for 4.05 (no numbers)"
+   ],
+   "red_flags": [
+    "no KLD/PPL vs BF16; only next-token loss on unnamed 73K corpus, author says it is not a quality ranking",
+    "KLD claim attributed to turboderp without numbers",
+    "calibration dataset not named"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/doth4580/Qwen3.8-Flash-Next-EXL3-4.05bpw/raw/main/README.md"
+   ],
+   "baseline_numbers": {
+    "bf16_size_gb": 360,
+    "3.05bpw_next_token_loss_8k": 0.621,
+    "3.05bpw_next_token_loss_16k": 1.578
+   },
+   "variants": [
+    {
+     "name": "4.05bpw",
+     "size_gb": 108,
+     "size_unit": "GB",
+     "bpw": 4.05,
+     "qualitative": "mis-decode check, not a quality ranking",
+     "metrics": [
+      {
+       "key": "bench:next_token_loss_8k",
+       "value": 0.625,
+       "err": null,
+       "unit": null,
+       "raw": 0.625
+      },
+      {
+       "key": "bench:next_token_loss_16k",
+       "value": 1.579,
+       "err": null,
+       "unit": null,
+       "raw": 1.579
+      },
+      {
+       "key": "bench:mtp_acceptance_prose_pct",
+       "value": 52.0,
+       "err": null,
+       "unit": null,
+       "raw": 52
+      }
+     ],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "ggml-org/Qwen3.8-Flash-Next-GGUF",
+   "url": "https://huggingface.co/ggml-org/Qwen3.8-Flash-Next-GGUF",
+   "format": "GGUF",
+   "runtime": "llama.cpp mainline ('llama serve -hf ...' via llama.app)",
+   "weights_modified": false,
+   "method": "Automatic conversion via github.com/ggml-org/convert; Q8_0 only, no imatrix",
+   "imatrix_or_calib_data": null,
+   "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+   },
+   "headline_claims": [],
+   "red_flags": [
+    "no quality claims; card has TODO 'add info'",
+    "Q8_0 is 162.6 GB vs 188.2-188.3 GB for unsloth/bartowski Q8_0 (~25.6 GB smaller) - likely different handling of n-gram embeddings or MTP; unverified",
+    "Sizes not on card, computed from HF API"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/ggml-org/Qwen3.8-Flash-Next-GGUF/raw/main/README.md",
+    "https://huggingface.co/api/models/ggml-org/Qwen3.8-Flash-Next-GGUF?blobs=true"
+   ],
+   "baseline_numbers": {},
+   "variants": [
+    {
+     "name": "Q8_0",
+     "size_gb": 162.62,
+     "size_unit": "GB (computed from API blob sizes, 162,624,826,656 bytes)",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "mmproj-Q8_0",
+     "size_gb": 0.62,
+     "size_unit": "GB (computed from API)",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "ilintar/qwen3.8-flash-next-gguf-strix-halo",
+   "url": "https://huggingface.co/ilintar/qwen3.8-flash-next-gguf-strix-halo",
+   "format": "GGUF",
+   "runtime": "llama.cpp fork (pwilkin/llama.cpp strix-halo branch)",
+   "weights_modified": false,
+   "method": "IQ4_NL (no further detail); separate Q8_0 MTP draft head",
+   "imatrix_or_calib_data": null,
+   "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "paired perplexity vs a reference stack (no numbers)"
+   },
+   "headline_claims": [
+    "Prefill 1151.77 t/s, gen 24.13 t/s at depth 0 on Radeon 8060S 128 GB; 1059.82 / 15.43 at 40K",
+    "Requires --load-mode none --lazy-mode on-direct to fit 27.5 GB PLE table"
+   ],
+   "red_flags": [
+    "no quality claims (paired perplexity mentioned without numbers)",
+    "quant method/imatrix not stated",
+    "fork-only runtime"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/ilintar/qwen3.8-flash-next-gguf-strix-halo/raw/main/README.md"
+   ],
+   "baseline_numbers": {},
+   "variants": [
+    {
+     "name": "IQ4_NL",
+     "size_gb": 93.16,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "9 shards",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "MTP draft head Q8_0",
+     "size_gb": 2.6,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "ivanfioravanti/Qwen3.8-Flash-Next-DS4-IQ2",
+   "url": "https://huggingface.co/ivanfioravanti/Qwen3.8-Flash-Next-DS4-IQ2",
+   "format": "GGUF",
+   "runtime": "DS4 engine (ivanfioravanti/ds4-metal branch qwen3.8-flash-next, commit 5bd8796+), Apple Metal",
+   "weights_modified": false,
+   "method": "Gate/up experts IQ2_XXS imatrix; down projections Q2_K imatrix from BF16, zero-padded 640->768 cols; dense/shared/output Q8_0; embeddings BF16; MTP block Q4_K gate/up + MXFP4 down; Q4_1 PLE sidecar",
+   "imatrix_or_calib_data": "pinned Unsloth imatrix, 45 chunks x 18,432 tokens (sha256 a5863123...)",
+   "methodology": {
+    "reference": "BF16 (rev de4b8e4d)",
+    "eval_dataset": "99 BF16-reference continuations",
+    "ctx": null,
+    "n_tokens": 2376,
+    "tool": "own script"
+   },
+   "headline_claims": [
+    "44.81 GB (41.73 GiB) incl. MTP; saves 5.16 GiB vs previous build",
+    "Top-1 agreement drops 91.33% -> 90.32%, NLL +4.4%",
+    "Combined with sidecar 76.81 GB; 64 GB fit not established"
+   ],
+   "red_flags": [
+    "custom NLL/top-1 harness, not comparable to KLD",
+    "total footprint 76.81 GB with required sidecar",
+    "quality hard-smoke only 12 questions"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/ivanfioravanti/Qwen3.8-Flash-Next-DS4-IQ2/raw/main/README.md"
+   ],
+   "baseline_numbers": {},
+   "variants": [
+    {
+     "name": "IQ2 Q2_K-down (current)",
+     "size_gb": 44.81,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "default",
+     "metrics": [
+      {
+       "key": "top1_agree_pct",
+       "value": 90.32,
+       "err": null,
+       "unit": null,
+       "raw": 90.32
+      },
+      {
+       "key": "bench:target_NLL",
+       "value": 0.30357,
+       "err": null,
+       "unit": null,
+       "raw": 0.30357
+      }
+     ],
+     "metric_notes": [
+      "bench:first_token_match=65/99",
+      "bench:hard_smoke_12q=5 correct/0 wrong/7 incomplete"
+     ]
+    },
+    {
+     "name": "IQ2 MXFP4-down (previous)",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": null,
+     "qualitative": "previous release",
+     "metrics": [
+      {
+       "key": "top1_agree_pct",
+       "value": 91.33,
+       "err": null,
+       "unit": null,
+       "raw": 91.33
+      },
+      {
+       "key": "bench:target_NLL",
+       "value": 0.290735,
+       "err": null,
+       "unit": null,
+       "raw": 0.290735
+      }
+     ],
+     "metric_notes": [
+      "bench:first_token_match=69/99",
+      "bench:hard_smoke_12q=6 correct/0 wrong/6 incomplete"
+     ]
+    },
+    {
+     "name": "PLE sidecar (required)",
+     "size_gb": 32.0,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "ivanfioravanti/Qwen3.8-Flash-Next-DS4-Q4",
+   "url": "https://huggingface.co/ivanfioravanti/Qwen3.8-Flash-Next-DS4-Q4",
+   "format": "GGUF",
+   "runtime": "DS4 engine (ivanfioravanti/ds4, branch qwen3.8-flash-next), Apple Metal",
+   "weights_modified": false,
+   "method": "From official BF16: routed gate/up Q4_K imatrix, routed down MXFP4, dense GDN/QSA/shared/output Q8_0, embeddings/router/norms BF16/F32, PLE n-gram rows Q4_1 in external sidecar; embedded MTP",
+   "imatrix_or_calib_data": "unsloth/Qwen3.8-Flash-Next-GGUF imatrix (pinned), 45 chunks x 18,432 tokens; 24 zero-count part-experts use deterministic fallback",
+   "methodology": {
+    "reference": "BF16",
+    "eval_dataset": "100-case fixture, 24-token greedy continuations, top-20 logprobs, 85 tokenization-aligned cases",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "own script"
+   },
+   "headline_claims": [
+    "Top-1 agreement 96.6% vs BF16 (ggml-org Q8_0: 98.7%)",
+    "Prefill ~1,060-1,170 tok/s, decode ~42-46 tok/s, MTP ~45-56 tok/s on M3 Ultra up to 262K ctx",
+    "Main file 69.7 GiB resident; 128 GB+ recommended"
+   ],
+   "red_flags": [
+    "custom logprob harness (top-20, 24-token continuations), not llama-perplexity KLD; not directly comparable to KLD-based claims",
+    "main size excludes required 32 GB sidecar (total ~106.9 GB)",
+    "DS4 fork runtime only"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/ivanfioravanti/Qwen3.8-Flash-Next-DS4-Q4/raw/main/README.md"
+   ],
+   "baseline_numbers": {
+    "ggml-org_Q8_0_MAE": 0.0211,
+    "ggml-org_Q8_0_top1_pct": 98.7,
+    "prev_Q4_0_routed_MAE": 0.043,
+    "prev_Q4_0_routed_top1_pct": 96.5
+   },
+   "variants": [
+    {
+     "name": "Q4 (main+MTP) + PLE sidecar",
+     "size_gb": 74.9,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "current release",
+     "metrics": [
+      {
+       "key": "top1_agree_pct",
+       "value": 96.6,
+       "err": null,
+       "unit": null,
+       "raw": 96.6
+      },
+      {
+       "key": "bench:target_logprob_MAE",
+       "value": 0.0431,
+       "err": null,
+       "unit": null,
+       "raw": 0.0431
+      },
+      {
+       "key": "bench:avg_target_NLL",
+       "value": 0.213,
+       "err": null,
+       "unit": null,
+       "raw": 0.213
+      }
+     ],
+     "metric_notes": [
+      "bench:greedy_first_token_match=74/85"
+     ]
+    },
+    {
+     "name": "PLE sidecar (required)",
+     "size_gb": 32.0,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "ji-farthing/Qwen3.8-Flash-Next-ik-llama-GGUF",
+   "url": "https://huggingface.co/ji-farthing/Qwen3.8-Flash-Next-ik-llama-GGUF",
+   "format": "GGUF",
+   "runtime": "ik_llama.cpp (main at cb860a9+ / PR #2481; 391a95f+ for multi-turn)",
+   "weights_modified": false,
+   "method": "ik_llama.cpp llama-quantize (commit d9e2868, --cuda-quantize) with imatrix and --custom-q per-tensor rules; IQ4_KT / IQ3_KT trellis types; text-only (vision + MTP dropped; MTP head shipped separately IQ4_KT 2.21 GiB)",
+   "imatrix_or_calib_data": "qwen4exp-agentic-v3.imatrix: 700 chunks x 2048; 45% agentic/technical English, 30% code (incl. ik_llama + llama.cpp source), 15% English prose, 10% Chinese prose",
+   "methodology": {
+    "reference": "BF16",
+    "eval_dataset": "two held-out texts disjoint from calib: English text and code (CPython + PostgreSQL), 10 chunks each",
+    "ctx": 2048,
+    "n_tokens": 20480,
+    "tool": "not stated (llama-perplexity KLD implied)"
+   },
+   "headline_claims": [
+    "v3 IQ4_KT: English KLD 0.0578 / top-1 91.18% vs BF16",
+    "v3 recipes keep more tensors GPU-resident (4.5 GiB) and roughly halve KLD vs v2 at similar size",
+    "MTP draft acceptance with v3 IQ4_KT: code 90.41%, extract 79.43%, story 68.21%",
+    "Caveats stated: lower KLD doesn't prove code correctness; no throughput ranking; DSA indexer not exercised at 2048 chunks"
+   ],
+   "red_flags": [
+    "Small eval (10 chunks x 2048 per domain = 20,480 tokens each)",
+    "Code eval set includes CPython/PostgreSQL while calib includes other code \u2014 disjoint stated but domain overlap",
+    "ctx 2048 equals DSA indexer selection size so sparse attention path not exercised (publisher's own caveat)",
+    "Only CUDA validated"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/ji-farthing/Qwen3.8-Flash-Next-ik-llama-GGUF/raw/main/README.md"
+   ],
+   "baseline_numbers": {
+    "BF16_ppl_english": 3.3316,
+    "BF16_ppl_code": 1.7218
+   },
+   "variants": [
+    {
+     "name": "v3 IQ4_KT",
+     "size_gb": 82.75,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "GPU-resident 4.5 GiB, routed experts 52.6 GiB; current",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.057803,
+       "err": null,
+       "unit": null,
+       "raw": 0.057803
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 91.183,
+       "err": null,
+       "unit": null,
+       "raw": 91.183
+      },
+      {
+       "key": "ppl",
+       "value": 3.3893,
+       "err": null,
+       "unit": null,
+       "raw": 3.3893
+      },
+      {
+       "key": "code:mean_kld",
+       "value": 0.055726,
+       "err": null,
+       "unit": null,
+       "raw": 0.055726
+      },
+      {
+       "key": "code:top1_agree_pct",
+       "value": 95.142,
+       "err": null,
+       "unit": null,
+       "raw": 95.142
+      },
+      {
+       "key": "code:ppl",
+       "value": 1.7303,
+       "err": null,
+       "unit": null,
+       "raw": 1.7303
+      }
+     ],
+     "metric_notes": [
+      "note: top-level metrics = English held-out text; 'code' = code held-out text"
+     ]
+    },
+    {
+     "name": "v3 IQ3_KT",
+     "size_gb": 72.52,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "GPU-resident 4.5 GiB, routed experts 47.2 GiB; current",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.085269,
+       "err": null,
+       "unit": null,
+       "raw": 0.085269
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 89.384,
+       "err": null,
+       "unit": null,
+       "raw": 89.384
+      },
+      {
+       "key": "ppl",
+       "value": 3.4484,
+       "err": null,
+       "unit": null,
+       "raw": 3.4484
+      },
+      {
+       "key": "code:mean_kld",
+       "value": 0.077747,
+       "err": null,
+       "unit": null,
+       "raw": 0.077747
+      },
+      {
+       "key": "code:top1_agree_pct",
+       "value": 94.653,
+       "err": null,
+       "unit": null,
+       "raw": 94.653
+      },
+      {
+       "key": "code:ppl",
+       "value": 1.7522,
+       "err": null,
+       "unit": null,
+       "raw": 1.7522
+      }
+     ],
+     "metric_notes": [
+      "note: top-level metrics = English held-out text; 'code' = code held-out text"
+     ]
+    },
+    {
+     "name": "IQ4_KT_v2",
+     "size_gb": 80.72,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "GPU-resident 2.4 GiB (lives in _v2 repo)",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.132805,
+       "err": null,
+       "unit": null,
+       "raw": 0.132805
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 86.276,
+       "err": null,
+       "unit": null,
+       "raw": 86.276
+      },
+      {
+       "key": "ppl",
+       "value": 3.5335,
+       "err": null,
+       "unit": null,
+       "raw": 3.5335
+      },
+      {
+       "key": "code:mean_kld",
+       "value": 0.124558,
+       "err": null,
+       "unit": null,
+       "raw": 0.124558
+      },
+      {
+       "key": "code:top1_agree_pct",
+       "value": 93.216,
+       "err": null,
+       "unit": null,
+       "raw": 93.216
+      },
+      {
+       "key": "code:ppl",
+       "value": 1.8031,
+       "err": null,
+       "unit": null,
+       "raw": 1.8031
+      }
+     ],
+     "metric_notes": [
+      "note: top-level metrics = English held-out text; 'code' = code held-out text"
+     ]
+    },
+    {
+     "name": "IQ4_KT (replaced)",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": null,
+     "qualitative": "replaced earlier release",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.1325,
+       "err": null,
+       "unit": null,
+       "raw": 0.1325
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 85.74,
+       "err": null,
+       "unit": null,
+       "raw": 85.74
+      },
+      {
+       "key": "ppl",
+       "value": 3.5625,
+       "err": null,
+       "unit": null,
+       "raw": 3.5625
+      },
+      {
+       "key": "code:mean_kld",
+       "value": 0.1247,
+       "err": null,
+       "unit": null,
+       "raw": 0.1247
+      },
+      {
+       "key": "code:top1_agree_pct",
+       "value": 92.41,
+       "err": null,
+       "unit": null,
+       "raw": 92.41
+      },
+      {
+       "key": "code:ppl",
+       "value": 1.8209,
+       "err": null,
+       "unit": null,
+       "raw": 1.8209
+      }
+     ],
+     "metric_notes": [
+      "note: top-level metrics = English held-out text; 'code' = code held-out text"
+     ]
+    },
+    {
+     "name": "IQ3_KT (replaced)",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": null,
+     "qualitative": "replaced earlier release",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.1515,
+       "err": null,
+       "unit": null,
+       "raw": 0.1515
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 85.05,
+       "err": null,
+       "unit": null,
+       "raw": 85.05
+      },
+      {
+       "key": "ppl",
+       "value": 3.6119,
+       "err": null,
+       "unit": null,
+       "raw": 3.6119
+      },
+      {
+       "key": "code:mean_kld",
+       "value": 0.135,
+       "err": null,
+       "unit": null,
+       "raw": 0.135
+      },
+      {
+       "key": "code:top1_agree_pct",
+       "value": 92.13,
+       "err": null,
+       "unit": null,
+       "raw": 92.13
+      },
+      {
+       "key": "code:ppl",
+       "value": 1.8273,
+       "err": null,
+       "unit": null,
+       "raw": 1.8273
+      }
+     ],
+     "metric_notes": [
+      "note: top-level metrics = English held-out text; 'code' = code held-out text"
+     ]
+    }
+   ]
+  },
+  {
+   "repo": "ji-farthing/Qwen3.8-Flash-Next-ik-llama-GGUF_v2",
+   "url": "https://huggingface.co/ji-farthing/Qwen3.8-Flash-Next-ik-llama-GGUF_v2",
+   "format": "GGUF",
+   "runtime": "ik_llama.cpp (main at cb860a9+ / PR #2481)",
+   "weights_modified": false,
+   "method": "ik_llama.cpp quant at bd7c321: token embd Q8_0, PLE IQ4_KT, expert gate/up IQ4_KT, ffn_down_exps/shexp IQ3_KT, PLE conv F16; lossless byte permutation of IQ4_KT tails vs prior release; text-only",
+   "imatrix_or_calib_data": "qwen4exp-agentic-v3.imatrix (same as v1 repo): 700 x 2048; 45% agentic/tech English, 30% code, 15% English prose, 10% Chinese",
+   "methodology": {
+    "reference": "BF16",
+    "eval_dataset": "held-out English text + code (CPython, PostgreSQL), 10 chunks each",
+    "ctx": 2048,
+    "n_tokens": 20480,
+    "tool": "not stated"
+   },
+   "headline_claims": [
+    "v2 ~same KLD as previous IQ4_KT at ~previous IQ3_KT size, with higher top-1 than both",
+    "CUDA graph matrix 560 cases / 1,124,880 comparisons passed vs scalar reference; four standard prompts identical output"
+   ],
+   "red_flags": [
+    "Superseded by v3 IQ4_KT/IQ3_KT in the main ji-farthing repo (v3 IQ4_KT KLD 0.058 vs 0.133)",
+    "Same small eval (20,480 tokens per domain)",
+    "Only CUDA validated"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/ji-farthing/Qwen3.8-Flash-Next-ik-llama-GGUF_v2/raw/main/README.md"
+   ],
+   "baseline_numbers": {
+    "BF16_ppl_english": 3.3316,
+    "BF16_ppl_code": 1.7218
+   },
+   "variants": [
+    {
+     "name": "IQ4_KT_v2",
+     "size_gb": 80.72,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "only file in repo (2 shards 44.41 + 36.31 GiB)",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.132805,
+       "err": null,
+       "unit": null,
+       "raw": 0.132805
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 86.276,
+       "err": null,
+       "unit": null,
+       "raw": 86.276
+      },
+      {
+       "key": "code:mean_kld",
+       "value": 0.124558,
+       "err": null,
+       "unit": null,
+       "raw": 0.124558
+      },
+      {
+       "key": "code:top1_agree_pct",
+       "value": 93.216,
+       "err": null,
+       "unit": null,
+       "raw": 93.216
+      }
+     ],
+     "metric_notes": [
+      "note: top-level metrics = English held-out text; 'code' = code held-out text"
+     ]
+    },
+    {
+     "name": "Prev. IQ3_KT (IQ4_NL fallbacks)",
+     "size_gb": 80.22,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "previous release, comparison",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.151454,
+       "err": null,
+       "unit": null,
+       "raw": 0.151454
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 85.054,
+       "err": null,
+       "unit": null,
+       "raw": 85.054
+      },
+      {
+       "key": "code:mean_kld",
+       "value": 0.13499,
+       "err": null,
+       "unit": null,
+       "raw": 0.13499
+      },
+      {
+       "key": "code:top1_agree_pct",
+       "value": 92.131,
+       "err": null,
+       "unit": null,
+       "raw": 92.131
+      }
+     ],
+     "metric_notes": [
+      "note: top-level metrics = English held-out text; 'code' = code held-out text"
+     ]
+    },
+    {
+     "name": "Prev. IQ4_KT (IQ4_NL fallbacks)",
+     "size_gb": 88.42,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "previous release, comparison",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.132548,
+       "err": null,
+       "unit": null,
+       "raw": 0.132548
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 85.738,
+       "err": null,
+       "unit": null,
+       "raw": 85.738
+      },
+      {
+       "key": "code:mean_kld",
+       "value": 0.124749,
+       "err": null,
+       "unit": null,
+       "raw": 0.124749
+      },
+      {
+       "key": "code:top1_agree_pct",
+       "value": 92.414,
+       "err": null,
+       "unit": null,
+       "raw": 92.414
+      }
+     ],
+     "metric_notes": [
+      "note: top-level metrics = English held-out text; 'code' = code held-out text"
+     ]
+    }
+   ]
+  },
+  {
+   "repo": "lmstudio-community/Qwen3.8-Flash-Next-GGUF",
+   "url": "https://huggingface.co/lmstudio-community/Qwen3.8-Flash-Next-GGUF",
+   "format": "GGUF",
+   "runtime": "llama.cpp mainline (quantized with release b10662)",
+   "weights_modified": false,
+   "method": "Standard llama.cpp quants by LM Studio team; no details",
+   "imatrix_or_calib_data": null,
+   "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+   },
+   "headline_claims": [],
+   "red_flags": [
+    "no quality claims",
+    "card gives no variants/sizes; sizes derived from HF API (decimal GB); mmproj BF16 0.91 GB separate"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/lmstudio-community/Qwen3.8-Flash-Next-GGUF/raw/main/README.md",
+    "https://huggingface.co/api/models/lmstudio-community/Qwen3.8-Flash-Next-GGUF?blobs=true"
+   ],
+   "baseline_numbers": {},
+   "variants": [
+    {
+     "name": "Q4_K_M",
+     "size_gb": 119.15,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "3 shards; size summed from API blob bytes 119,150,722,240",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q6_K",
+     "size_gb": 167.64,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "5 shards; size summed from API blob bytes 167,639,838,624",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q8_0",
+     "size_gb": 188.22,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "6 shards; size summed from API blob bytes 188,224,949,792",
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "local-inference-lab/Qwen3.8-Flash-Next-NVFP4",
+   "url": "https://huggingface.co/local-inference-lab/Qwen3.8-Flash-Next-NVFP4",
+   "format": "NVFP4",
+   "runtime": "not stated (intended for DGX Spark; files suggest ModelOpt export: hf_quant_config.json, amax files)",
+   "weights_modified": false,
+   "method": "not stated (card is one sentence); file list (hf_quant_config.json, amax*.safetensors, model-inputscales) suggests NVIDIA ModelOpt NVFP4 - inferred, not stated",
+   "imatrix_or_calib_data": null,
+   "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+   },
+   "headline_claims": [
+    "NVFP4 quant intended for DGX Spark"
+   ],
+   "red_flags": [
+    "no quality claims",
+    "no methodology, calibration, or runtime info - README is 70 bytes",
+    "~106 GB is notably smaller than other NVFP4 builds (133-186 GB) - likely PLE/other tensors quantized more aggressively, undocumented",
+    "HF usedStorage (220 GB) ~2x file total, suggesting re-uploaded history"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/local-inference-lab/Qwen3.8-Flash-Next-NVFP4/raw/main/README.md",
+    "https://huggingface.co/api/models/local-inference-lab/Qwen3.8-Flash-Next-NVFP4?blobs=true"
+   ],
+   "baseline_numbers": {},
+   "variants": [
+    {
+     "name": "NVFP4",
+     "size_gb": 105.94,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "size from HF API sum of file sizes (105,935,744,089 bytes); not stated on card",
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "mlx-community/Qwen3.8-Flash-Next-4bit",
+   "url": "https://huggingface.co/mlx-community/Qwen3.8-Flash-Next-4bit",
+   "format": "MLX",
+   "runtime": "MLX (mlx-vlm main post-#2032, commit d1bd74ed)",
+   "weights_modified": false,
+   "method": "mlx-vlm convert, affine 4-bit, group size 32 (needed for PLE n-gram embedding dims)",
+   "imatrix_or_calib_data": null,
+   "methodology": {
+    "reference": "BF16 (structural checks only)",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "own script (conversion integrity checks)"
+   },
+   "headline_claims": [
+    "Conversion verified: 131/131 source shards byte-exact, 148/148 norm tensors bit-identical, norm gain center +0.2216 matches source",
+    "Coherent output at temperature 0"
+   ],
+   "red_flags": [
+    "no quality claims (only conversion-integrity checks)",
+    "size computed from HF API blobs (111,546,653,418 bytes total), not stated on card"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/mlx-community/Qwen3.8-Flash-Next-4bit/raw/main/README.md",
+    "https://huggingface.co/api/models/mlx-community/Qwen3.8-Flash-Next-4bit?blobs=true"
+   ],
+   "baseline_numbers": {},
+   "variants": [
+    {
+     "name": "4bit-g32",
+     "size_gb": 111.55,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "mradermacher/Qwen3.8-Flash-Next-i1-GGUF",
+   "url": "https://huggingface.co/mradermacher/Qwen3.8-Flash-Next-i1-GGUF",
+   "format": "GGUF",
+   "runtime": "llama.cpp mainline",
+   "weights_modified": false,
+   "method": "Weighted/imatrix quants (standard llama.cpp types); multi-part files need concatenation (partNofM)",
+   "imatrix_or_calib_data": "imatrix file published (Qwen3.8-Flash-Next.imatrix.gguf); calibration data not stated",
+   "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+   },
+   "headline_claims": [
+    "Generic: IQ-quants often preferable to similar-size non-IQ quants (links ikawrakow graph / Artefact2 gist, not model-specific)"
+   ],
+   "red_flags": [
+    "no quality claims",
+    "Card table lists only imatrix + i1-Q2_K (card still being populated); 14 quants exist per API - sizes computed from API",
+    "Card recommends IQ3_XXS but no IQ3_XXS file exists in repo"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/mradermacher/Qwen3.8-Flash-Next-i1-GGUF/raw/main/README.md",
+    "https://huggingface.co/api/models/mradermacher/Qwen3.8-Flash-Next-i1-GGUF?blobs=true"
+   ],
+   "baseline_numbers": {},
+   "variants": [
+    {
+     "name": "i1-IQ3_M",
+     "size_gb": 89.54,
+     "size_unit": "GB (computed from API blob sizes)",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "i1-IQ3_S",
+     "size_gb": 88.88,
+     "size_unit": "GB (computed from API blob sizes)",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "i1-IQ4_XS",
+     "size_gb": 97.47,
+     "size_unit": "GB (computed from API blob sizes)",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "i1-Q2_K",
+     "size_gb": 80.45,
+     "size_unit": "GB (computed from API blob sizes)",
+     "bpw": null,
+     "qualitative": "card: 80.5 GB, 'IQ3_XXS probably better'",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "i1-Q3_K_L",
+     "size_gb": 96.66,
+     "size_unit": "GB (computed from API blob sizes)",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "i1-Q3_K_M",
+     "size_gb": 94.14,
+     "size_unit": "GB (computed from API blob sizes)",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "i1-Q3_K_S",
+     "size_gb": 88.76,
+     "size_unit": "GB (computed from API blob sizes)",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "i1-Q4_0",
+     "size_gb": 100.28,
+     "size_unit": "GB (computed from API blob sizes)",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "i1-Q4_1",
+     "size_gb": 110.97,
+     "size_unit": "GB (computed from API blob sizes)",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "i1-Q4_K_M",
+     "size_gb": 119.15,
+     "size_unit": "GB (computed from API blob sizes)",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "i1-Q4_K_S",
+     "size_gb": 111.77,
+     "size_unit": "GB (computed from API blob sizes)",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "i1-Q5_K_M",
+     "size_gb": 134.11,
+     "size_unit": "GB (computed from API blob sizes)",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "i1-Q5_K_S",
+     "size_gb": 127.73,
+     "size_unit": "GB (computed from API blob sizes)",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "i1-Q6_K",
+     "size_gb": 167.64,
+     "size_unit": "GB (computed from API blob sizes)",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "mudler/Qwen3.8-Flash-Next-APEX-GGUF",
+   "url": "https://huggingface.co/mudler/Qwen3.8-Flash-Next-APEX-GGUF",
+   "format": "GGUF",
+   "runtime": "llama.cpp mainline (recent build with qwen4exp support)",
+   "weights_modified": false,
+   "method": "APEX tiered per-tensor allocation: more bits to first/last FFN layers, ffn_up one step above ffn_gate, attention/output/shared-expert/hyper-connection high precision, per_layer_token_embd IQ4_NL",
+   "imatrix_or_calib_data": "Own imatrix on BF16 at 4096 ctx; mixed chat, code, reasoning, tool calling, agentic traces, Wikipedia (not published); per_layer_token_embd gets no imatrix coverage",
+   "methodology": {
+    "reference": "BF16",
+    "eval_dataset": "same corpus as imatrix (NOT held-out), 6 chunks",
+    "ctx": 4096,
+    "n_tokens": 24576,
+    "tool": "not stated"
+   },
+   "headline_claims": [
+    "~4.5x compression vs ~354 GB BF16",
+    "per_layer_token_embd IQ4_NL vs Q8_0: saves 25.6 GB for KLD 0.0324, +0.71% PPL, 6% top-1 loss (100 chunks held-out WikiText-2)",
+    "Edge FFN layers 2.63x more sensitive per byte than middle (measured on Qwen3.8-27B)"
+   ],
+   "red_flags": [
+    "PPL evaluated on calibration corpus (not held-out) \u2014 publisher admits it flatters results; only 6 chunks",
+    "PPL error bars (\u00b10.085/0.093) larger than Mini's delta vs BF16",
+    "ppl_ratio computed from stated +2.9% / +8.2%",
+    "Sensitivity numbers borrowed from a different model (Qwen3.8-27B)",
+    "No throughput measured; no bpw per tier; tool not named"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/mudler/Qwen3.8-Flash-Next-APEX-GGUF/raw/main/README.md"
+   ],
+   "baseline_numbers": {
+    "BF16_ppl": 4.3113
+   },
+   "variants": [
+    {
+     "name": "APEX-I-Nano",
+     "size_gb": 73.0,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "VRAM 43.9 + RAM 29.1 GB; ~45% at ~1.6 bpw",
+     "metrics": [
+      {
+       "key": "ppl",
+       "value": 4.6659,
+       "err": null,
+       "unit": null,
+       "raw": 4.6659
+      },
+      {
+       "key": "ppl_ratio",
+       "value": 1.082,
+       "err": null,
+       "unit": null,
+       "raw": 1.082
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "APEX-I-Mini",
+     "size_gb": 78.7,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "VRAM 49.6 + RAM 29.1 GB",
+     "metrics": [
+      {
+       "key": "ppl",
+       "value": 4.4354,
+       "err": null,
+       "unit": null,
+       "raw": 4.4354
+      },
+      {
+       "key": "ppl_ratio",
+       "value": 1.029,
+       "err": null,
+       "unit": null,
+       "raw": 1.029
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "APEX-I-Compact",
+     "size_gb": 85.1,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "VRAM 55.9 + RAM 29.1 GB; no quality numbers",
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "nvidia/Qwen3.8-Flash-Next-NVFP4",
+   "url": "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-NVFP4",
+   "format": "NVFP4",
+   "runtime": "vLLM (commit d4d703c+; MTP needs unmerged vLLM PR #55513); tested B200/B300",
+   "weights_modified": false,
+   "method": "NVIDIA Model Optimizer v0.46.0 PTQ, mixed: routed MoE experts W4A4 NVFP4 with MSE-calibrated weight scales; attention/shared experts/other layers BF16; MTP routed experts 128x128 block FP8; PLE n-gram embedding per-tensor FP8; no fine-tuning",
+   "imatrix_or_calib_data": "cnn_dailymail + nvidia/Nemotron-Post-Training-Dataset-v2 (multi-turn); sample count not stated",
+   "methodology": {
+    "reference": "FP8 (Qwen/Qwen3.8-Flash-Next-FP8)",
+    "eval_dataset": "GPQA Diamond, HLE, tau2-Bench Telecom, MMMU Pro, SciCode, AA-LCR, IFBench, Omniscience, Terminal-Bench 2.1; temp 1.0, top_p 0.95, max_new_tokens 131072, reasoning_effort xhigh",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+   },
+   "headline_claims": [
+    "NVFP4 scores close to the FP8 baseline across 9 agentic/reasoning benches, above FP8 on 5 of 9",
+    "~2.7x smaller than BF16 (~63% disk reduction)",
+    "ready for commercial use"
+   ],
+   "red_flags": [
+    "reference is FP8, not BF16",
+    "single run per bench at temp 1.0, no variance/repeat count stated; several NVFP4 > FP8 gaps (SciCode +2.5, AA-LCR +2.2) are likely noise",
+    "no KLD/PPL/top-1 fidelity metrics",
+    "MTP speculative decoding depends on an unmerged vLLM PR",
+    "card's '2.7x smaller' vs 360 GB BF16 implies ~133 GB, consistent with API size"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/nvidia/Qwen3.8-Flash-Next-NVFP4/raw/main/README.md",
+    "https://huggingface.co/api/models/nvidia/Qwen3.8-Flash-Next-NVFP4?blobs=true"
+   ],
+   "baseline_numbers": {
+    "FP8": {
+     "GPQA Diamond": 92.0,
+     "HLE": 34.7,
+     "tau2-Bench Telecom": 90.8,
+     "MMMU Pro": 77.1,
+     "SciCode": 16.3,
+     "AA-LCR": 71.9,
+     "IFBench": 80.5,
+     "Omniscience": 28.1,
+     "Terminal-Bench 2.1": 83.3
+    }
+   },
+   "variants": [
+    {
+     "name": "NVFP4",
+     "size_gb": 132.73,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "size_gb from HF API sum of file sizes (132,734,506,847 bytes); card states only '~2.7x smaller than BF16, ~63% disk reduction'",
+     "metrics": [
+      {
+       "key": "bench:GPQA Diamond",
+       "value": 91.5,
+       "err": null,
+       "unit": null,
+       "raw": 91.5
+      },
+      {
+       "key": "bench:HLE",
+       "value": 35.4,
+       "err": null,
+       "unit": null,
+       "raw": 35.4
+      },
+      {
+       "key": "bench:tau2-Bench Telecom",
+       "value": 90.1,
+       "err": null,
+       "unit": null,
+       "raw": 90.1
+      },
+      {
+       "key": "bench:MMMU Pro",
+       "value": 78.3,
+       "err": null,
+       "unit": null,
+       "raw": 78.3
+      },
+      {
+       "key": "bench:SciCode",
+       "value": 18.8,
+       "err": null,
+       "unit": null,
+       "raw": 18.8
+      },
+      {
+       "key": "bench:AA-LCR",
+       "value": 74.1,
+       "err": null,
+       "unit": null,
+       "raw": 74.1
+      },
+      {
+       "key": "bench:IFBench",
+       "value": 81.0,
+       "err": null,
+       "unit": null,
+       "raw": 81.0
+      },
+      {
+       "key": "bench:Omniscience",
+       "value": 27.6,
+       "err": null,
+       "unit": null,
+       "raw": 27.6
+      },
+      {
+       "key": "bench:Terminal-Bench 2.1",
+       "value": 82.9,
+       "err": null,
+       "unit": null,
+       "raw": 82.9
+      }
+     ],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "pentacoxian-dev/Qwen3.8-Flash-Next-IQ3E-Q8D-MTP-GGUF",
+   "url": "https://huggingface.co/pentacoxian-dev/Qwen3.8-Flash-Next-IQ3E-Q8D-MTP-GGUF",
+   "format": "GGUF",
+   "runtime": "llama.cpp fork: patched llama.cpp v0.5.0 (llama-v0.5.0-v100-v3.patch), targets V100 sm_70 CUDA 12; stock llama.cpp/Ollama/LM Studio cannot load",
+   "weights_modified": false,
+   "method": "Recombination of unsloth GGUFs: routed experts UD-IQ3_XXS, dense tensors Q8_0 (from unsloth UD-IQ4_XS), PLE table UD-IQ3_XXS; MTP head from original Qwen checkpoint at Q8_0; draft-only LM head Q4_0, target head Q6_K",
+   "imatrix_or_calib_data": null,
+   "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": 4096,
+    "n_tokens": null,
+    "tool": "not stated (llama-server/llama-bench used for perf)"
+   },
+   "headline_claims": [
+    "~122 tok/s decode on 2x V100 32GB at 256K ctx with MTP (3 drafts); ~113 tok/s at 250K KV fill",
+    "vs stock UD-IQ4_XS with CPU offload, no MTP: 30.2 tok/s (different host)",
+    "3-case API smoke test passed with MTP"
+   ],
+   "red_flags": [
+    "PPL given with no reference model PPL and unnamed eval set \u2014 not comparable to anyone else's PPL",
+    "No KLD/top-1/benchmarks",
+    "Imatrix/calibration not stated (inherited from unsloth)",
+    "Requires custom patched fork; patches v4/v5 withdrawn",
+    "ppl field holds lowest of stated range 2.8506\u20132.8520"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/pentacoxian-dev/Qwen3.8-Flash-Next-IQ3E-Q8D-MTP-GGUF/raw/main/README.md"
+   ],
+   "baseline_numbers": {},
+   "variants": [
+    {
+     "name": "IQ3E-Q8D-MTP",
+     "size_gb": 80,
+     "size_unit": "GiB",
+     "bpw": null,
+     "qualitative": "single file 85,923,705,344 bytes; PPL range for tensor-split v3 2.8506\u20132.8520; layer split 2.8525; v2 tensor split 2.8608 (race bug)",
+     "metrics": [
+      {
+       "key": "ppl",
+       "value": 2.8506,
+       "err": null,
+       "unit": null,
+       "raw": 2.8506
+      }
+     ],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "pfeifferj/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+   "url": "https://huggingface.co/pfeifferj/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+   "format": "GGUF",
+   "runtime": "llama.cpp fork/pinned: card says commit f3f1a8f (CUDA); eval used commit de25343596a2 + native-f32-mmf.patch",
+   "weights_modified": false,
+   "method": "Independent community reproduction of GSQ+RCO (per-tensor type allocation under exact size budget), 3.5-bit target (3.065 file bpw); not an IST-DASLab release. Embedding shard separate: BF16 or Q4_0 n-gram/Q8_0 token embeddings - the Q4_0/Q8_0 option copies packed tensors from an existing quantized release without requantizing.",
+   "imatrix_or_calib_data": null,
+   "methodology": {
+    "reference": "BF16 (source revision de4b8e4d...)",
+    "eval_dataset": "PPL: unnamed text; MMLU-Pro 2,000 q zero-shot no-reasoning 2,048-token cap; IFEval 16 prompts; GSM8K 8 prompts",
+    "ctx": 1024,
+    "n_tokens": 4088,
+    "tool": "own scripts; 'approx KL' from native uint16 reference cache (formula not given)"
+   },
+   "headline_claims": [
+    "3.5-bit GSQ-RCO quant beats BF16 on MMLU-Pro by +2.85 pp (McNemar p=0.0048)",
+    "PPL +1.72% vs BF16; fits two 24 GB GPUs with embeddings on CPU via mmap"
+   ],
+   "red_flags": [
+    "Quant significantly beating BF16 on MMLU-Pro (no-reasoning, 2,048-token cap) suggests harness artifact (truncation/format), not real gain",
+    "PPL/KL on only 4,088 tokens (8 x 1024 ctx), dataset unnamed; 'approx KL' method undocumented - not comparable to llama-perplexity KLD",
+    "IFEval (16) and GSM8K (8) samples are tiny",
+    "Runtime commit on card (f3f1a8f) differs from eval commit (de25343 + patch)",
+    "Q4_0 embedding shard copied from another (unnamed) quantized release",
+    "Not an official DASLab release; same method name as ISTA-DASLab repo but different artifacts/bit-width"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/pfeifferj/Qwen3.8-Flash-Next-GSQ-RCO-GGUF/raw/main/README.md",
+    "https://huggingface.co/pfeifferj/Qwen3.8-Flash-Next-GSQ-RCO-GGUF/raw/main/eval/2026-09-13/README.md"
+   ],
+   "baseline_numbers": {
+    "BF16": {
+     "ppl": 3.0533,
+     "MMLU-Pro": 55.4,
+     "MMLU-Pro correct": "1108/2000",
+     "IFEval strict": "13/16",
+     "IFEval completed correct": "13/16",
+     "GSM8K completed correct": "8/8"
+    }
+   },
+   "variants": [
+    {
+     "name": "GSQ-RCO-3.5bit + Q4_0 embeddings",
+     "size_gb": 77.43,
+     "size_unit": "GB (sum of 47.94 + 29.49 as listed)",
+     "bpw": 3.065,
+     "qualitative": "main weights 47.94 GB require an embedding shard",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.111225,
+       "err": null,
+       "unit": null,
+       "raw": 0.111225
+      },
+      {
+       "key": "ppl",
+       "value": 3.1058,
+       "err": null,
+       "unit": null,
+       "raw": 3.1058
+      },
+      {
+       "key": "bench:MMLU-Pro",
+       "value": 58.25,
+       "err": null,
+       "unit": null,
+       "raw": 58.25
+      }
+     ],
+     "metric_notes": [
+      "bench:MMLU-Pro correct=1165/2000",
+      "bench:IFEval strict=13/16",
+      "bench:IFEval completed correct=12/16",
+      "bench:GSM8K completed correct=8/8"
+     ]
+    },
+    {
+     "name": "GSQ-RCO-3.5bit + BF16 embeddings",
+     "size_gb": 151.62,
+     "size_unit": "GB (sum of 47.94 + 103.68)",
+     "bpw": null,
+     "qualitative": "same main weights with BF16 embedding shard",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "mmproj-BF16",
+     "size_gb": 0.91,
+     "size_unit": "GB",
+     "bpw": 16.173,
+     "qualitative": "Vision encoder + projector",
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "primitive-ai/Qwen3.8-Flash-Next-NVFP4",
+   "url": "https://huggingface.co/primitive-ai/Qwen3.8-Flash-Next-NVFP4",
+   "format": "NVFP4",
+   "runtime": "vLLM stock image vllm/vllm-openai:qwen38-flash-next (no patches), VLLM_PLE_CPU_OFFLOAD=1; 1x RTX PRO 6000 96 GB",
+   "weights_modified": false,
+   "method": "weights-only round-to-nearest, no calibration; routed experts (120.8B params) NVFP4 group 16; n-gram table BF16 pre-scaled from FP8 release values; everything else BF16 byte-identical to source",
+   "imatrix_or_calib_data": null,
+   "methodology": {
+    "reference": "not stated (no BF16/FP8 column on same suite)",
+    "eval_dataset": "own 1,370-item suite: 1,170-item 9-benchmark knowledge set (85.4%) + tool-calling (14.6%); includes GSM8K, MMLU-Pro subsets",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "own script / harness (not named)"
+   },
+   "headline_claims": [
+    "92.2 knowledge on 1,170-item 9-benchmark suite",
+    "GSM8K 98.0, MMLU-Pro 90.0",
+    "74.4 tok/s single-stream, 483.8 tok/s at concurrency 32",
+    "only listed Flash-Next quant that fits one 96 GB GPU on stock vLLM",
+    "MTP preserved (31 tensors byte-identical); MTP n=3 gives +56% decode",
+    "quantized PLE tables keep knowledge 92.2/92.9"
+   ],
+   "red_flags": [
+    "no BF16/FP8 reference on the same suite - cannot quantify degradation",
+    "own unpublished eval suite, not comparable to other cards",
+    "card's comparison table lists two disagreeing Flash-Next rows (185.8 vs 183.7 GB, call 85.0 vs 84.8) without explanation; mixed sibling card lists this build as 186.4 GB",
+    "RTN with no calibration",
+    "MTP/disk-offload tables measured on the mixed sibling, not this repo"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/primitive-ai/Qwen3.8-Flash-Next-NVFP4/raw/main/README.md"
+   ],
+   "baseline_numbers": {
+    "BF16 size_gb": 360,
+    "FP8 size_gb": 185
+   },
+   "variants": [
+    {
+     "name": "NVFP4 (RTN)",
+     "size_gb": 186,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "fits one 96 GB GPU (88.8 GiB VRAM + ~100 GB host RAM for n-gram table); knowledge runs 92.1 and 92.2",
+     "metrics": [
+      {
+       "key": "bench:own suite overall",
+       "value": 90.2,
+       "err": null,
+       "unit": null,
+       "raw": 90.2
+      },
+      {
+       "key": "bench:own suite knowledge",
+       "value": 92.2,
+       "err": null,
+       "unit": null,
+       "raw": 92.2
+      },
+      {
+       "key": "bench:tool call accuracy",
+       "value": 84.6,
+       "err": null,
+       "unit": null,
+       "raw": 84.6
+      },
+      {
+       "key": "bench:tool abstain",
+       "value": 56.7,
+       "err": null,
+       "unit": null,
+       "raw": 56.7
+      },
+      {
+       "key": "bench:GSM8K",
+       "value": 98.0,
+       "err": null,
+       "unit": null,
+       "raw": 98.0
+      },
+      {
+       "key": "bench:MMLU-Pro",
+       "value": 90.0,
+       "err": null,
+       "unit": null,
+       "raw": 90.0
+      },
+      {
+       "key": "bench:finished %",
+       "value": 99.4,
+       "err": null,
+       "unit": null,
+       "raw": 99.4
+      },
+      {
+       "key": "bench:tok/s @1",
+       "value": 74.4,
+       "err": null,
+       "unit": null,
+       "raw": 74.4
+      },
+      {
+       "key": "bench:tok/s @32",
+       "value": 483.8,
+       "err": null,
+       "unit": null,
+       "raw": 483.8
+      }
+     ],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "primitive-ai/Qwen3.8-Flash-Next-mixed-NVFP4-FP8",
+   "url": "https://huggingface.co/primitive-ai/Qwen3.8-Flash-Next-mixed-NVFP4-FP8",
+   "format": "NVFP4",
+   "runtime": "vLLM stock image vllm/vllm-openai:qwen38-flash-next, compressed-tensors, VLLM_GDN_DECODE_KERNEL=triton; 1x 96 GB Blackwell + ~100 GB host RAM",
+   "weights_modified": false,
+   "method": "weights-only RTN, no calibration; routed experts NVFP4 group 16; QSA q/k/v/o and GDN in_proj_qkv/in_proj_z/out_proj FP8 E4M3 per-channel (GDN added in v2); n-gram table, MTP, vision, embeddings, lm_head, shared experts, routers, norms, indexers BF16",
+   "imatrix_or_calib_data": null,
+   "methodology": {
+    "reference": "not stated (compares only against own sibling builds)",
+    "eval_dataset": "own 1,370-item knowledge + tool-calling suite",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "own script / harness (not named)"
+   },
+   "headline_claims": [
+    "~13% faster single-stream than plain NVFP4 build at same accuracy",
+    "three builds statistically tied on accuracy",
+    "runs on one 96 GB GPU with stock vLLM",
+    "MTP preserved: ~142.6 tok/s with 3 spec tokens vs 91.2 without",
+    "quantized PLE tables (49/32/28.8 GB) within noise",
+    "vs four other public 4-bit quants on same hardware: 81.6-84.4 tok/s single-stream, tool-calling 76.0-80.5 (as summarized by fetch)"
+   ],
+   "red_flags": [
+    "no BF16/FP8 reference on same suite",
+    "own unpublished eval suite",
+    "RTN, no calibration",
+    "tool-calling 76.0-80.5 range in comparison section conflicts with 84.8 headline - context (disk-backed/other config) unclear from fetch"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/primitive-ai/Qwen3.8-Flash-Next-mixed-NVFP4-FP8/raw/main/README.md"
+   ],
+   "baseline_numbers": {},
+   "variants": [
+    {
+     "name": "mixed NVFP4-FP8 v2 (this repo)",
+     "size_gb": 183.7,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "current build",
+     "metrics": [
+      {
+       "key": "bench:own suite overall",
+       "value": 90.3,
+       "err": null,
+       "unit": null,
+       "raw": 90.3
+      },
+      {
+       "key": "bench:own suite knowledge",
+       "value": 92.2,
+       "err": null,
+       "unit": null,
+       "raw": 92.2
+      },
+      {
+       "key": "bench:tool call accuracy",
+       "value": 84.8,
+       "err": null,
+       "unit": null,
+       "raw": 84.8
+      },
+      {
+       "key": "bench:tool abstain",
+       "value": 56.7,
+       "err": null,
+       "unit": null,
+       "raw": 56.7
+      },
+      {
+       "key": "bench:tok/s @32",
+       "value": 526.0,
+       "err": null,
+       "unit": null,
+       "raw": 526.0
+      },
+      {
+       "key": "bench:tok/s @1",
+       "value": 84.4,
+       "err": null,
+       "unit": null,
+       "raw": 84.4
+      },
+      {
+       "key": "bench:MTP n=3 decode tok/s",
+       "value": 142.6,
+       "err": null,
+       "unit": null,
+       "raw": 142.6
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "v1 (QSA-only FP8)",
+     "size_gb": 185.8,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "previous version",
+     "metrics": [
+      {
+       "key": "bench:own suite overall",
+       "value": 90.3,
+       "err": null,
+       "unit": null,
+       "raw": 90.3
+      },
+      {
+       "key": "bench:own suite knowledge",
+       "value": 92.2,
+       "err": null,
+       "unit": null,
+       "raw": 92.2
+      },
+      {
+       "key": "bench:tool call accuracy",
+       "value": 85.0,
+       "err": null,
+       "unit": null,
+       "raw": 85.0
+      },
+      {
+       "key": "bench:tool abstain",
+       "value": 56.7,
+       "err": null,
+       "unit": null,
+       "raw": 56.7
+      },
+      {
+       "key": "bench:tok/s @32",
+       "value": 491.8,
+       "err": null,
+       "unit": null,
+       "raw": 491.8
+      },
+      {
+       "key": "bench:tok/s @1",
+       "value": 76.4,
+       "err": null,
+       "unit": null,
+       "raw": 76.4
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "plain NVFP4 (sibling repo)",
+     "size_gb": 186.4,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "sibling primitive-ai/Qwen3.8-Flash-Next-NVFP4",
+     "metrics": [
+      {
+       "key": "bench:own suite overall",
+       "value": 90.2,
+       "err": null,
+       "unit": null,
+       "raw": 90.2
+      },
+      {
+       "key": "bench:own suite knowledge",
+       "value": 92.2,
+       "err": null,
+       "unit": null,
+       "raw": 92.2
+      },
+      {
+       "key": "bench:tool call accuracy",
+       "value": 84.6,
+       "err": null,
+       "unit": null,
+       "raw": 84.6
+      },
+      {
+       "key": "bench:tool abstain",
+       "value": 56.7,
+       "err": null,
+       "unit": null,
+       "raw": 56.7
+      },
+      {
+       "key": "bench:tok/s @32",
+       "value": 483.8,
+       "err": null,
+       "unit": null,
+       "raw": 483.8
+      },
+      {
+       "key": "bench:tok/s @1",
+       "value": 74.4,
+       "err": null,
+       "unit": null,
+       "raw": 74.4
+      }
+     ],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "sh0wie/Qwen3.8-Flash-Next-REAP-288-GGUF",
+   "url": "https://huggingface.co/sh0wie/Qwen3.8-Flash-Next-REAP-288-GGUF",
+   "format": "GGUF",
+   "runtime": "llama.cpp mainline (llama-server/llama-cli, Ollama)",
+   "weights_modified": true,
+   "method": "REAP expert pruning 512->288 experts/layer, then single-step GGUF quant from pruned bf16",
+   "imatrix_or_calib_data": "REAP pruning calibrated on ~686K tokens of agentic-coding traffic (one team); GGUF imatrix not stated",
+   "methodology": {
+    "reference": "unpruned model (measured on MLX 4-bit lineage)",
+    "eval_dataset": "HumanEval (164)",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated (single run, no CIs)"
+   },
+   "headline_claims": [
+    "Pruned model 91.5% HumanEval (149/164) vs 93.9% unpruned",
+    "Single-step quantization from bf16"
+   ],
+   "red_flags": [
+    "weights modified (REAP-pruned) - not a faithful quant",
+    "HumanEval measured on MLX 4-bit, not the GGUF files",
+    "single-run, no CIs; code-only calibration may degrade other domains",
+    "vision untested after pruning",
+    "no KLD/PPL"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/sh0wie/Qwen3.8-Flash-Next-REAP-288-GGUF/raw/main/README.md"
+   ],
+   "baseline_numbers": {
+    "HumanEval_pct_unpruned": 93.9
+   },
+   "variants": [
+    {
+     "name": "Q4_K_M",
+     "size_gb": 78,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "good default: smallest and fastest, strong quality",
+     "metrics": [
+      {
+       "key": "bench:HumanEval_pct",
+       "value": 91.5,
+       "err": null,
+       "unit": null,
+       "raw": 91.5
+      }
+     ],
+     "metric_notes": [
+      "bench:note=measured on MLX 4-bit lineage, not this GGUF"
+     ]
+    },
+    {
+     "name": "Q5_K_M",
+     "size_gb": 87,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "higher fidelity, more memory",
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "Q8_0",
+     "size_gb": 116,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "near-lossless, largest",
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "tcclaviger/Qwen3.8-Flash-Next-MXFP4-FP8-GPTQ",
+   "url": "https://huggingface.co/tcclaviger/Qwen3.8-Flash-Next-MXFP4-FP8-GPTQ",
+   "format": "MXFP4",
+   "runtime": "vLLM fork image tcclaviger/vllm:latest only; AMD AI PRO R9700 only (TP4 or TP2 with expert offload)",
+   "weights_modified": false,
+   "method": "mixed: experts (incl. shared) activation-aware MXFP4 with GPTQ error feedback (AA2: re-quantized from BF16, full-row GPTQ, damping 0.01, static floor/ceil scale snap; <256-token experts fall back to plain scales); attention FP8; MTP FP8; PLE n-gram int6 with fp16 group-32 scales; FP8 KV cache with 36 calibrated scales",
+   "imatrix_or_calib_data": "~2M tokens, 27 domains (code, math, reasoning, tools, dialogue, multilingual, long books, safety...), 232 x 8192-token sequences; validation: frozen 994-prompt 27-domain set, disjoint",
+   "methodology": {
+    "reference": "BF16 (AA2 validation); first-build PPL/KLD table reference not stated",
+    "eval_dataset": "own frozen 994-prompt 27-domain validation set",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "own script"
+   },
+   "headline_claims": [
+    "mean KL 0.055, 95.2% top-1 vs BF16, better than static MXFP4",
+    "int6 n-gram table has 18% lower error than FP8 (rel. L2 0.0218 vs 0.0267) in 19% smaller table (41.6 vs 51.3 GB)",
+    "100 tok/s single / 323 tok/s @16 on 2xR9700"
+   ],
+   "red_flags": [
+    "first-build and AA2 tables contradict: first build reported as KLD 0.0549 / 95.17% in one table and 0.086 / 93.0% in the other, while AA2 is 0.055 / 95.2% (near-identical to first-build numbers)",
+    "own eval set, n_tokens not stated",
+    "runs only on custom vLLM image + AMD R9700",
+    "base-model benchmark tables copied from Qwen card"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/tcclaviger/Qwen3.8-Flash-Next-MXFP4-FP8-GPTQ/raw/main/README.md"
+   ],
+   "baseline_numbers": {
+    "Qwen3.8-Flash-Next (base, as published)": {
+     "DeepSWE 1.1": 58.7,
+     "SWE-bench Pro": 62.5,
+     "SWE-bench Multilingual": 81.0,
+     "NL2Repo-Bench": 48.1,
+     "CoWorkBench": 73.9,
+     "JobBench": 55.7,
+     "Agents' Last Exam (Pass@1 / Score)": "24.3 / 51.2",
+     "Toolathlon Verified (Pass@1)": 73.5,
+     "IFBench": 81.3,
+     "GPQA Diamond": 91.7,
+     "HLE": 35.9,
+     "LiveCodeBench v6": 91.9,
+     "ClawEval-MM (Pass@3 / Average)": "64.4 / 60.4",
+     "RecreationBench": 49.9,
+     "AndroidWorld": 84.5,
+     "OSWorld 2.0 (Binary / Partial)": "19.4 / 52.3",
+     "Vision2Web": 64.0,
+     "ERQA": 72.3,
+     "LVBench": 76.6,
+     "RealWorldQA": 88.5,
+     "MathVision (without CI / with CI)": "90.6 / 95.7",
+     "CharXiv RQ (without CI / with CI)": "84.6 / 90.6"
+    }
+   },
+   "variants": [
+    {
+     "name": "AA2 (current)",
+     "size_gb": 116,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": "current build",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.055,
+       "err": null,
+       "unit": null,
+       "raw": 0.055
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 95.2,
+       "err": null,
+       "unit": null,
+       "raw": 95.2
+      },
+      {
+       "key": "bench:decode tok/s single (2xR9700)",
+       "value": 100.0,
+       "err": null,
+       "unit": null,
+       "raw": 100
+      },
+      {
+       "key": "bench:aggregate tok/s @16",
+       "value": 323.0,
+       "err": null,
+       "unit": null,
+       "raw": 323
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "first AA build",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": null,
+     "qualitative": "quality table; same table in AA2 validation lists first AA build as KL 0.086 / top-1 93.0%",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.0549,
+       "err": null,
+       "unit": null,
+       "raw": 0.0549
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 95.17,
+       "err": null,
+       "unit": null,
+       "raw": 95.17
+      },
+      {
+       "key": "ppl",
+       "value": 4.552,
+       "err": null,
+       "unit": null,
+       "raw": 4.552
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "old static MXFP4",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": null,
+     "qualitative": "comparison; AA2 validation lists 0.064 / 93.3%",
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.0638,
+       "err": null,
+       "unit": null,
+       "raw": 0.0638
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 93.26,
+       "err": null,
+       "unit": null,
+       "raw": 93.26
+      },
+      {
+       "key": "ppl",
+       "value": 4.603,
+       "err": null,
+       "unit": null,
+       "raw": 4.603
+      }
+     ],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "turboderp/Qwen3.8-Flash-Next-exl3",
+   "url": "https://huggingface.co/turboderp/Qwen3.8-Flash-Next-exl3",
+   "format": "EXL3",
+   "runtime": "exllamav3 (v1.4.5 or dev branch)",
+   "weights_modified": false,
+   "method": "EXL3 trellis quants on branches 2.05bpw_h4_ng4 .. 6.05bpw_h6_ng6 (h=head bits, ng=n-gram table bits); card says self-calibrated quants to follow",
+   "imatrix_or_calib_data": null,
+   "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+   },
+   "headline_claims": [
+    "Five EXL3 bitrates 2.05-6.05 bpw",
+    "Self-calibrated quants and more benchmarks to follow"
+   ],
+   "red_flags": [
+    "no quality claims in text: KLD/perplexity/KLD-histogram charts are embedded as images only, numbers not extractable",
+    "no methodology (reference, dataset, ctx) stated",
+    "main branch holds no weights; per-variant sizes not stated (repo usedStorage 439,487,914,128 bytes across all branches)"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/turboderp/Qwen3.8-Flash-Next-exl3/raw/main/README.md",
+    "https://huggingface.co/api/models/turboderp/Qwen3.8-Flash-Next-exl3?blobs=true"
+   ],
+   "baseline_numbers": {},
+   "variants": [
+    {
+     "name": "2.05bpw_h4_ng4",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": 2.05,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "3.05bpw_h5_ng5",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": 3.05,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "4.05bpw_h6_ng6",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": 4.05,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "5.05bpw_h6_ng6",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": 5.05,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    },
+    {
+     "name": "6.05bpw_h6_ng6",
+     "size_gb": null,
+     "size_unit": "not stated",
+     "bpw": 6.05,
+     "qualitative": null,
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  },
+  {
+   "repo": "unsloth/Qwen3.8-Flash-Next-GGUF",
+   "url": "https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF",
+   "format": "GGUF",
+   "runtime": "llama.cpp mainline (or Unsloth Desktop); MTP GGUFs in MTP/ folder",
+   "weights_modified": false,
+   "method": "Unsloth Dynamic (UD) per-layer mixed quant with imatrix; docs link Dynamic 3.0 (better imatrix calibration set, improved layer selection; MTP removed below UD-Q2_K_XL). 1-bit uses 4-bit for Ngram/PLE layers. Version actually used for this repo not stated on card.",
+   "imatrix_or_calib_data": "Unsloth proprietary calibration set ('diverse sources', agentic coding/chat/multilingual); imatrix_unsloth.gguf_file published",
+   "methodology": {
+    "reference": "not stated (Dynamic 3.0 page uses BF16 only for its separate Divergence-300 test)",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+   },
+   "headline_claims": [
+    "1-bit quant is 75GB, 79% smaller than BF16 (355GB) while keeping ~80% top-1 accuracy",
+    "UD-Q4_K_XL 111.3 GB at mean KLD 0.0469 / 92.3% top-1",
+    "MTP gives 1.3-1.7x faster inference (~170 vs 100 tok/s on one RTX 6000 PRO)"
+   ],
+   "red_flags": [
+    "KLD methodology (reference, dataset, ctx, tokens, tool) not documented on card, model docs page, or Dynamic 3.0 article",
+    "Dynamic 3.0 article does not mention Qwen3.8-Flash-Next; card doesn't say which UD version was used",
+    "Q8_0 top-1 only 94.1% and mean KLD 0.0266 - high floor for Q8_0, suggests reference/eval setup that limits comparability (or non-BF16 reference / nondeterminism)",
+    "Headline '75GB 1-bit' vs table UD-IQ1_S 72.5 / UD-IQ1_M 74.5 GB (rounding / MTP)",
+    "KLD plots exclude MTP head from disk size",
+    "HF card itself has no quant table; numbers are only on unsloth.ai docs"
+   ],
+   "evidence_urls": [
+    "https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF/raw/main/README.md",
+    "https://unsloth.ai/docs/models/qwen3.8-next",
+    "https://unsloth.ai/docs/basics/dynamic-3.0-ggufs",
+    "https://huggingface.co/api/models/unsloth/Qwen3.8-Flash-Next-GGUF?blobs=true"
+   ],
+   "baseline_numbers": {
+    "BF16_size_gb": 355,
+    "official_bench_copied_on_card": "card reproduces Qwen official benchmark tables (see _base_model.json)"
+   },
+   "variants": [
+    {
+     "name": "UD-IQ1_S",
+     "size_gb": 72.5,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.39607,
+       "err": null,
+       "unit": null,
+       "raw": 0.39607
+      },
+      {
+       "key": "kld_p99_9",
+       "value": 7.2126,
+       "err": null,
+       "unit": null,
+       "raw": 7.2126
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 77.325,
+       "err": null,
+       "unit": null,
+       "raw": 77.325
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "UD-IQ1_M",
+     "size_gb": 74.5,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.314739,
+       "err": null,
+       "unit": null,
+       "raw": 0.314739
+      },
+      {
+       "key": "kld_p99_9",
+       "value": 6.1965,
+       "err": null,
+       "unit": null,
+       "raw": 6.1965
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 79.691,
+       "err": null,
+       "unit": null,
+       "raw": 79.691
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "UD-Q2_K_XL",
+     "size_gb": 78.9,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.224607,
+       "err": null,
+       "unit": null,
+       "raw": 0.224607
+      },
+      {
+       "key": "kld_p99_9",
+       "value": 4.9121,
+       "err": null,
+       "unit": null,
+       "raw": 4.9121
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 82.715,
+       "err": null,
+       "unit": null,
+       "raw": 82.715
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "UD-IQ3_XXS",
+     "size_gb": 82.0,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.16512,
+       "err": null,
+       "unit": null,
+       "raw": 0.16512
+      },
+      {
+       "key": "kld_p99_9",
+       "value": 4.0375,
+       "err": null,
+       "unit": null,
+       "raw": 4.0375
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 85.414,
+       "err": null,
+       "unit": null,
+       "raw": 85.414
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "UD-Q3_K_XL",
+     "size_gb": 90.0,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.106504,
+       "err": null,
+       "unit": null,
+       "raw": 0.106504
+      },
+      {
+       "key": "kld_p99_9",
+       "value": 3.0538,
+       "err": null,
+       "unit": null,
+       "raw": 3.0538
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 88.315,
+       "err": null,
+       "unit": null,
+       "raw": 88.315
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "UD-IQ4_XS",
+     "size_gb": 93.7,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.08363,
+       "err": null,
+       "unit": null,
+       "raw": 0.08363
+      },
+      {
+       "key": "kld_p99_9",
+       "value": 2.3677,
+       "err": null,
+       "unit": null,
+       "raw": 2.3677
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 89.554,
+       "err": null,
+       "unit": null,
+       "raw": 89.554
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "UD-Q4_K_XL",
+     "size_gb": 111.3,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.046893,
+       "err": null,
+       "unit": null,
+       "raw": 0.046893
+      },
+      {
+       "key": "kld_p99_9",
+       "value": 1.5468,
+       "err": null,
+       "unit": null,
+       "raw": 1.5468
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 92.255,
+       "err": null,
+       "unit": null,
+       "raw": 92.255
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "UD-Q5_K_XL",
+     "size_gb": 158.3,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.030415,
+       "err": null,
+       "unit": null,
+       "raw": 0.030415
+      },
+      {
+       "key": "kld_p99_9",
+       "value": 1.0036,
+       "err": null,
+       "unit": null,
+       "raw": 1.0036
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 93.68,
+       "err": null,
+       "unit": null,
+       "raw": 93.68
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "UD-Q6_K_XL",
+     "size_gb": 169.2,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.027091,
+       "err": null,
+       "unit": null,
+       "raw": 0.027091
+      },
+      {
+       "key": "kld_p99_9",
+       "value": 0.8416,
+       "err": null,
+       "unit": null,
+       "raw": 0.8416
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 94.089,
+       "err": null,
+       "unit": null,
+       "raw": 94.089
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "Q8_0",
+     "size_gb": 188.2,
+     "size_unit": "GB",
+     "bpw": null,
+     "qualitative": null,
+     "metrics": [
+      {
+       "key": "mean_kld",
+       "value": 0.026574,
+       "err": null,
+       "unit": null,
+       "raw": 0.026574
+      },
+      {
+       "key": "kld_p99_9",
+       "value": 0.8118,
+       "err": null,
+       "unit": null,
+       "raw": 0.8118
+      },
+      {
+       "key": "top1_agree_pct",
+       "value": 94.122,
+       "err": null,
+       "unit": null,
+       "raw": 94.122
+      }
+     ],
+     "metric_notes": []
+    },
+    {
+     "name": "BF16",
+     "size_gb": 354.03,
+     "size_unit": "GB",
+     "bpw": 16,
+     "qualitative": "files sum 354.03 GB; docs say 355GB",
+     "metrics": [],
+     "metric_notes": []
+    }
+   ]
+  }
+ ]
+}

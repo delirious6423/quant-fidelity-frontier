@@ -1,0 +1,70 @@
+{
+  "repo": "apetersson/Qwen3.8-Flash-Next-GGUF",
+  "url": "https://huggingface.co/apetersson/Qwen3.8-Flash-Next-GGUF",
+  "fetched_at": "2026-10-17",
+  "format": "GGUF",
+  "runtime": "llama.cpp fork: patched llama.cpp with shared-ngram extension (PR #28243); stock llama.cpp cannot resolve n-gram reference",
+  "weights_modified": false,
+  "method": "Q5_K_M trunk quantized locally from BF16 with bartowski imatrix; UD-IQ4_XS trunk taken byte-for-byte from unsloth with quantized n-gram tensor swapped for original BF16 n-gram table; shared BF16 n-gram/mmproj/MTP Q8_0 files",
+  "imatrix_or_calib_data": "Q5 trunk: bartowski imatrix (926 entries, 582 chunks x 512, calibration-v6 corpus: prose, tool calling, reasoning, chat template); IQ4 trunk: unsloth's (not stated)",
+  "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+  },
+  "variants": [
+    {
+      "name": "Q5_K_M-BF16-Ngrams",
+      "size_gb": 76.24,
+      "size_unit": "GiB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "trunk only; needs shared/ngrams BF16 95.37 GiB + MTP Q8_0 2.60 GiB + mmproj 0.84 GiB"
+    },
+    {
+      "name": "UD-IQ4_XS-BF16-Ngrams",
+      "size_gb": 60.42,
+      "size_unit": "GiB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "trunk only (unsloth UD-IQ4_XS); needs same shared files"
+    }
+  ],
+  "headline_claims": [
+    "Original BF16 n-gram table instead of quantized one",
+    "262,144 native ctx on 96GB GPU; 1M ctx config (IQ4, Q8 KV, 4x YaRN) loaded; M1 Ultra 1M run recovered 3/3 checkpoint codes",
+    "UD-IQ4_XS: 76–85 tok/s TG, 310–656 tok/s PP on RTX PRO 6000 Blackwell"
+  ],
+  "baseline_numbers": {},
+  "red_flags": [
+    "no quality claims (only smoke tests: string recall, 17x19, red image, long-ctx checkpoint recovery)",
+    "IQ4 trunk is unsloth's file repackaged",
+    "Max-context figures partly estimated, not measured",
+    "Requires unmerged PR #28243 fork"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/apetersson/Qwen3.8-Flash-Next-GGUF/raw/main/README.md"
+  ]
+}

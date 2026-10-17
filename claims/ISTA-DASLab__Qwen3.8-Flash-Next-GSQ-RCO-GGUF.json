@@ -1,0 +1,150 @@
+{
+  "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+  "url": "https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+  "format": "GGUF",
+  "runtime": "llama.cpp (card says standard GGUF, runs unmodified in llama.cpp/Ollama/LM Studio; mainline vs fork not stated; uses flags '-lm mmap --lazy-mode on' that may need a recent build)",
+  "weights_modified": false,
+  "method": "GSQ (Gumbel-Softmax scalar quantization) per tensor + RCO (Riemannian constrained optimization) choosing per-tensor GGUF types under an exact size budget; mixed-precision GGUF. Model split in 2 shards: transformer weights (resident) + n-gram embedding table (28.8 GB, can stay on disk via mmap). Per-tensor allocation files published (tensor-allocation/*.rco-allocation.txt).",
+  "imatrix_or_calib_data": null,
+  "methodology": {
+    "reference": "BF16 (own eval of base model)",
+    "eval_dataset": "Zero-shot avg of arc_easy, arc_challenge, hellaswag, winogrande, piqa; AIME25; GPQA-Diamond; LiveCodeBench v6",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated (ctx, sampling, reasoning effort, n-samples not stated)"
+  },
+  "variants": [
+    {
+      "name": "Q2_0",
+      "size_gb": 66.4,
+      "size_unit": "GB",
+      "bpw": 2.4,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "ZS avg": 78.0,
+          "ZS recovery %": 101.4,
+          "AIME25": 96.67,
+          "GPQA-D": 89.39,
+          "LCB v6": 81.14,
+          "Task avg": 89.07,
+          "prompt t/s": 367.49,
+          "decode t/s": 93.79,
+          "avg latency s": 6.7
+        }
+      },
+      "qualitative": "Fastest; avoids lookup-table formats"
+    },
+    {
+      "name": "IQ2_XS",
+      "size_gb": 68.0,
+      "size_unit": "GB",
+      "bpw": 2.5,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "ZS avg": 77.16,
+          "ZS recovery %": 100.3,
+          "AIME25": 96.67,
+          "GPQA-D": 87.37,
+          "LCB v6": 83.43,
+          "Task avg": 89.16,
+          "prompt t/s": 108.19,
+          "decode t/s": 70.3,
+          "avg latency s": 12.68
+        }
+      },
+      "qualitative": "Smallest at equal quality"
+    },
+    {
+      "name": "IQ3_XXS",
+      "size_gb": 75.8,
+      "size_unit": "GB",
+      "bpw": 3.0,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "ZS avg": 77.23,
+          "ZS recovery %": 100.4,
+          "AIME25": 100.0,
+          "GPQA-D": 91.41,
+          "LCB v6": 86.29,
+          "Task avg": 92.57
+        }
+      },
+      "qualitative": "Recommended; matches the base model on AIME25"
+    },
+    {
+      "name": "mmproj-BF16",
+      "size_gb": 0.91,
+      "size_unit": "GB",
+      "bpw": 16,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Vision encoder + projector"
+    }
+  ],
+  "headline_claims": [
+    "2.4-3.0 bpw (66-76 GB) quants recover >=100% of BF16 zero-shot average",
+    "IQ3_XXS matches BF16 on AIME25 (100.00) and is within ~0.5 on GPQA-D / ~1.1 on LCB v6",
+    "Only shard 1 (37.6-47.0 GB) must be resident; n-gram shard (28.8 GB) can stay on disk",
+    "Q2_0 is ~3.4x faster prompt / 1.3x faster decode than IQ2_XS (55 prompts, 11 categories)"
+  ],
+  "baseline_numbers": {
+    "BF16": {
+      "size_gb": 354,
+      "bpw": 16.0,
+      "ZS avg": 76.94,
+      "AIME25": 100.0,
+      "GPQA-D": 91.92,
+      "LCB v6": 87.43,
+      "Task avg": 93.12
+    }
+  },
+  "red_flags": [
+    "No methodology for benchmarks: ctx, sampling, number of samples/seeds, reasoning effort not stated",
+    "No KLD/PPL reported",
+    "Calibration data not stated",
+    "BF16 LCB v6 baseline 87.43 vs official card 91.9; GPQA-D 91.92 vs official 91.7 -> own harness, not comparable to official numbers",
+    "Quants scoring >100% recovery on zero-shot avg indicates noise floor of ~1 pt; small differences are not meaningful",
+    "bpw figures (2.40/2.50/3.00) exclude the 28.8 GB n-gram shard; total GB includes it",
+    "'Q2_0' type and '-lm mmap --lazy-mode on' flags: verify mainline llama.cpp support",
+    "AIME25 has only 30 problems (96.67 = 1 miss)"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF/raw/main/README.md",
+    "https://arxiv.org/abs/2604.18556",
+    "https://arxiv.org/abs/2605.00649"
+  ],
+  "fetched_at": "2026-10-17"
+}

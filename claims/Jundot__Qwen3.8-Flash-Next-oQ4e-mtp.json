@@ -1,0 +1,50 @@
+{
+  "repo": "Jundot/Qwen3.8-Flash-Next-oQ4e-mtp",
+  "url": "https://huggingface.co/Jundot/Qwen3.8-Flash-Next-oQ4e-mtp",
+  "format": "MLX",
+  "runtime": "MLX (oMLX)",
+  "weights_modified": false,
+  "method": "oQ mixed-precision quantization (oMLX v0.6.3rc3), 4-bit group 64; repo includes oq_imatrix_report.json suggesting imatrix-guided allocation",
+  "imatrix_or_calib_data": "not stated (oq_imatrix_report.json present in repo)",
+  "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+  },
+  "variants": [
+    {
+      "name": "oQ4e-mtp",
+      "size_gb": 106.32,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    }
+  ],
+  "headline_claims": [
+    "oQ mixed-precision 4-bit with MTP head"
+  ],
+  "baseline_numbers": {},
+  "red_flags": [
+    "no quality claims",
+    "minimal card (321 bytes)",
+    "size computed from HF API blobs (106,318,234,757 bytes total), not stated on card"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/Jundot/Qwen3.8-Flash-Next-oQ4e-mtp/raw/main/README.md",
+    "https://huggingface.co/api/models/Jundot/Qwen3.8-Flash-Next-oQ4e-mtp?blobs=true"
+  ],
+  "fetched_at": "2026-10-17"
+}

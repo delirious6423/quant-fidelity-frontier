@@ -1,0 +1,50 @@
+{
+  "repo": "mlx-community/Qwen3.8-Flash-Next-4bit",
+  "url": "https://huggingface.co/mlx-community/Qwen3.8-Flash-Next-4bit",
+  "format": "MLX",
+  "runtime": "MLX (mlx-vlm main post-#2032, commit d1bd74ed)",
+  "weights_modified": false,
+  "method": "mlx-vlm convert, affine 4-bit, group size 32 (needed for PLE n-gram embedding dims)",
+  "imatrix_or_calib_data": null,
+  "methodology": {
+    "reference": "BF16 (structural checks only)",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "own script (conversion integrity checks)"
+  },
+  "variants": [
+    {
+      "name": "4bit-g32",
+      "size_gb": 111.55,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    }
+  ],
+  "headline_claims": [
+    "Conversion verified: 131/131 source shards byte-exact, 148/148 norm tensors bit-identical, norm gain center +0.2216 matches source",
+    "Coherent output at temperature 0"
+  ],
+  "baseline_numbers": {},
+  "red_flags": [
+    "no quality claims (only conversion-integrity checks)",
+    "size computed from HF API blobs (111,546,653,418 bytes total), not stated on card"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/mlx-community/Qwen3.8-Flash-Next-4bit/raw/main/README.md",
+    "https://huggingface.co/api/models/mlx-community/Qwen3.8-Flash-Next-4bit?blobs=true"
+  ],
+  "fetched_at": "2026-10-17"
+}

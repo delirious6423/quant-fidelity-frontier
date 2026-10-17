@@ -1,0 +1,284 @@
+{
+  "repo": "mradermacher/Qwen3.8-Flash-Next-i1-GGUF",
+  "url": "https://huggingface.co/mradermacher/Qwen3.8-Flash-Next-i1-GGUF",
+  "format": "GGUF",
+  "runtime": "llama.cpp mainline",
+  "weights_modified": false,
+  "method": "Weighted/imatrix quants (standard llama.cpp types); multi-part files need concatenation (partNofM)",
+  "imatrix_or_calib_data": "imatrix file published (Qwen3.8-Flash-Next.imatrix.gguf); calibration data not stated",
+  "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+  },
+  "variants": [
+    {
+      "name": "i1-IQ3_M",
+      "size_gb": 89.54,
+      "size_unit": "GB (computed from API blob sizes)",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "i1-IQ3_S",
+      "size_gb": 88.88,
+      "size_unit": "GB (computed from API blob sizes)",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "i1-IQ4_XS",
+      "size_gb": 97.47,
+      "size_unit": "GB (computed from API blob sizes)",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "i1-Q2_K",
+      "size_gb": 80.45,
+      "size_unit": "GB (computed from API blob sizes)",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "card: 80.5 GB, 'IQ3_XXS probably better'"
+    },
+    {
+      "name": "i1-Q3_K_L",
+      "size_gb": 96.66,
+      "size_unit": "GB (computed from API blob sizes)",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "i1-Q3_K_M",
+      "size_gb": 94.14,
+      "size_unit": "GB (computed from API blob sizes)",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "i1-Q3_K_S",
+      "size_gb": 88.76,
+      "size_unit": "GB (computed from API blob sizes)",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "i1-Q4_0",
+      "size_gb": 100.28,
+      "size_unit": "GB (computed from API blob sizes)",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "i1-Q4_1",
+      "size_gb": 110.97,
+      "size_unit": "GB (computed from API blob sizes)",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "i1-Q4_K_M",
+      "size_gb": 119.15,
+      "size_unit": "GB (computed from API blob sizes)",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "i1-Q4_K_S",
+      "size_gb": 111.77,
+      "size_unit": "GB (computed from API blob sizes)",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "i1-Q5_K_M",
+      "size_gb": 134.11,
+      "size_unit": "GB (computed from API blob sizes)",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "i1-Q5_K_S",
+      "size_gb": 127.73,
+      "size_unit": "GB (computed from API blob sizes)",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "i1-Q6_K",
+      "size_gb": 167.64,
+      "size_unit": "GB (computed from API blob sizes)",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    }
+  ],
+  "headline_claims": [
+    "Generic: IQ-quants often preferable to similar-size non-IQ quants (links ikawrakow graph / Artefact2 gist, not model-specific)"
+  ],
+  "baseline_numbers": {},
+  "red_flags": [
+    "no quality claims",
+    "Card table lists only imatrix + i1-Q2_K (card still being populated); 14 quants exist per API - sizes computed from API",
+    "Card recommends IQ3_XXS but no IQ3_XXS file exists in repo"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/mradermacher/Qwen3.8-Flash-Next-i1-GGUF/raw/main/README.md",
+    "https://huggingface.co/api/models/mradermacher/Qwen3.8-Flash-Next-i1-GGUF?blobs=true"
+  ],
+  "fetched_at": "2026-10-17"
+}

@@ -1,0 +1,73 @@
+{
+  "repo": "FINAL-Bench/POCKET-Qwen3.8-Flash-Next-GGUF",
+  "url": "https://huggingface.co/FINAL-Bench/POCKET-Qwen3.8-Flash-Next-GGUF",
+  "fetched_at": "2026-10-17",
+  "format": "GGUF",
+  "runtime": "llama.cpp mainline (recent build)",
+  "weights_modified": false,
+  "method": "Q4_K_M from BF16 by VIDRAFT; -v2 uses proprietary bit allocation; text-only (vision encoder and MTP head omitted)",
+  "imatrix_or_calib_data": null,
+  "methodology": {
+    "reference": "unsloth UD-IQ4_XS (comparison only; no BF16)",
+    "eval_dataset": "Wikipedia-Korean 20231101.ko, 80 chunks, 40,960 tokens",
+    "ctx": 512,
+    "n_tokens": 40960,
+    "tool": "not stated"
+  },
+  "variants": [
+    {
+      "name": "Q4_K_M",
+      "size_gb": 111,
+      "size_unit": "GiB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": 6.03,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "fastest gen on 8GB laptop GPU: 4.17 tok/s tg256"
+    },
+    {
+      "name": "Q4_K_M-v2",
+      "size_gb": 93,
+      "size_unit": "GiB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": 6.08,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "16% smaller; faster pp at 4 threads"
+    }
+  ],
+  "headline_claims": [
+    "Runs 180B (6B active) on a laptop with RTX 5060 8 GB / 32 GB RAM at ~4 tok/s generation",
+    "Both builds within error of unsloth UD-IQ4_XS on Korean PPL; explicitly no claim of better quantization",
+    "Filling 8 GB VRAM with experts slows gen (3.10 -> 1.75 tok/s)"
+  ],
+  "baseline_numbers": {
+    "unsloth_UD-IQ4_XS_korean_ppl": "6.013 ± 0.103 (88 GB)"
+  },
+  "red_flags": [
+    "No BF16 reference; PPL at ctx 512 on Korean Wikipedia — not comparable to other cards",
+    "PPL errors ±0.103/±0.104; differences within noise (publisher admits)",
+    "v2 bit allocation proprietary; imatrix not stated",
+    "Unit mix: GiB for own builds, GB for unsloth reference",
+    "Prompt processing ~1–2 tok/s — impractical despite headline"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/FINAL-Bench/POCKET-Qwen3.8-Flash-Next-GGUF/raw/main/README.md"
+  ]
+}

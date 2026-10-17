@@ -1,0 +1,123 @@
+{
+  "repo": "turboderp/Qwen3.8-Flash-Next-exl3",
+  "url": "https://huggingface.co/turboderp/Qwen3.8-Flash-Next-exl3",
+  "format": "EXL3",
+  "runtime": "exllamav3 (v1.4.5 or dev branch)",
+  "weights_modified": false,
+  "method": "EXL3 trellis quants on branches 2.05bpw_h4_ng4 .. 6.05bpw_h6_ng6 (h=head bits, ng=n-gram table bits); card says self-calibrated quants to follow",
+  "imatrix_or_calib_data": null,
+  "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+  },
+  "variants": [
+    {
+      "name": "2.05bpw_h4_ng4",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": 2.05,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "3.05bpw_h5_ng5",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": 3.05,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "4.05bpw_h6_ng6",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": 4.05,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "5.05bpw_h6_ng6",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": 5.05,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "6.05bpw_h6_ng6",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": 6.05,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    }
+  ],
+  "headline_claims": [
+    "Five EXL3 bitrates 2.05-6.05 bpw",
+    "Self-calibrated quants and more benchmarks to follow"
+  ],
+  "baseline_numbers": {},
+  "red_flags": [
+    "no quality claims in text: KLD/perplexity/KLD-histogram charts are embedded as images only, numbers not extractable",
+    "no methodology (reference, dataset, ctx) stated",
+    "main branch holds no weights; per-variant sizes not stated (repo usedStorage 439,487,914,128 bytes across all branches)"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/turboderp/Qwen3.8-Flash-Next-exl3/raw/main/README.md",
+    "https://huggingface.co/api/models/turboderp/Qwen3.8-Flash-Next-exl3?blobs=true"
+  ],
+  "fetched_at": "2026-10-17"
+}

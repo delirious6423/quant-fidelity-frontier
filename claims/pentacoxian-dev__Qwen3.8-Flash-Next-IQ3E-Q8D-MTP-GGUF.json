@@ -1,0 +1,53 @@
+{
+  "repo": "pentacoxian-dev/Qwen3.8-Flash-Next-IQ3E-Q8D-MTP-GGUF",
+  "url": "https://huggingface.co/pentacoxian-dev/Qwen3.8-Flash-Next-IQ3E-Q8D-MTP-GGUF",
+  "fetched_at": "2026-10-17",
+  "format": "GGUF",
+  "runtime": "llama.cpp fork: patched llama.cpp v0.5.0 (llama-v0.5.0-v100-v3.patch), targets V100 sm_70 CUDA 12; stock llama.cpp/Ollama/LM Studio cannot load",
+  "weights_modified": false,
+  "method": "Recombination of unsloth GGUFs: routed experts UD-IQ3_XXS, dense tensors Q8_0 (from unsloth UD-IQ4_XS), PLE table UD-IQ3_XXS; MTP head from original Qwen checkpoint at Q8_0; draft-only LM head Q4_0, target head Q6_K",
+  "imatrix_or_calib_data": null,
+  "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": 4096,
+    "n_tokens": null,
+    "tool": "not stated (llama-server/llama-bench used for perf)"
+  },
+  "variants": [
+    {
+      "name": "IQ3E-Q8D-MTP",
+      "size_gb": 80,
+      "size_unit": "GiB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": 2.8506,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "single file 85,923,705,344 bytes; PPL range for tensor-split v3 2.8506–2.8520; layer split 2.8525; v2 tensor split 2.8608 (race bug)"
+    }
+  ],
+  "headline_claims": [
+    "~122 tok/s decode on 2x V100 32GB at 256K ctx with MTP (3 drafts); ~113 tok/s at 250K KV fill",
+    "vs stock UD-IQ4_XS with CPU offload, no MTP: 30.2 tok/s (different host)",
+    "3-case API smoke test passed with MTP"
+  ],
+  "baseline_numbers": {},
+  "red_flags": [
+    "PPL given with no reference model PPL and unnamed eval set — not comparable to anyone else's PPL",
+    "No KLD/top-1/benchmarks",
+    "Imatrix/calibration not stated (inherited from unsloth)",
+    "Requires custom patched fork; patches v4/v5 withdrawn",
+    "ppl field holds lowest of stated range 2.8506–2.8520"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/pentacoxian-dev/Qwen3.8-Flash-Next-IQ3E-Q8D-MTP-GGUF/raw/main/README.md"
+  ]
+}

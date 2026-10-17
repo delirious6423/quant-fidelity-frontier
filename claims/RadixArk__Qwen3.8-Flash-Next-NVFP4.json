@@ -1,0 +1,66 @@
+{
+  "repo": "RadixArk/Qwen3.8-Flash-Next-NVFP4",
+  "url": "https://huggingface.co/RadixArk/Qwen3.8-Flash-Next-NVFP4",
+  "format": "NVFP4",
+  "runtime": "SGLang (qwen4_exp support, --quantization modelopt_fp4); validated GB300/B300",
+  "weights_modified": false,
+  "method": "nvidia-modelopt v0.46.0 (snapshot 87c9f8cf) NVFP4 W4A4 on routed MoE experts only (E2M1, group 16, FP8 E4M3 block scales, FP32 global scales, dynamic activations); attention/shared experts/routers/embeddings/lm_head/vision/MTP BF16; PLE n-gram tables taken from the FP8 source revision; activations captured from live SGLang prefill (62,139 rows/layer)",
+  "imatrix_or_calib_data": "cnn_dailymail 3.0.0 train, 128 articles (seed 1234) truncated to 512 tokens; GSM8K train rows [0:16] x2 as representativeness probe",
+  "methodology": {
+    "reference": "BF16 (earlier revision)",
+    "eval_dataset": "GSM8K full 1319 (temp 0.6, top-p 0.95, max 8192); AIME26 30 problems x 8 samples (temp 1.0, max 130k)",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated (SGLang serving)"
+  },
+  "variants": [
+    {
+      "name": "NVFP4",
+      "size_gb": 135,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "GSM8K": 97.27,
+          "GSM8K stop rate": 98.86,
+          "AIME26 pass@1": 98.75,
+          "AIME26 majority@8": 100,
+          "AIME26 stop rate": 99.17
+        }
+      },
+      "qualitative": "private candidate release; AIME26 figures are from previous revision (differs only in PLE tables)"
+    }
+  ],
+  "headline_claims": [
+    "single-turn accuracy preserved: GSM8K and AIME within BF16 range",
+    "long agentic generations tend to run longer than BF16",
+    "all integrity audits (structural, scale, unchanged-tensor byte equality) pass",
+    "360 GB -> 135 GB, ~2.7x smaller"
+  ],
+  "baseline_numbers": {
+    "BF16": {
+      "GSM8K": "97.12-97.50 (range over 3 runs, earlier revision)",
+      "AIME26": "100 (240/240)"
+    },
+    "BF16 size_gb": 360
+  },
+  "red_flags": [
+    "BF16 baseline and NVFP4 AIME numbers come from different (earlier) revisions; card itself calls comparison indicative",
+    "only saturated benches (GSM8K ~97, AIME26 ~100) - weak discrimination",
+    "admits longer agentic generations vs BF16 (behavioral drift) without quantifying it",
+    "labelled private candidate release",
+    "no KLD/top-1 metrics"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/RadixArk/Qwen3.8-Flash-Next-NVFP4/raw/main/README.md"
+  ],
+  "fetched_at": "2026-10-17"
+}

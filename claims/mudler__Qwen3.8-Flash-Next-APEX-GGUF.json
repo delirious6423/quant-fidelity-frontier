@@ -1,0 +1,91 @@
+{
+  "repo": "mudler/Qwen3.8-Flash-Next-APEX-GGUF",
+  "url": "https://huggingface.co/mudler/Qwen3.8-Flash-Next-APEX-GGUF",
+  "fetched_at": "2026-10-17",
+  "format": "GGUF",
+  "runtime": "llama.cpp mainline (recent build with qwen4exp support)",
+  "weights_modified": false,
+  "method": "APEX tiered per-tensor allocation: more bits to first/last FFN layers, ffn_up one step above ffn_gate, attention/output/shared-expert/hyper-connection high precision, per_layer_token_embd IQ4_NL",
+  "imatrix_or_calib_data": "Own imatrix on BF16 at 4096 ctx; mixed chat, code, reasoning, tool calling, agentic traces, Wikipedia (not published); per_layer_token_embd gets no imatrix coverage",
+  "methodology": {
+    "reference": "BF16",
+    "eval_dataset": "same corpus as imatrix (NOT held-out), 6 chunks",
+    "ctx": 4096,
+    "n_tokens": 24576,
+    "tool": "not stated"
+  },
+  "variants": [
+    {
+      "name": "APEX-I-Nano",
+      "size_gb": 73.0,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": 4.6659,
+        "ppl_ratio": 1.082,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "VRAM 43.9 + RAM 29.1 GB; ~45% at ~1.6 bpw"
+    },
+    {
+      "name": "APEX-I-Mini",
+      "size_gb": 78.7,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": 4.4354,
+        "ppl_ratio": 1.029,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "VRAM 49.6 + RAM 29.1 GB"
+    },
+    {
+      "name": "APEX-I-Compact",
+      "size_gb": 85.1,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "VRAM 55.9 + RAM 29.1 GB; no quality numbers"
+    }
+  ],
+  "headline_claims": [
+    "~4.5x compression vs ~354 GB BF16",
+    "per_layer_token_embd IQ4_NL vs Q8_0: saves 25.6 GB for KLD 0.0324, +0.71% PPL, 6% top-1 loss (100 chunks held-out WikiText-2)",
+    "Edge FFN layers 2.63x more sensitive per byte than middle (measured on Qwen3.8-27B)"
+  ],
+  "baseline_numbers": {
+    "BF16_ppl": 4.3113
+  },
+  "red_flags": [
+    "PPL evaluated on calibration corpus (not held-out) — publisher admits it flatters results; only 6 chunks",
+    "PPL error bars (±0.085/0.093) larger than Mini's delta vs BF16",
+    "ppl_ratio computed from stated +2.9% / +8.2%",
+    "Sensitivity numbers borrowed from a different model (Qwen3.8-27B)",
+    "No throughput measured; no bpw per tier; tool not named"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/mudler/Qwen3.8-Flash-Next-APEX-GGUF/raw/main/README.md"
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "repo": "ivanfioravanti/Qwen3.8-Flash-Next-DS4-IQ2",
+  "url": "https://huggingface.co/ivanfioravanti/Qwen3.8-Flash-Next-DS4-IQ2",
+  "format": "GGUF",
+  "runtime": "DS4 engine (ivanfioravanti/ds4-metal branch qwen3.8-flash-next, commit 5bd8796+), Apple Metal",
+  "weights_modified": false,
+  "method": "Gate/up experts IQ2_XXS imatrix; down projections Q2_K imatrix from BF16, zero-padded 640->768 cols; dense/shared/output Q8_0; embeddings BF16; MTP block Q4_K gate/up + MXFP4 down; Q4_1 PLE sidecar",
+  "imatrix_or_calib_data": "pinned Unsloth imatrix, 45 chunks x 18,432 tokens (sha256 a5863123...)",
+  "methodology": {
+    "reference": "BF16 (rev de4b8e4d)",
+    "eval_dataset": "99 BF16-reference continuations",
+    "ctx": null,
+    "n_tokens": 2376,
+    "tool": "own script"
+  },
+  "variants": [
+    {
+      "name": "IQ2 Q2_K-down (current)",
+      "size_gb": 44.81,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 90.32,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "target_NLL": 0.30357,
+          "first_token_match": "65/99",
+          "hard_smoke_12q": "5 correct/0 wrong/7 incomplete"
+        }
+      },
+      "qualitative": "default"
+    },
+    {
+      "name": "IQ2 MXFP4-down (previous)",
+      "size_gb": null,
+      "size_unit": "not stated",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 91.33,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "target_NLL": 0.290735,
+          "first_token_match": "69/99",
+          "hard_smoke_12q": "6 correct/0 wrong/6 incomplete"
+        }
+      },
+      "qualitative": "previous release"
+    },
+    {
+      "name": "PLE sidecar (required)",
+      "size_gb": 32.0,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    }
+  ],
+  "headline_claims": [
+    "44.81 GB (41.73 GiB) incl. MTP; saves 5.16 GiB vs previous build",
+    "Top-1 agreement drops 91.33% -> 90.32%, NLL +4.4%",
+    "Combined with sidecar 76.81 GB; 64 GB fit not established"
+  ],
+  "baseline_numbers": {},
+  "red_flags": [
+    "custom NLL/top-1 harness, not comparable to KLD",
+    "total footprint 76.81 GB with required sidecar",
+    "quality hard-smoke only 12 questions"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/ivanfioravanti/Qwen3.8-Flash-Next-DS4-IQ2/raw/main/README.md"
+  ],
+  "fetched_at": "2026-10-17"
+}

@@ -1,0 +1,240 @@
+{
+  "repo": "unsloth/Qwen3.8-Flash-Next-GGUF",
+  "url": "https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF",
+  "format": "GGUF",
+  "runtime": "llama.cpp mainline (or Unsloth Desktop); MTP GGUFs in MTP/ folder",
+  "weights_modified": false,
+  "method": "Unsloth Dynamic (UD) per-layer mixed quant with imatrix; docs link Dynamic 3.0 (better imatrix calibration set, improved layer selection; MTP removed below UD-Q2_K_XL). 1-bit uses 4-bit for Ngram/PLE layers. Version actually used for this repo not stated on card.",
+  "imatrix_or_calib_data": "Unsloth proprietary calibration set ('diverse sources', agentic coding/chat/multilingual); imatrix_unsloth.gguf_file published",
+  "methodology": {
+    "reference": "not stated (Dynamic 3.0 page uses BF16 only for its separate Divergence-300 test)",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+  },
+  "variants": [
+    {
+      "name": "UD-IQ1_S",
+      "size_gb": 72.5,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.39607,
+        "kld_p99": null,
+        "kld_p99_9": 7.2126,
+        "kld_max": null,
+        "top1_agree_pct": 77.325,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "UD-IQ1_M",
+      "size_gb": 74.5,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.314739,
+        "kld_p99": null,
+        "kld_p99_9": 6.1965,
+        "kld_max": null,
+        "top1_agree_pct": 79.691,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "UD-Q2_K_XL",
+      "size_gb": 78.9,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.224607,
+        "kld_p99": null,
+        "kld_p99_9": 4.9121,
+        "kld_max": null,
+        "top1_agree_pct": 82.715,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "UD-IQ3_XXS",
+      "size_gb": 82.0,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.16512,
+        "kld_p99": null,
+        "kld_p99_9": 4.0375,
+        "kld_max": null,
+        "top1_agree_pct": 85.414,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "UD-Q3_K_XL",
+      "size_gb": 90.0,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.106504,
+        "kld_p99": null,
+        "kld_p99_9": 3.0538,
+        "kld_max": null,
+        "top1_agree_pct": 88.315,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "UD-IQ4_XS",
+      "size_gb": 93.7,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.08363,
+        "kld_p99": null,
+        "kld_p99_9": 2.3677,
+        "kld_max": null,
+        "top1_agree_pct": 89.554,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "UD-Q4_K_XL",
+      "size_gb": 111.3,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.046893,
+        "kld_p99": null,
+        "kld_p99_9": 1.5468,
+        "kld_max": null,
+        "top1_agree_pct": 92.255,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "UD-Q5_K_XL",
+      "size_gb": 158.3,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.030415,
+        "kld_p99": null,
+        "kld_p99_9": 1.0036,
+        "kld_max": null,
+        "top1_agree_pct": 93.68,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "UD-Q6_K_XL",
+      "size_gb": 169.2,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.027091,
+        "kld_p99": null,
+        "kld_p99_9": 0.8416,
+        "kld_max": null,
+        "top1_agree_pct": 94.089,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "Q8_0",
+      "size_gb": 188.2,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": 0.026574,
+        "kld_p99": null,
+        "kld_p99_9": 0.8118,
+        "kld_max": null,
+        "top1_agree_pct": 94.122,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "BF16",
+      "size_gb": 354.03,
+      "size_unit": "GB",
+      "bpw": 16,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "files sum 354.03 GB; docs say 355GB"
+    }
+  ],
+  "headline_claims": [
+    "1-bit quant is 75GB, 79% smaller than BF16 (355GB) while keeping ~80% top-1 accuracy",
+    "UD-Q4_K_XL 111.3 GB at mean KLD 0.0469 / 92.3% top-1",
+    "MTP gives 1.3-1.7x faster inference (~170 vs 100 tok/s on one RTX 6000 PRO)"
+  ],
+  "baseline_numbers": {
+    "BF16_size_gb": 355,
+    "official_bench_copied_on_card": "card reproduces Qwen official benchmark tables (see _base_model.json)"
+  },
+  "red_flags": [
+    "KLD methodology (reference, dataset, ctx, tokens, tool) not documented on card, model docs page, or Dynamic 3.0 article",
+    "Dynamic 3.0 article does not mention Qwen3.8-Flash-Next; card doesn't say which UD version was used",
+    "Q8_0 top-1 only 94.1% and mean KLD 0.0266 - high floor for Q8_0, suggests reference/eval setup that limits comparability (or non-BF16 reference / nondeterminism)",
+    "Headline '75GB 1-bit' vs table UD-IQ1_S 72.5 / UD-IQ1_M 74.5 GB (rounding / MTP)",
+    "KLD plots exclude MTP head from disk size",
+    "HF card itself has no quant table; numbers are only on unsloth.ai docs"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF/raw/main/README.md",
+    "https://unsloth.ai/docs/models/qwen3.8-next",
+    "https://unsloth.ai/docs/basics/dynamic-3.0-ggufs",
+    "https://huggingface.co/api/models/unsloth/Qwen3.8-Flash-Next-GGUF?blobs=true"
+  ],
+  "fetched_at": "2026-10-17"
+}

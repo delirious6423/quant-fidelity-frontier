@@ -1,0 +1,57 @@
+{
+  "repo": "amd/Qwen3.8-Flash-Next-Quark-MXFP4",
+  "url": "https://huggingface.co/amd/Qwen3.8-Flash-Next-Quark-MXFP4",
+  "format": "MXFP4",
+  "runtime": "vLLM ROCm nightly (vllm/vllm-openai-rocm:nightly-73029d4...), AMD MI350/MI355, ROCm 7.2.3",
+  "weights_modified": false,
+  "method": "AMD-Quark v0.12; MoE expert weights (routed and shared) OCP MXFP4, static weight / dynamic activation quant; attention, linear-attn projections, MTP, router gates, vision, lm_head BF16",
+  "imatrix_or_calib_data": null,
+  "methodology": {
+    "reference": "BF16 (Qwen/Qwen3.8-Flash-Next)",
+    "eval_dataset": "gsm8k flexible-extract 5-shot",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "lm-eval (lm-evaluation-harness)"
+  },
+  "variants": [
+    {
+      "name": "MXFP4",
+      "size_gb": 182.3,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "GSM8K (flexible-extract, 5-shot)": 96.5,
+          "Recovery": "99.7%"
+        }
+      },
+      "qualitative": "size from HF API sum of file sizes (182,295,097,118 bytes)"
+    }
+  ],
+  "headline_claims": [
+    "99.7% recovery on GSM8K vs base"
+  ],
+  "baseline_numbers": {
+    "BF16": {
+      "GSM8K (flexible-extract, 5-shot)": 96.8
+    }
+  },
+  "red_flags": [
+    "single saturated benchmark (GSM8K) only",
+    "calibration not stated",
+    "size not stated on card"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/amd/Qwen3.8-Flash-Next-Quark-MXFP4/raw/main/README.md",
+    "https://huggingface.co/api/models/amd/Qwen3.8-Flash-Next-Quark-MXFP4?blobs=true"
+  ],
+  "fetched_at": "2026-10-17"
+}

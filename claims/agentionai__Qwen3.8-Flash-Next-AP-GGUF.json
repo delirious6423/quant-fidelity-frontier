@@ -1,0 +1,166 @@
+{
+  "repo": "agentionai/Qwen3.8-Flash-Next-AP-GGUF",
+  "url": "https://huggingface.co/agentionai/Qwen3.8-Flash-Next-AP-GGUF",
+  "fetched_at": "2026-10-17",
+  "format": "GGUF",
+  "runtime": "llama.cpp mainline (no fork)",
+  "weights_modified": false,
+  "method": "Mixed-precision tiers using only standard llama.cpp types; per tensor-group assignment (experts, n-gram table); tier names follow base ftype and do not describe expert type",
+  "imatrix_or_calib_data": "tagged imatrix; dataset not named",
+  "methodology": {
+    "reference": "not stated on card (agention.ai page: 'unquantized Q8_0 reference'); card says source model",
+    "eval_dataset": "held-out corpus (not named)",
+    "ctx": 2048,
+    "n_tokens": null,
+    "tool": "llama-perplexity --kl-divergence"
+  },
+  "variants": [
+    {
+      "name": "AP-Q5_K_XL",
+      "size_gb": 112.51,
+      "size_unit": "GiB",
+      "bpw": 5.46,
+      "metrics": {
+        "mean_kld": 0.0839,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 86.63,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "recommended (per agention.ai); VRAM 76.75 + host n-gram 35.76 GiB; experts Q5_K"
+    },
+    {
+      "name": "AP-Q5_K_M",
+      "size_gb": 103.57,
+      "size_unit": "GiB",
+      "bpw": 5.03,
+      "metrics": {
+        "mean_kld": 0.0853,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 86.48,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "VRAM 76.75 + host 26.82 GiB; experts Q5_K"
+    },
+    {
+      "name": "AP-Q4_K_XL",
+      "size_gb": 94.2,
+      "size_unit": "GiB",
+      "bpw": 4.57,
+      "metrics": {
+        "mean_kld": 0.0992,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 85.71,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "VRAM 67.38 + host 26.82 GiB; experts Q4_K"
+    },
+    {
+      "name": "AP-Q4_K_M",
+      "size_gb": 88.04,
+      "size_unit": "GiB",
+      "bpw": 4.27,
+      "metrics": {
+        "mean_kld": 0.1243,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 84.22,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "VRAM 61.22 + host 26.82 GiB; experts IQ4_XS + IQ3_S"
+    },
+    {
+      "name": "AP-IQ4_XS",
+      "size_gb": 84.24,
+      "size_unit": "GiB",
+      "bpw": 4.09,
+      "metrics": {
+        "mean_kld": 0.1584,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 82.89,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "VRAM 57.42 + host 26.82 GiB; experts IQ3_S"
+    },
+    {
+      "name": "AP-IQ3_XXS",
+      "size_gb": 80.72,
+      "size_unit": "GiB",
+      "bpw": 3.92,
+      "metrics": {
+        "mean_kld": 0.1844,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 81.85,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "VRAM 53.90 + host 26.82 GiB; experts IQ3_XXS"
+    },
+    {
+      "name": "AP-IQ2_S",
+      "size_gb": 76.03,
+      "size_unit": "GiB",
+      "bpw": 3.69,
+      "metrics": {
+        "mean_kld": 0.2657,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": 79.14,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "smallest; VRAM 49.21 + host 26.82 GiB; experts IQ2_S"
+    }
+  ],
+  "headline_claims": [
+    "Mainline-compatible, no fork needed",
+    "Wikitext results inflated because model memorized wikitext; uses held-out corpus instead",
+    "KLD values given with ± error bars (e.g. AP-Q5_K_XL 0.0839 ± 0.0008)"
+  ],
+  "baseline_numbers": {
+    "agention.ai_page_comparisons_top1": {
+      "unsloth UD-Q2_K_XL 73.45 GiB": 76.35,
+      "unsloth UD-IQ4_XS 87.24 GiB": 83.4
+    }
+  },
+  "red_flags": [
+    "Reference ambiguous: card implies unquantized source, agention.ai page says Q8_0 reference",
+    "Held-out corpus not named/published; n_tokens/chunk count not stated",
+    "Calibration data not named",
+    "Sizes are full download GiB (VRAM + host n-gram); Gyro card from same publisher uses GPU-only sizes"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/agentionai/Qwen3.8-Flash-Next-AP-GGUF/raw/main/README.md",
+    "https://agention.ai/models/qwen3.8-flash-next/"
+  ]
+}

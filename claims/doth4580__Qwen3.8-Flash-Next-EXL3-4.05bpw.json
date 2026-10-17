@@ -1,0 +1,60 @@
+{
+  "repo": "doth4580/Qwen3.8-Flash-Next-EXL3-4.05bpw",
+  "url": "https://huggingface.co/doth4580/Qwen3.8-Flash-Next-EXL3-4.05bpw",
+  "format": "EXL3",
+  "runtime": "veloGB10 (gb10_inference) >=0.7.2; exllamav3 used as reference impl",
+  "weights_modified": false,
+  "method": "Repack of turboderp 4.05bpw_h6_ng6 (commit 55a732e0); EXL3 trellis mul1 codebook, 4-bit experts, 6-bit dense/lm_head/n-gram table/vision; MTP layer 4-bit experts + 4-6-bit dense; quantized with ExLlamaV3 1.4.4",
+  "imatrix_or_calib_data": "250 x 2048 calibration (dataset not named)",
+  "methodology": {
+    "reference": "none (3.05bpw pack compared; no BF16 reference)",
+    "eval_dataset": "73K-token corpus (unnamed)",
+    "ctx": "8K and 16K windows",
+    "n_tokens": 73000,
+    "tool": "own script (next-token loss)"
+  },
+  "variants": [
+    {
+      "name": "4.05bpw",
+      "size_gb": 108,
+      "size_unit": "GB",
+      "bpw": 4.05,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "next_token_loss_8k": 0.625,
+          "next_token_loss_16k": 1.579,
+          "mtp_acceptance_prose_pct": 52
+        }
+      },
+      "qualitative": "mis-decode check, not a quality ranking"
+    }
+  ],
+  "headline_claims": [
+    "~108 GB on disk (68 GB weights, 39 GB n-gram table, 1.5 GB vision) vs ~360 GB bf16",
+    "TP=1/2/4 decode 63/89/120 tok/s; prefill 1399/2612/3496 tok/s (untuned, MTP on)",
+    "Loss essentially equal to 3.05bpw pack (0.621 / 1.578)",
+    "Turboderp reportedly shows a small KLD advantage for 4.05 (no numbers)"
+  ],
+  "baseline_numbers": {
+    "bf16_size_gb": 360,
+    "3.05bpw_next_token_loss_8k": 0.621,
+    "3.05bpw_next_token_loss_16k": 1.578
+  },
+  "red_flags": [
+    "no KLD/PPL vs BF16; only next-token loss on unnamed 73K corpus, author says it is not a quality ranking",
+    "KLD claim attributed to turboderp without numbers",
+    "calibration dataset not named"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/doth4580/Qwen3.8-Flash-Next-EXL3-4.05bpw/raw/main/README.md"
+  ],
+  "fetched_at": "2026-10-17"
+}

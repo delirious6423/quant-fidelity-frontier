@@ -1,0 +1,247 @@
+{
+  "repo": "Qwen/Qwen3.8-Flash-Next",
+  "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+  "total_params": "125B (plus 51B n-gram embedding and 4B MTP, listed separately; ~180B stored params)",
+  "active_params": "6B per token",
+  "architecture": {
+    "type": "Causal LM with vision encoder",
+    "layers": 48,
+    "hidden_dim": 2560,
+    "layout": "12 x (3 x (Gated DeltaNet -> MoE) -> 1 x (Qwen Sparse Attention -> MoE))",
+    "gated_deltanet": "48 V heads, 16 QK heads, head dim 128",
+    "qwen_sparse_attention": "24 Q heads, 2 KV heads, head dim 256, RoPE dim 64; indexer MQA 4 query heads / 1 shared key head, indexer head dim 128; budget 512 blocks or 2048 tokens",
+    "moe": "512 experts, 10 routed + 1 shared active, expert intermediate dim 640",
+    "gated_residual": "4 branches, bottleneck rank 320",
+    "ngram_embedding": "20,000,000 entries (bigrams/trigrams at layer 2)",
+    "vocab": "248,320 (padded)",
+    "mtp": "1 layer, multi-step trained"
+  },
+  "context_length": {
+    "native": 262144,
+    "extended": "up to 1,000,000 via YaRN (factor 4.0, original_max_position_embeddings 262144)"
+  },
+  "bf16_size": {
+    "value_gb": 354.03,
+    "source": "Not stated on official card. 354.03 GB = sum of unsloth BF16 GGUF shards (HF API) and bartowski bf16 listing; unsloth docs say 355GB; ISTA-DASLab says 354 GB"
+  },
+  "benchmarks_language": {
+    "columns": [
+      "Qwen3.8-Flash-Next",
+      "Qwen3.8-27B",
+      "Qwen3.7-Plus",
+      "DeepSeek-V4-Flash-0731",
+      "Claude-Opus-4.6 (Max)"
+    ],
+    "rows": [
+      {
+        "benchmark": "# Params",
+        "Qwen3.8-Flash-Next": "125B",
+        "Qwen3.8-27B": "27B",
+        "Qwen3.7-Plus": "397B",
+        "DeepSeek-V4-Flash-0731": "284B",
+        "Claude-Opus-4.6 (Max)": "--"
+      },
+      {
+        "benchmark": "# Activated params",
+        "Qwen3.8-Flash-Next": "6B",
+        "Qwen3.8-27B": "27B",
+        "Qwen3.7-Plus": "17B",
+        "DeepSeek-V4-Flash-0731": "13B",
+        "Claude-Opus-4.6 (Max)": "--"
+      },
+      {
+        "benchmark": "# N-gram embedding params",
+        "Qwen3.8-Flash-Next": "51B",
+        "Qwen3.8-27B": "--",
+        "Qwen3.7-Plus": "--",
+        "DeepSeek-V4-Flash-0731": "--",
+        "Claude-Opus-4.6 (Max)": "--"
+      },
+      {
+        "benchmark": "Agentic coding (DeepSWE 1.1)",
+        "Qwen3.8-Flash-Next": "58.7",
+        "Qwen3.8-27B": "42.2",
+        "Qwen3.7-Plus": "16.5",
+        "DeepSeek-V4-Flash-0731": "54.4",
+        "Claude-Opus-4.6 (Max)": "--"
+      },
+      {
+        "benchmark": "Agentic coding (SWE-bench Pro)",
+        "Qwen3.8-Flash-Next": "62.5",
+        "Qwen3.8-27B": "61.7",
+        "Qwen3.7-Plus": "55.8",
+        "DeepSeek-V4-Flash-0731": "56.0",
+        "Claude-Opus-4.6 (Max)": "53.4"
+      },
+      {
+        "benchmark": "Multilingual software engineering (SWE-bench Multilingual)",
+        "Qwen3.8-Flash-Next": "81.0",
+        "Qwen3.8-27B": "73.8",
+        "Qwen3.7-Plus": "75.8",
+        "DeepSeek-V4-Flash-0731": "--",
+        "Claude-Opus-4.6 (Max)": "77.5"
+      },
+      {
+        "benchmark": "Repo-level code generation (NL2Repo-Bench)",
+        "Qwen3.8-Flash-Next": "48.1",
+        "Qwen3.8-27B": "42.3",
+        "Qwen3.7-Plus": "41.1",
+        "DeepSeek-V4-Flash-0731": "54.2",
+        "Claude-Opus-4.6 (Max)": "47.6"
+      },
+      {
+        "benchmark": "Long-horizon office work (CoWorkBench)",
+        "Qwen3.8-Flash-Next": "73.9",
+        "Qwen3.8-27B": "70.7",
+        "Qwen3.7-Plus": "65.1",
+        "DeepSeek-V4-Flash-0731": "45.1",
+        "Claude-Opus-4.6 (Max)": "68.2"
+      },
+      {
+        "benchmark": "Professional job tasks (JobBench)",
+        "Qwen3.8-Flash-Next": "55.7",
+        "Qwen3.8-27B": "33.4",
+        "Qwen3.7-Plus": "27.6",
+        "DeepSeek-V4-Flash-0731": "41.3",
+        "Claude-Opus-4.6 (Max)": "36.6"
+      },
+      {
+        "benchmark": "Frontier agentic tasks (Agents' Last Exam) Pass@1 / Score",
+        "Qwen3.8-Flash-Next": "24.3 / 51.2",
+        "Qwen3.8-27B": "20.4 / 42.9",
+        "Qwen3.7-Plus": "13.2 / 33.6",
+        "DeepSeek-V4-Flash-0731": "25.2 / --",
+        "Claude-Opus-4.6 (Max)": "--"
+      },
+      {
+        "benchmark": "Real-world tool use (Toolathlon Verified, Pass@1)",
+        "Qwen3.8-Flash-Next": "73.5",
+        "Qwen3.8-27B": "67.1",
+        "Qwen3.7-Plus": "50.6",
+        "DeepSeek-V4-Flash-0731": "70.3",
+        "Claude-Opus-4.6 (Max)": "--"
+      },
+      {
+        "benchmark": "Instruction following (IFBench)",
+        "Qwen3.8-Flash-Next": "81.3",
+        "Qwen3.8-27B": "79.5",
+        "Qwen3.7-Plus": "79.1",
+        "DeepSeek-V4-Flash-0731": "79.2",
+        "Claude-Opus-4.6 (Max)": "62.5"
+      },
+      {
+        "benchmark": "Scientific reasoning (GPQA Diamond)",
+        "Qwen3.8-Flash-Next": "91.7",
+        "Qwen3.8-27B": "89.2",
+        "Qwen3.7-Plus": "90.3",
+        "DeepSeek-V4-Flash-0731": "90.8",
+        "Claude-Opus-4.6 (Max)": "91.3"
+      },
+      {
+        "benchmark": "Multidisciplinary reasoning (HLE)",
+        "Qwen3.8-Flash-Next": "35.9",
+        "Qwen3.8-27B": "30.8",
+        "Qwen3.7-Plus": "34.7",
+        "DeepSeek-V4-Flash-0731": "33.8",
+        "Claude-Opus-4.6 (Max)": "40.0"
+      },
+      {
+        "benchmark": "Competitive coding (LiveCodeBench v6)",
+        "Qwen3.8-Flash-Next": "91.9",
+        "Qwen3.8-27B": "90.3",
+        "Qwen3.7-Plus": "89.6",
+        "DeepSeek-V4-Flash-0731": "90.6",
+        "Claude-Opus-4.6 (Max)": "88.8"
+      }
+    ]
+  },
+  "benchmarks_vision_language": {
+    "columns": [
+      "Qwen3.8-Flash-Next",
+      "Qwen3.8-27B",
+      "Qwen3.7-Plus",
+      "Claude-Opus-4.6 (Max)"
+    ],
+    "rows": [
+      {
+        "benchmark": "Multimodal tool use (ClawEval-MM) Pass@3 / Average",
+        "Qwen3.8-Flash-Next": "64.4 / 60.4",
+        "Qwen3.8-27B": "57.4 / 56.9",
+        "Qwen3.7-Plus": "57.4 / 60.1",
+        "Claude-Opus-4.6 (Max)": "52.5 / 54.7"
+      },
+      {
+        "benchmark": "Application recreation (RecreationBench)",
+        "Qwen3.8-Flash-Next": "49.9",
+        "Qwen3.8-27B": "47.1",
+        "Qwen3.7-Plus": "30.2",
+        "Claude-Opus-4.6 (Max)": "--"
+      },
+      {
+        "benchmark": "Mobile use (AndroidWorld)",
+        "Qwen3.8-Flash-Next": "84.5",
+        "Qwen3.8-27B": "81.9",
+        "Qwen3.7-Plus": "81.0",
+        "Claude-Opus-4.6 (Max)": "62.0"
+      },
+      {
+        "benchmark": "Computer use (OSWorld 2.0) Binary / Partial",
+        "Qwen3.8-Flash-Next": "19.4 / 52.3",
+        "Qwen3.8-27B": "19.4 / 48.0",
+        "Qwen3.7-Plus": "2.8 / 21.5",
+        "Claude-Opus-4.6 (Max)": "--"
+      },
+      {
+        "benchmark": "Visual web development (Vision2Web)",
+        "Qwen3.8-Flash-Next": "64.0",
+        "Qwen3.8-27B": "62.9",
+        "Qwen3.7-Plus": "42.1",
+        "Claude-Opus-4.6 (Max)": "--"
+      },
+      {
+        "benchmark": "Embodied intelligence (ERQA)",
+        "Qwen3.8-Flash-Next": "72.3",
+        "Qwen3.8-27B": "65.5",
+        "Qwen3.7-Plus": "69.8",
+        "Claude-Opus-4.6 (Max)": "40.8"
+      },
+      {
+        "benchmark": "Long video understanding (LVBench)",
+        "Qwen3.8-Flash-Next": "76.6",
+        "Qwen3.8-27B": "72.4",
+        "Qwen3.7-Plus": "76.2",
+        "Claude-Opus-4.6 (Max)": "63.0"
+      },
+      {
+        "benchmark": "Real-world perception (RealWorldQA)",
+        "Qwen3.8-Flash-Next": "88.5",
+        "Qwen3.8-27B": "85.9",
+        "Qwen3.7-Plus": "86.9",
+        "Claude-Opus-4.6 (Max)": "73.9"
+      },
+      {
+        "benchmark": "Visual math problem solving (MathVision) without CI / with CI",
+        "Qwen3.8-Flash-Next": "90.6 / 95.7",
+        "Qwen3.8-27B": "90.0 / 94.6",
+        "Qwen3.7-Plus": "90.3 / 88.7",
+        "Claude-Opus-4.6 (Max)": "65.5 / --"
+      },
+      {
+        "benchmark": "Scientific chart analysis (CharXiv RQ) without CI / with CI",
+        "Qwen3.8-Flash-Next": "84.6 / 90.6",
+        "Qwen3.8-27B": "83.7 / 90.2",
+        "Qwen3.7-Plus": "85.8 / 85.9",
+        "Claude-Opus-4.6 (Max)": "66.0 / --"
+      }
+    ]
+  },
+  "notes": [
+    "Not in official table (so quant claims on these have no official reference): MMLU-Pro, AIME25, SWE-bench Verified, zero-shot ARC/HellaSwag/WinoGrande/PIQA, GSM8K, IFEval",
+    "Official GPQA Diamond 91.7 and LCB v6 91.9 can be compared with ISTA's own BF16 runs (91.92 / 87.43)",
+    "Footnotes omitted by fetch; sampling: thinking temp 1.0 top_p 0.95 top_k 20"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/Qwen/Qwen3.8-Flash-Next/raw/main/README.md"
+  ],
+  "fetched_at": "2026-10-17"
+}

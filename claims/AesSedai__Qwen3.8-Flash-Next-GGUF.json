@@ -1,0 +1,220 @@
+{
+  "repo": "AesSedai/Qwen3.8-Flash-Next-GGUF",
+  "url": "https://huggingface.co/AesSedai/Qwen3.8-Flash-Next-GGUF",
+  "format": "GGUF",
+  "runtime": "llama.cpp mainline (log path .../development/llama.cpp/build/bin/llama-perplexity; build not logged)",
+  "weights_modified": false,
+  "method": "Mixed-precision MoE recipe: default tensors kept high (Q8_0/Q6_K), FFN up/gate/down quantized lower (Mixture column = default / ffn_up / ffn_gate / ffn_down, inferred); original quants use Q8_0 for engram/PLE embedding tensors, '(Q4_0 PLE)' / PLEQ4_0 variants use Q4_0 for them; imatrix",
+  "imatrix_or_calib_data": "imatrix.gguf published; calibration data not stated",
+  "methodology": {
+    "reference": "BF16 (ref-logits file Qwen3.8-Flash-Next-BF16-512ctx-wiki.test.raw.bin, from log)",
+    "eval_dataset": "wikitext-2 test (wiki.test.raw)",
+    "ctx": 512,
+    "n_tokens": "580 chunks x 512 ≈ 296,960 tokens (derived from log, not stated)",
+    "tool": "llama-perplexity --kl-divergence (mainline)"
+  },
+  "variants": [
+    {
+      "name": "Q5_K_M",
+      "size_gb": 147.17,
+      "size_unit": "GiB",
+      "bpw": 7.14,
+      "metrics": {
+        "mean_kld": "0.030432 ± 0.000210",
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": "4.600285 ± 0.027992",
+        "ppl_ratio": "+0.2179%",
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Mixture: Q8_0 / Q5_K / Q5_K / Q6_K"
+    },
+    {
+      "name": "Q5_K_M (Q4_0 PLE)",
+      "size_gb": 126.64,
+      "size_unit": "GiB",
+      "bpw": 6.15,
+      "metrics": {
+        "mean_kld": "0.030814 ± 0.000217",
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": "4.616165 ± 0.028059",
+        "ppl_ratio": "+0.5638%",
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Mixture: Q8_0 / Q5_K / Q5_K / Q6_K"
+    },
+    {
+      "name": "Q4_K_M",
+      "size_gb": 126.08,
+      "size_unit": "GiB",
+      "bpw": 6.12,
+      "metrics": {
+        "mean_kld": "0.041479 ± 0.000274",
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": "4.618153 ± 0.028121",
+        "ppl_ratio": "+0.6071%",
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Mixture: Q8_0 / Q4_K / Q4_K / Q5_K"
+    },
+    {
+      "name": "IQ4_XS",
+      "size_gb": 109.09,
+      "size_unit": "GiB",
+      "bpw": 5.3,
+      "metrics": {
+        "mean_kld": "0.079730 ± 0.000510",
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": "4.733298 ± 0.029068",
+        "ppl_ratio": "+3.1156%",
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Mixture: Q8_0 / IQ3_S / IQ3_S / IQ4_XS"
+    },
+    {
+      "name": "Q4_K_M (Q4_0 PLE)",
+      "size_gb": 105.55,
+      "size_unit": "GiB",
+      "bpw": 5.12,
+      "metrics": {
+        "mean_kld": "0.043324 ± 0.000287",
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": "4.633212 ± 0.028203",
+        "ppl_ratio": "+0.9352%",
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Mixture: Q8_0 / Q4_K / Q4_K / Q5_K"
+    },
+    {
+      "name": "IQ3_S",
+      "size_gb": 100.01,
+      "size_unit": "GiB",
+      "bpw": 4.85,
+      "metrics": {
+        "mean_kld": "0.162764 ± 0.000918",
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": "4.870320 ± 0.030101",
+        "ppl_ratio": "+6.1006%",
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Mixture: Q6_K / IQ2_S / IQ2_S / IQ3_S"
+    },
+    {
+      "name": "IQ2_S",
+      "size_gb": 97.66,
+      "size_unit": "GiB",
+      "bpw": 4.74,
+      "metrics": {
+        "mean_kld": "0.205950 ± 0.001125",
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": "5.037301 ± 0.031450",
+        "ppl_ratio": "+9.7383%",
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Mixture: Q6_K / IQ2_XS / IQ2_XS / IQ3_XXS"
+    },
+    {
+      "name": "IQ4_XS (Q4_0 PLE)",
+      "size_gb": 88.56,
+      "size_unit": "GiB",
+      "bpw": 4.3,
+      "metrics": {
+        "mean_kld": "0.084118 ± 0.000515",
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": "4.750635 ± 0.029142",
+        "ppl_ratio": "+3.4933%",
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Mixture: Q8_0 / IQ3_S / IQ3_S / IQ4_XS"
+    },
+    {
+      "name": "IQ3_S (Q4_0 PLE)",
+      "size_gb": 79.55,
+      "size_unit": "GiB",
+      "bpw": 3.86,
+      "metrics": {
+        "mean_kld": "0.167344 ± 0.000940",
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": "4.887335 ± 0.030175",
+        "ppl_ratio": "+6.4713%",
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Mixture: Q6_K / IQ2_S / IQ2_S / IQ3_S"
+    },
+    {
+      "name": "IQ2_S (Q4_0 PLE)",
+      "size_gb": 77.21,
+      "size_unit": "GiB",
+      "bpw": 3.75,
+      "metrics": {
+        "mean_kld": "0.213340 ± 0.001164",
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": "5.076957 ± 0.031749",
+        "ppl_ratio": "+10.6023%",
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "Mixture: Q6_K / IQ2_XS / IQ2_XS / IQ3_XXS"
+    }
+  ],
+  "headline_claims": [
+    "Mixed-precision MoE quants give better quality at smaller overall size",
+    "Q4_K_M at +0.61% PPL / KLD 0.041; Q4_0 PLE variants save ~20 GiB for small KLD cost"
+  ],
+  "baseline_numbers": {
+    "note": "PPL(base) value not stated on card (only ratio column '1-(Mean PPL(Q)/PPL(base))')"
+  },
+  "red_flags": [
+    "Methodology not on card; only recoverable from raw logs in kld_data/ (the one log checked is truncated at chunk 263 - no final stats block)",
+    "ppl_ratio column header '1-(Mean PPL(Q)/PPL(base))' but values are positive increases - sign/label inconsistent",
+    "Only mean KLD given; no p99/p99.9/top-1 on card (may be in kld_data/llm_quantization_data.csv, not fetched)",
+    "BPW computed over ~177B params incl. n-gram table, not comparable to bpw quoted by ISTA",
+    "Update notes dated 09/01/2027 and 09/02/2027 (future dates)",
+    "IQ2_S row has nearly same size as IQ3_S (97.66 vs 100.01 GiB) due to n-gram table at Q8_0"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/AesSedai/Qwen3.8-Flash-Next-GGUF/raw/main/README.md",
+    "https://huggingface.co/AesSedai/Qwen3.8-Flash-Next-GGUF",
+    "https://huggingface.co/api/models/AesSedai/Qwen3.8-Flash-Next-GGUF?blobs=true",
+    "https://huggingface.co/AesSedai/Qwen3.8-Flash-Next-GGUF/raw/main/kld_data/wiki-test-raw/aes_sedai/Qwen3.8-Flash-Next-Q4_K_M.md"
+  ],
+  "fetched_at": "2026-10-17"
+}

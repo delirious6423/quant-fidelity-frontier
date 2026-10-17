@@ -1,0 +1,93 @@
+{
+  "repo": "sh0wie/Qwen3.8-Flash-Next-REAP-288-GGUF",
+  "url": "https://huggingface.co/sh0wie/Qwen3.8-Flash-Next-REAP-288-GGUF",
+  "format": "GGUF",
+  "runtime": "llama.cpp mainline (llama-server/llama-cli, Ollama)",
+  "weights_modified": true,
+  "method": "REAP expert pruning 512->288 experts/layer, then single-step GGUF quant from pruned bf16",
+  "imatrix_or_calib_data": "REAP pruning calibrated on ~686K tokens of agentic-coding traffic (one team); GGUF imatrix not stated",
+  "methodology": {
+    "reference": "unpruned model (measured on MLX 4-bit lineage)",
+    "eval_dataset": "HumanEval (164)",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated (single run, no CIs)"
+  },
+  "variants": [
+    {
+      "name": "Q4_K_M",
+      "size_gb": 78,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {
+          "HumanEval_pct": 91.5,
+          "note": "measured on MLX 4-bit lineage, not this GGUF"
+        }
+      },
+      "qualitative": "good default: smallest and fastest, strong quality"
+    },
+    {
+      "name": "Q5_K_M",
+      "size_gb": 87,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "higher fidelity, more memory"
+    },
+    {
+      "name": "Q8_0",
+      "size_gb": 116,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "near-lossless, largest"
+    }
+  ],
+  "headline_claims": [
+    "Pruned model 91.5% HumanEval (149/164) vs 93.9% unpruned",
+    "Single-step quantization from bf16"
+  ],
+  "baseline_numbers": {
+    "HumanEval_pct_unpruned": 93.9
+  },
+  "red_flags": [
+    "weights modified (REAP-pruned) - not a faithful quant",
+    "HumanEval measured on MLX 4-bit, not the GGUF files",
+    "single-run, no CIs; code-only calibration may degrade other domains",
+    "vision untested after pruning",
+    "no KLD/PPL"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/sh0wie/Qwen3.8-Flash-Next-REAP-288-GGUF/raw/main/README.md"
+  ],
+  "fetched_at": "2026-10-17"
+}

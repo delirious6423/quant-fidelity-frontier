@@ -1,0 +1,66 @@
+{
+  "repo": "ggml-org/Qwen3.8-Flash-Next-GGUF",
+  "url": "https://huggingface.co/ggml-org/Qwen3.8-Flash-Next-GGUF",
+  "format": "GGUF",
+  "runtime": "llama.cpp mainline ('llama serve -hf ...' via llama.app)",
+  "weights_modified": false,
+  "method": "Automatic conversion via github.com/ggml-org/convert; Q8_0 only, no imatrix",
+  "imatrix_or_calib_data": null,
+  "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+  },
+  "variants": [
+    {
+      "name": "Q8_0",
+      "size_gb": 162.62,
+      "size_unit": "GB (computed from API blob sizes, 162,624,826,656 bytes)",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    },
+    {
+      "name": "mmproj-Q8_0",
+      "size_gb": 0.62,
+      "size_unit": "GB (computed from API)",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": null
+    }
+  ],
+  "headline_claims": [],
+  "baseline_numbers": {},
+  "red_flags": [
+    "no quality claims; card has TODO 'add info'",
+    "Q8_0 is 162.6 GB vs 188.2-188.3 GB for unsloth/bartowski Q8_0 (~25.6 GB smaller) - likely different handling of n-gram embeddings or MTP; unverified",
+    "Sizes not on card, computed from HF API"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/ggml-org/Qwen3.8-Flash-Next-GGUF/raw/main/README.md",
+    "https://huggingface.co/api/models/ggml-org/Qwen3.8-Flash-Next-GGUF?blobs=true"
+  ],
+  "fetched_at": "2026-10-17"
+}

@@ -1,0 +1,51 @@
+{
+  "repo": "local-inference-lab/Qwen3.8-Flash-Next-NVFP4",
+  "url": "https://huggingface.co/local-inference-lab/Qwen3.8-Flash-Next-NVFP4",
+  "format": "NVFP4",
+  "runtime": "not stated (intended for DGX Spark; files suggest ModelOpt export: hf_quant_config.json, amax files)",
+  "weights_modified": false,
+  "method": "not stated (card is one sentence); file list (hf_quant_config.json, amax*.safetensors, model-inputscales) suggests NVIDIA ModelOpt NVFP4 - inferred, not stated",
+  "imatrix_or_calib_data": null,
+  "methodology": {
+    "reference": "not stated",
+    "eval_dataset": "not stated",
+    "ctx": null,
+    "n_tokens": null,
+    "tool": "not stated"
+  },
+  "variants": [
+    {
+      "name": "NVFP4",
+      "size_gb": 105.94,
+      "size_unit": "GB",
+      "bpw": null,
+      "metrics": {
+        "mean_kld": null,
+        "kld_p99": null,
+        "kld_p99_9": null,
+        "kld_max": null,
+        "top1_agree_pct": null,
+        "ppl": null,
+        "ppl_ratio": null,
+        "delta_p_rms": null,
+        "bench": {}
+      },
+      "qualitative": "size from HF API sum of file sizes (105,935,744,089 bytes); not stated on card"
+    }
+  ],
+  "headline_claims": [
+    "NVFP4 quant intended for DGX Spark"
+  ],
+  "baseline_numbers": {},
+  "red_flags": [
+    "no quality claims",
+    "no methodology, calibration, or runtime info - README is 70 bytes",
+    "~106 GB is notably smaller than other NVFP4 builds (133-186 GB) - likely PLE/other tensors quantized more aggressively, undocumented",
+    "HF usedStorage (220 GB) ~2x file total, suggesting re-uploaded history"
+  ],
+  "evidence_urls": [
+    "https://huggingface.co/local-inference-lab/Qwen3.8-Flash-Next-NVFP4/raw/main/README.md",
+    "https://huggingface.co/api/models/local-inference-lab/Qwen3.8-Flash-Next-NVFP4?blobs=true"
+  ],
+  "fetched_at": "2026-10-17"
+}
