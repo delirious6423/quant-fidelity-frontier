@@ -678,7 +678,10 @@ def main():
             f"KLD, top-1, perplexity and benchmark claims, with methodology, red flags and source lines. {stats['repos']} repos.")
     head_common = f'<title>{title}</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n'
     fonts = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap">'
-    open(f"{OUT}/artifact.html", "w").write(head_common + fonts + f"<style>{CSS}</style>\n" + body + f"<script>{JS}</script>")
+    abody = body
+    for o in OTHERS:                                   # inside claude.ai the sibling site is another artifact, not a relative path
+        if o.get("artifact"): abody = abody.replace(f'<a href="{E(o["href"])}">{E(o["name"])}</a>', f'<a href="{E(o["artifact"])}" target="_blank" rel="noopener">{E(o["name"])}</a>')
+    open(f"{OUT}/artifact.html", "w").write(head_common + fonts + f"<style>{CSS}</style>\n" + abody + f"<script>{JS}</script>")
     ld = {"@context": "https://schema.org", "@type": "Dataset", "name": f"Quant Claims Ledger: {MNAME} quantizations",
           "description": desc, "url": SITE_URL, "license": "https://creativecommons.org/licenses/by/4.0/",
           "creator": {"@type": "Person", "name": "delirious6423", "url": "https://github.com/delirious6423"},
