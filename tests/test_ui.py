@@ -90,7 +90,8 @@ async def main():
             check(await pg.evaluate("document.getElementById('extip').hidden"), f"{name}: Escape closes tooltip")
             # frontier
             await pg.check("#exfront"); await pg.wait_for_timeout(100)
-            check(await pg.locator("#extable .chip.f").count() >= 1 and await pg.locator("#exsvg polyline.frontier").count() == int(await pg.locator("#extable .chip.f").count() > 1), f"{name}: frontier drawn and marked")
+            frontier_marks = await pg.locator("#extable .chip.f").filter(has_text=re.compile(r"^frontier$")).count()
+            check(frontier_marks >= 1 and await pg.locator("#exsvg polyline.frontier").count() == int(frontier_marks > 1), f"{name}: frontier drawn and marked ({frontier_marks} efficient points)")
             await pg.uncheck("#exfront")
             # table sort by size
             await pg.locator("#extable th[data-key=_x]").click(); await pg.wait_for_timeout(50)
