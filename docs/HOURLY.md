@@ -99,6 +99,15 @@ For each model: cards fetched, values published (from `merge`), entries quaranti
 ingested model, if any, and whether the deploy was dispatched. If nothing changed anywhere, say "no changes" and unlock
 (commit and push the lock removal).
 
+## Rehearsal results (18 Oct 2026, two real cards, Haiku at high effort)
+- **Fetch:** 2 of 2 cards saved in 31 s, byte-identical to the original capture, with no retries.
+- **Mapping:**
+  - The two Haiku runs agreed on 20 values, and all 20 were values the Sonnet runs had also found, so precision was good.
+  - Recall was lower: Haiku found 20 values on one card where Sonnet found 35. Values that are missed stay unpublished;
+    they are never guessed. Expect Haiku-mapped cards to show fewer values than Sonnet-mapped ones.
+- **Bug found and fixed:** a shell `mv` with an empty queue name moved the whole `pending` folder. Workers now claim
+  only through `pipeline/qcl_claim.py` (an atomic rename of one file).
+
 ## Known failure modes and what to do
 | Symptom | Cause | Action |
 |---|---|---|
@@ -108,6 +117,7 @@ ingested model, if any, and whether the deploy was dispatched. If nothing change
 | `HF_FS_ACCESS_DENIED` | gated repo | expected; it is skipped and listed |
 | saver lists `retry` / `need_chunks` | a truncated or split chunk | the fetch agent re-plans once (FETCH.md step 4) |
 | agent wrote files to the wrong folder | worker error | `finish` catches missing maps and re-queues them |
+| `pending` folder missing or moved | a worker moved files by hand | workers must use `pipeline/qcl_claim.py`; recreate `work/<slug>/pending`, move unprocessed queues back from `claimed/`, rerun |
 | `REFUSING TO BUILD` | a gate failed | `merge` already quarantines failing entries; if a build still refuses, stop and report |
 | UI test fails for a new model | the site is not ready | the model stays `queued`; report it |
 | push rejected | another commit landed | `git pull --rebase` and push; never force |

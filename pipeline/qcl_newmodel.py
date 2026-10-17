@@ -33,7 +33,9 @@ for rid, m in repos.items():                     # a repo with no README gets an
         p = f"{R}/cache/cards/{rid.replace('/', '__')}.md"; open(p, "w").close(); m["file"] = os.path.relpath(p, R)
 os.makedirs(f"{R}/snapshots", exist_ok=True); os.makedirs(f"{R}/verified", exist_ok=True); os.makedirs(f"{R}/audit", exist_ok=True)
 missing = sorted(set(cat) - set(repos))
-json.dump({"captured_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "model": json.load(open(f"{R}/model.json"))["model"],
+_prev = json.load(open(f"{R}/snapshots/index.json")) if os.path.exists(f"{R}/snapshots/index.json") else {}
+json.dump({"captured_at": _prev.get("captured_at") or time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),   # first capture; stays fixed
+           "updated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "model": json.load(open(f"{R}/model.json"))["model"],
            "pinning": "sha256 of card bytes (connector; no commit sha)", "repos": repos}, open(f"{R}/snapshots/index.json", "w"), indent=1)
 for stub in ("hf_sizes_summary.json", "hf_branch_sizes.json"):
     if not os.path.exists(f"{R}/snapshots/{stub}"): json.dump({}, open(f"{R}/snapshots/{stub}", "w"))
