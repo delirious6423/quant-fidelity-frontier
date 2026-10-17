@@ -22,15 +22,13 @@ async def main():
             dflt = await pg.evaluate("[document.getElementById('exset').value, document.getElementById('exset').options[0].value, document.getElementById('exmeta').textContent]")
             check(dflt[0] == "all" and dflt[1] == "all" and "Overview" in dflt[2] and "not comparable" in dflt[2], f"{name}: overview of every claim is the default, listed first and labelled not comparable {dflt[:2]}")
             check(await pg.locator("#exsvg circle.mk").count() > 20, f"{name}: overview chart draws every claim")
-            _DD = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), os.environ.get("QCL_SITE", "site"), "data.json")))
-            _first = "turboderp" if any(x["id"] == "turboderp" for x in _DD["sets"]) else max((x for x in _DD["sets"] if x["comparable"]), key=lambda x: len({q.get("by") or q.get("repo") for q in x["points"]}) * 1000 + len(x["points"]))["id"]
-            await pg.select_option("#exset", _first); await pg.wait_for_timeout(150)
-            dflt = await pg.evaluate("[document.getElementById('exset').value, document.getElementById('exset').options[0].value, document.getElementById('exmeta').textContent]")
-            check(dflt[0] == "all" and dflt[1] == "all" and "Overview" in dflt[2] and "not comparable" in dflt[2], f"{name}: overview of every claim is the default, listed first and labelled not comparable {dflt[:2]}")
-            check(await pg.locator("#exsvg circle.mk").count() > 20, f"{name}: overview chart draws every claim")
             owners = await pg.evaluate("[...document.querySelectorAll('#exset optgroup')].slice(1).map(g=>[...g.querySelectorAll('option')].map(o=>o.textContent.split(' · ')[0].toLowerCase()))")
             check(all(g == sorted(g) for g in owners), f"{name}: sets listed alphabetically by owner within each group")
-            _first = await pg.evaluate("[...document.querySelectorAll('#exset optgroup')][1].querySelector('option').value")
+            _first = None
+            for _v in await pg.evaluate("[...document.querySelectorAll('#exset optgroup')].slice(1).flatMap(g=>[...g.querySelectorAll('option')].map(o=>o.value))"):
+                await pg.select_option("#exset", _v); await pg.wait_for_timeout(40)
+                if await pg.locator("#exlegend .lg:not([hidden]):not(.more)").count() >= 2: _first = _v; break
+            check(_first is not None, f"{name}: a comparable set with several publishers exists ({_first})")
             await pg.select_option("#exset", _first); await pg.wait_for_timeout(150)
             opts = await pg.evaluate("[...document.querySelectorAll('#exset option')].map(o=>o.value)")
             check(len(opts) == len(set(opts)) and len(opts) > 20, f"{name}: set options unique ({len(opts)})")
@@ -61,7 +59,10 @@ async def main():
             check(await pg.locator("#exsvg circle.mk").count() < before, f"{name}: legend hides a repo")
             await pg.locator("#exlegend .lg").first.click()
             # tap/click a point pins tooltip with source link and selects row
-            await pg.locator("#exsvg circle.mk").first.click(); await pg.wait_for_timeout(100)
+            _ti = await pg.evaluate("(()=>{const cs=[...document.querySelectorAll('#exsvg circle.mk')];for(let i=0;i<cs.length;i++){const r=cs[i].getBoundingClientRect();if(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)===cs[i])return i}return 0})()")
+            await pg.locator("#exsvg circle.mk").nth(_ti).scroll_into_view_if_needed()
+            _ti = await pg.evaluate("(()=>{const cs=[...document.querySelectorAll('#exsvg circle.mk')];for(let i=0;i<cs.length;i++){const r=cs[i].getBoundingClientRect();if(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)===cs[i])return i}return 0})()")
+            await pg.locator("#exsvg circle.mk").nth(_ti).click(); await pg.wait_for_timeout(100)   # topmost marker: exact duplicates can overlap
             tipvis = await pg.evaluate("!document.getElementById('extip').hidden && !!document.querySelector('#extip a[href]')")
             check(tipvis, f"{name}: point click pins tooltip with source link")
             check(await pg.locator("#extable tr.sel").count() == 1, f"{name}: pinned point selects its table row")
