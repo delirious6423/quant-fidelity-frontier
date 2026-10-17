@@ -486,7 +486,7 @@ def auto_sets(rows, repos, curated_by):
             if CFG.get("named_metric_series"):
                 series += sorted({key for p in pts for key in p["m"] if NAMED_METRIC.match(key)})
             avail = [key for key in series if sum(1 for p in pts if key in p["m"]) >= 2]
-            if len(pts) < 2 or not avail: continue
+            if len(pts) < 2 or not avail or not any(p["kind"] == "own" for p in pts): continue
             bys = sorted({p["measured_by"] for p in pts})
             mm = g[0].get("methodology") or meth.get(bys[0]) or {}
             bases = sorted({p["basis"] for p in pts if p["basis"]})
