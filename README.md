@@ -25,6 +25,9 @@ More in [`qff_mcp/README.md`](qff_mcp/README.md).
 ## Support
 QFF is free. If it saves you time, you can [tip on Ko-fi](https://ko-fi.com/delirious6423). Tips pay for upkeep and new models and never influence the data ([sponsor policy](docs/SPONSORS.md)).
 
+## Discovery and dataset publishing
+See [the rollout guide](docs/DISCOVERY.md) for repository metadata, search verification, static explainers and the reproducible Hugging Face export.
+
 ## More
 - [Method: claim rules, gates, tests](docs/METHOD.md) · [How a model is ingested](docs/FASTPATH.md)
 - [Developing: layout, build, hosting](docs/DEVELOPING.md)

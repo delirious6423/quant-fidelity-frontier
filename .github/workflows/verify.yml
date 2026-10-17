@@ -21,5 +21,7 @@ jobs:
         run: python3 tests/test_claims.py
       - name: Assembled site is static only
         run: python3 assemble.py _site
+      - name: Discovery pages and dataset export
+        run: python3 tests/test_discovery.py
       - name: MCP server answers match the data (stdio, black-box)
         run: pip install "mcp>=1.9" && QFF_DATA=_site python3 tests/test_mcp.py
