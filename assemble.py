@@ -41,6 +41,9 @@ for dj in sorted(glob.glob(os.path.join(OUT, "**", "data.json"), recursive=True)
 json.dump({"name": "QFF (Quant Fidelity Frontier)", "about": "Publisher claims about Hugging Face quants, each pinned to its source line. Claims, not measurements.", "models": man},
           open(os.path.join(OUT, "models.json"), "w"), indent=1)
 import html as H                              # landing page: one card per model, built from the manifest
+_S = json.load(open(os.path.join(CODE, "site.json"))) if os.path.exists(os.path.join(CODE, "site.json")) else {}
+SUP = (f' · <a href="{H.escape(_S["support_url"])}" rel="noopener">{H.escape(_S.get("support_label") or "Support QFF")}</a>'
+       f' (<a href="https://github.com/delirious6423/quant-fidelity-frontier/blob/main/docs/SPONSORS.md">sponsor policy</a>)') if _S.get("support_url") else ""
 cards = "".join(f'<a class="card" href="{H.escape(m["slug"])}/"><h2>{H.escape(m["model"].split("/")[-1])}</h2><p class="org">{H.escape(m["model"])}</p>'
                 f'<p>{m["repos"]:,} quant repos · {m["rows"]:,} claim rows · {m["sets"]} measurement sets</p><p class="dim">Captured {H.escape((m["captured_at"] or "")[:10])}</p></a>' for m in man)
 open(os.path.join(OUT, "index.html"), "w").write(f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -59,7 +62,7 @@ h1{{font-size:clamp(28px,5vw,40px);line-height:1.15;margin:0 0 8px;text-wrap:bal
 <h1>Every Hugging Face quant, compared by what its publisher claims</h1>
 <p class="lede">Each number is copied from the publisher's own model card and links to the line it came from. Nothing is re-measured; numbers are comparable only within one measurement set.</p>
 <div class="grid">{cards}</div>
-<footer><a href="models.json">models.json</a> (machine-readable index) · <a href="https://github.com/delirious6423/quant-fidelity-frontier">source and data</a></footer></main></body></html>""")
+<footer><a href="models.json">models.json</a> (machine-readable index) · <a href="https://github.com/delirious6423/quant-fidelity-frontier">source and data</a>{SUP}</footer></main></body></html>""")
 open(os.path.join(OUT, ".nojekyll"), "w").close()   # serve files as-is; no Jekyll processing
 bad = [p for p in glob.glob(os.path.join(OUT, "**", "*"), recursive=True) if os.path.isfile(p) and not p.endswith((".html", ".json", ".txt", ".xml", ".css", ".js", ".svg", ".png", ".ico", ".nojekyll"))]
 assert not bad, f"non-static files in site: {bad[:5]}"

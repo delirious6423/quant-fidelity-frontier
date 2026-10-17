@@ -16,6 +16,9 @@ COVER_NOTE = CFG.get("coverage_note", "claims made only off-site (other than Uns
 PIN_NOTE = CFG.get("pin_note", "")
 SITE_URL = "https://delirious6423.github.io/quant-fidelity-frontier/" + (SLUG + "/" if SLUG else "")
 REPO_URL = "https://github.com/delirious6423/quant-fidelity-frontier"
+_SITE = json.load(open(os.path.join(CODE, "site.json"))) if os.path.exists(os.path.join(CODE, "site.json")) else {}
+SUPPORT_HTML = (f' · <a href="{html.escape(_SITE["support_url"])}" rel="noopener">{html.escape(_SITE.get("support_label") or "Support QFF")}</a>'
+                f' (<a href="{REPO_URL}/blob/main/docs/SPONSORS.md">sponsor policy</a>)') if _SITE.get("support_url") else ""
 GIB = 1.073741824
 E = html.escape
 
@@ -617,7 +620,7 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
 <p>Not covered: {E(COVER_NOTE)}, and repos created or changed after {captured}. Found an error or a new quant? <a href="{REPO_URL}">Open an issue or pull request</a>; each claim lives in a plain data file with its source line.</p>
 </section>
 </main>
-<footer class="foot"><div class="wrap"><p>QFF (Quant Fidelity Frontier): what publishers claim, pinned to the line they said it · data captured {captured} · claims belong to their publishers · <a href="{REPO_URL}">source and data</a></p></div></footer>
+<footer class="foot"><div class="wrap"><p>QFF (Quant Fidelity Frontier): what publishers claim, pinned to the line they said it · data captured {captured} · claims belong to their publishers · <a href="{REPO_URL}">source and data</a>{SUPPORT_HTML}</p></div></footer>
 """
     return body.replace("__EXDATA__", exdata)
 
