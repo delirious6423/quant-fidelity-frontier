@@ -3,7 +3,7 @@
   "no_quality_claims": false,
   "weights_modified": true,
   "method": {
-    "reference": "unpruned quantized build for paired PPL ratio; source is FP8/FP4 release dequantized to BF16",
+    "reference": "unpruned quantized build for paired PPL ratio; not a BF16 reference (FP8/FP4 release dequantized for execution)",
     "dataset": "wikitext-2 test; 286,580 tokens, 140 matched windows",
     "ctx": "2048-token windows",
     "tool": "custom deepseek_v41_mlx runtime",

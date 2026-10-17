@@ -38,7 +38,9 @@ async def main():
             _first = None
             for _v in await pg.evaluate("[...document.querySelectorAll('#exset optgroup')].slice(1).flatMap(g=>[...g.querySelectorAll('option')].map(o=>o.value))"):
                 await pg.select_option("#exset", _v); await pg.wait_for_timeout(40)
-                if await pg.locator("#exlegend .lg:not([hidden]):not(.more)").count() >= 2: _first = _v; break
+                candidate = next(x for x in _DX["sets"] if x["id"] == _v)
+                nonrefs = [q for q in candidate["points"] if not q.get("is_ref") and q["m"].get(candidate["metrics"][0], {}).get("v", 0) > 0]
+                if len(nonrefs) >= 2 and await pg.locator("#exlegend .lg:not([hidden]):not(.more)").count() >= 2: _first = _v; break
             if _first is None:   # small models may have no multi-publisher set: use the largest comparable set
                 _first = max((x for x in _DX["sets"] if x.get("comparable")), key=lambda x: len(x["points"]))["id"]
             await pg.select_option("#exset", _first); await pg.wait_for_timeout(150)
