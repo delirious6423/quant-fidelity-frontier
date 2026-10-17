@@ -11,7 +11,7 @@ with a link to the line it came from.
 | Qwen/Qwen3.8-Flash-Next | 453 | 2,980 |
 | Qwen/Qwen3.8-27B | 1,220 | 4,747 |
 
-**Site:** https://delirious6423.github.io/quant-fidelity-frontier/ (not yet published)
+**Site:** https://delirious6423.github.io/quant-fidelity-frontier/
 
 Only compare numbers within one measurement set; the default overview mixes methods and is for a first glance.
 
