@@ -45,9 +45,10 @@ python3 pipeline/qcl_scan.py lock      # exit 3 = another run started under 2 h 
 python3 pipeline/qcl_scan.py plan
 ```
 `plan` prints `delta` (the live slugs) and `ingest` (a slug, or null). For an ingest it creates `models/<slug>/model.json`.
-Commit and push the lock now, so a parallel run sees it:
-`git add scan.lock && git commit -qm "scan lock" && git push -q`. If the push is rejected, run `git pull --rebase -q` and
-push again. If `scan.lock` came in from the remote with a fresh time, stop.
+Push the lock only once there is real work: when `plan` returns an `ingest`, or as soon as a `catalogue` step (step 3)
+returns shards. Then run `git add scan.lock && git commit -qm "scan lock" && git push -q`, so a parallel run sees it. If
+the push is rejected, run `git pull --rebase -q` and push again; if `scan.lock` came in from the remote with a fresh time,
+stop. In an hour with nothing to do, nothing is committed: run `python3 pipeline/qcl_scan.py unlock` and stop.
 
 ## 3. Catalogue (each slug in `delta`, then the `ingest` slug)
 1. `python3 pipeline/qcl_scan.py search-ops <slug>` (add `--full` for the ingest slug). It prints `op_lists`.
@@ -96,8 +97,8 @@ python3 pipeline/qcl_scan.py publish [--ingested <slug>]   # builds every live m
 
 ## 7. Report
 For each model: cards fetched, values published (from `merge`), entries quarantined, and gated repos skipped. Then the
-ingested model, if any, and whether the deploy was dispatched. If nothing changed anywhere, say "no changes" and unlock
-(commit and push the lock removal).
+ingested model, if any, and whether the deploy was dispatched. If nothing changed anywhere, say "no changes", run `unlock`, and
+commit nothing (the lock was never pushed).
 
 ## Rehearsal results (18 Oct 2026, two real cards, Haiku at high effort)
 - **Fetch:** 2 of 2 cards saved in 31 s, byte-identical to the original capture, with no retries.
