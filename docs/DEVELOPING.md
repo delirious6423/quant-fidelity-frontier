@@ -33,3 +33,8 @@ Needs Python 3.11+, `pillow`, `numpy`; tests also need `playwright` and `mcp`.
 GitHub Pages serves only static files, and that is all the site is (HTML, CSS, JS, JSON; data inlined in each page).
 Python runs at build time only. `.github/workflows/pages.yml` builds in Actions and deploys `_site/` (manual trigger;
 Settings → Pages → Source: GitHub Actions).
+
+## Site analytics
+Optional and cookie-free (Umami Cloud). Set `analytics.website_id` in `site.json` to turn it on; the script is added
+only to the public pages (never the claude.ai previews) and counts only on `delirious6423.github.io`, so local and CI
+test runs are not recorded. Outbound GitHub and support clicks and explorer set changes are recorded as events.

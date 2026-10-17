@@ -38,6 +38,7 @@
   if (/^#set-[a-z0-9-]+$/.test(location.hash) && setById(location.hash.slice(5))) state.set = location.hash.slice(5);
   selSet.value = state.set;
   function goSet(id, focusQid) {
+    try { if (window.umami && id !== state.set) window.umami.track('set', { id: id }); } catch (e) {}   // which comparisons people open (cookie-free stats)
     state.set = id; selSet.value = id; state.metric = null; state.q = ''; qIn.value = ''; state.fmts = {}; state.sort = null; state.xmax = null; state.ylim = null; state.basis = ''; state.focus = focusQid || null; state.pinned = focusQid || null;
     store('qff.set', id); render();
   }

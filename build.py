@@ -17,8 +17,11 @@ PIN_NOTE = CFG.get("pin_note", "")
 SITE_URL = "https://delirious6423.github.io/quant-fidelity-frontier/" + (SLUG + "/" if SLUG else "")
 REPO_URL = "https://github.com/delirious6423/quant-fidelity-frontier"
 _SITE = json.load(open(os.path.join(CODE, "site.json"))) if os.path.exists(os.path.join(CODE, "site.json")) else {}
-SUPPORT_HTML = (f' · <a href="{html.escape(_SITE["support_url"])}" rel="noopener">{html.escape(_SITE.get("support_label") or "Support QFF")}</a>'
+SUPPORT_HTML = (f' · <a href="{html.escape(_SITE["support_url"])}" rel="noopener" data-umami-event="support">{html.escape(_SITE.get("support_label") or "Support QFF")}</a>'
                 f' (<a href="{REPO_URL}/blob/main/docs/SPONSORS.md">sponsor policy</a>)') if _SITE.get("support_url") else ""
+_AN = _SITE.get("analytics") or {}
+ANALYTICS = (f'<script defer src="{html.escape(_AN.get("script") or "https://cloud.umami.is/script.js")}" data-website-id="{html.escape(_AN["website_id"])}" data-domains="delirious6423.github.io"></script>\n'
+             if _AN.get("website_id") else "")   # cookie-free; data-domains keeps local test runs out of the stats
 GIB = 1.073741824
 E = html.escape
 
@@ -540,7 +543,7 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
     <div><dt>Cards captured</dt><dd>{captured}</dd></div>
   </dl>
 </div></header>
-<nav class="toc" aria-label="Sections"><div class="wrap"><a href="#read-first">Read first</a><a href="#chart">Compare</a><a href="#head-to-head">Head-to-head</a><a href="#ledger">Ledger</a><a href="#publishers">Publisher notes</a><a href="#no-claims">No claims</a><a href="#method">Method</a><a class="ext" href="{REPO_URL}" rel="noopener">GitHub ↗</a></div></nav>
+<nav class="toc" aria-label="Sections"><div class="wrap"><a href="#read-first">Read first</a><a href="#chart">Compare</a><a href="#head-to-head">Head-to-head</a><a href="#ledger">Ledger</a><a href="#publishers">Publisher notes</a><a href="#no-claims">No claims</a><a href="#method">Method</a><a class="ext" href="{REPO_URL}" rel="noopener" data-umami-event="github">GitHub ↗</a></div></nav>
 <main class="wrap">
 <section id="read-first" class="rules">
   <h2>Read this first</h2>
@@ -712,7 +715,7 @@ def main():
             f'<title>{MNAME} quant comparison · QFF</title>\n<meta name="description" content="{E(desc)}">\n'
             f'<link rel="canonical" href="{SITE_URL}">\n<meta property="og:title" content="{MNAME} quant comparison">\n<meta property="og:description" content="{E(desc)}">\n'
             f'<meta property="og:type" content="website"><meta property="og:url" content="{SITE_URL}">\n'
-            f'<script type="application/ld+json">{json.dumps(ld)}</script>\n{fonts}\n<style>:root{{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}}body{{margin:0;font-size:14px}}{CSS}</style></head>\n<body>{body}<script>{JS}</script></body></html>')
+            f'<script type="application/ld+json">{json.dumps(ld)}</script>\n{ANALYTICS}{fonts}\n<style>:root{{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}}body{{margin:0;font-size:14px}}{CSS}</style></head>\n<body>{body}<script>{JS}</script></body></html>')
     open(f"{OUT}/index.html", "w").write(full)
     open(f"{OUT}/sitemap.xml", "w").write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>{SITE_URL}</loc><lastmod>{IDX["captured_at"][:10]}</lastmod></url></urlset>\n')
     open(f"{OUT}/robots.txt", "w").write(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n")

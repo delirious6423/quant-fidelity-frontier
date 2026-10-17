@@ -42,12 +42,14 @@ json.dump({"name": "QFF (Quant Fidelity Frontier)", "about": "Publisher claims a
           open(os.path.join(OUT, "models.json"), "w"), indent=1)
 import html as H                              # landing page: one card per model, built from the manifest
 _S = json.load(open(os.path.join(CODE, "site.json"))) if os.path.exists(os.path.join(CODE, "site.json")) else {}
-SUP = (f' · <a href="{H.escape(_S["support_url"])}" rel="noopener">{H.escape(_S.get("support_label") or "Support QFF")}</a>'
+_A = _S.get("analytics") or {}
+AN = (f'<script defer src="{H.escape(_A.get("script") or "https://cloud.umami.is/script.js")}" data-website-id="{H.escape(_A["website_id"])}" data-domains="delirious6423.github.io"></script>' if _A.get("website_id") else "")
+SUP = (f' · <a href="{H.escape(_S["support_url"])}" rel="noopener" data-umami-event="support">{H.escape(_S.get("support_label") or "Support QFF")}</a>'
        f' (<a href="https://github.com/delirious6423/quant-fidelity-frontier/blob/main/docs/SPONSORS.md">sponsor policy</a>)') if _S.get("support_url") else ""
 cards = "".join(f'<a class="card" href="{H.escape(m["slug"])}/"><h2>{H.escape(m["model"].split("/")[-1])}</h2><p class="org">{H.escape(m["model"])}</p>'
                 f'<p>{m["repos"]:,} quant repos · {m["rows"]:,} claim rows · {m["sets"]} measurement sets</p><p class="dim">Captured {H.escape((m["captured_at"] or "")[:10])}</p></a>' for m in man)
 open(os.path.join(OUT, "index.html"), "w").write(f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>QFF · Quant Fidelity Frontier</title><meta name="description" content="Every Hugging Face quant of a model, compared by what its publisher claims, each claim pinned to its model-card line.">
+<title>QFF · Quant Fidelity Frontier</title>{AN}<meta name="description" content="Every Hugging Face quant of a model, compared by what its publisher claims, each claim pinned to its model-card line.">
 <link rel="canonical" href="{BASE}"><style>
 :root{{--bg:#f7f7f4;--fg:#1d2124;--dim:#5d666d;--card:#fff;--line:#d9dcd6;--acc:#0e7c86}}
 @media (prefers-color-scheme:dark){{:root{{--bg:#111416;--fg:#e8eaeb;--dim:#9aa3a9;--card:#181c1f;--line:#2b3135;--acc:#5cc3cc;color-scheme:dark}}}}
