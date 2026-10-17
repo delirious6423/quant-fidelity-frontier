@@ -27,6 +27,13 @@ for sm in sorted(glob.glob(os.path.join(OUT, "**", "sitemap.xml"), recursive=Tru
     if os.path.dirname(sm) != OUT: os.remove(sm)
 for rb in glob.glob(os.path.join(OUT, "*", "robots.txt")): os.remove(rb)
 open(os.path.join(OUT, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + "".join(locs) + "</urlset>")
+man = []                                       # machine-readable index for agents and the MCP server
+for dj in sorted(glob.glob(os.path.join(OUT, "**", "data.json"), recursive=True)):
+    d = json.load(open(dj)); rel = os.path.relpath(os.path.dirname(dj), OUT)
+    man.append({"model": d["model"], "slug": "" if rel == "." else rel, "data": ("" if rel == "." else rel + "/") + "data.json",
+                "captured_at": d.get("captured_at"), "repos": len(d.get("repos", [])), "rows": len(d.get("rows", [])), "sets": len(d.get("sets", []))})
+json.dump({"name": "QFF (Quant Fidelity Frontier)", "about": "Publisher claims about Hugging Face quants, each pinned to its source line. Claims, not measurements.", "models": man},
+          open(os.path.join(OUT, "models.json"), "w"), indent=1)
 open(os.path.join(OUT, ".nojekyll"), "w").close()   # serve files as-is; no Jekyll processing
 bad = [p for p in glob.glob(os.path.join(OUT, "**", "*"), recursive=True) if os.path.isfile(p) and not p.endswith((".html", ".json", ".txt", ".xml", ".css", ".js", ".svg", ".png", ".ico", ".nojekyll"))]
 assert not bad, f"non-static files in site: {bad[:5]}"

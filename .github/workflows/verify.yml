@@ -31,3 +31,5 @@ jobs:
           for m in models/*/model.json; do d="$(dirname "$m")"; QCL_ROOT="$d" python3 build.py && QCL_SITE="$d/site" python3 test_ui.py; done
       - name: Assembled site is static only
         run: python3 assemble.py _site
+      - name: MCP server answers match the data (stdio, black-box)
+        run: pip install "mcp>=1.9" && QFF_DATA=_site python3 test_mcp.py

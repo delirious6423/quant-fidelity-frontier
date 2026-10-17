@@ -14,6 +14,7 @@ merge:
 """
 import glob, json, os, re, subprocess, sys, time
 import qcl_map as Q
+import qcl_fmt as F
 
 CODE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.environ.get("QCL_ROOT") or CODE          # data root: one folder per model (models/<slug>/); code stays here
@@ -56,7 +57,7 @@ def write(entries, base):
              "R = []", "def repo(**k): R.append(k); return k", ""]
     for rp, a in sorted(entries.items()):
         o = by.get(rp, {})
-        lines.append("repo(**" + repr(dict(repo=rp, sha=idx[rp]["sha"], fmt=o.get("fmt"), runtime=o.get("runtime"),
+        lines.append("repo(**" + repr(dict(repo=rp, sha=idx[rp]["sha"], fmt=o.get("fmt") or F.fmt_of(rp, idx[rp].get("tags")), runtime=o.get("runtime"),
                      weights_modified=o.get("weights_modified"), method=o.get("method"),
                      methodology=a["methodology"] if isinstance(a.get("methodology"), dict) else None,
                      variants=a["variants"], ladder=a["ladder"], cross=a["cross"], flags=a["flags"] or [])) + ")")

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build the comparison site from verified/part*.py + snapshots.
 Outputs: site/data.json, site/index.html (full doc for GitHub Pages), site/artifact.html (body-only for claude.ai)."""
+import qcl_fmt as FMT
 import json, glob, os, re, html, math, datetime, collections
 
 CODE = os.path.dirname(os.path.abspath(__file__))
@@ -135,7 +136,7 @@ def build_rows(R):
             m = canon(e.get("m"))
             rows.append({
                 "repo": of or r["repo"], "measured_by": measured_by, "kind": kind,
-                "variant": e.get("name") or e.get("variant"), "fmt": r.get("fmt") if kind != "cross" else None,
+                "variant": e.get("name") or e.get("variant"), "fmt": r.get("fmt") if kind != "cross" else ((lambda f: None if f == "other" else f)(FMT.fmt_of(f"{e.get('of') or ''} {e.get('name') or e.get('variant') or ''}"))),
                 "size_gb": to_gb(e.get("size"), e.get("unit")), "size_raw": f"{e.get('size')} {e.get('unit') or ''}".strip() if e.get("size") is not None else None,
                 "basis": e.get("basis"), "bpw": e.get("bpw"),
                 "metrics": m, "ref_class": rc if kind != "cross" else rc,
