@@ -5,7 +5,7 @@
   var NS = 'http://www.w3.org/2000/svg';
   var selSet = $('exset'), metBox = $('exmetric'), labelsCb = $('exlabels'), frontCb = $('exfront');
   var qIn = $('exq'), fmtBox = $('exfmts'), tip = $('extip'), host = $('exsvg');
-  var state = { set: SETS[0].id, metric: null, picked: {}, q: '', fmts: {}, sort: null, focus: null, pinned: null, xmax: null, ylim: null, onlyFront: false, basis: '', lin: false };
+  var state = { set: (SETS.some(function (x) { return x.id === 'all'; }) ? 'all' : SETS[0].id), metric: null, picked: {}, q: '', fmts: {}, sort: null, focus: null, pinned: null, xmax: null, ylim: null, onlyFront: false, basis: '', lin: false };
 
   // stable colour per publisher across all sets
   var pubs = []; SETS.forEach(function (s) { s.points.forEach(function (p) { if (pubs.indexOf(p.pub) < 0) pubs.push(p.pub); }); });
@@ -26,20 +26,20 @@
   function load(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
 
   // ---- set chooser: grouped ----
-  var groupsDef = [['Curated sets: one measurer, one method', function (s) { return s.comparable && !s.auto; }],
-                   ['From a single card (assembled automatically)', function (s) { return s.comparable && s.auto; }],
-                   ['Not comparable', function (s) { return !s.comparable; }]];
+  var groupsDef = [['Overview: every claim together (not comparable)', function (s) { return !s.comparable; }],
+                   ['Curated sets: one measurer, one method', function (s) { return s.comparable && !s.auto; }],
+                   ['From a single card (assembled automatically)', function (s) { return s.comparable && s.auto; }]];
   groupsDef.forEach(function (g) {
     var og = document.createElement('optgroup'); og.label = g[0];
-    SETS.filter(g[1]).forEach(function (s) { var o = document.createElement('option'); o.value = s.id; o.textContent = s.title + ' · ' + s.points.length + ' quants'; og.appendChild(o); });
+    SETS.filter(g[1]).slice().sort(function (a, b) { var x = a.title.split(' · ')[0].toLowerCase(), y = b.title.split(' · ')[0].toLowerCase(); return x < y ? -1 : x > y ? 1 : (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1); }).forEach(function (s) { var o = document.createElement('option'); o.value = s.id; o.textContent = s.title + ' · ' + s.points.length + ' quants'; og.appendChild(o); });
     if (og.children.length) selSet.appendChild(og);
   });
-  var saved = load('qcl.set'); if (saved && setById(saved)) state.set = saved;
+  var saved = load('qff.set'); if (saved && setById(saved)) state.set = saved;
   if (/^#set-[a-z0-9-]+$/.test(location.hash) && setById(location.hash.slice(5))) state.set = location.hash.slice(5);
   selSet.value = state.set;
   function goSet(id, focusQid) {
     state.set = id; selSet.value = id; state.metric = null; state.q = ''; qIn.value = ''; state.fmts = {}; state.sort = null; state.xmax = null; state.ylim = null; state.basis = ''; state.focus = focusQid || null; state.pinned = focusQid || null;
-    store('qcl.set', id); render();
+    store('qff.set', id); render();
   }
   selSet.addEventListener('change', function () { goSet(selSet.value); });
   labelsCb.addEventListener('change', function () { store('qcl.labels', labelsCb.checked ? '1' : '0'); drawChart(); });
@@ -175,7 +175,7 @@
       var b = h('button', { type: 'button', role: 'radio', 'aria-checked': String(k === state.metric), class: 'mchip' + (k === state.metric ? ' on' : '') }, esc(MET[k].label));
       b.addEventListener('click', function () { state.metric = k; state.sort = null; state.ylim = null; render(); }); metBox.appendChild(b);
     });
-    $('exmeta').innerHTML = (S.comparable ? '' : '<span class="chip w">not comparable</span> ') +
+    $('exmeta').innerHTML = (S.comparable ? '' : '<span class="chip w">not comparable</span> <b>Overview.</b> Every published claim on one chart. Measurers, reference models, datasets and methods differ, so a gap between two points here can come from the method rather than the quant. Pick a single-card set above to compare like with like.<br>') +
       '<b>Measured by</b> ' + esc(S.title.split(' · ')[0]) + ' · <b>Reference</b> ' + esc(S.reference) + ' · <b>Text</b> ' + esc(S.data) + (S.note ? '<br><span class="dim">' + esc(S.note) + '</span>' : '');
     // format chips for this set
     var fm = {}; S.points.forEach(function (p) { var f = famOf(p.fmt); fm[f] = (fm[f] || 0) + 1; });

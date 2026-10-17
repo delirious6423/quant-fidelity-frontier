@@ -1,0 +1,39 @@
+# Builds the static site in GitHub Actions (Python runs here, never on Pages) and deploys plain files to GitHub Pages.
+# Manual trigger only, so nothing goes public until the owner runs it (Settings > Pages > Source: GitHub Actions).
+name: deploy-pages
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow numpy
+      - name: Gates + build, every model (build.py refuses on any gate failure)
+        run: |
+          python3 build.py
+          for m in models/*/model.json; do QCL_ROOT="$(dirname "$m")" python3 build.py; done
+      - name: Assemble static site (HTML/CSS/JS/JSON only, .nojekyll)
+        run: python3 assemble.py _site
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
