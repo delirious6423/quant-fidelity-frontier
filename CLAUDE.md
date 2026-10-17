@@ -6,5 +6,5 @@
 - Before committing: `build.py` for every model, `assemble.py`, then `tests/test_gates.py`, `tests/test_claims.py`, `tests/test_ui.py` (each site via `QCL_SITE`), `tests/test_mcp.py`.
 - The repo is public: commit no secrets, tokens, personal data, local paths or scratch files.
 - Pages deploys (`deploy-pages` workflow) are approved by the owner. Publishing the Hugging Face MCP Space still needs the owner's explicit go-ahead in chat.
-- Agent fan-out: max 20 concurrent subagents; mapping workers claim queues by atomic `mv pending/X claimed/X` and write only their claimed names.
+- Agent fan-out: max 20 concurrent subagents; mapping workers claim queues only with `pipeline/qcl_claim.py` (atomic) and write only their claimed names.
 - Status and next steps: `PROGRESS.md`.

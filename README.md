@@ -22,6 +22,9 @@ claude mcp add qff -e QFF_DATA=https://delirious6423.github.io/quant-fidelity-fr
 ```
 More in [`qff_mcp/README.md`](qff_mcp/README.md).
 
+## Support
+QFF is free. If it saves you time, you can [tip on Ko-fi](https://ko-fi.com/delirious6423). Tips pay for upkeep and new models and never influence the data ([sponsor policy](docs/SPONSORS.md)).
+
 ## More
 - [Method: claim rules, gates, tests](docs/METHOD.md) · [How a model is ingested](docs/FASTPATH.md)
 - [Developing: layout, build, hosting](docs/DEVELOPING.md)
