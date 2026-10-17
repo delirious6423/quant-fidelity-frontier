@@ -12,7 +12,7 @@ methodology to tell whether two claims are comparable. Do not invent or estimate
 The shell cannot reach huggingface.co — use WebFetch only.
 
 ## Output
-Write one JSON file per repo to `/home/claude/quantcmp/claims/<owner>__<name>.json`:
+Write one JSON file per repo to `claims/<owner>__<name>.json` (repo-relative):
 
 ```json
 {

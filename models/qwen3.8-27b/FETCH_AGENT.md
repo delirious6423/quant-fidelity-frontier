@@ -1,7 +1,7 @@
 # Fetch agent instructions (one id shard)
 
 You fetch Hugging Face model cards through the `mcp__Hugging_Face__hf_fs` tool and save them byte-for-byte with scripts.
-NEVER type, copy or paraphrase card text yourself; only scripts write card files. Work in /home/claude/quantcmp/models/qwen3.8-27b.
+NEVER type, copy or paraphrase card text yourself; only scripts write card files. Work in `models/qwen3.8-27b/` of this repo.
 Let S = your shard number (two digits), e.g. 03.
 
 1. Sizes. Run `python3 ../../qcl_stats.py ops cache/ids_S.json` (Bash). It prints a JSON list of op lists.

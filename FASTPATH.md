@@ -114,4 +114,4 @@ That target rules out any LLM on the request path. So the LLM, mapping and revie
 - **Cold start for unwatched models.** The fix is breadth: put every base model with quants above a threshold on the watch list, so the first ingestion has already happened. The cost is about 6 agent-minutes per model, once, and then only the deltas.
 - **Freshness.** Bounded by the hourly minimum for scheduled tasks. Per-card processing is about 2 minutes.
 - **Machine-path coverage.** It reaches 83% of the hand-verified values today. The rest needs the resolver or a fallback read. The first ingestion of each model should still get a full cold review.
-- **Access.** Fetching needs huggingface.co (allowed domains, or the GitHub Actions route). Publishing the hourly results needs the GitHub repo to exist.
+- **Access.** Fetching needs huggingface.co (allowed domains, or the GitHub Actions route). Hourly results are committed to the public repo and deployed by the `deploy-pages` workflow.

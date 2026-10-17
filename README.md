@@ -27,4 +27,4 @@ More in [`qff_mcp/README.md`](qff_mcp/README.md).
 - [Developing: layout, build, hosting](docs/DEVELOPING.md)
 - Found a wrong value or a missing quant? Open an issue with the repo and the card line.
 
-Licence: code MIT; the compiled dataset CC BY 4.0. The claims belong to their publishers.
+Licence: code MIT ([LICENSE](LICENSE)); the compiled dataset CC BY 4.0. The claims belong to their publishers, and the cached model cards (`snapshots/`, `models/*/cache/cards/`) belong to their authors; they are kept only so every claim can be checked against its source.

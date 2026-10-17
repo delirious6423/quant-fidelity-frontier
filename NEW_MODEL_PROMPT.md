@@ -1,13 +1,13 @@
 # Prompt: build a QFF (Quant Fidelity Frontier) site for another model
 
-Copy everything below the line into a new session. First fill in the three values in **Inputs**. Attach `quant-claims-review-pack.zip`, the finished Qwen3.8-Flash-Next project, as the template. Or, once it is published, point the session at the repo.
+Copy everything below the line into a new session. First fill in the three values in **Inputs**. Point the session at the public repo https://github.com/delirious6423/quant-fidelity-frontier as the template.
 
 ---
 
 ## Inputs
 - **Base model (Hugging Face id):** `{ORG/MODEL}`, e.g. `meta-llama/Llama-5-70B`
-- **Site:** add the model to the existing GitHub Pages site `delirious6423/quant-claims` as `/{model-slug}/`. Keep one shared template and data schema for every model, plus a model index page. Never fork a separate site per model.
-- **Template:** the attached `quant-claims-review-pack.zip`, which contains the Qwen3.8-Flash-Next build. Reuse its code: `build.py`, `verify*.py`, `detect_copies.py`, `gen_auto.py`, `sets.py`, `highlights.py`, `site_*`, `test_*.py`, `make_pack.py`, `.github/workflows/verify.yml`. Change only what this model needs, and keep the code model-agnostic, with model-specific values moved into a per-model config.
+- **Site:** add the model to the existing GitHub Pages site (repo `delirious6423/quant-fidelity-frontier`) as `models/{model-slug}/`, served at `/{model-slug}/`. Keep one shared template and data schema for every model, plus a model index page. Never fork a separate site per model.
+- **Template:** the repo itself (Qwen3.8-Flash-Next at the root, Qwen3.8-27B under `models/qwen3.8-27b/`); see `docs/DEVELOPING.md`. Reuse its code: `build.py`, `verify*.py`, `detect_copies.py`, `gen_auto.py`, `sets.py`, `highlights.py`, `site_*`, `test_*.py`, `make_pack.py`, `.github/workflows/verify.yml`. Change only what this model needs, and keep the code model-agnostic, with model-specific values moved into a per-model config.
 
 ## Goal
 Build a public, web-searchable site comparing **every Hugging Face quantization of `{ORG/MODEL}`**. Use only each publisher's **own claims**: model cards, plus docs pages a card links to as its results. Nothing is re-measured. A reader must be able to see:
@@ -168,9 +168,9 @@ Phases 1–4 below describe what these tools do and the rules they enforce. Fall
 6. Rerun everything until all checks exit 0, then republish the preview.
 
 ## Phase 9 — Publish (only on my explicit go-ahead)
-- Push to `delirious6423/quant-claims` and enable Pages from `docs/`.
-- CI (`.github/workflows/verify.yml`) runs every gate and test suite and checks that `site/` equals `docs/`.
-- Send me the URL. Add the model to the index page.
+- Commit to `delirious6423/quant-fidelity-frontier` (public). CI (`.github/workflows/verify.yml`) runs every gate and test suite for every model.
+- Run the `deploy-pages` workflow (manual): it builds every model, runs the gates and deploys `_site/` from `assemble.py`.
+- Add the model's `others` links in each `model.json`, then send me the URL.
 
 ## Pitfalls from the first build (check for each one)
 **Fetching and parsing**
@@ -195,7 +195,7 @@ Phases 1–4 below describe what these tools do and the rules they enforce. Fall
 - Agents hit session limits mid-task. Resume them with a message instead of restarting, and keep file ownership clear while they run.
 
 ## Deliverables
-1. The site, previewed as a claude.ai artifact and published to Pages after sign-off.
+1. The site, previewed as a claude.ai artifact and deployed to Pages after sign-off.
 2. `site/data.json`, the dataset.
 3. The review pack zip.
 4. `audit/` with every review and its dispositions.

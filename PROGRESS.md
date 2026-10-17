@@ -10,4 +10,4 @@
 1. Hourly scan (approved by owner): watch list = leading open models on OpenRouter and OpenCode; show the list to the owner before the first run. Per run: fetch new/changed cards, map deltas (two runs), merge, gates, commit.
 2. 27B held values: resolver pass (Haiku, high effort), core metrics first (~540 values), then benchmarks.
 3. 27B wave-2 cards (benchmark-only, 251) and cold review of the 27B data.
-4. Pages deploy and the Hugging Face Space: only on the owner's go-ahead.
+4. Hugging Face MCP Space: only on the owner's go-ahead. (Repo is public; Pages deploy approved 2026-10-18.)

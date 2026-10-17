@@ -1,5 +1,7 @@
 # Method: claims, gates and tests
 
+Audit records under `audit/` predate the rename and use the earlier name, Quant Claims Ledger.
+
 ## Rules for a claim
 1. It must be in the publisher's own card (or a cited docs page) at the captured version.
 2. The string is kept exactly as printed (`0.0771 ± 0.0007`, `86.95 ± 0.14 %`), never rounded or retyped.
