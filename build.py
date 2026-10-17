@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Build the comparison site from verified/part*.py + snapshots.
 Outputs: site/data.json, site/index.html (full doc for GitHub Pages), site/artifact.html (body-only for claude.ai)."""
-import qcl_fmt as FMT
 import json, glob, os, re, html, math, datetime, collections
 
 CODE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.environ.get("QCL_ROOT") or CODE          # data root: one folder per model (models/<slug>/); code stays here
+import sys; sys.path[:0] = [os.path.join(CODE, "pipeline"), os.path.join(CODE, "gates")]
+import qcl_fmt as FMT
+ROOT = os.environ.get("QCL_ROOT") or os.path.join(CODE, "models", "qwen3.8-flash-next")          # data root: one folder per model (models/<slug>/); code stays here
 IDX = json.load(open(f"{ROOT}/snapshots/index.json"))
 SIZES = json.load(open(f"{ROOT}/snapshots/hf_sizes_summary.json"))
 CFG = json.load(open(f"{ROOT}/model.json")) if os.path.exists(f"{ROOT}/model.json") else {}
@@ -508,7 +509,7 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
     s = stats
     body = f"""
 <header class="top"><div class="wrap">
-  <p class="eyebrow"><abbr title="Quant Fidelity Frontier">QFF</abbr> · {E(MODEL)}{OTHER_MODELS}</p>
+  <p class="eyebrow"><a class="home" href="../" title="All models">QFF</a> · {E(MODEL)}{OTHER_MODELS}</p>
   <h1>Every Hugging Face quant of {E(MNAME)}, compared by what its publisher claims</h1>
   <p class="lede">All {s["repos"]} repositories Hugging Face tags as quantizations of this model on {captured}. {s["with_quality"]} publish quality numbers about their own files; {verify_counts["values"]} published values are copied from the card text at a pinned commit and checked against it mechanically. Nothing here was re-measured by us.</p>
   <dl class="stats">
@@ -521,7 +522,7 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
     <div><dt>Cards captured</dt><dd>{captured}</dd></div>
   </dl>
 </div></header>
-<nav class="toc" aria-label="Sections"><div class="wrap"><a href="#read-first">Read first</a><a href="#chart">Compare</a><a href="#head-to-head">Head-to-head</a><a href="#ledger">Ledger</a><a href="#publishers">Publisher notes</a><a href="#no-claims">No claims</a><a href="#method">Method</a></div></nav>
+<nav class="toc" aria-label="Sections"><div class="wrap"><a href="#read-first">Read first</a><a href="#chart">Compare</a><a href="#head-to-head">Head-to-head</a><a href="#ledger">Ledger</a><a href="#publishers">Publisher notes</a><a href="#no-claims">No claims</a><a href="#method">Method</a><a class="ext" href="{REPO_URL}" rel="noopener">GitHub ↗</a></div></nav>
 <main class="wrap">
 <section id="read-first" class="rules">
   <h2>Read this first</h2>
@@ -605,8 +606,8 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
 """
     return body.replace("__EXDATA__", exdata)
 
-CSS = open(os.path.join(CODE, "site_style.css")).read() if os.path.exists(os.path.join(CODE, "site_style.css")) else ""
-JS = "\n".join(open(os.path.join(CODE, f)).read() for f in ("site_script.js", "site_explorer.js"))
+CSS = open(os.path.join(CODE, "web", "site_style.css")).read() if os.path.exists(os.path.join(CODE, "web", "site_style.css")) else ""
+JS = "\n".join(open(os.path.join(CODE, "web", f)).read() for f in ("site_script.js", "site_explorer.js"))
 
 def main():
     global RAW
@@ -641,7 +642,7 @@ def main():
     if bad:
         raise SystemExit("implausible parsed values:\n" + "\n".join(map(str, bad)))
     import subprocess
-    vout = GATE_OUT["verify.py"][1] if "verify.py" in GATE_OUT else subprocess.run(["python3", f"{CODE}/verify.py"], capture_output=True, text=True).stdout
+    vout = GATE_OUT["verify.py"][1] if "verify.py" in GATE_OUT else subprocess.run(["python3", f"{CODE}/gates/verify.py"], capture_output=True, text=True).stdout
     vc = {"values": int(re.search(r"verified verbatim: (\d+)", vout).group(1)), "fails": int(re.search(r"failures: (\d+)", vout).group(1))}
     if not DEV: os.makedirs(f"{ROOT}/audit", exist_ok=True); json.dump(vc, open(f"{ROOT}/audit/verify_counts.json", "w"))
     hl = []
@@ -679,7 +680,7 @@ def main():
             f"KLD, top-1, perplexity and benchmark claims, with methodology, red flags and source lines. {stats['repos']} repos.")
     head_common = f'<title>{title}</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n'
     fonts = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap">'
-    abody = body
+    abody = body.replace('<a class="home" href="../" title="All models">QFF</a>', '<abbr title="Quant Fidelity Frontier">QFF</abbr>')
     for o in OTHERS:                                   # inside claude.ai the sibling site is another artifact, not a relative path
         if o.get("artifact"): abody = abody.replace(f'<a href="{E(o["href"])}">{E(o["name"])}</a>', f'<a href="{E(o["artifact"])}" target="_blank" rel="noopener">{E(o["name"])}</a>')
     open(f"{OUT}/artifact.html", "w").write(head_common + fonts + f"<style>{CSS}</style>\n" + abody + f"<script>{JS}</script>")

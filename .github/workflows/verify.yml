@@ -12,24 +12,14 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pillow numpy playwright && python -m playwright install --with-deps chromium
-      - name: Verbatim gate — every cited value appears on its cited snapshot line
-        run: python3 verify.py
-      - name: Column gate — table values sit under a header of the right metric
-        run: python3 verify_columns.py
-      - name: Image gate — transcribed chart values match marker and reference-line positions
-        run: python3 verify_images.py
-      - name: Build (refuses on any gate failure; plausibility and sign assertions)
-        run: python3 build.py
-      - name: Gate regression tests (external-review counterfactuals)
-        run: python3 test_gates.py
-      - name: Review regression checks (F1-F24)
-        run: python3 test_claims.py
-      - name: UI tests (explorer interactions, no horizontal scroll, no JS errors; desktop and phone)
-        run: python3 test_ui.py
-      - name: Every other model passes its gates and UI tests
+      - name: Gates + build + UI tests, every model (build.py refuses on any gate failure)
         run: |
-          for m in models/*/model.json; do d="$(dirname "$m")"; QCL_ROOT="$d" python3 build.py && QCL_SITE="$d/site" python3 test_ui.py; done
+          for m in models/*/model.json; do d="$(dirname "$m")"; QCL_ROOT="$d" python3 build.py && QCL_SITE="$d/site" python3 tests/test_ui.py || exit 1; done
+      - name: Gate regression tests (external-review counterfactuals)
+        run: python3 tests/test_gates.py
+      - name: Review regression checks (F1-F24, Flash-Next)
+        run: python3 tests/test_claims.py
       - name: Assembled site is static only
         run: python3 assemble.py _site
       - name: MCP server answers match the data (stdio, black-box)
-        run: pip install "mcp>=1.9" && QFF_DATA=_site python3 test_mcp.py
+        run: pip install "mcp>=1.9" && QFF_DATA=_site python3 tests/test_mcp.py

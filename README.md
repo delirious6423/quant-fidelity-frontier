@@ -8,8 +8,8 @@ with a link to the line it came from.
 
 | Model | Repos | Claimed values |
 |---|---|---|
-| Qwen/Qwen3.8-Flash-Next | 453 | 2,980 |
-| Qwen/Qwen3.8-27B | 1,220 | 4,747 |
+| [Qwen/Qwen3.8-Flash-Next](https://delirious6423.github.io/quant-fidelity-frontier/qwen3.8-flash-next/) | 453 | 2,980 |
+| [Qwen/Qwen3.8-27B](https://delirious6423.github.io/quant-fidelity-frontier/qwen3.8-27b/) | 1,220 | 4,747 |
 
 **Site:** https://delirious6423.github.io/quant-fidelity-frontier/
 
@@ -23,7 +23,7 @@ claude mcp add qff -e QFF_DATA=https://delirious6423.github.io/quant-fidelity-fr
 More in [`qff_mcp/README.md`](qff_mcp/README.md).
 
 ## More
-- [Method: claim rules, gates, tests](docs/METHOD.md)
+- [Method: claim rules, gates, tests](docs/METHOD.md) · [How a model is ingested](docs/FASTPATH.md)
 - [Developing: layout, build, hosting](docs/DEVELOPING.md)
 - Found a wrong value or a missing quant? Open an issue with the repo and the card line.
 

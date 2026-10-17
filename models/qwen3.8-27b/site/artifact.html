@@ -156,7 +156,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .toc .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-block:6px}
 .toc .wrap::-webkit-scrollbar{display:none}
 .toc a{flex:none;font-size:13.5px;text-decoration:none;color:var(--muted);padding:5px 10px;border-radius:999px}
-.toc a:hover{color:var(--fg);background:var(--line2)} .toc a.on{color:var(--accent-ink);background:var(--accent)}
+.toc a:hover{color:var(--fg);background:var(--line2)} .toc a.ext{margin-left:auto;color:var(--fg);border:1px solid var(--line)} .toc a.on{color:var(--accent-ink);background:var(--accent)}
 section[id]{scroll-margin-top:56px}
 .ex-top{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:10px 18px;align-items:end}
 .ex-field{display:grid;gap:4px;min-width:0;font-size:14px;position:relative}
@@ -275,7 +275,7 @@ section[id]{scroll-margin-top:56px}
     <div><dt>Cards captured</dt><dd>2026-10-17</dd></div>
   </dl>
 </div></header>
-<nav class="toc" aria-label="Sections"><div class="wrap"><a href="#read-first">Read first</a><a href="#chart">Compare</a><a href="#head-to-head">Head-to-head</a><a href="#ledger">Ledger</a><a href="#publishers">Publisher notes</a><a href="#no-claims">No claims</a><a href="#method">Method</a></div></nav>
+<nav class="toc" aria-label="Sections"><div class="wrap"><a href="#read-first">Read first</a><a href="#chart">Compare</a><a href="#head-to-head">Head-to-head</a><a href="#ledger">Ledger</a><a href="#publishers">Publisher notes</a><a href="#no-claims">No claims</a><a href="#method">Method</a><a class="ext" href="https://github.com/delirious6423/quant-fidelity-frontier" rel="noopener">GitHub ↗</a></div></nav>
 <main class="wrap">
 <section id="read-first" class="rules">
   <h2>Read this first</h2>
@@ -416,7 +416,7 @@ section[id]{scroll-margin-top:56px}
 })();
 
 (function () {  // highlight the current section in the nav
-  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a')); if (!links.length || !window.IntersectionObserver) return;
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a[href^="#"]')); if (!links.length || !window.IntersectionObserver) return;
   var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) links.forEach(function (a) { a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); }); }); }, { rootMargin: '-45% 0px -50% 0px' });
   links.forEach(function (a) { var s = document.querySelector(a.getAttribute('href')); if (s) io.observe(s); });
 })();

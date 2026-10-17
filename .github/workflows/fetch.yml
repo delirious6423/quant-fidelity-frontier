@@ -19,7 +19,7 @@ jobs:
       - name: Fetch catalogue, cards at pinned sha, file trees (resumable, throttled)
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: python3 qcl_fetch.py "${{ inputs.model }}" --out "models/${{ inputs.slug }}/cache" --workers 8
+        run: python3 pipeline/qcl_fetch.py "${{ inputs.model }}" --out "models/${{ inputs.slug }}/cache" --workers 8
       - name: Commit the ledger
         run: |
           git config user.name "quant-claims-bot"

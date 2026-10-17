@@ -18,7 +18,7 @@ Audit records under `audit/` predate the rename and use the earlier name, Quant 
 
 ## Tests
 `test_gates.py` (gate mutations), `test_claims.py` (review regressions), `test_ui.py` (Playwright, desktop and phone),
-`test_mcp.py` (MCP answers checked against the data). CI runs all of them (`.github/workflows/verify.yml`).
+`test_mcp.py` (MCP answers checked against the data). CI runs all of them (`.github/workflows/verify.yml`). Gates live in `gates/`, tests in `tests/`.
 
 ## How to read the site
 - **Overview (default):** every claim on one chart, for a first glance; labelled *not comparable*.

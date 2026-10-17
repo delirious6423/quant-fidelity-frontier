@@ -3,25 +3,33 @@
 ## Layout
 | Path | What it is |
 |---|---|
-| `model.json`, `snapshots/`, `verified/`, `sets.py`, `audit/` | Data root for the first model (Flash-Next) |
-| `models/<slug>/` | One data root per further model: `model.json`, `cache/cards/` (verbatim cards, SHA-256 pinned), `snapshots/index.json`, `verified/`, `audit/` |
-| `verified/part*.py` | Claims, one `repo(...)` entry per repository; `part8_machine.py` is machine-mapped, `part9_auto.py` lists repos not yet reviewed |
-| `build.py` | Gates + build for one data root (`QCL_ROOT=models/<slug>`) into its `site/` |
-| `assemble.py` | Combines every model into one static site (`_site/`) with `models.json` and one sitemap |
-| `qff_mcp/` | Read-only MCP server for agents |
-| `qcl_*.py`, `autoextract.py` | Ingestion: fetch, extract candidates, map, merge, plan connector batches |
-| `FASTPATH.md`, `NEW_MODEL_PROMPT.md`, `EXTRACTION_SPEC.md` | How a new model is ingested, and the extraction rules |
+| `build.py` | Gates + build for one model (`QCL_ROOT=models/<slug>`, default Flash-Next) into `models/<slug>/site/` |
+| `assemble.py` | Combines every model into one static site (`_site/`): landing page, one folder per model, `models.json`, one sitemap |
+| `models/<slug>/` | One data root per model: `model.json` (name, slug, notes, links), card snapshots (`snapshots/` or `cache/cards/`, SHA-256 pinned), `verified/` (claims), `sets.py`, `audit/` |
+| `gates/` | Fail-closed checks: `verify.py`, `verify_columns.py`, `verify_images.py`, and `gatecache.py` (parallel runs, content-hash cache) |
+| `pipeline/` | Ingestion: `qcl_fetch.py`, `qcl_stats.py` + `qcl_plan.py` + `qcl_mcpsave.py` (connector fetch), `qcl_newmodel.py`, `autoextract.py`, `qcl_map.py`, `qcl_watch.py` (merge), `detect_copies.py`, `gen_auto.py` |
+| `web/` | Site template: `site_style.css`, `site_script.js`, `site_explorer.js` |
+| `tests/` | `test_gates.py`, `test_claims.py`, `test_ui.py`, `test_mcp.py` |
+| `qff_mcp/` | Read-only MCP server for agents, plus a Hugging Face Space scaffold |
+| `legacy/` | One-off tools from the first (hand-verified) Flash-Next build, kept for the audit trail |
+| `docs/` | Method, this file, the fast path (`FASTPATH.md`), fetch policy, extraction spec, new-model prompt |
+
+In `verified/`, `part8_machine.py` is machine-mapped and `part9_auto.py` lists repos not yet reviewed; both are generated, never hand-edited.
 
 ## Build and test
 ```bash
-python3 build.py                                   # Flash-Next
-QCL_ROOT=models/qwen3.8-27b python3 build.py        # 27B
-python3 assemble.py                                # _site/: the whole static site
-python3 test_gates.py && python3 test_claims.py && python3 test_ui.py && python3 test_mcp.py
+for m in models/*/; do QCL_ROOT=${m%/} python3 build.py; done   # every model: gates + site
+python3 assemble.py                                            # _site/: the whole static site
+python3 tests/test_gates.py && python3 tests/test_claims.py && python3 tests/test_mcp.py
+for m in models/*/; do QCL_SITE=${m}site python3 tests/test_ui.py; done
 ```
 Needs Python 3.11+, `pillow`, `numpy`; tests also need `playwright` and `mcp`.
 
+## Adding a model
+`python3 pipeline/qcl_newmodel.py models/<slug>` turns a fetched card cache into a data root; then follow
+`docs/FASTPATH.md` (extract, map twice, merge, build). Add the model to each other model's `others` in `model.json`.
+
 ## Hosting
 GitHub Pages serves only static files, and that is all the site is (HTML, CSS, JS, JSON; data inlined in each page).
-Python runs at build time only. `.github/workflows/pages.yml` builds in Actions and deploys `_site/`; it is
-manual-trigger only (Settings → Pages → Source: GitHub Actions).
+Python runs at build time only. `.github/workflows/pages.yml` builds in Actions and deploys `_site/` (manual trigger;
+Settings → Pages → Source: GitHub Actions).
