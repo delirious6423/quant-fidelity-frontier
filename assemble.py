@@ -23,7 +23,7 @@ for mj in sorted(glob.glob(os.path.join(CODE, "models", "*", "model.json")), key
     slug = json.load(open(mj)).get("slug"); site = os.path.join(os.path.dirname(mj), "site")
     if STATUS.get(slug, "live") != "live": continue          # a model mid-ingest stays off the public site until it goes live
     if slug and os.path.isdir(site): copy(site, os.path.join(OUT, slug))
-import re                                      # one sitemap and one robots.txt, at the site root (crawlers ignore nested ones)
+import re                                      # consolidate model sitemaps; robots rules require the hostname root
 locs = []
 for sm in sorted(glob.glob(os.path.join(OUT, "**", "sitemap.xml"), recursive=True)):
     locs += re.findall(r"<url>.*?</url>", open(sm).read())
@@ -49,7 +49,7 @@ SUP = (f' · <a href="{H.escape(_S["support_url"])}" rel="noopener" data-umami-e
 cards = "".join(f'<a class="card" href="{H.escape(m["slug"])}/"><h2>{H.escape(m["model"].split("/")[-1])}</h2><p class="org">{H.escape(m["model"])}</p>'
                 f'<p>{m["repos"]:,} quant repos · {m["rows"]:,} claim rows · {m["sets"]} measurement sets</p><p class="dim">Captured {H.escape((m["captured_at"] or "")[:10])}</p></a>' for m in man)
 open(os.path.join(OUT, "index.html"), "w").write(f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>QFF · Quant Fidelity Frontier</title>{AN}<meta name="description" content="Every Hugging Face quant of a model, compared by what its publisher claims, each claim pinned to its model-card line.">
+<title>LLM quantization comparison: KLD vs size · QFF</title>{AN}<meta name="description" content="Compare published LLM quantization fidelity: KLD, perplexity and model size, with source-linked claims and explicit measurement boundaries.">
 <link rel="canonical" href="{BASE}"><style>
 :root{{--bg:#f7f7f4;--fg:#1d2124;--dim:#5d666d;--card:#fff;--line:#d9dcd6;--acc:#0e7c86}}
 @media (prefers-color-scheme:dark){{:root{{--bg:#111416;--fg:#e8eaeb;--dim:#9aa3a9;--card:#181c1f;--line:#2b3135;--acc:#5cc3cc;color-scheme:dark}}}}
@@ -61,10 +61,13 @@ h1{{font-size:clamp(28px,5vw,40px);line-height:1.15;margin:0 0 8px;text-wrap:bal
 .card:hover,.card:focus-visible{{border-color:var(--acc)}} .card h2{{margin:0 0 2px;font-size:20px;color:var(--acc)}} .card p{{margin:4px 0}}
 .org,.dim{{color:var(--dim);font-size:14px}} footer{{margin-top:40px;color:var(--dim);font-size:14px}} footer a{{color:var(--acc)}} .top{{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}} .gh{{color:var(--fg);border:1px solid var(--line);border-radius:999px;padding:2px 12px;text-decoration:none}}
 </style></head><body><main><p class="dim top">QFF · Quant Fidelity Frontier <a class="gh" href="https://github.com/delirious6423/quant-fidelity-frontier">GitHub ↗</a></p>
-<h1>Every Hugging Face quant, compared by what its publisher claims</h1>
+<h1>LLM quantization comparison, backed by publisher sources</h1>
 <p class="lede">Each number is copied from the publisher's own model card and links to the line it came from. Nothing is re-measured; numbers are comparable only within one measurement set.</p>
 <div class="grid">{cards}</div>
+<p><a href="guides/">How to compare KLD, interpret size and cite QFF</a> · <a href="llms.txt">Agent reading guide</a></p>
 <footer><a href="models.json">models.json</a> (machine-readable index) · <a href="https://github.com/delirious6423/quant-fidelity-frontier">source and data</a>{SUP}</footer></main></body></html>""")
+from discovery import build_discovery
+build_discovery(OUT, BASE, man, AN)
 open(os.path.join(OUT, ".nojekyll"), "w").close()   # serve files as-is; no Jekyll processing
 bad = [p for p in glob.glob(os.path.join(OUT, "**", "*"), recursive=True) if os.path.isfile(p) and not p.endswith((".html", ".json", ".txt", ".xml", ".css", ".js", ".svg", ".png", ".ico", ".nojekyll"))]
 assert not bad, f"non-static files in site: {bad[:5]}"

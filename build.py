@@ -533,6 +533,7 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
   <p class="eyebrow"><a class="home" href="../" title="All models">QFF</a> · {E(MODEL)}{OTHER_MODELS}</p>
   <h1>Every Hugging Face quant of {E(MNAME)}, compared by what its publisher claims</h1>
   <p class="lede">All {s["repos"]} repositories Hugging Face tags as quantizations of this model on {captured}. {s["with_quality"]} publish quality numbers about their own files; {verify_counts["values"]} published values are copied from the card text at a pinned commit and checked against it mechanically. Nothing here was re-measured by us.</p>
+  <p class="lede">Compare KLD only within a compatible measurement set; the overview mixes methods. File size is not total VRAM usage: KV cache, runtime buffers, context length and offloading matter. <a href="../guides/">How to interpret and cite QFF</a>.</p>
   <dl class="stats">
     <div><dt>Repos</dt><dd>{s["repos"]}</dd></div>
     <div><dt>Publish a quality number</dt><dd>{s["with_quality"]}</dd></div>
@@ -712,8 +713,8 @@ def main():
           "keywords": [MNAME, "quantization", "GGUF", "KLD", "NVFP4", "llama.cpp", "unsloth", "bartowski", "Hugging Face"],
           "distribution": [{"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": SITE_URL + "data.json"}]}
     full = (f'<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
-            f'<title>{MNAME} quant comparison · QFF</title>\n<meta name="description" content="{E(desc)}">\n'
-            f'<link rel="canonical" href="{SITE_URL}">\n<meta property="og:title" content="{MNAME} quant comparison">\n<meta property="og:description" content="{E(desc)}">\n'
+            f'<title>{MNAME} LLM quantization comparison · QFF</title>\n<meta name="description" content="{E(desc)}">\n'
+            f'<link rel="canonical" href="{SITE_URL}">\n<meta property="og:title" content="{MNAME} LLM quantization comparison">\n<meta property="og:description" content="{E(desc)}">\n'
             f'<meta property="og:type" content="website"><meta property="og:url" content="{SITE_URL}">\n'
             f'<script type="application/ld+json">{json.dumps(ld)}</script>\n{ANALYTICS}{fonts}\n<style>:root{{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}}body{{margin:0;font-size:14px}}{CSS}</style></head>\n<body>{body}<script>{JS}</script></body></html>')
     open(f"{OUT}/index.html", "w").write(full)

@@ -1,0 +1,28 @@
+"""Static reading guides and agent entrypoint; no external services at build time."""
+from pathlib import Path
+from html import escape
+import xml.etree.ElementTree as ET
+
+GUIDES = {
+    'compare-kld': ('How to compare KLD across quantized LLMs', '''<p>Kullback–Leibler divergence (KLD) describes how an evaluated model's token probability distribution differs from a reference distribution. Lower reported KLD means closer agreement under that evaluation; it does not establish better answers on every task.</p><p>Start with the same base model, reference precision, evaluation corpus, tokenizer, context length, evaluation implementation and aggregation. The direction of KL and units also matter. QFF preserves publisher methodology where stated; missing details remain uncertainty, not evidence of equivalence.</p><p>Select one compatible measurement set before comparing a frontier. The overview mixes methods and is for discovery. Do not rank its points as a universal leaderboard. Keep modified or abliterated weights distinct from ordinary quantization.</p><p>To cite a result, record the model, measurement-set ID, variant, metric and units, size basis, capture date and source URL and whether its revision is pinned. Link both QFF's comparison and the original publisher claim. QFF checks transcription against sources; it does not independently reproduce the benchmark.</p>'''),
+    'benchmarks-disagree': ('Why published quantization benchmarks disagree', '''<p>Two publishers can report different values without either value being a transcription error. A different reference checkpoint, corpus, context length, runtime or metric definition changes the experiment.</p><p>Check whether a result compares against BF16, Q8 or another reference. Distinguish mean KLD, tail KLD, perplexity, top-1 agreement and downstream task scores. A copied benchmark is not an independent replication; follow the source and copied-claim flags.</p><p>If methodology is missing or results conflict, report the uncertainty and show each claim with its provenance. Do not average incompatible scores or infer a winner from the smallest number. A controlled rerun is needed to resolve experimental disagreement.</p>'''),
+    'size-and-vram': ('Does a quantization under 16 GB fit in 16 GB VRAM?', '''<p>Not necessarily. Download size, GPU weight size, resident memory and total runtime memory are different quantities. QFF records the size basis where available; a size filter is not a hardware-fit guarantee.</p><p>Allow for KV cache, temporary buffers, runtime overhead and other GPU users. Context length, batch size, cache precision and CPU offloading affect fit. Some models keep large components outside GPU memory, so compare like size bases.</p><p>For a practical recommendation, select a supported runtime and compatible measurement set, shortlist variants using the stated size basis, then measure peak GPU memory on your target hardware with the intended context and batch size. QFF's publisher claims can guide a shortlist, but do not establish throughput or successful loading.</p>'''),
+}
+
+def build_discovery(out, base, models, analytics=""):
+    out = Path(out)
+    links = ''.join(f'<li><a href="{slug}/">{escape(title)}</a></li>' for slug, (title, _) in GUIDES.items())
+    pages = {'': ('How to interpret and cite QFF', '<p>Source-linked publisher claims about LLM quantization, with explicit measurement boundaries.</p><ul>' + links + '</ul>'), **GUIDES}
+    for slug, (title, body) in pages.items():
+        relative = 'guides/' + (slug + '/' if slug else '')
+        target = out / relative
+        target.mkdir(parents=True, exist_ok=True)
+        target.joinpath('index.html').write_text(f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} · QFF</title>{analytics}<meta name="description" content="{escape(title)}: measurement boundaries, source attribution and practical limitations."><link rel="canonical" href="{base}{relative}"><style>body{{font:18px/1.65 system-ui;margin:0;color:#1d2124;background:#f7f7f4}}main{{max-width:760px;margin:auto;padding:32px 20px}}a{{color:#096773}}h1{{line-height:1.2}}p{{max-width:70ch}}</style></head><body><main><nav><a href="{base}">QFF comparisons</a> · <a href="{base}guides/">Reading guides</a></nav><h1>{escape(title)}</h1>{body}<p><a href="https://github.com/delirious6423/quant-fidelity-frontier/blob/main/docs/METHOD.md">QFF methodology and verification gates</a></p></main></body></html>''')
+    ns = 'http://www.sitemaps.org/schemas/sitemap/0.9'
+    ET.register_namespace('', ns)
+    tree = ET.parse(out / 'sitemap.xml')
+    for slug in pages:
+        node = ET.SubElement(tree.getroot(), '{'+ns+'}url')
+        ET.SubElement(node, '{'+ns+'}loc').text = base + 'guides/' + (slug + '/' if slug else '')
+    tree.write(out / 'sitemap.xml', encoding='utf-8', xml_declaration=True)
+    out.joinpath('llms.txt').write_text('# QFF — Quant Fidelity Frontier\n\n> Publisher-reported LLM quantization claims, not independent QFF measurements.\n\nOnly compare compatible measurement sets. The all/overview set mixes methods. File size is not total VRAM. Preserve source URLs, capture dates, source revision pin status, units, size basis, methodology and copied-claim flags. Missing metrics are unknown, not zero.\n\n## Data and guidance\n\n' + f'- [Model manifest]({base}models.json)\n- [Interpretation and citation]({base}guides/)\n- [MCP source and setup](https://github.com/delirious6423/quant-fidelity-frontier/tree/main/qff_mcp)\n' + ''.join(f'- [{m["model"]}]({base}{m["data"]}) — captured {m["captured_at"]}\n' for m in models))

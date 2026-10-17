@@ -13,3 +13,11 @@
 2. 27B held values: resolver pass (Haiku, high effort), core metrics first (~540 values), then benchmarks.
 3. 27B wave-2 cards (benchmark-only, 251) and cold review of the 27B data.
 4. Hugging Face MCP Space: only on the owner's go-ahead. (Repo is public; Pages deploy approved 2026-10-18.)
+
+## Discovery implementation (2026-10-18)
+- Branch `improve-discovery`: search-focused titles, visible comparability/VRAM caveats, three static reading guides, sitemap entries and generated agent entrypoint.
+- `pipeline/export_hf_dataset.py` prepares a provenance-preserving dataset/card locally; no external publication.
+- `tests/test_discovery.py` checks canonical routes and exact exported claim preservation; included in CI.
+- Remaining account/deployment actions and exact metadata command: `docs/DISCOVERY.md`. No indexing, traffic growth or connector listing is claimed.
+- Review finding: all 1,341 27B claim rows currently use mutable `main` source refs; the new export exposes `source_revision_pinned` and explains the limitation. No source records were changed.
+- Validation: both model builds; gate and claim suites; MCP 15/15; discovery 7 canonical pages and 2,444 exact exported claims. Browser tests require stubbing external HTTPS resources in this environment because resource fetches return ERR_EMPTY_RESPONSE.
