@@ -1,0 +1,82 @@
+{
+ "repo": "INCModel3/DeepSeek-V4.1-Flash-MXFP4-Engram-AutoRound",
+ "no_quality_claims": false,
+ "weights_modified": false,
+ "method": {
+  "reference": "baseline not further specified",
+  "dataset": "GSM8K raw 5-shot; sibling/script-produced twin accuracy",
+  "ctx": "not stated",
+  "tool": "vLLM same compute recipe",
+  "L": [
+   36
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "D1-ar-v2",
+   "metrics": {},
+   "size": "c1",
+   "basis": "disk",
+   "unit": "GB",
+   "flags": [
+    "Task accuracy is stated for a sibling/script-produced twin, not this uploaded artifact [L36]."
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "sibling/script-produced twin (reference accuracy)",
+   "metrics": {},
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "of": "not named on card"
+  },
+  {
+   "role": "quoted",
+   "name": "baseline (reference accuracy)",
+   "metrics": {},
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "of": "not named on card"
+  },
+  {
+   "role": "own",
+   "name": "D1-ar-v2 Engram reconstruction",
+   "metrics": {},
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "flags": [
+    "Relative reconstruction error is an Engram component measurement."
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "sibling/script-produced twin (reference accuracy)",
+   "key": "bench:GSM8K reported run 1",
+   "L": 36,
+   "raw": "92.19"
+  },
+  {
+   "entry": "sibling/script-produced twin (reference accuracy)",
+   "key": "bench:GSM8K reported run 2",
+   "L": 36,
+   "raw": "92.27"
+  },
+  {
+   "entry": "baseline (reference accuracy)",
+   "key": "bench:GSM8K reported baseline",
+   "L": 37,
+   "raw": "92.87"
+  },
+  {
+   "entry": "D1-ar-v2 Engram reconstruction",
+   "key": "bench:Engram relative error",
+   "L": 19,
+   "raw": "0.12"
+  }
+ ]
+}

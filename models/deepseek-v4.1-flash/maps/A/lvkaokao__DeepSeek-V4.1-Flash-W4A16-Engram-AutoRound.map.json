@@ -1,0 +1,63 @@
+{
+  "repo": "lvkaokao/DeepSeek-V4.1-Flash-W4A16-Engram-AutoRound",
+  "no_quality_claims": false,
+  "weights_modified": false,
+  "method": {
+    "reference": "original DeepSeek-V4.1-Flash native MXFP4/FP8 checkpoint, not BF16",
+    "dataset": "gsm8k, raw 5-shot, thinking off, n=1319",
+    "ctx": "max model length 8192",
+    "tool": "vLLM nightly with dsv41-quant-plugin, 4 H200 TP4, Marlin GPTQ-MoE",
+    "L": [
+      15,
+      16,
+      17,
+      18,
+      20,
+      21,
+      25,
+      26,
+      27,
+      32,
+      36,
+      37,
+      60,
+      61
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "W4A16 (experts INT4 GPTQ + Engram INT4)",
+      "metrics": {},
+      "size": "c1",
+      "unit": "GB",
+      "basis": "disk",
+      "flags": [
+        "The two slash-separated GSM8K scores have no strict/flexible labels on this card; retain their exact combined published string [L20-21]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "official baseline",
+      "metrics": {},
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "size": "c5",
+      "unit": "GB",
+      "basis": "disk"
+    }
+  ],
+  "prose": [
+    {
+      "entry": "W4A16 (experts INT4 GPTQ + Engram INT4)",
+      "key": "bench:GSM8K",
+      "L": 21,
+      "raw": "93.93 / 94.01"
+    },
+    {
+      "entry": "official baseline",
+      "key": "bench:GSM8K",
+      "L": 21,
+      "raw": "92.87"
+    }
+  ]
+}

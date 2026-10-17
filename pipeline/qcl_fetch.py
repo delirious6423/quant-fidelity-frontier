@@ -25,48 +25,159 @@ def get(url, token, tries=6):
             time.sleep(min(30, 2 ** a))
     raise RuntimeError(f"gave up after {tries} tries: {url}")
 
+def next_page(url, headers):
+    links = headers.get("Link") or headers.get("link") or ""
+    nxt = [p.split(";")[0].strip("<> ") for p in links.split(",") if 'rel="next"' in p]
+    if not nxt:
+        return None
+    target = urllib.parse.urljoin(url, nxt[0])
+    if urllib.parse.urlparse(target).netloc != urllib.parse.urlparse(url).netloc:
+        raise RuntimeError("refusing cross-host pagination link")
+    return target
+
+
+def write_json(path, value):
+    # A completed result must survive interruption without truncating the ledger.
+    temporary = f"{path}.tmp"
+    with open(temporary, "w") as f:
+        json.dump(value, f, indent=1)
+    os.replace(temporary, path)
+
+
 def catalogue(base, model, token):
     out, url = [], f"{base}/api/models?" + urllib.parse.urlencode({"filter": f"base_model:quantized:{model}", "limit": 1000, "full": "true"}) + "&expand[]=sha&expand[]=createdAt&expand[]=lastModified&expand[]=downloads&expand[]=tags"
     while url:
         st, body, h = get(url, token)
         if st != 200: raise RuntimeError(f"catalogue HTTP {st}: {body[:200]!r}")
         out += json.loads(body)
-        nxt = [p.split(";")[0].strip("<> ") for p in (h.get("Link") or h.get("link") or "").split(",") if 'rel="next"' in p]
-        url = nxt[0] if nxt else None
+        url = next_page(url, h)
     return out
+
+
+def model_metadata(base, rid, token):
+    st, body, _ = get(f"{base}/api/models/{rid}", token)
+    if st != 200:
+        raise RuntimeError(f"model metadata {rid} HTTP {st}: {body[:200]!r}")
+    metadata = json.loads(body)
+    sha = metadata.get("sha")
+    if not sha or sha == "main":
+        raise RuntimeError(f"model metadata {rid} has no pinned commit SHA")
+    return metadata
+
+
+def model_sha(base, rid, token):
+    return model_metadata(base, rid, token)["sha"]
+
+
+def fetch_card(base, rid, sha, token, path):
+    st, body, _ = get(f"{base}/{rid}/raw/{sha}/README.md", token)
+    if st not in (200, 404):
+        raise RuntimeError(f"README {rid}@{sha} HTTP {st}: {body[:200]!r}")
+    card = body if st == 200 else b""  # Only a confirmed 404 means no README.
+    with open(path, "wb") as f:
+        f.write(card)
+    return {"sha": sha, "file": path, "sha256": hashlib.sha256(card).hexdigest(),
+            "bytes": len(card), "readme_status": st}
+
+
+def fetch_tree(base, rid, sha, token):
+    files, pages, seen = [], 0, set()
+    url = f"{base}/api/models/{rid}/tree/{sha}?recursive=true"
+    while url:
+        if url in seen:
+            raise RuntimeError(f"tree pagination cycle for {rid}@{sha}")
+        seen.add(url)
+        st, body, headers = get(url, token)
+        if st != 200:
+            raise RuntimeError(f"tree {rid}@{sha} HTTP {st}: {body[:200]!r}")
+        page = json.loads(body)
+        if not isinstance(page, list):
+            raise RuntimeError(f"tree {rid}@{sha} returned a non-list response")
+        files.extend(page)
+        pages += 1
+        url = next_page(url, headers)
+    return files, pages
+
+
+def fetch_repo(base, m, token, out, previous=None):
+    rid = m["id"]
+    sha = m.get("sha")
+    if not sha or sha == "main":
+        sha = model_sha(base, rid, token)
+    fn = f"{out}/cards/{rid.replace('/', '__')}@{sha[:12]}.md"
+    # Previously checkpointed bytes are safe to reuse even when their old tree
+    # was only a first page. Unindexed orphan cards can be recovered by recording
+    # their pinned SHA, hash and successful HTTP status in the ledger first.
+    card = None
+    if previous and previous.get("sha") == sha and previous.get("readme_status") in (200, 404):
+        try:
+            with open(previous["file"], "rb") as f:
+                saved = f.read()
+            if hashlib.sha256(saved).hexdigest() == previous.get("sha256"):
+                card = {k: previous[k] for k in ("sha", "file", "sha256", "readme_status")}
+                card["bytes"] = len(saved)
+        except (OSError, KeyError):
+            pass
+    if card is None:
+        card = fetch_card(base, rid, sha, token, fn)
+    files, pages = fetch_tree(base, rid, sha, token)
+    tree_path = f"{out}/trees/{rid.replace('/', '__')}.json"
+    write_json(tree_path, files)
+    sizes = [f.get("size") for f in files if f.get("type") == "file"]
+    sizes_complete = all(isinstance(n, int) and not isinstance(n, bool) and n >= 0 for n in sizes)
+    return rid, {**card,
+                 "catalogue_source": m.get("catalogue_source", "base_model:quantized"),
+                 "createdAt": m.get("createdAt"), "lastModified": m.get("lastModified"), "downloads": m.get("downloads"), "tags": m.get("tags"),
+                 "tree_file": tree_path, "tree_complete": True, "tree_pages": pages,
+                 "total_bytes_complete": sizes_complete, "total_bytes": sum(sizes) if sizes_complete else None}
+
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("model"); ap.add_argument("--out", default="cache")
+    ap.add_argument("--include-repo", action="append", default=[], help="also fetch this exact repository ID (repeatable)")
     ap.add_argument("--workers", type=int, default=8); ap.add_argument("--base", default="https://huggingface.co")
     a = ap.parse_args(); token = os.environ.get("HF_TOKEN")
     os.makedirs(f"{a.out}/cards", exist_ok=True); os.makedirs(f"{a.out}/trees", exist_ok=True)
     t0 = time.time()
     cat = catalogue(a.base, a.model, token)
-    json.dump(cat, open(f"{a.out}/catalogue.json", "w"), indent=1)
+    known = {m["id"] for m in cat}
+    for rid in a.include_repo:
+        if rid not in known:
+            metadata = model_metadata(a.base, rid, token)
+            cat.append({**{k: metadata[k] for k in ("sha", "createdAt", "lastModified", "downloads", "likes", "tags") if k in metadata}, "id": rid, "catalogue_source": "explicit-include"})
+            known.add(rid)
+    write_json(f"{a.out}/catalogue.json", cat)
     ip = f"{a.out}/index.json"; idx = json.load(open(ip)) if os.path.exists(ip) else {"model": a.model, "repos": {}}
-    todo = [m for m in cat if idx["repos"].get(m["id"], {}).get("sha") != m.get("sha")]
+
+    def checkpoint():
+        idx["captured_at"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+        write_json(ip, idx)
+
+    # Resolve the official card's commit before reading its bytes, and save it even
+    # if a later quant repository fails or the fetch is interrupted.
+    base_sha = model_sha(a.base, a.model, token)
+    base_path = f"{a.out}/cards/_base__{a.model.replace('/', '__')}@{base_sha[:12]}.md"
+    idx["base"] = {"repo": a.model, "via": "hf-api", **fetch_card(a.base, a.model, base_sha, token, base_path)}
+    checkpoint()
+    todo = [m for m in cat if idx["repos"].get(m["id"], {}).get("sha") != m.get("sha")
+            or "bytes" not in idx["repos"].get(m["id"], {})
+            or not idx["repos"].get(m["id"], {}).get("tree_complete")]
     print(f"catalogue: {len(cat)} repos in {time.time()-t0:.1f}s; to fetch: {len(todo)}", flush=True)
-    base_card = (a.model, None)
-    def one(m):
-        rid, sha = m["id"], m.get("sha") or "main"
-        st, body, _ = get(f"{a.base}/{rid}/raw/{sha}/README.md", token)
-        card = body if st == 200 else b""          # a repo without a README is recorded as an empty card
-        fn = f"{a.out}/cards/{rid.replace('/', '__')}@{sha[:12]}.md"; open(fn, "wb").write(card)
-        st2, tree, _ = get(f"{a.base}/api/models/{rid}/tree/{sha}?recursive=true", token)
-        if st2 == 200: open(f"{a.out}/trees/{rid.replace('/', '__')}.json", "wb").write(tree)
-        files = json.loads(tree) if st2 == 200 else []
-        return rid, {"sha": sha, "file": fn, "sha256": hashlib.sha256(card).hexdigest(), "readme_status": st,
-                     "createdAt": m.get("createdAt"), "lastModified": m.get("lastModified"), "downloads": m.get("downloads"), "tags": m.get("tags"),
-                     "total_bytes": sum(f.get("size") or 0 for f in files if f.get("type") == "file")}
-    done = 0
+    done, errors = 0, []
     with cf.ThreadPoolExecutor(a.workers) as ex:
-        for fut in cf.as_completed([ex.submit(one, m) for m in todo]):
-            rid, rec = fut.result(); idx["repos"][rid] = rec; done += 1
+        for fut in cf.as_completed([ex.submit(fetch_repo, a.base, m, token, a.out, idx["repos"].get(m["id"])) for m in todo]):
+            try:
+                rid, rec = fut.result()
+            except Exception as error:
+                errors.append(str(error))
+                print(f"  fetch failed: {error}", file=sys.stderr, flush=True)
+                continue
+            idx["repos"][rid] = rec; done += 1
+            checkpoint()
             if done % 25 == 0 or done == len(todo):
-                json.dump(idx, open(ip, "w"), indent=1); print(f"  {done}/{len(todo)} fetched, {time.time()-t0:.1f}s", flush=True)
-    st, body, _ = get(f"{a.base}/{a.model}/raw/main/README.md", token)      # the base model's own card (for copy detection)
-    if st == 200: open(f"{a.out}/cards/_base__{a.model.replace('/', '__')}.md", "wb").write(body)
-    idx["captured_at"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()); json.dump(idx, open(ip, "w"), indent=1)
+                print(f"  {done}/{len(todo)} fetched, {time.time()-t0:.1f}s", flush=True)
+    if errors:
+        raise RuntimeError(f"{len(errors)} repositories failed; successful results checkpointed; first error: {errors[0]}")
     print(f"done: {len(idx['repos'])} repos in ledger, {time.time()-t0:.1f}s total")
 
 if __name__ == "__main__": main()

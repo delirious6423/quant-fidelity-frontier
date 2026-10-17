@@ -1,0 +1,89 @@
+{
+  "repo": "coolbho3k/DeepSeek-V4.1-Flash-GRAFT-3bpw",
+  "no_quality_claims": false,
+  "weights_modified": false,
+  "method": {
+    "reference": "native MXFP4 DeepSeek-V4.1-Flash checkpoint",
+    "dataset": "held-out expert error; output-evaluation corpus not stated",
+    "ctx": "not stated",
+    "tool": "GRAFT versus publisher EXL3 comparison; runtime, KL vocabulary scope and aggregation not stated",
+    "L": [
+      16,
+      17,
+      18,
+      22,
+      24,
+      25,
+      26,
+      27,
+      33
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "GRAFT (this repo)",
+      "metrics": {
+        "component:expert_error_ratio_vs_EXL3": "c1",
+        "nll_excess_nats": "c3",
+        "mean_kld": "c5",
+        "top1_pct": "c7"
+      },
+      "panel": "DeepSeek-V4.1-Flash, GRAFT 3-bit routed experts",
+      "methodology": {
+        "reference": "native MXFP4 DeepSeek-V4.1-Flash checkpoint",
+        "dataset": "held-out expert error; output-evaluation corpus not stated",
+        "ctx": "not stated",
+        "tool": "GRAFT versus publisher EXL3 comparison; runtime, KL vocabulary scope and aggregation not stated",
+        "L": [
+          16,
+          17,
+          18,
+          22,
+          24,
+          25,
+          26,
+          27,
+          33
+        ]
+      },
+      "flags": [
+        "Expert-error ratio, excess NLL and reported output KL are different statistics; no full-vocabulary KL scope or evaluation corpus is asserted [L24-27].",
+        "No size is stated. Engram and draft weights must be copied separately from the EXL3 repository [L36-37]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "EXL3 3 bpw",
+      "metrics": {
+        "component:expert_error_ratio_vs_EXL3": "c2",
+        "nll_excess_nats": "c4",
+        "mean_kld": "c6",
+        "top1_pct": "c8"
+      },
+      "panel": "DeepSeek-V4.1-Flash, GRAFT 3-bit routed experts",
+      "methodology": {
+        "reference": "native MXFP4 DeepSeek-V4.1-Flash checkpoint",
+        "dataset": "held-out expert error; output-evaluation corpus not stated",
+        "ctx": "not stated",
+        "tool": "GRAFT versus publisher EXL3 comparison; runtime, KL vocabulary scope and aggregation not stated",
+        "L": [
+          16,
+          17,
+          18,
+          22,
+          24,
+          25,
+          26,
+          27,
+          33
+        ]
+      },
+      "flags": [
+        "Expert-error ratio, excess NLL and reported output KL are different statistics; no full-vocabulary KL scope or evaluation corpus is asserted [L24-27].",
+        "No size is stated. Engram and draft weights must be copied separately from the EXL3 repository [L36-37]."
+      ]
+    }
+  ],
+  "prose": []
+}

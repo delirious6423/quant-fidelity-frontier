@@ -1,0 +1,346 @@
+{
+  "repo": "msuiche/DeepSeek-V4.1-Flash-NVFP4",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "native DeepSeek-V4.1-Flash with unchanged MXFP4 routed experts and FP8 dense source",
+    "dataset": "per-tensor error samples; lm-eval MMLU/zero-shot tasks; NIAH32K",
+    "ctx": "MMLU10 per subject;zero-shot n=200;NIAH32K n=10",
+    "tool": "ModelOpt per-tensor converter; benchmark via dequantized-FP8 twin on8H200 stock vLLM",
+    "L": [
+      23,
+      24,
+      25,
+      26,
+      27,
+      49,
+      51,
+      68,
+      75,
+      76,
+      77,
+      78,
+      79
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "MTP/drafter dense",
+      "panel": "Measured quantization error (per-tensor, vs the FP8 source weights)",
+      "methodology": {
+        "reference": "FP8 source weights",
+        "dataset": "sampled tensor classes",
+        "ctx": "not applicable",
+        "tool": "per-tensor relative L2 reconstruction error; local_validate.py",
+        "L": [
+          49,
+          51,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          124,
+          125
+        ]
+      },
+      "metrics": {
+        "bench:relative L2 error %": "c1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Tensor reconstruction error, not next-token divergence or task accuracy [L49-58]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "attention indexer wq_b",
+      "panel": "Measured quantization error (per-tensor, vs the FP8 source weights)",
+      "methodology": {
+        "reference": "FP8 source weights",
+        "dataset": "sampled tensor classes",
+        "ctx": "not applicable",
+        "tool": "per-tensor relative L2 reconstruction error; local_validate.py",
+        "L": [
+          49,
+          51,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          124,
+          125
+        ]
+      },
+      "metrics": {
+        "bench:relative L2 error %": "c2"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Tensor reconstruction error, not next-token divergence or task accuracy [L49-58]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "attention projections",
+      "panel": "Measured quantization error (per-tensor, vs the FP8 source weights)",
+      "methodology": {
+        "reference": "FP8 source weights",
+        "dataset": "sampled tensor classes",
+        "ctx": "not applicable",
+        "tool": "per-tensor relative L2 reconstruction error; local_validate.py",
+        "L": [
+          49,
+          51,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          124,
+          125
+        ]
+      },
+      "metrics": {
+        "bench:relative L2 error %": "c3"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Tensor reconstruction error, not next-token divergence or task accuracy [L49-58]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "engram hash tables",
+      "panel": "Measured quantization error (per-tensor, vs the FP8 source weights)",
+      "methodology": {
+        "reference": "FP8 source weights",
+        "dataset": "sampled tensor classes",
+        "ctx": "not applicable",
+        "tool": "per-tensor relative L2 reconstruction error; local_validate.py",
+        "L": [
+          49,
+          51,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          124,
+          125
+        ]
+      },
+      "metrics": {
+        "bench:relative L2 error %": "c4"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Tensor reconstruction error, not next-token divergence or task accuracy [L49-58]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "engram wkv",
+      "panel": "Measured quantization error (per-tensor, vs the FP8 source weights)",
+      "methodology": {
+        "reference": "FP8 source weights",
+        "dataset": "sampled tensor classes",
+        "ctx": "not applicable",
+        "tool": "per-tensor relative L2 reconstruction error; local_validate.py",
+        "L": [
+          49,
+          51,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          124,
+          125
+        ]
+      },
+      "metrics": {
+        "bench:relative L2 error %": "c5"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Tensor reconstruction error, not next-token divergence or task accuracy [L49-58]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "shared experts",
+      "panel": "Measured quantization error (per-tensor, vs the FP8 source weights)",
+      "methodology": {
+        "reference": "FP8 source weights",
+        "dataset": "sampled tensor classes",
+        "ctx": "not applicable",
+        "tool": "per-tensor relative L2 reconstruction error; local_validate.py",
+        "L": [
+          49,
+          51,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          124,
+          125
+        ]
+      },
+      "metrics": {
+        "bench:relative L2 error %": "c6"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Tensor reconstruction error, not next-token divergence or task accuracy [L49-58]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "FP8 source (reference)",
+      "panel": "End-to-end measured (2026-09-16)",
+      "methodology": {
+        "reference": "native DeepSeek-V4.1-Flash with unchanged MXFP4 routed experts and FP8 dense source",
+        "dataset": "0-shot lm-eval;MMLU10/subject;other zero-shot tasks n=200;NIAH n=10",
+        "ctx": "NIAH32K; other contexts not stated",
+        "tool": "stock vLLM image on8H200; quantized tensors are dequantized and re-encoded FP8 before benchmarking",
+        "L": [
+          68,
+          70,
+          75,
+          76,
+          77,
+          78,
+          79
+        ]
+      },
+      "metrics": {
+        "bench:MMLU (acc)": "c7",
+        "bench:ARC-c (acc_norm)": "c9",
+        "bench:ARC-e (acc_norm)": "c11",
+        "bench:HellaSwag (acc_norm)": "c12",
+        "bench:BoolQ (acc)": "c14",
+        "bench:PIQA (acc_norm)": "c16",
+        "bench:WinoGrande (acc)": "c18",
+        "bench:NIAH32K (EM)": "c20"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Twin is a separate dequantized/re-encoded FP8 artifact, not direct execution of published NVFP4 files [L70-79]",
+        "Source claims the extra twin re-encode error makes scores a pessimistic bound; that is the author's interpretation [L77-78]",
+        "NIAH values are fractions, other task scores shown on percentage scale [L83-90]"
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "ladder",
+      "name": "this repo (twin)",
+      "panel": "End-to-end measured (2026-09-16)",
+      "methodology": {
+        "reference": "native DeepSeek-V4.1-Flash with unchanged MXFP4 routed experts and FP8 dense source",
+        "dataset": "0-shot lm-eval;MMLU10/subject;other zero-shot tasks n=200;NIAH n=10",
+        "ctx": "NIAH32K; other contexts not stated",
+        "tool": "stock vLLM image on8H200; quantized tensors are dequantized and re-encoded FP8 before benchmarking",
+        "L": [
+          68,
+          70,
+          75,
+          76,
+          77,
+          78,
+          79
+        ]
+      },
+      "metrics": {
+        "bench:MMLU (acc)": "c8",
+        "bench:ARC-c (acc_norm)": "c10",
+        "bench:HellaSwag (acc_norm)": "c13",
+        "bench:BoolQ (acc)": "c15",
+        "bench:PIQA (acc_norm)": "c17",
+        "bench:WinoGrande (acc)": "c19",
+        "bench:NIAH32K (EM)": "c21",
+        "bench:ARC-e (acc_norm)": "c9001"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Twin is a separate dequantized/re-encoded FP8 artifact, not direct execution of published NVFP4 files [L70-79]",
+        "Source claims the extra twin re-encode error makes scores a pessimistic bound; that is the author's interpretation [L77-78]",
+        "NIAH values are fractions, other task scores shown on percentage scale [L83-90]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "NVFP4 checkpoint (full download)",
+      "metrics": {},
+      "size": "c25",
+      "unit": "GB",
+      "basis": "disk",
+      "flags": [
+        "Direct NVFP4 serving unsupported in the tested engine; task scores belong to the separately re-encoded FP8 twin [L70-79]."
+      ],
+      "panel": "DeepSeek-V4.1-Flash-NVFP4 (community, weight-only)"
+    },
+    {
+      "role": "own",
+      "name": "Engram gate propagation simulation",
+      "metrics": {
+        "bench:output cosine lower bound": "c9002",
+        "bench:output error percent at hidden RMS10": "c9003",
+        "bench:output error percent at hidden RMS100": "c9004",
+        "bench:output error percent near hidden RMS1": "c9005"
+      },
+      "panel": "Measured quantization error (per-tensor, vs the FP8 source weights)",
+      "methodology": {
+        "reference": "FP8 source Engram component",
+        "dataset": "sampled table rows, real wkv/gate weights, synthetic hidden states",
+        "ctx": "not applicable",
+        "tool": "Engram gate propagation simulation",
+        "L": [
+          61,
+          62,
+          63,
+          64,
+          65
+        ]
+      },
+      "flags": [
+        "Conditional component simulation; not full-model KL or generated-task scores [L61-66]."
+      ]
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,134 @@
+{
+  "repo": "jeet0733/DeepSeek-V4.1-Flash-EXL3-C4h36",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "native FP8 model via same BF16 reference path; separate served baseline MiaAI2.9bpw",
+    "dataset": "WikiText-2",
+    "ctx": "served64×512windows;reference-path context not stated",
+    "tool": "reference-path evaluation versus served same-harness,two DGX Sparks;configs differ",
+    "L": [
+      19,
+      20,
+      21,
+      24,
+      25,
+      26,
+      28,
+      30,
+      31,
+      36,
+      38
+    ]
+  },
+  "entries": [
+    {
+      "role": "cross",
+      "name": "base 2.9 bpw pack — reference-path PPL",
+      "panel": "DeepSeek-V4.1-Flash · EXL3 · usage-allocated 2.9 bpw (C4h36)",
+      "methodology": {
+        "reference": "native FP8 model through same BF16 reference path",
+        "dataset": "WikiText-2",
+        "ctx": "not stated",
+        "tool": "same BF16 reference computation path;not a native BF16 checkpoint",
+        "L": [
+          28,
+          30
+        ]
+      },
+      "metrics": {
+        "ppl_delta_pct": "c1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Same-size196GiB pack excludes separately streamed Engram tables [L19-26]",
+        "Reference-path PPL delta is separate from served PPL row [L30-31]"
+      ],
+      "of": "not named on card"
+    },
+    {
+      "role": "cross",
+      "name": "base 2.9 bpw pack — served PPL",
+      "panel": "DeepSeek-V4.1-Flash · EXL3 · usage-allocated 2.9 bpw (C4h36)",
+      "methodology": {
+        "reference": "base MiaAI2.9bpw pack served with stock kernel,DSparkk3",
+        "dataset": "WikiText-2",
+        "ctx": "64×512",
+        "tool": "same served PPL harness,two DGX Sparks;own usage-allocated branch k5+adaptive",
+        "L": [
+          28,
+          31
+        ]
+      },
+      "metrics": {
+        "ppl:wikitext-2": "c3"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Own PPL published as6.197–6.210range;do not read as a single exact result [L31]",
+        "Serving configurations differ between columns [L28]"
+      ],
+      "of": "not named on card"
+    },
+    {
+      "role": "own",
+      "name": "this pack — reference-path PPL",
+      "panel": "DeepSeek-V4.1-Flash · EXL3 · usage-allocated 2.9 bpw (C4h36)",
+      "methodology": {
+        "reference": "native FP8 model through same BF16 reference path",
+        "dataset": "WikiText-2",
+        "ctx": "not stated",
+        "tool": "same BF16 reference computation path;not a native BF16 checkpoint",
+        "L": [
+          28,
+          30
+        ]
+      },
+      "metrics": {
+        "ppl_delta_pct": "c2"
+      },
+      "size": "c9.0",
+      "unit": "GiB",
+      "basis": "excl_engram",
+      "bpw": null,
+      "flags": [
+        "Same-size196GiB pack excludes separately streamed Engram tables [L19-26]",
+        "Reference-path PPL delta is separate from served PPL row [L30-31]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "this pack — served PPL",
+      "panel": "DeepSeek-V4.1-Flash · EXL3 · usage-allocated 2.9 bpw (C4h36)",
+      "methodology": {
+        "reference": "base MiaAI2.9bpw pack served with stock kernel,DSparkk3",
+        "dataset": "WikiText-2",
+        "ctx": "64×512",
+        "tool": "same served PPL harness,two DGX Sparks;own usage-allocated branch k5+adaptive",
+        "L": [
+          28,
+          31
+        ]
+      },
+      "metrics": {
+        "ppl:wikitext-2": "c4"
+      },
+      "size": "c9.0",
+      "unit": "GiB",
+      "basis": "excl_engram",
+      "bpw": null,
+      "flags": [
+        "Own PPL published as6.197–6.210range;do not read as a single exact result [L31]",
+        "Serving configurations differ between columns [L28]"
+      ]
+    }
+  ],
+  "prose": []
+}

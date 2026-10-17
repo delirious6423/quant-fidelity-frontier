@@ -1,0 +1,304 @@
+{
+  "repo": "diffbot/DeepSeek-V4.1-Flash-EXL3-3bpw-2x-RTX-PRO-6000",
+  "no_quality_claims": false,
+  "weights_modified": false,
+  "method": {
+    "reference": "original DeepSeek-V4.1-Flash mixed-precision release (not stated as BF16)",
+    "dataset": "AtomicChat protocol: neutral multilingual text, code, agentic; top-512 KL lower bound in nats and top-1 agreement",
+    "ctx": "49,152 scored positions per corpus",
+    "tool": "vLLM nightly-5555a2d8; as served, FP8 lm_head, DSpark, host-RAM experts",
+    "L": [
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      56,
+      58,
+      83,
+      95
+    ]
+  },
+  "entries": [
+    {
+      "role": "cross",
+      "name": "Original model, second run (noise floor)",
+      "metrics": {
+        "kld:neutral_text": "c1.0",
+        "top1:neutral_text": "c1.1",
+        "kld:code": "c2.0",
+        "top1:code": "c2.1",
+        "kld:agentic": "c3.0",
+        "top1:agentic": "c3.1"
+      },
+      "panel": "Fidelity",
+      "methodology": {
+        "reference": "original DeepSeek-V4.1-Flash mixed-precision release (not stated as BF16)",
+        "dataset": "AtomicChat protocol: neutral multilingual text, code, agentic; top-512 KL lower bound in nats and top-1 agreement",
+        "ctx": "49,152 scored positions per corpus",
+        "tool": "vLLM nightly-5555a2d8; as served, FP8 lm_head, DSpark, host-RAM experts",
+        "L": [
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          56,
+          58,
+          83,
+          95
+        ]
+      },
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "flags": [
+        "Original release repeat-run noise floor; not a BF16 baseline [L51]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "NVIDIA's NVFP4 checkpoint (4-bit, for reference)",
+      "metrics": {
+        "kld:neutral_text": "c4.0",
+        "top1:neutral_text": "c4.1",
+        "kld:code": "c5.0",
+        "top1:code": "c5.1",
+        "kld:agentic": "c6.0",
+        "top1:agentic": "c6.1"
+      },
+      "panel": "Fidelity",
+      "methodology": {
+        "reference": "original DeepSeek-V4.1-Flash mixed-precision release (not stated as BF16)",
+        "dataset": "AtomicChat protocol: neutral multilingual text, code, agentic; top-512 KL lower bound in nats and top-1 agreement",
+        "ctx": "49,152 scored positions per corpus",
+        "tool": "vLLM nightly-5555a2d8; as served, FP8 lm_head, DSpark, host-RAM experts",
+        "L": [
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          56,
+          58,
+          83,
+          95
+        ]
+      },
+      "of": "nvidia/DeepSeek-V4.1-Flash-NVFP4"
+    },
+    {
+      "role": "own",
+      "name": "This pack, as served",
+      "metrics": {
+        "kld:neutral_text": "c7.0",
+        "top1:neutral_text": "c7.1",
+        "kld:code": "c8.0",
+        "top1:code": "c8.1",
+        "kld:agentic": "c9.0",
+        "top1:agentic": "c9.1"
+      },
+      "panel": "Fidelity",
+      "methodology": {
+        "reference": "original DeepSeek-V4.1-Flash mixed-precision release (not stated as BF16)",
+        "dataset": "AtomicChat protocol: neutral multilingual text, code, agentic; top-512 KL lower bound in nats and top-1 agreement",
+        "ctx": "49,152 scored positions per corpus",
+        "tool": "vLLM nightly-5555a2d8; as served, FP8 lm_head, DSpark, host-RAM experts",
+        "L": [
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          56,
+          58,
+          83,
+          95
+        ]
+      },
+      "size": "c84",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c9001",
+      "flags": [
+        "Total download includes int4 Engram tables; routed expert bpw is not whole-model precision [L177-184]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Previous 2.0 bpw pack from this repo",
+      "metrics": {
+        "kld:neutral_text": "c10.0",
+        "top1:neutral_text": "c10.1",
+        "kld:code": "c11.0",
+        "top1:code": "c11.1",
+        "kld:agentic": "c12.0",
+        "top1:agentic": "c12.1"
+      },
+      "panel": "Fidelity",
+      "methodology": {
+        "reference": "original DeepSeek-V4.1-Flash mixed-precision release (not stated as BF16)",
+        "dataset": "AtomicChat protocol: neutral multilingual text, code, agentic; top-512 KL lower bound in nats and top-1 agreement",
+        "ctx": "49,152 scored positions per corpus",
+        "tool": "vLLM nightly-5555a2d8; as served, FP8 lm_head, DSpark, host-RAM experts",
+        "L": [
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          56,
+          58,
+          83,
+          95
+        ]
+      },
+      "bpw": "c34",
+      "flags": [
+        "Historical pack at revision 28b7ab71, not current download [L35-37]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "This pack",
+      "metrics": {
+        "bench:GSM8K-200": "c13",
+        "bench:HumanEval": "c14"
+      },
+      "panel": "Fidelity",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "GSM8K-200 and HumanEval",
+        "ctx": "not stated",
+        "tool": "thinking off, greedy decoding",
+        "L": [
+          61,
+          63,
+          65
+        ]
+      },
+      "size": "c84",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c9001",
+      "flags": [
+        "Quality probes use thinking off and greedy decoding; separate from corpus KL measurements [L61-66]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Previous 2.0 bpw pack",
+      "metrics": {
+        "bench:GSM8K-200": "c15",
+        "bench:HumanEval": "c16"
+      },
+      "panel": "Fidelity",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "GSM8K-200 and HumanEval",
+        "ctx": "not stated",
+        "tool": "thinking off, greedy decoding",
+        "L": [
+          61,
+          63,
+          65
+        ]
+      },
+      "bpw": "c35",
+      "flags": [
+        "Quality probes use thinking off and greedy decoding; separate from corpus KL measurements [L61-66]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "coolbho3k's pack on our earlier, simpler stack",
+      "metrics": {},
+      "size": null,
+      "basis": null,
+      "unit": null,
+      "of": "coolbho3k/DeepSeek-V4.1-Flash-EXL3-3bpw",
+      "panel": "Fidelity",
+      "methodology": {
+        "reference": "original deepseek-ai/DeepSeek-V4.1-Flash model (native release), top-512 logprobs",
+        "dataset": "AtomicChat V4.1-Flash protocol; neutral multilingual text, code, agentic; 49,152 scored positions per corpus; KL lower bound",
+        "ctx": "not stated for KL corpus; serving defaults described separately",
+        "tool": "earlier, simpler serving stack on same publisher test",
+        "L": [
+          57
+        ]
+      },
+      "flags": [
+        "Earlier serving configuration, separate from the current as-served table [L57]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "previous release",
+      "metrics": {},
+      "size": null,
+      "basis": null,
+      "unit": null,
+      "panel": "Fidelity",
+      "methodology": {
+        "reference": "original deepseek-ai/DeepSeek-V4.1-Flash model (native release), top-512 logprobs",
+        "dataset": "AtomicChat V4.1-Flash protocol; neutral multilingual text, code, agentic; 49,152 scored positions per corpus; KL lower bound",
+        "ctx": "not stated for KL corpus; serving defaults described separately",
+        "tool": "previous serving release before 2026-10-15 rebase",
+        "L": [
+          58,
+          59
+        ]
+      },
+      "flags": [
+        "Historical serving configuration; separate from the current table [L58-59]."
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "coolbho3k's pack on our earlier, simpler stack",
+      "key": "kld:neutral_text",
+      "L": 57,
+      "raw": "0.0529",
+      "panel": "Fidelity"
+    },
+    {
+      "entry": "coolbho3k's pack on our earlier, simpler stack",
+      "key": "kld:code",
+      "L": 57,
+      "raw": "0.0310",
+      "panel": "Fidelity"
+    },
+    {
+      "entry": "coolbho3k's pack on our earlier, simpler stack",
+      "key": "kld:agentic",
+      "L": 57,
+      "raw": "0.0096",
+      "panel": "Fidelity"
+    },
+    {
+      "entry": "previous release",
+      "key": "kld:neutral_text",
+      "L": 59,
+      "raw": "0.0541",
+      "panel": "Fidelity"
+    },
+    {
+      "entry": "previous release",
+      "key": "kld:code",
+      "L": 59,
+      "raw": "0.0324",
+      "panel": "Fidelity"
+    },
+    {
+      "entry": "previous release",
+      "key": "kld:agentic",
+      "L": 59,
+      "raw": "0.0099",
+      "panel": "Fidelity"
+    }
+  ]
+}

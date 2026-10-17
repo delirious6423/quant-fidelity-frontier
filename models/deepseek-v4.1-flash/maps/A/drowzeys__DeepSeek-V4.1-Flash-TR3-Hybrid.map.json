@@ -1,0 +1,120 @@
+{
+  "repo": "drowzeys/DeepSeek-V4.1-Flash-TR3-Hybrid",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "shipped native DeepSeek-V4.1-Flash MXFP4-experts/FP8 checkpoint; KL(native || TR3)",
+    "dataset": "representative corpus; publisher states 32-window x 2047-token and 66,599 positions",
+    "ctx": "2047-token windows",
+    "tool": "vLLM TP4 on four DGX Spark; teacher forcing; top-20 truncation",
+    "L": [
+      37,
+      38,
+      39,
+      43,
+      44,
+      45
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "TR3-Hybrid",
+      "metrics": {
+        "mean_kld": "c5",
+        "top1_pct": "c8",
+        "bench:objective-battery-correct": "c11.0"
+      },
+      "size": "c15",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c3",
+      "flags": [
+        "Top-1 is reported as a fraction [L50].",
+        "Expert-weighted bitrate includes native keep experts; not a uniform tail bitrate [L25-31].",
+        "Published window arithmetic differs from claimed position count [L43-44].",
+        "Objective battery heading says 30 items but result denominator is 27 [L51].",
+        "Third-party GLM result omitted because it is a different model [L55]."
+      ],
+      "panel": "Validation - KLD & tier-1 fidelity",
+      "methodology": {
+        "reference": "shipped native DeepSeek-V4.1-Flash MXFP4-experts/FP8 checkpoint; KL(native || TR3)",
+        "dataset": "representative corpus; publisher states 32-window x 2047-token and 66,599 positions",
+        "ctx": "2047-token windows",
+        "tool": "vLLM TP4 on four DGX Spark; teacher forcing; top-20 truncation",
+        "L": [
+          37,
+          38,
+          39,
+          43,
+          44,
+          45
+        ]
+      }
+    },
+    {
+      "role": "cross",
+      "name": "EXL3 3.5bpw Pollard",
+      "metrics": {
+        "mean_kld": "c6",
+        "top1_pct": "c9",
+        "bench:objective-battery-correct": "c11.0"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Top-1 is reported as a fraction [L50]."
+      ],
+      "panel": "Validation - KLD & tier-1 fidelity",
+      "methodology": {
+        "reference": "shipped native DeepSeek-V4.1-Flash MXFP4-experts/FP8 checkpoint; KL(native || TR3)",
+        "dataset": "representative corpus; publisher states 32-window x 2047-token and 66,599 positions",
+        "ctx": "2047-token windows",
+        "tool": "vLLM TP4 on four DGX Spark; teacher forcing; top-20 truncation",
+        "L": [
+          37,
+          38,
+          39,
+          43,
+          44,
+          45
+        ]
+      },
+      "of": "bot-lab-21/DeepSeek-V4.1-Flash-EXL3-3.5bpw-Pollard"
+    },
+    {
+      "role": "cross",
+      "name": "native (ref)",
+      "metrics": {
+        "mean_kld": "c4",
+        "top1_pct": "c7",
+        "bench:objective-battery-correct": "c10.0"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [],
+      "panel": "Validation - KLD & tier-1 fidelity",
+      "methodology": {
+        "reference": "shipped native DeepSeek-V4.1-Flash MXFP4-experts/FP8 checkpoint; KL(native || TR3)",
+        "dataset": "representative corpus; publisher states 32-window x 2047-token and 66,599 positions",
+        "ctx": "2047-token windows",
+        "tool": "vLLM TP4 on four DGX Spark; teacher forcing; top-20 truncation",
+        "L": [
+          37,
+          38,
+          39,
+          43,
+          44,
+          45
+        ]
+      },
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    }
+  ],
+  "prose": []
+}

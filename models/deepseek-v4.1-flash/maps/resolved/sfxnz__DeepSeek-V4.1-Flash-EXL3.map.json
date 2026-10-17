@@ -1,0 +1,235 @@
+{
+  "repo": "sfxnz/DeepSeek-V4.1-Flash-EXL3",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "previous EXL3 2.0bpw-mcg-lmhead-mxfp8 revision; absolute teacher-forced NLL on fixed passages",
+    "dataset": "40 fixed teacher-forced passages;GSM8K-100;MMLU4\u00d757;tool-call exact-argument tests",
+    "ctx": "not stated",
+    "tool": "interleaved2+2boot comparison,round35P4,two DGX Spark recipe",
+    "L": [
+      14,
+      16,
+      24,
+      28,
+      34,
+      35,
+      36,
+      37
+    ]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "2.0bpw-mcg-lmhead-mxfp8",
+      "panel": "Download",
+      "methodology": {
+        "reference": "previous EXL3 2.0bpw-mcg-lmhead-mxfp8 revision; absolute teacher-forced NLL on fixed passages",
+        "dataset": "40 fixed teacher-forced passages;GSM8K-100;MMLU4\u00d757;tool-call exact-argument tests",
+        "ctx": "not stated",
+        "tool": "interleaved2+2boot comparison,round35P4,two DGX Spark recipe",
+        "L": [
+          14,
+          16,
+          24,
+          28,
+          34,
+          35,
+          36,
+          37
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c4",
+      "flags": [
+        "NLL compares quant revisions,not native model or KL [L24]",
+        "Slash-separated task counts are two boots,not numerator/denominator fractions [L24]",
+        "Benchmark denominators:100GSM8K;MMLU described as4\u00d757;tool-test count not separately stated [L24]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "2.0bpw-mcg-viterbi-lmhead-mxfp8",
+      "panel": "Download",
+      "methodology": {
+        "reference": "previous EXL3 2.0bpw-mcg-lmhead-mxfp8 revision; absolute teacher-forced NLL on fixed passages",
+        "dataset": "40 fixed teacher-forced passages;GSM8K-100;MMLU4\u00d757;tool-call exact-argument tests",
+        "ctx": "not stated",
+        "tool": "interleaved2+2boot comparison,round35P4,two DGX Spark recipe",
+        "L": [
+          14,
+          16,
+          24,
+          28,
+          34,
+          35,
+          36,
+          37
+        ]
+      },
+      "metrics": {},
+      "size": "c9001",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c3",
+      "flags": [
+        "NLL compares quant revisions,not native model or KL [L24]",
+        "Slash-separated task counts are two boots,not numerator/denominator fractions [L24]",
+        "Benchmark denominators:100GSM8K;MMLU described as4\u00d757;tool-test count not separately stated [L24]",
+        "Full disk size includes Engram; the earlier revision size is not assumed from the current pack [L39-40]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "prior MCG encoder",
+      "panel": "Pack",
+      "methodology": {
+        "reference": "MXFP4 source expert matrices",
+        "dataset": "all46,080 routed-expert tensors",
+        "ctx": "not applicable",
+        "tool": "exllamav3 tail-biting Viterbi plus refit_scales versus prior encoder",
+        "L": [
+          36
+        ]
+      },
+      "metrics": {
+        "bench:mean relative expert error": "c9002"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c4",
+      "flags": [
+        "Expert reconstruction relative error,not model-output KL [L36]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "Viterbi + scale refit",
+      "panel": "Pack",
+      "methodology": {
+        "reference": "MXFP4 source expert matrices",
+        "dataset": "all46,080 routed-expert tensors",
+        "ctx": "not applicable",
+        "tool": "exllamav3 tail-biting Viterbi plus refit_scales versus prior encoder",
+        "L": [
+          36
+        ]
+      },
+      "metrics": {
+        "bench:mean relative expert error": "c9003"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c3",
+      "flags": [
+        "Expert reconstruction relative error,not model-output KL [L36]"
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "2.0bpw-mcg-lmhead-mxfp8",
+      "panel": "Download",
+      "key": "bench:teacher-forced NLL",
+      "L": 24,
+      "raw": "0.243"
+    },
+    {
+      "entry": "2.0bpw-mcg-lmhead-mxfp8",
+      "panel": "Download",
+      "key": "bench:GSM8K-100 boot1 correct count",
+      "L": 24,
+      "raw": "95"
+    },
+    {
+      "entry": "2.0bpw-mcg-lmhead-mxfp8",
+      "panel": "Download",
+      "key": "bench:GSM8K-100 boot2 correct count",
+      "L": 24,
+      "raw": "94"
+    },
+    {
+      "entry": "2.0bpw-mcg-lmhead-mxfp8",
+      "panel": "Download",
+      "key": "bench:MMLU4\u00d757 boot1 correct count",
+      "L": 24,
+      "raw": "196"
+    },
+    {
+      "entry": "2.0bpw-mcg-lmhead-mxfp8",
+      "panel": "Download",
+      "key": "bench:MMLU4\u00d757 boot2 correct count",
+      "L": 24,
+      "raw": "198"
+    },
+    {
+      "entry": "2.0bpw-mcg-lmhead-mxfp8",
+      "panel": "Download",
+      "key": "bench:tool-call exact args boot1 correct count",
+      "L": 24,
+      "raw": "84"
+    },
+    {
+      "entry": "2.0bpw-mcg-lmhead-mxfp8",
+      "panel": "Download",
+      "key": "bench:tool-call exact args boot2 correct count",
+      "L": 24,
+      "raw": "88"
+    },
+    {
+      "entry": "2.0bpw-mcg-viterbi-lmhead-mxfp8",
+      "panel": "Download",
+      "key": "bench:teacher-forced NLL",
+      "L": 24,
+      "raw": "0.139"
+    },
+    {
+      "entry": "2.0bpw-mcg-viterbi-lmhead-mxfp8",
+      "panel": "Download",
+      "key": "bench:GSM8K-100 boot1 correct count",
+      "L": 24,
+      "raw": "97"
+    },
+    {
+      "entry": "2.0bpw-mcg-viterbi-lmhead-mxfp8",
+      "panel": "Download",
+      "key": "bench:GSM8K-100 boot2 correct count",
+      "L": 24,
+      "raw": "97"
+    },
+    {
+      "entry": "2.0bpw-mcg-viterbi-lmhead-mxfp8",
+      "panel": "Download",
+      "key": "bench:MMLU4\u00d757 boot1 correct count",
+      "L": 24,
+      "raw": "206"
+    },
+    {
+      "entry": "2.0bpw-mcg-viterbi-lmhead-mxfp8",
+      "panel": "Download",
+      "key": "bench:MMLU4\u00d757 boot2 correct count",
+      "L": 24,
+      "raw": "204"
+    },
+    {
+      "entry": "2.0bpw-mcg-viterbi-lmhead-mxfp8",
+      "panel": "Download",
+      "key": "bench:tool-call exact args boot1 correct count",
+      "L": 24,
+      "raw": "88"
+    },
+    {
+      "entry": "2.0bpw-mcg-viterbi-lmhead-mxfp8",
+      "panel": "Download",
+      "key": "bench:tool-call exact args boot2 correct count",
+      "L": 24,
+      "raw": "88"
+    }
+  ]
+}

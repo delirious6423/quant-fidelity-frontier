@@ -20,27 +20,35 @@ SCHEMA = """Answer with ONE JSON object, no prose:
 {"repo": "<repo id>",
  "no_quality_claims": false,          // true if the card states no quality number about any quant (speed/size-only cards count as true)
  "no_claims_reason": "",              // when true: one short reason with line numbers, e.g. "speed table only [L40-52]"
+ "weights_modified": false, // true for pruned, finetuned, abliterated or otherwise modified base weights
  "method": {"reference": "...", "dataset": "...", "ctx": "...", "tool": "...", "L": [..]},   // as stated; "not stated" if absent
  "entries": [
    {"role": "own|ladder|cross|quoted",  // own = this repo's file(s); ladder = this publisher's comparison builds;
                                         // cross = another publisher's file THIS card's author measured; quoted = a figure the card copies from elsewhere
     "name": "<file/variant as the card labels it>",
+    "panel": "<exact test-panel section heading when this card contains multiple measurement panels; omit for one panel>",
+    "methodology": {"reference": "...", "dataset": "...", "ctx": "...", "tool": "...", "L": []}, // optional entry-specific method; distinguish separate panels
+
     "of": "<owner/repo of the measured file, only for cross/quoted; write 'not named on card' if the card names no repo>",
     "metrics": {"<metric key>": "<candidate id>"},
        // keys: mean_kld | kld:<corpus> | top1_pct | top1:<corpus> | ppl | ppl:<corpus> | ppl_delta_pct | ppl_ratio | kld_99 | bench:<Name>
        // use the corpus form whenever a card reports a metric per corpus/domain (e.g. kld:code, top1:english, ppl:wikitext);
        // millinat KL goes to mean_kl_mnats / kl_mnats:<corpus>. Ids look like "c17".
     "size": "<candidate id or null>",   // the size printed in the SAME table/row as the metrics when there is one
-    "unit": "GB|GiB|bytes|null", "basis": "disk|vram|resident|ram_in_use|text_weights|null",
+    "unit": "GB|GiB|bytes|null", "basis": "disk|vram|resident|ram_in_use|text_weights|excl_engram|decoder_only|engram_only|routed_experts|null",
     "bpw": "<candidate id or null>",    // bits per weight if the card states it (table cell or a cNN taken from the row label)
     "flags": ["<short neutral note with [Lnn]>"]}
  ],
- "prose": [{"entry": "<name>", "key": "<metric key>", "L": <line>, "raw": "<exact substring of that line>"}]   // only for values NOT in the candidate list
+ "prose": [{"entry": "<name>", "panel": "<same panel as target entry, omit for one panel>", "key": "<metric key>", "L": <line>, "raw": "<exact substring of that line>"}]   // only for values NOT in the candidate list
 }
 Read the WHOLE prompt before answering; if a tool shows it truncated, read the rest with an offset.
 Rules: never invent or round a value; use candidate ids for every table value; a value the card attributes to someone
 else ("reported by", "from their card", "publisher-reported") is role "quoted"; results measured on a different model
-are omitted and mentioned in a flag; if a table's metric is ambiguous, leave it out and add a flag."""
+are omitted and mentioned in a flag; if a table's metric is ambiguous, leave it out and add a flag.
+Separate panels need separate entries with panel set to the exact source section heading and entry methodology.
+Do not mix top-k KL with full-vocabulary KL, legacy panels with current panels, or domain-equal with position-weighted means.
+Native MXFP4/FP8 checkpoints are not BF16 references. For split storage, distinguish decoder-only (basis decoder_only or excl_engram as stated) from total download.
+Read the full source card as well when the digest omits measurement context."""
 
 def task(repo):
     cands = A.extract(repo)
@@ -66,6 +74,15 @@ def task(repo):
 
 def clean_raw(s): return re.sub(r"\*\*|`", "", s).strip()
 
+def clean_label(label):
+    code = []
+    def keep(m):
+        code.append(m.group(1))
+        return f"QFFINLINECODE{len(code)-1}PLACEHOLDER"
+    text = A.clean(re.sub(r"`([^`]+)`", keep, label)).strip()
+    for i, value in enumerate(code): text = text.replace(f"QFFINLINECODE{i}PLACEHOLDER", value)
+    return text
+
 def apply(mapping, cands):
     """-> repo(...) dict in the verified/ schema. Raw strings come from the candidate cells, never from the LLM."""
     ent = {"variants": [], "ladder": [], "cross": []}
@@ -75,10 +92,11 @@ def apply(mapping, cands):
             c = cands.get(str(cid))
             if not c: continue
             m[k] = clean_raw(c["raw"]); Ls.add(c["L"])
-            if c.get("label") and c["label"] != "(prose)": labels.add(A.clean(c["label"]).strip())
+            if c.get("label") and c["label"] != "(prose)": labels.add(clean_label(c["label"]))
         d = {"name" if e["role"] in ("own", "ladder") else "variant": e.get("name"), "m": m}
         sc = cands.get(str(e.get("size"))) if e.get("size") else None
         if sc:
+            if sc.get("label") and sc["label"] != "(prose)": labels.add(clean_label(sc["label"]))
             t = A.numtoks(sc["raw"]); d["size"] = float(t[0]) if t else None; d["unit"] = e.get("unit"); d["basis"] = e.get("basis"); Ls.add(sc["L"])
             u = d["unit"]
             if u and not re.search(rf"\d\s*{u}\b", sc["raw"]) and u.lower() not in (sc.get("header") or "").lower():
@@ -94,6 +112,9 @@ def apply(mapping, cands):
         Ls = sorted(Ls)
         if Ls: d["L"] = Ls[0]; d["L_extra"] = Ls[1:]
         if e.get("flags"): d["flags"] = e["flags"]
+        if e.get("panel"): d["panel"] = e["panel"]
+        if e.get("methodology"): d["methodology"] = e["methodology"]
+        if isinstance(e.get("measured"), bool): d["measured"] = e["measured"]
         if labels: d["row_label"] = sorted(labels)          # the card's own row wording, read by code
         if e["role"] in ("cross", "quoted"):
             d["of"] = e.get("of") or "not named on card"
@@ -103,12 +124,12 @@ def apply(mapping, cands):
     for p in mapping.get("prose", []) or []:
         line = A_lines(mapping["repo"])[p["L"] - 1] if p.get("L") else ""
         if p.get("raw") and p["raw"] in line:      # prose must be an exact substring of its cited line
-            tgt = next((x for k in ent for x in ent[k] if (x.get("name") or x.get("variant")) == p.get("entry")), None)
+            tgt = next((x for k in ent for x in ent[k] if (x.get("name") or x.get("variant")) == p.get("entry") and x.get("panel") == p.get("panel")), None)
             if tgt is not None:
                 tgt["m"][p["key"]] = p["raw"]
                 if "L" not in tgt: tgt["L"] = p["L"]; tgt["L_extra"] = []
                 elif p["L"] != tgt["L"] and p["L"] not in tgt.get("L_extra", []): tgt.setdefault("L_extra", []).append(p["L"])
-    return {"repo": mapping["repo"], "methodology": mapping.get("method"), **ent,
+    return {"repo": mapping["repo"], "methodology": mapping.get("method"), "weights_modified": mapping.get("weights_modified"), **ent,
             "flags": ([f"No quality claims for the quant (card read in full): {mapping.get('no_claims_reason','')}"] if mapping.get("no_quality_claims") else [])}
 
 _lc = {}

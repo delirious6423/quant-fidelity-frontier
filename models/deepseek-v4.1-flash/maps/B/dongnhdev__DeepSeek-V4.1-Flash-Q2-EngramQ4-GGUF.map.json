@@ -1,0 +1,180 @@
+{
+ "repo": "dongnhdev/DeepSeek-V4.1-Flash-Q2-EngramQ4-GGUF",
+ "no_quality_claims": false,
+ "weights_modified": false,
+ "method": {
+  "reference": "antirez DeepSeek-V4.1-Flash-Q2.gguf with original FP8 Engram tables; scores against official API continuations",
+  "dataset": "general100cases2994tokens;long9cases576tokens",
+  "ctx": "generalctx4096;long8K-32K",
+  "tool": "score_official NLL;custom ds4-metal-qwen develop",
+  "L": [
+   13,
+   14,
+   19,
+   20,
+   66,
+   68,
+   72,
+   73
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "DeepSeek-V4.1-Flash-Q2-EngramQ4.gguf",
+   "metrics": {},
+   "size": "c1",
+   "basis": "disk",
+   "unit": "bytes",
+   "panel": "Quality",
+   "methodology": {
+    "reference": "antirez DeepSeek-V4.1-Flash-Q2.gguf with original FP8 Engram tables; scores against official API continuations",
+    "dataset": "general100cases2994tokens;long9cases576tokens",
+    "ctx": "generalctx4096;long8K-32K",
+    "tool": "score_official NLL;custom ds4-metal-qwen develop",
+    "L": [
+     13,
+     14,
+     19,
+     20,
+     66,
+     68,
+     72,
+     73
+    ]
+   },
+   "flags": [
+    "NLL changes compare Engram recompression to the already-quantized antirez Q2 source file, not the full native model [L13-17,68].",
+    "Long-set shift is described as noise; small samples [L73-76]."
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "source DeepSeek-V4.1-Flash-Q2.gguf",
+   "metrics": {},
+   "of": "antirez/deepseek-v4.1-flash-gguf",
+   "size": "c8",
+   "basis": "disk",
+   "unit": "bytes",
+   "panel": "Quality",
+   "methodology": {
+    "reference": "antirez DeepSeek-V4.1-Flash-Q2.gguf with original FP8 Engram tables; scores against official API continuations",
+    "dataset": "general100cases2994tokens;long9cases576tokens",
+    "ctx": "generalctx4096;long8K-32K",
+    "tool": "score_official NLL;custom ds4-metal-qwen develop",
+    "L": [
+     13,
+     14,
+     19,
+     20,
+     66,
+     68,
+     72,
+     73
+    ]
+   }
+  },
+  {
+   "role": "ladder",
+   "name": "6-bit control",
+   "metrics": {},
+   "panel": "Quality",
+   "methodology": {
+    "reference": "antirez DeepSeek-V4.1-Flash-Q2.gguf with original FP8 Engram tables; scores against official API continuations",
+    "dataset": "general100cases2994tokens;long9cases576tokens",
+    "ctx": "generalctx4096;long8K-32K",
+    "tool": "score_official NLL;custom ds4-metal-qwen develop",
+    "L": [
+     13,
+     14,
+     19,
+     20,
+     66,
+     68,
+     72,
+     73
+    ]
+   }
+  },
+  {
+   "role": "ladder",
+   "name": "5-bit control",
+   "metrics": {},
+   "panel": "Quality",
+   "methodology": {
+    "reference": "antirez DeepSeek-V4.1-Flash-Q2.gguf with original FP8 Engram tables; scores against official API continuations",
+    "dataset": "general100cases2994tokens;long9cases576tokens",
+    "ctx": "generalctx4096;long8K-32K",
+    "tool": "score_official NLL;custom ds4-metal-qwen develop",
+    "L": [
+     13,
+     14,
+     19,
+     20,
+     66,
+     68,
+     72,
+     73
+    ]
+   }
+  }
+ ],
+ "prose": [
+  {
+   "entry": "DeepSeek-V4.1-Flash-Q2-EngramQ4.gguf",
+   "key": "bench:NLL change general percent",
+   "L": 72,
+   "raw": "\u22120.05 % NLL",
+   "panel": "Quality"
+  },
+  {
+   "entry": "DeepSeek-V4.1-Flash-Q2-EngramQ4.gguf",
+   "key": "bench:NLL change long percent",
+   "L": 73,
+   "raw": "+0.94 % NLL",
+   "panel": "Quality"
+  },
+  {
+   "entry": "DeepSeek-V4.1-Flash-Q2-EngramQ4.gguf",
+   "key": "bench:first-token matches general100cases",
+   "L": 72,
+   "raw": "81",
+   "panel": "Quality"
+  },
+  {
+   "entry": "DeepSeek-V4.1-Flash-Q2-EngramQ4.gguf",
+   "key": "bench:greedy LCP general",
+   "L": 72,
+   "raw": "9.76",
+   "panel": "Quality"
+  },
+  {
+   "entry": "source DeepSeek-V4.1-Flash-Q2.gguf",
+   "key": "bench:first-token matches general100cases",
+   "L": 72,
+   "raw": "78",
+   "panel": "Quality"
+  },
+  {
+   "entry": "source DeepSeek-V4.1-Flash-Q2.gguf",
+   "key": "bench:greedy LCP general",
+   "L": 72,
+   "raw": "9.50",
+   "panel": "Quality"
+  },
+  {
+   "entry": "6-bit control",
+   "key": "bench:NLL change long percent",
+   "L": 75,
+   "raw": "+1.04 %",
+   "panel": "Quality"
+  },
+  {
+   "entry": "5-bit control",
+   "key": "bench:NLL change long percent",
+   "L": 75,
+   "raw": "+1.33 %",
+   "panel": "Quality"
+  }
+ ]
+}

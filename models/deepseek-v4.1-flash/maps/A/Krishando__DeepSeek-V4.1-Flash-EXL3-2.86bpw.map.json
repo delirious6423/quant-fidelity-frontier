@@ -1,0 +1,559 @@
+{
+  "repo": "Krishando/DeepSeek-V4.1-Flash-EXL3-2.86bpw",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "layer-by-layer BF16 forward from native DeepSeek weights at df42c10; reference stores top-20 distribution, not native BF16 release",
+    "dataset": "held-out private agent sessions and public WikiText-103/HumanEval/GSM8K/Belebele; separate task checks",
+    "ctx": "KLD:2048-token teacher-forced windows; serving context262K",
+    "tool": "vLLM EXL3 overlay for KLD; TensorFold for task/speed qualification",
+    "L": [
+      52,
+      53,
+      57,
+      61,
+      62,
+      64,
+      65,
+      115,
+      128,
+      154,
+      214
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "This quant — agent sessions",
+      "panel": "1. Closeness to the full model (KLD)",
+      "methodology": {
+        "reference": "layer-by-layer BF16 forward from native DeepSeek weights at df42c10; reference stores top-20 distribution, not native BF16 release",
+        "dataset": "18 private agent-session rows,70,570 scored positions",
+        "ctx": "2048-token teacher-forced windows",
+        "tool": "served vLLM EXL3 versus stored top-20 reference",
+        "L": [
+          52,
+          53,
+          57,
+          61,
+          62,
+          64,
+          65,
+          69
+        ]
+      },
+      "metrics": {
+        "kld:agent sessions (top-20 reference)": "c8",
+        "top1:agent sessions": "c16",
+        "ppl:agent sessions": "c20",
+        "kld_99": "c14",
+        "bench:median KLD": "c10",
+        "bench:90th percentile KLD": "c12",
+        "bench:top-20 overlap %": "c18",
+        "ppl_delta_pct": "c2.0"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c88",
+      "flags": [
+        "KLD uses a reference storing top-20 probabilities; not labeled full-vocabulary KL [L53,64-65]",
+        "Reference is BF16 computation from native weights, not a native BF16 checkpoint [L53]",
+        "Agent and general holdouts are distinct; no combined mean computed [L61-84]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Full model — agent sessions",
+      "panel": "1. Closeness to the full model (KLD)",
+      "methodology": {
+        "reference": "layer-by-layer BF16 forward from native DeepSeek weights at df42c10; reference stores top-20 distribution, not native BF16 release",
+        "dataset": "18 private agent-session rows,70,570 scored positions",
+        "ctx": "2048-token teacher-forced windows",
+        "tool": "served vLLM EXL3 versus stored top-20 reference",
+        "L": [
+          52,
+          53,
+          57,
+          61,
+          62,
+          64,
+          65,
+          69
+        ]
+      },
+      "metrics": {
+        "ppl:agent sessions": "c19",
+        "top1:agent sessions": "c15"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Native-weight reference; top-1 is a self-reference control [L53,67-84]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "This quant — general text",
+      "panel": "1. Closeness to the full model (KLD)",
+      "methodology": {
+        "reference": "layer-by-layer BF16 forward from native DeepSeek weights at df42c10; reference stores top-20 distribution, not native BF16 release",
+        "dataset": "public WikiText-103 test,HumanEval,GSM8K test,Belebele8 languages;113,451 scored positions",
+        "ctx": "2048-token teacher-forced windows",
+        "tool": "served vLLM EXL3 versus stored top-20 reference",
+        "L": [
+          52,
+          53,
+          57,
+          61,
+          62,
+          64,
+          65,
+          77
+        ]
+      },
+      "metrics": {
+        "kld:general text (top-20 reference)": "c22",
+        "top1:general text": "c30",
+        "ppl:general text": "c34",
+        "kld_99": "c28",
+        "bench:median KLD": "c24",
+        "bench:90th percentile KLD": "c26",
+        "bench:top-20 overlap %": "c32",
+        "ppl_delta_pct": "c2.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c88",
+      "flags": [
+        "KLD uses a reference storing top-20 probabilities; not labeled full-vocabulary KL [L53,64-65]",
+        "Reference is BF16 computation from native weights, not a native BF16 checkpoint [L53]",
+        "Agent and general holdouts are distinct; no combined mean computed [L61-84]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Full model — general text",
+      "panel": "1. Closeness to the full model (KLD)",
+      "methodology": {
+        "reference": "layer-by-layer BF16 forward from native DeepSeek weights at df42c10; reference stores top-20 distribution, not native BF16 release",
+        "dataset": "public WikiText-103 test,HumanEval,GSM8K test,Belebele8 languages;113,451 scored positions",
+        "ctx": "2048-token teacher-forced windows",
+        "tool": "served vLLM EXL3 versus stored top-20 reference",
+        "L": [
+          52,
+          53,
+          57,
+          61,
+          62,
+          64,
+          65,
+          77
+        ]
+      },
+      "metrics": {
+        "ppl:general text": "c33",
+        "top1:general text": "c29"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Native-weight reference; top-1 is a self-reference control [L53,67-84]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "This quant",
+      "panel": "Decision points in agent sessions",
+      "methodology": {
+        "reference": "layer-by-layer BF16 forward from native DeepSeek weights at df42c10; reference stores top-20 distribution, not native BF16 release",
+        "dataset": "18 private agent sessions,42 tool calls;285 decision positions and70,570 total positions",
+        "ctx": "2048-token teacher-forced windows",
+        "tool": "tools/dsv41/decision_kld.py; same served/reference runs; intervals resample whole sessions",
+        "L": [
+          91,
+          93,
+          94,
+          95,
+          97,
+          107,
+          108,
+          111,
+          112,
+          113
+        ]
+      },
+      "metrics": {
+        "kld:call a tool or answer (top-20 reference)": "c36.0",
+        "top1:call a tool or answer": "c36.1",
+        "kld:which tool all name tokens (top-20 reference)": "c40.0",
+        "top1:which tool all name tokens": "c40.1",
+        "kld:which tool first name token (top-20 reference)": "c44.0",
+        "top1:which tool first name token": "c44.1",
+        "kld:another call or done (top-20 reference)": "c48.0",
+        "top1:another call or done": "c48.1",
+        "kld:stop (top-20 reference)": "c52.0",
+        "top1:stop": "c52.1",
+        "kld:all decision points (top-20 reference)": "c56.0",
+        "top1:all decision points": "c56.1",
+        "kld:every position (top-20 reference)": "c60.0",
+        "top1:every position": "c60.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c88",
+      "flags": [
+        "Same stored top-20 reference as headline KLD [L53,95]",
+        "Teacher-forced individual decisions, not whole-agent task success [L111-113]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "Mia-AiLab 2.9 bpw",
+      "panel": "Decision points in agent sessions",
+      "methodology": {
+        "reference": "layer-by-layer BF16 forward from native DeepSeek weights at df42c10; reference stores top-20 distribution, not native BF16 release",
+        "dataset": "18 private agent sessions,42 tool calls;285 decision positions and70,570 total positions",
+        "ctx": "2048-token teacher-forced windows",
+        "tool": "tools/dsv41/decision_kld.py; same served/reference runs; intervals resample whole sessions",
+        "L": [
+          91,
+          93,
+          94,
+          95,
+          97,
+          107,
+          108,
+          111,
+          112,
+          113
+        ]
+      },
+      "metrics": {
+        "kld:call a tool or answer (top-20 reference)": "c37.0",
+        "top1:call a tool or answer": "c37.1",
+        "kld:which tool all name tokens (top-20 reference)": "c41.0",
+        "top1:which tool all name tokens": "c41.1",
+        "kld:which tool first name token (top-20 reference)": "c45.0",
+        "top1:which tool first name token": "c45.1",
+        "kld:another call or done (top-20 reference)": "c49.0",
+        "top1:another call or done": "c49.1",
+        "kld:stop (top-20 reference)": "c53.0",
+        "top1:stop": "c53.1",
+        "kld:all decision points (top-20 reference)": "c57.0",
+        "top1:all decision points": "c57.1",
+        "kld:every position (top-20 reference)": "c61.0",
+        "top1:every position": "c61.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Same stored top-20 reference as headline KLD [L53,95]",
+        "Teacher-forced individual decisions, not whole-agent task success [L111-113]"
+      ],
+      "of": "Mia-AiLab/DeepSeek-V4.1-Flash-EXL3-2.9bpw"
+    },
+    {
+      "role": "own",
+      "name": "This quant — full MMLU",
+      "panel": "2. Knowledge and reasoning",
+      "methodology": {
+        "reference": "not stated; full model has no matched task scores on this hardware",
+        "dataset": "MMLU all14,042 test questions",
+        "ctx": "not stated",
+        "tool": "greedy,thinking off; unparsed/cutoff answers counted wrong",
+        "L": [
+          119,
+          125,
+          126
+        ]
+      },
+      "metrics": {
+        "bench:MMLU": "c62"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c88",
+      "flags": [
+        "No matched native-model task score from this hardware/harness [L125-126]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "This quant — GSM8K100",
+      "panel": "2. Knowledge and reasoning",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "GSM8K100 questions",
+        "ctx": "not stated",
+        "tool": "greedy,thinking on",
+        "L": [
+          120
+        ]
+      },
+      "metrics": {
+        "bench:GSM8K-100": "c63"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c88",
+      "flags": []
+    },
+    {
+      "role": "own",
+      "name": "Release check — thinking off",
+      "panel": "2. Knowledge and reasoning",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "release-check subset:fixed200 MMLU and100 GSM8K",
+        "ctx": "8192-token cap;6 capped answers counted wrong",
+        "tool": "seed20261004;thinking off",
+        "L": [
+          122,
+          123
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c88",
+      "flags": [
+        "Subset release check, distinct from full14,042-item MMLU [L119,122-123]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "Release check — thinking on",
+      "panel": "2. Knowledge and reasoning",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "release-check subset:fixed200 MMLU and100 GSM8K",
+        "ctx": "8192-token cap;6 capped answers counted wrong",
+        "tool": "seed20261004;thinking on",
+        "L": [
+          122,
+          123
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c88",
+      "flags": [
+        "Subset release check, distinct from full14,042-item MMLU [L119,122-123]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "This quant — long generation",
+      "panel": "3. Long generation",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "one request for a complete3D Flappy Bird HTML/three.js game,eight tries",
+        "ctx": "up to98,304 tokens;4 requests concurrently",
+        "tool": "thinking on;greedy plus seeds1–7 at temperature0.6/top_p0.95;Playwright Chromium headless play test",
+        "L": [
+          128,
+          132,
+          133,
+          134,
+          135,
+          139,
+          141,
+          311,
+          312
+        ]
+      },
+      "metrics": {
+        "bench:working games (of 8)": "c64.0",
+        "bench:finished within 32768 tokens (of 8)": "c66.0"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c88",
+      "flags": [
+        "One prompt with8 tries, not broad coding benchmark performance [L132-135,218]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "v3",
+      "panel": "6. How this build was chosen",
+      "methodology": {
+        "reference": "layer-by-layer BF16 forward from native DeepSeek weights at df42c10; reference stores top-20 distribution, not native BF16 release",
+        "dataset": "same in-domain/general holdouts as served KLD study",
+        "ctx": "2048-token teacher-forced windows",
+        "tool": "same vLLM EXL3 served-KLD harness; top-20 stored reference",
+        "L": [
+          53,
+          64,
+          65,
+          175,
+          185,
+          187,
+          188,
+          189,
+          190
+        ]
+      },
+      "metrics": {
+        "kld:in-domain (top-20 reference)": "c71.0",
+        "kld:general (top-20 reference)": "c71.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c70",
+      "flags": [
+        "In-domain and general KLD remain separate [L175,185-190]",
+        "KLD not remeasured through TensorFold engine [L214]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "v4",
+      "panel": "6. How this build was chosen",
+      "methodology": {
+        "reference": "layer-by-layer BF16 forward from native DeepSeek weights at df42c10; reference stores top-20 distribution, not native BF16 release",
+        "dataset": "same in-domain/general holdouts as served KLD study",
+        "ctx": "2048-token teacher-forced windows",
+        "tool": "same vLLM EXL3 served-KLD harness; top-20 stored reference",
+        "L": [
+          53,
+          64,
+          65,
+          175,
+          185,
+          187,
+          188,
+          189,
+          190
+        ]
+      },
+      "metrics": {
+        "kld:in-domain (top-20 reference)": "c75.0",
+        "kld:general (top-20 reference)": "c75.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c73",
+      "flags": [
+        "In-domain and general KLD remain separate [L175,185-190]",
+        "KLD not remeasured through TensorFold engine [L214]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "v4.1",
+      "panel": "6. How this build was chosen",
+      "methodology": {
+        "reference": "layer-by-layer BF16 forward from native DeepSeek weights at df42c10; reference stores top-20 distribution, not native BF16 release",
+        "dataset": "same in-domain/general holdouts as served KLD study",
+        "ctx": "2048-token teacher-forced windows",
+        "tool": "same vLLM EXL3 served-KLD harness; top-20 stored reference",
+        "L": [
+          53,
+          64,
+          65,
+          175,
+          185,
+          187,
+          188,
+          189,
+          190
+        ]
+      },
+      "metrics": {
+        "kld:in-domain (top-20 reference)": "c78.0",
+        "kld:general (top-20 reference)": "c78.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c77",
+      "flags": [
+        "In-domain and general KLD remain separate [L175,185-190]",
+        "KLD not remeasured through TensorFold engine [L214]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "v5 (this)",
+      "panel": "6. How this build was chosen",
+      "methodology": {
+        "reference": "layer-by-layer BF16 forward from native DeepSeek weights at df42c10; reference stores top-20 distribution, not native BF16 release",
+        "dataset": "same in-domain/general holdouts as served KLD study",
+        "ctx": "2048-token teacher-forced windows",
+        "tool": "same vLLM EXL3 served-KLD harness; top-20 stored reference",
+        "L": [
+          53,
+          64,
+          65,
+          175,
+          185,
+          187,
+          188,
+          189,
+          190
+        ]
+      },
+      "metrics": {
+        "kld:in-domain (top-20 reference)": "c81.0",
+        "kld:general (top-20 reference)": "c81.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c79",
+      "flags": [
+        "In-domain and general KLD remain separate [L175,185-190]",
+        "KLD not remeasured through TensorFold engine [L214]"
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "Release check — thinking off",
+      "panel": "2. Knowledge and reasoning",
+      "key": "bench:MMLU subset200",
+      "L": 122,
+      "raw": "86.0%"
+    },
+    {
+      "entry": "Release check — thinking off",
+      "panel": "2. Knowledge and reasoning",
+      "key": "bench:GSM8K-100",
+      "L": 123,
+      "raw": "95%"
+    },
+    {
+      "entry": "Release check — thinking on",
+      "panel": "2. Knowledge and reasoning",
+      "key": "bench:MMLU subset200",
+      "L": 122,
+      "raw": "91.5%"
+    },
+    {
+      "entry": "Release check — thinking on",
+      "panel": "2. Knowledge and reasoning",
+      "key": "bench:GSM8K-100",
+      "L": 123,
+      "raw": "97%"
+    }
+  ]
+}

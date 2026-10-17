@@ -27,11 +27,13 @@ async def main():
                 d = json.load(open(os.path.join(SITE, M["data"]))); name = M["model"]
                 _sz = sorted(r["size_gb"] for r in d["rows"] if r.get("size_gb")); BUD = round(_sz[len(_sz) // 2], 1)   # median size: a budget with plenty on both sides
                 # search: every returned row exists verbatim in data.json, and the filter holds
-                sr = J(await s.call_tool("search_quants", {"model": name, "fmt": "GGUF", "max_size_gb": BUD, "has_metric": "mean_kld", "limit": 200}))
+                query_row = next(r for r in d["rows"] if r.get("size_gb") and r.get("fmt") and r.get("metrics", {}).get("mean_kld", {}).get("v") is not None)
+                FMT = query_row["fmt"]; SEARCH_BUD = max(BUD, query_row["size_gb"])
+                sr = J(await s.call_tool("search_quants", {"model": name, "fmt": FMT, "max_size_gb": SEARCH_BUD, "has_metric": "mean_kld", "limit": 200}))
                 srcs = {(r["repo"], r["variant"], r.get("src")) for r in d["rows"]}
-                check(sr["rows"] and all((x["repo"], x["variant"], x["src"]) in srcs and x["fmt"] == "GGUF" and x["size_gb"] <= BUD and "mean_kld" in x["claims"] for x in sr["rows"]),
+                check(sr["rows"] and all((x["repo"], x["variant"], x["src"]) in srcs and x["fmt"] == FMT and x["size_gb"] <= SEARCH_BUD and "mean_kld" in x["claims"] for x in sr["rows"]),
                       f"{name}: search rows are real rows and respect filters ({sr['matches']})")
-                ref = sum(1 for r in d["rows"] if r.get("fmt") == "GGUF" and r.get("size_gb") is not None and r["size_gb"] <= BUD and r.get("metrics", {}).get("mean_kld", {}).get("v") is not None)
+                ref = sum(1 for r in d["rows"] if r.get("fmt") == FMT and r.get("size_gb") is not None and r["size_gb"] <= SEARCH_BUD and r.get("metrics", {}).get("mean_kld", {}).get("v") is not None)
                 check(sr["matches"] == ref, f"{name}: search count matches independent count ({sr['matches']} vs {ref})")
                 # raw strings are verbatim (no rounding or retyping)
                 row = next(r for r in d["rows"] if r.get("metrics", {}).get("mean_kld", {}).get("v") is not None)
@@ -44,7 +46,8 @@ async def main():
                     if not k: continue
                     fr = J(await s.call_tool("frontier", {"model": name, "set_id": S["id"]}))
                     P = [q for q in S["points"] if q.get("x") is not None and q.get("m", {}).get(k, {}).get("v") is not None and not q.get("is_ref")]
-                    want = sorted((q["variant"], q["repo"]) for q in P if not any((o["x"] <= q["x"] and o["m"][k]["v"] < q["m"][k]["v"]) or (o["x"] < q["x"] and o["m"][k]["v"] <= q["m"][k]["v"]) for o in P if o is not q))
+                    sign = -1 if k == "top1" or k.startswith("top1:") else 1
+                    want = sorted((q["variant"], q["repo"]) for q in P if not any((o["x"] <= q["x"] and sign * o["m"][k]["v"] < sign * q["m"][k]["v"]) or (o["x"] < q["x"] and sign * o["m"][k]["v"] <= sign * q["m"][k]["v"]) for o in P if o is not q))
                     got = sorted((q["variant"], q["repo"]) for q in fr["efficient"])
                     if got != want or any(q.get("reference_build") for q in fr["efficient"]): bad.append(S["id"])
                 check(not bad, f"{name}: frontier == independent Pareto on every comparable set {bad[:3]}")

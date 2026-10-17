@@ -11,6 +11,7 @@ IDX = json.load(open(f"{ROOT}/snapshots/index.json"))
 SIZES = json.load(open(f"{ROOT}/snapshots/hf_sizes_summary.json"))
 CFG = json.load(open(f"{ROOT}/model.json")) if os.path.exists(f"{ROOT}/model.json") else {}
 MODEL = CFG.get("model", "Qwen/Qwen3.8-Flash-Next"); MNAME = CFG.get("name", MODEL.split("/")[-1]); SLUG = CFG.get("slug", "")
+MAX_SIZE_GB = CFG.get("max_size_gb", 400)
 SIZE_NOTE = CFG.get("size_note", 'This model carries a 51B-parameter n-gram table that some files keep on disk. A size marked "GPU weights" or "resident" leaves it out. GiB figures are converted to GB.')
 COVER_NOTE = CFG.get("coverage_note", "claims made only off-site (other than Unsloth's docs page) or in images other than turboderp's")
 PIN_NOTE = CFG.get("pin_note", "")
@@ -44,13 +45,13 @@ def num(s):
     if s is None: return None
     if isinstance(s, (int, float)): return float(s)
     s = MINUS.sub("-", str(s))
-    m = re.search(r"[-+]?(?:\d+(?:\.\d+)?|\.\d+)", str(s).replace(",", ""))
+    m = re.search(r"[-+]?(?:\d+(?:\.\d+)?|\.\d+)(?:[eE][-+]?\d+)?", str(s).replace(",", ""))
     return float(m.group()) if m else None
 
 def err(s):
     if not isinstance(s, str): return None
     s = MINUS.sub("-", s)
-    m = re.search(r"(?:±|\+/-)\s*(\d+(?:\.\d+)?|\.\d+)", s)
+    m = re.search(r"(?:±|\+/-)\s*((?:\d+(?:\.\d+)?|\.\d+)(?:[eE][-+]?\d+)?)", s)
     return float(m.group(1)) if m else None
 
 def to_gb(size, unit):
@@ -60,8 +61,12 @@ def to_gb(size, unit):
     if f: g = size * f; return round(g, 2) if g >= 0.1 else float(f"{g:.2g}")
     return float(size)
 
+def size_plausible(size_gb, small_ok=False):
+    return (0 < size_gb if small_ok else 1 <= size_gb) and size_gb <= MAX_SIZE_GB
+
 BASIS_LABEL = {"text_weights": "text weights (excl. vision, MTP)", "disk": "download", "hf_listing_total": "download (HF listing)", "vram": "GPU weights",
-               "resident": "resident", "ram_in_use": "RAM in use", "trunk_only": "trunk only", "hf_branch_total": "download (HF branch listing)", None: "unknown"}
+               "resident": "resident", "ram_in_use": "RAM in use", "trunk_only": "trunk only", "hf_branch_total": "download (HF branch listing)",
+               "excl_engram": "download (excl. Engram)", "decoder_only": "decoder only", "engram_only": "Engram only", "routed_experts": "routed experts only", None: "unknown"}
 
 REF_OVERRIDES = json.load(open(f"{ROOT}/audit/ref_overrides.json")) if os.path.exists(f"{ROOT}/audit/ref_overrides.json") else {}
 def ref_class(meth, repo=None):
@@ -74,6 +79,7 @@ def ref_class(meth, repo=None):
     if re.match(r"^(none|no )", r) or re.search(r"\bno (\w+ )?(bf16|fp8|reference|base)|\bnot (\w+ ){0,2}bf16|without (a )?bf16", r): return "other"
     head = re.split(r"[(;,]", r)[0]
     if re.search(r"q8_?0", head) or re.search(r"q8_?0\)? is the reference", r): return "q8"
+    if any(re.search(pattern, r, re.I) for pattern in CFG.get("native_reference_patterns", [])): return "native"
     # the stated reference names the full-precision model itself (anywhere in the string), not a component of it
     BF = r"bf16|bfloat16|fp32|full[- ]precision|unquanti[sz]ed|original (model|weights)|qwen/qwen3\.8-flash-next(?![-\w])"
     comp = r"(n-?gram|table|embedding|ple|lm[_ ]head|kv)"
@@ -141,12 +147,16 @@ def build_rows(R):
             if e.get("size") is not None and not e.get("unit"):
                 raise SystemExit(f"size without unit: {r['repo']} {kind} {e.get('name') or e.get('variant')} {e.get('size')} (L{e.get('L')})")
             m = canon(e.get("m"))
+            row_meth = dict(meth or {}); row_meth.update(e.get("methodology") or {})
+            row_rc = ref_class(row_meth, r["repo"])
+            if row_rc == "none" and m: row_rc = "unstated"
             rows.append({
                 "repo": of or r["repo"], "measured_by": measured_by, "kind": kind,
                 "variant": e.get("name") or e.get("variant"), "fmt": r.get("fmt") if kind != "cross" else ((lambda f: None if f == "other" else f)(FMT.fmt_of(f"{e.get('of') or ''} {e.get('name') or e.get('variant') or ''}"))),
                 "size_gb": to_gb(e.get("size"), e.get("unit")), "size_raw": f"{e.get('size')} {e.get('unit') or ''}".strip() if e.get("size") is not None else None,
                 "basis": e.get("basis"), "bpw": e.get("bpw"),
-                "metrics": m, "ref_class": rc if kind != "cross" else rc,
+                "metrics": m, "ref_class": row_rc, "methodology": row_meth, "panel": e.get("panel"),
+                "is_ref": e.get("is_ref", True if of == MODEL else None),
                 "weights_modified": bool(r.get("weights_modified")) if kind == "own" else None,
                 "src": hf_line(r["repo"], sha, e.get("L"), e.get("src")), "L": e.get("L"), "sha": sha, "copied_from": cf, "flags": eflags,
                 "measured": e.get("measured"),
@@ -222,7 +232,7 @@ def short(repo):
     n = repo.split("/")[1]; base = MNAME
     return re.sub(re.escape(base) + r"[-_]?", "", n, flags=re.I) or n
 
-REF_TXT = {"bf16": "vs BF16", "q8": "vs a Q8_0", "unclear": "reference unclear", "other": "other or no reference", "unstated": "reference not stated", "none": "no quality claim"}
+REF_TXT = {"bf16": "vs BF16", "native": "vs native checkpoint", "q8": "vs a Q8_0", "unclear": "reference unclear", "other": "other or no reference", "unstated": "reference not stated", "none": "no quality claim"}
 
 def kld_chart(rows):
     """Static SVG: own-claim mean KLD vs size, log y. Filled = BF16 reference; hollow = other/unstated."""
@@ -278,7 +288,7 @@ def build_sets(rows, repos):
         x = r.get(xfield)
         return {"qid": qid(r["repo"], r["variant"]), "repo": r["repo"], "pub": owner(r["repo"]), "variant": str(r["variant"]), "inferred": bool(r.get("inferred")),
                 "fmt": fmt_of.get(r["repo"]) or "", "kind": r["kind"], "x": x, "size_gb": r.get("size_gb"), "size_raw": r.get("size_raw"),
-                "bpw": r.get("bpw"), "basis": BASIS_LABEL.get(r.get("basis"), r.get("basis")), "m": m,
+                "bpw": r.get("bpw"), "basis": BASIS_LABEL.get(r.get("basis"), r.get("basis")), "m": m, "is_ref": r.get("is_ref"),
                 "src": r["src"], "src_label": r["src_label"], "measured_by": r["measured_by"]}
     for st in ns["SETS"]:
         pts, seen = [], set()
@@ -312,22 +322,45 @@ def build_sets(rows, repos):
         def repeats(o):
             ovals = [pv["raw"] for p in o["points"] for pv in p["m"].values()]
             return sum(1 for x in avals if any(same_value(x, y) and len(re.sub(r"[^0-9]", "", str(x))) >= 3 for y in ovals))
-        dup = any(o["title"].split(" · ")[0] == aown and (len(aq & {p["qid"] for p in o["points"]}) >= 0.7 * len(aq) or repeats(o) >= max(2, 0.6 * len(avals))) for o in out)
+        dup = any(o["title"].split(" · ")[0] == aown and
+                  (not o.get("auto") or o.get("method_signature") == a.get("method_signature")) and
+                  (len(aq & {p["qid"] for p in o["points"]}) >= 0.7 * len(aq) or repeats(o) >= max(2, 0.6 * len(avals))) for o in out)
         if not dup: out.append(a)
     # all self-reported claims (not comparable)
     allp = []
     for r in rows:
         if r["size_gb"] is None or r.get("copied_from"): continue
         if r["kind"] == "quoted": continue
-        p = pt(r, {c: k for c in ("kld", "top1") for k in [fam_key(r, c)] if k}, "size_gb")
+        p = pt(r, {c: k for c, k in metric_series(r).items()
+                   if c in ("kld", "top1") or c.startswith(("kld:", "top1:"))}, "size_gb")
         if not p["m"]: continue
         p["qid"] = p["qid"] + "@" + owner(r["measured_by"]).lower()
         allp.append(p)
+    all_metrics = ["kld", "top1"]
+    if CFG.get("named_metric_series"):
+        available = {k for p in allp for k in p["m"]}
+        if available:
+            all_metrics = [k for k in all_metrics if k in available] + sorted(k for k in available if NAMED_METRIC.match(k))
     out.append({"id": "all", "title": "Every claim together (not comparable)", "reference": "Mixed", "data": "Mixed",
                 "x": {"field": "size_gb", "label": "Size, GB as published (download, GPU or resident; see each point)", "unit": "GB"},
                 "note": "Every KLD and top-1 figure with a size, from every card. Methods, references and size definitions differ, so read this only for orientation.",
-                "refs": {}, "metrics": ["kld", "top1"], "points": allp, "comparable": False})
-    return out, ns["METRICS"]
+                "refs": {}, "metrics": all_metrics, "points": allp, "comparable": False})
+    metrics = dict(ns["METRICS"])
+    if CFG.get("named_metric_series"):
+        definitions = {"kld": dict(label="Mean KLD", unit="nats", log=True, better="lower"),
+                       "top1": dict(label="Top-1 agreement", unit="%", log=False, better="higher"),
+                       "ppl": dict(label="Perplexity", unit="", log=False, better="lower")}
+        for st in out:
+            for key in st["metrics"]:
+                match = NAMED_METRIC.match(key)
+                if match:
+                    family, corpus = match.groups()
+                    definition = dict(definitions[family])
+                    definition.update(label=definition["label"] + " · " + corpus.replace("_", " "), corpus=corpus)
+                    metrics.setdefault(key, definition)
+                elif key in definitions:
+                    metrics.setdefault(key, dict(definitions[key]))
+    return out, metrics
 
 
 def link_sets(sets, min_anchors=3):
@@ -382,14 +415,29 @@ def link_sets(sets, min_anchors=3):
 
 
 CANON = [("kld", re.compile(r"^(mean_kld|kld|kl|kld:english|mean_kl|kl_mean|kld_mean|approx_kld|kld:held.?out|kld:prose)$")),
-         ("top1", re.compile(r"^(top1_pct|top1|top1:english|top1_pct_vs_bf16|top1_agree_pct|top1:held.?out|same_top1)$")),
+         ("top1", re.compile(r"^(top1_pct|top1_fraction|top1|top1:english|top1_pct_vs_bf16|top1_agree_pct|top1:held.?out|same_top1)$")),
          ("ppl", re.compile(r"^(ppl|ppl:english|ppl:wikitext)$")),
          ("ppl_delta", re.compile(r"^(ppl_delta_pct)$"))]
+NAMED_METRIC = re.compile(r"^(kld|top1|ppl):(.+)$")
+
+def metric_series(r):
+    """Series-to-source keys; opt-in corpus series retain their exact source keys."""
+    out = {}
+    for family, rx in CANON:
+        for key, value in r["metrics"].items():
+            if CFG.get("named_metric_series") and NAMED_METRIC.match(key): continue
+            if rx.match(key) and value.get("v") is not None and family not in out:
+                out[family] = key
+    if CFG.get("named_metric_series"):
+        for key, value in r["metrics"].items():
+            if NAMED_METRIC.match(key) and value.get("v") is not None: out[key] = key
+    return out
 
 def fam_key(r, fam):
     """First metric key on a row that belongs to a canonical family (kld, top1, ppl, ppl_delta)."""
     rx = dict(CANON)[fam]
     for k in r["metrics"]:
+        if CFG.get("named_metric_series") and NAMED_METRIC.match(k): continue
         if rx.match(k) and r["metrics"][k].get("v") is not None: return k
     return None
 
@@ -401,11 +449,14 @@ def auto_sets(rows, repos, curated_by):
         if r["measured_by"] in curated_by or r.get("copied_from"): continue
         if r["kind"] not in ("own", "ladder", "cross"): continue     # quoted rows (kind "quoted") never enter a set
         if r["kind"] == "cross" and r.get("inferred"): continue      # target file not named on the card
-        mm = meth.get(r["measured_by"]) or {}
-        key = (owner(r["measured_by"]), str(mm.get("reference")), str(mm.get("dataset")))
+        mm = r.get("methodology") or meth.get(r["measured_by"]) or {}
+        # One publisher may report several panels, contexts or implementations on the same card.
+        # Line citations identify evidence, rather than the measurement setup itself.
+        signature = json.dumps({k: v for k, v in mm.items() if k != "L"}, sort_keys=True)
+        key = (owner(r["measured_by"]), str(mm.get("reference")), str(mm.get("dataset")), signature, str(r.get("panel") or ""), r.get("basis"))
         groups[key].append(r)
     out = []
-    for (own, ref, data), rs in groups.items():
+    for (own, ref, data, signature, panel, size_basis), rs in groups.items():
         if ref in ("None", "not stated") and data in ("None", "not stated") and len({r["measured_by"] for r in rs}) > 1:
             # without a stated method we cannot assume sibling repos used the same one: split them
             parts = collections.defaultdict(list)
@@ -414,40 +465,37 @@ def auto_sets(rows, repos, curated_by):
         else:
             subgroups = [rs]
         for g in subgroups:
-            mmap = {}
-            for canon, rx in CANON:
-                for r in g:
-                    for k in r["metrics"]:
-                        if rx.match(k) and canon not in mmap: mmap[canon] = k
             pts, seen = [], set()
             for r in g:
-                m = {}
-                for canon, rx in CANON:
-                    for k, mv in r["metrics"].items():
-                        if rx.match(k) and mv.get("v") is not None and canon not in m: m[canon] = {"v": mv["v"], "raw": str(mv["raw"])}
+                m = {series: {"v": r["metrics"][source]["v"], "raw": str(r["metrics"][source]["raw"])}
+                     for series, source in metric_series(r).items()}
                 xfield = "size_gb"
-                if r.get("size_gb") is None: continue
+                if r.get("size_gb") is None or r.get("basis") in (None, "", "unknown"): continue
                 q = qid(r["repo"], r["variant"])
                 if not m or q in seen: continue
                 seen.add(q)
                 pts.append({"qid": q, "repo": r["repo"], "pub": owner(r["repo"]), "variant": str(r["variant"]), "fmt": "", "kind": r["kind"], "inferred": bool(r.get("inferred")),
                             "x": r["size_gb"], "size_gb": r["size_gb"], "size_raw": r.get("size_raw"), "bpw": r.get("bpw"),
-                            "basis": BASIS_LABEL.get(r.get("basis"), r.get("basis")), "m": m, "src": r["src"], "src_label": r["src_label"], "measured_by": r["measured_by"]})
+                            "basis": BASIS_LABEL.get(r.get("basis"), r.get("basis")), "m": m, "is_ref": r.get("is_ref"), "src": r["src"], "src_label": r["src_label"], "measured_by": r["measured_by"]})
             bc = collections.Counter(p["basis"] for p in pts)
             ownb = collections.Counter(p["basis"] for p in pts if p["kind"] == "own")
             if bc:
                 main_basis = (ownb or bc).most_common(1)[0][0]                # the title repo's own basis first
                 pts = [p for p in pts if p["basis"] == main_basis]          # one size basis per set
-            avail = [c for c, _ in CANON if sum(1 for p in pts if c in p["m"]) >= 2]
+            series = [key for key, _ in CANON]
+            if CFG.get("named_metric_series"):
+                series += sorted({key for p in pts for key in p["m"] if NAMED_METRIC.match(key)})
+            avail = [key for key in series if sum(1 for p in pts if key in p["m"]) >= 2]
             if len(pts) < 2 or not avail: continue
             bys = sorted({p["measured_by"] for p in pts})
-            mm = meth.get(bys[0]) or {}
+            mm = g[0].get("methodology") or meth.get(bys[0]) or {}
             bases = sorted({p["basis"] for p in pts if p["basis"]})
-            out.append({"id": "a-" + re.sub(r"[^a-z0-9]+", "-", (own + "-" + short(bys[0])).lower()).strip("-")[:48], "title": f"{own} · {short(bys[0]) if len(bys) == 1 else 'model cards'}",
+            out.append({"id": "a-" + re.sub(r"[^a-z0-9]+", "-", (own + "-" + short(bys[0])).lower()).strip("-")[:48], "title": f"{own} · {short(bys[0]) if len(bys) == 1 else 'model cards'}" + (f" · {panel}" if panel else ""),
                         "reference": str(mm.get("reference") or "Not stated"), "data": str(mm.get("dataset") or "Not stated"),
                         "x": {"field": "size_gb", "label": "Size, GB (" + ", ".join(bases) + ")", "unit": "GB"},
-                        "note": "Set assembled automatically from one publisher's card" + ("s" if len(bys) > 1 else "") + ". It includes other publishers' files only where this card's author ran them in the same test; figures the card quotes from elsewhere are left out. Check the source lines.",
-                        "refs": {}, "metrics": avail, "points": pts, "comparable": True, "auto": True})
+                        "note": "Set assembled automatically from one publisher's card" + ("s" if len(bys) > 1 else "") + ". It includes other publishers' files only where this card's author ran them in the same test; figures the card quotes from elsewhere are left out. Check the source lines." + (" Context: " + str(mm.get("ctx")) + ". Tool/settings: " + str(mm.get("tool")) + "." if CFG.get("named_metric_series") else ""),
+                        "refs": {}, "metrics": avail, "points": pts, "comparable": True, "auto": True,
+                        "method_signature": [signature, panel, size_basis]})
     return out
 
 # ---------- page ----------
@@ -597,7 +645,7 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
 <div class="filters" role="group" aria-label="Filter the ledger">
   <label for="q">Search</label><input id="q" type="search" placeholder="publisher, quant type, metric…">
   <label for="ffmt">Format</label><select id="ffmt"><option value="">All</option>{"".join(f'<option>{E(f)}</option>' for f in fmts)}</select>
-  <label for="fref">Reference</label><select id="fref"><option value="">Any</option><option value="bf16">vs BF16</option><option value="q8">vs a Q8_0</option><option value="unclear">unclear</option><option value="other">other or no reference</option><option value="unstated">not stated</option><option value="none">no quality claim</option></select>
+  <label for="fref">Reference</label><select id="fref"><option value="">Any</option><option value="bf16">vs BF16</option><option value="native">vs native checkpoint</option><option value="q8">vs a Q8_0</option><option value="unclear">unclear</option><option value="other">other or no reference</option><option value="unstated">not stated</option><option value="none">no quality claim</option></select>
   <label class="cb" for="fq"><input id="fq" type="checkbox"> Only rows with a quality number</label>
   <label class="cb" for="fx"><input id="fx" type="checkbox" checked> Include rival and quoted rows</label>
   <label class="cb" for="fm"><input id="fm" type="checkbox" checked> Include modified weights</label>
@@ -656,10 +704,10 @@ def main():
         for k, m in r["metrics"].items():
             v = m.get("v")
             if v is None: continue
-            if (k in ("mean_kld",) or k.startswith("kld") or k.startswith("kl:")) and "99" not in k and not re.search(r"delta|change|diff|gap|ratio|max|p99|p999", k) and not (0 <= v < 5): bad.append((r["repo"], r["variant"], k, m["raw"], v))
+            if (k in ("mean_kld",) or k.startswith("kld") or k.startswith("kl:")) and "99" not in k and not re.search(r"delta|change|diff|gap|ratio|reduction_pct|max|p99|p999", k) and not (0 <= v < 5): bad.append((r["repo"], r["variant"], k, m["raw"], v))
             if k.startswith("top1") and not re.search(r"delta|change|diff|gap", k) and not (0 <= v <= 100): bad.append((r["repo"], r["variant"], k, m["raw"], v))
         small_ok = bool(re.search(r"control vector|lora|adapter|mtp|draft|sidecar|n-?gram|ple table|direction", (str(r.get("fmt") or "") + " " + str(r["variant"])), re.I))
-        if r["size_gb"] is not None and not ((0 < r["size_gb"] if small_ok else 1 <= r["size_gb"]) and r["size_gb"] <= 400): bad.append((r["repo"], r["variant"], "size_gb", r["size_raw"], r["size_gb"]))
+        if r["size_gb"] is not None and not size_plausible(r["size_gb"], small_ok): bad.append((r["repo"], r["variant"], "size_gb", r["size_raw"], r["size_gb"]))
     if bad:
         raise SystemExit("implausible parsed values:\n" + "\n".join(map(str, bad)))
     import subprocess
@@ -689,7 +737,7 @@ def main():
         for p_ in s_["points"]:
             if not p_.get("fmt"): p_["fmt"] = fmt_of.get(p_["repo"]) or ""
             # the yardstick of a measurement is not a candidate for "efficient"
-            p_["is_ref"] = p_["kind"] == "baseline" or bool(re.search(r"\breference\b|\bbaseline\b|\bteacher\b|unquanti[sz]ed|^\s*(bf16|fp16|fp32|base)\s*(\(.*\))?\s*$", p_["variant"], re.I))
+            p_["is_ref"] = p_["is_ref"] if p_.get("is_ref") is not None else p_["kind"] == "baseline" or bool(re.search(r"\breference\b|\bbaseline\b|\bteacher\b|\(ref\)|unquanti[sz]ed|^\s*(bf16|fp16|fp32|base|native)\s*(\(.*\))?\s*$", p_["variant"], re.I))
     assert len({s_["id"] for s_ in sets}) == len(sets), "duplicate set ids"
     exdata = json.dumps({'sets': sets, 'metrics': metrics}, separators=(',', ':')).replace('</', '<\\/')
     body = render(rows, repos, stats, vc, hl, exdata)

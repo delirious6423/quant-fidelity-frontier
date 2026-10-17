@@ -1,0 +1,79 @@
+{
+  "repo": "AxionML/DeepSeek-V4.1-Flash-NVFP4",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "native DeepSeek-V4.1-Flash MXFP4 source",
+    "dataset": "GPQA Diamond; AA-LCR; SciCode; IFBench; MMMU-Pro; Terminal-Bench",
+    "ctx": "not stated",
+    "tool": "NVIDIA-reported vLLM; temperature=1.0, top_p=0.95, reasoning_effort=100",
+    "L": [
+      46,
+      55
+    ]
+  },
+  "entries": [
+    {
+      "role": "quoted",
+      "name": "NVFP4",
+      "panel": "Evaluation Results",
+      "methodology": {
+        "reference": "native DeepSeek-V4.1-Flash MXFP4 source",
+        "dataset": "GPQA Diamond; AA-LCR; SciCode; IFBench; MMMU-Pro; Terminal-Bench",
+        "ctx": "not stated",
+        "tool": "NVIDIA-reported vLLM; temperature=1.0, top_p=0.95, reasoning_effort=100",
+        "L": [
+          46,
+          55
+        ]
+      },
+      "metrics": {
+        "bench:GPQA-Diamond": "c4",
+        "bench:AA-LCR": "c6",
+        "bench:SciCode": "c8",
+        "bench:IFBench": "c10",
+        "bench:MMMU-Pro": "c12",
+        "bench:Terminal-Bench-2.1": "c14"
+      },
+      "size": "c2",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Unmodified mirror of NVIDIA checkpoint; benchmark values reported by NVIDIA, not measured by mirror owner [L23,L55]."
+      ],
+      "of": "nvidia/DeepSeek-V4.1-Flash-NVFP4"
+    },
+    {
+      "role": "quoted",
+      "name": "MXFP4 (source)",
+      "panel": "Evaluation Results",
+      "methodology": {
+        "reference": "native DeepSeek-V4.1-Flash MXFP4 source",
+        "dataset": "GPQA Diamond; AA-LCR; SciCode; IFBench; MMMU-Pro; Terminal-Bench",
+        "ctx": "not stated",
+        "tool": "NVIDIA-reported vLLM; temperature=1.0, top_p=0.95, reasoning_effort=100",
+        "L": [
+          46,
+          55
+        ]
+      },
+      "metrics": {
+        "bench:GPQA-Diamond": "c3",
+        "bench:AA-LCR": "c5",
+        "bench:SciCode": "c7",
+        "bench:IFBench": "c9",
+        "bench:MMMU-Pro": "c11",
+        "bench:Terminal-Bench-2.1": "c13"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    }
+  ],
+  "prose": []
+}

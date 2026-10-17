@@ -1,0 +1,339 @@
+{
+  "repo": "Krishando/DeepSeek-V4.1-Flash-EXL3-2.86bpw",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "native low-precision release upscaled to BF16; stored top-20 teacher distribution, not native BF16",
+    "dataset": "private held-out agent sessions plus public held-out general corpus",
+    "ctx": "teacher-forced 2048-token windows",
+    "tool": "vLLM EXL3 overlay compared against layer-streamed reference forward",
+    "L": [
+      52,
+      53,
+      54,
+      55,
+      57,
+      60,
+      61,
+      64,
+      65
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "This quant",
+      "panel": "1. Closeness to the full model (KLD)",
+      "methodology": {
+        "reference": "native low-precision release upscaled to BF16; stored top-20 teacher distribution, not native BF16",
+        "dataset": "private held-out agent sessions plus public held-out general corpus",
+        "ctx": "teacher-forced 2048-token windows",
+        "tool": "vLLM EXL3 overlay compared against layer-streamed reference forward",
+        "L": [
+          52,
+          53,
+          54,
+          55,
+          57,
+          60,
+          61,
+          64,
+          65
+        ]
+      },
+      "metrics": {
+        "kld:agent_sessions": "c8",
+        "top1:agent_sessions": "c16",
+        "ppl:agent_sessions": "c20",
+        "kld:general_text": "c22",
+        "top1:general_text": "c30",
+        "ppl:general_text": "c34"
+      },
+      "size": null,
+      "unit": "GB",
+      "basis": "excl_engram",
+      "bpw": "c88",
+      "flags": [
+        "Agent and general holdouts kept separate; teacher reference is top-20 truncated [L53,L69,L77].",
+        "KLD includes vLLM arithmetic; not remeasured in TensorFold [L214].",
+        "Engram shards excluded from this repository [L231,L241]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "Full model",
+      "panel": "1. Closeness to the full model (KLD)",
+      "methodology": {
+        "reference": "native low-precision release upscaled to BF16; stored top-20 teacher distribution, not native BF16",
+        "dataset": "private held-out agent sessions plus public held-out general corpus",
+        "ctx": "teacher-forced 2048-token windows",
+        "tool": "vLLM EXL3 overlay compared against layer-streamed reference forward",
+        "L": [
+          52,
+          53,
+          54,
+          55,
+          57,
+          60,
+          61,
+          64,
+          65
+        ]
+      },
+      "metrics": {
+        "ppl:agent_sessions": "c19",
+        "ppl:general_text": "c33"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "own",
+      "name": "This quant",
+      "panel": "Decision points in agent sessions",
+      "methodology": {
+        "reference": "native low-precision release upscaled to BF16; stored top-20 teacher distribution, not native BF16",
+        "dataset": "same private sessions, selected decision-token subsets; not full agent success",
+        "ctx": "teacher-forced 2048-token windows",
+        "tool": "tools/dsv41/decision_kld.py; whole-session resampling for intervals",
+        "L": [
+          94,
+          95,
+          107,
+          108,
+          111,
+          112
+        ]
+      },
+      "metrics": {
+        "kld:call_or_answer": "c36.0",
+        "top1:call_or_answer": "c36.1",
+        "kld:tool_name_all_tokens": "c40.0",
+        "top1:tool_name_all_tokens": "c40.1",
+        "kld:tool_name_first_token": "c44.0",
+        "top1:tool_name_first_token": "c44.1",
+        "kld:another_call_or_done": "c48.0",
+        "top1:another_call_or_done": "c48.1",
+        "kld:stop": "c52.0",
+        "top1:stop": "c52.1",
+        "kld:all_decision_points": "c56.0",
+        "top1:all_decision_points": "c56.1",
+        "kld:every_position": "c60.0",
+        "top1:every_position": "c60.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c88",
+      "flags": [
+        "Small selected-token sample, not whole-run task accuracy [L111-112]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "Mia-AiLab 2.9 bpw",
+      "panel": "Decision points in agent sessions",
+      "methodology": {
+        "reference": "native low-precision release upscaled to BF16; stored top-20 teacher distribution, not native BF16",
+        "dataset": "same private sessions, selected decision-token subsets; not full agent success",
+        "ctx": "teacher-forced 2048-token windows",
+        "tool": "tools/dsv41/decision_kld.py; whole-session resampling for intervals",
+        "L": [
+          94,
+          95,
+          107,
+          108,
+          111,
+          112
+        ]
+      },
+      "metrics": {
+        "kld:call_or_answer": "c37.0",
+        "top1:call_or_answer": "c37.1",
+        "kld:tool_name_all_tokens": "c41.0",
+        "top1:tool_name_all_tokens": "c41.1",
+        "kld:tool_name_first_token": "c45.0",
+        "top1:tool_name_first_token": "c45.1",
+        "kld:another_call_or_done": "c49.0",
+        "top1:another_call_or_done": "c49.1",
+        "kld:stop": "c53.0",
+        "top1:stop": "c53.1",
+        "kld:all_decision_points": "c57.0",
+        "top1:all_decision_points": "c57.1",
+        "kld:every_position": "c61.0",
+        "top1:every_position": "c61.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [],
+      "of": "Mia-AiLab/DeepSeek-V4.1-Flash-EXL3-2.9bpw"
+    },
+    {
+      "role": "own",
+      "name": "This quant",
+      "panel": "2. Knowledge and reasoning",
+      "methodology": {
+        "reference": "not measured for full native model on this hardware",
+        "dataset": "full MMLU test set; GSM8K subset",
+        "ctx": "not stated",
+        "tool": "greedy; MMLU thinking off, GSM8K thinking on",
+        "L": [
+          119,
+          120,
+          125,
+          126
+        ]
+      },
+      "metrics": {
+        "bench:MMLU": "c4",
+        "bench:GSM8K": "c6"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c88",
+      "flags": [
+        "Full model task scores not measured on this hardware [L125-126]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "This quant",
+      "panel": "3. Long generation",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "one complete three.js Flappy Bird request, multiple attempts",
+        "ctx": "up to 98,304 output tokens",
+        "tool": "headless play/render/crash/restart/resize test; greedy plus sampled",
+        "L": [
+          132,
+          133,
+          134,
+          135
+        ]
+      },
+      "metrics": {
+        "bench:working-games-correct": "c64.0"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Single prompt with eight tries, not broad generated-code benchmark [L132-135,L218]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "v3",
+      "panel": "6. How this build was chosen",
+      "methodology": {
+        "reference": "native low-precision release upscaled to BF16; stored top-20 teacher distribution, not native BF16",
+        "dataset": "same in-domain/general served-KLD holdouts",
+        "ctx": "teacher-forced 2048-token windows",
+        "tool": "same served-KLD harness",
+        "L": [
+          175,
+          185
+        ]
+      },
+      "metrics": {
+        "kld:agent_sessions": "c71.0",
+        "kld:general_text": "c71.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c70",
+      "flags": []
+    },
+    {
+      "role": "ladder",
+      "name": "v4",
+      "panel": "6. How this build was chosen",
+      "methodology": {
+        "reference": "native low-precision release upscaled to BF16; stored top-20 teacher distribution, not native BF16",
+        "dataset": "same in-domain/general served-KLD holdouts",
+        "ctx": "teacher-forced 2048-token windows",
+        "tool": "same served-KLD harness",
+        "L": [
+          175,
+          185
+        ]
+      },
+      "metrics": {
+        "kld:agent_sessions": "c75.0",
+        "kld:general_text": "c75.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c73",
+      "flags": []
+    },
+    {
+      "role": "ladder",
+      "name": "v4.1",
+      "panel": "6. How this build was chosen",
+      "methodology": {
+        "reference": "native low-precision release upscaled to BF16; stored top-20 teacher distribution, not native BF16",
+        "dataset": "same in-domain/general served-KLD holdouts",
+        "ctx": "teacher-forced 2048-token windows",
+        "tool": "same served-KLD harness",
+        "L": [
+          175,
+          185
+        ]
+      },
+      "metrics": {
+        "kld:agent_sessions": "c78.0",
+        "kld:general_text": "c78.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c77",
+      "flags": []
+    },
+    {
+      "role": "own",
+      "name": "v5 (this)",
+      "panel": "6. How this build was chosen",
+      "methodology": {
+        "reference": "native low-precision release upscaled to BF16; stored top-20 teacher distribution, not native BF16",
+        "dataset": "same in-domain/general served-KLD holdouts",
+        "ctx": "teacher-forced 2048-token windows",
+        "tool": "same served-KLD harness",
+        "L": [
+          175,
+          185
+        ]
+      },
+      "metrics": {
+        "kld:agent_sessions": "c81.0",
+        "kld:general_text": "c81.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c79",
+      "flags": []
+    }
+  ],
+  "prose": [
+    {
+      "entry": "This quant",
+      "panel": "1. Closeness to the full model (KLD)",
+      "key": "size",
+      "L": 232,
+      "raw": "214"
+    }
+  ]
+}

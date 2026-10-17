@@ -1,0 +1,131 @@
+{
+  "repo": "dealignai/DeepSeek-V4.1-Flash-UNCENSORED-FP8",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "deepseek-ai/DeepSeek-V4.1-Flash native mixed FP8/FP4",
+    "dataset": "HarmBench and MMLU",
+    "ctx": "not stated",
+    "tool": "SGLang preview branch",
+    "L": [
+      33,
+      35,
+      40,
+      48,
+      75,
+      161
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "CRACK",
+      "metrics": {
+        "bench:HarmBench-320-effort-off-ASR": "c2.2",
+        "bench:HarmBench-320-effort-max-ASR": "c5.2"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Native FP8 weights with FP4 routed experts, then abliterated [L33-40]."
+      ],
+      "panel": "HarmBench-320 — full 2×2 (base vs CRACK, effort=off vs max), T=0 greedy",
+      "methodology": {
+        "reference": "deepseek-ai/DeepSeek-V4.1-Flash native mixed FP8/FP4",
+        "dataset": "full HarmBench-320",
+        "ctx": "not stated",
+        "tool": "four-tier response classifier plus reasoning-trace verification at max; T=0",
+        "L": [
+          48,
+          50,
+          54,
+          55,
+          73
+        ]
+      }
+    },
+    {
+      "role": "cross",
+      "name": "base",
+      "metrics": {
+        "bench:HarmBench-320-effort-off-ASR": "c1.2",
+        "bench:HarmBench-320-effort-max-ASR": "c4.2"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [],
+      "panel": "HarmBench-320 — full 2×2 (base vs CRACK, effort=off vs max), T=0 greedy",
+      "methodology": {
+        "reference": "deepseek-ai/DeepSeek-V4.1-Flash native mixed FP8/FP4",
+        "dataset": "full HarmBench-320",
+        "ctx": "not stated",
+        "tool": "four-tier response classifier plus reasoning-trace verification at max; T=0",
+        "L": [
+          48,
+          50,
+          54,
+          55,
+          73
+        ]
+      },
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "own",
+      "name": "CRACK",
+      "metrics": {
+        "bench:MMLU-14k": "c37"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Abliteration comparison; no quantization KLD published [L75-82]."
+      ],
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "methodology": {
+        "reference": "deepseek-ai/DeepSeek-V4.1-Flash native mixed FP8/FP4",
+        "dataset": "full MMLU test set",
+        "ctx": "not stated",
+        "tool": "base-logit T=0",
+        "L": [
+          75,
+          79,
+          80
+        ]
+      }
+    },
+    {
+      "role": "cross",
+      "name": "base",
+      "metrics": {
+        "bench:MMLU-14k": "c35"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [],
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "methodology": {
+        "reference": "deepseek-ai/DeepSeek-V4.1-Flash native mixed FP8/FP4",
+        "dataset": "full MMLU test set",
+        "ctx": "not stated",
+        "tool": "base-logit T=0",
+        "L": [
+          75,
+          79,
+          80
+        ]
+      },
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    }
+  ],
+  "prose": []
+}

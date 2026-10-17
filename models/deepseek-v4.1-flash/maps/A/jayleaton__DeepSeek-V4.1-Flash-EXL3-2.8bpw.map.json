@@ -1,0 +1,183 @@
+{
+  "repo": "jayleaton/DeepSeek-V4.1-Flash-EXL3-2.8bpw",
+  "no_quality_claims": false,
+  "weights_modified": false,
+  "method": {
+    "reference": "original FP8 / MXFP4 DeepSeek-V4.1-Flash release, top 2,048 logits (not BF16)",
+    "dataset": "eval mix; thinking spans; wikitext-2 test",
+    "ctx": "167,901 eval positions; 53,018 thinking positions; 32,752 wikitext-2 positions",
+    "tool": "TensorFold as served, top-p 0.85 over top 6 router experts with at least 3; paired block bootstrap",
+    "L": [
+      92,
+      93,
+      94,
+      98,
+      99,
+      100
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "this pack (2.8 bpw)",
+      "metrics": {
+        "kld:eval_mix": "c18",
+        "kld:thinking": "c22",
+        "kld:wikitext-2": "c26",
+        "top1_pct": "c7",
+        "bench:MMLU-200": "c9"
+      },
+      "panel": "Evaluation",
+      "methodology": {
+        "reference": "original FP8 / MXFP4 DeepSeek-V4.1-Flash release, top 2,048 logits (not BF16)",
+        "dataset": "eval mix; thinking spans; wikitext-2 test",
+        "ctx": "167,901 eval positions; 53,018 thinking positions; 32,752 wikitext-2 positions",
+        "tool": "TensorFold as served, top-p 0.85 over top 6 router experts with at least 3; paired block bootstrap",
+        "L": [
+          92,
+          93,
+          94,
+          98,
+          99,
+          100
+        ]
+      },
+      "size": "c13",
+      "unit": "bytes",
+      "basis": "excl_engram",
+      "flags": [
+        "Repository download excludes Engram tables; supply original Engram tables separately [L44-46,52].",
+        "MMLU is 0-shot on TensorFold Python engine; top-1 agreement is published as a fraction [L30-31,105-106]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "Mia-AiLab 2.9 bpw",
+      "metrics": {
+        "kld:eval_mix": "c19",
+        "kld:thinking": "c23",
+        "kld:wikitext-2": "c27",
+        "top1_pct": "c8",
+        "bench:MMLU-200": "c10"
+      },
+      "of": "Mia-AiLab/DeepSeek-V4.1-Flash-EXL3-2.9bpw",
+      "panel": "Evaluation",
+      "methodology": {
+        "reference": "original FP8 / MXFP4 DeepSeek-V4.1-Flash release, top 2,048 logits (not BF16)",
+        "dataset": "eval mix; thinking spans; wikitext-2 test",
+        "ctx": "167,901 eval positions; 53,018 thinking positions; 32,752 wikitext-2 positions",
+        "tool": "TensorFold as served, top-p 0.85 over top 6 router experts with at least 3; paired block bootstrap",
+        "L": [
+          92,
+          93,
+          94,
+          98,
+          99,
+          100
+        ]
+      },
+      "size": "c12",
+      "unit": "GB",
+      "basis": "text_weights",
+      "flags": [
+        "Size is only the bpw-budget weight set, not total checkpoint or total memory [L32,57]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "this pack (2.8 bpw), all 6 routed experts",
+      "metrics": {},
+      "panel": "Evaluation",
+      "methodology": {
+        "reference": "original FP8 / MXFP4 DeepSeek-V4.1-Flash release, top 2,048 logits (not BF16)",
+        "dataset": "eval mix; thinking spans; wikitext-2 test",
+        "ctx": "not stated",
+        "tool": "all 6 routed experts, no pruning",
+        "L": [
+          92,
+          102,
+          103
+        ]
+      },
+      "size": "c13",
+      "unit": "bytes",
+      "basis": "excl_engram"
+    },
+    {
+      "role": "cross",
+      "name": "Mia-AiLab 2.9 bpw, all 6 routed experts",
+      "metrics": {},
+      "of": "Mia-AiLab/DeepSeek-V4.1-Flash-EXL3-2.9bpw",
+      "panel": "Evaluation",
+      "methodology": {
+        "reference": "original FP8 / MXFP4 DeepSeek-V4.1-Flash release, top 2,048 logits (not BF16)",
+        "dataset": "eval mix; thinking spans; wikitext-2 test",
+        "ctx": "not stated",
+        "tool": "all 6 routed experts, no pruning",
+        "L": [
+          92,
+          102,
+          103
+        ]
+      }
+    }
+  ],
+  "prose": [
+    {
+      "entry": "this pack (2.8 bpw), all 6 routed experts",
+      "panel": "Evaluation",
+      "key": "kld:eval_mix",
+      "L": 102,
+      "raw": "0.0258"
+    },
+    {
+      "entry": "Mia-AiLab 2.9 bpw, all 6 routed experts",
+      "panel": "Evaluation",
+      "key": "kld:eval_mix",
+      "L": 102,
+      "raw": "0.0439"
+    },
+    {
+      "entry": "this pack (2.8 bpw), all 6 routed experts",
+      "panel": "Evaluation",
+      "key": "kld:thinking",
+      "L": 102,
+      "raw": "0.0023"
+    },
+    {
+      "entry": "Mia-AiLab 2.9 bpw, all 6 routed experts",
+      "panel": "Evaluation",
+      "key": "kld:thinking",
+      "L": 102,
+      "raw": "0.0076"
+    },
+    {
+      "entry": "this pack (2.8 bpw), all 6 routed experts",
+      "panel": "Evaluation",
+      "key": "kld:wikitext-2",
+      "L": 102,
+      "raw": "0.0947"
+    },
+    {
+      "entry": "Mia-AiLab 2.9 bpw, all 6 routed experts",
+      "panel": "Evaluation",
+      "key": "kld:wikitext-2",
+      "L": 103,
+      "raw": "0.0937"
+    },
+    {
+      "entry": "this pack (2.8 bpw)",
+      "panel": "Evaluation",
+      "key": "bench:GSM8K+MATH-500 reasoning128",
+      "L": 107,
+      "raw": "97.7 %"
+    },
+    {
+      "entry": "Mia-AiLab 2.9 bpw",
+      "panel": "Evaluation",
+      "key": "bench:GSM8K+MATH-500 reasoning128",
+      "L": 107,
+      "raw": "97.7 %"
+    }
+  ]
+}

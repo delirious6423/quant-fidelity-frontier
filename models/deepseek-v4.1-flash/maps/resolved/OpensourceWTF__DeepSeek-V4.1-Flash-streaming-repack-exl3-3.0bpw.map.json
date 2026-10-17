@@ -1,0 +1,57 @@
+{
+  "repo": "OpensourceWTF/DeepSeek-V4.1-Flash-streaming-repack-exl3-3.0bpw",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated; HumanEval measures this streaming EXL3 repack",
+    "dataset": "HumanEval, 164 problems",
+    "ctx": "prompts about 200 tokens; completion maximum observed 4,073 tokens",
+    "tool": "mlx-serve, mlx-stream plugin 4f42e79; Apple M5 Max 128 GiB; one greedy sample per problem, temperature 0; offline tests on last fenced code block",
+    "L": [
+      100,
+      132,
+      134,
+      135,
+      139,
+      142,
+      144
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash, streaming repack, EXL3 3.0 bpw experts",
+      "panel": "HumanEval",
+      "methodology": {
+        "reference": "not stated; HumanEval measures this streaming EXL3 repack",
+        "dataset": "HumanEval, 164 problems",
+        "ctx": "prompts about 200 tokens; completion maximum observed 4,073 tokens",
+        "tool": "mlx-serve, mlx-stream plugin 4f42e79; Apple M5 Max 128 GiB; one greedy sample per problem, temperature 0; offline tests on last fenced code block",
+        "L": [
+          100,
+          132,
+          134,
+          135,
+          139,
+          142,
+          144
+        ]
+      },
+      "metrics": {
+        "bench:HumanEval pass@1": "c78"
+      },
+      "size": "c118",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Pass@1 is a fraction, one sample per problem [L134,139]",
+        "Approximate total download size; peak process memory is a different quantity [L96,146]",
+        "Expert quantization copied from Mia-AiLab without requantization [L27-32]",
+        "Reference described as BF16 in qualitative prose is mixed native precision; no numeric BF16 fidelity comparison given [L50-58,153-157]"
+      ]
+    }
+  ],
+  "prose": []
+}

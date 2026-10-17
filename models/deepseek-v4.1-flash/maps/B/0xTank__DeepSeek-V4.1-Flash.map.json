@@ -1,0 +1,84 @@
+{
+  "repo": "0xTank/DeepSeek-V4.1-Flash",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "not applicable: copied upstream benchmarks",
+    "dataset": "upstream official benchmark sets",
+    "ctx": "one-million code-agent context; half-million visual-agent context",
+    "tool": "DeepSeek official harnesses; reasoning_effort=100, temperature=1.0, top_p=0.95",
+    "L": [
+      136,
+      138
+    ]
+  },
+  "entries": [
+    {
+      "role": "quoted",
+      "name": "DeepSeek-V4.1-Flash",
+      "panel": "Comparison with frontier models (Max reasoning effort)",
+      "methodology": {
+        "reference": "not applicable: copied upstream benchmarks",
+        "dataset": "upstream official benchmark sets",
+        "ctx": "one-million code-agent context; half-million visual-agent context",
+        "tool": "DeepSeek official harnesses; reasoning_effort=100, temperature=1.0, top_p=0.95",
+        "L": [
+          136,
+          138
+        ]
+      },
+      "metrics": {
+        "bench:GPQA-Diamond": "c64",
+        "bench:Codeforces-rating": "c74",
+        "bench:Terminal-Bench-2.1": "c84",
+        "bench:Terminal-Bench-3.0": "c91",
+        "bench:Terminal-Bench-4.0": "c98",
+        "bench:DeepSWE-v1.1": "c105",
+        "bench:ProgramBench-Almost@1": "c111",
+        "bench:NL2Repo-Bench": "c117",
+        "bench:CyberGym": "c122",
+        "bench:SEC-Bench-Pro": "c126",
+        "bench:ExploitGym": "c132",
+        "bench:HLE-with-tools": "c138",
+        "bench:AutomationBench": "c145",
+        "bench:Agents-Last-Exam": "c152",
+        "bench:Chartography-with-tools": "c156",
+        "bench:BabyVision-with-tools": "c160",
+        "bench:ZeroBench-main-with-tools-pass@5": "c164"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Unchanged convenience mirror; scores copied from original DeepSeek model card [L10-13,L31].",
+        "Other model versions and pretraining-base benchmark table excluded [L95-130,L144]."
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    }
+  ],
+  "prose": [
+    {
+      "entry": "DeepSeek-V4.1-Flash",
+      "panel": "Comparison with frontier models (Max reasoning effort)",
+      "key": "bench:HLE",
+      "L": 148,
+      "raw": "36.8"
+    },
+    {
+      "entry": "DeepSeek-V4.1-Flash",
+      "panel": "Comparison with frontier models (Max reasoning effort)",
+      "key": "bench:HLE-text-only",
+      "L": 148,
+      "raw": "39.1"
+    },
+    {
+      "entry": "DeepSeek-V4.1-Flash",
+      "panel": "Comparison with frontier models (Max reasoning effort)",
+      "key": "bench:MathArena-Apex",
+      "L": 150,
+      "raw": "65.6"
+    }
+  ]
+}

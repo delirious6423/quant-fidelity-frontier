@@ -1,0 +1,50 @@
+{
+ "repo": "coolbho3k/DeepSeek-V4.1-Flash-GRAFT-3bpw",
+ "no_quality_claims": false,
+ "weights_modified": false,
+ "method": {
+  "reference": "native DeepSeek-V4.1-Flash model",
+  "dataset": "held-out expert errors; evaluation text not stated",
+  "ctx": "not stated",
+  "tool": "not stated",
+  "L": [
+   22,
+   24,
+   25,
+   26,
+   27
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "GRAFT (this repo)",
+   "metrics": {
+    "bench:held-out expert relative error": "c1",
+    "bench:excess NLL nats": "c3",
+    "mean_kld": "c5",
+    "top1_pct": "c7"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null
+  },
+  {
+   "role": "ladder",
+   "name": "EXL3 3 bpw",
+   "metrics": {
+    "bench:held-out expert relative error": "c2",
+    "bench:excess NLL nats": "c4",
+    "mean_kld": "c6",
+    "top1_pct": "c8"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "flags": [
+    "Comparison build; held-out data, context and implementation not stated [L22-27]."
+   ]
+  }
+ ],
+ "prose": []
+}

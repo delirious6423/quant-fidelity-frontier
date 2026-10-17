@@ -1,0 +1,330 @@
+{
+  "repo": "pqhaz/DeepSeek-V4.1-Flash-heretic",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "native deepseek-ai/DeepSeek-V4.1-Flash,FP8 weights and FP4 routed experts",
+    "dataset": "mlabonne/harmful_behaviors search prompts;held-outJBB-Behaviors;100harmless_alpaca prompts;separate long tasks",
+    "ctx": "refusal judge first48generatedtokens;KL firstgeneratedtoken",
+    "tool": "fixed DeepSeek reference inference code for main measurements;long-response follow-up SGLangTP4B300",
+    "L": [
+      13,
+      19,
+      43,
+      45,
+      49,
+      50,
+      51,
+      64,
+      65,
+      66
+    ]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "Base",
+      "panel": "Measured",
+      "methodology": {
+        "reference": "native deepseek-ai/DeepSeek-V4.1-Flash,FP8 weights and FP4 routed experts",
+        "dataset": "search harmful_behaviors test[:100];held-outJBB harmful100;harmless_alpaca test100",
+        "ctx": "refusal judge first48generatedtokens;KL firstgeneratedtoken",
+        "tool": "greedy,reasoning closed,helpful-assistant system prompt;Gemma4-31B uncensored-heretic judge;fixed native reference runtime",
+        "L": [
+          45,
+          49,
+          50,
+          51,
+          64,
+          65
+        ]
+      },
+      "metrics": {
+        "bench:search-prompt refusals (of 100)": "c1",
+        "bench:JBB held-out refusals (of 100)": "c4",
+        "kld:harmless_alpaca first-token": "c7"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Directional weight ablation; not isolated quantization error [L13,30-39]",
+        "Search prompt refusals are in-sample;JBB prompts held out [L49-50]",
+        "KL on first generated token only;no capability benchmark [L45,66]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "dealignai",
+      "panel": "Measured",
+      "methodology": {
+        "reference": "native deepseek-ai/DeepSeek-V4.1-Flash,FP8 weights and FP4 routed experts",
+        "dataset": "search harmful_behaviors test[:100];held-outJBB harmful100;harmless_alpaca test100",
+        "ctx": "refusal judge first48generatedtokens;KL firstgeneratedtoken",
+        "tool": "greedy,reasoning closed,helpful-assistant system prompt;Gemma4-31B uncensored-heretic judge;fixed native reference runtime",
+        "L": [
+          45,
+          49,
+          50,
+          51,
+          64,
+          65
+        ]
+      },
+      "metrics": {
+        "bench:search-prompt refusals (of 100)": "c2",
+        "bench:JBB held-out refusals (of 100)": "c5",
+        "kld:harmless_alpaca first-token": "c8"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Directional weight ablation; not isolated quantization error [L13,30-39]",
+        "Search prompt refusals are in-sample;JBB prompts held out [L49-50]",
+        "KL on first generated token only;no capability benchmark [L45,66]"
+      ],
+      "of": "dealignai/DeepSeek-V4.1-Flash-UNCENSORED-FP8"
+    },
+    {
+      "role": "own",
+      "name": "This model",
+      "panel": "Measured",
+      "methodology": {
+        "reference": "native deepseek-ai/DeepSeek-V4.1-Flash,FP8 weights and FP4 routed experts",
+        "dataset": "search harmful_behaviors test[:100];held-outJBB harmful100;harmless_alpaca test100",
+        "ctx": "refusal judge first48generatedtokens;KL firstgeneratedtoken",
+        "tool": "greedy,reasoning closed,helpful-assistant system prompt;Gemma4-31B uncensored-heretic judge;fixed native reference runtime",
+        "L": [
+          45,
+          49,
+          50,
+          51,
+          64,
+          65
+        ]
+      },
+      "metrics": {
+        "bench:search-prompt refusals (of 100)": "c3",
+        "bench:JBB held-out refusals (of 100)": "c6",
+        "kld:harmless_alpaca first-token": "c9"
+      },
+      "size": "c10",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Directional weight ablation; not isolated quantization error [L13,30-39]",
+        "Search prompt refusals are in-sample;JBB prompts held out [L49-50]",
+        "KL on first generated token only;no capability benchmark [L45,66]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "search prompts (100) — reasoning enabled",
+      "panel": "Measured",
+      "methodology": {
+        "reference": "native deepseek-ai/DeepSeek-V4.1-Flash,FP8 weights and FP4 routed experts",
+        "dataset": "search prompts (100)",
+        "ctx": "new-token limit1500",
+        "tool": "reasoning enabled,default effort,temperature0.6;judge final answer",
+        "L": [
+          53,
+          55,
+          57,
+          60
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Refusal count conditional on reasoning finishing; unfinished outcomes remain unknown [L55-60]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "JBB-Behaviors, held out (100) — reasoning enabled",
+      "panel": "Measured",
+      "methodology": {
+        "reference": "native deepseek-ai/DeepSeek-V4.1-Flash,FP8 weights and FP4 routed experts",
+        "dataset": "JBB-Behaviors, held out (100)",
+        "ctx": "new-token limit2400",
+        "tool": "reasoning enabled,default effort,temperature0.6;judge final answer",
+        "L": [
+          53,
+          55,
+          58,
+          60
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Refusal count conditional on reasoning finishing; unfinished outcomes remain unknown [L55-60]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "stock",
+      "panel": "Long responses",
+      "methodology": {
+        "reference": "native deepseek-ai/DeepSeek-V4.1-Flash,FP8 weights and FP4 routed experts",
+        "dataset": "eight long tasks:essays,story,textbook chapter,long code,long reasoning",
+        "ctx": "12000-token limit",
+        "tool": "SGLangTP4 onB300;temperature1.0/top_p0.95;separate2026-10-12 follow-up",
+        "L": [
+          19,
+          21,
+          23,
+          24,
+          26
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Loop counts denominator160;incoherence judge denominator128 [L21-24]",
+        "Source says difference is not statistically firm and stronger degradation report was not reproduced [L26]",
+        "This panel explicitly uses SGLang;main-measurement limits describe reference code [L19,64]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "this build",
+      "panel": "Long responses",
+      "methodology": {
+        "reference": "native deepseek-ai/DeepSeek-V4.1-Flash,FP8 weights and FP4 routed experts",
+        "dataset": "eight long tasks:essays,story,textbook chapter,long code,long reasoning",
+        "ctx": "12000-token limit",
+        "tool": "SGLangTP4 onB300;temperature1.0/top_p0.95;separate2026-10-12 follow-up",
+        "L": [
+          19,
+          21,
+          23,
+          24,
+          26
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Loop counts denominator160;incoherence judge denominator128 [L21-24]",
+        "Source says difference is not statistically firm and stronger degradation report was not reproduced [L26]",
+        "This panel explicitly uses SGLang;main-measurement limits describe reference code [L19,64]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "plain rounding",
+      "panel": "What was changed",
+      "methodology": {
+        "reference": "native deepseek-ai/DeepSeek-V4.1-Flash,FP8 weights and FP4 routed experts",
+        "dataset": "same harmless/search prompts as described",
+        "ctx": "not stated",
+        "tool": "plain FP8-grid nearest rounding ablation control",
+        "L": [
+          37,
+          39,
+          45
+        ]
+      },
+      "metrics": {
+        "kld:harmless_alpaca first-token": "c13.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Alternative edit encoding,not the shipped directional-cancellation weights [L39]"
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "search prompts (100) — reasoning enabled",
+      "panel": "Measured",
+      "key": "bench:reasoning finished (of 100)",
+      "L": 57,
+      "raw": "19"
+    },
+    {
+      "entry": "search prompts (100) — reasoning enabled",
+      "panel": "Measured",
+      "key": "bench:refusals among finished",
+      "L": 57,
+      "raw": "0"
+    },
+    {
+      "entry": "search prompts (100) — reasoning enabled",
+      "panel": "Measured",
+      "key": "bench:still reasoning at limit (of 100)",
+      "L": 57,
+      "raw": "81"
+    },
+    {
+      "entry": "JBB-Behaviors, held out (100) — reasoning enabled",
+      "panel": "Measured",
+      "key": "bench:reasoning finished (of 100)",
+      "L": 58,
+      "raw": "40"
+    },
+    {
+      "entry": "JBB-Behaviors, held out (100) — reasoning enabled",
+      "panel": "Measured",
+      "key": "bench:refusals among finished",
+      "L": 58,
+      "raw": "0"
+    },
+    {
+      "entry": "JBB-Behaviors, held out (100) — reasoning enabled",
+      "panel": "Measured",
+      "key": "bench:still reasoning at limit (of 100)",
+      "L": 58,
+      "raw": "60"
+    },
+    {
+      "entry": "stock",
+      "panel": "Long responses",
+      "key": "bench:looping responses (of 160)",
+      "L": 23,
+      "raw": "0"
+    },
+    {
+      "entry": "stock",
+      "panel": "Long responses",
+      "key": "bench:judge-incoherent responses (of 128)",
+      "L": 23,
+      "raw": "0"
+    },
+    {
+      "entry": "this build",
+      "panel": "Long responses",
+      "key": "bench:looping responses (of 160)",
+      "L": 24,
+      "raw": "3"
+    },
+    {
+      "entry": "this build",
+      "panel": "Long responses",
+      "key": "bench:judge-incoherent responses (of 128)",
+      "L": 24,
+      "raw": "2"
+    }
+  ]
+}

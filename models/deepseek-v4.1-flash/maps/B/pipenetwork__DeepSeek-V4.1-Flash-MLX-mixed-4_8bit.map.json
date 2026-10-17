@@ -1,0 +1,53 @@
+{
+  "repo": "pipenetwork/DeepSeek-V4.1-Flash-MLX-mixed-4_8bit",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "original native FP8/FP4 checkpoint dequantized to BF16",
+    "dataset": "wikitext-2 test; 286,580 tokens, 140 windows",
+    "ctx": "2048 tokens per window",
+    "tool": "custom deepseek_v41_mlx runtime",
+    "L": [
+      23,
+      24,
+      81
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash-MLX-mixed-4_8bit",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "original native FP8/FP4 checkpoint dequantized to BF16",
+        "dataset": "wikitext-2 test; 286,580 tokens, 140 windows",
+        "ctx": "2048 tokens per window",
+        "tool": "custom deepseek_v41_mlx runtime",
+        "L": [
+          23,
+          24,
+          81
+        ]
+      },
+      "metrics": {},
+      "size": "c27",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Per-layer divergence ladder omits its divergence definition; not represented as next-token KL [L63-74].",
+        "MTP/DSpark not included; vision retained but runtime text-only [L25-26]."
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "DeepSeek-V4.1-Flash-MLX-mixed-4_8bit",
+      "panel": "Quality",
+      "key": "ppl:wikitext-2",
+      "L": 81,
+      "raw": "2.8963"
+    }
+  ]
+}

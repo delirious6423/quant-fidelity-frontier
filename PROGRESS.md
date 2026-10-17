@@ -8,6 +8,13 @@
 - Live: https://delirious6423.github.io/quant-fidelity-frontier/ (landing page; each model at /<slug>/). First deploy 2026-10-18; CI green on GitHub runners.
 - Repo reorganized: every model under `models/<slug>/`; code in `gates/`, `pipeline/`, `web/`, `tests/`, `legacy/`; docs in `docs/`. Built sites are no longer committed (CI and the Pages workflow build them).
 
+## DeepSeek V4.1 Flash review branch
+- 136 repositories catalogued; 133 pinned cards captured; three access-denied cards excluded.
+- 61 distinct cards mapped independently twice; 42 resolver maps adjudicate differences against pinned sources. 72 cards remain explicitly unreviewed.
+- 1,166 source-linked values, 130 own variants; zero held disagreements and zero quarantined entries after source/column gates.
+- Added native-reference, Engram storage scope, per-corpus panel, and top-1 ranking support. No new measurements were run.
+- Local builds, claim/gate regressions and MCP checks pass. Browser validation runs in PR CI because the local Chromium download was unavailable.
+
 ## Next
 1. Hourly scan: scheduled task "QFF hourly scan" (cloud, minute 3 of every hour) follows `docs/HOURLY.md`. Watch list approved by the owner (`watchlist.json`); one queued model ingested per 5 hours, in list order; Haiku subagents only.
 2. 27B held values: resolver pass (Haiku, high effort), core metrics first (~540 values), then benchmarks.

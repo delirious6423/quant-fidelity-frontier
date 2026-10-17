@@ -1,0 +1,90 @@
+{
+  "repo": "JigSawPT/DeepSeek-V4.1-Flash-GGUF",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "native FP8/MXFP4 release via reference implementation",
+    "dataset": "1 401 scored tokens; corpus not stated",
+    "ctx": "not stated",
+    "tool": "dsv41-porte llama.cpp conversion/runtime",
+    "L": [
+      17,
+      18,
+      21,
+      51,
+      52
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash-MXFP4-engram",
+      "panel": "What it needs, and what it gives",
+      "methodology": {
+        "reference": "native FP8/MXFP4 release via reference implementation",
+        "dataset": "1 401 scored tokens; corpus not stated",
+        "ctx": "not stated",
+        "tool": "dsv41-porte llama.cpp conversion/runtime",
+        "L": [
+          17,
+          18,
+          21,
+          51,
+          52
+        ]
+      },
+      "metrics": {},
+      "size": "c26.0",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Metric is logit correlation, not KL divergence or top-1 agreement [L51].",
+        "Main shard payload excludes vision and publishes DSpark separately [L27-29,L78-79]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "port against itself across two runs",
+      "panel": "What it needs, and what it gives",
+      "methodology": {
+        "reference": "native FP8/MXFP4 release via reference implementation",
+        "dataset": "1 401 scored tokens; corpus not stated",
+        "ctx": "not stated",
+        "tool": "dsv41-porte llama.cpp conversion/runtime",
+        "L": [
+          17,
+          18,
+          21,
+          51,
+          52
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Self-run correlation is a runtime noise comparison [L52]."
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "DeepSeek-V4.1-Flash-MXFP4-engram",
+      "panel": "What it needs, and what it gives",
+      "key": "bench:logit-correlation",
+      "L": 51,
+      "raw": "0.9967"
+    },
+    {
+      "entry": "port against itself across two runs",
+      "panel": "What it needs, and what it gives",
+      "key": "bench:logit-correlation",
+      "L": 52,
+      "raw": "0.9959"
+    }
+  ]
+}

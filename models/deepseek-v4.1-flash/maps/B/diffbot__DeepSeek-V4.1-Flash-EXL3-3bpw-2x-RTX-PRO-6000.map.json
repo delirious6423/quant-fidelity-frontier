@@ -1,0 +1,281 @@
+{
+ "repo": "diffbot/DeepSeek-V4.1-Flash-EXL3-3bpw-2x-RTX-PRO-6000",
+ "no_quality_claims": false,
+ "weights_modified": false,
+ "method": {
+  "reference": "original deepseek-ai/DeepSeek-V4.1-Flash model (native release), top-512 logprobs",
+  "dataset": "AtomicChat V4.1-Flash protocol; neutral multilingual text, code, agentic; 49,152 scored positions per corpus; KL lower bound",
+  "ctx": "not stated for KL corpus; serving defaults described separately",
+  "tool": "vLLM TP2; AtomicChat protocol; recipe/kl client and recipe/bench/validate.sh",
+  "L": [
+   41,
+   42,
+   43,
+   44,
+   45,
+   46,
+   56,
+   57,
+   58,
+   59,
+   97,
+   98
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "This pack, as served",
+   "metrics": {
+    "kld:neutral": "c7.0",
+    "top1:neutral": "c7.1",
+    "kld:code": "c8.0",
+    "top1:code": "c8.1",
+    "kld:agentic": "c9.0",
+    "top1:agentic": "c9.1",
+    "bench:GSM8K-200": "c13",
+    "bench:HumanEval": "c14"
+   },
+   "size": "c84",
+   "basis": "disk",
+   "unit": "GB",
+   "bpw": "c36",
+   "panel": "Fidelity",
+   "methodology": {
+    "reference": "original deepseek-ai/DeepSeek-V4.1-Flash model (native release), top-512 logprobs",
+    "dataset": "AtomicChat V4.1-Flash protocol; neutral multilingual text, code, agentic; 49,152 scored positions per corpus; KL lower bound",
+    "ctx": "not stated for KL corpus; serving defaults described separately",
+    "tool": "vLLM TP2; AtomicChat protocol; recipe/kl client and recipe/bench/validate.sh",
+    "L": [
+     41,
+     42,
+     43,
+     44,
+     45,
+     46,
+     56,
+     57,
+     58,
+     59,
+     97,
+     98
+    ]
+   },
+   "flags": [
+    "Top-512 KL lower bounds by corpus; no aggregate full-vocabulary mean is stated [L43-46].",
+    "As served includes FP8 lm_head, host-RAM experts and VRAM trims; current table follows 2026-10-15 rebase [L56-59].",
+    "Download includes int4 Engram tables; GPU memory and host RAM figures elsewhere are different size bases [L154-155,179,184]."
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Previous 2.0 bpw pack from this repo",
+   "metrics": {
+    "kld:neutral": "c10.0",
+    "top1:neutral": "c10.1",
+    "kld:code": "c11.0",
+    "top1:code": "c11.1",
+    "kld:agentic": "c12.0",
+    "top1:agentic": "c12.1",
+    "bench:GSM8K-200": "c15",
+    "bench:HumanEval": "c16"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "bpw": "c34",
+   "panel": "Fidelity",
+   "methodology": {
+    "reference": "original deepseek-ai/DeepSeek-V4.1-Flash model (native release), top-512 logprobs",
+    "dataset": "AtomicChat V4.1-Flash protocol; neutral multilingual text, code, agentic; 49,152 scored positions per corpus; KL lower bound",
+    "ctx": "not stated for KL corpus; serving defaults described separately",
+    "tool": "vLLM TP2; AtomicChat protocol; recipe/kl client and recipe/bench/validate.sh",
+    "L": [
+     41,
+     42,
+     43,
+     44,
+     45,
+     46,
+     56,
+     57,
+     58,
+     59,
+     97,
+     98
+    ]
+   },
+   "flags": [
+    "Historical build replaced by the current pack; old files at revision 28b7ab71 [L35-37]."
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "NVIDIA's NVFP4 checkpoint (4-bit, for reference)",
+   "metrics": {
+    "kld:neutral": "c4.0",
+    "top1:neutral": "c4.1",
+    "kld:code": "c5.0",
+    "top1:code": "c5.1",
+    "kld:agentic": "c6.0",
+    "top1:agentic": "c6.1"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "of": "nvidia/DeepSeek-V4.1-Flash-NVFP4",
+   "panel": "Fidelity",
+   "methodology": {
+    "reference": "original deepseek-ai/DeepSeek-V4.1-Flash model (native release), top-512 logprobs",
+    "dataset": "AtomicChat V4.1-Flash protocol; neutral multilingual text, code, agentic; 49,152 scored positions per corpus; KL lower bound",
+    "ctx": "not stated for KL corpus; serving defaults described separately",
+    "tool": "vLLM TP2; AtomicChat protocol; recipe/kl client and recipe/bench/validate.sh",
+    "L": [
+     41,
+     42,
+     43,
+     44,
+     45,
+     46,
+     56,
+     57,
+     58,
+     59,
+     97,
+     98
+    ]
+   },
+   "flags": [
+    "Measured on this publisher's AtomicChat protocol, rather than quoted NVIDIA benchmarks [L41-52]."
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Original model, second run (noise floor; reference)",
+   "metrics": {
+    "kld:neutral": "c1.0",
+    "top1:neutral": "c1.1",
+    "kld:code": "c2.0",
+    "top1:code": "c2.1",
+    "kld:agentic": "c3.0",
+    "top1:agentic": "c3.1"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Fidelity",
+   "methodology": {
+    "reference": "original deepseek-ai/DeepSeek-V4.1-Flash model (native release), top-512 logprobs",
+    "dataset": "AtomicChat V4.1-Flash protocol; neutral multilingual text, code, agentic; 49,152 scored positions per corpus; KL lower bound",
+    "ctx": "not stated for KL corpus; serving defaults described separately",
+    "tool": "vLLM TP2; AtomicChat protocol; recipe/kl client and recipe/bench/validate.sh",
+    "L": [
+     41,
+     42,
+     43,
+     44,
+     45,
+     46,
+     56,
+     57,
+     58,
+     59,
+     97,
+     98
+    ]
+   },
+   "flags": [
+    "Repeated reference run measures nonzero serving noise floor; it is not a quantized candidate [L51]."
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "coolbho3k's pack on our earlier, simpler stack",
+   "metrics": {},
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "of": "coolbho3k/DeepSeek-V4.1-Flash-EXL3-3bpw",
+   "panel": "Fidelity",
+   "methodology": {
+    "reference": "original deepseek-ai/DeepSeek-V4.1-Flash model (native release), top-512 logprobs",
+    "dataset": "AtomicChat V4.1-Flash protocol; neutral multilingual text, code, agentic; 49,152 scored positions per corpus; KL lower bound",
+    "ctx": "not stated for KL corpus; serving defaults described separately",
+    "tool": "earlier, simpler serving stack on same publisher test",
+    "L": [
+     57
+    ]
+   },
+   "flags": [
+    "Earlier serving configuration, separate from the current as-served table [L57]."
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "previous release",
+   "metrics": {},
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "panel": "Fidelity",
+   "methodology": {
+    "reference": "original deepseek-ai/DeepSeek-V4.1-Flash model (native release), top-512 logprobs",
+    "dataset": "AtomicChat V4.1-Flash protocol; neutral multilingual text, code, agentic; 49,152 scored positions per corpus; KL lower bound",
+    "ctx": "not stated for KL corpus; serving defaults described separately",
+    "tool": "previous serving release before 2026-10-15 rebase",
+    "L": [
+     58,
+     59
+    ]
+   },
+   "flags": [
+    "Historical serving configuration; separate from the current table [L58-59]."
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "coolbho3k's pack on our earlier, simpler stack",
+   "key": "kld:neutral",
+   "L": 57,
+   "raw": "0.0529",
+   "panel": "Fidelity"
+  },
+  {
+   "entry": "coolbho3k's pack on our earlier, simpler stack",
+   "key": "kld:code",
+   "L": 57,
+   "raw": "0.0310",
+   "panel": "Fidelity"
+  },
+  {
+   "entry": "coolbho3k's pack on our earlier, simpler stack",
+   "key": "kld:agentic",
+   "L": 57,
+   "raw": "0.0096",
+   "panel": "Fidelity"
+  },
+  {
+   "entry": "previous release",
+   "key": "kld:neutral",
+   "L": 59,
+   "raw": "0.0541",
+   "panel": "Fidelity"
+  },
+  {
+   "entry": "previous release",
+   "key": "kld:code",
+   "L": 59,
+   "raw": "0.0324",
+   "panel": "Fidelity"
+  },
+  {
+   "entry": "previous release",
+   "key": "kld:agentic",
+   "L": 59,
+   "raw": "0.0099",
+   "panel": "Fidelity"
+  }
+ ]
+}

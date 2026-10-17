@@ -19,6 +19,11 @@ jobs:
         run: python3 tests/test_gates.py
       - name: Review regression checks (F1-F24, Flash-Next)
         run: python3 tests/test_claims.py
+      - name: Native-model ingestion, panel and column regressions
+        run: |
+          python3 tests/test_model_panels.py
+          python3 tests/test_mapping_panels.py
+          python3 tests/test_combined_columns.py
       - name: Assembled site is static only
         run: python3 assemble.py _site
       - name: MCP server answers match the data (stdio, black-box)

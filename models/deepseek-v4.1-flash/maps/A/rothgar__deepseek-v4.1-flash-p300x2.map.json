@@ -1,0 +1,88 @@
+{
+  "repo": "rothgar/deepseek-v4.1-flash-p300x2",
+  "no_quality_claims": false,
+  "weights_modified": false,
+  "method": {
+    "reference": "DeepSeek's own CPU reference code with activation fake-quant off; native source checkpoint, not a stated BF16 model",
+    "dataset": "mixed text; decisive positions have reference top-1 margin >= 0.10",
+    "ctx": "512-token prefill; 256 teacher-forced traced decode steps",
+    "tool": "Tenstorrent QuietBox 2, four Blackhole chips, TP4; mean KL definition beyond table label not stated",
+    "L": [
+      21,
+      22,
+      23,
+      48,
+      49,
+      51,
+      53,
+      54
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "512-token prefill",
+      "metrics": {
+        "top1:decisive": "c1",
+        "mean_kld": "c2"
+      },
+      "panel": "Measured on a QuietBox 2",
+      "methodology": {
+        "reference": "DeepSeek's own CPU reference code with activation fake-quant off; native source checkpoint, not a stated BF16 model",
+        "dataset": "mixed text; decisive positions have reference top-1 margin >= 0.10",
+        "ctx": "512-token prefill",
+        "tool": "Tenstorrent QuietBox 2, four Blackhole chips, TP4; mean KL definition beyond table label not stated",
+        "L": [
+          21,
+          22,
+          23,
+          48,
+          49,
+          51,
+          53,
+          54
+        ]
+      },
+      "size": "c26.0",
+      "unit": "GB",
+      "basis": "routed_experts",
+      "flags": [
+        "Top-1 covers only decisive reference positions, not all tokens [L48-49].",
+        "Size is the packed expert store, not complete downloaded checkpoint or total working-set memory [L35-43]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "256 teacher-forced traced decode steps",
+      "metrics": {
+        "top1:decisive": "c3",
+        "mean_kld": "c4"
+      },
+      "panel": "Measured on a QuietBox 2",
+      "methodology": {
+        "reference": "DeepSeek's own CPU reference code with activation fake-quant off; native source checkpoint, not a stated BF16 model",
+        "dataset": "mixed text; decisive positions have reference top-1 margin >= 0.10",
+        "ctx": "256 teacher-forced traced decode steps",
+        "tool": "Tenstorrent QuietBox 2, four Blackhole chips, TP4; mean KL definition beyond table label not stated",
+        "L": [
+          21,
+          22,
+          23,
+          48,
+          49,
+          51,
+          53,
+          54
+        ]
+      },
+      "size": "c26.0",
+      "unit": "GB",
+      "basis": "routed_experts",
+      "flags": [
+        "Top-1 covers only decisive reference positions, not all tokens [L48-49].",
+        "Size is the packed expert store, not complete downloaded checkpoint or total working-set memory [L35-43]."
+      ]
+    }
+  ],
+  "prose": []
+}

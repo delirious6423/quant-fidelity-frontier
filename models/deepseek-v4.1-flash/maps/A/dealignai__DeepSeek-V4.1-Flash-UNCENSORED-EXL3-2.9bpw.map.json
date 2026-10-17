@@ -1,0 +1,133 @@
+{
+  "repo": "dealignai/DeepSeek-V4.1-Flash-UNCENSORED-EXL3-2.9bpw",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "base EXL3 quant before abliteration",
+    "dataset": "HarmBench and MMLU",
+    "ctx": "not stated",
+    "tool": "vLLM + ExLlamaV3 serving kit",
+    "L": [
+      38,
+      57,
+      64,
+      81,
+      167,
+      168
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "CRACK",
+      "metrics": {
+        "bench:HarmBench-320-effort-off-ASR": "c2",
+        "bench:HarmBench-320-effort-max-ASR": "c4"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c273",
+      "flags": [
+        "Weight-level abliteration changes the base weights [L38]."
+      ],
+      "panel": "HarmBench-320 — attack success rate (comply %), T=0 greedy",
+      "methodology": {
+        "reference": "base EXL3 quant before abliteration",
+        "dataset": "HarmBench-320: CRACK full set; base representative sample",
+        "ctx": "not stated",
+        "tool": "delivered-output six-tier refusal grading, greedy",
+        "L": [
+          52,
+          53,
+          54,
+          57,
+          64
+        ]
+      }
+    },
+    {
+      "role": "cross",
+      "name": "base (EXL3 2.9bpw)",
+      "metrics": {
+        "bench:HarmBench-320-effort-off-ASR": "c1",
+        "bench:HarmBench-320-effort-max-ASR": "c3"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c274",
+      "flags": [
+        "Base sample differs from CRACK full-set evaluation [L64]."
+      ],
+      "panel": "HarmBench-320 — attack success rate (comply %), T=0 greedy",
+      "methodology": {
+        "reference": "base EXL3 quant before abliteration",
+        "dataset": "HarmBench-320: CRACK full set; base representative sample",
+        "ctx": "not stated",
+        "tool": "delivered-output six-tier refusal grading, greedy",
+        "L": [
+          52,
+          53,
+          54,
+          57,
+          64
+        ]
+      },
+      "of": "not named on card"
+    },
+    {
+      "role": "own",
+      "name": "CRACK",
+      "metrics": {
+        "bench:MMLU-14k": "c31"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c273",
+      "flags": [
+        "Abliteration comparison; no quantization KLD published [L81-98]."
+      ],
+      "panel": "MMLU-14k (full test set, base-logit ranking, T=0)",
+      "methodology": {
+        "reference": "base (EXL3 2.9bpw)",
+        "dataset": "full MMLU test set",
+        "ctx": "not stated",
+        "tool": "base-logit ranking, T=0",
+        "L": [
+          81,
+          85,
+          86
+        ]
+      }
+    },
+    {
+      "role": "cross",
+      "name": "base (EXL3 2.9bpw)",
+      "metrics": {
+        "bench:MMLU-14k": "c30"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c274",
+      "flags": [],
+      "panel": "MMLU-14k (full test set, base-logit ranking, T=0)",
+      "methodology": {
+        "reference": "base (EXL3 2.9bpw)",
+        "dataset": "full MMLU test set",
+        "ctx": "not stated",
+        "tool": "base-logit ranking, T=0",
+        "L": [
+          81,
+          85,
+          86
+        ]
+      },
+      "of": "not named on card"
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,98 @@
+{
+  "repo": "coolbho3k/DeepSeek-V4.1-Flash-GRAFT-3bpw",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "native MXFP4 DeepSeek-V4.1-Flash,not BF16;EXL3 comparison build",
+    "dataset": "held-out expert error;output evaluation corpus not stated",
+    "ctx": "not stated",
+    "tool": "not stated;GRAFT versus EXL3 comparison",
+    "L": [
+      16,
+      17,
+      18,
+      22,
+      24,
+      25,
+      26,
+      27,
+      33
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "GRAFT (this repo)",
+      "panel": "DeepSeek-V4.1-Flash, GRAFT 3-bit routed experts",
+      "methodology": {
+        "reference": "native MXFP4 DeepSeek-V4.1-Flash,not BF16;EXL3 comparison build",
+        "dataset": "held-out expert error;output evaluation corpus not stated",
+        "ctx": "not stated",
+        "tool": "not stated;GRAFT versus EXL3 comparison",
+        "L": [
+          16,
+          17,
+          18,
+          22,
+          24,
+          25,
+          26,
+          27,
+          33
+        ]
+      },
+      "metrics": {
+        "bench:held-out expert error relative to EXL3": "c1",
+        "bench:excess NLL over native (nats)": "c3",
+        "mean_kld": "c5",
+        "top1_pct": "c7"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Output evaluation dataset,context,runtime and KL vocabulary scope not stated [L22-27]",
+        "Engram and draft weights are copied from the EXL3 repository separately [L36-37]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "EXL3 3 bpw",
+      "panel": "DeepSeek-V4.1-Flash, GRAFT 3-bit routed experts",
+      "methodology": {
+        "reference": "native MXFP4 DeepSeek-V4.1-Flash,not BF16;EXL3 comparison build",
+        "dataset": "held-out expert error;output evaluation corpus not stated",
+        "ctx": "not stated",
+        "tool": "not stated;GRAFT versus EXL3 comparison",
+        "L": [
+          16,
+          17,
+          18,
+          22,
+          24,
+          25,
+          26,
+          27,
+          33
+        ]
+      },
+      "metrics": {
+        "bench:held-out expert error relative to EXL3": "c2",
+        "bench:excess NLL over native (nats)": "c4",
+        "mean_kld": "c6",
+        "top1_pct": "c8"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Output evaluation dataset,context,runtime and KL vocabulary scope not stated [L22-27]",
+        "Engram and draft weights are copied from the EXL3 repository separately [L36-37]"
+      ]
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,84 @@
+{
+ "repo": "apetersson/DeepSeek-V4.1-Flash-MixedQ2-GGUF",
+ "no_quality_claims": false,
+ "weights_modified": false,
+ "method": {
+  "reference": "native MXFP4 source decode for expert reconstruction; gguf-py decode for kernel check",
+  "dataset": "8 experts per projection; ggml CPU kernel blocks",
+  "ctx": "not applicable (component tests)",
+  "tool": "CPU reference quantizers and ggml_mul_mat on 32-vCPU pod",
+  "L": [
+   61,
+   62
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "mixed-Q2 GGUF routed experts",
+   "metrics": {},
+   "size": "c6.0",
+   "basis": "routed_experts",
+   "unit": "GB",
+   "panel": "Smoke-test findings (what was actually measured)",
+   "methodology": {
+    "reference": "native MXFP4 source decode for expert reconstruction; gguf-py decode for kernel check",
+    "dataset": "8 experts per projection; ggml CPU kernel blocks",
+    "ctx": "not applicable (component tests)",
+    "tool": "CPU reference quantizers and ggml_mul_mat on 32-vCPU pod",
+    "L": [
+     61,
+     62
+    ]
+   },
+   "flags": [
+    "Only component reconstruction/kernel fidelity measured; no runtime executed the model end to end [L17-19,61-67,194-198].",
+    "Routed-expert payload excludes Engram, MTP and vision [L28,36-39]."
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "mixed-Q2 GGUF routed experts",
+   "key": "bench:IQ2_XXS expert cosine minimum",
+   "L": 61,
+   "raw": "0.9407",
+   "panel": "Smoke-test findings (what was actually measured)"
+  },
+  {
+   "entry": "mixed-Q2 GGUF routed experts",
+   "key": "bench:Q2_K expert cosine minimum",
+   "L": 61,
+   "raw": "0.9633",
+   "panel": "Smoke-test findings (what was actually measured)"
+  },
+  {
+   "entry": "mixed-Q2 GGUF routed experts",
+   "key": "bench:IQ2_XXS expert relative RMS",
+   "L": 61,
+   "raw": "0.352",
+   "panel": "Smoke-test findings (what was actually measured)"
+  },
+  {
+   "entry": "mixed-Q2 GGUF routed experts",
+   "key": "bench:Q2_K expert relative RMS",
+   "L": 61,
+   "raw": "0.270",
+   "panel": "Smoke-test findings (what was actually measured)"
+  },
+  {
+   "entry": "mixed-Q2 GGUF routed experts",
+   "key": "bench:CPU kernel cosine",
+   "L": 62,
+   "raw": "0.99998",
+   "panel": "Smoke-test findings (what was actually measured)"
+  },
+  {
+   "entry": "mixed-Q2 GGUF routed experts",
+   "key": "bench:CPU kernel relative RMS",
+   "L": 62,
+   "raw": "0.0068",
+   "panel": "Smoke-test findings (what was actually measured)"
+  }
+ ]
+}

@@ -1,0 +1,284 @@
+{
+  "repo": "msuiche/DeepSeek-V4.1-Flash-NVFP4",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "native mixed FP8/MXFP4 checkpoint",
+    "dataset": "MMLU ten examples per subject; zero-shot tasks; NIAH",
+    "ctx": "NIAH 32K; other tasks not stated",
+    "tool": "zero-shot lm-eval on dequantized/re-encoded FP8 twin; stock vLLM on eight H200",
+    "L": [
+      75,
+      76,
+      77,
+      78,
+      79
+    ]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "this repo (twin)",
+      "panel": "End-to-end measured (2026-09-16)",
+      "methodology": {
+        "reference": "native mixed FP8/MXFP4 checkpoint",
+        "dataset": "MMLU ten examples per subject; zero-shot tasks; NIAH",
+        "ctx": "NIAH 32K; other tasks not stated",
+        "tool": "zero-shot lm-eval on dequantized/re-encoded FP8 twin; stock vLLM on eight H200",
+        "L": [
+          75,
+          76,
+          77,
+          78,
+          79
+        ]
+      },
+      "metrics": {
+        "bench:MMLU-acc": "c8",
+        "bench:ARC-c-acc_norm": "c10",
+        "bench:ARC-e-acc_norm": "c11",
+        "bench:HellaSwag-acc_norm": "c13",
+        "bench:BoolQ-acc": "c15",
+        "bench:PIQA-acc_norm": "c17",
+        "bench:WinoGrande-acc": "c19",
+        "bench:NIAH-32K-EM": "c21"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "These are a dequantized-FP8 twin, not a native NVFP4 serving run [L75-78].",
+        "Published NVFP4 cannot be served as-is on tested image [L70-73]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "FP8 source",
+      "panel": "End-to-end measured (2026-09-16)",
+      "methodology": {
+        "reference": "native mixed FP8/MXFP4 checkpoint",
+        "dataset": "MMLU ten examples per subject; zero-shot tasks; NIAH",
+        "ctx": "NIAH 32K; other tasks not stated",
+        "tool": "zero-shot lm-eval on dequantized/re-encoded FP8 twin; stock vLLM on eight H200",
+        "L": [
+          75,
+          76,
+          77,
+          78,
+          79
+        ]
+      },
+      "metrics": {
+        "bench:MMLU-acc": "c7",
+        "bench:ARC-c-acc_norm": "c9",
+        "bench:ARC-e-acc_norm": "c11",
+        "bench:HellaSwag-acc_norm": "c12",
+        "bench:BoolQ-acc": "c14",
+        "bench:PIQA-acc_norm": "c16",
+        "bench:WinoGrande-acc": "c18",
+        "bench:NIAH-32K-EM": "c20"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "own",
+      "name": "MTP/drafter dense",
+      "panel": "Measured quantization error (per-tensor, vs the FP8 source weights)",
+      "methodology": {
+        "reference": "source FP8 weights",
+        "dataset": "sampled tensors grouped by tensor class",
+        "ctx": "not applicable",
+        "tool": "per-tensor relative L2 error; local_validate.py",
+        "L": [
+          49,
+          51,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          124
+        ]
+      },
+      "metrics": {
+        "bench:relative-L2-error": "c1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Weight reconstruction error, not model-distribution KL [L49]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "attention indexer wq_b",
+      "panel": "Measured quantization error (per-tensor, vs the FP8 source weights)",
+      "methodology": {
+        "reference": "source FP8 weights",
+        "dataset": "sampled tensors grouped by tensor class",
+        "ctx": "not applicable",
+        "tool": "per-tensor relative L2 error; local_validate.py",
+        "L": [
+          49,
+          51,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          124
+        ]
+      },
+      "metrics": {
+        "bench:relative-L2-error": "c2"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Weight reconstruction error, not model-distribution KL [L49]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "attention projections",
+      "panel": "Measured quantization error (per-tensor, vs the FP8 source weights)",
+      "methodology": {
+        "reference": "source FP8 weights",
+        "dataset": "sampled tensors grouped by tensor class",
+        "ctx": "not applicable",
+        "tool": "per-tensor relative L2 error; local_validate.py",
+        "L": [
+          49,
+          51,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          124
+        ]
+      },
+      "metrics": {
+        "bench:relative-L2-error": "c3"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Weight reconstruction error, not model-distribution KL [L49]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "engram hash tables",
+      "panel": "Measured quantization error (per-tensor, vs the FP8 source weights)",
+      "methodology": {
+        "reference": "source FP8 weights",
+        "dataset": "sampled tensors grouped by tensor class",
+        "ctx": "not applicable",
+        "tool": "per-tensor relative L2 error; local_validate.py",
+        "L": [
+          49,
+          51,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          124
+        ]
+      },
+      "metrics": {
+        "bench:relative-L2-error": "c4"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Weight reconstruction error, not model-distribution KL [L49]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "engram wkv",
+      "panel": "Measured quantization error (per-tensor, vs the FP8 source weights)",
+      "methodology": {
+        "reference": "source FP8 weights",
+        "dataset": "sampled tensors grouped by tensor class",
+        "ctx": "not applicable",
+        "tool": "per-tensor relative L2 error; local_validate.py",
+        "L": [
+          49,
+          51,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          124
+        ]
+      },
+      "metrics": {
+        "bench:relative-L2-error": "c5"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Weight reconstruction error, not model-distribution KL [L49]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "shared experts",
+      "panel": "Measured quantization error (per-tensor, vs the FP8 source weights)",
+      "methodology": {
+        "reference": "source FP8 weights",
+        "dataset": "sampled tensors grouped by tensor class",
+        "ctx": "not applicable",
+        "tool": "per-tensor relative L2 error; local_validate.py",
+        "L": [
+          49,
+          51,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          124
+        ]
+      },
+      "metrics": {
+        "bench:relative-L2-error": "c6"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Weight reconstruction error, not model-distribution KL [L49]."
+      ]
+    }
+  ],
+  "prose": []
+}

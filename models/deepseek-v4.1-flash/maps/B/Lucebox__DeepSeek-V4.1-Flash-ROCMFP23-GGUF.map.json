@@ -1,0 +1,336 @@
+{
+  "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "teacher (fp4 checkpoint); source native DeepSeek V4.1 Flash, not BF16",
+    "dataset": "held-out fineweb-edu and separate internal hard bench",
+    "ctx": "fineweb-edu 8,184 held-out tokens; hard-bench question budgets vary",
+    "tool": "same reference forward pass, eval/ teacher log-probs and tokens; Lucebox lucebox_training/quantization",
+    "L": [
+      11,
+      19,
+      21,
+      32,
+      33,
+      34,
+      35,
+      37,
+      41
+    ]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "teacher (fp4 checkpoint)",
+      "panel": "DeepSeek V4.1 Flash for the Lucebox engine (ROCMFP block formats)",
+      "methodology": {
+        "reference": "teacher (fp4 checkpoint); source native DeepSeek V4.1 Flash, not BF16",
+        "dataset": "fineweb-edu, 8,184 held-out tokens",
+        "ctx": "not stated",
+        "tool": "KL restricted to top-256 versus teacher; same reference forward pass, eval/ log-probs and tokens; Lucebox lucebox_training/quantization",
+        "L": [
+          19,
+          21,
+          32,
+          33,
+          34,
+          35
+        ]
+      },
+      "metrics": {
+        "kld:fineweb-edu (top-256)": "c2",
+        "top1:fineweb-edu": "c3",
+        "ppl:fineweb-edu": "c4"
+      },
+      "size": "c1",
+      "unit": "GiB",
+      "basis": "routed_experts",
+      "bpw": null,
+      "flags": [
+        "KL is top-256, not full-vocabulary KL [L19,32-35]",
+        "Size is routed-expert bytes only, not total weights, decoder weights, or Engram-inclusive download [L19-25]",
+        "Native FP4 teacher reference, not an own quant [L21]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "antirez Q2 (IQ2_XXS / Q2_K)",
+      "panel": "DeepSeek V4.1 Flash for the Lucebox engine (ROCMFP block formats)",
+      "methodology": {
+        "reference": "teacher (fp4 checkpoint); source native DeepSeek V4.1 Flash, not BF16",
+        "dataset": "fineweb-edu, 8,184 held-out tokens",
+        "ctx": "not stated",
+        "tool": "KL restricted to top-256 versus teacher; same reference forward pass, eval/ log-probs and tokens; Lucebox lucebox_training/quantization",
+        "L": [
+          19,
+          22,
+          32,
+          33,
+          34,
+          35
+        ]
+      },
+      "metrics": {
+        "kld:fineweb-edu (top-256)": "c6",
+        "top1:fineweb-edu": "c7",
+        "ppl:fineweb-edu": "c8"
+      },
+      "size": "c5",
+      "unit": "GiB",
+      "basis": "routed_experts",
+      "bpw": null,
+      "flags": [
+        "KL is top-256, not full-vocabulary KL [L19,32-35]",
+        "Size is routed-expert bytes only, not total weights, decoder weights, or Engram-inclusive download [L19-25]"
+      ],
+      "of": "not named on card"
+    },
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash-ROCMFP23.gguf",
+      "panel": "DeepSeek V4.1 Flash for the Lucebox engine (ROCMFP block formats)",
+      "methodology": {
+        "reference": "teacher (fp4 checkpoint); source native DeepSeek V4.1 Flash, not BF16",
+        "dataset": "fineweb-edu, 8,184 held-out tokens",
+        "ctx": "not stated",
+        "tool": "KL restricted to top-256 versus teacher; same reference forward pass, eval/ log-probs and tokens; Lucebox lucebox_training/quantization",
+        "L": [
+          19,
+          23,
+          32,
+          33,
+          34,
+          35
+        ]
+      },
+      "metrics": {
+        "kld:fineweb-edu (top-256)": "c10",
+        "top1:fineweb-edu": "c11",
+        "ppl:fineweb-edu": "c12"
+      },
+      "size": "c9",
+      "unit": "GiB",
+      "basis": "routed_experts",
+      "bpw": null,
+      "flags": [
+        "KL is top-256, not full-vocabulary KL [L19,32-35]",
+        "Size is routed-expert bytes only, not total weights, decoder weights, or Engram-inclusive download [L19-25]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash-ROCMFP2S.gguf",
+      "panel": "DeepSeek V4.1 Flash for the Lucebox engine (ROCMFP block formats)",
+      "methodology": {
+        "reference": "teacher (fp4 checkpoint); source native DeepSeek V4.1 Flash, not BF16",
+        "dataset": "fineweb-edu, 8,184 held-out tokens",
+        "ctx": "not stated",
+        "tool": "KL restricted to top-256 versus teacher; same reference forward pass, eval/ log-probs and tokens; Lucebox lucebox_training/quantization",
+        "L": [
+          19,
+          24,
+          32,
+          33,
+          34,
+          35
+        ]
+      },
+      "metrics": {
+        "kld:fineweb-edu (top-256)": "c14",
+        "top1:fineweb-edu": "c15",
+        "ppl:fineweb-edu": "c16"
+      },
+      "size": "c13",
+      "unit": "GiB",
+      "basis": "routed_experts",
+      "bpw": null,
+      "flags": [
+        "KL is top-256, not full-vocabulary KL [L19,32-35]",
+        "Size is routed-expert bytes only, not total weights, decoder weights, or Engram-inclusive download [L19-25]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash-ROCMFP2S-MIX10.gguf",
+      "panel": "DeepSeek V4.1 Flash for the Lucebox engine (ROCMFP block formats)",
+      "methodology": {
+        "reference": "teacher (fp4 checkpoint); source native DeepSeek V4.1 Flash, not BF16",
+        "dataset": "fineweb-edu, 8,184 held-out tokens",
+        "ctx": "not stated",
+        "tool": "KL restricted to top-256 versus teacher; same reference forward pass, eval/ log-probs and tokens; Lucebox lucebox_training/quantization",
+        "L": [
+          19,
+          25,
+          32,
+          33,
+          34,
+          35
+        ]
+      },
+      "metrics": {
+        "kld:fineweb-edu (top-256)": "c18",
+        "top1:fineweb-edu": "c19",
+        "ppl:fineweb-edu": "c20"
+      },
+      "size": "c17",
+      "unit": "GiB",
+      "basis": "routed_experts",
+      "bpw": null,
+      "flags": [
+        "KL is top-256, not full-vocabulary KL [L19,32-35]",
+        "Size is routed-expert bytes only, not total weights, decoder weights, or Engram-inclusive download [L19-25]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "final, Lucebox profile + DSpark",
+      "panel": "IQ2 / IQ3 + MXFP8 builds",
+      "methodology": {
+        "reference": "not stated; comparison with antirez Q2",
+        "dataset": "internal hard bench, 177 questions in 96-question, 32-question and 49-question sets",
+        "ctx": "96-question set 8K tokens max; two long-reasoning sets 16K tokens max",
+        "tool": "Lucebox profile + DSpark",
+        "L": [
+          37,
+          39,
+          40,
+          41,
+          43,
+          46,
+          47,
+          48,
+          49
+        ]
+      },
+      "metrics": {
+        "bench:internal hard bench 96 questions (8K max)": "c24",
+        "bench:internal hard bench 32 long-reasoning questions (16K max)": "c28",
+        "bench:internal hard bench 49 long-reasoning questions (16K max)": "c31",
+        "bench:internal hard bench total (177 questions)": "c35"
+      },
+      "size": "c21",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Bench metrics are counts of correct answers, not percentages [L41,46-49]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "final, exact",
+      "panel": "IQ2 / IQ3 + MXFP8 builds",
+      "methodology": {
+        "reference": "not stated; comparison with antirez Q2",
+        "dataset": "internal hard bench, 177 questions in 96-question, 32-question and 49-question sets",
+        "ctx": "96-question set 8K tokens max; two long-reasoning sets 16K tokens max",
+        "tool": "plain greedy, no drafter",
+        "L": [
+          37,
+          39,
+          40,
+          41,
+          43,
+          46,
+          47,
+          48,
+          49
+        ]
+      },
+      "metrics": {
+        "bench:internal hard bench 96 questions (8K max)": "c25",
+        "bench:internal hard bench 32 long-reasoning questions (16K max)": "c29",
+        "bench:internal hard bench 49 long-reasoning questions (16K max)": "c32",
+        "bench:internal hard bench total (177 questions)": "c36"
+      },
+      "size": "c21",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Bench metrics are counts of correct answers, not percentages [L41,46-49]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "minus10gib, exact",
+      "panel": "IQ2 / IQ3 + MXFP8 builds",
+      "methodology": {
+        "reference": "not stated; comparison with antirez Q2",
+        "dataset": "internal hard bench, 177 questions in 96-question, 32-question and 49-question sets",
+        "ctx": "96-question set 8K tokens max; two long-reasoning sets 16K tokens max",
+        "tool": "plain greedy, no drafter",
+        "L": [
+          37,
+          39,
+          40,
+          41,
+          43,
+          46,
+          47,
+          48,
+          49
+        ]
+      },
+      "metrics": {
+        "bench:internal hard bench 96 questions (8K max)": "c26",
+        "bench:internal hard bench 49 long-reasoning questions (16K max)": "c33",
+        "bench:internal hard bench total (177 questions)": "c37"
+      },
+      "size": "c22",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Bench metrics are counts of correct answers, not percentages [L41,46-49]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "antirez Q2",
+      "panel": "IQ2 / IQ3 + MXFP8 builds",
+      "methodology": {
+        "reference": "not stated; comparison with antirez Q2",
+        "dataset": "internal hard bench, 177 questions in 96-question, 32-question and 49-question sets",
+        "ctx": "96-question set 8K tokens max; two long-reasoning sets 16K tokens max",
+        "tool": "not stated",
+        "L": [
+          37,
+          39,
+          40,
+          41,
+          43,
+          46,
+          47,
+          48,
+          49
+        ]
+      },
+      "metrics": {
+        "bench:internal hard bench 96 questions (8K max)": "c27",
+        "bench:internal hard bench 32 long-reasoning questions (16K max)": "c30",
+        "bench:internal hard bench 49 long-reasoning questions (16K max)": "c34",
+        "bench:internal hard bench total (177 questions)": "c38"
+      },
+      "size": "c23",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Bench metrics are counts of correct answers, not percentages [L41,46-49]"
+      ],
+      "of": "not named on card"
+    }
+  ],
+  "prose": [
+    {
+      "entry": "minus10gib, exact",
+      "panel": "IQ2 / IQ3 + MXFP8 builds",
+      "key": "bench:internal hard bench 32 long-reasoning questions (16K max)",
+      "L": 47,
+      "raw": "30"
+    }
+  ]
+}

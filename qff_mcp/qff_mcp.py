@@ -67,12 +67,16 @@ def _metric_for(S, metric):
     if metric: raise ValueError(f"set {S['id']!r} has metrics {ks}, not {metric!r}")
     return ks[0] if ks else None
 
+def _loss(point, metric):
+    value = point["m"][metric]["v"]
+    return -value if metric == "top1" or metric.startswith("top1:") else value
+
 def _frontier(P, k):
     """Pareto set: no other point is no larger AND better (lower) on k. Reference builds are never ranked."""
     P = [p for p in P if p.get("x") is not None and k in p.get("m", {}) and p["m"][k].get("v") is not None and not p.get("is_ref")]
     out = []
     for p in P:
-        dom = next((o for o in P if o is not p and ((o["x"] <= p["x"] and o["m"][k]["v"] < p["m"][k]["v"]) or (o["x"] < p["x"] and o["m"][k]["v"] <= p["m"][k]["v"]))), None)
+        dom = next((o for o in P if o is not p and ((o["x"] <= p["x"] and _loss(o, k) < _loss(p, k)) or (o["x"] < p["x"] and _loss(o, k) <= _loss(p, k)))), None)
         out.append((p, dom))
     return out
 
@@ -133,7 +137,7 @@ def list_sets(model: str, comparable_only: bool = True) -> dict:
 @server.tool()
 def frontier(model: str, set_id: str, metric: str = "", max_x: float | None = None) -> dict:
     """Efficiency frontier inside one comparable set: quants that no other quant in the set beats on both size and
-    the metric (lower is better). Each other quant lists the quant that beats it. max_x caps the set's x axis
+    the metric (top-1 higher is better; KLD/PPL lower is better). Each other quant lists the quant that beats it. max_x caps the set's x axis
     (GB or bits per weight, see the set's x label)."""
     m, d = _model(model)
     S = next((s for s in d["sets"] if s["id"] == set_id), None)
@@ -151,7 +155,7 @@ def frontier(model: str, set_id: str, metric: str = "", max_x: float | None = No
 
 @server.tool()
 def best_under(model: str, max_size_gb: float, metric: str = "kld") -> dict:
-    """For a size budget, the best quant under it in EACH comparable set that reports `metric` (lower is better) and
+    """For a size budget, the best quant under it in EACH comparable set that reports `metric` (higher top-1, lower KLD/PPL) and
     measures size in GB. Results from different sets are listed side by side and must not be ranked against each other."""
     m, d = _model(model); out = []
     for S in d["sets"]:
@@ -161,7 +165,7 @@ def best_under(model: str, max_size_gb: float, metric: str = "kld") -> dict:
         if not k: continue
         P = [p for p in S["points"] if not p.get("is_ref") and p.get("x") is not None and p["x"] <= max_size_gb and p.get("m", {}).get(k, {}).get("v") is not None]
         if not P: continue
-        b = min(P, key=lambda p: (p["m"][k]["v"], p["x"]))
+        b = min(P, key=lambda p: (_loss(p, k), p["x"]))
         out.append({"set": S["id"], "set_title": S["title"], "metric": k, "best": _point(b), "candidates": len(P)})
     out.sort(key=lambda x: -x["candidates"])
     return {"model": m["model"], "max_size_gb": max_size_gb, "per_set": out,

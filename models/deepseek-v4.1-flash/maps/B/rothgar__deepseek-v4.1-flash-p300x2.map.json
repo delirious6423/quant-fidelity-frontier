@@ -1,0 +1,85 @@
+{
+ "repo": "rothgar/deepseek-v4.1-flash-p300x2",
+ "no_quality_claims": false,
+ "weights_modified": false,
+ "method": {
+  "reference": "native DeepSeek-V4.1-Flash using DeepSeek's own CPU reference, activation fake-quant off",
+  "dataset": "512 mixed-text tokens; decisive top-1 subset has reference top-1 margin >=0.10",
+  "ctx": "512-token prefill / 256 teacher-forced decode steps",
+  "tool": "pure TT engine on QuietBox2 with 4 Blackhole chips",
+  "L": [
+   48,
+   49,
+   53,
+   54
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "512-token prefill",
+   "metrics": {
+    "mean_kld": "c2",
+    "top1:decisive": "c1"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "panel": "Measured on a QuietBox 2",
+   "methodology": {
+    "reference": "native DeepSeek-V4.1-Flash using DeepSeek's own CPU reference, activation fake-quant off",
+    "dataset": "512 mixed-text tokens; decisive top-1 subset has reference top-1 margin >=0.10",
+    "ctx": "512-token prefill",
+    "tool": "pure TT engine on QuietBox2 with 4 Blackhole chips",
+    "L": [
+     48,
+     49,
+     53,
+     54
+    ]
+   },
+   "flags": [
+    "Top-1 is restricted to decisive positions, not all-token agreement [L48-49]."
+   ]
+  },
+  {
+   "role": "own",
+   "name": "256 teacher-forced traced decode steps",
+   "metrics": {
+    "mean_kld": "c4",
+    "top1:decisive": "c3"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "panel": "Measured on a QuietBox 2",
+   "methodology": {
+    "reference": "native DeepSeek-V4.1-Flash using DeepSeek's own CPU reference, activation fake-quant off",
+    "dataset": "512 mixed-text tokens; decisive top-1 subset has reference top-1 margin >=0.10",
+    "ctx": "256 teacher-forced traced decode steps",
+    "tool": "pure TT engine on QuietBox2 with 4 Blackhole chips",
+    "L": [
+     48,
+     49,
+     53,
+     54
+    ]
+   },
+   "flags": [
+    "Prefill and decode are different checks; no full-size model download included in this container repo [L35-39,48-54]."
+   ]
+  },
+  {
+   "role": "own",
+   "name": "packed expert store",
+   "metrics": {},
+   "size": "c26.0",
+   "basis": "routed_experts",
+   "unit": "GB",
+   "flags": [
+    "Locally built expert cache; excludes other components and is not a complete model size [L37-39]."
+   ]
+  }
+ ],
+ "prose": []
+}

@@ -1,0 +1,140 @@
+{
+  "repo": "dongnhdev/DeepSeek-V4.1-Flash-Q2-EngramQ4-GGUF",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "antirez/deepseek-v4.1-flash-gguf DeepSeek-V4.1-Flash-Q2.gguf with original FP8 Engram; official-API continuations are scoring targets",
+    "dataset": "general: 100 cases, 2994 tokens; long: 9 cases, 576 tokens",
+    "ctx": "general ctx 4096; long prompts 8K–32K",
+    "tool": "score_official NLL scoring; dongnh311/ds4-metal-qwen runtime",
+    "L": [
+      13,
+      19,
+      66,
+      68,
+      70,
+      72,
+      73,
+      75,
+      78,
+      79
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash-Q2-EngramQ4.gguf",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "antirez/deepseek-v4.1-flash-gguf DeepSeek-V4.1-Flash-Q2.gguf with original FP8 Engram; official-API continuations are scoring targets",
+        "dataset": "general: 100 cases, 2994 tokens; long: 9 cases, 576 tokens",
+        "ctx": "general ctx 4096; long prompts 8K–32K",
+        "tool": "score_official NLL scoring; dongnh311/ds4-metal-qwen runtime",
+        "L": [
+          13,
+          19,
+          66,
+          68,
+          70,
+          72,
+          73,
+          75,
+          78,
+          79
+        ]
+      },
+      "metrics": {},
+      "size": "c1",
+      "unit": "bytes",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Percent NLL changes, not perplexity changes or KL [L68-76]",
+        "Reference source is already Q2 with FP8 Engram tables, not the native full checkpoint [L13,39-44]",
+        "Published long-set change is described as noise; small nine-case set [L73-76]",
+        "Total joined GGUF size includes re-encoded Engram tables [L28,39-46]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "6-bit control",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "antirez/deepseek-v4.1-flash-gguf DeepSeek-V4.1-Flash-Q2.gguf with original FP8 Engram; official-API continuations are scoring targets",
+        "dataset": "long set, nine cases",
+        "ctx": "8K–32K prompts; 576 tokens",
+        "tool": "score_official NLL scoring",
+        "L": [
+          68,
+          73,
+          75,
+          76
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Noise control on the small long-context set [L75-76]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "5-bit control",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "antirez/deepseek-v4.1-flash-gguf DeepSeek-V4.1-Flash-Q2.gguf with original FP8 Engram; official-API continuations are scoring targets",
+        "dataset": "long set, nine cases",
+        "ctx": "8K–32K prompts; 576 tokens",
+        "tool": "score_official NLL scoring",
+        "L": [
+          68,
+          73,
+          75,
+          76
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Noise control on the small long-context set [L75-76]"
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "DeepSeek-V4.1-Flash-Q2-EngramQ4.gguf",
+      "panel": "Quality",
+      "key": "bench:NLL change %/general",
+      "L": 72,
+      "raw": "−0.05 %"
+    },
+    {
+      "entry": "DeepSeek-V4.1-Flash-Q2-EngramQ4.gguf",
+      "panel": "Quality",
+      "key": "bench:NLL change %/long",
+      "L": 73,
+      "raw": "+0.94 %"
+    },
+    {
+      "entry": "6-bit control",
+      "panel": "Quality",
+      "key": "bench:NLL change %/long",
+      "L": 75,
+      "raw": "+1.04 %"
+    },
+    {
+      "entry": "5-bit control",
+      "panel": "Quality",
+      "key": "bench:NLL change %/long",
+      "L": 75,
+      "raw": "+1.33 %"
+    }
+  ]
+}

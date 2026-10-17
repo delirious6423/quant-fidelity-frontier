@@ -1,0 +1,261 @@
+{
+  "repo": "vcruz305/DSV4.1-Flash-SAGE-EXL3-1.59bpw",
+  "no_quality_claims": false,
+  "weights_modified": false,
+  "method": {
+    "reference": "native FP4 release checkpoint through reference PyTorch kernels",
+    "dataset": "32 held-out sequences: eight each general text, code, math, reasoning",
+    "ctx": "4096 tokens per sequence",
+    "tool": "teacher-forced, full-vocabulary KL per token; top-1 and top-5 agreement, not generated-task pass rates",
+    "L": [
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "this pack, 1.59 bpw",
+      "metrics": {
+        "mean_kld": "c2",
+        "top1_pct": "c3",
+        "kld:general": "c5",
+        "kld:code": "c6",
+        "kld:math": "c7",
+        "kld:reasoning": "c8",
+        "bench:top5 agreement (published)": "c4"
+      },
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "native FP4 release checkpoint through reference PyTorch kernels",
+        "dataset": "32 held-out sequences: eight each general text, code, math, reasoning",
+        "ctx": "4096 tokens per sequence",
+        "tool": "teacher-forced, full-vocabulary KL per token; top-1 and top-5 agreement, not generated-task pass rates",
+        "L": [
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56
+        ]
+      },
+      "size": "c1",
+      "unit": "GB",
+      "basis": "routed_experts",
+      "bpw": "c21",
+      "flags": [
+        "Size and bpw are routed-expert scope, not whole packed model; packed model includes native Engram and protected tensors [L35-46,58-60,77-83].",
+        "Printed Top-5 values are below printed Top-1 despite the agreement wording; values retained without repairing the publisher's labels [L54-62]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "3.30 bpw sibling",
+      "metrics": {
+        "mean_kld": "c10",
+        "top1_pct": "c11",
+        "kld:general": "c13",
+        "kld:code": "c14",
+        "kld:math": "c15",
+        "kld:reasoning": "c16",
+        "bench:top5 agreement (published)": "c12"
+      },
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "native FP4 release checkpoint through reference PyTorch kernels",
+        "dataset": "32 held-out sequences: eight each general text, code, math, reasoning",
+        "ctx": "4096 tokens per sequence",
+        "tool": "teacher-forced, full-vocabulary KL per token; top-1 and top-5 agreement, not generated-task pass rates",
+        "L": [
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56
+        ]
+      },
+      "size": "c9",
+      "unit": "GB",
+      "basis": "routed_experts",
+      "bpw": "c22",
+      "flags": [
+        "Printed Top-5 values are below printed Top-1 despite the agreement wording; values retained without repairing the publisher's labels [L54-62]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "FP4 reference",
+      "metrics": {
+        "mean_kld": "c17",
+        "top1_pct": "c18",
+        "bench:top5 agreement (published)": "c18"
+      },
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "native FP4 release checkpoint through reference PyTorch kernels",
+        "dataset": "32 held-out sequences: eight each general text, code, math, reasoning",
+        "ctx": "4096 tokens per sequence",
+        "tool": "teacher-forced, full-vocabulary KL per token; top-1 and top-5 agreement, not generated-task pass rates",
+        "L": [
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56
+        ]
+      }
+    },
+    {
+      "role": "own",
+      "name": "this pack, 1.59 bpw; tokens 0\u2013512",
+      "metrics": {},
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "native FP4 release checkpoint through reference PyTorch kernels",
+        "dataset": "32 held-out sequences: eight each general text, code, math, reasoning",
+        "ctx": "scored positions 0\u2013512",
+        "tool": "teacher-forced, full-vocabulary KL per token; top-1 and top-5 agreement, not generated-task pass rates",
+        "L": [
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56
+        ]
+      },
+      "size": "c1",
+      "unit": "GB",
+      "basis": "routed_experts",
+      "bpw": "c21",
+      "flags": [
+        "Printed Top-5 values are below printed Top-1 despite the agreement wording; values retained without repairing the publisher's labels [L54-62]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "this pack, 1.59 bpw; tokens 2048\u20134096",
+      "metrics": {},
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "native FP4 release checkpoint through reference PyTorch kernels",
+        "dataset": "32 held-out sequences: eight each general text, code, math, reasoning",
+        "ctx": "scored positions 2048\u20134096",
+        "tool": "teacher-forced, full-vocabulary KL per token; top-1 and top-5 agreement, not generated-task pass rates",
+        "L": [
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56
+        ]
+      },
+      "size": "c1",
+      "unit": "GB",
+      "basis": "routed_experts",
+      "bpw": "c21",
+      "flags": [
+        "Printed Top-5 values are below printed Top-1 despite the agreement wording; values retained without repairing the publisher's labels [L54-62]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "Packed size (this pack)",
+      "metrics": {},
+      "size": "c19.0",
+      "unit": "GB",
+      "basis": "disk",
+      "flags": [
+        "Complete packed download includes Engram and protected tensors; the quality table's expert-byte sizes are separate [L39-46,77-83]."
+      ],
+      "panel": "Pack"
+    }
+  ],
+  "prose": [
+    {
+      "entry": "this pack, 1.59 bpw",
+      "panel": "Measured quality",
+      "key": "top1:general",
+      "L": 64,
+      "raw": "82.0%"
+    },
+    {
+      "entry": "this pack, 1.59 bpw",
+      "panel": "Measured quality",
+      "key": "top1:code",
+      "L": 64,
+      "raw": "97.9%"
+    },
+    {
+      "entry": "this pack, 1.59 bpw",
+      "panel": "Measured quality",
+      "key": "top1:math",
+      "L": 64,
+      "raw": "91.7%"
+    },
+    {
+      "entry": "this pack, 1.59 bpw",
+      "panel": "Measured quality",
+      "key": "top1:reasoning",
+      "L": 65,
+      "raw": "93.2%"
+    },
+    {
+      "entry": "3.30 bpw sibling",
+      "panel": "Measured quality",
+      "key": "top1:general",
+      "L": 65,
+      "raw": "88.8"
+    },
+    {
+      "entry": "3.30 bpw sibling",
+      "panel": "Measured quality",
+      "key": "top1:code",
+      "L": 65,
+      "raw": "98.3"
+    },
+    {
+      "entry": "3.30 bpw sibling",
+      "panel": "Measured quality",
+      "key": "top1:math",
+      "L": 65,
+      "raw": "94.1"
+    },
+    {
+      "entry": "3.30 bpw sibling",
+      "panel": "Measured quality",
+      "key": "top1:reasoning",
+      "L": 65,
+      "raw": "94.7"
+    },
+    {
+      "entry": "this pack, 1.59 bpw; tokens 0\u2013512",
+      "panel": "Measured quality",
+      "key": "mean_kld",
+      "L": 66,
+      "raw": "0.201"
+    },
+    {
+      "entry": "this pack, 1.59 bpw; tokens 2048\u20134096",
+      "panel": "Measured quality",
+      "key": "mean_kld",
+      "L": 66,
+      "raw": "0.181"
+    }
+  ]
+}

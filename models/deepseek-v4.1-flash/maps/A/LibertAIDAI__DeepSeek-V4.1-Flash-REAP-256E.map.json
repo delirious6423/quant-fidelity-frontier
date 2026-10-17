@@ -1,0 +1,438 @@
+{
+  "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-REAP-256E",
+  "no_quality_claims": false,
+  "weights_modified": true,
+  "method": {
+    "reference": "unpruned DeepSeek-V4.1-Flash, native MXFP4 experts and FP8 dense weights; not BF16",
+    "dataset": "held-out text, zero overlap with calibration corpus",
+    "ctx": "65,504 evaluation tokens; context length not stated",
+    "tool": "REAP measurement scripts; evaluation execution backend not stated",
+    "L": [
+      22,
+      23,
+      118,
+      120,
+      121,
+      123,
+      125,
+      128,
+      131
+    ]
+  },
+  "entries": [
+    {
+      "role": "cross",
+      "name": "384 (unpruned)",
+      "metrics": {
+        "ppl:text": "c25"
+      },
+      "panel": "Measurements",
+      "methodology": {
+        "reference": "unpruned DeepSeek-V4.1-Flash, native MXFP4 experts and FP8 dense weights; not BF16",
+        "dataset": "held-out text, zero overlap with calibration corpus",
+        "ctx": "65,504 evaluation tokens; context length not stated",
+        "tool": "REAP measurement scripts; evaluation execution backend not stated",
+        "L": [
+          22,
+          23,
+          118,
+          120,
+          121,
+          123,
+          125,
+          128,
+          131
+        ]
+      },
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "size": "c44.0",
+      "unit": "GiB",
+      "basis": "disk"
+    },
+    {
+      "role": "ladder",
+      "name": "272",
+      "metrics": {
+        "ppl:text": "c27",
+        "ppl_delta_pct": "c28"
+      },
+      "panel": "Measurements",
+      "methodology": {
+        "reference": "unpruned DeepSeek-V4.1-Flash, native MXFP4 experts and FP8 dense weights; not BF16",
+        "dataset": "held-out text, zero overlap with calibration corpus",
+        "ctx": "65,504 evaluation tokens; context length not stated",
+        "tool": "REAP measurement scripts; evaluation execution backend not stated",
+        "L": [
+          22,
+          23,
+          118,
+          120,
+          121,
+          123,
+          125,
+          128,
+          131
+        ]
+      }
+    },
+    {
+      "role": "ladder",
+      "name": "256, mean-saliency ranking",
+      "metrics": {
+        "ppl:text": "c29",
+        "ppl_delta_pct": "c30"
+      },
+      "panel": "Measurements",
+      "methodology": {
+        "reference": "unpruned DeepSeek-V4.1-Flash, native MXFP4 experts and FP8 dense weights; not BF16",
+        "dataset": "held-out text, zero overlap with calibration corpus",
+        "ctx": "65,504 evaluation tokens; context length not stated",
+        "tool": "REAP measurement scripts; evaluation execution backend not stated",
+        "L": [
+          22,
+          23,
+          118,
+          120,
+          121,
+          123,
+          125,
+          128,
+          131
+        ]
+      }
+    },
+    {
+      "role": "own",
+      "name": "256, balanced ranking (this repo)",
+      "metrics": {
+        "ppl:text": "c31",
+        "ppl_delta_pct": "c32"
+      },
+      "panel": "Measurements",
+      "methodology": {
+        "reference": "unpruned DeepSeek-V4.1-Flash, native MXFP4 experts and FP8 dense weights; not BF16",
+        "dataset": "held-out text, zero overlap with calibration corpus",
+        "ctx": "65,504 evaluation tokens; context length not stated",
+        "tool": "REAP measurement scripts; evaluation execution backend not stated",
+        "L": [
+          22,
+          23,
+          118,
+          120,
+          121,
+          123,
+          125,
+          128,
+          131
+        ]
+      },
+      "size": "c57",
+      "unit": "GiB",
+      "basis": "excl_engram",
+      "flags": [
+        "This repository excludes the original Engram tables, which must be attached separately [L215-229].",
+        "REAP removes routed experts, so this is a modified-weight checkpoint, not quantization-only [L18-25]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "240",
+      "metrics": {
+        "ppl:text": "c34",
+        "ppl_delta_pct": "c35"
+      },
+      "panel": "Measurements",
+      "methodology": {
+        "reference": "unpruned DeepSeek-V4.1-Flash, native MXFP4 experts and FP8 dense weights; not BF16",
+        "dataset": "held-out text, zero overlap with calibration corpus",
+        "ctx": "65,504 evaluation tokens; context length not stated",
+        "tool": "REAP measurement scripts; evaluation execution backend not stated",
+        "L": [
+          22,
+          23,
+          118,
+          120,
+          121,
+          123,
+          125,
+          128,
+          131
+        ]
+      }
+    },
+    {
+      "role": "ladder",
+      "name": "192",
+      "metrics": {
+        "ppl:text": "c37",
+        "ppl_delta_pct": "c38"
+      },
+      "panel": "Measurements",
+      "methodology": {
+        "reference": "unpruned DeepSeek-V4.1-Flash, native MXFP4 experts and FP8 dense weights; not BF16",
+        "dataset": "held-out text, zero overlap with calibration corpus",
+        "ctx": "65,504 evaluation tokens; context length not stated",
+        "tool": "REAP measurement scripts; evaluation execution backend not stated",
+        "L": [
+          22,
+          23,
+          118,
+          120,
+          121,
+          123,
+          125,
+          128,
+          131
+        ]
+      }
+    },
+    {
+      "role": "cross",
+      "name": "384 (unpruned)",
+      "metrics": {
+        "ppl:caption": "c2"
+      },
+      "panel": "Why the ranking is different from 272E \u2014 and what it costs",
+      "methodology": {
+        "reference": "unpruned DeepSeek-V4.1-Flash, native MXFP4 experts and FP8 dense weights; not BF16",
+        "dataset": "image-conditioned caption evaluation",
+        "ctx": "2,048 caption evaluation tokens; context length not stated",
+        "tool": "REAP measurement scripts; evaluation execution backend not stated",
+        "L": [
+          43,
+          51,
+          53,
+          75,
+          78,
+          252,
+          254,
+          255
+        ]
+      },
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "size": "c44.0",
+      "unit": "GiB",
+      "basis": "disk"
+    },
+    {
+      "role": "ladder",
+      "name": "264, mean-saliency ranking",
+      "metrics": {
+        "ppl:caption": "c7"
+      },
+      "panel": "Why the ranking is different from 272E \u2014 and what it costs",
+      "methodology": {
+        "reference": "unpruned DeepSeek-V4.1-Flash, native MXFP4 experts and FP8 dense weights; not BF16",
+        "dataset": "image-conditioned caption evaluation",
+        "ctx": "2,048 caption evaluation tokens; context length not stated",
+        "tool": "REAP measurement scripts; evaluation execution backend not stated",
+        "L": [
+          43,
+          51,
+          53,
+          75,
+          78,
+          252,
+          254,
+          255
+        ]
+      }
+    },
+    {
+      "role": "ladder",
+      "name": "256, mean-saliency ranking",
+      "metrics": {
+        "ppl:caption": "c13",
+        "ppl_delta_pct": "c14"
+      },
+      "panel": "Why the ranking is different from 272E \u2014 and what it costs",
+      "methodology": {
+        "reference": "unpruned DeepSeek-V4.1-Flash, native MXFP4 experts and FP8 dense weights; not BF16",
+        "dataset": "image-conditioned caption evaluation",
+        "ctx": "2,048 caption evaluation tokens; context length not stated",
+        "tool": "REAP measurement scripts; evaluation execution backend not stated",
+        "L": [
+          43,
+          51,
+          53,
+          75,
+          78,
+          252,
+          254,
+          255
+        ]
+      }
+    },
+    {
+      "role": "own",
+      "name": "256, balanced (this repo)",
+      "metrics": {
+        "ppl:caption": "c17",
+        "ppl_delta_pct": "c18"
+      },
+      "panel": "Why the ranking is different from 272E \u2014 and what it costs",
+      "methodology": {
+        "reference": "unpruned DeepSeek-V4.1-Flash, native MXFP4 experts and FP8 dense weights; not BF16",
+        "dataset": "image-conditioned caption evaluation",
+        "ctx": "2,048 caption evaluation tokens; context length not stated",
+        "tool": "REAP measurement scripts; evaluation execution backend not stated",
+        "L": [
+          43,
+          51,
+          53,
+          75,
+          78,
+          252,
+          254,
+          255
+        ]
+      },
+      "size": "c57",
+      "unit": "GiB",
+      "basis": "excl_engram",
+      "flags": [
+        "Caption perplexity uses a small image-conditioned evaluation; size excludes separately supplied Engram tables [L215-229,254-255]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "272, text + image saliency",
+      "metrics": {
+        "ppl:caption": "c19",
+        "ppl_delta_pct": "c20"
+      },
+      "panel": "The underlying reason: this model routes vision separately",
+      "methodology": {
+        "reference": "unpruned DeepSeek-V4.1-Flash, native MXFP4 experts and FP8 dense weights; not BF16",
+        "dataset": "image-conditioned caption evaluation",
+        "ctx": "2,048 caption evaluation tokens; context length not stated",
+        "tool": "REAP ranking ablation, each run keeps 272 experts",
+        "L": [
+          101,
+          102,
+          103,
+          104,
+          106,
+          108,
+          109,
+          110,
+          254
+        ]
+      }
+    },
+    {
+      "role": "ladder",
+      "name": "272, random",
+      "metrics": {
+        "ppl:caption": "c21",
+        "ppl_delta_pct": "c22"
+      },
+      "panel": "The underlying reason: this model routes vision separately",
+      "methodology": {
+        "reference": "unpruned DeepSeek-V4.1-Flash, native MXFP4 experts and FP8 dense weights; not BF16",
+        "dataset": "image-conditioned caption evaluation",
+        "ctx": "2,048 caption evaluation tokens; context length not stated",
+        "tool": "REAP ranking ablation, each run keeps 272 experts",
+        "L": [
+          101,
+          102,
+          103,
+          104,
+          106,
+          108,
+          109,
+          110,
+          254
+        ]
+      }
+    },
+    {
+      "role": "ladder",
+      "name": "272, text-only saliency",
+      "metrics": {
+        "ppl:caption": "c23",
+        "ppl_delta_pct": "c24"
+      },
+      "panel": "The underlying reason: this model routes vision separately",
+      "methodology": {
+        "reference": "unpruned DeepSeek-V4.1-Flash, native MXFP4 experts and FP8 dense weights; not BF16",
+        "dataset": "image-conditioned caption evaluation",
+        "ctx": "2,048 caption evaluation tokens; context length not stated",
+        "tool": "REAP ranking ablation, each run keeps 272 experts",
+        "L": [
+          101,
+          102,
+          103,
+          104,
+          106,
+          108,
+          109,
+          110,
+          254
+        ]
+      }
+    },
+    {
+      "role": "ladder",
+      "name": "304, text-only saliency",
+      "metrics": {},
+      "panel": "The underlying reason: this model routes vision separately",
+      "methodology": {
+        "reference": "unpruned DeepSeek-V4.1-Flash, native MXFP4 experts and FP8 dense weights; not BF16",
+        "dataset": "held-out text, zero overlap with calibration corpus",
+        "ctx": "65,504 evaluation tokens; context length not stated",
+        "tool": "REAP measurement scripts; evaluation execution backend not stated",
+        "L": [
+          22,
+          23,
+          118,
+          120,
+          121,
+          123,
+          125,
+          128,
+          131
+        ]
+      }
+    },
+    {
+      "role": "ladder",
+      "name": "304, combined ranking",
+      "metrics": {},
+      "panel": "The underlying reason: this model routes vision separately",
+      "methodology": {
+        "reference": "unpruned DeepSeek-V4.1-Flash, native MXFP4 experts and FP8 dense weights; not BF16",
+        "dataset": "held-out text, zero overlap with calibration corpus",
+        "ctx": "65,504 evaluation tokens; context length not stated",
+        "tool": "REAP measurement scripts; evaluation execution backend not stated",
+        "L": [
+          22,
+          23,
+          118,
+          120,
+          121,
+          123,
+          125,
+          128,
+          131
+        ]
+      }
+    }
+  ],
+  "prose": [
+    {
+      "entry": "304, text-only saliency",
+      "panel": "The underlying reason: this model routes vision separately",
+      "key": "ppl:text",
+      "L": 113,
+      "raw": "3.7300"
+    },
+    {
+      "entry": "304, combined ranking",
+      "panel": "The underlying reason: this model routes vision separately",
+      "key": "ppl:text",
+      "L": 113,
+      "raw": "3.7359"
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "repo": "pfeifferj/DeepSeek-V4.1-Flash-GSQ-RCO-GGUF",
+  "no_quality_claims": false,
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated (absolute benchmark/PPL results; not a quality-loss reference)",
+    "dataset": "MMLU-Pro fixed 2,000-question subset, raw zero-shot prompts; held-out PPL 4,088 positions; small IFEval/GSM8K probes",
+    "ctx": "2,048-token context limit for MMLU-Pro",
+    "tool": "supplied runtime; F32 matrix multiplication and KV caches; Flash Attention disabled",
+    "L": [
+      69,
+      73,
+      74,
+      75,
+      76,
+      78
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash-GSQ-RCO-3.0bit.gguf",
+      "metrics": {
+        "bench:MMLU-Pro": "c6"
+      },
+      "size": "c1",
+      "basis": "disk",
+      "unit": "GB",
+      "flags": [
+        "File size includes backbone plus Q8_0 Engram; DSpark draft and vision projector are separate files [L53,61-63].",
+        "Bits per weight describes the backbone only, not the complete file including Engram [L40,61]."
+      ],
+      "panel": "Results",
+      "bpw": "c9001",
+      "methodology": {
+        "reference": "not stated; absolute results",
+        "dataset": "MMLU-Pro fixed 2,000-question subset",
+        "ctx": "2,048-token context limit",
+        "tool": "supplied runtime; raw zero-shot prompts; no reasoning; single-token answer-letter log probabilities; F32 matrix multiplication and KV caches; Flash Attention disabled",
+        "L": [
+          69,
+          73
+        ]
+      }
+    },
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash-GSQ-RCO-3.0bit.gguf — held-out PPL",
+      "metrics": {
+        "ppl": "c7"
+      },
+      "size": "c1",
+      "basis": "disk",
+      "unit": "GB",
+      "flags": [
+        "File size includes backbone plus Q8_0 Engram; DSpark draft and vision projector are separate files [L53,61-63].",
+        "Bits per weight describes the backbone only, not the complete file including Engram [L40,61].",
+        "Absolute held-out perplexity; no reference PPL, corpus name or PPL context supplied [L74]."
+      ],
+      "panel": "Results",
+      "bpw": "c9001",
+      "methodology": {
+        "reference": "not stated; absolute results",
+        "dataset": "held-out corpus not named; 4,088 scored positions",
+        "ctx": "not stated for PPL",
+        "tool": "not stated for PPL",
+        "L": [
+          74
+        ]
+      }
+    },
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash-GSQ-RCO-3.0bit.gguf — IFEval probe",
+      "metrics": {},
+      "size": "c1",
+      "basis": "disk",
+      "unit": "GB",
+      "flags": [
+        "File size includes backbone plus Q8_0 Engram; DSpark draft and vision projector are separate files [L53,61-63].",
+        "Bits per weight describes the backbone only, not the complete file including Engram [L40,61].",
+        "16 strict-checker passes include one truncated response; only 15 completed and the truncated response was not parsed [L75,78]."
+      ],
+      "panel": "Results",
+      "bpw": "c9001",
+      "methodology": {
+        "reference": "not stated; absolute results",
+        "dataset": "IFEval, 16 prompts",
+        "ctx": "not stated for IFEval",
+        "tool": "strict checker",
+        "L": [
+          75,
+          78
+        ]
+      }
+    },
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash-GSQ-RCO-3.0bit.gguf — GSM8K probe",
+      "metrics": {},
+      "size": "c1",
+      "basis": "disk",
+      "unit": "GB",
+      "flags": [
+        "File size includes backbone plus Q8_0 Engram; DSpark draft and vision projector are separate files [L53,61-63].",
+        "Bits per weight describes the backbone only, not the complete file including Engram [L40,61]."
+      ],
+      "panel": "Results",
+      "bpw": "c9001",
+      "methodology": {
+        "reference": "not stated; absolute results",
+        "dataset": "GSM8K, 8 problems",
+        "ctx": "not stated for GSM8K",
+        "tool": "not stated for GSM8K",
+        "L": [
+          76,
+          78
+        ]
+      }
+    }
+  ],
+  "prose": [
+    {
+      "entry": "DeepSeek-V4.1-Flash-GSQ-RCO-3.0bit.gguf — IFEval probe",
+      "key": "bench:IFEval strict checker passes (16 prompts)",
+      "L": 75,
+      "raw": "16 passed",
+      "panel": "Results"
+    },
+    {
+      "entry": "DeepSeek-V4.1-Flash-GSQ-RCO-3.0bit.gguf — GSM8K probe",
+      "key": "bench:GSM8K correct (8 problems)",
+      "L": 76,
+      "raw": "8 completed correctly",
+      "panel": "Results"
+    }
+  ]
+}

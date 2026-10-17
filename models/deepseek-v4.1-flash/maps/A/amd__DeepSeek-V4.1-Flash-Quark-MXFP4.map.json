@@ -1,0 +1,211 @@
+{
+  "repo": "amd/DeepSeek-V4.1-Flash-Quark-MXFP4",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "native deepseek-ai/DeepSeek-V4.1-Flash mixed FP8/FP4 source",
+    "dataset": "GSM8K8-shot and GPQA Diamond0-shot",
+    "ctx": "GSM8K generation4096;GPQA generation65536",
+    "tool": "vLLM ROCm;lm-eval GSM8K and sgl-eval GPQA; matched host/settings for each arm",
+    "L": [
+      86,
+      88,
+      94,
+      95,
+      97,
+      98,
+      109,
+      123,
+      124,
+      130,
+      131,
+      142,
+      143,
+      144,
+      145,
+      146
+    ]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "deepseek-ai/DeepSeek-V4.1-Flash — GSM8K",
+      "panel": "Accuracy",
+      "methodology": {
+        "reference": "native deepseek-ai/DeepSeek-V4.1-Flash mixed FP8/FP4 source",
+        "dataset": "GSM8K,8-shot,flexible-extract",
+        "ctx": "max_generation4096;server8192 sufficient",
+        "tool": "lm-eval,temperature0,seed42",
+        "L": [
+          88,
+          94,
+          95,
+          97,
+          98,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          119,
+          123,
+          124,
+          130,
+          131,
+          142,
+          143,
+          144,
+          145,
+          146
+        ]
+      },
+      "metrics": {
+        "bench:GSM8K (8-shot, flexible-extract)": "c1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Matched benchmark host, framework and settings [L97-98]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "deepseek-ai/DeepSeek-V4.1-Flash — GPQA Diamond",
+      "panel": "Accuracy",
+      "methodology": {
+        "reference": "native deepseek-ai/DeepSeek-V4.1-Flash mixed FP8/FP4 source",
+        "dataset": "GPQA Diamond,all198questions,0-shot",
+        "ctx": "max_generation65536;server max_model_len73728",
+        "tool": "sgl-eval,temperature1.0,top_p0.95,thinking,n_repeats1",
+        "L": [
+          88,
+          94,
+          95,
+          97,
+          98,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          119,
+          123,
+          124,
+          130,
+          131,
+          142,
+          143,
+          144,
+          145,
+          146
+        ]
+      },
+      "metrics": {
+        "bench:GPQA Diamond (0-shot, thinking)": "c4"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Matched benchmark host, framework and settings [L97-98]",
+        "Stochastic198-question result; source says gap lies within confidence interval and models should be read as equivalent [L100-105]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "amd/DeepSeek-V4.1-Flash-MXFP4 — GSM8K",
+      "panel": "Accuracy",
+      "methodology": {
+        "reference": "native deepseek-ai/DeepSeek-V4.1-Flash mixed FP8/FP4 source",
+        "dataset": "GSM8K,8-shot,flexible-extract",
+        "ctx": "max_generation4096;server8192 sufficient",
+        "tool": "lm-eval,temperature0,seed42",
+        "L": [
+          88,
+          94,
+          95,
+          97,
+          98,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          119,
+          123,
+          124,
+          130,
+          131,
+          142,
+          143,
+          144,
+          145,
+          146
+        ]
+      },
+      "metrics": {
+        "bench:GSM8K (8-shot, flexible-extract)": "c2"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Matched benchmark host, framework and settings [L97-98]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "amd/DeepSeek-V4.1-Flash-MXFP4 — GPQA Diamond",
+      "panel": "Accuracy",
+      "methodology": {
+        "reference": "native deepseek-ai/DeepSeek-V4.1-Flash mixed FP8/FP4 source",
+        "dataset": "GPQA Diamond,all198questions,0-shot",
+        "ctx": "max_generation65536;server max_model_len73728",
+        "tool": "sgl-eval,temperature1.0,top_p0.95,thinking,n_repeats1",
+        "L": [
+          88,
+          94,
+          95,
+          97,
+          98,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          119,
+          123,
+          124,
+          130,
+          131,
+          142,
+          143,
+          144,
+          145,
+          146
+        ]
+      },
+      "metrics": {
+        "bench:GPQA Diamond (0-shot, thinking)": "c5"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Matched benchmark host, framework and settings [L97-98]",
+        "Stochastic198-question result; source says gap lies within confidence interval and models should be read as equivalent [L100-105]"
+      ]
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,92 @@
+{
+  "repo": "sayyidfareed/DeepSeek-V4.1-Flash-Next-DGX-Spark-512K",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "not stated",
+    "dataset": "complete HumanEval+ Mini generation set and frozen executable coding microbenchmark",
+    "ctx": "not stated",
+    "tool": "generated programs executed in network-disabled containers",
+    "L": [
+      176,
+      177,
+      178
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Distributed needle retrieval",
+      "panel": "Measured on the GX10",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "deterministic varied archive records; five buried unique values",
+        "ctx": "qualified long prompt; capacity is larger than tested evidence",
+        "tool": "long_context_probe.py on GX10/GB10",
+        "L": [
+          51,
+          53,
+          66,
+          217,
+          218,
+          219
+        ]
+      },
+      "metrics": {
+        "bench:needle-retrieval-correct": "c1.0"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Retrieval and operational-stability test, not comprehensive long-context reasoning [L219].",
+        "Fixed K154 expert pruning; no fallback to missing source experts [L78-81]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "K154 static package",
+      "panel": "Short-context quality check",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "complete HumanEval+ Mini generation set and frozen executable coding microbenchmark",
+        "ctx": "not stated",
+        "tool": "generated programs executed in network-disabled containers",
+        "L": [
+          176,
+          177,
+          178
+        ]
+      },
+      "metrics": {
+        "bench:executable-coding-microbenchmark-correct": "c5.0"
+      },
+      "size": "c47",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Bounded coding qualification, not a general benchmark claim [L184-185].",
+        "Download is total packaged model; resident expert arena and Engram storage are separate scopes [L98-100,L114,L154]."
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "K154 static package",
+      "panel": "Short-context quality check",
+      "key": "bench:HumanEval",
+      "L": 60,
+      "raw": "91.5%"
+    },
+    {
+      "entry": "K154 static package",
+      "panel": "Short-context quality check",
+      "key": "bench:HumanEval-plus-Mini",
+      "L": 61,
+      "raw": "86.6%"
+    }
+  ]
+}

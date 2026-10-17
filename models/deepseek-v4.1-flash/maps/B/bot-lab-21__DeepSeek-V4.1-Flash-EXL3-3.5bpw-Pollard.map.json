@@ -1,0 +1,130 @@
+{
+  "repo": "bot-lab-21/DeepSeek-V4.1-Flash-EXL3-3.5bpw-Pollard",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated",
+    "dataset": "PPL probe: six held-out texts, 4,210 tokens; HumanEval / HumanEval+",
+    "ctx": "served context 300K",
+    "tool": "TP4 vLLM + cuda-exl3; DSpark; greedy evalplus for generated-code pass@1",
+    "L": [
+      90,
+      103,
+      104
+    ]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "all layers K=3",
+      "panel": "Measured — pre-serving (DeepSeek's reference forward with every routed expert replaced by its EXL3 reconstruction; 39 in-domain calibration rows × 2048 tokens, paired per row against bf16)",
+      "methodology": {
+        "reference": "native mixed MXFP4/FP8 release exactly upscaled to BF16, not a native BF16 release",
+        "dataset": "39 in-domain Hessian calibration rows",
+        "ctx": "2048 tokens per row",
+        "tool": "DeepSeek reference forward with routed experts replaced by EXL3 reconstruction",
+        "L": [
+          82,
+          88,
+          113,
+          114
+        ]
+      },
+      "metrics": {
+        "bench:NLL": "c91.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c90",
+      "flags": [
+        "In-sample calibration NLL, not held-out KLD [L82,L88]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "this build",
+      "panel": "Measured — pre-serving (DeepSeek's reference forward with every routed expert replaced by its EXL3 reconstruction; 39 in-domain calibration rows × 2048 tokens, paired per row against bf16)",
+      "methodology": {
+        "reference": "native mixed MXFP4/FP8 release exactly upscaled to BF16, not a native BF16 release",
+        "dataset": "39 in-domain Hessian calibration rows",
+        "ctx": "2048 tokens per row",
+        "tool": "DeepSeek reference forward with routed experts replaced by EXL3 reconstruction",
+        "L": [
+          82,
+          88,
+          113,
+          114
+        ]
+      },
+      "metrics": {
+        "bench:NLL": "c95.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c94",
+      "flags": [
+        "Reference is a BF16 upscale of native low-precision release [L113]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "bf16 upscale reference",
+      "panel": "Measured — pre-serving (DeepSeek's reference forward with every routed expert replaced by its EXL3 reconstruction; 39 in-domain calibration rows × 2048 tokens, paired per row against bf16)",
+      "methodology": {
+        "reference": "native mixed MXFP4/FP8 release exactly upscaled to BF16, not a native BF16 release",
+        "dataset": "39 in-domain Hessian calibration rows",
+        "ctx": "2048 tokens per row",
+        "tool": "DeepSeek reference forward with routed experts replaced by EXL3 reconstruction",
+        "L": [
+          82,
+          88,
+          113,
+          114
+        ]
+      },
+      "metrics": {
+        "bench:NLL": "c91.0"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "own",
+      "name": "this build",
+      "panel": "Measured — served (TP4, vLLM + cuda-exl3, DSpark k=5, FULL_AND_PIECEWISE graphs, 300K context, gmu 0.80; bench script and prompt set v1 are the upstream recipe repo's, byte-identical)",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "PPL probe: six held-out texts, 4,210 tokens; HumanEval / HumanEval+",
+        "ctx": "served context 300K",
+        "tool": "TP4 vLLM + cuda-exl3; DSpark; greedy evalplus for generated-code pass@1",
+        "L": [
+          90,
+          103,
+          104
+        ]
+      },
+      "metrics": {
+        "ppl": "c110",
+        "bench:HumanEval-pass@1": "c111.0",
+        "bench:HumanEval-plus-pass@1": "c111.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c94",
+      "flags": [
+        "No shipped-checkpoint counterpart for held-out quality probes [L99].",
+        "Pass@1 values are fractions [L104].",
+        "Bitrate describes routed experts only [L14]."
+      ]
+    }
+  ],
+  "prose": []
+}

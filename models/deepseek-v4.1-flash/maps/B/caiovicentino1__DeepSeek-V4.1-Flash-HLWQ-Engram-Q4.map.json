@@ -1,0 +1,107 @@
+{
+  "repo": "caiovicentino1/DeepSeek-V4.1-Flash-HLWQ-Engram-Q4",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "fixed FP8 greedy continuations; native FP8 rerun has batching noise",
+    "dataset": "25 continuations: pt-BR prose, code and needle retrieval",
+    "ctx": "needle prompts from 3k to 52k; score short selected positions",
+    "tool": "idle SGLang dev-dsv41 TP4/EP4; DSpark block five on four RTX PRO 6000",
+    "L": [
+      128,
+      130
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "HLWQ Q4 (this repo)",
+      "panel": "DeepSeek-V4.1-Flash · HLWQ Q4 Engram",
+      "methodology": {
+        "reference": "official FP8 Engram rows",
+        "dataset": "Engram row reconstruction; sample count not stated",
+        "ctx": "not applicable",
+        "tool": "deterministic Hadamard-Lloyd weight quantization",
+        "L": [
+          22,
+          24,
+          30,
+          31
+        ]
+      },
+      "metrics": {
+        "bench:relative-row-RMSE": "c5",
+        "bench:mean-row-cosine": "c6"
+      },
+      "size": "c4",
+      "unit": "GB",
+      "basis": "engram_only",
+      "bpw": null,
+      "flags": [
+        "Engram-table-only reconstruction/storage, not full checkpoint size [L22-31]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "HLWQ Q4 (this repo)",
+      "panel": "Validation (same server, same prompts, FP8 vs HLWQ)",
+      "methodology": {
+        "reference": "fixed FP8 greedy continuations; native FP8 rerun has batching noise",
+        "dataset": "25 continuations: pt-BR prose, code and needle retrieval",
+        "ctx": "needle prompts from 3k to 52k; score short selected positions",
+        "tool": "idle SGLang dev-dsv41 TP4/EP4; DSpark block five on four RTX PRO 6000",
+        "L": [
+          128,
+          130
+        ]
+      },
+      "metrics": {
+        "bench:NLL-pt-BR-prose": "c10",
+        "bench:NLL-code": "c14",
+        "bench:NLL-needle": "c18",
+        "top1:pt-BR-prose": "c12",
+        "top1:code": "c16",
+        "top1:needle": "c20"
+      },
+      "size": "c29.1",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "NLL is not KL divergence [L130].",
+        "Native rerun agreement below perfect due batching arithmetic; compare idle-to-idle [L130]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "FP8 (official)",
+      "panel": "Validation (same server, same prompts, FP8 vs HLWQ)",
+      "methodology": {
+        "reference": "fixed FP8 greedy continuations; native FP8 rerun has batching noise",
+        "dataset": "25 continuations: pt-BR prose, code and needle retrieval",
+        "ctx": "needle prompts from 3k to 52k; score short selected positions",
+        "tool": "idle SGLang dev-dsv41 TP4/EP4; DSpark block five on four RTX PRO 6000",
+        "L": [
+          128,
+          130
+        ]
+      },
+      "metrics": {
+        "bench:NLL-pt-BR-prose": "c9",
+        "bench:NLL-code": "c13",
+        "bench:NLL-needle": "c17",
+        "top1:pt-BR-prose": "c11",
+        "top1:code": "c15",
+        "top1:needle": "c19"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,61 @@
+{
+  "repo": "lvkaokao/DeepSeek-V4.1-Flash-MXFP4-Engram-AutoRound",
+  "no_quality_claims": false,
+  "weights_modified": false,
+  "method": {
+    "reference": "original DeepSeek-V4.1-Flash native MXFP4/FP8 checkpoint, not BF16",
+    "dataset": "gsm8k, raw 5-shot, thinking off, n=1319",
+    "ctx": "max model length 8192",
+    "tool": "vLLM main nightly with dsv41-quant-plugin; reported accuracy belongs to a script-produced twin in the same format",
+    "L": [
+      10,
+      11,
+      14,
+      15,
+      16,
+      50,
+      51,
+      56,
+      66,
+      67,
+      68
+    ]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "script-produced twin (same format)",
+      "metrics": {},
+      "size": "c1",
+      "unit": "GB",
+      "basis": "disk",
+      "flags": [
+        "Card reports accuracy of a same-format script-produced twin; not asserted as a direct benchmark of these exact uploaded bytes [L67-68].",
+        "Slash-separated GSM8K scores have no strict/flexible labels; retain combined source text [L67]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "baseline",
+      "metrics": {},
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "size": "c5",
+      "unit": "GB",
+      "basis": "disk"
+    }
+  ],
+  "prose": [
+    {
+      "entry": "script-produced twin (same format)",
+      "key": "bench:GSM8K",
+      "L": 67,
+      "raw": "92.19/92.27"
+    },
+    {
+      "entry": "baseline",
+      "key": "bench:GSM8K",
+      "L": 67,
+      "raw": "92.87"
+    }
+  ]
+}

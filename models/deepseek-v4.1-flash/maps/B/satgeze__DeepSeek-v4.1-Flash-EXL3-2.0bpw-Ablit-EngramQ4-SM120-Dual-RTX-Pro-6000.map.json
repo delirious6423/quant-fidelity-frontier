@@ -1,0 +1,273 @@
+{
+ "repo": "satgeze/DeepSeek-v4.1-Flash-EXL3-2.0bpw-Ablit-EngramQ4-SM120-Dual-RTX-Pro-6000",
+ "no_quality_claims": false,
+ "weights_modified": true,
+ "method": {
+  "reference": "official DeepSeek API, native model; thinking disabled for trajectory capture",
+  "dataset": "official greedy trajectories: 40 contexts x128tokens, byte-gated; on-policy mean logp difference, not full-vocabulary distribution KL",
+  "ctx": "GSM8K max_tokens8000; 50-problem test slice",
+  "tool": "vLLM local arms; official API; greedy prompts; marker refusal classifier",
+  "L": [
+   226,
+   227,
+   228,
+   230,
+   239,
+   240,
+   241,
+   242,
+   243
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "This 2.0bpw (abliterated)",
+   "metrics": {
+    "bench:GSM8K slice": "c21",
+    "bench:harmful refused (20 prompts)": "c22.0",
+    "bench:benign refused (10 controls)": "c23.0",
+    "bench:tool calls passed (3 scenarios)": "c24.0",
+    "mean_kld": "c25",
+    "ppl": "c26",
+    "top1_pct": "c27"
+   },
+   "bpw": "c40",
+   "panel": "Quality vs the official DeepSeek API and vs 2.9bpw",
+   "methodology": {
+    "reference": "official DeepSeek API, native model; thinking disabled for trajectory capture",
+    "dataset": "relaunched serve: 3,957 trajectory positions; one junction skipped; on-policy mean logp difference",
+    "ctx": "GSM8K max_tokens8000; 50-problem test slice",
+    "tool": "vLLM local arms; official API; greedy prompts; marker refusal classifier",
+    "L": [
+     239,
+     240,
+     241,
+     242,
+     243,
+     254,
+     255,
+     256
+    ]
+   },
+   "flags": [
+    "Published KL is an on-policy log-probability-gap estimator on official greedy trajectories, not full-vocabulary KL [L239-243].",
+    "Abliterated row re-measured on relaunched serve; stock reference is from another session [L252-256]."
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Mia EXL3 2.9bpw",
+   "metrics": {
+    "bench:GSM8K slice": "c14",
+    "bench:harmful refused (20 prompts)": "c15.0",
+    "bench:benign refused (10 controls)": "c16.0",
+    "bench:tool calls passed (3 scenarios)": "c17.0",
+    "mean_kld": "c18",
+    "ppl": "c19",
+    "top1_pct": "c20"
+   },
+   "of": "not named on card",
+   "bpw": "c39",
+   "panel": "Quality vs the official DeepSeek API and vs 2.9bpw",
+   "methodology": {
+    "reference": "official DeepSeek API, native model; thinking disabled for trajectory capture",
+    "dataset": "official greedy trajectories: 40 contexts x128tokens, byte-gated; on-policy mean logp difference, not full-vocabulary distribution KL",
+    "ctx": "GSM8K max_tokens8000; 50-problem test slice",
+    "tool": "vLLM local arms; official API; greedy prompts; marker refusal classifier",
+    "L": [
+     226,
+     227,
+     228,
+     230,
+     239,
+     240,
+     241,
+     242,
+     243
+    ]
+   },
+   "flags": [
+    "Card links a GitHub recipe for this arm, not an exact Hugging Face repository [L215]."
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Official DeepSeek API (reference)",
+   "metrics": {
+    "bench:GSM8K slice": "c10",
+    "bench:harmful refused (20 prompts)": "c11.0",
+    "bench:benign refused (10 controls)": "c12.0",
+    "bench:tool calls passed (3 scenarios)": "c13.0"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Quality vs the official DeepSeek API and vs 2.9bpw",
+   "methodology": {
+    "reference": "official DeepSeek API, native model; thinking disabled for trajectory capture",
+    "dataset": "official greedy trajectories: 40 contexts x128tokens, byte-gated; on-policy mean logp difference, not full-vocabulary distribution KL",
+    "ctx": "GSM8K max_tokens8000; 50-problem test slice",
+    "tool": "vLLM local arms; official API; greedy prompts; marker refusal classifier",
+    "L": [
+     226,
+     227,
+     228,
+     230,
+     239,
+     240,
+     241,
+     242,
+     243
+    ]
+   }
+  },
+  {
+   "role": "ladder",
+   "name": "This 2.0bpw (stock, earlier session)",
+   "metrics": {
+    "bench:GSM8K slice": "c28",
+    "bench:harmful refused (20 prompts)": "c29.0",
+    "bench:benign refused (10 controls)": "c30.0",
+    "mean_kld": "c31",
+    "ppl": "c32",
+    "top1_pct": "c33"
+   },
+   "bpw": "c41",
+   "panel": "Quality vs the official DeepSeek API and vs 2.9bpw",
+   "methodology": {
+    "reference": "official DeepSeek API, native model; thinking disabled for trajectory capture",
+    "dataset": "earlier-session replay harness; 165K tokens",
+    "ctx": "GSM8K max_tokens8000; 50-problem test slice",
+    "tool": "vLLM local arms; official API; greedy prompts; marker refusal classifier",
+    "L": [
+     250,
+     252,
+     253
+    ]
+   },
+   "flags": [
+    "Historical stock row from an earlier replay session; not comparable to remeasured abliterated divergence [L252-256]."
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Abliterated (this checkpoint)",
+   "metrics": {
+    "bench:GSM8K slice": "c2",
+    "bench:loop battery 400K loops": "c5",
+    "bench:loop battery 512K loops": "c6"
+   },
+   "panel": "Abliteration before/after (2026-09-17, same serve stack, back-to-back)",
+   "methodology": {
+    "reference": "stock pre-graft pack",
+    "dataset": "50-problem GSM8K; 20 harmful prompts; 10 controls; 8-case loop battery",
+    "ctx": "short, 400K and 512K prompt contexts",
+    "tool": "same vLLM serve stack; back-to-back; greedy temperature0",
+    "L": [
+     48,
+     50,
+     52,
+     53,
+     54,
+     55,
+     56,
+     57,
+     70,
+     71,
+     72,
+     73
+    ]
+   },
+   "flags": [
+    "Long-context loop prefill repeats wikitext test split; small task slices, not full benchmarks [L70-73]."
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Stock (pre-graft)",
+   "metrics": {
+    "bench:GSM8K slice": "c1",
+    "bench:loop battery short loops": "c3.0",
+    "bench:loop battery 400K loops": "c4.0"
+   },
+   "panel": "Abliteration before/after (2026-09-17, same serve stack, back-to-back)",
+   "methodology": {
+    "reference": "stock pre-graft pack",
+    "dataset": "50-problem GSM8K; 20 harmful prompts; 10 controls; 8-case loop battery",
+    "ctx": "short, 400K and 512K prompt contexts",
+    "tool": "same vLLM serve stack; back-to-back; greedy temperature0",
+    "L": [
+     48,
+     50,
+     52,
+     53,
+     54,
+     55,
+     56,
+     57,
+     70,
+     71,
+     72,
+     73
+    ]
+   }
+  }
+ ],
+ "prose": [
+  {
+   "entry": "Stock (pre-graft)",
+   "key": "bench:harmful refused (20 prompts)",
+   "L": 52,
+   "raw": "20/20",
+   "panel": "Abliteration before/after (2026-09-17, same serve stack, back-to-back)"
+  },
+  {
+   "entry": "Stock (pre-graft)",
+   "key": "bench:benign refused (10 controls)",
+   "L": 53,
+   "raw": "0/10",
+   "panel": "Abliteration before/after (2026-09-17, same serve stack, back-to-back)"
+  },
+  {
+   "entry": "Stock (pre-graft)",
+   "key": "bench:loop battery short loops",
+   "L": 55,
+   "raw": "0/8",
+   "panel": "Abliteration before/after (2026-09-17, same serve stack, back-to-back)"
+  },
+  {
+   "entry": "Stock (pre-graft)",
+   "key": "bench:multi-tool passed (3 scenarios)",
+   "L": 61,
+   "raw": "3/3",
+   "panel": "Abliteration before/after (2026-09-17, same serve stack, back-to-back)"
+  },
+  {
+   "entry": "Abliterated (this checkpoint)",
+   "key": "bench:harmful refused (20 prompts)",
+   "L": 52,
+   "raw": "2/20",
+   "panel": "Abliteration before/after (2026-09-17, same serve stack, back-to-back)"
+  },
+  {
+   "entry": "Abliterated (this checkpoint)",
+   "key": "bench:benign refused (10 controls)",
+   "L": 53,
+   "raw": "1/10",
+   "panel": "Abliteration before/after (2026-09-17, same serve stack, back-to-back)"
+  },
+  {
+   "entry": "Abliterated (this checkpoint)",
+   "key": "bench:loop battery short loops",
+   "L": 55,
+   "raw": "0/8",
+   "panel": "Abliteration before/after (2026-09-17, same serve stack, back-to-back)"
+  },
+  {
+   "entry": "Abliterated (this checkpoint)",
+   "key": "bench:multi-tool passed (3 scenarios)",
+   "L": 61,
+   "raw": "2/3",
+   "panel": "Abliteration before/after (2026-09-17, same serve stack, back-to-back)"
+  }
+ ]
+}

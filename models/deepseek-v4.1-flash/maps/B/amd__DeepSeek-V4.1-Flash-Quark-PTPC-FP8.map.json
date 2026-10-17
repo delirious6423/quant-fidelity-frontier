@@ -1,0 +1,78 @@
+{
+  "repo": "amd/DeepSeek-V4.1-Flash-Quark-PTPC-FP8",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "official native mixed MXFP4/MXFP8 release",
+    "dataset": "GSM8K eight-shot flexible-extract",
+    "ctx": "8192 context; 4096 max generation",
+    "tool": "lm-eval local-completions against vLLM ROCm; matched framework/settings/host",
+    "L": [
+      75,
+      81,
+      83,
+      84,
+      113,
+      114
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "amd/DeepSeek-V4.1-Flash-Quark-PTPC-FP8 (this model)",
+      "panel": "Accuracy",
+      "methodology": {
+        "reference": "official native mixed MXFP4/MXFP8 release",
+        "dataset": "GSM8K eight-shot flexible-extract",
+        "ctx": "8192 context; 4096 max generation",
+        "tool": "lm-eval local-completions against vLLM ROCm; matched framework/settings/host",
+        "L": [
+          75,
+          81,
+          83,
+          84,
+          113,
+          114
+        ]
+      },
+      "metrics": {
+        "bench:GSM8K-8shot-flexible": "c1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": []
+    },
+    {
+      "role": "cross",
+      "name": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "panel": "Accuracy",
+      "methodology": {
+        "reference": "official native mixed MXFP4/MXFP8 release",
+        "dataset": "GSM8K eight-shot flexible-extract",
+        "ctx": "8192 context; 4096 max generation",
+        "tool": "lm-eval local-completions against vLLM ROCm; matched framework/settings/host",
+        "L": [
+          75,
+          81,
+          83,
+          84,
+          113,
+          114
+        ]
+      },
+      "metrics": {
+        "bench:GSM8K-8shot-flexible": "c1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    }
+  ],
+  "prose": []
+}

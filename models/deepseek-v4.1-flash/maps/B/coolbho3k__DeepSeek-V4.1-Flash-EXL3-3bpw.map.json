@@ -1,0 +1,206 @@
+{
+ "repo": "coolbho3k/DeepSeek-V4.1-Flash-EXL3-3bpw",
+ "no_quality_claims": false,
+ "weights_modified": false,
+ "method": {
+  "reference": "original native-FP4 DeepSeek-V4.1-Flash checkpoint; not BF16",
+  "dataset": "full40-layer model,64held-outrecords;text81880targets;image430targets84answers",
+  "ctx": "not stated",
+  "tool": "teacher-forced reference comparison;specializedvLLM/EXL3integration",
+  "L": [
+   46,
+   52,
+   54,
+   55,
+   56,
+   58,
+   68,
+   69,
+   70
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "Current weights",
+   "metrics": {
+    "kld:text": "c2",
+    "top1:text": "c4",
+    "bench:mean NLL text": "c7",
+    "ppl:text": "c10",
+    "bench:correct next-token prediction text": "c13"
+   },
+   "size": "c15",
+   "unit": "bytes",
+   "basis": "excl_engram",
+   "panel": "Measured quality",
+   "methodology": {
+    "reference": "original native-FP4 DeepSeek-V4.1-Flash checkpoint; not BF16",
+    "dataset": "full40-layer model,64held-outrecords;text81880targets;image430targets84answers",
+    "ctx": "not stated",
+    "tool": "teacher-forced reference comparison;specializedvLLM/EXL3integration",
+    "L": [
+     46,
+     52,
+     54,
+     55,
+     56,
+     58,
+     68,
+     69,
+     70
+    ]
+   },
+   "flags": [
+    "Active-model payload excludes separately listed Engram and draft/MTP; not full download [L107-111].",
+    "3bpw applies only to routed experts [L41-46].",
+    "Generated-answer ARC/GSM8K probes belong to previous upload [L74-75]."
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Previous upload",
+   "metrics": {
+    "kld:text": "c1",
+    "top1:text": "c3",
+    "bench:mean NLL text": "c6",
+    "ppl:text": "c9",
+    "bench:correct next-token prediction text": "c12"
+   },
+   "panel": "Measured quality",
+   "methodology": {
+    "reference": "original native-FP4 DeepSeek-V4.1-Flash checkpoint; not BF16",
+    "dataset": "full40-layer model,64held-outrecords;text81880targets;image430targets84answers",
+    "ctx": "not stated",
+    "tool": "teacher-forced reference comparison;specializedvLLM/EXL3integration",
+    "L": [
+     46,
+     52,
+     54,
+     55,
+     56,
+     58,
+     68,
+     69,
+     70
+    ]
+   }
+  },
+  {
+   "role": "cross",
+   "name": "Original source (reference)",
+   "metrics": {
+    "bench:mean NLL text": "c5",
+    "ppl:text": "c8",
+    "bench:correct next-token prediction text": "c11"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Measured quality",
+   "methodology": {
+    "reference": "original native-FP4 DeepSeek-V4.1-Flash checkpoint; not BF16",
+    "dataset": "full40-layer model,64held-outrecords;text81880targets;image430targets84answers",
+    "ctx": "not stated",
+    "tool": "teacher-forced reference comparison;specializedvLLM/EXL3integration",
+    "L": [
+     46,
+     52,
+     54,
+     55,
+     56,
+     58,
+     68,
+     69,
+     70
+    ]
+   }
+  },
+  {
+   "role": "own",
+   "name": "SSD engram tables/scales",
+   "metrics": {},
+   "size": "c17",
+   "unit": "bytes",
+   "basis": "engram_only"
+  },
+  {
+   "role": "own",
+   "name": "Retained draft/MTP",
+   "metrics": {},
+   "size": "c19",
+   "unit": "bytes",
+   "basis": "disk"
+  }
+ ],
+ "prose": [
+  {
+   "entry": "Previous upload",
+   "key": "kld:image",
+   "L": 69,
+   "raw": "0.253",
+   "panel": "Measured quality"
+  },
+  {
+   "entry": "Current weights",
+   "key": "kld:image",
+   "L": 69,
+   "raw": "0.226",
+   "panel": "Measured quality"
+  },
+  {
+   "entry": "Previous upload",
+   "key": "top1:image",
+   "L": 69,
+   "raw": "84.7%",
+   "panel": "Measured quality"
+  },
+  {
+   "entry": "Current weights",
+   "key": "top1:image",
+   "L": 69,
+   "raw": "86.7%",
+   "panel": "Measured quality"
+  },
+  {
+   "entry": "Previous upload",
+   "key": "ppl:image",
+   "L": 70,
+   "raw": "586",
+   "panel": "Measured quality"
+  },
+  {
+   "entry": "Current weights",
+   "key": "ppl:image",
+   "L": 70,
+   "raw": "608",
+   "panel": "Measured quality"
+  },
+  {
+   "entry": "Previous upload",
+   "key": "bench:ARC-Challenge correct (128)",
+   "L": 74,
+   "raw": "123/128",
+   "panel": "Measured quality"
+  },
+  {
+   "entry": "Previous upload",
+   "key": "bench:GSM8K correct (64)",
+   "L": 74,
+   "raw": "63/64",
+   "panel": "Measured quality"
+  },
+  {
+   "entry": "Current weights",
+   "key": "bench:image question suite correct range (24)",
+   "L": 76,
+   "raw": "19\u201320/24",
+   "panel": "Measured quality"
+  },
+  {
+   "entry": "Previous upload",
+   "key": "bench:image question suite correct (24)",
+   "L": 76,
+   "raw": "18/24",
+   "panel": "Measured quality"
+  }
+ ]
+}

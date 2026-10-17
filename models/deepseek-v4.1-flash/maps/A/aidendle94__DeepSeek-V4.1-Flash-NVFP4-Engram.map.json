@@ -1,0 +1,336 @@
+{
+  "repo": "aidendle94/DeepSeek-V4.1-Flash-NVFP4-Engram",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "original native DeepSeek-V4.1-Flash with FP8 Engram and native routed experts",
+    "dataset": "whole Engram tables; 300K sampled layer-1 rows; 40 FP8-model completions",
+    "ctx": "served context 500K; 8,345 scored tokens",
+    "tool": "GB10 offline quantization; vLLM on 4 DGX Spark; TP4 DCP4 DSpark k=5",
+    "L": [
+      15,
+      18,
+      28,
+      35,
+      36,
+      46,
+      48,
+      53,
+      76
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "layer 1",
+      "panel": "Quantization report",
+      "methodology": {
+        "reference": "FP8 Engram rows dequantized with their UE8M0 scales",
+        "dataset": "whole Engram tables",
+        "ctx": "not applicable",
+        "tool": "relative RMS norm(dequantized-FP8)/norm(FP8); GPTQ feedback with MSE block scaling",
+        "L": [
+          30,
+          32,
+          33,
+          35,
+          36,
+          65,
+          67,
+          69,
+          71
+        ]
+      },
+      "metrics": {
+        "bench:Engram relative RMS error %": "c4"
+      },
+      "size": "c6",
+      "unit": "GB",
+      "basis": "engram_only",
+      "bpw": null,
+      "flags": [
+        "Size is this layer's Engram shard, not both tables or the whole repository [L30-33]",
+        "First-upload errors and sizes appear parenthetically; current values selected [L32-33]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "layer 14",
+      "panel": "Quantization report",
+      "methodology": {
+        "reference": "FP8 Engram rows dequantized with their UE8M0 scales",
+        "dataset": "whole Engram tables",
+        "ctx": "not applicable",
+        "tool": "relative RMS norm(dequantized-FP8)/norm(FP8); GPTQ feedback with MSE block scaling",
+        "L": [
+          30,
+          32,
+          33,
+          35,
+          36,
+          65,
+          67,
+          69,
+          71
+        ]
+      },
+      "metrics": {
+        "bench:Engram relative RMS error %": "c10"
+      },
+      "size": "c12",
+      "unit": "GB",
+      "basis": "engram_only",
+      "bpw": null,
+      "flags": [
+        "Size is this layer's Engram shard, not both tables or the whole repository [L30-33]",
+        "First-upload errors and sizes appear parenthetically; current values selected [L32-33]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "RTN, amax scale (first upload)",
+      "panel": "Rounding method: GPTQ with an MSE block scale",
+      "methodology": {
+        "reference": "original FP8 Engram rows",
+        "dataset": "300K sampled rows of layer 1",
+        "ctx": "not applicable",
+        "tool": "tools/nvfp4_gptq_study.py; error through wkv and raw RMS are separate measures",
+        "L": [
+          65,
+          71,
+          72,
+          74,
+          76,
+          78
+        ]
+      },
+      "metrics": {
+        "bench:error through wkv %": "c13",
+        "bench:raw RMS error %": "c14"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Layer-1 sampled reconstruction study, not next-token KL [L76-83]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "RTN, MSE scale",
+      "panel": "Rounding method: GPTQ with an MSE block scale",
+      "methodology": {
+        "reference": "original FP8 Engram rows",
+        "dataset": "300K sampled rows of layer 1",
+        "ctx": "not applicable",
+        "tool": "tools/nvfp4_gptq_study.py; error through wkv and raw RMS are separate measures",
+        "L": [
+          65,
+          71,
+          72,
+          74,
+          76,
+          78
+        ]
+      },
+      "metrics": {
+        "bench:error through wkv %": "c15",
+        "bench:raw RMS error %": "c16"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Layer-1 sampled reconstruction study, not next-token KL [L76-83]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "GPTQ, amax scale",
+      "panel": "Rounding method: GPTQ with an MSE block scale",
+      "methodology": {
+        "reference": "original FP8 Engram rows",
+        "dataset": "300K sampled rows of layer 1",
+        "ctx": "not applicable",
+        "tool": "tools/nvfp4_gptq_study.py; error through wkv and raw RMS are separate measures",
+        "L": [
+          65,
+          71,
+          72,
+          74,
+          76,
+          78
+        ]
+      },
+      "metrics": {
+        "bench:error through wkv %": "c17",
+        "bench:raw RMS error %": "c18"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Layer-1 sampled reconstruction study, not next-token KL [L76-83]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "GPTQ, MSE scale (current)",
+      "panel": "Rounding method: GPTQ with an MSE block scale",
+      "methodology": {
+        "reference": "original FP8 Engram rows",
+        "dataset": "300K sampled rows of layer 1",
+        "ctx": "not applicable",
+        "tool": "tools/nvfp4_gptq_study.py; error through wkv and raw RMS are separate measures",
+        "L": [
+          65,
+          71,
+          72,
+          74,
+          76,
+          78
+        ]
+      },
+      "metrics": {
+        "bench:error through wkv %": "c19",
+        "bench:raw RMS error %": "c20"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Layer-1 sampled reconstruction study, not next-token KL [L76-83]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "fp8 Engram (production)",
+      "panel": "Measured (4× DGX Spark, vLLM, 2026-09-16)",
+      "methodology": {
+        "reference": "original native DeepSeek-V4.1-Flash with FP8 Engram and native routed experts",
+        "dataset": "40 FP8-model completions, 8,345 tokens",
+        "ctx": "500K configured context; 8K prefill chunks",
+        "tool": "vLLM on 4 DGX Spark, TP4 DCP4 DSpark k=5; teacher-forced scoring",
+        "L": [
+          46,
+          48,
+          49,
+          51,
+          53
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Argmax percentage scores fixed FP8 completions; not full-vocabulary KL [L53]",
+        "FP8 model scores its own outputs as a noise-floor control [L53,60-62]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "NVFP4 Engram (this repo), GPTQ+MSE",
+      "panel": "Measured (4× DGX Spark, vLLM, 2026-09-16)",
+      "methodology": {
+        "reference": "original native DeepSeek-V4.1-Flash with FP8 Engram and native routed experts",
+        "dataset": "40 FP8-model completions, 8,345 tokens",
+        "ctx": "500K configured context; 8K prefill chunks",
+        "tool": "vLLM on 4 DGX Spark, TP4 DCP4 DSpark k=5; teacher-forced scoring",
+        "L": [
+          46,
+          48,
+          49,
+          51,
+          53
+        ]
+      },
+      "metrics": {},
+      "size": "c27.1",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Argmax percentage scores fixed FP8 completions; not full-vocabulary KL [L53]",
+        "FP8 model scores its own outputs as a noise-floor control [L53,60-62]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "NVFP4 Engram first upload, RTN",
+      "panel": "Measured (4× DGX Spark, vLLM, 2026-09-16)",
+      "methodology": {
+        "reference": "original native DeepSeek-V4.1-Flash with FP8 Engram and native routed experts",
+        "dataset": "40 FP8-model completions, 8,345 tokens",
+        "ctx": "500K configured context; 8K prefill chunks",
+        "tool": "vLLM on 4 DGX Spark, TP4 DCP4 DSpark k=5; teacher-forced scoring",
+        "L": [
+          46,
+          48,
+          49,
+          51,
+          53
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Argmax percentage scores fixed FP8 completions; not full-vocabulary KL [L53]",
+        "FP8 model scores its own outputs as a noise-floor control [L53,60-62]"
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "fp8 Engram (production)",
+      "panel": "Measured (4× DGX Spark, vLLM, 2026-09-16)",
+      "key": "bench:mean logprob",
+      "L": 53,
+      "raw": "−0.112"
+    },
+    {
+      "entry": "fp8 Engram (production)",
+      "panel": "Measured (4× DGX Spark, vLLM, 2026-09-16)",
+      "key": "top1_pct",
+      "L": 53,
+      "raw": "97.5 %"
+    },
+    {
+      "entry": "NVFP4 Engram (this repo), GPTQ+MSE",
+      "panel": "Measured (4× DGX Spark, vLLM, 2026-09-16)",
+      "key": "bench:mean logprob",
+      "L": 53,
+      "raw": "−0.111"
+    },
+    {
+      "entry": "NVFP4 Engram (this repo), GPTQ+MSE",
+      "panel": "Measured (4× DGX Spark, vLLM, 2026-09-16)",
+      "key": "top1_pct",
+      "L": 53,
+      "raw": "97.5 %"
+    },
+    {
+      "entry": "NVFP4 Engram first upload, RTN",
+      "panel": "Measured (4× DGX Spark, vLLM, 2026-09-16)",
+      "key": "bench:mean logprob",
+      "L": 53,
+      "raw": "−0.110"
+    },
+    {
+      "entry": "NVFP4 Engram first upload, RTN",
+      "panel": "Measured (4× DGX Spark, vLLM, 2026-09-16)",
+      "key": "top1_pct",
+      "L": 53,
+      "raw": "97.5 %"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+ "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+ "name": "DeepSeek-V4.1-Flash",
+ "slug": "deepseek-v4.1-flash",
+ "size_note": "Sizes are as published on each card: download size, GPU memory or a single file. GiB figures are converted to GB. Engram, routed experts and other components may be reported separately; each row says which size it is.",
+ "pin_note": "Cards are fetched at pinned Hugging Face commit revisions and their exact bytes are checked by SHA-256. Source links identify the captured revision.",
+ "coverage_note": "136 repositories discovered (130 tagged and six supplemental); 133 cards captured, three gated repositories inaccessible. Unreviewed cards and unresolved claims are explicitly held; off-site-only and image-only claims may be absent.",
+ "others": [
+  {
+   "name": "Qwen3.8-Flash-Next",
+   "href": "../qwen3.8-flash-next/"
+  },
+  {
+   "name": "Qwen3.8-27B",
+   "href": "../qwen3.8-27b/"
+  }
+ ],
+ "max_size_gb": 2000,
+ "native_reference_patterns": [
+  "(?i)native.*(?:MXFP4|checkpoint|DeepSeek)",
+  "(?i)(?:original|official|released).*MXFP4",
+  "(?i)deepseek-ai/DeepSeek-V4\\.1-Flash",
+  "original (?:full.precision )?(?:model|weights)",
+  "native"
+ ],
+ "named_metric_series": true
+}

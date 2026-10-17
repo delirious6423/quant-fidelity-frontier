@@ -1,0 +1,151 @@
+{
+  "repo": "INCModel3/DeepSeek-V4.1-Flash-MXFP4-Engram-AutoRound",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "official DeepSeek-V4.1-Flash mixed native checkpoint;benchmark figures belong to siblingD1",
+    "dataset": "GSM8K raw5-shot,1319items for sibling reference;Engram reconstruction corpus not stated",
+    "ctx": "not stated",
+    "tool": "auto-round --model_free conversion;vLLM compute recipe",
+    "L": [
+      10,
+      12,
+      15,
+      17,
+      18,
+      19,
+      25,
+      36,
+      37
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "D1-ar-v2 Engram tables",
+      "panel": "DeepSeek-V4.1-Flash — D1-ar-v2 (dense OCP-MXFP8 rowwise + engram MXFP4)",
+      "methodology": {
+        "reference": "official FP8 Engram source",
+        "dataset": "Engram embed tables on layers1/14",
+        "ctx": "not applicable",
+        "tool": "MXFP4 reconstruction error;dense FP8scale expansion separately lossless",
+        "L": [
+          17,
+          19
+        ]
+      },
+      "metrics": {},
+      "size": "c1",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Approximate relative error for Engram tables;size is whole checkpoint [L19,22]",
+        "No own task-accuracy measurement is claimed;listed accuracy belongs to siblingD1 [L36-37]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "sibling D1 checkpoint — first reported run",
+      "panel": "Inference (vLLM)",
+      "methodology": {
+        "reference": "baseline native checkpoint,precision not further specified for benchmark",
+        "dataset": "GSM8K raw5-shot,n=1319",
+        "ctx": "not stated",
+        "tool": "same compute recipe on siblingD1;vLLM",
+        "L": [
+          25,
+          36,
+          37
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Reference/sibling result,not direct evaluation of this D1-ar-v2 artifact [L36-37]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "sibling D1 checkpoint — second reported run",
+      "panel": "Inference (vLLM)",
+      "methodology": {
+        "reference": "baseline native checkpoint,precision not further specified for benchmark",
+        "dataset": "GSM8K raw5-shot,n=1319",
+        "ctx": "not stated",
+        "tool": "same compute recipe on siblingD1;vLLM",
+        "L": [
+          25,
+          36,
+          37
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Reference/sibling result,not direct evaluation of this D1-ar-v2 artifact [L36-37]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "baseline",
+      "panel": "Inference (vLLM)",
+      "methodology": {
+        "reference": "baseline native checkpoint,precision not further specified for benchmark",
+        "dataset": "GSM8K raw5-shot,n=1319",
+        "ctx": "not stated",
+        "tool": "same compute recipe on siblingD1;vLLM",
+        "L": [
+          25,
+          36,
+          37
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Reference/sibling result,not direct evaluation of this D1-ar-v2 artifact [L36-37]"
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "D1-ar-v2 Engram tables",
+      "panel": "DeepSeek-V4.1-Flash — D1-ar-v2 (dense OCP-MXFP8 rowwise + engram MXFP4)",
+      "key": "bench:Engram relative error",
+      "L": 19,
+      "raw": "0.12"
+    },
+    {
+      "entry": "sibling D1 checkpoint — first reported run",
+      "panel": "Inference (vLLM)",
+      "key": "bench:GSM8K (raw5-shot)",
+      "L": 36,
+      "raw": "92.19"
+    },
+    {
+      "entry": "sibling D1 checkpoint — second reported run",
+      "panel": "Inference (vLLM)",
+      "key": "bench:GSM8K (raw5-shot)",
+      "L": 36,
+      "raw": "92.27"
+    },
+    {
+      "entry": "baseline",
+      "panel": "Inference (vLLM)",
+      "key": "bench:GSM8K (raw5-shot)",
+      "L": 37,
+      "raw": "92.87"
+    }
+  ]
+}

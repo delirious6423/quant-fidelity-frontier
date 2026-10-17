@@ -1,0 +1,241 @@
+{
+  "repo": "pipenetwork/DeepSeek-V4.1-Flash-REAP25-MLX-mixed-4_8bit",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "BF16-dequantized native FP8/FP4 release; own PPL ratio uses matched unpruned quantized build",
+    "dataset": "wikitext-2; per-layer study and separate full-test PPL",
+    "ctx": "per-layer 16,384 tokens; PPL 140 windows of 2048",
+    "tool": "PipeNetwork/deepseek-v41-mlx custom runtime",
+    "L": [
+      23,
+      28,
+      34,
+      63,
+      65,
+      67,
+      68,
+      85
+    ]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "8bit",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "BF16-dequantized native FP8/FP4 reference",
+        "dataset": "16,384 wikitext-2 tokens",
+        "ctx": "not stated",
+        "tool": "per-layer study on identical inputs for all 40 decoder layers; final-layer cosine under free-running arithmetic",
+        "L": [
+          67,
+          68,
+          69,
+          71
+        ]
+      },
+      "metrics": {
+        "component:teacher_forced_mean_divergence": "c8",
+        "component:free_running_final_layer_divergence": "c9",
+        "component:final_layer_cosine": "c10"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Per-layer hidden-state divergence has no KL definition; retain exact column labels as component studies, not distribution KL or top-1 [L67-78].",
+        "Conversion ladder does not identify these rows as the REAP25 pruned artifact [L63,67-78]",
+        "Reference is dequantized native FP8/FP4, not a native BF16 checkpoint [L23-24,67]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "6bit",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "BF16-dequantized native FP8/FP4 reference",
+        "dataset": "16,384 wikitext-2 tokens",
+        "ctx": "not stated",
+        "tool": "per-layer study on identical inputs for all 40 decoder layers; final-layer cosine under free-running arithmetic",
+        "L": [
+          67,
+          68,
+          69,
+          71
+        ]
+      },
+      "metrics": {
+        "component:teacher_forced_mean_divergence": "c12",
+        "component:free_running_final_layer_divergence": "c13",
+        "component:final_layer_cosine": "c14"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Per-layer hidden-state divergence has no KL definition; retain exact column labels as component studies, not distribution KL or top-1 [L67-78].",
+        "Conversion ladder does not identify these rows as the REAP25 pruned artifact [L63,67-78]",
+        "Reference is dequantized native FP8/FP4, not a native BF16 checkpoint [L23-24,67]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "4bit-engram4",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "BF16-dequantized native FP8/FP4 reference",
+        "dataset": "16,384 wikitext-2 tokens",
+        "ctx": "not stated",
+        "tool": "per-layer study on identical inputs for all 40 decoder layers; final-layer cosine under free-running arithmetic",
+        "L": [
+          67,
+          68,
+          69,
+          71
+        ]
+      },
+      "metrics": {
+        "component:teacher_forced_mean_divergence": "c15",
+        "component:free_running_final_layer_divergence": "c16",
+        "component:final_layer_cosine": "c17"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Per-layer hidden-state divergence has no KL definition; retain exact column labels as component studies, not distribution KL or top-1 [L67-78].",
+        "Conversion ladder does not identify these rows as the REAP25 pruned artifact [L63,67-78]",
+        "Reference is dequantized native FP8/FP4, not a native BF16 checkpoint [L23-24,67]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "mixed 4/8, engram as shipped (fp8/ue8m0)",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "BF16-dequantized native FP8/FP4 reference",
+        "dataset": "16,384 wikitext-2 tokens",
+        "ctx": "not stated",
+        "tool": "per-layer study on identical inputs for all 40 decoder layers; final-layer cosine under free-running arithmetic",
+        "L": [
+          67,
+          68,
+          69,
+          71
+        ]
+      },
+      "metrics": {
+        "component:teacher_forced_mean_divergence": "c18",
+        "component:free_running_final_layer_divergence": "c19",
+        "component:final_layer_cosine": "c20"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Per-layer hidden-state divergence has no KL definition; retain exact column labels as component studies, not distribution KL or top-1 [L67-78].",
+        "Conversion ladder does not identify these rows as the REAP25 pruned artifact [L63,67-78]",
+        "Reference is dequantized native FP8/FP4, not a native BF16 checkpoint [L23-24,67]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "mixed 4/8, engram 6-bit (this set's 1 TB build)",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "BF16-dequantized native FP8/FP4 reference",
+        "dataset": "16,384 wikitext-2 tokens",
+        "ctx": "not stated",
+        "tool": "per-layer study on identical inputs for all 40 decoder layers; final-layer cosine under free-running arithmetic",
+        "L": [
+          67,
+          68,
+          69,
+          71
+        ]
+      },
+      "metrics": {
+        "component:teacher_forced_mean_divergence": "c21",
+        "component:free_running_final_layer_divergence": "c22",
+        "component:final_layer_cosine": "c23"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Per-layer hidden-state divergence has no KL definition; retain exact column labels as component studies, not distribution KL or top-1 [L67-78].",
+        "Conversion ladder does not identify these rows as the REAP25 pruned artifact [L63,67-78]",
+        "Reference is dequantized native FP8/FP4, not a native BF16 checkpoint [L23-24,67]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "mixed 4/8, engram 4-bit (this set's 512 GB build)",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "BF16-dequantized native FP8/FP4 reference",
+        "dataset": "16,384 wikitext-2 tokens",
+        "ctx": "not stated",
+        "tool": "per-layer study on identical inputs for all 40 decoder layers; final-layer cosine under free-running arithmetic",
+        "L": [
+          67,
+          68,
+          69,
+          71
+        ]
+      },
+      "metrics": {
+        "component:teacher_forced_mean_divergence": "c24",
+        "component:free_running_final_layer_divergence": "c25",
+        "component:final_layer_cosine": "c26"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Per-layer hidden-state divergence has no KL definition; retain exact column labels as component studies, not distribution KL or top-1 [L67-78].",
+        "Conversion ladder does not identify these rows as the REAP25 pruned artifact [L63,67-78]",
+        "Reference is dequantized native FP8/FP4, not a native BF16 checkpoint [L23-24,67]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash-REAP25-MLX-mixed-4_8bit",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "unpruned build on identical evaluation windows for PPL ratio",
+        "dataset": "wikitext-2 test, 286,580 tokens",
+        "ctx": "140 windows of 2048",
+        "tool": "custom PipeNetwork MLX runtime; paired windows; published interval",
+        "L": [
+          34,
+          63,
+          85
+        ]
+      },
+      "metrics": {
+        "ppl:wikitext-2": "c9001",
+        "ppl_ratio": "c9002"
+      },
+      "size": "c27",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "25% routed-expert pruning; MTP layers omitted; text-only runtime [L25-26,63]",
+        "Perplexity compares held-out windows, distinct from the per-layer study [L67-85]",
+        "Published own PPL and ratio intervals are retained in raw claims; ratio reference is the matched unpruned quantized build, not BF16 [L85].",
+        "PPL and ratio confidence interval endpoints remain source context; interval coverage is not specified [L85]."
+      ]
+    }
+  ],
+  "prose": []
+}

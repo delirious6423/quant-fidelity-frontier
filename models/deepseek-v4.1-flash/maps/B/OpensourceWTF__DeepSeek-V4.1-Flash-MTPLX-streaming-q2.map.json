@@ -1,0 +1,401 @@
+{
+ "repo": "OpensourceWTF/DeepSeek-V4.1-Flash-MTPLX-streaming-q2",
+ "no_quality_claims": false,
+ "weights_modified": false,
+ "method": {
+  "reference": "nativeFP4/FP8 source checkpoint",
+  "dataset": "component/per-tensor reconstruction;Engram2005sampledrowspertable",
+  "ctx": "not applicable(componentcheck)",
+  "tool": "MLXaffine CPU conversion;MTPLXbackendstillinprogress",
+  "L": [
+   32,
+   34,
+   35,
+   36,
+   37,
+   40,
+   41,
+   42,
+   85,
+   89,
+   92,
+   93,
+   94,
+   95
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "routed experts affine2bit",
+   "metrics": {},
+   "size": "c2",
+   "unit": "GiB",
+   "basis": "routed_experts",
+   "bpw": "c187",
+   "panel": "What this repo is",
+   "methodology": {
+    "reference": "nativeFP4/FP8 source checkpoint",
+    "dataset": "component/per-tensor reconstruction;Engram2005sampledrowspertable",
+    "ctx": "not applicable(componentcheck)",
+    "tool": "MLXaffine CPU conversion;MTPLXbackendstillinprogress",
+    "L": [
+     32,
+     34,
+     35,
+     36,
+     37,
+     40,
+     41,
+     42,
+     85,
+     89,
+     92,
+     93,
+     94,
+     95
+    ]
+   },
+   "flags": [
+    "Reconstruction cosine is a component metric, not full-model KL or task accuracy [L34,92-95]."
+   ]
+  },
+  {
+   "role": "own",
+   "name": "dense backbone affine8bit",
+   "metrics": {},
+   "size": "c4",
+   "unit": "GiB",
+   "basis": "resident",
+   "panel": "What this repo is",
+   "methodology": {
+    "reference": "nativeFP4/FP8 source checkpoint",
+    "dataset": "component/per-tensor reconstruction;Engram2005sampledrowspertable",
+    "ctx": "not applicable(componentcheck)",
+    "tool": "MLXaffine CPU conversion;MTPLXbackendstillinprogress",
+    "L": [
+     32,
+     34,
+     35,
+     36,
+     37,
+     40,
+     41,
+     42,
+     85,
+     89,
+     92,
+     93,
+     94,
+     95
+    ]
+   },
+   "flags": [
+    "Listed resident tensor size includes dense backbone plus DSparkMTPexperts [L73]."
+   ]
+  },
+  {
+   "role": "own",
+   "name": "DSpark MTP routed experts affine8bit",
+   "metrics": {},
+   "panel": "What this repo is",
+   "methodology": {
+    "reference": "nativeFP4/FP8 source checkpoint",
+    "dataset": "component/per-tensor reconstruction;Engram2005sampledrowspertable",
+    "ctx": "not applicable(componentcheck)",
+    "tool": "MLXaffine CPU conversion;MTPLXbackendstillinprogress",
+    "L": [
+     32,
+     34,
+     35,
+     36,
+     37,
+     40,
+     41,
+     42,
+     85,
+     89,
+     92,
+     93,
+     94,
+     95
+    ]
+   }
+  },
+  {
+   "role": "own",
+   "name": "Engram affine8bit",
+   "metrics": {},
+   "size": "c6",
+   "unit": "GiB",
+   "basis": "engram_only",
+   "panel": "What this repo is",
+   "methodology": {
+    "reference": "nativeFP4/FP8 source checkpoint",
+    "dataset": "component/per-tensor reconstruction;Engram2005sampledrowspertable",
+    "ctx": "not applicable(componentcheck)",
+    "tool": "MLXaffine CPU conversion;MTPLXbackendstillinprogress",
+    "L": [
+     32,
+     34,
+     35,
+     36,
+     37,
+     40,
+     41,
+     42,
+     85,
+     89,
+     92,
+     93,
+     94,
+     95
+    ]
+   }
+  },
+  {
+   "role": "own",
+   "name": "complete repository",
+   "metrics": {},
+   "size": "c188",
+   "unit": "GiB",
+   "basis": "disk",
+   "flags": [
+    "Repository component sizes are distinct from bounded runtime GPU cache [L56,60-74].",
+    "No task evaluation; backend still in progress [L85-95]."
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "DeepSeek-V4.1-Flash source instruct (published)",
+   "metrics": {
+    "bench:GPQA Diamond (Pass@1)": "c71",
+    "bench:HLE (Pass@1)": "c78",
+    "bench:Codeforces (Rating) \u2014 \u2014 \u2014 \u2014": "c81",
+    "bench:Terminal-Bench 2.1 (Pass@1)": "c91",
+    "bench:Terminal-Bench 3.0 (Pass@1)": "c98",
+    "bench:Terminal-Bench 4.0 (Pass@1)": "c105",
+    "bench:DeepSWE v1.1 (Resolved)": "c112",
+    "bench:ProgramBench (Almost@1)": "c118",
+    "bench:NL2Repo-Bench (Score)": "c124",
+    "bench:CyberGym (Pass@1) \u2014": "c129",
+    "bench:SEC-Bench Pro (Pass@1) \u2014": "c133",
+    "bench:ExploitGym (Pass@1)": "c139",
+    "bench:HLE w/ tools (Pass@1)": "c145",
+    "bench:AutomationBench (Pass@1)": "c152",
+    "bench:Agent's Last Exam (Pass@1)": "c159",
+    "bench:Chartography w/ tools (Pass@1)": "c163",
+    "bench:BabyVision w/ tools (Pass@1)": "c167",
+    "bench:ZeroBench-main w/ tools (Pass@5)": "c171"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Comparison with frontier models (Max reasoning effort)",
+   "methodology": {
+    "reference": "not stated; absolute published source scores",
+    "dataset": "published source-model instruct task benchmarks",
+    "ctx": "maxreasoningeffort100;1Mcodeagents,512kvisualagents",
+    "tool": "DeepSeekpublishedframeworks;temp1top_p0.95",
+    "L": []
+   },
+   "flags": [
+    "Copied original-model benchmarks; not evaluated on this quantization. Other-model/base-checkpoint comparison columns omitted."
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "DeepSeek source instruct / Claude Code",
+   "metrics": {
+    "bench:DeepSWE v1.1 (Resolved)": "c172",
+    "bench:Terminal-Bench 2.1 (Pass@1)": "c180"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+   "methodology": {
+    "reference": "not stated; absolute published source scores",
+    "dataset": "DeepSWEv1.1 N8;TerminalBench2.1 N3",
+    "ctx": "1Mcontext,max_steps500",
+    "tool": "sourcepublisher scaffoldcomparison;temp1top_p0.95",
+    "L": []
+   },
+   "flags": [
+    "Quoted source instruct results, not quantized build measurements."
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "DeepSeek source instruct / Codex",
+   "metrics": {
+    "bench:DeepSWE v1.1 (Resolved)": "c173",
+    "bench:Terminal-Bench 2.1 (Pass@1)": "c181"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+   "methodology": {
+    "reference": "not stated; absolute published source scores",
+    "dataset": "DeepSWEv1.1 N8;TerminalBench2.1 N3",
+    "ctx": "1Mcontext,max_steps500",
+    "tool": "sourcepublisher scaffoldcomparison;temp1top_p0.95",
+    "L": []
+   },
+   "flags": [
+    "Quoted source instruct results, not quantized build measurements."
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "DeepSeek source instruct / OpenCode",
+   "metrics": {
+    "bench:DeepSWE v1.1 (Resolved)": "c174",
+    "bench:Terminal-Bench 2.1 (Pass@1)": "c182"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+   "methodology": {
+    "reference": "not stated; absolute published source scores",
+    "dataset": "DeepSWEv1.1 N8;TerminalBench2.1 N3",
+    "ctx": "1Mcontext,max_steps500",
+    "tool": "sourcepublisher scaffoldcomparison;temp1top_p0.95",
+    "L": []
+   },
+   "flags": [
+    "Quoted source instruct results, not quantized build measurements."
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "DeepSeek source instruct / Pi",
+   "metrics": {
+    "bench:DeepSWE v1.1 (Resolved)": "c175",
+    "bench:Terminal-Bench 2.1 (Pass@1)": "c183"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+   "methodology": {
+    "reference": "not stated; absolute published source scores",
+    "dataset": "DeepSWEv1.1 N8;TerminalBench2.1 N3",
+    "ctx": "1Mcontext,max_steps500",
+    "tool": "sourcepublisher scaffoldcomparison;temp1top_p0.95",
+    "L": []
+   },
+   "flags": [
+    "Quoted source instruct results, not quantized build measurements."
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "DeepSeek source instruct / mini-SWE",
+   "metrics": {
+    "bench:DeepSWE v1.1 (Resolved)": "c176",
+    "bench:Terminal-Bench 2.1 (Pass@1)": "c184"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+   "methodology": {
+    "reference": "not stated; absolute published source scores",
+    "dataset": "DeepSWEv1.1 N8;TerminalBench2.1 N3",
+    "ctx": "1Mcontext,max_steps500",
+    "tool": "sourcepublisher scaffoldcomparison;temp1top_p0.95",
+    "L": []
+   },
+   "flags": [
+    "Quoted source instruct results, not quantized build measurements."
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "DeepSeek source instruct / DSH Minimal",
+   "metrics": {
+    "bench:DeepSWE v1.1 (Resolved)": "c177",
+    "bench:Terminal-Bench 2.1 (Pass@1)": "c185"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+   "methodology": {
+    "reference": "not stated; absolute published source scores",
+    "dataset": "DeepSWEv1.1 N8;TerminalBench2.1 N3",
+    "ctx": "1Mcontext,max_steps500",
+    "tool": "sourcepublisher scaffoldcomparison;temp1top_p0.95",
+    "L": []
+   },
+   "flags": [
+    "Quoted source instruct results, not quantized build measurements."
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "DeepSeek source instruct / DSH Standard",
+   "metrics": {
+    "bench:DeepSWE v1.1 (Resolved)": "c178",
+    "bench:Terminal-Bench 2.1 (Pass@1)": "c186"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+   "methodology": {
+    "reference": "not stated; absolute published source scores",
+    "dataset": "DeepSWEv1.1 N8;TerminalBench2.1 N3",
+    "ctx": "1Mcontext,max_steps500",
+    "tool": "sourcepublisher scaffoldcomparison;temp1top_p0.95",
+    "L": []
+   },
+   "flags": [
+    "Quoted source instruct results, not quantized build measurements."
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "DeepSeek source instruct / DSH PTC",
+   "metrics": {
+    "bench:DeepSWE v1.1 (Resolved)": "c179"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+   "methodology": {
+    "reference": "not stated; absolute published source scores",
+    "dataset": "DeepSWEv1.1 N8;TerminalBench2.1 N3",
+    "ctx": "1Mcontext,max_steps500",
+    "tool": "sourcepublisher scaffoldcomparison;temp1top_p0.95",
+    "L": []
+   },
+   "flags": [
+    "Quoted source instruct results, not quantized build measurements."
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "routed experts affine2bit",
+   "key": "bench:routed expert cosine approximate",
+   "L": 34,
+   "raw": "0.91",
+   "panel": "What this repo is"
+  },
+  {
+   "entry": "dense backbone affine8bit",
+   "key": "bench:dense cosine lower bound",
+   "L": 35,
+   "raw": "0.9997",
+   "panel": "What this repo is"
+  },
+  {
+   "entry": "dense backbone affine8bit",
+   "key": "bench:dense relative error percent approximate",
+   "L": 35,
+   "raw": "0.5%",
+   "panel": "What this repo is"
+  },
+  {
+   "entry": "DSpark MTP routed experts affine8bit",
+   "key": "bench:MTP expert cosine",
+   "L": 36,
+   "raw": "0.99999",
+   "panel": "What this repo is"
+  },
+  {
+   "entry": "Engram affine8bit",
+   "key": "bench:Engram row cosine lower bound",
+   "L": 37,
+   "raw": "0.99994",
+   "panel": "What this repo is"
+  }
+ ]
+}

@@ -1,0 +1,338 @@
+{
+  "repo": "coolbho3k/DeepSeek-V4.1-Flash-EXL3-3bpw",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "original native-FP4 mixed-precision deepseek-ai/DeepSeek-V4.1-Flash at df42c109f1defefcbfcedbe7d905718a12266e40",
+    "dataset": "64 held-out records:40 text records, small image slices; separate generated-answer checks",
+    "ctx": "81,880 text targets;430 image targets including84 answer targets",
+    "tool": "teacher-forced full 40-layer comparison; vocabulary truncation not stated",
+    "L": [
+      18,
+      44,
+      45,
+      46,
+      52,
+      54,
+      55,
+      56,
+      58,
+      66,
+      67,
+      68,
+      69,
+      70
+    ]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "Original source",
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "original native-FP4 mixed-precision deepseek-ai/DeepSeek-V4.1-Flash at df42c109f1defefcbfcedbe7d905718a12266e40",
+        "dataset": "40 held-out text records,81,880 targets",
+        "ctx": "not stated",
+        "tool": "teacher-forced full 40-layer model comparison; vocabulary scope not stated",
+        "L": [
+          54,
+          55,
+          56,
+          58,
+          60,
+          61,
+          62,
+          63,
+          64,
+          66,
+          67
+        ]
+      },
+      "metrics": {
+        "bench:NLL/text": "c5",
+        "ppl:text": "c8",
+        "bench:next-token accuracy %/text": "c11"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Native-FP4 source, not BF16 reference; agreement differs from correct next-token prediction [L54-67]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Previous upload",
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "original native-FP4 mixed-precision deepseek-ai/DeepSeek-V4.1-Flash at df42c109f1defefcbfcedbe7d905718a12266e40",
+        "dataset": "40 held-out text records,81,880 targets",
+        "ctx": "not stated",
+        "tool": "teacher-forced full 40-layer model comparison; vocabulary scope not stated",
+        "L": [
+          54,
+          55,
+          56,
+          58,
+          60,
+          61,
+          62,
+          63,
+          64,
+          66,
+          67
+        ]
+      },
+      "metrics": {
+        "kld:text": "c1",
+        "top1:text": "c3",
+        "bench:NLL/text": "c6",
+        "ppl:text": "c9",
+        "bench:next-token accuracy %/text": "c12"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Native-FP4 source, not BF16 reference; agreement differs from correct next-token prediction [L54-67]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "Current weights",
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "original native-FP4 mixed-precision deepseek-ai/DeepSeek-V4.1-Flash at df42c109f1defefcbfcedbe7d905718a12266e40",
+        "dataset": "40 held-out text records,81,880 targets",
+        "ctx": "not stated",
+        "tool": "teacher-forced full 40-layer model comparison; vocabulary scope not stated",
+        "L": [
+          54,
+          55,
+          56,
+          58,
+          60,
+          61,
+          62,
+          63,
+          64,
+          66,
+          67
+        ]
+      },
+      "metrics": {
+        "kld:text": "c2",
+        "top1:text": "c4",
+        "bench:NLL/text": "c7",
+        "ppl:text": "c10",
+        "bench:next-token accuracy %/text": "c13"
+      },
+      "size": "c15",
+      "unit": "bytes",
+      "basis": "excl_engram",
+      "bpw": null,
+      "flags": [
+        "Native-FP4 source, not BF16 reference; agreement differs from correct next-token prediction [L54-67]",
+        "Size is active-model tensor payload only; excludes SSD Engram and separately retained draft/MTP [L107-115]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Previous upload — images",
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "original native-FP4 mixed-precision deepseek-ai/DeepSeek-V4.1-Flash at df42c109f1defefcbfcedbe7d905718a12266e40",
+        "dataset": "small image slices:430 targets,84 answer targets",
+        "ctx": "not stated",
+        "tool": "teacher-forced image comparison; PPL against reference answers",
+        "L": [
+          68,
+          69,
+          70,
+          71,
+          72
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Very small image evaluation; no broad vision claim [L68-72]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "Current weights — images",
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "original native-FP4 mixed-precision deepseek-ai/DeepSeek-V4.1-Flash at df42c109f1defefcbfcedbe7d905718a12266e40",
+        "dataset": "small image slices:430 targets,84 answer targets",
+        "ctx": "not stated",
+        "tool": "teacher-forced image comparison; PPL against reference answers",
+        "L": [
+          68,
+          69,
+          70,
+          71,
+          72
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Very small image evaluation; no broad vision claim [L68-72]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Previous upload — generated-answer checks",
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "ARC-Challenge and GSM8K generated-answer checks",
+        "ctx": "not stated",
+        "tool": "thinking disabled; previous upload only",
+        "L": [
+          74,
+          75
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Not repeated on current weights [L74-75]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "Current weights — 24-image question suite",
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "24-image question suite",
+        "ctx": "not stated",
+        "tool": "current recipe across runtime settings; previous upload earlier runtime",
+        "L": [
+          75,
+          76,
+          77
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Published score is a 19–20 range out of24 across runtime settings, not one exact count [L76-77]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Previous upload — 24-image question suite",
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "24-image question suite",
+        "ctx": "not stated",
+        "tool": "current recipe across runtime settings; previous upload earlier runtime",
+        "L": [
+          75,
+          76,
+          77
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Earlier runtime; not controlled against current settings [L76-77]"
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "Previous upload — images",
+      "panel": "Measured quality",
+      "key": "kld:image",
+      "L": 69,
+      "raw": "0.253"
+    },
+    {
+      "entry": "Previous upload — images",
+      "panel": "Measured quality",
+      "key": "top1:image",
+      "L": 69,
+      "raw": "84.7%"
+    },
+    {
+      "entry": "Previous upload — images",
+      "panel": "Measured quality",
+      "key": "ppl:image",
+      "L": 70,
+      "raw": "586"
+    },
+    {
+      "entry": "Current weights — images",
+      "panel": "Measured quality",
+      "key": "kld:image",
+      "L": 69,
+      "raw": "0.226"
+    },
+    {
+      "entry": "Current weights — images",
+      "panel": "Measured quality",
+      "key": "top1:image",
+      "L": 69,
+      "raw": "86.7%"
+    },
+    {
+      "entry": "Current weights — images",
+      "panel": "Measured quality",
+      "key": "ppl:image",
+      "L": 70,
+      "raw": "608"
+    },
+    {
+      "entry": "Previous upload — generated-answer checks",
+      "panel": "Measured quality",
+      "key": "bench:ARC-Challenge correct (of 128)",
+      "L": 74,
+      "raw": "123"
+    },
+    {
+      "entry": "Previous upload — generated-answer checks",
+      "panel": "Measured quality",
+      "key": "bench:GSM8K correct (of 64)",
+      "L": 74,
+      "raw": "63"
+    },
+    {
+      "entry": "Current weights — 24-image question suite",
+      "panel": "Measured quality",
+      "key": "bench:24-image question suite correct count range",
+      "L": 76,
+      "raw": "19–20"
+    },
+    {
+      "entry": "Previous upload — 24-image question suite",
+      "panel": "Measured quality",
+      "key": "bench:24-image question suite correct (of 24)",
+      "L": 76,
+      "raw": "18"
+    }
+  ]
+}

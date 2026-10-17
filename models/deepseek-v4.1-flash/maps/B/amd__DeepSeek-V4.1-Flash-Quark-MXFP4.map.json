@@ -1,0 +1,52 @@
+{
+ "repo": "amd/DeepSeek-V4.1-Flash-Quark-MXFP4",
+ "no_quality_claims": false,
+ "weights_modified": false,
+ "method": {
+  "reference": "native deepseek-ai/DeepSeek-V4.1-Flash source",
+  "dataset": "GSM8K8shot flexible-extract;GPQADiamond198questions,0shotthinking",
+  "ctx": "GSM8K4096generationtokens;GPQA65536;max_model_len73728",
+  "tool": "lm-eval GSM8K greedyseed42;sgl-eval GPQA stochastictemp1top_p0.95;vLLM samehost/framework perbenchmark",
+  "L": [
+   88,
+   92,
+   94,
+   95,
+   97,
+   98,
+   100,
+   101,
+   102,
+   119,
+   123,
+   124,
+   130,
+   131
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "amd/DeepSeek-V4.1-Flash-MXFP4 (this model)",
+   "metrics": {
+    "bench:GSM8K8shot": "c2",
+    "bench:GSM8K recovery percent": "c3",
+    "bench:GPQA Diamond0shotthinking": "c5",
+    "bench:GPQA recovery percent": "c6"
+   },
+   "flags": [
+    "GPQA stochastic draw; card states confidence interval/sample variation, not significant superiority [L100-105]."
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "deepseek-ai/DeepSeek-V4.1-Flash (reference)",
+   "metrics": {
+    "bench:GSM8K8shot": "c1",
+    "bench:GPQA Diamond0shotthinking": "c4"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+  }
+ ],
+ "prose": []
+}

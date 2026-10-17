@@ -1,0 +1,234 @@
+{
+ "repo": "mxxm-t/DeepSeek-V4.1-Flash-GGUF",
+ "no_quality_claims": true,
+ "no_claims_reason": "No measured numerical quality of GGUF build; checks are coverage/layout and source model card benchmarks are copied [L83-100,109-110]; no off-site evaluation imported.",
+ "weights_modified": false,
+ "method": {
+  "reference": "not stated",
+  "dataset": "not stated",
+  "ctx": "not stated",
+  "tool": "not stated",
+  "L": []
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "main model loaded with repack",
+   "metrics": {},
+   "size": "c183",
+   "unit": "GiB",
+   "basis": "resident",
+   "flags": [
+    "Loaded/repacked weight memory before KV/compute; separate on-disk Engram/sidecar scopes [L41-55].",
+    "Original model benchmark tables below do not measure this GGUF build [L32-35,109]."
+   ]
+  },
+  {
+   "role": "own",
+   "name": "DeepSeek-V4.1-Flash-DSpark-MXFP4.gguf",
+   "metrics": {},
+   "size": "c1",
+   "unit": "GiB",
+   "basis": "disk",
+   "flags": [
+    "Draft sidecar is not a standalone model [L42,48-51]."
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "DeepSeek-V4.1-Flash source instruct (published)",
+   "metrics": {
+    "bench:GPQA Diamond (Pass@1)": "c65",
+    "bench:HLE (Pass@1)": "c72",
+    "bench:Codeforces (Rating) \u2014 \u2014 \u2014 \u2014": "c75",
+    "bench:Terminal-Bench 2.1 (Pass@1)": "c85",
+    "bench:Terminal-Bench 3.0 (Pass@1)": "c92",
+    "bench:Terminal-Bench 4.0 (Pass@1)": "c99",
+    "bench:DeepSWE v1.1 (Resolved)": "c106",
+    "bench:ProgramBench (Almost@1)": "c112",
+    "bench:NL2Repo-Bench (Score)": "c118",
+    "bench:CyberGym (Pass@1) \u2014": "c123",
+    "bench:SEC-Bench Pro (Pass@1) \u2014": "c127",
+    "bench:ExploitGym (Pass@1)": "c133",
+    "bench:HLE w/ tools (Pass@1)": "c139",
+    "bench:AutomationBench (Pass@1)": "c146",
+    "bench:Agent's Last Exam (Pass@1)": "c153",
+    "bench:Chartography w/ tools (Pass@1)": "c157",
+    "bench:BabyVision w/ tools (Pass@1)": "c161",
+    "bench:ZeroBench-main w/ tools (Pass@5)": "c165"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Comparison with frontier models (Max reasoning effort)",
+   "methodology": {
+    "reference": "not stated; absolute published source scores",
+    "dataset": "published source-model instruct task benchmarks",
+    "ctx": "maxreasoningeffort100;1Mcodeagents,512kvisualagents",
+    "tool": "DeepSeekpublishedframeworks;temp1top_p0.95",
+    "L": []
+   },
+   "flags": [
+    "Copied original-model benchmarks; not evaluated on this quantization. Other-model/base-checkpoint comparison columns omitted."
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "DeepSeek source instruct / Claude Code",
+   "metrics": {
+    "bench:DeepSWE v1.1 (Resolved)": "c166",
+    "bench:Terminal-Bench 2.1 (Pass@1)": "c174"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+   "methodology": {
+    "reference": "not stated; absolute published source scores",
+    "dataset": "DeepSWEv1.1 N8;TerminalBench2.1 N3",
+    "ctx": "1Mcontext,max_steps500",
+    "tool": "sourcepublisher scaffoldcomparison;temp1top_p0.95",
+    "L": []
+   },
+   "flags": [
+    "Quoted source instruct results, not quantized build measurements."
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "DeepSeek source instruct / Codex",
+   "metrics": {
+    "bench:DeepSWE v1.1 (Resolved)": "c167",
+    "bench:Terminal-Bench 2.1 (Pass@1)": "c175"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+   "methodology": {
+    "reference": "not stated; absolute published source scores",
+    "dataset": "DeepSWEv1.1 N8;TerminalBench2.1 N3",
+    "ctx": "1Mcontext,max_steps500",
+    "tool": "sourcepublisher scaffoldcomparison;temp1top_p0.95",
+    "L": []
+   },
+   "flags": [
+    "Quoted source instruct results, not quantized build measurements."
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "DeepSeek source instruct / OpenCode",
+   "metrics": {
+    "bench:DeepSWE v1.1 (Resolved)": "c168",
+    "bench:Terminal-Bench 2.1 (Pass@1)": "c176"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+   "methodology": {
+    "reference": "not stated; absolute published source scores",
+    "dataset": "DeepSWEv1.1 N8;TerminalBench2.1 N3",
+    "ctx": "1Mcontext,max_steps500",
+    "tool": "sourcepublisher scaffoldcomparison;temp1top_p0.95",
+    "L": []
+   },
+   "flags": [
+    "Quoted source instruct results, not quantized build measurements."
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "DeepSeek source instruct / Pi",
+   "metrics": {
+    "bench:DeepSWE v1.1 (Resolved)": "c169",
+    "bench:Terminal-Bench 2.1 (Pass@1)": "c177"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+   "methodology": {
+    "reference": "not stated; absolute published source scores",
+    "dataset": "DeepSWEv1.1 N8;TerminalBench2.1 N3",
+    "ctx": "1Mcontext,max_steps500",
+    "tool": "sourcepublisher scaffoldcomparison;temp1top_p0.95",
+    "L": []
+   },
+   "flags": [
+    "Quoted source instruct results, not quantized build measurements."
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "DeepSeek source instruct / mini-SWE",
+   "metrics": {
+    "bench:DeepSWE v1.1 (Resolved)": "c170",
+    "bench:Terminal-Bench 2.1 (Pass@1)": "c178"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+   "methodology": {
+    "reference": "not stated; absolute published source scores",
+    "dataset": "DeepSWEv1.1 N8;TerminalBench2.1 N3",
+    "ctx": "1Mcontext,max_steps500",
+    "tool": "sourcepublisher scaffoldcomparison;temp1top_p0.95",
+    "L": []
+   },
+   "flags": [
+    "Quoted source instruct results, not quantized build measurements."
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "DeepSeek source instruct / DSH Minimal",
+   "metrics": {
+    "bench:DeepSWE v1.1 (Resolved)": "c171",
+    "bench:Terminal-Bench 2.1 (Pass@1)": "c179"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+   "methodology": {
+    "reference": "not stated; absolute published source scores",
+    "dataset": "DeepSWEv1.1 N8;TerminalBench2.1 N3",
+    "ctx": "1Mcontext,max_steps500",
+    "tool": "sourcepublisher scaffoldcomparison;temp1top_p0.95",
+    "L": []
+   },
+   "flags": [
+    "Quoted source instruct results, not quantized build measurements."
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "DeepSeek source instruct / DSH Standard",
+   "metrics": {
+    "bench:DeepSWE v1.1 (Resolved)": "c172",
+    "bench:Terminal-Bench 2.1 (Pass@1)": "c180"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+   "methodology": {
+    "reference": "not stated; absolute published source scores",
+    "dataset": "DeepSWEv1.1 N8;TerminalBench2.1 N3",
+    "ctx": "1Mcontext,max_steps500",
+    "tool": "sourcepublisher scaffoldcomparison;temp1top_p0.95",
+    "L": []
+   },
+   "flags": [
+    "Quoted source instruct results, not quantized build measurements."
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "DeepSeek source instruct / DSH PTC",
+   "metrics": {
+    "bench:DeepSWE v1.1 (Resolved)": "c173"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+   "methodology": {
+    "reference": "not stated; absolute published source scores",
+    "dataset": "DeepSWEv1.1 N8;TerminalBench2.1 N3",
+    "ctx": "1Mcontext,max_steps500",
+    "tool": "sourcepublisher scaffoldcomparison;temp1top_p0.95",
+    "L": []
+   },
+   "flags": [
+    "Quoted source instruct results, not quantized build measurements."
+   ]
+  }
+ ],
+ "prose": []
+}

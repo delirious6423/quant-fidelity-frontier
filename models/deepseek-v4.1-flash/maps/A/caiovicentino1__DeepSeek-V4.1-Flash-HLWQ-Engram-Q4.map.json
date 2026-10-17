@@ -1,0 +1,199 @@
+{
+  "repo": "caiovicentino1/DeepSeek-V4.1-Flash-HLWQ-Engram-Q4",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "official deepseek-ai/DeepSeek-V4.1-Flash, native FP8 Engram / MXFP4 routed experts",
+    "dataset": "25 fixed FP8 greedy continuations: 10 pt-BR prose, 10 code, 5 needles",
+    "ctx": "needle prompts 3K–52K; 8 scoring positions per prose/code continuation, 16 per needle stated",
+    "tool": "SGLang dev-dsv41, four RTX PRO 6000, TP4/EP4, DSpark block 5; idle-to-idle teacher-forced scoring",
+    "L": [
+      22,
+      43,
+      124,
+      126,
+      128,
+      130
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "HLWQ Q4 (this repo)",
+      "panel": "DeepSeek-V4.1-Flash · HLWQ Q4 Engram",
+      "methodology": {
+        "reference": "official deepseek-ai/DeepSeek-V4.1-Flash, native FP8 Engram / MXFP4 routed experts",
+        "dataset": "Engram rows",
+        "ctx": "not applicable",
+        "tool": "relative row reconstruction RMSE and cosine; deterministic 4-bit Hadamard-Lloyd quantizer",
+        "L": [
+          22,
+          28,
+          29,
+          30,
+          31,
+          109,
+          120
+        ]
+      },
+      "metrics": {
+        "bench:Engram row relative RMSE": "c5",
+        "bench:Engram row mean cosine": "c6"
+      },
+      "size": "c4",
+      "unit": "GB",
+      "basis": "engram_only",
+      "bpw": null,
+      "flags": [
+        "Combined table size, not total checkpoint download [L24,29]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "FP8",
+      "panel": "Validation (same server, same prompts, FP8 vs HLWQ)",
+      "methodology": {
+        "reference": "official deepseek-ai/DeepSeek-V4.1-Flash, native FP8 Engram / MXFP4 routed experts",
+        "dataset": "25 fixed FP8 greedy continuations: 10 pt-BR prose, 10 code, 5 needles",
+        "ctx": "needle prompts 3K–52K; 8 scoring positions per prose/code continuation, 16 per needle stated",
+        "tool": "SGLang dev-dsv41, four RTX PRO 6000, TP4/EP4, DSpark block 5; idle-to-idle teacher-forced scoring",
+        "L": [
+          22,
+          43,
+          124,
+          126,
+          128,
+          130
+        ]
+      },
+      "metrics": {
+        "bench:NLL/pt-BR prose": "c9",
+        "top1:pt-BR prose": "c11",
+        "bench:NLL/code": "c13",
+        "top1:code": "c15",
+        "bench:NLL/needle": "c17",
+        "top1:needle": "c19"
+      },
+      "size": "c3",
+      "unit": "GB",
+      "basis": "engram_only",
+      "bpw": null,
+      "flags": [
+        "Agreement scores fixed FP8 greedy continuations, not full-distribution KL [L130,132]",
+        "Needle row reports 37 positions despite nominal scoring protocol [L130,136]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "HLWQ Q4",
+      "panel": "Validation (same server, same prompts, FP8 vs HLWQ)",
+      "methodology": {
+        "reference": "official deepseek-ai/DeepSeek-V4.1-Flash, native FP8 Engram / MXFP4 routed experts",
+        "dataset": "25 fixed FP8 greedy continuations: 10 pt-BR prose, 10 code, 5 needles",
+        "ctx": "needle prompts 3K–52K; 8 scoring positions per prose/code continuation, 16 per needle stated",
+        "tool": "SGLang dev-dsv41, four RTX PRO 6000, TP4/EP4, DSpark block 5; idle-to-idle teacher-forced scoring",
+        "L": [
+          22,
+          43,
+          124,
+          126,
+          128,
+          130
+        ]
+      },
+      "metrics": {
+        "bench:NLL/pt-BR prose": "c10",
+        "top1:pt-BR prose": "c12",
+        "bench:NLL/code": "c14",
+        "top1:code": "c16",
+        "bench:NLL/needle": "c18",
+        "top1:needle": "c20"
+      },
+      "size": "c4",
+      "unit": "GB",
+      "basis": "engram_only",
+      "bpw": null,
+      "flags": [
+        "Agreement scores fixed FP8 greedy continuations, not full-distribution KL [L130,132]",
+        "Needle row reports 37 positions despite nominal scoring protocol [L130,136]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "HLWQ Q4 free generation",
+      "panel": "Validation (same server, same prompts, FP8 vs HLWQ)",
+      "methodology": {
+        "reference": "official deepseek-ai/DeepSeek-V4.1-Flash, native FP8 Engram / MXFP4 routed experts",
+        "dataset": "five needle facts and functional gate suite",
+        "ctx": "3.4K,9.6K,22K,39K,52K prompts",
+        "tool": "free generation and token-level identity under concurrent traffic",
+        "L": [
+          138,
+          140
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Free-generation identity under traffic differs from idle teacher-forced top-1 [L130,138]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "FP8 self-rerun under load",
+      "panel": "Validation (same server, same prompts, FP8 vs HLWQ)",
+      "methodology": {
+        "reference": "official deepseek-ai/DeepSeek-V4.1-Flash, native FP8 Engram / MXFP4 routed experts",
+        "dataset": "five needle facts and functional gate suite",
+        "ctx": "3.4K,9.6K,22K,39K,52K prompts",
+        "tool": "free generation and token-level identity under concurrent traffic",
+        "L": [
+          138,
+          140
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Native self-rerun noise control [L138]"
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "HLWQ Q4 free generation",
+      "panel": "Validation (same server, same prompts, FP8 vs HLWQ)",
+      "key": "bench:needle facts retrieved",
+      "L": 138,
+      "raw": "5"
+    },
+    {
+      "entry": "HLWQ Q4 free generation",
+      "panel": "Validation (same server, same prompts, FP8 vs HLWQ)",
+      "key": "bench:token-level identity %",
+      "L": 138,
+      "raw": "79 %"
+    },
+    {
+      "entry": "HLWQ Q4 free generation",
+      "panel": "Validation (same server, same prompts, FP8 vs HLWQ)",
+      "key": "bench:functional gates passed",
+      "L": 140,
+      "raw": "7"
+    },
+    {
+      "entry": "FP8 self-rerun under load",
+      "panel": "Validation (same server, same prompts, FP8 vs HLWQ)",
+      "key": "bench:token-level identity %",
+      "L": 138,
+      "raw": "88 %"
+    }
+  ]
+}

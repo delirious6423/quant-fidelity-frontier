@@ -1,0 +1,214 @@
+{
+  "repo": "INCModel3/DeepSeek-V4.1-Flash-MXFP4-Engram-AutoRound",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "official DeepSeek-V4.1-Flash mixed native checkpoint;benchmark figures belong to siblingD1",
+    "dataset": "GSM8K raw5-shot,1319items for sibling reference;Engram reconstruction corpus not stated",
+    "ctx": "not stated",
+    "tool": "auto-round --model_free conversion;vLLM compute recipe",
+    "L": [
+      10,
+      12,
+      15,
+      17,
+      18,
+      19,
+      25,
+      36,
+      37
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "D1-ar-v2 Engram tables",
+      "panel": "DeepSeek-V4.1-Flash — D1-ar-v2 (dense OCP-MXFP8 rowwise + engram MXFP4)",
+      "methodology": {
+        "reference": "official FP8 Engram source",
+        "dataset": "Engram embed tables on layers1/14",
+        "ctx": "not applicable",
+        "tool": "MXFP4 reconstruction error;dense FP8scale expansion separately lossless",
+        "L": [
+          17,
+          19
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Approximate reconstruction error for Engram tables; no own task-accuracy measurement is claimed [L19,36-37]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "D1-ar-v2 checkpoint",
+      "panel": "DeepSeek-V4.1-Flash — D1-ar-v2 (dense OCP-MXFP8 rowwise + engram MXFP4)",
+      "methodology": {
+        "reference": "official native mixed-precision DeepSeek-V4.1-Flash checkpoint",
+        "dataset": "checkpoint files",
+        "ctx": "not applicable",
+        "tool": "auto-round model-free conversion; independent script-built tensor twin is byte-identical",
+        "L": [
+          10,
+          12,
+          17,
+          18,
+          19,
+          22,
+          23
+        ]
+      },
+      "metrics": {},
+      "size": "c1",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Whole-checkpoint size; native routed-expert MXFP4 weights remain unchanged [L18,22]."
+      ]
+    },
+    {
+      "role": "quoted",
+      "name": "sibling D1 checkpoint — first listed result",
+      "panel": "Inference (vLLM)",
+      "methodology": {
+        "reference": "baseline not further identified on card; precision not stated for this benchmark",
+        "dataset": "GSM8K raw5-shot,n=1319",
+        "ctx": "not stated",
+        "tool": "Card reference accuracy from sibling D1 checkpoint with same compute recipe; vLLM",
+        "L": [
+          25,
+          36,
+          37
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Quoted reference accuracy for a sibling D1 checkpoint and its unidentified baseline; not direct evaluation of this artifact [L36-37].",
+        "Slash-separated sibling figures are not identified as repetitions or separate configurations [L36]."
+      ],
+      "of": "not named on card"
+    },
+    {
+      "role": "quoted",
+      "name": "sibling D1 checkpoint — second listed result",
+      "panel": "Inference (vLLM)",
+      "methodology": {
+        "reference": "baseline not further identified on card; precision not stated for this benchmark",
+        "dataset": "GSM8K raw5-shot,n=1319",
+        "ctx": "not stated",
+        "tool": "Card reference accuracy from sibling D1 checkpoint with same compute recipe; vLLM",
+        "L": [
+          25,
+          36,
+          37
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Quoted reference accuracy for a sibling D1 checkpoint and its unidentified baseline; not direct evaluation of this artifact [L36-37].",
+        "Slash-separated sibling figures are not identified as repetitions or separate configurations [L36]."
+      ],
+      "of": "not named on card"
+    },
+    {
+      "role": "quoted",
+      "name": "baseline",
+      "panel": "Inference (vLLM)",
+      "methodology": {
+        "reference": "baseline not further identified on card; precision not stated for this benchmark",
+        "dataset": "GSM8K raw5-shot,n=1319",
+        "ctx": "not stated",
+        "tool": "Card reference accuracy from sibling D1 checkpoint with same compute recipe; vLLM",
+        "L": [
+          25,
+          36,
+          37
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Quoted reference accuracy for a sibling D1 checkpoint and its unidentified baseline; not direct evaluation of this artifact [L36-37].",
+        "Slash-separated sibling figures are not identified as repetitions or separate configurations [L36]."
+      ],
+      "of": "not named on card"
+    },
+    {
+      "role": "own",
+      "name": "dense fp8 family scale expansion",
+      "panel": "DeepSeek-V4.1-Flash — D1-ar-v2 (dense OCP-MXFP8 rowwise + engram MXFP4)",
+      "methodology": {
+        "reference": "source dense FP8 E4M3 + E8M0 blockwise scales",
+        "dataset": "dense fp8 family tensors",
+        "ctx": "not applicable",
+        "tool": "Lossless blockwise to rowwise scale expansion",
+        "L": [
+          15,
+          17
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Scale expansion leaves the dense weight bytes untouched; routed experts are also unchanged [L17-18]."
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "D1-ar-v2 Engram tables",
+      "panel": "DeepSeek-V4.1-Flash — D1-ar-v2 (dense OCP-MXFP8 rowwise + engram MXFP4)",
+      "key": "bench:Engram relative error",
+      "L": 19,
+      "raw": "0.12"
+    },
+    {
+      "entry": "sibling D1 checkpoint — first listed result",
+      "panel": "Inference (vLLM)",
+      "key": "bench:GSM8K (raw5-shot)",
+      "L": 36,
+      "raw": "92.19"
+    },
+    {
+      "entry": "sibling D1 checkpoint — second listed result",
+      "panel": "Inference (vLLM)",
+      "key": "bench:GSM8K (raw5-shot)",
+      "L": 36,
+      "raw": "92.27"
+    },
+    {
+      "entry": "baseline",
+      "panel": "Inference (vLLM)",
+      "key": "bench:GSM8K (raw5-shot)",
+      "L": 37,
+      "raw": "92.87"
+    },
+    {
+      "entry": "dense fp8 family scale expansion",
+      "panel": "DeepSeek-V4.1-Flash — D1-ar-v2 (dense OCP-MXFP8 rowwise + engram MXFP4)",
+      "key": "bench:dense scale-expansion maximum difference",
+      "L": 17,
+      "raw": "0.0"
+    }
+  ]
+}

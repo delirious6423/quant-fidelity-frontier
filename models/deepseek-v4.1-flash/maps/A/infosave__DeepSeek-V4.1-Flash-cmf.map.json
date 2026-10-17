@@ -1,0 +1,147 @@
+{
+  "repo": "infosave/DeepSeek-V4.1-Flash-cmf",
+  "no_quality_claims": false,
+  "weights_modified": false,
+  "method": {
+    "reference": "OpenRouter behavioral comparison; reference model/precision not stated",
+    "dataset": "eight bounded cases: arithmetic, JSON, Russian, Python, counting, Chinese, conversation context, image",
+    "ctx": "not stated",
+    "tool": "final fused-Q CMF Rust/Vulkan GPU profile on RTX PRO 6000; semantic review and strict format checks",
+    "L": [
+      82,
+      83,
+      188,
+      189,
+      190,
+      191,
+      192,
+      198,
+      199,
+      220,
+      222,
+      223,
+      224,
+      225,
+      226
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "dsv41-q4tp.cmf",
+      "metrics": {},
+      "panel": "Validation",
+      "methodology": {
+        "reference": "OpenRouter behavioral comparison; reference model/precision not stated",
+        "dataset": "eight bounded cases: arithmetic, JSON, Russian, Python, counting, Chinese, conversation context, image",
+        "ctx": "not stated",
+        "tool": "final fused-Q CMF Rust/Vulkan GPU profile on RTX PRO 6000; semantic review and strict format checks",
+        "L": [
+          82,
+          83,
+          188,
+          189,
+          190,
+          191,
+          192,
+          198,
+          199,
+          220,
+          222,
+          223,
+          224,
+          225,
+          226
+        ]
+      },
+      "size": "c1",
+      "unit": "GB",
+      "basis": "disk",
+      "flags": [
+        "Only bounded behavior samples, explicitly not a standardized benchmark-suite score or full-checkpoint parity [L188-199,222-226].",
+        "Ratios are the author-reported pass counts, not percentages [L224-225]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "dsv41-q4tp.cmf Engram component",
+      "metrics": {},
+      "panel": "Validation",
+      "methodology": {
+        "reference": "original FP8 Engram component, source-exact gathered BF16 values",
+        "dataset": "selected FP8 rows from both Engram layers; token/hash/text/image-break/padding component checks",
+        "ctx": "component-level only, not whole-model output",
+        "tool": "CMF Engram component check",
+        "L": [
+          181,
+          182,
+          183,
+          184,
+          185,
+          186
+        ]
+      },
+      "flags": [
+        "Component residual differences are not full-model logit divergence or task accuracy [L181-186]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "dsv41-q4tp.cmf vision component",
+      "metrics": {},
+      "panel": "Image example",
+      "methodology": {
+        "reference": "official vision component oracle",
+        "dataset": "accepted F16 vision component comparison",
+        "ctx": "component-level only",
+        "tool": "F16 Vulkan vision component output cosine comparison",
+        "L": [
+          220,
+          221,
+          222,
+          223
+        ]
+      },
+      "flags": [
+        "Vision component cosine is not whole-model top-1, KL, or benchmark accuracy [L220-223]."
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "dsv41-q4tp.cmf",
+      "panel": "Validation",
+      "key": "bench:eight-case semantic comparison",
+      "L": 224,
+      "raw": "8/8"
+    },
+    {
+      "entry": "dsv41-q4tp.cmf",
+      "panel": "Validation",
+      "key": "bench:strict automated format checks",
+      "L": 225,
+      "raw": "7/8"
+    },
+    {
+      "entry": "dsv41-q4tp.cmf Engram component",
+      "panel": "Validation",
+      "key": "component:engram_maximum_residual_output_difference",
+      "L": 184,
+      "raw": "0.015625"
+    },
+    {
+      "entry": "dsv41-q4tp.cmf Engram component",
+      "panel": "Validation",
+      "key": "component:engram_mean_absolute_difference",
+      "L": 185,
+      "raw": "2.29e-7."
+    },
+    {
+      "entry": "dsv41-q4tp.cmf vision component",
+      "panel": "Image example",
+      "key": "component:vision_cosine",
+      "L": 221,
+      "raw": "0.999695"
+    }
+  ]
+}

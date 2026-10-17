@@ -1,0 +1,97 @@
+{
+  "repo": "wenzhouwu/YoungAi-DeepSeek-V4.1-Flash",
+  "no_quality_claims": false,
+  "weights_modified": true,
+  "method": {
+    "reference": "original full-precision model (publisher wording; checkpoint precision not stated)",
+    "dataset": "held-out text; code example",
+    "ctx": "not stated",
+    "tool": "project C99 + CUDA engine on DGX Spark",
+    "L": [
+      49,
+      50,
+      171,
+      174,
+      176,
+      177,
+      184,
+      187
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "113.6 GB base",
+      "metrics": {},
+      "size": "c4",
+      "basis": null,
+      "unit": "GB",
+      "flags": [
+        "Base size is stated without a clear Engram inclusion boundary [L49,171].",
+        "Code top-1 figure is before adding a domain sidecar [L176-177].",
+        "Base vector quantization used no training data; with-sidecar result is an augmentation and is kept outside isolated quantization-fidelity comparisons [L171,174,176-177].",
+        "113.6 GB base is not the approximately 317 GB download; size boundary and storage/memory basis are unspecified [L134,171]."
+      ],
+      "panel": "The model",
+      "methodology": {
+        "reference": "original full-precision model (publisher wording; checkpoint precision not stated)",
+        "dataset": "held-out code text",
+        "ctx": "not stated",
+        "tool": "project C99 + CUDA engine on DGX Spark; next-token agreement without code sidecar",
+        "L": [
+          171,
+          174,
+          176,
+          177,
+          184,
+          187
+        ]
+      }
+    },
+    {
+      "role": "own",
+      "name": "code sidecar",
+      "metrics": {},
+      "size": null,
+      "basis": null,
+      "unit": null,
+      "flags": [
+        "Domain sidecar on the quantized base; the base and with-sidecar results are separate [L174,176-177].",
+        "Speech-recognition character error claims concern moonshine-tiny-zh, not this model [L90-109].",
+        "Base vector quantization used no training data; with-sidecar result is an augmentation and is kept outside isolated quantization-fidelity comparisons [L171,174,176-177].",
+        "113.6 GB base is not the approximately 317 GB download; size boundary and storage/memory basis are unspecified [L134,171]."
+      ],
+      "panel": "The model",
+      "methodology": {
+        "reference": "original full-precision model (publisher wording; checkpoint precision not stated)",
+        "dataset": "held-out code text",
+        "ctx": "not stated",
+        "tool": "project C99 + CUDA engine on DGX Spark; next-token agreement with code sidecar",
+        "L": [
+          171,
+          174,
+          176,
+          177,
+          184,
+          187
+        ]
+      }
+    }
+  ],
+  "prose": [
+    {
+      "entry": "113.6 GB base",
+      "key": "top1:code",
+      "L": 177,
+      "raw": "78.6%",
+      "panel": "The model"
+    },
+    {
+      "entry": "code sidecar",
+      "key": "top1:code",
+      "L": 177,
+      "raw": "82.3%",
+      "panel": "The model"
+    }
+  ]
+}

@@ -1,0 +1,395 @@
+{
+  "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-REAP-272E",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash,MXFP4 experts and FP8 dense weights",
+    "dataset": "held-out text65,504tokens with zero calibration overlap;held-out image captions2048tokens",
+    "ctx": "not stated",
+    "tool": "REAP expert pruning;measurement runtime not stated;vLLM serving results belong to sibling256E",
+    "L": [
+      17,
+      18,
+      19,
+      21,
+      22,
+      45,
+      47,
+      57,
+      58,
+      102,
+      103,
+      104,
+      183
+    ]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "384 (unpruned)",
+      "panel": "Measurements",
+      "methodology": {
+        "reference": "unpruned native DeepSeek-V4.1-Flash,MXFP4 experts and FP8 dense weights",
+        "dataset": "held-out text65,504tokens,zero overlap with calibration",
+        "ctx": "not stated",
+        "tool": "perplexity measurement runtime not specified",
+        "L": [
+          45,
+          47,
+          48,
+          50,
+          52,
+          53,
+          54,
+          55
+        ]
+      },
+      "metrics": {
+        "ppl:text": "c6"
+      },
+      "size": "c1",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Expert pruning without requantization [L17-24]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "272 (this repo)",
+      "panel": "Measurements",
+      "methodology": {
+        "reference": "unpruned native DeepSeek-V4.1-Flash,MXFP4 experts and FP8 dense weights",
+        "dataset": "held-out text65,504tokens,zero overlap with calibration",
+        "ctx": "not stated",
+        "tool": "perplexity measurement runtime not specified",
+        "L": [
+          45,
+          47,
+          48,
+          50,
+          52,
+          53,
+          54,
+          55
+        ]
+      },
+      "metrics": {
+        "ppl:text": "c7",
+        "ppl_delta_pct": "c8"
+      },
+      "size": "c26",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Expert pruning without requantization [L17-24]",
+        "Size396.8GiB includes externally supplied189.1GiB Engram; actual repository omits shards47–48 [L39,146-150]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "256 (mean saliency)",
+      "panel": "Measurements",
+      "methodology": {
+        "reference": "unpruned native DeepSeek-V4.1-Flash,MXFP4 experts and FP8 dense weights",
+        "dataset": "held-out text65,504tokens,zero overlap with calibration",
+        "ctx": "not stated",
+        "tool": "perplexity measurement runtime not specified",
+        "L": [
+          45,
+          47,
+          48,
+          50,
+          52,
+          53,
+          54,
+          55
+        ]
+      },
+      "metrics": {
+        "ppl:text": "c10",
+        "ppl_delta_pct": "c11"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Expert pruning without requantization [L17-24]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "192",
+      "panel": "Measurements",
+      "methodology": {
+        "reference": "unpruned native DeepSeek-V4.1-Flash,MXFP4 experts and FP8 dense weights",
+        "dataset": "held-out text65,504tokens,zero overlap with calibration",
+        "ctx": "not stated",
+        "tool": "perplexity measurement runtime not specified",
+        "L": [
+          45,
+          47,
+          48,
+          50,
+          52,
+          53,
+          54,
+          55
+        ]
+      },
+      "metrics": {
+        "ppl:text": "c13",
+        "ppl_delta_pct": "c14"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Expert pruning without requantization [L17-24]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "unpruned",
+      "panel": "Measurements",
+      "methodology": {
+        "reference": "unpruned native DeepSeek-V4.1-Flash,MXFP4 experts and FP8 dense weights",
+        "dataset": "held-out image captions,2048caption tokens;loss on caption tokens only",
+        "ctx": "not stated",
+        "tool": "perplexity at272 experts with alternative saliency rankings",
+        "L": [
+          57,
+          58,
+          60,
+          62,
+          63,
+          64,
+          65,
+          184,
+          185
+        ]
+      },
+      "metrics": {
+        "ppl:caption": "c15"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Caption-conditioned PPL is separate from held-out text PPL [L47,57-65]",
+        "Source says2048caption tokens resolve large ranking gaps but not the1.9% difference [L184-185]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "text + image saliency (this repo)",
+      "panel": "Measurements",
+      "methodology": {
+        "reference": "unpruned native DeepSeek-V4.1-Flash,MXFP4 experts and FP8 dense weights",
+        "dataset": "held-out image captions,2048caption tokens;loss on caption tokens only",
+        "ctx": "not stated",
+        "tool": "perplexity at272 experts with alternative saliency rankings",
+        "L": [
+          57,
+          58,
+          60,
+          62,
+          63,
+          64,
+          65,
+          184,
+          185
+        ]
+      },
+      "metrics": {
+        "ppl:caption": "c16",
+        "ppl_delta_pct": "c17"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Caption-conditioned PPL is separate from held-out text PPL [L47,57-65]",
+        "Source says2048caption tokens resolve large ranking gaps but not the1.9% difference [L184-185]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "random",
+      "panel": "Measurements",
+      "methodology": {
+        "reference": "unpruned native DeepSeek-V4.1-Flash,MXFP4 experts and FP8 dense weights",
+        "dataset": "held-out image captions,2048caption tokens;loss on caption tokens only",
+        "ctx": "not stated",
+        "tool": "perplexity at272 experts with alternative saliency rankings",
+        "L": [
+          57,
+          58,
+          60,
+          62,
+          63,
+          64,
+          65,
+          184,
+          185
+        ]
+      },
+      "metrics": {
+        "ppl:caption": "c18",
+        "ppl_delta_pct": "c19"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Caption-conditioned PPL is separate from held-out text PPL [L47,57-65]",
+        "Source says2048caption tokens resolve large ranking gaps but not the1.9% difference [L184-185]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "text-only saliency",
+      "panel": "Measurements",
+      "methodology": {
+        "reference": "unpruned native DeepSeek-V4.1-Flash,MXFP4 experts and FP8 dense weights",
+        "dataset": "held-out image captions,2048caption tokens;loss on caption tokens only",
+        "ctx": "not stated",
+        "tool": "perplexity at272 experts with alternative saliency rankings",
+        "L": [
+          57,
+          58,
+          60,
+          62,
+          63,
+          64,
+          65,
+          184,
+          185
+        ]
+      },
+      "metrics": {
+        "ppl:caption": "c20",
+        "ppl_delta_pct": "c21"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Caption-conditioned PPL is separate from held-out text PPL [L47,57-65]",
+        "Source says2048caption tokens resolve large ranking gaps but not the1.9% difference [L184-185]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "256 mean saliency",
+      "panel": "Choosing between 272E and 256E",
+      "methodology": {
+        "reference": "unpruned native DeepSeek-V4.1-Flash,MXFP4 experts and FP8 dense weights",
+        "dataset": "same text and caption perplexity evaluation as main measurements",
+        "ctx": "not stated",
+        "tool": "compare mean saliency versus balanced ranking at256 experts",
+        "L": [
+          92,
+          93,
+          94,
+          95,
+          96
+        ]
+      },
+      "metrics": {
+        "ppl:text": "c10",
+        "ppl:caption": "c31.0"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Primary256-row text PPL is mean-saliency; shipped sibling256E instead uses balanced ranking [L54,92-96]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "256 balanced ranking",
+      "panel": "Choosing between 272E and 256E",
+      "methodology": {
+        "reference": "unpruned native DeepSeek-V4.1-Flash,MXFP4 experts and FP8 dense weights",
+        "dataset": "same text and caption perplexity evaluation as main measurements",
+        "ctx": "not stated",
+        "tool": "compare mean saliency versus balanced ranking at256 experts",
+        "L": [
+          92,
+          93,
+          94,
+          95,
+          96
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Balanced256E trades text PPL for image PPL; not the272E artifact [L92-98]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "LibertAIDAI/DeepSeek-V4.1-Flash-NVFP4 Engram tables",
+      "panel": "Contents — read this before downloading",
+      "methodology": {
+        "reference": "original native FP8 Engram tables",
+        "dataset": "not stated",
+        "ctx": "not applicable",
+        "tool": "Engram reconstruction comparison; serving engine untested",
+        "L": [
+          168,
+          169,
+          170,
+          171
+        ]
+      },
+      "metrics": {},
+      "size": "c42",
+      "unit": "GiB",
+      "basis": "engram_only",
+      "bpw": null,
+      "flags": [
+        "Lossy alternative Engram tables, not the default272E assembly; untested under any serving engine [L168-171]"
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "256 balanced ranking",
+      "panel": "Choosing between 272E and 256E",
+      "key": "ppl:caption",
+      "L": 95,
+      "raw": "26.479"
+    },
+    {
+      "entry": "256 balanced ranking",
+      "panel": "Choosing between 272E and 256E",
+      "key": "ppl:text",
+      "L": 96,
+      "raw": "4.1723"
+    },
+    {
+      "entry": "LibertAIDAI/DeepSeek-V4.1-Flash-NVFP4 Engram tables",
+      "panel": "Contents — read this before downloading",
+      "key": "bench:Engram reconstruction cosine",
+      "L": 170,
+      "raw": "0.9934"
+    }
+  ]
+}

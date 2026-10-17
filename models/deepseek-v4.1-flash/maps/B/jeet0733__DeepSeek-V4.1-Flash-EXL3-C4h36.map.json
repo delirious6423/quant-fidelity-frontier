@@ -1,0 +1,115 @@
+{
+  "repo": "jeet0733/DeepSeek-V4.1-Flash-EXL3-C4h36",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "native FP8 model through same BF16 reference path",
+    "dataset": "WikiText-2; subset not stated",
+    "ctx": "not stated",
+    "tool": "reference-path perplexity comparison",
+    "L": [
+      30
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "this pack on the usage-allocated-pack branch",
+      "panel": "DeepSeek-V4.1-Flash · EXL3 · usage-allocated 2.9 bpw (C4h36)",
+      "methodology": {
+        "reference": "native FP8 model through same BF16 reference path",
+        "dataset": "WikiText-2; subset not stated",
+        "ctx": "not stated",
+        "tool": "reference-path perplexity comparison",
+        "L": [
+          30
+        ]
+      },
+      "metrics": {
+        "ppl_delta_pct": "c2"
+      },
+      "size": "c9.0",
+      "unit": "GiB",
+      "basis": "excl_engram",
+      "bpw": null,
+      "flags": [
+        "Pack excludes Engram tables [L25-26]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "base 2.9 bpw pack, recipe as shipped",
+      "panel": "DeepSeek-V4.1-Flash · EXL3 · usage-allocated 2.9 bpw (C4h36)",
+      "methodology": {
+        "reference": "native FP8 model through same BF16 reference path",
+        "dataset": "WikiText-2; subset not stated",
+        "ctx": "not stated",
+        "tool": "reference-path perplexity comparison",
+        "L": [
+          30
+        ]
+      },
+      "metrics": {
+        "ppl_delta_pct": "c1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [],
+      "of": "Mia-AiLab/DeepSeek-V4.1-Flash-EXL3-2.9bpw"
+    },
+    {
+      "role": "own",
+      "name": "this pack on the usage-allocated-pack branch — served harness",
+      "panel": "DeepSeek-V4.1-Flash · EXL3 · usage-allocated 2.9 bpw (C4h36)",
+      "methodology": {
+        "reference": "base 2.9 bpw pack with stock recipe",
+        "dataset": "WikiText-2",
+        "ctx": "64 windows of 512",
+        "tool": "same served perplexity harness on same two Sparks; differing recipe/DSpark settings",
+        "L": [
+          28,
+          31
+        ]
+      },
+      "metrics": {
+        "ppl:wikitext-2": "c4"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Served PPL reported as a range, with relative changes embedded; preserve source string [L31].",
+        "Serving configuration differs, so whole-stack comparison is not weight-only [L28,L36-38]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "base 2.9 bpw pack, recipe as shipped — served harness",
+      "panel": "DeepSeek-V4.1-Flash · EXL3 · usage-allocated 2.9 bpw (C4h36)",
+      "methodology": {
+        "reference": "base 2.9 bpw pack with stock recipe",
+        "dataset": "WikiText-2",
+        "ctx": "64 windows of 512",
+        "tool": "same served perplexity harness on same two Sparks; differing recipe/DSpark settings",
+        "L": [
+          28,
+          31
+        ]
+      },
+      "metrics": {
+        "ppl:wikitext-2": "c3"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [],
+      "of": "Mia-AiLab/DeepSeek-V4.1-Flash-EXL3-2.9bpw"
+    }
+  ],
+  "prose": []
+}
