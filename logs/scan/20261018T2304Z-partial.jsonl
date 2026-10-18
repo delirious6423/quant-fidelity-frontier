@@ -64,3 +64,6 @@
 {"at": "2026-10-18T23:25:33Z", "cmd": "elapsed 45", "exit": 0, "minutes": 21.5}
 {"at": "2026-10-18T23:26:35Z", "cmd": "elapsed 45", "exit": 0, "minutes": 22.5}
 {"at": "2026-10-18T23:27:01Z", "cmd": "elapsed 45", "exit": 0, "minutes": 23.0}
+{"at": "2026-10-18T23:27:13Z", "cmd": "checkpoint deepseek-v4-flash-0731", "exit": 0, "slug": "deepseek-v4-flash-0731", "status": "ingesting"}
+{"at": "2026-10-18T23:27:17Z", "cmd": "finish deepseek-v4-flash-0731", "exit": 1, "error": "some maps failed the check; their queues are back in pending; rerun workers then finish", "bad": [{"queue": "A00.txt", "problems": ["kn322__DeepSeek-V4-Flash-0731-os-192e: missing"]}]}
+{"at": "2026-10-18T23:27:18Z", "cmd": "elapsed 999", "exit": 0, "minutes": 23.2}
