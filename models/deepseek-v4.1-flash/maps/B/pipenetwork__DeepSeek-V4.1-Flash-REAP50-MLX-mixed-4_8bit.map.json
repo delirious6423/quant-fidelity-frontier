@@ -1,0 +1,63 @@
+{
+  "repo": "pipenetwork/DeepSeek-V4.1-Flash-REAP50-MLX-mixed-4_8bit",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "unpruned quantized build for paired PPL ratio; source is FP8/FP4 release dequantized to BF16",
+    "dataset": "wikitext-2 test; 286,580 tokens, 140 matched windows",
+    "ctx": "2048-token windows",
+    "tool": "custom deepseek_v41_mlx runtime",
+    "L": [
+      23,
+      24,
+      63,
+      85
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash-REAP50-MLX-mixed-4_8bit",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "unpruned quantized build for paired PPL ratio; source is FP8/FP4 release dequantized to BF16",
+        "dataset": "wikitext-2 test; 286,580 tokens, 140 matched windows",
+        "ctx": "2048-token windows",
+        "tool": "custom deepseek_v41_mlx runtime",
+        "L": [
+          23,
+          24,
+          63,
+          85
+        ]
+      },
+      "metrics": {},
+      "size": "c27",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "REAP expert pruning modifies base weights [L63].",
+        "Per-layer divergence ladder does not state a KL definition; values omitted rather than represented as next-token KL [L67-78].",
+        "DSpark/MTP omitted; vision retained but runtime text-only [L25-26]."
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "DeepSeek-V4.1-Flash-REAP50-MLX-mixed-4_8bit",
+      "panel": "Quality",
+      "key": "ppl:wikitext-2",
+      "L": 85,
+      "raw": "3.3833"
+    },
+    {
+      "entry": "DeepSeek-V4.1-Flash-REAP50-MLX-mixed-4_8bit",
+      "panel": "Quality",
+      "key": "ppl_ratio",
+      "L": 85,
+      "raw": "x1.1681"
+    }
+  ]
+}

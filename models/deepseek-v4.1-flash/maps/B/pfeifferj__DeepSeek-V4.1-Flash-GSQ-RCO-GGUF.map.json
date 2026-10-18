@@ -1,0 +1,50 @@
+{
+ "repo": "pfeifferj/DeepSeek-V4.1-Flash-GSQ-RCO-GGUF",
+ "no_quality_claims": false,
+ "weights_modified": false,
+ "method": {
+  "reference": "not stated (absolute benchmark/PPL results; not a quality-loss reference)",
+  "dataset": "MMLU-Pro fixed 2,000-question subset, raw zero-shot prompts; held-out PPL 4,088 positions; small IFEval/GSM8K probes",
+  "ctx": "2,048-token context limit for MMLU-Pro",
+  "tool": "supplied runtime; F32 matrix multiplication and KV caches; Flash Attention disabled",
+  "L": [
+   69,
+   73,
+   74,
+   75,
+   76,
+   78
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "DeepSeek-V4.1-Flash-GSQ-RCO-3.0bit.gguf",
+   "metrics": {
+    "bench:MMLU-Pro": "c6",
+    "ppl": "c7"
+   },
+   "size": "c1",
+   "basis": "disk",
+   "unit": "GB",
+   "flags": [
+    "File includes backbone and Engram; draft model and vision projector are separate [L53,61-63].",
+    "MMLU-Pro is zero-shot without reasoning on a subset; IFEval has a truncated response and is not a full-suite score [L69,75,78]."
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "DeepSeek-V4.1-Flash-GSQ-RCO-3.0bit.gguf",
+   "key": "bench:IFEval strict checker passes",
+   "L": 75,
+   "raw": "16 passed"
+  },
+  {
+   "entry": "DeepSeek-V4.1-Flash-GSQ-RCO-3.0bit.gguf",
+   "key": "bench:GSM8K correct (8 problems)",
+   "L": 76,
+   "raw": "8 completed correctly"
+  }
+ ]
+}

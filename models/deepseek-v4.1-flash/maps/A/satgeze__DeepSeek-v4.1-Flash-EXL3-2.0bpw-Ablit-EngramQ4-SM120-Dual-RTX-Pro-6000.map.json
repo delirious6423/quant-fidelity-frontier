@@ -1,0 +1,357 @@
+{
+  "repo": "satgeze/DeepSeek-v4.1-Flash-EXL3-2.0bpw-Ablit-EngramQ4-SM120-Dual-RTX-Pro-6000",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "official DeepSeek API for trajectory scoring; pre-graft EXL3 2.0bpw for abliteration comparison",
+    "dataset": "50-problem GSM8K slice, refusal/benign/tool batteries, loop tests, official greedy trajectories",
+    "ctx": "GSM8K max_tokens=8000; loop prefill 400K/512K; trajectories 40 contexts ×128 tokens nominal",
+    "tool": "dual RTX PRO 6000, vLLM + EXL3; greedy; official API thinking disabled for trajectory capture",
+    "L": [
+      48,
+      70,
+      71,
+      72,
+      73,
+      96,
+      97,
+      100,
+      224,
+      226,
+      228,
+      230,
+      234,
+      237,
+      239,
+      240,
+      241,
+      242,
+      243
+    ]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "Stock (pre-graft)",
+      "panel": "Abliteration before/after (2026-09-17, same serve stack, back-to-back)",
+      "methodology": {
+        "reference": "stock EXL3 2.0bpw pre-graft pack",
+        "dataset": "50 GSM8K test problems; 20 harmful and 10 benign prompts; eight loop prompts; three tool scenarios",
+        "ctx": "short-context and repeated wikitext to 400K; current additional 512K test",
+        "tool": "same serve stack, back-to-back; greedy; visible-reply marker refusal heuristic",
+        "L": [
+          48,
+          50,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          61,
+          70,
+          71,
+          72,
+          73
+        ]
+      },
+      "metrics": {
+        "bench:GSM8K 50-problem slice": "c1",
+        "bench:loop count 400K (of 8)": "c4.0"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c34",
+      "flags": [
+        "Weight-level abliteration graft, not quantization alone [L96-99]",
+        "Small bounded tests; no full GSM8K, MMLU/HumanEval or rigorous broad evaluation [L44-46,70,89-90]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "Abliterated (this checkpoint)",
+      "panel": "Abliteration before/after (2026-09-17, same serve stack, back-to-back)",
+      "methodology": {
+        "reference": "stock EXL3 2.0bpw pre-graft pack",
+        "dataset": "50 GSM8K test problems; 20 harmful and 10 benign prompts; eight loop prompts; three tool scenarios",
+        "ctx": "short-context and repeated wikitext to 400K; current additional 512K test",
+        "tool": "same serve stack, back-to-back; greedy; visible-reply marker refusal heuristic",
+        "L": [
+          48,
+          50,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          61,
+          70,
+          71,
+          72,
+          73
+        ]
+      },
+      "metrics": {
+        "bench:GSM8K 50-problem slice": "c2",
+        "bench:loop count 400K (of 8)": "c5",
+        "bench:loop count 512K (of 8)": "c6"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c34",
+      "flags": [
+        "Weight-level abliteration graft, not quantization alone [L96-99]",
+        "Small bounded tests; no full GSM8K, MMLU/HumanEval or rigorous broad evaluation [L44-46,70,89-90]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Official DeepSeek API",
+      "panel": "Quality vs the official DeepSeek API and vs 2.9bpw",
+      "methodology": {
+        "reference": "official DeepSeek API with thinking disabled for trajectory capture",
+        "dataset": "50 GSM8K test problems, refusal and tool batteries; official greedy trajectories",
+        "ctx": "trajectory protocol:40 contexts ×128 tokens",
+        "tool": "greedy; GSM8K max_tokens=8000; prompt_logprobs on frozen official trajectories",
+        "L": [
+          226,
+          227,
+          228,
+          230,
+          234,
+          237,
+          239,
+          240,
+          241,
+          242,
+          243,
+          252,
+          253,
+          254,
+          255,
+          256
+        ]
+      },
+      "metrics": {
+        "bench:GSM8K 50-problem slice": "c10",
+        "bench:harmful refused (of 20)": "c11.0",
+        "bench:benign false refusals (of 10)": "c12.0",
+        "bench:tool scenarios passed (of 3)": "c13.0"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Column called KL is sampled trajectory log p_official(t*) − log p_arm(t*), not full-vocabulary KL [L239-243]",
+        "Top-1 is a fraction; trajectory PPL is scored on official continuations [L242-249]",
+        "Native/API reference is not stated to be BF16 [L226-228]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "Mia EXL3 2.9bpw",
+      "panel": "Quality vs the official DeepSeek API and vs 2.9bpw",
+      "methodology": {
+        "reference": "official DeepSeek API with thinking disabled for trajectory capture",
+        "dataset": "50 GSM8K test problems, refusal and tool batteries; official greedy trajectories",
+        "ctx": "trajectory protocol:40 contexts ×128 tokens",
+        "tool": "greedy; GSM8K max_tokens=8000; prompt_logprobs on frozen official trajectories",
+        "L": [
+          226,
+          227,
+          228,
+          230,
+          234,
+          237,
+          239,
+          240,
+          241,
+          242,
+          243,
+          252,
+          253,
+          254,
+          255,
+          256
+        ]
+      },
+      "metrics": {
+        "bench:GSM8K 50-problem slice": "c14",
+        "bench:harmful refused (of 20)": "c15.0",
+        "bench:benign false refusals (of 10)": "c16.0",
+        "bench:tool scenarios passed (of 3)": "c17.0",
+        "bench:mean trajectory log-prob ratio": "c18",
+        "ppl:official greedy trajectories": "c19",
+        "top1:official greedy trajectories": "c20"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c39",
+      "flags": [
+        "Column called KL is sampled trajectory log p_official(t*) − log p_arm(t*), not full-vocabulary KL [L239-243]",
+        "Top-1 is a fraction; trajectory PPL is scored on official continuations [L242-249]",
+        "Native/API reference is not stated to be BF16 [L226-228]"
+      ],
+      "of": "not named on card"
+    },
+    {
+      "role": "own",
+      "name": "This 2.0bpw (abliterated)",
+      "panel": "Quality vs the official DeepSeek API and vs 2.9bpw",
+      "methodology": {
+        "reference": "official DeepSeek API with thinking disabled for trajectory capture",
+        "dataset": "50 GSM8K test problems, refusal and tool batteries; official greedy trajectories",
+        "ctx": "current shipped-weight rerun:3,957 trajectory positions, one junction skipped",
+        "tool": "greedy; GSM8K max_tokens=8000; prompt_logprobs on frozen official trajectories",
+        "L": [
+          226,
+          227,
+          228,
+          230,
+          234,
+          237,
+          239,
+          240,
+          241,
+          242,
+          243,
+          252,
+          253,
+          254,
+          255,
+          256
+        ]
+      },
+      "metrics": {
+        "bench:GSM8K 50-problem slice": "c21",
+        "bench:harmful refused (of 20)": "c22.0",
+        "bench:benign false refusals (of 10)": "c23.0",
+        "bench:tool scenarios passed (of 3)": "c24.0",
+        "bench:mean trajectory log-prob ratio": "c25",
+        "ppl:official greedy trajectories": "c26",
+        "top1:official greedy trajectories": "c27"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c40",
+      "flags": [
+        "Column called KL is sampled trajectory log p_official(t*) − log p_arm(t*), not full-vocabulary KL [L239-243]",
+        "Top-1 is a fraction; trajectory PPL is scored on official continuations [L242-249]",
+        "Native/API reference is not stated to be BF16 [L226-228]",
+        "Current shipped abliterated weights; source weights are modified by 52 attn.wo_b grafts [L97,254-256]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "This 2.0bpw (stock, earlier session)",
+      "panel": "Quality vs the official DeepSeek API and vs 2.9bpw",
+      "methodology": {
+        "reference": "official DeepSeek API with thinking disabled for trajectory capture",
+        "dataset": "50 GSM8K test problems, refusal and tool batteries; official greedy trajectories",
+        "ctx": "earlier stock replay:165K tokens",
+        "tool": "greedy, GSM8K max_tokens=8000; prompt_logprobs on frozen official trajectories; earlier replay session",
+        "L": [
+          226,
+          227,
+          228,
+          230,
+          234,
+          237,
+          239,
+          240,
+          241,
+          242,
+          243,
+          252,
+          253,
+          254,
+          255,
+          256
+        ]
+      },
+      "metrics": {
+        "bench:GSM8K 50-problem slice": "c28",
+        "bench:harmful refused (of 20)": "c29.0",
+        "bench:benign false refusals (of 10)": "c30.0",
+        "bench:mean trajectory log-prob ratio": "c31",
+        "ppl:official greedy trajectories": "c32",
+        "top1:official greedy trajectories": "c33"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c41",
+      "flags": [
+        "Column called KL is sampled trajectory log p_official(t*) − log p_arm(t*), not full-vocabulary KL [L239-243]",
+        "Top-1 is a fraction; trajectory PPL is scored on official continuations [L242-249]",
+        "Native/API reference is not stated to be BF16 [L226-228]",
+        "Earlier-session replay harness differs from current shipped-weight rerun [L252-256]"
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "Stock (pre-graft)",
+      "panel": "Abliteration before/after (2026-09-17, same serve stack, back-to-back)",
+      "key": "bench:harmful refused (of 20)",
+      "L": 52,
+      "raw": "20"
+    },
+    {
+      "entry": "Stock (pre-graft)",
+      "panel": "Abliteration before/after (2026-09-17, same serve stack, back-to-back)",
+      "key": "bench:benign false refusals (of 10)",
+      "L": 53,
+      "raw": "0"
+    },
+    {
+      "entry": "Stock (pre-graft)",
+      "panel": "Abliteration before/after (2026-09-17, same serve stack, back-to-back)",
+      "key": "bench:loop count short context (of 8)",
+      "L": 55,
+      "raw": "0"
+    },
+    {
+      "entry": "Stock (pre-graft)",
+      "panel": "Abliteration before/after (2026-09-17, same serve stack, back-to-back)",
+      "key": "bench:tool scenarios passed (of 3)",
+      "L": 61,
+      "raw": "3"
+    },
+    {
+      "entry": "Abliterated (this checkpoint)",
+      "panel": "Abliteration before/after (2026-09-17, same serve stack, back-to-back)",
+      "key": "bench:harmful refused (of 20)",
+      "L": 52,
+      "raw": "2"
+    },
+    {
+      "entry": "Abliterated (this checkpoint)",
+      "panel": "Abliteration before/after (2026-09-17, same serve stack, back-to-back)",
+      "key": "bench:benign false refusals (of 10)",
+      "L": 53,
+      "raw": "1"
+    },
+    {
+      "entry": "Abliterated (this checkpoint)",
+      "panel": "Abliteration before/after (2026-09-17, same serve stack, back-to-back)",
+      "key": "bench:loop count short context (of 8)",
+      "L": 55,
+      "raw": "0"
+    },
+    {
+      "entry": "Abliterated (this checkpoint)",
+      "panel": "Abliteration before/after (2026-09-17, same serve stack, back-to-back)",
+      "key": "bench:tool scenarios passed (of 3)",
+      "L": 61,
+      "raw": "2"
+    }
+  ]
+}

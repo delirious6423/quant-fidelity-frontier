@@ -1,0 +1,90 @@
+{
+  "repo": "amd/DeepSeek-V4.1-Flash-Quark-PTPC-FP8",
+  "no_quality_claims": false,
+  "weights_modified": false,
+  "method": {
+    "reference": "official native mixed MXFP4/MXFP8 DeepSeek-V4.1-Flash release",
+    "dataset": "GSM8K, eight-shot flexible-extract",
+    "ctx": "max model length 8192; max generation 4096",
+    "tool": "lm-eval local-completions against vLLM ROCm; same host/framework/settings for both checkpoints; TP4",
+    "L": [
+      31,
+      32,
+      75,
+      81,
+      83,
+      84,
+      88,
+      100,
+      103,
+      113,
+      114,
+      115
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "amd/DeepSeek-V4.1-Flash-Quark-PTPC-FP8 (this model)",
+      "metrics": {
+        "bench:GSM8K-8shot-flexible": "c1",
+        "bench:GSM8K score recovery": "c2"
+      },
+      "panel": "Accuracy",
+      "methodology": {
+        "reference": "official native mixed MXFP4/MXFP8 DeepSeek-V4.1-Flash release",
+        "dataset": "GSM8K, eight-shot flexible-extract",
+        "ctx": "max model length 8192; max generation 4096",
+        "tool": "lm-eval local-completions against vLLM ROCm; same host/framework/settings for both checkpoints; TP4",
+        "L": [
+          31,
+          32,
+          75,
+          81,
+          83,
+          84,
+          88,
+          100,
+          103,
+          113,
+          114,
+          115
+        ]
+      },
+      "flags": [
+        "Recovery is score retention relative to baseline, not perfect GSM8K accuracy [L79-81].",
+        "Both baseline and this-model columns publish the same score; deduplicated candidate c1 is valid for each [L79-81]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "metrics": {
+        "bench:GSM8K-8shot-flexible": "c1"
+      },
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "panel": "Accuracy",
+      "methodology": {
+        "reference": "official native mixed MXFP4/MXFP8 DeepSeek-V4.1-Flash release",
+        "dataset": "GSM8K, eight-shot flexible-extract",
+        "ctx": "max model length 8192; max generation 4096",
+        "tool": "lm-eval local-completions against vLLM ROCm; same host/framework/settings for both checkpoints; TP4",
+        "L": [
+          31,
+          32,
+          75,
+          81,
+          83,
+          84,
+          88,
+          100,
+          103,
+          113,
+          114,
+          115
+        ]
+      }
+    }
+  ],
+  "prose": []
+}

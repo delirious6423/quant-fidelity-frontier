@@ -1,0 +1,261 @@
+{
+ "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-REAP-272E",
+ "no_quality_claims": false,
+ "weights_modified": true,
+ "method": {
+  "reference": "unpruned native DeepSeek-V4.1-Flash",
+  "dataset": "held-outtext65504tokens,no calibration overlap;imageconditionedcaption2048tokens",
+  "ctx": "not stated",
+  "tool": "REAP evaluation scripts in linked recipe",
+  "L": [
+   45,
+   47,
+   48,
+   57,
+   58,
+   180,
+   184,
+   185
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "272 (this repo)",
+   "metrics": {
+    "ppl:text": "c7",
+    "ppl_delta_pct": "c8",
+    "ppl:caption": "c16",
+    "ppl_delta:caption": "c17"
+   },
+   "size": "c35",
+   "basis": "excl_engram",
+   "unit": "GiB",
+   "panel": "Measurements",
+   "methodology": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash",
+    "dataset": "held-outtext65504tokens,no calibration overlap;imageconditionedcaption2048tokens",
+    "ctx": "not stated",
+    "tool": "REAP evaluation scripts in linked recipe",
+    "L": [
+     45,
+     47,
+     48,
+     57,
+     58,
+     180,
+     184,
+     185
+    ]
+   },
+   "flags": [
+    "Experts pruned, not requantized; expert pool reduced from384to272 [L17-24].",
+    "Repository only shards1-46, original Engram tables required separately [L146-151].",
+    "Caption sample does not resolve the small1.9percent difference [L184-185].",
+    "272-expert checkpoint cannot load under vLLM; serving measurements explicitly belong to sibling256E [L102-108]."
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "384 (unpruned reference)",
+   "metrics": {
+    "ppl:text": "c6",
+    "ppl:caption": "c15"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "size": "c1",
+   "basis": "disk",
+   "unit": "GiB",
+   "panel": "Measurements",
+   "methodology": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash",
+    "dataset": "held-outtext65504tokens,no calibration overlap;imageconditionedcaption2048tokens",
+    "ctx": "not stated",
+    "tool": "REAP evaluation scripts in linked recipe",
+    "L": [
+     45,
+     47,
+     48,
+     57,
+     58,
+     180,
+     184,
+     185
+    ]
+   }
+  },
+  {
+   "role": "ladder",
+   "name": "256 mean-saliency",
+   "metrics": {
+    "ppl:text": "c10",
+    "ppl_delta_pct": "c11"
+   },
+   "panel": "Measurements",
+   "methodology": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash",
+    "dataset": "held-outtext65504tokens,no calibration overlap;imageconditionedcaption2048tokens",
+    "ctx": "not stated",
+    "tool": "REAP evaluation scripts in linked recipe",
+    "L": [
+     45,
+     47,
+     48,
+     57,
+     58,
+     180,
+     184,
+     185
+    ]
+   }
+  },
+  {
+   "role": "ladder",
+   "name": "192",
+   "metrics": {
+    "ppl:text": "c13",
+    "ppl_delta_pct": "c14"
+   },
+   "panel": "Measurements",
+   "methodology": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash",
+    "dataset": "held-outtext65504tokens,no calibration overlap;imageconditionedcaption2048tokens",
+    "ctx": "not stated",
+    "tool": "REAP evaluation scripts in linked recipe",
+    "L": [
+     45,
+     47,
+     48,
+     57,
+     58,
+     180,
+     184,
+     185
+    ]
+   }
+  },
+  {
+   "role": "ladder",
+   "name": "random (272)",
+   "metrics": {
+    "ppl:caption": "c18",
+    "ppl_delta:caption": "c19"
+   },
+   "panel": "Measurements",
+   "methodology": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash",
+    "dataset": "held-outtext65504tokens,no calibration overlap;imageconditionedcaption2048tokens",
+    "ctx": "not stated",
+    "tool": "REAP evaluation scripts in linked recipe",
+    "L": [
+     45,
+     47,
+     48,
+     57,
+     58,
+     180,
+     184,
+     185
+    ]
+   }
+  },
+  {
+   "role": "ladder",
+   "name": "text-only saliency (272)",
+   "metrics": {
+    "ppl:caption": "c20",
+    "ppl_delta:caption": "c21"
+   },
+   "panel": "Measurements",
+   "methodology": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash",
+    "dataset": "held-outtext65504tokens,no calibration overlap;imageconditionedcaption2048tokens",
+    "ctx": "not stated",
+    "tool": "REAP evaluation scripts in linked recipe",
+    "L": [
+     45,
+     47,
+     48,
+     57,
+     58,
+     180,
+     184,
+     185
+    ]
+   }
+  },
+  {
+   "role": "own",
+   "name": "272E assembled checkpoint incl. Engram",
+   "metrics": {},
+   "size": "c26",
+   "basis": "disk",
+   "unit": "GiB",
+   "flags": [
+    "Assembled size, distinct from repository-only shards [L21,39,146-151]."
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "256 mean-saliency (caption)",
+   "metrics": {
+    "ppl:caption": "c31.0"
+   },
+   "panel": "Choosing between 272E and 256E",
+   "methodology": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash",
+    "dataset": "held-outtext65504tokens,no calibration overlap;imageconditionedcaption2048tokens",
+    "ctx": "not stated",
+    "tool": "REAP evaluation scripts in linked recipe",
+    "L": [
+     45,
+     47,
+     48,
+     57,
+     58,
+     180,
+     184,
+     185
+    ]
+   }
+  },
+  {
+   "role": "ladder",
+   "name": "256 balanced ranking",
+   "metrics": {},
+   "panel": "Choosing between 272E and 256E",
+   "methodology": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash",
+    "dataset": "held-outtext65504tokens,no calibration overlap;imageconditionedcaption2048tokens",
+    "ctx": "not stated",
+    "tool": "REAP evaluation scripts in linked recipe",
+    "L": [
+     45,
+     47,
+     48,
+     57,
+     58,
+     180,
+     184,
+     185
+    ]
+   }
+  }
+ ],
+ "prose": [
+  {
+   "entry": "256 balanced ranking",
+   "key": "ppl:caption",
+   "L": 95,
+   "raw": "26.479",
+   "panel": "Choosing between 272E and 256E"
+  },
+  {
+   "entry": "256 balanced ranking",
+   "key": "ppl:text",
+   "L": 96,
+   "raw": "4.1723",
+   "panel": "Choosing between 272E and 256E"
+  }
+ ]
+}

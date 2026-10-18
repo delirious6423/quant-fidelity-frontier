@@ -1,0 +1,302 @@
+{
+ "repo": "AtomicChat/DeepSeek-V4.1-Flash-NVFP4-nvidia",
+ "no_quality_claims": false,
+ "weights_modified": false,
+ "method": {
+  "reference": "original MXFP4 checkpoint,samevLLMdsv41-feat e47aa780,same4B200TP4",
+  "dataset": "AtomicChat/calib-corpora:neutral30languages/code/agenticMuseGlimmermarkup;49152scoredpositionspercorpus;common-partitiontop512KL lowerbound",
+  "ctx": "4096-tokenBOSwindows,secondhalfscored;24windowspercorpus",
+  "tool": "vLLMteacher-forcedrawtokenids,nochattemplate,nospeculation;3runsNVFP4/cast,2originalrepeats",
+  "L": [
+   53,
+   54,
+   55,
+   59,
+   60,
+   61,
+   62,
+   64,
+   65,
+   66,
+   69,
+   70,
+   71,
+   72,
+   73,
+   74,
+   76,
+   77
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "this checkpoint",
+   "metrics": {
+    "kld:neutral": "c2",
+    "top1:neutral": "c3",
+    "ppl:neutral": "c4",
+    "ppl_delta:neutral": "c5",
+    "kld:code": "c22",
+    "top1:code": "c23",
+    "ppl:code": "c24",
+    "ppl_delta:code": "c25",
+    "kld:agentic": "c42",
+    "top1:agentic": "c43",
+    "ppl:agentic": "c44",
+    "ppl_delta:agentic": "c45"
+   },
+   "size": "c81",
+   "unit": "GB",
+   "basis": "disk",
+   "panel": "Measured against the original",
+   "methodology": {
+    "reference": "original MXFP4 checkpoint,samevLLMdsv41-feat e47aa780,same4B200TP4",
+    "dataset": "AtomicChat/calib-corpora:neutral30languages/code/agenticMuseGlimmermarkup;49152scoredpositionspercorpus;common-partitiontop512KL lowerbound",
+    "ctx": "4096-tokenBOSwindows,secondhalfscored;24windowspercorpus",
+    "tool": "vLLMteacher-forcedrawtokenids,nochattemplate,nospeculation;3runsNVFP4/cast,2originalrepeats",
+    "L": [
+     53,
+     54,
+     55,
+     59,
+     60,
+     61,
+     62,
+     64,
+     65,
+     66,
+     69,
+     70,
+     71,
+     72,
+     73,
+     74,
+     76,
+     77
+    ],
+    "batch": "4"
+   },
+   "flags": [
+    "KL is a top512common-partition lowerbound; parentheses in main table are runSD, not bootstrapCI [L69-74,82].",
+    "Original has a nonzero rerun noise floor; comparison includes different execution paths [L53-57,123-127]."
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "uncalibrated cast",
+   "metrics": {
+    "kld:neutral": "c7",
+    "top1:neutral": "c8",
+    "ppl:neutral": "c9",
+    "ppl_delta:neutral": "c10",
+    "kld:code": "c27",
+    "top1:code": "c28",
+    "ppl:code": "c29",
+    "ppl_delta:code": "c30",
+    "kld:agentic": "c47",
+    "top1:agentic": "c48",
+    "ppl:agentic": "c49",
+    "ppl_delta:agentic": "c50"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "panel": "Measured against the original",
+   "methodology": {
+    "reference": "original MXFP4 checkpoint,samevLLMdsv41-feat e47aa780,same4B200TP4",
+    "dataset": "AtomicChat/calib-corpora:neutral30languages/code/agenticMuseGlimmermarkup;49152scoredpositionspercorpus;common-partitiontop512KL lowerbound",
+    "ctx": "4096-tokenBOSwindows,secondhalfscored;24windowspercorpus",
+    "tool": "vLLMteacher-forcedrawtokenids,nochattemplate,nospeculation;3runsNVFP4/cast,2originalrepeats",
+    "L": [
+     53,
+     54,
+     55,
+     59,
+     60,
+     61,
+     62,
+     64,
+     65,
+     66,
+     69,
+     70,
+     71,
+     72,
+     73,
+     74,
+     76,
+     77
+    ],
+    "batch": "4"
+   },
+   "flags": [
+    "KL is a top512common-partition lowerbound; parentheses in main table are runSD, not bootstrapCI [L69-74,82].",
+    "Original has a nonzero rerun noise floor; comparison includes different execution paths [L53-57,123-127]."
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "original, repeated (reference)",
+   "metrics": {
+    "kld:neutral": "c12",
+    "top1:neutral": "c13",
+    "ppl:neutral": "c14",
+    "ppl_delta:neutral": "c15",
+    "kld:code": "c32",
+    "top1:code": "c33",
+    "ppl:code": "c34",
+    "ppl_delta:code": "c35",
+    "kld:agentic": "c52",
+    "top1:agentic": "c53",
+    "ppl:agentic": "c54",
+    "ppl_delta:agentic": "c55"
+   },
+   "size": "c86",
+   "unit": "GB",
+   "basis": "disk",
+   "panel": "Measured against the original",
+   "methodology": {
+    "reference": "original MXFP4 checkpoint,samevLLMdsv41-feat e47aa780,same4B200TP4",
+    "dataset": "AtomicChat/calib-corpora:neutral30languages/code/agenticMuseGlimmermarkup;49152scoredpositionspercorpus;common-partitiontop512KL lowerbound",
+    "ctx": "4096-tokenBOSwindows,secondhalfscored;24windowspercorpus",
+    "tool": "vLLMteacher-forcedrawtokenids,nochattemplate,nospeculation;3runsNVFP4/cast,2originalrepeats",
+    "L": [
+     53,
+     54,
+     55,
+     59,
+     60,
+     61,
+     62,
+     64,
+     65,
+     66,
+     69,
+     70,
+     71,
+     72,
+     73,
+     74,
+     76,
+     77
+    ],
+    "batch": "4"
+   },
+   "flags": [
+    "KL is a top512common-partition lowerbound; parentheses in main table are runSD, not bootstrapCI [L69-74,82].",
+    "Original has a nonzero rerun noise floor; comparison includes different execution paths [L53-57,123-127]."
+   ],
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+  },
+  {
+   "role": "cross",
+   "name": "original, batch 1 (reference)",
+   "metrics": {
+    "kld:neutral": "c17",
+    "top1:neutral": "c18",
+    "ppl:neutral": "c19",
+    "ppl_delta:neutral": "c20",
+    "kld:code": "c37",
+    "top1:code": "c38",
+    "ppl:code": "c39",
+    "ppl_delta:code": "c40",
+    "kld:agentic": "c57",
+    "top1:agentic": "c58",
+    "ppl:agentic": "c59",
+    "ppl_delta:agentic": "c60"
+   },
+   "size": "c86",
+   "unit": "GB",
+   "basis": "disk",
+   "panel": "Measured against the original",
+   "methodology": {
+    "reference": "original MXFP4 checkpoint,samevLLMdsv41-feat e47aa780,same4B200TP4",
+    "dataset": "AtomicChat/calib-corpora:neutral30languages/code/agenticMuseGlimmermarkup;49152scoredpositionspercorpus;common-partitiontop512KL lowerbound",
+    "ctx": "4096-tokenBOSwindows,secondhalfscored;24windowspercorpus",
+    "tool": "vLLMteacher-forcedrawtokenids,nochattemplate,nospeculation;3runsNVFP4/cast,2originalrepeats",
+    "L": [
+     53,
+     54,
+     55,
+     59,
+     60,
+     61,
+     62,
+     64,
+     65,
+     66,
+     69,
+     70,
+     71,
+     72,
+     73,
+     74,
+     76,
+     77
+    ],
+    "batch": "1"
+   },
+   "flags": [
+    "KL is a top512common-partition lowerbound; parentheses in main table are runSD, not bootstrapCI [L69-74,82].",
+    "Original has a nonzero rerun noise floor; comparison includes different execution paths [L53-57,123-127]."
+   ],
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+  },
+  {
+   "role": "own",
+   "name": "this checkpoint minus cast",
+   "metrics": {
+    "kld_delta:neutral": "c61",
+    "top1_delta:neutral": "c62",
+    "kld_delta:code": "c65",
+    "top1_delta:code": "c66",
+    "kld_delta:agentic": "c69",
+    "top1_delta:agentic": "c70"
+   },
+   "panel": "Measured against the original",
+   "methodology": {
+    "reference": "original MXFP4 checkpoint,samevLLMdsv41-feat e47aa780,same4B200TP4",
+    "dataset": "AtomicChat/calib-corpora:neutral30languages/code/agenticMuseGlimmermarkup;49152scoredpositionspercorpus;common-partitiontop512KL lowerbound",
+    "ctx": "4096-tokenBOSwindows,secondhalfscored;24windowspercorpus",
+    "tool": "vLLMteacher-forcedrawtokenids,nochattemplate,nospeculation;3runsNVFP4/cast,2originalrepeats",
+    "L": [
+     97,
+     100,
+     102,
+     103,
+     104
+    ],
+    "statistic": "paired differences,95percentbootstrapoverwindowsandruns"
+   }
+  },
+  {
+   "role": "ladder",
+   "name": "cast minus original",
+   "metrics": {
+    "kld_delta:neutral": "c63",
+    "top1_delta:neutral": "c64",
+    "kld_delta:code": "c67",
+    "top1_delta:code": "c68",
+    "kld_delta:agentic": "c71",
+    "top1_delta:agentic": "c72"
+   },
+   "panel": "Measured against the original",
+   "methodology": {
+    "reference": "original MXFP4 checkpoint,samevLLMdsv41-feat e47aa780,same4B200TP4",
+    "dataset": "AtomicChat/calib-corpora:neutral30languages/code/agenticMuseGlimmermarkup;49152scoredpositionspercorpus;common-partitiontop512KL lowerbound",
+    "ctx": "4096-tokenBOSwindows,secondhalfscored;24windowspercorpus",
+    "tool": "vLLMteacher-forcedrawtokenids,nochattemplate,nospeculation;3runsNVFP4/cast,2originalrepeats",
+    "L": [
+     97,
+     100,
+     102,
+     103,
+     104
+    ],
+    "statistic": "paired differences,95percentbootstrapoverwindowsandruns"
+   }
+  }
+ ],
+ "prose": []
+}

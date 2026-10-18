@@ -1,0 +1,495 @@
+{
+  "repo": "OpensourceWTF/DeepSeek-V4.1-Flash-MTPLX-streaming-q2",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "native deepseek-ai/DeepSeek-V4.1-Flash FP4 experts / FP8 dense checkpoint",
+    "dataset": "per-tensor reconstruction samples; copied upstream benchmark results",
+    "ctx": "not stated for tensor reconstruction; upstream benchmark contexts vary",
+    "tool": "MLX affine quantization conversion; task runtime not yet complete",
+    "L": [
+      32,
+      34,
+      35,
+      36,
+      37,
+      40,
+      85,
+      92,
+      93,
+      94,
+      95,
+      105,
+      108,
+      109,
+      115
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Routed experts, 40 layers × 384",
+      "panel": "What this repo is",
+      "methodology": {
+        "reference": "native deepseek-ai/DeepSeek-V4.1-Flash FP4 experts / FP8 dense checkpoint",
+        "dataset": "per-tensor reconstruction; sampling not stated",
+        "ctx": "not applicable",
+        "tool": "MLX affine conversion and source FP4/FP8 dequantization",
+        "L": [
+          32,
+          34,
+          40,
+          41,
+          42,
+          105,
+          109,
+          110
+        ]
+      },
+      "metrics": {},
+      "size": "c1",
+      "unit": "GiB",
+      "basis": "routed_experts",
+      "bpw": "c187",
+      "flags": [
+        "Approximate reconstruction cosine [L34]",
+        "No task evaluation of Q2; runtime is still in progress [L85-95]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "Attention, indexer, compressor, shared experts, embed, head, MTP dense",
+      "panel": "What this repo is",
+      "methodology": {
+        "reference": "native deepseek-ai/DeepSeek-V4.1-Flash FP4 experts / FP8 dense checkpoint",
+        "dataset": "per-tensor reconstruction; sampling not stated",
+        "ctx": "not applicable",
+        "tool": "MLX affine conversion and source FP4/FP8 dequantization",
+        "L": [
+          32,
+          35,
+          40,
+          41,
+          42,
+          105,
+          109,
+          110
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Lower bound on cosine, not an exact point estimate [L35]",
+        "No task evaluation of Q2; runtime is still in progress [L85-95]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "DSpark MTP routed experts, 3 layers × 128",
+      "panel": "What this repo is",
+      "methodology": {
+        "reference": "native deepseek-ai/DeepSeek-V4.1-Flash FP4 experts / FP8 dense checkpoint",
+        "dataset": "per-tensor reconstruction; sampling not stated",
+        "ctx": "not applicable",
+        "tool": "MLX affine conversion and source FP4/FP8 dequantization",
+        "L": [
+          32,
+          36,
+          40,
+          41,
+          42,
+          105,
+          109,
+          110
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "MTP routed expert reconstruction only [L36]",
+        "No task evaluation of Q2; runtime is still in progress [L85-95]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "Engram n-gram tables, layers 1 and 14",
+      "panel": "What this repo is",
+      "methodology": {
+        "reference": "native deepseek-ai/DeepSeek-V4.1-Flash FP4 experts / FP8 dense checkpoint",
+        "dataset": "2,005 sampled rows per table",
+        "ctx": "not applicable",
+        "tool": "MLX affine conversion and source FP4/FP8 dequantization",
+        "L": [
+          32,
+          37,
+          40,
+          41,
+          42,
+          105,
+          109,
+          110
+        ]
+      },
+      "metrics": {},
+      "size": "c6",
+      "unit": "GiB",
+      "basis": "engram_only",
+      "bpw": null,
+      "flags": [
+        "Lower bound from 2,005 sampled rows per table [L37]",
+        "No task evaluation of Q2; runtime is still in progress [L85-95]"
+      ]
+    },
+    {
+      "role": "quoted",
+      "name": "DS-V4.1-Flash",
+      "panel": "Comparison with frontier models (Max reasoning effort)",
+      "methodology": {
+        "reference": "not stated; quoted official source model benchmarks",
+        "dataset": "upstream instruct benchmark suite",
+        "ctx": "1M code-agent contexts; 512K visual-agent contexts; others not stated",
+        "tool": "DeepSeek-published results; reasoning_effort=100, temperature=1.0, top_p=0.95; benchmark-specific harnesses",
+        "L": [
+          92,
+          93,
+          94,
+          115,
+          181,
+          183,
+          185,
+          187,
+          191,
+          217
+        ]
+      },
+      "metrics": {
+        "bench:GPQA Diamond (Pass@1)": "c71",
+        "bench:HLE (Pass@1)": "c78",
+        "bench:Codeforces (Rating)": "c81",
+        "bench:Terminal-Bench 2.1 (Pass@1)": "c91",
+        "bench:Terminal-Bench 3.0 (Pass@1)": "c98",
+        "bench:Terminal-Bench 4.0 (Pass@1)": "c105",
+        "bench:DeepSWE v1.1 (Resolved)": "c112",
+        "bench:ProgramBench (Almost@1)": "c118",
+        "bench:NL2Repo-Bench (Score)": "c124",
+        "bench:CyberGym (Pass@1)": "c129",
+        "bench:SEC-Bench Pro (Pass@1)": "c133",
+        "bench:ExploitGym (Pass@1)": "c139",
+        "bench:HLE w/ tools (Pass@1)": "c145",
+        "bench:AutomationBench (Pass@1)": "c152",
+        "bench:Agent's Last Exam (Pass@1)": "c159",
+        "bench:Chartography w/ tools (Pass@1)": "c163",
+        "bench:BabyVision w/ tools (Pass@1)": "c167",
+        "bench:ZeroBench-main w/ tools (Pass@5)": "c171"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Published source-model results, not MTPLX Q2 measurements [L92-95,115]",
+        "Other model columns and the distinct -Base checkpoint table are excluded [L142-177,191]",
+        "HLE parenthetical dagger score is a text-only subset; primary value retained [L195,217]"
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "quoted",
+      "name": "DS-V4.1-Flash — Claude Code",
+      "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+      "methodology": {
+        "reference": "not stated; quoted official source-model scaffold comparison",
+        "dataset": "DeepSWE v1.1 and Terminal-Bench 2.1",
+        "ctx": "1M-token context limit; max_steps=500",
+        "tool": "reasoning_effort=100; temperature=1.0, top_p=0.95; N=8 DeepSWE samples and N=3 Terminal-Bench samples; Linux containers; Terminal-Bench no network",
+        "L": [
+          183,
+          219,
+          221,
+          225,
+          227,
+          228
+        ]
+      },
+      "metrics": {
+        "bench:DeepSWE v1.1 (Resolved)": "c172",
+        "bench:Terminal-Bench 2.1 (Pass@1)": "c180"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Quoted source-model benchmark; no Q2 task evaluation [L92-95,115]"
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "quoted",
+      "name": "DS-V4.1-Flash — Codex",
+      "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+      "methodology": {
+        "reference": "not stated; quoted official source-model scaffold comparison",
+        "dataset": "DeepSWE v1.1 and Terminal-Bench 2.1",
+        "ctx": "1M-token context limit; max_steps=500",
+        "tool": "reasoning_effort=100; temperature=1.0, top_p=0.95; N=8 DeepSWE samples and N=3 Terminal-Bench samples; Linux containers; Terminal-Bench no network",
+        "L": [
+          183,
+          219,
+          221,
+          225,
+          227,
+          228
+        ]
+      },
+      "metrics": {
+        "bench:DeepSWE v1.1 (Resolved)": "c173",
+        "bench:Terminal-Bench 2.1 (Pass@1)": "c181"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Quoted source-model benchmark; no Q2 task evaluation [L92-95,115]"
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "quoted",
+      "name": "DS-V4.1-Flash — OpenCode",
+      "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+      "methodology": {
+        "reference": "not stated; quoted official source-model scaffold comparison",
+        "dataset": "DeepSWE v1.1 and Terminal-Bench 2.1",
+        "ctx": "1M-token context limit; max_steps=500",
+        "tool": "reasoning_effort=100; temperature=1.0, top_p=0.95; N=8 DeepSWE samples and N=3 Terminal-Bench samples; Linux containers; Terminal-Bench no network",
+        "L": [
+          183,
+          219,
+          221,
+          225,
+          227,
+          228
+        ]
+      },
+      "metrics": {
+        "bench:DeepSWE v1.1 (Resolved)": "c174",
+        "bench:Terminal-Bench 2.1 (Pass@1)": "c182"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Quoted source-model benchmark; no Q2 task evaluation [L92-95,115]"
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "quoted",
+      "name": "DS-V4.1-Flash — Pi",
+      "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+      "methodology": {
+        "reference": "not stated; quoted official source-model scaffold comparison",
+        "dataset": "DeepSWE v1.1 and Terminal-Bench 2.1",
+        "ctx": "1M-token context limit; max_steps=500",
+        "tool": "reasoning_effort=100; temperature=1.0, top_p=0.95; N=8 DeepSWE samples and N=3 Terminal-Bench samples; Linux containers; Terminal-Bench no network",
+        "L": [
+          183,
+          219,
+          221,
+          225,
+          227,
+          228
+        ]
+      },
+      "metrics": {
+        "bench:DeepSWE v1.1 (Resolved)": "c175",
+        "bench:Terminal-Bench 2.1 (Pass@1)": "c183"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Quoted source-model benchmark; no Q2 task evaluation [L92-95,115]"
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "quoted",
+      "name": "DS-V4.1-Flash — mini-SWE",
+      "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+      "methodology": {
+        "reference": "not stated; quoted official source-model scaffold comparison",
+        "dataset": "DeepSWE v1.1 and Terminal-Bench 2.1",
+        "ctx": "1M-token context limit; max_steps=500",
+        "tool": "reasoning_effort=100; temperature=1.0, top_p=0.95; N=8 DeepSWE samples and N=3 Terminal-Bench samples; Linux containers; Terminal-Bench no network",
+        "L": [
+          183,
+          219,
+          221,
+          225,
+          227,
+          228
+        ]
+      },
+      "metrics": {
+        "bench:DeepSWE v1.1 (Resolved)": "c176",
+        "bench:Terminal-Bench 2.1 (Pass@1)": "c184"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Quoted source-model benchmark; no Q2 task evaluation [L92-95,115]"
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "quoted",
+      "name": "DS-V4.1-Flash — DSH Minimal",
+      "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+      "methodology": {
+        "reference": "not stated; quoted official source-model scaffold comparison",
+        "dataset": "DeepSWE v1.1 and Terminal-Bench 2.1",
+        "ctx": "1M-token context limit; max_steps=500",
+        "tool": "reasoning_effort=100; temperature=1.0, top_p=0.95; N=8 DeepSWE samples and N=3 Terminal-Bench samples; Linux containers; Terminal-Bench no network",
+        "L": [
+          183,
+          219,
+          221,
+          225,
+          227,
+          228
+        ]
+      },
+      "metrics": {
+        "bench:DeepSWE v1.1 (Resolved)": "c177",
+        "bench:Terminal-Bench 2.1 (Pass@1)": "c185"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Quoted source-model benchmark; no Q2 task evaluation [L92-95,115]"
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "quoted",
+      "name": "DS-V4.1-Flash — DSH Standard",
+      "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+      "methodology": {
+        "reference": "not stated; quoted official source-model scaffold comparison",
+        "dataset": "DeepSWE v1.1 and Terminal-Bench 2.1",
+        "ctx": "1M-token context limit; max_steps=500",
+        "tool": "reasoning_effort=100; temperature=1.0, top_p=0.95; N=8 DeepSWE samples and N=3 Terminal-Bench samples; Linux containers; Terminal-Bench no network",
+        "L": [
+          183,
+          219,
+          221,
+          225,
+          227,
+          228
+        ]
+      },
+      "metrics": {
+        "bench:DeepSWE v1.1 (Resolved)": "c178",
+        "bench:Terminal-Bench 2.1 (Pass@1)": "c186"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Quoted source-model benchmark; no Q2 task evaluation [L92-95,115]"
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "quoted",
+      "name": "DS-V4.1-Flash — DSH PTC",
+      "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+      "methodology": {
+        "reference": "not stated; quoted official source-model scaffold comparison",
+        "dataset": "DeepSWE v1.1 and Terminal-Bench 2.1",
+        "ctx": "1M-token context limit; max_steps=500",
+        "tool": "reasoning_effort=100; temperature=1.0, top_p=0.95; N=8 DeepSWE samples and N=3 Terminal-Bench samples; Linux containers; Terminal-Bench no network",
+        "L": [
+          183,
+          219,
+          221,
+          225,
+          227,
+          228
+        ]
+      },
+      "metrics": {
+        "bench:DeepSWE v1.1 (Resolved)": "c179"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Quoted source-model benchmark; no Q2 task evaluation [L92-95,115]"
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    }
+  ],
+  "prose": [
+    {
+      "entry": "Routed experts, 40 layers × 384",
+      "panel": "What this repo is",
+      "key": "bench:reconstruction cosine",
+      "L": 34,
+      "raw": "0.91"
+    },
+    {
+      "entry": "Attention, indexer, compressor, shared experts, embed, head, MTP dense",
+      "panel": "What this repo is",
+      "key": "bench:reconstruction cosine",
+      "L": 35,
+      "raw": "≥ 0.9997"
+    },
+    {
+      "entry": "DSpark MTP routed experts, 3 layers × 128",
+      "panel": "What this repo is",
+      "key": "bench:reconstruction cosine",
+      "L": 36,
+      "raw": "0.99999"
+    },
+    {
+      "entry": "Engram n-gram tables, layers 1 and 14",
+      "panel": "What this repo is",
+      "key": "bench:reconstruction cosine",
+      "L": 37,
+      "raw": "≥ 0.99994"
+    },
+    {
+      "entry": "DS-V4.1-Flash",
+      "panel": "Comparison with frontier models (Max reasoning effort)",
+      "key": "bench:MathArena Apex (Pass@1)",
+      "L": 197,
+      "raw": "65.6"
+    },
+    {
+      "entry": "DS-V4.1-Flash — DSH PTC",
+      "panel": "Performance across agent scaffolds (DeepSWE v1.1 and Terminal-Bench 2.1, Max reasoning effort)",
+      "key": "bench:Terminal-Bench 2.1 (Pass@1)",
+      "L": 228,
+      "raw": "85.8"
+    }
+  ]
+}

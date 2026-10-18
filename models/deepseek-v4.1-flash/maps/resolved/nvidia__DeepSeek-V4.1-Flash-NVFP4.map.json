@@ -1,0 +1,224 @@
+{
+  "repo": "nvidia/DeepSeek-V4.1-Flash-NVFP4",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "deepseek-ai/DeepSeek-V4.1-Flash mixed-precision checkpoint with MXFP4 routed experts",
+    "dataset": "GPQA Diamond, AA-LCR, SciCode, IFBench, MMMU-Pro, Terminal-Bench 2.1",
+    "ctx": "ordinary requests max_new_tokens=262144; Terminal-Bench configuration separate",
+    "tool": "vLLM on NVIDIA GB300; ordinary temperature=1.0, top_p=0.95, reasoning_effort=100; GPQA/AA-LCR 16 repeats, IFBench 5; Terminal-Bench eight trajectories per task",
+    "L": [
+      98,
+      105,
+      164,
+      196,
+      197,
+      198,
+      199,
+      200
+    ]
+  },
+  "entries": [
+    {
+      "role": "cross",
+      "name": "MXFP4 (source)",
+      "panel": "Evaluation",
+      "methodology": {
+        "reference": "deepseek-ai/DeepSeek-V4.1-Flash native mixed-precision checkpoint with MXFP4 routed experts",
+        "dataset": "GPQA Diamond, AA-LCR, SciCode, IFBench, MMMU-Pro",
+        "ctx": "max_new_tokens=262144",
+        "tool": "vLLM on NVIDIA GB300; temperature=1.0, top_p=0.95, reasoning_effort=100; GPQA/AA-LCR 16 repeats, IFBench 5",
+        "L": [
+          105,
+          164,
+          196,
+          197,
+          198,
+          200
+        ]
+      },
+      "metrics": {},
+      "size": "c1.0",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Approximate total checkpoint size includes Engram tables [L114]",
+        "Native MXFP4 source reference, not this repository's quantized variant [L177,196]"
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "cross",
+      "name": "MXFP4 (source), Terminal-Bench 2.1",
+      "panel": "Evaluation",
+      "methodology": {
+        "reference": "deepseek-ai/DeepSeek-V4.1-Flash native mixed-precision checkpoint with MXFP4 routed experts",
+        "dataset": "Terminal-Bench 2.1",
+        "ctx": "not stated for Terminal-Bench agentic configuration",
+        "tool": "vLLM on NVIDIA GB300; separate agentic configuration; eight trajectories per task",
+        "L": [
+          105,
+          164,
+          196,
+          199,
+          200
+        ]
+      },
+      "metrics": {},
+      "size": "c1.0",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Approximate total checkpoint size includes Engram tables [L114]",
+        "Native MXFP4 source reference, not this repository's quantized variant [L177,196]",
+        "Separate agentic configuration; ordinary benchmark request settings are not asserted for this result [L197-199]."
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "own",
+      "name": "NVFP4 + MXFP4 Engram",
+      "panel": "Evaluation",
+      "methodology": {
+        "reference": "deepseek-ai/DeepSeek-V4.1-Flash native mixed-precision checkpoint with MXFP4 routed experts",
+        "dataset": "GPQA Diamond, AA-LCR, SciCode, IFBench, MMMU-Pro",
+        "ctx": "max_new_tokens=262144",
+        "tool": "vLLM on NVIDIA GB300; temperature=1.0, top_p=0.95, reasoning_effort=100; GPQA/AA-LCR 16 repeats, IFBench 5",
+        "L": [
+          105,
+          164,
+          196,
+          197,
+          198,
+          200
+        ]
+      },
+      "metrics": {},
+      "size": "c7",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Approximate total checkpoint size includes Engram tables [L114]",
+        "Current variant converts FP8 Engram tables to MXFP4; benchmark uses compatible vLLM build [L110,200]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "NVFP4 + MXFP4 Engram, Terminal-Bench 2.1",
+      "panel": "Evaluation",
+      "methodology": {
+        "reference": "deepseek-ai/DeepSeek-V4.1-Flash native mixed-precision checkpoint with MXFP4 routed experts",
+        "dataset": "Terminal-Bench 2.1",
+        "ctx": "not stated for Terminal-Bench agentic configuration",
+        "tool": "vLLM on NVIDIA GB300; separate agentic configuration; eight trajectories per task",
+        "L": [
+          105,
+          164,
+          196,
+          199,
+          200
+        ]
+      },
+      "metrics": {},
+      "size": "c7",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Approximate total checkpoint size includes Engram tables [L114]",
+        "Current variant converts FP8 Engram tables to MXFP4; benchmark uses compatible vLLM build [L110,200]",
+        "Separate agentic configuration; ordinary benchmark request settings are not asserted for this result [L197-199]."
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "MXFP4 (source)",
+      "panel": "Evaluation",
+      "key": "bench:GPQA Diamond",
+      "L": 178,
+      "raw": "91.035"
+    },
+    {
+      "entry": "MXFP4 (source)",
+      "panel": "Evaluation",
+      "key": "bench:AA-LCR",
+      "L": 179,
+      "raw": "78.563"
+    },
+    {
+      "entry": "MXFP4 (source)",
+      "panel": "Evaluation",
+      "key": "bench:SciCode",
+      "L": 180,
+      "raw": "54.401"
+    },
+    {
+      "entry": "MXFP4 (source)",
+      "panel": "Evaluation",
+      "key": "bench:IFBench",
+      "L": 181,
+      "raw": "76.667"
+    },
+    {
+      "entry": "MXFP4 (source)",
+      "panel": "Evaluation",
+      "key": "bench:MMMU-Pro",
+      "L": 182,
+      "raw": "74.046"
+    },
+    {
+      "entry": "MXFP4 (source), Terminal-Bench 2.1",
+      "panel": "Evaluation",
+      "key": "bench:Terminal-Bench 2.1",
+      "L": 183,
+      "raw": "81.60"
+    },
+    {
+      "entry": "NVFP4 + MXFP4 Engram",
+      "panel": "Evaluation",
+      "key": "bench:GPQA Diamond",
+      "L": 187,
+      "raw": "90.783"
+    },
+    {
+      "entry": "NVFP4 + MXFP4 Engram",
+      "panel": "Evaluation",
+      "key": "bench:AA-LCR",
+      "L": 188,
+      "raw": "79.562"
+    },
+    {
+      "entry": "NVFP4 + MXFP4 Engram",
+      "panel": "Evaluation",
+      "key": "bench:SciCode",
+      "L": 189,
+      "raw": "53.994"
+    },
+    {
+      "entry": "NVFP4 + MXFP4 Engram",
+      "panel": "Evaluation",
+      "key": "bench:IFBench",
+      "L": 190,
+      "raw": "77.867"
+    },
+    {
+      "entry": "NVFP4 + MXFP4 Engram",
+      "panel": "Evaluation",
+      "key": "bench:MMMU-Pro",
+      "L": 191,
+      "raw": "74.566"
+    },
+    {
+      "entry": "NVFP4 + MXFP4 Engram, Terminal-Bench 2.1",
+      "panel": "Evaluation",
+      "key": "bench:Terminal-Bench 2.1",
+      "L": 192,
+      "raw": "81.88"
+    }
+  ]
+}

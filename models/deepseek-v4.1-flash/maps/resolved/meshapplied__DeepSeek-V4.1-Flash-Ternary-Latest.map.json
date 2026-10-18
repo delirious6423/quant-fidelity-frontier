@@ -1,0 +1,102 @@
+{
+  "repo": "meshapplied/DeepSeek-V4.1-Flash-Ternary-Latest",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "native DeepSeek-V4.1-Flash FP4 expert checkpoint",
+    "dataset": "v2 calibration held-out set;code,math,general and overall",
+    "ctx": "not stated for NLL evaluation",
+    "tool": "held-out NLL protocol not further specified; Goethe ternary-GPTQ expert overlay",
+    "L": [
+      15,
+      17,
+      131,
+      133,
+      135,
+      137,
+      138,
+      139,
+      140,
+      147
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "ternary experts",
+      "panel": "Quality (held-out NLL)",
+      "methodology": {
+        "reference": "native DeepSeek-V4.1-Flash FP4 expert checkpoint",
+        "dataset": "v2 calibration held-out set;code,math,general and overall",
+        "ctx": "not stated for NLL evaluation",
+        "tool": "held-out NLL protocol not further specified; Goethe ternary-GPTQ expert overlay",
+        "L": [
+          15,
+          17,
+          131,
+          133,
+          135,
+          137,
+          138,
+          139,
+          140,
+          147
+        ]
+      },
+      "metrics": {
+        "bench:delta-NLL-code": "c9002",
+        "bench:delta-NLL-math": "c9004",
+        "bench:delta-NLL-general": "c9006",
+        "bench:delta-NLL-overall": "c9008"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Expert-only overlay; base non-expert tensors not re-uploaded [L15-17].",
+        "Delta NLL is not KL; absolute ternary NLL is not derived [L133-140].",
+        "Overall aggregation weights and NLL context length are not stated [L133-140]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "FP4",
+      "panel": "Quality (held-out NLL)",
+      "methodology": {
+        "reference": "native DeepSeek-V4.1-Flash FP4 expert checkpoint",
+        "dataset": "v2 calibration held-out set;code,math,general and overall",
+        "ctx": "not stated for NLL evaluation",
+        "tool": "held-out NLL protocol not further specified; Goethe ternary-GPTQ expert overlay",
+        "L": [
+          15,
+          17,
+          131,
+          133,
+          135,
+          137,
+          138,
+          139,
+          140,
+          147
+        ]
+      },
+      "metrics": {
+        "bench:NLL-code": "c9001",
+        "bench:NLL-math": "c9003",
+        "bench:NLL-general": "c9005",
+        "bench:NLL-overall": "c9007"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Overall aggregation weights and NLL context length are not stated [L133-140]."
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,152 @@
+{
+  "repo": "vcruz305/DSV4.1-Flash-SAGE-EXL3-1.59bpw",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "native FP4 release checkpoint through reference PyTorch kernels",
+    "dataset": "32 held-out sequences; equal general text/code/math/reasoning subsets",
+    "ctx": "4096 tokens per sequence",
+    "tool": "teacher-forced full-vocabulary per-token KL and token agreement",
+    "L": [
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "this pack, 1.59 bpw",
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "native FP4 release checkpoint through reference PyTorch kernels",
+        "dataset": "32 held-out sequences; equal general text/code/math/reasoning subsets",
+        "ctx": "4096 tokens per sequence",
+        "tool": "teacher-forced full-vocabulary per-token KL and token agreement",
+        "L": [
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56
+        ]
+      },
+      "metrics": {
+        "mean_kld": "c2",
+        "top1_pct": "c3",
+        "kld:general": "c5",
+        "kld:code": "c6",
+        "kld:math": "c7",
+        "kld:reasoning": "c8"
+      },
+      "size": "c1",
+      "unit": "GB",
+      "basis": "routed_experts",
+      "bpw": "c21",
+      "flags": [
+        "Quality table size is routed-expert storage, not total model download [L39-42,L58].",
+        "Agreement is against native FP4 release, not benchmark accuracy [L50-56]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "3.30 bpw sibling",
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "native FP4 release checkpoint through reference PyTorch kernels",
+        "dataset": "32 held-out sequences; equal general text/code/math/reasoning subsets",
+        "ctx": "4096 tokens per sequence",
+        "tool": "teacher-forced full-vocabulary per-token KL and token agreement",
+        "L": [
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56
+        ]
+      },
+      "metrics": {
+        "mean_kld": "c10",
+        "top1_pct": "c11",
+        "kld:general": "c13",
+        "kld:code": "c14",
+        "kld:math": "c15",
+        "kld:reasoning": "c16"
+      },
+      "size": "c9",
+      "unit": "GB",
+      "basis": "routed_experts",
+      "bpw": "c22",
+      "flags": []
+    },
+    {
+      "role": "cross",
+      "name": "FP4 reference",
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "native FP4 release checkpoint through reference PyTorch kernels",
+        "dataset": "32 held-out sequences; equal general text/code/math/reasoning subsets",
+        "ctx": "4096 tokens per sequence",
+        "tool": "teacher-forced full-vocabulary per-token KL and token agreement",
+        "L": [
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56
+        ]
+      },
+      "metrics": {
+        "mean_kld": "c17",
+        "top1_pct": "c18"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    }
+  ],
+  "prose": [
+    {
+      "entry": "this pack, 1.59 bpw",
+      "panel": "Measured quality",
+      "key": "top1:general",
+      "L": 64,
+      "raw": "82.0%"
+    },
+    {
+      "entry": "this pack, 1.59 bpw",
+      "panel": "Measured quality",
+      "key": "top1:code",
+      "L": 64,
+      "raw": "97.9%"
+    },
+    {
+      "entry": "this pack, 1.59 bpw",
+      "panel": "Measured quality",
+      "key": "top1:math",
+      "L": 64,
+      "raw": "91.7%"
+    },
+    {
+      "entry": "this pack, 1.59 bpw",
+      "panel": "Measured quality",
+      "key": "top1:reasoning",
+      "L": 65,
+      "raw": "93.2%"
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "repo": "Zrald/zralddeepseekv4.1",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "Original Reference Base, explicitly Q8_0; not asserted to be native BF16",
+    "dataset": "WikiText; split,token count and retention benchmark definitions not stated",
+    "ctx": "not stated for quality evaluation",
+    "tool": "AMD Instinct MI300X VF,custom runtime/deepseek41 llama.cpp fork",
+    "L": [
+      52,
+      84,
+      86,
+      88,
+      90,
+      91,
+      92,
+      93
+    ]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "Original Reference Base",
+      "panel": "Benchmark Performance vs. 100% Original Base Model",
+      "methodology": {
+        "reference": "Original Reference Base, explicitly Q8_0; not asserted to be native BF16",
+        "dataset": "WikiText; split,token count and retention benchmark definitions not stated",
+        "ctx": "not stated for quality evaluation",
+        "tool": "AMD Instinct MI300X VF,custom runtime/deepseek41 llama.cpp fork",
+        "L": [
+          52,
+          84,
+          86,
+          88,
+          90,
+          91,
+          92,
+          93
+        ]
+      },
+      "metrics": {
+        "ppl:wikitext": "c6"
+      },
+      "size": "c3",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Retention/accuracy/Python/math retention metrics lack benchmark definitions and are omitted [L88-103]",
+        "WikiText split,context and sampling protocol not stated [L86-93]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "zralddeepseek-v4.1-accuracy",
+      "panel": "Benchmark Performance vs. 100% Original Base Model",
+      "methodology": {
+        "reference": "Original Reference Base, explicitly Q8_0; not asserted to be native BF16",
+        "dataset": "WikiText; split,token count and retention benchmark definitions not stated",
+        "ctx": "not stated for quality evaluation",
+        "tool": "AMD Instinct MI300X VF,custom runtime/deepseek41 llama.cpp fork",
+        "L": [
+          52,
+          84,
+          86,
+          88,
+          90,
+          91,
+          92,
+          93
+        ]
+      },
+      "metrics": {
+        "ppl:wikitext": "c11"
+      },
+      "size": "c8",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Retention/accuracy/Python/math retention metrics lack benchmark definitions and are omitted [L88-103]",
+        "WikiText split,context and sampling protocol not stated [L86-93]",
+        "Documented evaluation arm; its files are not shipped in this repository [L80]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "zralddeepseek-v4.1-balance",
+      "panel": "Benchmark Performance vs. 100% Original Base Model",
+      "methodology": {
+        "reference": "Original Reference Base, explicitly Q8_0; not asserted to be native BF16",
+        "dataset": "WikiText; split,token count and retention benchmark definitions not stated",
+        "ctx": "not stated for quality evaluation",
+        "tool": "AMD Instinct MI300X VF,custom runtime/deepseek41 llama.cpp fork",
+        "L": [
+          52,
+          84,
+          86,
+          88,
+          90,
+          91,
+          92,
+          93
+        ]
+      },
+      "metrics": {
+        "ppl:wikitext": "c18"
+      },
+      "size": "c35",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Retention/accuracy/Python/math retention metrics lack benchmark definitions and are omitted [L88-103]",
+        "WikiText split,context and sampling protocol not stated [L86-93]",
+        "Size uses separate real-measured column rather than mixed published-size range [L92,102]",
+        "Documented evaluation arm; its files are not shipped in this repository [L80]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "zralddeepseek-v4.1-compressed",
+      "panel": "Benchmark Performance vs. 100% Original Base Model",
+      "methodology": {
+        "reference": "Original Reference Base, explicitly Q8_0; not asserted to be native BF16",
+        "dataset": "WikiText; split,token count and retention benchmark definitions not stated",
+        "ctx": "not stated for quality evaluation",
+        "tool": "AMD Instinct MI300X VF,custom runtime/deepseek41 llama.cpp fork",
+        "L": [
+          52,
+          84,
+          86,
+          88,
+          90,
+          91,
+          92,
+          93
+        ]
+      },
+      "metrics": {
+        "ppl:wikitext": "c25"
+      },
+      "size": "c22",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Retention/accuracy/Python/math retention metrics lack benchmark definitions and are omitted [L88-103]",
+        "WikiText split,context and sampling protocol not stated [L86-93]",
+        "Benchmark size245.5GB conflicts with shipped-file listing ~264.5GB; table figure retained [L93,119-126]"
+      ]
+    }
+  ],
+  "prose": []
+}

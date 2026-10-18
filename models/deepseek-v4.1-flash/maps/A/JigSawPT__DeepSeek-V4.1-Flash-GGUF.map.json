@@ -1,0 +1,98 @@
+{
+  "repo": "JigSawPT/DeepSeek-V4.1-Flash-GGUF",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "DeepSeek native FP8/MXFP4 reference implementation",
+    "dataset": "not stated",
+    "ctx": "1,401 tokens",
+    "tool": "JigSawPT/llama.cpp dsv41-porte; one RTX5090, chat mode reasoning off",
+    "L": [
+      17,
+      18,
+      21,
+      22,
+      39,
+      51,
+      52,
+      53,
+      69,
+      70
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash, GGUF with the engram tables",
+      "panel": "What it needs, and what it gives",
+      "methodology": {
+        "reference": "DeepSeek native FP8/MXFP4 reference implementation",
+        "dataset": "not stated",
+        "ctx": "1,401 tokens",
+        "tool": "JigSawPT/llama.cpp dsv41-porte; one RTX5090, chat mode reasoning off",
+        "L": [
+          17,
+          18,
+          21,
+          22,
+          39,
+          51,
+          52,
+          53,
+          69,
+          70
+        ]
+      },
+      "metrics": {},
+      "size": "c26.0",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Total shard size includes raw FP8 Engram; vision omitted and draft head separate [L19,27-29,78-79]",
+        "Correlation is not KL, task accuracy or an exactness percentage [L51-53]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "port against itself across two runs",
+      "panel": "What it needs, and what it gives",
+      "methodology": {
+        "reference": "same port, separate run",
+        "dataset": "not stated",
+        "ctx": "not stated",
+        "tool": "self-rerun correlation control",
+        "L": [
+          51,
+          52,
+          53
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Self-rerun rounding-floor control, not another quant [L51-53]"
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "DeepSeek-V4.1-Flash, GGUF with the engram tables",
+      "panel": "What it needs, and what it gives",
+      "key": "bench:logit correlation",
+      "L": 51,
+      "raw": "0.9967"
+    },
+    {
+      "entry": "port against itself across two runs",
+      "panel": "What it needs, and what it gives",
+      "key": "bench:logit correlation",
+      "L": 52,
+      "raw": "0.9959"
+    }
+  ]
+}

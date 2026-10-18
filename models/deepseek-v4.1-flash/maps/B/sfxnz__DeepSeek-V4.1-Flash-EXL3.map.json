@@ -1,0 +1,84 @@
+{
+  "repo": "sfxnz/DeepSeek-V4.1-Flash-EXL3",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "previous MCG lmhead-MXFP8 revision; NLL reference target tokens not otherwise stated",
+    "dataset": "40 fixed passages",
+    "ctx": "not stated",
+    "tool": "interleaved two-plus-two boot comparison on two DGX Spark",
+    "L": [
+      24
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "2.0bpw-mcg-viterbi-lmhead-mxfp8",
+      "panel": "Download",
+      "methodology": {
+        "reference": "previous MCG lmhead-MXFP8 revision; NLL reference target tokens not otherwise stated",
+        "dataset": "40 fixed passages",
+        "ctx": "not stated",
+        "tool": "interleaved two-plus-two boot comparison on two DGX Spark",
+        "L": [
+          24
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c1",
+      "flags": [
+        "NLL is not KL divergence [L24].",
+        "Bitrate routed experts only; Engram on NVMe [L14].",
+        "Slash-separated benchmark run counts omitted because their normalization is not stated [L24]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "2.0bpw-mcg-lmhead-mxfp8",
+      "panel": "Download",
+      "methodology": {
+        "reference": "previous MCG lmhead-MXFP8 revision; NLL reference target tokens not otherwise stated",
+        "dataset": "40 fixed passages",
+        "ctx": "not stated",
+        "tool": "interleaved two-plus-two boot comparison on two DGX Spark",
+        "L": [
+          24
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c4",
+      "flags": []
+    }
+  ],
+  "prose": [
+    {
+      "entry": "2.0bpw-mcg-viterbi-lmhead-mxfp8",
+      "panel": "Download",
+      "key": "bench:teacher-forced-NLL",
+      "L": 24,
+      "raw": "0.139"
+    },
+    {
+      "entry": "2.0bpw-mcg-lmhead-mxfp8",
+      "panel": "Download",
+      "key": "bench:teacher-forced-NLL",
+      "L": 24,
+      "raw": "0.243"
+    },
+    {
+      "entry": "2.0bpw-mcg-viterbi-lmhead-mxfp8",
+      "panel": "Download",
+      "key": "size",
+      "L": 40,
+      "raw": "357 GB"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "repo": "meshapplied/DeepSeek-V4.1-Flash-Ternary-Latest",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "native FP4 baseline",
+    "dataset": "v2 calibration held-out set; code/math/general",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+      131,
+      133,
+      135
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "ternary experts",
+      "panel": "Quality (held-out NLL)",
+      "methodology": {
+        "reference": "native FP4 baseline",
+        "dataset": "v2 calibration held-out set; code/math/general",
+        "ctx": "not stated",
+        "tool": "not stated",
+        "L": [
+          131,
+          133,
+          135
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Expert-only overlay; base non-expert tensors not re-uploaded [L15-17].",
+        "Delta NLL is not KL; absolute ternary NLL is not derived [L133-140]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "FP4",
+      "panel": "Quality (held-out NLL)",
+      "methodology": {
+        "reference": "native FP4 baseline",
+        "dataset": "v2 calibration held-out set; code/math/general",
+        "ctx": "not stated",
+        "tool": "not stated",
+        "L": [
+          131,
+          133,
+          135
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    }
+  ],
+  "prose": [
+    {
+      "entry": "ternary experts",
+      "panel": "Quality (held-out NLL)",
+      "key": "bench:delta-NLL-code",
+      "L": 137,
+      "raw": "0.105"
+    },
+    {
+      "entry": "FP4",
+      "panel": "Quality (held-out NLL)",
+      "key": "bench:NLL-code",
+      "L": 137,
+      "raw": "0.523"
+    },
+    {
+      "entry": "ternary experts",
+      "panel": "Quality (held-out NLL)",
+      "key": "bench:delta-NLL-math",
+      "L": 138,
+      "raw": "0.086"
+    },
+    {
+      "entry": "FP4",
+      "panel": "Quality (held-out NLL)",
+      "key": "bench:NLL-math",
+      "L": 138,
+      "raw": "0.727"
+    },
+    {
+      "entry": "ternary experts",
+      "panel": "Quality (held-out NLL)",
+      "key": "bench:delta-NLL-general",
+      "L": 139,
+      "raw": "0.415"
+    },
+    {
+      "entry": "FP4",
+      "panel": "Quality (held-out NLL)",
+      "key": "bench:NLL-general",
+      "L": 139,
+      "raw": "0.439"
+    },
+    {
+      "entry": "ternary experts",
+      "panel": "Quality (held-out NLL)",
+      "key": "bench:delta-NLL-overall",
+      "L": 140,
+      "raw": "0.202"
+    },
+    {
+      "entry": "FP4",
+      "panel": "Quality (held-out NLL)",
+      "key": "bench:NLL-overall",
+      "L": 140,
+      "raw": "0.563"
+    }
+  ]
+}

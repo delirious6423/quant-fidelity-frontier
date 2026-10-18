@@ -1,0 +1,69 @@
+{
+  "repo": "intel-ai/DeepSeek-V4.1-Flash-MXFP4-Mixed-CT-AutoRound",
+  "no_quality_claims": false,
+  "weights_modified": false,
+  "method": {
+    "reference": "official DeepSeek-V4.1-Flash native MXFP4/MXFP8 checkpoint; W4A8 execution, not BF16",
+    "dataset": "GSM8K 5-shot strict/flexible; MMLU; PIQA acc/acc_norm; HellaSwag acc/acc_norm",
+    "ctx": "max_model_len 8192; max_gen_toks 2048",
+    "tool": "lm-eval 0.4.13, patched vLLM 82daf9f57, TP2, batch32, seed42, plain-text few-shot without chat template; two B300",
+    "L": [
+      308,
+      309,
+      313,
+      314,
+      317,
+      318,
+      330,
+      331,
+      337,
+      338,
+      339,
+      340
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "This checkpoint (W4A4 MoE, OCP MXFP8)",
+      "metrics": {
+        "bench:GSM8K strict": "c11.0",
+        "bench:GSM8K flexible": "c11.1",
+        "bench:MMLU": "c12",
+        "bench:PIQA acc": "c13.0",
+        "bench:PIQA acc_norm": "c13.1",
+        "bench:HellaSwag acc": "c14.0",
+        "bench:HellaSwag acc_norm": "c14.1"
+      },
+      "panel": "Results",
+      "size": "c26",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": "c4",
+      "flags": [
+        "Stored weights are byte-identical to official; runtime activation quantization differs [L9-13,64-90,330-334].",
+        "Size candidate is the approximate checkpoint size in reproduction notes; directory writes are a separate quantity [L303]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "deepseek-ai/DeepSeek-V4.1-Flash (official, W4A8 MoE)",
+      "metrics": {
+        "bench:GSM8K strict": "c7.0",
+        "bench:GSM8K flexible": "c7.1",
+        "bench:MMLU": "c8",
+        "bench:PIQA acc": "c9.0",
+        "bench:PIQA acc_norm": "c9.1",
+        "bench:HellaSwag acc": "c10.0",
+        "bench:HellaSwag acc_norm": "c10.1"
+      },
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "panel": "Results",
+      "bpw": "c3",
+      "flags": [
+        "Baseline run uses identical harness arguments on the same host; weights are native mixed precision [L308-340]."
+      ]
+    }
+  ],
+  "prose": []
+}

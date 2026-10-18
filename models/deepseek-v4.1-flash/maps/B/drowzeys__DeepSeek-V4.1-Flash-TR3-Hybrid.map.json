@@ -1,0 +1,75 @@
+{
+ "repo": "drowzeys/DeepSeek-V4.1-Flash-TR3-Hybrid",
+ "no_quality_claims": false,
+ "weights_modified": false,
+ "method": {
+  "reference": "native DeepSeek-V4.1-Flash MXFP4-experts/FP8 shipped checkpoint",
+  "dataset": "representative 32-window x 2047-token corpus; 66,599 teacher-forced positions; top-20 logit truncation, mean KL per position",
+  "ctx": "2047-token windows",
+  "tool": "vLLM, TP4 on 4 DGX Sparks; brandonmusic protocol",
+  "L": [
+   37,
+   38,
+   39,
+   42,
+   43,
+   44,
+   45
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "TR3-Hybrid",
+   "metrics": {
+    "mean_kld": "c5",
+    "top1_pct": "c8",
+    "bench:objective battery correct (27 scored)": "c11.0"
+   },
+   "size": "c15",
+   "basis": "disk",
+   "unit": "GB",
+   "bpw": "c3",
+   "flags": [
+    "Mean KL uses top-20 logit truncation, not full-vocabulary KL [L44-45].",
+    "Mixture BPW is expert-weighted; includes native MXFP4 keeps [L23-31].",
+    "Objective battery heading says 30 items but scores use a denominator of 27 [L51].",
+    "GLM-5.3 comparison is on another model and omitted [L55]; tiny early smoke test is not the reported validation panel [L55-57]."
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "native (ref)",
+   "metrics": {
+    "mean_kld": "c4",
+    "top1_pct": "c7",
+    "bench:objective battery correct (27 scored)": "c10.0"
+   },
+   "size": "c12",
+   "basis": "disk",
+   "unit": "GB",
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "flags": [
+    "Reference row; objective battery heading says 30 items but denominator is 27 [L47-51]."
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "EXL3 3.5bpw Pollard",
+   "metrics": {
+    "mean_kld": "c6",
+    "top1_pct": "c9",
+    "bench:objective battery correct (27 scored)": "c11.0"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "of": "bot-lab-21/DeepSeek-V4.1-Flash-EXL3-3.5bpw-Pollard",
+   "flags": [
+    "Uniform Pollard comparison build identified elsewhere on this card [L47,83].",
+    "Objective battery score denominator is 27 despite 30-item heading [L51]."
+   ]
+  }
+ ],
+ "prose": []
+}

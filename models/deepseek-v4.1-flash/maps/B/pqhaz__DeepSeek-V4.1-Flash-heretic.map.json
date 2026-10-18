@@ -1,0 +1,267 @@
+{
+ "repo": "pqhaz/DeepSeek-V4.1-Flash-heretic",
+ "no_quality_claims": false,
+ "weights_modified": true,
+ "method": {
+  "reference": "native deepseek-ai/DeepSeek-V4.1-Flash base",
+  "dataset": "first generated token for 100 harmless_alpaca prompts; refusal judges see first 48 greedy tokens",
+  "ctx": "not stated",
+  "tool": "fixed DeepSeek reference inference code; LLM judge gemma-4-31B-it-uncensored-heretic",
+  "L": [
+   45,
+   64
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "This model",
+   "metrics": {
+    "mean_kld": "c9",
+    "bench:harmful_behaviors refusals (100 prompts)": "c3",
+    "bench:JBB harmful refusals (100 prompts)": "c6"
+   },
+   "size": "c10",
+   "unit": "GB",
+   "basis": "disk",
+   "panel": "Measured",
+   "methodology": {
+    "reference": "native deepseek-ai/DeepSeek-V4.1-Flash base",
+    "dataset": "first generated token for 100 harmless_alpaca prompts; refusal judges see first 48 greedy tokens",
+    "ctx": "not stated",
+    "tool": "fixed DeepSeek reference inference code; LLM judge gemma-4-31B-it-uncensored-heretic",
+    "L": [
+     45,
+     64
+    ]
+   },
+   "flags": [
+    "Directional ablation modifies attention/shared-expert FP8 weights [L13,30-35].",
+    "KL only on the first generated token of harmless prompts; no capability benchmark [L45,66]."
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "dealignai",
+   "metrics": {
+    "mean_kld": "c8",
+    "bench:harmful_behaviors refusals (100 prompts)": "c2",
+    "bench:JBB harmful refusals (100 prompts)": "c5"
+   },
+   "of": "dealignai/DeepSeek-V4.1-Flash-UNCENSORED-FP8",
+   "panel": "Measured",
+   "methodology": {
+    "reference": "native deepseek-ai/DeepSeek-V4.1-Flash base",
+    "dataset": "first generated token for 100 harmless_alpaca prompts; refusal judges see first 48 greedy tokens",
+    "ctx": "not stated",
+    "tool": "fixed DeepSeek reference inference code; LLM judge gemma-4-31B-it-uncensored-heretic",
+    "L": [
+     45,
+     64
+    ]
+   }
+  },
+  {
+   "role": "cross",
+   "name": "Base (reference)",
+   "metrics": {
+    "mean_kld": "c7",
+    "bench:harmful_behaviors refusals (100 prompts)": "c1",
+    "bench:JBB harmful refusals (100 prompts)": "c4"
+   },
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Measured",
+   "methodology": {
+    "reference": "native deepseek-ai/DeepSeek-V4.1-Flash base",
+    "dataset": "first generated token for 100 harmless_alpaca prompts; refusal judges see first 48 greedy tokens",
+    "ctx": "not stated",
+    "tool": "fixed DeepSeek reference inference code; LLM judge gemma-4-31B-it-uncensored-heretic",
+    "L": [
+     45,
+     64
+    ]
+   }
+  },
+  {
+   "role": "cross",
+   "name": "stock (long responses)",
+   "metrics": {},
+   "panel": "Long responses",
+   "methodology": {
+    "reference": "stock native DeepSeek-V4.1-Flash",
+    "dataset": "eight long tasks; repeated long responses",
+    "ctx": "12,000-token output limit",
+    "tool": "SGLang TP4 on B300; temperature1.0 top_p0.95",
+    "L": [
+     19
+    ]
+   },
+   "flags": [
+    "Long-response SGLang study is separate from reference-code short-token measurements [L19,45,64]."
+   ],
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+  },
+  {
+   "role": "own",
+   "name": "this build (long responses)",
+   "metrics": {},
+   "panel": "Long responses",
+   "methodology": {
+    "reference": "stock native DeepSeek-V4.1-Flash",
+    "dataset": "eight long tasks; repeated long responses",
+    "ctx": "12,000-token output limit",
+    "tool": "SGLang TP4 on B300; temperature1.0 top_p0.95",
+    "L": [
+     19
+    ]
+   },
+   "flags": [
+    "Long-response SGLang study is separate from reference-code short-token measurements [L19,45,64]."
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "plain rounding ablation",
+   "metrics": {
+    "mean_kld": "c13.1"
+   },
+   "panel": "What was changed",
+   "methodology": {
+    "reference": "native deepseek-ai/DeepSeek-V4.1-Flash base",
+    "dataset": "first generated token for 100 harmless_alpaca prompts; refusal judges see first 48 greedy tokens",
+    "ctx": "not stated",
+    "tool": "fixed DeepSeek reference inference code; LLM judge gemma-4-31B-it-uncensored-heretic",
+    "L": [
+     45,
+     64
+    ]
+   },
+   "flags": [
+    "Same ablation re-encoded by plain rounding; comparison described in prose [L39]."
+   ]
+  },
+  {
+   "role": "own",
+   "name": "search prompts (100) (reasoning enabled)",
+   "metrics": {},
+   "panel": "Measured",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "reasoning-mode search and held-out JBB prompts; final-answer refusal judgment",
+    "ctx": "row-specific new-token limits",
+    "tool": "DeepSeek reference code; reasoning enabled default effort temperature0.6",
+    "L": [
+     53,
+     55,
+     57,
+     58,
+     60
+    ]
+   },
+   "flags": [
+    "Outcomes for unfinished reasoning responses are unknown; refusal counts are among finishers only [L60]."
+   ]
+  },
+  {
+   "role": "own",
+   "name": "JBB-Behaviors, held out (100) (reasoning enabled)",
+   "metrics": {},
+   "panel": "Measured",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "reasoning-mode search and held-out JBB prompts; final-answer refusal judgment",
+    "ctx": "row-specific new-token limits",
+    "tool": "DeepSeek reference code; reasoning enabled default effort temperature0.6",
+    "L": [
+     53,
+     55,
+     57,
+     58,
+     60
+    ]
+   },
+   "flags": [
+    "Outcomes for unfinished reasoning responses are unknown; refusal counts are among finishers only [L60]."
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "stock (long responses)",
+   "key": "bench:responses looping",
+   "L": 23,
+   "raw": "0 of 160",
+   "panel": "Long responses"
+  },
+  {
+   "entry": "stock (long responses)",
+   "key": "bench:judge-incoherent responses",
+   "L": 23,
+   "raw": "0 of 128",
+   "panel": "Long responses"
+  },
+  {
+   "entry": "this build (long responses)",
+   "key": "bench:responses looping",
+   "L": 24,
+   "raw": "3 of 160",
+   "panel": "Long responses"
+  },
+  {
+   "entry": "this build (long responses)",
+   "key": "bench:judge-incoherent responses",
+   "L": 24,
+   "raw": "2 of 128",
+   "panel": "Long responses"
+  },
+  {
+   "entry": "plain rounding ablation",
+   "key": "bench:refusals (100 prompts)",
+   "L": 39,
+   "raw": "1",
+   "panel": "What was changed"
+  },
+  {
+   "entry": "search prompts (100) (reasoning enabled)",
+   "key": "bench:reasoning finished",
+   "L": 57,
+   "raw": "19",
+   "panel": "Measured"
+  },
+  {
+   "entry": "search prompts (100) (reasoning enabled)",
+   "key": "bench:refusals among finished",
+   "L": 57,
+   "raw": "0",
+   "panel": "Measured"
+  },
+  {
+   "entry": "search prompts (100) (reasoning enabled)",
+   "key": "bench:still reasoning at limit",
+   "L": 57,
+   "raw": "81",
+   "panel": "Measured"
+  },
+  {
+   "entry": "JBB-Behaviors, held out (100) (reasoning enabled)",
+   "key": "bench:reasoning finished",
+   "L": 58,
+   "raw": "40",
+   "panel": "Measured"
+  },
+  {
+   "entry": "JBB-Behaviors, held out (100) (reasoning enabled)",
+   "key": "bench:refusals among finished",
+   "L": 58,
+   "raw": "0",
+   "panel": "Measured"
+  },
+  {
+   "entry": "JBB-Behaviors, held out (100) (reasoning enabled)",
+   "key": "bench:still reasoning at limit",
+   "L": 58,
+   "raw": "60",
+   "panel": "Measured"
+  }
+ ]
+}

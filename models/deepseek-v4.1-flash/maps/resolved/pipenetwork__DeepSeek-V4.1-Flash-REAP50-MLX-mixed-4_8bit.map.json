@@ -1,0 +1,254 @@
+{
+  "repo": "pipenetwork/DeepSeek-V4.1-Flash-REAP50-MLX-mixed-4_8bit",
+  "no_quality_claims": false,
+  "weights_modified": true,
+  "method": {
+    "reference": "unpruned quantized build for paired PPL ratio; not a BF16 reference (FP8/FP4 release dequantized for execution)",
+    "dataset": "wikitext-2 test; 286,580 tokens, 140 matched windows",
+    "ctx": "2048-token windows",
+    "tool": "custom deepseek_v41_mlx runtime",
+    "L": [
+      23,
+      24,
+      63,
+      85
+    ]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "8bit",
+      "metrics": {
+        "bench:layer_divergence:teacher_forced_mean": "c8",
+        "bench:layer_divergence:free_running_final": "c9",
+        "bench:component:final_layer_cosine": "c10"
+      },
+      "panel": "Quality",
+      "methodology": {
+        "reference": "native FP8/FP4 release dequantized to BF16 for the reference pass; not an original BF16 checkpoint",
+        "dataset": "wikitext-2 per-layer divergence ladder",
+        "ctx": "16,384 tokens, each of 40 source-reported layers on identical inputs",
+        "tool": "PipeNetwork custom MLX port; teacher-forced mean divergence, free-running final-layer divergence and final cosine; divergence type not identified as KL",
+        "L": [
+          23,
+          24,
+          42,
+          43,
+          67,
+          68,
+          69
+        ]
+      },
+      "flags": [
+        "Per-layer divergence/cosine ladder is not identified as full-vocabulary output KL; preserve the source statistic without relabeling it [L67-69].",
+        "This is a recipe comparison ladder; no row is identified as the pruned REAP50 target [L63,67-85]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "6bit",
+      "metrics": {
+        "bench:layer_divergence:teacher_forced_mean": "c12",
+        "bench:layer_divergence:free_running_final": "c13",
+        "bench:component:final_layer_cosine": "c14"
+      },
+      "panel": "Quality",
+      "methodology": {
+        "reference": "native FP8/FP4 release dequantized to BF16 for the reference pass; not an original BF16 checkpoint",
+        "dataset": "wikitext-2 per-layer divergence ladder",
+        "ctx": "16,384 tokens, each of 40 source-reported layers on identical inputs",
+        "tool": "PipeNetwork custom MLX port; teacher-forced mean divergence, free-running final-layer divergence and final cosine; divergence type not identified as KL",
+        "L": [
+          23,
+          24,
+          42,
+          43,
+          67,
+          68,
+          69
+        ]
+      },
+      "flags": [
+        "Per-layer divergence/cosine ladder is not identified as full-vocabulary output KL; preserve the source statistic without relabeling it [L67-69].",
+        "This is a recipe comparison ladder; no row is identified as the pruned REAP50 target [L63,67-85]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "4bit-engram4",
+      "metrics": {
+        "bench:layer_divergence:teacher_forced_mean": "c15",
+        "bench:layer_divergence:free_running_final": "c16",
+        "bench:component:final_layer_cosine": "c17"
+      },
+      "panel": "Quality",
+      "methodology": {
+        "reference": "native FP8/FP4 release dequantized to BF16 for the reference pass; not an original BF16 checkpoint",
+        "dataset": "wikitext-2 per-layer divergence ladder",
+        "ctx": "16,384 tokens, each of 40 source-reported layers on identical inputs",
+        "tool": "PipeNetwork custom MLX port; teacher-forced mean divergence, free-running final-layer divergence and final cosine; divergence type not identified as KL",
+        "L": [
+          23,
+          24,
+          42,
+          43,
+          67,
+          68,
+          69
+        ]
+      },
+      "flags": [
+        "Per-layer divergence/cosine ladder is not identified as full-vocabulary output KL; preserve the source statistic without relabeling it [L67-69].",
+        "This is a recipe comparison ladder; no row is identified as the pruned REAP50 target [L63,67-85]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "mixed 4/8, engram as shipped (fp8/ue8m0)",
+      "metrics": {
+        "bench:layer_divergence:teacher_forced_mean": "c18",
+        "bench:layer_divergence:free_running_final": "c19",
+        "bench:component:final_layer_cosine": "c20"
+      },
+      "panel": "Quality",
+      "methodology": {
+        "reference": "native FP8/FP4 release dequantized to BF16 for the reference pass; not an original BF16 checkpoint",
+        "dataset": "wikitext-2 per-layer divergence ladder",
+        "ctx": "16,384 tokens, each of 40 source-reported layers on identical inputs",
+        "tool": "PipeNetwork custom MLX port; teacher-forced mean divergence, free-running final-layer divergence and final cosine; divergence type not identified as KL",
+        "L": [
+          23,
+          24,
+          42,
+          43,
+          67,
+          68,
+          69
+        ]
+      },
+      "flags": [
+        "Per-layer divergence/cosine ladder is not identified as full-vocabulary output KL; preserve the source statistic without relabeling it [L67-69].",
+        "This is a recipe comparison ladder; no row is identified as the pruned REAP50 target [L63,67-85]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "mixed 4/8, engram 6-bit (this set's 1 TB build)",
+      "metrics": {
+        "bench:layer_divergence:teacher_forced_mean": "c21",
+        "bench:layer_divergence:free_running_final": "c22",
+        "bench:component:final_layer_cosine": "c23"
+      },
+      "panel": "Quality",
+      "methodology": {
+        "reference": "native FP8/FP4 release dequantized to BF16 for the reference pass; not an original BF16 checkpoint",
+        "dataset": "wikitext-2 per-layer divergence ladder",
+        "ctx": "16,384 tokens, each of 40 source-reported layers on identical inputs",
+        "tool": "PipeNetwork custom MLX port; teacher-forced mean divergence, free-running final-layer divergence and final cosine; divergence type not identified as KL",
+        "L": [
+          23,
+          24,
+          42,
+          43,
+          67,
+          68,
+          69
+        ]
+      },
+      "flags": [
+        "Per-layer divergence/cosine ladder is not identified as full-vocabulary output KL; preserve the source statistic without relabeling it [L67-69].",
+        "This is a recipe comparison ladder; no row is identified as the pruned REAP50 target [L63,67-85]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "mixed 4/8, engram 4-bit (this set's 512 GB build)",
+      "metrics": {
+        "bench:layer_divergence:teacher_forced_mean": "c24",
+        "bench:layer_divergence:free_running_final": "c25",
+        "bench:component:final_layer_cosine": "c26"
+      },
+      "panel": "Quality",
+      "methodology": {
+        "reference": "native FP8/FP4 release dequantized to BF16 for the reference pass; not an original BF16 checkpoint",
+        "dataset": "wikitext-2 per-layer divergence ladder",
+        "ctx": "16,384 tokens, each of 40 source-reported layers on identical inputs",
+        "tool": "PipeNetwork custom MLX port; teacher-forced mean divergence, free-running final-layer divergence and final cosine; divergence type not identified as KL",
+        "L": [
+          23,
+          24,
+          42,
+          43,
+          67,
+          68,
+          69
+        ]
+      },
+      "flags": [
+        "Per-layer divergence/cosine ladder is not identified as full-vocabulary output KL; preserve the source statistic without relabeling it [L67-69].",
+        "This is a recipe comparison ladder; no row is identified as the pruned REAP50 target [L63,67-85]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "REAP50 mixed 4/8",
+      "metrics": {},
+      "panel": "Quality",
+      "methodology": {
+        "reference": "paired unpruned quantized build, not a BF16 reference",
+        "dataset": "wikitext-2 test",
+        "ctx": "286,580 tokens in 140 windows of 2048",
+        "tool": "same custom MLX runtime; paired identical-window perplexity ratio",
+        "L": [
+          63,
+          85
+        ]
+      },
+      "size": "c27",
+      "unit": "GB",
+      "basis": "disk",
+      "flags": [
+        "Expert-pruned model; saliency retention is explicitly not a quality score [L63].",
+        "Source reports uncertainty intervals for PPL and paired ratio [L85].",
+        "MTP omission and text-only runtime differ from complete native execution; tiny-config FP32 parity does not measure full quantized-model fidelity [L25-26,42-48]."
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "REAP50 mixed 4/8",
+      "panel": "Quality",
+      "key": "ppl:wikitext-2",
+      "L": 85,
+      "raw": "3.3833"
+    },
+    {
+      "entry": "REAP50 mixed 4/8",
+      "panel": "Quality",
+      "key": "ppl_ratio",
+      "L": 85,
+      "raw": "x1.1681"
+    },
+    {
+      "entry": "REAP50 mixed 4/8",
+      "panel": "Quality",
+      "key": "bench:PPL reported uncertainty interval",
+      "L": 85,
+      "raw": "[3.1696, 3.6153]"
+    },
+    {
+      "entry": "REAP50 mixed 4/8",
+      "panel": "Quality",
+      "key": "bench:paired PPL-ratio reported uncertainty interval",
+      "L": 85,
+      "raw": "[1.1407, 1.1991]"
+    },
+    {
+      "entry": "REAP50 mixed 4/8",
+      "panel": "Quality",
+      "key": "bench:paired windows with worse PPL",
+      "L": 85,
+      "raw": "138/140 windows"
+    }
+  ]
+}

@@ -126,6 +126,32 @@ def table_rows(doc_n, a, b):
         c = cells(doc_n[j])
         if c: rows.append(c)
     return rows
+def combined_corpus_cell(doc_n, i, header, cell, key, value):
+    """Bind an explicitly documented KL/top-1 pair to its exact corpus column.
+
+    Corpus-only headers do not normally establish a metric's meaning. A preceding
+    paragraph can do so for the narrow ``mean KL, then top-1`` cell format, but
+    each metric must still select its own component, never merely occur in it.
+    """
+    metric = re.fullmatch(r"(kl|kld|top1|top-1):(.+)", key)
+    if not metric: return False
+    corpus = lambda text: re.sub(r"\s+", "_", _strip_md(text).strip().lower())
+    if corpus(metric[2]) != corpus(header): return False
+    number = r"(?:\d+(?:\.\d+)?|\.\d+)"
+    pair = re.fullmatch(rf"({number})\s*·\s*({number})\s*%", norm(cell).strip())
+    if not pair: return False
+    component = 0 if metric[1] in ("kl", "kld") else 1
+    raw_value = norm(str(value)).strip()
+    if not re.fullmatch(number + (r"\s*%?" if component else ""), raw_value): return False
+    if numtoks(raw_value) != [pair[component + 1]]: return False
+    a, _ = table_span(doc_n, i)
+    j = a - 1
+    while j >= 0 and not doc_n[j].strip(): j -= 1
+    end = j + 1
+    while j >= 0 and doc_n[j].strip() and not doc_n[j].lstrip().startswith(("#", "|")):
+        j -= 1
+    paragraph = re.sub(r"\s+", " ", _strip_md(" ".join(doc_n[j + 1:end]))).lower()
+    return re.search(r"\beach cell shows (?:the )?mean kl(?: lower bound)?(?: in nats)?, then top-1 agreement\b", paragraph) is not None
 def label_of(row, first_val_col):
     return " | ".join(row[:max(1, min(first_val_col, 3))])
 label_bad, label_checked, label_pivot, label_single = [], 0, 0, 0
@@ -206,6 +232,7 @@ for r in load():
             cols = [ci for ci, c in enumerate(row) if want[0] in numtoks(c)]
             if not cols: continue                       # value is not in this row (cited via L_extra); presence gate covers it
             checked += 1
+            if any(combined_corpus_cell(doc_n, L - 1, hdr[ci], row[ci], k, v) for ci in cols): continue
             if any(re.search(fam, hdr[ci], re.I) or re.search(fam, row[ci], re.I) for ci in cols): continue
             if row and re.search(fam, row[0], re.I) and 0 not in cols: continue          # key/value table: label in first cell
             if re.search(fam, k.split(":", 1)[-1], re.I) and any(re.search(fam, h, re.I) for h in hdr) is False and \

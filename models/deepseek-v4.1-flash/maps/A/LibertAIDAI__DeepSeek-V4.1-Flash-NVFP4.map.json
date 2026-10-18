@@ -1,0 +1,57 @@
+{
+  "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-NVFP4",
+  "no_quality_claims": false,
+  "weights_modified": false,
+  "method": {
+    "reference": "original FP8 Engram table values; base routed experts already native MXFP4",
+    "dataset": "1.5M sampled rows from each Engram table",
+    "ctx": "component-level only",
+    "tool": "FP8-to-FP4 table reconstruction mean cosine",
+    "L": [
+      86,
+      88,
+      89,
+      91,
+      92,
+      94,
+      96,
+      97,
+      99,
+      100,
+      101,
+      102,
+      103
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "layers.1.engram.embed",
+      "metrics": {
+        "component:engram_mean_cosine": "c20"
+      },
+      "panel": "2. Engram: FP8 \u2192 FP4 \u2014 the actual size lever",
+      "size": "c19",
+      "unit": "GiB",
+      "basis": "engram_only",
+      "flags": [
+        "Single Engram table only. Sampled reconstruction cosine is not whole-model accuracy or logit agreement; no end-to-end evaluation was run [L94-103,181-197]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "layers.14.engram.embed",
+      "metrics": {
+        "component:engram_mean_cosine": "c23"
+      },
+      "panel": "2. Engram: FP8 \u2192 FP4 \u2014 the actual size lever",
+      "size": "c22",
+      "unit": "GiB",
+      "basis": "engram_only",
+      "flags": [
+        "Single Engram table only. Component reconstruction cosine; no full-model quality established [L94-103]."
+      ]
+    }
+  ],
+  "prose": []
+}

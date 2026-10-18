@@ -1,0 +1,212 @@
+{
+ "repo": "jayleaton/DeepSeek-V4.1-Flash-EXL3-2.8bpw",
+ "no_quality_claims": false,
+ "weights_modified": false,
+ "method": {
+  "reference": "original DeepSeek-V4.1-Flash FP8 / MXFP4 release, top 2,048 logits",
+  "dataset": "eval mix of chat/code/multilingual/reasoning/text/tools; thinking spans; wikitext-2 test; as served with top-p 0.85 routing and at least 3 of 6 experts",
+  "ctx": "not stated for KL evaluation",
+  "tool": "TensorFold Python engine on 2 DGX Spark TP2; paired block bootstrap confidence intervals",
+  "L": [
+   92,
+   93,
+   94,
+   98,
+   99,
+   100,
+   105
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "this pack (2.8 bpw)",
+   "metrics": {
+    "kld:eval_mix": "c1",
+    "kld:thinking": "c3",
+    "kld:wikitext-2": "c5",
+    "top1_pct": "c7",
+    "bench:MMLU-200": "c9"
+   },
+   "size": "c11",
+   "basis": null,
+   "unit": "GB",
+   "panel": "Evaluation",
+   "methodology": {
+    "reference": "original DeepSeek-V4.1-Flash FP8 / MXFP4 release, top 2,048 logits",
+    "dataset": "eval mix of chat/code/multilingual/reasoning/text/tools; thinking spans; wikitext-2 test; as served with top-p 0.85 routing and at least 3 of 6 experts",
+    "ctx": "not stated for KL evaluation",
+    "tool": "TensorFold Python engine on 2 DGX Spark TP2; paired block bootstrap confidence intervals",
+    "L": [
+     92,
+     93,
+     94,
+     98,
+     99,
+     100,
+     105
+    ]
+   },
+   "flags": [
+    "Size is the defined BPW budget set, not total download or GPU memory [L32,57-59].",
+    "Top-k reference logits and runtime expert-routing reduction are part of as-served evaluation [L92-94]."
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Mia-AiLab 2.9 bpw",
+   "metrics": {
+    "kld:eval_mix": "c2",
+    "kld:thinking": "c4",
+    "kld:wikitext-2": "c6",
+    "top1_pct": "c8",
+    "bench:MMLU-200": "c10"
+   },
+   "size": "c12",
+   "basis": null,
+   "unit": "GB",
+   "of": "Mia-AiLab/DeepSeek-V4.1-Flash-EXL3-2.9bpw",
+   "panel": "Evaluation",
+   "methodology": {
+    "reference": "original DeepSeek-V4.1-Flash FP8 / MXFP4 release, top 2,048 logits",
+    "dataset": "eval mix of chat/code/multilingual/reasoning/text/tools; thinking spans; wikitext-2 test; as served with top-p 0.85 routing and at least 3 of 6 experts",
+    "ctx": "not stated for KL evaluation",
+    "tool": "TensorFold Python engine on 2 DGX Spark TP2; paired block bootstrap confidence intervals",
+    "L": [
+     92,
+     93,
+     94,
+     98,
+     99,
+     100,
+     105
+    ]
+   },
+   "flags": [
+    "Compared on the same engine/settings; size is the BPW budget set [L32,57,105]."
+   ]
+  },
+  {
+   "role": "own",
+   "name": "this repository (47 files)",
+   "metrics": {},
+   "size": "c13",
+   "basis": "excl_engram",
+   "unit": "bytes",
+   "flags": [
+    "Repository download excludes original Engram tables required separately [L44-46,52]."
+   ]
+  },
+  {
+   "role": "own",
+   "name": "this pack (all 6 routed experts)",
+   "metrics": {},
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "panel": "Evaluation",
+   "methodology": {
+    "reference": "original DeepSeek-V4.1-Flash FP8 / MXFP4 release, top 2,048 logits",
+    "dataset": "eval mix; thinking spans; wikitext-2 test; all 6 routed experts, no pruning",
+    "ctx": "not stated for KL evaluation",
+    "tool": "TensorFold Python engine on 2 DGX Spark TP2; paired block bootstrap confidence intervals",
+    "L": [
+     92,
+     102,
+     103
+    ],
+    "routing": "all 6 routed experts (no pruning)"
+   },
+   "flags": [
+    "All-expert evaluation is separate from the as-served routing panel [L102-103]."
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Mia-AiLab 2.9 bpw (all 6 routed experts)",
+   "metrics": {},
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "of": "Mia-AiLab/DeepSeek-V4.1-Flash-EXL3-2.9bpw",
+   "panel": "Evaluation",
+   "methodology": {
+    "reference": "original DeepSeek-V4.1-Flash FP8 / MXFP4 release, top 2,048 logits",
+    "dataset": "eval mix; thinking spans; wikitext-2 test; all 6 routed experts, no pruning",
+    "ctx": "not stated for KL evaluation",
+    "tool": "TensorFold Python engine on 2 DGX Spark TP2; paired block bootstrap confidence intervals",
+    "L": [
+     92,
+     102,
+     103
+    ],
+    "routing": "all 6 routed experts (no pruning)"
+   }
+  }
+ ],
+ "prose": [
+  {
+   "entry": "this pack (all 6 routed experts)",
+   "key": "kld:eval_mix",
+   "L": 102,
+   "raw": "0.0258",
+   "panel": "Evaluation"
+  },
+  {
+   "entry": "Mia-AiLab 2.9 bpw (all 6 routed experts)",
+   "key": "kld:eval_mix",
+   "L": 102,
+   "raw": "0.0439",
+   "panel": "Evaluation"
+  },
+  {
+   "entry": "this pack (all 6 routed experts)",
+   "key": "kld:thinking",
+   "L": 102,
+   "raw": "0.0023",
+   "panel": "Evaluation"
+  },
+  {
+   "entry": "Mia-AiLab 2.9 bpw (all 6 routed experts)",
+   "key": "kld:thinking",
+   "L": 102,
+   "raw": "0.0076",
+   "panel": "Evaluation"
+  },
+  {
+   "entry": "this pack (all 6 routed experts)",
+   "key": "kld:wikitext-2",
+   "L": 102,
+   "raw": "0.0947",
+   "panel": "Evaluation"
+  },
+  {
+   "entry": "Mia-AiLab 2.9 bpw (all 6 routed experts)",
+   "key": "kld:wikitext-2",
+   "L": 103,
+   "raw": "0.0937",
+   "panel": "Evaluation"
+  },
+  {
+   "entry": "this pack (2.8 bpw)",
+   "key": "bench:reasoning GSM8K+MATH-500 (128 questions)",
+   "L": 107,
+   "raw": "97.7 %",
+   "panel": "Evaluation"
+  },
+  {
+   "entry": "Mia-AiLab 2.9 bpw",
+   "key": "bench:reasoning GSM8K+MATH-500 (128 questions)",
+   "L": 107,
+   "raw": "97.7 %",
+   "panel": "Evaluation"
+  },
+  {
+   "entry": "this pack (2.8 bpw)",
+   "key": "bench:tool-call chains pass (12 chains)",
+   "L": 109,
+   "raw": "10 / 12 pass",
+   "panel": "Evaluation"
+  }
+ ]
+}

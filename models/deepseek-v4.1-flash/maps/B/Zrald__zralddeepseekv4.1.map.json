@@ -1,0 +1,138 @@
+{
+  "repo": "Zrald/zralddeepseekv4.1",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "local Original Reference Base Q8_0; not original BF16",
+    "dataset": "Wikitext variant/split and code/math evaluation sets not stated",
+    "ctx": "not stated",
+    "tool": "AMD Instinct MI300X VF hardware; runtime/deepseek41 fork",
+    "L": [
+      84,
+      86,
+      88,
+      138
+    ]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "zralddeepseek-v4.1-accuracy",
+      "panel": "Benchmark Performance vs. 100% Original Base Model",
+      "methodology": {
+        "reference": "local Original Reference Base Q8_0; not original BF16",
+        "dataset": "Wikitext variant/split and code/math evaluation sets not stated",
+        "ctx": "not stated",
+        "tool": "AMD Instinct MI300X VF hardware; runtime/deepseek41 fork",
+        "L": [
+          84,
+          86,
+          88,
+          138
+        ]
+      },
+      "metrics": {
+        "ppl:wikitext": "c11",
+        "bench:Python-code-retention": "c12",
+        "bench:Math-reasoning-retention": "c13"
+      },
+      "size": "c8",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Evaluation arm weight files not shipped [L80]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "zralddeepseek-v4.1-balance",
+      "panel": "Benchmark Performance vs. 100% Original Base Model",
+      "methodology": {
+        "reference": "local Original Reference Base Q8_0; not original BF16",
+        "dataset": "Wikitext variant/split and code/math evaluation sets not stated",
+        "ctx": "not stated",
+        "tool": "AMD Instinct MI300X VF hardware; runtime/deepseek41 fork",
+        "L": [
+          84,
+          86,
+          88,
+          138
+        ]
+      },
+      "metrics": {
+        "ppl:wikitext": "c18",
+        "bench:Python-code-retention": "c19",
+        "bench:Math-reasoning-retention": "c20"
+      },
+      "size": "c15.0",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Evaluation arm weight files not shipped [L80].",
+        "Balance file-size range spans own and published baseline sizes; selected first endpoint is own measured size [L92,L102]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "zralddeepseek-v4.1-compressed",
+      "panel": "Benchmark Performance vs. 100% Original Base Model",
+      "methodology": {
+        "reference": "local Original Reference Base Q8_0; not original BF16",
+        "dataset": "Wikitext variant/split and code/math evaluation sets not stated",
+        "ctx": "not stated",
+        "tool": "AMD Instinct MI300X VF hardware; runtime/deepseek41 fork",
+        "L": [
+          84,
+          86,
+          88,
+          138
+        ]
+      },
+      "metrics": {
+        "ppl:wikitext": "c25",
+        "bench:Python-code-retention": "c26",
+        "bench:Math-reasoning-retention": "c27"
+      },
+      "size": "c22",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Retention definitions and evaluation corpus not supplied; not mapped to token agreement [L88].",
+        "Only compressed rung ships; others are evaluation arms [L80].",
+        "Evaluation-size table differs from shipped compressed-shard total; do not treat evaluation size as verified download [L93,L119]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Original Reference Base",
+      "panel": "Benchmark Performance vs. 100% Original Base Model",
+      "methodology": {
+        "reference": "local Original Reference Base Q8_0; not original BF16",
+        "dataset": "Wikitext variant/split and code/math evaluation sets not stated",
+        "ctx": "not stated",
+        "tool": "AMD Instinct MI300X VF hardware; runtime/deepseek41 fork",
+        "L": [
+          84,
+          86,
+          88,
+          138
+        ]
+      },
+      "metrics": {
+        "ppl:wikitext": "c6"
+      },
+      "size": "c3",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Q8_0 reference is not native BF16 [L90]."
+      ]
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,316 @@
+{
+  "repo": "sudoingx/DeepSeek-V4.1-Flash-EXL3-2.7bpw",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "official native mixed MXFP4/FP8 checkpoint; KL(native || quantized)",
+    "dataset": "held-out native conversations, assistant positions only",
+    "ctx": "not stated",
+    "tool": "DeepSeek inference/model.py, streamed layer by layer",
+    "L": [
+      15,
+      91,
+      92,
+      93
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "this build \u2014 position-weighted",
+      "metrics": {
+        "top1_pct": "c2",
+        "ppl": "c3",
+        "mean_kld": "c1"
+      },
+      "size": "c21",
+      "unit": "GB",
+      "basis": "excl_engram",
+      "bpw": null,
+      "flags": [
+        "Download excludes official Engram shards [L21,L61].",
+        "Routed-expert memory bitrate differs from per-decoded-token bitrate [L17].",
+        "Compound KL cell has separate position-weighted and domain-equal means; scalar extraction retains original row binding [L31,93]."
+      ],
+      "panel": "Results",
+      "methodology": {
+        "reference": "official native mixed MXFP4/FP8 checkpoint; KL(native || quantized)",
+        "dataset": "199 held-out native conversations; 254,846 assistant positions; position-weighted",
+        "ctx": "not stated",
+        "tool": "DeepSeek inference/model.py, streamed layer by layer",
+        "L": [
+          91,
+          92,
+          93
+        ],
+        "aggregation": "scored assistant positions weighted equally"
+      }
+    },
+    {
+      "role": "own",
+      "name": "this build \u2014 domain-equal",
+      "metrics": {
+        "mean_kld": "c1"
+      },
+      "size": "c21",
+      "unit": "GB",
+      "basis": "excl_engram",
+      "bpw": null,
+      "flags": [
+        "Domain-equal mean is separate from the mean over scored positions [L31].",
+        "Compound KL cell has separate position-weighted and domain-equal means; scalar extraction retains original row binding [L31,93]."
+      ],
+      "panel": "Results",
+      "methodology": {
+        "reference": "official native mixed MXFP4/FP8 checkpoint; KL(native || quantized)",
+        "dataset": "same held-out panel; eight domains weighted equally",
+        "ctx": "not stated",
+        "tool": "DeepSeek inference/model.py, streamed layer by layer",
+        "L": [
+          31,
+          91,
+          92,
+          93
+        ],
+        "aggregation": "eight domains weighted equally"
+      }
+    },
+    {
+      "role": "own",
+      "name": "this build \u2014 suites",
+      "metrics": {
+        "bench:HumanEval-base": "c5.0",
+        "bench:HumanEval-plus": "c5.1",
+        "bench:MBPP-base": "c7.0",
+        "bench:MBPP-plus": "c7.1",
+        "bench:IFEval-prompt-strict": "c9.0",
+        "bench:IFEval-instruction-strict": "c9.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [],
+      "panel": "Results",
+      "methodology": {
+        "reference": "native model served on official weights",
+        "dataset": "HumanEval+, MBPP+ and IFEval",
+        "ctx": "2,048 maximum generation tokens",
+        "tool": "evalplus / IFEval, greedy, thinking off; paired per item",
+        "L": [
+          94
+        ]
+      }
+    },
+    {
+      "role": "cross",
+      "name": "native",
+      "metrics": {
+        "bench:HumanEval-base": "c6.0",
+        "bench:HumanEval-plus": "c6.1",
+        "bench:MBPP-base": "c8.0",
+        "bench:MBPP-plus": "c8.1",
+        "bench:IFEval-prompt-strict": "c10.0",
+        "bench:IFEval-instruction-strict": "c10.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [],
+      "panel": "Results",
+      "methodology": {
+        "reference": "native model served on official weights",
+        "dataset": "HumanEval+, MBPP+ and IFEval",
+        "ctx": "2,048 maximum generation tokens",
+        "tool": "evalplus / IFEval, greedy, thinking off; paired per item",
+        "L": [
+          94
+        ]
+      },
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "cross",
+      "name": "native \u2014 held-out panel",
+      "panel": "Results",
+      "methodology": {
+        "reference": "official native mixed MXFP4/FP8 checkpoint; KL(native || quantized)",
+        "dataset": "199 held-out native conversations; 254,846 assistant positions; position-weighted",
+        "ctx": "not stated",
+        "tool": "DeepSeek inference/model.py, streamed layer by layer",
+        "L": [
+          91,
+          92,
+          93
+        ],
+        "aggregation": "scored assistant positions weighted equally"
+      },
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "metrics": {
+        "ppl": "c4"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": []
+    },
+    {
+      "role": "cross",
+      "name": "0xSero's J268 build",
+      "metrics": {
+        "top1_pct": "c17.1",
+        "ppl": "c17.2"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Measured on this same panel and reference implementation [L43].",
+        "Author and J268 allocation are named; exact repository is not identified on this card [L43]."
+      ],
+      "panel": "Results",
+      "methodology": {
+        "reference": "official native mixed MXFP4/FP8 checkpoint; KL(native || quantized)",
+        "dataset": "199 held-out native conversations; 254,846 assistant positions; position-weighted",
+        "ctx": "not stated",
+        "tool": "DeepSeek inference/model.py, streamed layer by layer",
+        "L": [
+          91,
+          92,
+          93
+        ],
+        "aggregation": "scored assistant positions weighted equally"
+      },
+      "of": "not named on card"
+    },
+    {
+      "role": "cross",
+      "name": "0xSero's J268 build \u2014 domain-equal",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Author and J268 allocation are named; exact repository is not identified on this card [L43]."
+      ],
+      "panel": "Results",
+      "methodology": {
+        "reference": "official native mixed MXFP4/FP8 checkpoint; KL(native || quantized)",
+        "dataset": "same held-out panel; eight domains weighted equally",
+        "ctx": "not stated",
+        "tool": "DeepSeek inference/model.py, streamed layer by layer",
+        "L": [
+          31,
+          91,
+          92,
+          93
+        ],
+        "aggregation": "eight domains weighted equally"
+      },
+      "of": "not named on card"
+    },
+    {
+      "role": "cross",
+      "name": "Mia-AiLab's 2.9 bpw pack",
+      "metrics": {
+        "top1_pct": "c18.1",
+        "ppl": "c18.2"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Measured on this same panel and reference implementation [L43]."
+      ],
+      "panel": "Results",
+      "methodology": {
+        "reference": "official native mixed MXFP4/FP8 checkpoint; KL(native || quantized)",
+        "dataset": "199 held-out native conversations; 254,846 assistant positions; position-weighted",
+        "ctx": "not stated",
+        "tool": "DeepSeek inference/model.py, streamed layer by layer",
+        "L": [
+          91,
+          92,
+          93
+        ],
+        "aggregation": "scored assistant positions weighted equally"
+      },
+      "of": "Mia-AiLab/DeepSeek-V4.1-Flash-EXL3-2.9bpw"
+    },
+    {
+      "role": "cross",
+      "name": "Mia-AiLab's 2.9 bpw pack \u2014 domain-equal",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [],
+      "panel": "Results",
+      "methodology": {
+        "reference": "official native mixed MXFP4/FP8 checkpoint; KL(native || quantized)",
+        "dataset": "same held-out panel; eight domains weighted equally",
+        "ctx": "not stated",
+        "tool": "DeepSeek inference/model.py, streamed layer by layer",
+        "L": [
+          31,
+          91,
+          92,
+          93
+        ],
+        "aggregation": "eight domains weighted equally"
+      },
+      "of": "Mia-AiLab/DeepSeek-V4.1-Flash-EXL3-2.9bpw"
+    }
+  ],
+  "prose": [
+    {
+      "entry": "this build \u2014 position-weighted",
+      "panel": "Results",
+      "key": "mean_kld",
+      "L": 31,
+      "raw": "0.0243"
+    },
+    {
+      "entry": "this build \u2014 domain-equal",
+      "panel": "Results",
+      "key": "mean_kld",
+      "L": 31,
+      "raw": "0.0398"
+    },
+    {
+      "entry": "0xSero's J268 build",
+      "panel": "Results",
+      "key": "mean_kld",
+      "L": 43,
+      "raw": "0.0327"
+    },
+    {
+      "entry": "0xSero's J268 build \u2014 domain-equal",
+      "panel": "Results",
+      "key": "mean_kld",
+      "L": 43,
+      "raw": "0.0516"
+    },
+    {
+      "entry": "Mia-AiLab's 2.9 bpw pack",
+      "panel": "Results",
+      "key": "mean_kld",
+      "L": 43,
+      "raw": "0.0295"
+    },
+    {
+      "entry": "Mia-AiLab's 2.9 bpw pack \u2014 domain-equal",
+      "panel": "Results",
+      "key": "mean_kld",
+      "L": 43,
+      "raw": "0.0443"
+    }
+  ]
+}

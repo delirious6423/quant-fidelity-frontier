@@ -1,0 +1,55 @@
+{
+  "repo": "wenzhouwu/YoungAi-DeepSeek-V4.1-Flash",
+  "no_quality_claims": false,
+  "weights_modified": true,
+  "method": {
+    "reference": "original full-precision model (checkpoint precision not specified on this card)",
+    "dataset": "held-out text, code domain",
+    "ctx": "not stated",
+    "tool": "YoungAi on DGX Spark; next-token match with and without domain sidecar",
+    "L": [
+      171,
+      174,
+      176,
+      177,
+      184,
+      187
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "base (code)",
+      "metrics": {},
+      "size": "c4",
+      "unit": "GB",
+      "basis": "disk",
+      "flags": [
+        "Base vector quantization used no training data; sidecar results are held-out token matching, not end-to-end task scores [L171,176-177,187].",
+        "Base model size is distinguished from the larger full download package [L49,134,171]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "code sidecar",
+      "metrics": {},
+      "flags": [
+        "Domain sidecar changes output relative to the base quant; sidecars are scored on held-out text [L174,176-177,187]."
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "base (code)",
+      "key": "top1:code",
+      "L": 177,
+      "raw": "78.6%"
+    },
+    {
+      "entry": "code sidecar",
+      "key": "top1:code",
+      "L": 177,
+      "raw": "82.3%"
+    }
+  ]
+}

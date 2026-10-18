@@ -1,0 +1,37 @@
+{
+  "repo": "OpensourceWTF/DeepSeek-V4.1-Flash-streaming-repack-exl3-3.0bpw",
+  "no_quality_claims": false,
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated",
+    "dataset": "HumanEval",
+    "ctx": "prompts about 200 tokens",
+    "tool": "mlx-serve on Apple M5 Max 128 GiB; greedy sample per problem, offline tests of last fenced code block; DSpark",
+    "L": [
+      100,
+      132,
+      134,
+      135,
+      139,
+      144,
+      155
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "EXL3 3.0 bpw streaming repack",
+      "metrics": {
+        "bench:HumanEval": "c78"
+      },
+      "size": "c118",
+      "unit": "GB",
+      "basis": "disk",
+      "flags": [
+        "HumanEval pass@1 is published as a fraction with correct/total count, not a percent [L139].",
+        "Total download includes lossless Engram tables; EXL3 experts are lossy relative to native FP4 release [L96,153-157]."
+      ]
+    }
+  ],
+  "prose": []
+}

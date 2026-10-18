@@ -1,0 +1,113 @@
+{
+ "repo": "infosave/DeepSeek-V4.1-Flash-cmf",
+ "no_quality_claims": false,
+ "weights_modified": false,
+ "method": {
+  "reference": "source component oracle; no full-model numerical parity established",
+  "dataset": "eight bounded semantic/format cases; Engram and vision component checks",
+  "ctx": "bounded case contexts not stated",
+  "tool": "cortiq Rust CPU/Vulkan runtime; final fused-Q GPU profile",
+  "L": [
+   167,
+   181,
+   183,
+   184,
+   185,
+   188,
+   189,
+   190,
+   222,
+   223,
+   224,
+   225
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "dsv41-q4tp.cmf",
+   "metrics": {},
+   "size": "c1",
+   "basis": "disk",
+   "unit": "GB",
+   "panel": "Validation",
+   "methodology": {
+    "reference": "source component oracle; no full-model numerical parity established",
+    "dataset": "eight bounded semantic/format cases; Engram and vision component checks",
+    "ctx": "bounded case contexts not stated",
+    "tool": "cortiq Rust CPU/Vulkan runtime; final fused-Q GPU profile",
+    "L": [
+     167,
+     181,
+     183,
+     184,
+     185,
+     188,
+     189,
+     190,
+     222,
+     223,
+     224,
+     225
+    ]
+   },
+   "flags": [
+    "Small behavior samples and component comparisons; no benchmark-suite score or full-checkpoint parity [L198-199,222-225].",
+    "Full download includes native FP8 Engram and vision; dynamically staged from disk [L26,82-86]."
+   ]
+  },
+  {
+   "role": "own",
+   "name": "dsv41-q4tp.cmf (vision component)",
+   "metrics": {},
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "panel": "Image example",
+   "methodology": {
+    "reference": "official vision component oracle",
+    "dataset": "vision component test",
+    "ctx": "not stated",
+    "tool": "F16 Vulkan",
+    "L": [
+     220,
+     221,
+     222
+    ]
+   },
+   "flags": [
+    "Component cosine is not full-model logit parity [L220-225]."
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "dsv41-q4tp.cmf",
+   "key": "bench:semantic checks (8 cases)",
+   "L": 224,
+   "raw": "8/8",
+   "panel": "Validation"
+  },
+  {
+   "entry": "dsv41-q4tp.cmf",
+   "key": "bench:strict automated checks (8 cases)",
+   "L": 225,
+   "raw": "7/8",
+   "panel": "Validation"
+  },
+  {
+   "entry": "dsv41-q4tp.cmf",
+   "key": "bench:Engram residual output maximum difference",
+   "L": 184,
+   "raw": "0.015625",
+   "panel": "Validation"
+  },
+  {
+   "entry": "dsv41-q4tp.cmf (vision component)",
+   "key": "bench:vision component cosine",
+   "L": 221,
+   "raw": "0.999695",
+   "panel": "Image example"
+  }
+ ]
+}

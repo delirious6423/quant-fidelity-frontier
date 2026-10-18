@@ -1,0 +1,188 @@
+{
+ "repo": "pipenetwork/DeepSeek-V4.1-Flash-MLX-mixed-4_8bit-engram6",
+ "no_quality_claims": false,
+ "weights_modified": false,
+ "method": {
+  "reference": "bf16-dequantized native FP8/FP4 release, not an original BF16 model",
+  "dataset": "40 decoder layers on identical 16,384-token wikitext-2 inputs; per-layer teacher-forced and free-running divergence",
+  "ctx": "not stated",
+  "tool": "custom deepseek_v41 MLX port; converter arithmetic asserted identical",
+  "L": [
+   42,
+   43,
+   63,
+   64,
+   65
+  ]
+ },
+ "entries": [
+  {
+   "role": "ladder",
+   "name": "8bit",
+   "metrics": {
+    "bench:per-layer divergence teacher-forced mean": "c8",
+    "bench:per-layer divergence free-running final": "c9",
+    "bench:final-layer cosine": "c10"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "panel": "Quality",
+   "methodology": {
+    "reference": "bf16-dequantized native FP8/FP4 release, not an original BF16 model",
+    "dataset": "40 decoder layers on identical 16,384-token wikitext-2 inputs; per-layer teacher-forced and free-running divergence",
+    "ctx": "not stated",
+    "tool": "custom deepseek_v41 MLX port; converter arithmetic asserted identical",
+    "L": [
+     42,
+     43,
+     63,
+     64,
+     65
+    ]
+   },
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "6bit",
+   "metrics": {
+    "bench:per-layer divergence teacher-forced mean": "c12",
+    "bench:per-layer divergence free-running final": "c13",
+    "bench:final-layer cosine": "c14"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "panel": "Quality",
+   "methodology": {
+    "reference": "bf16-dequantized native FP8/FP4 release, not an original BF16 model",
+    "dataset": "40 decoder layers on identical 16,384-token wikitext-2 inputs; per-layer teacher-forced and free-running divergence",
+    "ctx": "not stated",
+    "tool": "custom deepseek_v41 MLX port; converter arithmetic asserted identical",
+    "L": [
+     42,
+     43,
+     63,
+     64,
+     65
+    ]
+   },
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "4bit-engram4",
+   "metrics": {
+    "bench:per-layer divergence teacher-forced mean": "c15",
+    "bench:per-layer divergence free-running final": "c16",
+    "bench:final-layer cosine": "c17"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "panel": "Quality",
+   "methodology": {
+    "reference": "bf16-dequantized native FP8/FP4 release, not an original BF16 model",
+    "dataset": "40 decoder layers on identical 16,384-token wikitext-2 inputs; per-layer teacher-forced and free-running divergence",
+    "ctx": "not stated",
+    "tool": "custom deepseek_v41 MLX port; converter arithmetic asserted identical",
+    "L": [
+     42,
+     43,
+     63,
+     64,
+     65
+    ]
+   },
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "mixed 4/8, engram as shipped (fp8/ue8m0)",
+   "metrics": {
+    "bench:per-layer divergence teacher-forced mean": "c18",
+    "bench:per-layer divergence free-running final": "c19",
+    "bench:final-layer cosine": "c20"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "panel": "Quality",
+   "methodology": {
+    "reference": "bf16-dequantized native FP8/FP4 release, not an original BF16 model",
+    "dataset": "40 decoder layers on identical 16,384-token wikitext-2 inputs; per-layer teacher-forced and free-running divergence",
+    "ctx": "not stated",
+    "tool": "custom deepseek_v41 MLX port; converter arithmetic asserted identical",
+    "L": [
+     42,
+     43,
+     63,
+     64,
+     65
+    ]
+   },
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "mixed 4/8, engram 6-bit (this set's 1 TB build)",
+   "metrics": {
+    "bench:per-layer divergence teacher-forced mean": "c21",
+    "bench:per-layer divergence free-running final": "c22",
+    "bench:final-layer cosine": "c23"
+   },
+   "size": "c27",
+   "basis": "disk",
+   "unit": "GB",
+   "panel": "Quality",
+   "methodology": {
+    "reference": "bf16-dequantized native FP8/FP4 release, not an original BF16 model",
+    "dataset": "40 decoder layers on identical 16,384-token wikitext-2 inputs; per-layer teacher-forced and free-running divergence",
+    "ctx": "not stated",
+    "tool": "custom deepseek_v41 MLX port; converter arithmetic asserted identical",
+    "L": [
+     42,
+     43,
+     63,
+     64,
+     65
+    ]
+   },
+   "flags": [
+    "Per-layer divergence type/units are not specified as KLD; not mapped to full-model KL [L63-74].",
+    "Intro/quantization table says 8-bit Engram while title and quality row call this build 6-bit; preserved without resolving the discrepancy [L15,20,57,73].",
+    "No PPL measured for this build; cited PPL belongs to the separate Engram-4 build [L81]."
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "mixed 4/8, engram 4-bit (this set's 512 GB build)",
+   "metrics": {
+    "bench:per-layer divergence teacher-forced mean": "c24",
+    "bench:per-layer divergence free-running final": "c25",
+    "bench:final-layer cosine": "c26",
+    "ppl:wikitext-2": "c40"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "panel": "Quality",
+   "methodology": {
+    "reference": "bf16-dequantized native FP8/FP4 release, not an original BF16 model",
+    "dataset": "40 decoder layers on identical 16,384-token wikitext-2 inputs; per-layer teacher-forced and free-running divergence",
+    "ctx": "not stated",
+    "tool": "custom deepseek_v41 MLX port; converter arithmetic asserted identical",
+    "L": [
+     42,
+     43,
+     63,
+     64,
+     65
+    ]
+   },
+   "flags": []
+  }
+ ],
+ "prose": []
+}

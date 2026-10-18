@@ -1,0 +1,201 @@
+{
+  "repo": "bot-lab-21/DeepSeek-V4.1-Flash-EXL3-3.5bpw-Pollard",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "exact BF16 upscale of the native FP8/MXFP4 QAT release; no native BF16 release",
+    "dataset": "in-domain calibration chat; separate held-out texts and HumanEval/HumanEval+",
+    "ctx": "calibration 2048 tokens per row; served 300K context",
+    "tool": "DeepSeek reference forward; served vLLM + cuda-exl3, TP4, DSpark k=5",
+    "L": [
+      82,
+      88,
+      90,
+      103,
+      104,
+      113,
+      114
+    ]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "bf16 (exact upscale reference)",
+      "panel": "Measured — pre-serving (DeepSeek's reference forward with every routed expert replaced by its EXL3 reconstruction; 39 in-domain calibration rows × 2048 tokens, paired per row against bf16)",
+      "methodology": {
+        "reference": "exact BF16 upscale of the native FP8/MXFP4 QAT release; no native BF16 release",
+        "dataset": "39 in-domain Hessian calibration chat rows",
+        "ctx": "2048 tokens per row",
+        "tool": "DeepSeek reference forward with routed experts replaced by EXL3 reconstructions; paired per row",
+        "L": [
+          82,
+          83,
+          85,
+          86,
+          88,
+          113
+        ]
+      },
+      "metrics": {
+        "bench:NLL": "c91.0"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "BF16 here is a round-trip-checked upscale of already quantized source weights, not a native BF16 model [L113]",
+        "In-sample calibration rows, not held-out quality [L82,88]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "all layers K=3",
+      "panel": "Measured — pre-serving (DeepSeek's reference forward with every routed expert replaced by its EXL3 reconstruction; 39 in-domain calibration rows × 2048 tokens, paired per row against bf16)",
+      "methodology": {
+        "reference": "exact BF16 upscale of the native FP8/MXFP4 QAT release; no native BF16 release",
+        "dataset": "39 in-domain Hessian calibration chat rows",
+        "ctx": "2048 tokens per row",
+        "tool": "DeepSeek reference forward with routed experts replaced by EXL3 reconstructions; paired per row",
+        "L": [
+          82,
+          83,
+          85,
+          86,
+          88,
+          113
+        ]
+      },
+      "metrics": {
+        "bench:NLL": "c91.1",
+        "bench:paired ΔNLL": "c92"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c90",
+      "flags": [
+        "Paired ΔNLL cell includes its SEM [L85]",
+        "In-sample Hessian calibration rows [L82,88]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "this build (K=3 / K=4 mix)",
+      "panel": "Measured — pre-serving (DeepSeek's reference forward with every routed expert replaced by its EXL3 reconstruction; 39 in-domain calibration rows × 2048 tokens, paired per row against bf16)",
+      "methodology": {
+        "reference": "exact BF16 upscale of the native FP8/MXFP4 QAT release; no native BF16 release",
+        "dataset": "39 in-domain Hessian calibration chat rows",
+        "ctx": "2048 tokens per row",
+        "tool": "DeepSeek reference forward with routed experts replaced by EXL3 reconstructions; paired per row",
+        "L": [
+          82,
+          83,
+          85,
+          86,
+          88,
+          113
+        ]
+      },
+      "metrics": {
+        "bench:NLL": "c95.1",
+        "bench:paired ΔNLL": "c96"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c94",
+      "flags": [
+        "Experts-only average bpw [L83-86]",
+        "Paired ΔNLL cell includes its SEM [L86]",
+        "In-sample calibration rows; separate served measurements below [L88]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "this build — ppl probe",
+      "panel": "Measured — served (TP4, vLLM + cuda-exl3, DSpark k=5, FULL_AND_PIECEWISE graphs, 300K context, gmu 0.80; bench script and prompt set v1 are the upstream recipe repo's, byte-identical)",
+      "methodology": {
+        "reference": "not stated; no shipped-checkpoint counterpart measured",
+        "dataset": "6 held-out texts",
+        "ctx": "4,210 tokens",
+        "tool": "TP4 vLLM + cuda-exl3, DSpark k=5, FULL_AND_PIECEWISE graphs, 300K context, gmu 0.80",
+        "L": [
+          90,
+          99,
+          103
+        ]
+      },
+      "metrics": {
+        "ppl": "c110"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "No matched native-checkpoint PPL probe was measured [L99-103]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "this build — HumanEval / HumanEval+",
+      "panel": "Measured — served (TP4, vLLM + cuda-exl3, DSpark k=5, FULL_AND_PIECEWISE graphs, 300K context, gmu 0.80; bench script and prompt set v1 are the upstream recipe repo's, byte-identical)",
+      "methodology": {
+        "reference": "not stated; no shipped-checkpoint counterpart measured",
+        "dataset": "HumanEval and HumanEval+",
+        "ctx": "300K serving context; benchmark prompt length not stated",
+        "tool": "greedy evalplus; TP4 vLLM + cuda-exl3, DSpark k=5",
+        "L": [
+          90,
+          99,
+          104
+        ]
+      },
+      "metrics": {
+        "bench:HumanEval pass@1": "c111.0",
+        "bench:HumanEval+ pass@1": "c111.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Pass@1 values are fractions [L104]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "fp4 rows (MXFP4 or NVFP4)",
+      "panel": "Engram",
+      "methodology": {
+        "reference": "unchanged native FP8 Engram tables",
+        "dataset": "not stated",
+        "ctx": "not stated",
+        "tool": "not stated; row-format experiment",
+        "L": [
+          121
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Engram-only experiment; production Engram tables remain FP8 [L121]",
+        "NLL delta has a reported uncertainty; corpus and measurement protocol not specified [L121]"
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "fp4 rows (MXFP4 or NVFP4)",
+      "panel": "Engram",
+      "key": "bench:ΔNLL",
+      "L": 121,
+      "raw": "−0.003"
+    }
+  ]
+}

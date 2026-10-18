@@ -1,0 +1,79 @@
+{
+  "repo": "0xSero/DeepSeek-V4.1-Flash-Spark",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "official native mixed FP8/BF16/MXFP4 checkpoint",
+    "dataset": "64 windows per panel",
+    "ctx": "not stated",
+    "tool": "offline full-vocabulary token-wise KL; bootstrap confidence interval",
+    "L": [
+      26,
+      27,
+      28,
+      39,
+      51,
+      52
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "v3.1 panel",
+      "metrics": {
+        "mean_kld": "c1",
+        "top1_pct": "c2"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c5",
+      "flags": [
+        "Top-1 is reported as a fraction [L56-57].",
+        "Bitrate is routed-experts only [L41]."
+      ],
+      "panel": "Quality",
+      "methodology": {
+        "reference": "official native mixed FP8/BF16/MXFP4 checkpoint",
+        "dataset": "v3.1 panel; 64 windows",
+        "ctx": "not stated",
+        "tool": "offline full-vocabulary token-wise KL; bootstrap confidence interval",
+        "L": [
+          51,
+          52,
+          56
+        ]
+      }
+    },
+    {
+      "role": "own",
+      "name": "legacy panel",
+      "metrics": {
+        "mean_kld": "c3",
+        "top1_pct": "c4"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c5",
+      "flags": [
+        "Top-1 is reported as a fraction [L56-57].",
+        "Bitrate is routed-experts only [L41]."
+      ],
+      "panel": "Quality",
+      "methodology": {
+        "reference": "official native mixed FP8/BF16/MXFP4 checkpoint",
+        "dataset": "legacy panel; 64 windows",
+        "ctx": "not stated",
+        "tool": "offline full-vocabulary token-wise KL; bootstrap confidence interval",
+        "L": [
+          51,
+          52,
+          57
+        ]
+      }
+    }
+  ],
+  "prose": []
+}

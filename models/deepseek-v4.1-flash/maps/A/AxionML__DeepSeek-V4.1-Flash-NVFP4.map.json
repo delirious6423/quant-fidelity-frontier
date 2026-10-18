@@ -1,0 +1,111 @@
+{
+  "repo": "AxionML/DeepSeek-V4.1-Flash-NVFP4",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "native deepseek-ai/DeepSeek-V4.1-Flash with MXFP4 routed experts",
+    "dataset": "GPQA Diamond, AA-LCR, SciCode, IFBench, MMMU-Pro, Terminal-Bench 2.1",
+    "ctx": "not stated for benchmark requests",
+    "tool": "NVIDIA-reported vLLM results, temperature=1.0, top_p=0.95, reasoning_effort=100",
+    "L": [
+      23,
+      44,
+      46,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      55,
+      59
+    ]
+  },
+  "entries": [
+    {
+      "role": "quoted",
+      "name": "MXFP4 (source)",
+      "panel": "Evaluation Results",
+      "methodology": {
+        "reference": "native deepseek-ai/DeepSeek-V4.1-Flash with MXFP4 routed experts",
+        "dataset": "GPQA Diamond, AA-LCR, SciCode, IFBench, MMMU-Pro, Terminal-Bench 2.1",
+        "ctx": "not stated for benchmark requests",
+        "tool": "NVIDIA-reported vLLM results, temperature=1.0, top_p=0.95, reasoning_effort=100",
+        "L": [
+          23,
+          44,
+          46,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          55,
+          59
+        ]
+      },
+      "metrics": {
+        "bench:GPQA Diamond": "c3",
+        "bench:AA-LCR": "c5",
+        "bench:SciCode": "c7",
+        "bench:IFBench": "c9",
+        "bench:MMMU-Pro": "c11",
+        "bench:Terminal-Bench 2.1": "c13"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Scores attributed to NVIDIA; mirror performed no new benchmark measurement [L21-23,55]",
+        "NVFP4 mirror pins upstream revision 3431dde3247c13b5957f682b1e3c6fcae2566079 with source-format Engram, not later MXFP4 Engram variant [L23,59]",
+        "Native MXFP4 source reference, not a BF16 model [L46,59]"
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "quoted",
+      "name": "NVFP4",
+      "panel": "Evaluation Results",
+      "methodology": {
+        "reference": "native deepseek-ai/DeepSeek-V4.1-Flash with MXFP4 routed experts",
+        "dataset": "GPQA Diamond, AA-LCR, SciCode, IFBench, MMMU-Pro, Terminal-Bench 2.1",
+        "ctx": "not stated for benchmark requests",
+        "tool": "NVIDIA-reported vLLM results, temperature=1.0, top_p=0.95, reasoning_effort=100",
+        "L": [
+          23,
+          44,
+          46,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          55,
+          59
+        ]
+      },
+      "metrics": {
+        "bench:GPQA Diamond": "c4",
+        "bench:AA-LCR": "c6",
+        "bench:SciCode": "c8",
+        "bench:IFBench": "c10",
+        "bench:MMMU-Pro": "c12",
+        "bench:Terminal-Bench 2.1": "c14"
+      },
+      "size": "c2",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Scores attributed to NVIDIA; mirror performed no new benchmark measurement [L21-23,55]",
+        "NVFP4 mirror pins upstream revision 3431dde3247c13b5957f682b1e3c6fcae2566079 with source-format Engram, not later MXFP4 Engram variant [L23,59]"
+      ],
+      "of": "nvidia/DeepSeek-V4.1-Flash-NVFP4"
+    }
+  ],
+  "prose": []
+}

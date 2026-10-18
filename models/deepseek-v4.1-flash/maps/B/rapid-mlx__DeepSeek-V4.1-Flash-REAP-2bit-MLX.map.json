@@ -1,0 +1,58 @@
+{
+  "repo": "rapid-mlx/DeepSeek-V4.1-Flash-REAP-2bit-MLX",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "tiny-configuration reference comparison; not full original-model fidelity",
+    "dataset": "tiny-config comparison battery",
+    "ctx": "not stated",
+    "tool": "Rapid-MLX experimental loader; numerical parity checks",
+    "L": [
+      79,
+      80,
+      81,
+      99,
+      100
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Next-token parity",
+      "panel": "Initial evaluation results",
+      "methodology": {
+        "reference": "tiny-configuration reference comparison; not full original-model fidelity",
+        "dataset": "tiny-config comparison battery",
+        "ctx": "not stated",
+        "tool": "Rapid-MLX experimental loader; numerical parity checks",
+        "L": [
+          79,
+          80,
+          81,
+          99,
+          100
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Tiny-config implementation parity, not full-model quantization agreement [L81,L106-108].",
+        "Expert pruning retains a subset and omits vision/MTP [L36,L44].",
+        "Routing-mass retention is a pruning diagnostic, not output-distribution fidelity [L58-59]."
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "Next-token parity",
+      "panel": "Initial evaluation results",
+      "key": "bench:tiny-config-argmax-agreement",
+      "L": 81,
+      "raw": "100%"
+    }
+  ]
+}

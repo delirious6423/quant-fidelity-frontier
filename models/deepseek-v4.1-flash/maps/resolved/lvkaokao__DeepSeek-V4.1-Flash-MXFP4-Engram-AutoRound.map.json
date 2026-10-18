@@ -1,0 +1,144 @@
+{
+  "repo": "lvkaokao/DeepSeek-V4.1-Flash-MXFP4-Engram-AutoRound",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "GSM8K baseline not explicitly identified; native quantization source is mixed MXFP4/FP8 DeepSeek-V4.1-Flash, not an original BF16 checkpoint",
+    "dataset": "GSM8K raw 5-shot, thinking off, n=1319",
+    "ctx": "evaluation context not stated; serving example sets max-model-len 8192",
+    "tool": "script-produced same-format twin; vLLM main nightly plus dsv41-quant-plugin is serving recipe",
+    "L": [
+      10,
+      11,
+      14,
+      15,
+      16,
+      50,
+      51,
+      56,
+      66,
+      67,
+      68
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "D1 Engram reconstruction",
+      "panel": "DeepSeek-V4.1-Flash — D1 (Engram tables FP8→MXFP4), auto-round one-command",
+      "methodology": {
+        "reference": "official FP8 Engram tables",
+        "dataset": "two giant Engram tables; sampling protocol not stated",
+        "ctx": "not applicable",
+        "tool": "AutoRound model-free FP8-to-MXFP4 conversion; relative reconstruction error definition not further specified",
+        "L": [
+          10,
+          11,
+          14,
+          15,
+          16,
+          17
+        ]
+      },
+      "metrics": {},
+      "size": "c1",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Checkpoint size is full stored model; reconstruction error concerns Engram only [L14-17].",
+        "All non-Engram tensors are stated byte-identical; scheme BF16 is a default conversion setting, not native whole-model reference precision [L14-17,40-44]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "script-produced twin (same format)",
+      "panel": "Provenance",
+      "methodology": {
+        "reference": "GSM8K baseline not explicitly identified; native quantization source is mixed MXFP4/FP8 DeepSeek-V4.1-Flash, not an original BF16 checkpoint",
+        "dataset": "GSM8K raw 5-shot, thinking off, n=1319",
+        "ctx": "evaluation context not stated; serving example sets max-model-len 8192",
+        "tool": "script-produced same-format twin; vLLM main nightly plus dsv41-quant-plugin is serving recipe",
+        "L": [
+          10,
+          11,
+          14,
+          15,
+          16,
+          50,
+          51,
+          56,
+          66,
+          67,
+          68
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Reference accuracy is explicitly for a script-produced twin, not these exact uploaded bytes [L67-68].",
+        "Unlabelled slash-separated GSM8K pair is preserved as one composite reported result; strict/flexible or repeated-run interpretations are not asserted [L67]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "baseline",
+      "of": "not named on card",
+      "panel": "Provenance",
+      "methodology": {
+        "reference": "GSM8K baseline not explicitly identified; native quantization source is mixed MXFP4/FP8 DeepSeek-V4.1-Flash, not an original BF16 checkpoint",
+        "dataset": "GSM8K raw 5-shot, thinking off, n=1319",
+        "ctx": "evaluation context not stated; serving example sets max-model-len 8192",
+        "tool": "script-produced same-format twin; vLLM main nightly plus dsv41-quant-plugin is serving recipe",
+        "L": [
+          10,
+          11,
+          14,
+          15,
+          16,
+          50,
+          51,
+          56,
+          66,
+          67,
+          68
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Baseline checkpoint identity and precision are not explicitly supplied with the reference accuracy [L67-68]."
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "D1 Engram reconstruction",
+      "panel": "DeepSeek-V4.1-Flash — D1 (Engram tables FP8→MXFP4), auto-round one-command",
+      "key": "bench:Engram relative reconstruction error",
+      "L": 16,
+      "raw": "0.12"
+    },
+    {
+      "entry": "script-produced twin (same format)",
+      "panel": "Provenance",
+      "key": "bench:GSM8K (unlabelled reported pair)",
+      "L": 67,
+      "raw": "92.19/92.27"
+    },
+    {
+      "entry": "baseline",
+      "panel": "Provenance",
+      "key": "bench:GSM8K",
+      "L": 67,
+      "raw": "92.87"
+    }
+  ]
+}

@@ -1,0 +1,329 @@
+{
+ "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-REAP-256E",
+ "no_quality_claims": false,
+ "weights_modified": true,
+ "method": {
+  "reference": "unpruned native DeepSeek-V4.1-Flash checkpoint",
+  "dataset": "held-out text 65,504 tokens, zero calibration overlap; caption evaluation 2,048 tokens",
+  "ctx": "not stated",
+  "tool": "perplexity evaluation scripts in linked REAP recipe; task engine not specified",
+  "L": [
+   118,
+   120,
+   121,
+   254
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "256, balanced ranking (this repo)",
+   "metrics": {
+    "ppl:text": "c31",
+    "ppl_delta_pct": "c32"
+   },
+   "size": "c57",
+   "basis": "excl_engram",
+   "unit": "GiB",
+   "panel": "Measurements",
+   "methodology": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash checkpoint",
+    "dataset": "held-out text 65,504 tokens, zero calibration overlap; caption evaluation 2,048 tokens",
+    "ctx": "not stated",
+    "tool": "perplexity evaluation scripts in linked REAP recipe; task engine not specified",
+    "L": [
+     118,
+     120,
+     121,
+     254
+    ]
+   },
+   "flags": [
+    "Pruned routed experts; weights are modified [L18-24].",
+    "Repository contains shards 1-46 only; unchanged Engram shards required separately [L215-220]."
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "384 (unpruned reference)",
+   "metrics": {
+    "ppl:text": "c25"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Measurements",
+   "methodology": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash checkpoint",
+    "dataset": "held-out text 65,504 tokens, zero calibration overlap; caption evaluation 2,048 tokens",
+    "ctx": "not stated",
+    "tool": "perplexity evaluation scripts in linked REAP recipe; task engine not specified",
+    "L": [
+     118,
+     120,
+     121,
+     254
+    ]
+   }
+  },
+  {
+   "role": "ladder",
+   "name": "272",
+   "metrics": {
+    "ppl:text": "c27",
+    "ppl_delta_pct": "c28"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "panel": "Measurements",
+   "methodology": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash checkpoint",
+    "dataset": "held-out text 65,504 tokens, zero calibration overlap; caption evaluation 2,048 tokens",
+    "ctx": "not stated",
+    "tool": "perplexity evaluation scripts in linked REAP recipe; task engine not specified",
+    "L": [
+     118,
+     120,
+     121,
+     254
+    ]
+   },
+   "flags": [
+    "272-expert sibling cannot load under this vLLM kernel [L34-39]."
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "256, mean-saliency ranking",
+   "metrics": {
+    "ppl:text": "c29",
+    "ppl_delta_pct": "c30"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "panel": "Measurements",
+   "methodology": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash checkpoint",
+    "dataset": "held-out text 65,504 tokens, zero calibration overlap; caption evaluation 2,048 tokens",
+    "ctx": "not stated",
+    "tool": "perplexity evaluation scripts in linked REAP recipe; task engine not specified",
+    "L": [
+     118,
+     120,
+     121,
+     254
+    ]
+   }
+  },
+  {
+   "role": "ladder",
+   "name": "240",
+   "metrics": {
+    "ppl:text": "c34",
+    "ppl_delta_pct": "c35"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "panel": "Measurements",
+   "methodology": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash checkpoint",
+    "dataset": "held-out text 65,504 tokens, zero calibration overlap; caption evaluation 2,048 tokens",
+    "ctx": "not stated",
+    "tool": "perplexity evaluation scripts in linked REAP recipe; task engine not specified",
+    "L": [
+     118,
+     120,
+     121,
+     254
+    ]
+   }
+  },
+  {
+   "role": "ladder",
+   "name": "192",
+   "metrics": {
+    "ppl:text": "c37",
+    "ppl_delta_pct": "c38"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "panel": "Measurements",
+   "methodology": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash checkpoint",
+    "dataset": "held-out text 65,504 tokens, zero calibration overlap; caption evaluation 2,048 tokens",
+    "ctx": "not stated",
+    "tool": "perplexity evaluation scripts in linked REAP recipe; task engine not specified",
+    "L": [
+     118,
+     120,
+     121,
+     254
+    ]
+   }
+  },
+  {
+   "role": "own",
+   "name": "balanced (this repo)",
+   "metrics": {
+    "ppl:text": "c15",
+    "ppl:caption": "c17",
+    "ppl_delta:text": "c16",
+    "ppl_delta:caption": "c18"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "panel": "Why the ranking is different from 272E \u2014 and what it costs",
+   "methodology": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash checkpoint",
+    "dataset": "held-out text 65,504 tokens, zero calibration overlap; caption evaluation 2,048 tokens",
+    "ctx": "not stated",
+    "tool": "perplexity evaluation scripts in linked REAP recipe; task engine not specified",
+    "L": [
+     118,
+     120,
+     121,
+     254
+    ]
+   }
+  },
+  {
+   "role": "ladder",
+   "name": "mean saliency (256)",
+   "metrics": {
+    "ppl:text": "c11",
+    "ppl:caption": "c13",
+    "ppl_delta:text": "c12",
+    "ppl_delta:caption": "c14"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "panel": "Why the ranking is different from 272E \u2014 and what it costs",
+   "methodology": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash checkpoint",
+    "dataset": "held-out text 65,504 tokens, zero calibration overlap; caption evaluation 2,048 tokens",
+    "ctx": "not stated",
+    "tool": "perplexity evaluation scripts in linked REAP recipe; task engine not specified",
+    "L": [
+     118,
+     120,
+     121,
+     254
+    ]
+   }
+  },
+  {
+   "role": "ladder",
+   "name": "264 mean-saliency",
+   "metrics": {
+    "ppl:caption": "c7"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "panel": "Why the ranking is different from 272E \u2014 and what it costs",
+   "methodology": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash checkpoint",
+    "dataset": "held-out text 65,504 tokens, zero calibration overlap; caption evaluation 2,048 tokens",
+    "ctx": "not stated",
+    "tool": "perplexity evaluation scripts in linked REAP recipe; task engine not specified",
+    "L": [
+     118,
+     120,
+     121,
+     254
+    ]
+   }
+  },
+  {
+   "role": "ladder",
+   "name": "text + image saliency (272)",
+   "metrics": {
+    "ppl:caption": "c19",
+    "ppl_delta:caption": "c20"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "panel": "The underlying reason: this model routes vision separately",
+   "methodology": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash checkpoint",
+    "dataset": "held-out text 65,504 tokens, zero calibration overlap; caption evaluation 2,048 tokens",
+    "ctx": "not stated",
+    "tool": "perplexity evaluation scripts in linked REAP recipe; task engine not specified",
+    "L": [
+     118,
+     120,
+     121,
+     254
+    ]
+   }
+  },
+  {
+   "role": "ladder",
+   "name": "random (272)",
+   "metrics": {
+    "ppl:caption": "c21",
+    "ppl_delta:caption": "c22"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "panel": "The underlying reason: this model routes vision separately",
+   "methodology": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash checkpoint",
+    "dataset": "held-out text 65,504 tokens, zero calibration overlap; caption evaluation 2,048 tokens",
+    "ctx": "not stated",
+    "tool": "perplexity evaluation scripts in linked REAP recipe; task engine not specified",
+    "L": [
+     118,
+     120,
+     121,
+     254
+    ]
+   }
+  },
+  {
+   "role": "ladder",
+   "name": "text-only saliency (272)",
+   "metrics": {
+    "ppl:caption": "c23",
+    "ppl_delta:caption": "c24"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "panel": "The underlying reason: this model routes vision separately",
+   "methodology": {
+    "reference": "unpruned native DeepSeek-V4.1-Flash checkpoint",
+    "dataset": "held-out text 65,504 tokens, zero calibration overlap; caption evaluation 2,048 tokens",
+    "ctx": "not stated",
+    "tool": "perplexity evaluation scripts in linked REAP recipe; task engine not specified",
+    "L": [
+     118,
+     120,
+     121,
+     254
+    ]
+   }
+  },
+  {
+   "role": "own",
+   "name": "256E assembled checkpoint including original Engram",
+   "metrics": {},
+   "size": "c48",
+   "basis": "disk",
+   "unit": "GiB",
+   "flags": [
+    "Assembled size includes separate Engram download; repository-only size is different [L22,215-220]."
+   ]
+  }
+ ],
+ "prose": []
+}

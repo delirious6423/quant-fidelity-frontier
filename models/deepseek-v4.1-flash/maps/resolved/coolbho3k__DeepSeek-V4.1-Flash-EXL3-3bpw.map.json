@@ -1,0 +1,415 @@
+{
+  "repo": "coolbho3k/DeepSeek-V4.1-Flash-EXL3-3bpw",
+  "no_quality_claims": false,
+  "weights_modified": false,
+  "method": {
+    "reference": "original native-FP4 mixed-precision DeepSeek-V4.1-Flash checkpoint at df42c109f1defefcbfcedbe7d905718a12266e40",
+    "dataset": "40 held-out text records, 81,880 target tokens within the 64-record evaluation",
+    "ctx": "context length not stated",
+    "tool": "full 40-layer teacher-forced reference comparison; KL vocabulary scope not stated; agreement and correct-next-token accuracy are separate",
+    "L": [
+      18,
+      44,
+      45,
+      46,
+      54,
+      55,
+      56,
+      58,
+      60,
+      61,
+      62,
+      63,
+      64,
+      66,
+      67
+    ]
+  },
+  "entries": [
+    {
+      "role": "cross",
+      "name": "Original source",
+      "metrics": {
+        "nll:text": "c5",
+        "ppl:text": "c8",
+        "token_accuracy:text": "c11"
+      },
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "original native-FP4 mixed-precision DeepSeek-V4.1-Flash checkpoint at df42c109f1defefcbfcedbe7d905718a12266e40",
+        "dataset": "40 held-out text records, 81,880 target tokens within the 64-record evaluation",
+        "ctx": "context length not stated",
+        "tool": "full 40-layer teacher-forced reference comparison; KL vocabulary scope not stated; agreement and correct-next-token accuracy are separate",
+        "L": [
+          18,
+          44,
+          45,
+          46,
+          54,
+          55,
+          56,
+          58,
+          60,
+          61,
+          62,
+          63,
+          64,
+          66,
+          67
+        ]
+      },
+      "flags": [
+        "Author-measured source checkpoint baseline; correct-next-token prediction is not agreement with the source [L54-64]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Previous upload",
+      "metrics": {
+        "kld:text": "c1",
+        "top1:text": "c3",
+        "nll:text": "c6",
+        "ppl:text": "c9",
+        "token_accuracy:text": "c12"
+      },
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "original native-FP4 mixed-precision DeepSeek-V4.1-Flash checkpoint at df42c109f1defefcbfcedbe7d905718a12266e40",
+        "dataset": "40 held-out text records, 81,880 target tokens within the 64-record evaluation",
+        "ctx": "context length not stated",
+        "tool": "full 40-layer teacher-forced reference comparison; KL vocabulary scope not stated; agreement and correct-next-token accuracy are separate",
+        "L": [
+          18,
+          44,
+          45,
+          46,
+          54,
+          55,
+          56,
+          58,
+          60,
+          61,
+          62,
+          63,
+          64,
+          66,
+          67
+        ]
+      }
+    },
+    {
+      "role": "own",
+      "name": "Current weights",
+      "metrics": {
+        "kld:text": "c2",
+        "top1:text": "c4",
+        "nll:text": "c7",
+        "ppl:text": "c10",
+        "token_accuracy:text": "c13"
+      },
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "original native-FP4 mixed-precision DeepSeek-V4.1-Flash checkpoint at df42c109f1defefcbfcedbe7d905718a12266e40",
+        "dataset": "40 held-out text records, 81,880 target tokens within the 64-record evaluation",
+        "ctx": "context length not stated",
+        "tool": "full 40-layer teacher-forced reference comparison; KL vocabulary scope not stated; agreement and correct-next-token accuracy are separate",
+        "L": [
+          18,
+          44,
+          45,
+          46,
+          54,
+          55,
+          56,
+          58,
+          60,
+          61,
+          62,
+          63,
+          64,
+          66,
+          67
+        ]
+      },
+      "size": "c9001",
+      "unit": "bytes",
+      "basis": "disk",
+      "flags": [
+        "Full shard storage includes separately retained Engram and draft/MTP components. Active-model payload is listed separately [L107-115].",
+        "Routed-expert bit rate is not whole-checkpoint effective precision; source is already native FP4 [L37-50].",
+        "Teacher-forced measurements do not establish broad downstream accuracy or full-vocabulary KL scope [L54-56]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Previous upload \u2014 image targets",
+      "metrics": {},
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "original native-FP4 mixed-precision DeepSeek-V4.1-Flash checkpoint at df42c109f1defefcbfcedbe7d905718a12266e40",
+        "dataset": "small image slices, 430 targets",
+        "ctx": "context length not stated",
+        "tool": "full-model teacher-forced image KL and top-choice agreement; vocabulary scope not stated",
+        "L": [
+          54,
+          55,
+          68,
+          69,
+          71,
+          72
+        ]
+      },
+      "flags": [
+        "Small image slice; no broad vision-quality claim [L68-72]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Previous upload \u2014 image reference-answer PPL",
+      "metrics": {},
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "original native-FP4 mixed-precision DeepSeek-V4.1-Flash checkpoint at df42c109f1defefcbfcedbe7d905718a12266e40",
+        "dataset": "reference image answers, 84 answer targets within the image slice",
+        "ctx": "context length not stated",
+        "tool": "perplexity against reference answers; distinct from all image-target agreement",
+        "L": [
+          68,
+          70,
+          71,
+          72
+        ]
+      },
+      "flags": [
+        "Answer-target perplexity worsened after refit; it is not the all-image-target KL/agreement statistic [L68-70]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "Current weights \u2014 image targets",
+      "metrics": {},
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "original native-FP4 mixed-precision DeepSeek-V4.1-Flash checkpoint at df42c109f1defefcbfcedbe7d905718a12266e40",
+        "dataset": "small image slices, 430 targets",
+        "ctx": "context length not stated",
+        "tool": "full-model teacher-forced image KL and top-choice agreement; vocabulary scope not stated",
+        "L": [
+          54,
+          55,
+          68,
+          69,
+          71,
+          72
+        ]
+      },
+      "flags": [
+        "Small image slice; no broad vision-quality claim [L68-72]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "Current weights \u2014 image reference-answer PPL",
+      "metrics": {},
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "original native-FP4 mixed-precision DeepSeek-V4.1-Flash checkpoint at df42c109f1defefcbfcedbe7d905718a12266e40",
+        "dataset": "reference image answers, 84 answer targets within the image slice",
+        "ctx": "context length not stated",
+        "tool": "perplexity against reference answers; distinct from all image-target agreement",
+        "L": [
+          68,
+          70,
+          71,
+          72
+        ]
+      },
+      "flags": [
+        "Answer-target perplexity worsened after refit; it is not the all-image-target KL/agreement statistic [L68-70]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Previous upload \u2014 generated-answer checks",
+      "metrics": {},
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "ARC-Challenge and GSM8K generated-answer checks",
+        "ctx": "not stated",
+        "tool": "thinking disabled, previous upload only; not repeated for current weights",
+        "L": [
+          74,
+          75
+        ]
+      },
+      "flags": [
+        "These task checks were not repeated on current weights [L74-75]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "Current weights \u2014 24-image question suite",
+      "metrics": {},
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "24-image question suite",
+        "ctx": "not stated",
+        "tool": "current recipe across runtime settings; previous result used an earlier runtime",
+        "L": [
+          75,
+          76,
+          77
+        ]
+      },
+      "flags": [
+        "Current result is a range across runtime settings; previous result is from an earlier runtime, not a matched controlled comparison [L76-77]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Previous upload \u2014 24-image question suite",
+      "metrics": {},
+      "panel": "Measured quality",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "24-image question suite",
+        "ctx": "not stated",
+        "tool": "current recipe across runtime settings; previous result used an earlier runtime",
+        "L": [
+          75,
+          76,
+          77
+        ]
+      },
+      "flags": [
+        "Current result is a range across runtime settings; previous result is from an earlier runtime, not a matched controlled comparison [L76-77]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "Active model tensor payload",
+      "metrics": {},
+      "size": "c15",
+      "unit": "bytes",
+      "basis": "excl_engram",
+      "flags": [
+        "Subset only: active model excludes SSD Engram tables and retained draft/MTP [L107-111]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "SSD engram tables/scales",
+      "metrics": {},
+      "size": "c17",
+      "unit": "bytes",
+      "basis": "engram_only"
+    },
+    {
+      "role": "own",
+      "name": "Retained draft/MTP",
+      "metrics": {},
+      "size": "c19",
+      "unit": "bytes",
+      "basis": "disk",
+      "flags": [
+        "Draft/MTP component only, not total checkpoint [L111]."
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "Current weights",
+      "panel": "Measured quality",
+      "key": "kld_reduction_pct_vs_previous:text",
+      "L": 23,
+      "raw": "7.6%"
+    },
+    {
+      "entry": "Current weights",
+      "panel": "Measured quality",
+      "key": "stat:text_records_with_lower_KL_of_40",
+      "L": 66,
+      "raw": "30"
+    },
+    {
+      "entry": "Current weights",
+      "panel": "Measured quality",
+      "key": "stat:approx_sign_test_p",
+      "L": 67,
+      "raw": "0.002"
+    },
+    {
+      "entry": "Previous upload \u2014 image targets",
+      "panel": "Measured quality",
+      "key": "kld:image",
+      "L": 69,
+      "raw": "0.253"
+    },
+    {
+      "entry": "Previous upload \u2014 image targets",
+      "panel": "Measured quality",
+      "key": "top1:image",
+      "L": 69,
+      "raw": "84.7%"
+    },
+    {
+      "entry": "Previous upload \u2014 image reference-answer PPL",
+      "panel": "Measured quality",
+      "key": "ppl:image_answers",
+      "L": 70,
+      "raw": "586"
+    },
+    {
+      "entry": "Current weights \u2014 image targets",
+      "panel": "Measured quality",
+      "key": "kld:image",
+      "L": 69,
+      "raw": "0.226"
+    },
+    {
+      "entry": "Current weights \u2014 image targets",
+      "panel": "Measured quality",
+      "key": "top1:image",
+      "L": 69,
+      "raw": "86.7%"
+    },
+    {
+      "entry": "Current weights \u2014 image reference-answer PPL",
+      "panel": "Measured quality",
+      "key": "ppl:image_answers",
+      "L": 70,
+      "raw": "608"
+    },
+    {
+      "entry": "Previous upload \u2014 generated-answer checks",
+      "panel": "Measured quality",
+      "key": "bench:ARC-Challenge correct count",
+      "L": 74,
+      "raw": "123/128"
+    },
+    {
+      "entry": "Previous upload \u2014 generated-answer checks",
+      "panel": "Measured quality",
+      "key": "bench:GSM8K correct count",
+      "L": 74,
+      "raw": "63/64"
+    },
+    {
+      "entry": "Current weights \u2014 24-image question suite",
+      "panel": "Measured quality",
+      "key": "bench:24-image question suite correct count",
+      "L": 76,
+      "raw": "19\u201320/24"
+    },
+    {
+      "entry": "Previous upload \u2014 24-image question suite",
+      "panel": "Measured quality",
+      "key": "bench:24-image question suite correct count",
+      "L": 76,
+      "raw": "18/24"
+    }
+  ]
+}

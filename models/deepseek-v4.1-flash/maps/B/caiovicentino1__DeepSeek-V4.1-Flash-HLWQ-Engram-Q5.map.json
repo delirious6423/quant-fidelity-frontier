@@ -1,0 +1,133 @@
+{
+ "repo": "caiovicentino1/DeepSeek-V4.1-Flash-HLWQ-Engram-Q5",
+ "no_quality_claims": false,
+ "weights_modified": false,
+ "method": {
+  "reference": "official FP8 Engram tables with native model; fixed FP8 greedy continuations",
+  "dataset": "25 continuations: pt-BR prose, code, needles; teacher-forced token NLL; idle server",
+  "ctx": "needle prompts 3k-52k",
+  "tool": "SGLang dev-dsv41 TP4/EP4 DSpark block5; 4 RTX PRO6000",
+  "L": [
+   128,
+   130,
+   132
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "HLWQ Q4 (this repo; Q5 card)",
+   "metrics": {
+    "bench:NLL pt-BR": "c10",
+    "bench:NLL code": "c13",
+    "bench:NLL needle": "c17",
+    "top1:pt-BR": "c11",
+    "top1:code": "c15",
+    "top1:needle": "c19"
+   },
+   "size": "c29",
+   "basis": "disk",
+   "unit": "GB",
+   "panel": "Validation (same server, same prompts, FP8 vs HLWQ)",
+   "methodology": {
+    "reference": "official FP8 Engram tables with native model; fixed FP8 greedy continuations",
+    "dataset": "25 continuations: pt-BR prose, code, needles; teacher-forced token NLL; idle server",
+    "ctx": "needle prompts 3k-52k",
+    "tool": "SGLang dev-dsv41 TP4/EP4 DSpark block5; 4 RTX PRO6000",
+    "L": [
+     128,
+     130,
+     132
+    ]
+   },
+   "flags": [
+    "Q5 title/5-bit recipe conflict with table headers still saying HLWQ Q4; retain the printed claim without resolving the label [L18,22,26,132].",
+    "NLL is on FP8 continuations; top-1 columns are as printed [L130-136]."
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "FP8 (official reference)",
+   "metrics": {
+    "bench:NLL pt-BR": "c9",
+    "bench:NLL code": "c12",
+    "bench:NLL needle": "c16",
+    "top1:pt-BR": "c11",
+    "top1:code": "c14",
+    "top1:needle": "c18"
+   },
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+   "panel": "Validation (same server, same prompts, FP8 vs HLWQ)",
+   "methodology": {
+    "reference": "official FP8 Engram tables with native model; fixed FP8 greedy continuations",
+    "dataset": "25 continuations: pt-BR prose, code, needles; teacher-forced token NLL; idle server",
+    "ctx": "needle prompts 3k-52k",
+    "tool": "SGLang dev-dsv41 TP4/EP4 DSpark block5; 4 RTX PRO6000",
+    "L": [
+     128,
+     130,
+     132
+    ]
+   }
+  },
+  {
+   "role": "own",
+   "name": "HLWQ Q4 Engram rows (Q5 card)",
+   "metrics": {
+    "bench:Engram row relative RMSE": "c5",
+    "bench:Engram row cosine": "c6"
+   },
+   "size": "c4",
+   "basis": "engram_only",
+   "unit": "GB",
+   "panel": "DeepSeek-V4.1-Flash \u00b7 HLWQ Q5 Engram",
+   "methodology": {
+    "reference": "FP8 source Engram rows",
+    "dataset": "Engram row reconstruction",
+    "ctx": "not applicable",
+    "tool": "deterministic HLWQ CPU quantizer",
+    "L": [
+     24,
+     30,
+     31
+    ]
+   },
+   "flags": [
+    "Component-only error; tables labelled Q4 on a Q5/5-bit card [L22,26-31]."
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "HLWQ Q4 (this repo; Q5 card)",
+   "key": "bench:needle facts retrieved (5 facts)",
+   "L": 138,
+   "raw": "5/5",
+   "panel": "Validation (same server, same prompts, FP8 vs HLWQ)"
+  },
+  {
+   "entry": "HLWQ Q4 (this repo; Q5 card)",
+   "key": "bench:free-generation token identity percent",
+   "L": 138,
+   "raw": "79 %",
+   "panel": "Validation (same server, same prompts, FP8 vs HLWQ)"
+  },
+  {
+   "entry": "FP8 (official reference)",
+   "key": "bench:free-generation rerun token identity percent",
+   "L": 138,
+   "raw": "88 %",
+   "panel": "Validation (same server, same prompts, FP8 vs HLWQ)"
+  },
+  {
+   "entry": "HLWQ Q4 (this repo; Q5 card)",
+   "key": "bench:functional gates (9 checks)",
+   "L": 140,
+   "raw": "7/9",
+   "panel": "Validation (same server, same prompts, FP8 vs HLWQ)"
+  }
+ ]
+}

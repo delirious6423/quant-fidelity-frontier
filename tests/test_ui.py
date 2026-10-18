@@ -1,5 +1,5 @@
 """Interaction tests for the explorer and page. Exit 1 on any failure."""
-import asyncio, sys, json, os
+import asyncio, sys, json, os, re
 from playwright.async_api import async_playwright
 import os
 SRC = "file://" + os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), os.environ.get("QCL_SITE", "models/qwen3.8-flash-next/site"), "index.html")
@@ -35,13 +35,15 @@ async def main():
             check(gh == ["https://github.com/delirious6423/quant-fidelity-frontier"], f"{name}: header links back to the GitHub repo {gh}")
             dflt = await pg.evaluate("[document.getElementById('exset').value, document.getElementById('exset').options[0].value, document.getElementById('exmeta').textContent]")
             check(dflt[0] == "all" and dflt[1] == "all" and "Overview" in dflt[2] and "not comparable" in dflt[2], f"{name}: overview of every claim is the default, listed first and labelled not comparable {dflt[:2]}")
-            check(await pg.locator("#exsvg circle.mk").count() >= min(NALL, 20), f"{name}: overview chart draws every claim ({NALL} points)")
+            check(await pg.locator("#exsvg circle.mk").count() == sum(1 for q in _ALL["points"] if q["m"].get(_ALL["metrics"][0], {}).get("v", 0) > 0), f"{name}: overview chart draws every claim ({NALL} points)")
             owners = await pg.evaluate("[...document.querySelectorAll('#exset optgroup')].slice(1).map(g=>[...g.querySelectorAll('option')].map(o=>o.textContent.split(' · ')[0].toLowerCase()))")
             check(all(g == sorted(g) for g in owners), f"{name}: sets listed alphabetically by owner within each group")
             _first = None
             for _v in await pg.evaluate("[...document.querySelectorAll('#exset optgroup')].slice(1).flatMap(g=>[...g.querySelectorAll('option')].map(o=>o.value))"):
                 await pg.select_option("#exset", _v); await pg.wait_for_timeout(40)
-                if await pg.locator("#exlegend .lg:not([hidden]):not(.more)").count() >= 2: _first = _v; break
+                candidate = next(x for x in _DX["sets"] if x["id"] == _v)
+                nonrefs = [q for q in candidate["points"] if not q.get("is_ref") and q["m"].get(candidate["metrics"][0], {}).get("v", 0) > 0]
+                if len(nonrefs) >= 2 and await pg.locator("#exlegend .lg:not([hidden]):not(.more)").count() >= 2: _first = _v; break
             if _first is None:   # small models may have no multi-publisher set: use the largest comparable set
                 _first = max((x for x in _DX["sets"] if x.get("comparable")), key=lambda x: len(x["points"]))["id"]
             await pg.select_option("#exset", _first); await pg.wait_for_timeout(150)
@@ -52,11 +54,14 @@ async def main():
             check(fit, f"{name}: chart fits its box")
             n0 = await pg.locator("#exsvg circle.mk").count()
             # picker filter narrows chart and list
-            for _t in ("UD-", "Q4", "4"):
+            first_set = next(x for x in _DX["sets"] if x["id"] == _first)
+            first_metric = first_set["metrics"][0]
+            terms = sorted({t for q in first_set["points"] for t in re.findall(r"[A-Za-z0-9_.-]+", q["variant"] + " " + q["repo"])}, key=len, reverse=True)
+            for _t in terms:
                 await pg.fill("#exq", _t); await pg.wait_for_timeout(150)
                 n1 = await pg.locator("#exsvg circle.mk").count(); li = await pg.locator("#expick .pitem").count()
                 if 0 < n1 < n0: break
-            check(0 < n1 < n0 and li == n1, f"{name}: picker filter narrows chart ({n0}->{n1}, list {li})")
+            check(0 < n1 < n0 and li == sum(1 for q in first_set["points"] if _t.lower() in (q["variant"] + " " + q["repo"] + " " + (q.get("fmt") or "")).lower()), f"{name}: picker filter narrows chart ({n0}->{n1}, list {li})")
             await pg.click("#exnone"); await pg.wait_for_timeout(100)
             check(await pg.locator("#exsvg circle.mk").count() == 0, f"{name}: untick matches clears them")
             await pg.click("#exreset"); await pg.wait_for_timeout(100)
@@ -88,7 +93,8 @@ async def main():
             check(await pg.evaluate("document.getElementById('extip').hidden"), f"{name}: Escape closes tooltip")
             # frontier
             await pg.check("#exfront"); await pg.wait_for_timeout(100)
-            check(await pg.locator("#exsvg polyline.frontier").count() == 1 and await pg.locator("#extable .chip.f").count() >= 2, f"{name}: frontier drawn and marked")
+            frontier_marks = await pg.locator("#extable .chip.f").filter(has_text=re.compile(r"^frontier$")).count()
+            check(frontier_marks >= 1 and await pg.locator("#exsvg polyline.frontier").count() == int(frontier_marks > 1), f"{name}: frontier drawn and marked ({frontier_marks} efficient points)")
             await pg.uncheck("#exfront")
             # table sort by size
             await pg.locator("#extable th[data-key=_x]").click(); await pg.wait_for_timeout(50)
@@ -97,7 +103,7 @@ async def main():
             _D = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), os.environ.get("QCL_SITE", "models/qwen3.8-flash-next/site"), "data.json")))
             _sets = [x for x in _D["sets"] if x["id"] != "all"]
             _nk = lambda x: sum(1 for q in x["points"] if "kld" in q["m"])
-            BIG = "turboderp" if any(x["id"] == "turboderp" for x in _sets) else max(_sets, key=_nk)["id"]
+            BIG = "turboderp" if any(x["id"] == "turboderp" for x in _sets) else max(_sets, key=lambda x: (sum(1 for q in x["points"] if q["m"].get("kld", {}).get("v", 0) > 0 and not q.get("is_ref")), _nk(x)))["id"]
             REF = "strata" if any(x["id"] == "strata" for x in _sets) else next((x["id"] for x in _sets if any(q.get("is_ref") for q in x["points"])), None)
             QS = "unsloth Q4" if "unsloth" in json.dumps(_D)[:10**7] else "Q4"
             # limits: size slider, metric slider, efficient-only, Beaten-by consistency, independent Pareto check
@@ -118,7 +124,7 @@ async def main():
             beats = await pg.evaluate("[...document.querySelectorAll('#extable tbody td.beat')].map(c=>c.textContent)")
             check(beats and all(b.startswith('none') for b in beats), f"{name}: efficient-only rows are all unbeaten")
             S = [x for x in json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), os.environ.get("QCL_SITE", "models/qwen3.8-flash-next/site"), "data.json")))["sets"] if x["id"] == BIG][0]
-            P = [q for q in S["points"] if "kld" in q["m"]]
+            P = [q for q in S["points"] if "kld" in q["m"] and not q.get("is_ref")]
             ref_eff = sorted(q["qid"] for q in P if not any((o["x"] <= q["x"] and o["m"]["kld"]["v"] < q["m"]["kld"]["v"]) or (o["x"] < q["x"] and o["m"]["kld"]["v"] <= q["m"]["kld"]["v"]) for o in P if o is not q))
             check(ui_eff == ref_eff, f"{name}: efficient set matches independent Pareto computation ({len(ui_eff)} vs {len(ref_eff)})")
             await pg.uncheck("#exonly"); await pg.check("#exfront"); await pg.wait_for_timeout(100)
@@ -194,13 +200,17 @@ async def main():
             pw = await pg.evaluate("document.querySelector('.ex-picker').getBoundingClientRect().width / document.querySelector('.ex-body').getBoundingClientRect().width")
             check(pw > 0.95, f"{name}: expand makes list full width ({pw:.2f})")
             await pg.click("#exexpand"); await pg.wait_for_timeout(100)
-            await pg.fill("#exq", "nvfp4"); await pg.wait_for_timeout(100)
+            format_term = next(q.get("fmt") for q in _ALL["points"] if q.get("fmt") and q["m"].get(_ALL["metrics"][0], {}).get("v", 0) > 0)
+            await pg.fill("#exq", format_term); await pg.wait_for_timeout(100)
             check(await pg.locator("#exsvg circle.mk").count() > 0, f"{name}: 'all' view filterable by format text")
             # ledger + notes filters
             await pg.fill("#q", QS); await pg.wait_for_timeout(100)
             c = await pg.text_content("#count"); check(c and not c.startswith("0 ") and "of" in c, f"{name}: ledger multi-word search ({c})")
-            await pg.click("#freset"); await pg.fill("#cq", "copy"); await pg.wait_for_timeout(100)
-            cc = await pg.text_content("#ccount"); check(cc and not cc.startswith("0 "), f"{name}: notes search ({cc})")
+            await pg.click("#freset")
+            note_texts = await pg.locator("#cards > *").all_text_contents()
+            note_term = next(t for t in re.findall(r"[A-Za-z]{4,}", note_texts[0]) if 0 < sum(t.lower() in x.lower() for x in note_texts) < len(note_texts))
+            await pg.fill("#cq", note_term); await pg.wait_for_timeout(100)
+            cc = await pg.text_content("#ccount"); check(cc and cc.startswith(str(sum(note_term.lower() in x.lower() for x in note_texts)) + " of"), f"{name}: notes search ({cc})")
             await pg.select_option("#ncs", "read in full: no quality claims"); await pg.wait_for_timeout(50)
             ncc = await pg.text_content("#nccount"); check(ncc and not ncc.startswith("0 "), f"{name}: no-claims status filter ({ncc})")
             sw = await pg.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth")

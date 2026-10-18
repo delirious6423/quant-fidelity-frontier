@@ -1,0 +1,83 @@
+{
+  "repo": "0xSero/DeepSeek-V4.1-Flash-Spark",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "native deepseek-ai/DeepSeek-V4.1-Flash checkpoint; native FP8 / BF16 / MXFP4 formats",
+    "dataset": "v3.1 panel and legacy panel; corpora not stated",
+    "ctx": "not stated",
+    "tool": "offline full-vocabulary token-wise KL; bootstrap 95 % CI; 64 windows per panel",
+    "L": [
+      28,
+      39,
+      49,
+      51,
+      52,
+      54,
+      56,
+      57
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "v3.1 panel",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "native deepseek-ai/DeepSeek-V4.1-Flash checkpoint; native FP8 / BF16 / MXFP4 formats",
+        "dataset": "v3.1 panel; corpus not stated",
+        "ctx": "not stated",
+        "tool": "offline full-vocabulary token-wise KL; 64 windows; bootstrap 95 % CI",
+        "L": [
+          51,
+          52,
+          56
+        ]
+      },
+      "metrics": {
+        "mean_kld": "c1",
+        "top1_pct": "c2"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c5",
+      "flags": [
+        "Top-1 agreement is reported as a fraction [L54-57]",
+        "Average bpw describes backbone routed experts only [L26,41]",
+        "Legacy and v3.1 measurements are separate panels [L54-60]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "legacy panel",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "native deepseek-ai/DeepSeek-V4.1-Flash checkpoint; native FP8 / BF16 / MXFP4 formats",
+        "dataset": "legacy panel; corpus not stated",
+        "ctx": "not stated",
+        "tool": "offline full-vocabulary token-wise KL; 64 windows; bootstrap 95 % CI",
+        "L": [
+          51,
+          52,
+          57
+        ]
+      },
+      "metrics": {
+        "mean_kld": "c3",
+        "top1_pct": "c4"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c5",
+      "flags": [
+        "Top-1 agreement is reported as a fraction [L54-57]",
+        "Average bpw describes backbone routed experts only [L26,41]",
+        "Legacy and v3.1 measurements are separate panels [L54-60]"
+      ]
+    }
+  ],
+  "prose": []
+}

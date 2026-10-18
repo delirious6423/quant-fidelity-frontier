@@ -1,0 +1,58 @@
+{
+ "repo": "wenzhouwu/YoungAi-DeepSeek-V4.1-Flash",
+ "no_quality_claims": false,
+ "weights_modified": false,
+ "method": {
+  "reference": "original full-precision model (publisher wording; checkpoint precision not stated)",
+  "dataset": "held-out text; code example",
+  "ctx": "not stated",
+  "tool": "project C99 + CUDA engine on DGX Spark",
+  "L": [
+   49,
+   50,
+   176,
+   177,
+   186
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "113.6 GB base",
+   "metrics": {},
+   "size": "c4",
+   "basis": null,
+   "unit": "GB",
+   "flags": [
+    "Base size is stated without a clear Engram inclusion boundary [L49,171].",
+    "Code top-1 figure is before adding a domain sidecar [L176-177]."
+   ]
+  },
+  {
+   "role": "own",
+   "name": "code sidecar",
+   "metrics": {},
+   "size": null,
+   "basis": null,
+   "unit": null,
+   "flags": [
+    "Domain sidecar on the quantized base; the base and with-sidecar results are separate [L174,176-177].",
+    "Speech-recognition character error claims concern moonshine-tiny-zh, not this model [L90-109]."
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "113.6 GB base",
+   "key": "top1:code",
+   "L": 177,
+   "raw": "78.6%"
+  },
+  {
+   "entry": "code sidecar",
+   "key": "top1:code",
+   "L": 177,
+   "raw": "82.3%"
+  }
+ ]
+}

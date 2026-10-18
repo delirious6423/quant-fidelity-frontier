@@ -1,0 +1,917 @@
+{
+  "repo": "AtomicChat/DeepSeek-V4.1-Flash-NVFP4-nvidia",
+  "no_quality_claims": false,
+  "weights_modified": false,
+  "method": {
+    "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+    "dataset": "AtomicChat/calib-corpora neutral (30 languages), code and agentic plain text",
+    "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+    "tool": "vLLM dsv41-feat e47aa780, 4 B200 TP4; teacher-forced top-512 lower-bound KL, no chat template, no speculative decoding; run SD in table",
+    "L": [
+      53,
+      54,
+      55,
+      56,
+      59,
+      60,
+      61,
+      64,
+      65,
+      66,
+      67,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      76,
+      77,
+      133,
+      134
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "this checkpoint — neutral",
+      "metrics": {
+        "kld:top-512 lower bound/neutral": "c2",
+        "top1:neutral": "c3",
+        "ppl:neutral": "c4",
+        "ppl_delta_pct": "c5"
+      },
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "neutral corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780, 4 B200 TP4; teacher-forced top-512 lower-bound KL, no chat template, no speculative decoding; run SD in table",
+        "L": [
+          53,
+          54,
+          55,
+          56,
+          59,
+          60,
+          61,
+          64,
+          65,
+          66,
+          67,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          76,
+          77,
+          133,
+          134
+        ]
+      },
+      "flags": [
+        "KL is a top-512 lower bound, not full-vocabulary KL. Parenthesized spreads in the main table are run SD, not confidence intervals [L69-78,82].",
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67].",
+        "Compares whole TRT-LLM execution paths: native MXFP4 uses MXFP8 activations while this NVFP4 build uses NVFP4 activations; not isolated activation-quantization error [L53-56]."
+      ],
+      "size": "c81",
+      "unit": "GB",
+      "basis": "disk"
+    },
+    {
+      "role": "ladder",
+      "name": "uncalibrated cast — neutral",
+      "metrics": {
+        "kld:top-512 lower bound/neutral": "c7",
+        "top1:neutral": "c8",
+        "ppl:neutral": "c9",
+        "ppl_delta_pct": "c10"
+      },
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "neutral corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780, 4 B200 TP4; teacher-forced top-512 lower-bound KL, no chat template, no speculative decoding; run SD in table",
+        "L": [
+          53,
+          54,
+          55,
+          56,
+          59,
+          60,
+          61,
+          64,
+          65,
+          66,
+          67,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          76,
+          77,
+          133,
+          134
+        ]
+      },
+      "flags": [
+        "KL is a top-512 lower bound, not full-vocabulary KL. Parenthesized spreads in the main table are run SD, not confidence intervals [L69-78,82].",
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67].",
+        "Compares whole TRT-LLM execution paths: native MXFP4 uses MXFP8 activations while this NVFP4 build uses NVFP4 activations; not isolated activation-quantization error [L53-56]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "original, repeated — neutral",
+      "metrics": {
+        "kld:top-512 lower bound/neutral": "c12",
+        "top1:neutral": "c13",
+        "ppl:neutral": "c14",
+        "ppl_delta_pct": "c15"
+      },
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "neutral corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780, 4 B200 TP4; teacher-forced top-512 lower-bound KL, no chat template, no speculative decoding; run SD in table",
+        "L": [
+          53,
+          54,
+          55,
+          56,
+          59,
+          60,
+          61,
+          64,
+          65,
+          66,
+          67,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          76,
+          77,
+          133,
+          134
+        ]
+      },
+      "flags": [
+        "KL is a top-512 lower bound, not full-vocabulary KL. Parenthesized spreads in the main table are run SD, not confidence intervals [L69-78,82].",
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67].",
+        "Compares whole TRT-LLM execution paths: native MXFP4 uses MXFP8 activations while this NVFP4 build uses NVFP4 activations; not isolated activation-quantization error [L53-56]."
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "size": "c86",
+      "unit": "GB",
+      "basis": "disk"
+    },
+    {
+      "role": "cross",
+      "name": "original, batch 1 — neutral",
+      "metrics": {
+        "kld:top-512 lower bound/neutral": "c17",
+        "top1:neutral": "c18",
+        "ppl:neutral": "c19",
+        "ppl_delta_pct": "c20"
+      },
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "neutral corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780, 4 B200 TP4; teacher-forced top-512 lower-bound KL, no chat template, no speculative decoding; run SD in table",
+        "L": [
+          53,
+          54,
+          55,
+          56,
+          59,
+          60,
+          61,
+          64,
+          65,
+          66,
+          67,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          76,
+          77,
+          133,
+          134
+        ]
+      },
+      "flags": [
+        "KL is a top-512 lower bound, not full-vocabulary KL. Parenthesized spreads in the main table are run SD, not confidence intervals [L69-78,82].",
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67].",
+        "Compares whole TRT-LLM execution paths: native MXFP4 uses MXFP8 activations while this NVFP4 build uses NVFP4 activations; not isolated activation-quantization error [L53-56]."
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "size": "c86",
+      "unit": "GB",
+      "basis": "disk"
+    },
+    {
+      "role": "own",
+      "name": "this checkpoint — code",
+      "metrics": {
+        "kld:top-512 lower bound/code": "c22",
+        "top1:code": "c23",
+        "ppl:code": "c24",
+        "ppl_delta_pct": "c25"
+      },
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "code corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780, 4 B200 TP4; teacher-forced top-512 lower-bound KL, no chat template, no speculative decoding; run SD in table",
+        "L": [
+          53,
+          54,
+          55,
+          56,
+          59,
+          60,
+          61,
+          64,
+          65,
+          66,
+          67,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          76,
+          77,
+          133,
+          134
+        ]
+      },
+      "flags": [
+        "KL is a top-512 lower bound, not full-vocabulary KL. Parenthesized spreads in the main table are run SD, not confidence intervals [L69-78,82].",
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67].",
+        "Compares whole TRT-LLM execution paths: native MXFP4 uses MXFP8 activations while this NVFP4 build uses NVFP4 activations; not isolated activation-quantization error [L53-56]."
+      ],
+      "size": "c81",
+      "unit": "GB",
+      "basis": "disk"
+    },
+    {
+      "role": "ladder",
+      "name": "uncalibrated cast — code",
+      "metrics": {
+        "kld:top-512 lower bound/code": "c27",
+        "top1:code": "c28",
+        "ppl:code": "c29",
+        "ppl_delta_pct": "c30"
+      },
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "code corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780, 4 B200 TP4; teacher-forced top-512 lower-bound KL, no chat template, no speculative decoding; run SD in table",
+        "L": [
+          53,
+          54,
+          55,
+          56,
+          59,
+          60,
+          61,
+          64,
+          65,
+          66,
+          67,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          76,
+          77,
+          133,
+          134
+        ]
+      },
+      "flags": [
+        "KL is a top-512 lower bound, not full-vocabulary KL. Parenthesized spreads in the main table are run SD, not confidence intervals [L69-78,82].",
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67].",
+        "Compares whole TRT-LLM execution paths: native MXFP4 uses MXFP8 activations while this NVFP4 build uses NVFP4 activations; not isolated activation-quantization error [L53-56]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "original, repeated — code",
+      "metrics": {
+        "kld:top-512 lower bound/code": "c32",
+        "top1:code": "c33",
+        "ppl:code": "c34",
+        "ppl_delta_pct": "c35"
+      },
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "code corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780, 4 B200 TP4; teacher-forced top-512 lower-bound KL, no chat template, no speculative decoding; run SD in table",
+        "L": [
+          53,
+          54,
+          55,
+          56,
+          59,
+          60,
+          61,
+          64,
+          65,
+          66,
+          67,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          76,
+          77,
+          133,
+          134
+        ]
+      },
+      "flags": [
+        "KL is a top-512 lower bound, not full-vocabulary KL. Parenthesized spreads in the main table are run SD, not confidence intervals [L69-78,82].",
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67].",
+        "Compares whole TRT-LLM execution paths: native MXFP4 uses MXFP8 activations while this NVFP4 build uses NVFP4 activations; not isolated activation-quantization error [L53-56]."
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "size": "c86",
+      "unit": "GB",
+      "basis": "disk"
+    },
+    {
+      "role": "cross",
+      "name": "original, batch 1 — code",
+      "metrics": {
+        "kld:top-512 lower bound/code": "c37",
+        "top1:code": "c38",
+        "ppl:code": "c39",
+        "ppl_delta_pct": "c40"
+      },
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "code corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780, 4 B200 TP4; teacher-forced top-512 lower-bound KL, no chat template, no speculative decoding; run SD in table",
+        "L": [
+          53,
+          54,
+          55,
+          56,
+          59,
+          60,
+          61,
+          64,
+          65,
+          66,
+          67,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          76,
+          77,
+          133,
+          134
+        ]
+      },
+      "flags": [
+        "KL is a top-512 lower bound, not full-vocabulary KL. Parenthesized spreads in the main table are run SD, not confidence intervals [L69-78,82].",
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67].",
+        "Compares whole TRT-LLM execution paths: native MXFP4 uses MXFP8 activations while this NVFP4 build uses NVFP4 activations; not isolated activation-quantization error [L53-56]."
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "size": "c86",
+      "unit": "GB",
+      "basis": "disk"
+    },
+    {
+      "role": "own",
+      "name": "this checkpoint — agentic",
+      "metrics": {
+        "kld:top-512 lower bound/agentic": "c42",
+        "top1:agentic": "c43",
+        "ppl:agentic": "c44",
+        "ppl_delta_pct": "c45"
+      },
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "agentic corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780, 4 B200 TP4; teacher-forced top-512 lower-bound KL, no chat template, no speculative decoding; run SD in table",
+        "L": [
+          53,
+          54,
+          55,
+          56,
+          59,
+          60,
+          61,
+          64,
+          65,
+          66,
+          67,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          76,
+          77,
+          133,
+          134
+        ]
+      },
+      "flags": [
+        "KL is a top-512 lower bound, not full-vocabulary KL. Parenthesized spreads in the main table are run SD, not confidence intervals [L69-78,82].",
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67].",
+        "Compares whole TRT-LLM execution paths: native MXFP4 uses MXFP8 activations while this NVFP4 build uses NVFP4 activations; not isolated activation-quantization error [L53-56]."
+      ],
+      "size": "c81",
+      "unit": "GB",
+      "basis": "disk"
+    },
+    {
+      "role": "ladder",
+      "name": "uncalibrated cast — agentic",
+      "metrics": {
+        "kld:top-512 lower bound/agentic": "c47",
+        "top1:agentic": "c48",
+        "ppl:agentic": "c49",
+        "ppl_delta_pct": "c50"
+      },
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "agentic corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780, 4 B200 TP4; teacher-forced top-512 lower-bound KL, no chat template, no speculative decoding; run SD in table",
+        "L": [
+          53,
+          54,
+          55,
+          56,
+          59,
+          60,
+          61,
+          64,
+          65,
+          66,
+          67,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          76,
+          77,
+          133,
+          134
+        ]
+      },
+      "flags": [
+        "KL is a top-512 lower bound, not full-vocabulary KL. Parenthesized spreads in the main table are run SD, not confidence intervals [L69-78,82].",
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67].",
+        "Compares whole TRT-LLM execution paths: native MXFP4 uses MXFP8 activations while this NVFP4 build uses NVFP4 activations; not isolated activation-quantization error [L53-56]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "original, repeated — agentic",
+      "metrics": {
+        "kld:top-512 lower bound/agentic": "c52",
+        "top1:agentic": "c53",
+        "ppl:agentic": "c54",
+        "ppl_delta_pct": "c55"
+      },
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "agentic corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780, 4 B200 TP4; teacher-forced top-512 lower-bound KL, no chat template, no speculative decoding; run SD in table",
+        "L": [
+          53,
+          54,
+          55,
+          56,
+          59,
+          60,
+          61,
+          64,
+          65,
+          66,
+          67,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          76,
+          77,
+          133,
+          134
+        ]
+      },
+      "flags": [
+        "KL is a top-512 lower bound, not full-vocabulary KL. Parenthesized spreads in the main table are run SD, not confidence intervals [L69-78,82].",
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67].",
+        "Compares whole TRT-LLM execution paths: native MXFP4 uses MXFP8 activations while this NVFP4 build uses NVFP4 activations; not isolated activation-quantization error [L53-56]."
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "size": "c86",
+      "unit": "GB",
+      "basis": "disk"
+    },
+    {
+      "role": "cross",
+      "name": "original, batch 1 — agentic",
+      "metrics": {
+        "kld:top-512 lower bound/agentic": "c57",
+        "top1:agentic": "c58",
+        "ppl:agentic": "c59",
+        "ppl_delta_pct": "c60"
+      },
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "agentic corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780, 4 B200 TP4; teacher-forced top-512 lower-bound KL, no chat template, no speculative decoding; run SD in table",
+        "L": [
+          53,
+          54,
+          55,
+          56,
+          59,
+          60,
+          61,
+          64,
+          65,
+          66,
+          67,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          76,
+          77,
+          133,
+          134
+        ]
+      },
+      "flags": [
+        "KL is a top-512 lower bound, not full-vocabulary KL. Parenthesized spreads in the main table are run SD, not confidence intervals [L69-78,82].",
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67].",
+        "Compares whole TRT-LLM execution paths: native MXFP4 uses MXFP8 activations while this NVFP4 build uses NVFP4 activations; not isolated activation-quantization error [L53-56]."
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "size": "c86",
+      "unit": "GB",
+      "basis": "disk"
+    },
+    {
+      "role": "cross",
+      "name": "fixed original reference — neutral",
+      "metrics": {},
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "neutral corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780, 4 B200 TP4; teacher-forced top-512 lower-bound KL, no chat template, no speculative decoding; run SD in table",
+        "L": [
+          53,
+          54,
+          55,
+          56,
+          59,
+          60,
+          61,
+          64,
+          65,
+          66,
+          67,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          76,
+          77,
+          133,
+          134
+        ]
+      },
+      "size": "c86",
+      "unit": "GB",
+      "basis": "disk",
+      "flags": [
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67].",
+        "Compares whole TRT-LLM execution paths: native MXFP4 uses MXFP8 activations while this NVFP4 build uses NVFP4 activations; not isolated activation-quantization error [L53-56]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "fixed original reference — code",
+      "metrics": {},
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "code corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780, 4 B200 TP4; teacher-forced top-512 lower-bound KL, no chat template, no speculative decoding; run SD in table",
+        "L": [
+          53,
+          54,
+          55,
+          56,
+          59,
+          60,
+          61,
+          64,
+          65,
+          66,
+          67,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          76,
+          77,
+          133,
+          134
+        ]
+      },
+      "size": "c86",
+      "unit": "GB",
+      "basis": "disk",
+      "flags": [
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67].",
+        "Compares whole TRT-LLM execution paths: native MXFP4 uses MXFP8 activations while this NVFP4 build uses NVFP4 activations; not isolated activation-quantization error [L53-56]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "fixed original reference — agentic",
+      "metrics": {},
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "agentic corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780, 4 B200 TP4; teacher-forced top-512 lower-bound KL, no chat template, no speculative decoding; run SD in table",
+        "L": [
+          53,
+          54,
+          55,
+          56,
+          59,
+          60,
+          61,
+          64,
+          65,
+          66,
+          67,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          76,
+          77,
+          133,
+          134
+        ]
+      },
+      "size": "c86",
+      "unit": "GB",
+      "basis": "disk",
+      "flags": [
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67].",
+        "Compares whole TRT-LLM execution paths: native MXFP4 uses MXFP8 activations while this NVFP4 build uses NVFP4 activations; not isolated activation-quantization error [L53-56]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "this checkpoint − cast — neutral",
+      "metrics": {
+        "bench:paired top-512 KL lower-bound difference/neutral": "c61",
+        "bench:paired top-1 difference (percentage points)/neutral": "c62"
+      },
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "neutral corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780 on 4 B200 TP4; paired A minus B top-512 lower-bound KL and top-1 differences; 95% bootstrap confidence intervals over windows and runs",
+        "L": [
+          97,
+          100,
+          102,
+          103,
+          104
+        ]
+      },
+      "flags": [
+        "Published paired differences with confidence intervals; not absolute KL or top-1 levels [L97-104].",
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "cast − original — neutral",
+      "metrics": {
+        "bench:paired top-512 KL lower-bound difference/neutral": "c63",
+        "bench:paired top-1 difference (percentage points)/neutral": "c64"
+      },
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "neutral corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780 on 4 B200 TP4; paired A minus B top-512 lower-bound KL and top-1 differences; 95% bootstrap confidence intervals over windows and runs",
+        "L": [
+          97,
+          100,
+          102,
+          103,
+          104
+        ]
+      },
+      "flags": [
+        "Published paired differences with confidence intervals; not absolute KL or top-1 levels [L97-104].",
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "this checkpoint − cast — code",
+      "metrics": {
+        "bench:paired top-512 KL lower-bound difference/code": "c65",
+        "bench:paired top-1 difference (percentage points)/code": "c66"
+      },
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "code corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780 on 4 B200 TP4; paired A minus B top-512 lower-bound KL and top-1 differences; 95% bootstrap confidence intervals over windows and runs",
+        "L": [
+          97,
+          100,
+          102,
+          103,
+          104
+        ]
+      },
+      "flags": [
+        "Published paired differences with confidence intervals; not absolute KL or top-1 levels [L97-104].",
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "cast − original — code",
+      "metrics": {
+        "bench:paired top-512 KL lower-bound difference/code": "c67",
+        "bench:paired top-1 difference (percentage points)/code": "c68"
+      },
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "code corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780 on 4 B200 TP4; paired A minus B top-512 lower-bound KL and top-1 differences; 95% bootstrap confidence intervals over windows and runs",
+        "L": [
+          97,
+          100,
+          102,
+          103,
+          104
+        ]
+      },
+      "flags": [
+        "Published paired differences with confidence intervals; not absolute KL or top-1 levels [L97-104].",
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "this checkpoint − cast — agentic",
+      "metrics": {
+        "bench:paired top-512 KL lower-bound difference/agentic": "c69",
+        "bench:paired top-1 difference (percentage points)/agentic": "c70"
+      },
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "agentic corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780 on 4 B200 TP4; paired A minus B top-512 lower-bound KL and top-1 differences; 95% bootstrap confidence intervals over windows and runs",
+        "L": [
+          97,
+          100,
+          102,
+          103,
+          104
+        ]
+      },
+      "flags": [
+        "Published paired differences with confidence intervals; not absolute KL or top-1 levels [L97-104].",
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "cast − original — agentic",
+      "metrics": {
+        "bench:paired top-512 KL lower-bound difference/agentic": "c71",
+        "bench:paired top-1 difference (percentage points)/agentic": "c72"
+      },
+      "panel": "Measured against the original",
+      "methodology": {
+        "reference": "original native MXFP4 checkpoint, same vLLM build and GPUs; not BF16",
+        "dataset": "agentic corpus from AtomicChat/calib-corpora",
+        "ctx": "4096-token windows, second half scored; 24 windows / 49,152 scored positions per corpus",
+        "tool": "vLLM dsv41-feat e47aa780 on 4 B200 TP4; paired A minus B top-512 lower-bound KL and top-1 differences; 95% bootstrap confidence intervals over windows and runs",
+        "L": [
+          97,
+          100,
+          102,
+          103,
+          104
+        ]
+      },
+      "flags": [
+        "Published paired differences with confidence intervals; not absolute KL or top-1 levels [L97-104].",
+        "Teacher-forced raw-token fidelity, not agent/tool task accuracy; agentic markup is plain text. Calibration/evaluation CNN/Nemotron overlap was not checked [L59-67]."
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "fixed original reference — neutral",
+      "panel": "Measured against the original",
+      "key": "ppl:neutral",
+      "L": 80,
+      "raw": "2.9685"
+    },
+    {
+      "entry": "fixed original reference — code",
+      "panel": "Measured against the original",
+      "key": "ppl:code",
+      "L": 80,
+      "raw": "1.8919"
+    },
+    {
+      "entry": "fixed original reference — agentic",
+      "panel": "Measured against the original",
+      "key": "ppl:agentic",
+      "L": 80,
+      "raw": "1.3861"
+    }
+  ]
+}

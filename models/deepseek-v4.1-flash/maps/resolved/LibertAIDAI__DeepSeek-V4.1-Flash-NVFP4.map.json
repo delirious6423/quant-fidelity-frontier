@@ -1,0 +1,77 @@
+{
+  "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-NVFP4",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "original native FP8 Engram table rows",
+    "dataset": "1.5M sampled rows from each native FP8 Engram table",
+    "ctx": "not applicable",
+    "tool": "mean row cosine after FP8-to-FP4 conversion",
+    "L": [
+      88,
+      89,
+      94,
+      99
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "layers.1.engram.embed",
+      "panel": "2. Engram: FP8 → FP4 — the actual size lever",
+      "methodology": {
+        "reference": "original native FP8 Engram table rows",
+        "dataset": "1.5M sampled rows from each native FP8 Engram table",
+        "ctx": "not applicable",
+        "tool": "mean row cosine after FP8-to-FP4 conversion",
+        "L": [
+          88,
+          89,
+          94,
+          99
+        ]
+      },
+      "metrics": {
+        "component:engram_mean_cosine": "c20"
+      },
+      "size": "c19",
+      "unit": "GiB",
+      "basis": "engram_only",
+      "bpw": null,
+      "flags": [
+        "Table-only reconstruction; no end-to-end quality evaluation [L99-103].",
+        "Size belongs to this single output Engram table, not both tables or the complete checkpoint [L94-97,110-112]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "layers.14.engram.embed",
+      "panel": "2. Engram: FP8 → FP4 — the actual size lever",
+      "methodology": {
+        "reference": "original native FP8 Engram table rows",
+        "dataset": "1.5M sampled rows from each native FP8 Engram table",
+        "ctx": "not applicable",
+        "tool": "mean row cosine after FP8-to-FP4 conversion",
+        "L": [
+          88,
+          89,
+          94,
+          99
+        ]
+      },
+      "metrics": {
+        "component:engram_mean_cosine": "c23"
+      },
+      "size": "c22",
+      "unit": "GiB",
+      "basis": "engram_only",
+      "bpw": null,
+      "flags": [
+        "Table-only reconstruction; no end-to-end quality evaluation [L99-103].",
+        "Size belongs to this single output Engram table, not both tables or the complete checkpoint [L94-97,110-112]."
+      ]
+    }
+  ],
+  "prose": []
+}

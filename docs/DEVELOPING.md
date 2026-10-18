@@ -38,3 +38,21 @@ Settings → Pages → Source: GitHub Actions).
 Optional and cookie-free (Umami Cloud). Set `analytics.website_id` in `site.json` to turn it on; the script is added
 only to the public pages (never the claude.ai previews) and counts only on `delirious6423.github.io`, so local and CI
 test runs are not recorded. Outbound GitHub and support clicks and explorer set changes are recorded as events.
+
+## Native quantization and source-resolved claims
+
+Direct Hub ingestion now preserves commit revisions, exact card hashes, and paginated file trees.
+Use repeatable `qcl_fetch.py --include-repo owner/repo` for source-checked derivatives missing from the base-model tag.
+Failed HTTP fetches are not empty cards. `qcl_newmodel.py` accepts direct and connector caches.
+
+A model config may set `max_size_gb`, `native_reference_patterns`, and `named_metric_series`.
+DeepSeek V4.1 Flash opts into these: its native reference is already mixed precision, storage can exceed
+400 GB, and corpus-specific fidelity metrics must retain their own series. Entry methods and panels
+remain distinct; Engram-only, decoder-only and routed-expert sizes have separate bases.
+
+After two mapping runs, an independent resolver may write `maps/resolved/<repo>.map.json`.
+`maps/resolved/manifest.json` has a `repos` object keyed by repository, with `source_sha256` and
+`mapping_sha256` plus reviewer provenance. The merge applies an overlay only when both hashes match,
+keeps the original disagreements and resolution provenance in the audit, then runs normal quarantine gates.
+Never rewrite A/B mappings to manufacture agreement. Supplemental candidates must be extracted from the
+exact pinned source and retain its line/header/row binding.

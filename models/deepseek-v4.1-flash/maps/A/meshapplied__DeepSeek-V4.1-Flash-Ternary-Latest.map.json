@@ -1,0 +1,150 @@
+{
+  "repo": "meshapplied/DeepSeek-V4.1-Flash-Ternary-Latest",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "native DeepSeek-V4.1-Flash FP4 expert checkpoint",
+    "dataset": "v2 calibration held-out set;code,math,general and overall",
+    "ctx": "not stated for NLL evaluation",
+    "tool": "held-out NLL protocol not further specified; Goethe ternary-GPTQ expert overlay",
+    "L": [
+      15,
+      17,
+      131,
+      133,
+      135,
+      137,
+      138,
+      139,
+      140,
+      147
+    ]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "FP4",
+      "panel": "Quality (held-out NLL)",
+      "methodology": {
+        "reference": "native DeepSeek-V4.1-Flash FP4 expert checkpoint",
+        "dataset": "v2 calibration held-out set;code,math,general and overall",
+        "ctx": "not stated for NLL evaluation",
+        "tool": "held-out NLL protocol not further specified; Goethe ternary-GPTQ expert overlay",
+        "L": [
+          15,
+          17,
+          131,
+          133,
+          135,
+          137,
+          138,
+          139,
+          140,
+          147
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Absolute ternary NLL is not printed; only ΔNLL retained without adding to reference [L135-140]",
+        "Overall weighting is not stated [L140]",
+        "Overlay contains routed expert packs only and requires remaining base weights [L17]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "ternary experts",
+      "panel": "Quality (held-out NLL)",
+      "methodology": {
+        "reference": "native DeepSeek-V4.1-Flash FP4 expert checkpoint",
+        "dataset": "v2 calibration held-out set;code,math,general and overall",
+        "ctx": "not stated for NLL evaluation",
+        "tool": "held-out NLL protocol not further specified; Goethe ternary-GPTQ expert overlay",
+        "L": [
+          15,
+          17,
+          131,
+          133,
+          135,
+          137,
+          138,
+          139,
+          140,
+          147
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Absolute ternary NLL is not printed; only ΔNLL retained without adding to reference [L135-140]",
+        "Overall weighting is not stated [L140]",
+        "Overlay contains routed expert packs only and requires remaining base weights [L17]"
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "FP4",
+      "panel": "Quality (held-out NLL)",
+      "key": "bench:NLL/code",
+      "L": 137,
+      "raw": "0.523"
+    },
+    {
+      "entry": "FP4",
+      "panel": "Quality (held-out NLL)",
+      "key": "bench:NLL/math",
+      "L": 138,
+      "raw": "0.727"
+    },
+    {
+      "entry": "FP4",
+      "panel": "Quality (held-out NLL)",
+      "key": "bench:NLL/general",
+      "L": 139,
+      "raw": "0.439"
+    },
+    {
+      "entry": "FP4",
+      "panel": "Quality (held-out NLL)",
+      "key": "bench:NLL/overall",
+      "L": 140,
+      "raw": "0.563"
+    },
+    {
+      "entry": "ternary experts",
+      "panel": "Quality (held-out NLL)",
+      "key": "bench:ΔNLL/code",
+      "L": 137,
+      "raw": "0.105"
+    },
+    {
+      "entry": "ternary experts",
+      "panel": "Quality (held-out NLL)",
+      "key": "bench:ΔNLL/math",
+      "L": 138,
+      "raw": "0.086"
+    },
+    {
+      "entry": "ternary experts",
+      "panel": "Quality (held-out NLL)",
+      "key": "bench:ΔNLL/general",
+      "L": 139,
+      "raw": "0.415"
+    },
+    {
+      "entry": "ternary experts",
+      "panel": "Quality (held-out NLL)",
+      "key": "bench:ΔNLL/overall",
+      "L": 140,
+      "raw": "0.202"
+    }
+  ]
+}

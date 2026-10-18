@@ -1,0 +1,81 @@
+{
+  "repo": "pfeifferj/DeepSeek-V4.1-Flash-GSQ-RCO-GGUF",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated for held-out PPL",
+    "dataset": "held-out PPL; MMLU-Pro fixed subset",
+    "ctx": "2,048-token MMLU-Pro context limit",
+    "tool": "supplied runtime: F32 matmul and KV, Flash Attention off",
+    "L": [
+      69,
+      73,
+      74
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash-GSQ-RCO-3.0bit.gguf",
+      "metrics": {
+        "bench:MMLU-Pro": "c6"
+      },
+      "size": "c1",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Main-file size includes Engram; draft and vision projector are separate files [L61-63].",
+        "Backbone-only bitrate; Engram Q8_0 excluded from quantization search [L40,L61].",
+        "MMLU-Pro uses no reasoning, raw zero-shot answer-letter log probabilities [L69].",
+        "No numeric KL result published; RCO validation teacher KL describes allocation only [L95]."
+      ],
+      "panel": "Results",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "fixed MMLU-Pro subset; raw zero-shot single-token answer letters",
+        "ctx": "2,048-token context limit",
+        "tool": "supplied runtime: F32 matmul and F32 KV; Flash Attention off; no reasoning",
+        "L": [
+          69,
+          73
+        ]
+      }
+    },
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash-GSQ-RCO-3.0bit.gguf — held-out PPL",
+      "metrics": {
+        "ppl": "c7"
+      },
+      "size": "c1",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Held-out PPL protocol beyond scored-position count is not stated [L74].",
+        "Main-file storage includes Engram; backbone-only bitrate excludes Engram [L40,L61]."
+      ],
+      "panel": "Results",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "held-out PPL; 4,088 scored positions",
+        "ctx": "not stated",
+        "tool": "not stated",
+        "L": [
+          74
+        ]
+      }
+    }
+  ],
+  "prose": [
+    {
+      "entry": "DeepSeek-V4.1-Flash-GSQ-RCO-3.0bit.gguf",
+      "panel": "Results",
+      "key": "bpw",
+      "L": 61,
+      "raw": "2.9986"
+    }
+  ]
+}

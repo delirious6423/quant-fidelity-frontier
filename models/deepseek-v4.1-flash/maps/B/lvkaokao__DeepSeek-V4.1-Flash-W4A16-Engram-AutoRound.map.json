@@ -1,0 +1,87 @@
+{
+  "repo": "lvkaokao/DeepSeek-V4.1-Flash-W4A16-Engram-AutoRound",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "official source baseline; native FP8/MXFP4, dense dequantized for quant run",
+    "dataset": "GSM8K full set, raw five-shot; thinking off",
+    "ctx": "8192 max served context",
+    "tool": "vLLM with external dsv41 quant plugin; four H200",
+    "L": [
+      20,
+      21,
+      25,
+      26,
+      32,
+      36,
+      37
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "W4A16 experts INT4 + Engram INT4",
+      "panel": "DeepSeek-V4.1-Flash — W4A16 (experts INT4 GPTQ + Engram INT4) — AutoRound",
+      "methodology": {
+        "reference": "official source baseline; native FP8/MXFP4, dense dequantized for quant run",
+        "dataset": "GSM8K full set, raw five-shot; thinking off",
+        "ctx": "8192 max served context",
+        "tool": "vLLM with external dsv41 quant plugin; four H200",
+        "L": [
+          20,
+          21,
+          25,
+          26,
+          32,
+          36,
+          37
+        ]
+      },
+      "metrics": {},
+      "size": "c1",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Two GSM8K results are not labeled strict/flexible, runs, or variants; ambiguous pair omitted [L21]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "baseline",
+      "panel": "DeepSeek-V4.1-Flash — W4A16 (experts INT4 GPTQ + Engram INT4) — AutoRound",
+      "methodology": {
+        "reference": "official source baseline; native FP8/MXFP4, dense dequantized for quant run",
+        "dataset": "GSM8K full set, raw five-shot; thinking off",
+        "ctx": "8192 max served context",
+        "tool": "vLLM with external dsv41 quant plugin; four H200",
+        "L": [
+          20,
+          21,
+          25,
+          26,
+          32,
+          36,
+          37
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    }
+  ],
+  "prose": [
+    {
+      "entry": "baseline",
+      "panel": "DeepSeek-V4.1-Flash — W4A16 (experts INT4 GPTQ + Engram INT4) — AutoRound",
+      "key": "bench:GSM8K",
+      "L": 21,
+      "raw": "92.87"
+    }
+  ]
+}

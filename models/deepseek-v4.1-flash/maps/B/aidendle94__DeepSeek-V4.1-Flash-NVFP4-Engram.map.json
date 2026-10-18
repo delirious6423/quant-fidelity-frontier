@@ -1,0 +1,124 @@
+{
+  "repo": "aidendle94/DeepSeek-V4.1-Flash-NVFP4-Engram",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "FP8 rows dequantized with UE8M0 scales",
+    "dataset": "300K sampled rows of layer 1",
+    "ctx": "not applicable",
+    "tool": "tools/nvfp4_gptq_study.py; wkv projection error versus raw RMS",
+    "L": [
+      71,
+      72,
+      76
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "NVFP4 Engram (this repo) — GPTQ+MSE",
+      "panel": "Measured (4× DGX Spark, vLLM, 2026-09-16)",
+      "methodology": {
+        "reference": "native FP8 Engram production model",
+        "dataset": "40 FP8-model completions; 8,345 teacher-forced tokens",
+        "ctx": "500K served context",
+        "tool": "production vLLM TP4/DCP4 DSpark; rows over NFS on three nodes",
+        "L": [
+          48,
+          49,
+          53
+        ]
+      },
+      "metrics": {},
+      "size": "c27.1",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Full repository size; only Engram tables are requantized [L18-19].",
+        "Argmax agreement is at the FP8 model self-scoring noise floor [L60-61]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "fp8 Engram (production)",
+      "panel": "Measured (4× DGX Spark, vLLM, 2026-09-16)",
+      "methodology": {
+        "reference": "native FP8 Engram production model",
+        "dataset": "40 FP8-model completions; 8,345 teacher-forced tokens",
+        "ctx": "500K served context",
+        "tool": "production vLLM TP4/DCP4 DSpark; rows over NFS on three nodes",
+        "L": [
+          48,
+          49,
+          53
+        ]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "own",
+      "name": "GPTQ, MSE scale (current)",
+      "panel": "Rounding method: GPTQ with an MSE block scale",
+      "methodology": {
+        "reference": "FP8 rows dequantized with UE8M0 scales",
+        "dataset": "300K sampled rows of layer 1",
+        "ctx": "not applicable",
+        "tool": "tools/nvfp4_gptq_study.py; wkv projection error versus raw RMS",
+        "L": [
+          71,
+          72,
+          76
+        ]
+      },
+      "metrics": {
+        "bench:error-through-wkv": "c19",
+        "bench:raw-RMS-error": "c20"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Local table reconstruction error, not next-token KL [L71-76,L85-87]."
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "NVFP4 Engram (this repo) — GPTQ+MSE",
+      "panel": "Measured (4× DGX Spark, vLLM, 2026-09-16)",
+      "key": "top1_pct",
+      "L": 53,
+      "raw": "97.5 %"
+    },
+    {
+      "entry": "NVFP4 Engram (this repo) — GPTQ+MSE",
+      "panel": "Measured (4× DGX Spark, vLLM, 2026-09-16)",
+      "key": "bench:teacher-forced-mean-logprob",
+      "L": 53,
+      "raw": "−0.111"
+    },
+    {
+      "entry": "fp8 Engram (production)",
+      "panel": "Measured (4× DGX Spark, vLLM, 2026-09-16)",
+      "key": "top1_pct",
+      "L": 53,
+      "raw": "97.5 %"
+    },
+    {
+      "entry": "fp8 Engram (production)",
+      "panel": "Measured (4× DGX Spark, vLLM, 2026-09-16)",
+      "key": "bench:teacher-forced-mean-logprob",
+      "L": 53,
+      "raw": "−0.112"
+    }
+  ]
+}

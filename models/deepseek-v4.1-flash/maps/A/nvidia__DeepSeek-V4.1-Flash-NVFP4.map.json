@@ -1,0 +1,193 @@
+{
+  "repo": "nvidia/DeepSeek-V4.1-Flash-NVFP4",
+  "no_quality_claims": false,
+  "weights_modified": false,
+  "method": {
+    "reference": "DeepSeek-V4.1-Flash mixed-precision source checkpoint with native MXFP4 routed experts, not BF16",
+    "dataset": "GPQA Diamond; AA-LCR; SciCode; IFBench; MMMU-Pro",
+    "ctx": "max_new_tokens=262144; max model length 1048576",
+    "tool": "vLLM on NVIDIA GB300; temperature=1.0, top_p=0.95, reasoning_effort=100; GPQA/AA-LCR 16 repeats, IFBench 5",
+    "L": [
+      103,
+      104,
+      105,
+      164,
+      196,
+      197,
+      198,
+      200
+    ]
+  },
+  "entries": [
+    {
+      "role": "cross",
+      "name": "MXFP4 (source)",
+      "metrics": {},
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "methodology": {
+        "reference": "DeepSeek-V4.1-Flash mixed-precision source checkpoint with native MXFP4 routed experts, not BF16",
+        "dataset": "GPQA Diamond; AA-LCR; SciCode; IFBench; MMMU-Pro",
+        "ctx": "max_new_tokens=262144; max model length 1048576",
+        "tool": "vLLM on NVIDIA GB300; temperature=1.0, top_p=0.95, reasoning_effort=100; GPQA/AA-LCR 16 repeats, IFBench 5",
+        "L": [
+          103,
+          104,
+          105,
+          164,
+          196,
+          197,
+          198,
+          200
+        ]
+      },
+      "flags": [
+        "Native mixed-precision MXFP4 release baseline, not BF16 [L196]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "NVFP4 + MXFP4 Engram",
+      "metrics": {},
+      "methodology": {
+        "reference": "DeepSeek-V4.1-Flash mixed-precision source checkpoint with native MXFP4 routed experts, not BF16",
+        "dataset": "GPQA Diamond; AA-LCR; SciCode; IFBench; MMMU-Pro",
+        "ctx": "max_new_tokens=262144; max model length 1048576",
+        "tool": "vLLM on NVIDIA GB300; temperature=1.0, top_p=0.95, reasoning_effort=100; GPQA/AA-LCR 16 repeats, IFBench 5",
+        "L": [
+          103,
+          104,
+          105,
+          164,
+          196,
+          197,
+          198,
+          200
+        ]
+      },
+      "size": "c7",
+      "unit": "GiB",
+      "basis": "disk",
+      "flags": [
+        "Current checkpoint uses lossy MXFP4 Engram tables; expert weight conversion is lossless but inference is not asserted identical [L108-114]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "MXFP4 (source), Terminal-Bench 2.1",
+      "metrics": {},
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "methodology": {
+        "reference": "DeepSeek-V4.1-Flash mixed-precision source checkpoint with native MXFP4 routed experts, not BF16",
+        "dataset": "Terminal-Bench 2.1",
+        "ctx": "not stated",
+        "tool": "vLLM on NVIDIA GB300; separate agentic configuration with eight trajectories per task",
+        "L": [
+          103,
+          104,
+          105,
+          164,
+          196,
+          199,
+          200
+        ]
+      }
+    },
+    {
+      "role": "own",
+      "name": "NVFP4 + MXFP4 Engram, Terminal-Bench 2.1",
+      "metrics": {},
+      "methodology": {
+        "reference": "DeepSeek-V4.1-Flash mixed-precision source checkpoint with native MXFP4 routed experts, not BF16",
+        "dataset": "Terminal-Bench 2.1",
+        "ctx": "not stated",
+        "tool": "vLLM on NVIDIA GB300; separate agentic configuration with eight trajectories per task",
+        "L": [
+          103,
+          104,
+          105,
+          164,
+          196,
+          199,
+          200
+        ]
+      },
+      "size": "c7",
+      "unit": "GiB",
+      "basis": "disk"
+    }
+  ],
+  "prose": [
+    {
+      "entry": "MXFP4 (source)",
+      "key": "bench:GPQA Diamond",
+      "L": 178,
+      "raw": "91.035"
+    },
+    {
+      "entry": "MXFP4 (source)",
+      "key": "bench:AA-LCR",
+      "L": 179,
+      "raw": "78.563"
+    },
+    {
+      "entry": "MXFP4 (source)",
+      "key": "bench:SciCode",
+      "L": 180,
+      "raw": "54.401"
+    },
+    {
+      "entry": "MXFP4 (source)",
+      "key": "bench:IFBench",
+      "L": 181,
+      "raw": "76.667"
+    },
+    {
+      "entry": "MXFP4 (source)",
+      "key": "bench:MMMU-Pro",
+      "L": 182,
+      "raw": "74.046"
+    },
+    {
+      "entry": "MXFP4 (source), Terminal-Bench 2.1",
+      "key": "bench:Terminal-Bench 2.1",
+      "L": 183,
+      "raw": "81.60"
+    },
+    {
+      "entry": "NVFP4 + MXFP4 Engram",
+      "key": "bench:GPQA Diamond",
+      "L": 187,
+      "raw": "90.783"
+    },
+    {
+      "entry": "NVFP4 + MXFP4 Engram",
+      "key": "bench:AA-LCR",
+      "L": 188,
+      "raw": "79.562"
+    },
+    {
+      "entry": "NVFP4 + MXFP4 Engram",
+      "key": "bench:SciCode",
+      "L": 189,
+      "raw": "53.994"
+    },
+    {
+      "entry": "NVFP4 + MXFP4 Engram",
+      "key": "bench:IFBench",
+      "L": 190,
+      "raw": "77.867"
+    },
+    {
+      "entry": "NVFP4 + MXFP4 Engram",
+      "key": "bench:MMMU-Pro",
+      "L": 191,
+      "raw": "74.566"
+    },
+    {
+      "entry": "NVFP4 + MXFP4 Engram, Terminal-Bench 2.1",
+      "key": "bench:Terminal-Bench 2.1",
+      "L": 192,
+      "raw": "81.88"
+    }
+  ]
+}

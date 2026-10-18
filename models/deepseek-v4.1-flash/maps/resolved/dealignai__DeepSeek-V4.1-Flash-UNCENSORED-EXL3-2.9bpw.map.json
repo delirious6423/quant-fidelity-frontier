@@ -1,0 +1,459 @@
+{
+  "repo": "dealignai/DeepSeek-V4.1-Flash-UNCENSORED-EXL3-2.9bpw",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "base (EXL3 2.9bpw) before abliteration; exact reference repository not stated",
+    "dataset": "HarmBench-320 and MMLU full test set",
+    "ctx": "not stated",
+    "tool": "panel-specific; T=0; vLLM + ExLlamaV3 serving overlay described separately",
+    "L": [
+      36,
+      38,
+      52,
+      57,
+      64,
+      81,
+      85,
+      167,
+      168
+    ]
+  },
+  "entries": [
+    {
+      "role": "cross",
+      "name": "base effort=off",
+      "panel": "HarmBench-320 — attack success rate (comply %), T=0 greedy",
+      "methodology": {
+        "reference": "base (EXL3 2.9bpw) before abliteration; exact reference repository not stated",
+        "dataset": "HarmBench representative base sample; effort=off n=144, effort=max n=143",
+        "ctx": "not stated",
+        "tool": "T=0 greedy, effort=off; six-tier grading on delivered content or reasoning trace; truncation not refusal",
+        "L": [
+          52,
+          53,
+          54,
+          55,
+          57,
+          61,
+          62,
+          64,
+          69
+        ]
+      },
+      "metrics": {
+        "bench:HarmBench-320 ASR %": "c1",
+        "bench:HarmBench-320 ASR %/chemical_biological": "c5",
+        "bench:HarmBench-320 ASR %/copyright": "c8",
+        "bench:HarmBench-320 ASR %/cybercrime_intrusion": "c12",
+        "bench:HarmBench-320 ASR %/harassment_bullying": "c15",
+        "bench:HarmBench-320 ASR %/harmful": "c19",
+        "bench:HarmBench-320 ASR %/illegal": "c23",
+        "bench:HarmBench-320 ASR %/misinformation_disinformation": "c27"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c274",
+      "flags": [
+        "ASR is compliance percentage, not capability accuracy [L57-64]",
+        "Base and modified sample sizes differ [L64]",
+        "Published pack footprint excludes separately supplied Engram tables [L174-179]",
+        "Base EXL3 quant publisher/repository is not explicitly identified for these measurements [L64,85,171-172]."
+      ],
+      "of": "not named on card"
+    },
+    {
+      "role": "own",
+      "name": "CRACK effort=off",
+      "panel": "HarmBench-320 — attack success rate (comply %), T=0 greedy",
+      "methodology": {
+        "reference": "base (EXL3 2.9bpw) before abliteration; exact reference repository not stated",
+        "dataset": "full HarmBench-320; all 7 semantic categories at each effort",
+        "ctx": "not stated",
+        "tool": "T=0 greedy, effort=off; six-tier grading on delivered content or reasoning trace; truncation not refusal",
+        "L": [
+          52,
+          53,
+          54,
+          55,
+          57,
+          61,
+          62,
+          64,
+          69
+        ]
+      },
+      "metrics": {
+        "bench:HarmBench-320 ASR %": "c2",
+        "bench:HarmBench-320 ASR %/chemical_biological": "c6",
+        "bench:HarmBench-320 ASR %/copyright": "c9",
+        "bench:HarmBench-320 ASR %/cybercrime_intrusion": "c13",
+        "bench:HarmBench-320 ASR %/harassment_bullying": "c16",
+        "bench:HarmBench-320 ASR %/harmful": "c20",
+        "bench:HarmBench-320 ASR %/illegal": "c24",
+        "bench:HarmBench-320 ASR %/misinformation_disinformation": "c28"
+      },
+      "size": "c275.0",
+      "unit": "GiB",
+      "basis": "excl_engram",
+      "bpw": "c9001",
+      "flags": [
+        "ASR is compliance percentage, not capability accuracy [L57-64]",
+        "Base and modified sample sizes differ [L64]",
+        "Published pack footprint excludes separately supplied Engram tables [L174-179]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "base effort=max",
+      "panel": "HarmBench-320 — attack success rate (comply %), T=0 greedy",
+      "methodology": {
+        "reference": "base (EXL3 2.9bpw) before abliteration; exact reference repository not stated",
+        "dataset": "HarmBench representative base sample; effort=off n=144, effort=max n=143",
+        "ctx": "not stated",
+        "tool": "T=0 greedy, effort=max; six-tier grading on delivered content or reasoning trace; truncation not refusal",
+        "L": [
+          52,
+          53,
+          54,
+          55,
+          57,
+          61,
+          62,
+          64,
+          69
+        ]
+      },
+      "metrics": {
+        "bench:HarmBench-320 ASR %": "c3",
+        "bench:HarmBench-320 ASR %/chemical_biological": "c7",
+        "bench:HarmBench-320 ASR %/copyright": "c10",
+        "bench:HarmBench-320 ASR %/cybercrime_intrusion": "c14",
+        "bench:HarmBench-320 ASR %/harassment_bullying": "c17",
+        "bench:HarmBench-320 ASR %/harmful": "c21",
+        "bench:HarmBench-320 ASR %/illegal": "c25",
+        "bench:HarmBench-320 ASR %/misinformation_disinformation": "c29"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c274",
+      "flags": [
+        "ASR is compliance percentage, not capability accuracy [L57-64]",
+        "Base and modified sample sizes differ [L64]",
+        "Published pack footprint excludes separately supplied Engram tables [L174-179]",
+        "Base EXL3 quant publisher/repository is not explicitly identified for these measurements [L64,85,171-172]."
+      ],
+      "of": "not named on card"
+    },
+    {
+      "role": "own",
+      "name": "CRACK effort=max",
+      "panel": "HarmBench-320 — attack success rate (comply %), T=0 greedy",
+      "methodology": {
+        "reference": "base (EXL3 2.9bpw) before abliteration; exact reference repository not stated",
+        "dataset": "full HarmBench-320; all 7 semantic categories at each effort",
+        "ctx": "not stated",
+        "tool": "T=0 greedy, effort=max; six-tier grading on delivered content or reasoning trace; truncation not refusal",
+        "L": [
+          52,
+          53,
+          54,
+          55,
+          57,
+          61,
+          62,
+          64,
+          69
+        ]
+      },
+      "metrics": {
+        "bench:HarmBench-320 ASR %": "c4",
+        "bench:HarmBench-320 ASR %/copyright": "c11",
+        "bench:HarmBench-320 ASR %/harassment_bullying": "c18",
+        "bench:HarmBench-320 ASR %/harmful": "c22",
+        "bench:HarmBench-320 ASR %/illegal": "c26"
+      },
+      "size": "c275.0",
+      "unit": "GiB",
+      "basis": "excl_engram",
+      "bpw": "c9001",
+      "flags": [
+        "ASR is compliance percentage, not capability accuracy [L57-64]",
+        "Base and modified sample sizes differ [L64]",
+        "Published pack footprint excludes separately supplied Engram tables [L174-179]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "base (EXL3 2.9bpw)",
+      "panel": "MMLU-14k (full test set, base-logit ranking, T=0)",
+      "methodology": {
+        "reference": "base (EXL3 2.9bpw) before abliteration; exact reference repository not stated",
+        "dataset": "MMLU full 14,042-item test set, 57 subjects; ethics and non-ethics subsets",
+        "ctx": "not stated",
+        "tool": "base-logit ranking, T=0",
+        "L": [
+          64,
+          81,
+          85,
+          86,
+          91,
+          93,
+          94,
+          101,
+          103
+        ]
+      },
+      "metrics": {
+        "bench:MMLU-14k": "c30",
+        "bench:MMLU-14k/abstract_algebra": "c33",
+        "bench:MMLU-14k/anatomy": "c37",
+        "bench:MMLU-14k/astronomy": "c41",
+        "bench:MMLU-14k/business_ethics": "c45",
+        "bench:MMLU-14k/clinical_knowledge": "c49",
+        "bench:MMLU-14k/college_biology": "c53",
+        "bench:MMLU-14k/college_chemistry": "c57",
+        "bench:MMLU-14k/college_computer_science": "c61",
+        "bench:MMLU-14k/college_mathematics": "c65",
+        "bench:MMLU-14k/college_medicine": "c68",
+        "bench:MMLU-14k/college_physics": "c72",
+        "bench:MMLU-14k/computer_security": "c76",
+        "bench:MMLU-14k/conceptual_physics": "c80",
+        "bench:MMLU-14k/econometrics": "c84",
+        "bench:MMLU-14k/electrical_engineering": "c87",
+        "bench:MMLU-14k/elementary_mathematics": "c91",
+        "bench:MMLU-14k/formal_logic": "c95",
+        "bench:MMLU-14k/global_facts": "c99",
+        "bench:MMLU-14k/high_school_biology": "c103",
+        "bench:MMLU-14k/high_school_chemistry": "c107",
+        "bench:MMLU-14k/high_school_computer_science": "c111",
+        "bench:MMLU-14k/high_school_european_history": "c115",
+        "bench:MMLU-14k/high_school_geography": "c119",
+        "bench:MMLU-14k/high_school_government_and_politics": "c122",
+        "bench:MMLU-14k/high_school_macroeconomics": "c126",
+        "bench:MMLU-14k/high_school_mathematics": "c129",
+        "bench:MMLU-14k/high_school_microeconomics": "c133",
+        "bench:MMLU-14k/high_school_physics": "c137",
+        "bench:MMLU-14k/high_school_psychology": "c141",
+        "bench:MMLU-14k/high_school_statistics": "c145",
+        "bench:MMLU-14k/high_school_us_history": "c149",
+        "bench:MMLU-14k/high_school_world_history": "c153",
+        "bench:MMLU-14k/human_aging": "c157",
+        "bench:MMLU-14k/human_sexuality": "c161",
+        "bench:MMLU-14k/international_law": "c165",
+        "bench:MMLU-14k/jurisprudence": "c169",
+        "bench:MMLU-14k/logical_fallacies": "c172",
+        "bench:MMLU-14k/machine_learning": "c176",
+        "bench:MMLU-14k/management": "c180",
+        "bench:MMLU-14k/marketing": "c183",
+        "bench:MMLU-14k/medical_genetics": "c187",
+        "bench:MMLU-14k/miscellaneous": "c191",
+        "bench:MMLU-14k/moral_disputes": "c195",
+        "bench:MMLU-14k/moral_scenarios": "c199",
+        "bench:MMLU-14k/nutrition": "c203",
+        "bench:MMLU-14k/philosophy": "c207",
+        "bench:MMLU-14k/prehistory": "c211",
+        "bench:MMLU-14k/professional_accounting": "c215",
+        "bench:MMLU-14k/professional_law": "c219",
+        "bench:MMLU-14k/professional_medicine": "c223",
+        "bench:MMLU-14k/professional_psychology": "c227",
+        "bench:MMLU-14k/public_relations": "c231",
+        "bench:MMLU-14k/security_studies": "c235",
+        "bench:MMLU-14k/sociology": "c239",
+        "bench:MMLU-14k/us_foreign_policy": "c243",
+        "bench:MMLU-14k/virology": "c247",
+        "bench:MMLU-14k/world_religions": "c251"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c274",
+      "flags": [
+        "Weight-level abliteration comparison, not isolated quantization error [L36-38,85-86]",
+        "Published pack footprint excludes separately supplied Engram tables [L174-179]",
+        "Base EXL3 quant publisher/repository is not explicitly identified for these measurements [L64,85,171-172]."
+      ],
+      "of": "not named on card"
+    },
+    {
+      "role": "own",
+      "name": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit ranking, T=0)",
+      "methodology": {
+        "reference": "base (EXL3 2.9bpw) before abliteration; exact reference repository not stated",
+        "dataset": "MMLU full 14,042-item test set, 57 subjects; ethics and non-ethics subsets",
+        "ctx": "not stated",
+        "tool": "base-logit ranking, T=0",
+        "L": [
+          64,
+          81,
+          85,
+          86,
+          91,
+          93,
+          94,
+          101,
+          103
+        ]
+      },
+      "metrics": {
+        "bench:MMLU-14k": "c31",
+        "bench:MMLU-14k/abstract_algebra": "c34",
+        "bench:MMLU-14k/anatomy": "c38",
+        "bench:MMLU-14k/astronomy": "c42",
+        "bench:MMLU-14k/business_ethics": "c46",
+        "bench:MMLU-14k/clinical_knowledge": "c50",
+        "bench:MMLU-14k/college_biology": "c54",
+        "bench:MMLU-14k/college_chemistry": "c58",
+        "bench:MMLU-14k/college_computer_science": "c62",
+        "bench:MMLU-14k/college_medicine": "c69",
+        "bench:MMLU-14k/college_physics": "c73",
+        "bench:MMLU-14k/computer_security": "c77",
+        "bench:MMLU-14k/conceptual_physics": "c81",
+        "bench:MMLU-14k/electrical_engineering": "c88",
+        "bench:MMLU-14k/elementary_mathematics": "c92",
+        "bench:MMLU-14k/formal_logic": "c96",
+        "bench:MMLU-14k/global_facts": "c100",
+        "bench:MMLU-14k/high_school_biology": "c104",
+        "bench:MMLU-14k/high_school_chemistry": "c108",
+        "bench:MMLU-14k/high_school_computer_science": "c112",
+        "bench:MMLU-14k/high_school_european_history": "c116",
+        "bench:MMLU-14k/high_school_government_and_politics": "c123",
+        "bench:MMLU-14k/high_school_mathematics": "c130",
+        "bench:MMLU-14k/high_school_microeconomics": "c134",
+        "bench:MMLU-14k/high_school_physics": "c138",
+        "bench:MMLU-14k/high_school_psychology": "c142",
+        "bench:MMLU-14k/high_school_statistics": "c146",
+        "bench:MMLU-14k/high_school_us_history": "c150",
+        "bench:MMLU-14k/high_school_world_history": "c154",
+        "bench:MMLU-14k/human_aging": "c158",
+        "bench:MMLU-14k/human_sexuality": "c162",
+        "bench:MMLU-14k/international_law": "c166",
+        "bench:MMLU-14k/logical_fallacies": "c173",
+        "bench:MMLU-14k/machine_learning": "c177",
+        "bench:MMLU-14k/marketing": "c184",
+        "bench:MMLU-14k/medical_genetics": "c188",
+        "bench:MMLU-14k/miscellaneous": "c192",
+        "bench:MMLU-14k/moral_disputes": "c196",
+        "bench:MMLU-14k/moral_scenarios": "c200",
+        "bench:MMLU-14k/nutrition": "c204",
+        "bench:MMLU-14k/philosophy": "c208",
+        "bench:MMLU-14k/prehistory": "c212",
+        "bench:MMLU-14k/professional_accounting": "c216",
+        "bench:MMLU-14k/professional_law": "c220",
+        "bench:MMLU-14k/professional_medicine": "c224",
+        "bench:MMLU-14k/professional_psychology": "c228",
+        "bench:MMLU-14k/public_relations": "c232",
+        "bench:MMLU-14k/security_studies": "c236",
+        "bench:MMLU-14k/sociology": "c240",
+        "bench:MMLU-14k/us_foreign_policy": "c244",
+        "bench:MMLU-14k/virology": "c248",
+        "bench:MMLU-14k/world_religions": "c252"
+      },
+      "size": "c275.0",
+      "unit": "GiB",
+      "basis": "excl_engram",
+      "bpw": "c9001",
+      "flags": [
+        "Weight-level abliteration comparison, not isolated quantization error [L36-38,85-86]",
+        "Published pack footprint excludes separately supplied Engram tables [L174-179]"
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "CRACK effort=max",
+      "panel": "HarmBench-320 — attack success rate (comply %), T=0 greedy",
+      "key": "bench:HarmBench-320 ASR %/chemical_biological",
+      "L": 73,
+      "raw": "100 %"
+    },
+    {
+      "entry": "CRACK effort=max",
+      "panel": "HarmBench-320 — attack success rate (comply %), T=0 greedy",
+      "key": "bench:HarmBench-320 ASR %/cybercrime_intrusion",
+      "L": 75,
+      "raw": "100 %"
+    },
+    {
+      "entry": "CRACK effort=max",
+      "panel": "HarmBench-320 — attack success rate (comply %), T=0 greedy",
+      "key": "bench:HarmBench-320 ASR %/misinformation_disinformation",
+      "L": 79,
+      "raw": "100 %"
+    },
+    {
+      "entry": "base (EXL3 2.9bpw)",
+      "panel": "MMLU-14k (full test set, base-logit ranking, T=0)",
+      "key": "bench:MMLU-14k/non-ethics",
+      "L": 93,
+      "raw": "84.97 %"
+    },
+    {
+      "entry": "base (EXL3 2.9bpw)",
+      "panel": "MMLU-14k (full test set, base-logit ranking, T=0)",
+      "key": "bench:MMLU-14k/ethics_cluster",
+      "L": 94,
+      "raw": "71.67 %"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit ranking, T=0)",
+      "key": "bench:MMLU-14k/non-ethics",
+      "L": 93,
+      "raw": "84.39 %"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit ranking, T=0)",
+      "key": "bench:MMLU-14k/ethics_cluster",
+      "L": 94,
+      "raw": "59.94 %"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit ranking, T=0)",
+      "key": "bench:MMLU-14k/college_mathematics",
+      "L": 113,
+      "raw": "69.0%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit ranking, T=0)",
+      "key": "bench:MMLU-14k/econometrics",
+      "L": 118,
+      "raw": "73.7%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit ranking, T=0)",
+      "key": "bench:MMLU-14k/high_school_geography",
+      "L": 127,
+      "raw": "89.9%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit ranking, T=0)",
+      "key": "bench:MMLU-14k/high_school_macroeconomics",
+      "L": 129,
+      "raw": "88.2%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit ranking, T=0)",
+      "key": "bench:MMLU-14k/jurisprudence",
+      "L": 140,
+      "raw": "87.0%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit ranking, T=0)",
+      "key": "bench:MMLU-14k/management",
+      "L": 143,
+      "raw": "88.3%"
+    }
+  ]
+}

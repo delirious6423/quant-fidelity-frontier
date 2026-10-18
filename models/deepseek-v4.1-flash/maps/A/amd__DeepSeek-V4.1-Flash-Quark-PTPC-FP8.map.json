@@ -1,0 +1,47 @@
+{
+  "repo": "amd/DeepSeek-V4.1-Flash-Quark-PTPC-FP8",
+  "no_quality_claims": false,
+  "weights_modified": false,
+  "method": {
+    "reference": "original DeepSeek-V4.1-Flash MXFP4/MXFP8 checkpoint, not BF16",
+    "dataset": "GSM8K, 8-shot, flexible-extract",
+    "ctx": "max model length 8192; max_gen_toks 4096",
+    "tool": "lm-eval local-completions against vLLM ROCm; same framework/settings/host for both models; TP4",
+    "L": [
+      31,
+      32,
+      75,
+      81,
+      83,
+      84,
+      88,
+      99,
+      100,
+      103,
+      113,
+      114,
+      115
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "amd/DeepSeek-V4.1-Flash-Quark-PTPC-FP8",
+      "metrics": {
+        "bench:GSM8K": "c1"
+      },
+      "flags": [
+        "Same published GSM8K score appears in both baseline and this-model columns [L79-81]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "metrics": {
+        "bench:GSM8K": "c1"
+      },
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    }
+  ],
+  "prose": []
+}

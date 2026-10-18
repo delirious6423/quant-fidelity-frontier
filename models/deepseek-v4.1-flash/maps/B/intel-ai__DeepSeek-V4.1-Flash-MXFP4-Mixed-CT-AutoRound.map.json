@@ -1,0 +1,103 @@
+{
+  "repo": "intel-ai/DeepSeek-V4.1-Flash-MXFP4-Mixed-CT-AutoRound",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "official native mixed MXFP4/MXFP8 release, not BF16",
+    "dataset": "GSM8K five-shot, MMLU, PIQA, HellaSwag",
+    "ctx": "8192 maximum context; 2048 max generation",
+    "tool": "lm-eval 0.4.13 vLLM backend, identical plain-text continuation settings",
+    "L": [
+      308,
+      313,
+      314,
+      318,
+      330,
+      331
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "This checkpoint (W4A4 MoE, OCP MXFP8)",
+      "panel": "Results",
+      "methodology": {
+        "reference": "official native mixed MXFP4/MXFP8 release, not BF16",
+        "dataset": "GSM8K five-shot, MMLU, PIQA, HellaSwag",
+        "ctx": "8192 maximum context; 2048 max generation",
+        "tool": "lm-eval 0.4.13 vLLM backend, identical plain-text continuation settings",
+        "L": [
+          308,
+          313,
+          314,
+          318,
+          330,
+          331
+        ]
+      },
+      "metrics": {
+        "bench:GSM8K-strict": "c11.0",
+        "bench:GSM8K-flexible": "c11.1",
+        "bench:MMLU": "c12",
+        "bench:PIQA-acc": "c13.0",
+        "bench:PIQA-acc_norm": "c13.1",
+        "bench:HellaSwag-acc": "c14.0",
+        "bench:HellaSwag-acc_norm": "c14.1"
+      },
+      "size": null,
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c4",
+      "flags": [
+        "Stored weights byte-identical; benchmark differences include W4A8-to-W4A4 activation/runtime path [L332-334].",
+        "All stored bytes effective bits/parameter, not nominal expert bitrate [L31]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "deepseek-ai/DeepSeek-V4.1-Flash (official, W4A8 MoE)",
+      "panel": "Results",
+      "methodology": {
+        "reference": "official native mixed MXFP4/MXFP8 release, not BF16",
+        "dataset": "GSM8K five-shot, MMLU, PIQA, HellaSwag",
+        "ctx": "8192 maximum context; 2048 max generation",
+        "tool": "lm-eval 0.4.13 vLLM backend, identical plain-text continuation settings",
+        "L": [
+          308,
+          313,
+          314,
+          318,
+          330,
+          331
+        ]
+      },
+      "metrics": {
+        "bench:GSM8K-strict": "c7.0",
+        "bench:GSM8K-flexible": "c7.1",
+        "bench:MMLU": "c8",
+        "bench:PIQA-acc": "c9.0",
+        "bench:PIQA-acc_norm": "c9.1",
+        "bench:HellaSwag-acc": "c10.0",
+        "bench:HellaSwag-acc_norm": "c10.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Same harness arguments and native W4A8 execution [L330-333]."
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    }
+  ],
+  "prose": [
+    {
+      "entry": "This checkpoint (W4A4 MoE, OCP MXFP8)",
+      "panel": "Results",
+      "key": "size",
+      "L": 30,
+      "raw": "510.51"
+    }
+  ]
+}

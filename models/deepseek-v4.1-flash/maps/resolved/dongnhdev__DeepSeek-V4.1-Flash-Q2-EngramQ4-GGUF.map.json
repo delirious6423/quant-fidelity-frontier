@@ -1,0 +1,250 @@
+{
+  "repo": "dongnhdev/DeepSeek-V4.1-Flash-Q2-EngramQ4-GGUF",
+  "no_quality_claims": false,
+  "weights_modified": false,
+  "method": {
+    "reference": "antirez/deepseek-v4.1-flash-gguf Q2 GGUF with FP8 Engram tables; official-API continuations are scoring targets",
+    "dataset": "general: 100 cases, 2994 tokens; long: nine cases, 576 tokens",
+    "ctx": "general context 4096; long prompts 8K\u201332K",
+    "tool": "score_official NLL in dongnh311/ds4-metal-qwen develop; current artifact score file matches simulation",
+    "L": [
+      13,
+      14,
+      17,
+      19,
+      20,
+      66,
+      68,
+      70,
+      72,
+      73,
+      75,
+      76,
+      78,
+      79
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash-Q2-EngramQ4.gguf \u2014 general",
+      "metrics": {},
+      "panel": "Quality",
+      "methodology": {
+        "reference": "antirez/deepseek-v4.1-flash-gguf Q2 GGUF with FP8 Engram tables; official-API continuations are scoring targets",
+        "dataset": "general set, 100 cases, 2994 scored tokens",
+        "ctx": "4096",
+        "tool": "score_official NLL in dongnh311/ds4-metal-qwen develop; current artifact score file matches simulation",
+        "L": [
+          13,
+          14,
+          17,
+          19,
+          20,
+          66,
+          68,
+          70,
+          72,
+          73,
+          75,
+          76,
+          78,
+          79
+        ]
+      },
+      "size": "c1",
+      "unit": "bytes",
+      "basis": "disk",
+      "flags": [
+        "NLL change is not PPL change or KL. Baseline is already-Q2 source, not an unquantized/native checkpoint [L13-17,68-73].",
+        "First-token matches are counts out of the stated cases; greedy LCP units are not specified [L72]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash-Q2-EngramQ4.gguf \u2014 long",
+      "metrics": {},
+      "panel": "Quality",
+      "methodology": {
+        "reference": "antirez/deepseek-v4.1-flash-gguf Q2 GGUF with FP8 Engram tables; official-API continuations are scoring targets",
+        "dataset": "long set, nine cases, 576 scored tokens",
+        "ctx": "8K\u201332K prompts",
+        "tool": "score_official NLL in dongnh311/ds4-metal-qwen develop; current artifact score file matches simulation",
+        "L": [
+          13,
+          14,
+          17,
+          19,
+          20,
+          66,
+          68,
+          70,
+          72,
+          73,
+          75,
+          76,
+          78,
+          79
+        ]
+      },
+      "size": "c1",
+      "unit": "bytes",
+      "basis": "disk",
+      "flags": [
+        "Author calls the small long-set NLL shift noise; no measured loss claim beyond this experiment [L73-76]."
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "source DeepSeek-V4.1-Flash-Q2.gguf \u2014 general",
+      "metrics": {},
+      "of": "antirez/deepseek-v4.1-flash-gguf",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "antirez/deepseek-v4.1-flash-gguf Q2 GGUF with FP8 Engram tables; official-API continuations are scoring targets",
+        "dataset": "general set, 100 cases, 2994 scored tokens",
+        "ctx": "4096",
+        "tool": "score_official NLL in dongnh311/ds4-metal-qwen develop; current artifact score file matches simulation",
+        "L": [
+          13,
+          14,
+          17,
+          19,
+          20,
+          66,
+          68,
+          70,
+          72,
+          73,
+          75,
+          76,
+          78,
+          79
+        ]
+      },
+      "size": "c8",
+      "unit": "bytes",
+      "basis": "disk"
+    },
+    {
+      "role": "ladder",
+      "name": "6-bit control",
+      "metrics": {},
+      "panel": "Quality",
+      "methodology": {
+        "reference": "antirez/deepseek-v4.1-flash-gguf Q2 GGUF with FP8 Engram tables; official-API continuations are scoring targets",
+        "dataset": "long set, nine cases, 576 scored tokens",
+        "ctx": "8K\u201332K prompts",
+        "tool": "score_official NLL in dongnh311/ds4-metal-qwen develop; current artifact score file matches simulation",
+        "L": [
+          13,
+          14,
+          17,
+          19,
+          20,
+          66,
+          68,
+          70,
+          72,
+          73,
+          75,
+          76,
+          78,
+          79
+        ]
+      },
+      "flags": [
+        "Engram precision control on the long set, not an absolute full-model NLL or KL [L75-76]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "5-bit control",
+      "metrics": {},
+      "panel": "Quality",
+      "methodology": {
+        "reference": "antirez/deepseek-v4.1-flash-gguf Q2 GGUF with FP8 Engram tables; official-API continuations are scoring targets",
+        "dataset": "long set, nine cases, 576 scored tokens",
+        "ctx": "8K\u201332K prompts",
+        "tool": "score_official NLL in dongnh311/ds4-metal-qwen develop; current artifact score file matches simulation",
+        "L": [
+          13,
+          14,
+          17,
+          19,
+          20,
+          66,
+          68,
+          70,
+          72,
+          73,
+          75,
+          76,
+          78,
+          79
+        ]
+      },
+      "flags": [
+        "Engram precision control on the long set [L75-76]."
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "DeepSeek-V4.1-Flash-Q2-EngramQ4.gguf \u2014 general",
+      "panel": "Quality",
+      "key": "nll_delta_pct:general",
+      "L": 72,
+      "raw": "\u22120.05 % NLL"
+    },
+    {
+      "entry": "DeepSeek-V4.1-Flash-Q2-EngramQ4.gguf \u2014 long",
+      "panel": "Quality",
+      "key": "nll_delta_pct:long",
+      "L": 73,
+      "raw": "+0.94 % NLL"
+    },
+    {
+      "entry": "source DeepSeek-V4.1-Flash-Q2.gguf \u2014 general",
+      "panel": "Quality",
+      "key": "bench:first-token matches general 100 cases",
+      "L": 72,
+      "raw": "78"
+    },
+    {
+      "entry": "DeepSeek-V4.1-Flash-Q2-EngramQ4.gguf \u2014 general",
+      "panel": "Quality",
+      "key": "bench:first-token matches general 100 cases",
+      "L": 72,
+      "raw": "81"
+    },
+    {
+      "entry": "source DeepSeek-V4.1-Flash-Q2.gguf \u2014 general",
+      "panel": "Quality",
+      "key": "bench:greedy LCP general",
+      "L": 72,
+      "raw": "9.50"
+    },
+    {
+      "entry": "DeepSeek-V4.1-Flash-Q2-EngramQ4.gguf \u2014 general",
+      "panel": "Quality",
+      "key": "bench:greedy LCP general",
+      "L": 72,
+      "raw": "9.76"
+    },
+    {
+      "entry": "6-bit control",
+      "panel": "Quality",
+      "key": "nll_delta_pct:long",
+      "L": 75,
+      "raw": "+1.04 %"
+    },
+    {
+      "entry": "5-bit control",
+      "panel": "Quality",
+      "key": "nll_delta_pct:long",
+      "L": 75,
+      "raw": "+1.33 %"
+    }
+  ]
+}

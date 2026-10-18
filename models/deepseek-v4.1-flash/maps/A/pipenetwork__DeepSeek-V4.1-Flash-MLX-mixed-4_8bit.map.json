@@ -1,0 +1,227 @@
+{
+  "repo": "pipenetwork/DeepSeek-V4.1-Flash-MLX-mixed-4_8bit",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "BF16-dequantized native FP8/FP4 release, not a native BF16 checkpoint",
+    "dataset": "wikitext-2 per-layer study and separate full-test PPL",
+    "ctx": "per-layer16,384tokens;PPL140 windows of2048",
+    "tool": "PipeNetwork/deepseek-v41-mlx custom runtime",
+    "L": [
+      23,
+      24,
+      25,
+      26,
+      34,
+      61,
+      63,
+      64,
+      65,
+      81
+    ]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "8bit",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "BF16-dequantized native FP8/FP4 release, not a native BF16 checkpoint",
+        "dataset": "16,384 wikitext-2 tokens",
+        "ctx": "not stated",
+        "tool": "identical-input per-layer study on40 decoder layers; final-layer cosine",
+        "L": [
+          63,
+          64,
+          65,
+          67
+        ]
+      },
+      "metrics": {
+        "bench:final-layer cosine": "c10"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Divergence column formulas unspecified; not treated as KL [L63-74]",
+        "Ladder row does not unambiguously match this repository's8-bit Engram build [L21,57,69-74]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "6bit",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "BF16-dequantized native FP8/FP4 release, not a native BF16 checkpoint",
+        "dataset": "16,384 wikitext-2 tokens",
+        "ctx": "not stated",
+        "tool": "identical-input per-layer study on40 decoder layers; final-layer cosine",
+        "L": [
+          63,
+          64,
+          65,
+          67
+        ]
+      },
+      "metrics": {
+        "bench:final-layer cosine": "c14"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Divergence column formulas unspecified; not treated as KL [L63-74]",
+        "Ladder row does not unambiguously match this repository's8-bit Engram build [L21,57,69-74]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "4bit-engram4",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "BF16-dequantized native FP8/FP4 release, not a native BF16 checkpoint",
+        "dataset": "16,384 wikitext-2 tokens",
+        "ctx": "not stated",
+        "tool": "identical-input per-layer study on40 decoder layers; final-layer cosine",
+        "L": [
+          63,
+          64,
+          65,
+          67
+        ]
+      },
+      "metrics": {
+        "bench:final-layer cosine": "c17"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Divergence column formulas unspecified; not treated as KL [L63-74]",
+        "Ladder row does not unambiguously match this repository's8-bit Engram build [L21,57,69-74]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "mixed 4/8, engram as shipped (fp8/ue8m0)",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "BF16-dequantized native FP8/FP4 release, not a native BF16 checkpoint",
+        "dataset": "16,384 wikitext-2 tokens",
+        "ctx": "not stated",
+        "tool": "identical-input per-layer study on40 decoder layers; final-layer cosine",
+        "L": [
+          63,
+          64,
+          65,
+          67
+        ]
+      },
+      "metrics": {
+        "bench:final-layer cosine": "c20"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Divergence column formulas unspecified; not treated as KL [L63-74]",
+        "Ladder row does not unambiguously match this repository's8-bit Engram build [L21,57,69-74]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "mixed 4/8, engram 6-bit (this set's 1 TB build)",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "BF16-dequantized native FP8/FP4 release, not a native BF16 checkpoint",
+        "dataset": "16,384 wikitext-2 tokens",
+        "ctx": "not stated",
+        "tool": "identical-input per-layer study on40 decoder layers; final-layer cosine",
+        "L": [
+          63,
+          64,
+          65,
+          67
+        ]
+      },
+      "metrics": {
+        "bench:final-layer cosine": "c23"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Divergence column formulas unspecified; not treated as KL [L63-74]",
+        "Ladder row does not unambiguously match this repository's8-bit Engram build [L21,57,69-74]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "mixed 4/8, engram 4-bit (this set's 512 GB build)",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "BF16-dequantized native FP8/FP4 release, not a native BF16 checkpoint",
+        "dataset": "16,384 wikitext-2 tokens",
+        "ctx": "not stated",
+        "tool": "identical-input per-layer study on40 decoder layers; final-layer cosine",
+        "L": [
+          63,
+          64,
+          65,
+          67
+        ]
+      },
+      "metrics": {
+        "bench:final-layer cosine": "c26"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Divergence column formulas unspecified; not treated as KL [L63-74]",
+        "Ladder row does not unambiguously match this repository's8-bit Engram build [L21,57,69-74]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash-MLX-mixed-4_8bit",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "wikitext-2 test,286,580tokens",
+        "ctx": "140windows of2048",
+        "tool": "custom PipeNetwork MLX runtime",
+        "L": [
+          34,
+          81
+        ]
+      },
+      "metrics": {},
+      "size": "c27",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "MTP/DSpark layers omitted; vision retained but runtime text-only [L25-26]",
+        "PPL is separate from the per-layer divergence study [L63-81]"
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "DeepSeek-V4.1-Flash-MLX-mixed-4_8bit",
+      "panel": "Quality",
+      "key": "ppl:wikitext-2",
+      "L": 81,
+      "raw": "2.8963"
+    }
+  ]
+}

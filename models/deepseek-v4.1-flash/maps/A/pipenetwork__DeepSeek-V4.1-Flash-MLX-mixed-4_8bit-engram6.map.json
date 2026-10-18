@@ -1,0 +1,221 @@
+{
+  "repo": "pipenetwork/DeepSeek-V4.1-Flash-MLX-mixed-4_8bit-engram6",
+  "no_quality_claims": false,
+  "weights_modified": false,
+  "method": {
+    "reference": "native FP8/FP4 release dequantized to BF16 for the reference pass; not an original BF16 checkpoint",
+    "dataset": "wikitext-2 per-layer divergence ladder",
+    "ctx": "16,384 tokens, each of 40 source-reported layers on identical inputs",
+    "tool": "PipeNetwork custom MLX port; teacher-forced mean divergence, free-running final-layer divergence and final cosine; divergence type not identified as KL",
+    "L": [
+      23,
+      24,
+      42,
+      43,
+      63,
+      64,
+      65
+    ]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "8bit",
+      "metrics": {
+        "layer_divergence:teacher_forced_mean": "c8",
+        "layer_divergence:free_running_final": "c9",
+        "component:final_layer_cosine": "c10"
+      },
+      "panel": "Quality",
+      "methodology": {
+        "reference": "native FP8/FP4 release dequantized to BF16 for the reference pass; not an original BF16 checkpoint",
+        "dataset": "wikitext-2 per-layer divergence ladder",
+        "ctx": "16,384 tokens, each of 40 source-reported layers on identical inputs",
+        "tool": "PipeNetwork custom MLX port; teacher-forced mean divergence, free-running final-layer divergence and final cosine; divergence type not identified as KL",
+        "L": [
+          23,
+          24,
+          42,
+          43,
+          63,
+          64,
+          65
+        ]
+      },
+      "flags": [
+        "Per-layer divergence/cosine ladder is not identified as full-vocabulary output KL; preserve the source statistic without relabeling it [L63-65]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "6bit",
+      "metrics": {
+        "layer_divergence:teacher_forced_mean": "c12",
+        "layer_divergence:free_running_final": "c13",
+        "component:final_layer_cosine": "c14"
+      },
+      "panel": "Quality",
+      "methodology": {
+        "reference": "native FP8/FP4 release dequantized to BF16 for the reference pass; not an original BF16 checkpoint",
+        "dataset": "wikitext-2 per-layer divergence ladder",
+        "ctx": "16,384 tokens, each of 40 source-reported layers on identical inputs",
+        "tool": "PipeNetwork custom MLX port; teacher-forced mean divergence, free-running final-layer divergence and final cosine; divergence type not identified as KL",
+        "L": [
+          23,
+          24,
+          42,
+          43,
+          63,
+          64,
+          65
+        ]
+      },
+      "flags": [
+        "Per-layer divergence/cosine ladder is not identified as full-vocabulary output KL; preserve the source statistic without relabeling it [L63-65]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "4bit-engram4",
+      "metrics": {
+        "layer_divergence:teacher_forced_mean": "c15",
+        "layer_divergence:free_running_final": "c16",
+        "component:final_layer_cosine": "c17"
+      },
+      "panel": "Quality",
+      "methodology": {
+        "reference": "native FP8/FP4 release dequantized to BF16 for the reference pass; not an original BF16 checkpoint",
+        "dataset": "wikitext-2 per-layer divergence ladder",
+        "ctx": "16,384 tokens, each of 40 source-reported layers on identical inputs",
+        "tool": "PipeNetwork custom MLX port; teacher-forced mean divergence, free-running final-layer divergence and final cosine; divergence type not identified as KL",
+        "L": [
+          23,
+          24,
+          42,
+          43,
+          63,
+          64,
+          65
+        ]
+      },
+      "flags": [
+        "Per-layer divergence/cosine ladder is not identified as full-vocabulary output KL; preserve the source statistic without relabeling it [L63-65]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "mixed 4/8, engram as shipped (fp8/ue8m0)",
+      "metrics": {
+        "layer_divergence:teacher_forced_mean": "c18",
+        "layer_divergence:free_running_final": "c19",
+        "component:final_layer_cosine": "c20"
+      },
+      "panel": "Quality",
+      "methodology": {
+        "reference": "native FP8/FP4 release dequantized to BF16 for the reference pass; not an original BF16 checkpoint",
+        "dataset": "wikitext-2 per-layer divergence ladder",
+        "ctx": "16,384 tokens, each of 40 source-reported layers on identical inputs",
+        "tool": "PipeNetwork custom MLX port; teacher-forced mean divergence, free-running final-layer divergence and final cosine; divergence type not identified as KL",
+        "L": [
+          23,
+          24,
+          42,
+          43,
+          63,
+          64,
+          65
+        ]
+      },
+      "flags": [
+        "Per-layer divergence/cosine ladder is not identified as full-vocabulary output KL; preserve the source statistic without relabeling it [L63-65]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "mixed 4/8, engram 6-bit (this set's 1 TB build)",
+      "metrics": {
+        "layer_divergence:teacher_forced_mean": "c21",
+        "layer_divergence:free_running_final": "c22",
+        "component:final_layer_cosine": "c23"
+      },
+      "panel": "Quality",
+      "methodology": {
+        "reference": "native FP8/FP4 release dequantized to BF16 for the reference pass; not an original BF16 checkpoint",
+        "dataset": "wikitext-2 per-layer divergence ladder",
+        "ctx": "16,384 tokens, each of 40 source-reported layers on identical inputs",
+        "tool": "PipeNetwork custom MLX port; teacher-forced mean divergence, free-running final-layer divergence and final cosine; divergence type not identified as KL",
+        "L": [
+          23,
+          24,
+          42,
+          43,
+          63,
+          64,
+          65
+        ]
+      },
+      "flags": [
+        "Per-layer divergence/cosine ladder is not identified as full-vocabulary output KL; preserve the source statistic without relabeling it [L63-65].",
+        "Source summary/table says 8-bit Engram while repo name and measured recipe row say 6-bit; exact recipe-row wording is retained [L15,21,57,73]."
+      ],
+      "size": "c27",
+      "unit": "GB",
+      "basis": "disk"
+    },
+    {
+      "role": "ladder",
+      "name": "mixed 4/8, engram 4-bit (this set's 512 GB build)",
+      "metrics": {
+        "layer_divergence:teacher_forced_mean": "c24",
+        "layer_divergence:free_running_final": "c25",
+        "component:final_layer_cosine": "c26"
+      },
+      "panel": "Quality",
+      "methodology": {
+        "reference": "native FP8/FP4 release dequantized to BF16 for the reference pass; not an original BF16 checkpoint",
+        "dataset": "wikitext-2 per-layer divergence ladder",
+        "ctx": "16,384 tokens, each of 40 source-reported layers on identical inputs",
+        "tool": "PipeNetwork custom MLX port; teacher-forced mean divergence, free-running final-layer divergence and final cosine; divergence type not identified as KL",
+        "L": [
+          23,
+          24,
+          42,
+          43,
+          63,
+          64,
+          65
+        ]
+      },
+      "flags": [
+        "Per-layer divergence/cosine ladder is not identified as full-vocabulary output KL; preserve the source statistic without relabeling it [L63-65]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "measured engram-4 build",
+      "metrics": {},
+      "panel": "Quality",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "not stated for the cited sibling PPL figure",
+        "ctx": "not stated",
+        "tool": "custom MLX runtime; PPL belongs to measured engram-4 sibling, not this engram-6 artifact",
+        "L": [
+          81
+        ]
+      },
+      "flags": [
+        "This engram-6 artifact has no measured perplexity: host OOMs in every load mode. The cited PPL belongs only to engram-4 sibling [L81]."
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "measured engram-4 build",
+      "panel": "Quality",
+      "key": "ppl",
+      "L": 81,
+      "raw": "2.8963"
+    }
+  ]
+}

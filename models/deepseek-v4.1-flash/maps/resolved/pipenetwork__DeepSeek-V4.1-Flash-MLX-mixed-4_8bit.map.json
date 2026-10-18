@@ -1,0 +1,229 @@
+{
+  "repo": "pipenetwork/DeepSeek-V4.1-Flash-MLX-mixed-4_8bit",
+  "no_quality_claims": false,
+  "weights_modified": false,
+  "method": {
+    "reference": "native FP8/FP4 release checkpoint dequantized to BF16 for the reference calculation",
+    "dataset": "wikitext-2, identical-input per-layer comparison",
+    "ctx": "16,384 tokens; context length not stated",
+    "tool": "custom PipeNetwork deepseek_v41 MLX port; teacher-forced layer divergence and free-running final-layer divergence, formula/units unstated",
+    "L": [
+      23,
+      24,
+      34,
+      42,
+      43,
+      63,
+      64,
+      65
+    ]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "8bit",
+      "metrics": {
+        "layer_divergence:teacher_forced_mean": "c8",
+        "layer_divergence:free_running_final": "c9",
+        "component:final_layer_cosine": "c10"
+      },
+      "panel": "Quality",
+      "methodology": {
+        "reference": "native FP8/FP4 release checkpoint dequantized to BF16 for the reference calculation",
+        "dataset": "wikitext-2, identical-input per-layer comparison",
+        "ctx": "16,384 tokens; context length not stated",
+        "tool": "custom PipeNetwork deepseek_v41 MLX port; teacher-forced layer divergence and free-running final-layer divergence, formula/units unstated",
+        "L": [
+          23,
+          24,
+          34,
+          42,
+          43,
+          63,
+          64,
+          65
+        ]
+      },
+      "flags": [
+        "Per-layer divergence has no stated formula or units. It is not relabeled as next-token KL; final-layer cosine is a separate component statistic [L63-74].",
+        "The copied recipe ladder does not unambiguously identify the current requantized 8-bit Engram build; own full-model PPL is reported separately [L21,57,69-81]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "6bit",
+      "metrics": {
+        "layer_divergence:teacher_forced_mean": "c12",
+        "layer_divergence:free_running_final": "c13",
+        "component:final_layer_cosine": "c14"
+      },
+      "panel": "Quality",
+      "methodology": {
+        "reference": "native FP8/FP4 release checkpoint dequantized to BF16 for the reference calculation",
+        "dataset": "wikitext-2, identical-input per-layer comparison",
+        "ctx": "16,384 tokens; context length not stated",
+        "tool": "custom PipeNetwork deepseek_v41 MLX port; teacher-forced layer divergence and free-running final-layer divergence, formula/units unstated",
+        "L": [
+          23,
+          24,
+          34,
+          42,
+          43,
+          63,
+          64,
+          65
+        ]
+      },
+      "flags": [
+        "Per-layer divergence has no stated formula or units. It is not relabeled as next-token KL; final-layer cosine is a separate component statistic [L63-74].",
+        "The copied recipe ladder does not unambiguously identify the current requantized 8-bit Engram build; own full-model PPL is reported separately [L21,57,69-81]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "4bit-engram4",
+      "metrics": {
+        "layer_divergence:teacher_forced_mean": "c15",
+        "layer_divergence:free_running_final": "c16",
+        "component:final_layer_cosine": "c17"
+      },
+      "panel": "Quality",
+      "methodology": {
+        "reference": "native FP8/FP4 release checkpoint dequantized to BF16 for the reference calculation",
+        "dataset": "wikitext-2, identical-input per-layer comparison",
+        "ctx": "16,384 tokens; context length not stated",
+        "tool": "custom PipeNetwork deepseek_v41 MLX port; teacher-forced layer divergence and free-running final-layer divergence, formula/units unstated",
+        "L": [
+          23,
+          24,
+          34,
+          42,
+          43,
+          63,
+          64,
+          65
+        ]
+      },
+      "flags": [
+        "Per-layer divergence has no stated formula or units. It is not relabeled as next-token KL; final-layer cosine is a separate component statistic [L63-74].",
+        "The copied recipe ladder does not unambiguously identify the current requantized 8-bit Engram build; own full-model PPL is reported separately [L21,57,69-81]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "mixed 4/8, engram as shipped (fp8/ue8m0)",
+      "metrics": {
+        "layer_divergence:teacher_forced_mean": "c18",
+        "layer_divergence:free_running_final": "c19",
+        "component:final_layer_cosine": "c20"
+      },
+      "panel": "Quality",
+      "methodology": {
+        "reference": "native FP8/FP4 release checkpoint dequantized to BF16 for the reference calculation",
+        "dataset": "wikitext-2, identical-input per-layer comparison",
+        "ctx": "16,384 tokens; context length not stated",
+        "tool": "custom PipeNetwork deepseek_v41 MLX port; teacher-forced layer divergence and free-running final-layer divergence, formula/units unstated",
+        "L": [
+          23,
+          24,
+          34,
+          42,
+          43,
+          63,
+          64,
+          65
+        ]
+      },
+      "flags": [
+        "Per-layer divergence has no stated formula or units. It is not relabeled as next-token KL; final-layer cosine is a separate component statistic [L63-74].",
+        "The copied recipe ladder does not unambiguously identify the current requantized 8-bit Engram build; own full-model PPL is reported separately [L21,57,69-81]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "mixed 4/8, engram 6-bit (this set's 1 TB build)",
+      "metrics": {
+        "layer_divergence:teacher_forced_mean": "c21",
+        "layer_divergence:free_running_final": "c22",
+        "component:final_layer_cosine": "c23"
+      },
+      "panel": "Quality",
+      "methodology": {
+        "reference": "native FP8/FP4 release checkpoint dequantized to BF16 for the reference calculation",
+        "dataset": "wikitext-2, identical-input per-layer comparison",
+        "ctx": "16,384 tokens; context length not stated",
+        "tool": "custom PipeNetwork deepseek_v41 MLX port; teacher-forced layer divergence and free-running final-layer divergence, formula/units unstated",
+        "L": [
+          23,
+          24,
+          34,
+          42,
+          43,
+          63,
+          64,
+          65
+        ]
+      },
+      "flags": [
+        "Per-layer divergence has no stated formula or units. It is not relabeled as next-token KL; final-layer cosine is a separate component statistic [L63-74].",
+        "The copied recipe ladder does not unambiguously identify the current requantized 8-bit Engram build; own full-model PPL is reported separately [L21,57,69-81]."
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "mixed 4/8, engram 4-bit (this set's 512 GB build)",
+      "metrics": {
+        "layer_divergence:teacher_forced_mean": "c24",
+        "layer_divergence:free_running_final": "c25",
+        "component:final_layer_cosine": "c26"
+      },
+      "panel": "Quality",
+      "methodology": {
+        "reference": "native FP8/FP4 release checkpoint dequantized to BF16 for the reference calculation",
+        "dataset": "wikitext-2, identical-input per-layer comparison",
+        "ctx": "16,384 tokens; context length not stated",
+        "tool": "custom PipeNetwork deepseek_v41 MLX port; teacher-forced layer divergence and free-running final-layer divergence, formula/units unstated",
+        "L": [
+          23,
+          24,
+          34,
+          42,
+          43,
+          63,
+          64,
+          65
+        ]
+      },
+      "flags": [
+        "Per-layer divergence has no stated formula or units. It is not relabeled as next-token KL; final-layer cosine is a separate component statistic [L63-74].",
+        "The copied recipe ladder does not unambiguously identify the current requantized 8-bit Engram build; own full-model PPL is reported separately [L21,57,69-81]."
+      ]
+    },
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash-MLX-mixed-4_8bit",
+      "metrics": {
+        "ppl:wikitext-2": "c9001"
+      },
+      "panel": "Quality",
+      "methodology": {
+        "reference": "not stated for this absolute perplexity measurement",
+        "dataset": "wikitext-2 test, 286,580 tokens",
+        "ctx": "140 windows of 2048",
+        "tool": "custom PipeNetwork deepseek_v41 MLX runtime",
+        "L": [
+          34,
+          81
+        ]
+      },
+      "flags": [
+        "Full-model PPL and its published interval are separate from the per-layer comparison [L63-81].",
+        "MTP/DSpark omitted; vision retained while runtime is text-only [L25-26]."
+      ],
+      "size": "c27",
+      "unit": "GB",
+      "basis": "disk"
+    }
+  ],
+  "prose": []
+}

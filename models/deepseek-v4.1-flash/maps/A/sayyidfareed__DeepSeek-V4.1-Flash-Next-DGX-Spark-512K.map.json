@@ -1,0 +1,102 @@
+{
+  "repo": "sayyidfareed/DeepSeek-V4.1-Flash-Next-DGX-Spark-512K",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "not stated; source is native deepseek-ai/DeepSeek-V4.1-Flash with fixed-expert K154 pruning",
+    "dataset": "HumanEval, HumanEval+ Mini, frozen executable coding microbenchmark, distributed needle retrieval",
+    "ctx": "524,293 prompt + 44 output tokens for long-context qualification; short-context benchmark length not stated",
+    "tool": "single NVIDIA GX10/GB10, custom K154 CB3-v2 runtime, DSpark; generated code executed in network-disabled containers",
+    "L": [
+      24,
+      35,
+      47,
+      52,
+      53,
+      60,
+      61,
+      62,
+      66,
+      174,
+      176,
+      177,
+      178
+    ]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "K154 CB3-v2 — distributed needle retrieval",
+      "panel": "Measured on the GX10",
+      "methodology": {
+        "reference": "not stated; source is native deepseek-ai/DeepSeek-V4.1-Flash with fixed-expert K154 pruning",
+        "dataset": "five buried values in deterministic varied archive records",
+        "ctx": "524,293 prompt + 44 output tokens; needles near 5%,25%,50%,75%,95%",
+        "tool": "bench/long_context_probe.py, single GX10/GB10; custom K154 profile",
+        "L": [
+          47,
+          52,
+          53,
+          66,
+          187,
+          202,
+          208,
+          211,
+          217,
+          218,
+          219
+        ]
+      },
+      "metrics": {
+        "bench:distributed needle facts retrieved": "c1.0"
+      },
+      "size": "c36",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Five facts retrieved out of five; not a percentage [L53]",
+        "Fixed 154 experts per layer; pruned model, not quantization alone [L35-39,78-87]",
+        "Size is total tensor payload including disk-resident Engram; resident arena is separate [L91-100,154]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "K154 CB3-v2 — short-context quality",
+      "panel": "Short-context quality check",
+      "methodology": {
+        "reference": "not stated; source is native deepseek-ai/DeepSeek-V4.1-Flash with fixed-expert K154 pruning",
+        "dataset": "complete 164-problem HumanEval+ Mini generation set and frozen executable coding microbenchmark",
+        "ctx": "short-context; exact length not stated",
+        "tool": "custom K154 runtime; execute generated programs in network-disabled containers",
+        "L": [
+          174,
+          176,
+          177,
+          178,
+          180,
+          181,
+          182,
+          184,
+          185
+        ]
+      },
+      "metrics": {
+        "bench:HumanEval correct (of 164)": "c3",
+        "bench:HumanEval+ Mini correct (of 164)": "c4",
+        "bench:executable coding microbenchmark correct (of 34)": "c5.0"
+      },
+      "size": "c36",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "HumanEval cells contain correct counts plus printed percentages; metrics here preserve the count numerator [L60-62]",
+        "Bounded coding qualification; no matched native benchmark or general capability guarantee [L184-185]",
+        "Fixed-expert pruning changes base weights [L35-39,78-87]"
+      ]
+    }
+  ],
+  "prose": []
+}

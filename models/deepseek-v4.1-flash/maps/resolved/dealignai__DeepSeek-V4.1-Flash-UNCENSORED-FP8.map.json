@@ -1,0 +1,1091 @@
+{
+  "repo": "dealignai/DeepSeek-V4.1-Flash-UNCENSORED-FP8",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "deepseek-ai/DeepSeek-V4.1-Flash native mixed FP8/FP4 checkpoint; CRACK is weight-abliterated",
+    "dataset": "HarmBench-320 and full MMLU-14k",
+    "ctx": "not stated",
+    "tool": "panel-specific; T=0",
+    "L": [
+      33,
+      35,
+      41,
+      48,
+      75
+    ]
+  },
+  "entries": [
+    {
+      "role": "cross",
+      "name": "base effort=off",
+      "panel": "HarmBench-320 — full 2×2 (base vs CRACK, effort=off vs max), T=0 greedy",
+      "methodology": {
+        "reference": "deepseek-ai/DeepSeek-V4.1-Flash native mixed FP8/FP4 checkpoint; CRACK is weight-abliterated",
+        "dataset": "HarmBench-320; all 7 semantic categories",
+        "ctx": "not stated",
+        "tool": "T=0 greedy; effort=off; multilingual regex-based 4-tier classifier",
+        "L": [
+          48,
+          50,
+          54,
+          55,
+          59,
+          61,
+          63,
+          69,
+          73
+        ]
+      },
+      "metrics": {
+        "bench:HarmBench-320 ASR %": "c1.2",
+        "bench:HarmBench-320 ASR %/chemical_biological": "c8",
+        "bench:HarmBench-320 ASR %/copyright": "c12",
+        "bench:HarmBench-320 ASR %/cybercrime_intrusion": "c16",
+        "bench:HarmBench-320 ASR %/harassment_bullying": "c20",
+        "bench:HarmBench-320 ASR %/harmful": "c23",
+        "bench:HarmBench-320 ASR %/illegal": "c27",
+        "bench:HarmBench-320 ASR %/misinformation_disinformation": "c31"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "ASR is compliance percentage, not capability accuracy [L48-55]",
+        "Native pre-abliteration reference, not this repository's modified checkpoint [L33,39,41,54-55]"
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "own",
+      "name": "CRACK effort=off",
+      "panel": "HarmBench-320 — full 2×2 (base vs CRACK, effort=off vs max), T=0 greedy",
+      "methodology": {
+        "reference": "deepseek-ai/DeepSeek-V4.1-Flash native mixed FP8/FP4 checkpoint; CRACK is weight-abliterated",
+        "dataset": "HarmBench-320; all 7 semantic categories",
+        "ctx": "not stated",
+        "tool": "T=0 greedy; effort=off; multilingual regex-based 4-tier classifier",
+        "L": [
+          48,
+          50,
+          54,
+          55,
+          59,
+          61,
+          63,
+          69,
+          73
+        ]
+      },
+      "metrics": {
+        "bench:HarmBench-320 ASR %": "c2.2",
+        "bench:HarmBench-320 ASR %/chemical_biological": "c9",
+        "bench:HarmBench-320 ASR %/copyright": "c13",
+        "bench:HarmBench-320 ASR %/cybercrime_intrusion": "c17",
+        "bench:HarmBench-320 ASR %/harassment_bullying": "c21",
+        "bench:HarmBench-320 ASR %/harmful": "c24",
+        "bench:HarmBench-320 ASR %/illegal": "c28",
+        "bench:HarmBench-320 ASR %/misinformation_disinformation": "c32"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "ASR is compliance percentage, not capability accuracy [L48-55]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "base effort=max",
+      "panel": "HarmBench-320 — full 2×2 (base vs CRACK, effort=off vs max), T=0 greedy",
+      "methodology": {
+        "reference": "deepseek-ai/DeepSeek-V4.1-Flash native mixed FP8/FP4 checkpoint; CRACK is weight-abliterated",
+        "dataset": "HarmBench-320; all 7 semantic categories",
+        "ctx": "not stated",
+        "tool": "T=0 greedy; effort=max; multilingual regex-based 4-tier classifier; LLM-as-judge over saved reasoning trace",
+        "L": [
+          48,
+          50,
+          54,
+          55,
+          59,
+          61,
+          63,
+          69,
+          73
+        ]
+      },
+      "metrics": {
+        "bench:HarmBench-320 ASR %": "c4.2",
+        "bench:HarmBench-320 ASR %/chemical_biological": "c10",
+        "bench:HarmBench-320 ASR %/copyright": "c14",
+        "bench:HarmBench-320 ASR %/cybercrime_intrusion": "c18",
+        "bench:HarmBench-320 ASR %/harmful": "c25",
+        "bench:HarmBench-320 ASR %/illegal": "c29",
+        "bench:HarmBench-320 ASR %/misinformation_disinformation": "c33"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "ASR is compliance percentage, not capability accuracy [L48-55]",
+        "Native pre-abliteration reference, not this repository's modified checkpoint [L33,39,41,54-55]"
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "own",
+      "name": "CRACK effort=max",
+      "panel": "HarmBench-320 — full 2×2 (base vs CRACK, effort=off vs max), T=0 greedy",
+      "methodology": {
+        "reference": "deepseek-ai/DeepSeek-V4.1-Flash native mixed FP8/FP4 checkpoint; CRACK is weight-abliterated",
+        "dataset": "HarmBench-320; all 7 semantic categories",
+        "ctx": "not stated",
+        "tool": "T=0 greedy; effort=max; multilingual regex-based 4-tier classifier; LLM-as-judge over saved reasoning trace",
+        "L": [
+          48,
+          50,
+          54,
+          55,
+          59,
+          61,
+          63,
+          69,
+          73
+        ]
+      },
+      "metrics": {
+        "bench:HarmBench-320 ASR %": "c5.2"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "ASR is compliance percentage, not capability accuracy [L48-55]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "methodology": {
+        "reference": "deepseek-ai/DeepSeek-V4.1-Flash native mixed FP8/FP4 checkpoint; CRACK is weight-abliterated",
+        "dataset": "MMLU full test set, 14,042 items, 57 subjects",
+        "ctx": "not stated",
+        "tool": "base-logit; T=0",
+        "L": [
+          75,
+          77,
+          79,
+          80,
+          85,
+          87
+        ]
+      },
+      "metrics": {
+        "bench:MMLU-14k": "c35"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Weight-level abliteration comparison, not isolated quantization error [L33-35,79-80]",
+        "Native pre-abliteration baseline retains FP4 routed experts [L41]",
+        "Subject names are canonicalized to underscores only; native FP8/FP4 reference and abliteration panel remain distinct from EXL3 results [L41,75-80]."
+      ],
+      "of": "deepseek-ai/DeepSeek-V4.1-Flash"
+    },
+    {
+      "role": "own",
+      "name": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "methodology": {
+        "reference": "deepseek-ai/DeepSeek-V4.1-Flash native mixed FP8/FP4 checkpoint; CRACK is weight-abliterated",
+        "dataset": "MMLU full test set, 14,042 items, 57 subjects",
+        "ctx": "not stated",
+        "tool": "base-logit; T=0",
+        "L": [
+          75,
+          77,
+          79,
+          80,
+          85,
+          87
+        ]
+      },
+      "metrics": {
+        "bench:MMLU-14k": "c37"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Weight-level abliteration comparison, not isolated quantization error [L33-35,79-80]",
+        "Subject names are canonicalized to underscores only; native FP8/FP4 reference and abliteration panel remain distinct from EXL3 results [L41,75-80]."
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "base effort=max",
+      "panel": "HarmBench-320 — full 2×2 (base vs CRACK, effort=off vs max), T=0 greedy",
+      "key": "bench:HarmBench-320 ASR %/harassment_bullying",
+      "L": 66,
+      "raw": "0.0 %"
+    },
+    {
+      "entry": "CRACK effort=max",
+      "panel": "HarmBench-320 — full 2×2 (base vs CRACK, effort=off vs max), T=0 greedy",
+      "key": "bench:HarmBench-320 ASR %/chemical_biological",
+      "L": 63,
+      "raw": "100.0 %"
+    },
+    {
+      "entry": "CRACK effort=max",
+      "panel": "HarmBench-320 — full 2×2 (base vs CRACK, effort=off vs max), T=0 greedy",
+      "key": "bench:HarmBench-320 ASR %/copyright",
+      "L": 64,
+      "raw": "100.0 %"
+    },
+    {
+      "entry": "CRACK effort=max",
+      "panel": "HarmBench-320 — full 2×2 (base vs CRACK, effort=off vs max), T=0 greedy",
+      "key": "bench:HarmBench-320 ASR %/cybercrime_intrusion",
+      "L": 65,
+      "raw": "100.0 %"
+    },
+    {
+      "entry": "CRACK effort=max",
+      "panel": "HarmBench-320 — full 2×2 (base vs CRACK, effort=off vs max), T=0 greedy",
+      "key": "bench:HarmBench-320 ASR %/harassment_bullying",
+      "L": 66,
+      "raw": "100.0 %"
+    },
+    {
+      "entry": "CRACK effort=max",
+      "panel": "HarmBench-320 — full 2×2 (base vs CRACK, effort=off vs max), T=0 greedy",
+      "key": "bench:HarmBench-320 ASR %/harmful",
+      "L": 67,
+      "raw": "100.0 %"
+    },
+    {
+      "entry": "CRACK effort=max",
+      "panel": "HarmBench-320 — full 2×2 (base vs CRACK, effort=off vs max), T=0 greedy",
+      "key": "bench:HarmBench-320 ASR %/illegal",
+      "L": 68,
+      "raw": "100.0 %"
+    },
+    {
+      "entry": "CRACK effort=max",
+      "panel": "HarmBench-320 — full 2×2 (base vs CRACK, effort=off vs max), T=0 greedy",
+      "key": "bench:HarmBench-320 ASR %/misinformation_disinformation",
+      "L": 69,
+      "raw": "100.0 %"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/moral_scenarios",
+      "L": 89,
+      "raw": "76.9%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/professional_law",
+      "L": 90,
+      "raw": "75.9%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/abstract_algebra",
+      "L": 91,
+      "raw": "77.0%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/security_studies",
+      "L": 92,
+      "raw": "84.5%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_computer_science",
+      "L": 93,
+      "raw": "98.0%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/jurisprudence",
+      "L": 94,
+      "raw": "90.7%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/machine_learning",
+      "L": 95,
+      "raw": "81.2%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_chemistry",
+      "L": 96,
+      "raw": "87.7%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/professional_psychology",
+      "L": 97,
+      "raw": "90.7%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/formal_logic",
+      "L": 98,
+      "raw": "73.8%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/college_computer_science",
+      "L": 99,
+      "raw": "82.0%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/professional_medicine",
+      "L": 100,
+      "raw": "94.5%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_statistics",
+      "L": 101,
+      "raw": "88.0%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/professional_accounting",
+      "L": 102,
+      "raw": "83.0%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/logical_fallacies",
+      "L": 103,
+      "raw": "93.9%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/human_sexuality",
+      "L": 104,
+      "raw": "90.1%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/computer_security",
+      "L": 105,
+      "raw": "85.0%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/medical_genetics",
+      "L": 106,
+      "raw": "96.0%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/astronomy",
+      "L": 107,
+      "raw": "95.4%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/clinical_knowledge",
+      "L": 108,
+      "raw": "94.3%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_european_history",
+      "L": 109,
+      "raw": "90.3%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/public_relations",
+      "L": 110,
+      "raw": "80.0%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/philosophy",
+      "L": 111,
+      "raw": "89.7%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/prehistory",
+      "L": 112,
+      "raw": "93.5%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/moral_disputes",
+      "L": 113,
+      "raw": "84.1%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/electrical_engineering",
+      "L": 114,
+      "raw": "86.9%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_mathematics",
+      "L": 115,
+      "raw": "67.0%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_macroeconomics",
+      "L": 116,
+      "raw": "92.1%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/global_facts",
+      "L": 117,
+      "raw": "63.0%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/international_law",
+      "L": 118,
+      "raw": "90.1%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/college_biology",
+      "L": 119,
+      "raw": "97.2%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_physics",
+      "L": 120,
+      "raw": "84.8%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/college_medicine",
+      "L": 121,
+      "raw": "83.8%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_us_history",
+      "L": 122,
+      "raw": "95.1%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_microeconomics",
+      "L": 123,
+      "raw": "96.2%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/miscellaneous",
+      "L": 124,
+      "raw": "96.2%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_psychology",
+      "L": 125,
+      "raw": "96.1%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/business_ethics",
+      "L": 126,
+      "raw": "85.0%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/college_physics",
+      "L": 127,
+      "raw": "90.2%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/conceptual_physics",
+      "L": 128,
+      "raw": "94.5%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_biology",
+      "L": 129,
+      "raw": "95.2%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/human_aging",
+      "L": 130,
+      "raw": "85.2%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/management",
+      "L": 131,
+      "raw": "91.3%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/nutrition",
+      "L": 132,
+      "raw": "90.2%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/sociology",
+      "L": 133,
+      "raw": "94.5%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/us_foreign_policy",
+      "L": 134,
+      "raw": "97.0%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/world_religions",
+      "L": 135,
+      "raw": "92.4%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/elementary_mathematics",
+      "L": 136,
+      "raw": "91.0%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/marketing",
+      "L": 137,
+      "raw": "94.9%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/virology",
+      "L": 138,
+      "raw": "55.4%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_world_history",
+      "L": 139,
+      "raw": "95.4%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/econometrics",
+      "L": 140,
+      "raw": "78.9%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/college_chemistry",
+      "L": 141,
+      "raw": "65.0%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/anatomy",
+      "L": 142,
+      "raw": "88.1%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_geography",
+      "L": 143,
+      "raw": "92.9%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_government_and_politics",
+      "L": 144,
+      "raw": "96.9%"
+    },
+    {
+      "entry": "base",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/college_mathematics",
+      "L": 145,
+      "raw": "63.0%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/moral_scenarios",
+      "L": 89,
+      "raw": "37.0%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/professional_law",
+      "L": 90,
+      "raw": "68.8%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/abstract_algebra",
+      "L": 91,
+      "raw": "71.0%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/security_studies",
+      "L": 92,
+      "raw": "79.2%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_computer_science",
+      "L": 93,
+      "raw": "94.0%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/jurisprudence",
+      "L": 94,
+      "raw": "87.0%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/machine_learning",
+      "L": 95,
+      "raw": "77.7%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_chemistry",
+      "L": 96,
+      "raw": "84.2%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/professional_psychology",
+      "L": 97,
+      "raw": "87.3%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/formal_logic",
+      "L": 98,
+      "raw": "70.6%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/college_computer_science",
+      "L": 99,
+      "raw": "79.0%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/professional_medicine",
+      "L": 100,
+      "raw": "91.5%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_statistics",
+      "L": 101,
+      "raw": "85.2%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/professional_accounting",
+      "L": 102,
+      "raw": "80.5%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/logical_fallacies",
+      "L": 103,
+      "raw": "91.4%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/human_sexuality",
+      "L": 104,
+      "raw": "87.8%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/computer_security",
+      "L": 105,
+      "raw": "83.0%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/medical_genetics",
+      "L": 106,
+      "raw": "94.0%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/astronomy",
+      "L": 107,
+      "raw": "93.4%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/clinical_knowledge",
+      "L": 108,
+      "raw": "92.5%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_european_history",
+      "L": 109,
+      "raw": "88.5%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/public_relations",
+      "L": 110,
+      "raw": "78.2%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/philosophy",
+      "L": 111,
+      "raw": "88.1%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/prehistory",
+      "L": 112,
+      "raw": "92.0%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/moral_disputes",
+      "L": 113,
+      "raw": "82.7%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/electrical_engineering",
+      "L": 114,
+      "raw": "85.5%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_mathematics",
+      "L": 115,
+      "raw": "65.9%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_macroeconomics",
+      "L": 116,
+      "raw": "91.0%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/global_facts",
+      "L": 117,
+      "raw": "62.0%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/international_law",
+      "L": 118,
+      "raw": "89.3%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/college_biology",
+      "L": 119,
+      "raw": "96.5%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_physics",
+      "L": 120,
+      "raw": "84.1%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/college_medicine",
+      "L": 121,
+      "raw": "83.2%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_us_history",
+      "L": 122,
+      "raw": "94.6%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_microeconomics",
+      "L": 123,
+      "raw": "95.8%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/miscellaneous",
+      "L": 124,
+      "raw": "95.8%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_psychology",
+      "L": 125,
+      "raw": "95.8%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/business_ethics",
+      "L": 126,
+      "raw": "85.0%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/college_physics",
+      "L": 127,
+      "raw": "90.2%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/conceptual_physics",
+      "L": 128,
+      "raw": "94.5%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_biology",
+      "L": 129,
+      "raw": "95.2%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/human_aging",
+      "L": 130,
+      "raw": "85.2%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/management",
+      "L": 131,
+      "raw": "91.3%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/nutrition",
+      "L": 132,
+      "raw": "90.2%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/sociology",
+      "L": 133,
+      "raw": "94.5%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/us_foreign_policy",
+      "L": 134,
+      "raw": "97.0%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/world_religions",
+      "L": 135,
+      "raw": "92.4%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/elementary_mathematics",
+      "L": 136,
+      "raw": "91.3%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/marketing",
+      "L": 137,
+      "raw": "95.3%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/virology",
+      "L": 138,
+      "raw": "56.0%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_world_history",
+      "L": 139,
+      "raw": "96.2%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/econometrics",
+      "L": 140,
+      "raw": "79.8%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/college_chemistry",
+      "L": 141,
+      "raw": "66.0%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/anatomy",
+      "L": 142,
+      "raw": "89.6%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_geography",
+      "L": 143,
+      "raw": "94.4%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/high_school_government_and_politics",
+      "L": 144,
+      "raw": "98.4%"
+    },
+    {
+      "entry": "CRACK",
+      "panel": "MMLU-14k (full test set, base-logit, T=0)",
+      "key": "bench:MMLU-14k/college_mathematics",
+      "L": 145,
+      "raw": "68.0%"
+    }
+  ]
+}
