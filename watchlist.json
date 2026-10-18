@@ -1,7 +1,7 @@
 {
  "about": "Models the hourly scan keeps current. status: live = on the site, deltas every hour; queued = ingested one per 5-hour window, in this order. Source: OpenRouter and OpenCode weekly top 10 (open weights with Hub quants), 18 Oct 2026.",
  "min_hours_between_ingests": 5,
- "last_ingest_at": "2026-10-17T23:02:48.856976+00:00",
+ "last_ingest_at": "2026-10-18T09:18:18.547410+00:00",
  "models": [
   {
    "model": "Qwen/Qwen3.8-Flash-Next",
@@ -24,7 +24,7 @@
   {
    "model": "zai-org/GLM-5.3-Flash",
    "slug": "glm-5.3-flash",
-   "status": "ingesting",
+   "status": "live",
    "last_scan_at": "2026-10-18T07:13:19.000Z"
   },
   {
