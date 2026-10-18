@@ -161,14 +161,13 @@ if step == "a_mapped":
     if retry and s["map_rounds"] < 2:
         s["map_rounds"] += 1
         agents([MAP_PROMPT.format(code=CODE, slug=slug, run=r) for slug in retry for r in "AB"], s, "a_mapped")
-    code, d = scan("publish")
+    code, d = scan("stage " + " ".join(s.get("a_shards", {})))   # data checks only; the QA worker tests and deploys
     if code == 0:
-        s["part_a"]["published"] = d.get("progress_line")
-        s["part_a"]["git"] = push(f"Hourly scan {dt.datetime.utcnow():%Y-%m-%d %H:%M} UTC: " + str(d.get("progress_line", ""))[2:200], ". ':!scan.lock' ':!ingest.lock' ':!logs/scan' " + nonlive_excludes())
-        sh("gh api -X POST repos/delirious6423/quant-fidelity-frontier/actions/workflows/pages.yml/dispatches -f ref=main")
-        s["part_a"]["deploy"] = "dispatched"
+        s["part_a"]["staged"] = d.get("staged")
+        s["part_a"]["git"] = push(f"Live update {dt.datetime.utcnow():%Y-%m-%d %H:%M} UTC: " + ", ".join(f"{k} {v[0]} repos, {v[1]} values" for k, v in (d.get("staged") or {}).items()),
+                                  ". ':!scan.lock' ':!ingest.lock' ':!logs/scan' ':!PROGRESS.md' " + nonlive_excludes())
     else:
-        s["part_a"]["publish_failed"] = {"error": d.get("error"), "tail": str(d.get("tail", ""))[-600:]}
+        s["part_a"]["stage_failed"] = {"error": d.get("error"), "tail": str(d.get("tail", ""))[-600:]}
         git("git checkout -- models watchlist.json PROGRESS.md", "git clean -fdq models")
     s["step"] = "b_start"; save(s); step = "b_start"
 
@@ -237,15 +236,13 @@ if step == "b_finish":
         if pend and s["b_retries"] <= 2 and minutes() < 40:   # maps that failed the check go back to workers once or twice
             agents([MAP_PROMPT.format(code=CODE, slug=slug, run=r) for r in sorted({p[0] for p in pend})], s, "b_mapped")
         finish_run(s, f"finish: {d.get('error')}; the next run re-queues")
-    code, d = scan(f"publish --ingested {slug}")
+    code, d = scan(f"stage --review {slug}")   # complete: hand it to the QA worker, which tests it and puts it live
     if code == 0:
-        s["part_b"]["live"] = d.get("progress_line")
-        s["part_b"]["git"] = push(f"Hourly scan {dt.datetime.utcnow():%Y-%m-%d %H:%M} UTC: ingested {slug}", f"models/{slug} watchlist.json PROGRESS.md")
-        sh("gh api -X POST repos/delirious6423/quant-fidelity-frontier/actions/workflows/pages.yml/dispatches -f ref=main")
-        s["part_b"]["deploy"] = "dispatched"; s["b_progress"] = False
-        finish_run(s)
-    s["part_b"]["publish_failed"] = {"error": d.get("error"), "tail": str(d.get("tail", ""))[-600:]}
+        s["part_b"]["review"] = d.get("staged"); s["b_progress"] = False
+        s["part_b"]["git"] = push(f"New model ready for QA: {slug}", f"models/{slug} watchlist.json logs/scan")
+        finish_run(s, f"{slug} is complete and waits for the QA worker")
+    s["part_b"]["stage_failed"] = {"error": d.get("error"), "tail": str(d.get("tail", ""))[-600:]}
     git("git checkout -- PROGRESS.md"); s["b_progress"] = True
-    finish_run(s, "new model built but failed a test; it stays unpublished")
+    finish_run(s, "new model failed a data check; it stays unpublished")
 
-finish_run(s)
+finish_run(s)   # any other state: end the run cleanly

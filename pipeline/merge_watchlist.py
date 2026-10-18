@@ -3,7 +3,7 @@
 
   git config merge.wljson.driver "python3 pipeline/merge_watchlist.py %O %A %B"   # .gitattributes: watchlist.json merge=wljson
 
-Per model: the furthest status wins (live > ingesting > queued), and the latest last_scan_at; last_ingest_at is the
+Per model: the furthest status wins (live > review > ingesting > queued), and the latest last_scan_at; last_ingest_at is the
 latest of both. Other fields come from ours (%A), with theirs filling gaps. Writes the result to %A."""
 import json, sys
 O, A, B = sys.argv[1:4]
@@ -12,7 +12,7 @@ def ld(p):
     except Exception: return None
 a, b = ld(A), ld(B)
 if a is None or b is None: sys.exit(1)          # not valid JSON on one side: let git report a conflict
-RANK = {"queued": 0, "ingesting": 1, "live": 2}
+RANK = {"queued": 0, "ingesting": 1, "review": 2, "live": 3}
 bm = {m["slug"]: m for m in b.get("models", [])}
 out = []
 for m in a.get("models", []):

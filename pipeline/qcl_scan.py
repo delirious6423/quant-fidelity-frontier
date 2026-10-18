@@ -70,8 +70,8 @@ elif cmd == "unlock":
         recs = [json.loads(l) for l in open(LOG) if l.strip()]
         live = {m["slug"] for m in wl()["models"] if m["status"] == "live"}   # Part B (ingest) catalogues publish only when the model is done
         last_cat = max((i for i, r in enumerate(recs) if r["cmd"].startswith("catalogue") and r.get("shards") and r["cmd"].split()[-1] in live), default=-1)
-        if last_cat >= 0 and not any(r["cmd"].startswith("publish") for r in recs[last_cat:]):
-            print(json.dumps({"error": "cards were fetched this run but publish was not run; run `qcl_scan.py publish` now (or `unlock --discard` after discarding the changes)"})); sys.exit(1)
+        if last_cat >= 0 and not any(r["cmd"].startswith(("publish", "stage")) for r in recs[last_cat:]):
+            print(json.dumps({"error": "cards were fetched this run but stage/publish was not run; run `qcl_scan.py publish` now (or `unlock --discard` after discarding the changes)"})); sys.exit(1)
     if os.path.exists(LOCK): os.remove(LOCK)
     for f in glob.glob(f"{CODE}/logs/scan/*Z{TAG}-partial.jsonl"):   # superseded by the full log below
         os.remove(f)
@@ -179,13 +179,29 @@ elif cmd == "finish":
     mg = run("python3 pipeline/qcl_watch.py merge", e).stdout.strip().splitlines()[-1]
     run("python3 pipeline/gen_auto.py", e)
     out({"merge": mg})
+elif cmd == "stage":
+    # the scans' check before they commit data (the QA worker runs the full tests and deploys): each model's build.py,
+    # which runs every source/column gate and the sign/plausibility checks, fail-closed. --review SLUG: a finished new
+    # model waits for QA (status "review"); the 5-hour ingest clock starts now.
+    slugs = [a for a in sys.argv[2:] if not a.startswith("--")]
+    rev = sys.argv[sys.argv.index("--review") + 1] if "--review" in sys.argv else None
+    if rev and rev not in slugs: slugs.append(rev)
+    stats = {}
+    for slug in slugs:
+        p = run("python3 build.py", env(slug)); stats[slug] = json.loads(p.stdout.strip().splitlines()[-1].split(" | ")[0])
+    if rev:
+        w = wl()
+        for m in w["models"]:
+            if m["slug"] == rev: m["status"] = "review"
+        w["last_ingest_at"] = now.isoformat(); json.dump(w, open(WL, "w"), indent=1)
+    out({"staged": {k: [v["repos"], v["values"]] for k, v in stats.items()}, "review": rev})
 elif cmd == "publish":
     ing = sys.argv[sys.argv.index("--ingested") + 1] if "--ingested" in sys.argv else None
     if ing:   # the new model must build and pass its UI tests before it goes live
         run(f"python3 build.py", env(ing)); run(f"python3 tests/test_ui.py", {"QCL_SITE": f"models/{ing}/site"})
         w = wl()
         for m in w["models"]:
-            if m["slug"] == ing: m["status"] = "live"   # from queued or ingesting
+            if m["slug"] == ing: m["status"] = "live"   # from queued, ingesting or review
         w["last_ingest_at"] = now.isoformat(); json.dump(w, open(WL, "w"), indent=1)
     stats = {}
     for mj in sorted(glob.glob(f"{CODE}/models/*/model.json")):
