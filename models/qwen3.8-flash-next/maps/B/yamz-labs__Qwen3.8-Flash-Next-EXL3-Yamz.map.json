@@ -1,0 +1,42 @@
+{
+  "repo": "yamz-labs/Qwen3.8-Flash-Next-EXL3-Yamz",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "official FP8 release", "dataset": "public neutral texts", "ctx": "not stated", "tool": "one shared scorer for all engines", "L": [21, 79]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "Kyojin (this pack)",
+      "metrics": {"mean_kld": "c3", "top1_pct": "c2"},
+      "size": "c1",
+      "unit": "GB",
+      "basis": null,
+      "bpw": null,
+      "flags": ["KL run-to-run has no metric key [L83]", "uncensor preset results not mapped, optional runtime preset [L89]", "pack size basis not stated [L83]"]
+    },
+    {
+      "role": "cross",
+      "name": "Strata v0.1.40",
+      "of": "not named on card",
+      "metrics": {"top1_pct": "c6", "mean_kld": "c7"},
+      "size": "c5",
+      "unit": "GB",
+      "basis": null,
+      "bpw": null,
+      "flags": ["rival GGUF pack built from BF16 weights [L79]", "rival engine patched to write top-20 log-probabilities for the shared scorer [L79]"]
+    },
+    {
+      "role": "cross",
+      "name": "Gufo v0.8.0",
+      "of": "not named on card",
+      "metrics": {"top1_pct": "c10", "mean_kld": "c11"},
+      "size": "c9",
+      "unit": "GB",
+      "basis": null,
+      "bpw": null,
+      "flags": ["rival GGUF pack built from BF16 weights [L79]", "rival engine patched to write top-20 log-probabilities for the shared scorer [L79]"]
+    }
+  ],
+  "prose": []
+}

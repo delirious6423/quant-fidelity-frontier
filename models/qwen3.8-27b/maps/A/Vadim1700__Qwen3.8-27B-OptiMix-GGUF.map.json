@@ -1,0 +1,55 @@
+{
+  "repo": "Vadim1700/Qwen3.8-27B-OptiMix-GGUF",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "not stated", "dataset": "wikitext-2", "ctx": "2048", "tool": "not stated", "L": [51]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "OptiMix",
+      "metrics": {"ppl:wikitext": "c9"},
+      "size": "c8",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "bpw of 4.03 is stated in prose [L17] with no candidate id, so it is not recorded",
+        "multiple-choice scores [L60-61] not mapped: the card does not say which builds 'same tasks for both' compares"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Q3_K_M (requantized from Q4_K_M)",
+      "metrics": {"ppl:wikitext": "c11"},
+      "size": "c10",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": []
+    },
+    {
+      "role": "cross",
+      "name": "Q4_K_M (ggml-org)",
+      "of": "not named on card",
+      "metrics": {"ppl:wikitext": "c5"},
+      "size": "c4",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["row label names publisher ggml-org only [L55]"]
+    },
+    {
+      "role": "cross",
+      "name": "UD-IQ4_XS (unsloth)",
+      "of": "not named on card",
+      "metrics": {"ppl:wikitext": "c7"},
+      "size": "c6",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["row label names publisher unsloth only [L56]"]
+    }
+  ],
+  "prose": []
+}

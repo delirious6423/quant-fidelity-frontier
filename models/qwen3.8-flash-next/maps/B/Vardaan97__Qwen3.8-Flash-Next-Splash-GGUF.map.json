@@ -1,0 +1,53 @@
+{
+  "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "AtomicChat BF16 logits", "dataset": "held-out multilingual prose text", "ctx": "fixed-length chunks", "tool": "GGUF reference perplexity and KL tool, Metal backend", "L": [59, 117, 119, 122]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "Balanced-PLE8",
+      "metrics": {"mean_kld": "c5", "top1_pct": "c6", "ppl_ratio": "c105.0"},
+      "size": "c2",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c40",
+      "flags": ["99.9 percent KLD has no metric key [L42]", "harness differs from the reference, absolute values not comparable, rankings hold [L136-L137]", "single prose text set [L142]"]
+    },
+    {
+      "role": "own",
+      "name": "Balanced-PLE4",
+      "metrics": {"mean_kld": "c13", "top1_pct": "c14"},
+      "size": "c10",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c40",
+      "flags": ["99.9 percent KLD has no metric key [L43]", "harness differs from the reference, absolute values not comparable, rankings hold [L136-L137]", "single prose text set [L142]"]
+    },
+    {
+      "role": "own",
+      "name": "Quality-PLE4",
+      "metrics": {"mean_kld": "c21", "top1_pct": "c22"},
+      "size": "c18",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c39",
+      "flags": ["99.9 percent KLD has no metric key [L44]", "harness differs from the reference, absolute values not comparable, rankings hold [L136-L137]", "single prose text set [L142]"]
+    },
+    {
+      "role": "cross",
+      "name": "UD-Q4_K_XL (unsloth), for reference",
+      "of": "not named on card",
+      "metrics": {"mean_kld": "c29", "top1_pct": "c30"},
+      "size": "c26",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["measured by the card author the same way [L33]", "99.9 percent KLD has no metric key [L45]", "harness differs from the reference, rankings hold [L136-L137]"]
+    }
+  ],
+  "prose": [
+    {"entry": "Balanced-PLE4", "key": "ppl_ratio", "L": 134, "raw": "1.0009"}
+  ]
+}

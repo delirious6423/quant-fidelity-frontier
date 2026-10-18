@@ -1,0 +1,41 @@
+{
+  "repo": "Cyronius/Qwen3.8-Flash-Next-131B-A6B-GGUF",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {"reference": "unmodified base quant", "dataset": "agentic tool-calling cases, GSM8K subset, MMLU subset, wikitext-2 test", "ctx": "short context as stated", "tool": "llama.cpp CUDA build, temperature zero", "L": [45, 79, 80]},
+  "entries": [
+    {
+      "role": "cross",
+      "name": "base UD-Q3_K_XL",
+      "of": "unsloth/Qwen3.8-Flash-Next-GGUF",
+      "metrics": {"bench:tools": "c14", "bench:GSM8K": "c15", "bench:MMLU": "c16", "ppl:wikitext": "c17"},
+      "size": "c13",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["comparison row measured by the card author on the same build [L45]", "tool-accuracy run-to-run band stated [L53]"]
+    },
+    {
+      "role": "own",
+      "name": "this model (2/16 heads)",
+      "metrics": {"bench:tools": "c19", "bench:MMLU": "c20", "ppl:wikitext": "c21"},
+      "size": "c18",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["n-gram table cut, weights modified [L20]", "GSM8K cell for this row has no candidate id [L50]", "wikitext perplexity above base [L79]", "benchmarks are small in-house sets [L80]", "Q4_0 variant unbenchmarked, not mapped [L41]", "layer-removal runs omitted, different model [L55]"]
+    },
+    {
+      "role": "ladder",
+      "name": "table fully deleted (0/16)",
+      "metrics": {"bench:tools": "c23", "bench:GSM8K": "c24", "bench:MMLU": "c25", "ppl:wikitext": "c26"},
+      "size": "c22",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["comparison build with the whole table removed, not the shipped build [L51]"]
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,26 @@
+{
+ "repo": "Tylogi/Qwen3.8-Flash-Next-EW-MFQ",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "reference model (not named in the table)", "dataset": "WikiText-2 evaluation", "ctx": "not stated", "tool": "not stated", "L": [166, 167]},
+ "entries": [
+  {"role": "own", "name": "MFQ · EW V1-S", "metrics": {"kld:wikitext": "c2", "top1:wikitext": "c3"}, "size": "c1", "unit": "GB", "basis": "text_weights", "bpw": null, "flags": ["weight sizes exclude vision encoder and MTP head [L188]"]},
+  {"role": "own", "name": "MFQ · EW V1-M", "metrics": {"kld:wikitext": "c5", "top1:wikitext": "c6"}, "size": "c4", "unit": "GB", "basis": "text_weights", "bpw": null, "flags": ["weight sizes exclude vision encoder and MTP head [L188]"]},
+  {"role": "own", "name": "MFQ · EW S2-L", "metrics": {"kld:wikitext": "c8", "top1:wikitext": "c9"}, "size": "c7", "unit": "GB", "basis": "text_weights", "bpw": null, "flags": ["weight sizes exclude vision encoder and MTP head [L188]"]},
+  {"role": "own", "name": "MFQ · EW V3-XXS", "metrics": {"kld:wikitext": "c11", "top1:wikitext": "c12"}, "size": "c10", "unit": "GB", "basis": "text_weights", "bpw": null, "flags": ["weight sizes exclude vision encoder and MTP head [L188]"]},
+  {"role": "own", "name": "MFQ · EW S3-L", "metrics": {"kld:wikitext": "c14", "top1:wikitext": "c15"}, "size": "c13", "unit": "GB", "basis": "text_weights", "bpw": null, "flags": ["weight sizes exclude vision encoder and MTP head [L188]"]},
+  {"role": "own", "name": "MFQ · EW V4-XS", "metrics": {"kld:wikitext": "c17", "top1:wikitext": "c18"}, "size": "c16", "unit": "GB", "basis": "text_weights", "bpw": null, "flags": ["weight sizes exclude vision encoder and MTP head [L188]"]},
+  {"role": "quoted", "of": "not named on card", "name": "Unsloth UD IQ1_S", "metrics": {"kld:wikitext": "c21", "top1:wikitext": "c22"}, "size": "c20", "unit": "GB", "basis": "text_weights", "bpw": null, "flags": ["competitor row in WikiText table [L177]", "role inferred; card's Benchmark sources section not read [L371]"]},
+  {"role": "quoted", "of": "not named on card", "name": "Unsloth UD IQ1_M", "metrics": {"kld:wikitext": "c25", "top1:wikitext": "c26"}, "size": "c24", "unit": "GB", "basis": "text_weights", "bpw": null, "flags": ["competitor row in WikiText table [L178]", "role inferred; card's Benchmark sources section not read [L371]"]},
+  {"role": "quoted", "of": "not named on card", "name": "Unsloth UD Q2_K_XL", "metrics": {"kld:wikitext": "c29", "top1:wikitext": "c30"}, "size": "c28", "unit": "GB", "basis": "text_weights", "bpw": null, "flags": ["competitor row in WikiText table [L179]", "role inferred; card's Benchmark sources section not read [L371]"]},
+  {"role": "quoted", "of": "not named on card", "name": "Unsloth UD IQ3_XXS", "metrics": {"kld:wikitext": "c32", "top1:wikitext": "c33"}, "size": "c31", "unit": "GB", "basis": "text_weights", "bpw": null, "flags": ["competitor row in WikiText table [L180]", "role inferred; card's Benchmark sources section not read [L371]"]},
+  {"role": "quoted", "of": "not named on card", "name": "Unsloth UD Q3_K_XL", "metrics": {"kld:wikitext": "c36", "top1:wikitext": "c37"}, "size": "c35", "unit": "GB", "basis": "text_weights", "bpw": null, "flags": ["competitor row in WikiText table [L181]", "role inferred; card's Benchmark sources section not read [L371]"]},
+  {"role": "quoted", "of": "not named on card", "name": "Unsloth UD IQ4_XS", "metrics": {"kld:wikitext": "c40", "top1:wikitext": "c41"}, "size": "c39", "unit": "GB", "basis": "text_weights", "bpw": null, "flags": ["competitor row in WikiText table [L182]", "role inferred; card's Benchmark sources section not read [L371]"]},
+  {"role": "quoted", "of": "not named on card", "name": "GSQ-RCO Q2_0", "metrics": {"kld:wikitext": "c44", "top1:wikitext": "c45"}, "size": "c43", "unit": "GB", "basis": "text_weights", "bpw": null, "flags": ["competitor row in WikiText table [L183]", "role inferred; card's Benchmark sources section not read [L371]"]},
+  {"role": "quoted", "of": "not named on card", "name": "GSQ-RCO IQ2_XS", "metrics": {"kld:wikitext": "c48", "top1:wikitext": "c49"}, "size": "c47", "unit": "GB", "basis": "text_weights", "bpw": null, "flags": ["competitor row in WikiText table [L184]", "role inferred; card's Benchmark sources section not read [L371]"]},
+  {"role": "quoted", "of": "not named on card", "name": "GSQ-RCO IQ3_XXS", "metrics": {"kld:wikitext": "c51", "top1:wikitext": "c52"}, "size": "c50", "unit": "GB", "basis": "text_weights", "bpw": null, "flags": ["competitor row in WikiText table [L185]", "role inferred; card's Benchmark sources section not read [L371]"]},
+  {"role": "quoted", "of": "not named on card", "name": "GSQ-RCO IQ3_S", "metrics": {"kld:wikitext": "c55", "top1:wikitext": "c56"}, "size": "c54", "unit": "GB", "basis": "text_weights", "bpw": null, "flags": ["competitor row in WikiText table [L186]", "role inferred; card's Benchmark sources section not read [L371]"]}
+ ],
+ "prose": []
+}

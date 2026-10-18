@@ -1,0 +1,19 @@
+{"repo": "ayamada/qwen3.8-27b-mlx-nvfp4-text-only",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "mlx-community/Qwen3.8-27B-nvfp4 (text part)", "dataset": "~5.1k tokens of English and Japanese prose", "ctx": "512-token non-overlapping windows", "tool": "not stated", "L": [74, 75]},
+ "entries": [
+   {"role": "own",
+    "name": "qwen3.8-27b-mlx-nvfp4-text-only",
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["[L74-85] perplexity values are not in the candidate list or digest; not mapped",
+              "[L19] ~15.1 GB of weights is stated in prose with no table row; size left null",
+              "[L41-42] vision tensors and vision_config removed (pruned weights)"]}
+ ],
+ "prose": []
+}

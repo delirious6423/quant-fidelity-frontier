@@ -1,0 +1,16 @@
+{
+ "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "AtomicChat BF16 reference logits", "dataset": "AtomicChat held-out multilingual prose text", "ctx": "fixed-length chunks", "tool": "GGUF reference perplexity/KL-divergence tool, Metal backend", "L": [117, 118, 119, 121, 122]},
+ "entries": [
+  {"role": "own", "name": "Balanced-PLE8", "metrics": {"mean_kld": "c5", "top1_pct": "c6", "kld_99": "c7", "ppl_ratio": "c105.0"}, "size": "c2", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["download of all parts [L42]", "99.9 % KLD column [L42]", "perplexity ratio [L134]"]},
+  {"role": "own", "name": "Balanced-PLE4", "metrics": {"mean_kld": "c13", "top1_pct": "c14", "kld_99": "c15"}, "size": "c10", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["download of all parts [L43]", "99.9 % KLD column [L43]"]},
+  {"role": "own", "name": "Quality-PLE4", "metrics": {"mean_kld": "c21", "top1_pct": "c22", "kld_99": "c23"}, "size": "c18", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["download of all parts [L44]", "99.9 % KLD column [L44]", "speed not timed with the card protocol [L44]"]},
+  {"role": "cross", "of": "not named on card", "name": "UD-Q4_K_XL (unsloth)", "metrics": {"mean_kld": "c29", "top1_pct": "c30", "kld_99": "c31"}, "size": "c26", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["for reference, measured the same way [L33]", "99.9 % KLD column [L45]"]}
+ ],
+ "prose": [
+  {"entry": "Balanced-PLE4", "key": "ppl_ratio", "L": 134, "raw": "1.0009"}
+ ]
+}

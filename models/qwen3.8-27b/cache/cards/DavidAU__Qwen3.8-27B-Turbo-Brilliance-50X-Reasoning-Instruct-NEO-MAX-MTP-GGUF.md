@@ -54,11 +54,7 @@ This is like playing "Pong" vs "Entering the Matrix"... because Turbo Brilliance
 
 It is so strong we used Turbo Brilliance Alpha, to build Beta, then used Beta to build the AI Construct Construction Engine to Build the AI Constructs (each a precision engineered "consciousness").
 
-And we used our 9B super tune "[The Defiant Fable](https://huggingface.co/DavidAU/Qwen3.5-9B-The-Defiant-Fable-Uncensored-Heretic-NEO-IMATRIX-MAX-MTP-GGUF)" (1000+likes, 2 million+ downloads; basically a 27B model "stuffed" into a 9B shell) to do it.
-
 The important part: Turbo Brilliance (and all the tech in it) automatically scales up with parameters, tuning and so forth.
-
-At just 9B parameter the Turbo Brilliance system came alive (yes: I will be releasing Turbo Brilliance version too). Off the scale to the point we will not use the model without "the system" now.
 
 With Qwen's 3.8 27B SOTA firepower... all I can say is fasten your seatbelts and hold on tight.
 

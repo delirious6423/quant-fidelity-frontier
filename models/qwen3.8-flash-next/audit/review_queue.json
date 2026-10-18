@@ -1,0 +1,86 @@
+{
+ "quarantined": [
+  {
+   "repo": "spectator2026/Qwen3.8-Flash-Next-W6-INT8-HQQ-g32",
+   "kind": "ladder",
+   "entry": "previous release (int6 experts, BF16 dense)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "spectator2026/Qwen3.8-Flash-Next-W6-INT8-HQQ-g32",
+   "kind": "variants",
+   "entry": "this release (int6 experts + int8 dense)",
+   "reason": "failed a gate"
+  }
+ ],
+ "disagreements": [
+  {
+   "repo": "Cyronius/Qwen3.8-Flash-Next-131B-A6B-GGUF",
+   "entry": "table fully deleted (0/16)",
+   "key": "bench:tools",
+   "raw": ".975"
+  },
+  {
+   "repo": "Cyronius/Qwen3.8-Flash-Next-131B-A6B-GGUF",
+   "entry": "table fully deleted (0/16)",
+   "key": "bench:GSM8K",
+   "raw": "1.000"
+  },
+  {
+   "repo": "Cyronius/Qwen3.8-Flash-Next-131B-A6B-GGUF",
+   "entry": "table fully deleted (0/16)",
+   "key": "bench:MMLU",
+   "raw": ".767"
+  },
+  {
+   "repo": "Cyronius/Qwen3.8-Flash-Next-131B-A6B-GGUF",
+   "entry": "table fully deleted (0/16)",
+   "key": "ppl:wikitext",
+   "raw": "4.80"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "kld_99",
+   "raw": "0.522"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "kld_99",
+   "raw": "0.594"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "kld_99",
+   "raw": "0.600"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "UD-Q4_K_XL (unsloth)",
+   "key": "kld_99",
+   "raw": "0.833"
+  },
+  {
+   "repo": "infosave/Qwen3.8-Flash-Next-cmf",
+   "entry": "qwen38-flash-next-q2tp-v2.cmf",
+   "key": "ppl:wikitext",
+   "raw": "6.06"
+  },
+  {
+   "repo": "infosave/Qwen3.8-Flash-Next-cmf",
+   "entry": "qwen38-flash-next-q2tp-v2.cmf",
+   "key": "ppl:rust-wide",
+   "raw": "5.58"
+  },
+  {
+   "repo": "infosave/Qwen3.8-Flash-Next-cmf",
+   "entry": "qwen38-flash-next-q4tp.cmf",
+   "key": "ppl:wikitext",
+   "raw": "5.43"
+  }
+ ],
+ "resolved_disagreements": [],
+ "resolved_repos": 0
+}

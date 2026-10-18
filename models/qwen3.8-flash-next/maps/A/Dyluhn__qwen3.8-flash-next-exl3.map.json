@@ -1,0 +1,13 @@
+{
+ "repo": "Dyluhn/qwen3.8-flash-next-exl3",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 model, full-vocabulary log-probabilities", "dataset": "ref64, stratified documents (code, niche, prose, math, multilingual, agent, long)", "ctx": "not stated", "tool": "radiance KL mode", "L": [34, 36]},
+ "entries": [
+  {"role": "own", "name": "this container (EXL3 experts)", "metrics": {"mean_kld": "c3", "top1_pct": "c5", "ppl": "c7"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["ppl cell also gives the ratio to bf16 [L44]", "shipped-kernel re-score at tp2 [L49]"]},
+  {"role": "cross", "of": "StillDeadcode/qwen3.8-next-flash-fp8-iq4r-moe", "name": "baseline container (fp8 / iq4 experts)", "metrics": {"mean_kld": "c2", "top1_pct": "c4", "ppl": "c6"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["scored with the same flags and session as this container [L37-L38]", "ppl cell also gives the ratio to bf16 [L44]"]},
+  {"role": "own", "name": "qwen3.8-flash-next-exl3.rad", "metrics": {}, "size": "c1", "unit": "bytes", "basis": "disk", "bpw": null, "flags": ["file size in the files table [L30]"]}
+ ],
+ "prose": []
+}

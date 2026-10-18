@@ -1,0 +1,14 @@
+{
+ "repo": "Cyronius/Qwen3.8-Flash-Next-131B-A6B-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "tool-calling cases, GSM8K and MMLU subsets, wikitext-2 test", "ctx": "small in-house set, short context", "tool": "llama.cpp, one build for all rows", "L": [45, 80]},
+ "entries": [
+  {"role": "cross", "of": "unsloth/Qwen3.8-Flash-Next-GGUF", "name": "base UD-Q3_K_XL", "metrics": {"bench:tools": "c14", "bench:GSM8K": "c15", "bench:MMLU": "c16", "ppl:wikitext": "c17"}, "size": "c13", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["same llama.cpp build and settings as the other rows [L45]"]},
+  {"role": "own", "name": "this model (2/16 heads)", "metrics": {"bench:tools": "c19", "bench:MMLU": "c20", "ppl:wikitext": "c21"}, "size": "c18", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["GSM8K value in this row not among mapped candidates [L50]", "layer-removal cuts are other models and omitted [L55]"]},
+  {"role": "own", "name": "table fully deleted (0/16)", "metrics": {"bench:tools": "c23", "bench:GSM8K": "c24", "bench:MMLU": "c25", "ppl:wikitext": "c26"}, "size": "c22", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["n-gram table fully removed [L51]"]},
+  {"role": "own", "name": "qwen38-keep1-Q4_0.gguf", "metrics": {}, "size": "c10", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["not benchmarked by the card [L41]"]}
+ ],
+ "prose": []
+}

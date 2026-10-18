@@ -1,0 +1,47 @@
+{
+  "repo": "infosave/Qwen3.8-Flash-Next-cmf",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "not stated", "dataset": "Rust source code and WikiText-2 test text", "ctx": "chunked windows as stated", "tool": "cortiq", "L": [70, 71, 75, 76]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "qwen38-flash-next-q2tp-v2.cmf",
+      "metrics": {"ppl:rust_code": "c2"},
+      "size": "c1",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["code ppl on a short Rust set [L71]", "wider-set perplexities given in prose [L76]"]
+    },
+    {
+      "role": "own",
+      "name": "qwen38-flash-next-q2tp.cmf",
+      "metrics": {"ppl:rust_code": "c4"},
+      "size": "c3",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["code ppl on a short Rust set [L71]", "wider-set perplexities given in prose [L76]"]
+    },
+    {
+      "role": "own",
+      "name": "qwen38-flash-next-q4tp.cmf",
+      "metrics": {"ppl:rust_code": "c6"},
+      "size": "c5",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["code ppl on a short Rust set [L71]", "wider-set perplexities given in prose [L76]"]
+    }
+  ],
+  "prose": [
+    {"entry": "qwen38-flash-next-q2tp-v2.cmf", "key": "ppl:wikitext_wide", "L": 76, "raw": "WikiText-2 12×512 6.06"},
+    {"entry": "qwen38-flash-next-q2tp.cmf", "key": "ppl:wikitext_wide", "L": 76, "raw": "7.36"},
+    {"entry": "qwen38-flash-next-q4tp.cmf", "key": "ppl:wikitext_wide", "L": 76, "raw": "5.43; Rust"},
+    {"entry": "qwen38-flash-next-q2tp-v2.cmf", "key": "ppl:rust_wide", "L": 76, "raw": "Rust source 32×512 5.58"},
+    {"entry": "qwen38-flash-next-q2tp.cmf", "key": "ppl:rust_wide", "L": 76, "raw": "/ 5.43 /"},
+    {"entry": "qwen38-flash-next-q4tp.cmf", "key": "ppl:rust_wide", "L": 279, "raw": "4.98"}
+  ]
+}

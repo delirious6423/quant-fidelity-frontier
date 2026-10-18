@@ -1,0 +1,12 @@
+{
+ "repo": "spectator2026/Qwen3.8-Flash-Next-W6-INT8-HQQ-g32",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 model", "dataset": "wikitext and agentic multi-turn conversations", "ctx": "not stated", "tool": "vLLM as served (fp8 KV)", "L": [119]},
+ "entries": [
+  {"role": "own", "name": "this release (int6 experts + int8 dense)", "metrics": {"kld:wikitext": "c13", "kld:agentic-multiturn": "c14"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["mean KL as served with fp8 KV [L119]"]},
+  {"role": "ladder", "name": "previous release (int6 experts, BF16 dense)", "metrics": {"kld:wikitext": "c15", "kld:agentic-multiturn": "c16"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["same image for both rows [L119]"]}
+ ],
+ "prose": []
+}

@@ -1,0 +1,23 @@
+{
+  "repo": "ayamada/qwen3.8-27b-mlx-nvfp4-text-only",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {"reference": "mlx-community/Qwen3.8-27B-nvfp4 (text part)", "dataset": "English and Japanese prose, about 5.1k tokens", "ctx": "non-overlapping 512-token windows", "tool": "not stated", "L": [74, 75]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "qwen3.8-27b-mlx-nvfp4-text-only",
+      "metrics": {},
+      "size": "c1",
+      "unit": "GB",
+      "basis": "text_weights",
+      "bpw": null,
+      "flags": [
+        "vision tower tensors and vision config removed [L41-42] and MTP head removed [L18]: pruned, so weights_modified is true",
+        "quality section [L72-75] states a perplexity comparison, but its table [L76-85] is absent from the digest and candidate list, so no value is mapped; needs a recheck against the full card"
+      ]
+    }
+  ],
+  "prose": []
+}

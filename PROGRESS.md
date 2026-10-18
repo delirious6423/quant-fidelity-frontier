@@ -39,3 +39,4 @@
 - Remaining account/deployment actions and exact metadata command: `docs/DISCOVERY.md`. No indexing, traffic growth or connector listing is claimed.
 - Review finding: all 1,341 27B claim rows currently use mutable `main` source refs; the new export exposes `source_revision_pinned` and explains the limitation. No source records were changed.
 - Validation: both model builds; gate and claim suites; MCP 15/15; discovery 7 canonical pages and 2,444 exact exported claims. Browser tests require stubbing external HTTPS resources in this environment because resource fetches return ERR_EMPTY_RESPONSE.
+- 2026-10-18 09:14 UTC hourly scan: deepseek-v4.1-flash 133 repos, 1121 values; qwen3.8-27b 1225 repos, 4701 values; qwen3.8-flash-next 459 repos, 2983 values

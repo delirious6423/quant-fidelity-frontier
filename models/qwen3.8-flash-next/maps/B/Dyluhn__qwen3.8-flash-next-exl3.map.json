@@ -1,0 +1,31 @@
+{
+  "repo": "Dyluhn/qwen3.8-flash-next-exl3",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "bf16 model full-vocabulary log-probabilities", "dataset": "ref64 stratified mix of code, niche topics, prose, math, multilingual text, agent traces and one long document", "ctx": "not stated", "tool": "radiance KL mode", "L": [34, 35, 36]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "this container (EXL3 experts)",
+      "metrics": {"mean_kld": "c3", "top1_pct": "c5", "ppl": "c7"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["shipped-kernel re-score gives top-1 with a finer value in prose [L49]", "quality holds on other radiance builds per card [L51]", "expert bits-per-weight stated in prose only [L19]", "perplexity corpus not stated [L44]"]
+    },
+    {
+      "role": "cross",
+      "name": "baseline container (fp8 / iq4 experts)",
+      "of": "StillDeadcode/qwen3.8-next-flash-fp8-iq4r-moe",
+      "metrics": {"mean_kld": "c2", "top1_pct": "c4", "ppl": "c6"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["scored in the same session, flags and reference as this container [L37]", "perplexity corpus not stated [L44]"]
+    }
+  ],
+  "prose": []
+}

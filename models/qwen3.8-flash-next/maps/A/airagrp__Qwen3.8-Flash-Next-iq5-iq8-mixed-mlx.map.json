@@ -1,0 +1,13 @@
+{
+ "repo": "airagrp/Qwen3.8-Flash-Next-iq5-iq8-mixed-mlx",
+ "no_quality_claims": true,
+ "no_claims_reason": "speed and memory figures only [L62-L64, L86]",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "omlx", "L": [56]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-Flash-Next-iq5-iq8-mixed-mlx", "metrics": {}, "size": "c20", "unit": "GB", "basis": "resident", "bpw": null, "flags": ["full-model footprint, resident load [L86]"]},
+  {"role": "own", "name": "resident with n-gram table SSD-offloaded", "metrics": {}, "size": "c17", "unit": "GB", "basis": "resident", "bpw": null, "flags": ["n-gram table on SSD [L86]"]},
+  {"role": "own", "name": "n-gram table", "metrics": {}, "size": "c15", "unit": "GiB", "basis": "engram_only", "bpw": null, "flags": ["n-gram table size [L86]"]}
+ ],
+ "prose": []
+}
