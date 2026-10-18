@@ -129,10 +129,12 @@ def build_failing(entries):
         try: t = ast.literal_eval(l)
         except Exception: continue
         if not (isinstance(t, tuple) and len(t) >= 2): continue
-        rp, nm = str(t[0]), str(t[1])
+        rp, nm = str(t[0]), str(t[1]); raw = str(t[3]) if len(t) >= 4 else None
         for k in ("variants", "ladder", "cross"):
             for e in entries.get(rp, {}).get(k, []):
-                if str(e.get("name") or e.get("variant")) == nm: bad.add((rp, k, nm))
+                en = str(e.get("name") or e.get("variant"))
+                # by name, or by the offending raw string (the build may show a row under a different variant label)
+                if en == nm or (raw and raw in [str(v) for v in (e.get("m") or {}).values()]): bad.add((rp, k, en))
     return bad
 
 def failing(entries):
