@@ -66,7 +66,7 @@ def finish_run(s, note=None):
     if code == 1:   # a fetch without publish: Part A was not published, discard it rather than leave the lock
         git("git checkout -- models watchlist.json PROGRESS.md", "git clean -fdq models")
         scan("unlock --discard"); s["notes"].append("Part A discarded at unlock")
-    s["git_unlock"] = push("scan unlock", "scan.lock logs/scan")
+    s["git_unlock"] = push(f"scan unlock ({ {'A': 'live updates', 'B': 'new model'}.get(PART, 'scan') })", f"{LOCKF} logs/scan")
     s["step"] = "done"; save(s)
     say({"do": "stop", "report": {k: s.get(k) for k in ("minutes", "part_a", "part_b", "notes", "git_unlock")}})
 
@@ -77,7 +77,15 @@ def checkpoint(s):
 
 # ---------------------------------------------------------------- run
 args = sys.argv[1:]
-results = args[args.index("--results") + 1:] if "--results" in args else []
+results = [x for x in args[args.index("--results") + 1:] if not x.startswith("--")] if "--results" in args else []
+PART = args[args.index("--part") + 1] if "--part" in args else "AB"   # A = live updates task, B = new-model task, AB = both
+LOCKF = "ingest.lock" if PART == "B" else "scan.lock"
+os.environ["QCL_LOCK"] = LOCKF; os.environ["QCL_PART"] = {"A": "-live", "B": "-ingest"}.get(PART, "")
+ST = os.path.join(CODE, "work", f"next_state{os.environ['QCL_PART']}.json")
+NEXT = f"python3 pipeline/qcl_next.py --part {PART}"
+def nonlive_excludes():
+    w = json.load(open(os.path.join(CODE, "watchlist.json")))
+    return " ".join(f"':!models/{m['slug']}'" for m in w["models"] if m["status"] != "live")
 s = load()
 if s and s.get("step") == "done": s = None; os.remove(ST)
 if "--abort" in args:   # the session must end early: save Part B progress, unlock, push
@@ -88,13 +96,19 @@ if s is None and "--synced" not in args:   # start of a run: work on the newest 
     head, tip = sh("git rev-parse HEAD").stdout.strip(), sh("git rev-parse origin/main").stdout.strip()
     if tip and head != tip and sh("git status --porcelain --untracked-files=no").stdout.strip() == "":
         sh("git checkout -q -B main origin/main")
-    os.execvp("python3", ["python3", os.path.abspath(__file__), "--synced"])   # re-run with the newest code
+    sh('git config merge.wljson.driver "python3 pipeline/merge_watchlist.py %O %A %B"')   # both tasks commit the watch list
+    os.execvp("python3", ["python3", os.path.abspath(__file__), *args, "--synced"])   # re-run with the newest code
 if s is None:   # start of a run
     code, d = scan("lock")
     if code == 3: say({"do": "stop", "report": {"skipped": "another run holds the lock", **d}})
     _, p = scan("plan")
-    s = {"step": "start", "live": p.get("delta", []), "ingest": p.get("ingest"), "notes": [], "part_a": {}, "part_b": {}, "b_progress": False}
-    if s["ingest"]: push("scan lock", "scan.lock")   # an ingest is real work: let a parallel run see the lock now
+    s = {"step": "start", "live": p.get("delta", []), "ingest": p.get("ingest") if PART != "A" else None, "notes": [], "part_a": {}, "part_b": {}, "b_progress": False}
+    if PART == "A": sh("git checkout -q -- watchlist.json 2>/dev/null; git clean -fdq models")   # plan may scaffold a new model: not this task's job
+    if PART == "B":
+        if not s["ingest"]: sh(f"rm -f {LOCKF}"); s["step"] = "done"; save(s); say({"do": "stop", "report": {"skipped": "no new model due", "next_queued": p.get("next_queued")}})
+        push("ingest lock", LOCKF); s["step"] = "b_start"; save(s)
+    elif s["ingest"]: push("scan lock", LOCKF)   # an ingest is real work: let a parallel run see the lock now
+if s.get("step") == "start":
     ops = []
     for slug in s["live"]:
         _, o = scan(f"search-ops {slug}"); ops += o["op_lists"]
@@ -119,7 +133,7 @@ if step == "a_catalogue":
         if s["ingest"]: s["step"] = "b_start"; save(s); step = "b_start"
         else: finish_run(s)
     else:
-        if not s["ingest"]: push("scan lock", "scan.lock")
+        if not s["ingest"]: push("scan lock", LOCKF)
         agents([FETCH_PROMPT.format(code=CODE, shard=sh_, slug=slug) for slug, ss in shards.items() for sh_ in ss], s, "a_fetched")
 
 if step == "a_fetched":
@@ -150,7 +164,7 @@ if step == "a_mapped":
     code, d = scan("publish")
     if code == 0:
         s["part_a"]["published"] = d.get("progress_line")
-        s["part_a"]["git"] = push(f"Hourly scan {dt.datetime.utcnow():%Y-%m-%d %H:%M} UTC: " + str(d.get("progress_line", ""))[2:200], ". ':!scan.lock' ':!logs/scan'")
+        s["part_a"]["git"] = push(f"Hourly scan {dt.datetime.utcnow():%Y-%m-%d %H:%M} UTC: " + str(d.get("progress_line", ""))[2:200], ". ':!scan.lock' ':!ingest.lock' ':!logs/scan' " + nonlive_excludes())
         sh("gh api -X POST repos/delirious6423/quant-fidelity-frontier/actions/workflows/pages.yml/dispatches -f ref=main")
         s["part_a"]["deploy"] = "dispatched"
     else:
@@ -217,11 +231,16 @@ if step == "b_mapped":
 if step == "b_finish":
     slug = s["ingest"]
     code, d = scan(f"finish {slug}")
-    if code == 1: s["b_progress"] = True; finish_run(s, f"finish: {d.get('error')}; the next run re-queues")
+    if code == 1:
+        s["b_progress"] = True; s["b_retries"] = s.get("b_retries", 0) + 1
+        pend = sorted(os.listdir(f"{CODE}/work/{slug}/pending")) if os.path.isdir(f"{CODE}/work/{slug}/pending") else []
+        if pend and s["b_retries"] <= 2 and minutes() < 40:   # maps that failed the check go back to workers once or twice
+            agents([MAP_PROMPT.format(code=CODE, slug=slug, run=r) for r in sorted({p[0] for p in pend})], s, "b_mapped")
+        finish_run(s, f"finish: {d.get('error')}; the next run re-queues")
     code, d = scan(f"publish --ingested {slug}")
     if code == 0:
         s["part_b"]["live"] = d.get("progress_line")
-        s["part_b"]["git"] = push(f"Hourly scan {dt.datetime.utcnow():%Y-%m-%d %H:%M} UTC: ingested {slug}", ". ':!scan.lock' ':!logs/scan'")
+        s["part_b"]["git"] = push(f"Hourly scan {dt.datetime.utcnow():%Y-%m-%d %H:%M} UTC: ingested {slug}", f"models/{slug} watchlist.json PROGRESS.md")
         sh("gh api -X POST repos/delirious6423/quant-fidelity-frontier/actions/workflows/pages.yml/dispatches -f ref=main")
         s["part_b"]["deploy"] = "dispatched"; s["b_progress"] = False
         finish_run(s)

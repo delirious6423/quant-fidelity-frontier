@@ -18,13 +18,14 @@ agents between these commands; everything that decides, splits, merges, builds o
 Every command prints one JSON line. Exit code 0 = go on; 2 = stop this model (nothing to do); 1 = failure: stop and report."""
 import datetime as dt, glob, json, os, subprocess, sys
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-WL = os.path.join(CODE, "watchlist.json"); LOCK = os.path.join(CODE, "scan.lock")
+WL = os.path.join(CODE, "watchlist.json"); LOCK = os.path.join(CODE, os.environ.get("QCL_LOCK", "scan.lock"))   # ingest.lock for the new-model task
+TAG = os.environ.get("QCL_PART", "")   # "-live" / "-ingest": log names per task
 PAD = {"cmd": "cat", "args": ["hf://README.md", "--max-bytes", "8737"]}
 FORMATS = ["gguf", "exl3", "nvfp4", "mlx", "awq", "gptq", "fp8", "int4", "int8", "mxfp4", "w4a16", "autoround", "bnb", "2bit", "3bit", "4bit", "5bit", "6bit", "8bit", "abliterated", "uncensored", "heretic", "mtp"]
 now = dt.datetime.now(dt.timezone.utc)
 LOCK_H = 0.92        # a run stops starting work at 40-45 min and ends by ~55 min; a lock older than 55 min belongs to a dead session
 
-LOG = os.path.join(CODE, "work", "scanlog.jsonl")   # every command's result line; `unlock` files it under logs/scan/ for the commit
+LOG = os.path.join(CODE, "work", f"scanlog{TAG}.jsonl")   # every command's result line; `unlock` files it under logs/scan/ for the commit
 def out(d, code=0):
     print(json.dumps(d))
     try:
@@ -72,10 +73,10 @@ elif cmd == "unlock":
         if last_cat >= 0 and not any(r["cmd"].startswith("publish") for r in recs[last_cat:]):
             print(json.dumps({"error": "cards were fetched this run but publish was not run; run `qcl_scan.py publish` now (or `unlock --discard` after discarding the changes)"})); sys.exit(1)
     if os.path.exists(LOCK): os.remove(LOCK)
-    for f in glob.glob(f"{CODE}/logs/scan/*-partial.jsonl"):   # superseded by the full log below
+    for f in glob.glob(f"{CODE}/logs/scan/*Z{TAG}-partial.jsonl"):   # superseded by the full log below
         os.remove(f)
     if os.path.exists(LOG):    # keep this run's command log with the unlock commit (logs/scan/<UTC>.jsonl), so a later check can see what happened
-        os.makedirs(f"{CODE}/logs/scan", exist_ok=True); os.replace(LOG, f"{CODE}/logs/scan/{now:%Y%m%dT%H%M}Z.jsonl")
+        os.makedirs(f"{CODE}/logs/scan", exist_ok=True); os.replace(LOG, f"{CODE}/logs/scan/{now:%Y%m%dT%H%M}Z{TAG}.jsonl")
     out({"unlocked": True})
 elif cmd == "plan":
     w = wl(); live = [m["slug"] for m in w["models"] if m["status"] == "live"]
@@ -110,7 +111,7 @@ elif cmd == "checkpoint":
     if os.path.exists(LOG) and os.path.exists(LOCK):   # the run's log so far goes with every checkpoint, so a run that dies later still shows how far it got
         os.makedirs(f"{CODE}/logs/scan", exist_ok=True)
         st = dt.datetime.fromisoformat(open(LOCK).read().strip())
-        import shutil; shutil.copy(LOG, f"{CODE}/logs/scan/{st:%Y%m%dT%H%M}Z-partial.jsonl")
+        import shutil; shutil.copy(LOG, f"{CODE}/logs/scan/{st:%Y%m%dT%H%M}Z{TAG}-partial.jsonl")
     out({"slug": slug, "status": entry(slug)["status"], "next": f"git add models/{slug} watchlist.json logs/scan && git commit -qm 'Ingest checkpoint: {slug}' && push; the next run resumes"})
 elif cmd == "search-ops":
     # Every op list = one search (limit 80, about 21K chars; 90 measured 78.5K total) + 6 README pads (52K chars). That keeps each result between
