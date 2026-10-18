@@ -62,7 +62,11 @@ do, nothing is committed: run `python3 pipeline/qcl_scan.py unlock` and stop.
 ## A1. Catalogue (each slug in `delta`)
 1. `python3 pipeline/qcl_scan.py search-ops <slug>`. It prints `op_lists` (one list).
 2. Call `hf_fs` once per op list, with the list **exactly** as printed. Each result is saved to a file, and the tool
-   message gives its path. If a result comes back inline instead, run that call once more. Never copy inline output.
+   message gives its path in one of two forms, both fine (use the path, ignore any preview text):
+   - `Error: result (N characters) exceeds maximum allowed tokens. Output has been saved to <path>` (larger results), or
+   - `<persisted-output> Output too large (NN KB). Full output saved to: <path>` followed by a short preview (smaller
+     results, e.g. a format word with only a few quants).
+   Only a result with **no** saved path is inline: run that call once more. Never copy inline output or preview text.
 3. `python3 pipeline/qcl_scan.py catalogue <slug> <saved result paths>`
    - exit 2: nothing changed for this slug, so go to the next one.
    - exit 1 with `page_full`: more than 80 quants changed since the last scan. Redo steps 1–3 with `--full` on both
@@ -142,7 +146,7 @@ Only that model's folder and the watch list are committed. CI, Pages and `publis
 
 # End of every run
 
-## 9. Unlock and report
+## 9. Unlock and report (always, however the run went)
 ```bash
 python3 pipeline/qcl_scan.py unlock
 git add -A scan.lock logs/scan && git commit -qm "scan unlock" && (git push -q || (git pull --rebase -q && git push -q))   # skip if the lock was never pushed
@@ -167,7 +171,8 @@ nothing was ingested, say "no changes".
 ## Known failure modes and what to do
 | Symptom | Cause | Action |
 |---|---|---|
-| hf_fs result shown inline | output too small to be saved to a file | rerun the same call once; never transcribe it |
+| hf_fs result shows `Full output saved to: <path>` with a preview | normal for results of about 52–58K characters | it is saved: use the path; the preview is not the data |
+| hf_fs result shown inline (no saved path at all) | output too small to be saved to a file | rerun the same call once; never transcribe it |
 | `output_truncated` / budget error | more than ~80K chars in one call | use the op lists exactly as printed; they are sized to fit |
 | more than 30 ops rejected | connector limit | the plans never exceed 30; do not merge op lists |
 | `HF_FS_ACCESS_DENIED` | gated repo | expected; it is skipped and listed |
