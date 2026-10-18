@@ -10,7 +10,7 @@ with a link to the line it came from.
 |---|---|---|
 | [Qwen/Qwen3.8-Flash-Next](https://delirious6423.github.io/quant-fidelity-frontier/qwen3.8-flash-next/) | 453 | 2,980 |
 | [Qwen/Qwen3.8-27B](https://delirious6423.github.io/quant-fidelity-frontier/qwen3.8-27b/) | 1,220 | 4,747 |
-| deepseek-ai/DeepSeek-V4.1-Flash (review branch) | 133 | 1,166 |
+| [deepseek-ai/DeepSeek-V4.1-Flash](https://delirious6423.github.io/quant-fidelity-frontier/deepseek-v4.1-flash/) | 133 | 1,121 |
 
 **Site:** https://delirious6423.github.io/quant-fidelity-frontier/
 

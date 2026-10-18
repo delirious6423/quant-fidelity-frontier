@@ -153,6 +153,7 @@ elif cmd == "publish":
         p = run("python3 build.py", env(slug)); stats[slug] = json.loads(p.stdout.strip().splitlines()[-1].split(" | ")[0])
     run("python3 assemble.py")
     run("python3 tests/test_gates.py"); run("python3 tests/test_claims.py"); run("python3 tests/test_mcp.py"); run("python3 tests/test_discovery.py")
+    for t in ("test_model_panels", "test_mapping_panels", "test_combined_columns", "test_qualifiers"): run(f"python3 tests/{t}.py")
     for slug in stats: run("python3 tests/test_ui.py", {"QCL_SITE": f"models/{slug}/site"})
     line = f"- {now:%Y-%m-%d %H:%M} UTC hourly scan: " + "; ".join(f"{s} {v['repos']} repos, {v['values']} values" for s, v in stats.items()) + (f"; ingested {ing}" if ing else "")
     with open(f"{CODE}/PROGRESS.md", "a") as f: f.write(line + "\n")

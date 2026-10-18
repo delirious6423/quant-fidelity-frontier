@@ -24,6 +24,7 @@ jobs:
           python3 tests/test_model_panels.py
           python3 tests/test_mapping_panels.py
           python3 tests/test_combined_columns.py
+          python3 tests/test_qualifiers.py
       - name: Assembled site is static only
         run: python3 assemble.py _site
       - name: Discovery pages and dataset export

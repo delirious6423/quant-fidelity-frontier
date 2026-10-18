@@ -83,6 +83,19 @@ def clean_label(label):
     for i, value in enumerate(code): text = text.replace(f"QFFINLINECODE{i}PLACEHOLDER", value)
     return text
 
+QUAL = re.compile(r"(?:(?:^|[\s(|:=,])(?:<|>|≤|≥)=?|~|≈|∼|±|\babout|\baround|\bapprox(?:imately|\.)?|\broughly|\bup to|\bunder|\bover|\bnearly|\balmost)\s*$", re.I)   # not "<td>" or "->"
+def exact_in(raw, line):
+    """True when raw occurs in line as a whole value: not inside a longer number, and not right after a qualifier
+    (~, ≈, <, about, up to, ...), which the published string would otherwise silently drop."""
+    for m in re.finditer(re.escape(raw), line):
+        before, after = line[:m.start()], line[m.end():]
+        if raw[:1].isdigit() and re.search(r"[\d.,]$", before): continue
+        if raw[-1:].isdigit() and re.match(r"[\d]|[.,]\d", after): continue
+        if raw[:1] not in "~≈<>≤≥" and QUAL.search(before): continue
+        return True
+    return False
+APPROX = re.compile(r"(?:~|≈|∼|\babout|\baround|\bapprox|\broughly|\bup to|(?:^|[\s(])(?:<|>|≤|≥))\s*\d|\d\s*(?:[A-Za-z]{1,4}\s*)?(?:–|—|\bto\b)\s*~?\d|\d\s+-\s+\d", re.I)
+
 def apply(mapping, cands):
     """-> repo(...) dict in the verified/ schema. Raw strings come from the candidate cells, never from the LLM."""
     ent = {"variants": [], "ladder": [], "cross": []}
@@ -97,6 +110,15 @@ def apply(mapping, cands):
         sc = cands.get(str(e.get("size"))) if e.get("size") else None
         if sc:
             if sc.get("label") and sc["label"] != "(prose)": labels.add(clean_label(sc["label"]))
+            try: line = A_lines(mapping["repo"])[sc["L"] - 1] if sc.get("L") else ""
+            except (NameError, KeyError, IndexError, OSError): line = ""   # no card text (unit tests): the raw-string check below still applies
+            core = clean_raw(sc["raw"])
+            ranged = any(re.match(r"\s*(?:–|—|-|to)\s*~?\d", line[m.end():]) or re.match(r"\s*[A-Za-z]{1,4}\s*(?:–|—|to)\s*~?\d", line[m.end():]) or re.search(r"\d\s*(?:–|—|-|to)\s*$", line[:m.start()])
+                         for m in re.finditer(re.escape(core), line)) if core in line else False
+            if APPROX.search(sc["raw"]) or ranged or (core in line and not exact_in(core, line)):
+                # an approximate size or a range is not a point: hold it rather than publish one end of it
+                d["size_held"] = f"approximate or range on card: {clean_raw(sc['raw'])} [L{sc['L']}]"; sc = None
+        if sc:
             t = A.numtoks(sc["raw"]); d["size"] = float(t[0]) if t else None; d["unit"] = e.get("unit"); d["basis"] = e.get("basis"); Ls.add(sc["L"])
             u = d["unit"]
             if u and not re.search(rf"\d\s*{u}\b", sc["raw"]) and u.lower() not in (sc.get("header") or "").lower():
@@ -123,7 +145,7 @@ def apply(mapping, cands):
         else: ent["variants" if e["role"] == "own" else "ladder"].append(d)
     for p in mapping.get("prose", []) or []:
         line = A_lines(mapping["repo"])[p["L"] - 1] if p.get("L") else ""
-        if p.get("raw") and p["raw"] in line:      # prose must be an exact substring of its cited line
+        if p.get("raw") and exact_in(p["raw"], line):      # prose must be a whole, unqualified value on its cited line
             tgt = next((x for k in ent for x in ent[k] if (x.get("name") or x.get("variant")) == p.get("entry") and x.get("panel") == p.get("panel")), None)
             if tgt is not None:
                 tgt["m"][p["key"]] = p["raw"]

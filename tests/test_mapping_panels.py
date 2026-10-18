@@ -48,7 +48,7 @@ def source_functions(relative, names, namespace):
 AX = types.ModuleType("autoextract")
 AX.__dict__["re"] = re
 source_functions("pipeline/autoextract.py", {"NUM", "numtoks", "clean", "gt_family"}, AX.__dict__)
-MAP = source_functions("pipeline/qcl_map.py", {"clean_raw", "clean_label", "apply"}, {"re": re, "A": AX})
+MAP = source_functions("pipeline/qcl_map.py", {"clean_raw", "clean_label", "apply", "exact_in", "QUAL", "APPROX"}, {"re": re, "A": AX})
 WATCH = source_functions("pipeline/qcl_watch.py", {"agree", "write"}, {"re": re, "json": json})
 
 

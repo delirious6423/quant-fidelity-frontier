@@ -21,6 +21,9 @@ CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # repo root
 sys.path[:0] = [os.path.join(CODE, "pipeline"), os.path.join(CODE, "gates")]   # sibling modules
 ROOT = os.environ.get("QCL_ROOT") or os.path.join(CODE, "models", "qwen3.8-flash-next")          # data root: one folder per model (models/<slug>/); code stays here
 OUT = f"{ROOT}/verified/part8_machine.py"
+# model.json "agree_strict_corpus": per-corpus keys (kld:code vs kld:wiki) must match between runs. Off by default: older
+# models' runs name the corpus inconsistently, and requiring it there would hold back ~500 values both runs agree on.
+STRICT_CORPUS = bool((json.load(open(f"{ROOT}/model.json")) if os.path.exists(f"{ROOT}/model.json") else {}).get("agree_strict_corpus"))
 
 def load_verified(skip_machine=True):
     R = []
@@ -43,7 +46,8 @@ def agree(a, b):
     import autoextract as AX
     def fam(k):
         if k == "mean_kl_mnats": return k
-        if k.startswith(("kld:", "top1:", "ppl:", "kl_mnats:")): return k
+        if globals().get("STRICT_CORPUS", True) and k.startswith(("kld:", "top1:", "ppl:", "kl_mnats:")):   # per-corpus panels kept apart (opt-in per model)
+            f, c = k.split(":", 1); return f + ":" + re.sub(r"[^a-z0-9]", "", c.lower())
         if k.startswith("bench:"): return "bench:" + re.sub(r"[^a-z0-9]", "", k[6:].lower())   # runs spell benchmark names differently
         return AX.gt_family(k) if AX.gt_family(k) != "other" else k
     role = {"variants": "own", "ladder": "ladder", "cross": "cross"}
@@ -86,6 +90,15 @@ def resolved_from(allowed_repos):
             with open(candidate_path, "rb") as f: candidate_raw = f.read()
             if record.get("candidates_sha256") and hashlib.sha256(candidate_raw).hexdigest() != record["candidates_sha256"]: continue
             cands = json.loads(candidate_raw)
+            if candidate_path.startswith(directory):   # resolver-written candidates: their raw strings are re-checked on the card line
+                gen_p = f"{ROOT}/maps/cands/{name}.cands.json"; gen = json.load(open(gen_p)) if os.path.exists(gen_p) else {}
+                gen = gen.get("candidates", gen) if isinstance(gen, dict) else {}
+                cc = cands.get("candidates", cands)
+                for cid, c in list(cc.items()):
+                    if gen.get(cid) == c: continue
+                    lines = Q.A_lines(rp); L = c.get("L")
+                    if not (isinstance(L, int) and 0 < L <= len(lines) and (Q.exact_in(str(c.get("raw", "")), lines[L - 1]) or Q.exact_in(Q.clean_raw(str(c.get("raw", ""))), lines[L - 1]))): del cc[cid]; continue
+                    cc[cid] = {**c, "header": "", "label": "(prose)"}   # header/label were typed by the resolver, not card wording
             applied = Q.apply(mapping, cands)
         except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError): continue
         out[rp] = applied
