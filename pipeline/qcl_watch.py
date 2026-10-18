@@ -146,10 +146,19 @@ def merge(dirs):
     entries.update(resolved)
     resolved_held = [dict(zip(("repo", "entry", "key", "raw"), h), resolver=provenance[h[0]]) for h in held if h[0] in resolved]
     held = [h for h in held if h[0] not in resolved]
+    # audit/holds.json: entries a review found mis-attributed ({"repo", "entry", "reason"}); held back, never edited
+    holds = json.load(open(f"{ROOT}/audit/holds.json")) if os.path.exists(f"{ROOT}/audit/holds.json") else []
+    held_by_review = []
+    for h in holds:
+        a = entries.get(h["repo"])
+        if not a: continue
+        for k in ("variants", "ladder", "cross"):
+            keep = [e for e in a[k] if str(e.get("name") or e.get("variant")) != h["entry"]]
+            if len(keep) != len(a[k]): held_by_review.append({"repo": h["repo"], "kind": k, "entry": h["entry"], "reason": "review hold: " + h["reason"]}); a[k] = keep
     base = load_verified()
     # machine entries replace the same repos' older entries: drop those repos from the base parts' view via the build's duplicate rule
     write(entries, base)
-    quarantined = []
+    quarantined = list(held_by_review)
     for _ in range(3):
         bad = failing(entries)
         if not bad: break

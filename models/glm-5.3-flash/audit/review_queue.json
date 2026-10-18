@@ -1,6 +1,18 @@
 {
  "quarantined": [
   {
+   "repo": "OpensourceWTF/GLM-5.3-Flash-streaming-repack-exl3-3.05bpw",
+   "kind": "variants",
+   "entry": "bf16 (exact)",
+   "reason": "review hold: label is the MTP draft-head precision (card L206 header 'draft head'), not a quant variant; both rows are the same 3.05bpw model"
+  },
+  {
+   "repo": "OpensourceWTF/GLM-5.3-Flash-streaming-repack-exl3-3.05bpw",
+   "kind": "variants",
+   "entry": "q8",
+   "reason": "review hold: label is the MTP draft-head precision (card L206 header 'draft head'), not a quant variant"
+  },
+  {
    "repo": "spectator2026/GLM-5.3-Flash-W5-HQQ-g32",
    "kind": "ladder",
    "entry": "8-bit g32 + HQQ (reference point)",

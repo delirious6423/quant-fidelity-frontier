@@ -99,6 +99,9 @@ def canon(m):
         if frac and int(frac.group(2)) > 0:
             out[key] = {"v": round(100 * int(frac.group(1)) / int(frac.group(2)), 3), "err": None, "raw": v, "unit": "% (from count)"}
             continue
+        cp = re.match(r"^\s*\d+\s*(?:/\s*\d+\s*)?\(\s*((?:\d+(?:\.\d+)?|\.\d+))\s*%\s*\)\s*$", re.sub(r"\*\*|`", "", str(v)))
+        if cp:   # "490 (98.0%)" or "157 / 164 (95.7%)": the score is the percentage, not the count of correct answers
+            out[key] = {"v": float(cp.group(1)), "err": None, "raw": v, "unit": "% (as stated next to the count)"}; continue
         val = num(v)
         if val is not None and re.match(r"^(top1|same_top1)", key) and "%" not in str(v) and 0 < val <= 1:
             out[key] = {"v": round(val * 100, 4), "err": None, "raw": v, "unit": "% (from fraction)"}; continue
