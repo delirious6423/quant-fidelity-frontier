@@ -27,12 +27,8 @@ GIB = 1.073741824
 E = html.escape
 
 def load():
-    R, seen = [], {}
-    for p in sorted(glob.glob(f"{ROOT}/verified/part*.py")):
-        ns = {}; exec(open(p).read(), ns)
-        for r in ns["R"]:
-            r["_part"] = os.path.basename(p)
-            R.append(r)
+    sys.path.insert(0, os.path.join(CODE, "gates")); import current as CUR   # entries whose card changed since review are withdrawn
+    R = CUR.load(ROOT)
     reviewed = {}
     for r in R:
         if r.get("auto"): continue

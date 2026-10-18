@@ -94,7 +94,8 @@ python3 pipeline/qcl_scan.py publish      # builds every live model, assembles, 
   then dispatch the deploy:
   `gh api -X POST repos/delirious6423/quant-fidelity-frontier/actions/workflows/pages.yml/dispatches -f ref=main`.
 - **exit 1:** do not commit. Discard Part A only: `git checkout -- models watchlist.json PROGRESS.md && git clean -fdq models`.
-  Note the failing step and its `tail` for the report, and go on to Part B (the next run sees the same delta).
+  Note the failing step and its `tail` for the report, then **continue with Part B; a Part A failure never ends the
+  run** (the next run sees the same delta).
 
 # Part B: ingest (only when `plan` returned an `ingest`)
 
@@ -170,6 +171,7 @@ nothing was ingested, say "no changes".
 | Part A `prepare` queues hundreds of cards | a model's cards were never recorded as mapped | for a hand-reviewed model run `QCL_ROOT=models/<slug> python3 pipeline/qcl_mapset.py --baseline` once (done for Flash-Next) and report it |
 | UI test fails on load timeouts | external fonts/analytics unreachable | `tests/test_ui.py` blocks all external requests; if it still fails, report the `tail` |
 | `implausible parsed values` on a new model | its BF16 files are larger than `max_size_gb` in model.json | `plan` sets it from the parameter count (2.5 GB per billion, else 1000); if a real BF16 size is still above it, report it (raising it is a config change, not a data edit) |
+| `sha ... does not match snapshot` | a card changed after review | handled: `gates/current.py` withdraws the stale claims and lists the repo as not yet reviewed; `prepare` re-merges even when nothing is queued |
 | `REFUSING TO BUILD` | a gate failed | `merge` already quarantines failing entries; if a build still refuses, stop and report |
 | UI test fails for a new model | the site is not ready | the model stays `queued`; report it |
 | push rejected | another commit landed | `git pull --rebase` and push; never force |

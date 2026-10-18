@@ -12,10 +12,8 @@ BRANCH = json.load(open(f"{ROOT}/snapshots/hf_branch_sizes.json"))
 UNSLOTH = open(f"{ROOT}/snapshots/unsloth.ai__docs__qwen3.8-next.md").read().split("\n") if os.path.exists(f"{ROOT}/snapshots/unsloth.ai__docs__qwen3.8-next.md") else []
 
 def load_parts():
-    R = []
-    for p in sorted(glob.glob(f"{ROOT}/verified/part*.py")):
-        ns = {}; exec(open(p).read(), ns); R += ns["R"]
-    return R
+    import current as CUR   # gates/current.py: entries whose card changed since review are withdrawn, not failed
+    return CUR.load(ROOT)
 
 def norm(s):  # strip markdown emphasis / code / escapes / thin spaces, collapse whitespace
     s = s.replace("**", "").replace("`", "").replace("\\_", "_").replace(" ", " ").replace(" ", " ")

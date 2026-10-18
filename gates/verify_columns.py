@@ -41,10 +41,8 @@ def header_for(lines, i):
     return None
 
 def load():
-    R = []
-    for p in sorted(glob.glob(f"{ROOT}/verified/part*.py")):
-        ns = {}; exec(open(p).read(), ns); R += ns["R"]
-    return R
+    import current as CUR   # gates/current.py: entries whose card changed since review are withdrawn, not failed
+    return CUR.load(ROOT)
 
 # ---- row-label binding: a value taken from a table row must belong to the entry named for it ----
 STOP = set("""the a an of and or vs in on at to for with by from this that our ours we us it its is are was build builds
