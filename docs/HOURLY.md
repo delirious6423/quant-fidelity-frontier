@@ -9,7 +9,7 @@ The scheduled task "QFF hourly scan" follows this file, top to bottom. Each run 
 
 **Time budget.** A run must end within ~55 minutes, before the next one starts. `python3 pipeline/qcl_scan.py elapsed`
 says how long this run has held the lock. Start no new step once it passes 40 minutes; mapping workers check it
-themselves (45). A lock older than 75 minutes is treated as left by a dead session and is taken over.
+themselves (45). A lock older than 55 minutes is treated as left by a dead session and is taken over.
 
 Division of labour:
 - **You** (the coordinating session) run the `pipeline/qcl_scan.py` commands, make the Hub search calls and start agents.
@@ -48,7 +48,7 @@ Playwright's Chromium is preinstalled in cloud sessions; never run `playwright i
 
 ## 2. Lock and plan
 ```bash
-python3 pipeline/qcl_scan.py lock      # exit 3 = another run holds a lock under 75 min old: stop now, report "skipped (locked)"
+python3 pipeline/qcl_scan.py lock      # exit 3 = another run holds a lock under 55 min old: stop now, report "skipped (locked)"
 python3 pipeline/qcl_scan.py plan
 ```
 `plan` prints `delta` (the live slugs) and `ingest` (a slug or null; `resume: true` when it continues an earlier run).
@@ -104,20 +104,27 @@ Check the time first: `python3 pipeline/qcl_scan.py elapsed 30`. Exit 1: skip Pa
 `python3 pipeline/qcl_scan.py plan` once more (it recreates the new model's `model.json` if a Part A discard removed it),
 then `python3 pipeline/qcl_scan.py ingest-state <slug>` says where the ingest stands; start at that phase.
 
+**Checkpoint after every step of Part B** (B4: `checkpoint`, commit, push): after the catalogue, after each shard is
+marked fetched, and after each round of mapping workers. A run can end at any moment (a session can die), and only what
+is pushed survives; the checkpoint also pushes the run's log so far (`logs/scan/<lock time>Z-partial.jsonl`).
+
 ## B1. `catalogue` phase
 `search-ops <slug> --full` (28 op lists), call `hf_fs` once per list as in A1, then `catalogue <slug> --full <all paths>`.
+Checkpoint. If `elapsed 25` exits 1, end Part B here (go to step 9); otherwise continue with B2.
 
 ## B2. `fetch` phase (`shards` lists what is left)
-Start one Haiku fetch agent per shard left, at most 3 at once (prompt as in A2). When an agent finishes its shard, run
-`python3 pipeline/qcl_scan.py fetched <slug> <shard>` (if it reports failed ids that are not gated, run one more agent
-on that shard first; mark it fetched after that either way, so a bad id cannot block the ingest). Stop starting agents once `elapsed 40` exits 1; let running ones
-finish, then go to B4.
+Fetch **at most 2 shards per run** (about 200 cards). Start one Haiku fetch agent per shard, at most 2 at once (prompt as
+in A2). When an agent finishes its shard, run `python3 pipeline/qcl_scan.py fetched <slug> <shard>` (if it reports failed
+ids that are not gated, run one more agent on that shard first; mark it fetched after that either way, so a bad id cannot
+block the ingest), then checkpoint. After 2 shards, or once `elapsed 40` exits 1, end Part B (go to step 9). The next run
+continues with the shards left.
 
 ## B3. `map` phase
 1. `python3 pipeline/qcl_scan.py prepare <slug>` (maps made by earlier runs are counted, only the rest is queued).
    Exit 2: everything is mapped; go to step 3.
 2. Start up to 8 Haiku workers, half RUN = A and half RUN = B (prompt as in A3). Workers stop by themselves at 45 minutes.
    While `elapsed 40` exits 0 and `work/<slug>/pending` still has files for a run, start another worker for it.
+   Checkpoint each time a round of workers finishes (their maps are counted by the next `prepare`).
 3. If `work/<slug>/pending` is empty: `python3 pipeline/qcl_scan.py finish <slug>` (handle `bad` as in A3), then
    `python3 pipeline/qcl_scan.py publish --ingested <slug>`.
    - exit 0: the model is live. `git add -A -- . ':!scan.lock'`, commit "Hourly scan <UTC time>: <progress_line>",
@@ -128,7 +135,7 @@ finish, then go to B4.
 ## B4. Checkpoint (an ingest that is not finished this run)
 ```bash
 python3 pipeline/qcl_scan.py checkpoint <slug>      # status -> "ingesting": not built, not on the site, resumed next run
-git checkout -- PROGRESS.md 2>/dev/null; git add models/<slug> watchlist.json && git commit -qm "Ingest checkpoint: <slug>" && (git push -q || (git pull --rebase -q && git push -q))
+git checkout -- PROGRESS.md 2>/dev/null; git add models/<slug> watchlist.json logs/scan && git commit -qm "Ingest checkpoint: <slug>" && (git push -q || (git pull --rebase -q && git push -q))
 ```
 Only that model's folder and the watch list are committed. CI, Pages and `publish` build live models only
 (`pipeline/qcl_live.py`), so a half-ingested model never reaches the site.
@@ -168,7 +175,7 @@ nothing was ingested, say "no changes".
 | agent wrote files to the wrong folder | worker error | `finish` catches missing maps and re-queues them |
 | `pending` folder missing or moved | a worker moved files by hand | workers must use `pipeline/qcl_claim.py`; recreate `work/<slug>/pending`, move unprocessed queues back from `claimed/`, rerun |
 | run takes most of an hour | an ingest was attempted in one go | Part B is time-boxed and resumable: checkpoint and let the next run continue |
-| `scan.lock` pushed but never removed | the session died | the next run after 75 min takes the lock over; nothing to do |
+| `scan.lock` pushed but never removed | the session died | the next run after 55 min takes the lock over; checkpoints keep Part B progress and the partial log shows where it stopped |
 | Part A `prepare` queues hundreds of cards | a model's cards were never recorded as mapped | for a hand-reviewed model run `QCL_ROOT=models/<slug> python3 pipeline/qcl_mapset.py --baseline` once (done for Flash-Next) and report it |
 | UI test fails on load timeouts | external fonts/analytics unreachable | `tests/test_ui.py` blocks all external requests; if it still fails, report the `tail` |
 | `implausible parsed values` on a new model | its BF16 files are larger than `max_size_gb` in model.json | `plan` sets it from the parameter count (2.5 GB per billion, else 1000); if a real BF16 size is still above it, report it (raising it is a config change, not a data edit) |
