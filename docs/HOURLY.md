@@ -86,7 +86,8 @@ Wait for them. Failed ids are either gated (`HF_FS_ACCESS_DENIED`: fine) or get 
    - exit 0: `merge` reports the values published and the entries quarantined.
 
 ## A4. Publish Part A
-Only if any slug fetched cards (otherwise go to Part B):
+**Always when any slug in A1 returned shards** (even if `finish` published nothing new; otherwise go to Part B). `unlock`
+refuses to run when cards were fetched and `publish` was not run.
 ```bash
 python3 pipeline/qcl_scan.py publish      # builds every live model, assembles, runs all tests (~2 min)
 ```

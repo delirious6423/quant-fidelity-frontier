@@ -65,6 +65,11 @@ elif cmd == "elapsed":
     mins = (now - dt.datetime.fromisoformat(open(LOCK).read().strip())).total_seconds() / 60 if os.path.exists(LOCK) else 0
     out({"minutes": round(mins, 1), "limit": lim, "over": mins > lim}, 1 if mins > lim else 0)
 elif cmd == "unlock":
+    if os.path.exists(LOG) and "--discard" not in sys.argv:   # a run that fetched cards must publish (or record a failed publish) before it unlocks
+        recs = [json.loads(l) for l in open(LOG) if l.strip()]
+        last_cat = max((i for i, r in enumerate(recs) if r["cmd"].startswith("catalogue") and r.get("shards")), default=-1)
+        if last_cat >= 0 and not any(r["cmd"].startswith("publish") for r in recs[last_cat:]):
+            print(json.dumps({"error": "cards were fetched this run but publish was not run; run `qcl_scan.py publish` now (or `unlock --discard` after discarding the changes)"})); sys.exit(1)
     if os.path.exists(LOCK): os.remove(LOCK)
     if os.path.exists(LOG):    # keep this run's command log with the unlock commit (logs/scan/<UTC>.jsonl), so a later check can see what happened
         os.makedirs(f"{CODE}/logs/scan", exist_ok=True); os.replace(LOG, f"{CODE}/logs/scan/{now:%Y%m%dT%H%M}Z.jsonl")

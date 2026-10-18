@@ -34,10 +34,12 @@ open(os.path.join(OUT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSite
 locs.insert(0, f"<url><loc>{BASE}</loc></url>")
 open(os.path.join(OUT, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + "".join(locs) + "</urlset>")
 man = []                                       # machine-readable index for agents and the MCP server
+_wl = os.path.join(CODE, "watchlist.json")        # when the hourly scan last checked the Hub for each model
+_checked = {m["slug"]: m.get("last_scan_at") for m in (json.load(open(_wl))["models"] if os.path.exists(_wl) else [])}
 for dj in sorted(glob.glob(os.path.join(OUT, "**", "data.json"), recursive=True), key=lambda p: (ORDER.index(os.path.basename(os.path.dirname(p))) if os.path.basename(os.path.dirname(p)) in ORDER else 999, p)):
     d = json.load(open(dj)); rel = os.path.relpath(os.path.dirname(dj), OUT)
     man.append({"model": d["model"], "slug": rel, "data": rel + "/data.json",
-                "captured_at": d.get("captured_at"), "repos": len(d.get("repos", [])), "rows": len(d.get("rows", [])), "sets": len(d.get("sets", []))})
+                "captured_at": d.get("captured_at"), "checked_at": _checked.get(rel), "repos": len(d.get("repos", [])), "rows": len(d.get("rows", [])), "sets": len(d.get("sets", []))})
 json.dump({"name": "QFF (Quant Fidelity Frontier)", "about": "Publisher claims about Hugging Face quants, each pinned to its source line. Claims, not measurements.", "models": man},
           open(os.path.join(OUT, "models.json"), "w"), indent=1)
 import html as H                              # landing page: one card per model, built from the manifest
@@ -47,7 +49,7 @@ AN = (f'<script defer src="{H.escape(_A.get("script") or "https://cloud.umami.is
 SUP = (f' · <a href="{H.escape(_S["support_url"])}" rel="noopener" data-umami-event="support">{H.escape(_S.get("support_label") or "Support QFF")}</a>'
        f' (<a href="https://github.com/delirious6423/quant-fidelity-frontier/blob/main/docs/SPONSORS.md">sponsor policy</a>)') if _S.get("support_url") else ""
 cards = "".join(f'<a class="card" href="{H.escape(m["slug"])}/"><h2>{H.escape(m["model"].split("/")[-1])}</h2><p class="org">{H.escape(m["model"])}</p>'
-                f'<p>{m["repos"]:,} quant repos · {m["rows"]:,} claim rows · {m["sets"]} measurement sets</p><p class="dim">Captured {H.escape((m["captured_at"] or "")[:10])}</p></a>' for m in man)
+                f'<p>{m["repos"]:,} quant repos · {m["rows"]:,} claim rows · {m["sets"]} measurement sets</p><p class="dim">Captured {H.escape((m["captured_at"] or "")[:10])}{(" · checked for new quants " + H.escape(m["checked_at"][:16].replace("T", " ")) + " UTC") if m.get("checked_at") else ""}</p></a>' for m in man)
 open(os.path.join(OUT, "index.html"), "w").write(f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>LLM quantization comparison: KLD vs size · QFF</title>{AN}<meta name="description" content="Compare published LLM quantization fidelity: KLD, perplexity and model size, with source-linked claims and explicit measurement boundaries.">
 <link rel="canonical" href="{BASE}"><style>
