@@ -105,7 +105,14 @@ async def main():
             _nk = lambda x: sum(1 for q in x["points"] if "kld" in q["m"])
             BIG = "turboderp" if any(x["id"] == "turboderp" for x in _sets) else max(_sets, key=lambda x: (sum(1 for q in x["points"] if q["m"].get("kld", {}).get("v", 0) > 0 and not q.get("is_ref")), _nk(x)))["id"]
             REF = "strata" if any(x["id"] == "strata" for x in _sets) else next((x["id"] for x in _sets if any(q.get("is_ref") for q in x["points"])), None)
-            QS = "unsloth Q4" if "unsloth" in json.dumps(_D)[:10**7] else "Q4"
+            import re as _re
+            def _qs():   # two words that occur together in one ledger row: a publisher and a word of its variant name
+                if any("unsloth" in r["repo"].lower() and "q4" in str(r.get("variant")).lower() for r in _D["rows"]): return "unsloth Q4"
+                for r in _D["rows"]:
+                    w = next((t for t in _re.findall(r"[A-Za-z][A-Za-z0-9_]{2,}", str(r.get("variant") or "")) if t.lower() not in r["repo"].lower()), None)
+                    if w: return r["repo"].split("/")[0] + " " + w
+                return "Q4"
+            QS = _qs()
             # limits: size slider, metric slider, efficient-only, Beaten-by consistency, independent Pareto check
             await pg.select_option("#exset", BIG); await pg.wait_for_timeout(100)
             await pg.evaluate("(()=>{const r=document.getElementById('exxr');r.value=500;r.dispatchEvent(new Event('input'))})()"); await pg.wait_for_timeout(100)
@@ -116,7 +123,7 @@ async def main():
             await pg.click("#exrclear"); await pg.wait_for_timeout(100)
             await pg.evaluate("(()=>{const r=document.getElementById('exyr');r.value=400;r.dispatchEvent(new Event('input'))})()"); await pg.wait_for_timeout(100)
             ylim = await pg.evaluate("parseFloat(document.getElementById('exyo').textContent.replace('≤',''))")
-            ys = await pg.evaluate("[...document.querySelectorAll('#extable tbody tr')].map(r=>parseFloat(r.querySelector('td.cur').textContent))")
+            ys = await pg.evaluate("[...document.querySelectorAll('#extable tbody tr')].map(r=>{const t=r.querySelector('td.cur').textContent;const v=parseFloat(t);return /mnat/i.test(t)?v/1000:v})")   # millinat cells show the card's unit
             check(ys and max(ys) <= ylim * 1.0001 and len(ys) < _nk([x for x in _sets if x["id"] == BIG][0]), f"{name}: KLD limit filters ({len(ys)} rows, max {max(ys) if ys else None} <= {ylim})")
             await pg.click("#exrclear"); await pg.wait_for_timeout(100)
             await pg.check("#exonly"); await pg.wait_for_timeout(100)

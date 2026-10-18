@@ -24,7 +24,20 @@ FORMATS = ["gguf", "exl3", "nvfp4", "mlx", "awq", "gptq", "fp8", "int4", "int8",
 now = dt.datetime.now(dt.timezone.utc)
 LOCK_H = 1.25        # a run stops starting work at 40-45 min and ends by ~55 min; a lock older than 75 min belongs to a dead session
 
-def out(d, code=0): print(json.dumps(d)); sys.exit(code)
+LOG = os.path.join(CODE, "work", "scanlog.jsonl")   # every command's result line; `unlock` files it under logs/scan/ for the commit
+def out(d, code=0):
+    print(json.dumps(d))
+    try:
+        os.makedirs(os.path.dirname(LOG), exist_ok=True)
+        rec = {"at": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "cmd": " ".join(sys.argv[1:3]), "exit": code}
+        rec.update({k: v for k, v in d.items() if k in ("delta", "ingest", "resume", "phase", "shards", "search_entries", "catalogue", "in_index", "gated",
+                    "todo", "cards", "queues", "merge", "error", "rc", "tests", "progress_line", "minutes", "locked", "page_full", "slug", "status", "bad", "pending")})
+        if "tail" in d: rec["tail"] = str(d["tail"])[-600:]
+        if "built" in d: rec["built"] = {k: [v.get("repos"), v.get("values")] for k, v in d["built"].items()}
+        if "op_lists" in d: rec["calls"] = len(d["op_lists"])
+        open(LOG, "a").write(json.dumps(rec).replace(CODE + "/", "").replace(os.path.expanduser("~"), "~") + "\n")   # no local paths in a public repo
+    except Exception: pass
+    sys.exit(code)
 def run(cmd, env=None, check=True):
     p = subprocess.run(cmd, cwd=CODE, shell=True, capture_output=True, text=True, env={**os.environ, **(env or {})})
     if check and p.returncode != 0: out({"error": cmd, "rc": p.returncode, "tail": (p.stdout + p.stderr)[-1500:]}, 1)
@@ -33,6 +46,13 @@ def wl(): return json.load(open(WL))
 def M(slug): return os.path.join(CODE, "models", slug)
 def entry(slug): return next(m for m in wl()["models"] if m["slug"] == slug)
 def env(slug): return {"QCL_ROOT": M(slug)}
+
+def max_gb(model):
+    """Size plausibility ceiling for build.py: BF16 is ~2 bytes per parameter, so 2.5 GB per billion parameters when the id
+    names them (e.g. 550B -> 1375 GB); 1000 GB otherwise (the default 400 GB rejected GLM-5.3-Flash's 642 GB BF16 files)."""
+    import re
+    m = re.search(r"(\d+(?:\.\d+)?)B(?![a-z])", model.split("/")[-1])
+    return max(400, round(2.5 * float(m.group(1)))) if m else 1000
 
 cmd = sys.argv[1] if len(sys.argv) > 1 else ""
 if cmd == "lock":
@@ -46,6 +66,8 @@ elif cmd == "elapsed":
     out({"minutes": round(mins, 1), "limit": lim, "over": mins > lim}, 1 if mins > lim else 0)
 elif cmd == "unlock":
     if os.path.exists(LOCK): os.remove(LOCK)
+    if os.path.exists(LOG):    # keep this run's command log with the unlock commit (logs/scan/<UTC>.jsonl), so a later check can see what happened
+        os.makedirs(f"{CODE}/logs/scan", exist_ok=True); os.replace(LOG, f"{CODE}/logs/scan/{now:%Y%m%dT%H%M}Z.jsonl")
     out({"unlocked": True})
 elif cmd == "plan":
     w = wl(); live = [m["slug"] for m in w["models"] if m["status"] == "live"]
@@ -62,7 +84,7 @@ elif cmd == "plan":
                        "size_note": "Sizes are as published on each card: download size, GPU memory or a single file. GiB figures are converted to GB. Each row says which size it is.",
                        "pin_note": f"Cards for this model were captured through the Hugging Face connector from {now:%d %b %Y} and are pinned by the SHA-256 of their exact text, not by commit. Source links point to the current card, which may have changed since capture.",
                        "coverage_note": "claims made only off-site or only in images, repos whose cards are gated (access denied to our account), and repos the Hub search did not return",
-                       "others": []}, open(f"{d}/model.json", "w"), indent=1)
+                       "others": [], "max_size_gb": max_gb(q["model"])}, open(f"{d}/model.json", "w"), indent=1)
     out({"delta": live, "ingest": ingest, "resume": resume, "ingest_due": due, "next_queued": q["slug"] if q else None})
 elif cmd == "ingest-state":
     slug = sys.argv[2]; c = f"{M(slug)}/cache"

@@ -136,8 +136,11 @@ Only that model's folder and the watch list are committed. CI, Pages and `publis
 ## 9. Unlock and report
 ```bash
 python3 pipeline/qcl_scan.py unlock
-git add -A scan.lock && git commit -qm "scan unlock" && (git push -q || (git pull --rebase -q && git push -q))   # skip if the lock was never pushed
+git add -A scan.lock logs/scan && git commit -qm "scan unlock" && (git push -q || (git pull --rebase -q && git push -q))   # skip if the lock was never pushed
 ```
+Every `qcl_scan.py` command logs its result line; `unlock` files the run's log as `logs/scan/<UTC>.jsonl`, committed with the
+unlock, so a later check can see which steps ran and how they ended.
+
 Report: for each live model, cards fetched, values published (from `merge`), entries quarantined, gated repos skipped;
 for the ingest, the phase reached (catalogue / shards fetched / queues mapped / live) and whether a deploy was
 dispatched; the run's minutes (`elapsed`). If anything failed, name the step and its `tail`. If nothing changed and
@@ -166,6 +169,7 @@ nothing was ingested, say "no changes".
 | `scan.lock` pushed but never removed | the session died | the next run after 75 min takes the lock over; nothing to do |
 | Part A `prepare` queues hundreds of cards | a model's cards were never recorded as mapped | for a hand-reviewed model run `QCL_ROOT=models/<slug> python3 pipeline/qcl_mapset.py --baseline` once (done for Flash-Next) and report it |
 | UI test fails on load timeouts | external fonts/analytics unreachable | `tests/test_ui.py` blocks all external requests; if it still fails, report the `tail` |
+| `implausible parsed values` on a new model | its BF16 files are larger than `max_size_gb` in model.json | `plan` sets it from the parameter count (2.5 GB per billion, else 1000); if a real BF16 size is still above it, report it (raising it is a config change, not a data edit) |
 | `REFUSING TO BUILD` | a gate failed | `merge` already quarantines failing entries; if a build still refuses, stop and report |
 | UI test fails for a new model | the site is not ready | the model stays `queued`; report it |
 | push rejected | another commit landed | `git pull --rebase` and push; never force |

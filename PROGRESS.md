@@ -20,6 +20,10 @@
 - Local builds, claim/gate regressions and MCP checks pass. Browser validation runs in PR CI because the local Chromium download was unavailable.
 - Merge review (2026-10-18, independent audit: 66 sampled values read in context, all 1,219 checked by code, 0 absent from their cited line): fixed before merge: prose values right after a qualifier (~, ≈, <, about) are no longer published bare; approximate or ranged sizes are held (`size_held`) instead of shown as a point; resolver-written candidates keep their raw strings only after a whole-value check on the card line, and their typed header/label text is never published as card wording; strict per-corpus agreement is opt-in (`agree_strict_corpus` in model.json, on for DeepSeek) because it would hold ~500 agreed 27B values; scratch `PLAN.md`, a 0-byte card and a duplicate base card removed. Result: 1,121 published values (was 1,166), 5 entries quarantined. Regression test: `tests/test_qualifiers.py`.
 
+## Scan check (2026-10-18 07:40 UTC)
+- 07:03 run (first on the new runbook, 24 min): fetched all 174 GLM-5.3-Flash cards and mapped 87 twice (A/B), then checkpointed. It could not go live: `build.py` rejected GLM's 642 GB BF16 files against the 400 GB size ceiling, and two UI checks assumed Qwen-style data. No live-model update was committed in that run (cause not recorded).
+- Fixed: `plan` writes `max_size_gb` into a new model.json (2.5 GB per billion parameters in the id, else 1000; GLM set to 1000); explorer keeps the legend when every quant is hidden (otherwise the hidden repo could not be shown again); UI checks read millinat cells in their unit and choose the search words from the model's data; every `qcl_scan.py` command now logs to `logs/scan/<UTC>.jsonl`, committed with the unlock, so the next check can see which steps ran.
+
 ## Next
 1. Hourly scan: scheduled task "QFF hourly scan" (cloud, minute 3 of every hour) follows `docs/HOURLY.md`. Watch list approved by the owner (`watchlist.json`); one queued model ingested per 5 hours, in list order; Haiku subagents only.
 2. 27B held values: resolver pass (Haiku, high effort), core metrics first (~540 values), then benchmarks.

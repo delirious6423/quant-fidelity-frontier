@@ -245,7 +245,7 @@
     var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, class: 'chart', role: 'img', 'aria-label': M.label + ' against ' + S.x.label + ' for ' + pts.length + ' quants in ' + S.title });
     host.appendChild(svg);
     var lg = $('exlegend'); lg.innerHTML = '';
-    if (pts.length === 0) { svg.appendChild(el('text', { x: W / 2, y: H / 2, class: 'axis', 'text-anchor': 'middle' }, S.points.some(function (p) { return p.m[k]; }) ? 'No quant selected. Tick some in the list.' : 'No quant in this set has this metric.')); return; }
+    if (pts.length === 0) { legend(S, svg); svg.appendChild(el('text', { x: W / 2, y: H / 2, class: 'axis', 'text-anchor': 'middle' }, S.points.some(function (p) { return p.m[k]; }) ? 'No quant selected. Tick some in the list.' : 'No quant in this set has this metric.')); return; }
     var xs = pts.map(function (p) { return p.x; }), ys = pts.map(function (p) { return p.m[k].v; });
     var ref = S.refs[k]; if (ref) ys.push(ref[0]);
     var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs); var xp = (x1 - x0) * 0.08 || Math.max(1, x0 * 0.05); x0 -= xp; x1 += xp;
@@ -315,19 +315,22 @@
         }
       });
     }
-    // legend: one toggle per file repo in the set
-    var reps = {}; S.points.filter(matches).forEach(function (p) { (reps[p.repo] = reps[p.repo] || []).push(p); });
-    Object.keys(reps).sort(function (a, b) { return a.toLowerCase() < b.toLowerCase() ? -1 : 1; }).forEach(function (repo) {
-      var ps = reps[repo], on = ps.some(isPicked);
-      var b = h('button', { type: 'button', class: 'lg' + (on ? '' : ' off'), 'aria-pressed': String(on), title: (on ? 'Hide ' : 'Show ') + repo }, '<span class="sw" style="background:' + colour(ps[0].pub) + '"></span>' + esc(repo) + ' <span class="dim">' + ps.length + '</span>');
-      b.addEventListener('click', function () { ps.forEach(function (p) { state.picked[p.qid] = !on; }); renderBody(); });
-      b.addEventListener('pointerenter', function () { svg.classList.add('dimmed'); Array.prototype.forEach.call(svg.querySelectorAll('[data-qid]'), function (n) { if (ps.some(function (p) { return p.qid === n.getAttribute('data-qid'); })) n.classList.add('hl'); }); });
-      b.addEventListener('pointerleave', function () { svg.classList.remove('dimmed'); Array.prototype.forEach.call(svg.querySelectorAll('.hl'), function (n) { n.classList.remove('hl'); }); });
-      lg.appendChild(b);
-    });
-    var nrep = lg.children.length;
-    if (nrep > 16 && !state.legendOpen) { Array.prototype.forEach.call(lg.children, function (c) { c.hidden = true; }); }
-    if (nrep > 16) { var tb = h('button', { type: 'button', class: 'lg more' }, state.legendOpen ? 'Hide legend' : 'Show legend (' + nrep + ' repos)'); tb.addEventListener('click', function () { state.legendOpen = !state.legendOpen; drawChart(); }); lg.appendChild(tb); }
+    legend(S, svg);
+    // legend: one toggle per file repo in the set (drawn even when every quant is hidden, so they can be shown again)
+    function legend(S, svg) {
+      var reps = {}; S.points.filter(matches).forEach(function (p) { (reps[p.repo] = reps[p.repo] || []).push(p); });
+      Object.keys(reps).sort(function (a, b) { return a.toLowerCase() < b.toLowerCase() ? -1 : 1; }).forEach(function (repo) {
+        var ps = reps[repo], on = ps.some(isPicked);
+        var b = h('button', { type: 'button', class: 'lg' + (on ? '' : ' off'), 'aria-pressed': String(on), title: (on ? 'Hide ' : 'Show ') + repo }, '<span class="sw" style="background:' + colour(ps[0].pub) + '"></span>' + esc(repo) + ' <span class="dim">' + ps.length + '</span>');
+        b.addEventListener('click', function () { ps.forEach(function (p) { state.picked[p.qid] = !on; }); renderBody(); });
+        b.addEventListener('pointerenter', function () { svg.classList.add('dimmed'); Array.prototype.forEach.call(svg.querySelectorAll('[data-qid]'), function (n) { if (ps.some(function (p) { return p.qid === n.getAttribute('data-qid'); })) n.classList.add('hl'); }); });
+        b.addEventListener('pointerleave', function () { svg.classList.remove('dimmed'); Array.prototype.forEach.call(svg.querySelectorAll('.hl'), function (n) { n.classList.remove('hl'); }); });
+        lg.appendChild(b);
+      });
+      var nrep = lg.children.length;
+      if (nrep > 16 && !state.legendOpen) { Array.prototype.forEach.call(lg.children, function (c) { c.hidden = true; }); }
+      if (nrep > 16) { var tb = h('button', { type: 'button', class: 'lg more' }, state.legendOpen ? 'Hide legend' : 'Show legend (' + nrep + ' repos)'); tb.addEventListener('click', function () { state.legendOpen = !state.legendOpen; drawChart(); }); lg.appendChild(tb); }
+    }
     var note = [];
     if (labelsCb.checked && pts.length > maxLab) note.push('Labels hidden with more than ' + maxLab + ' points: filter, or tap a point.');
     if (fp.length) note.push('Frontier: no other shown quant is both smaller and better on this metric, in this set only' + (pts.some(function (p) { return p.is_ref; }) ? '; the reference build is not ranked.' : '.'));
