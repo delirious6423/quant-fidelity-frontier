@@ -1,0 +1,22 @@
+{
+ "repo": "orcarouter/GLM-5.3-Flash-MLX",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "FP8 release, dequantized to BF16 and run through the identical glm5_next forward", "dataset": "not stated", "ctx": "not stated", "tool": "identical glm5_next forward", "L": [173, 174, 175]},
+ "entries": [
+  {"role": "own", "name": "6-bit", "panel": "Perplexity", "metrics": {"ppl": "c30", "ppl_delta_pct": "c31"}, "size": "c29", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["weight-space fidelity table [L199-207] has no metric key, not mapped", "OrcaCyber Zero 1.5 claims in header are a different model, not mapped [L45-46]"]},
+  {"role": "own", "name": "4-bit", "panel": "Perplexity", "metrics": {"ppl": "c34", "ppl_delta_pct": "c35"}, "size": "c33", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "own", "name": "3-bit", "panel": "Perplexity", "metrics": {"ppl": "c38", "ppl_delta_pct": "c39"}, "size": "c37", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "own", "name": "2-bit", "panel": "Perplexity", "metrics": {"ppl": "c42", "ppl_delta_pct": "c43"}, "size": "c41", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "own", "name": "2bit-lite", "panel": "Perplexity", "metrics": {"ppl": "c45", "ppl_delta_pct": "c46"}, "size": "c44", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["small build, quality drop stated in card [L238]"]},
+  {"role": "cross", "name": "FP8 (ref)", "of": "not named on card", "panel": "Perplexity", "metrics": {"ppl": "c27"}, "size": "c26", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["FP8 reference measured by this author [L173-175]"]},
+  {"role": "own", "name": "6-bit", "panel": "KL divergence &amp; Top-1 token agreement", "metrics": {"mean_kld": "c51", "top1_pct": "c53"}, "size": "c50", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["KLD p95 has no metric key, not mapped [L192-196]", "KL scope (full-vocabulary or top-k) not stated [L188]"]},
+  {"role": "own", "name": "4-bit", "panel": "KL divergence &amp; Top-1 token agreement", "metrics": {"mean_kld": "c56", "top1_pct": "c58"}, "size": "c55", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "own", "name": "3-bit", "panel": "KL divergence &amp; Top-1 token agreement", "metrics": {"mean_kld": "c61", "top1_pct": "c63"}, "size": "c60", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "own", "name": "2-bit", "panel": "KL divergence &amp; Top-1 token agreement", "metrics": {"mean_kld": "c66", "top1_pct": "c68"}, "size": "c65", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "own", "name": "2bit-lite", "panel": "KL divergence &amp; Top-1 token agreement", "metrics": {"mean_kld": "c70", "top1_pct": "c72"}, "size": "c69", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "cross", "name": "FP8 (ref)", "of": "not named on card", "panel": "KL divergence &amp; Top-1 token agreement", "metrics": {"top1_pct": "c48"}, "size": "c47", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["FP8 reference measured by this author [L173-175]"]}
+ ],
+ "prose": []
+}

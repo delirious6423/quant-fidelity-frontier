@@ -1,0 +1,12 @@
+{
+ "repo": "OneNexus/GLM-5.3-Flash-MXFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "amd/GLM-5.3-Flash-Quark-MXFP4, same fixed questions [L22-23, L47]", "dataset": "GSM8K (500 questions), MMLU (500 questions), GPQA Diamond (198 questions) [L49-51]", "ctx": "one greedy attempt per question; capped or unfinished responses count as incorrect [L44-45]; BF16 KV, graphs and speculation disabled for quality runs [L282-284]", "tool": "evaluation protocol linked on the card [L60]", "L": [44, 45, 49, 50, 51, 60, 283]},
+ "entries": [
+  {"role": "own", "name": "OneNexus MXFP4", "panel": "Text-reasoning quality", "methodology": {"reference": "amd/GLM-5.3-Flash-Quark-MXFP4", "dataset": "GSM8K (500), MMLU (500), GPQA Diamond (198)", "ctx": "one greedy attempt per question; capped responses count as incorrect", "tool": "evaluation protocol linked on the card", "L": [44, 45, 60]}, "metrics": {"bench:GSM8K": "c1", "bench:MMLU": "c4", "bench:GPQA Diamond": "c7"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["observed differences (-0.2 pp GSM8K, +1.0 pp MMLU, +3.5 pp GPQA) not mapped; the card says they are not statistically established [L24-26, L49-51]", "MMLU has 43/500 truncated outputs and GPQA 55/198 for this checkpoint, so answer-length limits affect these scores [L55-56]", "paired exact-test p-values 0.458 (MMLU) and 0.265 (GPQA) not mapped [L57-58]", "serving speed and kernel timings have no matching metric key [L70-273]"]},
+  {"role": "cross", "of": "amd/GLM-5.3-Flash-Quark-MXFP4", "name": "AMD", "panel": "Text-reasoning quality", "methodology": {"reference": "amd/GLM-5.3-Flash-Quark-MXFP4", "dataset": "GSM8K (500), MMLU (500), GPQA Diamond (198)", "ctx": "one greedy attempt per question; capped responses count as incorrect", "tool": "evaluation protocol linked on the card", "L": [44, 45, 60]}, "metrics": {"bench:GSM8K": "c2", "bench:MMLU": "c5", "bench:GPQA Diamond": "c8"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["AMD checkpoint measured by this card's author on the same samples [L47-51]", "GPQA truncations for this checkpoint are 61/198 [L56]"]}
+ ],
+ "prose": []
+}

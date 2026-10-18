@@ -1,0 +1,15 @@
+{
+ "repo": "jarrelscy/GLM-5.3-Flash-NestQuant-1.5-4bit",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 teacher (decode KL)", "dataset": "Spark Bench 80 scenarios, 2 repeats; 4 pinned BF16 confirmation windows (decode KL)", "ctx": "262,144 (110,592 in the one-command launcher default)", "tool": "Spark Bench official scorer; vLLM-based Docker serving on one DGX Spark", "L": [36, 84, 149]},
+ "entries": [
+  {"role": "own", "name": "Thinking on", "panel": "Validated Spark Bench results: thinking on and off", "metrics": {"bench:TrueScore": "c1", "bench:Quality": "c2", "bench:Completion": "c3.0"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["completion denominator 160 is c3.1, not keyed [L40]", "single official run per mode; scores are observed results [L153]"]},
+  {"role": "own", "name": "Thinking off", "panel": "Validated Spark Bench results: thinking on and off", "metrics": {"bench:TrueScore": "c5", "bench:Quality": "c6", "bench:Completion": "c7.0"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["completion denominator 160 is c7.1, not keyed [L41]"]},
+  {"role": "own", "name": "NestQuant 1.5-4bit (decode)", "panel": "Decode KLD and throughput", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["21.25 tok/s synthetic probe is not representative, not mapped [L151]", "effective routed-expert bpw 2.0436 is nominal, no candidate [L90]"]}
+ ],
+ "prose": [
+  {"entry": "NestQuant 1.5-4bit (decode)", "panel": "Decode KLD and throughput", "key": "mean_kld", "L": 149, "raw": "0.09006744"}
+ ]
+}

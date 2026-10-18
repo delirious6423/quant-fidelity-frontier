@@ -1,0 +1,17 @@
+{
+ "repo": "cafonez/GLM-5.3-Flash-Gorgon-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Unsloth UD-IQ4_XS GGUF (the file this mix was made from)", "dataset": "not stated", "ctx": "16 x 1024-token chunks", "tool": "llama-perplexity --kl-divergence (Vulkan)", "L": [55]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash-Q5K-IQ3S",
+   "methodology": {"reference": "Unsloth UD-IQ4_XS GGUF (the file this mix was made from)", "dataset": "not stated", "ctx": "16 x 1024-token chunks", "tool": "llama-perplexity --kl-divergence (Vulkan)", "L": [55]},
+   "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["name is the shared stem of the four shard files [L31-34]", "KLD and top-1 values are in prose only [L55]", "backend Vulkan vs CPU check measures numerics, not quantization loss, omitted [L56]", "3.84 bpw is stated in prose only, no candidate [L21]"]}
+ ],
+ "prose": [
+  {"entry": "GLM-5.3-Flash-Q5K-IQ3S", "key": "mean_kld", "L": 55, "raw": "mean KLD 0.040"},
+  {"entry": "GLM-5.3-Flash-Q5K-IQ3S", "key": "top1_pct", "L": 55, "raw": "same top-1 token 93.1%"}
+ ]
+}

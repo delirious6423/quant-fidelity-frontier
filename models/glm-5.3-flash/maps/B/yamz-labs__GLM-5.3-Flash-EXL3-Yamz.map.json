@@ -1,0 +1,14 @@
+{"repo": "yamz-labs/GLM-5.3-Flash-EXL3-Yamz",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "official FP8 model [L52]", "dataset": "30 held-out rows (30,720 tokens); 4 long rows of 4,096 tokens; 129 held-out rows [L55-57]", "ctx": "4,096-token long rows [L56]", "tool": "Kyojin engine; stock engine reproduction [L59]", "L": [52, 55, 56, 57, 59]},
+ "entries": [
+  {"role": "own",
+   "name": "GLM-5.3-Flash EXL3",
+   "metrics": {"mean_kld": "c1", "top1_pct": "c2", "kld:long rows (4 x 4,096 tokens)": "c3", "top1:long rows (4 x 4,096 tokens)": "c4", "top1:126 of 129 held-out rows": "c5"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["KLD on all 129 rows was not run [L59]", "30-row KLD reproduces on the stock engine at 0.150812 [L59]", "task scores not run; non-thinking mode only [L61]", "top-1 on 126 of 129 rows excludes the longest rows [L57]", "speed and prefill figures not mapped (no speed key) [L65-72, L85-87]", "size 99.73 GB stated in prose only [L22]"]}
+ ],
+ "prose": []
+}

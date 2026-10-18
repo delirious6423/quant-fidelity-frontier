@@ -1,0 +1,22 @@
+{
+ "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "KDA-only artifact (six-case screen); original release (held-out prose PPL)", "dataset": "six-case screen (Korean, English, code, math, JSON, stopping; 106 teacher-forced targets); held-out prose (as reported on the original release card)", "ctx": "greedy answers up to 96 tokens (screen)", "tool": "not stated", "L": [78, 79, 80, 83, 84, 87, 88]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash VQ GGUF (Q4_K nonexpert v3)", "panel": "Quality",
+   "methodology": {"reference": "KDA-only artifact on the same build", "dataset": "six-case screen; 106 teacher-forced targets", "ctx": "greedy answers up to 96 tokens", "tool": "not stated", "L": [78, 79, 80]},
+   "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["paired NLL +0.0033 nat/token on the six-case screen has no matching metric key, omitted [L80]", "card states the output head is not the cause and the change is not quality-equivalent [L83-85]"]},
+  {"role": "quoted", "name": "original release, before routed-expert VQ", "panel": "Quality", "of": "not named on card",
+   "methodology": {"reference": "not stated", "dataset": "held-out prose (as reported on the original release card)", "ctx": "not stated", "tool": "not stated", "L": [88]},
+   "metrics": {"ppl:held-out prose": "c5.0"}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["figure copied from the original release card, not measured on this artifact [L87-88]", "name derived from the arrow in the sentence [L88]"]},
+  {"role": "quoted", "name": "original release, after routed-expert VQ", "panel": "Quality", "of": "not named on card",
+   "methodology": {"reference": "not stated", "dataset": "held-out prose (as reported on the original release card)", "ctx": "not stated", "tool": "not stated", "L": [88]},
+   "metrics": {"ppl:held-out prose": "c5.1"}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["figure copied from the original release card, not measured on this artifact [L87-88]", "name derived from the arrow in the sentence [L88]"]}
+ ],
+ "prose": []
+}

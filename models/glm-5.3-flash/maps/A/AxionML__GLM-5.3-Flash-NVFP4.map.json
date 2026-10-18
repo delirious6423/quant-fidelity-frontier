@@ -1,0 +1,19 @@
+{"repo": "AxionML/GLM-5.3-Flash-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "GSM8K; AIME 2026; Terminal-Bench 2.1 (per-row protocols)", "ctx": "not stated", "tool": "SGLang, 4x GB300, FP8 KV cache, NEXTN speculative decoding", "L": [45, 47, 48, 49, 51]},
+ "entries": [
+  {"role": "quoted",
+   "of": "AxionML/GLM-5.3-Flash-NVFP4",
+   "name": "NVFP4",
+   "methodology": {"reference": "not stated", "dataset": "GSM8K Full 1,319 x 4 seeds; AIME 2026 30 x 16 x 4 seeds; Terminal-Bench 2.1 89 tasks, terminus-2, pass@1", "ctx": "not stated", "tool": "SGLang, 4x GB300, FP8 KV cache, NEXTN speculative decoding", "L": [45, 47, 48, 49, 51]},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "metrics": {"bench:GSM8K": "c4", "bench:AIME_2026": "c5", "bench:Terminal-Bench_2.1": "c6"},
+   "flags": ["scores are stated as reported by RadixArk for this checkpoint [L51]",
+             "the card gives no BF16 or other reference build for these scores [L45-L49]; text-only evaluations [L51]"]}
+ ],
+ "prose": []}

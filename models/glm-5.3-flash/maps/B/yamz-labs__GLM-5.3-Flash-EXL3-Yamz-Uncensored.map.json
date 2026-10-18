@@ -1,0 +1,21 @@
+{"repo": "yamz-labs/GLM-5.3-Flash-EXL3-Yamz-Uncensored",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "official FP8 release [L24]", "dataset": "30 held-out rows [L24]", "ctx": "not stated", "tool": "Kyojin engine, per the base card [L18, L24]", "L": [18, 23, 24, 56, 61, 81]},
+ "entries": [
+  {"role": "quoted",
+   "name": "base pack (GLM-5.3-Flash EXL3)",
+   "of": "yamz-labs/GLM-5.3-Flash-EXL3-Yamz",
+   "metrics": {"mean_kld": "c16.0"},
+   "methodology": {"reference": "official FP8 release", "dataset": "30 held-out rows", "ctx": "not stated", "tool": "Kyojin engine", "L": [24]},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["card says the shards are byte-identical to the base pack, and the figure is the base pack's [L18, L24]"]},
+  {"role": "own",
+   "name": "GLM-5.3-Flash EXL3 uncensored",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["refusal counts of 0/100 with the edit and 81/100 without are not in the candidate list, not mapped [L23, L56-61]", "no KLD or task score measured on this release; the KL of the edit was not measured on v2 [L81]", "the weights are not edited; the edit is applied at runtime from a bundled spec [L37]", "speed table figures are not quality metrics [L63-72]"]}
+ ],
+ "prose": []
+}

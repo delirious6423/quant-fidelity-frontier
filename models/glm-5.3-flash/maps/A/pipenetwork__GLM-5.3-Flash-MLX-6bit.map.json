@@ -1,0 +1,20 @@
+{
+ "repo": "pipenetwork/GLM-5.3-Flash-MLX-6bit",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "8-bit build as anchor (bf16 not run, does not fit 512 GB)", "dataset": "wikitext-2 (test), 288,627 tokens in 141 windows of 2048", "ctx": "2048", "tool": "PipeNetwork glm53-flash-mlx runtime (fixes mlx-vlm main)", "L": [66, 67, 70, 71, 88]},
+ "entries": [
+  {"role": "own", "name": "6bit", "metrics": {"ppl": "c15"}, "size": "c14", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["dNLL/token vs 8-bit with 95% CI has no metric key, not mapped [L75]"]},
+  {"role": "ladder", "name": "8bit", "metrics": {"ppl": "c13"}, "size": "c12", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["anchor build [L68-69]"]},
+  {"role": "ladder", "name": "mixed-4_8bit", "metrics": {"ppl": "c19"}, "size": "c18", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "ladder", "name": "4bit", "metrics": {"ppl": "c23"}, "size": "c22", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "ladder", "name": "REAP25-mixed-4_8bit", "metrics": {"ppl": "c27"}, "size": "c26", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["pruned build [L78]"]},
+  {"role": "ladder", "name": "REAP37-mixed-4_8bit", "metrics": {"ppl": "c31"}, "size": "c30", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["pruned build [L79]"]},
+  {"role": "ladder", "name": "REAP50-mixed-4_8bit", "metrics": {"ppl": "c35"}, "size": "c34", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["pruned build [L80]"]},
+  {"role": "ladder", "name": "REAP25-4bit", "metrics": {"ppl": "c38"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["size not in table row [L81]"]},
+  {"role": "ladder", "name": "REAP37-4bit", "metrics": {"ppl": "c41"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["size not in table row [L82]"]},
+  {"role": "ladder", "name": "REAP50-4bit", "metrics": {"ppl": "c44"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["size not in table row [L83]"]}
+ ],
+ "prose": []
+}

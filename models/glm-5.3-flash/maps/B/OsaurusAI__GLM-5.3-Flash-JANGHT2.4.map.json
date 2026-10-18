@@ -1,0 +1,76 @@
+{
+ "repo": "OsaurusAI/GLM-5.3-Flash-JANGHT2.4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "full bf16 model run layer by layer from disk", "dataset": "held-out sequences, hard set: multi-turn tool conversations, long context, Chinese; top-128 renormalized KL", "ctx": "not stated", "tool": "not stated", "L": [58, 59, 60, 61]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash-JANGHT2.4", "panel": "Quality vs the bf16 model",
+   "methodology": {"reference": "full bf16 model run layer by layer from disk", "dataset": "held-out sequences, hard set: multi-turn tool conversations, long context, Chinese; top-128 renormalized KL", "ctx": "not stated", "tool": "not stated", "L": [58, 59, 60, 61]},
+   "metrics": {
+    "mean_kld": "c8", "top1_pct": "c10", "kld_99": "c9.2",
+    "kld:tool-conversations": "c40.0", "top1:tool-conversations": "c40.1",
+    "kld:coding": "c43.0", "top1:coding": "c43.1",
+    "kld:agentic": "c46.0", "top1:agentic": "c46.1",
+    "kld:cybersecurity": "c49.0", "top1:cybersecurity": "c49.1",
+    "kld:long-context": "c52.0", "top1:long-context": "c52.1",
+    "kld:general": "c55.0", "top1:general": "c55.1",
+    "kld:science": "c58.0", "top1:science": "c58.1",
+    "kld:academic-multiple-choice": "c61.0", "top1:academic-multiple-choice": "c61.1",
+    "kld:chinese": "c64.0", "top1:chinese": "c64.1",
+    "kld:systems": "c67.0", "top1:systems": "c67.1"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["median KL overall has no metric key [L66]", "top-5 and top-10 have no metric key [L66]", "size is only in the row label, no candidate [L66]", "bits per weight stated in prose only [L54]", "per-domain values are median KL, not mean [L94-L98]", "layer 45 omitted from the checkpoint, so weights are modified [L177]", "tool decisions table and live-behavior counts not mapped (no metric key) [L112-L120, L140-L142]"]
+  },
+  {"role": "ladder", "name": "GLM-5.3-Flash-JANGH2 (previous release, revision 2)", "panel": "Quality vs the bf16 model",
+   "methodology": {"reference": "full bf16 model run layer by layer from disk", "dataset": "held-out sequences, hard set: multi-turn tool conversations, long context, Chinese; top-128 renormalized KL", "ctx": "not stated", "tool": "not stated", "L": [58, 59, 60, 61]},
+   "metrics": {
+    "mean_kld": "c14", "top1_pct": "c16", "kld_99": "c15.2",
+    "kld:tool-conversations": "c41.0", "top1:tool-conversations": "c41.1",
+    "kld:coding": "c44.0", "top1:coding": "c44.1",
+    "kld:agentic": "c47.0", "top1:agentic": "c47.1",
+    "kld:cybersecurity": "c50.0", "top1:cybersecurity": "c50.1",
+    "kld:long-context": "c53.0", "top1:long-context": "c53.1",
+    "kld:general": "c56.0", "top1:general": "c56.1",
+    "kld:science": "c59.0", "top1:science": "c59.1",
+    "kld:academic-multiple-choice": "c62.0", "top1:academic-multiple-choice": "c62.1",
+    "kld:chinese": "c65.0", "top1:chinese": "c65.1",
+    "kld:systems": "c68.0", "top1:systems": "c68.1"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["median KL overall has no metric key [L67]", "top-5 and top-10 have no metric key [L67]", "per-domain values are median KL, not mean [L94-L98]"]
+  },
+  {"role": "ladder", "name": "control: bf16 experts", "panel": "Quality vs the bf16 model",
+   "methodology": {"reference": "full bf16 model run layer by layer from disk", "dataset": "held-out sequences, hard set: multi-turn tool conversations, long context, Chinese; top-128 renormalized KL", "ctx": "not stated", "tool": "not stated", "L": [58, 59, 60, 61]},
+   "metrics": {"mean_kld": "c3", "top1_pct": "c5"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["control build: bf16 routed experts with the same 8-bit non-expert weights [L59, L65]", "median KL has no metric key [L65]", "p90 and p95 missing and p99 cell not split, so kld_99 not mapped [L65]", "top-5 and top-10 have no metric key [L65]"]
+  },
+  {"role": "ladder", "name": "GLM-5.3-Flash-JANGH2 (revision 2)", "panel": "Earlier comparison: official FP8 reference, 20 short prompts (from the JANGH2 release)",
+   "methodology": {"reference": "official FP8 release (not bf16)", "dataset": "short prompts from the JANGH2 release, legacy panel", "ctx": "not stated", "tool": "not stated", "L": [69, 70, 71]},
+   "metrics": {"mean_kld": "c21", "top1_pct": "c23", "kld_99": "c22.2"},
+   "size": "c19", "unit": "GiB", "basis": "disk", "bpw": null,
+   "flags": ["reference is the official FP8 release, not bf16 [L70]", "legacy panel: JANGHT2.4 was not run on it [L71]", "median KL overall has no metric key [L76]", "top-5 and top-10 have no metric key [L76]", "size basis read as the bundle size in the Size column [L76]", "orcarouter row not mapped, provenance of its figures unclear from digest [L78]"]
+  },
+  {"role": "ladder", "name": "GLM-5.3-Flash-JANG (affine, earlier release)", "panel": "Earlier comparison: official FP8 reference, 20 short prompts (from the JANGH2 release)",
+   "methodology": {"reference": "official FP8 release (not bf16)", "dataset": "short prompts from the JANGH2 release, legacy panel", "ctx": "not stated", "tool": "not stated", "L": [69, 70, 71]},
+   "metrics": {"mean_kld": "c28", "top1_pct": "c30", "kld_99": "c29.2"},
+   "size": "c26", "unit": "GiB", "basis": "disk", "bpw": null,
+   "flags": ["reference is the official FP8 release, not bf16 [L70]", "legacy panel: JANGHT2.4 was not run on it [L71]", "median KL overall has no metric key [L77]", "top-5 and top-10 have no metric key [L77]", "size basis read as the bundle size in the Size column [L77]"]
+  },
+  {"role": "own", "name": "GLM-5.3-Flash-JANGHT2.4", "panel": "Reasoning ends on its own",
+   "methodology": {"reference": "bf16 model, held-out transcripts written by the bf16 model in its native format", "dataset": "held-out transcripts: long design and coding reasoning, multi-step tool conversations; assistant positions", "ctx": "not stated", "tool": "not stated", "L": [122, 123]},
+   "metrics": {"top1:assistant-text": "c69", "kld:assistant-text": "c71"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["median KL per subset, not mean [L128]", "reasoning-end point counts and median P(</think>) rows have no metric key [L129-L131]"]
+  },
+  {"role": "ladder", "name": "JANGH2", "panel": "Reasoning ends on its own",
+   "methodology": {"reference": "bf16 model, held-out transcripts written by the bf16 model in its native format", "dataset": "held-out transcripts: long design and coding reasoning, multi-step tool conversations; assistant positions", "ctx": "not stated", "tool": "not stated", "L": [122, 123]},
+   "metrics": {"top1:assistant-text": "c70", "kld:assistant-text": "c72"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["median KL per subset, not mean [L128]", "reasoning-end point counts and median P(</think>) rows have no metric key [L129-L131]"]
+  }
+ ],
+ "prose": []
+}

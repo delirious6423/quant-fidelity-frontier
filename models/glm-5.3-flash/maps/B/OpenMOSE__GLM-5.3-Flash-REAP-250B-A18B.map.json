@@ -1,0 +1,13 @@
+{
+ "repo": "OpenMOSE/GLM-5.3-Flash-REAP-250B-A18B",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "GLM-5.3-Flash (original), teacher-forced next-token distributions", "dataset": "held-out multilingual chat and code reasoning text, about 130 k tokens, generated with a different seed than calibration", "ctx": "16,384 tokens per sequence", "tool": "not stated", "L": [152, 153, 154]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash-REAP-250B-A18B", "metrics": {"mean_kld": "c19", "top1_pct": "c20", "ppl": "c22"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["top-1 (confident tokens) column not mapped: no matching metric key [L159]", "ppl cell also states +2.8 % relative to the original [L159]"]},
+  {"role": "cross", "of": "zai-org/GLM-5.3-Flash", "name": "GLM-5.3-Flash (original)", "metrics": {"mean_kld": "c16", "top1_pct": "c17", "ppl": "c18"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": []},
+  {"role": "ladder", "name": "*(reference) uniform 224 experts, single mixed cal", "metrics": {"mean_kld": "c23", "top1_pct": "c24", "ppl_delta_pct": "c25"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["ppl delta is against 4.100 from that earlier run, not the 4.068 original [L160]", "row label truncated in candidate list [L160]"]}
+ ],
+ "prose": []
+}

@@ -1,0 +1,30 @@
+{"repo": "intel-ai/GLM-5.3-Flash-MXFP8-CT-AutoRound",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 base checkpoint reference table [L137-138]", "dataset": "GSM8K (strict, 5-shot), MMLU, PIQA, HellaSwag [L140, L219]", "ctx": "max-model-len 8192 [L158]", "tool": "lm-eval 0.4.13, vLLM backend, TP=4 on 4x B300, seed=42, batch_size=32 [L135-136]", "L": [135, 136, 137, 138, 140, 158, 219]},
+ "entries": [
+  {"role": "own",
+   "name": "GLM-5.3-Flash-MXFP8-CT-AutoRound",
+   "metrics": {"bench:GSM8K (strict)": "c18", "bench:MMLU": "c19", "bench:PIQA": "c20", "bench:HellaSwag": "c21", "bench:AVG": "c22"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["thinking off; text-only (language_model_only) [L136]", "no long-context or multimodal evaluation [L147, L237]", "delta row is derived, not mapped [L144]", "size 339.39 GB on disk is in a size row without metrics [L123]"]},
+  {"role": "quoted",
+   "name": "BF16 reference (base checkpoint)",
+   "of": "zai-org/GLM-5.3-Flash",
+   "metrics": {"bench:GSM8K (strict)": "c13", "bench:MMLU": "c14", "bench:PIQA": "c15", "bench:HellaSwag": "c16", "bench:AVG": "c17"},
+   "methodology": {"reference": "not stated", "dataset": "GSM8K (strict), MMLU, PIQA, HellaSwag", "ctx": "not stated", "tool": "reference table supplied for the base checkpoint [L137-138]", "L": [137, 138, 142]},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["card attributes the BF16 row to a supplied reference table and to Z.AI's published numbers [L137-138, L229]"]},
+  {"role": "quoted",
+   "name": "GLM-5.3-Flash-MXFP4-Mixed-CT-AutoRound (sibling)",
+   "of": "INCModel3/GLM-5.3-Flash-MXFP4-Mixed-CT-AutoRound",
+   "metrics": {},
+   "methodology": {"reference": "not stated", "dataset": "same four-task protocol [L131]", "ctx": "not stated", "tool": "not stated", "L": [131]},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["sibling's reported figure, quoted in the card [L131]"]}
+ ],
+ "prose": [
+  {"entry": "GLM-5.3-Flash-MXFP4-Mixed-CT-AutoRound (sibling)", "key": "bench:AVG", "L": 131, "raw": "0.8366"}
+ ]
+}

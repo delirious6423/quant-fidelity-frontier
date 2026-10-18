@@ -1,0 +1,11 @@
+{
+ "repo": "avlp12/GLM-5.3-Flash-Alis-MTP-Drafter",
+ "no_quality_claims": true,
+ "no_claims_reason": "speed and size only; bit-identical decode is an equivalence check, not a quality metric [L24-25]",
+ "weights_modified": false,
+ "method": {"reference": "plain decode (bit-identical comparison)", "dataset": "not stated", "ctx": "512", "tool": "not stated", "L": [24]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash-Alis-MTP-Drafter (bf16)", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["decode speed-up 1.12x and about 89% single-draft acceptance are speed figures with no matching metric key [L24-25]", "size 14 GB, 29 tensors is not in a metric row, so not mapped [L22]", "bf16 MTP extraction dequantized from FP8, not pruned or finetuned [L27-32]", "measured on M3 Ultra 512GB with a 4-bit-class target [L24]"]}
+ ],
+ "prose": []
+}

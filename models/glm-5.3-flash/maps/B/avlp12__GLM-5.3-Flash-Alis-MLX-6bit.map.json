@@ -1,0 +1,32 @@
+{"repo": "avlp12/GLM-5.3-Flash-Alis-MLX-6bit",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "8-bit teacher of this family [L40-42]", "dataset": "en/ko/code held-out corpus [L40]", "ctx": "ctx-2048 [L40]", "tool": "same harness as the 4-bit builds [L40]", "L": [40, 41, 42, 43]},
+ "entries": [
+  {"role": "own",
+   "name": "GLM-5.3-Flash-Alis-MLX-6bit",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["KL is against a quantized 8-bit teacher on a private panel, not comparable to BF16-teacher KLD [L43]", "weighted mean (0.0226) not mapped: its weighting differs from the other card's mean [L41]", "decode speed table not mapped (no speed key) [L34-38]", "-8.5% delta versus 4-bit RTN is a percent, not mapped [L51]"]},
+  {"role": "ladder",
+   "name": "GLM-5.3-Flash-Alis-MLX-4bit (QUASAR-init)",
+   "metrics": {},
+   "methodology": {"reference": "8-bit teacher of this family", "dataset": "en/ko/code held-out corpus", "ctx": "ctx-2048", "tool": "same harness as the 4-bit builds", "L": [41]},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["figure quoted from the same author's 4-bit card, same harness [L41]"]},
+  {"role": "ladder",
+   "name": "4-bit RTN baseline",
+   "metrics": {},
+   "methodology": {"reference": "8-bit teacher of this family", "dataset": "en/ko/code held-out corpus", "ctx": "ctx-2048", "tool": "same harness as the 4-bit builds", "L": [42]},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["figure quoted from the same author's 4-bit card, same harness [L42]"]}
+ ],
+ "prose": [
+  {"entry": "GLM-5.3-Flash-Alis-MLX-6bit", "key": "kld:en", "L": 41, "raw": "0.0269"},
+  {"entry": "GLM-5.3-Flash-Alis-MLX-6bit", "key": "kld:ko", "L": 41, "raw": "0.0226"},
+  {"entry": "GLM-5.3-Flash-Alis-MLX-6bit", "key": "kld:code", "L": 41, "raw": "0.0177"},
+  {"entry": "GLM-5.3-Flash-Alis-MLX-4bit (QUASAR-init)", "key": "mean_kld", "L": 41, "raw": "0.0569"},
+  {"entry": "4-bit RTN baseline", "key": "mean_kld", "L": 42, "raw": "0.0622"}
+ ]
+}

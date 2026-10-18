@@ -1,0 +1,15 @@
+{
+ "repo": "jarrelscy/GLM-5.3-Flash-NestQuant-1.5-4bit",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "Spark Bench, 80 scenarios", "ctx": "262,144 tokens (published full-run artifacts)", "tool": "Spark Bench official scorer, commit f2ac7876c1782047fe4ac37290a1466daa3a1c05", "L": [84, 129, 145]},
+ "entries": [
+  {"role": "own", "name": "Thinking on", "panel": "Validated Spark Bench results: thinking on and off", "methodology": {"reference": "not stated", "dataset": "Spark Bench, 80 tasks", "ctx": "262,144 tokens (published full-run artifacts)", "tool": "Spark Bench official scorer", "L": [84, 145]}, "metrics": {"bench:TrueScore": "c1", "bench:Quality": "c2"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["Completion 160/160 not mapped [L40]", "card states no final thinking-on score is claimed and a thinking-on benchmark is in progress [L153], which conflicts with the table [L40]"]},
+  {"role": "own", "name": "Thinking off", "panel": "Validated Spark Bench results: thinking on and off", "methodology": {"reference": "not stated", "dataset": "Spark Bench, 80 tasks", "ctx": "262,144 tokens (published full-run artifacts)", "tool": "Spark Bench official scorer", "L": [84, 145]}, "metrics": {"bench:TrueScore": "c5", "bench:Quality": "c6"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["Completion 160/160 not mapped [L41]", "final score includes CODE-13 repeat2 terminating at the context limit and receiving 0 from the official scorer [L153]"]},
+  {"role": "own", "name": "GLM-5.3-Flash-NestQuant-1.5-4bit", "panel": "Decode KLD and throughput", "methodology": {"reference": "BF16 teacher", "dataset": "four pinned BF16 confirmation windows", "ctx": "not stated", "tool": "not stated", "L": [149]}, "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["full-vocabulary decode KL(teacher || student) over 8188 positions [L149]", "nominal routed-expert bpw 2.0436 is a capacity-weighted figure, not whole-model bpw, and has no candidate id [L90]", "21.25 decode tokens/s is a synthetic probe, not a Spark Bench throughput measurement [L151]"]}
+ ],
+ "prose": [
+  {"entry": "GLM-5.3-Flash-NestQuant-1.5-4bit", "panel": "Decode KLD and throughput", "key": "mean_kld", "L": 149, "raw": "0.09006744"}
+ ]
+}

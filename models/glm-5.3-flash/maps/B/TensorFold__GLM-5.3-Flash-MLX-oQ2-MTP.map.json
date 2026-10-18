@@ -1,0 +1,15 @@
+{
+ "repo": "TensorFold/GLM-5.3-Flash-MLX-oQ2-MTP",
+ "no_quality_claims": true,
+ "no_claims_reason": "speed and acceptance figures only; no quality number about the quant [L162-L169]",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "512-token greedy runs of one prompt", "ctx": "512 output tokens per run", "tool": "MLX on an Apple M3 Studio", "L": [159, 162, 164, 165, 166, 168, 169]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash-MLX-oQ2-MTP",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["throughput and acceptance figures have no metric key [L164-L166]", "the matched native-MTP pair is one run, and greedy outputs first differ at index 313 [L169]", "the validation table is not in the digest or the candidate list, so nothing is mapped from it [L200-L213]", "the card says mixed-precision quantisation can reduce quality, with no figure [L217]"]
+  }
+ ],
+ "prose": []
+}

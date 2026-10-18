@@ -1,0 +1,20 @@
+{"repo": "tattrongvu/GLM-5.3-Flash-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "eval-gate medium tier: bfcl_v4, hle, aa_lcr, aime26", "ctx": "max_tokens 32768, reasoning_effort max", "tool": "SGLang TP4 on 4x B200", "L": [50, 52, 59, 63]},
+ "entries": [
+   {"role": "own", "name": "GLM-5.3-Flash-NVFP4",
+    "methodology": {"reference": "not stated", "dataset": "eval-gate medium tier: bfcl_v4, hle, aa_lcr, aime26", "ctx": "max_tokens 32768, reasoning_effort max", "tool": "SGLang TP4 on 4x B200", "L": [50, 52, 59, 63]},
+    "metrics": {"bench:bfcl_v4": "c1", "bench:hle": "c4", "bench:hle (completed only)": "c7", "bench:aa_lcr": "c8", "bench:aime26": "c11", "bench:aime26 (completed only)": "c14"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["bfcl_v4 and hle are bounded runs, bounds not full scores [L59-L60]", "hle and aime26 scores blend real accuracy with token-budget truncation; completed-only figure is the card's own reading [L63-L68]", "truncated-at-cap shares and scored sample counts not mapped [L52-L57]", "weight reconstruction error 0.0918 not mapped: no matching key [L44-L46]"]},
+   {"role": "quoted", "name": "RadixArk NVFP4 conversion", "of": "not named on card",
+    "methodology": {"reference": "not stated", "dataset": "AIME 2026", "ctx": "max_tokens=131072", "tool": "NVIDIA ModelOpt conversion, as reported in the card", "L": [70, 71]},
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["figure copied from another conversion, with a larger token budget than this card's runs [L70-L71]"]}
+ ],
+ "prose": [
+   {"entry": "RadixArk NVFP4 conversion", "key": "bench:aime26", "L": 70, "raw": "92.45 %"}
+ ]}

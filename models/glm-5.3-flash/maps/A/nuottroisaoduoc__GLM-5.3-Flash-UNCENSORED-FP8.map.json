@@ -1,0 +1,103 @@
+{
+ "repo": "nuottroisaoduoc/GLM-5.3-Flash-UNCENSORED-FP8",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+  "reference": "Base FP8 (same logit-mode scoring)",
+  "dataset": "MMLU, 1,026 questions (logit mode); HarmBench-320",
+  "ctx": "not stated",
+  "tool": "identical logit-mode scoring; greedy HarmBench generation",
+  "L": [
+   66,
+   68,
+   72,
+   76,
+   83
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "CRACK Uncensored FP8",
+   "panel": "Capability Is Preserved — MMLU-logit",
+   "methodology": {
+    "reference": "Base FP8 (same logit-mode scoring)",
+    "dataset": "MMLU, 1,026 questions (logit mode)",
+    "ctx": "not stated",
+    "tool": "identical logit-mode scoring",
+    "L": [
+     66,
+     68,
+     72
+    ]
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "metrics": {
+    "bench:MMLU": "c2"
+   },
+   "flags": [
+    "the delta of -0.48 pp [L72] is derived from the two rows and is not mapped",
+    "the per-subject MMLU table [L98-L163] is not mapped",
+    "the card presents this model as uncensored against Base FP8; the modification method is not named in the digest, so weights_modified is set from that comparison [L22] [L89-L95]"
+   ]
+  },
+  {
+   "role": "cross",
+   "of": "not named on card",
+   "name": "Base FP8",
+   "panel": "Capability Is Preserved — MMLU-logit",
+   "methodology": {
+    "reference": "Base FP8 (same logit-mode scoring)",
+    "dataset": "MMLU, 1,026 questions (logit mode)",
+    "ctx": "not stated",
+    "tool": "identical logit-mode scoring",
+    "L": [
+     66,
+     68,
+     72
+    ]
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "metrics": {
+    "bench:MMLU": "c1"
+   },
+   "flags": [
+    "the base checkpoint measured by this card's author in the same table; its repo is not named in the digest [L72]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "CRACK Uncensored FP8",
+   "panel": "Guardrails Are Gone",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "HarmBench-320",
+    "ctx": "not stated",
+    "tool": "greedy generation",
+    "L": [
+     74,
+     76,
+     83
+    ]
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "metrics": {
+    "bench:HarmBench-320_compliance": "c11"
+   },
+   "flags": [
+    "this is a behaviour measure of guardrail removal, not a capability measure; the per-category counts [L80-L82] are not mapped"
+   ]
+  }
+ ],
+ "prose": []
+}

@@ -1,0 +1,16 @@
+{
+ "repo": "gitcommit90/GLM-5.3-Flash-EXL3-2.05-One-Spark",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 teacher logits", "dataset": "windows (count as stated at L82), teacher forcing, full vocabulary, FP64 accumulation", "ctx": "not stated", "tool": "malaiwah quant-fidelity-suite (independent measurement, receipt linked)", "L": [76, 78, 82]},
+ "entries": [
+  {"role": "quoted", "name": "Turboderp EXL3 2.05", "of": "turboderp/GLM-5.3-Flash-exl3",
+   "methodology": {"reference": "BF16 teacher logits", "dataset": "windows (count as stated at L82), teacher forcing, full vocabulary, FP64 accumulation", "ctx": "not stated", "tool": "malaiwah quant-fidelity-suite (independent measurement, receipt linked)", "L": [76, 78, 82]},
+   "metrics": {"mean_kld": "c3", "top1_pct": "c2"},
+   "size": "c1", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["figures copied from an independent measurement, not run by this card [L76]", "full-vocabulary KL, not top-k renormalized [L82]", "scored positions count has no metric key [L80]", "checkpoint quantized from the official FP8 release, measured against BF16 [L82]", "bits per weight stated in link text only [L23, L74]"]
+  }
+ ],
+ "prose": []
+}

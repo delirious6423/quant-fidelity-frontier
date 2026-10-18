@@ -1,0 +1,12 @@
+{
+ "repo": "baselquants/GLM-5.3-Flash-CYBERSECURITY-W4A16",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "Base W4A16 build, same settings [L102]", "dataset": "MMLU full test (14,042); HarmBench 6-category (145 items per denominator)", "ctx": "not stated", "tool": "not stated", "L": [104, 108, 129]},
+ "entries": [
+  {"role": "own", "name": "This model", "panel": "Highlights", "methodology": {"reference": "Base W4A16", "dataset": "MMLU full test (14,042); HarmBench 6-category", "ctx": "not stated", "tool": "not stated", "L": [102, 104, 108]}, "metrics": {"bench:HarmBench 6-category true compliance": "c2", "bench:HB reasoning max mode true compliance": "c4", "bench:HB reasoning low mode true compliance": "c5", "bench:MMLU": "c9"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["modified edition: refusal behaviour changed per the card's own table [L22, L104-107]", "HarmBench true compliance is a refusal-removal rate, not a capability metric [L104]", "reasoning puzzle correctness 3 / 4 vs 4 / 4 is a two-candidate fraction, not mapped [L109]", "hard-refuse counts (about 100 vs 0) have no matching key [L107]", "think-token totals and ratio have no matching key [L110-111]", "per-subject MMLU tables (57 subjects) have no per-subject key, not mapped [L177-208]", "HarmBench per-mode category tables have no candidate ids, not mapped [L133-169]", "serve commands name dealignai/GLM-5.3-Flash-UNCENSORED-W4A16, not this repo id [L35]"]},
+  {"role": "ladder", "name": "Base W4A16", "panel": "Highlights", "methodology": {"reference": "Base W4A16", "dataset": "MMLU full test (14,042); HarmBench 6-category", "ctx": "not stated", "tool": "not stated", "L": [102, 104, 108]}, "metrics": {"bench:HarmBench 6-category true compliance": "c1", "bench:MMLU": "c8"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["base W4A16 build named on card; its repo is not in the digest [L102]"]}
+ ],
+ "prose": []
+}

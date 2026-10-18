@@ -1,0 +1,21 @@
+{"repo": "gitcommit90/GLM-5.3-Flash-EXL3-2.05-One-Spark",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 teacher logits", "dataset": "25 windows, full 154,880-token vocabulary (third-party receipt)", "ctx": "not stated", "tool": "full-vocabulary teacher-forced measurement, FP64 accumulation, two cold runs", "L": [76, 78, 80, 82]},
+ "entries": [
+  {"role": "quoted",
+   "of": "turboderp/GLM-5.3-Flash-exl3",
+   "name": "Turboderp EXL3 2.05",
+   "panel": "Quantization Analysis",
+   "methodology": {"reference": "BF16 teacher logits", "dataset": "25 windows, full 154,880-token vocabulary (third-party receipt)", "ctx": "not stated", "tool": "full-vocabulary teacher-forced measurement, FP64 accumulation, two cold runs", "L": [76, 78, 80, 82]},
+   "size": "c1",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "metrics": {"top1_pct": "c2", "mean_kld": "c3"},
+   "flags": ["the table is copied from an independent receipt in the quant-fidelity-suite, not measured by this card's author [L76]",
+             "the checkpoint was quantised from the official FP8 release and measured against BF16 teacher logits [L82]",
+             "the scored-positions count [L80] is not mapped; the speed, speculative-depth and long-context tables are not quality metrics and are not mapped"]}
+ ],
+ "prose": []}

@@ -1,0 +1,12 @@
+{
+ "repo": "amd/GLM-5.3-Flash-Quark-MXFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "GSM8K test set, 1,319 examples", "ctx": "context-length 65536 (serving); max-tokens 32768 (eval)", "tool": "sgl-eval at commit a231b7a439b235090ff7baa30778fa2b514309ae", "L": [139, 150, 161]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash-Quark-MXFP4 (GSM8K 4× MI350X, TP4)", "methodology": {"reference": "not stated", "dataset": "GSM8K test set, 1,319 examples, thinking enabled", "ctx": "context-length 65536 (serving); max-tokens 32768 (eval)", "tool": "sgl-eval, MI350X gfx950, TP4", "L": [139, 143, 146]}, "metrics": {"bench:GSM8K": "c3"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["native MXFP4 checkpoint, not pruned or finetuned [L65]", "correct count 1,282 / 1,319 not mapped separately [L143]", "measured on MI350X; MI355X is covered as an equivalent target, not measured [L146]"]},
+  {"role": "own", "name": "GLM-5.3-Flash-Quark-MXFP4 (GSM8K 8× MI350X, TP8+EP8)", "methodology": {"reference": "not stated", "dataset": "GSM8K test set, 1,319 examples, thinking enabled", "ctx": "context-length 65536 (serving); max-tokens 32768 (eval)", "tool": "sgl-eval, MI350X gfx950, TP8+EP8", "L": [139, 144, 146]}, "metrics": {"bench:GSM8K": "c6"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["correct count 1,281 / 1,319 not mapped separately [L144]", "measured on MI350X; MI355X is covered as an equivalent target, not measured [L146]"]}
+ ],
+ "prose": []
+}

@@ -1,0 +1,46 @@
+{
+ "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-NVFP4-v2",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "unpruned zai-org/GLM-5.3-Flash, the native FP8 checkpoint (not BF16)", "dataset": "241,516 held-out tokens the calibration never saw, teacher-forced, seven domains", "ctx": "not stated", "tool": "teacher-forced paired scoring against the teacher", "L": [111, 113, 114, 116, 124]},
+ "entries": [
+  {"role": "own", "name": "v2 (repo root)", "panel": "Measured against the unpruned teacher",
+   "methodology": {"reference": "unpruned zai-org/GLM-5.3-Flash, the native FP8 checkpoint (not BF16)", "dataset": "241,516 held-out tokens the calibration never saw, teacher-forced, seven domains", "ctx": "not stated", "tool": "teacher-forced paired scoring against the teacher", "L": [113, 114, 116, 124]},
+   "metrics": {
+    "top1_pct": "c1", "mean_kld": "c4",
+    "top1:agentic": "c7", "top1:math": "c10", "top1:science": "c13", "top1:finance": "c16", "top1:ballast": "c19", "top1:code": "c22"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["reference is the native FP8 checkpoint, not BF16 [L113-L114]", "top-1 agreement and per-domain values are fractions, not percents [L118, L126-L131]", "top-k KL is not full-vocabulary KL, and its statistic is not labelled [L121]", "delta NLL values have no metric key [L119-L120, L126-L131]", "teacher-forced scores only, with no generative benchmark [L207-L208]", "v3 (pass3-hope/) has no end-to-end evaluation, so it has no entry [L61-L62, L108]", "the card was corrected: the weights are NVFP4, not FP8 [L21-L23]", "the honest-comparison figures are legacy and superseded, so they are not mapped [L57-L63]", "pruned: 144 of 288 routed experts kept [L28]"]
+  },
+  {"role": "own", "name": "v2 (repo root)", "panel": "Corrections to this repository",
+   "methodology": {"reference": "unpruned zai-org/GLM-5.3-Flash, the native FP8 checkpoint (not BF16)", "dataset": "241,516 held-out tokens, same set and same cached teacher", "ctx": "not stated", "tool": "cached teacher, one variable changed", "L": [250, 251, 258]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["NVFP4 top-1 value for the shipped per-layer scalar is given in prose only [L258]"]
+  },
+  {"role": "ladder", "name": "per-expert healing (was shipped)", "panel": "Corrections to this repository",
+   "methodology": {"reference": "unpruned zai-org/GLM-5.3-Flash, the native FP8 checkpoint (not BF16)", "dataset": "241,516 held-out tokens, same set and same cached teacher", "ctx": "not stated", "tool": "cached teacher, one variable changed", "L": [250, 251, 258]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["earlier NVFP4 build with per-expert healing, no longer shipped [L258]", "NVFP4 top-1 value is given in prose only [L258]"]
+  },
+  {"role": "ladder", "name": "FP8 parent, per-expert (was shipped)", "panel": "Corrections to this repository",
+   "methodology": {"reference": "unpruned zai-org/GLM-5.3-Flash, the native FP8 checkpoint (not BF16)", "dataset": "241,516 held-out tokens, same set and same cached teacher", "ctx": "not stated", "tool": "cached teacher, one variable changed", "L": [250, 251, 254, 256]},
+   "metrics": {"top1_pct": "c32", "mean_kld": "c38"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["measured on the FP8 parent, not on this repository's NVFP4 files [L258]", "top-1 agreement is stated as a fraction, not a percent [L254]", "top-k KL is not full-vocabulary KL, and its statistic is not labelled [L256]", "delta NLL values have no metric key [L255]"]
+  },
+  {"role": "ladder", "name": "FP8 parent, per-layer scalar (ships now)", "panel": "Corrections to this repository",
+   "methodology": {"reference": "unpruned zai-org/GLM-5.3-Flash, the native FP8 checkpoint (not BF16)", "dataset": "241,516 held-out tokens, same set and same cached teacher", "ctx": "not stated", "tool": "cached teacher, one variable changed", "L": [250, 251, 254, 256]},
+   "metrics": {"top1_pct": "c33", "mean_kld": "c39"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["measured on the FP8 parent, not on this repository's NVFP4 files [L258]", "top-1 agreement is stated as a fraction, not a percent [L254]", "top-k KL is not full-vocabulary KL, and its statistic is not labelled [L256]", "delta NLL values have no metric key [L255]"]
+  }
+ ],
+ "prose": [
+  {"entry": "v2 (repo root)", "panel": "Corrections to this repository", "key": "top1_pct", "L": 258, "raw": "0.83857"},
+  {"entry": "per-expert healing (was shipped)", "panel": "Corrections to this repository", "key": "top1_pct", "L": 258, "raw": "0.83294"}
+ ]
+}

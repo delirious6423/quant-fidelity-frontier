@@ -1,0 +1,16 @@
+{"repo": "mbehr90/GLM-5.3-Flash-nvfp4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "vLLM on 4x H100 80 GB (image vllm/vllm-openai:glm53-flash)", "L": [71, 78, 100]},
+ "entries": [
+   {"role": "own", "name": "this build (NVFP4)",
+    "metrics": {"bench:GSM8K chat": "c9", "bench:AI2D vision": "c10", "bench:GSM8K lm-eval": "c11", "bench:ARC-C": "c12"},
+    "size": "c8", "unit": "GiB", "basis": "disk", "bpw": null,
+    "flags": ["weight-only NVFP4A16 on routed experts; no input_global_scale [L34-L39]", "tok/s figures not mapped [L76]"]},
+   {"role": "cross", "name": "zai-org/GLM-5.3-Flash", "of": "zai-org/GLM-5.3-Flash",
+    "metrics": {"bench:GSM8K chat": "c7"},
+    "size": "c6", "unit": "GiB", "basis": "disk", "bpw": null,
+    "flags": ["measured by the author with vLLM per-GPU CPU offload; throughput not comparable [L78-L80]", "no AI2D or lm-eval value given for this row [L78-L81]"]}
+ ],
+ "prose": []}

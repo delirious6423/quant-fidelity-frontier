@@ -1,0 +1,14 @@
+{"repo": "nibor1896/GLM-5.3-Flash-MUL1K3",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "FP8 originals [L123]", "dataset": "not stated", "ctx": "CROW_CONTEXT 200,000 [L102]", "tool": "crow-nest build 2a18fbc [L102]", "L": [102, 114, 123]},
+ "entries": [
+  {"role": "own",
+   "name": "GLM-5.3-Flash-MUL1K3",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": "c21",
+   "flags": ["quantization-error and correctness tables have result rows outside the candidate list, not mapped [L114-130]", "speed table rows are not in the candidate list, not mapped [L104-112]", "routed experts at 3.05 bpw (EXL3 MUL1, K=3) [L37, L90]", "dense part at 4.5 bpw stated (c22) and not mapped as bpw [L38]"]}
+ ],
+ "prose": []
+}

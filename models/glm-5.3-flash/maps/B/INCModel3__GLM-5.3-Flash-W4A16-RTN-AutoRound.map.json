@@ -1,0 +1,16 @@
+{
+ "repo": "INCModel3/GLM-5.3-Flash-W4A16-RTN-AutoRound",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 row of the same table, as labelled; base model linked as zai-org/GLM-5.3-Flash", "dataset": "GSM8K, MMLU, PIQA, HellaSwag and their average", "ctx": "not stated", "tool": "not stated", "L": [12, 14, 16, 17]},
+ "entries": [
+  {"role": "own", "name": "INT4",
+   "methodology": {"reference": "BF16 row of the same table, as labelled; base model linked as zai-org/GLM-5.3-Flash", "dataset": "GSM8K, MMLU, PIQA, HellaSwag and their average", "ctx": "not stated", "tool": "not stated", "L": [14, 16, 17]},
+   "metrics": {"bench:GSM8K": "c7", "bench:MMLU": "c8", "bench:PIQA": "c9", "bench:HellaSwag": "c10", "bench:Average": "c11", "bench:relative-to-BF16": "c12"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["scores are fractions of one, not percents [L16-L17]", "card spells the benchmark HelleSwag; mapped as HellaSwag [L14, L17]", "reference precision is labelled BF16, but the card text does not confirm the reference weights [L12, L16]", "4-bit is stated in the row label only, with no candidate id [L17]", "no size is printed in the table [L14-L17]"]
+  }
+ ],
+ "prose": []
+}

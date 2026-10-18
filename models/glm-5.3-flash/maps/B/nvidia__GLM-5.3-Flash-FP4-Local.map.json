@@ -1,0 +1,16 @@
+{
+ "repo": "nvidia/GLM-5.3-Flash-FP4-Local",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "BF16 row of the same table, as labelled; baseline linked as zai-org/GLM-5.3-Flash", "dataset": "GPQA Diamond and ToolEvalBench", "ctx": "not stated", "tool": "not stated", "L": [100, 102, 104, 106, 107, 109]},
+ "entries": [
+  {"role": "own", "name": "FP4-Local",
+   "methodology": {"reference": "BF16 row of the same table, as labelled; baseline linked as zai-org/GLM-5.3-Flash", "dataset": "GPQA Diamond and ToolEvalBench", "ctx": "not stated", "tool": "not stated", "L": [100, 104, 107, 109]},
+   "metrics": {"bench:GPQA-Diamond": "c4", "bench:ToolEvalBench": "c5"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["reference row is labelled BF16, but the card links the base model and does not confirm the reference weights [L104-L109]", "weights were updated by quantization-aware distillation against a BF16 teacher, so they are marked modified [L112-L114]", "memory use is stated in prose only, not in the table [L24]", "only benchmark accuracy is reported, with no KL or perplexity [L104-L107]"]
+  }
+ ],
+ "prose": []
+}

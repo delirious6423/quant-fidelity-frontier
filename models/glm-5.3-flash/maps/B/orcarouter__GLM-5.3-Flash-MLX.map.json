@@ -1,0 +1,16 @@
+{
+ "repo": "orcarouter/GLM-5.3-Flash-MLX",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "FP8 release dequantized to BF16, run through the identical glm5_next forward", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [173, 174]},
+ "entries": [
+  {"role": "own", "name": "6-bit", "metrics": {"ppl": "c30", "ppl_delta_pct": "c31", "mean_kld": "c51", "top1_pct": "c53"}, "size": "c50", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["size from the KLD table row; the PPL table gives the same 296 GB [L182, L193]", "KLD p95 has no matching key [L193]", "weight-space fidelity (cosine, SNR, rel. error) has no matching key [L203]", "base bits 6 is base precision under mixed OrcaSAQ allocation, not a bits-per-weight figure [L105, L142]", "card-level note: CyberGym 98.01% pass@1 is for a different model (OrcaCyber Zero 1.5), omitted [L46]"]},
+  {"role": "own", "name": "4-bit", "metrics": {"ppl": "c34", "ppl_delta_pct": "c35", "mean_kld": "c56", "top1_pct": "c58"}, "size": "c55", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["size from the KLD table row; the PPL table gives the same 204 GB [L183, L194]", "KLD p95 has no matching key [L194]", "weight-space fidelity (cosine, SNR, rel. error) has no matching key [L204]", "base bits 4 is base precision under mixed OrcaSAQ allocation, not a bits-per-weight figure [L106, L142]"]},
+  {"role": "own", "name": "3-bit", "metrics": {"ppl": "c38", "ppl_delta_pct": "c39", "mean_kld": "c61", "top1_pct": "c63"}, "size": "c60", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["size from the KLD table row; the PPL table gives the same 184 GB [L184, L195]", "KLD p95 has no matching key [L195]", "weight-space fidelity (cosine, SNR, rel. error) has no matching key [L205]", "base bits 3 is base precision under mixed OrcaSAQ allocation, not a bits-per-weight figure [L107, L142]"]},
+  {"role": "own", "name": "2-bit", "metrics": {"ppl": "c42", "ppl_delta_pct": "c43", "mean_kld": "c66", "top1_pct": "c68"}, "size": "c65", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["size from the KLD table row; the PPL table gives the same 145 GB [L185, L196]", "KLD p95 has no matching key [L196]", "weight-space fidelity (cosine, SNR, rel. error) has no matching key [L206]", "base bits 2 is base precision under mixed OrcaSAQ allocation, not a bits-per-weight figure [L108, L142]"]},
+  {"role": "own", "name": "2bit-lite", "metrics": {"ppl": "c45", "ppl_delta_pct": "c46", "mean_kld": "c70", "top1_pct": "c72"}, "size": "c69", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["size from the KLD table row; the PPL table gives the same 102 GB [L186, L197]", "about 2.25 bpw on the experts is stated in prose only, expert-only, so not mapped [L234]", "KLD p95 has no matching key [L197]", "weight-space fidelity (cosine, SNR, rel. error) has no matching key [L207]"]},
+  {"role": "cross", "of": "not named on card", "name": "FP8 (ref)", "metrics": {"ppl": "c27", "top1_pct": "c48"}, "size": "c47", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["official FP8 release used as the reference, dequantized to BF16 [L173-174]", "FP8 PPL and top-1 measured by this card author under the same forward [L181, L192]"]}
+ ],
+ "prose": []
+}

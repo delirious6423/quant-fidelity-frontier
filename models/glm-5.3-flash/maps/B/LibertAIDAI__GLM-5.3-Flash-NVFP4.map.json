@@ -1,0 +1,11 @@
+{
+ "repo": "LibertAIDAI/GLM-5.3-Flash-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 source zai-org/GLM-5.3-Flash, per-expert round-trip", "dataset": "not stated (weight-only quantization, no calibration data)", "ctx": "not stated", "tool": "NVIDIA ModelOpt 0.45.0, NVFP4QTensor shard-streaming pass", "L": [29, 51, 53, 349]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash · NVFP4", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["weight-space round-trip cosine 0.99665 and relative error 0.0925 have no matching metric key [L29, L349]", "card claims the vision tower is bit-identical to the source; not measured as a metric [L51]", "speed and engine-support figures (for example 27.6 tok/s) have no matching metric key [L217]"]}
+ ],
+ "prose": []
+}

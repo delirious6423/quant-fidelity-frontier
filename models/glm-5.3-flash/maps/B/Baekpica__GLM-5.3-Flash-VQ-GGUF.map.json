@@ -1,0 +1,21 @@
+{
+ "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "KDA-only artifact on the same build", "dataset": "six-case screen (Korean, English, code, math, JSON, stopping) with teacher-forced targets", "ctx": "greedy answers up to a length stated at L79", "tool": "same build for both artifacts (ds4-dfm-rs build named at L50)", "L": [78, 79, 80, 83, 88]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash VQ GGUF (Q4_K nonexpert v3)",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["paired NLL difference against the KDA-only artifact is in nats per token and has no metric key [L80]", "the only size and speed figures are not quality metrics [L44, L55-L73]", "routed-expert VQ loss is not measured here; it is quoted from the original release [L87-L88]", "card states this is not a quality-equivalent replacement of the source model [L84-L85]"]
+  },
+  {"role": "quoted", "name": "original release", "of": "not named on card",
+   "methodology": {"reference": "not stated", "dataset": "held-out prose", "ctx": "not stated", "tool": "not stated", "L": [88]},
+   "metrics": {"ppl:held-out-prose": "c5.1"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["figure copied from the original release's card, not measured here [L88]", "the unquantized baseline value in the same sentence is not mapped as an entry [L88]"]
+  }
+ ],
+ "prose": []
+}

@@ -1,0 +1,20 @@
+{
+ "repo": "spectator2026/GLM-5.3-Flash-W5-HQQ-g32",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 model", "dataset": "wikitext-2 and multi-turn agentic text", "ctx": "2,048-token windows", "tool": "not stated", "L": [90, 92, 94, 95]},
+ "entries": [
+  {"role": "own", "name": "this W5 checkpoint (served)",
+   "metrics": {"kld:wikitext-2": "c1", "kld:multi-turn-agentic-text": "c2"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["mean KL against the bf16 model, full vocabulary [L90]", "table cells used; the rounded prose values at L23 are not used [L23, L94]", "size is printed only in the prose, not in the table row [L22]", "bits per weight stated in method text only [L63]", "long-context quality effect not measured [L80]"]
+  },
+  {"role": "ladder", "name": "8-bit g32 + HQQ (reference point)",
+   "metrics": {"kld:wikitext-2": "c3"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["reference point in the same table; appears to be a build by this publisher, not labelled as a file [L95]", "no multi-turn agentic value given for this row [L95]"]
+  }
+ ],
+ "prose": []
+}

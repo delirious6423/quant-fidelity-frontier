@@ -1,0 +1,21 @@
+{
+ "repo": "fly9i/GLM-5.3-Flash-SPX1-V1.1",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "official FP8 model (zai-org/GLM-5.3-Flash)", "dataset": "held-out evaluation set not used for calibration (not named); GSM8K (200)", "ctx": "not stated", "tool": "not stated", "L": [49, 51, 53]},
+ "entries": [
+  {"role": "own", "name": "SPX1 V1.1 (this)", "panel": "Quality",
+   "methodology": {"reference": "official FP8 model (zai-org/GLM-5.3-Flash)", "dataset": "held-out evaluation set not used for calibration (not named); GSM8K (200)", "ctx": "not stated", "tool": "not stated", "L": [49, 51, 53]},
+   "metrics": {"mean_kld": "c1", "top1_pct": "c2", "bench:GSM8K": "c3"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["KL aggregation is not stated, read as mean KLD [L49, L53]", "size 156 GB is in the intro prose, not in the quality table [L21]"]},
+  {"role": "cross", "name": "tr3 4bpw (upstream, uniform K4)", "panel": "Quality",
+   "of": "brandonmusic/GLM-5.3-Flash-tr3-4bpw",
+   "methodology": {"reference": "official FP8 model (zai-org/GLM-5.3-Flash)", "dataset": "held-out evaluation set not used for calibration (not named)", "ctx": "not stated", "tool": "not stated", "L": [49, 51, 54]},
+   "metrics": {"mean_kld": "c4", "top1_pct": "c5"},
+   "size": null, "unit": null, "basis": null, "bpw": "c6",
+   "flags": ["KL aggregation is not stated, read as mean KLD [L54]", "GSM8K value for this row is not among the candidates, omitted [L54]"]}
+ ],
+ "prose": []
+}

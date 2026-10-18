@@ -1,0 +1,3260 @@
+{
+ "quarantined": [
+  {
+   "repo": "spectator2026/GLM-5.3-Flash-W5-HQQ-g32",
+   "kind": "ladder",
+   "entry": "8-bit g32 + HQQ (reference point)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "spectator2026/GLM-5.3-Flash-W5-HQQ-g32",
+   "kind": "variants",
+   "entry": "this W5 checkpoint (served)",
+   "reason": "failed a gate"
+  }
+ ],
+ "disagreements": [
+  {
+   "repo": "6block/GLM-5.3-Flash-GGUF",
+   "entry": "master (BF16, not in this repo)",
+   "key": "ppl:wikitext2",
+   "raw": "6.6974 \u00b1 0.34871"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "top1_pct",
+   "raw": "0.793"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "bench:Total (of 120)",
+   "raw": "99"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "bench:GSM8K (of 20)",
+   "raw": "19"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "bench:MATH (of 20)",
+   "raw": "16"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "bench:MMLU-Pro (of 20)",
+   "raw": "11"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "bench:ARC-C (of 20)",
+   "raw": "18"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "bench:BBH (of 20)",
+   "raw": "17"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "bench:Decode tok/s, batch 1",
+   "raw": "22.2"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "bench:Prefill tok/s, short prompt",
+   "raw": "35"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "bench:TTFT, short prompt (s)",
+   "raw": "0.41"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "bench:Prefill tok/s, 2k tokens",
+   "raw": "116"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "bench:TTFT, 2k tokens (s)",
+   "raw": "17.7"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "bench:Prefill tok/s, 32k tokens",
+   "raw": "94"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "bench:TTFT, 32k tokens (s)",
+   "raw": "349"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "original GLM-5.3-Flash",
+   "key": "ppl",
+   "raw": "3.27"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "GGUF Q2 (ds4)",
+   "key": "bench:Total (of 120)",
+   "raw": "93"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "GGUF Q2 (ds4)",
+   "key": "bench:GSM8K (of 20)",
+   "raw": "19"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "GGUF Q2 (ds4)",
+   "key": "bench:MATH (of 20)",
+   "raw": "14"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "GGUF Q2 (ds4)",
+   "key": "bench:MMLU-Pro (of 20)",
+   "raw": "8"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "GGUF Q2 (ds4)",
+   "key": "bench:ARC-C (of 20)",
+   "raw": "17"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "GGUF Q2 (ds4)",
+   "key": "bench:BBH (of 20)",
+   "raw": "18"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "AZ-Focus",
+   "key": "bench:BIG-Bench Hard",
+   "raw": "84.1"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "AZ-Focus",
+   "key": "bench:SWE-bench Verified run 1",
+   "raw": "93"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "AZ-Focus",
+   "key": "bench:SWE-bench Verified run 2",
+   "raw": "91"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "AZ-Focus",
+   "key": "bench:MMLU-Pro",
+   "raw": "86.8%"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "AZ-Focus (earlier build, \u2020)",
+   "key": "bench:AIME 2025",
+   "raw": "81.7"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "AZ-Focus (earlier build, \u2020)",
+   "key": "bench:GPQA Diamond",
+   "raw": "82.3%"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "AZ-Focus (earlier build, \u2020)",
+   "key": "bench:HumanEval+ & MBPP+",
+   "raw": "86.9%"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "AZ-Focus (earlier build, \u2020)",
+   "key": "bench:\u03c4\u00b2-bench airline",
+   "raw": "0.88"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "AZ-Focus (earlier build, \u2020)",
+   "key": "bench:\u03c4\u00b2-bench retail",
+   "raw": "0.905"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "GLM-5.3-Flash",
+   "key": "bench:BIG-Bench Hard",
+   "raw": "83.7"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "GLM-5.3-Flash",
+   "key": "bench:SWE-bench Verified run 1",
+   "raw": "95"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "GLM-5.3-Flash",
+   "key": "bench:SWE-bench Verified run 2",
+   "raw": "95"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "GLM-5.3-Flash",
+   "key": "bench:MMLU-Pro",
+   "raw": "86.2%"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "GLM-5.3-Flash (earlier build, \u2020)",
+   "key": "bench:AIME 2025",
+   "raw": "75.0"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "GLM-5.3-Flash (earlier build, \u2020)",
+   "key": "bench:GPQA Diamond",
+   "raw": "80.8%"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "GLM-5.3-Flash (earlier build, \u2020)",
+   "key": "bench:HumanEval+ & MBPP+",
+   "raw": "85.8%"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "GLM-5.3-Flash (earlier build, \u2020)",
+   "key": "bench:\u03c4\u00b2-bench airline",
+   "raw": "0.89"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "GLM-5.3-Flash (earlier build, \u2020)",
+   "key": "bench:\u03c4\u00b2-bench retail",
+   "raw": "0.919"
+  },
+  {
+   "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
+   "entry": "original release, before routed-expert VQ",
+   "key": "ppl:held-out prose",
+   "raw": "4.8555"
+  },
+  {
+   "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
+   "entry": "original release, after routed-expert VQ",
+   "key": "ppl:held-out prose",
+   "raw": "8.0797"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "this model (IQ1_S)",
+   "key": "bench:HumanEval-164 pass@1",
+   "raw": "87.2%"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "this model, IQ1_S, no budget",
+   "key": "bench:MATH-500 answered",
+   "raw": "48%"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "this model, IQ1_S, no budget",
+   "key": "bench:MATH-500 ran out of room",
+   "raw": "52%"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "this model, IQ1_S, no budget",
+   "key": "bench:MATH-500 correct",
+   "raw": "36%"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "this model, IQ1_S, reasoning_effort=low",
+   "key": "bench:MATH-500 answered",
+   "raw": "68%"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "this model, IQ1_S, reasoning_effort=low",
+   "key": "bench:MATH-500 ran out of room",
+   "raw": "31%"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "this model, IQ1_S, reasoning_effort=low",
+   "key": "bench:MATH-500 correct",
+   "raw": "43%"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "shipped baked defaults, no reasoning budget",
+   "key": "bench:coherence pass (of 24)",
+   "raw": "21"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "shipped baked defaults, no reasoning budget",
+   "key": "bench:capped, no answer",
+   "raw": "3"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "shipped baked defaults, no reasoning budget",
+   "key": "bench:reasoning (of 8)",
+   "raw": "8"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "shipped baked defaults, no reasoning budget",
+   "key": "bench:code (of 8)",
+   "raw": "5"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "same, repetition penalty off (control)",
+   "key": "bench:coherence pass (of 24)",
+   "raw": "20"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "same, repetition penalty off (control)",
+   "key": "bench:capped, no answer",
+   "raw": "4"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "same, repetition penalty off (control)",
+   "key": "bench:reasoning (of 8)",
+   "raw": "7"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "same, repetition penalty off (control)",
+   "key": "bench:code (of 8)",
+   "raw": "5"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "same, repetition penalty off (control)",
+   "key": "bench:multi-turn (of 8)",
+   "raw": "8"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "quickstart line settings",
+   "key": "bench:coherence pass (of 24)",
+   "raw": "22"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "quickstart line settings",
+   "key": "bench:capped, no answer",
+   "raw": "0"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "quickstart line settings",
+   "key": "bench:reasoning (of 8)",
+   "raw": "8"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "quickstart line settings",
+   "key": "bench:code (of 8)",
+   "raw": "6"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "tested: temp 0, seed 0, penalty, reasoning budget 1024",
+   "key": "bench:coherence pass (of 24)",
+   "raw": "24"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "tested: temp 0, seed 0, penalty, reasoning budget 1024",
+   "key": "bench:capped, no answer",
+   "raw": "0"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "tested: temp 0, seed 0, penalty, reasoning budget 1024",
+   "key": "bench:reasoning (of 8)",
+   "raw": "8"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "tested: temp 0, seed 0, penalty, reasoning budget 1024",
+   "key": "bench:code (of 8)",
+   "raw": "8"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "this model, over-refusal",
+   "key": "bench:over-refusal, benign prompts refused",
+   "raw": "0 of 120, no errors, no empty responses."
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "parent",
+   "key": "bench:HumanEval-164 pass@1, run 1",
+   "raw": "87.8%"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "parent",
+   "key": "bench:HumanEval-164 pass@1, run 2",
+   "raw": "90.2%"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "unedited GLM-5.3-Flash, same IQ1_S recipe",
+   "key": "bench:MATH-500 answered",
+   "raw": "50%"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "unedited GLM-5.3-Flash, same IQ1_S recipe",
+   "key": "bench:MATH-500 correct",
+   "raw": "41%"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "OrcaRouter's edit, IQ2_XXS",
+   "key": "bench:MATH-500 answered",
+   "raw": "89%"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "OrcaRouter's edit, IQ2_XXS",
+   "key": "bench:MATH-500 ran out of room",
+   "raw": "11%"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "OrcaRouter's edit, IQ2_XXS",
+   "key": "bench:MATH-500 correct",
+   "raw": "81%"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "same IQ2_XXS, --reasoning-budget 1024",
+   "key": "bench:MATH-500 answered",
+   "raw": "98%"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "same IQ2_XXS, --reasoning-budget 1024",
+   "key": "bench:MATH-500 ran out of room",
+   "raw": "2%"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "same IQ2_XXS, --reasoning-budget 1024",
+   "key": "bench:MATH-500 correct",
+   "raw": "61%"
+  },
+  {
+   "repo": "INCModel3/GLM-5.3-Flash-W4A16-RTN-AutoRound",
+   "entry": "INT4",
+   "key": "bench:average_4_tasks",
+   "raw": "0.8370"
+  },
+  {
+   "repo": "INCModel3/GLM-5.3-Flash-W4A16-RTN-AutoRound",
+   "entry": "BF16",
+   "key": "bench:GSM8K",
+   "raw": "0.9735"
+  },
+  {
+   "repo": "INCModel3/GLM-5.3-Flash-W4A16-RTN-AutoRound",
+   "entry": "BF16",
+   "key": "bench:MMLU",
+   "raw": "0.8666"
+  },
+  {
+   "repo": "INCModel3/GLM-5.3-Flash-W4A16-RTN-AutoRound",
+   "entry": "BF16",
+   "key": "bench:PIQA",
+   "raw": "0.8292"
+  },
+  {
+   "repo": "INCModel3/GLM-5.3-Flash-W4A16-RTN-AutoRound",
+   "entry": "BF16",
+   "key": "bench:HellaSwag",
+   "raw": "0.6903"
+  },
+  {
+   "repo": "INCModel3/GLM-5.3-Flash-W4A16-RTN-AutoRound",
+   "entry": "BF16",
+   "key": "bench:average_4_tasks",
+   "raw": "0.8399"
+  },
+  {
+   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+   "entry": "This quant",
+   "key": "kld:wikitext",
+   "raw": "0.0903"
+  },
+  {
+   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+   "entry": "This quant",
+   "key": "kld:workload",
+   "raw": "0.3150"
+  },
+  {
+   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+   "entry": "This quant",
+   "key": "bench:GSM8K",
+   "raw": "98.8%"
+  },
+  {
+   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+   "entry": "This quant",
+   "key": "bench:HumanEval",
+   "raw": "95.7%"
+  },
+  {
+   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+   "entry": "This quant",
+   "key": "bench:HumanEval+MBPP+",
+   "raw": "86.5%"
+  },
+  {
+   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+   "entry": "brandonmusic-TR3-4bpw",
+   "key": "kld:wikitext",
+   "raw": "0.0990"
+  },
+  {
+   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+   "entry": "brandonmusic-TR3-4bpw",
+   "key": "kld:workload",
+   "raw": "0.3271"
+  },
+  {
+   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+   "entry": "brandonmusic-TR3-4bpw",
+   "key": "bench:GSM8K",
+   "raw": "98.0%"
+  },
+  {
+   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+   "entry": "brandonmusic-TR3-4bpw",
+   "key": "bench:HumanEval",
+   "raw": "97.6%"
+  },
+  {
+   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+   "entry": "brandonmusic-TR3-4bpw",
+   "key": "bench:HumanEval+MBPP+",
+   "raw": "86.3%"
+  },
+  {
+   "repo": "OpenMOSE/GLM-5.3-Flash-REAP-250B-A18B",
+   "entry": "GLM-5.3-Flash-REAP-250B-A18B",
+   "key": "mean_kld",
+   "raw": "0.453"
+  },
+  {
+   "repo": "OpenMOSE/GLM-5.3-Flash-REAP-250B-A18B",
+   "entry": "GLM-5.3-Flash-REAP-250B-A18B",
+   "key": "top1_pct",
+   "raw": "86.0 %"
+  },
+  {
+   "repo": "OpenMOSE/GLM-5.3-Flash-REAP-250B-A18B",
+   "entry": "GLM-5.3-Flash-REAP-250B-A18B",
+   "key": "top1:confident tokens",
+   "raw": "92.4 %"
+  },
+  {
+   "repo": "OpenMOSE/GLM-5.3-Flash-REAP-250B-A18B",
+   "entry": "(reference) uniform 224 experts, single mixed calibration set",
+   "key": "mean_kld",
+   "raw": "0.476"
+  },
+  {
+   "repo": "OpenMOSE/GLM-5.3-Flash-REAP-250B-A18B",
+   "entry": "(reference) uniform 224 experts, single mixed calibration set",
+   "key": "top1_pct",
+   "raw": "85.7 %"
+  },
+  {
+   "repo": "OpenMOSE/GLM-5.3-Flash-REAP-250B-A18B",
+   "entry": "GLM-5.3-Flash (original)",
+   "key": "mean_kld",
+   "raw": "0"
+  },
+  {
+   "repo": "OpenMOSE/GLM-5.3-Flash-REAP-250B-A18B",
+   "entry": "GLM-5.3-Flash (original)",
+   "key": "top1_pct",
+   "raw": "100 %"
+  },
+  {
+   "repo": "OpenMOSE/GLM-5.3-Flash-REAP-250B-A18B",
+   "entry": "GLM-5.3-Flash (original)",
+   "key": "ppl:heldout",
+   "raw": "4.068"
+  },
+  {
+   "repo": "OsaurusAI/GLM-5.3-Flash-JANGHT2.4",
+   "entry": "GLM-5.3-Flash-JANGHT2.4",
+   "key": "top1:tool-call points",
+   "raw": "98.2%"
+  },
+  {
+   "repo": "OsaurusAI/GLM-5.3-Flash-JANGHT2.4",
+   "entry": "GLM-5.3-Flash-JANGHT2.4",
+   "key": "top1:answer points",
+   "raw": "78.1%"
+  },
+  {
+   "repo": "OsaurusAI/GLM-5.3-Flash-JANGHT2.4",
+   "entry": "JANGH2",
+   "key": "top1:tool-call points",
+   "raw": "94.5%"
+  },
+  {
+   "repo": "OsaurusAI/GLM-5.3-Flash-JANGHT2.4",
+   "entry": "JANGH2",
+   "key": "top1:answer points",
+   "raw": "83.3%"
+  },
+  {
+   "repo": "OsaurusAI/GLM-5.3-Flash-JANGHT2.4",
+   "entry": "orcarouter GLM-5.3-Flash-MLX 2bit-lite",
+   "key": "top1_pct",
+   "raw": "71.4%"
+  },
+  {
+   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
+   "entry": "Q4_K_XL",
+   "key": "ppl:wikitext",
+   "raw": "3.3105 \u00b1 0.043"
+  },
+  {
+   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
+   "entry": "Q3_K_XL",
+   "key": "ppl:wikitext",
+   "raw": "3.6015 \u00b1 0.047"
+  },
+  {
+   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
+   "entry": "Q3_K_XL",
+   "key": "mean_kld",
+   "raw": "0.152"
+  },
+  {
+   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
+   "entry": "Q3_K_XL",
+   "key": "top1_pct",
+   "raw": "87.7%"
+  },
+  {
+   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
+   "entry": "Q3_K_M",
+   "key": "ppl:wikitext",
+   "raw": "3.7038 \u00b1 0.049"
+  },
+  {
+   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
+   "entry": "Q3_K_M",
+   "key": "mean_kld",
+   "raw": "0.188"
+  },
+  {
+   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
+   "entry": "Q3_K_M",
+   "key": "top1_pct",
+   "raw": "86.0%"
+  },
+  {
+   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
+   "entry": "Q2_K_XL",
+   "key": "ppl:wikitext",
+   "raw": "4.6112 \u00b1 0.065"
+  },
+  {
+   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
+   "entry": "Q2_K_XL",
+   "key": "mean_kld",
+   "raw": "0.378"
+  },
+  {
+   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
+   "entry": "Q2_K_XL",
+   "key": "top1_pct",
+   "raw": "79.5%"
+  },
+  {
+   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
+   "entry": "Q3_K_M with Q6_K KDA projections (not published)",
+   "key": "ppl:wikitext",
+   "raw": "3.6855 \u00b1 0.049"
+  },
+  {
+   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
+   "entry": "Q3_K_M with Q6_K KDA projections (not published)",
+   "key": "mean_kld",
+   "raw": "0.189"
+  },
+  {
+   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
+   "entry": "Q3_K_M with Q6_K KDA projections (not published)",
+   "key": "top1_pct",
+   "raw": "85.9%"
+  },
+  {
+   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
+   "entry": "Q3_K_M with Q2_K to blk.28 (not published)",
+   "key": "ppl:wikitext",
+   "raw": "4.0427 \u00b1 0.055"
+  },
+  {
+   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
+   "entry": "Q3_K_M with Q2_K to blk.28 (not published)",
+   "key": "mean_kld",
+   "raw": "0.263"
+  },
+  {
+   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
+   "entry": "Q3_K_M with Q2_K to blk.28 (not published)",
+   "key": "top1_pct",
+   "raw": "83.1%"
+  },
+  {
+   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
+   "entry": "unsloth UD-Q4_K_XL (reference)",
+   "key": "ppl:wikitext",
+   "raw": "3.3038 \u00b1 0.042 \u2020"
+  },
+  {
+   "repo": "TensorFold/GLM-5.3-Flash-MLX-2bit-MTP",
+   "entry": "this model",
+   "key": "bench:Median decode speed, native MTP disabled",
+   "raw": "6.063 tok/s"
+  },
+  {
+   "repo": "TensorFold/GLM-5.3-Flash-MLX-2bit-MTP",
+   "entry": "this model",
+   "key": "bench:Median decode speed, native MTP enabled, depth 1",
+   "raw": "6.257 tok/s"
+  },
+  {
+   "repo": "TensorFold/GLM-5.3-Flash-MLX-oQ2-MTP",
+   "entry": "this model",
+   "key": "bench:Sustained throughput, MTP disabled (median of 3)",
+   "raw": "6.1440 tok/s median"
+  },
+  {
+   "repo": "TensorFold/GLM-5.3-Flash-MLX-oQ2-MTP",
+   "entry": "this model",
+   "key": "bench:Sustained throughput, MTP disabled, matched pair",
+   "raw": "6.1287 tok/s"
+  },
+  {
+   "repo": "TensorFold/GLM-5.3-Flash-MLX-oQ2-MTP",
+   "entry": "this model",
+   "key": "bench:Sustained throughput, native MTP depth 1, matched pair",
+   "raw": "6.5629 tok/s"
+  },
+  {
+   "repo": "TensorFold/GLM-5.3-Flash-MLX-oQ2-MTP",
+   "entry": "this model",
+   "key": "bench:Acceptance, native MTP depth 1",
+   "raw": "57.9%"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "this model (d4/K2048)",
+   "key": "mean_kl_mnats",
+   "raw": "199.53"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "this model (d4/K2048)",
+   "key": "top1_pct",
+   "raw": "88.6%"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "this model (d4/K2048)",
+   "key": "ppl:prose",
+   "raw": "2.1954"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "this model (d4/K2048)",
+   "key": "ppl:code",
+   "raw": "1.6187"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "this model (d4/K2048)",
+   "key": "ppl:literary",
+   "raw": "1.3402"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "VQ 2.7bpw (mixed best-8)",
+   "key": "mean_kl_mnats",
+   "raw": "293.84"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "VQ 2.7bpw (mixed best-8)",
+   "key": "top1_pct",
+   "raw": "85.7%"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "VQ 2.7bpw (mixed best-8)",
+   "key": "ppl:prose",
+   "raw": "2.4014"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "VQ 2.7bpw (mixed best-8)",
+   "key": "ppl:code",
+   "raw": "1.6671"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "VQ 2.7bpw (mixed best-8)",
+   "key": "ppl:literary",
+   "raw": "1.4811"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "affine q3 (ours)",
+   "key": "mean_kl_mnats",
+   "raw": "377.08"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "affine q3 (ours)",
+   "key": "top1_pct",
+   "raw": "83.1%"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "affine q3 (ours)",
+   "key": "ppl:prose",
+   "raw": "2.6824"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "affine q3 (ours)",
+   "key": "ppl:code",
+   "raw": "1.7842"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "affine q3 (ours)",
+   "key": "ppl:literary",
+   "raw": "1.4731"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "VQ 3.6bpw (d4/K8192)",
+   "key": "mean_kl_mnats",
+   "raw": "94.54"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "VQ 3.6bpw (d4/K8192)",
+   "key": "top1_pct",
+   "raw": "92.1%"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "VQ 3.6bpw (d4/K8192)",
+   "key": "ppl:prose",
+   "raw": "2.0379"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "VQ 3.6bpw (d4/K8192)",
+   "key": "ppl:code",
+   "raw": "1.5475"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "VQ 3.6bpw (d4/K8192)",
+   "key": "ppl:literary",
+   "raw": "1.2154"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "affine q4 (ours)",
+   "key": "mean_kl_mnats",
+   "raw": "98.34"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "affine q4 (ours)",
+   "key": "top1_pct",
+   "raw": "91.9%"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "affine q4 (ours)",
+   "key": "ppl:prose",
+   "raw": "2.0263"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "affine q4 (ours)",
+   "key": "ppl:code",
+   "raw": "1.5718"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "affine q4 (ours)",
+   "key": "ppl:literary",
+   "raw": "1.2025"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "affine q6 (ours)",
+   "key": "mean_kl_mnats",
+   "raw": "13.47"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "affine q6 (ours)",
+   "key": "top1_pct",
+   "raw": "97.1%"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "affine q6 (ours)",
+   "key": "ppl:prose",
+   "raw": "1.9285"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "affine q6 (ours)",
+   "key": "ppl:code",
+   "raw": "1.4929"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "affine q6 (ours)",
+   "key": "ppl:literary",
+   "raw": "1.1660"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "bf16 teacher",
+   "key": "top1_pct",
+   "raw": "100%"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "bf16 teacher",
+   "key": "ppl:prose",
+   "raw": "1.9024"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "bf16 teacher",
+   "key": "ppl:code",
+   "raw": "1.4888"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "entry": "bf16 teacher",
+   "key": "ppl:literary",
+   "raw": "1.1580"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "this model (d4/K8192)",
+   "key": "mean_kl_mnats",
+   "raw": "94.54"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "this model (d4/K8192)",
+   "key": "top1_pct",
+   "raw": "92.1%"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "this model (d4/K8192)",
+   "key": "ppl:prose",
+   "raw": "2.0379"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "this model (d4/K8192)",
+   "key": "ppl:code",
+   "raw": "1.5475"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "this model (d4/K8192)",
+   "key": "ppl:literary",
+   "raw": "1.2154"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "VQ 2.7bpw (mixed best-8)",
+   "key": "mean_kl_mnats",
+   "raw": "293.84"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "VQ 2.7bpw (mixed best-8)",
+   "key": "top1_pct",
+   "raw": "85.7%"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "VQ 2.7bpw (mixed best-8)",
+   "key": "ppl:prose",
+   "raw": "2.4014"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "VQ 2.7bpw (mixed best-8)",
+   "key": "ppl:code",
+   "raw": "1.6671"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "VQ 2.7bpw (mixed best-8)",
+   "key": "ppl:literary",
+   "raw": "1.4811"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "VQ 3.1bpw (d4/K2048)",
+   "key": "mean_kl_mnats",
+   "raw": "199.53"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "VQ 3.1bpw (d4/K2048)",
+   "key": "top1_pct",
+   "raw": "88.6%"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "VQ 3.1bpw (d4/K2048)",
+   "key": "ppl:prose",
+   "raw": "2.1954"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "VQ 3.1bpw (d4/K2048)",
+   "key": "ppl:code",
+   "raw": "1.6187"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "VQ 3.1bpw (d4/K2048)",
+   "key": "ppl:literary",
+   "raw": "1.3402"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "affine q3 (ours)",
+   "key": "mean_kl_mnats",
+   "raw": "377.08"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "affine q3 (ours)",
+   "key": "top1_pct",
+   "raw": "83.1%"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "affine q3 (ours)",
+   "key": "ppl:prose",
+   "raw": "2.6824"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "affine q3 (ours)",
+   "key": "ppl:code",
+   "raw": "1.7842"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "affine q3 (ours)",
+   "key": "ppl:literary",
+   "raw": "1.4731"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "affine q4 (ours)",
+   "key": "mean_kl_mnats",
+   "raw": "98.34"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "affine q4 (ours)",
+   "key": "top1_pct",
+   "raw": "91.9%"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "affine q4 (ours)",
+   "key": "ppl:prose",
+   "raw": "2.0263"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "affine q4 (ours)",
+   "key": "ppl:code",
+   "raw": "1.5718"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "affine q4 (ours)",
+   "key": "ppl:literary",
+   "raw": "1.2025"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "affine q6 (ours)",
+   "key": "mean_kl_mnats",
+   "raw": "13.47"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "affine q6 (ours)",
+   "key": "top1_pct",
+   "raw": "97.1%"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "affine q6 (ours)",
+   "key": "ppl:prose",
+   "raw": "1.9285"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "affine q6 (ours)",
+   "key": "ppl:code",
+   "raw": "1.4929"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "affine q6 (ours)",
+   "key": "ppl:literary",
+   "raw": "1.1660"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "bf16 teacher",
+   "key": "ppl:prose",
+   "raw": "1.9024"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "bf16 teacher",
+   "key": "ppl:code",
+   "raw": "1.4888"
+  },
+  {
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
+   "entry": "bf16 teacher",
+   "key": "ppl:literary",
+   "raw": "1.1580"
+  },
+  {
+   "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
+   "entry": "GLM-5.3-Flash-TQ3_4S",
+   "key": "bench:Hard86",
+   "raw": "77.9% (67/86)"
+  },
+  {
+   "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
+   "entry": "GLM-5.3-Flash-TQ3_4S",
+   "key": "bench:Coding",
+   "raw": "81.2 (9/12)"
+  },
+  {
+   "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
+   "entry": "GLM-5.3-Flash-TQ3_4S",
+   "key": "bench:Toolcall",
+   "raw": "90.0 (13/15)"
+  },
+  {
+   "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
+   "entry": "GLM-5.3-Flash-TQ3_4S",
+   "key": "bench:Data extraction",
+   "raw": "90.8 (12/15)"
+  },
+  {
+   "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
+   "entry": "GLM-5.3-Flash-TQ3_4S",
+   "key": "bench:Instruction following",
+   "raw": "90.0 (13/15)"
+  },
+  {
+   "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
+   "entry": "GLM-5.3-Flash-TQ3_4S",
+   "key": "bench:Reasoning / math",
+   "raw": "73.3 (11/15)"
+  },
+  {
+   "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
+   "entry": "GLM-5.3-Flash-TQ3_4S",
+   "key": "bench:Quality composite",
+   "raw": "85.1"
+  },
+  {
+   "repo": "aj9o9/GLM-5.3-Flash-GGUF",
+   "entry": "AJ-IQ2_XXS",
+   "key": "bench:tg256",
+   "raw": "69.89 \u00b1 0.15"
+  },
+  {
+   "repo": "aj9o9/GLM-5.3-Flash-GGUF",
+   "entry": "AJ-IQ2_XXS",
+   "key": "bench:tg256 @ d8192",
+   "raw": "52.74 \u00b1 0.35"
+  },
+  {
+   "repo": "aj9o9/GLM-5.3-Flash-GGUF",
+   "entry": "AJ-IQ2_XXS",
+   "key": "bench:tg256 @ d16384",
+   "raw": "44.30 \u00b1 0.15"
+  },
+  {
+   "repo": "aj9o9/GLM-5.3-Flash-GGUF",
+   "entry": "AJ-IQ2_XXS",
+   "key": "bench:tg256 @ d32768",
+   "raw": "31.70 \u00b1 0.38"
+  },
+  {
+   "repo": "aj9o9/GLM-5.3-Flash-GGUF",
+   "entry": "AJ-IQ2_XXS",
+   "key": "bench:tg256 @ d65536",
+   "raw": "20.91 \u00b1 0.05"
+  },
+  {
+   "repo": "aj9o9/GLM-5.3-Flash-GGUF",
+   "entry": "AJ-IQ2_XXS",
+   "key": "bench:tg256 @ d131072",
+   "raw": "12.24 \u00b1 0.00"
+  },
+  {
+   "repo": "aj9o9/GLM-5.3-Flash-GGUF",
+   "entry": "AJ-IQ2_XXS",
+   "key": "bench:pp2048",
+   "raw": "36.69 \u00b1 6.23"
+  },
+  {
+   "repo": "aj9o9/GLM-5.3-Flash-GGUF",
+   "entry": "AJ-IQ2_XXS",
+   "key": "bench:tg128",
+   "raw": "11.55 \u00b1 0.68"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:HumanEval (164) greedy",
+   "raw": "93.9 % (154/164)"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:GPQA-Diamond (198) effort=low",
+   "raw": "79.8 % (158/198)"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:GPQA-Diamond (198) effort=max",
+   "raw": "84.8 % (168/198)"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:C-Eval val (1,606)",
+   "raw": "78.3 % (1,258/1,606)"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:MMMU val (900) effort=low",
+   "raw": "70.7 % (636/900)"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:BFCL v4 Non-Live AST",
+   "raw": "88.5 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:BFCL v4 Live AST (weighted)",
+   "raw": "79.8 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:BFCL v4 Multi-Turn Base (200)",
+   "raw": "79.5 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:simple (Python)",
+   "raw": "94.2 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:simple (Java)",
+   "raw": "61.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:simple (JavaScript)",
+   "raw": "68.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:multiple",
+   "raw": "96.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:parallel",
+   "raw": "94.5 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:parallel-multiple",
+   "raw": "89.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:irrelevance detection",
+   "raw": "70.4 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:live simple",
+   "raw": "87.2 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:live multiple",
+   "raw": "78.3 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:live parallel",
+   "raw": "75.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:live parallel-multiple",
+   "raw": "66.7 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:live irrelevance",
+   "raw": "73.8 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:live relevance",
+   "raw": "93.8 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "This model (E192)",
+   "key": "bench:Multi-Turn Base (200)",
+   "raw": "79.5 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "this model, MTP off",
+   "key": "bench:Single-stream decode tok/s",
+   "raw": "147"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "this model, MTP off",
+   "key": "bench:Speed-up (1 stream)",
+   "raw": "1.00\u00d7"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "this model, MTP off",
+   "key": "bench:Aggregate tok/s @ 8",
+   "raw": "508"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "this model, mtp-nvfp4 draft (2 tokens)",
+   "key": "bench:Mean acceptance length",
+   "raw": "2.45"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "this model, mtp-nvfp4 draft (2 tokens)",
+   "key": "bench:Draft acceptance",
+   "raw": "72.3 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "this model, mtp-nvfp4 draft (2 tokens)",
+   "key": "bench:Single-stream decode tok/s",
+   "raw": "265"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "this model, mtp-nvfp4 draft (2 tokens)",
+   "key": "bench:Speed-up (1 stream)",
+   "raw": "1.80\u00d7"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "this model, mtp-nvfp4 draft (2 tokens)",
+   "key": "bench:Aggregate tok/s @ 8",
+   "raw": "725"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "E224",
+   "key": "bench:HumanEval (164) greedy",
+   "raw": "95.7 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "E224",
+   "key": "bench:GPQA-Diamond (198) effort=low",
+   "raw": "78.3 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "E224",
+   "key": "bench:GPQA-Diamond (198) effort=max",
+   "raw": "90.9 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "E224",
+   "key": "bench:C-Eval val (1,606)",
+   "raw": "84.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "E224",
+   "key": "bench:AIME 2025 effort=high",
+   "raw": "75.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "E224",
+   "key": "bench:MMMU val (900) effort=low",
+   "raw": "73.6 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "E224",
+   "key": "bench:BFCL v4 Non-Live AST",
+   "raw": "88.3 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "E224",
+   "key": "bench:BFCL v4 Live AST (weighted)",
+   "raw": "80.3 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "E224",
+   "key": "bench:BFCL v4 Multi-Turn Base (200)",
+   "raw": "80.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "E256",
+   "key": "bench:HumanEval (164) greedy",
+   "raw": "97.6 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "E256",
+   "key": "bench:GPQA-Diamond (198) effort=low",
+   "raw": "77.3 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "E256",
+   "key": "bench:C-Eval val (1,606)",
+   "raw": "89.4 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "E256",
+   "key": "bench:AIME 2025 effort=high",
+   "raw": "74.2 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "E256",
+   "key": "bench:MMMU val (900) effort=low",
+   "raw": "76.1 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "E256",
+   "key": "bench:BFCL v4 Non-Live AST",
+   "raw": "87.7 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "E256",
+   "key": "bench:BFCL v4 Live AST (weighted)",
+   "raw": "80.5 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E224-DGX-Spark",
+   "entry": "This model",
+   "key": "bench:GPQA-Diamond",
+   "raw": "90.9 % (180/198)"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E224-DGX-Spark",
+   "entry": "This model",
+   "key": "bench:HumanEval",
+   "raw": "98.2 % (161/164)"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E224-DGX-Spark",
+   "entry": "This model",
+   "key": "bench:BFCL_v4_non_live_overall",
+   "raw": "88.3 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E224-DGX-Spark",
+   "entry": "This model",
+   "key": "bench:BFCL_v4_live_overall",
+   "raw": "80.3 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 Live AST (weighted)",
+   "raw": "80.5 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "E224",
+   "key": "bench:GPQA-Diamond (198)",
+   "raw": "78.3 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "E224",
+   "key": "bench:BFCL v4 Live AST (weighted)",
+   "raw": "80.3 %"
+  },
+  {
+   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
+   "entry": "this build",
+   "key": "kld:en",
+   "raw": "0.0695"
+  },
+  {
+   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
+   "entry": "this build",
+   "key": "kld:ko",
+   "raw": "0.0468"
+  },
+  {
+   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
+   "entry": "this build",
+   "key": "kld:code",
+   "raw": "0.0599"
+  },
+  {
+   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
+   "entry": "this build",
+   "key": "mean_kld",
+   "raw": "0.0569"
+  },
+  {
+   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
+   "entry": "4-bit RTN baseline",
+   "key": "kld:en",
+   "raw": "0.0778"
+  },
+  {
+   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
+   "entry": "4-bit RTN baseline",
+   "key": "kld:ko",
+   "raw": "0.0501"
+  },
+  {
+   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
+   "entry": "4-bit RTN baseline",
+   "key": "kld:code",
+   "raw": "0.0652"
+  },
+  {
+   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
+   "entry": "4-bit RTN baseline",
+   "key": "mean_kld",
+   "raw": "0.0622"
+  },
+  {
+   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-6bit",
+   "entry": "GLM-5.3-Flash-Alis-MLX-6bit",
+   "key": "kld:ko",
+   "raw": "0.0226 / 0.0177"
+  },
+  {
+   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-8bit",
+   "entry": "6-bit",
+   "key": "mean_kld",
+   "raw": "\u22480.0226 mean KL"
+  },
+  {
+   "repo": "baselquants/GLM-5.3-Flash-CYBERSECURITY-W4A16",
+   "entry": "This model",
+   "key": "bench:HarmBench_true_compliance",
+   "raw": "145 / 145 (100.0%)"
+  },
+  {
+   "repo": "baselquants/GLM-5.3-Flash-CYBERSECURITY-W4A16",
+   "entry": "This model",
+   "key": "bench:HarmBench_true_compliance_max_mode",
+   "raw": "145 / 145 (100.0%)"
+  },
+  {
+   "repo": "baselquants/GLM-5.3-Flash-CYBERSECURITY-W4A16",
+   "entry": "This model",
+   "key": "bench:HarmBench_true_compliance_low_mode",
+   "raw": "145 / 145 (100.0%)"
+  },
+  {
+   "repo": "baselquants/GLM-5.3-Flash-CYBERSECURITY-W4A16",
+   "entry": "Base W4A16",
+   "key": "bench:HarmBench_true_compliance",
+   "raw": "44 / 145 (30.3%)"
+  },
+  {
+   "repo": "baselquants/GLM-5.3-Flash-CYBERSECURITY-W4A16",
+   "entry": "Base W4A16",
+   "key": "bench:MMLU",
+   "raw": "86.08%"
+  },
+  {
+   "repo": "cafonez/GLM-5.3-Flash-Gorgon-GGUF",
+   "entry": "GLM-5.3-Flash-Q5K-IQ3S",
+   "key": "mean_kld",
+   "raw": "mean KLD 0.040"
+  },
+  {
+   "repo": "cafonez/GLM-5.3-Flash-Gorgon-GGUF",
+   "entry": "GLM-5.3-Flash-Q5K-IQ3S",
+   "key": "top1_pct",
+   "raw": "same top-1 token 93.1%"
+  },
+  {
+   "repo": "canada-quant/GLM-5.3-Flash-W4A16-MTP",
+   "entry": "W4A16 (this)",
+   "key": "bench:MMMU_validation",
+   "raw": "0.74667 (672/900)"
+  },
+  {
+   "repo": "canada-quant/GLM-5.3-Flash-W4A16-MTP",
+   "entry": "W4A16 (this)",
+   "key": "bench:MMMU_multiple_choice",
+   "raw": "0.766"
+  },
+  {
+   "repo": "canada-quant/GLM-5.3-Flash-W4A16-MTP",
+   "entry": "W4A16 (this)",
+   "key": "bench:MMMU_open",
+   "raw": "0.434"
+  },
+  {
+   "repo": "ddalcu/GLM-5.3-Flash-MLX-Serve-iQ-MLX-5.1bpw",
+   "entry": "iQ-MLX-5.1bpw (this pack)",
+   "key": "top1_pct",
+   "raw": "91.92%"
+  },
+  {
+   "repo": "ddalcu/GLM-5.3-Flash-MLX-Serve-iQ-MLX-5.1bpw",
+   "entry": "this pack",
+   "key": "top1_pct",
+   "raw": "89.03%"
+  },
+  {
+   "repo": "ddalcu/GLM-5.3-Flash-MLX-Serve-iQ-MLX-5.1bpw",
+   "entry": "uniform GPTQ 4/5 (gate-up/down), same pipeline",
+   "key": "top1_pct",
+   "raw": "91.74%"
+  },
+  {
+   "repo": "ddalcu/GLM-5.3-Flash-MLX-Serve-iQ-MLX-5.1bpw",
+   "entry": "oQ5e-mtp",
+   "key": "top1_pct",
+   "raw": "92.19%"
+  },
+  {
+   "repo": "ddalcu/GLM-5.3-Flash-MLX-Serve-iQ-MLX-5.1bpw",
+   "entry": "oQ4-MTP",
+   "key": "top1_pct",
+   "raw": "88.58%"
+  },
+  {
+   "repo": "ddalcu/GLM-5.3-Flash-MLX-Serve-iQ-MLX-5.1bpw",
+   "entry": "oQ4-MTP",
+   "key": "top1_pct",
+   "raw": "84.44%"
+  },
+  {
+   "repo": "ddalcu/GLM-5.3-Flash-MLX-Serve-iQ-MLX-5.1bpw",
+   "entry": "oQ5e-mtp",
+   "key": "top1_pct",
+   "raw": "89.03%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored (Reasoning-off)",
+   "key": "bench:HarmBench-320 refusals",
+   "raw": "0%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored (Max effort, default)",
+   "key": "bench:HarmBench-320 refusals",
+   "raw": "0%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored (High effort)",
+   "key": "bench:HarmBench-320 refusals",
+   "raw": "~4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored (Low effort)",
+   "key": "bench:HarmBench-320 refusals",
+   "raw": "~9%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored",
+   "key": "bench:MMLU-logit",
+   "raw": "85.28%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored",
+   "key": "bench:Abstract Algebra",
+   "raw": "61.1%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored",
+   "key": "bench:Anatomy",
+   "raw": "94.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored",
+   "key": "bench:College Chemistry",
+   "raw": "50.0%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored",
+   "key": "bench:College Mathematics",
+   "raw": "66.7%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored",
+   "key": "bench:Electrical Engineering",
+   "raw": "77.8%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored",
+   "key": "bench:Elementary Mathematics",
+   "raw": "94.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored",
+   "key": "bench:Formal Logic",
+   "raw": "61.1%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored",
+   "key": "bench:High School Geography",
+   "raw": "83.3%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored",
+   "key": "bench:High School Mathematics",
+   "raw": "44.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored",
+   "key": "bench:High School Us History",
+   "raw": "88.9%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored",
+   "key": "bench:Human Sexuality",
+   "raw": "94.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored",
+   "key": "bench:Medical Genetics",
+   "raw": "94.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored",
+   "key": "bench:Moral Disputes",
+   "raw": "88.9%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored",
+   "key": "bench:Moral Scenarios",
+   "raw": "66.7%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored",
+   "key": "bench:Sociology",
+   "raw": "94.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored",
+   "key": "bench:Virology",
+   "raw": "55.6%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "CRACK Uncensored",
+   "key": "bench:World Religions",
+   "raw": "88.9%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:MMLU-logit",
+   "raw": "86.16%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Abstract Algebra",
+   "raw": "55.6%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Anatomy",
+   "raw": "88.9%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Astronomy",
+   "raw": "94.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Business Ethics",
+   "raw": "94.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Clinical Knowledge",
+   "raw": "88.9%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:College Biology",
+   "raw": "94.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:College Chemistry",
+   "raw": "44.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:College Computer Science",
+   "raw": "88.9%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:College Mathematics",
+   "raw": "72.2%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:College Medicine",
+   "raw": "88.9%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:College Physics",
+   "raw": "83.3%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Computer Security",
+   "raw": "83.3%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Conceptual Physics",
+   "raw": "94.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Econometrics",
+   "raw": "83.3%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Electrical Engineering",
+   "raw": "83.3%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Elementary Mathematics",
+   "raw": "100.0%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Formal Logic",
+   "raw": "66.7%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Global Facts",
+   "raw": "61.1%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:High School Biology",
+   "raw": "94.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:High School Chemistry",
+   "raw": "88.9%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:High School Computer Science",
+   "raw": "100.0%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:High School European History",
+   "raw": "72.2%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:High School Geography",
+   "raw": "88.9%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:High School Government And Politics",
+   "raw": "94.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:High School Macroeconomics",
+   "raw": "94.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:High School Mathematics",
+   "raw": "55.6%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:High School Microeconomics",
+   "raw": "83.3%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:High School Physics",
+   "raw": "88.9%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:High School Psychology",
+   "raw": "100.0%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:High School Statistics",
+   "raw": "94.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:High School Us History",
+   "raw": "94.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:High School World History",
+   "raw": "100.0%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Human Aging",
+   "raw": "72.2%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Human Sexuality",
+   "raw": "88.9%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:International Law",
+   "raw": "94.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Jurisprudence",
+   "raw": "88.9%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Logical Fallacies",
+   "raw": "83.3%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Machine Learning",
+   "raw": "83.3%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Management",
+   "raw": "100.0%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Marketing",
+   "raw": "94.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Medical Genetics",
+   "raw": "100.0%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Miscellaneous",
+   "raw": "88.9%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Moral Disputes",
+   "raw": "83.3%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Moral Scenarios",
+   "raw": "77.8%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Nutrition",
+   "raw": "100.0%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Philosophy",
+   "raw": "94.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Prehistory",
+   "raw": "94.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Professional Accounting",
+   "raw": "88.9%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Professional Law",
+   "raw": "77.8%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Professional Medicine",
+   "raw": "94.4%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Professional Psychology",
+   "raw": "100.0%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Public Relations",
+   "raw": "61.1%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Security Studies",
+   "raw": "83.3%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Sociology",
+   "raw": "100.0%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Us Foreign Policy",
+   "raw": "88.9%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:Virology",
+   "raw": "61.1%"
+  },
+  {
+   "repo": "dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4",
+   "entry": "Base",
+   "key": "bench:World Religions",
+   "raw": "94.4%"
+  },
+  {
+   "repo": "elvezjp/GLM-5.3-Flash-ELVEZ-KDA-Q8_0-gguf",
+   "entry": "GLM-5.3-Flash-ELVEZ-KDA-Q8_0",
+   "key": "bench:HumanEval",
+   "raw": "96.34%"
+  },
+  {
+   "repo": "elvezjp/GLM-5.3-Flash-ELVEZ-KDA-Q8_0-gguf",
+   "entry": "GLM-5.3-Flash-ELVEZ-KDA-Q8_0",
+   "key": "bench:Japanese long-form writing",
+   "raw": "19.5"
+  },
+  {
+   "repo": "elvezjp/GLM-5.3-Flash-ELVEZ-KDA-Q8_0-gguf",
+   "entry": "GLM-5.3-Flash-ELVEZ-KDA-Q8_0",
+   "key": "bench:Blind judge Claude Opus 5 (/20)",
+   "raw": "18.83"
+  },
+  {
+   "repo": "elvezjp/GLM-5.3-Flash-ELVEZ-KDA-Q8_0-gguf",
+   "entry": "GLM-5.3-Flash-Q4_K.gguf (Original)",
+   "key": "bench:HumanEval",
+   "raw": "95.12%"
+  },
+  {
+   "repo": "elvezjp/GLM-5.3-Flash-ELVEZ-KDA-Q8_0-gguf",
+   "entry": "GLM-5.3-Flash-Q4_K.gguf (Original)",
+   "key": "bench:Japanese long-form writing",
+   "raw": "20.0"
+  },
+  {
+   "repo": "elvezjp/GLM-5.3-Flash-ELVEZ-KDA-Q8_0-gguf",
+   "entry": "GLM-5.3-Flash-Q4_K.gguf (Original)",
+   "key": "bench:Blind judge Claude Opus 5 (/20)",
+   "raw": "18.50"
+  },
+  {
+   "repo": "fly9i/GLM-5.3-Flash-SPX1-V1.1",
+   "entry": "SPX1 V1.1 (this)",
+   "key": "mean_kld",
+   "raw": "0.0171"
+  },
+  {
+   "repo": "fly9i/GLM-5.3-Flash-SPX1-V1.1",
+   "entry": "SPX1 V1.1 (this)",
+   "key": "top1_pct",
+   "raw": "96.5 %"
+  },
+  {
+   "repo": "fly9i/GLM-5.3-Flash-SPX1-V1.1",
+   "entry": "SPX1 V1.1 (this)",
+   "key": "bench:GSM8K",
+   "raw": "98.5 %"
+  },
+  {
+   "repo": "fly9i/GLM-5.3-Flash-SPX1-V1.1",
+   "entry": "tr3 4bpw (upstream, uniform K4)",
+   "key": "mean_kld",
+   "raw": "0.0231"
+  },
+  {
+   "repo": "fly9i/GLM-5.3-Flash-SPX1-V1.1",
+   "entry": "tr3 4bpw (upstream, uniform K4)",
+   "key": "top1_pct",
+   "raw": "95.6 %"
+  },
+  {
+   "repo": "genevera/GLM-5.3-Flash-Uncensored-EXL3-2.5bpw",
+   "entry": "CRACK Uncensored FP8",
+   "key": "bench:MMLU (overall)",
+   "raw": "87.33%"
+  },
+  {
+   "repo": "genevera/GLM-5.3-Flash-Uncensored-EXL3-2.5bpw",
+   "entry": "Base FP8",
+   "key": "bench:MMLU (overall)",
+   "raw": "86.74%"
+  },
+  {
+   "repo": "gitcommit90/GLM-5.3-Flash-EXL3-2.05-One-Spark",
+   "entry": "Turboderp EXL3 2.05",
+   "key": "top1_pct",
+   "raw": "88.92%"
+  },
+  {
+   "repo": "gitcommit90/GLM-5.3-Flash-EXL3-2.05-One-Spark",
+   "entry": "Turboderp EXL3 2.05",
+   "key": "mean_kld",
+   "raw": "0.121638"
+  },
+  {
+   "repo": "graphistry/GLM-5.3-Flash-W4AFP8",
+   "entry": "GLM-5.3-Flash w4afp8",
+   "key": "bench:GPQA-Diamond",
+   "raw": "90.9"
+  },
+  {
+   "repo": "graphistry/GLM-5.3-Flash-W4AFP8",
+   "entry": "GLM-5.3-Flash w4afp8",
+   "key": "bench:Graphistry_CyBT59_on_Louie",
+   "raw": "59.3%"
+  },
+  {
+   "repo": "graphistry/GLM-5.3-Flash-W4AFP8",
+   "entry": "GLM-5.3-Flash unquantized",
+   "key": "bench:GPQA-Diamond",
+   "raw": "91.2"
+  },
+  {
+   "repo": "graphistry/GLM-5.3-Flash-W4AFP8",
+   "entry": "GLM-5.3-Flash unquantized",
+   "key": "bench:Graphistry_CyBT59_on_Louie",
+   "raw": "61.01"
+  },
+  {
+   "repo": "intel-ai/GLM-5.3-Flash-MXFP8-CT-AutoRound",
+   "entry": "MXFP4-Mixed-CT-AutoRound",
+   "key": "bench:AVG",
+   "raw": "reported AVG 0.8366 on the same protocol"
+  },
+  {
+   "repo": "jarrelscy/GLM-5.3-Flash-NestQuant-1.5-4bit",
+   "entry": "Thinking on",
+   "key": "bench:Completion",
+   "raw": "160"
+  },
+  {
+   "repo": "jarrelscy/GLM-5.3-Flash-NestQuant-1.5-4bit",
+   "entry": "Thinking off",
+   "key": "bench:Completion",
+   "raw": "160"
+  },
+  {
+   "repo": "lapadatbogdan/GLM-5.3-Flash-REAP144-Coder-GGUF",
+   "entry": "REAP144 Q4_K_M",
+   "key": "bench:Solved (48 attempts)",
+   "raw": "48"
+  },
+  {
+   "repo": "lapadatbogdan/GLM-5.3-Flash-REAP144-Coder-GGUF",
+   "entry": "REAP144 Q3_K",
+   "key": "bench:Solved (48 attempts)",
+   "raw": "48"
+  },
+  {
+   "repo": "lapadatbogdan/GLM-5.3-Flash-REAP144-Coder-GGUF",
+   "entry": "REAP144 IQ2_S",
+   "key": "bench:Solved (48 attempts)",
+   "raw": "45"
+  },
+  {
+   "repo": "lapadatbogdan/GLM-5.3-Flash-REAP144-Coder-GGUF",
+   "entry": "REAP144 IQ2_XXS",
+   "key": "bench:Solved (48 attempts)",
+   "raw": "39"
+  },
+  {
+   "repo": "lapadatbogdan/GLM-5.3-Flash-REAP144-Coder-GGUF",
+   "entry": "REAP144 Q8",
+   "key": "ppl:code",
+   "raw": "2.053"
+  },
+  {
+   "repo": "lapadatbogdan/GLM-5.3-Flash-REAP144-Coder-GGUF",
+   "entry": "REAP144 Q8",
+   "key": "ppl_delta_pct",
+   "raw": "+22.1%"
+  },
+  {
+   "repo": "lapadatbogdan/GLM-5.3-Flash-REAP144-Coder-GGUF",
+   "entry": "full GLM-5.3-Flash, Q8",
+   "key": "bench:Solved (48 attempts)",
+   "raw": "48"
+  },
+  {
+   "repo": "lapadatbogdan/GLM-5.3-Flash-REAP144-Coder-GGUF",
+   "entry": "GLM-5.3-Flash, full (Q8)",
+   "key": "ppl:code",
+   "raw": "1.681"
+  },
+  {
+   "repo": "mbehr90/GLM-5.3-Flash-nvfp4",
+   "entry": "this build (NVFP4)",
+   "key": "bench:GSM8K chat",
+   "raw": "98.4"
+  },
+  {
+   "repo": "mbehr90/GLM-5.3-Flash-nvfp4",
+   "entry": "this build (NVFP4)",
+   "key": "bench:AI2D vision",
+   "raw": "84.6"
+  },
+  {
+   "repo": "mbehr90/GLM-5.3-Flash-nvfp4",
+   "entry": "this build (NVFP4)",
+   "key": "bench:GSM8K lm-eval",
+   "raw": "90.4"
+  },
+  {
+   "repo": "mbehr90/GLM-5.3-Flash-nvfp4",
+   "entry": "this build (NVFP4)",
+   "key": "bench:ARC-C",
+   "raw": "69.2"
+  },
+  {
+   "repo": "mbehr90/GLM-5.3-Flash-nvfp4",
+   "entry": "zai-org/GLM-5.3-Flash",
+   "key": "bench:GSM8K chat",
+   "raw": "98.8"
+  },
+  {
+   "repo": "neuralll/GLM-5.3-Flash-MTP-GGUF",
+   "entry": "MTP head (this repo)",
+   "key": "bench:decode t/s, with MTP head (range low)",
+   "raw": "17.6"
+  },
+  {
+   "repo": "neuralll/GLM-5.3-Flash-MTP-GGUF",
+   "entry": "MTP head (this repo)",
+   "key": "bench:decode t/s, with MTP head (range high)",
+   "raw": "18.4"
+  },
+  {
+   "repo": "neuralll/GLM-5.3-Flash-MTP-GGUF",
+   "entry": "GLM-5.3-Flash 3.0-bit Q4_K attention, no MTP",
+   "key": "bench:decode t/s, without MTP",
+   "raw": "20.2"
+  },
+  {
+   "repo": "nuottroisaoduoc/GLM-5.3-Flash-UNCENSORED-FP8",
+   "entry": "CRACK Uncensored FP8",
+   "key": "bench:MMLU",
+   "raw": "86.26%"
+  },
+  {
+   "repo": "nuottroisaoduoc/GLM-5.3-Flash-UNCENSORED-FP8",
+   "entry": "CRACK Uncensored FP8",
+   "key": "bench:HarmBench-320_compliance",
+   "raw": "100.0%"
+  },
+  {
+   "repo": "nuottroisaoduoc/GLM-5.3-Flash-UNCENSORED-FP8",
+   "entry": "Base FP8",
+   "key": "bench:MMLU",
+   "raw": "86.74%"
+  },
+  {
+   "repo": "nvidia/GLM-5.3-Flash-FP4-Local",
+   "entry": "BF16",
+   "key": "bench:GPQA Diamond",
+   "raw": "92.1%"
+  },
+  {
+   "repo": "nvidia/GLM-5.3-Flash-FP4-Local",
+   "entry": "BF16",
+   "key": "bench:ToolEvalBench",
+   "raw": "91.9%"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "6-bit",
+   "key": "ppl",
+   "raw": "2.7864"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "6-bit",
+   "key": "ppl_delta_pct",
+   "raw": "+0.24 %"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "4-bit",
+   "key": "ppl",
+   "raw": "2.8620"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "4-bit",
+   "key": "ppl_delta_pct",
+   "raw": "+2.96 %"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "3-bit",
+   "key": "ppl",
+   "raw": "3.0566"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "3-bit",
+   "key": "ppl_delta_pct",
+   "raw": "+9.96 %"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "2-bit",
+   "key": "ppl",
+   "raw": "4.3622"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "2-bit",
+   "key": "ppl_delta_pct",
+   "raw": "+56.9 %"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "2bit-lite",
+   "key": "ppl",
+   "raw": "6.7018"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "2bit-lite",
+   "key": "ppl_delta_pct",
+   "raw": "+141 %"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "6-bit",
+   "key": "mean_kld",
+   "raw": "0.0063"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "6-bit",
+   "key": "top1_pct",
+   "raw": "97.76 %"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "4-bit",
+   "key": "mean_kld",
+   "raw": "0.0131"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "4-bit",
+   "key": "top1_pct",
+   "raw": "96.13 %"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "3-bit",
+   "key": "mean_kld",
+   "raw": "0.0421"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "3-bit",
+   "key": "top1_pct",
+   "raw": "92.06 %"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "2-bit",
+   "key": "mean_kld",
+   "raw": "0.1647"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "2-bit",
+   "key": "top1_pct",
+   "raw": "86.56 %"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "2bit-lite",
+   "key": "mean_kld",
+   "raw": "0.3456"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "2bit-lite",
+   "key": "top1_pct",
+   "raw": "77.19 %"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "FP8 (ref)",
+   "key": "ppl",
+   "raw": "2.7797"
+  },
+  {
+   "repo": "orcarouter/GLM-5.3-Flash-MLX",
+   "entry": "FP8 (ref)",
+   "key": "top1_pct",
+   "raw": "100 %"
+  },
+  {
+   "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-FP8-v2",
+   "entry": "per-expert (was shipped)",
+   "key": "top1_pct",
+   "raw": "0.83693"
+  },
+  {
+   "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-FP8-v2",
+   "entry": "v1",
+   "key": "top1_pct",
+   "raw": "0.8370"
+  },
+  {
+   "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-GGUF",
+   "entry": "GLM-5.3-Flash-REAP50-IQ3_M",
+   "key": "ppl:heldout",
+   "raw": "4.6253"
+  },
+  {
+   "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-GGUF",
+   "entry": "GLM-5.3-Flash-REAP50-IQ4_XS",
+   "key": "ppl:heldout",
+   "raw": "4.6002"
+  },
+  {
+   "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-GGUF",
+   "entry": "GLM-5.3-Flash-REAP50-Q3_K_M",
+   "key": "ppl:heldout",
+   "raw": "4.6502"
+  },
+  {
+   "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-GGUF",
+   "entry": "GLM-5.3-Flash-REAP50-Q4_K_M",
+   "key": "ppl:heldout",
+   "raw": "4.5959"
+  },
+  {
+   "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-GGUF",
+   "entry": "GLM-5.3-Flash-REAP50-Q4_K_S",
+   "key": "ppl:heldout",
+   "raw": "4.5833"
+  },
+  {
+   "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-NVFP4-v2",
+   "entry": "v1 (pass 1)",
+   "key": "top1_pct",
+   "raw": "0.8370"
+  },
+  {
+   "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-NVFP4-v2",
+   "entry": "v2 (repo root)",
+   "key": "top1_pct",
+   "raw": "0.8369"
+  },
+  {
+   "repo": "peasantsmith/GLM-5.3-Flash-Maya-GGUF",
+   "entry": "Maya-S",
+   "key": "bench:top1_next_token_accuracy",
+   "raw": "68.8%"
+  },
+  {
+   "repo": "peasantsmith/GLM-5.3-Flash-Maya-GGUF",
+   "entry": "Maya-S24",
+   "key": "mean_kld",
+   "raw": "0.444\u00b9"
+  },
+  {
+   "repo": "peasantsmith/GLM-5.3-Flash-Maya-GGUF",
+   "entry": "Maya-S24",
+   "key": "bench:top1_next_token_accuracy",
+   "raw": "67.9%"
+  },
+  {
+   "repo": "peasantsmith/GLM-5.3-Flash-Maya-GGUF",
+   "entry": "Maya-M",
+   "key": "bench:top1_next_token_accuracy",
+   "raw": "70.3%"
+  },
+  {
+   "repo": "peasantsmith/GLM-5.3-Flash-Maya-GGUF",
+   "entry": "Maya-L",
+   "key": "mean_kld",
+   "raw": "0.188\u00b2"
+  },
+  {
+   "repo": "peasantsmith/GLM-5.3-Flash-Maya-GGUF",
+   "entry": "Maya-L",
+   "key": "bench:top1_next_token_accuracy",
+   "raw": "71.2%"
+  },
+  {
+   "repo": "peasantsmith/GLM-5.3-Flash-Maya-GGUF",
+   "entry": "FP8",
+   "key": "bench:top1_next_token_accuracy",
+   "raw": "71.5%"
+  },
+  {
+   "repo": "philbert440/GLM-5.3-Flash-EXL3",
+   "entry": "GLM-5.3-Flash EXL3 2.1 bpw (this repo)",
+   "key": "bench:Fabricated answers (of 75)",
+   "raw": "2"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-8bit",
+   "entry": "6bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.0011 [\u22120.0017, +0.0038]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-8bit",
+   "entry": "6bit",
+   "key": "ppl_delta_pct",
+   "raw": "+0.1%"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-8bit",
+   "entry": "mixed-4_8bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.0312 [+0.0271, +0.0355]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-8bit",
+   "entry": "mixed-4_8bit",
+   "key": "ppl_delta_pct",
+   "raw": "+3.2%"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-8bit",
+   "entry": "4bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.0816 [+0.0755, +0.0879]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-8bit",
+   "entry": "4bit",
+   "key": "ppl_delta_pct",
+   "raw": "+8.5%"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-8bit",
+   "entry": "REAP25-mixed-4_8bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.1995 [+0.1657, +0.2377]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-8bit",
+   "entry": "REAP37-mixed-4_8bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.3427 [+0.2968, +0.3929]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-8bit",
+   "entry": "REAP50-mixed-4_8bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.5628 [+0.5071, +0.6219]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-8bit",
+   "entry": "REAP25-4bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.2483 [+0.2135, +0.2873]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-8bit",
+   "entry": "REAP37-4bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.3889 [+0.3424, +0.4393]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-8bit",
+   "entry": "REAP50-4bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.6123 [+0.5552, +0.6722]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-mixed-4_8bit",
+   "entry": "mixed-4_8bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.0312 [+0.0271, +0.0355]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-mixed-4_8bit",
+   "entry": "mixed-4_8bit",
+   "key": "ppl_delta_pct",
+   "raw": "+3.2%"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-mixed-4_8bit",
+   "entry": "6bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.0011 [\u22120.0017, +0.0038]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-mixed-4_8bit",
+   "entry": "6bit",
+   "key": "ppl_delta_pct",
+   "raw": "+0.1%"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-mixed-4_8bit",
+   "entry": "4bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.0816 [+0.0755, +0.0879]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-mixed-4_8bit",
+   "entry": "4bit",
+   "key": "ppl_delta_pct",
+   "raw": "+8.5%"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-mixed-4_8bit",
+   "entry": "REAP25-mixed-4_8bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.1995 [+0.1657, +0.2377]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-mixed-4_8bit",
+   "entry": "REAP37-mixed-4_8bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.3427 [+0.2968, +0.3929]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-mixed-4_8bit",
+   "entry": "REAP50-mixed-4_8bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.5628 [+0.5071, +0.6219]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-mixed-4_8bit",
+   "entry": "REAP25-4bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.2483 [+0.2135, +0.2873]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-mixed-4_8bit",
+   "entry": "REAP37-4bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.3889 [+0.3424, +0.4393]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-MLX-mixed-4_8bit",
+   "entry": "REAP50-4bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.6123 [+0.5552, +0.6722]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "entry": "REAP37-mixed-4_8bit",
+   "key": "ppl:wikitext",
+   "raw": "4.8752"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "entry": "8bit",
+   "key": "ppl:wikitext",
+   "raw": "3.4607"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "entry": "6bit",
+   "key": "ppl:wikitext",
+   "raw": "3.4646"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "entry": "6bit",
+   "key": "ppl_delta_pct",
+   "raw": "6-bit +0.1%"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "entry": "mixed-4_8bit",
+   "key": "ppl:wikitext",
+   "raw": "3.5705"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "entry": "mixed-4_8bit",
+   "key": "ppl_delta_pct",
+   "raw": "mixed 4/8-bit +3.2%"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "entry": "4bit",
+   "key": "ppl:wikitext",
+   "raw": "3.7549"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "entry": "4bit",
+   "key": "ppl_delta_pct",
+   "raw": "uniform 4-bit +8.5%"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "entry": "REAP25-mixed-4_8bit",
+   "key": "ppl:wikitext",
+   "raw": "4.2249"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "entry": "REAP50-mixed-4_8bit",
+   "key": "ppl:wikitext",
+   "raw": "6.0757"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "entry": "REAP25-4bit",
+   "key": "ppl:wikitext",
+   "raw": "4.4361"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "entry": "REAP37-4bit",
+   "key": "ppl:wikitext",
+   "raw": "5.1057"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "entry": "REAP50-4bit",
+   "key": "ppl:wikitext",
+   "raw": "6.3840"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP50-MLX-mixed-4_8bit",
+   "entry": "REAP50-mixed-4_8bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.5628 [+0.5071, +0.6219]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP50-MLX-mixed-4_8bit",
+   "entry": "6bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.0011 [\u22120.0017, +0.0038]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP50-MLX-mixed-4_8bit",
+   "entry": "6bit",
+   "key": "ppl_delta_pct",
+   "raw": "+0.1%"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP50-MLX-mixed-4_8bit",
+   "entry": "mixed-4_8bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.0312 [+0.0271, +0.0355]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP50-MLX-mixed-4_8bit",
+   "entry": "mixed-4_8bit",
+   "key": "ppl_delta_pct",
+   "raw": "+3.2%"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP50-MLX-mixed-4_8bit",
+   "entry": "4bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.0816 [+0.0755, +0.0879]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP50-MLX-mixed-4_8bit",
+   "entry": "4bit",
+   "key": "ppl_delta_pct",
+   "raw": "+8.5%"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP50-MLX-mixed-4_8bit",
+   "entry": "REAP25-mixed-4_8bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.1995 [+0.1657, +0.2377]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP50-MLX-mixed-4_8bit",
+   "entry": "REAP37-mixed-4_8bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.3427 [+0.2968, +0.3929]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP50-MLX-mixed-4_8bit",
+   "entry": "REAP25-4bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.2483 [+0.2135, +0.2873]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP50-MLX-mixed-4_8bit",
+   "entry": "REAP37-4bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.3889 [+0.3424, +0.4393]"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP50-MLX-mixed-4_8bit",
+   "entry": "REAP50-4bit",
+   "key": "bench:dNLL_per_token_vs_8bit",
+   "raw": "+0.6123 [+0.5552, +0.6722]"
+  },
+  {
+   "repo": "r0b0tlab/GLM-5.3-Flash-EXL3-2.25bpw-sm121",
+   "entry": "this pack (EXL3 2.25bpw)",
+   "key": "bench:Text-180",
+   "raw": "Text-180: **168/180 (93.33%)**"
+  },
+  {
+   "repo": "r0b0tlab/GLM-5.3-Flash-EXL3-2.25bpw-sm121",
+   "entry": "this pack (EXL3 2.25bpw)",
+   "key": "bench:GSM8K",
+   "raw": "GSM8K 98.75%"
+  },
+  {
+   "repo": "r0b0tlab/GLM-5.3-Flash-EXL3-2.25bpw-sm121",
+   "entry": "this pack (EXL3 2.25bpw)",
+   "key": "bench:HumanEval",
+   "raw": "HumanEval 97.5%"
+  },
+  {
+   "repo": "r0b0tlab/GLM-5.3-Flash-EXL3-2.25bpw-sm121",
+   "entry": "this pack (EXL3 2.25bpw)",
+   "key": "bench:IFEval",
+   "raw": "IFEval 77.5%"
+  },
+  {
+   "repo": "r0b0tlab/GLM-5.3-Flash-EXL3-2.25bpw-sm121",
+   "entry": "this pack (EXL3 2.25bpw)",
+   "key": "bench:hard_reasoning",
+   "raw": "hard_reasoning 95.0%"
+  },
+  {
+   "repo": "r0b0tlab/GLM-5.3-Flash-EXL3-2.25bpw-sm121",
+   "entry": "this pack (EXL3 2.25bpw)",
+   "key": "bench:BFCL-hard20",
+   "raw": "BFCL-hard20: 6/20"
+  },
+  {
+   "repo": "r0b0tlab/GLM-5.3-Flash-EXL3-2.25bpw-sm121",
+   "entry": "this pack (EXL3 2.25bpw)",
+   "key": "bench:Full 200",
+   "raw": "Full 200: 174/200 (87.0%)"
+  },
+  {
+   "repo": "rbinrs/GLM-5.3-Flash-ABLITERATED-NVFP4",
+   "entry": "CRACK Uncensored",
+   "key": "bench:MMLU (overall)",
+   "raw": "85.09%"
+  },
+  {
+   "repo": "rbinrs/GLM-5.3-Flash-ABLITERATED-NVFP4",
+   "entry": "Base",
+   "key": "bench:MMLU (overall)",
+   "raw": "86.16%"
+  },
+  {
+   "repo": "sayyidfareed/GLM-5.3-Flash-Spark-Q2XL-MTP",
+   "entry": "this file (Spark Q2XL MTP)",
+   "key": "bench:HumanEval pass@1",
+   "raw": "159/164 (97.0%)"
+  },
+  {
+   "repo": "sayyidfareed/GLM-5.3-Flash-Spark-Q2XL-MTP",
+   "entry": "this file (Spark Q2XL MTP)",
+   "key": "bench:HumanEval+ Mini pass@1",
+   "raw": "153/164 (93.3%)"
+  },
+  {
+   "repo": "sayyidfareed/GLM-5.3-Flash-Spark-Q2XL-MTP",
+   "entry": "this file (Spark Q2XL MTP)",
+   "key": "bench:34-point coding microbenchmark",
+   "raw": "29/34 (85.3%)"
+  },
+  {
+   "repo": "sayyidfareed/GLM-5.3-Flash-Spark-Q2XL-MTP",
+   "entry": "this file (Spark Q2XL MTP)",
+   "key": "bench:Generation failures",
+   "raw": "0"
+  },
+  {
+   "repo": "sayyidfareed/GLM-5.3-Flash-Spark-Q2XL-MTP",
+   "entry": "this file (Spark Q2XL MTP)",
+   "key": "bench:Median TTFT",
+   "raw": "0.807 s"
+  },
+  {
+   "repo": "sayyidfareed/GLM-5.3-Flash-Spark-Q2XL-MTP",
+   "entry": "this file (Spark Q2XL MTP)",
+   "key": "bench:First-trial TTFT",
+   "raw": "0.930 s"
+  },
+  {
+   "repo": "sayyidfareed/GLM-5.3-Flash-Spark-Q2XL-MTP",
+   "entry": "this file (Spark Q2XL MTP)",
+   "key": "bench:Median native-MTP acceptance",
+   "raw": "54.3%"
+  },
+  {
+   "repo": "sayyidfareed/GLM-5.3-Flash-Spark-Q2XL-MTP",
+   "entry": "UD-Q2_K_XL",
+   "key": "bench:HumanEval pass@1",
+   "raw": "155/164 HumanEval"
+  },
+  {
+   "repo": "sayyidfareed/GLM-5.3-Flash-Spark-Q2XL-MTP",
+   "entry": "UD-Q2_K_XL",
+   "key": "bench:HumanEval+ Mini pass@1",
+   "raw": "148/164 HumanEval+ Mini"
+  },
+  {
+   "repo": "sayyidfareed/GLM-5.3-Flash-Spark-Q2XL-MTP",
+   "entry": "UD-Q2_K_XL",
+   "key": "bench:Median decode tok/s",
+   "raw": "25.414 tok/s median"
+  },
+  {
+   "repo": "tattrongvu/GLM-5.3-Flash-NVFP4",
+   "entry": "RadixArk NVFP4 conversion",
+   "key": "bench:aime26",
+   "raw": "92.45 %"
+  },
+  {
+   "repo": "taurusduan/GLM-5.3-Flash-GGUF-DGX-Spark",
+   "entry": "GLM-5.3-Flash-Q2-DGX-Spark (this file)",
+   "key": "bench:Passed",
+   "raw": "35"
+  },
+  {
+   "repo": "taurusduan/GLM-5.3-Flash-GGUF-DGX-Spark",
+   "entry": "GLM-5.3-Flash-Q2-DGX-Spark (this file)",
+   "key": "bench:Wrong",
+   "raw": "3"
+  },
+  {
+   "repo": "taurusduan/GLM-5.3-Flash-GGUF-DGX-Spark",
+   "entry": "GLM-5.3-Flash-Q2-DGX-Spark (this file)",
+   "key": "bench:Out of budget",
+   "raw": "2"
+  },
+  {
+   "repo": "taurusduan/GLM-5.3-Flash-GGUF-DGX-Spark",
+   "entry": "this model (B200 speed table)",
+   "key": "bench:pp512",
+   "raw": "1037"
+  },
+  {
+   "repo": "taurusduan/GLM-5.3-Flash-GGUF-DGX-Spark",
+   "entry": "this model (B200 speed table)",
+   "key": "bench:pp2048",
+   "raw": "1086"
+  },
+  {
+   "repo": "taurusduan/GLM-5.3-Flash-GGUF-DGX-Spark",
+   "entry": "this model (B200 speed table)",
+   "key": "bench:Generation, 1 sequence",
+   "raw": "54"
+  },
+  {
+   "repo": "taurusduan/GLM-5.3-Flash-GGUF-DGX-Spark",
+   "entry": "this model (B200 speed table)",
+   "key": "bench:Generation, 4 parallel",
+   "raw": "130"
+  },
+  {
+   "repo": "taurusduan/GLM-5.3-Flash-GGUF-DGX-Spark",
+   "entry": "this model (B200 speed table)",
+   "key": "bench:Generation, 8 parallel",
+   "raw": "170"
+  },
+  {
+   "repo": "taurusduan/GLM-5.3-Flash-GGUF-DGX-Spark",
+   "entry": "this model (B200 speed table)",
+   "key": "bench:Generation, 16 parallel",
+   "raw": "207"
+  },
+  {
+   "repo": "taurusduan/GLM-5.3-Flash-GGUF-DGX-Spark",
+   "entry": "this model (B200 speed table)",
+   "key": "bench:Generation, 32 parallel",
+   "raw": "253"
+  },
+  {
+   "repo": "voska/GLM-5.3-Flash-W4A16",
+   "entry": "official FP8 release",
+   "key": "mean_kld",
+   "raw": "0.0206"
+  },
+  {
+   "repo": "voska/GLM-5.3-Flash-W4A16",
+   "entry": "4-bit weight-only",
+   "key": "mean_kld",
+   "raw": "0.0246"
+  },
+  {
+   "repo": "voska/GLM-5.3-Flash-W4A16",
+   "entry": "NVFP4 W4A4",
+   "key": "mean_kld",
+   "raw": "0.0605"
+  },
+  {
+   "repo": "yamz-labs/GLM-5.3-Flash-EXL3-Yamz",
+   "entry": "GLM-5.3-Flash EXL3 pack",
+   "key": "kld:held_out_30_rows",
+   "raw": "0.15081"
+  },
+  {
+   "repo": "yamz-labs/GLM-5.3-Flash-EXL3-Yamz",
+   "entry": "GLM-5.3-Flash EXL3 pack",
+   "key": "top1:held_out_30_rows",
+   "raw": "89.31 %"
+  },
+  {
+   "repo": "yamz-labs/GLM-5.3-Flash-EXL3-Yamz",
+   "entry": "GLM-5.3-Flash EXL3 pack",
+   "key": "kld:long_rows_4x4096",
+   "raw": "0.22737"
+  },
+  {
+   "repo": "yamz-labs/GLM-5.3-Flash-EXL3-Yamz",
+   "entry": "GLM-5.3-Flash EXL3 pack",
+   "key": "top1:long_rows_4x4096",
+   "raw": "88.74 %"
+  },
+  {
+   "repo": "yamz-labs/GLM-5.3-Flash-EXL3-Yamz",
+   "entry": "GLM-5.3-Flash EXL3 pack",
+   "key": "top1:held_out_126_rows",
+   "raw": "90.11 %"
+  }
+ ],
+ "resolved_disagreements": [],
+ "resolved_repos": 0
+}

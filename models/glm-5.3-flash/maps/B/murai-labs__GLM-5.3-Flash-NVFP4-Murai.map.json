@@ -1,0 +1,16 @@
+{
+ "repo": "murai-labs/GLM-5.3-Flash-NVFP4-Murai",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 master (round-trip weight error over all 37,152 quantized tensors)", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [38]},
+ "entries": [
+  {"role": "own", "name": "Murai-P3 (mse_ge1, this repo)", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["weight-space rel², rel_l2 and cos have no matching metric key [L42-44]", "behavioral gate cells are pass counts over 2-3 samples and are not mapped [L50-54]", "quantized NVFP4 checkpoint, not pruned or finetuned, so weights_modified is false [L17]", "card states no KLD measurement of its own [L146]"]},
+  {"role": "quoted", "of": "not named on card", "name": "EXL3", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["KLD figure quoted from a third-party panel (malaiwah) [L58]", "estimator and corpus not stated [L58]"]},
+  {"role": "quoted", "of": "not named on card", "name": "NVFP4", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["KLD figure quoted from a third-party panel (malaiwah) [L58]", "NVFP4 build not identified on the card [L58]"]}
+ ],
+ "prose": [
+  {"entry": "EXL3", "key": "mean_kld", "L": 58, "raw": "0.0246"},
+  {"entry": "NVFP4", "key": "mean_kld", "L": 58, "raw": "0.0605"}
+ ]
+}

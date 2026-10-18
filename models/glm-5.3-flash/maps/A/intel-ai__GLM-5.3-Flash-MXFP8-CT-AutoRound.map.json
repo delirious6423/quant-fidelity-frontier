@@ -1,0 +1,13 @@
+{
+ "repo": "intel-ai/GLM-5.3-Flash-MXFP8-CT-AutoRound",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 reference row supplied for the base checkpoint", "dataset": "GSM8K (strict), MMLU, PIQA, HellaSwag", "ctx": "8192 (max_model_len)", "tool": "lm-eval 0.4.13, vLLM backend, TP=4 on 4x B300, seed 42, batch_size 32, thinking off", "L": [135, 136, 137, 214]},
+ "entries": [
+  {"role": "own", "name": "MXFP8 (this checkpoint)", "metrics": {"bench:GSM8K (strict)": "c18", "bench:MMLU": "c19", "bench:PIQA": "c20", "bench:HellaSwag": "c21", "bench:AVG": "c22"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["size 339.39 GB stated in section 3.3 table [L123], not in metrics table", "text-only, multimodal path unvalidated [L136, L237]"]},
+  {"role": "quoted", "name": "BF16 reference", "of": "zai-org/GLM-5.3-Flash", "metrics": {"bench:GSM8K (strict)": "c13", "bench:MMLU": "c14", "bench:PIQA": "c15", "bench:HellaSwag": "c16", "bench:AVG": "c17"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["reference table supplied for the base checkpoint, not measured for this card [L137-138]"]},
+  {"role": "quoted", "name": "MXFP4-Mixed-CT-AutoRound", "of": "INCModel3/GLM-5.3-Flash-MXFP4-Mixed-CT-AutoRound", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["sibling checkpoint, size about 183 GB stated in sentence [L131]; AVG mapped via prose"]}
+ ],
+ "prose": [{"entry": "MXFP4-Mixed-CT-AutoRound", "key": "bench:AVG", "L": 131, "raw": "reported AVG 0.8366 on the same protocol"}]
+}

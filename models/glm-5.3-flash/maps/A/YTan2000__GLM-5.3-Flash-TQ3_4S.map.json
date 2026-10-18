@@ -1,0 +1,15 @@
+{
+ "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "Hard86 (86 coding tasks), internal quality suite, toolcall, data extraction, instruction following, reasoning / math (suite sizes as printed)", "ctx": "not stated", "tool": "not stated; greedy or temp 0.7 as noted [L95]", "L": [95, 97, 99, 105]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash-TQ3_4S", "panel": "Quality",
+   "methodology": {"reference": "not stated", "dataset": "Hard86 and the suites listed in the Quality table", "ctx": "not stated", "tool": "not stated; greedy or temp 0.7 as noted [L95]", "L": [95, 97, 99, 105]},
+   "metrics": {"bench:Hard86": "c10", "bench:Coding": "c11", "bench:Toolcall": "c12", "bench:Data extraction": "c13", "bench:Instruction following": "c14", "bench:Reasoning / math": "c15", "bench:Quality composite": "c16"},
+   "size": null, "unit": null, "basis": null, "bpw": "c17",
+   "flags": ["no reference model or other quant is compared on this card [L97-106]", "size 101.6 GiB is in the Performance table, not the Quality table, so not attached [L86]", "scores are printed with their fractions, e.g. 67/86 [L99]"]}
+ ],
+ "prose": []
+}

@@ -1,0 +1,13 @@
+{
+ "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-NVFP4-v2",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "unpruned zai-org/GLM-5.3-Flash (teacher-forced)", "dataset": "241,516 held-out tokens the calibration never saw", "ctx": "not stated", "tool": "teacher-forced paired evaluation against cached teacher", "L": [113, 114, 60]},
+ "entries": [
+  {"role": "own", "name": "NVFP4 build", "panel": "Measured against the unpruned teacher", "metrics": {"top1_pct": "c1", "top1:agentic": "c7", "top1:math": "c10", "top1:science": "c13", "top1:finance": "c16", "top1:ballast": "c19", "top1:code": "c22"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["top-1 values printed as fractions (0.839 = 83.9%), not percent [L118-132]", "top-k KL 0.6725 has no matching key, not mapped [L121]", "dNLL values have no key, not mapped [L119-132]", "build version not labelled in table; matches the 0.83857 NVFP4 figure [L258]", "retained-saliency values are not quality, not mapped [L157-163]"]},
+  {"role": "own", "name": "v1 (pass 1)", "panel": "Honest comparison", "metrics": {"top1_pct": "c45.1"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["top-1 printed as fraction [L60]", "held-out tokens 241,516, SE 0.00075 [L60]"]},
+  {"role": "own", "name": "v2 (repo root)", "panel": "Honest comparison", "metrics": {"top1_pct": "c45.2"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["top-1 printed as fraction [L60]", "v2 vs v1 change is within noise per card [L59-60]"]}
+ ],
+ "prose": []
+}

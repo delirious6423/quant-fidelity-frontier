@@ -1,0 +1,23 @@
+{"repo": "sayyidfareed/GLM-5.3-Flash-Spark-Q2XL-MTP",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "HumanEvalPlus dataset v0.1.10", "ctx": "768-token completion cap [L43]; --ctx-size 32768 at runtime [L83]", "tool": "EvalPlus 0.3.1 [L44]", "L": [42, 43, 44]},
+ "entries": [
+  {"role": "own",
+   "name": "Spark Q2XL MTP",
+   "metrics": {"bench:HumanEval pass@1": "c1", "bench:HumanEval+ Mini pass@1": "c2", "bench:34-point coding microbenchmark": "c3"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["one sample per task, temperature 0, top-p 0.95, reasoning_effort=low [L43]", "concise local-coding profile, not the upstream max reasoning profile [L45-46]", "generation failures row not mapped (not a benchmark score) [L53]", "2.80 BPW and 105 GiB shard total stated in prose only [L19, L24]"]},
+  {"role": "cross",
+   "name": "Unsloth UD-Q2_K_XL",
+   "of": "not named on card",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["earlier test by the card author, compared within this evaluation [L68-71]", "decode speed figure not mapped (no speed key) [L69]"]}
+ ],
+ "prose": [
+  {"entry": "Unsloth UD-Q2_K_XL", "key": "bench:HumanEval pass@1", "L": 69, "raw": "155/164"},
+  {"entry": "Unsloth UD-Q2_K_XL", "key": "bench:HumanEval+ Mini pass@1", "L": 69, "raw": "148/164"}
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "internal quality suites: Hard86 unit-test pass, coding, toolcall, data extraction, instruction following, reasoning and math", "ctx": "not stated", "tool": "llama-server on a single GB10 (greedy or temp 0.7 as noted)", "L": [95, 97, 99, 105]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash-TQ3_4S",
+   "metrics": {
+    "bench:Hard86": "c10",
+    "bench:Coding": "c11",
+    "bench:Toolcall": "c12",
+    "bench:Data-extraction": "c13",
+    "bench:Instruction-following": "c14",
+    "bench:Reasoning-math": "c15",
+    "bench:Quality-composite": "c16"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": "c17",
+   "flags": ["benchmarks are internal suites scored by the card author, with no BF16 or other baseline on the same suites [L95-L105]", "quality evidence is benchmark score only: no KL or perplexity is stated [L97-L105]", "size is printed in the performance table, not in the quality rows [L86]", "MTP head is retained, not removed, so weights are not modified [L55, L78]", "scores are copied as whole cells, including the counts in parentheses [L99-L105]"]
+  }
+ ],
+ "prose": []
+}

@@ -1,0 +1,11 @@
+{
+ "repo": "TensorFold/GLM-5.3-Flash-MLX-2bit-MTP",
+ "no_quality_claims": true,
+ "no_claims_reason": "speed table and architecture only [L155-161]; validation table rows not in digest [L187-198]",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "median of three 512-token text-generation runs on Apple M3 Studio", "L": [152, 157, 158]},
+ "entries": [
+  {"role": "own", "name": "this model", "panel": "Apple M3 Studio performance", "metrics": {"bench:Median decode speed, native MTP disabled": "c8", "bench:Median decode speed, native MTP enabled, depth 1": "c11"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["speed only, no quality metric [L155-161]", "MTP gain 3.21% stated in prose [L161]"]}
+ ],
+ "prose": []
+}

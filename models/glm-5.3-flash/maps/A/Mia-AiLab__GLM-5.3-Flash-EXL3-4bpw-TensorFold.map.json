@@ -1,0 +1,21 @@
+{
+ "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Z.AI's official FP8 release (rev eb9eb208, e4m3 with 128x128 block scales, dequantized), full vocabulary, temperature 1", "dataset": "wikitext-2 test (16 x 2,048 tokens); workload set of math, code, tool-call and chat (24 x 4,096 tokens)", "ctx": "2,048 and 4,096-token sequences", "tool": "not stated", "L": [96, 98, 99, 100, 101, 102]},
+ "entries": [
+  {"role": "cross", "name": "brandonmusic-TR3-4bpw", "panel": "GLM-5.3-Flash EXL3 4bpw for TensorFold, by Mia's AI Lab",
+   "of": "brandonmusic-TR3-4bpw (owner/repo not split on card)",
+   "methodology": {"reference": "Z.AI's official FP8 release (rev eb9eb208, dequantized)", "dataset": "wikitext-2 test; workload set", "ctx": "2,048 and 4,096-token sequences", "tool": "not stated", "L": [24, 25, 26, 27, 98, 101]},
+   "metrics": {"kld:wikitext": "c1.0", "kld:workload": "c1.1", "bench:GSM8K": "c3", "bench:HumanEval": "c5", "bench:HumanEval+MBPP+": "c7"},
+   "size": "c13", "unit": "GB", "basis": null, "bpw": null,
+   "flags": ["column label as printed, owner/repo not split on card [L22]", "GSM8K is 250 greedy, HumanEval 164 greedy, HumanEval+/MBPP+ 542 with thinking on [L25-27]", "size from the summary table [L30]"]},
+  {"role": "own", "name": "This quant", "panel": "GLM-5.3-Flash EXL3 4bpw for TensorFold, by Mia's AI Lab",
+   "methodology": {"reference": "Z.AI's official FP8 release (rev eb9eb208, dequantized)", "dataset": "wikitext-2 test; workload set", "ctx": "2,048 and 4,096-token sequences", "tool": "not stated", "L": [24, 25, 26, 27, 98, 101]},
+   "metrics": {"kld:wikitext": "c2.0", "kld:workload": "c2.1", "bench:GSM8K": "c4", "bench:HumanEval": "c6", "bench:HumanEval+MBPP+": "c8"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["values from the summary table [L24-27]", "same size claimed in prose, no number printed for this quant [L19-20]", "FP8-experts floor values are a different variant, omitted [L41]", "prefill and decode rows are served-speed figures, not quality, omitted [L28-29]"]}
+ ],
+ "prose": []
+}

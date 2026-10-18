@@ -1,0 +1,23 @@
+{"repo": "genevera/GLM-5.3-Flash-Uncensored-EXL3-2.5bpw",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "Base FP8 (GLM-5.3-Flash)", "dataset": "MMLU, 1,026 questions", "ctx": "not stated", "tool": "identical logit-mode scoring, argmax over A/B/C/D", "L": [72]},
+ "entries": [
+   {"role": "own", "name": "GLM-5.3-Flash-Uncensored-EXL3-2.51bpw",
+    "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [67, 68]},
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["no quality number measured on this 2.51 bpw file; the quality statement is qualitative [L67-L68]", "abliterated source, weights edited at source [L43]"]},
+   {"role": "cross", "name": "CRACK Uncensored FP8", "of": "dealignai/GLM-5.3-Flash-UNCENSORED-FP8", "panel": "Capability Is Preserved — and Improved (MMLU-logit)",
+    "methodology": {"reference": "Base FP8", "dataset": "MMLU, 1,026 questions", "ctx": "not stated", "tool": "identical logit-mode scoring, argmax over A/B/C/D", "L": [72, 76]},
+    "metrics": {"bench:MMLU (overall)": "c3"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["measured on the FP8 source release, not on this 2.51 bpw quant [L72]", "MMLU delta (+0.59 pp) not mapped: no delta key [L76]", "HarmBench-320 compliance counts not mapped: no matching key [L82-L87]"]},
+   {"role": "cross", "name": "Base FP8", "of": "not named on card", "panel": "Capability Is Preserved — and Improved (MMLU-logit)",
+    "methodology": {"reference": "Base FP8", "dataset": "MMLU, 1,026 questions", "ctx": "not stated", "tool": "identical logit-mode scoring, argmax over A/B/C/D", "L": [72, 76]},
+    "metrics": {"bench:MMLU (overall)": "c2"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["base FP8 file is not named on the card; measured on the source FP8 release [L72]"]}
+ ],
+ "prose": []}

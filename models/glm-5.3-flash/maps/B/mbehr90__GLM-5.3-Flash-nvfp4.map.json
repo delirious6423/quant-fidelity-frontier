@@ -1,0 +1,12 @@
+{
+ "repo": "mbehr90/GLM-5.3-Flash-nvfp4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "zai-org/GLM-5.3-Flash FP8 source, same harness on 4x H100 80 GB [L71, L78]", "dataset": "GSM8K chat, AI2D vision, GSM8K lm-eval, ARC-C [L73-76]", "ctx": "not stated", "tool": "vLLM image vllm/vllm-openai:glm53-flash [L100]", "L": [71, 73, 76, 78, 100]},
+ "entries": [
+  {"role": "own", "name": "this build (NVFP4)", "panel": "Measured on 4x H100 80 GB", "methodology": {"reference": "zai-org/GLM-5.3-Flash FP8 source", "dataset": "GSM8K chat, AI2D vision, GSM8K lm-eval, ARC-C", "ctx": "not stated", "tool": "vLLM image vllm/vllm-openai:glm53-flash", "L": [71, 76, 100]}, "metrics": {"bench:GSM8K chat": "c9", "bench:AI2D": "c10", "bench:GSM8K lm-eval": "c11", "bench:ARC-C": "c12"}, "size": "c8", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["routed experts NVFP4, weight-only; no activation scale in the checkpoint [L34-39]", "tok/s figures have no matching metric key [L76]", "weight-space cosine and packed-byte checks have no matching metric key [L53-58]"]},
+  {"role": "cross", "of": "zai-org/GLM-5.3-Flash", "name": "zai-org/GLM-5.3-Flash", "panel": "Measured on 4x H100 80 GB", "methodology": {"reference": "zai-org/GLM-5.3-Flash FP8 source", "dataset": "GSM8K chat", "ctx": "not stated", "tool": "vLLM with per-GPU CPU offload", "L": [78, 79]}, "metrics": {"bench:GSM8K chat": "c7"}, "size": "c6", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["source does not fit on 4x 80 GB, so it ran with per-GPU CPU offload; the card says its throughput is not comparable [L78-80]", "no AI2D number is given for the source [L80-81]"]}
+ ],
+ "prose": []
+}

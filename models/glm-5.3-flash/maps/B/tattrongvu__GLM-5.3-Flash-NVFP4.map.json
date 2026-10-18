@@ -1,0 +1,23 @@
+{"repo": "tattrongvu/GLM-5.3-Flash-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "eval-gate medium tier (bfcl_v4, hle, aa_lcr, aime26)", "ctx": "max_tokens 32768 with reasoning_effort max [L63-64]", "tool": "SGLang TP4 on 4xB200 [L50]", "L": [50, 59, 60, 63, 64]},
+ "entries": [
+  {"role": "own",
+   "name": "GLM-5.3-Flash-NVFP4",
+   "metrics": {"bench:bfcl_v4": "c1", "bench:hle": "c4", "bench:hle (completed only)": "c7", "bench:aa_lcr": "c8", "bench:aime26": "c11", "bench:aime26 (completed only)": "c14"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["bfcl_v4 and hle are bounded runs, not full benchmark scores [L59-60]", "scores are blended with token-budget truncation for hle and aime26; completed-only scores mapped separately [L63-68]", "truncation rates not mapped (not quality scores) [L52-57]", "194.6 GB and 328.4 GB sizes stated in prose only [L21]"]},
+  {"role": "quoted",
+   "name": "RadixArk NVFP4 conversion",
+   "of": "not named on card",
+   "metrics": {},
+   "methodology": {"reference": "not stated", "dataset": "AIME 2026", "ctx": "max_tokens=131072 [L71]", "tool": "not stated", "L": [70, 71]},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["figure the card quotes from another publisher's conversion, under a different token budget [L70-71]"]}
+ ],
+ "prose": [
+  {"entry": "RadixArk NVFP4 conversion", "key": "bench:aime26", "L": 70, "raw": "92.45"}
+ ]
+}

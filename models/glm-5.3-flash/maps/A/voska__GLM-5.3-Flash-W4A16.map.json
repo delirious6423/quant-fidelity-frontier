@@ -1,0 +1,22 @@
+{
+ "repo": "voska/GLM-5.3-Flash-W4A16",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 (mean KLD vs BF16)", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [189, 190, 191, 195, 196, 197]},
+ "entries": [
+  {"role": "quoted", "name": "official FP8 release", "panel": "Why weight-only (and not NVFP4/W4A4)", "of": "not named on card",
+   "methodology": {"reference": "BF16 (mean KLD vs BF16)", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [189, 190, 191, 195]},
+   "metrics": {"mean_kld": "c11"}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["published panel for the model family, not measured on this checkpoint [L189-191, L516]", "ratio to official FP8 column has no matching metric key, omitted [L195]"]},
+  {"role": "quoted", "name": "4-bit weight-only", "panel": "Why weight-only (and not NVFP4/W4A4)", "of": "not named on card",
+   "methodology": {"reference": "BF16 (mean KLD vs BF16)", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [189, 190, 191, 196]},
+   "metrics": {"mean_kld": "c13"}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["published panel for the model family, not measured on this checkpoint [L189-191, L516]", "ratio to official FP8 column has no matching metric key, omitted [L196]"]},
+  {"role": "quoted", "name": "NVFP4 W4A4", "panel": "Why weight-only (and not NVFP4/W4A4)", "of": "not named on card",
+   "methodology": {"reference": "BF16 (mean KLD vs BF16)", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [189, 190, 191, 197]},
+   "metrics": {"mean_kld": "c15"}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["published panel for the model family, not measured on this checkpoint [L189-191, L516]", "ratio to official FP8 column has no matching metric key, omitted [L197]"]}
+ ],
+ "prose": []
+}

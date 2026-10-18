@@ -1,0 +1,15 @@
+{
+ "repo": "nvidia/GLM-5.3-Flash-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 baseline, zai-org/GLM-5.3-Flash-BF16, named under the evaluation table", "dataset": "GPQA Diamond, SciCode, MMMU Pro, AA-LCR, IFBench, Terminal Bench 2.1", "ctx": "max new tokens as stated under the evaluation table", "tool": "not stated", "L": [92, 95, 205]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash NVFP4",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["the evaluation table is HTML and was not extracted to candidate cells, so no benchmark values are mapped [L151-L168]", "benchmark accuracy is the only quality evidence; no perplexity or KL is stated [L151-L205]", "size reduction is stated as an approximate factor in prose, not a table value [L103]", "calibration uses a news dataset and a post-training dataset, not a metric [L80-L84]"]
+  }
+ ],
+ "prose": []
+}

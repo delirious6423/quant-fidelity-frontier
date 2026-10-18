@@ -1,0 +1,12 @@
+{
+ "repo": "neuralll/GLM-5.3-Flash-MTP-GGUF",
+ "no_quality_claims": true,
+ "no_claims_reason": "speed only, MTP draft head [L41-56]",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "1500-token chat reply", "tool": "2x RTX 3090 (48 GB) + 125 GB DDR4 with the fork's expert cache", "L": [47, 48, 55]},
+ "entries": [
+  {"role": "own", "name": "MTP head (this repo)", "panel": "Will it be faster?", "metrics": {"bench:decode t/s, with MTP head (range low)": "c2.0", "bench:decode t/s, with MTP head (range high)": "c2.1"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["range printed as 17.6 to 18.4 [L53]", "MTP is slower on this setup, expert work on CPU [L55-56]"]},
+  {"role": "ladder", "name": "GLM-5.3-Flash 3.0-bit Q4_K attention, no MTP", "panel": "Will it be faster?", "metrics": {"bench:decode t/s, without MTP": "c1"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["target model from the same publisher, named in the card [L37-38]", "baseline without MTP [L52-53]"]}
+ ],
+ "prose": []
+}

@@ -1,0 +1,12 @@
+{
+ "repo": "spectator2026/GLM-5.3-Flash-W5-HQQ-g32",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 model (zai-org/GLM-5.3-Flash-BF16)", "dataset": "wikitext-2; multi-turn agentic text", "ctx": "2048-token windows", "tool": "not stated", "L": [90, 94, 95]},
+ "entries": [
+  {"role": "own", "name": "this W5 checkpoint (served)", "metrics": {"kld:wikitext-2": "c1", "kld:multi-turn agentic text": "c2"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["routed experts only at 5-bit, group 32 [L20]", "size 226.4 GiB stated in prose, not in table row [L22]", "long-context quality effect not measured [L80]"]},
+  {"role": "ladder", "name": "8-bit g32 + HQQ (reference point)", "metrics": {"kld:wikitext-2": "c3"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["only the wikitext-2 value is in the digest [L95]", "role ladder assumed from the comparison row [L95]"]}
+ ],
+ "prose": []
+}

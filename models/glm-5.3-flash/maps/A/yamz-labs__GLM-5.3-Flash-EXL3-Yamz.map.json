@@ -1,0 +1,21 @@
+{"repo": "yamz-labs/GLM-5.3-Flash-EXL3-Yamz",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "official FP8 model", "dataset": "30 held-out rows (30,720 tokens); 4 long rows of 4,096 tokens; 126 of 129 held-out rows", "ctx": "4,096 tokens per long row", "tool": "not stated", "L": [21, 52, 55, 56, 57, 59]},
+ "entries": [
+  {"role": "own",
+   "name": "GLM-5.3-Flash EXL3 pack",
+   "panel": "Quality (reference = official FP8)",
+   "methodology": {"reference": "official FP8 model", "dataset": "30 held-out rows (30,720 tokens); 4 long rows of 4,096 tokens; 126 of 129 held-out rows", "ctx": "4,096 tokens per long row", "tool": "not stated", "L": [52, 53, 55, 56, 57, 59]},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "metrics": {"kld:held_out_30_rows": "c1", "top1:held_out_30_rows": "c2", "kld:long_rows_4x4096": "c3", "top1:long_rows_4x4096": "c4", "top1:held_out_126_rows": "c5"},
+   "flags": ["KLD on all 129 rows was not run, so the 126-row set has a top-1 figure only [L57] [L59]",
+             "task scores were not run and reasoning mode was not tested; quality is against FP8 only [L61]",
+             "the stock-engine reproduction 'KLD 0.150812' [L59] repeats the 30-row figure and is not mapped; speed and memory tables [L62-L92] are not quality metrics and are not mapped",
+             "per-layer scale vectors were tuned against FP8 on 526 rows and written into the shards; the weights are quantised, not fine-tuned [L32]"]}
+ ],
+ "prose": []}

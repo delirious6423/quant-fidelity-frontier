@@ -1,0 +1,39 @@
+{
+ "repo": "peasantsmith/GLM-5.3-Flash-Maya-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Z.ai FP8 release, the native FP8 model (not BF16)", "dataset": "zero-shot ARC, HellaSwag, WinoGrande, PIQA (400 questions each); held-out text never used for calibration, token-level comparison", "ctx": "not stated", "tool": "Project Maya engine for the quants; lm-evaluation-harness-style scoring for zero-shot", "L": [81, 94, 96, 98, 100, 101, 102]},
+ "entries": [
+  {"role": "own", "name": "Maya-S", "panel": "Against the original (FP8)",
+   "methodology": {"reference": "Z.ai FP8 release, the native FP8 model (not BF16)", "dataset": "zero-shot ARC, HellaSwag, WinoGrande, PIQA (400 questions each); held-out text never used for calibration, 7,672 positions", "ctx": "not stated", "tool": "Project Maya engine for the quants; lm-evaluation-harness-style scoring", "L": [81, 94, 96, 100, 101, 102]},
+   "metrics": {"top1_pct": "c12", "mean_kld": "c17", "bench:top1-actual-next-token": "c22"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["reference is the native FP8 release, not BF16 [L26, L94]", "same-top-token row is agreement with the FP8 predictions [L100]", "top-1 on the actual next token is a score against the data, not agreement with FP8 [L102]", "retained zero-shot figure is a percentage of the FP8 score, not an accuracy [L81]", "the zero-shot task table has no candidate ids and is not mapped [L85-L93]", "speed and long-generation results have no metric key [L112-L118]", "file sizes are in the Files table, not in a metric row [L45-L53]"]
+  },
+  {"role": "own", "name": "Maya-S24", "panel": "Against the original (FP8)",
+   "methodology": {"reference": "Z.ai FP8 release, the native FP8 model (not BF16)", "dataset": "zero-shot ARC, HellaSwag, WinoGrande, PIQA (400 questions each); held-out text never used for calibration, 7,672 positions", "ctx": "not stated", "tool": "Project Maya engine for the quants; lm-evaluation-harness-style scoring", "L": [81, 94, 96, 100, 101, 102]},
+   "metrics": {"top1_pct": "c13", "bench:top1-actual-next-token": "c23"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["reference is the native FP8 release, not BF16 [L26, L94]", "KL value omitted: its footnote says it was measured with a later engine and is not in the same run [L101, L104]", "top-1 on the actual next token is a score against the data, not agreement with FP8 [L102]", "retained zero-shot figure is a percentage of the FP8 score, not an accuracy [L81]"]
+  },
+  {"role": "own", "name": "Maya-M", "panel": "Against the original (FP8)",
+   "methodology": {"reference": "Z.ai FP8 release, the native FP8 model (not BF16)", "dataset": "zero-shot ARC, HellaSwag, WinoGrande, PIQA (400 questions each); held-out text never used for calibration, 7,672 positions", "ctx": "not stated", "tool": "Project Maya engine for the quants; lm-evaluation-harness-style scoring", "L": [81, 94, 96, 100, 101, 102]},
+   "metrics": {"top1_pct": "c14", "mean_kld": "c19", "bench:top1-actual-next-token": "c24"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["reference is the native FP8 release, not BF16 [L26, L94]", "same-top-token row is agreement with the FP8 predictions [L100]", "top-1 on the actual next token is a score against the data, not agreement with FP8 [L102]", "retained zero-shot figure is a percentage of the FP8 score, not an accuracy [L81]"]
+  },
+  {"role": "own", "name": "Maya-L", "panel": "Against the original (FP8)",
+   "methodology": {"reference": "Z.ai FP8 release, the native FP8 model (not BF16)", "dataset": "zero-shot ARC, HellaSwag, WinoGrande, PIQA (400 questions each); held-out text never used for calibration, 7,672 positions", "ctx": "not stated", "tool": "Project Maya engine for the quants; lm-evaluation-harness-style scoring", "L": [81, 94, 96, 100, 101, 102]},
+   "metrics": {"top1_pct": "c15", "bench:top1-actual-next-token": "c25"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["reference is the native FP8 release, not BF16 [L26, L94]", "KL value omitted: its footnote says it was measured with a later engine and is not in the same run [L101, L104]", "top-1 on the actual next token is a score against the data, not agreement with FP8 [L102]", "retained zero-shot figure is a percentage of the FP8 score, not an accuracy [L81]"]
+  }
+ ],
+ "prose": [
+  {"entry": "Maya-S", "panel": "Against the original (FP8)", "key": "bench:zero-shot-retained", "L": 81, "raw": "Maya-S and Maya-M 97.9%"},
+  {"entry": "Maya-S24", "panel": "Against the original (FP8)", "key": "bench:zero-shot-retained", "L": 81, "raw": "Maya-S24 97.7%"},
+  {"entry": "Maya-M", "panel": "Against the original (FP8)", "key": "bench:zero-shot-retained", "L": 81, "raw": "Maya-S and Maya-M 97.9%"},
+  {"entry": "Maya-L", "panel": "Against the original (FP8)", "key": "bench:zero-shot-retained", "L": 81, "raw": "Maya-L keeps 99.2%"}
+ ]
+}

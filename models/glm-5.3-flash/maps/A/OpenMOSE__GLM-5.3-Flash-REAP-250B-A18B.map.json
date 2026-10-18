@@ -1,0 +1,23 @@
+{"repo": "OpenMOSE/GLM-5.3-Flash-REAP-250B-A18B",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "GLM-5.3-Flash original (zai-org/GLM-5.3-Flash)", "dataset": "held-out text, 4 x 16,384 tokens multilingual chat + 4 x 16,384 tokens code reasoning (~130k tokens)", "ctx": "16,384 tokens per sequence", "tool": "teacher-forced next-token distributions; KL averaged over tokens", "L": [152, 153, 166]},
+ "entries": [
+   {"role": "own", "name": "GLM-5.3-Flash-REAP-250B-A18B", "panel": "3. Fidelity to the original model",
+    "methodology": {"reference": "GLM-5.3-Flash original (zai-org/GLM-5.3-Flash)", "dataset": "held-out text, ~130k tokens (multilingual chat and code reasoning)", "ctx": "16,384 tokens per sequence", "tool": "teacher-forced next-token distributions", "L": [152, 153, 166]},
+    "metrics": {"mean_kld": "c19", "top1_pct": "c20", "top1:confident tokens": "c21"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["held-out ppl cell combines value and delta in one cell, not split, not mapped [L159]", "top-1 (confident tokens) is restricted to tokens where the original puts > 0.5 on its top choice [L166-L167]", "pruned checkpoint, 228 of 288 experts per layer [L28]"]},
+   {"role": "cross", "name": "GLM-5.3-Flash (original)", "of": "zai-org/GLM-5.3-Flash", "panel": "3. Fidelity to the original model",
+    "methodology": {"reference": "GLM-5.3-Flash original (zai-org/GLM-5.3-Flash)", "dataset": "held-out text, ~130k tokens (multilingual chat and code reasoning)", "ctx": "16,384 tokens per sequence", "tool": "teacher-forced next-token distributions", "L": [152, 153, 158]},
+    "metrics": {"mean_kld": "c16", "top1_pct": "c17", "ppl:heldout": "c18"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["self-comparison, KL is zero by construction [L158]"]},
+   {"role": "ladder", "name": "(reference) uniform 224 experts, single mixed calibration set", "panel": "3. Fidelity to the original model",
+    "methodology": {"reference": "GLM-5.3-Flash original (zai-org/GLM-5.3-Flash)", "dataset": "held-out text, ~130k tokens (multilingual chat and code reasoning)", "ctx": "16,384 tokens per sequence", "tool": "teacher-forced next-token distributions", "L": [152, 153, 160, 162]},
+    "metrics": {"mean_kld": "c23", "top1_pct": "c24"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["earlier checkpoint pruned with a single mixed calibration set [L162]", "ppl cell combines value and delta in one cell, not split, not mapped [L160]"]}
+ ],
+ "prose": []}

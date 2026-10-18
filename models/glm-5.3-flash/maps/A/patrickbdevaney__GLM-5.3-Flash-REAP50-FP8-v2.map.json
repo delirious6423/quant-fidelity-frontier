@@ -1,0 +1,27 @@
+{
+ "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-FP8-v2",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "unpruned zai-org/GLM-5.3-Flash (teacher)", "dataset": "241,516 held-out tokens, 7 domains (calibration never saw them)", "ctx": "not stated", "tool": "teacher-forced paired evaluation", "L": [114, 115, 116, 117, 127]},
+ "entries": [
+  {"role": "own", "name": "v2 (repo root)", "panel": "Measured against the unpruned teacher",
+   "methodology": {"reference": "unpruned zai-org/GLM-5.3-Flash (teacher)", "dataset": "241,516 held-out tokens", "ctx": "not stated", "tool": "teacher-forced paired evaluation", "L": [116, 117, 121, 127]},
+   "metrics": {"top1_pct": "c2", "top1:agentic": "c8", "top1:math": "c11", "top1:science": "c14", "top1:finance": "c17", "top1:ballast": "c20", "top1:code": "c23"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["top-1 agreement is printed as a fraction (0.842) [L121]", "top-k KL and dNLL have no matching metric key, omitted [L122-124]", "vision row gives tokens only, no top-1 [L135]", "saliency retention table is not a metric key, omitted [L160-166]"]},
+  {"role": "own", "name": "per-layer scalar (ships now)", "panel": "Corrections to this repository",
+   "methodology": {"reference": "unpruned zai-org/GLM-5.3-Flash (cached teacher)", "dataset": "241,516 held-out tokens", "ctx": "not stated", "tool": "not stated", "L": [251, 252, 254, 256]},
+   "metrics": {"top1_pct": "c34"}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["healing ablation, one variable changed [L251-252]", "top-1 agreement is printed as a fraction [L256]"]},
+  {"role": "own", "name": "per-expert (was shipped)", "panel": "Corrections to this repository",
+   "methodology": {"reference": "unpruned zai-org/GLM-5.3-Flash (cached teacher)", "dataset": "241,516 held-out tokens", "ctx": "not stated", "tool": "not stated", "L": [251, 252, 254, 256]},
+   "metrics": {"top1_pct": "c33"}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["superseded per-expert healing, reverted [L230, L251-252]", "top-1 agreement is printed as a fraction [L256]"]},
+  {"role": "own", "name": "v1", "panel": "Honest comparison",
+   "methodology": {"reference": "unpruned zai-org/GLM-5.3-Flash (teacher)", "dataset": "241,516 held-out tokens", "ctx": "not stated", "tool": "teacher-forced paired evaluation", "L": [57, 58]},
+   "metrics": {"top1_pct": "c42.1"}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["v1 figure given in prose with the scalar-healing confound [L57-58]", "top-1 agreement is printed as a fraction [L57]"]}
+ ],
+ "prose": []
+}

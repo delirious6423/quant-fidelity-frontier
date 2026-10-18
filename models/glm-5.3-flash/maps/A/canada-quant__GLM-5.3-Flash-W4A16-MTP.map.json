@@ -1,0 +1,21 @@
+{"repo": "canada-quant/GLM-5.3-Flash-W4A16-MTP",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "AIME 2025; AIME 2026 (n=120 each); GSM8K; GPQA-Diamond (n=198); MMMU validation (n=900); OCRBench (n=1000)", "ctx": "131,072-token budget with max thinking", "tool": "lmms-eval 0.7.3 for MMMU and OCRBench; run by the authors on H100 and RTX PRO 6000", "L": [108, 110, 112, 114, 115, 116, 117, 118, 124]},
+ "entries": [
+  {"role": "own",
+   "name": "W4A16 (this)",
+   "methodology": {"reference": "not stated", "dataset": "AIME 2025; AIME 2026 (n=120 each); GSM8K; GPQA-Diamond (n=198); MMMU validation (n=900); OCRBench (n=1000)", "ctx": "131,072-token budget with max thinking", "tool": "lmms-eval 0.7.3 for MMMU and OCRBench; run by the authors on H100 and RTX PRO 6000", "L": [110, 112, 114, 115, 116, 117, 118, 124]},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "metrics": {"bench:AIME_2025": "c5", "bench:AIME_2026": "c6", "bench:GPQA-Diamond": "c9.0", "bench:MMMU_validation": "c10", "bench:MMMU_multiple_choice": "c11.0", "bench:MMMU_open": "c11.1", "bench:OCRBench": "c12.0"},
+   "flags": ["GSM8K shows a range 0.970-0.975 over H100 and RTX PRO 6000 with no per-hardware label order [L115], so it is not mapped",
+             "the EXL3 (MiaAI-Lab) AIME 2026 figure in the notes [L114] is another model's result and is omitted",
+             "the RTX PRO 6000 AIME 2025 result is described as lower than the H100 one [L120] and no candidate value is given for it",
+             "the vision tower is BF16 passthrough and was not covered by the text-only calibration, so MMMU and OCRBench are this artifact's own vision baseline [L120]",
+             "speed, throughput and context tables [L122-L152] are not quality metrics and are not mapped"]}
+ ],
+ "prose": []}

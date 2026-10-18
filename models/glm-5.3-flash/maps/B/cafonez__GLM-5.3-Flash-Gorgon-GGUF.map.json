@@ -1,0 +1,14 @@
+{
+ "repo": "cafonez/GLM-5.3-Flash-Gorgon-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Unsloth UD-IQ4_XS GGUF, the file this mix was made from (not full precision) [L55]", "dataset": "not stated", "ctx": "1024-token chunks, 16 chunks [L55]", "tool": "llama-perplexity --kl-divergence, Vulkan backend [L55]", "L": [55, 56]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash-Q5K-IQ3S", "panel": "Quality", "methodology": {"reference": "Unsloth UD-IQ4_XS GGUF", "dataset": "not stated", "ctx": "1024-token chunks, 16 chunks", "tool": "llama-perplexity --kl-divergence, Vulkan", "L": [55]}, "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["KL reference is another quant (UD-IQ4_XS), so the KL is relative to that file, not to full precision [L55]", "Vulkan vs CPU KLD 0.018 measures backend numerics, not quantization loss, and is not mapped [L56]", "3.84 bpw is stated in prose only, not a table cell [L21]", "file sizes and per-tensor bpw are not metric rows, so not mapped [L29-49]", "decode and prefill speeds have no matching metric key [L62-70]"]}
+ ],
+ "prose": [
+  {"entry": "GLM-5.3-Flash-Q5K-IQ3S", "panel": "Quality", "key": "mean_kld", "L": 55, "raw": "mean KLD 0.040"},
+  {"entry": "GLM-5.3-Flash-Q5K-IQ3S", "panel": "Quality", "key": "top1_pct", "L": 55, "raw": "same top-1 token 93.1%"}
+ ]
+}

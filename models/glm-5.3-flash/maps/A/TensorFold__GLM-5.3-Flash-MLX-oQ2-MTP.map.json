@@ -1,0 +1,11 @@
+{
+ "repo": "TensorFold/GLM-5.3-Flash-MLX-oQ2-MTP",
+ "no_quality_claims": true,
+ "no_claims_reason": "speed and draft acceptance only [L162-169]; validation table rows not in digest [L200-213]",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "512 output tokens, greedy", "tool": "Apple M3 Studio; median of three 512-token runs plus matched pairs", "L": [159, 164, 166, 169]},
+ "entries": [
+  {"role": "own", "name": "this model", "panel": "Apple M3 Studio performance", "metrics": {"bench:Sustained throughput, MTP disabled (median of 3)": "c10", "bench:Sustained throughput, MTP disabled, matched pair": "c13", "bench:Sustained throughput, native MTP depth 1, matched pair": "c16", "bench:Acceptance, native MTP depth 1": "c19"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["MTP output not token-identical to baseline over 512 greedy tokens [L169]", "matched MTP run is one run, not a median [L169]", "speed only, no quality metric [L162-168]"]}
+ ],
+ "prose": []
+}

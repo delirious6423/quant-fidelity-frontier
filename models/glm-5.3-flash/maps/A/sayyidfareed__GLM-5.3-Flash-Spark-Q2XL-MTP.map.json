@@ -1,0 +1,17 @@
+{
+ "repo": "sayyidfareed/GLM-5.3-Flash-Spark-Q2XL-MTP",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "EvalPlus 0.3.1 with HumanEvalPlus dataset v0.1.10", "ctx": "768-token completion cap", "tool": "EvalPlus 0.3.1; reasoning_effort=low; temperature 0; top-p 0.95; one sample per task", "L": [42, 43, 44, 45]},
+ "entries": [
+  {"role": "own", "name": "this file (Spark Q2XL MTP)", "panel": "Benchmarks", "metrics": {"bench:HumanEval pass@1": "c1", "bench:HumanEval+ Mini pass@1": "c2", "bench:34-point coding microbenchmark": "c3", "bench:Generation failures": "c4.0"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["one sample per task [L42]", "failures denominator 164 is c4.1, not keyed [L53]", "2.80 BPW stated in prose, no bpw cell [L19]"]},
+  {"role": "own", "name": "this file (Spark Q2XL MTP)", "panel": "Five sequential streaming coding completions, 512 output tokens each:", "metrics": {"bench:Median TTFT": "c5", "bench:First-trial TTFT": "c6", "bench:Median native-MTP acceptance": "c7"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["measured on one DGX Spark / GB10 [L42]"]},
+  {"role": "cross", "name": "UD-Q2_K_XL", "of": "not named on card", "panel": "Benchmarks", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["previously tested comparison quant, not this file [L68-69]", "values are in prose and mapped below"]}
+ ],
+ "prose": [
+  {"entry": "UD-Q2_K_XL", "panel": "Benchmarks", "key": "bench:HumanEval pass@1", "L": 69, "raw": "155/164 HumanEval"},
+  {"entry": "UD-Q2_K_XL", "panel": "Benchmarks", "key": "bench:HumanEval+ Mini pass@1", "L": 69, "raw": "148/164 HumanEval+ Mini"},
+  {"entry": "UD-Q2_K_XL", "panel": "Benchmarks", "key": "bench:Median decode tok/s", "L": 69, "raw": "25.414 tok/s median"}
+ ]
+}

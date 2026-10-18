@@ -1,0 +1,23 @@
+{
+ "repo": "r0b0tlab/GLM-5.3-Flash-EXL3-2.25bpw-sm121",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated; no BF16 or other baseline on these suites", "dataset": "Q200v2 quality kit: Text-180 (GSM8K, HumanEval, IFEval, hard reasoning) and BFCL-hard20, full 200 items", "ctx": "not stated", "tool": "ExLlamaV3 runtime", "L": [69, 71, 72]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash EXL3 2.25bpw",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["quality numbers are stated in prose with no candidate cells, so they are mapped as prose entries [L71-L72]", "size is stated in prose only, not in a table row [L32]", "bits per weight is stated in prose only [L30]", "BFCL-hard20 is reported as a count out of 20 [L72]", "no BF16 baseline on the same suites [L69-L72]"]
+  }
+ ],
+ "prose": [
+  {"entry": "GLM-5.3-Flash EXL3 2.25bpw", "key": "bench:Text-180", "L": 71, "raw": "168/180 (93.33%)"},
+  {"entry": "GLM-5.3-Flash EXL3 2.25bpw", "key": "bench:GSM8K", "L": 71, "raw": "98.75%"},
+  {"entry": "GLM-5.3-Flash EXL3 2.25bpw", "key": "bench:HumanEval", "L": 71, "raw": "97.5%"},
+  {"entry": "GLM-5.3-Flash EXL3 2.25bpw", "key": "bench:IFEval", "L": 71, "raw": "77.5%"},
+  {"entry": "GLM-5.3-Flash EXL3 2.25bpw", "key": "bench:hard_reasoning", "L": 72, "raw": "95.0%"},
+  {"entry": "GLM-5.3-Flash EXL3 2.25bpw", "key": "bench:BFCL-hard20", "L": 72, "raw": "6/20"},
+  {"entry": "GLM-5.3-Flash EXL3 2.25bpw", "key": "bench:Full-200", "L": 72, "raw": "174/200 (87.0%)"}
+ ]
+}

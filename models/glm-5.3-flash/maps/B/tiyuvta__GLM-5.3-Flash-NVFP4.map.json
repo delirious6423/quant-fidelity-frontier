@@ -1,0 +1,15 @@
+{
+ "repo": "tiyuvta/GLM-5.3-Flash-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "vendor BF16 twin source, run through the serving engine's unfused f32 streaming reference executor", "dataset": "same tokens; full last-position vocabulary logit row", "ctx": "not stated", "tool": "serving engine's unfused f32 streaming reference executor, all artifacts on one box", "L": [97, 98, 99, 100]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash NVFP4",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["max_abs and mean_abs logit deviations vs the BF16 source have no metric key [L102-L104]", "argmax and top-k agreement are stated as MATCH text, not numeric cells [L102-L104]", "gate does not claim long-context, sampled, or fused-kernel quality [L116-L118]", "vendor FP8 comparison rows also have no metric key, so no cross entry [L103]", "speed and long-context timings have no metric key [L203-L263]"]
+  }
+ ],
+ "prose": []
+}

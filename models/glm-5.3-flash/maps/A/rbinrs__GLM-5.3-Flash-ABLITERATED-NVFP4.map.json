@@ -1,0 +1,18 @@
+{"repo": "rbinrs/GLM-5.3-Flash-ABLITERATED-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "MMLU (overall), 1,026 questions", "ctx": "not stated", "tool": "logit-mode scoring, argmax over A/B/C/D", "L": [70]},
+ "entries": [
+   {"role": "own", "name": "CRACK Uncensored", "panel": "Capability Is Preserved — MMLU-logit",
+    "methodology": {"reference": "Base (zai-org/GLM-5.3-Flash)", "dataset": "MMLU (overall), 1,026 questions", "ctx": "not stated", "tool": "logit-mode scoring, argmax over A/B/C/D", "L": [70]},
+    "metrics": {"bench:MMLU (overall)": "c2"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["abliterated (refusal-removed) NVFP4 weights; mirror of dealignai/GLM-5.3-Flash-UNCENSORED-NVFP4 [L29, L42-L47]", "MMLU delta (-1.07 pp) not mapped: no delta key [L74]", "HarmBench-320 compliance counts not mapped: no matching key [L82-L89]", "per-subject MMLU table not mapped: no question count or method stated for it [L91-L154]"]},
+   {"role": "cross", "name": "Base", "of": "zai-org/GLM-5.3-Flash", "panel": "Capability Is Preserved — MMLU-logit",
+    "methodology": {"reference": "not stated", "dataset": "MMLU (overall), 1,026 questions", "ctx": "not stated", "tool": "logit-mode scoring, argmax over A/B/C/D", "L": [70]},
+    "metrics": {"bench:MMLU (overall)": "c1"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["base model named in card front matter and [L4, L38]"]}
+ ],
+ "prose": []}

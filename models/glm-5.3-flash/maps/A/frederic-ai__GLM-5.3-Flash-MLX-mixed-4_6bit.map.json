@@ -1,0 +1,12 @@
+{
+ "repo": "frederic-ai/GLM-5.3-Flash-MLX-mixed-4_6bit",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "float reference (weight error); mixed-4/8 build on same machine", "dataset": "private 64-scenario assistant suite (task accuracy)", "ctx": "not stated", "tool": "mlx_vlm.server, reasoning_effort low, temperature 0", "L": [51, 58, 74, 92]},
+ "entries": [
+  {"role": "own", "name": "mixed-4_6bit (this build)", "metrics": {}, "size": "c5", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["routed experts 4-bit, attention/shared/embeddings 6-bit [L22]", "task accuracy table rows not in digest, not mapped [L96-102]", "decode table rows not in digest, not mapped [L80-91]", "weight error vs float reference has no metric key, not mapped [L63-65]", "perplexity not measured [L107]"]},
+  {"role": "cross", "name": "mixed-4/8", "of": "not named on card", "metrics": {}, "size": "c8", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["comparison build measured on the same machine [L74-75]", "its quality numbers not in digest, not mapped [L96-102]"]}
+ ],
+ "prose": []
+}

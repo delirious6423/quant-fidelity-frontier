@@ -1,0 +1,16 @@
+{"repo": "jangq/GLM-5.3-Flash-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 source", "dataset": "40 held-out conversations (never seen in calibration; 16 long max-effort reasoning traces, 8 short reasoning, 8 cyber-security Q&A, 8 raw coding prompts), 52,143 scored tokens", "ctx": "not stated", "tool": "not stated", "L": [47, 49, 50]},
+ "entries": [
+   {"role": "own",
+    "name": "GLM-5.3-Flash-NVFP4",
+    "metrics": {"mean_kld": "c2", "kld_99": "c5", "top1_pct": "c6", "kld:long_reasoning": "c8", "top1:long_reasoning": "c12", "kld:short_reasoning": "c14", "top1:short_reasoning": "c18", "kld:cyber_security_qa": "c20", "top1:cyber_security_qa": "c24", "kld:raw_coding": "c26", "top1:raw_coding": "c30"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["[L25-L27] card says runtime not yet validated end-to-end", "[L47] teacher-forced per-token KL(BF16 || NVFP4) and top-1 agreement", "[L61-L63] measured on weights dequantized to BF16, so weight error only; static NVFP4 activation scales not simulated", "[L54-L58] median and p95 columns have no metric key and are left out; p99 is mapped to kld_99 for the All row only, slice p99 values left out", "[L43] size is in prose, not in the metrics table, so size is null"]}
+ ],
+ "prose": []}

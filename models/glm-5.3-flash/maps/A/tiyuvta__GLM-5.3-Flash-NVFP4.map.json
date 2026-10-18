@@ -1,0 +1,14 @@
+{
+ "repo": "tiyuvta/GLM-5.3-Flash-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "vendor BF16 twin (the NVFP4 source)", "dataset": "not stated", "ctx": "not stated", "tool": "serving engine's unfused f32 streaming reference executor", "L": [98, 100, 102, 103, 104]},
+ "entries": [
+  {"role": "own", "name": "this NVFP4 mint",
+   "methodology": {"reference": "vendor BF16 twin (the NVFP4 source)", "dataset": "not stated", "ctx": "not stated", "tool": "serving engine's unfused f32 streaming reference executor", "L": [98, 100, 102]},
+   "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["logit max_abs and mean_abs vs the BF16 source and vs vendor FP8 have no matching metric key, omitted [L102-104]", "argmax and top-k rank columns are text only, no candidate [L100-104]", "the 190.7 GB size is in prose, not in the gate table [L41]"]}
+ ],
+ "prose": []
+}

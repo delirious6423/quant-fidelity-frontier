@@ -1,0 +1,20 @@
+{"repo": "murai-labs/GLM-5.3-Flash-NVFP4-Murai",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 master", "dataset": "all 37,152 quantized tensors (weight-space round trip)", "ctx": "not stated", "tool": "not stated", "L": [38, 40, 42, 44]},
+ "entries": [
+  {"role": "own",
+   "name": "Murai-P3 (mse_ge1, this repo)",
+   "methodology": {"reference": "BF16 master", "dataset": "all 37,152 quantized tensors (weight-space round trip)", "ctx": "not stated", "tool": "not stated", "L": [38, 40, 42, 44]},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "metrics": {},
+   "flags": ["the weight-space error table [L38-L44] (mean rel^2, mean rel_l2, mean cos against the BF16 master) is not a KL, top-1 or perplexity metric and no metric key fits, so it is not mapped",
+             "behavioural gate pass counts [L48-L54] are fractions whose pass count and denominator sit in separate candidate ids, so they are not mapped",
+             "third-party KLD values for EXL3 and NVFP4 [L58] sit inside one prose cell and are not mapped; the card says it has no KLD measurement of its own [L146]",
+             "the serving corruption numbers [L62-L66] are a numeric proof on one layer and are not mapped"]}
+ ],
+ "prose": []}

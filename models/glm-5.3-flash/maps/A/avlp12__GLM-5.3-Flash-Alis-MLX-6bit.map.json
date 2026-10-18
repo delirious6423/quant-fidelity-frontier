@@ -1,0 +1,17 @@
+{"repo": "avlp12/GLM-5.3-Flash-Alis-MLX-6bit",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "8-bit teacher of this family (quantized, not BF16)", "dataset": "held-out private panel (en/ko/code)", "ctx": "ctx-2048", "tool": "same harness as the 4-bit builds", "L": [40, 41, 42, 43]},
+ "entries": [
+   {"role": "own", "name": "GLM-5.3-Flash-Alis-MLX-6bit",
+    "methodology": {"reference": "8-bit teacher of this family (quantized, not BF16)", "dataset": "held-out private panel (en/ko/code)", "ctx": "ctx-2048", "tool": "same harness as the 4-bit builds", "L": [40, 41]},
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["KL values are in prose, not in the candidate list [L41]", "weighted mean 0.0226 not mapped: weighting not stated [L41]", "4-bit QUASAR (0.0569) and 4-bit RTN (0.0622) KL comparators not mapped: aggregate and corpus not stated [L41-L42]", "KL is against a quantized teacher, not comparable to BF16-teacher KLD [L42-L43]", "KL -8.5% vs 4-bit RTN for the 4-bit build not mapped [L51]", "MTP layer (45) dropped, so weights are pruned [L23]", "decode tok/s not mapped: not a quality key [L34-L38]"]}
+ ],
+ "prose": [
+   {"entry": "GLM-5.3-Flash-Alis-MLX-6bit", "key": "kld:en", "L": 41, "raw": "0.0269"},
+   {"entry": "GLM-5.3-Flash-Alis-MLX-6bit", "key": "kld:ko", "L": 41, "raw": "0.0226 / 0.0177"},
+   {"entry": "GLM-5.3-Flash-Alis-MLX-6bit", "key": "kld:code", "L": 41, "raw": "0.0177"}
+ ]}

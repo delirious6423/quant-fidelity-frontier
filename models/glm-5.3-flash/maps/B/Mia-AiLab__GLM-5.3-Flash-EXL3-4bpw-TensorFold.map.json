@@ -1,0 +1,20 @@
+{"repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Z.AI official FP8 release, rev eb9eb208, dequantized [L98]", "dataset": "wikitext-2 test (16 x 2,048 tokens); workload set (24 x 4,096 tokens) [L100-101]", "ctx": "2,048 and 4,096-token windows [L100-101]", "tool": "KL computed in float32; 10,000 block-bootstrap resamples [L99, L103]", "L": [98, 99, 100, 101, 102, 103]},
+ "entries": [
+  {"role": "own",
+   "name": "This quant",
+   "metrics": {"kld:wikitext-2": "c2.0", "kld:workload": "c2.1", "bench:GSM8K (250, greedy)": "c4", "bench:HumanEval (164, greedy)": "c6", "bench:HumanEval+ / MBPP+ (542, thinking on)": "c8"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["this quant lowers KL against the TR3 quant on all six test sets, per the card; only the wiki and workload KL values are in the candidate list [L19]", "decode and prefill figures are not quality metrics [L28-29]", "benchmark gaps are a few problems each and not significant, per the card [L77-80]"]},
+  {"role": "cross",
+   "name": "brandonmusic-TR3-4bpw",
+   "of": "not named on card",
+   "metrics": {"kld:wikitext-2": "c1.0", "kld:workload": "c1.1", "bench:GSM8K (250, greedy)": "c3", "bench:HumanEval (164, greedy)": "c5", "bench:HumanEval+ / MBPP+ (542, thinking on)": "c7"},
+   "size": "c13", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["the size row (175.7 GB) is in the same comparison table, per the card [L30]"]}
+ ],
+ "prose": []
+}

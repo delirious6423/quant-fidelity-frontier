@@ -1,0 +1,18 @@
+{"repo": "beamster/GLM-5.3-Flash-Sushi-2.4bpw",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 GLM-5.3-Flash checkpoint run through sushi's own forward (BF16 cache, no assistant)", "dataset": "4 prompts x 512 tokens (2,048 positions), two code and two prose", "ctx": "512 tokens per prompt", "tool": "sushi's own forward", "L": [49, 50, 51]},
+ "entries": [
+  {"role": "own",
+   "name": "GLM-5.3-Flash-Sushi-2.4bpw",
+   "methodology": {"reference": "BF16 GLM-5.3-Flash checkpoint run through sushi's own forward (BF16 cache, no assistant)", "dataset": "4 prompts x 512 tokens (2,048 positions), two code and two prose", "ctx": "512 tokens per prompt", "tool": "sushi's own forward", "L": [49, 50, 51]},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c6",
+   "metrics": {"mean_kld": "c2", "top1_pct": "c3", "kld:code": "c4", "kld:prose": "c5"},
+   "flags": ["the other pack row in the quality table, the BF16-cache run [L53-L58], has no numeric candidate cells in this prompt and is not mapped",
+             "the size in the storage table [L22-L29] and the 97.8 GB on-disk figure [L20] are not in the same row as the metrics, so no size is attached"]}
+ ],
+ "prose": []}

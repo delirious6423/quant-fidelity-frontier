@@ -1,0 +1,12 @@
+{
+ "repo": "OpensourceWTF/GLM-5.3-Flash-streaming-repack-exl3-3.05bpw",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "HumanEval, 164 problems", "ctx": "max_tokens 16,384", "tool": "evalplus on the last code block, /v1/chat/completions, mlx-stream plugin build g29-clean", "L": [200, 202, 203]},
+ "entries": [
+  {"role": "own", "name": "bf16 (exact) draft head", "panel": "HumanEval", "methodology": {"reference": "not stated", "dataset": "HumanEval, 164 problems, one sample each", "ctx": "max_tokens 16,384", "tool": "evalplus on the last code block; temperature 1.0, top_p 0.95, seed 1, thinking on", "L": [202, 203, 206]}, "metrics": {"bench:HumanEval": "c163"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["draft-head configuration of the EXL3 expert pack; the trunk is the 3.05 bpw EXL3 repack [L32, L208]", "truncated 2 and errors 0 [L208]", "decode and prefill speeds have no matching metric key [L129-189]"]},
+  {"role": "own", "name": "q8 draft head", "panel": "HumanEval", "methodology": {"reference": "not stated", "dataset": "HumanEval, 164 problems, one sample each", "ctx": "max_tokens 16,384", "tool": "evalplus on the last code block; temperature 1.0, top_p 0.95, seed 1, thinking on", "L": [202, 203, 206]}, "metrics": {"bench:HumanEval": "c169"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["draft-head configuration of the EXL3 expert pack; the trunk is the 3.05 bpw EXL3 repack [L32, L209]", "truncated 2 and errors 0 [L209]", "q8 head ids diverge from the exact head and are rounding-class per the card [L250]"]}
+ ],
+ "prose": []
+}

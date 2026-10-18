@@ -1,0 +1,25 @@
+{
+ "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "HumanEval (164), GPQA-Diamond (198), C-Eval val (1,606), AIME 2025 (30 x 4 samples), MMMU val (900), BFCL v4", "ctx": "token budget 65,536 (16,384 for MMMU)", "tool": "vLLM; bfcl-eval v4", "L": [59, 61, 63, 72, 95]},
+ "entries": [
+  {"role": "own", "name": "This model (E256)", "panel": "Benchmarks",
+   "methodology": {"reference": "not stated", "dataset": "per row, see Evaluation protocol [L193-200]", "ctx": "token budget 65,536 (16,384 for MMMU)", "tool": "vLLM", "L": [59, 61, 63]},
+   "metrics": {"bench:HumanEval": "c15", "bench:C-Eval": "c18", "bench:MMMU": "c21", "bench:BFCL v4 Non-Live AST": "c23", "bench:BFCL v4 Live AST (weighted)": "c25"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["experts pruned from 288 to 256 by NAS, so weights are modified [L40]", "single runs, +/-2-3 points treated as noise [L61]", "no own value in the candidate list for GPQA-Diamond [L66], left out", "no own value in the candidate list for AIME 2025 [L68], left out", "BFCL Multi-Turn Base is given as two runs, left out [L72]", "strict scoring: out-of-token responses count as wrong [L61]"]},
+  {"role": "ladder", "name": "E224", "panel": "Benchmarks",
+   "methodology": {"reference": "not stated", "dataset": "per row, see Evaluation protocol [L193-200]", "ctx": "token budget 65,536 (16,384 for MMMU)", "tool": "vLLM", "L": [59, 61, 63]},
+   "metrics": {"bench:HumanEval": "c16", "bench:GPQA-Diamond (198)": "c17", "bench:C-Eval": "c19", "bench:AIME 2025": "c20", "bench:MMMU": "c22", "bench:BFCL v4 Non-Live AST": "c24", "bench:BFCL v4 Live AST (weighted)": "c26", "bench:BFCL v4 Multi-Turn Base": "c28"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["same harness on the same machine [L61]", "GPQA-Diamond is a quick self-test at reasoning_effort=low, not the best score [L74]", "pruned sibling of the same family, E224 keeps 224 experts per layer [L49]"]},
+  {"role": "own", "name": "This model (E256)", "panel": "Tool use: BFCL v4 (function calling, AST match)",
+   "methodology": {"reference": "not stated", "dataset": "BFCL v4 categories (bfcl-eval v4)", "ctx": "template-default effort", "tool": "bfcl-eval v4 against a local OpenAI-compatible endpoint (--tool-call-parser glm47, --num-threads 32)", "L": [78, 80, 93, 95]},
+   "metrics": {"bench:BFCL v4 simple (Python)": "c29", "bench:BFCL v4 simple (Java)": "c30", "bench:BFCL v4 simple (JavaScript)": "c31", "bench:BFCL v4 multiple": "c32", "bench:BFCL v4 parallel": "c33", "bench:BFCL v4 parallel-multiple": "c34", "bench:BFCL v4 irrelevance detection": "c35", "bench:BFCL v4 live simple": "c36", "bench:BFCL v4 live multiple": "c37", "bench:BFCL v4 live parallel": "c38", "bench:BFCL v4 live parallel-multiple": "c39", "bench:BFCL v4 live irrelevance": "c40", "bench:BFCL v4 live relevance": "c41"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Multi-Turn Base is given as two runs, left out [L93]", "for multi-turn agent work the card recommends E224 [L95]"]}
+ ],
+ "prose": []
+}

@@ -1,0 +1,20 @@
+{
+ "repo": "elvezjp/GLM-5.3-Flash-ELVEZ-KDA-Q8_0-gguf",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "original GLM-5.3-Flash-Q4_K.gguf (baseline, same machine)", "dataset": "HumanEval (164 problems); Japanese knowledge QA (48 questions); Japanese long-form writing (6 prompts); blind judge on the same 6 outputs", "ctx": "not stated", "tool": "ds4-based engine, Metal backend (ELVEZ internal fork)", "L": [105, 120, 122, 126, 127, 128, 129]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash-ELVEZ-KDA-Q8_0", "panel": "Quality",
+   "methodology": {"reference": "original GLM-5.3-Flash-Q4_K.gguf (baseline, same machine)", "dataset": "HumanEval (164); Japanese knowledge QA (48); Japanese long-form writing (6 prompts)", "ctx": "not stated", "tool": "ds4-based engine, Metal backend", "L": [105, 122, 126, 127, 128, 129]},
+   "metrics": {"bench:HumanEval": "c9", "bench:Japanese long-form writing": "c15", "bench:Blind judge Claude Opus 5 (/20)": "c17"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["HumanEval reading is equivalent within +/-2 pt [L126]", "Japanese knowledge QA is printed only as 43/48 (a count), so it is left out [L127]", "the long-form judge named in the row label is cut off in the task file, so the judge name is not recorded [L128]", "ds4 scorer rows have no matching metric key, omitted [L124-125]"]},
+  {"role": "cross", "name": "GLM-5.3-Flash-Q4_K.gguf (Original)", "panel": "Quality", "of": "antirez (repo id not visible in task file)",
+   "methodology": {"reference": "original GLM-5.3-Flash-Q4_K.gguf (baseline, same machine)", "dataset": "HumanEval (164); Japanese knowledge QA (48); Japanese long-form writing (6 prompts)", "ctx": "not stated", "tool": "ds4-based engine, Metal backend", "L": [105, 122, 126, 127, 128, 129]},
+   "metrics": {"bench:HumanEval": "c8", "bench:Japanese long-form writing": "c14", "bench:Blind judge Claude Opus 5 (/20)": "c16"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["baseline file measured by this card's author, not this repo's file [L105]", "Japanese knowledge QA is printed only as 45/48 (a count), so it is left out [L127]"]}
+ ],
+ "prose": []
+}

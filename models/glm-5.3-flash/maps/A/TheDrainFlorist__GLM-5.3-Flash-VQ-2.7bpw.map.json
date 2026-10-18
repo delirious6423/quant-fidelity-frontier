@@ -1,0 +1,18 @@
+{
+ "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-2.7bpw",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 teacher (zai-org/GLM-5.3-Flash) cached top-64 logits", "dataset": "prose = WikiText, code = public mlx corpus (pinned manifest), literary = Gutenberg", "ctx": "2048", "tool": "mlx 0.32.2 / mlx-vlm 0.6.17", "L": [93, 94, 95, 96, 97]},
+ "entries": [
+  {"role": "own", "name": "this model (VQ 2.7bpw)", "metrics": {"mean_kl_mnats": "c8", "top1_pct": "c9", "ppl:prose": "c10", "ppl:code": "c11", "ppl:literary": "c12"}, "size": "c7", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["KL is against top-64 logits, not full vocabulary [L94]", "perplexity not comparable across model families, teacher memorized the corpora [L125-128]", "2.7bpw is in the name only, no bpw cell [L270]"]},
+  {"role": "ladder", "name": "VQ d4/K512 (this build's base)", "metrics": {"mean_kl_mnats": "c2", "top1_pct": "c3", "ppl:prose": "c4", "ppl:code": "c5", "ppl:literary": "c6"}, "size": "c1", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["top-64 KL [L94]"]},
+  {"role": "ladder", "name": "VQ d4/K2048 (uniform)", "metrics": {"mean_kl_mnats": "c14", "top1_pct": "c15", "ppl:prose": "c16", "ppl:code": "c17", "ppl:literary": "c18"}, "size": "c13", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["top-64 KL [L94]"]},
+  {"role": "ladder", "name": "affine q3 (ours)", "metrics": {"mean_kl_mnats": "c20", "top1_pct": "c21", "ppl:prose": "c22", "ppl:code": "c23", "ppl:literary": "c24"}, "size": "c19", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["top-64 KL [L94]"]},
+  {"role": "ladder", "name": "VQ d4/K8192 (uniform)", "metrics": {"mean_kl_mnats": "c26", "top1_pct": "c27", "ppl:prose": "c28", "ppl:code": "c29", "ppl:literary": "c30"}, "size": "c25", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["top-64 KL [L94]"]},
+  {"role": "ladder", "name": "affine q4 (ours)", "metrics": {"mean_kl_mnats": "c32", "top1_pct": "c33", "ppl:prose": "c34", "ppl:code": "c35", "ppl:literary": "c36"}, "size": "c31", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["top-64 KL [L94]"]},
+  {"role": "ladder", "name": "affine q6 (ours)", "metrics": {"mean_kl_mnats": "c38", "top1_pct": "c39", "ppl:prose": "c40", "ppl:code": "c41", "ppl:literary": "c42"}, "size": "c37", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["top-64 KL [L94]"]},
+  {"role": "cross", "name": "bf16 teacher", "of": "zai-org/GLM-5.3-Flash", "metrics": {"top1_pct": "c45", "ppl:prose": "c46", "ppl:code": "c47", "ppl:literary": "c48"}, "size": "c43", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["teacher measured by this author [L94-97]", "KL 0 by definition, not mapped [L108]"]}
+ ],
+ "prose": []
+}

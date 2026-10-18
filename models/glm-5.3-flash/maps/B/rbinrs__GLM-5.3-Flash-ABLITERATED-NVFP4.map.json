@@ -1,0 +1,12 @@
+{
+ "repo": "rbinrs/GLM-5.3-Flash-ABLITERATED-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "Base (unquantized GLM-5.3-Flash) under identical logit-mode scoring", "dataset": "MMLU, 1,026 questions", "ctx": "not stated", "tool": "not stated", "L": [70]},
+ "entries": [
+  {"role": "own", "name": "CRACK Uncensored", "panel": "Capability Is Preserved — MMLU-logit", "metrics": {"bench:MMLU": "c2"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["abliterated model, weights modified [L23]", "MMLU delta of -1.07 pp is not a mapped key [L74]", "HarmBench compliance (320/320) is not a mapped key [L84-87]", "per-subject MMLU table (57 subjects, panel MMLU by Topic) not mapped: no per-subject key [L93-156]", "usage line names dealignai/GLM-5.3-Flash-ABLITERATED-NVFP4 rather than this repo id [L161]"]},
+  {"role": "cross", "of": "not named on card", "name": "Base", "panel": "Capability Is Preserved — MMLU-logit", "metrics": {"bench:MMLU": "c1"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["base model measured by this card author under the same scoring [L70]", "base repo not confirmed in digest"]}
+ ],
+ "prose": []
+}

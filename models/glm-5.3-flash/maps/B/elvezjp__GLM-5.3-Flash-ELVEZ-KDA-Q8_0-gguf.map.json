@@ -1,0 +1,20 @@
+{"repo": "elvezjp/GLM-5.3-Flash-ELVEZ-KDA-Q8_0-gguf",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "original GLM-5.3-Flash-Q4_K.gguf on the same machine [L105]", "dataset": "ds4 official-continuation scorer (100 cases); HumanEval (164); Japanese knowledge QA (48); Japanese long-form writing (6 prompts) [L124-129]", "ctx": "not stated", "tool": "ds4 (ELVEZ internal fork, Metal) [L89]", "L": [89, 105, 124, 126, 127, 128, 129]},
+ "entries": [
+  {"role": "own",
+   "name": "GLM-5.3-Flash-ELVEZ-KDA-Q8_0",
+   "metrics": {"bench:ds4 official-continuation scorer": "c6", "bench:HumanEval": "c9", "bench:Japanese knowledge QA": "c12.0", "bench:Japanese long-form writing (6 prompts)": "c15", "bench:Japanese long-form writing (blind judge)": "c17"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["only the KDA projection tensors changed (Q8_0), other tensor types unchanged [L43-57]", "first-token-match row for this file is not in the candidate list [L125]", "HumanEval raw scores about 15% for both; first body line re-indented for failed problems, identically for both [L134-137]", "Japanese QA gap is 2 questions, one real error and one grading mismatch [L170]", "decode speed and memory not mapped (no speed key) [L108-117]", "small test sets, one machine [L149]"]},
+  {"role": "cross",
+   "name": "GLM-5.3-Flash-Q4_K.gguf (original)",
+   "of": "not named on card",
+   "metrics": {"bench:ds4 official-continuation scorer": "c5", "bench:HumanEval": "c8", "bench:Japanese knowledge QA": "c11.0", "bench:Japanese long-form writing (6 prompts)": "c14", "bench:Japanese long-form writing (blind judge)": "c16"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["baseline measured by the card author on the same machine [L105]"]}
+ ],
+ "prose": []
+}

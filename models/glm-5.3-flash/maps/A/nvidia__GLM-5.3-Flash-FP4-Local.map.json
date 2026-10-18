@@ -1,0 +1,12 @@
+{
+ "repo": "nvidia/GLM-5.3-Flash-FP4-Local",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "zai-org/GLM-5.3-Flash (BF16 baseline)", "dataset": "GPQA Diamond (198 questions); ToolEvalBench", "ctx": "not stated", "tool": "not stated", "L": [100, 104, 109]},
+ "entries": [
+  {"role": "own", "name": "FP4-Local", "metrics": {"bench:GPQA Diamond": "c4", "bench:ToolEvalBench": "c5"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["weights are QAD-trained: BF16 weights updated by distillation [L114]", "vRAM ~166 GiB stated in overview [L24], not in metrics table"]},
+  {"role": "cross", "name": "BF16", "of": "zai-org/GLM-5.3-Flash", "metrics": {"bench:GPQA Diamond": "c2", "bench:ToolEvalBench": "c3"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["baseline row; measurement attribution not stated [L104-109]"]}
+ ],
+ "prose": []
+}

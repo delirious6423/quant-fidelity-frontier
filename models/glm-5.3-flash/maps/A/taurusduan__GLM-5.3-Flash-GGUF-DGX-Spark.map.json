@@ -1,0 +1,12 @@
+{
+ "repo": "taurusduan/GLM-5.3-Flash-GGUF-DGX-Spark",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [92, 106]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash-Q2-DGX-Spark (this file)", "panel": "Q stage (this 2-bit file)", "methodology": {"reference": "not stated", "dataset": "GPQA Diamond, SuperGPQA, AIME 2025 interleaved; first 40 core cases", "ctx": "not stated", "tool": "DwarfStar ds4-eval harness; thinking on, 16 000-token budget, greedy", "L": [106]}, "metrics": {"bench:Passed": "c12.0", "bench:Wrong": "c13", "bench:Out of budget": "c14"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["row label truncated in digest, short name used [L110]", "denominator 40 is c12.1, not keyed [L110]", "744B SLIM-Q E192 row omitted, measured on a different model [L111]", "imatrix-guided build 31 / 40 not mapped, different reasoning budget [L113]", "pruned: 32 of 288 routed experts removed per layer [L25]"]},
+  {"role": "own", "name": "this model (B200 speed table)", "panel": "Speed reference", "methodology": {"reference": "not stated", "dataset": "256-token prompts, 128 generated tokens", "ctx": "not stated", "tool": "llama-bench / llama-batched-bench, CUDA, flash attention", "L": [92]}, "metrics": {"bench:pp512": "c9.0", "bench:pp2048": "c9.1", "bench:Generation, 1 sequence": "c10", "bench:Generation, 4 parallel": "c11.0", "bench:Generation, 8 parallel": "c11.1", "bench:Generation, 16 parallel": "c11.2", "bench:Generation, 32 parallel": "c11.3"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["table names no file; attributed to this file from the cross-reference [L84]"]}
+ ],
+ "prose": []
+}

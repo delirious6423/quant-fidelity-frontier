@@ -1,0 +1,15 @@
+{
+ "repo": "neuralll/GLM-5.3-Flash-MTP-GGUF",
+ "no_quality_claims": true,
+ "no_claims_reason": "speed table only, measured on a different model's quant [L47-L56]",
+ "weights_modified": false,
+ "method": {"reference": "without MTP, same setup", "dataset": "1500-token chat reply", "ctx": "1500-token chat reply", "tool": "fork with expert cache on 2x RTX 3090 with 125 GB DDR4", "L": [47, 48, 50, 52, 53, 55]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash MTP draft head (GGUF, Q4_K)",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["decode speed figures were measured with a different GLM-5.3-Flash quant as the target, so they are not mapped [L47-L48]", "draft acceptance of about 70-75% is stated in prose with no metric key [L55]", "size of the block is stated in prose only [L16]", "no quality number is stated for this file [L15-L80]"]
+  }
+ ],
+ "prose": []
+}

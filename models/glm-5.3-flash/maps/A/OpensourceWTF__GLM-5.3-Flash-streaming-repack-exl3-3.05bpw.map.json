@@ -1,0 +1,12 @@
+{
+ "repo": "OpensourceWTF/GLM-5.3-Flash-streaming-repack-exl3-3.05bpw",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "HumanEval (164 problems)", "ctx": "max_tokens 16,384; rows 190/217", "tool": "evalplus; mlx-serve /v1/chat/completions", "L": [202, 203, 204]},
+ "entries": [
+  {"role": "own", "name": "bf16 (exact)", "panel": "HumanEval", "metrics": {"bench:HumanEval": "c163"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["row label under the draft head column [L206-208]"]},
+  {"role": "own", "name": "q8", "panel": "HumanEval", "metrics": {"bench:HumanEval": "c169"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["row label under the draft head column [L206-209]"]}
+ ],
+ "prose": []
+}

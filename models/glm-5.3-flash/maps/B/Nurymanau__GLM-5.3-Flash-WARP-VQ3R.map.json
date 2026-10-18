@@ -1,0 +1,14 @@
+{"repo": "Nurymanau/GLM-5.3-Flash-WARP-VQ3R",
+ "no_quality_claims": true,
+ "no_claims_reason": "speed, memory and size only; 24 functional checks on three small coding tasks are not a benchmark [L70, L84-86]",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "1536-token total context [L62]", "tool": "local experiment before standalone packaging [L70]", "L": [62, 70, 86]},
+ "entries": [
+  {"role": "own",
+   "name": "WARP VQ3R",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["no perplexity, BF16/FP8 comparison or general coding benchmark was run [L86]", "peak RSS and swap figures are resource measurements, not mapped [L79-80]", "decode throughput rows are outside the candidate list [L72-82]"]}
+ ],
+ "prose": []
+}

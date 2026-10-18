@@ -1,0 +1,44 @@
+{
+ "repo": "nvidia/GLM-5.3-Flash-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "GLM-5.3-Flash-BF16 (zai-org/GLM-5.3-Flash-BF16)",
+  "dataset": "GPQA Diamond, SciCode, MMMU Pro, AA-LCR, IFBench, Terminal Bench 2.1",
+  "ctx": "max_new_tokens 327,680 (GPQA Diamond, SciCode, MMMU-Pro, AA-LCR, IFBench); uncapped for Terminal Bench 2.1",
+  "tool": "not stated",
+  "L": [
+   92,
+   151,
+   205
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "GLM-5.3-Flash NVFP4",
+   "methodology": {
+    "reference": "GLM-5.3-Flash-BF16 (zai-org/GLM-5.3-Flash-BF16)",
+    "dataset": "GPQA Diamond, SciCode, MMMU Pro, AA-LCR, IFBench, Terminal Bench 2.1",
+    "ctx": "max_new_tokens 327,680 (GPQA Diamond, SciCode, MMMU-Pro, AA-LCR, IFBench); uncapped for Terminal Bench 2.1",
+    "tool": "not stated; sampling temperature 1.0, top_p 0.95 [L205]",
+    "L": [
+     92,
+     151,
+     205
+    ]
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "metrics": {},
+   "flags": [
+    "the evaluation table [L151-L204] has no numeric candidate cells in this prompt, so its benchmark scores against the BF16 baseline are not mapped",
+    "the card states 16-to-4 bits per parameter and a roughly 3.33x size reduction [L103]; those are prose values with no candidate id and are not mapped"
+   ]
+  }
+ ],
+ "prose": []
+}

@@ -1,0 +1,15 @@
+{
+ "repo": "beamster/GLM-5.3-Flash-Sushi-2.4bpw",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 GLM-5.3-Flash checkpoint run through sushi's own forward with a BF16 cache", "dataset": "4 prompts of 512 tokens (2,048 positions), two code and two prose", "ctx": "512-token prompts", "tool": "sushi native inference engine, own forward (no assistant)", "L": [49, 50, 51, 53, 55]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash-Sushi-2.4bpw",
+   "metrics": {"mean_kld": "c2", "top1_pct": "c3", "kld:code": "c4", "kld:prose": "c5"},
+   "size": null, "unit": null, "basis": null, "bpw": "c6",
+   "flags": ["KLD statistic is not labelled; read as mean KL [L55]", "quality sample is small: four prompts and 2,048 positions [L51]", "size is printed in a storage table, not in the quality row [L29]"]
+  }
+ ],
+ "prose": []
+}

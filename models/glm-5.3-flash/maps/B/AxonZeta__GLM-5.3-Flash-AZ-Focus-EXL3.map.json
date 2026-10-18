@@ -1,0 +1,24 @@
+{"repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "GLM-5.3-Flash (base) [L41-46]", "dataset": "BIG-Bench Hard (540 tasks); SWE-bench Verified, first 100 tasks, two runs [L41, L45]", "ctx": "not stated", "tool": "mini-SWE-agent for SWE-bench [L45]", "L": [26, 38, 41, 45]},
+ "entries": [
+  {"role": "own",
+   "name": "AZ-Focus (EXL3)",
+   "panel": "## Results (max effort)",
+   "metrics": {"bench:BIG-Bench Hard (540 tasks)": "c2.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["SWE-bench value is the mean of two runs (93 and 91) as stated in the text [L26, L45]", "the card describes an edit applied to the model, and its method is outside the digest [L24, L55]", "AIME 2025, GPQA Diamond, HumanEval+ and MBPP+ and tau2-bench rows are marked as measured on an earlier build of the same edit and are omitted [L43-46, L51]", "thinking-token savings are not quality metrics and are not mapped [L41-44]"]},
+  {"role": "cross",
+   "name": "GLM-5.3-Flash",
+   "of": "zai-org/GLM-5.3-Flash",
+   "panel": "## Results (max effort)",
+   "metrics": {"bench:BIG-Bench Hard (540 tasks)": "c1.0", "bench:SWE-bench Verified, first 100 (mini-SWE-agent)": "c13.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["both SWE-bench runs are 95 [L45]"]}
+ ],
+ "prose": [
+  {"entry": "AZ-Focus (EXL3)", "panel": "## Results (max effort)", "key": "bench:SWE-bench Verified, first 100 (mini-SWE-agent)", "L": 26, "raw": "Verified 92"}
+ ]
+}

@@ -1,0 +1,31 @@
+{"repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "GLM-5.3-Flash original (zai-org/GLM-5.3-Flash)", "dataset": "not stated", "ctx": "thinking on, Z.AI recommended sampling", "tool": "same serving setup for both models", "L": [48]},
+ "entries": [
+   {"role": "own", "name": "AZ-Focus", "panel": "Results (max effort)",
+    "methodology": {"reference": "GLM-5.3-Flash original (zai-org/GLM-5.3-Flash)", "dataset": "not stated", "ctx": "thinking on, Z.AI recommended sampling", "tool": "same serving setup for both models", "L": [48]},
+    "metrics": {"bench:BIG-Bench Hard": "c2.0", "bench:SWE-bench Verified run 1": "c14.0", "bench:SWE-bench Verified run 2": "c14.1"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["weights edited, EXL3 4 bpw routed experts, rest BF16 [L28-L31]", "BBH thinking-token column not mapped [L41]", "SWE-bench average 92 in bullet not mapped [L26]", "low-effort BBH and MMLU-Pro figures not mapped: the sentence does not say which value belongs to which model [L56-L57]"]},
+   {"role": "cross", "name": "GLM-5.3-Flash", "of": "zai-org/GLM-5.3-Flash", "panel": "Results (max effort)",
+    "methodology": {"reference": "GLM-5.3-Flash original (zai-org/GLM-5.3-Flash)", "dataset": "not stated", "ctx": "thinking on, Z.AI recommended sampling", "tool": "same serving setup for both models", "L": [48]},
+    "metrics": {"bench:BIG-Bench Hard": "c1.0", "bench:SWE-bench Verified run 1": "c13.0", "bench:SWE-bench Verified run 2": "c13.1"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["low-effort figures not mapped [L56-L57]"]},
+   {"role": "own", "name": "AZ-Focus (earlier build, †)", "panel": "Results (max effort)",
+    "methodology": {"reference": "GLM-5.3-Flash original (zai-org/GLM-5.3-Flash)", "dataset": "not stated", "ctx": "not stated", "tool": "earlier build of the same edit", "L": [42, 51]},
+    "metrics": {"bench:AIME 2025": "c5.0", "bench:GPQA Diamond": "c8", "bench:HumanEval+ & MBPP+": "c11", "bench:τ²-bench airline": "c16.0", "bench:τ²-bench retail": "c16.1"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["measured on an earlier build of the same edit, marked † [L51]"]},
+   {"role": "cross", "name": "GLM-5.3-Flash (earlier build, †)", "of": "zai-org/GLM-5.3-Flash", "panel": "Results (max effort)",
+    "methodology": {"reference": "GLM-5.3-Flash original (zai-org/GLM-5.3-Flash)", "dataset": "not stated", "ctx": "not stated", "tool": "same earlier-build run as the AZ-Focus † rows", "L": [42, 51]},
+    "metrics": {"bench:AIME 2025": "c4.0", "bench:GPQA Diamond": "c7", "bench:HumanEval+ & MBPP+": "c10", "bench:τ²-bench airline": "c15.0", "bench:τ²-bench retail": "c15.1"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["baseline in the † rows, marked † [L51]"]}
+ ],
+ "prose": [
+   {"entry": "AZ-Focus", "panel": "Results (max effort)", "key": "bench:MMLU-Pro", "L": 40, "raw": "86.8%"},
+   {"entry": "GLM-5.3-Flash", "panel": "Results (max effort)", "key": "bench:MMLU-Pro", "L": 40, "raw": "86.2%"}
+ ]}

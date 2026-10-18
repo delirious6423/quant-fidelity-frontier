@@ -1,0 +1,18 @@
+{
+ "repo": "Ar3ntiz/glm5-3_flash_tcq",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "original GLM-5.3-Flash", "dataset": "16 x 512 held-out positions; WikiText-2 test (perplexity)", "ctx": "512", "tool": "not stated", "L": [44, 58, 69]},
+ "entries": [
+  {"role": "own", "name": "SUC1 tcq (this model)", "panel": "Quality", "metrics": {"mean_kld": "c2", "top1_pct": "c3", "ppl": "c4.1"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["top-1 printed as fraction 0.793, not percent [L48]", "KL scope (full-vocabulary or top-k) not stated [L44]"]},
+  {"role": "cross", "name": "original GLM-5.3-Flash", "of": "not named on card", "panel": "Quality", "metrics": {"ppl": "c4.0"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["reference perplexity measured by this author [L48]"]},
+  {"role": "own", "name": "SUC1 tcq (this model)", "panel": "Same protocol, other formats", "metrics": {"mean_kld": "c6"}, "size": "c5", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["same KL as the Quality panel [L48]"]},
+  {"role": "cross", "name": "GGUF Q2 (ds4, SSD streaming)", "of": "not named on card", "panel": "Same protocol, other formats", "metrics": {"mean_kld": "c8"}, "size": "c7", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["other format, measured by this author [L55]"]},
+  {"role": "ladder", "name": "SUC1 base, 3.06 bpp (SSD streaming)", "panel": "Same protocol, other formats", "metrics": {"mean_kld": "c10"}, "size": "c9", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["3.06 bpp in row label, not a bpw cell [L56]"]},
+  {"role": "own", "name": "SUC1 tcq (this model)", "panel": "Answer-level evaluation, 120 graded questions (20 per subset), greedy, same prompts for every system", "metrics": {"bench:Total (of 120)": "c11.0", "bench:GSM8K (of 20)": "c12", "bench:MATH (of 20)": "c13", "bench:MMLU-Pro (of 20)": "c14", "bench:ARC-C (of 20)": "c15", "bench:BBH (of 20)": "c16"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["total denominator 120 is c11.1, not keyed [L62]", "per-subset denominator 20 from card text [L58]"]},
+  {"role": "cross", "name": "GGUF Q2 (ds4)", "of": "not named on card", "panel": "Answer-level evaluation, 120 graded questions (20 per subset), greedy, same prompts for every system", "metrics": {"bench:Total (of 120)": "c17.0", "bench:GSM8K (of 20)": "c18", "bench:MATH (of 20)": "c19", "bench:MMLU-Pro (of 20)": "c20", "bench:ARC-C (of 20)": "c21", "bench:BBH (of 20)": "c22"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["ds4 measured on long prompts only, within this suite [L80]", "total denominator 120 is c17.1, not keyed [L63]"]},
+  {"role": "own", "name": "SUC1 tcq (this model)", "panel": "Speed", "metrics": {"bench:Decode tok/s, batch 1": "c23", "bench:Prefill tok/s, short prompt": "c24.0", "bench:TTFT, short prompt (s)": "c24.1", "bench:Prefill tok/s, 2k tokens": "c25.0", "bench:TTFT, 2k tokens (s)": "c25.1", "bench:Prefill tok/s, 32k tokens": "c26.0", "bench:TTFT, 32k tokens (s)": "c26.1"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["Mac Studio M1 Ultra 128 GB, SUC C++ runtime [L69]", "row label is 22.2 in the table [L73]"]}
+ ],
+ "prose": []
+}

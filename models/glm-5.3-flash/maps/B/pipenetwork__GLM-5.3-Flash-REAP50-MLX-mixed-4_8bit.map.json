@@ -1,0 +1,64 @@
+{
+ "repo": "pipenetwork/GLM-5.3-Flash-REAP50-MLX-mixed-4_8bit",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "8-bit build as the anchor; bfloat16 not run because it does not fit the test machine", "dataset": "wikitext-2 test split, fixed-length windows, identical windows for every build; per-window NLL differences bootstrapped", "ctx": "window length as stated at L70", "tool": "PipeNetwork glm53-flash-mlx runtime", "L": [30, 31, 70, 71, 74, 75]},
+ "entries": [
+  {"role": "own", "name": "REAP50-mixed-4_8bit",
+   "metrics": {"ppl:wikitext-2": "c35"},
+   "size": "c34", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["pruned build: 144 of 288 routed experts kept per MoE layer [L54]", "delta NLL per token and windows-worse columns have no metric key [L76-L87]", "no percentage perplexity delta is stated for this build [L92]"]
+  },
+  {"role": "ladder", "name": "8bit",
+   "metrics": {"ppl:wikitext-2": "c13"},
+   "size": "c12", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["8-bit anchor build, not pruned [L72-L73, L78]", "delta NLL per token and windows-worse columns have no metric key [L78]"]
+  },
+  {"role": "ladder", "name": "6bit",
+   "metrics": {"ppl:wikitext-2": "c15"},
+   "size": "c14", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["delta NLL per token and windows-worse columns have no metric key [L79]", "ppl_delta_pct taken from the prose sentence, not a table cell [L92]"]
+  },
+  {"role": "ladder", "name": "mixed-4_8bit",
+   "metrics": {"ppl:wikitext-2": "c19"},
+   "size": "c18", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["delta NLL per token and windows-worse columns have no metric key [L80]", "ppl_delta_pct taken from the prose sentence, not a table cell [L92]", "non-pruned mixed build, not the REAP50 build [L80]"]
+  },
+  {"role": "ladder", "name": "4bit",
+   "metrics": {"ppl:wikitext-2": "c23"},
+   "size": "c22", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["delta NLL per token and windows-worse columns have no metric key [L81]", "ppl_delta_pct taken from the prose sentence, not a table cell [L92]"]
+  },
+  {"role": "ladder", "name": "REAP25-mixed-4_8bit",
+   "metrics": {"ppl:wikitext-2": "c27"},
+   "size": "c26", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["pruned build [L54, L82]", "delta NLL per token and windows-worse columns have no metric key [L82]"]
+  },
+  {"role": "ladder", "name": "REAP37-mixed-4_8bit",
+   "metrics": {"ppl:wikitext-2": "c31"},
+   "size": "c30", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["pruned build [L54, L83]", "delta NLL per token and windows-worse columns have no metric key [L83]"]
+  },
+  {"role": "ladder", "name": "REAP25-4bit",
+   "metrics": {"ppl:wikitext-2": "c38"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["pruned build [L54, L85]", "no size printed in this row [L85]", "delta NLL per token and windows-worse columns have no metric key [L85]"]
+  },
+  {"role": "ladder", "name": "REAP37-4bit",
+   "metrics": {"ppl:wikitext-2": "c41"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["pruned build [L54, L86]", "no size printed in this row [L86]", "delta NLL per token and windows-worse columns have no metric key [L86]"]
+  },
+  {"role": "ladder", "name": "REAP50-4bit",
+   "metrics": {"ppl:wikitext-2": "c44"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["pruned build [L54, L87]", "no size printed in this row [L87]", "delta NLL per token and windows-worse columns have no metric key [L87]"]
+  }
+ ],
+ "prose": [
+  {"entry": "6bit", "key": "ppl_delta_pct", "L": 92, "raw": "6-bit +0.1%"},
+  {"entry": "mixed-4_8bit", "key": "ppl_delta_pct", "L": 92, "raw": "mixed 4/8-bit +3.2%"},
+  {"entry": "4bit", "key": "ppl_delta_pct", "L": 92, "raw": "uniform 4-bit +8.5%"}
+ ]
+}

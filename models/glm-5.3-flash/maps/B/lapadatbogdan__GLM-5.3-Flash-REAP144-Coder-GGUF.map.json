@@ -1,0 +1,100 @@
+{
+ "repo": "lapadatbogdan/GLM-5.3-Flash-REAP144-Coder-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "full model at Q8 (not bf16)", "dataset": "agentic Python repository tasks; unseen code perplexity; KL to Q8", "ctx": "200-turn limit and 384K context for agentic runs; 2048-token chunks for perplexity", "tool": "agentic coding harness from the linked repo; llama.cpp llama-perplexity", "L": [36, 43, 69, 119, 120]},
+ "entries": [
+  {"role": "own", "name": "Q4_K_M", "panel": "Files",
+   "methodology": {"reference": "full model (Q8) for the turns comparison only", "dataset": "real Python repository tasks, two attempts each, tests must pass, clean room", "ctx": "200-turn limit, 384K context", "tool": "agentic coding harness from the linked GitHub repo", "L": [36, 43, 44]},
+   "metrics": {"bench:solved-same-48": "c4.0"},
+   "size": "c2", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["solved is a count of attempts out of 48, not a percentage [L36]", "turns-vs-full ratio and the fits column have no metric key [L36]", "pruned build: top 144 of 288 experts kept per layer [L118-L119]"]
+  },
+  {"role": "own", "name": "Q3_K", "panel": "Files",
+   "methodology": {"reference": "full model (Q8) for the turns comparison only", "dataset": "real Python repository tasks, two attempts each, tests must pass, clean room", "ctx": "200-turn limit, 384K context", "tool": "agentic coding harness from the linked GitHub repo", "L": [37, 43, 44]},
+   "metrics": {"bench:solved-same-48": "c9.0"},
+   "size": "c7", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["solved is a count of attempts out of 48, not a percentage [L37]", "turns-vs-full ratio and the fits column have no metric key [L37]", "pruned build: top 144 of 288 experts kept per layer [L118-L119]"]
+  },
+  {"role": "own", "name": "IQ2_S", "panel": "Files",
+   "methodology": {"reference": "full model (Q8) for the turns comparison only", "dataset": "real Python repository tasks, two attempts each, tests must pass, clean room", "ctx": "200-turn limit, 384K context", "tool": "agentic coding harness from the linked GitHub repo", "L": [38, 43, 44]},
+   "metrics": {"bench:solved-same-48": "c14.0"},
+   "size": "c12", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["solved is a count of attempts out of 48, not a percentage [L38]", "turns-vs-full ratio and the fits column have no metric key [L38]", "pruned build: top 144 of 288 experts kept per layer [L118-L119]"]
+  },
+  {"role": "own", "name": "IQ2_XXS", "panel": "Files",
+   "methodology": {"reference": "full model (Q8) for the turns comparison only", "dataset": "real Python repository tasks, two attempts each, tests must pass, clean room", "ctx": "200-turn limit, 384K context", "tool": "agentic coding harness from the linked GitHub repo", "L": [39, 43, 44, 47, 48]},
+   "metrics": {"bench:solved-same-48": "c18.0"},
+   "size": "c16", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["solved is a count of attempts out of 48, not a percentage [L39]", "experimental file: never edits, loops, or runs to the turn limit [L47-L49]", "turns-vs-full ratio and the fits column have no metric key [L39]", "pruned build: top 144 of 288 experts kept per layer [L118-L119]"]
+  },
+  {"role": "ladder", "name": "full GLM-5.3-Flash, Q8", "panel": "Files",
+   "methodology": {"reference": "full model (Q8) for the turns comparison only", "dataset": "real Python repository tasks, two attempts each, tests must pass, clean room", "ctx": "200-turn limit, 384K context", "tool": "agentic coding harness from the linked GitHub repo", "L": [40, 43, 44]},
+   "metrics": {"bench:solved-same-48": "c21.0"},
+   "size": "c20", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["unpruned comparison build [L40]", "solved is a count of attempts out of 48, not a percentage [L40]"]
+  },
+  {"role": "ladder", "name": "full GLM-5.3-Flash, Q8", "panel": "Perplexity",
+   "methodology": {"reference": "full model at Q8 (not bf16)", "dataset": "unseen code, about 22K tokens, in 2048-token chunks", "ctx": "2048-token chunks", "tool": "llama.cpp llama-perplexity, same file for all builds", "L": [67, 69, 71, 73]},
+   "metrics": {"ppl:unseen-code": "c31"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["unpruned comparison build, used as the reference for the deltas [L73]"]
+  },
+  {"role": "ladder", "name": "REAP144 Q8", "panel": "Perplexity",
+   "methodology": {"reference": "full model at Q8 (not bf16)", "dataset": "unseen code, about 22K tokens, in 2048-token chunks", "ctx": "2048-token chunks", "tool": "llama.cpp llama-perplexity, same file for all builds", "L": [67, 69, 71, 74]},
+   "metrics": {"ppl:unseen-code": "c32", "ppl_delta_pct": "c33"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Q8 build of the pruned model, not one of this repo's files [L74]", "pruned build: top 144 of 288 experts kept per layer [L118-L119]"]
+  },
+  {"role": "own", "name": "REAP144 Q4_K_M", "panel": "Perplexity",
+   "methodology": {"reference": "full model at Q8 (not bf16)", "dataset": "unseen code, about 22K tokens, in 2048-token chunks", "ctx": "2048-token chunks", "tool": "llama.cpp llama-perplexity, same file for all builds", "L": [67, 69, 71, 75]},
+   "metrics": {"ppl:unseen-code": "c34", "ppl_delta_pct": "c35"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["percentage delta is against the full Q8 model [L75]", "pruned build: top 144 of 288 experts kept per layer [L118-L119]"]
+  },
+  {"role": "own", "name": "REAP144 Q3_K", "panel": "Perplexity",
+   "methodology": {"reference": "full model at Q8 (not bf16)", "dataset": "unseen code, about 22K tokens, in 2048-token chunks", "ctx": "2048-token chunks", "tool": "llama.cpp llama-perplexity, same file for all builds", "L": [67, 69, 71, 76]},
+   "metrics": {"ppl:unseen-code": "c36", "ppl_delta_pct": "c37"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["percentage delta is against the full Q8 model [L76]", "pruned build: top 144 of 288 experts kept per layer [L118-L119]"]
+  },
+  {"role": "own", "name": "REAP144 IQ2_S", "panel": "Perplexity",
+   "methodology": {"reference": "full model at Q8 (not bf16)", "dataset": "unseen code, about 22K tokens, in 2048-token chunks", "ctx": "2048-token chunks", "tool": "llama.cpp llama-perplexity, same file for all builds", "L": [67, 69, 71, 77]},
+   "metrics": {"ppl:unseen-code": "c38", "ppl_delta_pct": "c39"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["percentage delta is against the full Q8 model [L77]", "pruned build: top 144 of 288 experts kept per layer [L118-L119]"]
+  },
+  {"role": "own", "name": "REAP144 IQ2_XXS", "panel": "Perplexity",
+   "methodology": {"reference": "full model at Q8 (not bf16)", "dataset": "unseen code, about 22K tokens, in 2048-token chunks", "ctx": "2048-token chunks", "tool": "llama.cpp llama-perplexity, same file for all builds", "L": [67, 69, 71, 78]},
+   "metrics": {"ppl:unseen-code": "c40", "ppl_delta_pct": "c41"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["percentage delta is against the full Q8 model [L78]", "pruned build: top 144 of 288 experts kept per layer [L118-L119]"]
+  },
+  {"role": "own", "name": "Q4_K_M", "panel": "How it was made",
+   "methodology": {"reference": "Q8 build of the full model (not bf16)", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [120]},
+   "metrics": {"mean_kld": "c61.1"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["KLD is reported without a stated statistic; read as mean KL [L120]", "reference is the Q8 build, not bf16 [L120]"]
+  },
+  {"role": "own", "name": "Q3_K", "panel": "How it was made",
+   "methodology": {"reference": "Q8 build of the full model (not bf16)", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [120]},
+   "metrics": {"mean_kld": "c61.2"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["KLD is reported without a stated statistic; read as mean KL [L120]", "reference is the Q8 build, not bf16 [L120]"]
+  },
+  {"role": "own", "name": "IQ2_S", "panel": "How it was made",
+   "methodology": {"reference": "Q8 build of the full model (not bf16)", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [120]},
+   "metrics": {"mean_kld": "c61.3"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["KLD is reported without a stated statistic; read as mean KL [L120]", "reference is the Q8 build, not bf16 [L120]"]
+  },
+  {"role": "own", "name": "IQ2_XXS", "panel": "How it was made",
+   "methodology": {"reference": "Q8 build of the full model (not bf16)", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [120]},
+   "metrics": {"mean_kld": "c61.4"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["KLD is reported without a stated statistic; read as mean KL [L120]", "reference is the Q8 build, not bf16 [L120]"]
+  }
+ ],
+ "prose": []
+}

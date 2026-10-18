@@ -1,0 +1,21 @@
+{"repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "8-bit (q8, g64 affine) build of the same tree family, used as teacher [L463]", "dataset": "en/ko/code held-out corpus [L463]", "ctx": "ctx-2048 windows [L464]", "tool": "own harness [L461]", "L": [461, 463, 464, 476, 477]},
+ "entries": [
+  {"role": "own",
+   "name": "GLM-5.3-Flash-Alis-MLX-4bit (QUASAR-init)",
+   "panel": "## Quality (held-out paired KL, my harness, 2026-09-03 panel)",
+   "metrics": {"kld:en": "c35", "kld:ko": "c39", "kld:code": "c43", "mean_kld": "c47"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["KL is against a quantized 8-bit teacher on a private panel, not comparable to BF16-teacher KLD [L476-478]", "delta column and t-statistics not mapped (no key) [L466-471]", "170 GB on disk stated in the reproducible setup section, not in this table [L556]", "figures from the 2026-09-05 to 2026-09-08 update sections measure a 5-bit-KDA or 6-bit-KDA build not in this repository, and are omitted [L27-29, L97-104, L122-126, L133-134]"]},
+  {"role": "ladder",
+   "name": "RTN 4-bit baseline (identical layout)",
+   "panel": "## Quality (held-out paired KL, my harness, 2026-09-03 panel)",
+   "metrics": {"kld:en": "c34", "kld:ko": "c38", "kld:code": "c42", "mean_kld": "c46"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["round-to-nearest baseline of the same layout, same quantized teacher [L464]"]}
+ ],
+ "prose": []
+}

@@ -1,0 +1,15 @@
+{
+ "repo": "dabsLabs/GLM-5.3-Flash-NVFP4",
+ "no_quality_claims": true,
+ "no_claims_reason": "weight-space reconstruction error only; end-to-end perplexity and evals not measured [L66-L72, L97]",
+ "weights_modified": false,
+ "method": {"reference": "BF16 source as ground truth, weight space", "dataset": "48-tensor random sample of the quantized experts", "ctx": "not stated", "tool": "not stated", "L": [66, 67, 68, 69, 70, 71, 72]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash NVFP4 (experts-only, 4/6-optimal scales)",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["mean relative error, max relative error and squared-error reduction are weight-space values with no metric key [L68-L72]", "end-to-end perplexity and evals not measured [L97]", "another publisher's NVFP4 build is cited with a weight relative error only in prose, no metric key [L75-L76]", "size is printed only in the prose, not in a table row [L24]"]
+  }
+ ],
+ "prose": []
+}

@@ -1,0 +1,13 @@
+{"repo": "beamster/GLM-5.3-Flash-Sushi-2bpw",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 GLM-5.3-Flash checkpoint, run through sushi's forward (BF16 cache)", "dataset": "4 prompts x 512 tokens (2,048 positions), two code and two prose", "ctx": "512 tokens", "tool": "sushi engine forward, no assistant", "L": [49, 50, 51]},
+ "entries": [
+   {"role": "own", "name": "GLM-5.3-Flash-Sushi-2bpw",
+    "methodology": {"reference": "BF16 GLM-5.3-Flash checkpoint, run through sushi's forward (BF16 cache)", "dataset": "4 prompts x 512 tokens (2,048 positions), two code and two prose", "ctx": "512 tokens", "tool": "sushi engine forward, no assistant", "L": [49, 50, 51]},
+    "metrics": {"mean_kld": "c2", "top1_pct": "c3", "kld:code": "c4", "kld:prose": "c5"},
+    "size": null, "unit": null, "basis": null, "bpw": "c6",
+    "flags": ["screen of four prompts, not a benchmark [L57]", "pack size 85.2 GB is in a separate storage table, no candidate in this row [L20-L22]"]}
+ ],
+ "prose": []}

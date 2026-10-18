@@ -1,0 +1,16 @@
+{"repo": "AxionML/GLM-5.3-Flash-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "GSM8K Full (1,319 x 4 seeds); AIME 2026 (30 x 16 x 4 seeds); Terminal-Bench 2.1 (89 tasks, terminus-2, pass@1) [L47-49]", "ctx": "not stated", "tool": "SGLang, 4x GB300, FP8 KV cache, NEXTN speculative decoding [L51]", "L": [47, 48, 49, 51]},
+ "entries": [
+  {"role": "quoted",
+   "name": "RadixArk scores for NVFP4",
+   "of": "AxionML/GLM-5.3-Flash-NVFP4",
+   "metrics": {"bench:GSM8K": "c4", "bench:AIME 2026": "c5", "bench:Terminal-Bench 2.1": "c6"},
+   "methodology": {"reference": "not stated", "dataset": "GSM8K Full (1,319 x 4 seeds); AIME 2026 (30 x 16 x 4 seeds); Terminal-Bench 2.1 (89 tasks, terminus-2, pass@1)", "ctx": "not stated", "tool": "SGLang, 4x GB300, FP8 KV cache, NEXTN speculative decoding [L51]", "L": [47, 48, 49, 51]},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["card attributes these scores to RadixArk, not to its own measurement [L51]", "text-only evaluations [L51]", "checkpoint size of about 203 GB is in a different table [L41]"]}
+ ],
+ "prose": []
+}

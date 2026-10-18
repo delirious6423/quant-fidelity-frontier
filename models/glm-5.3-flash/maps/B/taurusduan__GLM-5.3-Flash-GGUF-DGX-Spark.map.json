@@ -1,0 +1,20 @@
+{"repo": "taurusduan/GLM-5.3-Flash-GGUF-DGX-Spark",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "GPQA Diamond, SuperGPQA, AIME 2025 interleaved; first 40 core cases [L106]", "ctx": "16000-token reasoning budget, thinking on, greedy [L106]", "tool": "DwarfStar ds4-eval harness [L106]", "L": [106]},
+ "entries": [
+  {"role": "own",
+   "name": "GLM-5.3-Flash-Q2-DGX-Spark (this file)",
+   "metrics": {"bench:ds4-eval passed": "c12.0", "bench:ds4-eval wrong": "c13", "bench:ds4-eval out of budget": "c14"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["routed experts pruned from 288 to 256 per layer (SLIM stage) [L33, L25]", "counts are out of 40 cases; passed count is c12.0 of the 35/40 cell [L110]", "SLIM-stage HumanEval, C-Eval, GPQA and other figures are for a 4-bit build, omitted [L104]", "the imatrix-guided build score (31/40) is a different build, omitted [L113]"]},
+  {"role": "cross",
+   "name": "GLM-5.3-Q2-DGX-Spark (744B SLIM-Q E192, 150 GiB)",
+   "of": "autotrust/GLM-5.3-GGUF-DGX-Spark",
+   "metrics": {"bench:ds4-eval passed": "c15.0", "bench:ds4-eval wrong": "c16", "bench:ds4-eval out of budget": "c17"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["comparison build run on the same cases, per the card [L106-107]"]}
+ ],
+ "prose": []
+}

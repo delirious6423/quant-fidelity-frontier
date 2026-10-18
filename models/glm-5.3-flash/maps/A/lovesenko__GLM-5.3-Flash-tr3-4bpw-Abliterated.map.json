@@ -1,0 +1,74 @@
+{
+ "repo": "lovesenko/GLM-5.3-Flash-tr3-4bpw-Abliterated",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+  "reference": "not stated; paired base baseline is listed as coming soon",
+  "dataset": "60-sample interim spot-checks (MMLU-Pro, GSM8K, HumanEval, MBPP)",
+  "ctx": "not stated",
+  "tool": "not stated",
+  "L": [
+   62,
+   64
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "GLM-5.3-Flash-tr3-4bpw - Abliterated",
+   "panel": "Full capability sweep (base vs abliterated)",
+   "methodology": {
+    "reference": "not stated; paired base baseline is listed as coming soon",
+    "dataset": "60-sample interim spot-checks (MMLU-Pro, GSM8K, HumanEval, MBPP)",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     62,
+     64
+    ]
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "metrics": {},
+   "flags": [
+    "weights are modified: the BF16 o_proj tensors of all 45 decoder layers are edited for abliteration [L25] [L100]",
+    "the capability figures are interim 60-sample spot-checks on the abliterated release only; the full sweep and the base comparison are marked coming soon [L62-L64]",
+    "the refusal baseline (~85-89%) is one range cell and refusal rates are not quality metrics, so it is not mapped [L49]",
+    "the capability spot-check section [L66-L75] shows no numeric candidate cells in this prompt, so it is not mapped"
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "GLM-5.3-Flash-tr3-4bpw - Abliterated",
+   "panel": "Full capability sweep (base vs abliterated)",
+   "key": "bench:MMLU-Pro",
+   "L": 64,
+   "raw": "78%"
+  },
+  {
+   "entry": "GLM-5.3-Flash-tr3-4bpw - Abliterated",
+   "panel": "Full capability sweep (base vs abliterated)",
+   "key": "bench:GSM8K",
+   "L": 64,
+   "raw": "98%"
+  },
+  {
+   "entry": "GLM-5.3-Flash-tr3-4bpw - Abliterated",
+   "panel": "Full capability sweep (base vs abliterated)",
+   "key": "bench:HumanEval_pass1",
+   "L": 64,
+   "raw": "75%"
+  },
+  {
+   "entry": "GLM-5.3-Flash-tr3-4bpw - Abliterated",
+   "panel": "Full capability sweep (base vs abliterated)",
+   "key": "bench:MBPP",
+   "L": 64,
+   "raw": "80%"
+  }
+ ]
+}

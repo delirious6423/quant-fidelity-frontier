@@ -1,0 +1,15 @@
+{
+ "repo": "jangq/GLM-5.3-Flash-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 source (teacher)", "dataset": "40 held-out conversations (16 long max-effort reasoning, 8 short reasoning, 8 cyber-security Q&A, 8 raw coding prompts); 52,143 scored tokens", "ctx": "not stated", "tool": "teacher-forced, per-token KL(BF16 || NVFP4) and top-1 agreement", "L": [47, 49, 50, 52, 54, 61, 62, 63]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash-NVFP4",
+   "methodology": {"reference": "BF16 source (teacher)", "dataset": "40 held-out conversations; 52,143 scored tokens", "ctx": "not stated", "tool": "teacher-forced, per-token KL(BF16 || NVFP4)", "L": [49, 50, 52, 54]},
+   "metrics": {"mean_kld": "c2", "kld_99": "c5", "top1_pct": "c6", "kld:long_reasoning": "c8", "top1:long_reasoning": "c12", "kld:short_reasoning": "c14", "top1:short_reasoning": "c18", "kld:cyber_security": "c20", "top1:cyber_security": "c24", "kld:raw_coding": "c26", "top1:raw_coding": "c30"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["weights were dequantized to BF16 for the measurement, so this is weight error only, not a w4a4 runtime [L61-63]", "runtime is not yet validated end-to-end for this bundle [L25-27]", "KL median and p95 have no matching metric key, omitted [L54-58]", "per-slice p99 has no corpus form for kld_99, omitted [L55-58]", "the 189.1 GB disk size is in the prose, not in the quality table [L43]"]}
+ ],
+ "prose": []
+}
