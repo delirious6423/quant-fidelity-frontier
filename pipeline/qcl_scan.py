@@ -18,13 +18,14 @@ agents between these commands; everything that decides, splits, merges, builds o
 Every command prints one JSON line. Exit code 0 = go on; 2 = stop this model (nothing to do); 1 = failure: stop and report."""
 import datetime as dt, glob, json, os, subprocess, sys
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-WL = os.path.join(CODE, "watchlist.json"); LOCK = os.path.join(CODE, "scan.lock")
+WL = os.path.join(CODE, "watchlist.json"); LOCK = os.path.join(CODE, os.environ.get("QCL_LOCK", "scan.lock"))   # ingest.lock for the new-model task
+TAG = os.environ.get("QCL_PART", "")   # "-live" / "-ingest": log names per task
 PAD = {"cmd": "cat", "args": ["hf://README.md", "--max-bytes", "8737"]}
 FORMATS = ["gguf", "exl3", "nvfp4", "mlx", "awq", "gptq", "fp8", "int4", "int8", "mxfp4", "w4a16", "autoround", "bnb", "2bit", "3bit", "4bit", "5bit", "6bit", "8bit", "abliterated", "uncensored", "heretic", "mtp"]
 now = dt.datetime.now(dt.timezone.utc)
 LOCK_H = 0.92        # a run stops starting work at 40-45 min and ends by ~55 min; a lock older than 55 min belongs to a dead session
 
-LOG = os.path.join(CODE, "work", "scanlog.jsonl")   # every command's result line; `unlock` files it under logs/scan/ for the commit
+LOG = os.path.join(CODE, "work", f"scanlog{TAG}.jsonl")   # every command's result line; `unlock` files it under logs/scan/ for the commit
 def out(d, code=0):
     print(json.dumps(d))
     try:
@@ -69,13 +70,13 @@ elif cmd == "unlock":
         recs = [json.loads(l) for l in open(LOG) if l.strip()]
         live = {m["slug"] for m in wl()["models"] if m["status"] == "live"}   # Part B (ingest) catalogues publish only when the model is done
         last_cat = max((i for i, r in enumerate(recs) if r["cmd"].startswith("catalogue") and r.get("shards") and r["cmd"].split()[-1] in live), default=-1)
-        if last_cat >= 0 and not any(r["cmd"].startswith("publish") for r in recs[last_cat:]):
-            print(json.dumps({"error": "cards were fetched this run but publish was not run; run `qcl_scan.py publish` now (or `unlock --discard` after discarding the changes)"})); sys.exit(1)
+        if last_cat >= 0 and not any(r["cmd"].startswith(("publish", "stage")) for r in recs[last_cat:]):
+            print(json.dumps({"error": "cards were fetched this run but stage/publish was not run; run `qcl_scan.py publish` now (or `unlock --discard` after discarding the changes)"})); sys.exit(1)
     if os.path.exists(LOCK): os.remove(LOCK)
-    for f in glob.glob(f"{CODE}/logs/scan/*-partial.jsonl"):   # superseded by the full log below
+    for f in glob.glob(f"{CODE}/logs/scan/*Z{TAG}-partial.jsonl"):   # superseded by the full log below
         os.remove(f)
     if os.path.exists(LOG):    # keep this run's command log with the unlock commit (logs/scan/<UTC>.jsonl), so a later check can see what happened
-        os.makedirs(f"{CODE}/logs/scan", exist_ok=True); os.replace(LOG, f"{CODE}/logs/scan/{now:%Y%m%dT%H%M}Z.jsonl")
+        os.makedirs(f"{CODE}/logs/scan", exist_ok=True); os.replace(LOG, f"{CODE}/logs/scan/{now:%Y%m%dT%H%M}Z{TAG}.jsonl")
     out({"unlocked": True})
 elif cmd == "plan":
     w = wl(); live = [m["slug"] for m in w["models"] if m["status"] == "live"]
@@ -110,7 +111,7 @@ elif cmd == "checkpoint":
     if os.path.exists(LOG) and os.path.exists(LOCK):   # the run's log so far goes with every checkpoint, so a run that dies later still shows how far it got
         os.makedirs(f"{CODE}/logs/scan", exist_ok=True)
         st = dt.datetime.fromisoformat(open(LOCK).read().strip())
-        import shutil; shutil.copy(LOG, f"{CODE}/logs/scan/{st:%Y%m%dT%H%M}Z-partial.jsonl")
+        import shutil; shutil.copy(LOG, f"{CODE}/logs/scan/{st:%Y%m%dT%H%M}Z{TAG}-partial.jsonl")
     out({"slug": slug, "status": entry(slug)["status"], "next": f"git add models/{slug} watchlist.json logs/scan && git commit -qm 'Ingest checkpoint: {slug}' && push; the next run resumes"})
 elif cmd == "search-ops":
     # Every op list = one search (limit 80, about 21K chars; 90 measured 78.5K total) + 6 README pads (52K chars). That keeps each result between
@@ -178,13 +179,29 @@ elif cmd == "finish":
     mg = run("python3 pipeline/qcl_watch.py merge", e).stdout.strip().splitlines()[-1]
     run("python3 pipeline/gen_auto.py", e)
     out({"merge": mg})
+elif cmd == "stage":
+    # the scans' check before they commit data (the QA worker runs the full tests and deploys): each model's build.py,
+    # which runs every source/column gate and the sign/plausibility checks, fail-closed. --review SLUG: a finished new
+    # model waits for QA (status "review"); the 5-hour ingest clock starts now.
+    slugs = [a for a in sys.argv[2:] if not a.startswith("--")]
+    rev = sys.argv[sys.argv.index("--review") + 1] if "--review" in sys.argv else None
+    if rev and rev not in slugs: slugs.append(rev)
+    stats = {}
+    for slug in slugs:
+        p = run("python3 build.py", env(slug)); stats[slug] = json.loads(p.stdout.strip().splitlines()[-1].split(" | ")[0])
+    if rev:
+        w = wl()
+        for m in w["models"]:
+            if m["slug"] == rev: m["status"] = "review"
+        w["last_ingest_at"] = now.isoformat(); json.dump(w, open(WL, "w"), indent=1)
+    out({"staged": {k: [v["repos"], v["values"]] for k, v in stats.items()}, "review": rev})
 elif cmd == "publish":
     ing = sys.argv[sys.argv.index("--ingested") + 1] if "--ingested" in sys.argv else None
     if ing:   # the new model must build and pass its UI tests before it goes live
         run(f"python3 build.py", env(ing)); run(f"python3 tests/test_ui.py", {"QCL_SITE": f"models/{ing}/site"})
         w = wl()
         for m in w["models"]:
-            if m["slug"] == ing: m["status"] = "live"   # from queued or ingesting
+            if m["slug"] == ing: m["status"] = "live"   # from queued, ingesting or review
         w["last_ingest_at"] = now.isoformat(); json.dump(w, open(WL, "w"), indent=1)
     stats = {}
     for mj in sorted(glob.glob(f"{CODE}/models/*/model.json")):
