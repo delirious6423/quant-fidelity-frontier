@@ -89,7 +89,7 @@ if s is None:
             if old.get(key, (None,))[0] == raw: continue
             rp, kind, nm, k = key
             if rp not in idx: continue
-            items.append({"slug": slug, "repo": rp, "kind": kind, "entry": nm, "key": k, "raw": raw, "card": f"models/{slug}/{idx[rp]['file']}", "lines": Ls})
+            items.append({"slug": slug, "repo": rp, "kind": {"variants": "own"}.get(kind, kind), "group": kind, "entry": nm, "key": k, "raw": raw, "card": f"models/{slug}/{idx[rp]['file']}", "lines": Ls})
     random.Random(head).shuffle(items)
     pick = items[:SAMPLE]
     for i, it in enumerate(pick): it["id"] = f"q{i}"
@@ -122,8 +122,8 @@ if s["step"] == "reviewed":
     for it, why in held:   # hold the entry; the number itself is never edited
         hp = f"{CODE}/models/{it['slug']}/audit/holds.json"
         hs = json.load(open(hp)) if os.path.exists(hp) else []
-        if not any(h["repo"] == it["repo"] and h["entry"] == it["entry"] for h in hs):
-            hs.append({"repo": it["repo"], "entry": it["entry"], "reason": f"QA review {dt.datetime.utcnow():%Y-%m-%d}: {it['key']}: {why}"})
+        if not any(h["repo"] == it["repo"] and h["entry"] == it["entry"] for h in hs):   # holds are per entry (row)
+            hs.append({"repo": it["repo"], "entry": it["entry"], "reason": f"QA review {dt.datetime.now(dt.timezone.utc):%Y-%m-%d}: {it['key']}: {why}"})
             json.dump(hs, open(hp, "w"), indent=1); touched.add(it["slug"])
     for slug in touched:
         sh(f"QCL_ROOT=models/{slug} python3 pipeline/qcl_watch.py merge"); sh(f"QCL_ROOT=models/{slug} python3 pipeline/gen_auto.py")
@@ -144,9 +144,10 @@ if s["step"] == "reviewed":
         sh("git checkout -- . && git clean -fdq models")
         stop(s, f"tests failed, nothing published: {d.get('error')}: {str(d.get('tail', ''))[-600:]}")
     s["promoted"] = promoted; s["published"] = d.get("progress_line")
-    json.dump({"commit": s["head"], "at": dt.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"), "reviewed": s.get("reviewed"), "verdicts": verdicts,
+    os.makedirs(os.path.dirname(DEPLOYED), exist_ok=True)
+    json.dump({"commit": s["head"], "at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "reviewed": s.get("reviewed"), "verdicts": verdicts,
                "held": len(held), "promoted": promoted}, open(DEPLOYED, "w"), indent=1)
-    s["git"] = push(f"QA {dt.datetime.utcnow():%Y-%m-%d %H:%M} UTC: reviewed {s.get('reviewed', 0)} new values, held {len(held)}"
+    s["git"] = push(f"QA {dt.datetime.now(dt.timezone.utc):%Y-%m-%d %H:%M} UTC: reviewed {s.get('reviewed', 0)} new values, held {len(held)}"
                     + (f", promoted {', '.join(promoted)}" if promoted else "") + "; published",
                     ". ':!qa.lock' ':!scan.lock' ':!ingest.lock' ':!logs/scan'")
     if s["git"] == "pushed":

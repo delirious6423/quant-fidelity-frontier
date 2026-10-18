@@ -164,7 +164,7 @@ if step == "a_mapped":
     code, d = scan("stage " + " ".join(s.get("a_shards", {})))   # data checks only; the QA worker tests and deploys
     if code == 0:
         s["part_a"]["staged"] = d.get("staged")
-        s["part_a"]["git"] = push(f"Live update {dt.datetime.utcnow():%Y-%m-%d %H:%M} UTC: " + ", ".join(f"{k} {v[0]} repos, {v[1]} values" for k, v in (d.get("staged") or {}).items()),
+        s["part_a"]["git"] = push(f"Live update {dt.datetime.now(dt.timezone.utc):%Y-%m-%d %H:%M} UTC: " + ", ".join(f"{k} {v[0]} repos, {v[1]} values" for k, v in (d.get("staged") or {}).items()),
                                   ". ':!scan.lock' ':!ingest.lock' ':!logs/scan' ':!PROGRESS.md' " + nonlive_excludes())
     else:
         s["part_a"]["stage_failed"] = {"error": d.get("error"), "tail": str(d.get("tail", ""))[-600:]}

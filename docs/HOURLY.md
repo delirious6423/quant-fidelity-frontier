@@ -1,7 +1,17 @@
 # Hourly scan runbook
 
-The scheduled task "QFF hourly scan" runs one loop. **`pipeline/qcl_next.py` decides every step**; the session only does
-the two things a script cannot: Hugging Face calls (hf_fs) and starting Haiku subagents.
+QFF is kept current by **three scheduled tasks**. Scripts decide every step; a session only makes Hugging Face calls
+(hf_fs) and starts Haiku subagents, exactly as the script prints.
+
+| Task | When (UTC) | Script | Does | Publishes the site |
+|---|---|---|---|---|
+| QFF live updates | hourly at :03 | `qcl_next.py --part A` | new and changed cards on live models: fetch, map, merge, data checks (`stage`), commit | no |
+| QFF new model | every 2 h at :33 | `qcl_next.py --part B` | adds the next watch-list model in chunks (catalogue, at most 2 fetch shards, mapping rounds), checkpoint after each step; a complete model goes to status `review` | no |
+| QFF QA and publish | hourly at :45 | `qcl_qa.py` | skips if nothing changed since `audit/deployed.json`; otherwise samples up to 20 new values, two Haiku reviewers check them against their cards (`docs/agents/REVIEW.md`), wrong ones are held (`audit/holds.json`), models in `review` go `live`, every test runs, then commit, deploy and record the approved commit | **yes, the only one** |
+
+Each task has its own lock (`scan.lock`, `ingest.lock`, `qa.lock`), so they never block each other. All three push to
+`main`; `watchlist.json` has a merge driver (`pipeline/merge_watchlist.py`) and `PROGRESS.md` merges by union, so
+concurrent commits rebase cleanly. Every run's step log is committed under `logs/scan/` (`-live`, `-ingest`, `-qa`).
 
 ## The loop (this is the whole procedure)
 ```bash
@@ -11,7 +21,7 @@ git config user.name Claude && git config user.email noreply@anthropic.com
 pip install --break-system-packages pillow numpy "mcp>=1.9" playwright >/dev/null 2>&1 || pip install pillow numpy "mcp>=1.9" playwright
 python3 pipeline/qcl_next.py
 ```
-Then repeat until it prints `"do": "stop"`:
+(For the QA task the command is `python3 pipeline/qcl_qa.py`; it only asks for agents.) Then repeat until it prints `"do": "stop"`:
 - `"do": "hf_fs"`: call the hf_fs tool once per entry of `op_lists`, each list exactly as printed. Each result is saved to
   a file; the tool message says either `Output has been saved to <path>` or `Full output saved to: <path>` (with a
   preview). Then run `python3 pipeline/qcl_next.py --results <path1> <path2> ...` with the paths in the same order. A
