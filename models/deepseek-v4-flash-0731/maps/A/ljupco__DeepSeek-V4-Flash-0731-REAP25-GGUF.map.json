@@ -1,0 +1,33 @@
+{"repo": "ljupco/DeepSeek-V4-Flash-0731-REAP25-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "stock 2-bit file (the unpruned parent), same protocol", "dataset": "131,040 wikitext-2-raw-v1 tokens", "ctx": "not stated", "tool": "ds4 engine (ds4-server), same protocol", "L": [94, 95]},
+ "entries": [
+   {"role": "own",
+    "name": "REAP25",
+    "panel": "Quality & speed (measured on M2 Max 96 GB, ds4-server + llama-benchy)",
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["pruned build (64 of 256 experts dropped in each layer), so weights are modified [L54, L82, L132]",
+              "speed table is not mapped, since no speed key exists [L102-116]",
+              "pipenetwork's +4.5% is a different model and protocol, so omitted [L95]"]},
+   {"role": "cross",
+    "name": "stock",
+    "of": "Rednalreden/DeepSeek-V4-Flash-0731-dwarfstar-q2-gguf",
+    "panel": "Quality & speed (measured on M2 Max 96 GB, ds4-server + llama-benchy)",
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["unpruned 2-bit parent file, measured by this card's author on the same protocol [L47, L75-76, L94]"]}
+ ],
+ "prose": [
+   {"entry": "REAP25", "panel": "Quality & speed (measured on M2 Max 96 GB, ds4-server + llama-benchy)", "key": "ppl:wikitext", "L": 95, "raw": "5.129"},
+   {"entry": "REAP25", "panel": "Quality & speed (measured on M2 Max 96 GB, ds4-server + llama-benchy)", "key": "ppl_delta_pct", "L": 95, "raw": "+3.95%"},
+   {"entry": "stock", "panel": "Quality & speed (measured on M2 Max 96 GB, ds4-server + llama-benchy)", "key": "ppl:wikitext", "L": 94, "raw": "4.934"}
+ ]}

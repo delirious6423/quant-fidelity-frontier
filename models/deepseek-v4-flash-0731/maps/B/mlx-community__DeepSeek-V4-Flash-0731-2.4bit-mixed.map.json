@@ -1,0 +1,18 @@
+{
+ "repo": "mlx-community/DeepSeek-V4-Flash-0731-2.4bit-mixed",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "DeepSeek V4 Flash 0731 bf16 via hosted API, same prompts, max_tokens and temperature 0", "dataset": "mmlu_pro, n=600 seeded samples, thinking off, greedy", "ctx": "not stated", "tool": "not stated", "L": [73, 74, 75, 76]},
+ "entries": [
+  {"role": "own", "name": "DeepSeek-V4-Flash-0731-2.4bit-mixed",
+   "metrics": {"bench:MMLU-Pro": "c48"},
+   "size": "c46", "unit": "GB", "basis": "disk", "bpw": "c47",
+   "flags": ["single-sample accuracy, SE about 2 points at n=600 [L74]", "7.3-point gap to bf16 is a difference of two candidates, not extracted [L81]", "no long-context, agentic or real-code evaluation [L83]"]},
+  {"role": "cross", "name": "DeepSeek V4 Flash 0731 (API, bf16)", "of": "not named on card",
+   "metrics": {"bench:MMLU-Pro": "c50"},
+   "size": null, "unit": null, "basis": null, "bpw": "c49",
+   "flags": ["hosted API measured by this card's author [L74]", "API row has no size"]}
+ ],
+ "prose": []
+}

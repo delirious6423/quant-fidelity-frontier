@@ -1,0 +1,18 @@
+{
+ "repo": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "deepseek-ai/DeepSeek-V4-Flash-0731 (baseline row of the evaluation table)", "dataset": "GPQA", "ctx": "not stated", "tool": "not stated", "L": [42, 71, 73, 76]},
+ "entries": [
+  {"role": "own", "name": "NVFP4-FP8-BLOCK",
+   "metrics": {"bench:GPQA": "c2"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["only one benchmark (GPQA) is reported [L73-76]", "routed experts NVFP4, selected attention and shared experts FP8 [L42]"]},
+  {"role": "cross", "name": "deepseek-ai/DeepSeek-V4-Flash-0731 (baseline)", "of": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "metrics": {"bench:GPQA": "c1"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["baseline row in the card's evaluation table; measurement provenance not shown in digest [L73-76]"]}
+ ],
+ "prose": []
+}

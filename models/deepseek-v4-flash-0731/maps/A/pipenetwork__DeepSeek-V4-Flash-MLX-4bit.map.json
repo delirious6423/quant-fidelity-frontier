@@ -1,0 +1,15 @@
+{"repo": "pipenetwork/DeepSeek-V4-Flash-MLX-4bit",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "wikitext-2-raw-v1 test, 199,485 tokens", "ctx": "windows of 1024 tokens", "tool": "not stated", "L": [39, 40, 41]},
+ "entries": [
+  {"role": "own", "name": "4bit", "methodology": {"reference": "not stated", "dataset": "wikitext-2-raw-v1 test, 199,485 tokens", "ctx": "windows of 1024 tokens", "tool": "not stated", "L": [29, 34, 39]}, "metrics": {"ppl": "c10"}, "size": "c9", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["card states this build is superseded by mixed-4_8bit [L34]"]},
+  {"role": "ladder", "name": "8bit", "methodology": {"reference": "not stated", "dataset": "wikitext-2-raw-v1 test, 199,485 tokens", "ctx": "windows of 1024 tokens", "tool": "not stated", "L": [29, 31, 39]}, "metrics": {"ppl": "c2"}, "size": "c1", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "ladder", "name": "6bit", "methodology": {"reference": "not stated", "dataset": "wikitext-2-raw-v1 test, 199,485 tokens", "ctx": "windows of 1024 tokens", "tool": "not stated", "L": [29, 32, 39]}, "metrics": {"ppl": "c4", "ppl_delta_pct": "c5.0"}, "size": "c3", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["ppl_delta_pct is the card's stated change vs 8bit [L32]"]},
+  {"role": "ladder", "name": "mixed-4_8bit", "methodology": {"reference": "not stated", "dataset": "wikitext-2-raw-v1 test, 199,485 tokens", "ctx": "windows of 1024 tokens", "tool": "not stated", "L": [29, 33, 39]}, "metrics": {"ppl": "c7"}, "size": "c6", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["card's recommended build [L45]"]},
+  {"role": "ladder", "name": "REAP25", "methodology": {"reference": "not stated", "dataset": "wikitext-2-raw-v1 test, 199,485 tokens", "ctx": "windows of 1024 tokens", "tool": "not stated", "L": [29, 35, 39, 79, 82]}, "metrics": {"ppl": "c13", "ppl_delta_pct": "c27"}, "size": "c12", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["ppl_delta_pct is the vs-unpruned column as printed [L79-84]", "paired ratio 1.016 vs plain 4bit is in prose [L87]"]},
+  {"role": "ladder", "name": "REAP37", "methodology": {"reference": "not stated", "dataset": "wikitext-2-raw-v1 test, 199,485 tokens", "ctx": "windows of 1024 tokens", "tool": "not stated", "L": [29, 36, 39, 79, 83]}, "metrics": {"ppl": "c16", "ppl_delta_pct": "c31"}, "size": "c15", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["ppl_delta_pct is the vs-unpruned column as printed [L79-84]"]},
+  {"role": "ladder", "name": "REAP50", "methodology": {"reference": "not stated", "dataset": "wikitext-2-raw-v1 test, 199,485 tokens", "ctx": "windows of 1024 tokens", "tool": "not stated", "L": [29, 37, 39, 79, 84]}, "metrics": {"ppl": "c19", "ppl_delta_pct": "c35"}, "size": "c18", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["ppl_delta_pct is the vs-unpruned column as printed [L79-84]"]}
+ ],
+ "prose": [{"entry": "REAP25", "key": "ppl_ratio", "L": 87, "raw": "paired ratio 1.016"}]}

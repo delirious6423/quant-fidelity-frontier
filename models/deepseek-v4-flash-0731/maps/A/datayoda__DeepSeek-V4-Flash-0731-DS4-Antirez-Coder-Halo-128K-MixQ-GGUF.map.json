@@ -1,0 +1,21 @@
+{"repo": "datayoda/DeepSeek-V4-Flash-0731-DS4-Antirez-Coder-Halo-128K-MixQ-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "unmodified reference build", "dataset": "50 frozen public coding tasks", "ctx": "deterministic decoding, temperature 0", "tool": "DwarfStar (antirez/ds4)", "L": [21, 67]},
+ "entries": [
+  {"role": "own", "name": "DS4 Antirez Coder Halo 128K MixQ",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["passed 26 of 50 frozen coding tasks, given as prose below [L67]"]},
+  {"role": "cross", "name": "unmodified reference build", "of": "not named on card",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["passed 21 of 50 frozen coding tasks, given as prose below [L67]"]}
+ ],
+ "prose": [
+  {"entry": "DS4 Antirez Coder Halo 128K MixQ", "key": "bench:frozen_coding_50", "L": 67, "raw": "this build passed 26"},
+  {"entry": "unmodified reference build", "key": "bench:frozen_coding_50", "L": 67, "raw": "the unmodified reference passed 21"},
+  {"entry": "DS4 Antirez Coder Halo 128K MixQ", "key": "bench:private_confirm_15", "L": 67, "raw": "scored 0/15 for both this build and the baseline"},
+  {"entry": "unmodified reference build", "key": "bench:private_confirm_15", "L": 67, "raw": "scored 0/15 for both this build and the baseline"}
+ ]}

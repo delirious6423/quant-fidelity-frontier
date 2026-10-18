@@ -1,0 +1,13 @@
+{"repo": "lovesenko/DeepSeek-V4-Flash-0731-Abliterated",
+ "no_quality_claims": true,
+ "no_claims_reason": "refusal rates only, no capability or fidelity number; capability, multi-turn and SWE-bench sweeps are 'coming soon' [L45-47, L79, L96, L100]",
+ "weights_modified": true,
+ "method": {"reference": "base 0731 model, same LLM judge and prompt distribution", "dataset": "300-prompt refusal set spanning 14 categories", "ctx": "not stated", "tool": "LLM judge", "L": [45, 46, 47, 115]},
+ "entries": [
+  {"role": "own", "name": "DeepSeek-V4-Flash-0731 — Abliterated",
+   "methodology": {"reference": "base 0731 model, same LLM judge and prompt distribution", "dataset": "300-prompt refusal set spanning 14 categories", "ctx": "not stated", "tool": "LLM judge", "L": [45, 46, 47]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["refusal rates (39/300 = 13.0% with CoT, 6/300 = 2.0% without CoT, base 961/1000 = 96.10%) are behavioural, not capability measures, so not mapped [L45-47]", "the cells carry percentages inside multi-number strings with no per-number candidate, so not mapped [L45-47]"]}
+ ],
+ "prose": []}

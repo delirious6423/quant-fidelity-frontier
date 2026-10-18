@@ -1,0 +1,13 @@
+{"repo": "jmilnz/DeepSeek-V4-Flash-0731-antirez-ds4-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "DeepSeek API continuations (100 tracked, data/flash)", "dataset": "100 tracked DeepSeek API continuations", "ctx": "not stated", "tool": "gguf-tools/quality-testing/score_official and compare_scores.py", "L": [112, 114, 115, 116, 117, 118]},
+ "entries": [
+  {"role": "own", "name": "v2 (real imatrix)", "methodology": {"reference": "DeepSeek API continuations (100 tracked)", "dataset": "100 tracked DeepSeek API continuations", "ctx": "not stated", "tool": "gguf-tools/quality-testing/score_official", "L": [120, 122, 123, 124, 125]}, "metrics": {"bench:mean_nll": "c8", "bench:cases_won_of_100": "c10", "bench:avg_greedy_lcp_tokens": "c14"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["first-token match 53/100 is mapped as prose [L124]", "mean NLL is lower-is-better [L122]"]},
+  {"role": "ladder", "name": "v1 (synthetic)", "methodology": {"reference": "DeepSeek API continuations (100 tracked)", "dataset": "100 tracked DeepSeek API continuations", "ctx": "not stated", "tool": "gguf-tools/quality-testing/score_official", "L": [120, 122, 123, 124, 125]}, "metrics": {"bench:mean_nll": "c7", "bench:cases_won_of_100": "c9", "bench:avg_greedy_lcp_tokens": "c13"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["first-token match 44/100 is mapped as prose [L124]"]}
+ ],
+ "prose": [
+  {"entry": "v2 (real imatrix)", "key": "bench:first_token_match", "L": 124, "raw": "53/100"},
+  {"entry": "v1 (synthetic)", "key": "bench:first_token_match", "L": 124, "raw": "44/100"}
+ ]}

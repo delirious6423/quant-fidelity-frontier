@@ -1,0 +1,18 @@
+{
+ "repo": "AxionML/DeepSeek-V4-Flash-0731-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "MXFP4 source checkpoint (deepseek-ai/DeepSeek-V4-Flash-0731)", "dataset": "not stated", "ctx": "temperature 1.0, top_p 1.0, max reasoning effort", "tool": "not stated", "L": [45, 55]},
+ "entries": [
+  {"role": "quoted", "name": "NVFP4", "of": "AxionML/DeepSeek-V4-Flash-0731-NVFP4",
+   "metrics": {"bench:AA-LCR": "c6", "bench:tau2-Bench-Telecom": "c8", "bench:SciCode": "c10", "bench:IFBench": "c12", "bench:Terminal-Bench-v2.1": "c14", "bench:GDPval": "c16"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["scores are attributed to NVIDIA, not measured by this card's author [L55]", "GPQA Diamond has no NVFP4 value in the table [L47]", "checkpoint size ~176 GB is in the summary table, not the score table [L41]"]},
+  {"role": "quoted", "name": "MXFP4 (source)", "of": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "metrics": {"bench:GPQA-Diamond": "c4", "bench:AA-LCR": "c5", "bench:tau2-Bench-Telecom": "c7", "bench:SciCode": "c9", "bench:IFBench": "c11", "bench:Terminal-Bench-v2.1": "c13", "bench:GDPval": "c15"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["baseline attributed to NVIDIA's reported scores [L55]"]}
+ ],
+ "prose": []
+}

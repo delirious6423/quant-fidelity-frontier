@@ -1,0 +1,22 @@
+{"repo": "Kevletesteur/DeepSeek-V4-Flash-0731-StrixHalo-Verified-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "full-precision official API", "dataset": "not stated", "ctx": "not stated", "tool": "paired protocols with an identical serving path on both sides", "L": [20, 21, 105, 106, 108]},
+ "entries": [
+   {"role": "own",
+    "name": "StrixHalo-Verified (q6kattn GGUF)",
+    "panel": "🔬 How this was verified (summary)",
+    "metrics": {"bench:confident-wrong-answers P(answers and wrong)": "c1"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["the TL;DR figures at L20-22 are in the card's summary block above the verification section, and are recorded under the same panel",
+              "token-identical and paired-QA figures are text values, not table cells, so they are recorded as prose [L21-22]",
+              "the 103 GB size and 2.90 bpw are in the TL;DR and have no candidate in the same row, so omitted [L20]"]}
+ ],
+ "prose": [
+   {"entry": "StrixHalo-Verified (q6kattn GGUF)", "panel": "🔬 How this was verified (summary)", "key": "bench:token-identical vs full-precision API", "L": 21, "raw": "90.8%"},
+   {"entry": "StrixHalo-Verified (q6kattn GGUF)", "panel": "🔬 How this was verified (summary)", "key": "bench:paired-QA parity", "L": 22, "raw": "240/240"}
+ ]}

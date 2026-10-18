@@ -1,0 +1,21 @@
+{"repo": "steadfastgaze/DeepSeek-V4-Flash-0731-2.37bpw-MoEspressoV2",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "WikiText-2 test split (Salesforce/wikitext wikitext-2-raw-v1)", "ctx": "2,048-token windows", "tool": "not stated", "L": [43, 100]},
+ "entries": [
+   {"role": "own", "name": "MoEspresso 2.37 bpw / MoEspresso", "panel": "Quality",
+    "methodology": {"reference": "not stated", "dataset": "WikiText-2 test split, first 32 contiguous 2,048-token windows", "ctx": "2,048-token windows", "tool": "not stated", "L": [43, 100]},
+    "metrics": {"ppl:wikitext": "c2"}, "size": null, "unit": null, "basis": null, "bpw": "c13",
+    "flags": ["WikiText mean NLL has no matching metric key, not mapped [L39]", "API first-token agreement not mapped, no matching metric key [L39]", "API-continuation panel not mapped [L39]"]},
+   {"role": "cross", "name": "antirez IQ2_XXS / DS4", "panel": "Quality", "of": "not named on card",
+    "methodology": {"reference": "not stated", "dataset": "WikiText-2 test split, first 32 contiguous 2,048-token windows", "ctx": "2,048-token windows", "tool": "not stated", "L": [43, 100]},
+    "metrics": {"ppl:wikitext": "c6"}, "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["WikiText mean NLL and API first-token agreement not mapped [L40]"]},
+   {"role": "cross", "name": "Unsloth UD-IQ2_XXS / llama.cpp", "panel": "Quality", "of": "not named on card",
+    "methodology": {"reference": "not stated", "dataset": "WikiText-2 test split, first 32 contiguous 2,048-token windows", "ctx": "2,048-token windows", "tool": "not stated", "L": [43, 100]},
+    "metrics": {"ppl:wikitext": "c10"}, "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["WikiText mean NLL and API first-token agreement not mapped [L41]"]}
+ ],
+ "prose": []
+}

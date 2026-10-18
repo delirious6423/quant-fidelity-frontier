@@ -1,0 +1,23 @@
+{"repo": "pipenetwork/DeepSeek-V4-Flash-MLX-mixed-4_8bit",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "wikitext-2-raw-v1 test, 199,485 tokens in 195 windows of 1024", "ctx": "1024-token windows", "tool": "not stated", "L": [39, 40]},
+ "entries": [
+   {"role": "own", "name": "mixed-4_8bit", "metrics": {"ppl:wikitext": "c7"}, "size": "c6", "unit": "GB", "basis": null, "bpw": null,
+    "flags": ["card's recommended build [L33, L45]"]},
+   {"role": "ladder", "name": "8bit", "metrics": {"ppl:wikitext": "c2"}, "size": "c1", "unit": "GB", "basis": null, "bpw": null, "flags": []},
+   {"role": "ladder", "name": "6bit", "metrics": {"ppl:wikitext": "c4"}, "size": "c3", "unit": "GB", "basis": null, "bpw": null, "flags": []},
+   {"role": "ladder", "name": "4bit", "metrics": {"ppl:wikitext": "c10"}, "size": "c9", "unit": "GB", "basis": null, "bpw": null,
+    "flags": ["card states this build is superseded by mixed-4_8bit [L34]"]},
+   {"role": "ladder", "name": "REAP25", "metrics": {"ppl:wikitext": "c13", "ppl_delta_pct": "c27"}, "size": "c12", "unit": "GB", "basis": null, "bpw": null,
+    "flags": ["pruned build; delta is vs unpruned as the card states it [L79-82]", "the prose ppl_ratio is against plain 4-bit [L87]"]},
+   {"role": "ladder", "name": "REAP37", "metrics": {"ppl:wikitext": "c16", "ppl_delta_pct": "c31"}, "size": "c15", "unit": "GB", "basis": null, "bpw": null,
+    "flags": ["pruned build; delta is vs unpruned as the card states it [L79-83]"]},
+   {"role": "ladder", "name": "REAP50", "metrics": {"ppl:wikitext": "c19", "ppl_delta_pct": "c35"}, "size": "c18", "unit": "GB", "basis": null, "bpw": null,
+    "flags": ["pruned build; delta is vs unpruned as the card states it [L79-84]"]}
+ ],
+ "prose": [
+   {"entry": "REAP25", "key": "ppl_ratio", "L": 87, "raw": "paired ratio 1.016"}
+ ]
+}

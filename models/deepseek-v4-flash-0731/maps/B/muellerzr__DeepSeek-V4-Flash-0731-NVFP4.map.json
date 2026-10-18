@@ -1,0 +1,13 @@
+{"repo": "muellerzr/DeepSeek-V4-Flash-0731-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Source 0731 (native MXFP4 release)", "dataset": "strict-format sanity set (math/code/chat), 24 cases", "ctx": "not stated", "tool": "vLLM 0.27.1, TP4 with expert parallelism on 4x B200", "L": [33, 37, 41]},
+ "entries": [
+  {"role": "own", "name": "DeepSeek-V4-Flash-0731-NVFP4",
+   "methodology": {"reference": "Source 0731 (native MXFP4 release)", "dataset": "strict-format sanity set (math/code/chat), 24 cases", "ctx": "not stated", "tool": "vLLM 0.27.1, TP4 with expert parallelism on 4x B200", "L": [33, 37, 41]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["sanity-set results are counts out of 24 (14/24 on the source, 18/24 exact matches), not converted to percent, so not mapped [L37, L41]", "NVFP4 column of the sanity-set row is not among the numeric candidates, so not mapped [L37]", "draft-token acceptance (48.54% source, 54.04% NVFP4) and mean accepted tokens per step (3.40, 3.78) are speculative-decoding metrics, not quality, so not mapped [L38-39]"]}
+ ],
+ "prose": []}

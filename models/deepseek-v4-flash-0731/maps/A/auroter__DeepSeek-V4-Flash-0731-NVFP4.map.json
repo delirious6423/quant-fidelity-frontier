@@ -1,0 +1,14 @@
+{"repo": "auroter/DeepSeek-V4-Flash-0731-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "native MXFP4 checkpoint (source) served with the same recipe", "dataset": "fixed WikiText corpus (teacher-forced perplexity)", "ctx": "not stated", "tool": "stock vLLM 0.26.0, TP4 with expert parallelism; marlin and flashinfer cutlass MoE backends", "L": [51, 52, 53, 57, 62, 70, 72]},
+ "entries": [
+  {"role": "own", "name": "NVFP4 · native W4A4 (cutlass)", "panel": "Performance", "methodology": {"reference": "native MXFP4 checkpoint (source)", "dataset": "fixed WikiText corpus", "ctx": "not stated", "tool": "stock vLLM 0.26.0, flashinfer cutlass MoE backend", "L": [53, 55, 57, 62]}, "metrics": {"ppl": "c1"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["card states about a 2.5% perplexity cost vs the source, prose [L62]"]},
+  {"role": "cross", "name": "Source MXFP4 · marlin", "panel": "Performance", "of": "deepseek-ai/DeepSeek-V4-Flash-0731", "methodology": {"reference": "native MXFP4 checkpoint (source)", "dataset": "fixed WikiText corpus", "ctx": "not stated", "tool": "stock vLLM 0.26.0, marlin MoE backend", "L": [53, 55, 57]}, "metrics": {"ppl": "c2"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["cell prints two runs, 5.178 and 5.189 [L57]"]},
+  {"role": "own", "name": "NVFP4 + DSpark", "panel": "With DSpark speculative decoding (out-of-tree SM120 branch)", "methodology": {"reference": "Native MXFP4 + DSpark, V2 runner", "dataset": "same corpus as the perplexity column", "ctx": "not stated", "tool": "vLLM branch sm120-pr-41834-stable-preview-20260727d with draft-routing patch", "L": [64, 66, 70, 74]}, "metrics": {"ppl": "c3"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["speculation described as lossless [L74]"]},
+  {"role": "cross", "name": "Native MXFP4 + DSpark, V2 runner (reference)", "panel": "With DSpark speculative decoding (out-of-tree SM120 branch)", "of": "deepseek-ai/DeepSeek-V4-Flash-0731", "methodology": {"reference": "Native MXFP4 + DSpark, V2 runner", "dataset": "same corpus as the perplexity column", "ctx": "not stated", "tool": "vLLM branch sm120-pr-41834-stable-preview-20260727d", "L": [64, 66, 72]}, "metrics": {"ppl": "c4"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": []}
+ ],
+ "prose": [
+  {"entry": "NVFP4 · native W4A4 (cutlass)", "panel": "Performance", "key": "ppl_delta_pct", "L": 62, "raw": "~2.5% perplexity cost"}
+ ]}

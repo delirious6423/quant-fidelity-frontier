@@ -1,0 +1,15 @@
+{"repo": "anoane/DeepSeek-V4-Flash-0731-exl3-2.54bpw",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "364,544 held-out tokens across 24 engineering and software domains", "ctx": "not stated", "tool": "not stated", "L": [61, 121]},
+ "entries": [
+   {"role": "own", "name": "2.54 bpw uniform", "metrics": {"ppl": "c10"}, "size": "c16", "unit": "GB", "basis": "disk", "bpw": "c19",
+    "flags": ["NLL has no matching metric key, not mapped [L35]", "perplexity delta is inside the same table cell, not mapped separately [L36]"]},
+   {"role": "ladder", "name": "2.72 bpw hybrid", "metrics": {"ppl": "c9"}, "size": "c15", "unit": "GB", "basis": "disk", "bpw": "c18",
+    "flags": ["NLL has no matching metric key, not mapped [L35]"]},
+   {"role": "ladder", "name": "2.32 bpw uniform", "metrics": {"ppl": "c11"}, "size": "c17", "unit": "GB", "basis": "disk", "bpw": "c20",
+    "flags": ["NLL has no matching metric key, not mapped [L35]", "card limitations say this rung does not exist yet [L235], which conflicts with its table values [L36]"]}
+ ],
+ "prose": []
+}

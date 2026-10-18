@@ -1,0 +1,26 @@
+{"repo": "TacoTakumi/DeepSeek-V4-Flash-0731-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "MXFP4 source (reference logits)", "dataset": "wiki.test.raw first 150 chunks (38,250 scored positions)", "ctx": "n_ctx 512", "tool": "llama-perplexity v10155", "L": [164, 167, 168, 169]},
+ "entries": [
+  {"role": "own", "name": "IQ3_XXS-D_IQ3_S", "panel": "## Quality",
+   "methodology": {"reference": "MXFP4 source (reference logits)", "dataset": "wiki.test.raw first 150 chunks (38,250 scored positions)", "ctx": "n_ctx 512", "tool": "llama-perplexity v10155", "L": [167, 168, 169]},
+   "metrics": {"mean_kld": "c18", "kld_99": "c20", "top1_pct": "c23", "ppl:wikitext": "c96.3"},
+   "size": "c17", "unit": "GiB", "basis": "disk", "bpw": null,
+   "flags": ["median KLD (c19) and max KLD (c21) have no metric key, left out [L174]", "delta-PPL 0.536 is an absolute difference, not a percent, left out [L174]"]},
+  {"role": "own", "name": "IQ3_XXS", "panel": "## Quality",
+   "methodology": {"reference": "MXFP4 source (reference logits)", "dataset": "wiki.test.raw first 150 chunks (38,250 scored positions)", "ctx": "n_ctx 512", "tool": "llama-perplexity v10155", "L": [167, 168, 169]},
+   "metrics": {"mean_kld": "c25", "kld_99": "c27", "top1_pct": "c30"},
+   "size": "c24", "unit": "GiB", "basis": "disk", "bpw": null,
+   "flags": ["median KLD (c26) and max KLD (c28) have no metric key, left out [L175]", "delta-PPL 0.641 is an absolute difference, not a percent, left out [L175]"]},
+  {"role": "cross", "name": "UD-IQ3_S", "of": "unsloth/DeepSeek-V4-Flash-0731-GGUF", "panel": "## Quality",
+   "methodology": {"reference": "MXFP4 source (reference logits)", "dataset": "wiki.test.raw first 150 chunks (38,250 scored positions)", "ctx": "n_ctx 512", "tool": "llama-perplexity v10155", "L": [167, 168, 169]},
+   "metrics": {"mean_kld": "c32", "kld_99": "c34", "top1_pct": "c37"},
+   "size": "c31", "unit": "GiB", "basis": "disk", "bpw": null,
+   "flags": ["median KLD (c33) and max KLD (c35) have no metric key, left out [L176]", "delta-PPL 0.685 is an absolute difference, not a percent, left out [L176]"]}
+ ],
+ "prose": [
+  {"entry": "IQ3_XXS", "panel": "## Quality", "key": "ppl:wikitext", "L": 178, "raw": "5.657595"},
+  {"entry": "UD-IQ3_S", "panel": "## Quality", "key": "ppl:wikitext", "L": 178, "raw": "5.701592"}
+ ]}

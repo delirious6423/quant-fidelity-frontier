@@ -1,0 +1,16 @@
+{"repo": "tomsarihan/DeepSeek-V4-Flash-0731-NVFP4",
+ "no_quality_claims": true,
+ "no_claims_reason": "size, speed and draft-acceptance figures only; conversion is claimed lossless without a number [L73-75]",
+ "weights_modified": false,
+ "method": {"reference": "MXFP4 original on the same hardware and vLLM image", "dataset": "not stated", "ctx": "1M context", "tool": "vLLM", "L": [23, 38]},
+ "entries": [
+   {"role": "own",
+    "name": "DeepSeek-V4-Flash-0731 NVFP4 experts",
+    "metrics": {},
+    "size": "c1.0",
+    "unit": "GiB",
+    "basis": "disk",
+    "bpw": null,
+    "flags": ["size is the checkpoint size, larger than the MXFP4 source [L74]", "draft acceptance figures are speculative-decoding, not mapped [L58-59]", "comparison table body under the MXFP4 heading is not in the digest, not mapped [L40]"]}
+ ],
+ "prose": []}

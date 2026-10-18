@@ -1,0 +1,18 @@
+{"repo": "steadfastgaze/DeepSeek-V4-Flash-0731-Coder-56.8GB-MoEspressoV2",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "code.utf8 (12 windows, 24,564 targets); WikiText-2 test (32 windows, 32,736 targets); 100 official API continuations (2,313 tokens); held-out rendered reasoning and tool conversations", "ctx": "2,048-token windows", "tool": "not stated", "L": [39, 40, 62, 63, 64, 69, 70]},
+ "entries": [
+  {"role": "own", "name": "This Coder package",
+   "methodology": {"reference": "not stated", "dataset": "code.utf8 (12 windows, 24,564 targets); WikiText-2 test (32 windows, 32,736 targets)", "ctx": "2,048-token windows", "tool": "not stated", "L": [39, 40, 62, 63]},
+   "metrics": {"ppl:code": "c3", "ppl:wikitext": "c9"},
+   "size": "c1", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["code, WikiText and API mean NLL have no metric key, left out [L44, L59]", "selected-token agreement with the 2.37 bpw package is not a top-1 vs reference metric, left out [L44]", "API first-token agreement 48/100 is a ratio split across ids, left out [L59]"]},
+  {"role": "ladder", "name": "MoEspresso 2.37 bpw",
+   "methodology": {"reference": "not stated", "dataset": "code.utf8 (12 windows, 24,564 targets); WikiText-2 test (32 windows, 32,736 targets)", "ctx": "2,048-token windows", "tool": "not stated", "L": [39, 40, 62, 63]},
+   "metrics": {"ppl:code": "c7", "ppl:wikitext": "c13"},
+   "size": "c5", "unit": "GB", "basis": "disk", "bpw": "c36",
+   "flags": ["NLL values have no metric key, left out [L45, L60]", "API first-token agreement 66/100 is a ratio split across ids, left out [L60]"]}
+ ],
+ "prose": []}

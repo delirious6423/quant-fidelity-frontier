@@ -1,0 +1,13 @@
+{"repo": "Rarri/DeepSeek-V4-Flash-0731-NVFP4",
+ "no_quality_claims": true,
+ "no_claims_reason": "speed, TTFT and speculative-decoding acceptance only; the MTP lossless cast is a bit-level check, not a quality metric [L39-40, L50-61, L67-68]",
+ "weights_modified": false,
+ "method": {"reference": "MXFP4 source weights (closed-form lossless cast)", "dataset": "not stated", "ctx": "131k context", "tool": "vLLM, TP=2 on 2x RTX PRO 6000 Blackwell", "L": [39, 40, 50, 51, 52]},
+ "entries": [
+  {"role": "own", "name": "DeepSeek-V4-Flash-0731 — NVFP4 routed experts (incl. MTP)",
+   "methodology": {"reference": "MXFP4 source weights (closed-form lossless cast)", "dataset": "not stated", "ctx": "131k context", "tool": "vLLM, TP=2 on 2x RTX PRO 6000 Blackwell", "L": [50, 51, 52]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["single-stream throughput and TTFT are speed measures, not mapped [L58-61]", "mean acceptance length and draft acceptance are speculative-decoding metrics, not quality, so not mapped [L67-68]", "lossless block count and max dequant error 0.0 are bit-level cast checks with no metric key, so not mapped [L39-40]"]}
+ ],
+ "prose": []}

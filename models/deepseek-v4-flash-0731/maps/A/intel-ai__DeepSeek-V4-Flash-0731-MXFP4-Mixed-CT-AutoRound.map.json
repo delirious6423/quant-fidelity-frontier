@@ -1,0 +1,10 @@
+{"repo": "intel-ai/DeepSeek-V4-Flash-0731-MXFP4-Mixed-CT-AutoRound",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "official DeepSeek-V4-Flash-0731 checkpoint (native FP4+FP8), same protocol", "dataset": "gsm8k 5-shot strict; mmlu, piqa, hellaswag 0-shot; sample counts 1 319 / 1 838 / 14 042 / 10 042", "ctx": "max_model_len=8192", "tool": "lm-eval 0.4.13 + vLLM, TP=2 on 2x B300, kv_cache_dtype=fp8, seed=42", "L": [72, 73, 74, 75, 167, 168]},
+ "entries": [
+  {"role": "cross", "name": "Official DeepSeek-V4-Flash-0731 (native FP4+FP8)", "of": "not named on card", "methodology": {"reference": "official checkpoint itself", "dataset": "gsm8k 5-shot strict; mmlu, piqa, hellaswag 0-shot", "ctx": "max_model_len=8192", "tool": "lm-eval 0.4.13 + vLLM", "L": [72, 73, 74, 75, 78]}, "metrics": {"bench:GSM8K": "c5", "bench:MMLU": "c6", "bench:PIQA": "c7", "bench:HellaSwag": "c8", "bench:AVG": "c9"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["GSM8K row is strict match [L78]"]},
+  {"role": "own", "name": "MXFP4-Mixed-CT (this checkpoint)", "methodology": {"reference": "official checkpoint itself", "dataset": "gsm8k 5-shot strict; mmlu, piqa, hellaswag 0-shot", "ctx": "max_model_len=8192", "tool": "lm-eval 0.4.13 + vLLM", "L": [72, 73, 74, 75, 79]}, "metrics": {"bench:GSM8K": "c10", "bench:MMLU": "c11", "bench:PIQA": "c12", "bench:HellaSwag": "c13", "bench:AVG": "c14"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["MXFP4 experts are W4A4; official path is FP4 weights with FP8 activations [L176]", "delta row (c15-c19) is derived, not mapped [L80]"]}
+ ],
+ "prose": []}

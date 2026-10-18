@@ -1,0 +1,20 @@
+{"repo": "rdtand/DeepSeek-V4-Flash-0731-PrismaQuant-AQUA-gridbook-87GB-spark-vllm",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 source as teacher, with teacher distribution truncated to top-8192 logits per position", "dataset": "WikiText, 8 x 512 tokens (4,088 scored positions)", "ctx": "512 tokens per sequence", "tool": "vanilla vLLM with the pinned GridBook plugin, score_positions=all", "L": [32, 33, 34, 35, 116]},
+ "entries": [
+   {"role": "own",
+    "name": "PrismaQuant AQUA (GridBook CB)",
+    "panel": "Measured quality (this exact artifact, served)",
+    "metrics": {"mean_kld": "c1", "kld_99": "c4", "ppl:wikitext": "c6"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["KL on confident positions (n=2,935), 1.0293, has no matching key, so omitted [L40]",
+              "KL max 18.078 has no matching key, so omitted [L42]",
+              "ablation deltas are against the weight-only allocation it replaced, a different artifact, so omitted [L45-49]",
+              "re-served deltas (kl_mean +0.17%, PPL -0.06%) are against the recorded gold, so omitted [L114]"]}
+ ],
+ "prose": []}

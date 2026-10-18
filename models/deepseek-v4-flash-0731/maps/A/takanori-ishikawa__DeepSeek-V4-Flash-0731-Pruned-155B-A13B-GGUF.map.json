@@ -1,0 +1,25 @@
+{
+ "repo": "takanori-ishikawa/DeepSeek-V4-Flash-0731-Pruned-155B-A13B-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "DeepSeek official API serving the unpruned FP8 release weights, same harness", "dataset": "SWE-bench Verified 100-instance subset, stratified by repository", "ctx": "not stated", "tool": "Codex CLI", "L": [159, 187]},
+ "entries": [
+  {"role": "own",
+   "name": "This build (pruned + IQ3_XXS, one Mac mini)",
+   "panel": "Delta vs. the FP8 reference weights (same harness)",
+   "methodology": {"reference": "DeepSeek official API FP8 reference, same harness", "dataset": "SWE-bench Verified 100-instance subset", "ctx": "not stated", "tool": "Codex CLI", "L": [187]},
+   "metrics": {"bench:SWE-bench Verified pass 1": "c22.2", "bench:SWE-bench Verified pass 2": "c23.2", "bench:SWE-bench Verified pass@1 mean": "c24"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["two single k=1 passes; compare k=1 with k=1 only [L196]", "gap to reference is combined pruning, IQ3_XXS and serving-stack effects [L205]", "same-100 leaderboard rows for other models omitted as different models [L163-L172]"]},
+  {"role": "cross",
+   "name": "DeepSeek official API (FP8 reference, unpruned)",
+   "of": "not named on card",
+   "panel": "Delta vs. the FP8 reference weights (same harness)",
+   "methodology": {"reference": "DeepSeek official API FP8 reference, same harness", "dataset": "SWE-bench Verified 100-instance subset", "ctx": "not stated", "tool": "Codex CLI", "L": [187]},
+   "metrics": {"bench:SWE-bench Verified pass 1": "c19.2", "bench:SWE-bench Verified pass 2": "c20.2", "bench:SWE-bench Verified pass@1 mean": "c21"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["reference is the FP8 release weights served by DeepSeek's API; no repo named on card [L187]"]}
+ ],
+ "prose": []
+}

@@ -1,0 +1,17 @@
+{"repo": "prem-research/DeepSeek-V4-Flash-0731-abliterated",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "100 harmless prompts for KL; 800 held-out harmful prompts for refusal rate", "ctx": "not stated", "tool": "not stated", "L": [48, 49, 57]},
+ "entries": [
+   {"role": "own",
+    "name": "Abliterated",
+    "metrics": {"mean_kld": "c3"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["row is labelled KL divergence with no 'mean', read as mean_kld for the 100 harmless prompts [L49, L57]",
+              "refusal rate (69% original, 3% abliterated) has no matching metric key, so omitted [L48]"]}
+ ],
+ "prose": []}

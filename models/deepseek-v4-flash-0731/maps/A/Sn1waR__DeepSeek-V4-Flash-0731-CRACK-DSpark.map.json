@@ -1,0 +1,20 @@
+{
+ "repo": "Sn1waR/DeepSeek-V4-Flash-0731-CRACK-DSpark",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "untouched source checkpoint deepseek-ai/DeepSeek-V4-Flash-0731 at revision 9e165c30e2704aec5d9d593cce3eebd58bbef1cb", "dataset": "GSM8K 100-question screen; HumanEval 32-task screen and full 164-task set; MMLU-Pro balanced 560-question set; synthetic regression suite", "ctx": "not stated", "tool": "eager/no-MTP TP=2 profile", "L": [17, 18, 51, 52, 56, 57, 58, 59, 60]},
+ "entries": [
+  {"role": "cross", "name": "Source", "of": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "methodology": {"reference": "not applicable (source checkpoint)", "dataset": "GSM8K deterministic 100-question screen", "ctx": "not stated", "tool": "eager/no-MTP TP=2 profile", "L": [51, 52, 57]},
+   "metrics": {"bench:GSM8K 100-question screen": "c2.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["upstream release named on card [L17]", "x/y counts with denominators other than 100 (synthetic 13/19, HumanEval 27/32 and 150/164, MMLU-Pro 379/560) are not turned into percentages [L56-L60]", "harmful-compliance and judge results are counts or prose without a metric key [L40-L80]"]},
+  {"role": "own", "name": "Edited",
+   "methodology": {"reference": "source checkpoint, same profile", "dataset": "GSM8K deterministic 100-question screen", "ctx": "not stated", "tool": "eager/no-MTP TP=2 profile", "L": [51, 52, 57]},
+   "metrics": {"bench:GSM8K 100-question screen": "c3.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["edited (CRACK) weights, not pruning or quantization [L14]", "edited HumanEval 148/164 and MMLU-Pro 382/560 are counts over denominators other than 100, not mapped [L59-L60]"]}
+ ],
+ "prose": []
+}

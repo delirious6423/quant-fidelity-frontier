@@ -1,0 +1,15 @@
+{"repo": "prometheusAIR/DeepSeek-V4-Flash-0731-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "release-faithful MXFP4/BF16 master", "dataset": "wikitext-2", "ctx": "512", "tool": "not stated", "L": [125, 126]},
+ "entries": [
+   {"role": "own", "name": "IQ2_XS", "metrics": {"top1:wikitext": "c9"}, "size": "c1", "unit": "GiB", "basis": null, "bpw": null,
+    "flags": ["mean KL column has no unit in the card, not mapped [L39]", "card states perplexity is deliberately not reported [L126-127]"]},
+   {"role": "own", "name": "IQ2_XXS", "metrics": {"top1:wikitext": "c10"}, "size": "c2", "unit": "GiB", "basis": null, "bpw": null,
+    "flags": ["mean KL column has no unit in the card, not mapped [L39]"]},
+   {"role": "own", "name": "IQ2_XXS-slim", "metrics": {"top1:wikitext": "c11"}, "size": "c3", "unit": "GiB", "basis": null, "bpw": null,
+    "flags": ["mean KL column has no unit in the card, not mapped [L39]", "slim variant is the one paired with the DSpark draft head [L44-48]"]}
+ ],
+ "prose": []
+}

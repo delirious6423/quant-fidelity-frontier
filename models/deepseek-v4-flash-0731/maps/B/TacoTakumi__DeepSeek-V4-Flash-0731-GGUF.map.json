@@ -1,0 +1,25 @@
+{
+ "repo": "TacoTakumi/DeepSeek-V4-Flash-0731-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "MXFP4 source (reference logits generated from the source)", "dataset": "wiki.test.raw, first 150 chunks (38250 scored positions)", "ctx": "n_ctx 512", "tool": "llama-perplexity v10155", "L": [164, 165, 167, 168, 169]},
+ "entries": [
+  {"role": "own", "name": "IQ3_XXS-D_IQ3_S",
+   "metrics": {"kld:wikitext": "c18", "top1:wikitext": "c23", "kld_99": "c20", "ppl:wikitext": "c96.3"},
+   "size": "c17", "unit": "GiB", "basis": null, "bpw": null,
+   "flags": ["quality row at L174; absolute PPL is from the text line [L178]", "delta-PPL is absolute, no matching key, not extracted [L174]", "Max KLD 12.53 has no key, not extracted [L174]"]},
+  {"role": "own", "name": "IQ3_XXS",
+   "metrics": {"kld:wikitext": "c25", "top1:wikitext": "c30", "kld_99": "c27"},
+   "size": "c24", "unit": "GiB", "basis": null, "bpw": null,
+   "flags": ["quality row at L175; absolute PPL is from the text line [L178]", "delta-PPL is absolute, no matching key, not extracted [L175]", "Max KLD 15.34 has no key, not extracted [L175]"]},
+  {"role": "cross", "name": "UD-IQ3_S", "of": "unsloth/DeepSeek-V4-Flash-0731-GGUF",
+   "metrics": {"kld:wikitext": "c32", "top1:wikitext": "c37", "kld_99": "c34"},
+   "size": "c31", "unit": "GiB", "basis": null, "bpw": null,
+   "flags": ["scored locally by this card's author against the same reference [L167, L176]", "absolute PPL is from the text line [L179]", "Max KLD 11.13 has no key; the card says it is the best single tail value [L185]"]}
+ ],
+ "prose": [
+  {"entry": "IQ3_XXS", "key": "ppl:wikitext", "L": 178, "raw": "5.657595"},
+  {"entry": "UD-IQ3_S", "key": "ppl:wikitext", "L": 179, "raw": "5.701592"}
+ ]
+}

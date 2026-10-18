@@ -1,0 +1,10 @@
+{"repo": "ox-ox/DeepSeek-V4-Flash-0731-gguf-ds4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "plain (no imatrix) build, same engine", "dataset": "wikitext-2 raw test split, first 300 KB, held out from the calibration corpus", "ctx": "32768 (-c 32768)", "tool": "ds4 --perplexity-file (single context window, teacher-forced NLL)", "L": [300, 301, 302, 315, 318, 319, 321]},
+ "entries": [
+  {"role": "own", "name": "plain (no imatrix)", "methodology": {"reference": "plain (no imatrix) build", "dataset": "wikitext-2 raw test split, first 300 KB", "ctx": "32768", "tool": "ds4 --perplexity-file", "L": [302, 315, 318]}, "metrics": {"ppl": "c19"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["512 and 8192 context runs not mapped, no context key [L300-301]", "ppl is not comparable to published wikitext perplexities [L329-332]"]},
+  {"role": "own", "name": "imatrix", "methodology": {"reference": "plain (no imatrix) build", "dataset": "wikitext-2 raw test split, first 300 KB", "ctx": "32768", "tool": "ds4 --perplexity-file", "L": [302, 315, 318]}, "metrics": {"ppl": "c20", "ppl_delta_pct": "c21"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["significance 1.7 sigma, p 0.098 at 32k not mapped [L302]", "512 and 8192 context runs not mapped, no context key [L300-301]", "card states the imatrix difference is not measurably significant on general text [L295-306]"]}
+ ],
+ "prose": []}

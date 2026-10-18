@@ -1,0 +1,23 @@
+{"repo": "KeinNiemand/DeepSeek-V4-Flash-0731-IK_GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "AD-BF16 logits (Atomic ref5632.kld)", "dataset": "WikiText-2 tokens, first 31 of 51 evaluation chunks", "ctx": "5632", "tool": "IK build (ik_llama.cpp)", "L": [91, 92, 93, 97]},
+ "entries": [
+   {"role": "own", "name": "XS_IQ1_KT", "metrics": {"ppl:wikitext": "c38", "top1:wikitext": "c41"}, "size": "c37", "unit": "GB", "basis": null, "bpw": null,
+    "flags": ["rebuilt release artifact, retested in a different build from the retained files [L85, L97]", "mean KLD column has no unit in the card, not mapped [L71-79]", "RMS delta-p has no matching metric key, not mapped [L71]"]},
+   {"role": "own", "name": "IQ1_KT", "metrics": {"ppl:wikitext": "c49", "top1:wikitext": "c52"}, "size": "c48", "unit": "GB", "basis": null, "bpw": null,
+    "flags": ["rebuilt release artifact, retested in a different build from the retained files [L85, L97]", "mean KLD column has no unit in the card, not mapped [L71-79]", "RMS delta-p has no matching metric key, not mapped [L71]"]},
+   {"role": "own", "name": "IQ2_KT", "metrics": {"ppl:wikitext": "c55", "top1:wikitext": "c58"}, "size": "c54", "unit": "GB", "basis": null, "bpw": null,
+    "flags": ["retained release artifact, measured before the rebuild [L85]", "mean KLD column has no unit in the card, not mapped [L71-79]", "RMS delta-p has no matching metric key, not mapped [L71]"]},
+   {"role": "own", "name": "IQ2_KS", "metrics": {"ppl:wikitext": "c66", "top1:wikitext": "c69"}, "size": "c65", "unit": "GB", "basis": null, "bpw": null,
+    "flags": ["retained release artifact, measured before the rebuild [L85]", "mean KLD column has no unit in the card, not mapped [L71-79]", "RMS delta-p has no matching metric key, not mapped [L71]"]},
+   {"role": "own", "name": "IQ2_KL", "metrics": {"ppl:wikitext": "c72", "top1:wikitext": "c75"}, "size": "c71", "unit": "GB", "basis": null, "bpw": null,
+    "flags": ["rebuilt release artifact, retested in a different build from the retained files [L85, L97]", "mean KLD column has no unit in the card, not mapped [L71-79]", "RMS delta-p has no matching metric key, not mapped [L71]"]},
+   {"role": "cross", "name": "AD-IQ1_M_XL", "of": "not named on card", "metrics": {"ppl:wikitext": "c43", "top1:wikitext": "c46"}, "size": "c42", "unit": "GB", "basis": null, "bpw": null,
+    "flags": ["Atomic reference run, rerun locally through the 31-chunk harness [L99]", "mean KLD column has no unit in the card, not mapped [L74]"]},
+   {"role": "cross", "name": "AD-IQ2_S", "of": "not named on card", "metrics": {"ppl:wikitext": "c60", "top1:wikitext": "c63"}, "size": "c59", "unit": "GB", "basis": null, "bpw": null,
+    "flags": ["Atomic reference run, rerun locally through the 31-chunk harness [L99]", "mean KLD column has no unit in the card, not mapped [L77]"]}
+ ],
+ "prose": []
+}

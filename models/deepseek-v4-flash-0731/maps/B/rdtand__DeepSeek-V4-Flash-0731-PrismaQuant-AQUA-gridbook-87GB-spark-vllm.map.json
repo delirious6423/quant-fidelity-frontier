@@ -1,0 +1,11 @@
+{"repo": "rdtand/DeepSeek-V4-Flash-0731-PrismaQuant-AQUA-gridbook-87GB-spark-vllm",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 source", "dataset": "WikiText gold contract, 8 x 512 tokens (4,088 scored positions)", "ctx": "512-token sequences", "tool": "vanilla vLLM with pinned GridBook plugin, score_positions=all", "L": [32, 33, 34, 35]},
+ "entries": [
+   {"role": "own", "name": "PrismaQuant AQUA (GridBook CB)", "metrics": {"ppl:wikitext": "c6"}, "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["KL rows not mapped: the unit is not stated in the table [L37-42]", "size stated in prose only [L21]", "ablation deltas are against a replaced allocation, not mapped [L45-49]", "teacher distribution is top-8192 truncated [L116]"]}
+ ],
+ "prose": []
+}

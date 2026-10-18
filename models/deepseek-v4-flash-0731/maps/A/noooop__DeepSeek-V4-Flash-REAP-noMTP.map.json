@@ -1,0 +1,12 @@
+{"repo": "noooop/DeepSeek-V4-Flash-REAP-noMTP",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "per row: JCommonsenseQA full 1,119 3-shot; English MMLU 570-item diagnostic; global_mmlu zh/ja/en full 400; perplexity on 262,016 held-out tokens; RULER 12-task mean", "ctx": "64K context", "tool": "vLLM", "L": [121, 124, 126, 132]},
+ "entries": [
+  {"role": "own", "name": "DeepSeek-V4-Flash-REAP-noMTP",
+   "metrics": {"bench:JCommonsenseQA": "c1", "bench:MMLU_570": "c3", "bench:global_mmlu_zh": "c5", "bench:global_mmlu_ja": "c7", "bench:global_mmlu_en": "c9", "ppl": "c11", "bench:RULER_4K": "c12.0", "bench:RULER_16K": "c12.1", "bench:RULER_32K": "c12.2", "bench:RULER_64K": "c12.3"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["comparison table with DeepSeek-V4-Flash-0731 unpruned and other models (L204-214) left out: measured on a different model", "RULER 85.6 effective-length threshold is a baseline, not mapped [L132]"]}
+ ],
+ "prose": []}

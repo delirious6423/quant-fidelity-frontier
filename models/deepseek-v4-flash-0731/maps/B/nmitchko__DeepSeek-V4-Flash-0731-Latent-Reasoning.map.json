@@ -1,0 +1,33 @@
+{"repo": "nmitchko/DeepSeek-V4-Flash-0731-Latent-Reasoning",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "BBH (BIG-Bench Hard) cot_zeroshot, 27 subtasks", "ctx": "not stated", "tool": "lm-evaluation-harness 0.4.12, exact_match / flexible-extract", "L": [51, 55, 56, 57]},
+ "entries": [
+   {"role": "own",
+    "name": "DeepSeek-V4-Flash-0731-Latent-Reasoning",
+    "metrics": {
+      "bench:tracking_shuffled_objects_three_objects": "c1",
+      "bench:tracking_shuffled_objects_five_objects": "c3",
+      "bench:tracking_shuffled_objects_seven_objects": "c5",
+      "bench:penguins_in_a_table": "c7",
+      "bench:formal_fallacies": "c9",
+      "bench:boolean_expressions": "c11",
+      "bench:word_sorting": "c13",
+      "bench:temporal_sequences": "c15",
+      "bench:object_counting": "c17",
+      "bench:navigate": "c19",
+      "bench:logical_deduction_three_objects": "c21",
+      "bench:reasoning_about_colored_objects": "c23",
+      "bench:hyperbaton": "c25",
+      "bench:multistep_arithmetic_two": "c26",
+      "bench:logical_deduction_seven_objects": "c27"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["right-column subtask names are not in the candidate rows, so those values are left out [L59-72]", "aggregate is stated in prose and not a candidate cell [L51]", "per-subtask values are noisy and the aggregate is the stated reliable figure [L87-88]", "backbone is frozen NVFP4 with a learned stop head added [L135]"]}
+ ],
+ "prose": [
+   {"entry": "DeepSeek-V4-Flash-0731-Latent-Reasoning", "key": "bench:BBH", "L": 51, "raw": "aggregate 0.880"}
+ ]}

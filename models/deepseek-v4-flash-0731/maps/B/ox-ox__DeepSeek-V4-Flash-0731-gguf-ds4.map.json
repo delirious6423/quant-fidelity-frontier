@@ -1,0 +1,17 @@
+{"repo": "ox-ox/DeepSeek-V4-Flash-0731-gguf-ds4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "plain (no imatrix) build", "dataset": "wikitext-2 raw test split, first 300 KB", "ctx": "32768", "tool": "ds4 --perplexity-file", "L": [315, 318, 457]},
+ "entries": [
+   {"role": "own", "name": "imatrix build", "panel": "Does the imatrix actually help?",
+    "methodology": {"reference": "plain (no imatrix) build", "dataset": "wikitext-2 raw test split, first 300 KB", "ctx": "32768", "tool": "ds4 --perplexity-file", "L": [315, 318]},
+    "metrics": {"ppl:wikitext": "c20", "ppl_delta_pct": "c21"}, "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["only the 32768 run is mapped; the 512 and 8192 runs repeat the same entry names [L300-301]", "single-window score, not comparable to published wikitext values [L329-331]", "delta is imatrix vs plain, as the table states it [L302]"]},
+   {"role": "ladder", "name": "plain (no imatrix)", "panel": "Does the imatrix actually help?",
+    "methodology": {"reference": "plain (no imatrix) build", "dataset": "wikitext-2 raw test split, first 300 KB", "ctx": "32768", "tool": "ds4 --perplexity-file", "L": [315, 318]},
+    "metrics": {"ppl:wikitext": "c19"}, "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["only the 32768 run is mapped [L302]"]}
+ ],
+ "prose": []
+}

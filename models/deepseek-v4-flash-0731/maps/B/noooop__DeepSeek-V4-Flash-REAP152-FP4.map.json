@@ -1,0 +1,19 @@
+{"repo": "noooop/DeepSeek-V4-Flash-REAP152-FP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "205-question generative MMLU sample", "ctx": "not stated", "tool": "not stated", "L": [108, 109]},
+ "entries": [
+   {"role": "own", "name": "this build (REAP152)", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["MMLU figure is from a small diagnostic sample [L109, L363]"]},
+   {"role": "ladder", "name": "REAP128-FP4", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["'its' at L109 read as the REAP128 sibling named at L105"]},
+   {"role": "cross", "name": "DeepSeek-V4-Flash-UD-IQ2_M", "of": "not named on card", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["unpruned 256-expert 2-bit control, same MMLU sample [L114-115]", "size stated in prose only [L114]"]}
+ ],
+ "prose": [
+   {"entry": "this build (REAP152)", "key": "bench:MMLU", "L": 109, "raw": "scored **58.05%**"},
+   {"entry": "REAP128-FP4", "key": "bench:MMLU", "L": 109, "raw": "against its **51.22%**"},
+   {"entry": "DeepSeek-V4-Flash-UD-IQ2_M", "key": "bench:MMLU", "L": 115, "raw": "scored **84.39%**"}
+ ]
+}

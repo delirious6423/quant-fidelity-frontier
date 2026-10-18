@@ -1,0 +1,9 @@
+{"repo": "nmitchko/DeepSeek-V4-Flash-0731-Latent-Reasoning",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "BBH cot_zeroshot, 27 subtasks, 50 items per subtask (1350 items)", "ctx": "not stated", "tool": "lm-evaluation-harness 0.4.12 against an OpenAI-compatible endpoint, exact_match flexible-extract, thinking enabled", "L": [51, 53, 55, 56, 57, 87, 88]},
+ "entries": [
+  {"role": "own", "name": "DeepSeek-V4-Flash-0731-Latent-Reasoning", "methodology": {"reference": "not stated", "dataset": "BBH cot_zeroshot, 50 items per subtask", "ctx": "not stated", "tool": "lm-evaluation-harness 0.4.12, exact_match flexible-extract, thinking enabled", "L": [51, 53, 55, 56, 57, 59, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75]}, "metrics": {"bench:tracking_shuffled_objects_three_objects": "c1", "bench:tracking_shuffled_objects_five_objects": "c3", "bench:tracking_shuffled_objects_seven_objects": "c5", "bench:penguins_in_a_table": "c7", "bench:formal_fallacies": "c9", "bench:boolean_expressions": "c11", "bench:word_sorting": "c13", "bench:temporal_sequences": "c15", "bench:object_counting": "c17", "bench:navigate": "c19", "bench:logical_deduction_three_objects": "c21", "bench:reasoning_about_colored_objects": "c23", "bench:hyperbaton": "c25", "bench:multistep_arithmetic_two": "c26", "bench:logical_deduction_seven_objects": "c27"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["left-column subtask scores only; the right-column subtask names are not captured, so their 12 scores are not mapped [L59-75]", "per-subtask values carry about ±0.05-0.07 [L87-88]"]}
+ ],
+ "prose": [{"entry": "DeepSeek-V4-Flash-0731-Latent-Reasoning", "key": "bench:BBH cot_zeroshot aggregate", "L": 51, "raw": "aggregate 0.880 ± 0.008"}]}

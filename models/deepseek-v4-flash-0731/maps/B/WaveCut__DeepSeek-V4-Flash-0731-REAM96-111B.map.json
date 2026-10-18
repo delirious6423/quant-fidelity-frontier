@@ -1,0 +1,18 @@
+{"repo": "WaveCut/DeepSeek-V4-Flash-0731-REAM96-111B",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "10 live multi-turn smoke scenarios", "ctx": "not stated", "tool": "not stated", "L": [43, 83]},
+ "entries": [
+  {"role": "own", "name": "DeepSeek V4 Flash — REAM96 (111B)",
+   "methodology": {"reference": "not stated", "dataset": "10 live multi-turn smoke scenarios", "ctx": "not stated", "tool": "not stated", "L": [43, 83, 85]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["smoke pass counts (5/10 on first run) and per-scenario stability rates are not in the candidate list and have no metric key, so not mapped [L43, L85-99]", "smoke runs were on the companion 2-bit GGUF build, not this full-precision source, and the card calls them a lower bound for this source [L83]"]},
+  {"role": "ladder", "name": "companion 2-bit GGUF build",
+   "methodology": {"reference": "not stated", "dataset": "10 live multi-turn smoke scenarios", "ctx": "not stated", "tool": "not stated", "L": [83]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["the smoke results on this card were measured on this build [L83]", "its own numbers are in a companion repo's SMOKE_REPORT.json, not on this card"]}
+ ],
+ "prose": []}

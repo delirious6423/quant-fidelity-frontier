@@ -1,0 +1,14 @@
+{
+ "repo": "WaveCut/DeepSeek-V4-Flash-0731-REAM144-163B",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "~5-million-token calibration mix (multi-turn dialogs, thinking and direct modes)", "ctx": "not stated", "tool": "not stated", "L": [61, 62, 83]},
+ "entries": [
+  {"role": "own", "name": "REAM144 (163B) full-precision source",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["smoke-test pass counts (7/10 first run, per-scenario stability) are counts, not percentages; left out [L43, L85-99]", "smoke results are on the companion 2-bit GGUF, not on this repo [L83]", "about 96 GB sharded safetensors stated in prose [L47]", "calibration domain shares are not quality values [L66-76]"]}
+ ],
+ "prose": []
+}

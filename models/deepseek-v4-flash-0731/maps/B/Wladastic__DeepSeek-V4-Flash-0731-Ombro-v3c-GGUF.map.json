@@ -1,0 +1,22 @@
+{
+ "repo": "Wladastic/DeepSeek-V4-Flash-0731-Ombro-v3c-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "held-out local corpus (nine 4096-token chunks from a holdout)", "ctx": "4096-token chunks", "tool": "not stated", "L": [39, 40, 41, 52]},
+ "entries": [
+  {"role": "own", "name": "Ombro v3c",
+   "metrics": {"ppl": "c7"},
+   "size": "c6", "unit": "GB", "basis": null, "bpw": null,
+   "flags": ["held-out corpus is not named, so the plain ppl key is used [L52]", "size basis not stated [L46]", "no KL, long-context, or coding accuracy measured [L160]"]},
+  {"role": "ladder", "name": "Ombro v1",
+   "metrics": {"ppl": "c3"},
+   "size": "c2", "unit": "GB", "basis": null, "bpw": null,
+   "flags": ["size basis not stated [L44]"]},
+  {"role": "ladder", "name": "Ombro v3",
+   "metrics": {"ppl": "c5"},
+   "size": "c4", "unit": "GB", "basis": null, "bpw": null,
+   "flags": ["size basis not stated [L45]", "intermediate experiment, not released [L48]"]}
+ ],
+ "prose": []
+}

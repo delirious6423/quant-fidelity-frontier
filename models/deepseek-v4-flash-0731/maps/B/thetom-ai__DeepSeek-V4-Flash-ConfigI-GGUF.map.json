@@ -1,0 +1,15 @@
+{"repo": "thetom-ai/DeepSeek-V4-Flash-ConfigI-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "Wikitext", "ctx": "512 (60 chunks); 2048 (15 chunks)", "tool": "CUDA (GB10)", "L": [62]},
+ "entries": [
+  {"role": "own", "name": "Config-I hybrid (2.88 bpw)",
+   "methodology": {"reference": "not stated", "dataset": "Wikitext", "ctx": "512 (60 chunks)", "tool": "CUDA (GB10)", "L": [62]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": "c11",
+   "flags": ["ctx 2048 Wikitext PPL 12.86 ± 0.29 (15 chunks) [L62] left out, since its key would collide with the ctx 512 value", "card notes its observed-behaviour measurements were taken under heavy I/O contention, with quiet re-runs pending [L65]"]}
+ ],
+ "prose": [
+  {"entry": "Config-I hybrid (2.88 bpw)", "key": "ppl:wikitext", "L": 62, "raw": "15.64"}
+ ]}

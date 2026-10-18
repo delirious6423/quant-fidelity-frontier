@@ -1,0 +1,20 @@
+{"repo": "thetom-ai/DeepSeek-V4-Flash-ConfigI-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "Wikitext", "ctx": "512 and 2048 (per entry)", "tool": "not stated", "L": [62]},
+ "entries": [
+  {"role": "own", "name": "DeepSeek-V4-Flash Config-I (2.88 bpw hybrid)", "panel": "## Quality",
+   "methodology": {"reference": "not stated", "dataset": "Wikitext", "ctx": "512 (60 chunks)", "tool": "not stated", "L": [62]},
+   "metrics": {"ppl:wikitext": "c17"},
+   "size": null, "unit": null, "basis": null, "bpw": "c11",
+   "flags": ["measured on CUDA (GB10) [L62]"]},
+  {"role": "own", "name": "DeepSeek-V4-Flash Config-I (2.88 bpw hybrid, ctx 2048)", "panel": "## Quality",
+   "methodology": {"reference": "not stated", "dataset": "Wikitext", "ctx": "2048 (15 chunks)", "tool": "not stated", "L": [62]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": "c11",
+   "flags": ["ppl value given as prose below, since no candidate id covers it [L62]"]}
+ ],
+ "prose": [
+  {"entry": "DeepSeek-V4-Flash Config-I (2.88 bpw hybrid, ctx 2048)", "panel": "## Quality", "key": "ppl:wikitext", "L": 62, "raw": "12.86 ± 0.29"}
+ ]}

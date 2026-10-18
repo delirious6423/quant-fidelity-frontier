@@ -1,0 +1,13 @@
+{"repo": "noooop/DeepSeek-V4-Flash-REAP-noMTP",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "Evaluation table: JCommonsenseQA, English MMLU (570-item diagnostic), global_mmlu zh/ja/en, held-out perplexity, RULER", "ctx": "64K context", "tool": "vLLM on DGX Spark, fp8 KV cache", "L": [121, 122, 124]},
+ "entries": [
+   {"role": "own", "name": "DeepSeek-V4-Flash-REAP-noMTP",
+    "metrics": {"bench:JCommonsenseQA-full1119-3shot": "c1", "bench:English-MMLU-570": "c3", "bench:global_mmlu_zh-full400": "c5", "bench:global_mmlu_ja-full400": "c7", "bench:global_mmlu_en-full400": "c9", "ppl": "c11", "bench:RULER-4K": "c12.0", "bench:RULER-16K": "c12.1", "bench:RULER-32K": "c12.2", "bench:RULER-64K": "c12.3"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["size is stated in prose only [L16]", "RULER baseline is a threshold, not a measured result, not mapped [L134]", "the MTP-carrying sibling builds are not measured in this table [L45-58]", "the DeepSeek-V4 benchmark table is the unpruned model, omitted as a different model [L203-214]"]}
+ ],
+ "prose": []
+}

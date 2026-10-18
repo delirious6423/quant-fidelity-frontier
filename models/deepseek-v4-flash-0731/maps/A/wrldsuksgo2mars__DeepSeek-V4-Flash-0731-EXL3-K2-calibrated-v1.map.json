@@ -1,0 +1,13 @@
+{"repo": "wrldsuksgo2mars/DeepSeek-V4-Flash-0731-EXL3-K2-calibrated-v1",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "matched v0 control", "dataset": "Tool Eval Bench 2.3.2 expanded 69-scenario suite", "ctx": "not stated", "tool": "matched DS4RT run with adaptive dSpark; Tool Eval Bench 2.3.2", "L": [36, 38]},
+ "entries": [
+  {"role": "own", "name": "v1", "methodology": {"reference": "matched v0 control", "dataset": "Tool Eval Bench 2.3.2 expanded 69-scenario suite", "ctx": "not stated", "tool": "DS4RT matched run, Tool Eval Bench 2.3.2", "L": [38]}, "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["scored 86/100 with decode assistance off and on [L38]", "acceptance and throughput figures are not quality metrics and are not mapped [L38]"]},
+  {"role": "ladder", "name": "v0 control", "methodology": {"reference": "not stated", "dataset": "Tool Eval Bench 2.3.2 expanded 69-scenario suite", "ctx": "not stated", "tool": "DS4RT matched run, Tool Eval Bench 2.3.2", "L": [38]}, "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["scored 88/100 in both modes [L38]"]}
+ ],
+ "prose": [
+  {"entry": "v1", "key": "bench:Tool Eval Bench 2.3.2 (69 scenarios)", "L": 38, "raw": "86/100"},
+  {"entry": "v0 control", "key": "bench:Tool Eval Bench 2.3.2 (69 scenarios)", "L": 38, "raw": "88/100"}
+ ]}

@@ -1,0 +1,12 @@
+{"repo": "otheru/DeepSeek-V4-Flash-Strix-Halo-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "136 behavioural cases: held-out harmful prompts, XSTest-style over-refusal set, coherence/agentic", "ctx": "greedy (temperature 0, top_p 1, seed 42), reasoning pass disabled", "tool": "not stated", "L": [160, 165, 166, 167]},
+ "entries": [
+  {"role": "own", "name": "Strix Halo ROCmFPx GGUF (2.58 BPW)",
+   "metrics": {"bench:refusal_bypass_harmful": "c36", "bench:over_refusal_xstest": "c38"},
+   "size": null, "unit": null, "basis": null, "bpw": "c41",
+   "flags": ["coherence/agentic 7/8 is a ratio split across ids, left out [L167]", "prefill and decode throughput have no metric key, left out [L61-L78]", "quality of the 2.58 BPW quantization is stated as unmeasured [L98-L104]"]}
+ ],
+ "prose": []}

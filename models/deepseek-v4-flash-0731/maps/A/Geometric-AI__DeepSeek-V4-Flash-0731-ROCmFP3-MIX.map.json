@@ -1,0 +1,16 @@
+{"repo": "Geometric-AI/DeepSeek-V4-Flash-0731-ROCmFP3-MIX",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "published reference artifact for this checkpoint (2.88 bpw, 82/92)", "dataset": "ds4-eval 92 items (COMPSEC-17, AIME2025, GPQA-Diamond)", "ctx": "think budget 15488 (COMPSEC-17)", "tool": "ds4-eval --regrade-trace (self-check 92/92), dflash serving with fused decode off", "L": [17, 21, 22, 27, 28, 29, 30, 31]},
+ "entries": [
+  {"role": "own", "name": "ds4-0731-gu106down-v3.gguf", "panel": "Quality", "methodology": {"reference": "published reference artifact (2.88 bpw, 82/92)", "dataset": "ds4-eval 92 items (COMPSEC-17, AIME2025, GPQA-Diamond)", "ctx": "think budget 15488", "tool": "ds4-eval --regrade-trace, dflash serving, fused decode off", "L": [21, 22, 27, 28, 29, 30, 31]}, "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["fraction scores are mapped as prose because the cell is x/y [L21-22]"]},
+  {"role": "own", "name": "quality (default)", "panel": "Serving configs (measured, Radeon 8060S iGPU, 128 GB)", "methodology": {"reference": "published reference artifact (2.88 bpw, 82/92)", "dataset": "COMPSEC-17", "ctx": "not stated", "tool": "dflash serving, fused decode off", "L": [42, 45]}, "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["model-default top-k 6 [L42]"]},
+  {"role": "own", "name": "throughput", "panel": "Serving configs (measured, Radeon 8060S iGPU, 128 GB)", "methodology": {"reference": "published reference artifact (2.88 bpw, 82/92)", "dataset": "COMPSEC-17", "ctx": "not stated", "tool": "dflash serving, fused decode on", "L": [43, 37]}, "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["expert top-k 4 with fused decode; card states it costs measured quality [L37-43]"]}
+ ],
+ "prose": [
+  {"entry": "ds4-0731-gu106down-v3.gguf", "panel": "Quality", "key": "bench:COMPSEC-17", "L": 21, "raw": "17/17"},
+  {"entry": "ds4-0731-gu106down-v3.gguf", "panel": "Quality", "key": "bench:ds4-eval-92", "L": 22, "raw": "82/92"},
+  {"entry": "quality (default)", "panel": "Serving configs (measured, Radeon 8060S iGPU, 128 GB)", "key": "bench:COMPSEC-17", "L": 42, "raw": "17/17"},
+  {"entry": "throughput", "panel": "Serving configs (measured, Radeon 8060S iGPU, 128 GB)", "key": "bench:COMPSEC-17", "L": 43, "raw": "16/17"}
+ ]}

@@ -1,0 +1,10 @@
+{"repo": "mlx-community/DeepSeek-V4-Flash-0731-2.4bit-mixed",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "DeepSeek V4 Flash 0731 bf16 (hosted API, same prompts, max_tokens and temperature 0)", "dataset": "mmlu_pro, n=600 seeded samples", "ctx": "not stated", "tool": "not stated", "L": [74, 75, 76]},
+ "entries": [
+  {"role": "own", "name": "DeepSeek-V4-Flash-0731-2.4bit-mixed", "methodology": {"reference": "DeepSeek V4 Flash 0731 bf16 (hosted API)", "dataset": "mmlu_pro, n=600 seeded samples, thinking off, greedy", "ctx": "not stated", "tool": "not stated", "L": [74, 76]}, "metrics": {"bench:mmlu_pro": "c48"}, "size": "c46", "unit": "GB", "basis": "disk", "bpw": "c47", "flags": ["rough sighting at n=600, standard error about 2 points per row [L74-81]", "card text states a 7.3-point gap to bf16 [L81]"]},
+  {"role": "cross", "name": "DeepSeek V4 Flash 0731 (API, bf16)", "of": "not named on card", "methodology": {"reference": "DeepSeek V4 Flash 0731 bf16 (hosted API)", "dataset": "mmlu_pro, n=600 seeded samples, thinking off, greedy", "ctx": "not stated", "tool": "not stated", "L": [74, 76, 79]}, "metrics": {"bench:mmlu_pro": "c50"}, "size": null, "unit": null, "basis": null, "bpw": "c49", "flags": ["hosted API row, measured by this card's author; base repo named at L17 [L79]"]}
+ ],
+ "prose": []}

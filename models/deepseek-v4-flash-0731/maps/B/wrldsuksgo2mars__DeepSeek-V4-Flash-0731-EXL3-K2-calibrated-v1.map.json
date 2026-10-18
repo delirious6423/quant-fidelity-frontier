@@ -1,0 +1,21 @@
+{"repo": "wrldsuksgo2mars/DeepSeek-V4-Flash-0731-EXL3-K2-calibrated-v1",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "Tool Eval Bench 2.3.2 expanded 69-scenario suite", "ctx": "not stated", "tool": "Tool Eval Bench 2.3.2", "L": [36, 38]},
+ "entries": [
+  {"role": "own", "name": "DeepSeek V4 Flash 0731 EXL3 K2 calibrated v1",
+   "methodology": {"reference": "not stated", "dataset": "Tool Eval Bench 2.3.2 expanded 69-scenario suite", "ctx": "not stated", "tool": "Tool Eval Bench 2.3.2", "L": [38]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["2 bpw stated in prose only [L14]", "reconstruction cosine similarity and relative L2 fidelity figures have no matching metric key, so not mapped [L36]", "same Tool Eval score in both decode-assistance modes, given in prose [L38]"]},
+  {"role": "ladder", "name": "v0 control",
+   "methodology": {"reference": "not stated", "dataset": "Tool Eval Bench 2.3.2 expanded 69-scenario suite", "ctx": "not stated", "tool": "Tool Eval Bench 2.3.2", "L": [38]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["matched control build of the same card, score given in prose [L38]"]}
+ ],
+ "prose": [
+  {"entry": "DeepSeek V4 Flash 0731 EXL3 K2 calibrated v1", "key": "bench:Tool Eval Bench 2.3.2 (69-scenario)", "L": 38, "raw": "scored v1 at 86/100 with decode assistance disabled and enabled"},
+  {"entry": "v0 control", "key": "bench:Tool Eval Bench 2.3.2 (69-scenario)", "L": 38, "raw": "scored 88/100 in both modes"}
+ ]}

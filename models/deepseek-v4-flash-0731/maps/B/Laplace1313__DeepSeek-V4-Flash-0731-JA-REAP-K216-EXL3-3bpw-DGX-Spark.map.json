@@ -1,0 +1,13 @@
+{"repo": "Laplace1313/DeepSeek-V4-Flash-0731-JA-REAP-K216-EXL3-3bpw-DGX-Spark",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "eight benchmarks, see row labels", "ctx": "per row (MMLU full uses 5-shot, others 0-shot)", "tool": "not stated", "L": [109, 124]},
+ "entries": [
+   {"role": "own", "name": "DeepSeek V4 Flash JA REAP K216",
+    "metrics": {"bench:MMLU-5shot-full": "c6.0", "bench:MMLU-0shot-200": "c7.0", "bench:ARC-Challenge-0shot-200": "c8.0", "bench:HellaSwag-0shot-200": "c9.0", "bench:GSM8K-0shot-100": "c10.0", "bench:MMLU-ProX-JA-200": "c11.0", "bench:HumanEval-pass1-50": "c12.0", "bench:MBPP-sanitized-pass1-50": "c13.0"},
+    "size": null, "unit": null, "basis": null, "bpw": "c20",
+    "flags": ["routed experts are pruned to K216 [L23, L130]", "size is in a separate file table, not mapped [L134]", "fixed-seed 0-shot results, except the full MMLU 5-shot row [L109, L115]"]}
+ ],
+ "prose": []
+}

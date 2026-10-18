@@ -1,0 +1,13 @@
+{"repo": "prem-research/DeepSeek-V4-Flash-0731-abliterated",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "100 harmless prompts (KL eval); 800 held-out harmful prompts (refusal eval)", "ctx": "not stated", "tool": "not stated", "L": [48, 49, 55, 57]},
+ "entries": [
+  {"role": "own", "name": "DeepSeek-V4-Flash-0731 Abliterated (ARA)",
+   "methodology": {"reference": "not stated", "dataset": "100 harmless prompts", "ctx": "not stated", "tool": "not stated", "L": [49, 55, 57]},
+   "metrics": {"kld:harmless prompts": "c3"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["KL aggregation (per-token mean, top-k or full vocabulary) and reference model are not stated in the digest [L49, L55]", "refusal rates 69% (original) and 3% (abliterated) on 800 harmful prompts are behavioural, not quality measures, so not mapped [L48]"]}
+ ],
+ "prose": []}

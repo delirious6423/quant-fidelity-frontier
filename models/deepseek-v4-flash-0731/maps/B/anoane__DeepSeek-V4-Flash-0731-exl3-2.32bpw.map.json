@@ -1,0 +1,22 @@
+{
+ "repo": "anoane/DeepSeek-V4-Flash-0731-exl3-2.32bpw",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "2.72 bpw hybrid pack, measured identically", "dataset": "364,544 held-out tokens across 24 engineering and software domains", "ctx": "not stated", "tool": "not stated", "L": [61, 62, 70, 117, 121]},
+ "entries": [
+  {"role": "own", "name": "2.32 bpw uniform",
+   "metrics": {"ppl": "c11"},
+   "size": "c17", "unit": "GB", "basis": "disk", "bpw": "c23",
+   "flags": ["size is the 'on disk' value in the same table [L41]", "bpw from the expert bitrate row [L94]", "NLL 0.6485 has no metric key, not extracted [L35]", "+1.00% delta is inside the same cell as the value, not extracted [L36]"]},
+  {"role": "ladder", "name": "2.54 bpw uniform",
+   "metrics": {"ppl": "c10"},
+   "size": "c16", "unit": "GB", "basis": "disk", "bpw": "c19",
+   "flags": ["NLL 0.6451 has no metric key, not extracted [L35]", "+0.66% delta is inside the same cell as the value, not extracted [L36]"]},
+  {"role": "ladder", "name": "2.72 bpw hybrid",
+   "metrics": {"ppl": "c9"},
+   "size": "c15", "unit": "GB", "basis": "disk", "bpw": "c18",
+   "flags": ["NLL 0.6385 has no metric key, not extracted [L35]", "reference pack for the deltas [L121]"]}
+ ],
+ "prose": []
+}

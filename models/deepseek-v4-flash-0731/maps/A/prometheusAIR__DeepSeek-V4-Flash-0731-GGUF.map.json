@@ -1,0 +1,25 @@
+{
+ "repo": "prometheusAIR/DeepSeek-V4-Flash-0731-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "release-faithful MXFP4/BF16 master", "dataset": "wikitext-2", "ctx": "-c 512 --chunks 100", "tool": "not stated", "L": [125, 126]},
+ "entries": [
+  {"role": "own", "name": "IQ2_XS",
+   "methodology": {"reference": "release-faithful MXFP4/BF16 master", "dataset": "wikitext-2", "ctx": "-c 512 --chunks 100", "tool": "not stated", "L": [125, 126]},
+   "metrics": {"kld:wikitext-2": "c6", "top1:wikitext-2": "c9"},
+   "size": "c1", "unit": "GiB", "basis": "disk", "bpw": null,
+   "flags": ["size is from the Size row of the same table [L34]", "KL estimator (full-vocabulary or top-k) is not stated [L125]", "perplexity is deliberately not reported [L126-L127]"]},
+  {"role": "own", "name": "IQ2_XXS",
+   "methodology": {"reference": "release-faithful MXFP4/BF16 master", "dataset": "wikitext-2", "ctx": "-c 512 --chunks 100", "tool": "not stated", "L": [125, 126]},
+   "metrics": {"kld:wikitext-2": "c7", "top1:wikitext-2": "c10"},
+   "size": "c2", "unit": "GiB", "basis": "disk", "bpw": null,
+   "flags": ["size is from the Size row of the same table [L34]", "KL estimator (full-vocabulary or top-k) is not stated [L125]", "perplexity is deliberately not reported [L126-L127]"]},
+  {"role": "own", "name": "IQ2_XXS-slim",
+   "methodology": {"reference": "release-faithful MXFP4/BF16 master", "dataset": "wikitext-2", "ctx": "-c 512 --chunks 100", "tool": "not stated", "L": [125, 126]},
+   "metrics": {"kld:wikitext-2": "c8", "top1:wikitext-2": "c11"},
+   "size": "c3", "unit": "GiB", "basis": "disk", "bpw": null,
+   "flags": ["size is from the Size row of the same table [L34]", "KL estimator (full-vocabulary or top-k) is not stated [L125]", "retrieval probe results (27/27 depth probes) have no metric key, not mapped [L119-L123]"]}
+ ],
+ "prose": []
+}

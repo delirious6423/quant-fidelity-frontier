@@ -1,0 +1,18 @@
+{
+ "repo": "Sn1waR/DeepSeek-V4-Flash-0731-CRACK-DSpark",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "source checkpoint deepseek-ai/DeepSeek-V4-Flash-0731 at revision 9e165c30e2704aec5d9d593cce3eebd58bbef1cb", "dataset": "GSM8K 100-question screen; HumanEval 32-task screen and full 164-task; MMLU-Pro balanced 560-question", "ctx": "not stated", "tool": "eager, no-MTP, TP=2 profile", "L": [17, 18, 51, 52, 53, 56, 57, 58, 59, 60]},
+ "entries": [
+  {"role": "own", "name": "Edited",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["pass counts (n/N) for GSM8K, HumanEval and MMLU-Pro are counts, not percentages; left out [L57-60]", "synthetic regression 13/19 is a count; left out [L56]", "full HumanEval delta -1.22 pp stated in prose; not extracted [L62]", "harmful-prompt judge and 18.58/20 dialogue scores not extracted [L67-79]"]},
+  {"role": "cross", "name": "Source", "of": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["source pass counts (n/N) are counts; left out [L56-60]"]}
+ ],
+ "prose": []
+}

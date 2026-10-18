@@ -1,0 +1,20 @@
+{
+ "repo": "squanchyzx/DeepSeek-V4-Flash-0731-HERETIC-Abliterated-FP8",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "unmodified official DeepSeek-V4-Flash-0731 checkpoint (matched stock arm)", "dataset": "small strict objective suite, refusal smoke, blind 3-judge qualitative comparison (12 pairs)", "ctx": "512-token generation budget for the quality smoke", "tool": "not stated", "L": [73, 74, 99, 100, 103, 104, 105, 106, 107]},
+ "entries": [
+  {"role": "own", "name": "HERETIC Abliterated FP8 v2",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["refusal smoke 37.5% stated in long-context section [L74]", "matched A/B counts (tool 6/6, quality 9/12, refusal 6/16, judge 2 vs 6) are counts and a mean score; left out [L103-107]", "bounded release tests, not a universal benchmark [L76]"]},
+  {"role": "cross", "name": "stock official DeepSeek-V4-Flash-0731", "of": "not named on card",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["stock arm counts (quality 10/12, refusal 15/16, tool 6/6) are counts; left out [L104-106]", "stock blind-judge mean 7.500 vs 7.417 is a mean score with no key; left out [L107]"]}
+ ],
+ "prose": [
+  {"entry": "HERETIC Abliterated FP8 v2", "key": "bench:RefusalSmoke", "L": 74, "raw": "37.5%"}
+ ]
+}

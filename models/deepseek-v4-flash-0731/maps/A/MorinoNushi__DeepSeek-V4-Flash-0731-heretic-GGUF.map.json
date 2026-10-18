@@ -1,0 +1,17 @@
+{"repo": "MorinoNushi/DeepSeek-V4-Flash-0731-heretic-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "UD-Q8_K_XL base", "dataset": "140 harmful prompts (mlabonne/harmful_behaviors test + 40 custom); 100 harmless prompts (mlabonne/harmless_alpaca test)", "ctx": "greedy decoding, 100-token responses", "tool": "not stated", "L": [48, 49, 50, 51]},
+ "entries": [
+  {"role": "own", "name": "DeepSeek-V4-Flash-0731 Heretic — merged GGUF (UD-Q8_K_XL)",
+   "methodology": {"reference": "UD-Q8_K_XL base", "dataset": "140 harmful prompts; 100 harmless prompts", "ctx": "greedy decoding, 100-token responses", "tool": "not stated", "L": [48, 49, 50, 51, 63]},
+   "metrics": {"bench:refusal_rate_harmful": "c3", "kld:harmless_prompts": "c4"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["the card notes these scores were measured on the lossless adapter build, not the merged file itself [L63]", "other Optuna trials (KL 0.089) are not shipped and not mapped [L61-L62]"]},
+  {"role": "cross", "name": "UD-Q8_K_XL base", "of": "not named on card",
+   "metrics": {"bench:refusal_rate_harmful": "c1"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["base KL is 0 by definition, not mapped [L56]"]}
+ ],
+ "prose": []}

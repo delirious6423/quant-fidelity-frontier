@@ -1,0 +1,18 @@
+{"repo": "AxionML/DeepSeek-V4-Flash-0731-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "deepseek-ai/DeepSeek-V4-Flash-0731 (baseline)", "dataset": "not stated", "ctx": "temperature=1.0, top_p=1.0, max reasoning effort", "tool": "not stated", "L": [55]},
+ "entries": [
+  {"role": "quoted", "name": "NVFP4", "of": "AxionML/DeepSeek-V4-Flash-0731-NVFP4",
+   "methodology": {"reference": "deepseek-ai/DeepSeek-V4-Flash-0731 (baseline)", "dataset": "not stated", "ctx": "temperature=1.0, top_p=1.0, max reasoning effort", "tool": "not stated", "L": [55]},
+   "metrics": {"bench:AA-LCR": "c6", "bench:tau2_Telecom": "c8", "bench:SciCode": "c10", "bench:IFBench": "c12", "bench:Terminal-Bench_2.1": "c14", "bench:GDPval_rubric": "c16"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["scores attributed to NVIDIA (\"Scores reported by NVIDIA\") [L55]", "GPQA Diamond has no NVFP4 cell on card [L47]"]},
+  {"role": "quoted", "name": "MXFP4 (source)", "of": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "methodology": {"reference": "deepseek-ai/DeepSeek-V4-Flash-0731 (baseline)", "dataset": "not stated", "ctx": "temperature=1.0, top_p=1.0, max reasoning effort", "tool": "not stated", "L": [55]},
+   "metrics": {"bench:GPQA_Diamond": "c4", "bench:AA-LCR": "c5", "bench:tau2_Telecom": "c7", "bench:SciCode": "c9", "bench:IFBench": "c11", "bench:Terminal-Bench_2.1": "c13", "bench:GDPval_rubric": "c15"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["scores attributed to NVIDIA (\"Scores reported by NVIDIA\") [L55]"]}
+ ],
+ "prose": []}

@@ -1,0 +1,22 @@
+{"repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "original model (DeepSeek-V4-Flash-0731)", "dataset": "16 x 512 held-out positions (next-token KL, top-1); WikiText-2 test perplexity; 120 graded questions (20 per subset)", "ctx": "512", "tool": "not stated", "L": [44, 48, 59]},
+ "entries": [
+  {"role": "own", "name": "SUC1 tcq (this model)",
+   "metrics": {"mean_kld": "c6", "ppl:wikitext": "c4.1", "bench:GSM8K": "c14", "bench:MATH": "c15", "bench:MMLU-Pro": "c16", "bench:Long_context": "c17"},
+   "size": "c5", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["top-1 0.825 has no stated unit, left out [L48]", "answer-level scores are counts out of 20 per subset [L59]", "total 103/120 is a ratio split across ids, left out [L63]"]},
+  {"role": "ladder", "name": "SUC1 V3, all experts native MXFP4 (SSD streaming)",
+   "metrics": {"mean_kld": "c10"},
+   "size": "c9", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "cross", "name": "GGUF IQ2_XXS mix (ds4)", "of": "not named on card",
+   "metrics": {"mean_kld": "c8", "bench:GSM8K": "c19", "bench:MATH": "c20", "bench:MMLU-Pro": "c21", "bench:Long_context": "c22"},
+   "size": "c7", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["answer-level scores are counts out of 20 per subset [L59]", "total 106/120 is a ratio split across ids, left out [L64]"]},
+  {"role": "cross", "name": "GGUF MXFP4 experts (ds4, SSD streaming)", "of": "not named on card",
+   "metrics": {"mean_kld": "c12"},
+   "size": "c11", "unit": "GB", "basis": "disk", "bpw": null, "flags": []}
+ ],
+ "prose": []}

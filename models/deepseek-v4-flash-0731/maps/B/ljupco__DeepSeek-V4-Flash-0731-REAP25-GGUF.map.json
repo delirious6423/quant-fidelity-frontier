@@ -1,0 +1,27 @@
+{
+ "repo": "ljupco/DeepSeek-V4-Flash-0731-REAP25-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "stock 2-bit file (Rednalreden dwarfstar q2)", "dataset": "wikitext-2-raw-v1 (131,040 tokens)", "ctx": "not stated", "tool": "ds4 engine (ds4-server)", "L": [94, 95]},
+ "entries": [
+  {"role": "own", "name": "REAP25 2-bit imatrix GGUF (ds4)",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["size 68.58 GB stated in prose, not in the metrics row [L46]", "perplexity and delta are in prose, not in candidate cells [L95]", "pruned by deleting 64 experts per layer, with no re-quantization [L44-45]", "net decode slowdown with the drafter on M2 Max, not a quality item [L135-136]"]},
+  {"role": "cross", "name": "stock 2-bit (Rednalreden dwarfstar q2)", "of": "Rednalreden/DeepSeek-V4-Flash-0731-dwarfstar-q2-gguf",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["stock 86.72 GB file named in provenance [L75-76]", "measured by this card's author on M2 Max [L94]"]},
+  {"role": "quoted", "name": "pipenetwork published REAP25", "of": "not named on card",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["delta quoted from another card, which the author says uses a different protocol [L95]"]}
+ ],
+ "prose": [
+  {"entry": "REAP25 2-bit imatrix GGUF (ds4)", "key": "ppl:wikitext", "L": 95, "raw": "5.129"},
+  {"entry": "REAP25 2-bit imatrix GGUF (ds4)", "key": "ppl_delta_pct", "L": 95, "raw": "+3.95%"},
+  {"entry": "stock 2-bit (Rednalreden dwarfstar q2)", "key": "ppl:wikitext", "L": 94, "raw": "4.934"},
+  {"entry": "pipenetwork published REAP25", "key": "ppl_delta_pct", "L": 95, "raw": "+4.5%"}
+ ]
+}

@@ -1,0 +1,18 @@
+{
+ "repo": "MorinoNushi/DeepSeek-V4-Flash-0731-heretic-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "UD-Q8_K_XL base", "dataset": "140 harmful prompts (100 mlabonne/harmful_behaviors test + 40 custom) and 100 harmless prompts (mlabonne/harmless_alpaca test)", "ctx": "not stated", "tool": "not stated", "L": [48, 49, 50, 51, 59]},
+ "entries": [
+  {"role": "own", "name": "This model",
+   "metrics": {"bench:RefusalRate": "c3", "kld:harmless": "c4"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["KL is measured on first-token logits for harmless prompts [L59]", "greedy decoding, 100-token responses [L50]", "rejected Optuna trial with KL 0.089 omitted [L61-62]"]},
+  {"role": "cross", "name": "Base model", "of": "not named on card",
+   "metrics": {"bench:RefusalRate": "c1"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["base is Unsloth UD-Q8_K_XL, repo id not named [L12, L51]", "base KL is 0 by definition, not extracted [L55]"]}
+ ],
+ "prose": []
+}

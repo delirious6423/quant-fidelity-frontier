@@ -1,0 +1,19 @@
+{"repo": "Wladastic/DeepSeek-V4-Flash-0731-Ombro-v3c-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "held-out local corpus, nine 4096-token chunks excluded from calibration", "ctx": "4096-token chunks", "tool": "not stated", "L": [42, 52]},
+ "entries": [
+  {"role": "own", "name": "Ombro v3c",
+   "metrics": {"ppl": "c7"},
+   "size": "c6", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["no formal long-context, KLD, knowledge or coding evaluation stated [L160]"]},
+  {"role": "ladder", "name": "Ombro v1",
+   "metrics": {"ppl": "c3"},
+   "size": "c2", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "ladder", "name": "Ombro v3",
+   "metrics": {"ppl": "c5"},
+   "size": "c4", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["v3 is an unreleased intermediate build [L48-L49]"]}
+ ],
+ "prose": []}

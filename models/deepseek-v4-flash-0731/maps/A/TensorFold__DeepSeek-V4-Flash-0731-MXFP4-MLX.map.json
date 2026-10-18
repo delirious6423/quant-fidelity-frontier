@@ -1,0 +1,30 @@
+{
+ "repo": "TensorFold/DeepSeek-V4-Flash-0731-MXFP4-MLX",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 lm_head (stock)", "dataset": "not stated", "ctx": "teacher-forced, 2047 positions", "tool": "not stated", "L": [131, 132, 136, 205]},
+ "entries": [
+  {"role": "own", "name": "bf16 lm_head (stock)",
+   "methodology": {"reference": "bf16 lm_head (stock)", "dataset": "not stated", "ctx": "teacher-forced, 2047 positions", "tool": "not stated", "L": [131, 132, 136]},
+   "metrics": {"ppl": "c8"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["lm_head is left unquantized in this repo [L130]", "size table (this repo 167.1 GB; MLX affine 8-bit 324.7 GB) has no metric key, not mapped [L64-L66]", "no wikitext-2 number is given [L204-L205]"]},
+  {"role": "ladder", "name": "lm_head 8-bit",
+   "methodology": {"reference": "bf16 lm_head (stock)", "dataset": "not stated", "ctx": "teacher-forced, 2047 positions", "tool": "not stated", "L": [131, 132, 137]},
+   "metrics": {"ppl": "c10", "ppl_delta_pct": "c11", "top1_pct": "c12"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["lm_head variant measured in the card, not a shipped file [L137]"]},
+  {"role": "ladder", "name": "lm_head 6-bit",
+   "methodology": {"reference": "bf16 lm_head (stock)", "dataset": "not stated", "ctx": "teacher-forced, 2047 positions", "tool": "not stated", "L": [131, 132, 138]},
+   "metrics": {"ppl": "c14", "ppl_delta_pct": "c15", "top1_pct": "c16"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["lm_head variant measured in the card, not a shipped file [L138]"]},
+  {"role": "ladder", "name": "lm_head 4-bit",
+   "methodology": {"reference": "bf16 lm_head (stock)", "dataset": "not stated", "ctx": "teacher-forced, 2047 positions", "tool": "not stated", "L": [131, 132, 139]},
+   "metrics": {"ppl": "c18", "ppl_delta_pct": "c19", "top1_pct": "c20"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["lm_head variant measured in the card, not a shipped file [L139]"]}
+ ],
+ "prose": []
+}
