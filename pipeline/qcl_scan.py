@@ -3,7 +3,11 @@
 agents between these commands; everything that decides, splits, merges, builds or tests is here.
 
   python3 pipeline/qcl_scan.py lock                  # take the run lock (exit 3 if another run holds a fresh one)
+  python3 pipeline/qcl_scan.py elapsed [MIN]         # minutes since this run took the lock; exit 1 once past MIN (default 40)
   python3 pipeline/qcl_scan.py plan                  # which models to scan / ingest; creates model.json for an ingest
+  python3 pipeline/qcl_scan.py ingest-state SLUG     # where a (possibly interrupted) ingest stands: catalogue, fetch or map
+  python3 pipeline/qcl_scan.py fetched SLUG SHARD    # record that a fetch agent finished this shard
+  python3 pipeline/qcl_scan.py checkpoint SLUG       # mark an unfinished ingest "ingesting" so the next run resumes it
   python3 pipeline/qcl_scan.py search-ops SLUG       # the padded hf_fs search op lists for one model
   python3 pipeline/qcl_scan.py catalogue SLUG [--full] FILE..  # merge search results; split the delta into fetch shards
   python3 pipeline/qcl_scan.py prepare SLUG          # index, triage, copies, what to map, mapping queues
@@ -18,6 +22,7 @@ WL = os.path.join(CODE, "watchlist.json"); LOCK = os.path.join(CODE, "scan.lock"
 PAD = {"cmd": "cat", "args": ["hf://README.md", "--max-bytes", "8737"]}
 FORMATS = ["gguf", "exl3", "nvfp4", "mlx", "awq", "gptq", "fp8", "int4", "int8", "mxfp4", "w4a16", "autoround", "bnb", "2bit", "3bit", "4bit", "5bit", "6bit", "8bit", "abliterated", "uncensored", "heretic", "mtp"]
 now = dt.datetime.now(dt.timezone.utc)
+LOCK_H = 1.25        # a run stops starting work at 40-45 min and ends by ~55 min; a lock older than 75 min belongs to a dead session
 
 def out(d, code=0): print(json.dumps(d)); sys.exit(code)
 def run(cmd, env=None, check=True):
@@ -33,17 +38,23 @@ cmd = sys.argv[1] if len(sys.argv) > 1 else ""
 if cmd == "lock":
     if os.path.exists(LOCK):
         age = (now - dt.datetime.fromisoformat(open(LOCK).read().strip())).total_seconds() / 3600
-        if age < 2: out({"locked": True, "age_h": round(age, 2), "note": "another run is in progress; stop"}, 3)
+        if age < LOCK_H: out({"locked": True, "age_h": round(age, 2), "note": "another run is in progress; stop"}, 3)
     open(LOCK, "w").write(now.isoformat()); out({"locked": False, "took": now.isoformat()})
+elif cmd == "elapsed":
+    lim = float(sys.argv[2]) if len(sys.argv) > 2 else 40
+    mins = (now - dt.datetime.fromisoformat(open(LOCK).read().strip())).total_seconds() / 60 if os.path.exists(LOCK) else 0
+    out({"minutes": round(mins, 1), "limit": lim, "over": mins > lim}, 1 if mins > lim else 0)
 elif cmd == "unlock":
     if os.path.exists(LOCK): os.remove(LOCK)
     out({"unlocked": True})
 elif cmd == "plan":
     w = wl(); live = [m["slug"] for m in w["models"] if m["status"] == "live"]
     last = dt.datetime.fromisoformat(w["last_ingest_at"]); due = (now - last).total_seconds() / 3600 >= w["min_hours_between_ingests"]
-    q = next((m for m in w["models"] if m["status"] == "queued"), None)
+    q = next((m for m in w["models"] if m["status"] == "ingesting"), None)     # an unfinished ingest resumes first, without waiting
+    resume = bool(q)
+    q = q or next((m for m in w["models"] if m["status"] == "queued"), None)
     ingest = None
-    if due and q:
+    if (due or resume) and q:
         ingest = q["slug"]; d = M(ingest); os.makedirs(f"{d}/cache/cards", exist_ok=True)
         if not os.path.exists(f"{d}/model.json"):
             nm = q["model"].split("/")[-1]
@@ -52,7 +63,21 @@ elif cmd == "plan":
                        "pin_note": f"Cards for this model were captured through the Hugging Face connector from {now:%d %b %Y} and are pinned by the SHA-256 of their exact text, not by commit. Source links point to the current card, which may have changed since capture.",
                        "coverage_note": "claims made only off-site or only in images, repos whose cards are gated (access denied to our account), and repos the Hub search did not return",
                        "others": []}, open(f"{d}/model.json", "w"), indent=1)
-    out({"delta": live, "ingest": ingest, "ingest_due": due, "next_queued": q["slug"] if q else None})
+    out({"delta": live, "ingest": ingest, "resume": resume, "ingest_due": due, "next_queued": q["slug"] if q else None})
+elif cmd == "ingest-state":
+    slug = sys.argv[2]; c = f"{M(slug)}/cache"
+    if not os.path.exists(f"{c}/hub_catalogue.json"): out({"slug": slug, "phase": "catalogue"})
+    left = sorted(os.path.basename(f)[4:-5] for f in glob.glob(f"{c}/ids_*.json") if not os.path.exists(f"{c}/done_{os.path.basename(f)[4:-5]}"))
+    if left: out({"slug": slug, "phase": "fetch", "shards": left})
+    out({"slug": slug, "phase": "map"})
+elif cmd == "fetched":
+    slug, sh = sys.argv[2], sys.argv[3]; open(f"{M(slug)}/cache/done_{sh}", "w").write(now.isoformat()); out({"slug": slug, "shard": sh, "done": True})
+elif cmd == "checkpoint":
+    slug = sys.argv[2]; w = wl()
+    for m in w["models"]:
+        if m["slug"] == slug and m["status"] == "queued": m["status"] = "ingesting"
+    json.dump(w, open(WL, "w"), indent=1)
+    out({"slug": slug, "status": entry(slug)["status"], "next": f"git add models/{slug} watchlist.json && git commit -qm 'Ingest checkpoint: {slug}' && push; the next run resumes"})
 elif cmd == "search-ops":
     # Every op list = one search (limit 80, about 21K chars; 90 measured 78.5K total) + 6 README pads (52K chars). That keeps each result between
     # ~52K (always saved to a file, never inline) and ~77K (inside the connector's 80K shared output budget).
@@ -93,7 +118,7 @@ elif cmd == "prepare":
     slug = sys.argv[2]; e = env(slug)
     run(f"python3 pipeline/qcl_newmodel.py {M(slug)}")
     run("python3 pipeline/autoextract.py triage", e); run("python3 pipeline/detect_copies.py", e)
-    ms = json.loads(run("python3 pipeline/qcl_mapset.py", e).stdout.strip().splitlines()[-1])
+    ms = json.loads(run("python3 pipeline/qcl_mapset.py --record", e).stdout.strip().splitlines()[-1])   # --record first: maps from an interrupted run count
     W = os.path.join(CODE, "work", slug); subprocess.run(f"rm -rf {W}", shell=True)
     q = json.loads(run(f"python3 pipeline/qcl_queue.py {W}", e).stdout.strip().splitlines()[-1])
     out({**ms, **q, "work": os.path.relpath(W, CODE), "next": "start Haiku workers per docs/agents/MAP.md for RUN=A and RUN=B" if q["queues"] else "no cards to map"}, 0 if q["queues"] else 2)
@@ -102,7 +127,7 @@ elif cmd == "finish":
     pending = sorted(os.listdir(f"{W}/pending")) if os.path.isdir(f"{W}/pending") else []
     if pending: out({"error": "queues still pending; start more workers", "pending": pending}, 1)
     bad = []
-    for q in sorted(glob.glob(f"{W}/claimed/*.txt")):
+    for q in sorted(glob.glob(f"{W}/claimed/*.txt")):   # none when every card was already mapped by an earlier run
         r = os.path.basename(q)[0]
         p = run(f"python3 pipeline/qcl_mapcheck.py {q} {M(slug)}/maps/{r}", check=False)
         if p.returncode != 0:
@@ -119,7 +144,7 @@ elif cmd == "publish":
         run(f"python3 build.py", env(ing)); run(f"python3 tests/test_ui.py", {"QCL_SITE": f"models/{ing}/site"})
         w = wl()
         for m in w["models"]:
-            if m["slug"] == ing: m["status"] = "live"
+            if m["slug"] == ing: m["status"] = "live"   # from queued or ingesting
         w["last_ingest_at"] = now.isoformat(); json.dump(w, open(WL, "w"), indent=1)
     stats = {}
     for mj in sorted(glob.glob(f"{CODE}/models/*/model.json")):
@@ -127,7 +152,7 @@ elif cmd == "publish":
         if next((m["status"] for m in wl()["models"] if m["slug"] == slug), "live") != "live": continue
         p = run("python3 build.py", env(slug)); stats[slug] = json.loads(p.stdout.strip().splitlines()[-1].split(" | ")[0])
     run("python3 assemble.py")
-    run("python3 tests/test_gates.py"); run("python3 tests/test_claims.py"); run("python3 tests/test_mcp.py")
+    run("python3 tests/test_gates.py"); run("python3 tests/test_claims.py"); run("python3 tests/test_mcp.py"); run("python3 tests/test_discovery.py")
     for slug in stats: run("python3 tests/test_ui.py", {"QCL_SITE": f"models/{slug}/site"})
     line = f"- {now:%Y-%m-%d %H:%M} UTC hourly scan: " + "; ".join(f"{s} {v['repos']} repos, {v['values']} values" for s, v in stats.items()) + (f"; ingested {ing}" if ing else "")
     with open(f"{CODE}/PROGRESS.md", "a") as f: f.write(line + "\n")

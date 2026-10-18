@@ -18,10 +18,10 @@ In `verified/`, `part8_machine.py` is machine-mapped and `part9_auto.py` lists r
 
 ## Build and test
 ```bash
-for m in models/*/; do QCL_ROOT=${m%/} python3 build.py; done   # every model: gates + site
+for d in $(python3 pipeline/qcl_live.py); do QCL_ROOT=$d python3 build.py; done   # every live model: gates + site
 python3 assemble.py                                            # _site/: the whole static site
 python3 tests/test_gates.py && python3 tests/test_claims.py && python3 tests/test_mcp.py
-for m in models/*/; do QCL_SITE=${m}site python3 tests/test_ui.py; done
+for d in $(python3 pipeline/qcl_live.py); do QCL_SITE=$d/site python3 tests/test_ui.py; done
 ```
 Needs Python 3.11+, `pillow`, `numpy`; tests also need `playwright` and `mcp`.
 

@@ -12,9 +12,9 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pillow numpy playwright && python -m playwright install --with-deps chromium
-      - name: Gates + build + UI tests, every model (build.py refuses on any gate failure)
+      - name: Gates + build + UI tests, every live model (build.py refuses on any gate failure)
         run: |
-          for m in models/*/model.json; do d="$(dirname "$m")"; QCL_ROOT="$d" python3 build.py && QCL_SITE="$d/site" python3 tests/test_ui.py || exit 1; done
+          for d in $(python3 pipeline/qcl_live.py); do QCL_ROOT="$d" python3 build.py && QCL_SITE="$d/site" python3 tests/test_ui.py || exit 1; done
       - name: Gate regression tests (external-review counterfactuals)
         run: python3 tests/test_gates.py
       - name: Review regression checks (F1-F24, Flash-Next)

@@ -21,7 +21,7 @@ jobs:
       - run: pip install pillow numpy
       - name: Gates + build, every model (build.py refuses on any gate failure)
         run: |
-          for m in models/*/model.json; do QCL_ROOT="$(dirname "$m")" python3 build.py; done
+          for d in $(python3 pipeline/qcl_live.py); do QCL_ROOT="$d" python3 build.py || exit 1; done
       - name: Assemble static site (HTML/CSS/JS/JSON only, .nojekyll)
         run: python3 assemble.py _site
       - uses: actions/upload-pages-artifact@v3

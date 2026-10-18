@@ -11,9 +11,12 @@ async def main():
         b = await p.chromium.launch()
         for name, vp in [("desk", {"width": 1366, "height": 900}), ("phone", {"width": 390, "height": 844})]:
             ctx = await b.new_context(viewport=vp, has_touch=(name == "phone"))
+            # the page is tested offline: web fonts and analytics are external and optional, and a network that never answers
+            # would otherwise stall page load (cloud sessions and some CI runners)
+            await ctx.route(lambda u: not u.startswith(("file:", "data:", "blob:", "about:")), lambda r: r.abort())
             pg = await ctx.new_page(); errs = []
             pg.on("pageerror", lambda e: errs.append(str(e)))
-            pg.on("console", lambda m: m.type == "error" and "ERR_TUNNEL" not in m.text and errs.append(m.text))
+            pg.on("console", lambda m: m.type == "error" and "ERR_TUNNEL" not in m.text and "ERR_FAILED" not in m.text and errs.append(m.text))
             await pg.goto(SRC); await pg.wait_for_timeout(500)
             sw = await pg.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth")
             check(sw <= 0, f"{name}: no horizontal page scroll (got {sw}px)")

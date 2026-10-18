@@ -2,7 +2,7 @@
 
 Use only Bash and the hf_fs tool. You fetch Hugging Face model cards through the `mcp__Hugging_Face__hf_fs` tool and save them byte-for-byte with scripts.
 NEVER type, copy or paraphrase card text yourself; only scripts write card files. Work in the repo root. M = the model's data root given in your task (e.g. `models/glm-5.3-flash`); every `M/cache/` path below is under M.
-Let S = your shard number (two digits), e.g. 03.
+Let S = your shard name exactly as given in your task (e.g. `2026101805a`); the shard's ids are in `M/cache/ids_S.json`.
 
 1. Sizes. Run `python3 pipeline/qcl_stats.py ops M/cache/ids_S.json` (Bash). It prints a JSON list of op lists.
    For each op list, call hf_fs with {"operations": <that list>} exactly. Each result will be too large to show and is saved to a file;

@@ -8,6 +8,10 @@
 - Live: https://delirious6423.github.io/quant-fidelity-frontier/ (landing page; each model at /<slug>/). First deploy 2026-10-18; CI green on GitHub runners.
 - Repo reorganized: every model under `models/<slug>/`; code in `gates/`, `pipeline/`, `web/`, `tests/`, `legacy/`; docs in `docs/`. Built sites are no longer committed (CI and the Pages workflow build them).
 
+## Hourly scan fixes (2026-10-18)
+- Runs from 22:04 to 04:04 UTC all failed or hung. Causes found: (1) Flash-Next had no mapping record, so every run queued all 249 of its hand-reviewed cards for Haiku mapping (62 queues); (2) the first ingest (DeepSeek-V4.1-Flash, due from 00:30 UTC) was attempted in one run and discarded on failure, together with the live updates; (3) a dead session's lock blocked two more runs (2 h lock).
+- Fixed: Flash-Next baseline in `maps/mapped.json` (`qcl_mapset.py --baseline`; a no-change prepare now queues 0 cards); runbook split into Part A (live updates, committed on their own) and Part B (ingest, time-boxed and resumable via `ingest-state`, `fetched`, `checkpoint`; status `ingesting`); `elapsed` time budget (stop new work at 40 min, workers at 45); lock taken over after 75 min; CI/Pages build live models only (`qcl_live.py`); `qcl_newmodel.py` keeps index fields like `base` and no longer marks a card current when its refetch failed; UI tests run offline (external fonts/analytics blocked); `publish` also runs `test_discovery.py`.
+
 ## Next
 1. Hourly scan: scheduled task "QFF hourly scan" (cloud, minute 3 of every hour) follows `docs/HOURLY.md`. Watch list approved by the owner (`watchlist.json`); one queued model ingested per 5 hours, in list order; Haiku subagents only.
 2. 27B held values: resolver pass (Haiku, high effort), core metrics first (~540 values), then benchmarks.
