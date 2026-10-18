@@ -37,3 +37,4 @@
 {"at": "2026-10-18T21:56:14Z", "cmd": "elapsed 999", "exit": 0, "minutes": 8.5}
 {"at": "2026-10-18T21:56:14Z", "cmd": "prepare deepseek-v4-flash-0731", "exit": 1, "error": "python3 pipeline/qcl_mapset.py --record", "rc": 1, "tail": "Traceback (most recent call last):\n  File \"pipeline/qcl_mapset.py\", line 24, in <module>\n    json.dump(mapped, open(mp, \"w\"), indent=1, sort_keys=True)\n                      ~~~~^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'models/deepseek-v4-flash-0731/maps/mapped.json'\n"}
 {"at": "2026-10-18T21:56:15Z", "cmd": "elapsed 999", "exit": 0, "minutes": 8.5}
+{"at": "2026-10-18T21:56:15Z", "cmd": "checkpoint deepseek-v4-flash-0731", "exit": 0, "slug": "deepseek-v4-flash-0731", "status": "ingesting"}
