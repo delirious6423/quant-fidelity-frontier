@@ -228,6 +228,7 @@ class ResolverOverlay(unittest.TestCase):
             "applied_from": lambda directory: copy.deepcopy(runs[directory]),
             "load_verified": lambda: [], "write": lambda entries, _: writes.append(copy.deepcopy(entries)),
             "failing": lambda _: set(),
+            "build_failing": lambda _: set(),
         }
         source_functions("pipeline/qcl_watch.py", {"agree", "resolved_from", "merge"}, namespace)
         return repo, map_path, manifest, pin, namespace, writes
