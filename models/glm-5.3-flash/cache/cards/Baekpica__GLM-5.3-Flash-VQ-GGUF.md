@@ -13,13 +13,13 @@ pipeline_tag: image-text-to-text
 ---
 # GLM-5.3-Flash VQ GGUF (R13+8 experts, Q4_K nonexpert v3)
 
-> **Status, 2026-10-18:** this card describes the R13+8 revision, which is
-> being converted and validated now. Until its 14 layer parts and indexes
-> land in this repository, the files are still the previous revision. That
-> revision (all routed layers R13) is kept at the tag
+> **Status, 2026-10-18:** the files are the R13+8 revision. Loading it needs
+> a ds4-dfm-rs build with GVQ1 container v2 support (branch
+> [`feat/glm-vq-r13p8`](https://github.com/Baekpica/ds4-dfm-rs/tree/feat/glm-vq-r13p8)
+> until it merges); older builds reject the 14 upgraded parts. Speed and
+> memory on DGX Spark are not measured yet. The previous revision (all routed
+> layers R13) is kept at the tag
 > [`q4k-v3`](https://huggingface.co/Baekpica/GLM-5.3-Flash-VQ-GGUF/tree/q4k-v3).
-> The R13+8 parts need a ds4-dfm-rs build with GVQ1 container v2 support;
-> the link follows with the upload.
 
 Experimental custom GVQ1 / GGUF v3 conversion of the official
 [Z.AI GLM-5.3-Flash](https://huggingface.co/zai-org/GLM-5.3-Flash/tree/91b69215804f2d2036a8867f6ce44848e278dcda)
@@ -64,15 +64,17 @@ extra GiB, normalized by that layer's FFN output energy, pointed the other
 way and lost end to end; the FFN output energy differs by three orders of
 magnitude between layers, so a normalized local error does not measure a
 layer's effect on the model. Held-out comparison of 14-layer choices
-(5,435 tokens, original-precision non-experts, R13+8 weights with a greedy
-stage 2):
+(5,435 tokens, original-precision non-experts; R13+8 rows use the
+published stage 1 and a greedy stage 2 unless marked):
 
 | Routed layers upgraded | PPL | KL vs original |
 |---|---:|---:|
 | none (previous revision) | 4.858 | 0.607 |
 | local-screen top 14 (4, 5, 9, 25–40) | 4.470 | 0.498 |
 | bottom 7 + top 7 (3–9, 38–44) | 4.220 | 0.437 |
-| local-screen bottom 14 | 4.058 | 0.390 |
+| local-screen bottom 14 (3, 6, 7, 10–14, 24, 34, 35, 42–44) | 4.058 | 0.390 |
+| layers 3–16 | 3.987 | 0.354 |
+| **layers 3–16, this release's parts (joint stages)** | **3.969** | **0.342** |
 | all 42 (reference, does not fit the budget) | 3.595 | 0.151 |
 | original model | 3.538 | 0 |
 
@@ -87,12 +89,19 @@ byte budget was capped there on purpose, well below DeepSeek V4.1 Flash VQ
 
 ## Speed and quality
 
+Measured on this release's parts with the reference forward above
+(Transformers 5.19.0 modules, original-precision non-experts): held-out KL
+against the original falls from 0.607 to 0.342 and top-1 agreement rises
+from 73.6% to 80.1%; the original card's held-out prose PPL is 5.905
+(original 4.856, previous revision 8.080). These isolate the routed
+experts; they are not ds4 engine numbers, since the release stores the
+non-experts as Q4_K.
+
 Decode reads about 7.85 GB of weights per token instead of 7.5 GB (+0.35 GB
 of residual indices), so decode is expected to be a few percent slower;
-R13+8 layers prefill with 32-token items. Measurements on this revision
-follow with the upload. Weight-space numbers are reconstruction errors,
-not model-quality scores; this is not a quality-equivalent replacement of
-the source model.
+R13+8 layers prefill with 32-token items. DGX Spark measurements on this
+revision follow. This is not a quality-equivalent replacement of the source
+model.
 
 ## Integrity and licensing
 
