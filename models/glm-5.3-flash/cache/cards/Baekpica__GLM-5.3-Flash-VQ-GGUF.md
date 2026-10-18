@@ -4,85 +4,100 @@ base_model: zai-org/GLM-5.3-Flash
 tags:
   - gguf
   - vector-quantization
+  - residual-vq
   - glm5-next
   - q4_k
   - dgx-spark
   - experimental
 pipeline_tag: image-text-to-text
 ---
-# GLM-5.3-Flash VQ GGUF (Q4_K nonexpert v3)
+# GLM-5.3-Flash VQ GGUF (R13+8 experts, Q4_K nonexpert v3)
+
+> **Status, 2026-10-18:** this card describes the R13+8 revision, which is
+> being converted and validated now. Until its 14 layer parts and indexes
+> land in this repository, the files are still the previous revision. That
+> revision (all routed layers R13) is kept at the tag
+> [`q4k-v3`](https://huggingface.co/Baekpica/GLM-5.3-Flash-VQ-GGUF/tree/q4k-v3).
+> The R13+8 parts need a ds4-dfm-rs build with GVQ1 container v2 support;
+> the link follows with the upload.
 
 Experimental custom GVQ1 / GGUF v3 conversion of the official
 [Z.AI GLM-5.3-Flash](https://huggingface.co/zai-org/GLM-5.3-Flash/tree/91b69215804f2d2036a8867f6ce44848e278dcda)
-(`91b69215804f2d2036a8867f6ce44848e278dcda`), tuned for decode speed on
-DGX Spark (GB10). A reader and runtime implementing [FORMAT.md](FORMAT.md)
-and the `q4_k_nonexpert_v3` recipe are required:
-[ds4-dfm-rs](https://github.com/Baekpica/ds4-dfm-rs) `main` from `c5384b5e`
-([#86](https://github.com/Baekpica/ds4-dfm-rs/pull/86)) on; the measurements
-below use `3dd964ba` ([#88](https://github.com/Baekpica/ds4-dfm-rs/pull/88)).
-Standard llama.cpp/Ollama/Transformers loading is not claimed.
-
-The previous all-native-precision release is the tag `vq-original`
-(revision `fe2a446e774624ef8d397136d81524c61db77f65`); its card documents the
-VQ conversion and its measured quality loss in full.
+(`91b69215804f2d2036a8867f6ce44848e278dcda`) for DGX Spark (GB10), run by
+[ds4-dfm-rs](https://github.com/Baekpica/ds4-dfm-rs). Standard
+llama.cpp/Ollama/Transformers loading is not claimed.
 
 ## What this revision changes
 
-- **Routed experts are unchanged:** 36,288 matrices of layers 3–44 use
-  eight-dimensional VQ, K8192, 12+1-bit indices, one E4M3 codebook per layer
-  and F16 row gains (1.625 index bits per weight).
-- **316 nonexpert matrices are Q4_K** (256-element / 144-byte blocks, no
-  importance matrix), each derived from the original weights (FP8 times its
-  block scale rounded to BF16, or BF16): KDA q/k/v/o (136), DSA q_a/q_b/kv_a/o
-  (44), dense FFN of layers 0–2 (9), shared experts of layers 3–44 (126) and
-  the output head (1). [q4k-selection.json](q4k-selection.json) lists them;
-  the manifest keeps every parent payload hash.
-- **Kept in source precision:** embedding, DSA kv_b (BF16 latent attention),
-  router and its bias, mHC maps, KDA gates, indexer, norms, vision and the
-  MTP layer 45.
+The routed experts' 1.625-bit VQ was the main source of quality loss (the
+original card measured held-out prose PPL 4.8555 → 8.0797 from the experts
+alone). This revision spends more bits on the 14 routed layers where they
+reduce the experts' output error most:
 
-Decode reads about 7.5 GB of weights per token instead of 9.6 GB.
+- **14 of 42 routed layers are R13+8:** layers 3 to 16, the first 14
+  routed layers. Each keeps the 13-bit stage (K8192 E4M3 book,
+  F16 row gain) and adds an 8-bit residual stage: one K=256 E4M3 book per
+  layer and one index byte per 8-weight vector, 2.625 bits per weight in
+  total. Stage-1 and stage-2 indices are chosen jointly. Weight relative
+  MSE on these layers falls from 0.1438 to about 0.041.
+- **The other 28 routed layers stay R13** (1.625 bits per weight), with
+  their published bytes unchanged.
+- **Unchanged:** the 316 Q4_K nonexpert matrices of v3, native-precision
+  tensors (embedding, DSA kv_b, routers, mHC, KDA gates, indexer, norms),
+  vision and the MTP layer 45.
+- **Size:** about 89.96 GB (83.8 GiB) of GGUF parts, against 77.27 GB
+  (71.97 GiB) before; each upgraded layer part grows by 0.906 GB.
+- **Format:** GVQ1 container v2 ([FORMAT.md](FORMAT.md)). Only the 14
+  upgraded layer parts declare version 2; every other part keeps version 1.
 
-## Measured on DGX Spark (GB10)
+## How the 14 layers were chosen
 
-![GLM-5.3 Flash VQ 2K–64K prefill and decode on one DGX Spark](assets/glm53-vq-ds4-dfm-rs-2k-64k-throughput.png)
+Measured end to end. Upgrading one routed layer at a time (all others R13)
+and measuring KL(original || model) on held-out text ranks the bottom
+layers far ahead: layer 5 lowers KL by 0.066, 8 by 0.064, 6 by 0.064, 14 by
+0.056, 3 by 0.045, and layers 3–16 take the first 14 places (68% of the
+summed single-layer gains). The top layers come next (17, 41, 44), the
+middle and upper-middle layers last (26: 0.001).
 
-*Measured on this artifact with ds4-dfm-rs `main` (`3dd964ba`). One warm
-session per process, 2,048-token incremental prefill and 128 forced greedy
-tokens per frontier from 2K to 64K. Curves are per-frontier medians; bands
-are the observed min–max of three fresh runs with two embedded MTP drafts.*
+A local screen that scored each layer by the routed-FFN output error per
+extra GiB, normalized by that layer's FFN output energy, pointed the other
+way and lost end to end; the FFN output energy differs by three orders of
+magnitude between layers, so a normalized local error does not measure a
+layer's effect on the model. Held-out comparison of 14-layer choices
+(5,435 tokens, original-precision non-experts, R13+8 weights with a greedy
+stage 2):
 
-| Workload | Prefill tok/s | Decode tok/s |
+| Routed layers upgraded | PPL | KL vs original |
 |---|---:|---:|
-| 2K–64K sweep, two MTP drafts (median of three run means) | 1,163.5 | 35.08 |
-| 3K-token code prompt, two MTP drafts (one run) | — | 39.98 |
-| 512 tokens at 2K context, MTP off (two runs) | — | 25.9 |
-| Whole 8K prompt (7,936 tokens), MTP off (two runs) | 1,343.8 | — |
+| none (previous revision) | 4.858 | 0.607 |
+| local-screen top 14 (4, 5, 9, 25–40) | 4.470 | 0.498 |
+| bottom 7 + top 7 (3–9, 38–44) | 4.220 | 0.437 |
+| local-screen bottom 14 | 4.058 | 0.390 |
+| all 42 (reference, does not fit the budget) | 3.595 | 0.151 |
+| original model | 3.538 | 0 |
 
-The sweep and the 8K row ran the `3dd964ba` code. The decode rows ran the
-`c5384b5e` kernels; #88 changed prefill kernels only, and the sweep's decode
-matches (35.08 against 35.12).
+## Memory on DGX Spark
 
-- Incremental prefill falls 7.1% from 4K (1,238.0) to 64K (1,149.9). The 2K
-  point is each process's first prefill. `c5384b5e` measured 1,042.2 / 35.12
-  on the same protocol.
-- MTP gains follow draft acceptance on the generated text: the sweep accepted
-  2.32 tokens per verify and a two-draft verify cycle averages 66.2 ms.
-- CUDA 13.4, busy SM clock 2,184–2,190 MHz under a 300–2,200 MHz policy.
-- Serve with `--cuda --mtp-draft 2 --temp 0`; `ds4` and `ds4-server` default
-  to the model's native 1,048,576-token context (throughput measured through
-  64K).
+At the native 1,048,576-token context with two MTP drafts, the runtime's own
+quote needs about 112 GiB: 83.8 GiB of weights, 22.5 GiB of KV and
+4,096-row workspace, 1.7 GiB of MTP state and the 4 GiB floor. That leaves
+roughly 4.5 GiB of the ~116.5 GiB a 128 GB Spark gives the process. The
+byte budget was capped there on purpose, well below DeepSeek V4.1 Flash VQ
+(113.6 GB).
 
-## Quality
+## Speed and quality
 
-A six-case screen (Korean, English, code, math, JSON, stopping; 106
-teacher-forced targets, greedy answers up to 96 tokens) against the KDA-only
-artifact on the same build: paired NLL +0.0033 nat/token. Five task answers
-stay correct. **The Korean meeting-summary case degenerates under greedy
-decoding** (its first-token distribution is flat, top-5 at 5–15%), as did the
-earlier Q4_K screens. The output head is not the cause: keeping it BF16 gives
-the same failure. Q4_K was chosen for speed with this loss accepted; this is
-not a quality-equivalent replacement of the source model.
+Decode reads about 7.85 GB of weights per token instead of 7.5 GB (+0.35 GB
+of residual indices), so decode is expected to be a few percent slower;
+R13+8 layers prefill with 32-token items. Measurements on this revision
+follow with the upload. Weight-space numbers are reconstruction errors,
+not model-quality scores; this is not a quality-equivalent replacement of
+the source model.
 
-The routed-expert VQ loss of the original release still applies (its card
-reports held-out prose PPL 4.8555 → 8.0797).
+## Integrity and licensing
+
+[files.json](files.json) and [SHA256SUMS](SHA256SUMS) give file sizes and
+hashes; [tensor-manifest.json](tensor-manifest.json) gives per-tensor
+precision, shapes and payload hashes. Verify them before loading.
+Weights: MIT, see [LICENSE](LICENSE). YoungAi algorithm attribution: see
+[LICENSE-YoungAi](LICENSE-YoungAi).

@@ -41,3 +41,4 @@
 - Validation: both model builds; gate and claim suites; MCP 15/15; discovery 7 canonical pages and 2,444 exact exported claims. Browser tests require stubbing external HTTPS resources in this environment because resource fetches return ERR_EMPTY_RESPONSE.
 - 2026-10-18 09:14 UTC hourly scan: deepseek-v4.1-flash 133 repos, 1121 values; qwen3.8-27b 1225 repos, 4701 values; qwen3.8-flash-next 459 repos, 2983 values
 - 2026-10-18 09:18 UTC hourly scan: deepseek-v4.1-flash 133 repos, 1121 values; glm-5.3-flash 174 repos, 330 values; qwen3.8-27b 1225 repos, 4701 values; qwen3.8-flash-next 459 repos, 2983 values; ingested glm-5.3-flash
+- 2026-10-18 11:08 UTC hourly scan: deepseek-v4.1-flash 133 repos, 1121 values; glm-5.3-flash 174 repos, 330 values; qwen3.8-27b 1225 repos, 4701 values; qwen3.8-flash-next 459 repos, 2972 values

@@ -48,6 +48,23 @@ A short text invocation with the tested options is:
 
 Text generation and the public multimodal session API were exercised with these weights. The vision API comparison covers 32 cases and 40 image occurrences with the matching 1017 encoder. The reported distribution comparisons use the runtime's quality mode.
 
+### 1017 DSpark support
+
+[`DeepSeek-V4.1-Flash-1017-DSpark-MXFP4.gguf`](DeepSeek-V4.1-Flash-1017-DSpark-MXFP4.gguf) is the matching external draft model for the 1017 checkpoint: **7,966,294,016 bytes (7.42 GiB), 81 tensors**. It contains the three official DSpark stages from the same pinned source revision as the 1017 Q2, with native MXFP4 expert values preserved and Q8/F16/F32 for the other tensors. No additional imatrix is required.
+
+```bash
+hf download kyuz0/deepseek-v4.1-flash-gguf DeepSeek-V4.1-Flash-1017-DSpark-MXFP4.gguf --local-dir gguf
+
+DS4_ENABLE_V41_DECODER_SWA_BOUNDED_REPLAY=1 ./ds4-server --rocm \
+  --model gguf/DeepSeek-V4.1-Flash-1017-Q2.gguf \
+  --mtp-model gguf/DeepSeek-V4.1-Flash-1017-DSpark-MXFP4.gguf \
+  --dspark --ctx 262144 --host 127.0.0.1 --port 8000
+```
+
+Use the tested ROCm runtime described above. For DSpark serving, omit `--batched-session`, including `--batched-session 1`; native session batching disables speculative decoding in this runtime. SSD expert streaming cannot be combined with DSpark. Leave confidence on its runtime default; the five-token draft cap and adaptive scheduling are supplied by the model and engine.
+
+Standalone ROCm checks passed for CLI and HTTP generation/EOS, a generated Python function on five executable cases, and a tool-call round trip. Actual draft proposals and acceptance were verified with zero reported DSpark errors. These focused checks do not establish long-context or distributed DSpark quality.
+
 ### 1017 quantization and calibration
 
 Q2 follows the public antirez recipe: IQ2_XXS routed gate/up experts, Q2_K routed down experts, Q8_0 attention/shared/output weights, and F16/F32 tensors elsewhere. Native Engram data is retained losslessly and read from the GGUF on disk. The separate vision encoder retains the source BF16 tensors.
