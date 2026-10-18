@@ -14,6 +14,7 @@ async def main():
             # the page is tested offline: web fonts and analytics are external and optional, and a network that never answers
             # would otherwise stall page load (cloud sessions and some CI runners)
             await ctx.route(lambda u: not u.startswith(("file:", "data:", "blob:", "about:")), lambda r: r.abort())
+            ctx.set_default_navigation_timeout(120000); ctx.set_default_timeout(60000)   # big pages on a busy machine: slow is not broken
             pg = await ctx.new_page(); errs = []
             pg.on("pageerror", lambda e: errs.append(str(e)))
             pg.on("console", lambda m: m.type == "error" and "ERR_TUNNEL" not in m.text and "ERR_FAILED" not in m.text and errs.append(m.text))

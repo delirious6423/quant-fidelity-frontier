@@ -1,28 +1,34 @@
 # Hourly scan runbook
 
-The scheduled task "QFF hourly scan" follows this file, top to bottom. Each run has two parts, in this order:
-- **Part A, live updates:** keep every `live` model in `watchlist.json` current. Small (usually 5–25 changed cards),
-  published and committed on its own, so a slow ingest can never hold it back.
-- **Part B, ingest (resumable):** work on at most one new model, in list order; a new one starts at most once per
-  `min_hours_between_ingests` (5 h). An ingest is 100–250 cards and usually takes several runs: each run does what fits
-  in its time budget, commits a checkpoint, and the next run continues from there.
+The scheduled task "QFF hourly scan" runs one loop. **`pipeline/qcl_next.py` decides every step**; the session only does
+the two things a script cannot: Hugging Face calls (hf_fs) and starting Haiku subagents.
 
-**Time budget.** A run must end within ~55 minutes, before the next one starts. `python3 pipeline/qcl_scan.py elapsed`
-says how long this run has held the lock. Start no new step once it passes 40 minutes; mapping workers check it
-themselves (45). A lock older than 55 minutes is treated as left by a dead session and is taken over.
+## The loop (this is the whole procedure)
+```bash
+# attach delirious6423/quant-fidelity-frontier with push access, then:
+git clone --depth 50 https://github.com/delirious6423/quant-fidelity-frontier qff && cd qff
+git config user.name Claude && git config user.email noreply@anthropic.com
+pip install --break-system-packages pillow numpy "mcp>=1.9" playwright >/dev/null 2>&1 || pip install pillow numpy "mcp>=1.9" playwright
+python3 pipeline/qcl_next.py
+```
+Then repeat until it prints `"do": "stop"`:
+- `"do": "hf_fs"`: call the hf_fs tool once per entry of `op_lists`, each list exactly as printed. Each result is saved to
+  a file; the tool message says either `Output has been saved to <path>` or `Full output saved to: <path>` (with a
+  preview). Then run `python3 pipeline/qcl_next.py --results <path1> <path2> ...` with the paths in the same order. A
+  result with no saved path at all: run that call once more.
+- `"do": "agents"`: start one subagent per entry of `prompts`, each with that prompt verbatim, model `haiku`, effort `high`,
+  at most `max_parallel` at once. Wait for all of them to finish, then run `python3 pipeline/qcl_next.py`.
+- `"do": "error"`: do what its message says, then continue the loop.
+- `"do": "stop"`: reply with its `report`. The script has already committed, pushed, deployed and unlocked.
 
-Division of labour:
-- **You** (the coordinating session) run the `pipeline/qcl_scan.py` commands, make the Hub search calls and start agents.
-  Every `qcl_scan.py` command prints one JSON line. **Exit code 0 means go on, 2 means nothing to do for this model, and
-  1 means stop and report.**
-- **Haiku agents** (model `haiku`, effort `high`) fetch cards and map them. Never use Sonnet or Opus for these.
+Never run git, `qcl_scan.py` or anything else yourself, never skip a step it asks for, and never type numbers, repo ids or
+card text. If the session must end early, run `python3 pipeline/qcl_scan.py unlock` and push it so the next run is not
+blocked.
 
-Read `CLAUDE.md` first. These rules override everything below:
-- Never type a number, a repo id or card text yourself. Scripts copy them.
-- A gate failure means quarantine, never a hand edit.
-- Commit only after `publish` exits 0.
-- Never force-push.
-- Never publish the Hugging Face MCP Space.
+What the script does, for reference: lock and plan; Part A (live models): catalogue, fetch agents, prepare, mapping
+agents, finish, publish, commit, push, deploy (a failed publish is discarded and logged); Part B (one new model, resumable):
+catalogue, at most 2 fetch shards per run, mapping rounds, checkpoint commits after each step, then publish when complete;
+finally unlock with the run's log in `logs/scan/`. The sections below describe those steps and the scripts behind them.
 
 ## Subagents per run
 
@@ -36,6 +42,8 @@ Read `CLAUDE.md` first. These rules override everything below:
 
 There is no resolver and no reviewer agent in the hourly loop. A value that the two runs disagree on, or that fails a
 gate, is held back (`models/<slug>/audit/review_queue.json`) and never published. Keep at most 8 agents running at once.
+
+## Reference: the steps qcl_next.py runs
 
 ## 1. Set up (every run)
 ```bash
