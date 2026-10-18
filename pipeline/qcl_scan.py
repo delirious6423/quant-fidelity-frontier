@@ -135,6 +135,9 @@ elif cmd == "catalogue":
             if res.get("truncated") or r.get("output_truncated"): trunc.append(f)
             ups = [e.get("updated_at") or "" for e in res.get("entries", [])]
             if ups: oldest = min([oldest] + ups) if oldest else min(ups)
+    n_entries = sum(len((r.get("result") or {}).get("entries", [])) for f in files for r in json.load(open(f)).get("results", []))
+    if n_entries == 0:   # no search results at all: the calls were not made or the paths are wrong; never record an empty catalogue
+        out({"error": "no search results in the given files; make the hf_fs calls and pass their saved paths", "files": len(files)}, 1)
     w = wl(); me = entry(slug); last = me.get("last_scan_at") or ""
     page_full = (not full) and bool(trunc) and (not last or (oldest or "") > last)   # the recent page may not reach back to the last scan
     if page_full and "--accept-partial" not in sys.argv:

@@ -118,6 +118,23 @@ def write(entries, base):
                      variants=a["variants"], ladder=a["ladder"], cross=a["cross"], flags=a["flags"] or [])) + ")")
     open(OUT, "w").write("\n".join(lines) + "\n")
 
+def build_failing(entries):
+    """build.py's own fail-closed checks (sign and plausibility of parsed values) name (repo, variant, ...) tuples."""
+    import ast
+    out = subprocess.run(["python3", f"{CODE}/build.py"], capture_output=True, text=True, env={**os.environ, "QCL_ROOT": ROOT})
+    if out.returncode == 0: return set()
+    bad = set()
+    for l in (out.stdout + out.stderr).splitlines():
+        if not l.startswith("("): continue
+        try: t = ast.literal_eval(l)
+        except Exception: continue
+        if not (isinstance(t, tuple) and len(t) >= 2): continue
+        rp, nm = str(t[0]), str(t[1])
+        for k in ("variants", "ladder", "cross"):
+            for e in entries.get(rp, {}).get(k, []):
+                if str(e.get("name") or e.get("variant")) == nm: bad.add((rp, k, nm))
+    return bad
+
 def failing(entries):
     bad = set()
     for g in ("verify.py", "verify_columns.py"):
@@ -159,8 +176,8 @@ def merge(dirs):
     # machine entries replace the same repos' older entries: drop those repos from the base parts' view via the build's duplicate rule
     write(entries, base)
     quarantined = list(held_by_review)
-    for _ in range(3):
-        bad = failing(entries)
+    for _ in range(4):
+        bad = failing(entries) or build_failing(entries)   # source/column gates first, then the build's sign/plausibility checks
         if not bad: break
         for rp, k, nm in bad:
             entries[rp][k] = [e for e in entries[rp][k] if str(e.get("name") or e.get("variant")) != nm]

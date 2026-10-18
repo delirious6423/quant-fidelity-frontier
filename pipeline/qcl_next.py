@@ -47,7 +47,7 @@ def minutes():
     _, d = scan("elapsed 999"); return d.get("minutes", 0)
 def say(d): print(json.dumps(d)); sys.exit(0)
 def hf(op_lists, s, step):
-    s["step"] = step; save(s)
+    s["step"] = step; s["expect"] = len(op_lists); s["last_ops"] = op_lists; save(s)
     say({"do": "hf_fs", "op_lists": op_lists, "then": f"{NEXT} --results <saved path of each call, in order>"})
 def agents(prompts, s, step, par=8):
     s["step"] = step; save(s)
@@ -87,8 +87,11 @@ if s is None:   # start of a run
     hf(ops, s, "a_catalogue")
 
 step = s["step"]
+if step in ("a_catalogue", "b_catalogue") and len(results) != s.get("expect"):   # every requested call must have been made
+    say({"do": "hf_fs", "op_lists": s["last_ops"], "error": f"expected {s.get('expect')} saved paths after --results, got {len(results)}. "
+         "Make every hf_fs call below (one per op list, exactly as given), then pass all saved paths in order.",
+         "then": f"{NEXT} --results <saved path of each call, in order>"})
 if step == "a_catalogue":
-    if len(results) != len(s["live"]): say({"do": "error", "message": f"expected {len(s['live'])} saved paths after --results, got {len(results)}; run `{NEXT} --results ...` again"})
     shards = {}
     for slug, path in zip(s["live"], results):
         code, d = scan(f"catalogue {slug} {path}")
@@ -147,11 +150,16 @@ if step == "b_start":
     scan("plan")   # recreates the new model's model.json if a Part A discard removed it
     _, d = scan(f"ingest-state {s['ingest']}"); ph = d.get("phase"); s["part_b"]["phase_at_start"] = ph
     if ph == "catalogue":
-        _, o = scan(f"search-ops {s['ingest']} --full"); hf(o["op_lists"], s, "b_catalogue")
+        _, o = scan(f"search-ops {s['ingest']} --full"); s["b_ops"] = o["op_lists"]; s["b_paths"] = []
+        hf(s["b_ops"][:7], s, "b_catalogue")
     step = "b_fetch" if ph == "fetch" else "b_map"
 
 if step == "b_catalogue":
-    slug = s["ingest"]; code, d = scan(f"catalogue {slug} --full " + " ".join(results))
+    s["b_paths"] += results
+    if len(s["b_paths"]) < len(s["b_ops"]):   # searches come in rounds of 7 calls
+        hf(s["b_ops"][len(s["b_paths"]):len(s["b_paths"]) + 7], s, "b_catalogue")
+    slug = s["ingest"]; code, d = scan(f"catalogue {slug} --full " + " ".join(s["b_paths"]))
+    if code == 1: finish_run(s, f"catalogue failed: {d.get('error')}")
     s["part_b"]["catalogue"] = {"repos": d.get("catalogue"), "shards": len(d.get("shards") or []), "gated": d.get("gated")}
     s["b_progress"] = True; checkpoint(s)
     if minutes() > 25: finish_run(s, "catalogue done; fetching starts next run")
