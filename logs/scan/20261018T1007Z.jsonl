@@ -1,0 +1,20 @@
+{"at": "2026-10-18T10:04:05Z", "cmd": "lock", "exit": 0, "locked": false}
+{"at": "2026-10-18T10:04:05Z", "cmd": "plan", "exit": 0, "delta": ["qwen3.8-flash-next", "qwen3.8-27b", "deepseek-v4.1-flash", "glm-5.3-flash"], "ingest": null, "resume": false}
+{"at": "2026-10-18T10:04:09Z", "cmd": "search-ops qwen3.8-flash-next", "exit": 0, "slug": "qwen3.8-flash-next", "calls": 1}
+{"at": "2026-10-18T10:04:09Z", "cmd": "search-ops qwen3.8-27b", "exit": 0, "slug": "qwen3.8-27b", "calls": 1}
+{"at": "2026-10-18T10:04:09Z", "cmd": "search-ops deepseek-v4.1-flash", "exit": 0, "slug": "deepseek-v4.1-flash", "calls": 1}
+{"at": "2026-10-18T10:04:09Z", "cmd": "search-ops glm-5.3-flash", "exit": 0, "slug": "glm-5.3-flash", "calls": 1}
+{"at": "2026-10-18T10:04:09Z", "cmd": "elapsed", "exit": 0, "minutes": 0.1}
+{"at": "2026-10-18T10:04:23Z", "cmd": "catalogue qwen3.8-flash-next", "exit": 0, "search_entries": 80, "catalogue": 80, "in_index": 459, "delta": 1, "gated": 3, "shards": ["2026101810a"]}
+{"at": "2026-10-18T10:04:23Z", "cmd": "catalogue qwen3.8-27b", "exit": 2, "search_entries": 80, "catalogue": 1239, "in_index": 1225, "delta": 0, "gated": 14, "shards": []}
+{"at": "2026-10-18T10:04:23Z", "cmd": "catalogue deepseek-v4.1-flash", "exit": 0, "search_entries": 80, "catalogue": 80, "in_index": 133, "delta": 1, "gated": 2, "shards": ["2026101810a"]}
+{"at": "2026-10-18T10:04:23Z", "cmd": "catalogue glm-5.3-flash", "exit": 2, "search_entries": 80, "catalogue": 183, "in_index": 174, "delta": 0, "gated": 9, "shards": []}
+{"at": "2026-10-18T10:05:16Z", "cmd": "elapsed", "exit": 0, "minutes": 1.2}
+{"at": "2026-10-18T10:05:16Z", "cmd": "prepare qwen3.8-flash-next", "exit": 0, "todo": 1, "cards": 1, "queues": 2}
+{"at": "2026-10-18T10:05:18Z", "cmd": "prepare deepseek-v4.1-flash", "exit": 2, "todo": 0, "cards": 0, "queues": 0, "merge": "merged 61 repos, 1026 values; resolved 42 repos; quarantined 5 entries; held 0 disagreements; 11.5s"}
+{"at": "2026-10-18T10:05:41Z", "cmd": "elapsed 45", "exit": 0, "minutes": 1.6}
+{"at": "2026-10-18T10:05:42Z", "cmd": "elapsed 45", "exit": 0, "minutes": 1.6}
+{"at": "2026-10-18T10:07:22Z", "cmd": "elapsed 45", "exit": 0, "minutes": 3.3}
+{"at": "2026-10-18T10:07:24Z", "cmd": "elapsed 45", "exit": 0, "minutes": 3.3}
+{"at": "2026-10-18T10:07:31Z", "cmd": "finish qwen3.8-flash-next", "exit": 0, "merge": "merged 12 repos, 67 values; resolved 0 repos; quarantined 2 entries; held 55 disagreements; 4.5s"}
+{"at": "2026-10-18T10:07:36Z", "cmd": "elapsed", "exit": 0, "minutes": 3.5}
