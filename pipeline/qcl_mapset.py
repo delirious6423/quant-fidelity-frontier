@@ -21,6 +21,7 @@ if "--record" in sys.argv:   # after a mapping run (or a run that stopped early)
     for f in glob.glob(f"{R}/maps/A/*.map.json"):
         rp = _repo_of(f); fb = f.replace("/A/", "/B/")
         if rp in idx and os.path.exists(fb) and _repo_of(fb) == rp: mapped[rp] = idx[rp]["sha256"]
+    os.makedirs(os.path.dirname(mp), exist_ok=True)   # a new model has no maps/ yet
     json.dump(mapped, open(mp, "w"), indent=1, sort_keys=True)
 if "--baseline" in sys.argv:   # hand-reviewed models (Flash-Next): every card already reviewed counts as mapped at its current bytes
     for rp, m in idx.items(): mapped.setdefault(rp, m["sha256"])

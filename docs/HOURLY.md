@@ -22,8 +22,9 @@ Then repeat until it prints `"do": "stop"`:
 - `"do": "stop"`: reply with its `report`. The script has already committed, pushed, deployed and unlocked.
 
 Never run git, `qcl_scan.py` or anything else yourself, never skip a step it asks for, and never type numbers, repo ids or
-card text. If the session must end early, run `python3 pipeline/qcl_scan.py unlock` and push it so the next run is not
-blocked.
+card text. If the session must end early, run `python3 pipeline/qcl_next.py --abort` (it checkpoints, unlocks and pushes).
+The script pushes to `main` explicitly (`git push origin HEAD:refs/heads/main`), so a clone on a detached HEAD is fine, and
+it switches the clone to the newest `main` before it starts.
 
 What the script does, for reference: lock and plan; Part A (live models): catalogue, fetch agents, prepare, mapping
 agents, finish, publish, commit, push, deploy (a failed publish is discarded and logged); Part B (one new model, resumable):
@@ -157,7 +158,7 @@ Only that model's folder and the watch list are committed. CI, Pages and `publis
 ## 9. Unlock and report (always, however the run went)
 ```bash
 python3 pipeline/qcl_scan.py unlock
-git add -A scan.lock logs/scan && git commit -qm "scan unlock" && (git push -q || (git pull --rebase -q && git push -q))   # skip if the lock was never pushed
+python3 pipeline/qcl_next.py --abort   # unlocks, adds logs/scan (and the lock deletion if it was pushed), commits and pushes to main
 ```
 Every `qcl_scan.py` command logs its result line; `unlock` files the run's log as `logs/scan/<UTC>.jsonl`, committed with the
 unlock, so a later check can see which steps ran and how they ended.

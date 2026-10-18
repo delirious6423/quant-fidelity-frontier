@@ -3,6 +3,7 @@
 
   python3 pipeline/qcl_next.py                       # first call of a run, and after agents finish
   python3 pipeline/qcl_next.py --results P1 P2 ...   # after the hf_fs calls it asked for, saved paths in the same order
+  python3 pipeline/qcl_next.py --abort               # the session has to stop early: checkpoint, unlock and push
 
 Every call prints one JSON object with "do":
   "hf_fs"   call the hf_fs tool once per entry of op_lists, exactly as given; then run `then` with the saved paths in order
@@ -34,12 +35,16 @@ def scan(args):
 def git(*cmds):
     for c in cmds: sh(c)
 def push(msg, paths):
-    sh(f"git add -A -- {paths}")
+    import shlex
+    for p in shlex.split(paths):   # one path at a time: a missing path (e.g. scan.lock after unlock) must not cancel the rest
+        if p.startswith(":!"): continue
+        sh(f"git add -A -- {shlex.quote(p)}" + "".join(f" {shlex.quote(x)}" for x in shlex.split(paths) if x.startswith(":!")))
     if sh("git diff --cached --quiet").returncode == 0: return "nothing to commit"
     sh(f"git -c user.name=Claude -c user.email=noreply@anthropic.com commit -qm {json.dumps(msg)}")
-    for _ in range(3):
-        if sh("git push -q").returncode == 0: return "pushed"
-        sh("git pull --rebase -q")
+    for _ in range(3):   # push the current commit to main explicitly: a scan clone may be on a detached HEAD
+        if sh("git push -q origin HEAD:refs/heads/main").returncode == 0: return "pushed"
+        sh("git pull --rebase -q origin main")
+    s_ = load() or {}; s_.setdefault("notes", []).append(f"push failed: {msg}"); save(s_)
     return "push failed"
 def load(): return json.load(open(ST)) if os.path.exists(ST) else None
 def save(s): os.makedirs(os.path.dirname(ST), exist_ok=True); json.dump(s, open(ST, "w"), indent=1)
@@ -75,6 +80,15 @@ args = sys.argv[1:]
 results = args[args.index("--results") + 1:] if "--results" in args else []
 s = load()
 if s and s.get("step") == "done": s = None; os.remove(ST)
+if "--abort" in args:   # the session must end early: save Part B progress, unlock, push
+    s = s or {"notes": [], "part_a": {}, "part_b": {}, "ingest": None, "b_progress": False}
+    finish_run(s, "ended early by the session (--abort)")
+if s is None and "--synced" not in args:   # start of a run: work on the newest main (a clone may be a detached, older commit)
+    sh("git fetch -q origin main")
+    head, tip = sh("git rev-parse HEAD").stdout.strip(), sh("git rev-parse origin/main").stdout.strip()
+    if tip and head != tip and sh("git status --porcelain --untracked-files=no").stdout.strip() == "":
+        sh("git checkout -q -B main origin/main")
+    os.execvp("python3", ["python3", os.path.abspath(__file__), "--synced"])   # re-run with the newest code
 if s is None:   # start of a run
     code, d = scan("lock")
     if code == 3: say({"do": "stop", "report": {"skipped": "another run holds the lock", **d}})
