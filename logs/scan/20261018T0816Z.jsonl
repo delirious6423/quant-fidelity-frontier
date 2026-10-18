@@ -1,0 +1,28 @@
+{"at": "2026-10-18T08:04:40Z", "cmd": "lock", "exit": 0, "locked": false}
+{"at": "2026-10-18T08:04:40Z", "cmd": "plan", "exit": 0, "delta": ["qwen3.8-flash-next", "qwen3.8-27b", "deepseek-v4.1-flash"], "ingest": "glm-5.3-flash", "resume": true}
+{"at": "2026-10-18T08:05:29Z", "cmd": "search-ops qwen3.8-flash-next", "exit": 0, "slug": "qwen3.8-flash-next", "calls": 1}
+{"at": "2026-10-18T08:05:29Z", "cmd": "search-ops qwen3.8-27b", "exit": 0, "slug": "qwen3.8-27b", "calls": 1}
+{"at": "2026-10-18T08:05:29Z", "cmd": "search-ops deepseek-v4.1-flash", "exit": 0, "slug": "deepseek-v4.1-flash", "calls": 1}
+{"at": "2026-10-18T08:05:43Z", "cmd": "catalogue qwen3.8-flash-next", "exit": 0, "search_entries": 80, "catalogue": 80, "in_index": 453, "delta": 13, "gated": 3, "shards": ["2026101808a"]}
+{"at": "2026-10-18T08:05:43Z", "cmd": "catalogue qwen3.8-27b", "exit": 0, "search_entries": 80, "catalogue": 1239, "in_index": 1220, "delta": 7, "gated": 14, "shards": ["2026101808a"]}
+{"at": "2026-10-18T08:05:43Z", "cmd": "catalogue deepseek-v4.1-flash", "exit": 0, "search_entries": 80, "catalogue": 80, "in_index": 133, "delta": 2, "gated": 2, "shards": ["2026101808a"]}
+{"at": "2026-10-18T08:05:43Z", "cmd": "elapsed", "exit": 0, "minutes": 1.1}
+{"at": "2026-10-18T08:06:54Z", "cmd": "prepare qwen3.8-flash-next", "exit": 0, "todo": 11, "cards": 11, "queues": 4}
+{"at": "2026-10-18T08:06:57Z", "cmd": "prepare qwen3.8-27b", "exit": 0, "todo": 2, "cards": 2, "queues": 2}
+{"at": "2026-10-18T08:07:06Z", "cmd": "prepare deepseek-v4.1-flash", "exit": 2, "todo": 0, "cards": 0, "queues": 0}
+{"at": "2026-10-18T08:07:07Z", "cmd": "elapsed", "exit": 0, "minutes": 2.5}
+{"at": "2026-10-18T08:07:17Z", "cmd": "elapsed 45", "exit": 0, "minutes": 2.6}
+{"at": "2026-10-18T08:07:18Z", "cmd": "elapsed 45", "exit": 0, "minutes": 2.6}
+{"at": "2026-10-18T08:07:20Z", "cmd": "elapsed 45", "exit": 0, "minutes": 2.7}
+{"at": "2026-10-18T08:07:22Z", "cmd": "elapsed 45", "exit": 0, "minutes": 2.7}
+{"at": "2026-10-18T08:08:26Z", "cmd": "elapsed 45", "exit": 0, "minutes": 3.8}
+{"at": "2026-10-18T08:08:29Z", "cmd": "elapsed 45", "exit": 0, "minutes": 3.8}
+{"at": "2026-10-18T08:09:59Z", "cmd": "elapsed 45", "exit": 0, "minutes": 5.3}
+{"at": "2026-10-18T08:11:12Z", "cmd": "elapsed 45", "exit": 0, "minutes": 6.5}
+{"at": "2026-10-18T08:11:51Z", "cmd": "elapsed 45", "exit": 0, "minutes": 7.2}
+{"at": "2026-10-18T08:15:10Z", "cmd": "elapsed 45", "exit": 0, "minutes": 10.5}
+{"at": "2026-10-18T08:15:20Z", "cmd": "finish qwen3.8-flash-next", "exit": 0, "merge": "merged 11 repos, 41 values; resolved 0 repos; quarantined 4 entries; held 170 disagreements; 7.2s"}
+{"at": "2026-10-18T08:15:28Z", "cmd": "finish qwen3.8-27b", "exit": 0, "merge": "merged 601 repos, 3784 values; resolved 0 repos; quarantined 134 entries; held 1690 disagreements; 13.0s"}
+{"at": "2026-10-18T08:15:42Z", "cmd": "elapsed", "exit": 0, "minutes": 11.0}
+{"at": "2026-10-18T08:15:51Z", "cmd": "publish", "exit": 1, "error": "python3 build.py", "rc": 1, "tail": "REFUSING TO BUILD: verify.py failed (exit 1)\nrepos covered: 133/133\nvalues verified verbatim: 1170\nimage-sourced values (see verify_images.py): 0\nsigned values checked for sign: 56 (sign failures: 0)\nsizes checked for unit next to the number: 96 (unit failures: 0)\ncross/ladder entries with quoted-context wording: 1\nfailures: 2\n  FAIL kyuz0/deepseek-v4.1-flash-gguf: sha eae92cb162af2148611e67b20268ab109b0f63b2 does not match snapshot main\n  FAIL SaturnHeaven/DeepSeek-V4.1-Flash-RANMA-Engram-GGUF: sha dc60460dfcac845a87a441093a064bd211b989aa does not match snapshot main\n\n"}
+{"at": "2026-10-18T08:16:34Z", "cmd": "elapsed", "exit": 0, "minutes": 11.9}
