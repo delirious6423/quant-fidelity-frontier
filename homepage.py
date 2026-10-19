@@ -1,0 +1,84 @@
+"""Source-derived, progressively enhanced homepage. No measurement values are authored here."""
+import html
+from collections import Counter
+import json
+import re
+from pathlib import Path
+from urllib.parse import urlencode
+
+
+def family(value):
+    value = str(value or '').strip()
+    match = re.match(r'^[A-Za-z0-9_+.\-]+', value)
+    key = match[0].upper() if match else value
+    return 'other' if not key or key == 'OTHER' else key
+
+
+def build_homepage(out, models, base, analytics, support):
+    out = Path(out)
+    esc = lambda s: html.escape(str(s), quote=True)
+    catalog, cards = [], []
+    preview = None
+    for model in models:
+        data = json.loads((out / model['data']).read_text())
+        sets = []
+        for source in data['sets']:
+            if not source.get('comparable') or source.get('x', {}).get('unit') != 'GB':
+                continue
+            metric = 'kld' if 'kld' in source['metrics'] else source['metrics'][0]
+            points = [p for p in source['points'] if p.get('x') is not None and metric in p.get('m', {})]
+            if not points:
+                continue
+            sets.append(dict(id=source['id'], title=source['title'], metric=metric,
+                             size_label=source['x']['label'], reference=source.get('reference', 'Not stated'),
+                             points=[dict(fmt=family(p.get('fmt')), basis=p.get('basis') or 'unknown', x=p['x']) for p in points]))
+            # A real, homogeneous KLD example, with every point linked to its source.
+            if preview is None and metric == 'kld' and len(points) >= 3 and len({p.get('basis') for p in points}) == 1:
+                preview = (model, source, points)
+        entry = dict(slug=model['slug'], name=model['model'].split('/')[-1], sets=sets)
+        catalog.append(entry)
+        quality = {r['measured_by'] for r in data['rows'] if r.get('metrics') and r['kind'] == 'own' and not r.get('copied_from')}
+        quality &= {r['repo'] for r in data['repos']}
+        format_counts = Counter(family(r.get('fmt')) for r in data['repos'])
+        formats = sorted(format_counts, key=lambda f: (-format_counts[f], f))
+        pills = ''.join(f'<span class="pill">{esc(f)}</span>' for f in formats[:4])
+        if len(formats) > 4:
+            pills += f'<span class="pill">+{len(formats)-4} more</span>'
+        target = model['slug'] + '/'
+        if sets:
+            target += '?' + urlencode({'set': sets[0]['id'], 'm': sets[0]['metric']}) + '#chart'
+        captured = (model.get('captured_at') or 'Unknown')[:10]
+        checked = model.get('checked_at')
+        scan = f'Checked for new repos: {checked[:16].replace("T", " ")} UTC' if checked else 'New-repo scan time unavailable'
+        cards.append(f'''<article class="model-card"><h3><a href="{esc(target)}">{esc(entry['name'])}</a></h3>
+<p class="org">{esc(model['model'])}</p><p class="coverage"><strong>{model['repos']:,}</strong> repos indexed · <strong>{len(quality):,}</strong> with own quality claims</p>
+<div class="card-actions"><div class="pills">{pills}</div><a class="explore" href="{esc(target)}">Explore quants <span aria-hidden="true">→</span></a></div>
+<details><summary>Coverage &amp; freshness</summary><p>{model['rows']:,} claim rows · {model['sets']} measurement sets<br>Cards captured: {esc(captured)}<br>{esc(scan)}</p></details></article>''')
+    chart = ''
+    if preview:
+        model, source, points = preview
+        x0, x1 = min(p['x'] for p in points), max(p['x'] for p in points)
+        y1 = max(p['m']['kld']['v'] for p in points) * 1.12 or 1
+        dots = ''
+        for p in points:
+            x = 48 + 250 * (p['x']-x0)/(x1-x0 or 1)
+            y = 130 - 105 * p['m']['kld']['v']/y1
+            title = f"{p['variant']}: {p['x']:g} GB, KLD {p['m']['kld']['raw']}"
+            dots += f'<a href="{esc(p["src"])}" aria-label="{esc(title)}"><circle cx="{x:.2f}" cy="{y:.2f}" r="4"><title>{esc(title)}</title></circle></a>'
+        href = model['slug'] + '/?' + urlencode({'set':source['id'], 'm':'kld'}) + '#chart'
+        chart = f'''<figure class="preview"><figcaption><span class="eyebrow">A REAL COMPARISON</span><strong>{esc(model['model'].split('/')[-1])}</strong></figcaption>
+<svg viewBox="0 0 330 170" role="img" aria-label="Mean KLD versus size within {esc(source['title'])}; linear axes"><path d="M48 20V130H305"/><path class="gridline" d="M48 78H305M48 26H305"/><text x="42" y="134" text-anchor="end">0</text><text x="42" y="29" text-anchor="end">{y1:.3g}</text><text x="48" y="148">{x0:g}</text><text x="298" y="148" text-anchor="end">{x1:g}</text><text x="170" y="166" text-anchor="middle">Size (GB)</text><text transform="translate(12 76) rotate(-90)" text-anchor="middle">Mean KLD ↓</text>{dots}</svg>
+<p>{esc(source['title'])}<br>{esc(source['x']['label'])}</p><a href="{esc(href)}">Explore this comparison →</a></figure>'''
+    options = ''.join(f'<option value="{esc(m["slug"])}">{esc(m["name"])}</option>' for m in catalog)
+    payload = json.dumps(catalog).replace('<', '\\u003c')
+    page = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LLM quantization comparison: KLD vs size · QFF</title>{analytics}<meta name="description" content="Compare published LLM quantization fidelity: KLD, perplexity and model size, with source-linked claims and explicit measurement boundaries."><link rel="canonical" href="{base}"><link rel="stylesheet" href="home.css"><script defer src="home.js"></script></head><body>
+<a class="skip" href="#models">Skip to models</a><div class="shell"><header><a class="brand" href="./"><b>QFF</b><span>Quant Fidelity Frontier</span></a><nav aria-label="Main"><a href="#models">Models</a><a href="guides/">Guides</a><a href="#agents">For agents</a><a href="https://github.com/delirious6423/quant-fidelity-frontier">GitHub ↗</a></nav></header>
+<main><section class="hero" aria-labelledby="intro"><div><p class="eyebrow">LLM QUANTIZATION, WITH THE EVIDENCE</p><h1 id="intro">Compare quant size.<br>Understand the trade-offs.</h1><p class="lede">Explore publisher-reported fidelity, with every claim linked to its source.</p><p class="trust">Claims, not independent benchmarks. Compare numbers only within the same measurement set.</p><a class="text-link" href="guides/">How to compare fairly →</a></div>{chart}</section>
+<section class="quick" id="quick" hidden aria-labelledby="quick-title"><h2 id="quick-title">Start a comparison</h2><form id="start-form"><div class="controls"><label>Model<select id="home-model">{options}</select></label><label>Format<select id="home-format"></select></label><label>Size limit<select id="home-limit"><option value="">Any</option>{''.join(f'<option value="{n}">≤ {n} GB</option>' for n in (16,24,32,48,64,96,128,192,256))}</select></label><button type="submit" id="start">Explore →</button></div><div class="context-controls"><label>Measurement set<select id="home-set"></select></label><label>Size definition<select id="home-basis"></select></label></div><p id="selection-note" role="status"></p><p class="caution">File size is not total memory usage. Context, runtime buffers and offloading matter.</p></form></section>
+<section id="models" aria-labelledby="browse"><div class="section-heading"><h2 id="browse">Browse models</h2><span>{len(models)} models indexed</span></div><div class="model-grid">{''.join(cards)}</div></section>
+<section class="resources" id="agents"><div><h2>Understand the evidence</h2><p>Read the measurement boundaries, size definitions and source citations before choosing a quant.</p><a href="guides/">Read the comparison guides →</a></div><div><h2>For agents &amp; developers</h2><p>Use the same source-linked claims in your own tools.</p><a href="llms.txt">Agent reading guide</a> · <a href="models.json">Model index JSON</a> · <a href="https://github.com/delirious6423/quant-fidelity-frontier/tree/main/qff_mcp">MCP server</a></div></section>
+<footer><span>QFF · Publisher claims, linked to their sources.</span><span><a href="https://github.com/delirious6423/quant-fidelity-frontier">Source &amp; data</a>{support}</span></footer></main></div><script id="home-data" type="application/json">{payload}</script></body></html>'''
+    (out / 'index.html').write_text(page)
+    for name in ('home.css', 'home.js'):
+        (out / name).write_text((Path(__file__).parent / 'web' / name).read_text())

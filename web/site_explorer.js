@@ -151,7 +151,7 @@
   $('exbasis').addEventListener('change', function () { state.basis = this.value; syncRange(); renderBody(); });
   $('exlog').addEventListener('click', function () { state.lin = false; syncExtras(); drawChart(); });
   $('exlin').addEventListener('click', function () { state.lin = true; syncExtras(); drawChart(); });
-  function viewParams() { var q = new URLSearchParams(); q.set('set', state.set); if (state.metric) q.set('m', state.metric); if (state.q) q.set('q', state.q); if (state.xmax != null) q.set('max', fmt(state.xmax)); if (state.onlyFront) q.set('eff', '1'); if (state.basis) q.set('basis', state.basis); return q; }
+  function viewParams() { var q = new URLSearchParams(); q.set('set', state.set); if (state.metric) q.set('m', state.metric); if (state.q) q.set('q', state.q); if (state.xmax != null) q.set('max', fmt(state.xmax)); if (state.onlyFront) q.set('eff', '1'); if (state.basis) q.set('basis', state.basis); Object.keys(state.fmts).filter(function (f) { return state.fmts[f]; }).sort().forEach(function (f) { q.append('fmt', f); }); return q; }
   $('exlink').addEventListener('click', function () {
     var btn = this, url = location.href.split(/[?#]/)[0] + '?' + viewParams().toString() + '#chart';
     function done(ok) { btn.textContent = ok ? 'Link copied' : url; setTimeout(function () { btn.textContent = 'Copy link to view'; }, 2500); }
@@ -162,7 +162,9 @@
     if (U.get('set') && setById(U.get('set'))) { state.set = U.get('set'); selSet.value = state.set; }
     if (U.get('m')) state.metric = U.get('m');
     if (U.get('q')) { state.q = U.get('q').toLowerCase(); qIn.value = U.get('q'); }
-    if (U.get('max') && !isNaN(+U.get('max'))) state.xmax = +U.get('max');
+    if (U.get('max') && Number.isFinite(+U.get('max')) && +U.get('max') > 0) state.xmax = +U.get('max');
+    var allowedFormats = setById(state.set).points.map(function (p) { return famOf(p.fmt); });
+    U.getAll('fmt').forEach(function (f) { if (allowedFormats.indexOf(f) >= 0) state.fmts[f] = true; });
     if (U.get('eff') === '1') state.onlyFront = true;
     if (U.get('basis')) state.basis = U.get('basis');
   } catch (e) {}
