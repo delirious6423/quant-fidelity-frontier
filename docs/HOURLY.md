@@ -8,6 +8,7 @@ QFF is kept current by **three scheduled tasks**. Scripts decide every step; a s
 | QFF live updates | hourly at :03 | `qcl_next.py --part A` | new and changed cards on live models: fetch, map, merge, data checks (`stage`), commit | no |
 | QFF new model | every 2 h at :33 | `qcl_next.py --part B` | adds the next watch-list model in chunks (catalogue, at most 2 fetch shards, mapping rounds), checkpoint after each step; a complete model goes to status `review` | no |
 | QFF QA and publish | hourly at :45 | `qcl_qa.py` | skips if nothing changed since `audit/deployed.json`; otherwise samples up to 20 new values, two Haiku reviewers check them against their cards (`docs/agents/REVIEW.md`), wrong ones are held (`audit/holds.json`), models in `review` go `live`, every test runs, then commit, deploy and record the approved commit | **yes, the only one** |
+| QFF README check | daily at 08:58 Taipei (00:58 UTC) | `docs/agents/README_CHECK.md` | builds the live models, runs `readme_sync.py --check`, cross-checks README and qff_mcp/README prose against code, docs and PROGRESS.md, fixes stale statements (never the generated model table, never a typed number) | no (GitHub README only) |
 
 Each task has its own lock (`scan.lock`, `ingest.lock`, `qa.lock`), so they never block each other. All three push to
 `main`; `watchlist.json` has a merge driver (`pipeline/merge_watchlist.py`) and `PROGRESS.md` merges by union, so

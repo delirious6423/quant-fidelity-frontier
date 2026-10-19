@@ -42,7 +42,7 @@ def stop(s, note=None, pushed_lock=True):
     scan("unlock --discard")
     s["git_unlock"] = push("QA unlock", "qa.lock logs/scan") if pushed_lock else "lock never pushed"
     s["step"] = "done"; save(s)
-    say({"do": "stop", "report": {k: s.get(k) for k in ("reviewed", "verdicts", "held", "promoted", "published", "deploy", "notes", "git_unlock")}})
+    say({"do": "stop", "report": {k: s.get(k) for k in ("reviewed", "verdicts", "held", "promoted", "published", "readme", "deploy", "notes", "git_unlock")}})
 
 def entries(src):
     """(repo, kind, entry, key) -> (raw, lines) for every value in a part8_machine.py source text."""
@@ -149,6 +149,8 @@ if s["step"] == "reviewed":
         promoted = sorted({*promoted, *(m["slug"] for m in wl()["models"] if m["status"] == "live" and before.get(m["slug"]) == "review")})
     except Exception: pass
     s["promoted"] = promoted; s["published"] = d.get("progress_line")
+    rs = sh("python3 pipeline/readme_sync.py")   # README model table from the data just tested, in the same commit
+    s["readme"] = (rs.stdout.strip().splitlines() or [rs.stderr.strip()[-200:]])[-1]
     os.makedirs(os.path.dirname(DEPLOYED), exist_ok=True)
     json.dump({"commit": s["head"], "at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "reviewed": s.get("reviewed"), "verdicts": verdicts,
                "held": len(held), "promoted": promoted}, open(DEPLOYED, "w"), indent=1)
