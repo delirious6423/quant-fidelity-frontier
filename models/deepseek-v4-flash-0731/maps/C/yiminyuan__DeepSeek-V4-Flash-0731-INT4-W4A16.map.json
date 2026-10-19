@@ -1,0 +1,32 @@
+{
+  "repo": "yiminyuan/DeepSeek-V4-Flash-0731-INT4-W4A16",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "dequantized FP4 source (per-tensor SNR); none for perplexity", "dataset": "per-tensor comparison over 35,328 expert tensors; held-out text (prose and code)", "ctx": "not stated", "tool": "not stated", "L": [58, 63, 71, 75]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "INT4-W4A16",
+      "methodology": {"reference": "dequantized FP4 source (per-tensor SNR)", "dataset": "35,328 transcoded expert tensors", "ctx": "not stated", "tool": "not stated", "L": [58, 63, 64, 65]},
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "SNR values are per-tensor fidelity measures, not end-to-end quality [L58-65]",
+        "Perplexity figures are mapped below as prose values, with no base-model reference given [L75]",
+        "169.9 GiB across 34 shards is stated in prose [L22] and is not in the same row as a metric, so it is not mapped",
+        "The 8-die, 2-node deployment target has not been run [L78-79]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "INT4-W4A16", "key": "ppl:prose", "L": 75, "raw": "2.42"},
+    {"entry": "INT4-W4A16", "key": "ppl:code", "L": 75, "raw": "1.72"},
+    {"entry": "INT4-W4A16", "key": "bench:expert_snr_db_min", "L": 63, "raw": "22.71"},
+    {"entry": "INT4-W4A16", "key": "bench:expert_snr_db_p01", "L": 64, "raw": "23.15"},
+    {"entry": "INT4-W4A16", "key": "bench:expert_snr_db_median", "L": 65, "raw": "25.69"}
+  ]
+}

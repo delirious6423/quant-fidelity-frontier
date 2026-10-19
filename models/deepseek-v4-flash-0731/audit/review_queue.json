@@ -19,6 +19,18 @@
    "reason": "review hold: review 2026-10-19: mean_kld: [L53] and [L61] say the 0.0747 KLD is Unsloth's published figure, so the role is quoted, not cross (author-measured)."
   },
   {
+   "repo": "ox-ox/DeepSeek-V4-Flash-0731-gguf-ds4",
+   "kind": "variants",
+   "entry": "imatrix",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP50",
+   "kind": "variants",
+   "entry": "REAP50",
+   "reason": "failed a gate"
+  },
+  {
    "repo": "anoane/DeepSeek-V4-Flash-0731-exl3-hybrid-2.72bpw",
    "kind": "variants",
    "entry": "2.72 bpw hybrid",
@@ -31,9 +43,9 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "ox-ox/DeepSeek-V4-Flash-0731-gguf-ds4",
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP25",
    "kind": "variants",
-   "entry": "imatrix",
+   "entry": "REAP25",
    "reason": "failed a gate"
   },
   {
@@ -41,105 +53,27 @@
    "kind": "variants",
    "entry": "2.72 bpw hybrid, --fp4-prefill",
    "reason": "failed a gate"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP37",
+   "kind": "ladder",
+   "entry": "6bit",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP25",
+   "kind": "ladder",
+   "entry": "6bit",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP37",
+   "kind": "variants",
+   "entry": "REAP37",
+   "reason": "failed a gate"
   }
  ],
  "disagreements": [
-  {
-   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:GSM8K",
-   "raw": "19"
-  },
-  {
-   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:MATH",
-   "raw": "12"
-  },
-  {
-   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:MMLU-Pro",
-   "raw": "16"
-  },
-  {
-   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:Long_context",
-   "raw": "18"
-  },
-  {
-   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
-   "entry": "GGUF IQ2_XXS mix (ds4)",
-   "key": "bench:GSM8K",
-   "raw": "18"
-  },
-  {
-   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
-   "entry": "GGUF IQ2_XXS mix (ds4)",
-   "key": "bench:MATH",
-   "raw": "17"
-  },
-  {
-   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
-   "entry": "GGUF IQ2_XXS mix (ds4)",
-   "key": "bench:MMLU-Pro",
-   "raw": "16"
-  },
-  {
-   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
-   "entry": "GGUF IQ2_XXS mix (ds4)",
-   "key": "bench:Long_context",
-   "raw": "19"
-  },
-  {
-   "repo": "AtomicChat/DeepSeek-V4-Flash-0731-GGUF",
-   "entry": "AD-MXFP4",
-   "key": "mean_kld",
-   "raw": "0.1564"
-  },
-  {
-   "repo": "AtomicChat/DeepSeek-V4-Flash-0731-GGUF",
-   "entry": "AD-IQ3_M",
-   "key": "mean_kld",
-   "raw": "0.1798"
-  },
-  {
-   "repo": "AtomicChat/DeepSeek-V4-Flash-0731-GGUF",
-   "entry": "AD-IQ3_S",
-   "key": "mean_kld",
-   "raw": "0.1891"
-  },
-  {
-   "repo": "AtomicChat/DeepSeek-V4-Flash-0731-GGUF",
-   "entry": "AD-IQ3_XS",
-   "key": "mean_kld",
-   "raw": "0.2065"
-  },
-  {
-   "repo": "AtomicChat/DeepSeek-V4-Flash-0731-GGUF",
-   "entry": "AD-IQ2_M",
-   "key": "mean_kld",
-   "raw": "0.2567"
-  },
-  {
-   "repo": "AtomicChat/DeepSeek-V4-Flash-0731-GGUF",
-   "entry": "AD-IQ2_S_XL",
-   "key": "mean_kld",
-   "raw": "0.3187"
-  },
-  {
-   "repo": "AtomicChat/DeepSeek-V4-Flash-0731-GGUF",
-   "entry": "AD-IQ2_XXS",
-   "key": "mean_kld",
-   "raw": "0.4544"
-  },
-  {
-   "repo": "AtomicChat/DeepSeek-V4-Flash-0731-GGUF",
-   "entry": "AD-IQ1_M",
-   "key": "mean_kld",
-   "raw": "0.5641"
-  },
   {
    "repo": "AxionML/DeepSeek-V4-Flash-0731-NVFP4",
    "entry": "NVFP4",
@@ -175,18 +109,6 @@
    "entry": "MXFP4 (source)",
    "key": "bench:GDPval_rubric",
    "raw": "93.0"
-  },
-  {
-   "repo": "Downtown-Case/DeepSeek-V4-Flash-0731-128GB-RAM-IK-GGUF",
-   "entry": "V1 GGUF",
-   "key": "top1_pct",
-   "raw": "Same top p: 90.885 \u00b1 0.076 %"
-  },
-  {
-   "repo": "Downtown-Case/DeepSeek-V4-Flash-0731-128GB-RAM-IK-GGUF",
-   "entry": "V1 Mix",
-   "key": "mean_kld",
-   "raw": "0.079"
   },
   {
    "repo": "Geometric-AI/DeepSeek-V4-Flash-0731-ROCmFP3-MIX",
@@ -267,48 +189,6 @@
    "raw": "59.6"
   },
   {
-   "repo": "KeinNiemand/DeepSeek-V4-Flash-0731-IK_GGUF",
-   "entry": "XS_IQ1_KT",
-   "key": "kld:wikitext-2",
-   "raw": "0.497826"
-  },
-  {
-   "repo": "KeinNiemand/DeepSeek-V4-Flash-0731-IK_GGUF",
-   "entry": "IQ1_KT",
-   "key": "kld:wikitext-2",
-   "raw": "0.393212"
-  },
-  {
-   "repo": "KeinNiemand/DeepSeek-V4-Flash-0731-IK_GGUF",
-   "entry": "IQ2_KT",
-   "key": "kld:wikitext-2",
-   "raw": "0.269956"
-  },
-  {
-   "repo": "KeinNiemand/DeepSeek-V4-Flash-0731-IK_GGUF",
-   "entry": "IQ2_KS",
-   "key": "kld:wikitext-2",
-   "raw": "0.268909"
-  },
-  {
-   "repo": "KeinNiemand/DeepSeek-V4-Flash-0731-IK_GGUF",
-   "entry": "IQ2_KL",
-   "key": "kld:wikitext-2",
-   "raw": "0.205305"
-  },
-  {
-   "repo": "KeinNiemand/DeepSeek-V4-Flash-0731-IK_GGUF",
-   "entry": "AD-IQ1_M_XL",
-   "key": "kld:wikitext-2",
-   "raw": "0.485612"
-  },
-  {
-   "repo": "KeinNiemand/DeepSeek-V4-Flash-0731-IK_GGUF",
-   "entry": "AD-IQ2_S",
-   "key": "kld:wikitext-2",
-   "raw": "0.293420"
-  },
-  {
    "repo": "Kevletesteur/DeepSeek-V4-Flash-0731-StrixHalo-Verified-GGUF",
    "entry": "StrixHalo-Verified (q6kattn GGUF)",
    "key": "bench:confident-wrong-answers P(answers and wrong)",
@@ -327,42 +207,6 @@
    "raw": "240/240"
   },
   {
-   "repo": "Laplace1313/DeepSeek-V4-Flash-0731-JA-REAP-K216-EXL3-3bpw-DGX-Spark",
-   "entry": "DeepSeek V4 Flash JA REAP K216 (EXL3 3.0 bpw)",
-   "key": "bench:MMLU full 5-shot",
-   "raw": "86.03"
-  },
-  {
-   "repo": "Laplace1313/DeepSeek-V4-Flash-0731-JA-REAP-K216-EXL3-3bpw-DGX-Spark",
-   "entry": "DeepSeek V4 Flash JA REAP K216 (EXL3 3.0 bpw)",
-   "key": "bench:MMLU-ProX Japanese (200)",
-   "raw": "48.5"
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4-Flash-0731-ROCmFP3",
-   "entry": "ROCmFP3",
-   "key": "bench:Full 92-question evaluation",
-   "raw": "82"
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4-Flash-0731-ROCmFP3",
-   "entry": "ROCmFP3",
-   "key": "bench:COMPSEC-17",
-   "raw": "17"
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4-Flash-0731-ROCmFP3",
-   "entry": "Quality (default)",
-   "key": "bench:COMPSEC-17",
-   "raw": "17"
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4-Flash-0731-ROCmFP3",
-   "entry": "Faster",
-   "key": "bench:COMPSEC-17",
-   "raw": "16"
-  },
-  {
    "repo": "MorinoNushi/DeepSeek-V4-Flash-0731-heretic-GGUF",
    "entry": "DeepSeek-V4-Flash-0731 Heretic \u2014 merged GGUF (UD-Q8_K_XL)",
    "key": "bench:refusal_rate_harmful",
@@ -373,18 +217,6 @@
    "entry": "UD-Q8_K_XL base",
    "key": "bench:refusal_rate_harmful",
    "raw": "99.29% (139/140)"
-  },
-  {
-   "repo": "Sn1waR/DeepSeek-V4-Flash-0731-CRACK-DSpark",
-   "entry": "Edited",
-   "key": "bench:GSM8K 100-question screen",
-   "raw": "96"
-  },
-  {
-   "repo": "Sn1waR/DeepSeek-V4-Flash-0731-CRACK-DSpark",
-   "entry": "Source",
-   "key": "bench:GSM8K 100-question screen",
-   "raw": "97"
   },
   {
    "repo": "TensorFold/DeepSeek-V4-Flash-0731-MXFP4-MLX",
@@ -423,12 +255,6 @@
    "raw": "overall 21.1%"
   },
   {
-   "repo": "auroter/DeepSeek-V4-Flash-0731-NVFP4",
-   "entry": "Source MXFP4 \u00b7 marlin",
-   "key": "ppl",
-   "raw": "5.178 / 5.189 (two runs)"
-  },
-  {
    "repo": "datayoda/DeepSeek-V4-Flash-0731-DS4-Antirez-Coder-Halo-128K-MixQ-GGUF",
    "entry": "DS4 Antirez Coder Halo 128K MixQ",
    "key": "bench:frozen_coding_50",
@@ -453,42 +279,6 @@
    "raw": "scored 0/15 for both this build and the baseline"
   },
   {
-   "repo": "gorbatjovy/DeepSeek-V4-Flash-0731-BahamutRU-t265-abliterated",
-   "entry": "unabliterated",
-   "key": "bench:IFEval (prompt strict)",
-   "raw": "83.4%"
-  },
-  {
-   "repo": "gorbatjovy/DeepSeek-V4-Flash-0731-BahamutRU-t265-abliterated",
-   "entry": "unabliterated",
-   "key": "bench:HumanEval+",
-   "raw": "87.8%"
-  },
-  {
-   "repo": "gorbatjovy/DeepSeek-V4-Flash-0731-BahamutRU-t265-abliterated",
-   "entry": "unabliterated",
-   "key": "bench:MBPP+",
-   "raw": "73.3%"
-  },
-  {
-   "repo": "gorbatjovy/DeepSeek-V4-Flash-0731-BahamutRU-t265-abliterated",
-   "entry": "unabliterated",
-   "key": "bench:MMLU-Pro",
-   "raw": "78.9%"
-  },
-  {
-   "repo": "gorbatjovy/DeepSeek-V4-Flash-0731-BahamutRU-t265-abliterated",
-   "entry": "unabliterated",
-   "key": "bench:tool calling, correct tool",
-   "raw": "100.0%"
-  },
-  {
-   "repo": "jmilnz/DeepSeek-V4-Flash-0731-antirez-ds4-GGUF",
-   "entry": "v2 (real imatrix)",
-   "key": "bench:cases_won_of_100",
-   "raw": "62 (0 ties)"
-  },
-  {
    "repo": "jmilnz/DeepSeek-V4-Flash-0731-antirez-ds4-GGUF",
    "entry": "v2 (real imatrix)",
    "key": "bench:avg_greedy_lcp_tokens",
@@ -499,12 +289,6 @@
    "entry": "v2 (real imatrix)",
    "key": "bench:first_token_match",
    "raw": "53/100"
-  },
-  {
-   "repo": "jmilnz/DeepSeek-V4-Flash-0731-antirez-ds4-GGUF",
-   "entry": "v1 (synthetic)",
-   "key": "bench:cases_won_of_100",
-   "raw": "38"
   },
   {
    "repo": "jmilnz/DeepSeek-V4-Flash-0731-antirez-ds4-GGUF",
@@ -687,10 +471,374 @@
    "raw": "+0.6"
   },
   {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP25",
+   "entry": "6bit",
+   "key": "ppl_delta_pct",
+   "raw": "+0.6"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP50",
+   "entry": "REAP25",
+   "key": "ppl_ratio",
+   "raw": "1.016"
+  },
+  {
+   "repo": "squanchyzx/DeepSeek-V4-Flash-0731-HERETIC-Abliterated-FP8",
+   "entry": "Heretic v2",
+   "key": "bench:Deterministic 512-token quality smoke",
+   "raw": "11/12"
+  },
+  {
+   "repo": "squanchyzx/DeepSeek-V4-Flash-0731-HERETIC-Abliterated-FP8",
+   "entry": "Heretic v2",
+   "key": "bench:Legacy bounded short-generation quality smoke",
+   "raw": "9/12"
+  },
+  {
+   "repo": "squanchyzx/DeepSeek-V4-Flash-0731-HERETIC-Abliterated-FP8",
+   "entry": "stock",
+   "key": "bench:Deterministic 512-token quality smoke",
+   "raw": "11/12"
+  },
+  {
+   "repo": "squanchyzx/DeepSeek-V4-Flash-0731-HERETIC-Abliterated-FP8",
+   "entry": "stock",
+   "key": "bench:Legacy bounded short-generation quality smoke",
+   "raw": "10/12"
+  },
+  {
+   "repo": "thetom-ai/DeepSeek-V4-Flash-ConfigI-GGUF",
+   "entry": "DeepSeek-V4-Flash Config-I (2.88 bpw hybrid, ctx 2048)",
+   "key": "ppl:wikitext",
+   "raw": "12.86 \u00b1 0.29"
+  },
+  {
+   "repo": "wrldsuksgo2mars/DeepSeek-V4-Flash-0731-EXL3-K2-calibrated-v1",
+   "entry": "v1",
+   "key": "bench:Tool Eval Bench 2.3.2 (69 scenarios)",
+   "raw": "86/100"
+  },
+  {
+   "repo": "wrldsuksgo2mars/DeepSeek-V4-Flash-0731-EXL3-K2-calibrated-v1",
+   "entry": "v0 control",
+   "key": "bench:Tool Eval Bench 2.3.2 (69 scenarios)",
+   "raw": "88/100"
+  },
+  {
+   "repo": "wrldsuksgo2mars/DeepSeek-V4-Flash-0731-EXL3-K2.1-D2.2-calibrated-v3",
+   "entry": "K2.1 + dSpark K2.2 calibrated v3",
+   "key": "bench:Tool Eval Bench 2.3.2 (69 scenarios)",
+   "raw": "88/100"
+  },
+  {
+   "repo": "wrldsuksgo2mars/DeepSeek-V4-Flash-0731-EXL3-K2.1-D2.2-calibrated-v3",
+   "entry": "K2 calibrated v1 control",
+   "key": "bench:Tool Eval Bench 2.3.2 (69 scenarios)",
+   "raw": "90/100"
+  },
+  {
+   "repo": "wrldsuksgo2mars/DeepSeek-V4-Flash-0731-EXL3-K3-calibrated-v1",
+   "entry": "EXL3 K3 calibrated v1",
+   "key": "bench:Tool Eval Bench 2.3.2 (69-scenario)",
+   "raw": "scored 83/100"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
+   "entry": "REAP50",
+   "key": "ppl:wikitext-2",
+   "raw": "7.7520"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
+   "entry": "REAP50",
+   "key": "ppl_delta_pct",
+   "raw": "+26.5%"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
+   "entry": "REAP25",
+   "key": "ppl:wikitext-2",
+   "raw": "6.4025"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
+   "entry": "REAP25",
+   "key": "ppl_delta_pct",
+   "raw": "+4.5%"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP50",
+   "entry": "6bit",
+   "key": "ppl_delta_pct",
+   "raw": "+0.6"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
+   "entry": "REAP37",
+   "key": "ppl:wikitext-2",
+   "raw": "6.9634"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
+   "entry": "REAP37",
+   "key": "ppl_delta_pct",
+   "raw": "+13.7%"
+  },
+  {
    "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
    "entry": "6bit",
    "key": "ppl_delta_pct",
    "raw": "+0.6"
+  }
+ ],
+ "resolved_disagreements": [],
+ "resolved_repos": 0,
+ "tiebroken": [
+  {
+   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "bench:GSM8K",
+   "raw": "19"
+  },
+  {
+   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "bench:MATH",
+   "raw": "12"
+  },
+  {
+   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "bench:MMLU-Pro",
+   "raw": "16"
+  },
+  {
+   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "bench:Long_context",
+   "raw": "18"
+  },
+  {
+   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
+   "entry": "GGUF IQ2_XXS mix (ds4)",
+   "key": "bench:GSM8K",
+   "raw": "18"
+  },
+  {
+   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
+   "entry": "GGUF IQ2_XXS mix (ds4)",
+   "key": "bench:MATH",
+   "raw": "17"
+  },
+  {
+   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
+   "entry": "GGUF IQ2_XXS mix (ds4)",
+   "key": "bench:MMLU-Pro",
+   "raw": "16"
+  },
+  {
+   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
+   "entry": "GGUF IQ2_XXS mix (ds4)",
+   "key": "bench:Long_context",
+   "raw": "19"
+  },
+  {
+   "repo": "AtomicChat/DeepSeek-V4-Flash-0731-GGUF",
+   "entry": "AD-MXFP4",
+   "key": "mean_kld",
+   "raw": "0.1564"
+  },
+  {
+   "repo": "AtomicChat/DeepSeek-V4-Flash-0731-GGUF",
+   "entry": "AD-IQ3_M",
+   "key": "mean_kld",
+   "raw": "0.1798"
+  },
+  {
+   "repo": "AtomicChat/DeepSeek-V4-Flash-0731-GGUF",
+   "entry": "AD-IQ3_S",
+   "key": "mean_kld",
+   "raw": "0.1891"
+  },
+  {
+   "repo": "AtomicChat/DeepSeek-V4-Flash-0731-GGUF",
+   "entry": "AD-IQ3_XS",
+   "key": "mean_kld",
+   "raw": "0.2065"
+  },
+  {
+   "repo": "AtomicChat/DeepSeek-V4-Flash-0731-GGUF",
+   "entry": "AD-IQ2_M",
+   "key": "mean_kld",
+   "raw": "0.2567"
+  },
+  {
+   "repo": "AtomicChat/DeepSeek-V4-Flash-0731-GGUF",
+   "entry": "AD-IQ2_S_XL",
+   "key": "mean_kld",
+   "raw": "0.3187"
+  },
+  {
+   "repo": "AtomicChat/DeepSeek-V4-Flash-0731-GGUF",
+   "entry": "AD-IQ2_XXS",
+   "key": "mean_kld",
+   "raw": "0.4544"
+  },
+  {
+   "repo": "AtomicChat/DeepSeek-V4-Flash-0731-GGUF",
+   "entry": "AD-IQ1_M",
+   "key": "mean_kld",
+   "raw": "0.5641"
+  },
+  {
+   "repo": "Downtown-Case/DeepSeek-V4-Flash-0731-128GB-RAM-IK-GGUF",
+   "entry": "V1 GGUF",
+   "key": "top1_pct",
+   "raw": "Same top p: 90.885 \u00b1 0.076 %"
+  },
+  {
+   "repo": "Downtown-Case/DeepSeek-V4-Flash-0731-128GB-RAM-IK-GGUF",
+   "entry": "V1 Mix",
+   "key": "mean_kld",
+   "raw": "0.079"
+  },
+  {
+   "repo": "KeinNiemand/DeepSeek-V4-Flash-0731-IK_GGUF",
+   "entry": "XS_IQ1_KT",
+   "key": "kld:wikitext-2",
+   "raw": "0.497826"
+  },
+  {
+   "repo": "KeinNiemand/DeepSeek-V4-Flash-0731-IK_GGUF",
+   "entry": "IQ1_KT",
+   "key": "kld:wikitext-2",
+   "raw": "0.393212"
+  },
+  {
+   "repo": "KeinNiemand/DeepSeek-V4-Flash-0731-IK_GGUF",
+   "entry": "IQ2_KT",
+   "key": "kld:wikitext-2",
+   "raw": "0.269956"
+  },
+  {
+   "repo": "KeinNiemand/DeepSeek-V4-Flash-0731-IK_GGUF",
+   "entry": "IQ2_KS",
+   "key": "kld:wikitext-2",
+   "raw": "0.268909"
+  },
+  {
+   "repo": "KeinNiemand/DeepSeek-V4-Flash-0731-IK_GGUF",
+   "entry": "IQ2_KL",
+   "key": "kld:wikitext-2",
+   "raw": "0.205305"
+  },
+  {
+   "repo": "KeinNiemand/DeepSeek-V4-Flash-0731-IK_GGUF",
+   "entry": "AD-IQ1_M_XL",
+   "key": "kld:wikitext-2",
+   "raw": "0.485612"
+  },
+  {
+   "repo": "KeinNiemand/DeepSeek-V4-Flash-0731-IK_GGUF",
+   "entry": "AD-IQ2_S",
+   "key": "kld:wikitext-2",
+   "raw": "0.293420"
+  },
+  {
+   "repo": "Laplace1313/DeepSeek-V4-Flash-0731-JA-REAP-K216-EXL3-3bpw-DGX-Spark",
+   "entry": "DeepSeek V4 Flash JA REAP K216 (EXL3 3.0 bpw)",
+   "key": "bench:MMLU full 5-shot",
+   "raw": "86.03"
+  },
+  {
+   "repo": "Laplace1313/DeepSeek-V4-Flash-0731-JA-REAP-K216-EXL3-3bpw-DGX-Spark",
+   "entry": "DeepSeek V4 Flash JA REAP K216 (EXL3 3.0 bpw)",
+   "key": "bench:MMLU-ProX Japanese (200)",
+   "raw": "48.5"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4-Flash-0731-ROCmFP3",
+   "entry": "ROCmFP3",
+   "key": "bench:Full 92-question evaluation",
+   "raw": "82"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4-Flash-0731-ROCmFP3",
+   "entry": "ROCmFP3",
+   "key": "bench:COMPSEC-17",
+   "raw": "17"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4-Flash-0731-ROCmFP3",
+   "entry": "Quality (default)",
+   "key": "bench:COMPSEC-17",
+   "raw": "17"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4-Flash-0731-ROCmFP3",
+   "entry": "Faster",
+   "key": "bench:COMPSEC-17",
+   "raw": "16"
+  },
+  {
+   "repo": "Sn1waR/DeepSeek-V4-Flash-0731-CRACK-DSpark",
+   "entry": "Edited",
+   "key": "bench:GSM8K 100-question screen",
+   "raw": "96"
+  },
+  {
+   "repo": "Sn1waR/DeepSeek-V4-Flash-0731-CRACK-DSpark",
+   "entry": "Source",
+   "key": "bench:GSM8K 100-question screen",
+   "raw": "97"
+  },
+  {
+   "repo": "auroter/DeepSeek-V4-Flash-0731-NVFP4",
+   "entry": "Source MXFP4 \u00b7 marlin",
+   "key": "ppl",
+   "raw": "5.178 / 5.189 (two runs)"
+  },
+  {
+   "repo": "gorbatjovy/DeepSeek-V4-Flash-0731-BahamutRU-t265-abliterated",
+   "entry": "unabliterated",
+   "key": "bench:IFEval (prompt strict)",
+   "raw": "83.4%"
+  },
+  {
+   "repo": "gorbatjovy/DeepSeek-V4-Flash-0731-BahamutRU-t265-abliterated",
+   "entry": "unabliterated",
+   "key": "bench:HumanEval+",
+   "raw": "87.8%"
+  },
+  {
+   "repo": "gorbatjovy/DeepSeek-V4-Flash-0731-BahamutRU-t265-abliterated",
+   "entry": "unabliterated",
+   "key": "bench:MBPP+",
+   "raw": "73.3%"
+  },
+  {
+   "repo": "gorbatjovy/DeepSeek-V4-Flash-0731-BahamutRU-t265-abliterated",
+   "entry": "unabliterated",
+   "key": "bench:MMLU-Pro",
+   "raw": "78.9%"
+  },
+  {
+   "repo": "gorbatjovy/DeepSeek-V4-Flash-0731-BahamutRU-t265-abliterated",
+   "entry": "unabliterated",
+   "key": "bench:tool calling, correct tool",
+   "raw": "100.0%"
+  },
+  {
+   "repo": "jmilnz/DeepSeek-V4-Flash-0731-antirez-ds4-GGUF",
+   "entry": "v2 (real imatrix)",
+   "key": "bench:cases_won_of_100",
+   "raw": "62 (0 ties)"
+  },
+  {
+   "repo": "jmilnz/DeepSeek-V4-Flash-0731-antirez-ds4-GGUF",
+   "entry": "v1 (synthetic)",
+   "key": "bench:cases_won_of_100",
+   "raw": "38"
   },
   {
    "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
@@ -711,60 +859,6 @@
    "raw": "6.3005"
   },
   {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
-   "entry": "REAP25",
-   "key": "ppl:wikitext-2",
-   "raw": "6.4025"
-  },
-  {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
-   "entry": "REAP37",
-   "key": "ppl:wikitext-2",
-   "raw": "6.9634"
-  },
-  {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
-   "entry": "REAP50",
-   "key": "ppl:wikitext-2",
-   "raw": "7.7520"
-  },
-  {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
-   "entry": "REAP25",
-   "key": "ppl:wikitext-2",
-   "raw": "6.4025"
-  },
-  {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
-   "entry": "REAP25",
-   "key": "ppl_delta_pct",
-   "raw": "+4.5%"
-  },
-  {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
-   "entry": "REAP37",
-   "key": "ppl:wikitext-2",
-   "raw": "6.9634"
-  },
-  {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
-   "entry": "REAP37",
-   "key": "ppl_delta_pct",
-   "raw": "+13.7%"
-  },
-  {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
-   "entry": "REAP50",
-   "key": "ppl:wikitext-2",
-   "raw": "7.7520"
-  },
-  {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
-   "entry": "REAP50",
-   "key": "ppl_delta_pct",
-   "raw": "+26.5%"
-  },
-  {
    "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-8bit",
    "entry": "6bit",
    "key": "ppl_delta_pct",
@@ -775,24 +869,6 @@
    "entry": "REAP25",
    "key": "ppl_ratio",
    "raw": "paired ratio 1.016"
-  },
-  {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP25",
-   "entry": "6bit",
-   "key": "ppl_delta_pct",
-   "raw": "+0.6"
-  },
-  {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP50",
-   "entry": "6bit",
-   "key": "ppl_delta_pct",
-   "raw": "+0.6"
-  },
-  {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP50",
-   "entry": "REAP25",
-   "key": "ppl_ratio",
-   "raw": "1.016"
   },
   {
    "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-mixed-4_8bit",
@@ -835,30 +911,6 @@
    "entry": "PrismaQuant AQUA (GridBook CB)",
    "key": "kld_99",
    "raw": "8.805"
-  },
-  {
-   "repo": "squanchyzx/DeepSeek-V4-Flash-0731-HERETIC-Abliterated-FP8",
-   "entry": "Heretic v2",
-   "key": "bench:Deterministic 512-token quality smoke",
-   "raw": "11/12"
-  },
-  {
-   "repo": "squanchyzx/DeepSeek-V4-Flash-0731-HERETIC-Abliterated-FP8",
-   "entry": "Heretic v2",
-   "key": "bench:Legacy bounded short-generation quality smoke",
-   "raw": "9/12"
-  },
-  {
-   "repo": "squanchyzx/DeepSeek-V4-Flash-0731-HERETIC-Abliterated-FP8",
-   "entry": "stock",
-   "key": "bench:Deterministic 512-token quality smoke",
-   "raw": "11/12"
-  },
-  {
-   "repo": "squanchyzx/DeepSeek-V4-Flash-0731-HERETIC-Abliterated-FP8",
-   "entry": "stock",
-   "key": "bench:Legacy bounded short-generation quality smoke",
-   "raw": "10/12"
   },
   {
    "repo": "staccs/lecore-deepseek-v4-flash-hrr",
@@ -969,42 +1021,6 @@
    "raw": "PPL: 15.64 \u00b1 0.38 (ctx 512, 60 chunks) \u00b7"
   },
   {
-   "repo": "thetom-ai/DeepSeek-V4-Flash-ConfigI-GGUF",
-   "entry": "DeepSeek-V4-Flash Config-I (2.88 bpw hybrid, ctx 2048)",
-   "key": "ppl:wikitext",
-   "raw": "12.86 \u00b1 0.29"
-  },
-  {
-   "repo": "wrldsuksgo2mars/DeepSeek-V4-Flash-0731-EXL3-K2-calibrated-v1",
-   "entry": "v1",
-   "key": "bench:Tool Eval Bench 2.3.2 (69 scenarios)",
-   "raw": "86/100"
-  },
-  {
-   "repo": "wrldsuksgo2mars/DeepSeek-V4-Flash-0731-EXL3-K2-calibrated-v1",
-   "entry": "v0 control",
-   "key": "bench:Tool Eval Bench 2.3.2 (69 scenarios)",
-   "raw": "88/100"
-  },
-  {
-   "repo": "wrldsuksgo2mars/DeepSeek-V4-Flash-0731-EXL3-K2.1-D2.2-calibrated-v3",
-   "entry": "K2.1 + dSpark K2.2 calibrated v3",
-   "key": "bench:Tool Eval Bench 2.3.2 (69 scenarios)",
-   "raw": "88/100"
-  },
-  {
-   "repo": "wrldsuksgo2mars/DeepSeek-V4-Flash-0731-EXL3-K2.1-D2.2-calibrated-v3",
-   "entry": "K2 calibrated v1 control",
-   "key": "bench:Tool Eval Bench 2.3.2 (69 scenarios)",
-   "raw": "90/100"
-  },
-  {
-   "repo": "wrldsuksgo2mars/DeepSeek-V4-Flash-0731-EXL3-K3-calibrated-v1",
-   "entry": "EXL3 K3 calibrated v1",
-   "key": "bench:Tool Eval Bench 2.3.2 (69-scenario)",
-   "raw": "scored 83/100"
-  },
-  {
    "repo": "yiminyuan/DeepSeek-V4-Flash-0731-INT4-W4A16",
    "entry": "INT4-W4A16",
    "key": "ppl:prose",
@@ -1016,8 +1032,5 @@
    "key": "ppl:code",
    "raw": "1.72"
   }
- ],
- "resolved_disagreements": [],
- "resolved_repos": 0,
- "tiebroken": []
+ ]
 }
