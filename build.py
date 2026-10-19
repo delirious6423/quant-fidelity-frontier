@@ -675,7 +675,8 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
 {hl}
 </section>
 
-<section id="ledger"><h2>The ledger</h2><p class="note"><b>Different or Unverified Protocol — Not Directly Comparable.</b> This ledger mixes measurement protocols. Values remain visible; use a verified chart set for numerical ranking. Repository, variant, format and size sorting remain available.</p>
+<section id="ledger"><details id="ledger-details" class="section-disclosure"><summary><h2>The ledger</h2><span class="dim">{len(tr)} rows</span></summary>
+<p class="note"><b>Different or Unverified Protocol — Not Directly Comparable.</b> This ledger mixes measurement protocols. Values remain visible; use a verified chart set for numerical ranking. Repository, variant, format and size sorting remain available.</p>
 <div class="filters" role="group" aria-label="Filter the ledger">
   <label for="q">Search</label><input id="q" type="search" placeholder="publisher, quant type, metric…">
   <label for="ffmt">Format</label><select id="ffmt"><option value="">All</option>{"".join(f'<option>{E(f)}</option>' for f in fmts)}</select>
@@ -688,17 +689,17 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
 <div class="tablebox"><table id="t" class="mobile-cards">
 <thead><tr><th data-sort="s">Repository</th><th data-sort="s">Variant</th><th data-sort="s">Format</th><th class="n" data-sort="n">Size GB</th><th>Size is</th><th class="n" aria-disabled="true" title="Metric ranking requires a verified compatible protocol">Mean KLD</th><th class="n" aria-disabled="true" title="Metric ranking requires a verified compatible protocol">Top-1</th><th class="n" aria-disabled="true" title="Metric ranking requires a verified compatible protocol">PPL</th><th class="n" title="Change in perplexity against the baseline the row's card states (BF16, a sibling build, or a previous build); check the source line">PPL change<br><small>vs the card's baseline</small></th><th>Other metrics (as published)</th><th>Reference</th><th>Source line</th></tr></thead>
 <tbody>{"".join(tr)}</tbody></table></div>
-</section>
-<section id="publishers"><h2>Publisher notes</h2>
+</details></section>
+<section id="publishers"><details id="publisher-details" class="section-disclosure"><summary><h2>Publisher notes</h2><span class="dim">{len(cards)} notes</span></summary>
 <p class="note">Method, evaluation setup and problems we found, per repository. Line numbers refer to the card snapshot linked at the bottom of each note.</p>
 <div class="filters"><label for="cq">Search</label><input id="cq" type="search" placeholder="publisher, format, flag text…"><label class="cb" for="cflag"><input id="cflag" type="checkbox"> Only notes with flags</label><span id="ccount" class="count" aria-live="polite"></span></div>
 <div class="cards" id="cards">{"".join(cards)}</div>
-</section>
-<section id="no-claims"><h2>Repos without extracted claims ({len(noclaim)})</h2>
+</details></section>
+<section id="no-claims"><details id="no-claims-details" class="section-disclosure"><summary><h2>Repos without extracted claims</h2><span class="dim">{len(noclaim)} repos</span></summary>
 <p class="note">Two different situations, marked in the Status column. <b>Read in full: no quality claims</b> means a reviewer read the whole card and found no quality number about the quant itself. <b>Not yet reviewed</b> means the card has not been read in full yet and may contain claims; it is listed so the catalogue is complete, not as a finding.</p>
 <div class="filters"><label for="ncq">Search</label><input id="ncq" type="search" placeholder="publisher or format…"><label for="ncs">Status</label><select id="ncs"><option value="">Any</option><option>not yet reviewed</option><option>read in full: no quality claims</option></select><span id="nccount" class="count" aria-live="polite"></span></div>
 <div class="tablebox"><table class="disagree" id="nctable"><thead><tr><th>Repository</th><th>Status</th><th>Format</th><th>Weights</th><th>Note</th><th>Card</th></tr></thead><tbody>{nc_rows}</tbody></table></div>
-</section>
+</details></section>
 <section id="method" class="method-sec"><h2>Sources &amp; method</h2><p><a href="#publishers">Publisher notes</a> · <a href="#read-first">Comparison rules</a> · <a href="#no-claims">Repos without extracted claims</a></p>
 <p>We listed every repository Hugging Face tags as a quantization of <a href="https://huggingface.co/{E(MODEL)}">{E(MODEL)}</a> ({s["repos"]} on {captured}) and saved each raw <code>README.md</code> at its pinned commit into a local ledger, so nothing is re-fetched. Cards that reproduce another publisher's numbers are detected by comparing claim lines across all cards and are not counted as independent measurements. Results published only as chart images were transcribed from their labels and checked against the marker positions in the image. Numbers were extracted with the line they came from, then a script confirmed that {verify_counts["values"]} published values appear verbatim on their cited lines ({verify_counts["fails"]} failures). For every card that carried measured claims at the first pass (196 of {s["repos"]}), a second reader re-extracted the numbers without seeing our data, and disagreements were resolved against the source text; the remaining cards were each read in full by one reader. Rows a card quotes from elsewhere are marked "quoted" and are not counted as measurements; rows measured on a different model are left out ({s["other_model"]}). File sizes without a card figure come from Hugging Face's file listing at the same commit.</p>
 {('<p>' + E(PIN_NOTE) + '</p>') if PIN_NOTE else ''}

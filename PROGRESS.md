@@ -104,4 +104,11 @@
 
 Implemented three evidence-based classes with shared pair/group/per-metric classification, exact source quote/hash bindings, scoped protocol identities and all-pairs compatibility. AtomicChat Qwen3.8-27B retains 27 comparable KLD/top-1 points across quant publishers; Archsloth English KLD has a separate reviewed experiment. Other protocols remain visible and unverified pending evidence review. Website, static comparison panels, ledger metric sorting and MCP rankings now respect evidence eligibility; provenance separates quant, claim and measurement publishers.
 
-Integrated main `19386d8` to retain benchmark tabs and collapsed quant controls. All 3,086 original claims and 157 original sets preserve numerical/source/point/axis/metric-order fields. New focused tests, existing gates/UI/MCP and an independent adversarial review pass; details and screenshots: `docs/COMPARISON_CLASSIFICATIONS.md`, `docs/COMPARISON_VALIDATION.md`, `docs/previews/comparisons/README.md`. CI runs new regressions. Approval boundary: draft PR only; no merge or deploy. Next: owner review, then explicit approval before production changes.
+Integrated main `d92a580` to retain benchmark tabs and collapsed quant controls. All 3,086 original claims and 157 original sets preserve numerical/source/point/axis/metric-order fields. New focused tests, existing gates/UI/MCP and an independent adversarial review pass; details and screenshots: `docs/COMPARISON_CLASSIFICATIONS.md`, `docs/COMPARISON_VALIDATION.md`, `docs/previews/comparisons/README.md`. CI runs new regressions. Approval boundary: draft PR only; no merge or deploy. Next: owner review, then explicit approval before production changes.
+## Collapsed ledger and publisher notes (2026-10-19)
+- Ledger and publisher notes now use native closed disclosures with row/note counts on every model page.
+- Section and individual-publisher links open the corresponding disclosure; a direct publisher link also clears a filter hiding that card.
+- Responsive checks pass at 320/390/1366px for defaults, search, retained filters, section/card anchors and overflow; native disclosures open with JavaScript disabled. Added to CI.
+- Prepared for owner review before deployment.
+
+- Owner refinement: Repos without extracted claims also starts collapsed, with its repository count visible. Direct links, retained status filters and no-JavaScript opening covered in the same responsive regression.

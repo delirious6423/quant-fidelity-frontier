@@ -1,6 +1,6 @@
 # Comparison classification validation
 
-Feature branch: `feat/evidence-comparison-classifications`. Integrated with production base `19386d8` (benchmark tabs and collapsed quant picker/results). No merge or deployment was performed.
+Feature branch: `feat/evidence-comparison-classifications`. Integrated with production base `d92a580` (benchmark tabs and collapsed quant/evidence sections). No merge or deployment was performed.
 
 ## Preservation check
 
@@ -42,7 +42,7 @@ Browser suites:
 
 | Suite | Actual result |
 |---|---|
-| Existing explorer tests, all five models, desktop and mobile | 472 passed, 0 failed |
+| Existing explorer tests, all five models, desktop and mobile | 502 passed, 0 failed |
 | Model layout/default/deep-link tests | Five pages at 320/390/1366px passed |
 | Homepage | 360/390/768/1366px plus JavaScript-disabled navigation passed |
 | Benchmark tabs/pilot | 320/390/1366px passed |

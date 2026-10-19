@@ -23,6 +23,7 @@ jobs:
         run: |
           python3 tests/test_benchmarks.py
           python3 tests/test_benchmarks_ui.py
+          python3 tests/test_disclosures_ui.py
       - name: Benchmark pilot screenshots
         if: always()
         uses: actions/upload-artifact@v4
