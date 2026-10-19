@@ -21,6 +21,10 @@ Audit records under `audit/` predate the rename and use the earlier name, Quant 
 `test_mcp.py` (MCP answers checked against the data). CI runs all of them (`.github/workflows/verify.yml`). Gates live in `gates/`, tests in `tests/`.
 
 ## How to read the site
-- **Overview (default):** every claim on one chart, for a first glance; labelled *not comparable*.
-- **Measurement sets:** one measurer, reference, dataset and method. Only here can quants be ranked (frontier, "Beaten by").
-- **Ledger:** every row with its source link. **Publisher notes:** method, flags, copies, cards with no claims.
+- **Overview (default):** existing claims remain on one chart, with mixed protocols made explicit.
+- **Same Protocol — Comparable:** source evidence establishes compatibility for that metric; different quant or measurement publishers are allowed.
+- **Different or Unverified Protocol — Not Directly Comparable:** confirmed differences and unknowns remain distinct; ranking is unavailable.
+- **Different Base Model — Fidelity Not Directly Comparable:** KLD ordering cannot rank quality or fidelity across different base models/reference distributions.
+- **Ledger:** every row retains its source link. Metric sorting requires a verified comparison view; repository/name/size sorting remains available.
+
+See [classification rules, source binding, ownership and limitations](COMPARISON_CLASSIFICATIONS.md).

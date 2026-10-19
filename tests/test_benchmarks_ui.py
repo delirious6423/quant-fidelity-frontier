@@ -34,6 +34,8 @@ async def main():
                     for mi,metric in enumerate(source['metrics']):
                         await page.select_option('#bm-metric',str(mi))
                         assert await page.locator('#bm-plot .bm-dot').count()==len(metric['points'])
+                        assert await page.locator('#bm-classification').inner_text()==metric['comparison']['label']
+                        assert metric['comparison']['ranking_permitted'] is False
                         point=metric['points'][-1]
                         await page.select_option('#bm-pick',str(len(metric['points'])-1))
                         assert point['raw'] in await page.locator('#bm-detail').inner_text()

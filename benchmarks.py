@@ -10,6 +10,7 @@ import math
 import os
 import re
 from pathlib import Path
+from comparison import classify_group
 
 
 def _number(raw):
@@ -75,7 +76,8 @@ def build_benchmarks(root, cfg):
                                        size_src=url + f'#L{point["size_line"]}', line=point['line'], size_line=point['size_line'],
                                        flags=point.get('flags', [])))
                 if points:
-                    metrics.append(dict(name=metric['name'], unit=metric['unit'], points=points))
+                    metrics.append(dict(name=metric['name'], unit=metric['unit'], points=points,
+                                        comparison=classify_group(points, metric='bench:' + metric['name'])))
             if metrics:
                 sources.append(dict(repo=repo, label=source['label'], context=source['context'], notes=source.get('notes', []),
                                     metrics=metrics, revision=meta['sha'], card_sha256=source['card_sha256']))
@@ -124,9 +126,13 @@ def render_benchmarks(payload):
     data = json.dumps(payload, separators=(',', ':')).replace('<', '\\u003c')
     context = E(payload['sources'][0]['context']) if payload['sources'] else ''
     notes = ''.join('<p><strong>' + E(s['label']) + '</strong></p><p>' + E(s['context']) + '</p><ul>' + ''.join('<li>' + E(n) + '</li>' for n in s['notes']) + '</ul>' for s in payload['sources'])
+    comparison = payload['sources'][0]['metrics'][0]['comparison'] if payload['sources'] else None
+    classification = E(comparison['label']) if comparison else ''
+    reason = E(comparison['explanation']) if comparison else ''
     withheld = f'<p class="dim">{len(payload["withheld"])} source table(s) awaiting review after a source change.</p>' if payload['withheld'] else ''
     return '''<section id="benchmarks" class="bm-pilot" aria-labelledby="bm-title">
 <h2 id="bm-title">Benchmark score vs file size</h2>
+<p id="bm-classification" class="dim">''' + classification + '''</p>
 <p class="note">Published scores, grouped by evaluation source.</p>
 <div class="bm-controls" id="bm-controls" hidden>
 <label for="bm-source">Evaluation source<select id="bm-source"></select></label>
@@ -137,6 +143,6 @@ def render_benchmarks(payload):
 <p id="bm-axis" class="dim" hidden></p><div id="bm-plot" class="bm-plot">''' + static_chart(payload) + '''</div>
 <p class="bm-legend" id="bm-legend">● Quantized build &nbsp; ◆ Reference · Higher score ↑</p>
 <div id="bm-selection" hidden><label for="bm-pick">Inspect result<select id="bm-pick"></select></label><div id="bm-detail" class="bm-detail" aria-live="polite"></div></div>
-<details id="bm-notes"><summary>Evaluation &amp; size notes</summary><p>File size is not total VRAM usage. Scores retain their published scale; no cross-source ranking is inferred. Source links may open a mutable model card; captured card hashes are recorded in the data.</p><div id="bm-source-notes">''' + notes + '''</div></details>''' + withheld + '''
+<details id="bm-notes"><summary>Evaluation &amp; size notes</summary><p id="bm-reason">''' + reason + '''</p><p>File size is not total VRAM usage. Scores retain their published scale; no cross-source ranking is inferred. Source links may open a mutable model card; captured card hashes are recorded in the data.</p><div id="bm-source-notes">''' + notes + '''</div></details>''' + withheld + '''
 <details open id="bm-evidence"><summary>Source-linked benchmark values</summary><div class="tablebox"><table class="disagree"><thead><tr><th>Evaluation</th><th>Benchmark</th><th>Build</th><th>File GB</th><th>Published score</th><th>Sources</th></tr></thead><tbody>''' + table + '''</tbody></table></div></details>
 <script id="bm-data" type="application/json">''' + data + '''</script></section>'''

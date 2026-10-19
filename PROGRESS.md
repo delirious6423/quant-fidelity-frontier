@@ -100,6 +100,11 @@
 - Validation: GLM benchmark interactions at 320/390/1366px; GLM full desktop/mobile explorer regression; five source-data tests. Qwen 27B regression checks the shared disclosure change without tabs.
 - Pending: owner review before production deployment.
 
+## Explicit comparison classifications — draft review
+
+Implemented three evidence-based classes with shared pair/group/per-metric classification, exact source quote/hash bindings, scoped protocol identities and all-pairs compatibility. AtomicChat Qwen3.8-27B retains 27 comparable KLD/top-1 points across quant publishers; Archsloth English KLD has a separate reviewed experiment. Other protocols remain visible and unverified pending evidence review. Website, static comparison panels, ledger metric sorting and MCP rankings now respect evidence eligibility; provenance separates quant, claim and measurement publishers.
+
+Integrated main `d92a580` to retain benchmark tabs and collapsed quant controls. All 3,086 original claims and 157 original sets preserve numerical/source/point/axis/metric-order fields. New focused tests, existing gates/UI/MCP and an independent adversarial review pass; details and screenshots: `docs/COMPARISON_CLASSIFICATIONS.md`, `docs/COMPARISON_VALIDATION.md`, `docs/previews/comparisons/README.md`. CI runs new regressions. Approval boundary: draft PR only; no merge or deploy. Next: owner review, then explicit approval before production changes.
 ## Collapsed ledger and publisher notes (2026-10-19)
 - Ledger and publisher notes now use native closed disclosures with row/note counts on every model page.
 - Section and individual-publisher links open the corresponding disclosure; a direct publisher link also clears a filter hiding that card.
@@ -114,10 +119,8 @@
 - Responsive benchmark checks pass at 320/390/1366px for stacked order, both-chart visibility, direct anchors/history and existing chart interactions. Evidence disclosures and benchmark provenance tests pass.
 - Prepared for owner review before deployment.
 
-## Benchmarks on every model (2026-10-19)
-- Added reviewed manifests for all five live models: 113 task-score records, 30 source-specific benchmark choices, 7 evaluation sources. Benchmarks remain stacked after Fidelity; initial measurement sets and collapsed evidence sections are unchanged.
-- Source and benchmark selectors keep protocols/scales separate. Each score and size has a distinct source link. Fraction units stay fractional; unspecified units never become percentages. Native reference markers are included only where matched full sizes exist.
-- Exact card hashes, scalar values, units and independent score/size quotes validate at build time. Changed source cards withdraw the affected evaluation panel without blocking ordinary ingestion.
-- Three raw-source auditors transcribed bounded manifests; fresh cross-reviews verified the other agents' source columns/artifacts, plus independent renderer/UI review. Excluded composite/count/error/speed fields, pending runs, modified checkpoints, previous revisions and partial sizes.
-- Validation: 8 unit regressions; all five gated builds; 90 responsive source/benchmark views at 320/390/1366px; 5 no-JavaScript fallbacks; discovery preserved all 3,086 existing claim rows; MCP 33/33.
-- Review screenshots in docs/previews/benchmarks-*.png; not deployed pending owner review.
+## Comparison classifications — approved release integration
+- Owner explicitly approved merging PR #8 and publishing GitHub Pages on 2026-10-19.
+- Integrated main `ca6748a` so the current stacked benchmark design is preserved. Retained comparison disclosures, all measurement data and existing chart defaults.
+- GLM/Qwen gated builds and benchmark/comparison browser checks passed at 320/390/1366px. Fresh independent release review reran 87 regressions successfully and found no code blockers.
+- Awaiting full CI on the integrated commit before merge/publication.

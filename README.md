@@ -19,7 +19,7 @@ The table is generated from the published data (`pipeline/readme_sync.py`) each 
 
 **Site:** https://delirious6423.github.io/quant-fidelity-frontier/
 
-Only compare numbers within one measurement set; the default overview mixes methods and is for a first glance.
+Compare numbers directly only when the selected metric is classified **Same Protocol — Comparable**. The default overview keeps mixed protocols visible without ranking them. [Comparison rules and evidence](docs/COMPARISON_CLASSIFICATIONS.md).
 
 ## For agents
 A read-only MCP server lets agents search claims, get a set's efficiency frontier, or find the best quant under a size budget:

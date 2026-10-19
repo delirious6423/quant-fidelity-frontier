@@ -26,6 +26,9 @@
     var ul = document.createElement('ul'); p.flags.forEach(function (f) { var li = document.createElement('li'); li.textContent = f; ul.appendChild(li); }); box.appendChild(ul);
   }
   function draw() {
+    var comparison = currentMetric().comparison;
+    $('bm-classification').textContent = comparison.label;
+    $('bm-reason').textContent = comparison.explanation;
     $('bm-axis').textContent = zero.checked ? 'Linear score axis · zero baseline' : 'Zoomed linear score axis · small differences are magnified';
     var ps = points(), w = Math.max(240, host.clientWidth - 24), h = 320, L = 60, R = w - 18, T = 34, B = h - 54;
     var svg = el('svg', { viewBox: '0 0 ' + w + ' ' + h, role: 'img', 'aria-label': currentMetric().name + ' published score versus file size in GB' });
