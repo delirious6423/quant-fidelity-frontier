@@ -24,7 +24,7 @@ def build_homepage(out, models, base, analytics, support):
         data = json.loads((out / model['data']).read_text())
         sets = []
         for source in data['sets']:
-            if not source.get('comparable') or source.get('x', {}).get('unit') != 'GB':
+            if source['id'] == 'all' or source.get('x', {}).get('unit') != 'GB':
                 continue
             metric = 'kld' if 'kld' in source['metrics'] else source['metrics'][0]
             points = [p for p in source['points'] if p.get('x') is not None and metric in p.get('m', {})]
@@ -32,6 +32,7 @@ def build_homepage(out, models, base, analytics, support):
                 continue
             sets.append(dict(id=source['id'], title=source['title'], metric=metric,
                              size_label=source['x']['label'], reference=source.get('reference', 'Not stated'),
+                             comparison=source.get('comparisons', {}).get(metric, {}),
                              points=[dict(fmt=family(p.get('fmt')), basis=p.get('basis') or 'unknown', x=p['x']) for p in points]))
             # A real, homogeneous KLD example, with every point linked to its source.
             if metric == 'kld' and len(points) >= 3 and len({p.get('basis') for p in points}) == 1:
@@ -91,7 +92,7 @@ def build_homepage(out, models, base, analytics, support):
         href = model['slug'] + '/?' + urlencode({'set':source['id'], 'm':'kld'}) + '#chart'
         chart = f'''<figure class="preview"><figcaption><span class="eyebrow">A REAL COMPARISON</span><strong>{esc(model['model'].split('/')[-1])}</strong></figcaption>
 <svg viewBox="0 0 360 225" role="img" aria-label="Mean KLD versus size within {esc(source['title'])}; logarithmic KLD axis, linear size axis"><path d="M58 24V185H338"/>{ticks}<text x="65" y="203">{x0:g}</text><text x="330" y="203" text-anchor="end">{x1:g}</text><text x="195" y="221" text-anchor="middle">Size (GB)</text><text transform="translate(14 106) rotate(-90)" text-anchor="middle">Mean KLD · log ↓</text>{dots}</svg>
-<p>{esc(source['title'])} · Log scale{esc(zero_note)}<br>{esc(source['x']['label'])}</p><a href="{esc(href)}">Explore this comparison →</a></figure>'''
+<p>{esc(source['title'])} · Log scale{esc(zero_note)}<br>{esc(source['x']['label'])}<br>{esc(source.get('comparisons', {}).get('kld', {}).get('label', 'Protocol unverified'))}</p><a href="{esc(href)}">Explore this comparison →</a></figure>'''
     default_slug = preview[0]['slug'] if preview else (catalog[0]['slug'] if catalog else '')
     for entry in catalog:
         if preview and entry['slug'] == default_slug:
@@ -101,7 +102,7 @@ def build_homepage(out, models, base, analytics, support):
     page = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>LLM quantization comparison: KLD vs size · QFF</title>{analytics}<meta name="description" content="Compare published LLM quantization fidelity: KLD, perplexity and model size, with source-linked claims and explicit measurement boundaries."><link rel="canonical" href="{base}"><link rel="stylesheet" href="home.css"><script defer src="home.js"></script></head><body>
 <a class="skip" href="#models">Skip to models</a><div class="shell"><header><a class="brand" href="./"><b>QFF</b><span>Quant Fidelity Frontier</span></a><nav aria-label="Main"><a href="#models">Models</a><a href="guides/">Guides</a><a href="#agents">For agents</a><a href="https://github.com/delirious6423/quant-fidelity-frontier">GitHub ↗</a></nav></header>
-<main><section class="hero" aria-labelledby="intro"><div><p class="eyebrow">LLM QUANTIZATION, WITH THE EVIDENCE</p><h1 id="intro">Compare quant size.<br>Understand the trade-offs.</h1><p class="lede">Explore publisher-reported fidelity, with every claim linked to its source.</p><p class="trust">Claims, not independent benchmarks. Compare numbers only within the same measurement set.</p><a class="text-link" href="guides/">How to compare fairly →</a></div>{chart}</section>
+<main><section class="hero" aria-labelledby="intro"><div><p class="eyebrow">LLM QUANTIZATION, WITH THE EVIDENCE</p><h1 id="intro">Compare quant size.<br>Understand the trade-offs.</h1><p class="lede">Explore publisher-reported fidelity, with every claim linked to its source.</p><p class="trust">Claims, not independent benchmarks. Direct ranking requires a verified compatible protocol.</p><a class="text-link" href="guides/">How to compare fairly →</a></div>{chart}</section>
 <section class="quick" id="quick" hidden aria-labelledby="quick-title"><h2 id="quick-title">Start a comparison</h2><form id="start-form"><div class="controls"><label>Model<select id="home-model">{options}</select></label><label>Format<select id="home-format"></select></label><label>Size limit<select id="home-limit"><option value="">Any</option>{''.join(f'<option value="{n}">≤ {n} GB</option>' for n in (16,24,32,48,64,96,128,192,256))}</select></label><button type="submit" id="start">Explore →</button></div><div class="context-controls"><label>Measurement set<select id="home-set"></select></label><label>Size definition<select id="home-basis"></select></label></div><p id="selection-note" role="status"></p><p class="caution">File size is not total memory usage. Context, runtime buffers and offloading matter.</p></form></section>
 <section id="models" aria-labelledby="browse"><div class="section-heading"><h2 id="browse">Browse models</h2><span>{len(models)} models indexed</span></div>{grouped_cards}</section>
 <section class="resources" id="agents"><div><h2>Understand the evidence</h2><p>Read the measurement boundaries, size definitions and source citations before choosing a quant.</p><a href="guides/">Read the comparison guides →</a></div><div><h2>For agents &amp; developers</h2><p>Use the same source-linked claims in your own tools.</p><a href="llms.txt">Agent reading guide</a> · <a href="models.json">Model index JSON</a> · <a href="https://github.com/delirious6423/quant-fidelity-frontier/tree/main/qff_mcp">MCP server</a></div></section>

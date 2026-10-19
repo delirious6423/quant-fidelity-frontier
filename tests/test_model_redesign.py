@@ -45,7 +45,7 @@ async def check_model(browser, base, model):
     assert not await page.locator('#exlabels').is_checked()
     source = json.loads(await page.locator('#exdata').text_content())
     sets = source['sets']
-    choices = [s for s in sets if s['comparable'] and len(s['points']) >= 2]
+    choices = sorted([s for s in sets if s['id'] != 'all' and len(s['points']) >= 2], key=lambda s: not s.get('comparisons', {}).get(s['metrics'][0], {}).get('ranking_permitted'))
     assert len(choices) >= 2
     first, second = choices[:2]
     # Default overview is retained. Compact controls must make the actual plot
@@ -102,11 +102,16 @@ async def check_model(browser, base, model):
     assert await page.locator('#exdetail a').get_attribute('href') == actual['src']
     assert first['reference'] in await page.locator('#exdetail').inner_text()
     assert await page.evaluate('document.documentElement.scrollWidth <= innerWidth')
-    await page.click('#exshortadd')
-    assert await page.locator('.quant-shortlist li').count() == 1
-    await page.click('[data-short-remove]')
-    assert await page.locator('.quant-shortlist li').count() == 0
-    await page.click('#exshortadd')
+    if first.get('comparisons', {}).get(first['metrics'][0], {}).get('ranking_permitted'):
+        await page.click('#exshortadd')
+        assert await page.locator('.quant-shortlist li').count() == 1
+        await page.click('[data-short-remove]')
+        assert await page.locator('.quant-shortlist li').count() == 0
+        await page.click('#exshortadd')
+    else:
+        assert await page.locator('#exshortadd').count() == 0
+        assert not await page.locator('#exfront').is_visible()
+        assert await page.locator('#extable th[data-key="' + first['metrics'][0] + '"]').count() == 0
     await page.keyboard.press('Escape')
     await page.select_option('#exset', second['id'])
     assert await page.locator('.quant-shortlist li').count() == 0

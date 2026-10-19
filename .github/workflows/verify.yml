@@ -53,5 +53,13 @@ jobs:
         run: python3 tests/test_model_redesign.py
       - name: Discovery pages and dataset export
         run: python3 tests/test_discovery.py
+      - name: Protocol comparison engine, source bindings, and cross-publisher groups
+        run: |
+          python3 -m unittest discover -s tests -p 'test_comparison.py'
+          python3 -m unittest discover -s tests -p 'test_protocol_metadata.py'
+          python3 -m unittest discover -s tests -p 'test_verified_protocol_sets.py'
+          python3 tests/test_comparison_ui.py
       - name: MCP server answers match the data (stdio, black-box)
         run: pip install "mcp>=1.9" && QFF_DATA=_site python3 tests/test_mcp.py
+      - name: MCP protocol and provenance regressions
+        run: python3 -m unittest discover -s tests -p 'test_mcp_comparison.py'

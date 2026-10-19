@@ -1,0 +1,719 @@
+{
+  "version": 1,
+  "bindings": [
+    {
+      "measurement_repo": "AtomicChat/Qwen3.8-27B-GGUF",
+      "source_sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+      "protocol": {
+        "base_model": {
+          "value": "Qwen/Qwen3.8-27B",
+          "evidence": [
+            {
+              "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L2",
+              "quote": "base_model: Qwen/Qwen3.8-27B",
+              "lines": [
+                2,
+                2
+              ],
+              "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+              "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+              "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L2",
+              "source_revision_pinned": false
+            }
+          ]
+        },
+        "reference_checkpoint": {
+          "value": {
+            "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+            "identity": "shared original BF16 weights converted to GGUF and shared base-neutral.kld reference logits",
+            "absolute_revision": "not separately documented"
+          },
+          "evidence": [
+            {
+              "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L190",
+              "quote": "Numbers taken against different references cannot be put in the same table, so\nwe did not copy anyone's published figures. We downloaded their files and\nmeasured them ourselves, against the same original weights, on the same\nheld-out text. Their logs are in the metrics repo next to ours.",
+              "lines": [
+                190,
+                193
+              ],
+              "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+              "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+              "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L190",
+              "source_revision_pinned": false
+            },
+            {
+              "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L329",
+              "quote": "Reference: the original BF16 weights, converted to GGUF and run unquantized.",
+              "lines": [
+                329,
+                329
+              ],
+              "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+              "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+              "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L329",
+              "source_revision_pinned": false
+            },
+            {
+              "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L343",
+              "quote": "The raw logits of the reference are published in the metrics repo, split into\nparts because of the file size limit. With them you can measure your own build\nagainst exactly the same point we did:\n\n```bash\ncat base-neutral.kld.*.part > base-neutral.kld\n\nllama-perplexity -m your-quant.gguf -f eval_neutral.txt \\\n  --kl-divergence-base base-neutral.kld --kl-divergence -c 4096 -ngl 99",
+              "lines": [
+                343,
+                351
+              ],
+              "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+              "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+              "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L343",
+              "source_revision_pinned": false
+            }
+          ],
+          "identity_scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment"
+        },
+        "dataset": {
+          "value": {
+            "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+            "identity": "shared held-out eval_neutral from AtomicChat/calib-corpora",
+            "content_hash": "not separately documented"
+          },
+          "evidence": [
+            {
+              "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L190",
+              "quote": "Numbers taken against different references cannot be put in the same table, so\nwe did not copy anyone's published figures. We downloaded their files and\nmeasured them ourselves, against the same original weights, on the same\nheld-out text. Their logs are in the metrics repo next to ours.",
+              "lines": [
+                190,
+                193
+              ],
+              "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+              "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+              "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L190",
+              "source_revision_pinned": false
+            },
+            {
+              "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L332",
+              "quote": "Held-out text: `eval_neutral` from our calibration dataset, never used for\ncalibration. 87 chunks at 4096 context.",
+              "lines": [
+                332,
+                333
+              ],
+              "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+              "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+              "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L332",
+              "source_revision_pinned": false
+            }
+          ],
+          "identity_scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment"
+        },
+        "token_selection": {
+          "value": {
+            "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+            "identity": "same held-out text, 87 chunks at 4096 context",
+            "token_ids_and_mask": "not separately documented"
+          },
+          "evidence": [
+            {
+              "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L190",
+              "quote": "Numbers taken against different references cannot be put in the same table, so\nwe did not copy anyone's published figures. We downloaded their files and\nmeasured them ourselves, against the same original weights, on the same\nheld-out text. Their logs are in the metrics repo next to ours.",
+              "lines": [
+                190,
+                193
+              ],
+              "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+              "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+              "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L190",
+              "source_revision_pinned": false
+            },
+            {
+              "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L332",
+              "quote": "Held-out text: `eval_neutral` from our calibration dataset, never used for\ncalibration. 87 chunks at 4096 context.",
+              "lines": [
+                332,
+                333
+              ],
+              "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+              "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+              "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L332",
+              "source_revision_pinned": false
+            },
+            {
+              "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L343",
+              "quote": "The raw logits of the reference are published in the metrics repo, split into\nparts because of the file size limit. With them you can measure your own build\nagainst exactly the same point we did:\n\n```bash\ncat base-neutral.kld.*.part > base-neutral.kld\n\nllama-perplexity -m your-quant.gguf -f eval_neutral.txt \\\n  --kl-divergence-base base-neutral.kld --kl-divergence -c 4096 -ngl 99",
+              "lines": [
+                343,
+                351
+              ],
+              "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+              "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+              "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L343",
+              "source_revision_pinned": false
+            }
+          ],
+          "identity_scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment"
+        },
+        "context_length": {
+          "value": 4096,
+          "evidence": [
+            {
+              "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L332",
+              "quote": "Held-out text: `eval_neutral` from our calibration dataset, never used for\ncalibration. 87 chunks at 4096 context.",
+              "lines": [
+                332,
+                333
+              ],
+              "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+              "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+              "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L332",
+              "source_revision_pinned": false
+            },
+            {
+              "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L350",
+              "quote": "llama-perplexity -m your-quant.gguf -f eval_neutral.txt \\\n  --kl-divergence-base base-neutral.kld --kl-divergence -c 4096 -ngl 99",
+              "lines": [
+                350,
+                351
+              ],
+              "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+              "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+              "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L350",
+              "source_revision_pinned": false
+            }
+          ]
+        },
+        "implementation": {
+          "value": {
+            "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+            "identity": "shared llama-perplexity --kl-divergence against base-neutral.kld",
+            "build_revision": "not separately documented"
+          },
+          "evidence": [
+            {
+              "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L44",
+              "quote": "Every number below is measured, not estimated. How we measured it is at the\nbottom, and the raw logs are in\n[the metrics repo](https://huggingface.co/datasets/AtomicChat/Qwen3.8-27B-GGUF-metrics)\nso you can check any of it yourself.",
+              "lines": [
+                44,
+                47
+              ],
+              "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+              "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+              "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L44",
+              "source_revision_pinned": false
+            },
+            {
+              "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L343",
+              "quote": "The raw logits of the reference are published in the metrics repo, split into\nparts because of the file size limit. With them you can measure your own build\nagainst exactly the same point we did:\n\n```bash\ncat base-neutral.kld.*.part > base-neutral.kld\n\nllama-perplexity -m your-quant.gguf -f eval_neutral.txt \\\n  --kl-divergence-base base-neutral.kld --kl-divergence -c 4096 -ngl 99",
+              "lines": [
+                343,
+                351
+              ],
+              "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+              "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+              "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L343",
+              "source_revision_pinned": false
+            }
+          ],
+          "identity_scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment"
+        },
+        "settings": {
+          "value": {
+            "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+            "identity": "shared declared comparison experiment and documented command: --kl-divergence-base base-neutral.kld --kl-divergence -c 4096 -ngl 99",
+            "additional_flags": "not separately documented"
+          },
+          "evidence": [
+            {
+              "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L190",
+              "quote": "Numbers taken against different references cannot be put in the same table, so\nwe did not copy anyone's published figures. We downloaded their files and\nmeasured them ourselves, against the same original weights, on the same\nheld-out text. Their logs are in the metrics repo next to ours.",
+              "lines": [
+                190,
+                193
+              ],
+              "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+              "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+              "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L190",
+              "source_revision_pinned": false
+            },
+            {
+              "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L343",
+              "quote": "The raw logits of the reference are published in the metrics repo, split into\nparts because of the file size limit. With them you can measure your own build\nagainst exactly the same point we did:\n\n```bash\ncat base-neutral.kld.*.part > base-neutral.kld\n\nllama-perplexity -m your-quant.gguf -f eval_neutral.txt \\\n  --kl-divergence-base base-neutral.kld --kl-divergence -c 4096 -ngl 99",
+              "lines": [
+                343,
+                351
+              ],
+              "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+              "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+              "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L343",
+              "source_revision_pinned": false
+            }
+          ],
+          "identity_scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment"
+        },
+        "metrics": {
+          "kld": {
+            "metric_definition": {
+              "value": {
+                "name": "per-token KL divergence against original reference",
+                "direction": {
+                  "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+                  "optimization": "lower",
+                  "KL_orientation": "not separately documented; common implementation within declared experiment"
+                },
+                "unit": {
+                  "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+                  "identity": "shared reported KL scale",
+                  "absolute_unit": "not separately documented"
+                },
+                "aggregation": {
+                  "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+                  "identity": "shared per-token KL summary from declared llama-perplexity comparison",
+                  "weighting": "not separately documented"
+                }
+              },
+              "evidence": [
+                {
+                  "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L49",
+                  "quote": "`KL divergence` is how far the quantized model's predictions drift from the\noriginal weights. Lower is better, and zero means identical. `top-1` is how\noften it picks the same next word the original would have picked.",
+                  "lines": [
+                    49,
+                    51
+                  ],
+                  "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+                  "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+                  "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+                  "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L49",
+                  "source_revision_pinned": false
+                },
+                {
+                  "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L335",
+                  "quote": "Metric: per-token KL divergence of each file's predictions against the\nreference, plus top-1 agreement.",
+                  "lines": [
+                    335,
+                    336
+                  ],
+                  "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+                  "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+                  "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+                  "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L335",
+                  "source_revision_pinned": false
+                },
+                {
+                  "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L343",
+                  "quote": "The raw logits of the reference are published in the metrics repo, split into\nparts because of the file size limit. With them you can measure your own build\nagainst exactly the same point we did:\n\n```bash\ncat base-neutral.kld.*.part > base-neutral.kld\n\nllama-perplexity -m your-quant.gguf -f eval_neutral.txt \\\n  --kl-divergence-base base-neutral.kld --kl-divergence -c 4096 -ngl 99",
+                  "lines": [
+                    343,
+                    351
+                  ],
+                  "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+                  "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+                  "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+                  "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L343",
+                  "source_revision_pinned": false
+                }
+              ],
+              "identity_scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment"
+            }
+          },
+          "top1": {
+            "metric_definition": {
+              "value": {
+                "name": "top-1 agreement with original reference",
+                "direction": {
+                  "optimization": "higher",
+                  "meaning": "higher agreement"
+                },
+                "unit": "%",
+                "aggregation": {
+                  "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+                  "identity": "frequency of same next-word top prediction in shared evaluated text",
+                  "token_mask": "not separately documented"
+                }
+              },
+              "evidence": [
+                {
+                  "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L49",
+                  "quote": "`KL divergence` is how far the quantized model's predictions drift from the\noriginal weights. Lower is better, and zero means identical. `top-1` is how\noften it picks the same next word the original would have picked.",
+                  "lines": [
+                    49,
+                    51
+                  ],
+                  "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+                  "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+                  "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+                  "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L49",
+                  "source_revision_pinned": false
+                },
+                {
+                  "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L53",
+                  "quote": "| File | Size | KL divergence | top-1 |\n|---|---:|---:|---:|\n| `Q8_0` | 28.9 GB | 0.00064 | 98.92% |",
+                  "lines": [
+                    53,
+                    55
+                  ],
+                  "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+                  "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+                  "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+                  "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L53",
+                  "source_revision_pinned": false
+                },
+                {
+                  "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L335",
+                  "quote": "Metric: per-token KL divergence of each file's predictions against the\nreference, plus top-1 agreement.",
+                  "lines": [
+                    335,
+                    336
+                  ],
+                  "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+                  "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+                  "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+                  "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L335",
+                  "source_revision_pinned": false
+                },
+                {
+                  "url": "https://huggingface.co/AtomicChat/Qwen3.8-27B-GGUF/blob/main/README.md#L190",
+                  "quote": "Numbers taken against different references cannot be put in the same table, so\nwe did not copy anyone's published figures. We downloaded their files and\nmeasured them ourselves, against the same original weights, on the same\nheld-out text. Their logs are in the metrics repo next to ours.",
+                  "lines": [
+                    190,
+                    193
+                  ],
+                  "sha256": "1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b",
+                  "path": "models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md",
+                  "scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment",
+                  "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/AtomicChat__Qwen3.8-27B-GGUF.md#L190",
+                  "source_revision_pinned": false
+                }
+              ],
+              "identity_scope": "AtomicChat/Qwen3.8-27B-GGUF@sha256:1401a2ff940bffafaef955e0f3de44d750bfc93576947e1478d1c5b256bed39b:declared-fidelity-experiment"
+            }
+          }
+        },
+        "limitations": [
+          "Compatibility is established only among claims assigned to the explicitly shared experiment in this exact source snapshot. This is not a certification that the measurements independently reproduce.",
+          "The card explicitly says competitors were measured by its author, not copied. Quantization publisher identity does not determine measurement ownership or compatibility.",
+          "Public reference revision, reference-logit artifact hash, evaluation-text hash, exact token mask, KL orientation, absolute KL unit, summary weighting and evaluator build revision are not separately documented in the snapshot. Shared relative identity is supported by the declared experiment, not extrapolated to other experiments.",
+          "Source card is pinned by its SHA-256 in QFF. Its Hugging Face source URL uses main and may change; the saved snapshot is authoritative for these assertions."
+        ]
+      }
+    },
+    {
+      "measurement_repo": "Archsloth/Qwen3.8-27B-GGUF",
+      "source_sha256": "2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65",
+      "protocol": {
+        "base_model": {
+          "value": "Qwen/Qwen3.8-27B",
+          "evidence": [
+            {
+              "url": "https://huggingface.co/Archsloth/Qwen3.8-27B-GGUF/blob/main/README.md#L5",
+              "quote": "base_model:\n- Qwen/Qwen3.8-27B\nbase_model_relation: quantized",
+              "lines": [
+                5,
+                7
+              ],
+              "sha256": "2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65",
+              "path": "models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md",
+              "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md#L5",
+              "source_revision_pinned": false
+            }
+          ]
+        },
+        "reference_checkpoint": {
+          "value": {
+            "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+            "identity": "shared teacher logits from ref-BF16.gguf converted from Qwen/Qwen3.8-27B",
+            "absolute_revision": "not separately documented"
+          },
+          "evidence": [
+            {
+              "url": "https://huggingface.co/Archsloth/Qwen3.8-27B-GGUF/blob/main/README.md#L79",
+              "quote": "KL divergence from the bf16 original. **Lower is better.** `llama-perplexity --kl-divergence`,\nctx 512, 60 chunks, held-out Korean and English text that is not in the calibration set.",
+              "lines": [
+                79,
+                80
+              ],
+              "sha256": "2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65",
+              "path": "models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md",
+              "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md#L79",
+              "source_revision_pinned": false
+            },
+            {
+              "url": "https://huggingface.co/Archsloth/Qwen3.8-27B-GGUF/blob/main/README.md#L157",
+              "quote": "# 2. the reference the distance is measured from\npython llama.cpp/convert_hf_to_gguf.py Qwen/Qwen3.8-27B --outtype bf16 --outfile ref-BF16.gguf\n\n# 3. teacher logits, once per evaluation text\nllama-perplexity -m ref-BF16.gguf -f eval/eval_ko.txt \\\n  --kl-divergence-base base_ko.dat -ngl 99 -c 512 --chunks 60\n\n# 4. every candidate against the same teacher, same text, same chunks\nllama-perplexity -m <candidate>.gguf -f eval/eval_ko.txt \\\n  --kl-divergence --kl-divergence-base base_ko.dat -ngl 99 -c 512 --chunks 60",
+              "lines": [
+                157,
+                166
+              ],
+              "sha256": "2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65",
+              "path": "models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md",
+              "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md#L157",
+              "source_revision_pinned": false
+            }
+          ],
+          "identity_scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment"
+        },
+        "dataset": {
+          "value": {
+            "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+            "identity": "English held-out text from declared Korean and English evaluation, separate from calibration",
+            "content_hash": "not separately documented"
+          },
+          "evidence": [
+            {
+              "url": "https://huggingface.co/Archsloth/Qwen3.8-27B-GGUF/blob/main/README.md#L79",
+              "quote": "KL divergence from the bf16 original. **Lower is better.** `llama-perplexity --kl-divergence`,\nctx 512, 60 chunks, held-out Korean and English text that is not in the calibration set.",
+              "lines": [
+                79,
+                80
+              ],
+              "sha256": "2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65",
+              "path": "models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md",
+              "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md#L79",
+              "source_revision_pinned": false
+            },
+            {
+              "url": "https://huggingface.co/Archsloth/Qwen3.8-27B-GGUF/blob/main/README.md#L144",
+              "quote": "- **`[measured]` Two axes, not ten.** Korean and English are measured here. The ten-axis sweep\n  that the [4B card](https://huggingface.co/Archsloth/Qwen3-4B-GGUF) carries has not been run\n  on this model. We publish only what we ran ourselves.",
+              "lines": [
+                144,
+                146
+              ],
+              "sha256": "2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65",
+              "path": "models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md",
+              "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md#L144",
+              "source_revision_pinned": false
+            },
+            {
+              "url": "https://huggingface.co/Archsloth/Qwen3.8-27B-GGUF/blob/main/README.md#L164",
+              "quote": "# 4. every candidate against the same teacher, same text, same chunks\nllama-perplexity -m <candidate>.gguf -f eval/eval_ko.txt \\\n  --kl-divergence --kl-divergence-base base_ko.dat -ngl 99 -c 512 --chunks 60",
+              "lines": [
+                164,
+                166
+              ],
+              "sha256": "2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65",
+              "path": "models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md",
+              "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md#L164",
+              "source_revision_pinned": false
+            }
+          ],
+          "identity_scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment"
+        },
+        "token_selection": {
+          "value": {
+            "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+            "identity": "shared English evaluation text and same 60 chunks at context 512",
+            "token_ids_and_mask": "not separately documented"
+          },
+          "evidence": [
+            {
+              "url": "https://huggingface.co/Archsloth/Qwen3.8-27B-GGUF/blob/main/README.md#L79",
+              "quote": "KL divergence from the bf16 original. **Lower is better.** `llama-perplexity --kl-divergence`,\nctx 512, 60 chunks, held-out Korean and English text that is not in the calibration set.",
+              "lines": [
+                79,
+                80
+              ],
+              "sha256": "2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65",
+              "path": "models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md",
+              "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md#L79",
+              "source_revision_pinned": false
+            },
+            {
+              "url": "https://huggingface.co/Archsloth/Qwen3.8-27B-GGUF/blob/main/README.md#L164",
+              "quote": "# 4. every candidate against the same teacher, same text, same chunks\nllama-perplexity -m <candidate>.gguf -f eval/eval_ko.txt \\\n  --kl-divergence --kl-divergence-base base_ko.dat -ngl 99 -c 512 --chunks 60",
+              "lines": [
+                164,
+                166
+              ],
+              "sha256": "2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65",
+              "path": "models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md",
+              "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md#L164",
+              "source_revision_pinned": false
+            }
+          ],
+          "identity_scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment"
+        },
+        "context_length": {
+          "value": 512,
+          "evidence": [
+            {
+              "url": "https://huggingface.co/Archsloth/Qwen3.8-27B-GGUF/blob/main/README.md#L79",
+              "quote": "KL divergence from the bf16 original. **Lower is better.** `llama-perplexity --kl-divergence`,\nctx 512, 60 chunks, held-out Korean and English text that is not in the calibration set.",
+              "lines": [
+                79,
+                80
+              ],
+              "sha256": "2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65",
+              "path": "models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md",
+              "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md#L79",
+              "source_revision_pinned": false
+            },
+            {
+              "url": "https://huggingface.co/Archsloth/Qwen3.8-27B-GGUF/blob/main/README.md#L164",
+              "quote": "# 4. every candidate against the same teacher, same text, same chunks\nllama-perplexity -m <candidate>.gguf -f eval/eval_ko.txt \\\n  --kl-divergence --kl-divergence-base base_ko.dat -ngl 99 -c 512 --chunks 60",
+              "lines": [
+                164,
+                166
+              ],
+              "sha256": "2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65",
+              "path": "models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md",
+              "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md#L164",
+              "source_revision_pinned": false
+            }
+          ]
+        },
+        "implementation": {
+          "value": {
+            "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+            "identity": "shared llama-perplexity --kl-divergence comparison with cached teacher logits",
+            "build_revision": "not separately documented"
+          },
+          "evidence": [
+            {
+              "url": "https://huggingface.co/Archsloth/Qwen3.8-27B-GGUF/blob/main/README.md#L79",
+              "quote": "KL divergence from the bf16 original. **Lower is better.** `llama-perplexity --kl-divergence`,\nctx 512, 60 chunks, held-out Korean and English text that is not in the calibration set.",
+              "lines": [
+                79,
+                80
+              ],
+              "sha256": "2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65",
+              "path": "models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md",
+              "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md#L79",
+              "source_revision_pinned": false
+            },
+            {
+              "url": "https://huggingface.co/Archsloth/Qwen3.8-27B-GGUF/blob/main/README.md#L160",
+              "quote": "# 3. teacher logits, once per evaluation text\nllama-perplexity -m ref-BF16.gguf -f eval/eval_ko.txt \\\n  --kl-divergence-base base_ko.dat -ngl 99 -c 512 --chunks 60\n\n# 4. every candidate against the same teacher, same text, same chunks\nllama-perplexity -m <candidate>.gguf -f eval/eval_ko.txt \\\n  --kl-divergence --kl-divergence-base base_ko.dat -ngl 99 -c 512 --chunks 60",
+              "lines": [
+                160,
+                166
+              ],
+              "sha256": "2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65",
+              "path": "models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md",
+              "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md#L160",
+              "source_revision_pinned": false
+            }
+          ],
+          "identity_scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment"
+        },
+        "settings": {
+          "value": {
+            "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+            "identity": "every candidate compared against same teacher, text, chunks; context 512, 60 chunks",
+            "additional_flags": "not separately documented for English command"
+          },
+          "evidence": [
+            {
+              "url": "https://huggingface.co/Archsloth/Qwen3.8-27B-GGUF/blob/main/README.md#L79",
+              "quote": "KL divergence from the bf16 original. **Lower is better.** `llama-perplexity --kl-divergence`,\nctx 512, 60 chunks, held-out Korean and English text that is not in the calibration set.",
+              "lines": [
+                79,
+                80
+              ],
+              "sha256": "2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65",
+              "path": "models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md",
+              "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md#L79",
+              "source_revision_pinned": false
+            },
+            {
+              "url": "https://huggingface.co/Archsloth/Qwen3.8-27B-GGUF/blob/main/README.md#L164",
+              "quote": "# 4. every candidate against the same teacher, same text, same chunks\nllama-perplexity -m <candidate>.gguf -f eval/eval_ko.txt \\\n  --kl-divergence --kl-divergence-base base_ko.dat -ngl 99 -c 512 --chunks 60",
+              "lines": [
+                164,
+                166
+              ],
+              "sha256": "2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65",
+              "path": "models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md",
+              "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+              "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md#L164",
+              "source_revision_pinned": false
+            }
+          ],
+          "identity_scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment"
+        },
+        "metrics": {
+          "kld": {
+            "metric_definition": {
+              "value": {
+                "name": "English KL divergence from bf16 original",
+                "direction": {
+                  "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+                  "optimization": "lower",
+                  "KL_orientation": "not separately documented; common implementation within declared experiment"
+                },
+                "unit": {
+                  "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+                  "identity": "shared reported English KL scale",
+                  "absolute_unit": "not separately documented"
+                },
+                "aggregation": {
+                  "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+                  "identity": "shared English KL summary from declared llama-perplexity comparison",
+                  "weighting": "not separately documented"
+                }
+              },
+              "evidence": [
+                {
+                  "url": "https://huggingface.co/Archsloth/Qwen3.8-27B-GGUF/blob/main/README.md#L79",
+                  "quote": "KL divergence from the bf16 original. **Lower is better.** `llama-perplexity --kl-divergence`,\nctx 512, 60 chunks, held-out Korean and English text that is not in the calibration set.",
+                  "lines": [
+                    79,
+                    80
+                  ],
+                  "sha256": "2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65",
+                  "path": "models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md",
+                  "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+                  "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md#L79",
+                  "source_revision_pinned": false
+                },
+                {
+                  "url": "https://huggingface.co/Archsloth/Qwen3.8-27B-GGUF/blob/main/README.md#L164",
+                  "quote": "# 4. every candidate against the same teacher, same text, same chunks\nllama-perplexity -m <candidate>.gguf -f eval/eval_ko.txt \\\n  --kl-divergence --kl-divergence-base base_ko.dat -ngl 99 -c 512 --chunks 60",
+                  "lines": [
+                    164,
+                    166
+                  ],
+                  "sha256": "2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65",
+                  "path": "models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md",
+                  "scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment",
+                  "snapshot_url": "https://github.com/delirious6423/quant-fidelity-frontier/blob/7dba5de9a36bdfcb6ffe88c70d69c9c1a5705d20/models/qwen3.8-27b/cache/cards/Archsloth__Qwen3.8-27B-GGUF.md#L164",
+                  "source_revision_pinned": false
+                }
+              ],
+              "identity_scope": "Archsloth/Qwen3.8-27B-GGUF@sha256:2ede9facd40c4b62e8193c5c0bc774eb126280b2320576454595521e1cb91b65:declared-fidelity-experiment"
+            }
+          }
+        },
+        "limitations": [
+          "Only the canonical kld series is registered here: current metric_series maps source kld:english to kld. The Korean and English corpora must not be pooled or treated as equivalent.",
+          "The card explicitly establishes every candidate used the same teacher, text and chunks. Its runnable example is for Korean; English scope follows the declared two-axis shared experiment and does not fabricate an English filename or executable command.",
+          "No top-1 protocol is registered: the card refers to same-top-p, which is not evidence for top-1 agreement.",
+          "Compatibility is within this declared comparison experiment only, not a reproducibility certification or equivalence to other llama-perplexity experiments.",
+          "Upstream checkpoint revision, dataset content hash, exact token selection/mask, KL orientation, absolute unit, summary weighting and evaluator build revision are not separately documented.",
+          "Source card is pinned by its SHA-256 in QFF. Its Hugging Face source URL uses main and may change; the saved snapshot is authoritative for these assertions."
+        ]
+      }
+    }
+  ]
+}

@@ -78,7 +78,8 @@ class ModelPanels(unittest.TestCase):
         rows = self.rows(panel="token weighted", methodology=method)
         rows += self.rows(panel="domain weighted", methodology=method)
         sets, _ = build.build_sets(rows, [{"repo": "publisher/model", "fmt": "EXL3", "methodology": method}])
-        comparable = [s for s in sets if s["comparable"]]
+        comparable = [s for s in sets if s["id"] != "all"]
+        self.assertTrue(all(not s["comparable"] for s in comparable))
         self.assertEqual(len(comparable), 2)
         self.assertEqual({s["title"].split(" · ")[-1] for s in comparable}, {"token weighted", "domain weighted"})
         self.assertTrue(all(len(s["points"]) == 2 for s in comparable))
@@ -102,7 +103,8 @@ class ModelPanels(unittest.TestCase):
         rows = self.rows(metrics=values)
         repos = [{"repo": "publisher/model", "fmt": "EXL3", "methodology": {}}]
         sets, definitions = build.build_sets(rows, repos)
-        comparable = [st for st in sets if st["comparable"]]
+        comparable = [st for st in sets if st["id"] != "all"]
+        self.assertTrue(all(not st["comparable"] for st in comparable))
         self.assertEqual(len(comparable), 1)
         self.assertEqual(set(comparable[0]["metrics"]), set(keys))
         for st in sets:

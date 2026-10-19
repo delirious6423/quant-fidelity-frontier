@@ -99,3 +99,9 @@
 - Progressive enhancement: without JavaScript, both chart sections remain accessible and disclosures still work.
 - Validation: GLM benchmark interactions at 320/390/1366px; GLM full desktop/mobile explorer regression; five source-data tests. Qwen 27B regression checks the shared disclosure change without tabs.
 - Pending: owner review before production deployment.
+
+## Explicit comparison classifications — draft review
+
+Implemented three evidence-based classes with shared pair/group/per-metric classification, exact source quote/hash bindings, scoped protocol identities and all-pairs compatibility. AtomicChat Qwen3.8-27B retains 27 comparable KLD/top-1 points across quant publishers; Archsloth English KLD has a separate reviewed experiment. Other protocols remain visible and unverified pending evidence review. Website, static comparison panels, ledger metric sorting and MCP rankings now respect evidence eligibility; provenance separates quant, claim and measurement publishers.
+
+Integrated main `19386d8` to retain benchmark tabs and collapsed quant controls. All 3,086 original claims and 157 original sets preserve numerical/source/point/axis/metric-order fields. New focused tests, existing gates/UI/MCP and an independent adversarial review pass; details and screenshots: `docs/COMPARISON_CLASSIFICATIONS.md`, `docs/COMPARISON_VALIDATION.md`, `docs/previews/comparisons/README.md`. CI runs new regressions. Approval boundary: draft PR only; no merge or deploy. Next: owner review, then explicit approval before production changes.
