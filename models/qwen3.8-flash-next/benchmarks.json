@@ -1,0 +1,263 @@
+{
+  "sources": [
+    {
+      "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+      "card_sha256": "71496aac3c9126085519dbe3aa82e46eb9f5749ee122b089a66182a94b0db6a3",
+      "label": "ISTA-DASLab GSQ-RCO",
+      "context": "Publisher evaluation of four GSQ-RCO quantizations against the BF16 base; AIME25, GPQA-Diamond and LiveCodeBench v6 are separate benchmarks. Full evaluation settings and score units are not stated in this table.",
+      "notes": [
+        "File sizes are full text-model downloads including both weight and n-gram shards. The optional 0.91 GB vision projector is excluded (card lines 71–79 and 119).",
+        "The publisher cautions that small differences can reflect benchmark variance; scores are reproduced as published without a frontier or cross-publisher ranking.",
+        "The BF16 reference is the publisher’s same-table full-download baseline: 354 GB (card lines 119 and 123)."
+      ],
+      "metrics": [
+        {
+          "name": "AIME25",
+          "unit": "as published",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "GSQ-RCO Q2_0",
+              "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+              "size_value": 66.4,
+              "size_unit": "GB",
+              "size_raw": "66.4",
+              "size_line": 124,
+              "size_quote": "| **GSQ-RCO Q2_0** | 2.40 | 66.4 | **78.00** | **101.4%** | 96.67 | 89.39 | 81.14 | 89.07 |",
+              "score": 96.67,
+              "raw": "96.67",
+              "line": 124,
+              "quote": "| **GSQ-RCO Q2_0** | 2.40 | 66.4 | **78.00** | **101.4%** | 96.67 | 89.39 | 81.14 | 89.07 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "GSQ-RCO IQ2_XS",
+              "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+              "size_value": 68.0,
+              "size_unit": "GB",
+              "size_raw": "68.0",
+              "size_line": 125,
+              "size_quote": "| **GSQ-RCO IQ2_XS** | 2.50 | 68.0 | 77.16 | 100.3% | 96.67 | 87.37 | 83.43 | 89.16 |",
+              "score": 96.67,
+              "raw": "96.67",
+              "line": 125,
+              "quote": "| **GSQ-RCO IQ2_XS** | 2.50 | 68.0 | 77.16 | 100.3% | 96.67 | 87.37 | 83.43 | 89.16 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "GSQ-RCO IQ3_XXS",
+              "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+              "size_value": 75.8,
+              "size_unit": "GB",
+              "size_raw": "75.8",
+              "size_line": 126,
+              "size_quote": "| **GSQ-RCO IQ3_XXS** | 3.00 | 75.8 | 77.23 | 100.4% | **100.00** | 91.41 | 86.29 | 92.57 |",
+              "score": 100.0,
+              "raw": "100.00",
+              "line": 126,
+              "quote": "| **GSQ-RCO IQ3_XXS** | 3.00 | 75.8 | 77.23 | 100.4% | **100.00** | 91.41 | 86.29 | 92.57 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "GSQ-RCO IQ3_S",
+              "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+              "size_value": 83.6,
+              "size_unit": "GB",
+              "size_raw": "83.6",
+              "size_line": 127,
+              "size_quote": "| **GSQ-RCO IQ3_S** | 3.50 | 83.6 | n/a | n/a | **100.00** | **92.93** | **86.86** | **93.26** |",
+              "score": 100.0,
+              "raw": "100.00",
+              "line": 127,
+              "quote": "| **GSQ-RCO IQ3_S** | 3.50 | 83.6 | n/a | n/a | **100.00** | **92.93** | **86.86** | **93.26** |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "BF16 reference",
+              "repo": "Qwen/Qwen3.8-Flash-Next",
+              "size_value": 354.0,
+              "size_unit": "GB",
+              "size_raw": "354",
+              "size_line": 123,
+              "size_quote": "| BF16 | 16.00 | 354 | 76.94 | 100.0% | 100.00 | 91.92 | 87.43 | 93.12 |",
+              "score": 100.0,
+              "raw": "100.00",
+              "line": 123,
+              "quote": "| BF16 | 16.00 | 354 | 76.94 | 100.0% | 100.00 | 91.92 | 87.43 | 93.12 |",
+              "reference": true,
+              "flags": []
+            }
+          ]
+        },
+        {
+          "name": "GPQA-Diamond",
+          "unit": "as published",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "GSQ-RCO Q2_0",
+              "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+              "size_value": 66.4,
+              "size_unit": "GB",
+              "size_raw": "66.4",
+              "size_line": 124,
+              "size_quote": "| **GSQ-RCO Q2_0** | 2.40 | 66.4 | **78.00** | **101.4%** | 96.67 | 89.39 | 81.14 | 89.07 |",
+              "score": 89.39,
+              "raw": "89.39",
+              "line": 124,
+              "quote": "| **GSQ-RCO Q2_0** | 2.40 | 66.4 | **78.00** | **101.4%** | 96.67 | 89.39 | 81.14 | 89.07 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "GSQ-RCO IQ2_XS",
+              "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+              "size_value": 68.0,
+              "size_unit": "GB",
+              "size_raw": "68.0",
+              "size_line": 125,
+              "size_quote": "| **GSQ-RCO IQ2_XS** | 2.50 | 68.0 | 77.16 | 100.3% | 96.67 | 87.37 | 83.43 | 89.16 |",
+              "score": 87.37,
+              "raw": "87.37",
+              "line": 125,
+              "quote": "| **GSQ-RCO IQ2_XS** | 2.50 | 68.0 | 77.16 | 100.3% | 96.67 | 87.37 | 83.43 | 89.16 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "GSQ-RCO IQ3_XXS",
+              "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+              "size_value": 75.8,
+              "size_unit": "GB",
+              "size_raw": "75.8",
+              "size_line": 126,
+              "size_quote": "| **GSQ-RCO IQ3_XXS** | 3.00 | 75.8 | 77.23 | 100.4% | **100.00** | 91.41 | 86.29 | 92.57 |",
+              "score": 91.41,
+              "raw": "91.41",
+              "line": 126,
+              "quote": "| **GSQ-RCO IQ3_XXS** | 3.00 | 75.8 | 77.23 | 100.4% | **100.00** | 91.41 | 86.29 | 92.57 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "GSQ-RCO IQ3_S",
+              "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+              "size_value": 83.6,
+              "size_unit": "GB",
+              "size_raw": "83.6",
+              "size_line": 127,
+              "size_quote": "| **GSQ-RCO IQ3_S** | 3.50 | 83.6 | n/a | n/a | **100.00** | **92.93** | **86.86** | **93.26** |",
+              "score": 92.93,
+              "raw": "92.93",
+              "line": 127,
+              "quote": "| **GSQ-RCO IQ3_S** | 3.50 | 83.6 | n/a | n/a | **100.00** | **92.93** | **86.86** | **93.26** |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "BF16 reference",
+              "repo": "Qwen/Qwen3.8-Flash-Next",
+              "size_value": 354.0,
+              "size_unit": "GB",
+              "size_raw": "354",
+              "size_line": 123,
+              "size_quote": "| BF16 | 16.00 | 354 | 76.94 | 100.0% | 100.00 | 91.92 | 87.43 | 93.12 |",
+              "score": 91.92,
+              "raw": "91.92",
+              "line": 123,
+              "quote": "| BF16 | 16.00 | 354 | 76.94 | 100.0% | 100.00 | 91.92 | 87.43 | 93.12 |",
+              "reference": true,
+              "flags": []
+            }
+          ]
+        },
+        {
+          "name": "LiveCodeBench v6",
+          "unit": "as published",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "GSQ-RCO Q2_0",
+              "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+              "size_value": 66.4,
+              "size_unit": "GB",
+              "size_raw": "66.4",
+              "size_line": 124,
+              "size_quote": "| **GSQ-RCO Q2_0** | 2.40 | 66.4 | **78.00** | **101.4%** | 96.67 | 89.39 | 81.14 | 89.07 |",
+              "score": 81.14,
+              "raw": "81.14",
+              "line": 124,
+              "quote": "| **GSQ-RCO Q2_0** | 2.40 | 66.4 | **78.00** | **101.4%** | 96.67 | 89.39 | 81.14 | 89.07 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "GSQ-RCO IQ2_XS",
+              "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+              "size_value": 68.0,
+              "size_unit": "GB",
+              "size_raw": "68.0",
+              "size_line": 125,
+              "size_quote": "| **GSQ-RCO IQ2_XS** | 2.50 | 68.0 | 77.16 | 100.3% | 96.67 | 87.37 | 83.43 | 89.16 |",
+              "score": 83.43,
+              "raw": "83.43",
+              "line": 125,
+              "quote": "| **GSQ-RCO IQ2_XS** | 2.50 | 68.0 | 77.16 | 100.3% | 96.67 | 87.37 | 83.43 | 89.16 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "GSQ-RCO IQ3_XXS",
+              "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+              "size_value": 75.8,
+              "size_unit": "GB",
+              "size_raw": "75.8",
+              "size_line": 126,
+              "size_quote": "| **GSQ-RCO IQ3_XXS** | 3.00 | 75.8 | 77.23 | 100.4% | **100.00** | 91.41 | 86.29 | 92.57 |",
+              "score": 86.29,
+              "raw": "86.29",
+              "line": 126,
+              "quote": "| **GSQ-RCO IQ3_XXS** | 3.00 | 75.8 | 77.23 | 100.4% | **100.00** | 91.41 | 86.29 | 92.57 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "GSQ-RCO IQ3_S",
+              "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+              "size_value": 83.6,
+              "size_unit": "GB",
+              "size_raw": "83.6",
+              "size_line": 127,
+              "size_quote": "| **GSQ-RCO IQ3_S** | 3.50 | 83.6 | n/a | n/a | **100.00** | **92.93** | **86.86** | **93.26** |",
+              "score": 86.86,
+              "raw": "86.86",
+              "line": 127,
+              "quote": "| **GSQ-RCO IQ3_S** | 3.50 | 83.6 | n/a | n/a | **100.00** | **92.93** | **86.86** | **93.26** |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "BF16 reference",
+              "repo": "Qwen/Qwen3.8-Flash-Next",
+              "size_value": 354.0,
+              "size_unit": "GB",
+              "size_raw": "354",
+              "size_line": 123,
+              "size_quote": "| BF16 | 16.00 | 354 | 76.94 | 100.0% | 100.00 | 91.92 | 87.43 | 93.12 |",
+              "score": 87.43,
+              "raw": "87.43",
+              "line": 123,
+              "quote": "| BF16 | 16.00 | 354 | 76.94 | 100.0% | 100.00 | 91.92 | 87.43 | 93.12 |",
+              "reference": true,
+              "flags": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

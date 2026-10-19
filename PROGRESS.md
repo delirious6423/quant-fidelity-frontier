@@ -113,3 +113,11 @@
 - Removed chart-tab JavaScript/CSS. Navigation links are ordinary section anchors; initial measurement sets, data and collapsed defaults are preserved.
 - Responsive benchmark checks pass at 320/390/1366px for stacked order, both-chart visibility, direct anchors/history and existing chart interactions. Evidence disclosures and benchmark provenance tests pass.
 - Prepared for owner review before deployment.
+
+## Benchmarks on every model (2026-10-19)
+- Added reviewed manifests for all five live models: 113 task-score records, 30 source-specific benchmark choices, 7 evaluation sources. Benchmarks remain stacked after Fidelity; initial measurement sets and collapsed evidence sections are unchanged.
+- Source and benchmark selectors keep protocols/scales separate. Each score and size has a distinct source link. Fraction units stay fractional; unspecified units never become percentages. Native reference markers are included only where matched full sizes exist.
+- Exact card hashes, scalar values, units and independent score/size quotes validate at build time. Changed source cards withdraw the affected evaluation panel without blocking ordinary ingestion.
+- Three raw-source auditors transcribed bounded manifests; fresh cross-reviews verified the other agents' source columns/artifacts, plus independent renderer/UI review. Excluded composite/count/error/speed fields, pending runs, modified checkpoints, previous revisions and partial sizes.
+- Validation: 8 unit regressions; all five gated builds; 90 responsive source/benchmark views at 320/390/1366px; 5 no-JavaScript fallbacks; discovery preserved all 3,086 existing claim rows; MCP 33/33.
+- Review screenshots in docs/previews/benchmarks-*.png; not deployed pending owner review.

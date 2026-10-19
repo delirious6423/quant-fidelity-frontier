@@ -1,0 +1,237 @@
+{
+  "sources": [
+    {
+      "repo": "intel-ai/DeepSeek-V4-Flash-0731-MXFP4-Mixed-CT-AutoRound",
+      "card_sha256": "1f43547a0fb2d322d6b752ec60ea472387c2afe30d68bfe0306a43752abcc729",
+      "label": "Intel AutoRound · lm-eval full suite",
+      "context": "lm-eval 0.4.13 + vLLM; 2× B300, seed 42, context limit 8,192; GSM8K 5-shot, MMLU/PIQA/HellaSwag 0-shot, full sample counts.",
+      "notes": [
+        "Sizes cover all 43 layers and the complete MTP/DSpark module.",
+        "Reference is the official native FP4/FP8 checkpoint, not BF16.",
+        "Scores retain the source’s fraction scale; AVG is the source’s four-task average."
+      ],
+      "metrics": [
+        {
+          "name": "GSM8K strict (5-shot)",
+          "unit": "fraction",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "Official native FP4/FP8",
+              "repo": "deepseek-ai/DeepSeek-V4-Flash-0731",
+              "size_value": 166.89,
+              "size_unit": "GB",
+              "size_raw": "166.89",
+              "size_line": 51,
+              "size_quote": "| Size | 166.89 GB | **167.08 GB / 155.61 GiB**, 48 shards |",
+              "score": 0.9583,
+              "raw": "0.9583",
+              "line": 78,
+              "quote": "| Official DeepSeek-V4-Flash-0731 (native FP4+FP8) | 0.9583 | 0.8649 | 0.8341 | 0.6818 | **0.8348** |",
+              "reference": true,
+              "flags": []
+            },
+            {
+              "variant": "MXFP4/MXFP8 AutoRound",
+              "repo": "intel-ai/DeepSeek-V4-Flash-0731-MXFP4-Mixed-CT-AutoRound",
+              "size_value": 167.08,
+              "size_unit": "GB",
+              "size_raw": "167.08",
+              "size_line": 51,
+              "size_quote": "| Size | 166.89 GB | **167.08 GB / 155.61 GiB**, 48 shards |",
+              "score": 0.9568,
+              "raw": "0.9568",
+              "line": 79,
+              "quote": "| **MXFP4-Mixed-CT (this checkpoint)** | 0.9568 | 0.8631 | 0.8232 | 0.6788 | **0.8305** |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        },
+        {
+          "name": "MMLU (0-shot)",
+          "unit": "fraction",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "Official native FP4/FP8",
+              "repo": "deepseek-ai/DeepSeek-V4-Flash-0731",
+              "size_value": 166.89,
+              "size_unit": "GB",
+              "size_raw": "166.89",
+              "size_line": 51,
+              "size_quote": "| Size | 166.89 GB | **167.08 GB / 155.61 GiB**, 48 shards |",
+              "score": 0.8649,
+              "raw": "0.8649",
+              "line": 78,
+              "quote": "| Official DeepSeek-V4-Flash-0731 (native FP4+FP8) | 0.9583 | 0.8649 | 0.8341 | 0.6818 | **0.8348** |",
+              "reference": true,
+              "flags": []
+            },
+            {
+              "variant": "MXFP4/MXFP8 AutoRound",
+              "repo": "intel-ai/DeepSeek-V4-Flash-0731-MXFP4-Mixed-CT-AutoRound",
+              "size_value": 167.08,
+              "size_unit": "GB",
+              "size_raw": "167.08",
+              "size_line": 51,
+              "size_quote": "| Size | 166.89 GB | **167.08 GB / 155.61 GiB**, 48 shards |",
+              "score": 0.8631,
+              "raw": "0.8631",
+              "line": 79,
+              "quote": "| **MXFP4-Mixed-CT (this checkpoint)** | 0.9568 | 0.8631 | 0.8232 | 0.6788 | **0.8305** |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        },
+        {
+          "name": "PIQA (0-shot)",
+          "unit": "fraction",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "Official native FP4/FP8",
+              "repo": "deepseek-ai/DeepSeek-V4-Flash-0731",
+              "size_value": 166.89,
+              "size_unit": "GB",
+              "size_raw": "166.89",
+              "size_line": 51,
+              "size_quote": "| Size | 166.89 GB | **167.08 GB / 155.61 GiB**, 48 shards |",
+              "score": 0.8341,
+              "raw": "0.8341",
+              "line": 78,
+              "quote": "| Official DeepSeek-V4-Flash-0731 (native FP4+FP8) | 0.9583 | 0.8649 | 0.8341 | 0.6818 | **0.8348** |",
+              "reference": true,
+              "flags": []
+            },
+            {
+              "variant": "MXFP4/MXFP8 AutoRound",
+              "repo": "intel-ai/DeepSeek-V4-Flash-0731-MXFP4-Mixed-CT-AutoRound",
+              "size_value": 167.08,
+              "size_unit": "GB",
+              "size_raw": "167.08",
+              "size_line": 51,
+              "size_quote": "| Size | 166.89 GB | **167.08 GB / 155.61 GiB**, 48 shards |",
+              "score": 0.8232,
+              "raw": "0.8232",
+              "line": 79,
+              "quote": "| **MXFP4-Mixed-CT (this checkpoint)** | 0.9568 | 0.8631 | 0.8232 | 0.6788 | **0.8305** |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        },
+        {
+          "name": "HellaSwag (0-shot)",
+          "unit": "fraction",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "Official native FP4/FP8",
+              "repo": "deepseek-ai/DeepSeek-V4-Flash-0731",
+              "size_value": 166.89,
+              "size_unit": "GB",
+              "size_raw": "166.89",
+              "size_line": 51,
+              "size_quote": "| Size | 166.89 GB | **167.08 GB / 155.61 GiB**, 48 shards |",
+              "score": 0.6818,
+              "raw": "0.6818",
+              "line": 78,
+              "quote": "| Official DeepSeek-V4-Flash-0731 (native FP4+FP8) | 0.9583 | 0.8649 | 0.8341 | 0.6818 | **0.8348** |",
+              "reference": true,
+              "flags": []
+            },
+            {
+              "variant": "MXFP4/MXFP8 AutoRound",
+              "repo": "intel-ai/DeepSeek-V4-Flash-0731-MXFP4-Mixed-CT-AutoRound",
+              "size_value": 167.08,
+              "size_unit": "GB",
+              "size_raw": "167.08",
+              "size_line": 51,
+              "size_quote": "| Size | 166.89 GB | **167.08 GB / 155.61 GiB**, 48 shards |",
+              "score": 0.6788,
+              "raw": "0.6788",
+              "line": 79,
+              "quote": "| **MXFP4-Mixed-CT (this checkpoint)** | 0.9568 | 0.8631 | 0.8232 | 0.6788 | **0.8305** |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        },
+        {
+          "name": "AVG (four-task average)",
+          "unit": "fraction",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "Official native FP4/FP8",
+              "repo": "deepseek-ai/DeepSeek-V4-Flash-0731",
+              "size_value": 166.89,
+              "size_unit": "GB",
+              "size_raw": "166.89",
+              "size_line": 51,
+              "size_quote": "| Size | 166.89 GB | **167.08 GB / 155.61 GiB**, 48 shards |",
+              "score": 0.8348,
+              "raw": "0.8348",
+              "line": 78,
+              "quote": "| Official DeepSeek-V4-Flash-0731 (native FP4+FP8) | 0.9583 | 0.8649 | 0.8341 | 0.6818 | **0.8348** |",
+              "reference": true,
+              "flags": []
+            },
+            {
+              "variant": "MXFP4/MXFP8 AutoRound",
+              "repo": "intel-ai/DeepSeek-V4-Flash-0731-MXFP4-Mixed-CT-AutoRound",
+              "size_value": 167.08,
+              "size_unit": "GB",
+              "size_raw": "167.08",
+              "size_line": 51,
+              "size_quote": "| Size | 166.89 GB | **167.08 GB / 155.61 GiB**, 48 shards |",
+              "score": 0.8305,
+              "raw": "0.8305",
+              "line": 79,
+              "quote": "| **MXFP4-Mixed-CT (this checkpoint)** | 0.9568 | 0.8631 | 0.8232 | 0.6788 | **0.8305** |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "repo": "mlx-community/DeepSeek-V4-Flash-0731-2.4bit-mixed",
+      "card_sha256": "2a558395e99de1d83aa3a59965caad0c25214c049ba63ce2acb61c50c8025d77",
+      "label": "MLX community · MMLU-Pro 600-question sample",
+      "context": "MMLU-Pro, 600 seeded samples, thinking off and greedy decoding.",
+      "notes": [
+        "Source describes this as a rough sighting with standard error of about 2 percentage points.",
+        "Hosted API reference has no published file size and is excluded from the plot.",
+        "This protocol is separate from Intel’s full-suite measurements."
+      ],
+      "metrics": [
+        {
+          "name": "MMLU-Pro (600-question sample)",
+          "unit": "fraction",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "MLX mixed 2.44 bits/weight",
+              "repo": "mlx-community/DeepSeek-V4-Flash-0731-2.4bit-mixed",
+              "size_value": 92.8,
+              "size_unit": "GB",
+              "size_raw": "92.8",
+              "size_line": 78,
+              "size_quote": "| [**DeepSeek-V4-Flash-0731-2.4bit-mixed**](https://huggingface.co/mlx-community/DeepSeek-V4-Flash-0731-2.4bit-mixed) (this repo) | 92.8 GB | 2.44 | 0.573 |",
+              "score": 0.573,
+              "raw": "0.573",
+              "line": 78,
+              "quote": "| [**DeepSeek-V4-Flash-0731-2.4bit-mixed**](https://huggingface.co/mlx-community/DeepSeek-V4-Flash-0731-2.4bit-mixed) (this repo) | 92.8 GB | 2.44 | 0.573 |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

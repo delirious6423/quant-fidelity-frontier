@@ -1,3 +1,5 @@
+> Historical pilot notes. The all-model implementation and evidence contract are documented in [BENCHMARKS.md](BENCHMARKS.md).
+
 # GLM benchmark pilot
 
 Scope: GLM-5.3-Flash only, behind `benchmark_pilot` in its model configuration.

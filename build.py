@@ -6,7 +6,7 @@ import json, glob, os, re, html, math, datetime, collections
 CODE = os.path.dirname(os.path.abspath(__file__))
 import sys; sys.path[:0] = [CODE, os.path.join(CODE, "pipeline"), os.path.join(CODE, "gates")]
 import qcl_fmt as FMT
-from benchmarks import build_pilot, render_pilot
+from benchmarks import build_benchmarks, render_benchmarks
 ROOT = os.environ.get("QCL_ROOT") or os.path.join(CODE, "models", "qwen3.8-flash-next")          # data root: one folder per model (models/<slug>/); code stays here
 IDX = json.load(open(f"{ROOT}/snapshots/index.json"))
 SIZES = json.load(open(f"{ROOT}/snapshots/hf_sizes_summary.json"))
@@ -701,16 +701,16 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
 </main>
 <footer class="foot"><div class="wrap"><p>QFF (Quant Fidelity Frontier): what publishers claim, pinned to the line they said it · data captured {captured} · claims belong to their publishers · <a href="{REPO_URL}">source and data</a>{SUPPORT_HTML}</p></div></footer>
 """
-    if CFG.get("benchmark_pilot") and SLUG == "glm-5.3-flash":
+    if os.path.exists(f"{ROOT}/benchmarks.json"):
         body = body.replace('<a href="#chart">Compare</a>', '<a href="#chart">Fidelity</a><a href="#benchmarks">Benchmarks</a>')
-        body = body.replace('<section id="read-first"', render_pilot(build_pilot(rows, CFG)) + '<section id="read-first"')
+        body = body.replace('<section id="read-first"', render_benchmarks(build_benchmarks(ROOT, CFG)) + '<section id="read-first"')
     return body.replace("__EXDATA__", exdata)
 
 CSS = open(os.path.join(CODE, "web", "site_style.css")).read() if os.path.exists(os.path.join(CODE, "web", "site_style.css")) else ""
-if CFG.get("benchmark_pilot") and SLUG == "glm-5.3-flash":
+if os.path.exists(f"{ROOT}/benchmarks.json"):
     CSS += "\n" + open(os.path.join(CODE, "web", "site_benchmarks.css")).read()
 JS = "\n".join(open(os.path.join(CODE, "web", f)).read() for f in ("site_script.js", "site_explorer.js"))
-if CFG.get("benchmark_pilot") and SLUG == "glm-5.3-flash":
+if os.path.exists(f"{ROOT}/benchmarks.json"):
     JS += "\n" + open(os.path.join(CODE, "web", "site_benchmarks.js")).read()
 
 def main():
@@ -777,7 +777,7 @@ def main():
     exdata = json.dumps({'sets': sets, 'metrics': metrics}, separators=(',', ':')).replace('</', '<\\/')
     body = render(rows, repos, stats, vc, hl, exdata)
     os.makedirs(f"{OUT}", exist_ok=True)
-    json.dump({"model": MODEL, "captured_at": IDX["captured_at"], "repos": repos, "rows": rows, "sets": sets},
+    json.dump({"model": MODEL, "captured_at": IDX["captured_at"], "repos": repos, "rows": rows, "sets": sets, "benchmarks": build_benchmarks(ROOT, CFG)},
               open(f"{OUT}/data.json", "w"), separators=(",", ":"))
     title = f"{MNAME} QFF"
     desc = (f"Every Hugging Face quant of {MNAME} (GGUF, NVFP4, FP8, MXFP4, AWQ, AutoRound, EXL3, MLX) compared by each publisher's own "

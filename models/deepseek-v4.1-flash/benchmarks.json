@@ -1,0 +1,277 @@
+{
+  "sources": [
+    {
+      "repo": "intel-ai/DeepSeek-V4.1-Flash-MXFP4-Mixed-CT-AutoRound",
+      "card_sha256": "858541b356bddf79f7b8f29569dd5f39e073293218dd7abf27d7395401cb91f9",
+      "label": "Intel AutoRound · lm-eval full suite",
+      "context": "lm-eval 0.4.13 + vLLM; seed 42, full sample counts; GSM8K 5-shot, plain-text continuation; context limit 8,192.",
+      "notes": [
+        "Sizes are the complete checkpoint sizes stated in the source summary, including Engram and MTP.",
+        "The source checkpoint is natively mixed precision. Stored weights are reported byte-identical; runtime MoE activations differ (W4A8 versus W4A4).",
+        "Scores retain the source’s fraction scale.",
+        "The card reports the native reference as 510.29 GB / 475.34 GiB, which are not equivalent. This chart preserves its explicit GB value rather than silently reconciling the source."
+      ],
+      "metrics": [
+        {
+          "name": "GSM8K strict (5-shot)",
+          "unit": "fraction",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "Official native mixed precision (W4A8 MoE)",
+              "repo": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "size_value": 510.29,
+              "size_unit": "GB",
+              "size_raw": "510.29",
+              "size_line": 30,
+              "size_quote": "| Size on disk | 510.29 GB / 475.34 GiB, 48 shards | **510.51 GB / 475.45 GiB**, 48 shards (+0.04 %) |",
+              "score": 0.9553,
+              "raw": "0.9553",
+              "line": 325,
+              "quote": "| `deepseek-ai/DeepSeek-V4.1-Flash` (official, W4A8 MoE) | **0.9553 / 0.9553** | **0.8886** | 0.8466 / 0.8613 | 0.7036 / 0.8713 |",
+              "reference": true,
+              "flags": []
+            },
+            {
+              "variant": "MXFP4/MXFP8 AutoRound (W4A4 MoE)",
+              "repo": "intel-ai/DeepSeek-V4.1-Flash-MXFP4-Mixed-CT-AutoRound",
+              "size_value": 510.51,
+              "size_unit": "GB",
+              "size_raw": "510.51",
+              "size_line": 30,
+              "size_quote": "| Size on disk | 510.29 GB / 475.34 GiB, 48 shards | **510.51 GB / 475.45 GiB**, 48 shards (+0.04 %) |",
+              "score": 0.9522,
+              "raw": "0.9522",
+              "line": 326,
+              "quote": "| This checkpoint (W4A4 MoE, OCP MXFP8) | **0.9522 / 0.9522** | **0.8868** | 0.8390 / 0.8553 | 0.7017 / 0.8688 |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        },
+        {
+          "name": "GSM8K flexible (5-shot)",
+          "unit": "fraction",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "Official native mixed precision (W4A8 MoE)",
+              "repo": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "size_value": 510.29,
+              "size_unit": "GB",
+              "size_raw": "510.29",
+              "size_line": 30,
+              "size_quote": "| Size on disk | 510.29 GB / 475.34 GiB, 48 shards | **510.51 GB / 475.45 GiB**, 48 shards (+0.04 %) |",
+              "score": 0.9553,
+              "raw": "0.9553",
+              "line": 325,
+              "quote": "| `deepseek-ai/DeepSeek-V4.1-Flash` (official, W4A8 MoE) | **0.9553 / 0.9553** | **0.8886** | 0.8466 / 0.8613 | 0.7036 / 0.8713 |",
+              "reference": true,
+              "flags": []
+            },
+            {
+              "variant": "MXFP4/MXFP8 AutoRound (W4A4 MoE)",
+              "repo": "intel-ai/DeepSeek-V4.1-Flash-MXFP4-Mixed-CT-AutoRound",
+              "size_value": 510.51,
+              "size_unit": "GB",
+              "size_raw": "510.51",
+              "size_line": 30,
+              "size_quote": "| Size on disk | 510.29 GB / 475.34 GiB, 48 shards | **510.51 GB / 475.45 GiB**, 48 shards (+0.04 %) |",
+              "score": 0.9522,
+              "raw": "0.9522",
+              "line": 326,
+              "quote": "| This checkpoint (W4A4 MoE, OCP MXFP8) | **0.9522 / 0.9522** | **0.8868** | 0.8390 / 0.8553 | 0.7017 / 0.8688 |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        },
+        {
+          "name": "MMLU",
+          "unit": "fraction",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "Official native mixed precision (W4A8 MoE)",
+              "repo": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "size_value": 510.29,
+              "size_unit": "GB",
+              "size_raw": "510.29",
+              "size_line": 30,
+              "size_quote": "| Size on disk | 510.29 GB / 475.34 GiB, 48 shards | **510.51 GB / 475.45 GiB**, 48 shards (+0.04 %) |",
+              "score": 0.8886,
+              "raw": "0.8886",
+              "line": 325,
+              "quote": "| `deepseek-ai/DeepSeek-V4.1-Flash` (official, W4A8 MoE) | **0.9553 / 0.9553** | **0.8886** | 0.8466 / 0.8613 | 0.7036 / 0.8713 |",
+              "reference": true,
+              "flags": []
+            },
+            {
+              "variant": "MXFP4/MXFP8 AutoRound (W4A4 MoE)",
+              "repo": "intel-ai/DeepSeek-V4.1-Flash-MXFP4-Mixed-CT-AutoRound",
+              "size_value": 510.51,
+              "size_unit": "GB",
+              "size_raw": "510.51",
+              "size_line": 30,
+              "size_quote": "| Size on disk | 510.29 GB / 475.34 GiB, 48 shards | **510.51 GB / 475.45 GiB**, 48 shards (+0.04 %) |",
+              "score": 0.8868,
+              "raw": "0.8868",
+              "line": 326,
+              "quote": "| This checkpoint (W4A4 MoE, OCP MXFP8) | **0.9522 / 0.9522** | **0.8868** | 0.8390 / 0.8553 | 0.7017 / 0.8688 |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        },
+        {
+          "name": "PIQA acc",
+          "unit": "fraction",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "Official native mixed precision (W4A8 MoE)",
+              "repo": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "size_value": 510.29,
+              "size_unit": "GB",
+              "size_raw": "510.29",
+              "size_line": 30,
+              "size_quote": "| Size on disk | 510.29 GB / 475.34 GiB, 48 shards | **510.51 GB / 475.45 GiB**, 48 shards (+0.04 %) |",
+              "score": 0.8466,
+              "raw": "0.8466",
+              "line": 325,
+              "quote": "| `deepseek-ai/DeepSeek-V4.1-Flash` (official, W4A8 MoE) | **0.9553 / 0.9553** | **0.8886** | 0.8466 / 0.8613 | 0.7036 / 0.8713 |",
+              "reference": true,
+              "flags": []
+            },
+            {
+              "variant": "MXFP4/MXFP8 AutoRound (W4A4 MoE)",
+              "repo": "intel-ai/DeepSeek-V4.1-Flash-MXFP4-Mixed-CT-AutoRound",
+              "size_value": 510.51,
+              "size_unit": "GB",
+              "size_raw": "510.51",
+              "size_line": 30,
+              "size_quote": "| Size on disk | 510.29 GB / 475.34 GiB, 48 shards | **510.51 GB / 475.45 GiB**, 48 shards (+0.04 %) |",
+              "score": 0.839,
+              "raw": "0.8390",
+              "line": 326,
+              "quote": "| This checkpoint (W4A4 MoE, OCP MXFP8) | **0.9522 / 0.9522** | **0.8868** | 0.8390 / 0.8553 | 0.7017 / 0.8688 |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        },
+        {
+          "name": "PIQA acc_norm",
+          "unit": "fraction",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "Official native mixed precision (W4A8 MoE)",
+              "repo": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "size_value": 510.29,
+              "size_unit": "GB",
+              "size_raw": "510.29",
+              "size_line": 30,
+              "size_quote": "| Size on disk | 510.29 GB / 475.34 GiB, 48 shards | **510.51 GB / 475.45 GiB**, 48 shards (+0.04 %) |",
+              "score": 0.8613,
+              "raw": "0.8613",
+              "line": 325,
+              "quote": "| `deepseek-ai/DeepSeek-V4.1-Flash` (official, W4A8 MoE) | **0.9553 / 0.9553** | **0.8886** | 0.8466 / 0.8613 | 0.7036 / 0.8713 |",
+              "reference": true,
+              "flags": []
+            },
+            {
+              "variant": "MXFP4/MXFP8 AutoRound (W4A4 MoE)",
+              "repo": "intel-ai/DeepSeek-V4.1-Flash-MXFP4-Mixed-CT-AutoRound",
+              "size_value": 510.51,
+              "size_unit": "GB",
+              "size_raw": "510.51",
+              "size_line": 30,
+              "size_quote": "| Size on disk | 510.29 GB / 475.34 GiB, 48 shards | **510.51 GB / 475.45 GiB**, 48 shards (+0.04 %) |",
+              "score": 0.8553,
+              "raw": "0.8553",
+              "line": 326,
+              "quote": "| This checkpoint (W4A4 MoE, OCP MXFP8) | **0.9522 / 0.9522** | **0.8868** | 0.8390 / 0.8553 | 0.7017 / 0.8688 |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        },
+        {
+          "name": "HellaSwag acc",
+          "unit": "fraction",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "Official native mixed precision (W4A8 MoE)",
+              "repo": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "size_value": 510.29,
+              "size_unit": "GB",
+              "size_raw": "510.29",
+              "size_line": 30,
+              "size_quote": "| Size on disk | 510.29 GB / 475.34 GiB, 48 shards | **510.51 GB / 475.45 GiB**, 48 shards (+0.04 %) |",
+              "score": 0.7036,
+              "raw": "0.7036",
+              "line": 325,
+              "quote": "| `deepseek-ai/DeepSeek-V4.1-Flash` (official, W4A8 MoE) | **0.9553 / 0.9553** | **0.8886** | 0.8466 / 0.8613 | 0.7036 / 0.8713 |",
+              "reference": true,
+              "flags": []
+            },
+            {
+              "variant": "MXFP4/MXFP8 AutoRound (W4A4 MoE)",
+              "repo": "intel-ai/DeepSeek-V4.1-Flash-MXFP4-Mixed-CT-AutoRound",
+              "size_value": 510.51,
+              "size_unit": "GB",
+              "size_raw": "510.51",
+              "size_line": 30,
+              "size_quote": "| Size on disk | 510.29 GB / 475.34 GiB, 48 shards | **510.51 GB / 475.45 GiB**, 48 shards (+0.04 %) |",
+              "score": 0.7017,
+              "raw": "0.7017",
+              "line": 326,
+              "quote": "| This checkpoint (W4A4 MoE, OCP MXFP8) | **0.9522 / 0.9522** | **0.8868** | 0.8390 / 0.8553 | 0.7017 / 0.8688 |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        },
+        {
+          "name": "HellaSwag acc_norm",
+          "unit": "fraction",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "Official native mixed precision (W4A8 MoE)",
+              "repo": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "size_value": 510.29,
+              "size_unit": "GB",
+              "size_raw": "510.29",
+              "size_line": 30,
+              "size_quote": "| Size on disk | 510.29 GB / 475.34 GiB, 48 shards | **510.51 GB / 475.45 GiB**, 48 shards (+0.04 %) |",
+              "score": 0.8713,
+              "raw": "0.8713",
+              "line": 325,
+              "quote": "| `deepseek-ai/DeepSeek-V4.1-Flash` (official, W4A8 MoE) | **0.9553 / 0.9553** | **0.8886** | 0.8466 / 0.8613 | 0.7036 / 0.8713 |",
+              "reference": true,
+              "flags": []
+            },
+            {
+              "variant": "MXFP4/MXFP8 AutoRound (W4A4 MoE)",
+              "repo": "intel-ai/DeepSeek-V4.1-Flash-MXFP4-Mixed-CT-AutoRound",
+              "size_value": 510.51,
+              "size_unit": "GB",
+              "size_raw": "510.51",
+              "size_line": 30,
+              "size_quote": "| Size on disk | 510.29 GB / 475.34 GiB, 48 shards | **510.51 GB / 475.45 GiB**, 48 shards (+0.04 %) |",
+              "score": 0.8688,
+              "raw": "0.8688",
+              "line": 326,
+              "quote": "| This checkpoint (W4A4 MoE, OCP MXFP8) | **0.9522 / 0.9522** | **0.8868** | 0.8390 / 0.8553 | 0.7017 / 0.8688 |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
