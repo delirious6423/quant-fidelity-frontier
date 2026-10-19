@@ -1,0 +1,13 @@
+{
+ "repo": "OpenMOSE/GLM-5.3-Flash-REAP-250B-A18B",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "zai-org/GLM-5.3-Flash (original), same held-out inputs", "dataset": "held-out text, about 130k tokens (multilingual chat and code reasoning, 4 x 16,384 each), different seed from calibration", "ctx": "16,384", "tool": "not stated", "L": [152, 153, 154, 166, 167, 168]},
+ "entries": [
+  {"role": "own", "name": "REAP-250B-A18B", "metrics": {"kld:heldout": "c19", "top1:heldout": "c20", "ppl:heldout": "c22"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["top-1 on confident tokens (c21, 92.4%) not mapped: subset metric has no key [L158-L159]", "checkpoint size (c10) is in the spec table, not in the metric row, so size null [L32]", "the (+2.8 %) delta sits inside cell c22 and is not split [L159]"]},
+  {"role": "cross", "name": "GLM-5.3-Flash (original)", "of": "zai-org/GLM-5.3-Flash", "metrics": {"ppl:heldout": "c18"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["reference row; KL 0 (c16) and top-1 100% (c17) are trivial by definition, not mapped [L158]"]},
+  {"role": "ladder", "name": "uniform 224 experts, single mixed calibration (reference row)", "metrics": {"kld:heldout": "c23", "top1:heldout": "c24", "ppl_delta_pct": "c25"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["different expert count (224) from this checkpoint's 228 [L160]", "ppl delta measured in a separate run (4.338 vs 4.100) [L160]", "row label is truncated in the digest; name as far as visible"]}
+ ],
+ "prose": []
+}

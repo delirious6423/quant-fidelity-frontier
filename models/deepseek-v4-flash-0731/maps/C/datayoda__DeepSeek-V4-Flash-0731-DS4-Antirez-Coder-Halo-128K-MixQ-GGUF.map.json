@@ -1,0 +1,21 @@
+{
+ "repo": "datayoda/DeepSeek-V4-Flash-0731-DS4-Antirez-Coder-Halo-128K-MixQ-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "unmodified reference build, same runtime", "dataset": "50 frozen public coding tasks, temperature 0 [L67]", "ctx": "not stated for the suite; 131,072-token setting used in the acceptance run [L51, L69]", "tool": "DwarfStar (antirez/ds4) runtime [L21]", "L": [21, 51, 67, 69]},
+ "entries": [
+  {"role": "own", "name": "DS4 Antirez Coder Halo 128K MixQ",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Scored 26/50 on the frozen public coding suite; the card calls this a measured difference on this suite, not a general coding gain [L21, L67]", "Private 15-task suite scored 0/15 for both this build and the baseline; not mapped [L67]", "84.15 GiB size appears in prose only, not in a table row [L21]"]},
+  {"role": "ladder", "name": "unmodified reference build",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Baseline build scored 21/50 on the same suite [L21, L67]", "Publisher of the reference build is not named on card; treated as this card's comparison build [L21, L36-40]"]}
+ ],
+ "prose": [
+  {"entry": "DS4 Antirez Coder Halo 128K MixQ", "key": "bench:Frozen public coding suite", "L": 67, "raw": "this build passed 26"},
+  {"entry": "unmodified reference build", "key": "bench:Frozen public coding suite", "L": 67, "raw": "the unmodified reference passed 21"}
+ ]
+}

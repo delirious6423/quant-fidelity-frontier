@@ -1,0 +1,25 @@
+{
+  "repo": "spele1100/GLM-5.3-Flash-AWQ-INT4",
+  "no_quality_claims": true,
+  "no_claims_reason": "serving bring-up, smoke and context-length verdicts only; no quality metric [L86-103]",
+  "weights_modified": false,
+  "method": {"reference": "not stated", "dataset": "not stated", "ctx": "512K context verdicts [L86-90]", "tool": "vLLM fork, TP8 [L38-75]", "L": [75, 86]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "GLM-5.3-Flash-AWQ-INT4",
+      "metrics": {},
+      "size": "c1",
+      "unit": "GiB",
+      "basis": "vram",
+      "bpw": null,
+      "flags": [
+        "c1 is peak per-GPU memory during load at TP8, not file size [L75]",
+        "HF parity cosines (0.9999, GEMM 0.992) are implementation checks, not quant-fidelity metrics; omitted [L102]",
+        "context verdicts (usable to ~600K, 1M unreliable) are qualitative [L86-90]",
+        "requires an unofficial custom vLLM fork [L24-33]"
+      ]
+    }
+  ],
+  "prose": []
+}

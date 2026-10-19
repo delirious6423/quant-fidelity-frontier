@@ -18,5 +18,20 @@
   "repo": "TensorFold/DeepSeek-V4-Flash-0731-MXFP4-MLX",
   "entry": "lm_head 6-bit",
   "reason": "QA review 2026-10-19: ppl_delta_pct: [L138] is a 6-bit lm_head precision setting from the output-head experiment, not a published quant build, so it is not a ladder row."
+ },
+ {
+  "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
+  "entry": "SUC1 tcq (this model)",
+  "reason": "review 2026-10-19: bench values are correct-answer counts out of 20 per subset [L59] published bare as scores"
+ },
+ {
+  "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
+  "entry": "GGUF IQ2_XXS mix (ds4)",
+  "reason": "review 2026-10-19: bench values are correct-answer counts out of 20 per subset [L59] published bare as scores"
+ },
+ {
+  "repo": "tiyuvta/DeepSeek-V4-Flash-0731-NVFP4",
+  "entry": "DeepSeek-V4-Flash-0731",
+  "reason": "review 2026-10-19: [L117-L121] the table is DeepSeek's own published table for the base checkpoint, quoted, not measured by this publisher (filed as cross)"
  }
 ]

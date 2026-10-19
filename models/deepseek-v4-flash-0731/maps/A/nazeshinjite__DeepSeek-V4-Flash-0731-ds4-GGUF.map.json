@@ -1,0 +1,20 @@
+{"repo": "nazeshinjite/DeepSeek-V4-Flash-0731-ds4-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "weight-level comparison: routed-expert FP4 nibbles unpacked and E8M0 block scales applied, sampled across ten layers", "L": [183, 185]},
+ "entries": [
+  {"role": "own",
+   "name": "DwarfStar 0731 GGUF builds (drift table, per-file not stated)",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["weight correlation, relative RMS drift and 4-bit identity have no listed metric key, left out [L183-191]", "decode speed table is for the preview checkpoint, not 0731, left out [L48-55]", "KLD, perplexity and quality evals are stated as forthcoming [L173-179]"]},
+  {"role": "quoted",
+   "name": "DeepSeek-V4-Flash-0731 (official release)",
+   "of": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "temperature=1.0, top_p=0.95, max reasoning effort (Code Agent tasks)", "tool": "DeepSeek Harness minimal mode for Code Agent tasks (to be released); not stated otherwise", "L": [289, 290]},
+   "metrics": {"bench:Terminal Bench 2.1": "c22", "bench:NL2Repo": "c27", "bench:Cybergym": "c32", "bench:DeepSWE": "c36", "bench:Toolathlon-Verified": "c41", "bench:Agents' Last Exam": "c46", "bench:AutomationBench Public": "c51", "bench:DSBench-FullStack": "c56", "bench:DSBench-Hard": "c61"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["figures are for the official release, not this GGUF build [L269, L275-283]", "DSBench-FullStack and DSBench-Hard are internal test sets, marked with a dagger [L290]", "Preview, Pro, GLM-5.2 and Opus-4.8 columns are other models and left out [L275-283]"]}
+ ],
+ "prose": []}

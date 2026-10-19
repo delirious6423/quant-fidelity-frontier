@@ -1,0 +1,12 @@
+{"repo": "otheru/DeepSeek-V4-Flash-Strix-Halo-GGUF",
+ "no_quality_claims": true,
+ "no_claims_reason": "quality explicitly uncharacterized, no perplexity, KL or capability benchmark [L98-103]; throughput and behavioural checks only [L45-58, L160-167]",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "behavioural suites: held-out harmful prompts, XSTest-style over-refusal, coherence/agentic", "ctx": "not stated", "tool": "not stated", "L": [160, 165, 166, 167]},
+ "entries": [
+  {"role": "own", "name": "DeepSeek-V4-Flash-0731-Abliterated-ROCMFPx-Strix-",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": "c41",
+   "flags": ["abliterated, importance-matrix-calibrated quantization [L29-30]", "refusal bypass, over-refusal and coherence results are behavioural checks of the abliteration, not quality metrics, omitted [L165-167]", "throughput tables have no metric key, omitted [L61-68]", "the matching DSpark drafter is not measured for quality, omitted [L113]"]}
+ ],
+ "prose": []}

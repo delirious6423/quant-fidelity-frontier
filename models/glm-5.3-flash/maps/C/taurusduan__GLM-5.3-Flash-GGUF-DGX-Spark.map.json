@@ -1,0 +1,11 @@
+{
+ "repo": "taurusduan/GLM-5.3-Flash-GGUF-DGX-Spark",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "ds4-eval: GPQA Diamond, SuperGPQA, AIME 2025 interleaved (first 40 core cases)", "ctx": "16,000-token thinking budget", "tool": "DwarfStar ds4-eval harness (greedy)", "L": [106, 107]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash-Q2-DGX-Spark", "metrics": {"bench:ds4-eval-core40-passed": "c12.0"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["pass count out of 40 cases, not a percentage [L110]", "Wrong (c13) and Out of budget (c14) counts not mapped: no key [L110]", "744B SLIM-Q E192 row omitted: different model [L111]", "SLIM-stage 4-bit benchmarks in prose omitted: different build [L104]", "PPL 6.2 / 12.4 prose omitted: 744B build involved, file not identified [L115]", "imatrix-guided build 31/40 in prose not mapped: different build [L113]", "size row (L41) and speed tables not in the same row as the pass count: size null, speed not mapped"]}
+ ],
+ "prose": []
+}

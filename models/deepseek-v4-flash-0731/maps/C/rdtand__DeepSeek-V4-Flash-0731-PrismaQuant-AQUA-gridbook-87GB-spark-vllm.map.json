@@ -1,0 +1,28 @@
+{
+  "repo": "rdtand/DeepSeek-V4-Flash-0731-PrismaQuant-AQUA-gridbook-87GB-spark-vllm",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "BF16 source teacher (top-8192 logits per position)", "dataset": "WikiText, 8 x 512 tokens (4,088 scored positions)", "ctx": "512", "tool": "vanilla vLLM with pinned GridBook plugin", "L": [32, 33, 34, 35, 116]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "PrismaQuant AQUA (GridBook CB), 87 GB",
+      "methodology": {"reference": "BF16 source teacher (top-8192 logits per position)", "dataset": "WikiText, 8 x 512 tokens (4,088 scored positions)", "ctx": "512", "tool": "vanilla vLLM with pinned GridBook plugin", "L": [32, 33, 34, 35, 37, 39, 40, 41, 42, 43]},
+      "metrics": {"kld:wikitext": "c1", "bench:kl_confident_positions": "c2", "kld_99": "c4", "ppl:wikitext": "c6"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Mean KL uses a top-8192-truncated teacher, with tail mass beyond rank 8192 not scored [L116-117]",
+        "KL confident positions is a subset of n=2,935 positions [L40]",
+        "Size 87.08 GB is stated in prose [L21] and is not in the same row as a metric, so it is not mapped",
+        "Internal allocation ablation (-3.4% mean KL, -7.2% confident KL, -11.0% p99 KL vs the replaced allocation) is not mapped: that allocation is not a published artifact [L47-49]",
+        "Re-serve check (+0.17% KL, -0.06% PPL vs recorded gold) is not mapped [L114-115]",
+        "MTP / speculative-decode sidecar is not included [L118]"
+      ]
+    }
+  ],
+  "prose": []
+}

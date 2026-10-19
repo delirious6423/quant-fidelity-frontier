@@ -1,0 +1,36 @@
+{"repo": "elvezjp/GLM-5.3-Flash-ELVEZ-KDA-Q8_0-gguf",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Original GLM-5.3-Flash-Q4_K.gguf on the same machine with the same settings [L105-L107]", "dataset": "HumanEval (164), ds4 official-continuation scorer (100 cases), Japanese knowledge QA (48), Japanese long-form writing (6 prompts)", "ctx": "not stated", "tool": "ds4-based engine (ELVEZ fork), Metal, Mac Studio M3 Ultra 512 GB, --ctx 131072 --mtp [L89-L90]", "L": [89, 90, 105, 106, 107, 124, 126, 127, 128, 129]},
+ "entries": [
+  {"role": "own",
+   "name": "This file",
+   "methodology": {"reference": "Original GLM-5.3-Flash-Q4_K.gguf on the same machine with the same settings [L105-L107]", "dataset": "HumanEval (164), ds4 official-continuation scorer (100 cases), Japanese knowledge QA (48), Japanese long-form writing (6 prompts)", "ctx": "not stated", "tool": "ds4-based engine (ELVEZ fork), Metal, M3 Ultra 512 GB, --ctx 131072 --mtp [L89-L90]", "L": [89, 90, 105, 124, 126, 127, 128, 129]},
+   "metrics": {
+    "bench:ds4 official-continuation scorer (100 cases)": "c6",
+    "bench:HumanEval (164 problems, chat, thinking on)": "c9",
+    "bench:Japanese knowledge QA (correct of 48, thinking off)": "c12.0",
+    "bench:Japanese long-form writing (6 prompts)": "c15",
+    "bench:Japanese long-form, blind judge Claude Opus 5 (/20)": "c17"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["HumanEval: first line re-indented for failed problems, same for both files [L134-L135]", "Japanese QA drop of 2 questions includes one scoring mismatch [L127]", "first-token match row [L125] has no This-file cell; not mapped", "decode speed table [L110-L115] has no candidate ids; speed not mapped"]
+  },
+  {"role": "cross",
+   "name": "Original (GLM-5.3-Flash-Q4_K.gguf)",
+   "of": "not named on card",
+   "methodology": {"reference": "not stated (this is the baseline)", "dataset": "HumanEval (164), ds4 official-continuation scorer (100 cases), Japanese knowledge QA (48), Japanese long-form writing (6 prompts)", "ctx": "not stated", "tool": "ds4-based engine (ELVEZ fork), Metal, M3 Ultra 512 GB, --ctx 131072 --mtp [L89-L90]", "L": [89, 90, 105, 124, 126, 127, 128, 129]},
+   "metrics": {
+    "bench:ds4 official-continuation scorer (100 cases)": "c5",
+    "bench:HumanEval (164 problems, chat, thinking on)": "c8",
+    "bench:Japanese knowledge QA (correct of 48, thinking off)": "c11.0",
+    "bench:Japanese long-form writing (6 prompts)": "c14",
+    "bench:Japanese long-form, blind judge Claude Opus 5 (/20)": "c16"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["repo for the original file is not in the candidate labels; provenance table [L61-L68] not in digest", "first-token match 90/100 [L125] not mapped: no This-file cell"]
+  }
+ ],
+ "prose": []
+}

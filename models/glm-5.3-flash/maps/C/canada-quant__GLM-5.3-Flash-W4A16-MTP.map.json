@@ -1,0 +1,26 @@
+{"repo": "canada-quant/GLM-5.3-Flash-W4A16-MTP",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "AIME 2025, AIME 2026, GSM8K, GPQA-Diamond, MMMU validation, OCRBench", "ctx": "max thinking with 131,072-token budget for AIME and GPQA [L112-L114]", "tool": "lmms-eval 0.7.3 for MMMU and OCRBench [L117-L118]; greedy, seed 42 [L120]", "L": [112, 114, 115, 116, 117, 118, 120]},
+ "entries": [
+  {"role": "own",
+   "name": "W4A16 (this)",
+   "methodology": {"reference": "not stated", "dataset": "AIME 2025, AIME 2026, GSM8K, GPQA-Diamond, MMMU validation, OCRBench", "ctx": "max thinking with 131,072-token budget for AIME and GPQA [L112-L114]", "tool": "lmms-eval 0.7.3 for MMMU and OCRBench [L117-L118]; greedy, seed 42 [L120]", "L": [112, 114, 116, 117, 118, 120]},
+   "metrics": {
+    "bench:AIME 2025 (n=120, max thinking)": "c5",
+    "bench:AIME 2026 (n=120, max thinking)": "c6",
+    "bench:GPQA-Diamond (n=198, 131K context)": "c9.0",
+    "bench:MMMU validation (n=900)": "c10",
+    "bench:MMMU validation, multiple-choice items": "c11.0",
+    "bench:MMMU validation, open items": "c11.1",
+    "bench:OCRBench (n=1000)": "c12.0",
+    "bench:OCRBench handwritten math (of 100)": "c13.0",
+    "bench:OCRBench doc-VQA (of 200)": "c13.2"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["AIME 2025 value is the H100 run [L112]", "GPQA-Diamond is 0.8586 on both H100 and RTX PRO 6000 [L116]; the first cell is used", "GSM8K 0.970-0.975 spans two hardware rows and is not split by hardware [L115]; not mapped", "EXL3 (MiaAI-Lab) AIME 2026 80.0% in the notes column [L114] not mapped: measurement attribution unclear", "RTX PRO 6000 AIME 2025 score is described in prose only [L120]; not mapped"]
+  }
+ ],
+ "prose": []
+}

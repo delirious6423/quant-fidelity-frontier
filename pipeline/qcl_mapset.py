@@ -5,7 +5,8 @@
   QCL_ROOT=models/<slug> python3 pipeline/qcl_mapset.py --record   # after mapping: record which card bytes now have both maps
   QCL_ROOT=models/<slug> python3 pipeline/qcl_mapset.py --baseline # once, for a hand-reviewed model: its current card bytes count as mapped
 
-A card needs mapping when triage puts it in wave 1 (core metrics), it is not a copy of another card (byte-identical
+A card needs mapping when triage puts it in wave 1 (core metrics) or wave 2 (benchmark-only; unless model.json sets
+"map_wave2": false, as the hand-reviewed Qwen models do), it is not a copy of another card (byte-identical
 cards map once, through their oldest repo; >= 60% copied cards are labelled as copies), and its current bytes have no
 mapping yet (maps/A and maps/B record the card SHA-256 they were made from in maps/mapped.json)."""
 import collections, glob, json, os, sys
@@ -28,7 +29,9 @@ if "--baseline" in sys.argv:   # hand-reviewed models (Flash-Next): every card a
     os.makedirs(os.path.dirname(mp), exist_ok=True); json.dump(mapped, open(mp, "w"), indent=1, sort_keys=True)
 def copied(r): c = cp.get(r) or {}; return c.get("share", 0) >= 0.6 and c.get("claim_lines", 0) >= 4
 by = collections.defaultdict(list)
-for r in t["wave1"]: by[idx[r]["sha256"]].append(r)
+_mj = json.load(open(f"{R}/model.json")) if os.path.exists(f"{R}/model.json") else {}
+WAVES = ["wave1"] + (["wave2"] if _mj.get("map_wave2", True) else [])   # wave 2 = benchmark-only cards; off for hand-reviewed models
+for r in dict.fromkeys(x for w in WAVES for x in t.get(w, [])): by[idx[r]["sha256"]].append(r)
 reps, dup = [], {}
 for sha, rs in by.items():
     rs.sort(key=lambda r: (r not in mapped, idx[r].get("lastModified") or "z"))   # keep an already-mapped repo as the representative
@@ -36,4 +39,4 @@ for sha, rs in by.items():
 sp = f"{R}/audit/skipped_maps.json"; skipped = json.load(open(sp)) if os.path.exists(sp) else {}   # gave up after repeated failed rounds
 todo = sorted(r for r in reps if not copied(r) and mapped.get(r) != idx[r]["sha256"] and skipped.get(r) != idx[r]["sha256"])
 json.dump({"todo": todo, "copied": sorted(r for r in reps if copied(r)), "dup_of": dup}, open(f"{R}/audit/mapset.json", "w"), indent=1)
-print(json.dumps({"wave1": len(t["wave1"]), "unique": len(reps), "already_mapped": sum(1 for r in reps if mapped.get(r) == idx[r]["sha256"]), "todo": len(todo)}))
+print(json.dumps({"waves": WAVES, "wave1": len(t["wave1"]), "wave2": len(t.get("wave2", [])) if "wave2" in WAVES else 0, "unique": len(reps), "already_mapped": sum(1 for r in reps if mapped.get(r) == idx[r]["sha256"]), "todo": len(todo)}))

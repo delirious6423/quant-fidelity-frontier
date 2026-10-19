@@ -1,0 +1,57 @@
+{
+  "repo": "mbehr90/GLM-5.3-Flash-nvfp4",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated",
+    "dataset": "GSM8K chat, AI2D vision, GSM8K lm-eval, ARC-C",
+    "ctx": "not stated",
+    "tool": "measured on 4x NVIDIA H100 80 GB with vLLM",
+    "L": [71, 73, 75, 76, 78]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "GLM-5.3-Flash — NVFP4 (routed experts)",
+      "metrics": {
+        "bench:GSM8K chat": "c9",
+        "bench:AI2D vision": "c10",
+        "bench:GSM8K lm-eval": "c11",
+        "bench:ARC-C": "c12"
+      },
+      "size": "c8",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "tok/s @1 and tok/s @32 rows not mapped, no metric key [L76]",
+        "per-tensor byte-match and cosine checks not mapped, no metric key [L53-56]",
+        "NVFP4 weight format stated in prose, no candidate id [L18]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "zai-org/GLM-5.3-Flash (source)",
+      "of": "zai-org/GLM-5.3-Flash",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "GSM8K chat",
+        "ctx": "not stated",
+        "tool": "vLLM with per-GPU CPU offload on 4x H100 80 GB",
+        "L": [78]
+      },
+      "metrics": {
+        "bench:GSM8K chat": "c7"
+      },
+      "size": "c6",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "source was run with CPU offload, so throughput is not comparable [L78-79]"
+      ]
+    }
+  ],
+  "prose": []
+}

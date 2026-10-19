@@ -1,0 +1,57 @@
+{
+  "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "Z.AI official FP8 release (rev eb9eb208, e4m3 dequantized), full vocabulary, temperature 1",
+    "dataset": "wikitext-2 test (16 x 2,048 tokens); workload set of math, code, tool-call and chat conversations (24 x 4,096 tokens)",
+    "ctx": "2,048 and 4,096 tokens per sequence",
+    "tool": "TensorFold v0.6.0, recipe v1.3.2 defaults",
+    "L": [63, 96, 98, 99, 100, 101, 102]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "GLM-5.3-Flash EXL3 4bpw for TensorFold",
+      "metrics": {
+        "kld:wikitext": "c2.0",
+        "kld:workload": "c2.1",
+        "bench:GSM8K": "c4",
+        "bench:HumanEval": "c6",
+        "bench:HumanEval+/MBPP+": "c8"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "speed (decode) and prefill rows not mapped, no metric key [L28-29]",
+        "Size row (175.7 GB) covers only the TR3 column, not attached [L30]",
+        "floor figures (0.0676 wiki, 0.3009 workload) describe a hybrid checkpoint, not mapped [L41]",
+        "4bpw stated in title only, no candidate id [L13]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "brandonmusic-TR3-4bpw",
+      "of": "not named on card",
+      "metrics": {
+        "kld:wikitext": "c1.0",
+        "kld:workload": "c1.1",
+        "bench:GSM8K": "c3",
+        "bench:HumanEval": "c5",
+        "bench:HumanEval+/MBPP+": "c7"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Size 175.7 GB is in a separate row [L30], not attached",
+        "speed (decode) and prefill rows not mapped, no metric key [L28-29]"
+      ]
+    }
+  ],
+  "prose": []
+}

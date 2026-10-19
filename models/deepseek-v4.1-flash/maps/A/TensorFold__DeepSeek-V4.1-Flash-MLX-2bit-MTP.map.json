@@ -1,0 +1,17 @@
+{"repo": "TensorFold/DeepSeek-V4.1-Flash-MLX-2bit-MTP",
+ "no_quality_claims": true,
+ "no_claims_reason": "speed and memory observations only; card says tests establish no quality [L62-71, L93]",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "short text-only diagnostics, greedy decoding, upstream chat encoder [L62, L93]", "tool": "MLX 0.32.0 [L62]", "L": [62, 93]},
+ "entries": [
+   {"role": "own",
+    "name": "DeepSeek-V4.1-Flash-MLX-2bit-MTP",
+    "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "short text-only diagnostic prompts; 24-token coding prefix check [L62-71, L93]", "tool": "MLX 0.32.0, custom runtime [L62]", "L": [62, 63, 64, 69, 71, 93]},
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["decode tokens/sec results are speed measurements, not quality; not mapped [L34, L64-71]", "memory and loading figures (text backbone, Engram SSD tables, MTP, peak RSS) are not in a metric row; not mapped [L75]", "card states no broad quality or coding evaluation was done [L93, L120]"]}
+ ],
+ "prose": []}

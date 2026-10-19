@@ -1,0 +1,30 @@
+{
+  "repo": "Kevletesteur/DeepSeek-V4-Flash-0731-StrixHalo-Verified-GGUF",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "full-precision official DeepSeek API", "dataset": "paired probe suite: token-level teacher forcing (17,929 positions, 4 domains x EN/FR), 240-item exact-answer bank, 60 multi-step derivations, tool-call sequences", "ctx": "not stated", "tool": "identical serving path both sides", "L": [105, 108, 110, 111, 113]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "StrixHalo-Verified (q6kattn GGUF)",
+      "methodology": {"reference": "full-precision official DeepSeek API", "dataset": "paired probe suite (token-level, exact-answer bank, derivations, tool calls)", "ctx": "not stated", "tool": "identical serving path both sides", "L": [105, 108, 110, 111, 113, 114]},
+      "metrics": {"bench:confident_wrong_answers": "c1"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Confident-wrong-answer rate P(answers and wrong) vs full-precision API [L114]",
+        "Token-level top-1 agreement 90.8% vs API is mapped from the probe table [L110]; the TL;DR labels the same figure token-identical [L21], which is not mapped separately",
+        "French token-faithfulness figures are per-language and not mapped [L115]",
+        "103 GB (2.90 bpw) is stated in TL;DR prose only and is not mapped [L20]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "StrixHalo-Verified (q6kattn GGUF)", "key": "top1_pct", "L": 110, "raw": "90.8%"},
+    {"entry": "StrixHalo-Verified (q6kattn GGUF)", "key": "bench:paired_qa_parity", "L": 111, "raw": "240/240 = 240/240"},
+    {"entry": "StrixHalo-Verified (q6kattn GGUF)", "key": "bench:tool_call_sequences", "L": 113, "raw": "25/25 both sides"}
+  ]
+}

@@ -1,0 +1,17 @@
+{"repo": "RupertBern/DeepSeek-V4-Flash-0731-HERETIC-Abliterated-FP8",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "official unmodified DeepSeek V4 baseline", "dataset": "12-item deterministic arithmetic, symbolic, sequence and code-output smoke, plus refusal and tool-use sets", "ctx": "temperature 0, seed 0", "tool": "two-node vLLM runtime with official DeepSeek V4 encoder", "L": [59, 63, 78]},
+ "entries": [
+   {"role": "own",
+    "name": "HERETIC abliterated FP8 bake",
+    "methodology": {"reference": "official unmodified DeepSeek V4 baseline", "dataset": "12-item deterministic smoke plus refusal and tool-use sets", "ctx": "temperature 0, seed 0", "tool": "two-node vLLM runtime with official DeepSeek V4 encoder", "L": [59, 63, 78]},
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["refusal and reasoning-smoke tables [L61-78] have values that are not in the candidate list, left out"]}
+ ],
+ "prose": []}

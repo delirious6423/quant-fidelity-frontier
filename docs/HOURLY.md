@@ -50,9 +50,17 @@ finally unlock with the run's log in `logs/scan/`. The sections below describe t
 | | mapping | 2 (one A, one B); up to 4 if more than 8 queues | map candidates to metrics; two runs, A and B | `docs/agents/MAP.md` |
 | Part B, fetch phase | fetch | one per shard left, at most 3 at once | as above | `docs/agents/FETCH.md` |
 | Part B, map phase | mapping | up to 8 (half A, half B); each drains queues until none are left or the time is up | as above | `docs/agents/MAP.md` |
+| A or B, after the merge | tie-breaker | 1 to 4 (RUN = C), one round per run, at most 40 cards | map the cards whose A and B values disagree, blind | `docs/agents/MAP.md` |
 
-There is no resolver and no reviewer agent in the hourly loop. A value that the two runs disagree on, or that fails a
-gate, is held back (`models/<slug>/audit/review_queue.json`) and never published. Keep at most 8 agents running at once.
+Cards: wave 1 (KLD, perplexity, top-1) and wave 2 (benchmark-only) are both mapped, except for the hand-reviewed Qwen
+models (`"map_wave2": false` in their model.json).
+
+Tie-breaker: a value run A filed that run B did not confirm is held (`models/<slug>/audit/review_queue.json`). When a
+merge leaves held values, `finish` exits 3 and queues those cards for a third blind run, C (`pipeline/qcl_tiebreak.py`),
+from the same code-generated candidates. A held value is published only if C filed the same string under the same role,
+metric family and panel (2 of 3 runs agree); C maps are pinned to the card SHA-256 (`maps/mapped_c.json`), a C map that
+fails the check is dropped, and every value still goes through the gates. Values neither confirms stay held. The QA
+worker's review sample covers tie-broken values like any other new value. Keep at most 8 agents running at once.
 
 ## Reference: the steps qcl_next.py runs
 

@@ -1,0 +1,34 @@
+{
+  "repo": "sayyidfareed/GLM-5.3-Flash-Spark-Q2XL-MTP",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated",
+    "dataset": "HumanEvalPlus v0.1.10 (164 tasks, one sample per task)",
+    "ctx": "not stated (768-token completion cap)",
+    "tool": "EvalPlus 0.3.1, temperature 0, top-p 0.95, reasoning_effort=low, on one DGX Spark / GB10",
+    "L": [42, 43, 44, 45, 46]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "GLM-5.3-Flash Spark Q2XL MTP",
+      "metrics": {
+        "bench:HumanEval": "c1",
+        "bench:HumanEval+ Mini": "c2",
+        "bench:34-point coding microbenchmark": "c3"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Unsloth UD-Q2_K_XL comparison is given as counts (155/164, 148/164), not mapped [L68-69]",
+        "2.80 BPW stated in prose, no candidate id [L19]",
+        "speed and MTP acceptance rows not mapped, no metric key [L56-66]"
+      ]
+    }
+  ],
+  "prose": []
+}

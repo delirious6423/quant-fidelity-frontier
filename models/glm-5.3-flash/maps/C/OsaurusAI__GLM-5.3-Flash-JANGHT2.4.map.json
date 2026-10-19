@@ -1,0 +1,186 @@
+{
+  "repo": "OsaurusAI/GLM-5.3-Flash-JANGHT2.4",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "full bf16 GLM-5.3-Flash (zai-org/GLM-5.3-Flash-BF16 @ a5b45eb), run layer by layer from disk",
+    "dataset": "123 held-out sequences, 95,025 teacher-forced positions (tool conversations, long context, Chinese)",
+    "ctx": "not stated",
+    "tool": "top-128 renormalized KL",
+    "L": [57, 58, 59, 60, 205]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "GLM-5.3-Flash-JANGHT2.4",
+      "panel": "Quality vs the bf16 model",
+      "metrics": {
+        "mean_kld": "c8",
+        "top1_pct": "c10",
+        "kld_99": "c9.2",
+        "top1:tool": "c40.1",
+        "top1:coding": "c43.1",
+        "top1:agentic": "c46.1",
+        "top1:cybersecurity": "c49.1",
+        "top1:long-context": "c52.1",
+        "top1:general": "c55.1",
+        "top1:science": "c58.1",
+        "top1:academic-mc": "c61.1",
+        "top1:chinese": "c64.1",
+        "top1:systems": "c67.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "layer 45 (MTP) omitted from the base checkpoint, so weights_modified set true [L177]",
+        "2.4 bits per weight stated in prose, no candidate id [L54]",
+        "size 91.57 GiB appears in the row label with no candidate id [L66]",
+        "median KL, top-5 and top-10 not mapped, no metric key [L66]",
+        "per-domain median KL not mapped, no median key [L96-107]",
+        "live behavior counts (48/48, 16/16, 4/4) not mapped [L140-142]",
+        "orcarouter MLX 2bit-lite row left out, its footnote is not visible in the digest [L78]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "control: bf16 experts",
+      "panel": "Quality vs the bf16 model",
+      "metrics": {
+        "mean_kld": "c3",
+        "top1_pct": "c5",
+        "kld_99": "c4"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "control arm with bf16 routed experts and the same 8-bit non-expert weights [L57-59]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "GLM-5.3-Flash-JANGH2 (previous release, revision 2)",
+      "panel": "Quality vs the bf16 model",
+      "metrics": {
+        "mean_kld": "c14",
+        "top1_pct": "c16",
+        "kld_99": "c15.2",
+        "top1:tool": "c41.1",
+        "top1:coding": "c44.1",
+        "top1:agentic": "c47.1",
+        "top1:cybersecurity": "c50.1",
+        "top1:long-context": "c53.1",
+        "top1:general": "c56.1",
+        "top1:science": "c59.1",
+        "top1:academic-mc": "c62.1",
+        "top1:chinese": "c65.1",
+        "top1:systems": "c68.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "median KL not mapped, no median key [L67]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "GLM-5.3-Flash-JANGH2 (revision 2)",
+      "panel": "Earlier comparison: official FP8 reference, 20 short prompts (from the JANGH2 release)",
+      "methodology": {
+        "reference": "official FP8 release",
+        "dataset": "20 short prompts, 15,830 teacher-forced positions",
+        "ctx": "not stated",
+        "tool": "top-128 renormalized KL",
+        "L": [70, 71]
+      },
+      "metrics": {
+        "mean_kld": "c21",
+        "top1_pct": "c23",
+        "kld_99": "c22.2"
+      },
+      "size": "c19",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "median KL not mapped, no median key [L76]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "GLM-5.3-Flash-JANG (affine, earlier release)",
+      "panel": "Earlier comparison: official FP8 reference, 20 short prompts (from the JANGH2 release)",
+      "methodology": {
+        "reference": "official FP8 release",
+        "dataset": "20 short prompts, 15,830 teacher-forced positions",
+        "ctx": "not stated",
+        "tool": "top-128 renormalized KL",
+        "L": [70, 71]
+      },
+      "metrics": {
+        "mean_kld": "c28",
+        "top1_pct": "c30",
+        "kld_99": "c29.2"
+      },
+      "size": "c26",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "median KL not mapped, no median key [L77]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "GLM-5.3-Flash-JANGHT2.4",
+      "panel": "Reasoning ends on its own",
+      "methodology": {
+        "reference": "bf16 GLM-5.3-Flash",
+        "dataset": "16 held-out transcripts, 60,243 assistant positions",
+        "ctx": "not stated",
+        "tool": "not stated",
+        "L": [122, 123]
+      },
+      "metrics": {
+        "top1:assistant-text": "c69"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "median KL vs bf16 on assistant text not mapped, no median key [L128]",
+        "</think> point counts and median and lowest P(</think>) not mapped [L129-131]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "JANGH2",
+      "panel": "Reasoning ends on its own",
+      "methodology": {
+        "reference": "bf16 GLM-5.3-Flash",
+        "dataset": "16 held-out transcripts, 60,243 assistant positions",
+        "ctx": "not stated",
+        "tool": "not stated",
+        "L": [122, 123]
+      },
+      "metrics": {
+        "top1:assistant-text": "c70"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "median KL vs bf16 on assistant text not mapped, no median key [L128]"
+      ]
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,36 @@
+{
+  "repo": "wrldsuksgo2mars/DeepSeek-V4-Flash-0731-EXL3-K2.1-D2.2-calibrated-v3",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "K2 calibrated v1 control (matched run)", "dataset": "Tool Eval Bench 2.3.2 69-scenario suite", "ctx": "not stated", "tool": "DS4RT (TP4, balanced FP8-KV, adaptive dSpark, greedy)", "L": [53, 54, 62]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "K2.1 + dSpark K2.2 calibrated v3",
+      "methodology": {"reference": "K2 calibrated v1 control (matched run)", "dataset": "Tool Eval Bench 2.3.2 69-scenario suite", "ctx": "not stated", "tool": "DS4RT (TP4, balanced FP8-KV, adaptive dSpark, greedy)", "L": [53, 54, 62]},
+      "metrics": {"bench:tool_eval_bench_69": "c3"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Routed experts budgeted to 2.1 bpw and dSpark blocks to 2.2 bpw [L16-17], not mapped as candidates",
+        "Acceptance rate 62.72% [L61] is a speculative-decoding figure, not a quality metric, so it is not mapped",
+        "The C4 exact-output gate and Tool Eval completion are qualitative and not mapped [L64-65]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "K2 calibrated v1 control",
+      "methodology": {"reference": "not stated", "dataset": "Tool Eval Bench 2.3.2 69-scenario suite", "ctx": "not stated", "tool": "DS4RT (TP4, balanced FP8-KV, adaptive dSpark, greedy)", "L": [53, 54, 62]},
+      "metrics": {"bench:tool_eval_bench_69": "c4"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Matched control artifact from the same author [L56]"]
+    }
+  ],
+  "prose": []
+}

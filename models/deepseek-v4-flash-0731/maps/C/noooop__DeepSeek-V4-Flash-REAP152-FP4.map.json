@@ -1,0 +1,58 @@
+{
+  "repo": "noooop/DeepSeek-V4-Flash-REAP152-FP4",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {"reference": "not stated", "dataset": "205-question generative MMLU sample (code sets not mapped)", "ctx": "not stated", "tool": "not stated", "L": [108, 109, 363, 364]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "DeepSeek-V4-Flash-0731 REAP152 FP4/FP8",
+      "methodology": {"reference": "not stated", "dataset": "205-question generative MMLU sample", "ctx": "not stated", "tool": "not stated", "L": [108, 109]},
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Diagnostic evaluation only: a 205-question generative MMLU sample and two small code sets [L363-364]",
+        "Code evaluations are described as mixed, with no numbers mapped [L110]",
+        "Perplexity and multilingual evaluations are not measured for this build [L363-364]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "REAP128-FP4",
+      "methodology": {"reference": "not stated", "dataset": "205-question generative MMLU sample", "ctx": "not stated", "tool": "not stated", "L": [108, 109]},
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Score read from 'against its' as the REAP128 sibling [L109]",
+        "88.1 GB for this sibling [L106] is not mapped"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "DeepSeek-V4-Flash-UD-IQ2_M",
+      "of": "not named on card",
+      "methodology": {"reference": "not stated", "dataset": "205-question generative MMLU sample", "ctx": "not stated", "tool": "not stated", "L": [114, 115]},
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "256-expert 2-bit unpruned build measured on the same MMLU sample [L114-115]",
+        "Roughly 85 GB is stated in prose [L114] and is not mapped"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "DeepSeek-V4-Flash-0731 REAP152 FP4/FP8", "key": "bench:MMLU_generative_205", "L": 109, "raw": "58.05%"},
+    {"entry": "REAP128-FP4", "key": "bench:MMLU_generative_205", "L": 109, "raw": "51.22%"},
+    {"entry": "DeepSeek-V4-Flash-UD-IQ2_M", "key": "bench:MMLU_generative_205", "L": 115, "raw": "84.39%"}
+  ]
+}

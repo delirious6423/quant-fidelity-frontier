@@ -1,0 +1,20 @@
+{"repo": "appmana/deepseek-v4-int4-int8",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "Berkeley Function Calling Leaderboard (tool calling)", "ctx": "1,000,000-token window (RTX 3090 panel)", "tool": "vLLM fork (AppMana), tools/ampere/dsv4_needle_bench.py", "L": [136, 142, 217]},
+ "entries": [
+  {"role": "own",
+   "name": "DeepSeek-V4-Flash-0731 INT4/INT8",
+   "panel": "RTX 3090",
+   "methodology": {"reference": "not stated", "dataset": "Berkeley Function Calling Leaderboard (non-live, live, multi-turn, overall)", "ctx": "1,000,000-token window; DSpark on", "tool": "vLLM fork (AppMana), revision 3b25318eca9ccebc48130251d2c8b825341ad0ea", "L": [136, 142, 217]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["BFCL scores are for this checkpoint with DSpark on [L217-218]; mapped as prose values", "tool calling total of 20 of 20 under DGX Spark is a count, left out [L257]", "speed tables (RTX 3090 and DGX Spark) and per-row verbatim recall counts have no listed metric key, left out [L170-255]"]}
+ ],
+ "prose": [
+   {"entry": "DeepSeek-V4-Flash-0731 INT4/INT8", "panel": "RTX 3090", "key": "bench:BFCL non-live AST", "L": 218, "raw": "non-live AST 87.3%"},
+   {"entry": "DeepSeek-V4-Flash-0731 INT4/INT8", "panel": "RTX 3090", "key": "bench:BFCL live", "L": 218, "raw": "live 77.9%"},
+   {"entry": "DeepSeek-V4-Flash-0731 INT4/INT8", "panel": "RTX 3090", "key": "bench:BFCL multi-turn", "L": 218, "raw": "multi-turn 0.0%"},
+   {"entry": "DeepSeek-V4-Flash-0731 INT4/INT8", "panel": "RTX 3090", "key": "bench:BFCL overall", "L": 218, "raw": "overall 21.1%"}
+ ]}

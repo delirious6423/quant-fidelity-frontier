@@ -1,0 +1,17 @@
+{"repo": "wrldsuksgo2mars/DeepSeek-V4-Flash-0731-EXL3-K2.1-D2.2-calibrated-v3",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "K2 calibrated v1 control", "dataset": "Tool Eval Bench 2.3.2, 69 scenarios", "ctx": "not stated", "tool": "DS4RT (current build), TP4 experts, adaptive dSpark, greedy decoding", "L": [53, 54, 62]},
+ "entries": [
+  {"role": "own", "name": "K2.1 + dSpark K2.2 calibrated v3",
+   "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Tool Eval score 88/100 mapped from the cell; the cell also states 121/138 checks, which is not mapped [L62]", "adaptive dSpark accepted drafts and decode and prefill speeds are not quality metrics and are not mapped [L56-61]"]},
+  {"role": "ladder", "name": "K2 calibrated v1 control",
+   "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Tool Eval score 90/100 mapped from the cell; the cell also states 124/138 checks, which is not mapped [L62]", "acceptance and speed rows not mapped [L56-61]"]}
+ ],
+ "prose": [
+  {"entry": "K2.1 + dSpark K2.2 calibrated v3", "key": "bench:Tool Eval Bench 2.3.2 (69 scenarios)", "L": 62, "raw": "88/100"},
+  {"entry": "K2 calibrated v1 control", "key": "bench:Tool Eval Bench 2.3.2 (69 scenarios)", "L": 62, "raw": "90/100"}
+ ]}

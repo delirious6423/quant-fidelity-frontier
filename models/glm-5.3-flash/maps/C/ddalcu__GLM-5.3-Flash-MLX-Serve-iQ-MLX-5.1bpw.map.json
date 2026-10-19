@@ -1,0 +1,102 @@
+{"repo": "ddalcu/GLM-5.3-Flash-MLX-Serve-iQ-MLX-5.1bpw",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 GLM-5.3-Flash model logits [L48-L49]", "dataset": "31 held-out windows of 2048 tokens (harness); 392 sampled positions (served)", "ctx": "2048-token windows; KL over BF16 top-1024 tokens [L48-L50]", "tool": "layer-by-layer dequantized reference forward [L64]; mlx-serve for served rows [L68]", "L": [48, 49, 50, 64, 65, 66, 68, 76]},
+ "entries": [
+  {"role": "own",
+   "name": "iQ-MLX-5.1bpw (this pack)",
+   "panel": "Calibration and what it buys",
+   "methodology": {"reference": "BF16 model's own logits, 31 held-out windows of 2048 tokens", "dataset": "31 held-out windows of 2048 tokens; assistant turns and Wikipedia regions", "ctx": "KL over BF16 top-1024 tokens [L50]", "tool": "layer-by-layer dequantized reference forward [L64]", "L": [48, 49, 50, 56, 60, 64, 65]},
+   "metrics": {
+    "top1_pct": "c10",
+    "mean_kld": "c11",
+    "bench:KLD median": "c12",
+    "kld:assistant turns": "c48.0"
+   },
+   "size": "c9", "unit": "GB", "basis": "disk", "bpw": "c31",
+   "flags": ["the harness and served tables share the panel heading and are told apart by methodology only", "KLD median has no key in the list; stored as bench:KLD median"]
+  },
+  {"role": "ladder",
+   "name": "uniform GPTQ 4/5 (gate-up/down), same pipeline",
+   "panel": "Calibration and what it buys",
+   "methodology": {"reference": "BF16 model's own logits, 31 held-out windows of 2048 tokens", "dataset": "31 held-out windows of 2048 tokens", "ctx": "KL over BF16 top-1024 tokens [L50]", "tool": "layer-by-layer dequantized reference forward [L64]", "L": [48, 49, 50, 56, 59]},
+   "metrics": {
+    "top1_pct": "c6",
+    "mean_kld": "c7",
+    "bench:KLD median": "c8"
+   },
+   "size": "c5", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": []
+  },
+  {"role": "cross",
+   "name": "TensorFold oQ4-MTP",
+   "panel": "Calibration and what it buys",
+   "of": "not named on card",
+   "methodology": {"reference": "BF16 model's own logits, 31 held-out windows of 2048 tokens", "dataset": "31 held-out windows of 2048 tokens", "ctx": "KL over BF16 top-1024 tokens [L50]", "tool": "layer-by-layer dequantized reference forward [L64]", "L": [48, 49, 50, 56, 58]},
+   "metrics": {
+    "top1_pct": "c2",
+    "mean_kld": "c3",
+    "bench:KLD median": "c4"
+   },
+   "size": "c1", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["link text is truncated in candidate row c1 [L58]; repo id not recoverable from candidates"]
+  },
+  {"role": "cross",
+   "name": "Jundot oQ5e-mtp",
+   "panel": "Calibration and what it buys",
+   "of": "not named on card",
+   "methodology": {"reference": "BF16 model's own logits, 31 held-out windows of 2048 tokens", "dataset": "31 held-out windows of 2048 tokens; assistant turns and Wikipedia regions", "ctx": "KL over BF16 top-1024 tokens [L50]", "tool": "layer-by-layer dequantized reference forward [L64]", "L": [48, 49, 50, 56, 61, 65]},
+   "metrics": {
+    "top1_pct": "c14",
+    "mean_kld": "c15",
+    "bench:KLD median": "c16",
+    "kld:assistant turns": "c48.1"
+   },
+   "size": "c13", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["link text is truncated in candidate row c13 [L61]; repo id not recoverable from candidates", "oQ5e in prose [L31, L65-L66] taken as this pack's 224 GB oQ5e-mtp comparison"]
+  },
+  {"role": "own",
+   "name": "iQ-MLX-5.1bpw (this pack)",
+   "panel": "Calibration and what it buys",
+   "methodology": {"reference": "BF16 model's own logits via mlx-serve, 392 sampled positions", "dataset": "392 sampled positions", "ctx": "mlx-serve served comparison [L68]", "tool": "mlx-serve 26.10.2 [L68-L74]", "L": [68, 69, 70, 71, 72, 73, 74, 76]},
+   "metrics": {
+    "top1_pct": "c20",
+    "mean_kld": "c21",
+    "bench:KLD median": "c22"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["served table has no size column; size not taken from the harness table"]
+  },
+  {"role": "cross",
+   "name": "TensorFold oQ4-MTP",
+   "panel": "Calibration and what it buys",
+   "of": "not named on card",
+   "methodology": {"reference": "BF16 model's own logits via mlx-serve, 392 sampled positions", "dataset": "392 sampled positions", "ctx": "mlx-serve served comparison [L68]", "tool": "mlx-serve 26.10.2 [L68-L74]", "L": [68, 69, 70, 71, 72, 73, 74]},
+   "metrics": {
+    "top1_pct": "c17",
+    "mean_kld": "c18",
+    "bench:KLD median": "c19"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": []
+  },
+  {"role": "cross",
+   "name": "Jundot oQ5e-mtp",
+   "panel": "Calibration and what it buys",
+   "of": "not named on card",
+   "methodology": {"reference": "BF16 model's own logits via mlx-serve, 392 sampled positions", "dataset": "392 sampled positions", "ctx": "mlx-serve served comparison [L68]", "tool": "mlx-serve 26.10.2 [L68-L74]", "L": [68, 69, 70, 71, 72, 73, 74]},
+   "metrics": {
+    "top1_pct": "c23",
+    "mean_kld": "c24",
+    "bench:KLD median": "c25"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": []
+  }
+ ],
+ "prose": [
+  {"entry": "Jundot oQ5e-mtp", "panel": "Calibration and what it buys", "key": "kld:Wikipedia", "L": 66, "raw": "0.0466"},
+  {"entry": "iQ-MLX-5.1bpw (this pack)", "panel": "Calibration and what it buys", "key": "kld:Wikipedia", "L": 66, "raw": "0.0496"}
+ ]
+}

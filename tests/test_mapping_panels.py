@@ -317,5 +317,69 @@ class ResolverOverlay(unittest.TestCase):
             self.assertEqual(namespace["resolved_from"]([]), ({}, {}))
 
 
+
+class TieBreaker(unittest.TestCase):
+    """Run C publishes a held run-A value only when C filed the same string in the same role and family, for the
+    card bytes it was pinned to; values A and B agreed on are never changed."""
+    def fixture(self, root, c_value="0.012300", pinned=True):
+        repo = "publisher/test-GGUF"
+        for path in ("snapshots", "maps/C", "audit"): (root / path).mkdir(parents=True)
+        source_hash = hashlib.sha256(b"card").hexdigest()
+        (root / "snapshots/index.json").write_text(json.dumps({"repos": {repo: {"file": "card.md", "sha256": source_hash}}}))
+        (root / "maps/mapped_c.json").write_text(json.dumps({repo: source_hash if pinned else "0" * 64}))
+        runs = {"A": {repo: applied({"mean_kld": "0.012300", "top1_pct": "99.1%"})},
+                "B": {repo: applied({"top1_pct": "99.1%", "mean_kld": "0.0999"})},
+                "C": {repo: applied({"mean_kld": c_value})}}
+        writes = []
+        namespace = {
+            "ROOT": str(root), "glob": glob, "hashlib": hashlib, "json": json, "os": os, "re": re, "time": time,
+            "Q": types.SimpleNamespace(apply=MAP["apply"]),
+            "applied_from": lambda directory: copy.deepcopy(runs[os.path.basename(directory)]),
+            "load_verified": lambda: [], "write": lambda entries, _: writes.append(copy.deepcopy(entries)),
+            "failing": lambda _: set(), "build_failing": lambda _: set(),
+        }
+        source_functions("pipeline/qcl_watch.py", {"agree", "panel_key", "resolved_from", "merge"}, namespace)
+        return repo, namespace, writes
+
+    def merge(self, namespace, root):
+        output = io.StringIO()
+        with patch.dict(sys.modules, {"autoextract": AX}), contextlib.redirect_stdout(output), warnings.catch_warnings():
+            warnings.simplefilter("ignore", ResourceWarning)
+            namespace["merge"](["A", "B"])
+        return json.loads((root / "audit/review_queue.json").read_text()), output.getvalue()
+
+    def test_c_confirming_a_held_value_publishes_it(self):
+        with tempfile.TemporaryDirectory(prefix="qff-tb-") as temp:
+            root = Path(temp); repo, ns, writes = self.fixture(root)
+            audit, output = self.merge(ns, root)
+            self.assertEqual(writes[-1][repo]["variants"][0]["m"], {"top1_pct": "99.1%", "mean_kld": "0.012300"})
+            self.assertEqual(audit["disagreements"], [])
+            self.assertEqual(audit["tiebroken"], [dict(repo=repo, entry="Q4", key="mean_kld", raw="0.012300")])
+            self.assertIn("tie-broken 1 values", output)
+
+    def test_c_disagreeing_or_stale_keeps_the_value_held(self):
+        for kw in ({"c_value": "0.0999"}, {"pinned": False}):
+            with self.subTest(**kw), tempfile.TemporaryDirectory(prefix="qff-tb-") as temp:
+                root = Path(temp); repo, ns, writes = self.fixture(root, **kw)
+                audit, _ = self.merge(ns, root)
+                self.assertEqual(writes[-1][repo]["variants"][0]["m"], {"top1_pct": "99.1%"})
+                self.assertEqual(audit["disagreements"], [dict(repo=repo, entry="Q4", key="mean_kld", raw="0.012300")])
+                self.assertEqual(audit["tiebroken"], [])
+
+    def test_gate_failure_after_tiebreak_drops_only_the_tiebroken_values(self):
+        with tempfile.TemporaryDirectory(prefix="qff-tb-") as temp:
+            root = Path(temp); repo, ns, writes = self.fixture(root)
+            calls = []
+            def failing(entries):   # the entry fails while it holds the tie-broken KLD
+                calls.append(1)
+                v = entries[repo]["variants"]
+                return {(repo, "variants", "Q4")} if v and "mean_kld" in v[0]["m"] else set()
+            ns["failing"] = failing
+            audit, output = self.merge(ns, root)
+            self.assertEqual(writes[-1][repo]["variants"][0]["m"], {"top1_pct": "99.1%"})
+            self.assertEqual(audit["quarantined"], [])
+            self.assertEqual(audit["tiebroken"], [])
+            self.assertEqual(audit["disagreements"], [dict(repo=repo, entry="Q4", key="mean_kld", raw="0.012300")])
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

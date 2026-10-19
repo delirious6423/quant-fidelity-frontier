@@ -1,0 +1,99 @@
+{
+  "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-mixed-4_8bit",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "not stated", "dataset": "wikitext-2-raw-v1 test (199,485 tokens in 195 windows of 1024)", "ctx": "1024", "tool": "not stated", "L": [39, 40, 41]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "mixed-4_8bit",
+      "methodology": {"reference": "not stated", "dataset": "wikitext-2-raw-v1 test (195 windows of 1024)", "ctx": "1024", "tool": "not stated", "L": [39, 40, 41]},
+      "metrics": {"ppl:wikitext2": "c7"},
+      "size": "c6",
+      "unit": "GB",
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Perplexity is teacher-forced over wikitext-2, with identical windows for every build and paired-bootstrap gaps [L39-43]",
+        "Size is printed as ~165 GB in the build table [L33]",
+        "Recovers 56% of the 4-bit to 8-bit gap, stated in prose [L50] and mapped below",
+        "3-bit experts and group-size 32 variants were measured but not published, so they are not mapped [L55-60]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "8bit",
+      "methodology": {"reference": "not stated", "dataset": "wikitext-2-raw-v1 test (195 windows of 1024)", "ctx": "1024", "tool": "not stated", "L": [39, 40, 41]},
+      "metrics": {"ppl:wikitext2": "c2"},
+      "size": "c1",
+      "unit": "GB",
+      "basis": null,
+      "bpw": null,
+      "flags": ["Size printed as ~304 GB [L31]"]
+    },
+    {
+      "role": "ladder",
+      "name": "6bit",
+      "methodology": {"reference": "8bit build", "dataset": "wikitext-2-raw-v1 test (195 windows of 1024)", "ctx": "1024", "tool": "not stated", "L": [39, 40, 41]},
+      "metrics": {"ppl:wikitext2": "c4", "ppl_delta_pct": "c5.0"},
+      "size": "c3",
+      "unit": "GB",
+      "basis": null,
+      "bpw": null,
+      "flags": ["ppl_delta_pct is the Notes-column +0.6% vs the 8-bit build [L32]"]
+    },
+    {
+      "role": "ladder",
+      "name": "4bit",
+      "methodology": {"reference": "not stated", "dataset": "wikitext-2-raw-v1 test (195 windows of 1024)", "ctx": "1024", "tool": "not stated", "L": [39, 40, 41]},
+      "metrics": {"ppl:wikitext2": "c10"},
+      "size": "c9",
+      "unit": "GB",
+      "basis": null,
+      "bpw": null,
+      "flags": ["Superseded by mixed-4_8bit per the card [L34]"]
+    },
+    {
+      "role": "ladder",
+      "name": "REAP25",
+      "methodology": {"reference": "unpruned mixed-4_8bit build (table header 'vs unpruned')", "dataset": "wikitext-2-raw-v1 test (195 windows of 1024)", "ctx": "1024", "tool": "not stated", "L": [39, 40, 41, 79, 82]},
+      "metrics": {"ppl:wikitext2": "c13", "ppl_delta_pct": "c27"},
+      "size": "c12",
+      "unit": "GB",
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "25% of experts pruned; pruned build, so not the repo's own weights [L35]",
+        "ppl_ratio 1.016 is a paired ratio against plain 4-bit, not against the unpruned build [L87]",
+        "Card states the CI crosses 1.0 [L87]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "REAP37",
+      "methodology": {"reference": "unpruned mixed-4_8bit build (table header 'vs unpruned')", "dataset": "wikitext-2-raw-v1 test (195 windows of 1024)", "ctx": "1024", "tool": "not stated", "L": [39, 40, 41, 79, 83]},
+      "metrics": {"ppl:wikitext2": "c16", "ppl_delta_pct": "c31"},
+      "size": "c15",
+      "unit": "GB",
+      "basis": null,
+      "bpw": null,
+      "flags": ["37% of experts pruned; pruned build [L36]"]
+    },
+    {
+      "role": "ladder",
+      "name": "REAP50",
+      "methodology": {"reference": "unpruned mixed-4_8bit build (table header 'vs unpruned')", "dataset": "wikitext-2-raw-v1 test (195 windows of 1024)", "ctx": "1024", "tool": "not stated", "L": [39, 40, 41, 79, 84]},
+      "metrics": {"ppl:wikitext2": "c19", "ppl_delta_pct": "c35"},
+      "size": "c18",
+      "unit": "GB",
+      "basis": null,
+      "bpw": null,
+      "flags": ["50% of experts pruned; pruned build [L37]"]
+    }
+  ],
+  "prose": [
+    {"entry": "mixed-4_8bit", "key": "bench:gap_recovered_vs_8bit", "L": 50, "raw": "56%"},
+    {"entry": "REAP25", "key": "ppl_ratio", "L": 87, "raw": "1.016"}
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "repo": "Downtown-Case/DeepSeek-V4-Flash-0731-128GB-RAM-IK-GGUF",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "AtomicChat BF16 GGUF (AD-BF16) logits", "dataset": "wikitext-2 raw test (wiki.test.raw)", "ctx": "8192", "tool": "llama.cpp llama-perplexity", "L": [209, 278, 280, 282]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "V1 Mix",
+      "methodology": {"reference": "AtomicChat BF16 GGUF (AD-BF16) logits", "dataset": "wikitext-2 raw test (wiki.test.raw)", "ctx": "8192", "tool": "llama.cpp llama-perplexity", "L": [209, 278, 280, 282]},
+      "metrics": {"kld:wikitext": "c27", "kld_99": "c30", "top1:wikitext": "c39", "ppl:wikitext": "c17", "ppl_ratio": "c23"},
+      "size": "c68.0",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": "c69.1",
+      "flags": [
+        "KLD and 'Same top p' measured with batch size 8192, not the default 512 [L278]",
+        "'Same top p' is mapped to top1:wikitext [L247]",
+        "KL variant (top-k or full-vocabulary) is not stated",
+        "Size 121.801 GiB matches the 121.8GB on disk claim [L40]"
+      ]
+    },
+    {
+      "role": "quoted",
+      "name": "ddh0's IQ3S",
+      "of": "not named on card",
+      "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [260, 262]},
+      "metrics": {},
+      "size": "c44.0",
+      "unit": "GiB",
+      "basis": null,
+      "bpw": "c45.1",
+      "flags": ["Comparison figure in a list of ~128GB models; measurer, corpus and batch size not stated [L260-262, L278]"]
+    },
+    {
+      "role": "quoted",
+      "name": "ddh0's Q3_K",
+      "of": "not named on card",
+      "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [260, 264]},
+      "metrics": {},
+      "size": "c50.0",
+      "unit": "GiB",
+      "basis": null,
+      "bpw": "c51.1",
+      "flags": ["Comparison figure in a list of ~128GB models; measurer, corpus and batch size not stated [L260-264, L278]"]
+    },
+    {
+      "role": "quoted",
+      "name": "Unsloth's Q3_K_XL",
+      "of": "not named on card",
+      "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [260, 266]},
+      "metrics": {},
+      "size": "c56.0",
+      "unit": "GiB",
+      "basis": null,
+      "bpw": "c57.1",
+      "flags": ["Comparison figure in a list of ~128GB models; measurer, corpus and batch size not stated [L260-266, L278]"]
+    },
+    {
+      "role": "quoted",
+      "name": "AtomicChat's IQ3_S",
+      "of": "AtomicChat/DeepSeek-V4-Flash-0731-GGUF",
+      "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [260, 268]},
+      "metrics": {},
+      "size": "c62.0",
+      "unit": "GiB",
+      "basis": null,
+      "bpw": "c63.1",
+      "flags": [
+        "Comparison figure in a list of ~128GB models; measurer, corpus and batch size not stated [L260-268, L278]",
+        "Owner/repo taken from the AtomicChat page link in the digest [L28]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "V1 Mix", "key": "mean_kld", "L": 270, "raw": "0.079"},
+    {"entry": "ddh0's IQ3S", "key": "mean_kld", "L": 262, "raw": "0.090"},
+    {"entry": "ddh0's Q3_K", "key": "mean_kld", "L": 264, "raw": "0.087"},
+    {"entry": "Unsloth's Q3_K_XL", "key": "mean_kld", "L": 266, "raw": "0.111"},
+    {"entry": "AtomicChat's IQ3_S", "key": "mean_kld", "L": 268, "raw": "0.098"}
+  ]
+}

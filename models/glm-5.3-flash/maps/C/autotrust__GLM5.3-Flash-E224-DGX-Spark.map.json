@@ -1,0 +1,48 @@
+{"repo": "autotrust/GLM5.3-Flash-E224-DGX-Spark",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "288-expert NVFP4 checkpoint (RedHatAI) used only for the GPQA-Diamond and AIME 2025 comparison [L86-L93]", "dataset": "GPQA-Diamond (198), HumanEval (164), C-Eval val (1,606), MMMU val (900), BFCL v4", "ctx": "effort=max with 163,840-token budget for GPQA; effort=low for C-Eval and MMMU", "tool": "vLLM on a single B200; bfcl-eval v4 for BFCL", "L": [77, 78, 86, 88, 89, 90, 91, 137]},
+ "entries": [
+  {"role": "own",
+   "name": "This model",
+   "panel": "Headline",
+   "methodology": {"reference": "not stated", "dataset": "GPQA-Diamond (198), HumanEval (164), C-Eval val (1,606), MMMU val (900)", "ctx": "per metric name; GPQA uses a 163,840-token budget at effort=max", "tool": "vLLM, single B200", "L": [77, 78, 86, 88, 89, 90, 91]},
+   "metrics": {
+    "bench:GPQA-Diamond effort=max": "c9",
+    "bench:HumanEval T=1.0 top_p=0.95": "c11",
+    "bench:HumanEval greedy": "c12",
+    "bench:C-Eval val effort=low": "c13",
+    "bench:MMMU val effort=low": "c14"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["288-expert reference values in the headline table [L86-L89] are another model, omitted", "rows at L85 and L87 have no candidate ids", "MTP-on HumanEval and GPQA-Diamond values in prose [L170] not mapped; throughput rows [L161-L164] are speed only"]
+  },
+  {"role": "own",
+   "name": "This model",
+   "panel": "Tool use: BFCL v4 (function calling, AST match)",
+   "methodology": {"reference": "not stated", "dataset": "BFCL v4 AST categories", "ctx": "template-default effort", "tool": "bfcl-eval v4 against local OpenAI-compatible endpoint, --tool-call-parser glm47, --num-threads 32", "L": [116, 137]},
+   "metrics": {
+    "bench:BFCL v4 Non-Live overall": "c35",
+    "bench:BFCL v4 Non-Live simple (Python)": "c36",
+    "bench:BFCL v4 Non-Live simple (Java)": "c37",
+    "bench:BFCL v4 Non-Live simple (JavaScript)": "c38",
+    "bench:BFCL v4 Non-Live multiple": "c39",
+    "bench:BFCL v4 Non-Live parallel": "c40",
+    "bench:BFCL v4 Non-Live parallel-multiple": "c41",
+    "bench:BFCL v4 Non-Live irrelevance": "c42",
+    "bench:BFCL v4 Live overall": "c43",
+    "bench:BFCL v4 Live simple": "c44",
+    "bench:BFCL v4 Live multiple": "c45",
+    "bench:BFCL v4 Live parallel": "c46",
+    "bench:BFCL v4 Live parallel-multiple": "c47",
+    "bench:BFCL v4 Live irrelevance": "c48",
+    "bench:BFCL v4 Live relevance": "c49",
+    "bench:BFCL v4 Multi-Turn Base (200)": "c50"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["multi_turn_miss_func, miss_param, long_context and agentic web-search/memory categories were not run [L137]"]
+  }
+ ],
+ "prose": []
+}

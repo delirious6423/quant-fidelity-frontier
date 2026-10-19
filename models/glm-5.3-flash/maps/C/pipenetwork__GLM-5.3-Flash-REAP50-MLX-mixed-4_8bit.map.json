@@ -1,0 +1,20 @@
+{
+ "repo": "pipenetwork/GLM-5.3-Flash-REAP50-MLX-mixed-4_8bit",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "8-bit build as anchor (bfloat16 not run: 643 GB does not fit a 512 GB machine)", "dataset": "wikitext-2 test, 288,627 tokens in 141 windows of 2048", "ctx": "2048", "tool": "this runtime (PipeNetwork glm53-flash-mlx)", "L": [70, 71, 72, 73, 74, 75]},
+ "entries": [
+  {"role": "own", "name": "REAP50-mixed-4_8bit", "metrics": {"ppl:wikitext": "c35"}, "size": "c34", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["REAP pruning: 144 of 288 routed experts kept per MoE layer [L54]", "delta NLL vs 8-bit (c36) and windows-worse (c37) not mapped: no matching key [L84]"]},
+  {"role": "ladder", "name": "8bit", "metrics": {"ppl:wikitext": "c13"}, "size": "c12", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["anchor build [L78]"]},
+  {"role": "ladder", "name": "6bit", "metrics": {"ppl:wikitext": "c15"}, "size": "c14", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["delta NLL and windows-worse not mapped [L79]"]},
+  {"role": "ladder", "name": "mixed-4_8bit", "metrics": {"ppl:wikitext": "c19"}, "size": "c18", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["delta NLL and windows-worse not mapped [L80]"]},
+  {"role": "ladder", "name": "4bit", "metrics": {"ppl:wikitext": "c23"}, "size": "c22", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["delta NLL and windows-worse not mapped [L81]"]},
+  {"role": "ladder", "name": "REAP25-mixed-4_8bit", "metrics": {"ppl:wikitext": "c27"}, "size": "c26", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["pruned (REAP) build; delta NLL and windows-worse not mapped [L82]"]},
+  {"role": "ladder", "name": "REAP37-mixed-4_8bit", "metrics": {"ppl:wikitext": "c31"}, "size": "c30", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["pruned (REAP) build; delta NLL and windows-worse not mapped [L83]"]},
+  {"role": "ladder", "name": "REAP25-4bit", "metrics": {"ppl:wikitext": "c38"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["pruned (REAP) build; no size cell in its row [L85]", "delta NLL and windows-worse not mapped [L85]"]},
+  {"role": "ladder", "name": "REAP37-4bit", "metrics": {"ppl:wikitext": "c41"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["pruned (REAP) build; no size cell in its row [L86]", "delta NLL and windows-worse not mapped [L86]"]},
+  {"role": "ladder", "name": "REAP50-4bit", "metrics": {"ppl:wikitext": "c44"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["pruned (REAP) build; no size cell in its row [L87]", "delta NLL and windows-worse not mapped [L87]"]}
+ ],
+ "prose": []
+}

@@ -1,0 +1,31 @@
+{
+ "repo": "squanchyzx/DeepSeek-V4-Flash-0731-HERETIC-Abliterated-FP8",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "unmodified official DeepSeek-V4-Flash-0731 checkpoint on the same runtime (matched arm)", "dataset": "tool selection (6), deterministic quality smoke (12), legacy quality smoke (12), refusal smoke (16), blind qualitative judging (12 randomized pairs)", "ctx": "1,048,576-token configured window, TP=2, MTP=3 [L93, L99]", "tool": "3-judge blind majority for qualitative pairs; DeepSeek V4-capable vLLM build [L82, L107]", "L": [82, 93, 97, 99, 103, 104, 105, 106, 107]},
+ "entries": [
+  {"role": "own", "name": "HERETIC v2 (this file)", "panel": "Matched stock-vs-v2 result",
+   "methodology": {"reference": "unmodified official checkpoint, matched arm", "dataset": "tool selection, deterministic quality smoke, legacy quality smoke, refusal smoke, blind qualitative pairs", "ctx": "1,048,576-token configured window [L93]", "tool": "3-judge blind majority [L107]", "L": [97, 103, 104, 105, 106, 107]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Abliterated: refusal direction removed from the official weights [L15, L43-47]", "Card says stock showed a directional edge on the small quality suite and that abliteration is not a free quality improvement [L109]", "Suites are small and bounded, not universal capability or safety benchmarks [L76, L109]", "Blind-panel mean score scale is not stated on card [L107]"]},
+  {"role": "cross", "name": "Stock DeepSeek-V4-Flash-0731 (official checkpoint)", "of": "not named on card", "panel": "Matched stock-vs-v2 result",
+   "methodology": {"reference": "unmodified official checkpoint, matched arm", "dataset": "tool selection, deterministic quality smoke, legacy quality smoke, refusal smoke, blind qualitative pairs", "ctx": "1,048,576-token configured window [L93]", "tool": "3-judge blind majority [L107]", "L": [97, 103, 104, 105, 106, 107]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Cold-loaded into the same TP=2 runtime with identical flags and seeds [L99]"]}
+ ],
+ "prose": [
+  {"entry": "HERETIC v2 (this file)", "panel": "Matched stock-vs-v2 result", "key": "bench:Tool selection", "L": 103, "raw": "both `6/6`"},
+  {"entry": "HERETIC v2 (this file)", "panel": "Matched stock-vs-v2 result", "key": "bench:Deterministic 512-token quality smoke", "L": 104, "raw": "both `11/12`"},
+  {"entry": "HERETIC v2 (this file)", "panel": "Matched stock-vs-v2 result", "key": "bench:Legacy bounded short-generation quality smoke", "L": 105, "raw": "Heretic v2 `9/12`"},
+  {"entry": "HERETIC v2 (this file)", "panel": "Matched stock-vs-v2 result", "key": "bench:Refusal smoke", "L": 106, "raw": "Heretic v2 `6/16`"},
+  {"entry": "HERETIC v2 (this file)", "panel": "Matched stock-vs-v2 result", "key": "bench:Blind qualitative mean score", "L": 107, "raw": "Heretic v2 `7.417`"},
+  {"entry": "Stock DeepSeek-V4-Flash-0731 (official checkpoint)", "panel": "Matched stock-vs-v2 result", "key": "bench:Tool selection", "L": 103, "raw": "both `6/6`"},
+  {"entry": "Stock DeepSeek-V4-Flash-0731 (official checkpoint)", "panel": "Matched stock-vs-v2 result", "key": "bench:Deterministic 512-token quality smoke", "L": 104, "raw": "both `11/12`"},
+  {"entry": "Stock DeepSeek-V4-Flash-0731 (official checkpoint)", "panel": "Matched stock-vs-v2 result", "key": "bench:Legacy bounded short-generation quality smoke", "L": 105, "raw": "stock `10/12`"},
+  {"entry": "Stock DeepSeek-V4-Flash-0731 (official checkpoint)", "panel": "Matched stock-vs-v2 result", "key": "bench:Refusal smoke", "L": 106, "raw": "stock `15/16`"},
+  {"entry": "Stock DeepSeek-V4-Flash-0731 (official checkpoint)", "panel": "Matched stock-vs-v2 result", "key": "bench:Blind qualitative mean score", "L": 107, "raw": "stock `7.500`"}
+ ]
+}

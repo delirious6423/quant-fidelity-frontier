@@ -1,0 +1,20 @@
+{"repo": "Jon-Nielsen/DeepSeek-V4-Flash-0731-MXFP4-INT8",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "original FP8 checkpoint weights (weight round trip, not an eval)", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [49, 50]},
+ "entries": [
+  {"role": "own", "name": "MXFP4-INT8",
+   "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["weight round-trip signal-to-noise figure is a fidelity measure, not an eval metric, so nothing is mapped [L49-50]",
+             "states no quality loss versus the original without a measured figure [L48]",
+             "card says no quality evals have been run yet [L101]"]},
+  {"role": "quoted", "name": "DeepSeek-V4-Flash-0731", "of": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "methodology": {"reference": "deepseek-ai/DeepSeek-V4-Flash-0731 README (source)", "dataset": "not stated", "ctx": "max reasoning effort, temperature 1.0, top_p 0.95 for Code Agent tasks", "tool": "DeepSeek Harness minimal mode for Code Agent tasks", "L": [258]},
+   "metrics": {"bench:Terminal-Bench_2.1": "c1", "bench:NL2Repo": "c6", "bench:Cybergym": "c11", "bench:DeepSWE": "c15", "bench:Toolathlon-Verified": "c20", "bench:Agents_Last_Exam": "c25", "bench:AutomationBench_Public": "c30", "bench:DSBench-FullStack": "c35", "bench:DSBench-Hard": "c40"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["figures copied from the upstream README table, measured on the unquantized source model rather than this build [L238-252]",
+             "DSBench rows are marked as internal test sets [L259]",
+             "footnote harness applies to the Code Agent tasks only [L258]"]}
+ ],
+ "prose": []}

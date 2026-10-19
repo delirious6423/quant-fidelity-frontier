@@ -1,0 +1,32 @@
+{
+ "repo": "auroter/DeepSeek-V4-Flash-0731-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "source MXFP4 checkpoint (deepseek-ai/DeepSeek-V4-Flash-0731) under the same deployment", "dataset": "fixed WikiText corpus, teacher-forced perplexity", "ctx": "not stated", "tool": "stock vLLM 0.26.0 for the Performance table; jasl/vllm sm120 branch for the DSpark table", "L": [16, 53, 55, 57, 62, 64, 66, 70, 72]},
+ "entries": [
+  {"role": "own", "name": "NVFP4 · native W4A4 (cutlass)", "panel": "Performance",
+   "methodology": {"reference": "source MXFP4 · marlin on the same deployment", "dataset": "fixed WikiText corpus", "ctx": "not stated", "tool": "stock vLLM 0.26.0, TP4 with expert parallelism", "L": [53, 55, 57]},
+   "metrics": {"ppl:wikitext": "c1"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["NVFP4 · marlin (W4A16) perplexity is not in the candidate list and is not mapped [L55-57]", "Card puts the W4A4 perplexity cost at about 2.5% [L62]"]},
+  {"role": "cross", "name": "Source MXFP4 · marlin", "of": "deepseek-ai/DeepSeek-V4-Flash-0731", "panel": "Performance",
+   "methodology": {"reference": "source MXFP4 · marlin", "dataset": "fixed WikiText corpus", "ctx": "not stated", "tool": "stock vLLM 0.26.0, TP4 with expert parallelism", "L": [53, 55, 57]},
+   "metrics": {"ppl:wikitext": "c2"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Two runs printed as a pair, 5.178 / 5.189; mapped as printed [L57]"]},
+  {"role": "own", "name": "NVFP4 + DSpark", "panel": "With DSpark speculative decoding (out-of-tree SM120 branch)",
+   "methodology": {"reference": "native MXFP4 on the V2 runner (reference row)", "dataset": "fixed WikiText corpus (same corpus, per table label)", "ctx": "not stated", "tool": "jasl/vllm sm120 branch with the draft-routing patch [L66-67, L76]", "L": [66, 68, 70, 72, 74, 76]},
+   "metrics": {"ppl:wikitext": "c3"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Card states speculation is lossless: perplexity stays at each backend's baseline [L74]", "Draft acceptance depends on the draft-routing patch; non-speculative throughput figures are floors [L76, L78]"]},
+  {"role": "cross", "name": "Native MXFP4 + DSpark, V2 runner (reference)", "of": "deepseek-ai/DeepSeek-V4-Flash-0731", "panel": "With DSpark speculative decoding (out-of-tree SM120 branch)",
+   "methodology": {"reference": "native MXFP4 on the V2 runner", "dataset": "fixed WikiText corpus (same corpus, per table label)", "ctx": "not stated", "tool": "jasl/vllm sm120 branch with the draft-routing patch [L66-67, L76]", "L": [66, 68, 70, 72]},
+   "metrics": {"ppl:wikitext": "c4"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Labelled as the reference row by the card [L72]"]}
+ ],
+ "prose": [
+  {"entry": "NVFP4 · native W4A4 (cutlass)", "panel": "Performance", "key": "ppl_delta_pct", "L": 62, "raw": "~2.5% perplexity cost"}
+ ]
+}

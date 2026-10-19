@@ -1,0 +1,30 @@
+{"repo": "graphistry/GLM-5.3-Flash-W4AFP8",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "GLM-5.3-Flash unquantized, same evaluation table [L105-L108]", "dataset": "GPQA-Diamond; Graphistry Internal CyBT59 on Louie", "ctx": "not stated", "tool": "not stated", "L": [103, 105, 107, 108]},
+ "entries": [
+  {"role": "own",
+   "name": "GLM-5.3-Flash w4afp8",
+   "methodology": {"reference": "GLM-5.3-Flash unquantized, same evaluation table [L105-L108]", "dataset": "GPQA-Diamond; Graphistry Internal CyBT59 on Louie", "ctx": "not stated", "tool": "not stated", "L": [103, 105, 107, 108]},
+   "metrics": {
+    "bench:GPQA-Diamond": "c10",
+    "bench:Graphistry Internal CyBT59 on Louie": "c12"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["throughput rows [L95-L100] are speed only; not mapped", "the size figures 177.4 GB and 328.3 GB [L24] are in prose, not in the evaluation row; size left null"]
+  },
+  {"role": "cross",
+   "name": "GLM-5.3-Flash unquantized",
+   "of": "not named on card",
+   "methodology": {"reference": "not stated (this is the baseline)", "dataset": "GPQA-Diamond; Graphistry Internal CyBT59 on Louie", "ctx": "not stated", "tool": "not stated", "L": [105, 107, 108]},
+   "metrics": {
+    "bench:GPQA-Diamond": "c11",
+    "bench:Graphistry Internal CyBT59 on Louie": "c13"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["precision of the unquantized row is not stated in the candidates; it may be the FP8 source rather than BF16 [L24]", "the card does not say who measured the baseline row; kept as cross [L105-L108]"]
+  }
+ ],
+ "prose": []
+}

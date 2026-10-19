@@ -1,0 +1,17 @@
+{"repo": "Lucebox/DeepSeek-V4.1-Flash-DSpark-GGUF",
+ "no_quality_claims": true,
+ "no_claims_reason": "speed and file-size tables only; the bit-identical decoding statement is not a quality number [L17-19, L62-73]",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "fresh server, 128K context for the DS41 profile [L62, L70-71]", "tool": "ds41-gorgon and ds41-lucebox profiles [L62, L70]", "L": [17, 62, 70, 79]},
+ "entries": [
+   {"role": "own",
+    "name": "DSpark drafter GGUF (MXFP4-Q8 and Q2K-Q4K builds)",
+    "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "192 GB and 128 GB profiles, 128K context [L38, L46, L62, L70-71]", "tool": "ds41-gorgon and ds41-lucebox profiles [L62, L70]", "L": [38, 46, 62, 64, 70, 73, 79]},
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["prompt-reading and decode speeds are speed measurements, not quality; not mapped [L64-79]", "drafter file sizes (7.4 GiB, 4.6 GiB) are in a file table with no metric in the same row; not mapped [L23-24]", "the Q2K-Q4K build is described as having about the same acceptance, but no acceptance number is given in a metric row [L27-30]"]}
+ ],
+ "prose": []}

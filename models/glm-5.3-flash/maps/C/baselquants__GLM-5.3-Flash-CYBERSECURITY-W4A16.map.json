@@ -1,0 +1,53 @@
+{
+  "repo": "baselquants/GLM-5.3-Flash-CYBERSECURITY-W4A16",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "Base W4A16 (comparison row of the card)",
+    "dataset": "MMLU 14,042 (full test); HarmBench 6-category; 5 classic reasoning puzzles",
+    "ctx": "not stated",
+    "tool": "5-tier HarmBench classifier (TRUE_COMPLY, HEDGE_COMPLY, SOFT_REDIRECT, PARTIAL, HARD_REFUSE)",
+    "L": [104, 108, 109, 131]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "GLM-5.3-Flash W4A16 — dealignai edition",
+      "metrics": {
+        "bench:HarmBench 6-category true compliance": "c2",
+        "bench:HarmBench reasoning max true compliance": "c4",
+        "bench:HarmBench reasoning low true compliance": "c5",
+        "bench:MMLU": "c9"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "serve examples name dealignai/GLM-5.3-Flash-UNCENSORED-W4A16, not this repo [L35]",
+        "refusals removed relative to base, so weights_modified set true; the modification method is not stated in the digest [L104-107]",
+        "MMLU per-subject rows not mapped, subject-level and not aggregate [L177-204]",
+        "hard-refuse counts (~100, 0) and reasoning-puzzle counts not mapped [L107, L109-110]",
+        "think-token ratio not mapped, no metric key [L111]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "Base W4A16",
+      "of": "not named on card",
+      "metrics": {
+        "bench:HarmBench 6-category true compliance": "c1",
+        "bench:MMLU": "c8"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "comparison row measured by the card author, not this repo [L104, L108]"
+      ]
+    }
+  ],
+  "prose": []
+}

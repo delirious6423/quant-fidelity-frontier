@@ -1,0 +1,16 @@
+{"repo": "tiyuvta/DeepSeek-V4-Flash-0731-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "deepseek-ai/DeepSeek-V4-Flash-0731 README (source table)", "dataset": "not stated", "ctx": "max reasoning effort, temperature 1.0, top_p 0.95 (agentic tasks)", "tool": "not stated", "L": [119, 120, 121, 122]},
+ "entries": [
+  {"role": "own", "name": "NVFP4",
+   "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["card claims zero eval delta by construction from bit-identical dequantized values and states no re-evals were run [L120-122]"]},
+  {"role": "quoted", "name": "DeepSeek-V4-Flash-0731", "of": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "methodology": {"reference": "deepseek-ai/DeepSeek-V4-Flash-0731 README (source table)", "dataset": "not stated", "ctx": "max reasoning effort, temperature 1.0, top_p 0.95 (agentic tasks)", "tool": "not stated", "L": [119, 120]},
+   "metrics": {"bench:Terminal-Bench_2.1": "c2", "bench:NL2Repo": "c5", "bench:Cybergym": "c8", "bench:DeepSWE": "c11", "bench:Toolathlon-Verified": "c14", "bench:Agents_Last_Exam": "c17", "bench:AutomationBench_Public": "c20"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["figures copied from the upstream README table, measured on the unquantized source model rather than this build [L124-132]"]}
+ ],
+ "prose": []}

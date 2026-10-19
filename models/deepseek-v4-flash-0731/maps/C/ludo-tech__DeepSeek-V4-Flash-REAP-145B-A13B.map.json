@@ -1,0 +1,26 @@
+{
+  "repo": "ludo-tech/DeepSeek-V4-Flash-REAP-145B-A13B",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {"reference": "not stated", "dataset": "held-out samples of the calibration mix (35% English ultrachat_200k, 30% code evol-codealpaca-v1, 20% Japanese wikimedia/wikipedia 20231101.ja)", "ctx": "2048", "tool": "not stated", "L": [67, 71, 72]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "DeepSeek-V4-Flash REAP 145B-A13B (K128)",
+      "methodology": {"reference": "not stated", "dataset": "held-out samples of the calibration mix", "ctx": "2048", "tool": "not stated", "L": [67, 71, 72]},
+      "metrics": {"ppl:calibration_mix_heldout": "c17"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Perplexity 4.73 is a correctness gate on held-out calibration-mix samples, with no base-model reference [L67]",
+        "82.4 GB on disk [L26] is not mapped because it is not in the same row as a metric",
+        "Smoke-scale eval table [L97-100] is not mapped: each cell combines the current pass count with an earlier-checkpoint count in parentheses, and no current-only candidate id exists",
+        "Decode speed and time to first token are speed claims and are not mapped [L28]"
+      ]
+    }
+  ],
+  "prose": []
+}

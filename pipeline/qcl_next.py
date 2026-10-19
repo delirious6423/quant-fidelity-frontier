@@ -153,14 +153,28 @@ if step == "a_fetched":
         agents(pr[:8], s, "a_mapped")
 
 if step == "a_mapped":
-    retry = []
+    retry, tb = [], []
     for slug in s.get("a_queues", {}):
         code, d = scan(f"finish {slug}")
         if code == 1: retry.append(slug); s["notes"].append(f"{slug}: finish: {d.get('error')}")
         else: s["part_a"][slug]["merge"] = d.get("merge")
+        if code == 3: tb.append(slug); s["part_a"][slug]["tiebreak"] = d.get("tiebreak")
     if retry and s["map_rounds"] < 2:
         s["map_rounds"] += 1
         agents([MAP_PROMPT.format(code=CODE, slug=slug, run=r) for slug in retry for r in "AB"], s, "a_mapped")
+    if tb and minutes() < 40:   # one tie-breaker round per run: blind run C on cards whose A and B values disagree
+        s["a_tb"] = tb
+        agents([MAP_PROMPT.format(code=CODE, slug=slug, run="C") for slug in tb for _ in range(max(1, min(3, s["part_a"][slug]["tiebreak"]["queues"])))][:8], s, "a_tiebroken")
+    step = "a_stage"
+
+if step == "a_tiebroken":
+    for slug in s.get("a_tb", []):
+        code, d = scan(f"finish {slug} --no-tiebreak")
+        if code == 0: s["part_a"][slug]["merge"] = d.get("merge")
+        else: s["notes"].append(f"{slug}: tie-breaker finish: {d.get('error')}; queues left for the next run")
+    step = "a_stage"
+
+if step == "a_stage":
     code, d = scan("stage " + " ".join(s.get("a_shards", {})))   # data checks only; the QA worker tests and deploys
     if code == 0:
         s["part_a"]["staged"] = d.get("staged")
@@ -239,6 +253,18 @@ if step == "b_finish":
             _, k = scan(f"skip-pending {slug}"); s["notes"].append(f"gave up mapping {k.get('skipped')} card(s) after 3 rounds")
             code, d = scan(f"finish {slug}")
         if code == 1: finish_run(s, f"finish: {d.get('error')}; the next run re-queues")
+    if code == 3 and minutes() < 40:   # values A and B disagree on: one blind tie-breaker round (run C) before review
+        s["part_b"]["tiebreak"] = d.get("tiebreak")
+        agents([MAP_PROMPT.format(code=CODE, slug=slug, run="C") for _ in range(max(1, min(4, d["tiebreak"]["queues"])))], s, "b_tiebroken")
+    step = "b_stage"
+
+if step == "b_tiebroken":
+    slug = s["ingest"]; code, d = scan(f"finish {slug} --no-tiebreak")
+    if code == 1: s["notes"].append(f"tie-breaker finish: {d.get('error')}; continuing with the values A and B agree on")
+    step = "b_stage"
+
+if step == "b_stage":
+    slug = s["ingest"]
     code, d = scan(f"stage --review {slug}")   # complete: hand it to the QA worker, which tests it and puts it live
     if code == 0:
         s["part_b"]["review"] = d.get("staged"); s["b_progress"] = False

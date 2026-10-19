@@ -11,7 +11,7 @@ agents between these commands; everything that decides, splits, merges, builds o
   python3 pipeline/qcl_scan.py search-ops SLUG       # the padded hf_fs search op lists for one model
   python3 pipeline/qcl_scan.py catalogue SLUG [--full] FILE..  # merge search results; split the delta into fetch shards
   python3 pipeline/qcl_scan.py prepare SLUG          # index, triage, copies, what to map, mapping queues
-  python3 pipeline/qcl_scan.py finish SLUG           # check every claimed queue, record, merge, catalogue the rest
+  python3 pipeline/qcl_scan.py finish SLUG [--no-tiebreak]   # check every claimed queue, record, merge; exit 3 = tie-breaker (run C) queued
   python3 pipeline/qcl_scan.py publish [--ingested SLUG]   # build all, assemble, run all tests, update watch list + PROGRESS
   python3 pipeline/qcl_scan.py unlock
 
@@ -179,19 +179,27 @@ elif cmd == "skip-pending":
     out({"slug": slug, "skipped": len(set(names))})
 elif cmd == "finish":
     slug = sys.argv[2]; e = env(slug); W = os.path.join(CODE, "work", slug)
-    pending = sorted(os.listdir(f"{W}/pending")) if os.path.isdir(f"{W}/pending") else []
-    if pending: out({"error": "queues still pending; start more workers", "pending": pending}, 1)
+    pending = sorted(f for f in os.listdir(f"{W}/pending") if not f.startswith("C")) if os.path.isdir(f"{W}/pending") else []
+    if pending: out({"error": "queues still pending; start more workers", "pending": pending}, 1)   # tie-breaker (C) queues left over are optional: a later run re-queues them
     bad = []
     for q in sorted(glob.glob(f"{W}/claimed/*.txt")):   # none when every card was already mapped by an earlier run
         r = os.path.basename(q)[0]
         p = run(f"python3 pipeline/qcl_mapcheck.py {q} {M(slug)}/maps/{r}", check=False)
+        if p.returncode != 0 and r == "C":   # a tie-breaker map that fails the check is dropped, never recorded (fail closed)
+            for n_ in [l.strip() for l in open(q) if l.strip()]:
+                if os.path.exists(f"{M(slug)}/maps/C/{n_}.map.json"): os.remove(f"{M(slug)}/maps/C/{n_}.map.json")
+            os.remove(q); continue
         if p.returncode != 0:
             bad.append({"queue": os.path.basename(q), "problems": p.stdout.strip().splitlines()[:8]})
             os.replace(q, f"{W}/pending/{os.path.basename(q)}")          # back to pending for a fresh worker
     if bad: out({"error": "some maps failed the check; their queues are back in pending; rerun workers then finish", "bad": bad}, 1)
     run("python3 pipeline/qcl_mapset.py --record", e)
+    run(f"python3 pipeline/qcl_tiebreak.py record {W}", e)   # C maps made since the last merge count from now on
     mg = run("python3 pipeline/qcl_watch.py merge", e).stdout.strip().splitlines()[-1]
     run("python3 pipeline/gen_auto.py", e)
+    if "--no-tiebreak" not in sys.argv:   # values the two runs disagree on: queue the blind third run C (2 of 3 must agree)
+        tb = json.loads(run(f"python3 pipeline/qcl_tiebreak.py queue {W}", e).stdout.strip().splitlines()[-1])
+        if tb["queued"]: out({"merge": mg, "tiebreak": tb, "next": "start Haiku workers per docs/agents/MAP.md for RUN=C, then finish --no-tiebreak"}, 3)
     out({"merge": mg})
 elif cmd == "stage":
     # the scans' check before they commit data (the QA worker runs the full tests and deploys): each model's build.py,

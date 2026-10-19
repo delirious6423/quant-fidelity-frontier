@@ -1,0 +1,26 @@
+{
+  "repo": "Cropduster69/GLM-5.3-Flash-oQ2e-mtp",
+  "no_quality_claims": true,
+  "no_claims_reason": "no systematic benchmark run; short probes only [L78-80]",
+  "weights_modified": false,
+  "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": []},
+  "entries": [
+    {
+      "role": "own",
+      "name": "GLM-5.3-Flash-oQ2e-mtp",
+      "metrics": {},
+      "size": "c17",
+      "unit": "GB",
+      "basis": "routed_experts",
+      "bpw": "c1",
+      "flags": [
+        "2.8 bpw target layout [L32]",
+        "size is the expert-table total 95.13 GB, not whole-file size [L70]",
+        "MTP accept 8/9 (88.9%) on a short probe is not a quality metric [L72]",
+        "quality 'tracks the base model within the usual limits', unquantified [L125]",
+        "quantized from official FP8, not retrained [L112-113, L125]"
+      ]
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,17 @@
+{"repo": "GreenBitAI/DeepSeek-V4.1-Flash-4bit-paged",
+ "no_quality_claims": true,
+ "no_claims_reason": "speed, size and bit-exact runtime checks only [L130-131, L229-242]",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "agent loop with tool definitions and session cache; short prompts and long contexts [L222-242]", "tool": "gbx_lm [L237]", "L": [222, 237]},
+ "entries": [
+   {"role": "own",
+    "name": "DeepSeek-V4.1-Flash-4bit-paged",
+    "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "38-47k, 21-23k, 21-22k contexts in agent loop; short code/prose/chat prompts [L229-232, L237-240]", "tool": "gbx_lm v0.8.0 and HTTP serving [L237]", "L": [229, 230, 231, 232, 237, 239, 240]},
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["draft-head decode speed and accepted-token rate are speed metrics, not quality; not mapped [L229-232]", "file sizes (10.48, 284.77, 51.50, 7.85 GiB) are in a file table without metrics; not mapped [L25-29]", "bit-identical logits check is a runtime equality check, not a quality metric [L130]"]}
+ ],
+ "prose": []}

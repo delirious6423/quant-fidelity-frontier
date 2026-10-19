@@ -1,0 +1,17 @@
+{"repo": "gnahzhang/DeepSeek-V4.1-Flash-LSQ3-G128-MLX",
+ "no_quality_claims": true,
+ "no_claims_reason": "speed and size tables only [L94-96]",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "8K, 16K, 32K prefill; 512 output tokens per request [L90]", "tool": "not stated", "L": [90, 94, 95, 96]},
+ "entries": [
+   {"role": "own",
+    "name": "DeepSeek V4.1 Flash LSQ3-G128 MLX",
+    "methodology": {"reference": "not stated", "dataset": "synthetic code text, marketing drafts, video/computer-use plan (8K); code-text case 0 (16K, 32K) [L100]", "ctx": "8K, 16K, 32K; greedy, thinking disabled, concurrency 1 [L90, L100]", "tool": "not stated", "L": [90, 94, 95, 96, 100]},
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["speed table (prefill tokens/s, decode tokens/s, client TTFT) is not a quality metric; not mapped [L94-96]", "download size 420.53 GiB is not the resident size and is not in a metric row [L41, L108]"]}
+ ],
+ "prose": []}

@@ -1,0 +1,25 @@
+{
+  "repo": "xautonomics/GLM-5.3-Flash-UD-IQ4_XS.LAYR.GGUF",
+  "no_quality_claims": true,
+  "no_claims_reason": "speed and hash-identity checks only [L29-40]",
+  "weights_modified": false,
+  "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "dreamcatcher tree at c2f8b680, experts on CPU [L29-32]", "L": [29, 32]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "GLM-5.3-Flash-UD-IQ4_XS.LAYR.GGUF",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "7.6 tok/s with experts on CPU, speed only [L32]",
+        "library vs monolith 1383/1383 hashes and md5-identical hidden states are identity checks, not quality [L32-35]",
+        "Vulkan not measured for this architecture [L40-41]",
+        "weights byte-for-byte Unsloth UD-IQ4_XS, sliced per layer [L49]"
+      ]
+    }
+  ],
+  "prose": []
+}

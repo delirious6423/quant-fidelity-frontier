@@ -1,0 +1,55 @@
+{
+  "repo": "steadfastgaze/DeepSeek-V4-Flash-0731-2.37bpw-MoEspressoV2",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "provider API continuations (API panel only); none for WikiText", "dataset": "WikiText-2 raw test (32 x 2,048-token windows) and a 100-prompt API continuation panel", "ctx": "2048", "tool": "three local runtimes with identical token IDs", "L": [43, 44, 45, 46, 50]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "MoEspresso 2.37 bpw / MoEspresso",
+      "methodology": {"reference": "provider API continuations (API panel)", "dataset": "WikiText-2 raw test; 100-prompt API continuation panel", "ctx": "2048", "tool": "local runtime named in row", "L": [43, 44, 45, 46]},
+      "metrics": {"bench:wikitext2_mean_nll": "c1", "ppl:wikitext": "c2", "bench:api_continuation_mean_nll": "c3", "bench:api_first_token_agreement": "c4.0"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c13",
+      "flags": [
+        "MoEspresso was not calibrated on the WikiText test panel [L50]",
+        "API first-token agreement is 66/100; numerator id c4.0 is used and the denominator 100 is c4.1 [L39]",
+        "Card cautions that its two WikiText perplexity readings are not directly comparable [L64-66]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "antirez IQ2_XXS / DS4",
+      "of": "not named on card",
+      "methodology": {"reference": "provider API continuations (API panel)", "dataset": "WikiText-2 raw test; 100-prompt API continuation panel", "ctx": "2048", "tool": "local runtime named in row", "L": [40]},
+      "metrics": {"bench:wikitext2_mean_nll": "c5", "ppl:wikitext": "c6", "bench:api_continuation_mean_nll": "c7", "bench:api_first_token_agreement": "c8.0"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Measured by this card's author on the same panel [L40]",
+        "54/100 agreement; numerator id c8.0 is used [L40]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "Unsloth UD-IQ2_XXS / llama.cpp",
+      "of": "not named on card",
+      "methodology": {"reference": "provider API continuations (API panel)", "dataset": "WikiText-2 raw test; 100-prompt API continuation panel", "ctx": "2048", "tool": "local runtime named in row", "L": [41]},
+      "metrics": {"bench:wikitext2_mean_nll": "c9", "ppl:wikitext": "c10", "bench:api_continuation_mean_nll": "c11", "bench:api_first_token_agreement": "c12.0"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Measured by this card's author on the same panel [L41]",
+        "62/100 agreement; numerator id c12.0 is used [L41]"
+      ]
+    }
+  ],
+  "prose": []
+}

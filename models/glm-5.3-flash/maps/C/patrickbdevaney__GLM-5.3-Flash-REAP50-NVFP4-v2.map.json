@@ -1,0 +1,14 @@
+{
+ "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-NVFP4-v2",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "unpruned zai-org/GLM-5.3-Flash (teacher)", "dataset": "241,516 held-out tokens the calibration never saw (agentic, math, science, finance, ballast, code)", "ctx": "not stated", "tool": "not stated (teacher-forced paired evaluation)", "L": [113, 114, 124]},
+ "entries": [
+  {"role": "own", "panel": "Measured against the unpruned teacher", "name": "v2 (repo root)", "metrics": {"top1:heldout": "c1", "top1:agentic": "c7", "top1:math": "c10", "top1:science": "c13", "top1:finance": "c16", "top1:ballast": "c19", "top1:code": "c22"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["sizes are outside the metric table, so size null [L80-L89]", "delta NLL (c2 and per-domain c8, c11, c14, c17, c20, c23) not mapped: no matching key [L119-L131]", "top-k KL (c4) not mapped: no key separate from full-vocabulary KL [L121]", "teacher and student NLL (c5) not mapped: no key [L122]", "FP8-parent corrections table (c32-c40) omitted: measured on the FP8 parent, a different checkpoint [L254-L256]", "v3 has no evaluation, no entry [L108]"]},
+  {"role": "ladder", "panel": "Corrections to this repository", "name": "per-expert healing (was shipped), NVFP4", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["earlier NVFP4 healing variant of this checkpoint, superseded [L258]"]}
+ ],
+ "prose": [
+  {"entry": "per-expert healing (was shipped), NVFP4", "panel": "Corrections to this repository", "key": "top1:heldout", "L": 258, "raw": "moved from 0.83294"}
+ ]
+}

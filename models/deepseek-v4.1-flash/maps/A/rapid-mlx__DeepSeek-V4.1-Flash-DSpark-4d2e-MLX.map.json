@@ -1,0 +1,17 @@
+{"repo": "rapid-mlx/DeepSeek-V4.1-Flash-DSpark-4d2e-MLX",
+ "no_quality_claims": true,
+ "no_claims_reason": "decode throughput and memory tables only [L77-87]; correctness section shows no numeric quality figure [L92-95]",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "up to 128 output tokens, two repeats per prompt [L75]", "tool": "Rapid-MLX packed DSpark verification [L72]", "L": [72, 75, 77]},
+ "entries": [
+   {"role": "own",
+    "name": "DSpark 4d2e MLX sidecar (DSpark head)",
+    "methodology": {"reference": "not stated", "dataset": "per-domain prompts, including Chinese [L74-75]", "ctx": "Apple M3 Ultra, 256 GiB, K=4 verification window [L47, L69-72]", "tool": "Rapid-MLX packed DSpark verification [L72]", "L": [47, 69, 70, 71, 72, 74, 75, 83, 85, 86, 87]},
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["decode throughput (about 20 tok/s, per-domain 11.87 to 25.93 tok/s) is speed, not quality; not mapped [L83-85]", "peak MLX memory is a runtime figure in prose, not a metric row; not mapped [L87]", "the repo holds only the 4.62 GB DSpark head; target sizes are for a separate checkpoint [L39-40, L71]", "card names the target as REAP12.5; this repo's own weights are not described as pruned or modified, so weights_modified is false [L39, L71]", "digest omits lines 96-104 of the correctness section and the full sidecar byte table; source card not available locally, so no quality figure could be checked there"]}
+ ],
+ "prose": []}
