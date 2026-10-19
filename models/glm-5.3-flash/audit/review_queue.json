@@ -13,9 +13,39 @@
    "reason": "review hold: label is the MTP draft-head precision (card L206 header 'draft head'), not a quant variant"
   },
   {
-   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
-   "kind": "variants",
-   "entry": "this build",
+   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+   "kind": "ladder",
+   "entry": "VQ 3.6bpw (d4/K8192)",
+   "reason": "review hold: QA review 2026-10-19: size: Raw \"134 GiB\" is not on the cited row [L98], which reads \"134.0 GiB\"; the value matches but the copied text does not."
+  },
+  {
+   "repo": "gitcommit90/GLM-5.3-Flash-EXL3-2.05-One-Spark",
+   "kind": "cross",
+   "entry": "Turboderp EXL3 2.05",
+   "reason": "review hold: QA review 2026-10-19: top1_pct: The 88.92% matches [L80], but [L76] says it is an independent measurement by malaiwah, so it is quoted, not cross-measured by the author."
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "kind": "ladder",
+   "entry": "6bit",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "kind": "ladder",
+   "entry": "8bit",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "kind": "ladder",
+   "entry": "4bit",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
+   "kind": "cross",
+   "entry": "original release, after routed-expert VQ",
    "reason": "failed a gate"
   },
   {
@@ -31,27 +61,9 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "kind": "ladder",
-   "entry": "8bit",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "kind": "ladder",
-   "entry": "6bit",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
-   "kind": "cross",
-   "entry": "original release, after routed-expert VQ",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "kind": "ladder",
-   "entry": "4bit",
+   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
+   "kind": "variants",
+   "entry": "this build",
    "reason": "failed a gate"
   }
  ],

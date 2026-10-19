@@ -1,4 +1,22 @@
 [
- {"repo": "OpensourceWTF/GLM-5.3-Flash-streaming-repack-exl3-3.05bpw", "entry": "bf16 (exact)", "reason": "label is the MTP draft-head precision (card L206 header 'draft head'), not a quant variant; both rows are the same 3.05bpw model"},
- {"repo": "OpensourceWTF/GLM-5.3-Flash-streaming-repack-exl3-3.05bpw", "entry": "q8", "reason": "label is the MTP draft-head precision (card L206 header 'draft head'), not a quant variant"}
+ {
+  "repo": "OpensourceWTF/GLM-5.3-Flash-streaming-repack-exl3-3.05bpw",
+  "entry": "bf16 (exact)",
+  "reason": "label is the MTP draft-head precision (card L206 header 'draft head'), not a quant variant; both rows are the same 3.05bpw model"
+ },
+ {
+  "repo": "OpensourceWTF/GLM-5.3-Flash-streaming-repack-exl3-3.05bpw",
+  "entry": "q8",
+  "reason": "label is the MTP draft-head precision (card L206 header 'draft head'), not a quant variant"
+ },
+ {
+  "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
+  "entry": "VQ 3.6bpw (d4/K8192)",
+  "reason": "QA review 2026-10-19: size: Raw \"134 GiB\" is not on the cited row [L98], which reads \"134.0 GiB\"; the value matches but the copied text does not."
+ },
+ {
+  "repo": "gitcommit90/GLM-5.3-Flash-EXL3-2.05-One-Spark",
+  "entry": "Turboderp EXL3 2.05",
+  "reason": "QA review 2026-10-19: top1_pct: The 88.92% matches [L80], but [L76] says it is an independent measurement by malaiwah, so it is quoted, not cross-measured by the author."
+ }
 ]
