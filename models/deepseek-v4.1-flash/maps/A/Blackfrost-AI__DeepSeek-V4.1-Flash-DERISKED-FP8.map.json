@@ -1,0 +1,17 @@
+{"repo": "Blackfrost-AI/DeepSeek-V4.1-Flash-DERISKED-FP8",
+ "no_quality_claims": true,
+ "no_claims_reason": "refusal-behaviour counts for this checkpoint only; no fidelity metric and no comparison to a reference or another quant [L93-103]",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "AdvBench, StrongREJECT, XSTest safe subset; 450 prompts [L93-103]", "ctx": "temperature 1.0, top-p 0.95, reasoning effort 100 [L61-64]", "tool": "Bare 450 refusal benchmark, substring screen then review [L91-93]", "L": [61, 62, 64, 91, 93, 103]},
+ "entries": [
+   {"role": "own",
+    "name": "DeepSeek V4.1 Flash DERISKED FP8",
+    "methodology": {"reference": "not stated", "dataset": "AdvBench, StrongREJECT, XSTest safe subset [L95-103]", "ctx": "temperature 1.0, top-p 0.95, reasoning effort 100 [L61-64]", "tool": "refusal-substring screen (phase 1) and confirmed review (phase 2) [L93]", "L": [61, 62, 64, 93, 97, 98, 99, 100, 101, 102, 103]},
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["phase-1 and phase-2 refusal counts are per-checkpoint counts, not rates, and no key in the metric list fits them; not mapped [L97-103]", "card reports no comparison with the upstream model or another quant, so it gives no fidelity figure [L89-123]", "card does not say whether weights were changed; the DERISKED name is not explained in the digest, so weights_modified is false [L24]", "digest omits the full evaluation section and license text; source card not available locally [L95, L125]"]}
+ ],
+ "prose": []}

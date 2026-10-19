@@ -1,0 +1,12 @@
+{
+  "repo": "sokada4/DeepSeek-V4-Flash-0731-GPTQ-Int4-V1",
+  "no_quality_claims": true,
+  "no_claims_reason": "vLLM latency and throughput table only [L73-85]",
+  "weights_modified": false,
+  "method": {"reference": "fp8 (unquantized) checkpoint [L76]", "dataset": "not stated", "ctx": "not stated", "tool": "vllm bench serve", "L": [75]},
+  "entries": [
+    {"role": "own", "name": "DeepSeek-V4-Flash-0731-GPTQ-Int4-V1", "metrics": {}, "size": "c27", "unit": "GB", "basis": "disk", "bpw": "c1",
+     "flags": ["full checkpoint size ~153GB stated in the serving section [L71]; the 153 / 53 / 3 GB candidates are fragments of that phrase, and c27 is used", "bits 4 and group size 128 [L28-29] from the quantization table", "comparison is against the unquantized fp8 checkpoint; speed only [L78-85]"]}
+  ],
+  "prose": []
+}

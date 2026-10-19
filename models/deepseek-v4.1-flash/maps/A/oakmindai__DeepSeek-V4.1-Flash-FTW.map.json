@@ -1,0 +1,17 @@
+{"repo": "oakmindai/DeepSeek-V4.1-Flash-FTW",
+ "no_quality_claims": true,
+ "no_claims_reason": "decode speed, warm TTFT and memory notes only; card says these are not quality measurements [L36-40]",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "fixed 74-input/128-output greedy probe [L36-37]", "ctx": "2,048-token total context, TP=1, batch one, eager [L32-33]", "tool": "SparkLab serve [L63]", "L": [32, 36, 37, 38, 40, 63]},
+ "entries": [
+   {"role": "own",
+    "name": "DeepSeek V4.1 Flash SparkLab disk-ready checkpoint",
+    "methodology": {"reference": "not stated", "dataset": "fixed 74-input/128-output greedy probe [L36-37]", "ctx": "2,048-token total context, batch one, 128 GB NVIDIA GB10 [L32-33]", "tool": "SparkLab serve, default target-only and opt-in DSpark-5 profiles [L36-38, L63-81]", "L": [32, 33, 36, 37, 38, 40, 63, 81]},
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["decode tokens/s and warm TTFT figures are speed measurements, not quality; not mapped [L36-38]", "repository size (about 480 GiB) is in a prose line with no metric row; not mapped [L49]", "card says the measurements are not general quality, concurrency, long-context or endurance certification [L39-40]"]}
+ ],
+ "prose": []}
