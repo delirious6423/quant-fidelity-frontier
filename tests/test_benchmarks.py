@@ -9,7 +9,7 @@ import unittest
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
-from benchmarks import build_benchmarks, render_benchmarks, _evidence
+from benchmarks import build_benchmarks, render_benchmarks, _evidence, group_benchmarks
 EXPECTED = {'deepseek-v4-flash-0731': (2,11), 'deepseek-v4.1-flash': (1,14), 'glm-5.3-flash': (1,5), 'qwen3.8-27b': (2,68), 'qwen3.8-flash-next': (1,15)}
 class BenchmarkEvidence(unittest.TestCase):
     def payload(self,slug):
@@ -88,6 +88,19 @@ class BenchmarkEvidence(unittest.TestCase):
     def test_unsigned_number_cannot_match_negative_source(self):
         point=dict(line=1,quote='| -0.5 |',raw='0.5',score=.5)
         with self.assertRaises(ValueError):_evidence([point['quote']],point,'score')
+
+    def test_grouping_retains_independent_results_and_exact_variants(self):
+        sources = [dict(metrics=[dict(name='GPQA-Diamond', unit='fraction', points=[dict(score=.8, repo='same-build')]),
+                                 dict(name='GPQA', unit='fraction', points=[dict(score=.7)])]),
+                   dict(metrics=[dict(name='GPQA-Diamond', unit='fraction', points=[dict(score=.9, repo='same-build')]),
+                                 dict(name='GPQA-Diamond', unit='percent', points=[dict(score=90)])])]
+        original = copy.deepcopy(sources)
+        groups = group_benchmarks(sources)
+        self.assertEqual(len(groups),3)
+        self.assertEqual(groups[0]['evaluations'],[dict(source=0,metric=0),dict(source=1,metric=0)])
+        self.assertEqual(groups[0]['comparison']['pair_count'],1)
+        self.assertFalse(groups[0]['comparison']['ranking_permitted'])
+        self.assertEqual(sources,original)
 
     def test_no_manifest(self):
         with tempfile.TemporaryDirectory() as folder:

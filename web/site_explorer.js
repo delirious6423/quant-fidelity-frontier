@@ -342,6 +342,7 @@
 
   var lastPts = [];
   function drawChart() {
+    var focused = document.activeElement, focusedQid = focused && host.contains(focused) ? focused.getAttribute('data-qid') : null;
     var S = setById(state.set), k = state.metric, M = MET[k];
     var pts = shown(S).filter(function (p) { return p.m[k] && p.m[k].v != null && (!M.log || p.m[k].v > 0); });
     lastPts = pts; host.innerHTML = ''; hideTip(true);
@@ -457,6 +458,10 @@
     $('exchartnote').textContent = note.join(' ');
     if (state.focus) { var fc = svg.querySelector('circle.mk[data-qid="' + cssq(state.focus) + '"]'); var fpnt = pts.filter(function (p) { return p.qid === state.focus; })[0]; if (fc && fpnt) { showTip(fpnt, fc, true); fc.classList.add('pulse'); } state.focus = null; }
     else if (state.pinned) { var pc = svg.querySelector('circle.mk[data-qid="' + cssq(state.pinned) + '"]'), pp = pts.filter(function (p) { return p.qid === state.pinned; })[0]; if (pc && pp) showTip(pp, pc, true); else state.pinned = null; }
+    if (focusedQid) {
+      var replacement = svg.querySelector('circle.mk[data-qid="' + cssq(focusedQid) + '"]');
+      if (replacement) { suppressFocusTip = true; replacement.focus({ preventScroll: true }); suppressFocusTip = false; }
+    }
   }
   function closeDetail() {
     detailOpen = false; dismissedQid = detailPoint && detailPoint.qid; state.pinned = null; hideTip(true); renderDetail();

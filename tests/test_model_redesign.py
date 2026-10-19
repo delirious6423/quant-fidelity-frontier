@@ -95,7 +95,13 @@ async def check_model(browser, base, model):
     point = page.locator('#exsvg circle.mk').first
     qid = await point.get_attribute('data-qid')
     actual = next(p for p in first['points'] if p['qid'] == qid)
-    await point.press('Enter')
+    # A delayed responsive repaint must not discard a keyboard user's focus.
+    await point.focus()
+    old_marker = await point.element_handle()
+    await page.set_viewport_size({'width':400,'height':844})
+    await page.wait_for_function('(marker) => !marker.isConnected', arg=old_marker)
+    assert await page.evaluate('document.activeElement.getAttribute("data-qid")') == qid
+    await page.keyboard.press('Enter')
     assert await page.locator('#exdetail h3').inner_text() == actual['variant']
     shown_labels = await page.locator('#exsvg .plab').evaluate_all('(nodes) => nodes.map(n => n.dataset.qid)')
     assert all(label == qid for label in shown_labels)
