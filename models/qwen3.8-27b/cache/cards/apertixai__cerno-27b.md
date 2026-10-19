@@ -50,7 +50,7 @@ model-index:
 - **Question types:** multiple choice with explicit criteria, yes/no, scored scales. Up to 255 options per question.
 - **Output:** a probability for every option of every question, in **one forward pass with no text generation**.
 - **Calibrated:** a single shipped temperature (1.0) makes the probabilities honest; it changes no answer.
-- **Fast:** 52 median per request on one H200, one request at a time.
+- **Fast:** 52 ms median per request on one H200, one request at a time.
 
 On the Decision Index 0.3 public suite this model is second of 145 entrants on the like-for-like basis and above Jev 1.13 on every reporting basis.
 
@@ -62,8 +62,8 @@ public suite. The 27B is second of 145 entrants; the 9B and 4B lead every entran
 | Model | Base | Weights | Temperature | Public index | Same-subset rank | Median latency |
 |---|---|---|---:|---:|---|---:|
 | <b>Cerno 27B</b> (this model) | Qwen3.8-27B | [`cerno-27b`](https://huggingface.co/apertixai/cerno-27b) | 1.0 | **65.19** | 2nd of 145 | 52 |
-| Cerno 9B | Qwen3.5-9B | [`cerno-9b`](https://huggingface.co/apertixai/cerno-9b) | 1.675 | **58.05** | 21st · first at ≤10B | 34 |
-| Cerno 4B | Qwen3.5-4B | [`cerno-4b`](https://huggingface.co/apertixai/cerno-4b) | 1.715 | **56.58** | 32nd · first at ≤5B | 30 |
+| Cerno 9B | Qwen3.5-9B | [`cerno-9b`](https://huggingface.co/apertixai/cerno-9b) | 1.539 | **58.59** | 14th · first at ≤10B | 30 |
+| Cerno 4B | Qwen3.5-4B | [`cerno-4b`](https://huggingface.co/apertixai/cerno-4b) | 1.534 | **57.60** | 25th · first at ≤5B | 31 |
 
 - *Public index*: the complete public suite (37 benchmarks, 140,178 requests) run with the maintainers' kit at commit 9eb2dbe
   through the public inference code and these FP8 weights.
@@ -117,6 +117,7 @@ python -m decision_index pipeline --edition 0.3 --engine evals.decision_index.en
 - **Protocol:** one row per question (state + question, state-first layout); the rows of a request batched into one vLLM call
   with the state prefix shared; one generated token; the top-k logprobs read over the option label tokens and renormalised.
   No thinking, no second reading, no ensembling, no abstention.
+
 
 
 ## Examples

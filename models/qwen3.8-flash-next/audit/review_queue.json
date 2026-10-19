@@ -1,27 +1,9 @@
 {
  "quarantined": [
   {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
-   "kind": "variants",
-   "entry": "this release (4-bit)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Vemloir/Qwen3.8-Flash-Next-sc-exl3",
-   "kind": "cross",
-   "entry": "4.05bpw_h6_ng6",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Vemloir/Qwen3.8-Flash-Next-sc-exl3",
-   "kind": "variants",
-   "entry": "2026-10-16",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
-   "kind": "variants",
-   "entry": "INT3 (this repository)",
+   "repo": "leoncca/Qwen3.8-Flash-Next-AWQ-g32",
+   "kind": "ladder",
+   "entry": "previous release",
    "reason": "failed a gate"
   },
   {
@@ -34,6 +16,36 @@
    "repo": "spectator2026/Qwen3.8-Flash-Next-W6-INT8-HQQ-g32",
    "kind": "variants",
    "entry": "this release (int6 experts + int8 dense)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Vemloir/Qwen3.8-Flash-Next-sc-exl3",
+   "kind": "cross",
+   "entry": "4.05bpw_h6_ng6",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
+   "kind": "variants",
+   "entry": "INT3 (this repository)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "leoncca/Qwen3.8-Flash-Next-AWQ-g32",
+   "kind": "variants",
+   "entry": "this release (AWQ g32, 2026-10-17)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "kind": "variants",
+   "entry": "this release (4-bit)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Vemloir/Qwen3.8-Flash-Next-sc-exl3",
+   "kind": "variants",
+   "entry": "2026-10-16",
    "reason": "failed a gate"
   }
  ],
@@ -190,5 +202,6 @@
   }
  ],
  "resolved_disagreements": [],
- "resolved_repos": 0
+ "resolved_repos": 0,
+ "tiebroken": []
 }

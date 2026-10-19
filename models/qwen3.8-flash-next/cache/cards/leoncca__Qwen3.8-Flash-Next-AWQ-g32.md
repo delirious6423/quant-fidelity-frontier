@@ -112,14 +112,18 @@ insufficient for this architecture. No stock-runtime compatibility or default
 launch configuration is implied. Image/video regression has not been run on
 this new official checkpoint.
 
-**Stock vLLM.** Upstream vLLM (checked in v0.31.0 and v0.32.0) runs the Qwen4Exp
-QSA layers only in BF16. This repository's `config.json` declares `float16`, so
-with the default `--dtype auto`, stock vLLM stops with
-`NotImplementedError: Qwen4Exp QSA currently requires BF16`. Pass `--dtype bfloat16`
-to get past this check. BF16 needs compute capability 8.0 or newer, so stock vLLM
-cannot run this model on pre-Ampere GPUs such as V100 or T4. In BF16 mode the FP16
-expert scales are loaded as BF16; the fidelity figures below were not measured for
-that setup. We have not run this checkpoint on stock vLLM.
+**Stock vLLM.** Upstream vLLM (checked in v0.31.0 and v0.32.0) runs the Qwen4Exp QSA
+layers only in BF16, which needs compute capability 8.0 or newer. `config.json`
+therefore declares `bfloat16`, so the default `--dtype auto` selects BF16 on Ampere
+or newer GPUs and no extra flag is needed. A user has reported that the Uncensored
+variant (same architecture and format) runs on stock vLLM v0.31.0 with BF16 compute;
+we have not run either on stock vLLM ourselves. If you see
+`NotImplementedError: Qwen4Exp QSA currently requires BF16`, the run is using FP16,
+for example from an older copy of `config.json` or an explicit `--dtype float16`.
+Stock vLLM cannot run this model on pre-Ampere GPUs such as V100 or T4; there, vLLM
+falls back to FP16 automatically because the GPU has no BF16. In BF16 mode the FP16
+expert scales are rounded to BF16 on load (at most 0.4% relative per scale); the GPU
+fidelity figures below were measured with FP16 compute, not BF16.
 
 The bundled config keeps native 262,144-token context and default RoPE. The
 comparison uses matched positional settings; it does not change the bundled

@@ -1,249 +1,15 @@
 {
  "quarantined": [
   {
-   "repo": "anemll/anemll-quantized-qwen3.8-27b-for-CoreAI",
-   "kind": "variants",
-   "entry": "ANEMLL release 0.2 (PyTorch)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ji-farthing/Qwen3.8-27B-ik-llama-GGUF",
-   "kind": "variants",
-   "entry": "IQ3_KT",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "slevinw/Qwen3.8-27B-RAM-13GB-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-RAM-13GB.gguf",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF",
-   "kind": "cross",
-   "entry": "llama.cpp IQ2_XS (imatrix)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "DuoNeural/Qwen3.8-27B-TAP-DPQ-v2-GGUF",
-   "kind": "ladder",
-   "entry": "Vanilla_BF16 (Reference)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "darioooooo0o/Qwen3.8-27B-GPTQ-Int4-asym",
-   "kind": "variants",
-   "entry": "this quant",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "lackonendes/PAW-27B-X3-GGUF",
-   "kind": "variants",
-   "entry": "PAW-27B-X3-2.5bit (B2.5)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.8bpw",
-   "kind": "variants",
-   "entry": "VQ-4.8bpw",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "AtomicChat/Qwen3.8-27B-GGUF",
-   "kind": "cross",
-   "entry": "UD-Q5_K_XL",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "lackonendes/PAW-27B-X3-GGUF",
-   "kind": "ladder",
-   "entry": "B4.0 (uniform K4 sweep artifact)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ggh5454/Qwen3.8-27B-MLX-4bit",
-   "kind": "ladder",
-   "entry": "8-bit",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "aj9o9/Qwen3.8-27B-GGUF",
-   "kind": "cross",
-   "entry": "Unsloth UD-Q3_K_XL",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "primitive-ai/Qwen3.8-27B-mixed-NVFP4-FP8",
-   "kind": "cross",
-   "entry": "cyankiwi AWQ-INT4",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.5bpw",
-   "kind": "ladder",
-   "entry": "affine q8 (ours)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.8bpw",
-   "kind": "ladder",
-   "entry": "affine q4 (ours)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.5bpw",
-   "kind": "variants",
-   "entry": "VQ-4.5bpw",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "darioooooo0o/Qwen3.8-27B-GPTQ-Int4-asym",
-   "kind": "variants",
-   "entry": "this quant + fp8 lm_head (as served in cookbook)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "vrfai/Qwen3.8-27B-FP8-dynamic",
-   "kind": "ladder",
-   "entry": "bf16 (unquantized reference)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
-   "kind": "ladder",
-   "entry": "VQ-4.8bpw",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "primitive-ai/Qwen3.8-27B-mixed-NVFP4-FP8",
-   "kind": "cross",
-   "entry": "gittensor NVFP4-RTX5090",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "nibor1896/Qwen3.8-27B-CNQ4.5",
-   "kind": "ladder",
-   "entry": "earlier --scales mse build (not published)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "billmccartney/Qwen3.8-27B-exl3-8.00bpw",
-   "kind": "cross",
-   "entry": "BF16",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Frosty40/Qwen3.8-27B-GGUF",
-   "kind": "ladder",
-   "entry": "Q8_0 (reference ceiling, not published)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "abhishekchohan/Qwen3.8-27B-AWQ-INT4",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-AWQ-INT4",
-   "reason": "failed a gate"
-  },
-  {
    "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
    "kind": "variants",
-   "entry": "Qwen3.8-27B-CRACK-Q6_K.gguf",
+   "entry": "Qwen3.8-27B-CRACK-IQ3_M.gguf",
    "reason": "failed a gate"
   },
   {
-   "repo": "kirillbilchenko/Qwen3.8-27B-MXFP4-MxWave",
+   "repo": "joydle/Qwen3.8-27B-Arf-GGUF",
    "kind": "variants",
-   "entry": "MxWave (H64 MXFP4)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "lackonendes/PAW-27B-X3-GGUF",
-   "kind": "variants",
-   "entry": "PAW-27B-X3-3.5bit (B3.5)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "cross",
-   "entry": "UD-IQ3_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "cross",
-   "entry": "GSQ-RCO-IQ3_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Mintzs/thinklite-27B",
-   "kind": "cross",
-   "entry": "Qwen3.8-27B (xhigh)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
-   "kind": "ladder",
-   "entry": "BF16",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "cross",
-   "entry": "AD-IQ4_XS-IQ3_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "abhishekchohan/Qwen3.8-27B-GPTQ-INT4",
-   "kind": "variants",
-   "entry": "GPTQ-INT4 (this)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "cross",
-   "entry": "UD-Q4_K_XL",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "cross",
-   "entry": "AD-IQ3_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "AtomicChat/Qwen3.8-27B-GGUF",
-   "kind": "cross",
-   "entry": "Q4_K_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-CRACK-Q8_0.gguf",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "cross",
-   "entry": "GSQ-RCO-IQ3_XXS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF",
-   "kind": "cross",
-   "entry": "llama.cpp IQ2_XXS (imatrix)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF",
-   "kind": "cross",
-   "entry": "unsloth UD-IQ2_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "aj9o9/Qwen3.8-27B-GGUF",
-   "kind": "cross",
-   "entry": "Unsloth Q5_K_M",
+   "entry": "Qwen3.8-27B-arf-g64-imat-Q4_1.gguf",
    "reason": "failed a gate"
   },
   {
@@ -253,231 +19,9 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "variants",
-   "entry": "AP-IQ3_XS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "repo": "dfed24/Qwen3.8-27B-GPTQ-GGUF",
    "kind": "cross",
-   "entry": "GSQ-RCO-IQ2_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "joydle/Qwen3.8-27B-Arf-GGUF",
-   "kind": "cross",
-   "entry": "MLX 4-bit (mlx-community)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "zerodigest/Qwen3.8-27B-YMQ-MTP-GGUF",
-   "kind": "variants",
-   "entry": "L",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "AtomicChat/Qwen3.8-27B-GGUF",
-   "kind": "cross",
-   "entry": "UD-Q6_K_XL",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "RadixArk/Qwen3.8-27B-NVFP4",
-   "kind": "variants",
-   "entry": "RadixArk/Qwen3.8-27B-NVFP4",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "mudler/Qwen3.8-27B-APEX-GGUF",
-   "kind": "ladder",
-   "entry": "flat control, Mini size",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "pearsonkyle/Qwen3.8-27B-imatrix-MTP-GGUF",
-   "kind": "ladder",
-   "entry": "FP16 (ref)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "malaiwah/Qwen3.8-27B-GGUF-archival-f1bfb127",
-   "kind": "cross",
-   "entry": "Qwen3.8-27B-Q6_K.gguf",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "anemll/anemll-forge-qwen3.8-27B",
-   "kind": "ladder",
-   "entry": "ANEMLL release 1 (PyTorch, comparison table)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "anemll/anemll-forge-qwen3.8-27B",
-   "kind": "cross",
-   "entry": "Unsloth UD-IQ3_XXS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "anemll/anemll-quantized-qwen3.8-27b-for-CoreAI",
-   "kind": "cross",
-   "entry": "Unsloth UD-IQ3_XXS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "variants",
-   "entry": "AP-IQ3_XXS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "anemll/anemll-forge-qwen3.8-27B",
-   "kind": "cross",
-   "entry": "DT-IQ3_XXS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "anemll/anemll-quantized-qwen3.8-27b-for-CoreAI",
-   "kind": "cross",
-   "entry": "DT-IQ3_XXS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "variants",
-   "entry": "AP-IQ2_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ji-farthing/Qwen3.8-27B-ik-llama-GGUF",
-   "kind": "ladder",
-   "entry": "BF16 (reference)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "vrfai/Qwen3.8-27B-FP8",
-   "kind": "ladder",
-   "entry": "bf16 (unquantized reference run)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "lackonendes/PAW-27B-X3-GGUF",
-   "kind": "variants",
-   "entry": "PAW-27B-X3-3bit (B3.0)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
-   "kind": "cross",
-   "entry": "UD-Q2_K_XL",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "baa-ai/Qwen3.8-27B-RAM-13GB-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-RAM-13GB.gguf (v2, RAM mixed Q2_K-Q8_0)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "anemll/anemll-forge-qwen3.8-27B",
-   "kind": "variants",
-   "entry": "ANEMLL release 0.2 (PyTorch, comparison table)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.5bpw",
-   "kind": "ladder",
-   "entry": "affine q4 (ours)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "mudler/Qwen3.8-27B-APEX-GGUF",
-   "kind": "ladder",
-   "entry": "flat control, Balanced size",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "malaiwah/Qwen3.8-27B-GGUF-archival-f1bfb127",
-   "kind": "cross",
-   "entry": "Qwen3.8-27B-UD-Q5_K_XL.gguf",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF",
-   "kind": "cross",
-   "entry": "llama.cpp IQ2_M (imatrix)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "juzbox/Qwen3.8-27B-NVFP4-GDN",
-   "kind": "cross",
-   "entry": "nvidia/Qwen3.8-27B-NVFP4",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Mintzs/thinklite-27B",
-   "kind": "variants",
-   "entry": "Thinklite-27B Low",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "aj9o9/Qwen3.8-27B-GGUF",
-   "kind": "cross",
-   "entry": "bartowski IQ3_M",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ggh5454/Qwen3.8-27B-MLX-4bit",
-   "kind": "variants",
-   "entry": "4-bit",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-CRACK-Q4_K_M.gguf",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ji-farthing/Qwen3.8-27B-ik-llama-GGUF",
-   "kind": "variants",
-   "entry": "IQ3_XXS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
-   "kind": "ladder",
-   "entry": "VQ-4.5bpw",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-CRACK-IQ4_XS.gguf",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "mudler/Qwen3.8-27B-APEX-GGUF",
-   "kind": "ladder",
-   "entry": "flat control, Nano size",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "dancinlab/Qwen3.8-27B-Uncensored-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-Uncensored (abliterated build, vLLM)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Jianqiao1/Qwen3.8-27b-MoQ-GGUF",
-   "kind": "ladder",
-   "entry": "BF16 reference",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "aj9o9/Qwen3.8-27B-GGUF",
-   "kind": "cross",
-   "entry": "bartowski Q3_K_S",
+   "entry": "unsloth UD-Q4_K_M (PyTorch eval vs bf16)",
    "reason": "failed a gate"
   },
   {
@@ -487,39 +31,9 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "OsaurusAI/Qwen3.8-27B-MXFP8",
-   "kind": "variants",
-   "entry": "MXFP8",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Lottolabs/Qwen3.8-27B-TT-Mixed-BFP4-BFP8-P150",
-   "kind": "ladder",
-   "entry": "Round-to-nearest BFP4 vs CPU BF16",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+   "repo": "AtomicChat/Qwen3.8-27B-GGUF",
    "kind": "cross",
-   "entry": "UD-IQ3_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "nibor1896/Qwen3.8-27B-CNQ4.5",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-CNQ4.5 (container in the engine, BF16 KV)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ji-farthing/Qwen3.8-27B-ik-llama-GGUF",
-   "kind": "variants",
-   "entry": "IQ4_KS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "juzbox/Qwen3.8-27B-NVFP4-GDN",
-   "kind": "cross",
-   "entry": "QUASAR-QAT/Qwen3.8-27B-QUASAR-NVFP4",
+   "entry": "Q4_K_S",
    "reason": "failed a gate"
   },
   {
@@ -530,164 +44,20 @@
   },
   {
    "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
-   "kind": "cross",
-   "entry": "UD-IQ2_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "lackonendes/PAW-27B-X3-GGUF",
-   "kind": "variants",
-   "entry": "PAW-27B-X3-1.5bit (B1.5)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "DuoNeural/Qwen3.8-27B-TAP-DPQ-v2-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-TAP-DPQ-v2-IQ2_XXS.gguf",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "primitive-ai/Qwen3.8-27B-mixed-NVFP4-FP8",
-   "kind": "cross",
-   "entry": "sakamakismile MTP-NVFP4",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "malaiwah/Qwen3.8-27B-GGUF-archival-f1bfb127",
-   "kind": "cross",
-   "entry": "BF16 two-part set (cross-engine floor)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
-   "kind": "variants",
-   "entry": "GSQ-RCO IQ3_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "kirillbilchenko/Qwen3.8-27B-MXFP4-MxWave",
-   "kind": "cross",
-   "entry": "AMD Quark-AWQ MXFP4",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.8bpw",
-   "kind": "ladder",
-   "entry": "affine q8 (ours)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "darioooooo0o/Qwen3.8-27B-GPTQ-Int4-asym",
-   "kind": "cross",
-   "entry": "SergiioB's GPTQ int4 (symmetric)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Jundot/Qwen3.8-27B-oQ4e-mtp",
-   "kind": "ladder",
-   "entry": "Previous oQ4e (2026-08-17)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.5bpw",
-   "kind": "ladder",
-   "entry": "VQ-3.9bpw",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-CRACK-IQ2_M.gguf",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Jundot/Qwen3.8-27B-oQ4e-mtp",
-   "kind": "variants",
-   "entry": "Updated oQ4e",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Lottolabs/Qwen3.8-27B-TT-Mixed-BFP4-BFP8-P150",
-   "kind": "ladder",
-   "entry": "TT all-BFP8 vs CPU BF16",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
    "kind": "variants",
    "entry": "GSQ-RCO IQ2_XS",
    "reason": "failed a gate"
   },
   {
-   "repo": "Mintzs/thinklite-27B",
+   "repo": "jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF",
    "kind": "cross",
-   "entry": "Qwen3.8-27B (low)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "juzbox/Qwen3.8-27B-NVFP4-GDN",
-   "kind": "variants",
-   "entry": "this model (NVFP4 GDN projections, GPTQ)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "AtomicChat/Qwen3.8-27B-GGUF",
-   "kind": "cross",
-   "entry": "UD-IQ3_XXS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "cross",
-   "entry": "UD-Q3_K_XL",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "cross",
-   "entry": "AD-IQ2_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Lottolabs/Qwen3.8-27B-TT-Mixed-BFP4-BFP8-P150",
-   "kind": "variants",
-   "entry": "GPTQ BFP4 (this checkpoint) vs CPU BF16",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "OsaurusAI/Qwen3.8-27B-MXFP8",
-   "kind": "ladder",
-   "entry": "JANG_4D",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "abhishekchohan/Qwen3.8-27B-GPTQ-INT4-FP8KV",
-   "kind": "variants",
-   "entry": "GPTQ-INT4-FP8KV (this model)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "zerodigest/Qwen3.8-27B-YMQ-MTP-GGUF",
-   "kind": "variants",
-   "entry": "M",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-CRACK-Q6_K_L.gguf",
+   "entry": "unsloth UD-IQ2_S",
    "reason": "failed a gate"
   },
   {
    "repo": "mudler/Qwen3.8-27B-APEX-GGUF",
    "kind": "ladder",
-   "entry": "flat control, Compact size",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Mintzs/thinklite-27B",
-   "kind": "variants",
-   "entry": "Thinklite-27B Max",
+   "entry": "flat Q6_K",
    "reason": "failed a gate"
   },
   {
@@ -699,19 +69,97 @@
   {
    "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
    "kind": "variants",
-   "entry": "GSQ-RCO IQ2_S",
+   "entry": "GSQ-RCO IQ3_XXS",
    "reason": "failed a gate"
   },
   {
-   "repo": "Davidmg0815/Qwen3.8-27B-MTP-GGUF",
-   "kind": "ladder",
-   "entry": "Qwen3.8-27B BF16",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "dfed24/Qwen3.8-27B-GPTQ-GGUF",
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
    "kind": "variants",
-   "entry": "this file (PyTorch eval vs bf16)",
+   "entry": "AP-IQ4_XS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "malaiwah/Qwen3.8-27B-GGUF-archival-f1bfb127",
+   "kind": "cross",
+   "entry": "Qwen3.8-27B-UD-Q5_K_XL.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "nibor1896/Qwen3.8-27B-CNQ4.5",
+   "kind": "ladder",
+   "entry": "earlier --scales mse build (not published)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "vrfai/Qwen3.8-27B-FP8",
+   "kind": "ladder",
+   "entry": "bf16 (unquantized reference run)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "cross",
+   "entry": "UD-Q4_K_XL",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-CRACK-Q6_K_L.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "mudler/Qwen3.8-27B-APEX-GGUF",
+   "kind": "ladder",
+   "entry": "flat control, Mini size",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "cross",
+   "entry": "UD-Q3_K_XL",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "cross",
+   "entry": "GSQ-RCO-IQ3_XXS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+   "kind": "variants",
+   "entry": "GSQ-RCO IQ3_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Lottolabs/Qwen3.8-27B-TT-Mixed-BFP4-BFP8-P150",
+   "kind": "ladder",
+   "entry": "TT all-BFP8 vs CPU BF16",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "malaiwah/Qwen3.8-27B-GGUF-archival-f1bfb127",
+   "kind": "cross",
+   "entry": "Qwen3.8-27B-Q6_K.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "cross",
+   "entry": "GSQ-RCO-IQ2_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.5bpw",
+   "kind": "variants",
+   "entry": "VQ-4.5bpw",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "variants",
+   "entry": "AP-IQ3_XS",
    "reason": "failed a gate"
   },
   {
@@ -721,21 +169,21 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "malaiwah/Qwen3.8-27B-EXL3-K5K6",
+   "repo": "anemll/anemll-quantized-qwen3.8-27b-for-CoreAI",
    "kind": "cross",
-   "entry": "Qwen/Qwen3.8-27B-FP8 (v5 10M)",
+   "entry": "DT-IQ3_XXS",
    "reason": "failed a gate"
   },
   {
    "repo": "joydle/Qwen3.8-27B-Arf-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-arf-g64-imat-Q4_1.gguf",
+   "kind": "cross",
+   "entry": "Q4_K_M (unsloth)",
    "reason": "failed a gate"
   },
   {
-   "repo": "aj9o9/Qwen3.8-27B-GGUF",
+   "repo": "joydle/Qwen3.8-27B-Arf-GGUF",
    "kind": "cross",
-   "entry": "Unsloth Q4_K_M",
+   "entry": "MLX 4-bit (mlx-community)",
    "reason": "failed a gate"
   },
   {
@@ -745,9 +193,201 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "joydle/Qwen3.8-27B-Arf-GGUF",
+   "repo": "billmccartney/Qwen3.8-27B-exl3-8.00bpw",
    "kind": "cross",
-   "entry": "Q4_K_M (unsloth)",
+   "entry": "BF16",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
+   "kind": "variants",
+   "entry": "VQ-3.9bpw",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "variants",
+   "entry": "AP-Q3_K_XL",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "cross",
+   "entry": "AD-IQ3_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "slevinw/Qwen3.8-27B-RAM-13GB-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-RAM-13GB.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF",
+   "kind": "cross",
+   "entry": "unsloth UD-IQ2_XXS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "juzbox/Qwen3.8-27B-NVFP4-GDN",
+   "kind": "variants",
+   "entry": "this model (NVFP4 GDN projections, GPTQ)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "OsaurusAI/Qwen3.8-27B-MXFP8",
+   "kind": "variants",
+   "entry": "MXFP8",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "pearsonkyle/Qwen3.8-27B-imatrix-MTP-GGUF",
+   "kind": "ladder",
+   "entry": "FP16 (ref)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+   "kind": "ladder",
+   "entry": "BF16",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Davidmg0815/Qwen3.8-27B-MTP-GGUF",
+   "kind": "ladder",
+   "entry": "Qwen3.8-27B BF16",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.8bpw",
+   "kind": "variants",
+   "entry": "VQ-4.8bpw",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "AtomicChat/Qwen3.8-27B-GGUF",
+   "kind": "cross",
+   "entry": "UD-IQ3_XXS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-CRACK-IQ2_M.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-CRACK-Q6_K.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Jundot/Qwen3.8-27B-oQ4e-mtp",
+   "kind": "ladder",
+   "entry": "Previous oQ4e (2026-08-17)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "anemll/anemll-forge-qwen3.8-27B",
+   "kind": "cross",
+   "entry": "Unsloth UD-IQ3_XXS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "cross",
+   "entry": "GSQ-RCO-IQ2_XS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-CRACK-IQ4_XS.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "aj9o9/Qwen3.8-27B-GGUF",
+   "kind": "cross",
+   "entry": "Unsloth Q5_K_M",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "baa-ai/Qwen3.8-27B-RAM-13GB-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-RAM-13GB.gguf (v2, RAM mixed Q2_K-Q8_0)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ji-farthing/Qwen3.8-27B-ik-llama-GGUF",
+   "kind": "ladder",
+   "entry": "BF16 (reference)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "anemll/anemll-quantized-qwen3.8-27b-for-CoreAI",
+   "kind": "variants",
+   "entry": "ANEMLL release 0.2 (PyTorch)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Jundot/Qwen3.8-27B-oQ4e-mtp",
+   "kind": "variants",
+   "entry": "Updated oQ4e",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "dfed24/Qwen3.8-27B-GPTQ-GGUF",
+   "kind": "variants",
+   "entry": "this file (PyTorch eval vs bf16)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "abhishekchohan/Qwen3.8-27B-GPTQ-INT4",
+   "kind": "variants",
+   "entry": "GPTQ-INT4 (this)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "kirillbilchenko/Qwen3.8-27B-MXFP4-MxWave",
+   "kind": "cross",
+   "entry": "AMD Quark-AWQ MXFP4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Qwen3.8-27B-mixed-NVFP4-FP8",
+   "kind": "cross",
+   "entry": "gittensor NVFP4-RTX5090",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "lackonendes/PAW-27B-X3-GGUF",
+   "kind": "variants",
+   "entry": "PAW-27B-X3-3.5bit (B3.5)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "kirillbilchenko/Qwen3.8-27B-MXFP4-MxWave",
+   "kind": "variants",
+   "entry": "MxWave (H64 MXFP4)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "anemll/anemll-quantized-qwen3.8-27b-for-CoreAI",
+   "kind": "ladder",
+   "entry": "ANEMLL release 1 (PyTorch)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "DuoNeural/Qwen3.8-27B-TAP-DPQ-v2-GGUF",
+   "kind": "ladder",
+   "entry": "Vanilla_BF16 (Reference)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "aj9o9/Qwen3.8-27B-GGUF",
+   "kind": "cross",
+   "entry": "Unsloth UD-Q3_K_XL",
    "reason": "failed a gate"
   },
   {
@@ -759,49 +399,25 @@
   {
    "repo": "lackonendes/PAW-27B-X3-GGUF",
    "kind": "variants",
-   "entry": "PAW-27B-X3-2bit (B2.0)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "mudler/Qwen3.8-27B-APEX-GGUF",
-   "kind": "ladder",
-   "entry": "flat Q6_K",
+   "entry": "PAW-27B-X3-3bit (B3.0)",
    "reason": "failed a gate"
   },
   {
    "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
    "kind": "cross",
-   "entry": "UD-IQ4_XS",
+   "entry": "AD-IQ4_XS-IQ3_S",
    "reason": "failed a gate"
   },
   {
-   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-CRACK-IQ3_M.gguf",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "variants",
-   "entry": "AP-Q3_K_XL",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF",
-   "kind": "cross",
-   "entry": "unsloth UD-IQ2_XXS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "variants",
-   "entry": "AP-IQ4_XS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "anemll/anemll-quantized-qwen3.8-27b-for-CoreAI",
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.5bpw",
    "kind": "ladder",
-   "entry": "ANEMLL release 1 (PyTorch)",
+   "entry": "VQ-3.9bpw",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "RadixArk/Qwen3.8-27B-NVFP4",
+   "kind": "variants",
+   "entry": "RadixArk/Qwen3.8-27B-NVFP4",
    "reason": "failed a gate"
   },
   {
@@ -811,27 +427,411 @@
    "reason": "failed a gate"
   },
   {
+   "repo": "ggh5454/Qwen3.8-27B-MLX-4bit",
+   "kind": "variants",
+   "entry": "4-bit",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "AtomicChat/Qwen3.8-27B-GGUF",
+   "kind": "cross",
+   "entry": "UD-Q5_K_XL",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Mintzs/thinklite-27B",
+   "kind": "cross",
+   "entry": "Qwen3.8-27B (low)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Mintzs/thinklite-27B",
+   "kind": "variants",
+   "entry": "Thinklite-27B Max",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "variants",
+   "entry": "AP-IQ2_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "mudler/Qwen3.8-27B-APEX-GGUF",
+   "kind": "ladder",
+   "entry": "flat control, Nano size",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ji-farthing/Qwen3.8-27B-ik-llama-GGUF",
+   "kind": "variants",
+   "entry": "IQ4_KS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "vrfai/Qwen3.8-27B-FP8-dynamic",
+   "kind": "ladder",
+   "entry": "bf16 (unquantized reference)",
+   "reason": "failed a gate"
+  },
+  {
    "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
    "kind": "cross",
-   "entry": "GSQ-RCO-IQ2_XS",
+   "entry": "AD-IQ2_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "abhishekchohan/Qwen3.8-27B-AWQ-INT4",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-AWQ-INT4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "anemll/anemll-forge-qwen3.8-27B",
+   "kind": "ladder",
+   "entry": "ANEMLL release 1 (PyTorch, comparison table)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-CRACK-Q4_K_M.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Qwen3.8-27B-mixed-NVFP4-FP8",
+   "kind": "cross",
+   "entry": "cyankiwi AWQ-INT4",
    "reason": "failed a gate"
   },
   {
    "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
    "kind": "variants",
-   "entry": "GSQ-RCO IQ3_XXS",
+   "entry": "GSQ-RCO IQ2_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF",
+   "kind": "cross",
+   "entry": "llama.cpp IQ2_M (imatrix)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.5bpw",
+   "kind": "ladder",
+   "entry": "affine q4 (ours)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "aj9o9/Qwen3.8-27B-GGUF",
+   "kind": "cross",
+   "entry": "Unsloth Q4_K_M",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ji-farthing/Qwen3.8-27B-ik-llama-GGUF",
+   "kind": "variants",
+   "entry": "IQ3_KT",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ggh5454/Qwen3.8-27B-MLX-4bit",
+   "kind": "ladder",
+   "entry": "8-bit",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "mudler/Qwen3.8-27B-APEX-GGUF",
+   "kind": "ladder",
+   "entry": "flat control, Balanced size",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "nibor1896/Qwen3.8-27B-CNQ4.5",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-CNQ4.5 (container in the engine, BF16 KV)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "anemll/anemll-forge-qwen3.8-27B",
+   "kind": "cross",
+   "entry": "DT-IQ3_XXS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "zerodigest/Qwen3.8-27B-YMQ-MTP-GGUF",
+   "kind": "variants",
+   "entry": "M",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.5bpw",
+   "kind": "ladder",
+   "entry": "affine q8 (ours)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "zerodigest/Qwen3.8-27B-YMQ-MTP-GGUF",
+   "kind": "variants",
+   "entry": "L",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "variants",
+   "entry": "AP-IQ3_XXS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "juzbox/Qwen3.8-27B-NVFP4-GDN",
+   "kind": "cross",
+   "entry": "QUASAR-QAT/Qwen3.8-27B-QUASAR-NVFP4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "juzbox/Qwen3.8-27B-NVFP4-GDN",
+   "kind": "cross",
+   "entry": "nvidia/Qwen3.8-27B-NVFP4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Lottolabs/Qwen3.8-27B-TT-Mixed-BFP4-BFP8-P150",
+   "kind": "ladder",
+   "entry": "Round-to-nearest BFP4 vs CPU BF16",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Lottolabs/Qwen3.8-27B-TT-Mixed-BFP4-BFP8-P150",
+   "kind": "variants",
+   "entry": "GPTQ BFP4 (this checkpoint) vs CPU BF16",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "darioooooo0o/Qwen3.8-27B-GPTQ-Int4-asym",
+   "kind": "variants",
+   "entry": "this quant + fp8 lm_head (as served in cookbook)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-CRACK-Q8_0.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "malaiwah/Qwen3.8-27B-EXL3-K5K6",
+   "kind": "cross",
+   "entry": "Qwen/Qwen3.8-27B-FP8 (v5 10M)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+   "kind": "cross",
+   "entry": "UD-IQ3_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "dancinlab/Qwen3.8-27B-Uncensored-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-Uncensored (abliterated build, vLLM)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "anemll/anemll-forge-qwen3.8-27B",
+   "kind": "variants",
+   "entry": "ANEMLL release 0.2 (PyTorch, comparison table)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "mudler/Qwen3.8-27B-APEX-GGUF",
+   "kind": "ladder",
+   "entry": "flat control, Compact size",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Qwen3.8-27B-mixed-NVFP4-FP8",
+   "kind": "cross",
+   "entry": "sakamakismile MTP-NVFP4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+   "kind": "cross",
+   "entry": "UD-Q2_K_XL",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "aj9o9/Qwen3.8-27B-GGUF",
+   "kind": "cross",
+   "entry": "bartowski Q3_K_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "abhishekchohan/Qwen3.8-27B-GPTQ-INT4-FP8KV",
+   "kind": "variants",
+   "entry": "GPTQ-INT4-FP8KV (this model)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "aj9o9/Qwen3.8-27B-GGUF",
+   "kind": "cross",
+   "entry": "bartowski IQ3_M",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+   "kind": "cross",
+   "entry": "UD-IQ2_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ji-farthing/Qwen3.8-27B-ik-llama-GGUF",
+   "kind": "variants",
+   "entry": "IQ3_XXS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Frosty40/Qwen3.8-27B-GGUF",
+   "kind": "ladder",
+   "entry": "Q8_0 (reference ceiling, not published)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.8bpw",
+   "kind": "ladder",
+   "entry": "affine q4 (ours)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF",
+   "kind": "cross",
+   "entry": "llama.cpp IQ2_XXS (imatrix)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "AtomicChat/Qwen3.8-27B-GGUF",
+   "kind": "cross",
+   "entry": "UD-Q6_K_XL",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "lackonendes/PAW-27B-X3-GGUF",
+   "kind": "variants",
+   "entry": "PAW-27B-X3-1.5bit (B1.5)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "darioooooo0o/Qwen3.8-27B-GPTQ-Int4-asym",
+   "kind": "variants",
+   "entry": "this quant",
    "reason": "failed a gate"
   },
   {
    "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
-   "kind": "variants",
-   "entry": "VQ-3.9bpw",
+   "kind": "ladder",
+   "entry": "VQ-4.8bpw",
    "reason": "failed a gate"
   },
   {
-   "repo": "dfed24/Qwen3.8-27B-GPTQ-GGUF",
+   "repo": "darioooooo0o/Qwen3.8-27B-GPTQ-Int4-asym",
    "kind": "cross",
-   "entry": "unsloth UD-Q4_K_M (PyTorch eval vs bf16)",
+   "entry": "SergiioB's GPTQ int4 (symmetric)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Jianqiao1/Qwen3.8-27b-MoQ-GGUF",
+   "kind": "ladder",
+   "entry": "BF16 reference",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.8bpw",
+   "kind": "ladder",
+   "entry": "affine q8 (ours)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Mintzs/thinklite-27B",
+   "kind": "variants",
+   "entry": "Thinklite-27B Low",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "anemll/anemll-quantized-qwen3.8-27b-for-CoreAI",
+   "kind": "cross",
+   "entry": "Unsloth UD-IQ3_XXS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "malaiwah/Qwen3.8-27B-GGUF-archival-f1bfb127",
+   "kind": "cross",
+   "entry": "BF16 two-part set (cross-engine floor)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "cross",
+   "entry": "GSQ-RCO-IQ3_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "cross",
+   "entry": "UD-IQ4_XS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "cross",
+   "entry": "UD-IQ3_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "lackonendes/PAW-27B-X3-GGUF",
+   "kind": "variants",
+   "entry": "PAW-27B-X3-2.5bit (B2.5)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "lackonendes/PAW-27B-X3-GGUF",
+   "kind": "variants",
+   "entry": "PAW-27B-X3-2bit (B2.0)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "lackonendes/PAW-27B-X3-GGUF",
+   "kind": "ladder",
+   "entry": "B4.0 (uniform K4 sweep artifact)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF",
+   "kind": "cross",
+   "entry": "llama.cpp IQ2_XS (imatrix)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "OsaurusAI/Qwen3.8-27B-MXFP8",
+   "kind": "ladder",
+   "entry": "JANG_4D",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "DuoNeural/Qwen3.8-27B-TAP-DPQ-v2-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-TAP-DPQ-v2-IQ2_XXS.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Mintzs/thinklite-27B",
+   "kind": "cross",
+   "entry": "Qwen3.8-27B (xhigh)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
+   "kind": "ladder",
+   "entry": "VQ-4.5bpw",
    "reason": "failed a gate"
   }
  ],
@@ -6478,12 +6478,6 @@
   },
   {
    "repo": "apertixai/cerno-27b",
-   "entry": "cerno-27b (FP8 W8A8)",
-   "key": "top1_pct",
-   "raw": "99.6% of answers identical to the bf16 weights"
-  },
-  {
-   "repo": "apertixai/cerno-27b",
    "entry": "cerno-27b bf16 weights",
    "key": "bench:DecisionIndex",
    "raw": "The bf16 weights score 65.12 on the same suite"
@@ -10978,5 +10972,6 @@
   }
  ],
  "resolved_disagreements": [],
- "resolved_repos": 0
+ "resolved_repos": 0,
+ "tiebroken": []
 }
