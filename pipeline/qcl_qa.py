@@ -143,6 +143,10 @@ if s["step"] == "reviewed":
     if code != 0:
         sh("git checkout -- . && git clean -fdq models")
         stop(s, f"tests failed, nothing published: {d.get('error')}: {str(d.get('tail', ''))[-600:]}")
+    try:   # the record compares with the committed watch list, so a re-run of this step still reports the promotion
+        before = {m["slug"]: m["status"] for m in json.loads(sh("git show HEAD:watchlist.json").stdout)["models"]}
+        promoted = sorted({*promoted, *(m["slug"] for m in wl()["models"] if m["status"] == "live" and before.get(m["slug"]) == "review")})
+    except Exception: pass
     s["promoted"] = promoted; s["published"] = d.get("progress_line")
     os.makedirs(os.path.dirname(DEPLOYED), exist_ok=True)
     json.dump({"commit": s["head"], "at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "reviewed": s.get("reviewed"), "verdicts": verdicts,
