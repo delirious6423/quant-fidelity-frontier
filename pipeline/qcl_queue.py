@@ -17,6 +17,17 @@ if todo:
     subprocess.run([sys.executable, f"{CODE}/pipeline/qcl_map.py", "tasks", f"{W}/tasks", *todo], check=True, stdout=subprocess.DEVNULL)
 names = [r.replace("/", "__") for r in todo]
 for n in names: os.replace(f"{W}/tasks/{n}.cands.json", f"{R}/maps/cands/{n}.cands.json")
+# a card with no numbers at all (no table candidates, empty digest) has nothing to map: code writes its "no claims" map
+# for both runs instead of queueing it (a worker cannot answer an empty prompt and would leave the queue claimed)
+empty = []
+for rp, n in zip(todo, names):
+    cands = json.load(open(f"{R}/maps/cands/{n}.cands.json"))
+    cl = cands.get("candidates", cands) if isinstance(cands, dict) else cands
+    if not cl:
+        m = {"repo": rp, "no_quality_claims": True, "no_claims_reason": "the card has no numbers in tables or text (detected by code)", "entries": [], "prose": []}
+        for run in ("A", "B"): json.dump(m, open(f"{R}/maps/{run}/{n}.map.json", "w"), indent=1)
+        empty.append(n)
+names = [n for n in names if n not in empty]
 size = {n: os.path.getsize(f"{W}/tasks/{n}.prompt.txt") for n in names}
 nq = 0
 for run, seed in (("A", 1), ("B", 2)):
@@ -25,4 +36,4 @@ for run, seed in (("A", 1), ("B", 2)):
     for n in order: b = min(bins, key=lambda b: b[0]); b[0] += size[n]; b[1].append(n)
     for i, (_, ns) in enumerate(b for b in bins if b[1]):
         open(f"{W}/pending/{run}{i:02d}.txt", "w").write("\n".join(ns) + "\n"); nq += 1
-print(json.dumps({"cards": len(names), "queues": nq, "kb": round(sum(size.values()) / 1000)}))
+print(json.dumps({"cards": len(names), "queues": nq, "kb": round(sum(size.values()) / 1000), "no_numbers": len(empty)}))
