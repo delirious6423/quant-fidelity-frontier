@@ -65,6 +65,8 @@ async def main():
                 selected_basis = await page.input_value('#home-basis')
                 selected_format = await page.input_value('#home-format')
                 await page.click('#start')
+                await page.wait_for_load_state('load')
+                await page.locator('#exset').wait_for(state='visible')
                 query = parse_qs(urlparse(page.url).query)
                 assert query['set'] == [selected_set] and query['fmt'] == [selected_format] and query['basis'] == [selected_basis]
                 await page.reload()
