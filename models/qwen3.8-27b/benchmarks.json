@@ -1,0 +1,1140 @@
+{
+  "sources": [
+    {
+      "repo": "eaddario/Qwen3.8-27B-GGUF",
+      "card_sha256": "fbafba3277981a9f50f2888bb2aced651b60b273fea05ac0b5fafc9c6b335da1",
+      "label": "eaddario · GGUF task scores",
+      "context": "llama-perplexity · 750 tasks/test · context 1024",
+      "notes": [
+        "Scores and sizes are transcribed from the cached model card. Size table header says Size (GB) [L108]; benchmark rows are L127–134.",
+        "Shared evaluation setup: llama-perplexity with 750 tasks per test and context size 1024 tokens [L121].",
+        "Benchmark score units are not explicitly specified by the table; values are retained as published without adding a percent label.",
+        "The benchmark table spells its MMLU column MMLU-Redox [L125]; section title and dataset link identify MMLU-Redux [L120,L123].",
+        "Published uncertainties are retained in point notes without interpreting their statistical meaning. Avg Score is excluded."
+      ],
+      "metrics": [
+        {
+          "name": "HellaSwag",
+          "unit": "as published",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "Qwen3.8-27B-Q1_L",
+              "size_value": 5.6,
+              "size_unit": "GB",
+              "size_raw": "5.6",
+              "size_line": 111,
+              "size_quote": "| [Qwen3.8-27B-Q1_L](./Qwen3.8-27B-Q1_L.gguf) |  1.7500 |       5.6 | 15.076645 ±0.103470 | 80.83% | 0.931233 ±0.002887 | 60.773 ±0.127 |",
+              "score": 62.53,
+              "raw": "62.53",
+              "line": 127,
+              "quote": "| [Qwen3.8-27B-Q1_L](./Qwen3.8-27B-Q1_L.gguf) | 52.5333 ±1.8246 | 23.7374 ±3.0314 |     62.53 | 54.8000 ±1.8185 | 30.0000 ±1.6744 | 63.2000 ±1.7621 |     47.80 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "Qwen3.8-27B-Q2_K",
+              "size_value": 8.0,
+              "size_unit": "GB",
+              "size_raw": "8.0",
+              "size_line": 112,
+              "size_quote": "| [Qwen3.8-27B-Q2_K](./Qwen3.8-27B-Q2_K.gguf) |  2.5000 |       8.0 |  8.213575 ±0.052813 | 93.16% | 0.288783 ±0.001496 | 77.247 ±0.109 |",
+              "score": 76.0,
+              "raw": "76.00",
+              "line": 128,
+              "quote": "| [Qwen3.8-27B-Q2_K](./Qwen3.8-27B-Q2_K.gguf) | 66.2667 ±1.7276 | 30.3030 ±3.2743 |     76.00 | 78.1333 ±1.5103 | 32.1333 ±1.7063 | 71.8667 ±1.6430 |     59.12 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "Qwen3.8-27B-Q3_K",
+              "size_value": 11.0,
+              "size_unit": "GB",
+              "size_raw": "11.0",
+              "size_line": 113,
+              "size_quote": "| [Qwen3.8-27B-Q3_K](./Qwen3.8-27B-Q3_K.gguf) |  3.5000 |      11.0 |  6.960375 ±0.043746 | 98.13% | 0.082257 ±0.000671 | 87.799 ±0.085 |",
+              "score": 81.2,
+              "raw": "81.20",
+              "line": 129,
+              "quote": "| [Qwen3.8-27B-Q3_K](./Qwen3.8-27B-Q3_K.gguf) | 62.9333 ±1.7648 | 34.3434 ±3.3832 |     81.20 | 82.6667 ±1.3831 | 34.6667 ±1.7389 | 74.8000 ±1.5864 |     61.77 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "Qwen3.8-27B-Q4_K",
+              "size_value": 14.0,
+              "size_unit": "GB",
+              "size_raw": "14.0",
+              "size_line": 114,
+              "size_quote": "| [Qwen3.8-27B-Q4_K](./Qwen3.8-27B-Q4_K.gguf) |  4.5000 |      14.0 |  6.736913 ±0.043056 | 99.48% | 0.022733 ±0.000324 | 93.505 ±0.064 |",
+              "score": 82.0,
+              "raw": "82.00",
+              "line": 130,
+              "quote": "| [Qwen3.8-27B-Q4_K](./Qwen3.8-27B-Q4_K.gguf) | 63.4667 ±1.7594 | 32.3232 ±3.3323 |     82.00 | 81.3333 ±1.4237 | 34.4000 ±1.7358 | 75.4667 ±1.5722 |     61.50 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "Qwen3.8-27B-Q5_K",
+              "size_value": 18.0,
+              "size_unit": "GB",
+              "size_raw": "18.0",
+              "size_line": 115,
+              "size_quote": "| [Qwen3.8-27B-Q5_K](./Qwen3.8-27B-Q5_K.gguf) |  5.5000 |      18.0 |  6.696776 ±0.042814 | 99.75% | 0.009866 ±0.000216 | 95.745 ±0.052 |",
+              "score": 82.4,
+              "raw": "82.40",
+              "line": 131,
+              "quote": "| [Qwen3.8-27B-Q5_K](./Qwen3.8-27B-Q5_K.gguf) | 64.0000 ±1.7539 | 31.3131 ±3.3042 |     82.40 | 82.0000 ±1.4038 | 32.9333 ±1.7172 | 76.1333 ±1.5576 |     61.46 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "Qwen3.8-27B-Q6_K",
+              "size_value": 21.0,
+              "size_unit": "GB",
+              "size_raw": "21.0",
+              "size_line": 116,
+              "size_quote": "| [Qwen3.8-27B-Q6_K](./Qwen3.8-27B-Q6_K.gguf) |  6.5000 |      21.0 |  6.661399 ±0.042549 | 99.89% | 0.004195 ±0.000167 | 97.225 ±0.043 |",
+              "score": 82.4,
+              "raw": "82.40",
+              "line": 132,
+              "quote": "| [Qwen3.8-27B-Q6_K](./Qwen3.8-27B-Q6_K.gguf) | 63.7333 ±1.7567 | 33.8384 ±3.3711 |     82.40 | 81.8667 ±1.4078 | 34.0000 ±1.7309 | 76.0000 ±1.5605 |     61.97 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "Qwen3.8-27B-Q7_K",
+              "size_value": 24.0,
+              "size_unit": "GB",
+              "size_raw": "24.0",
+              "size_line": 117,
+              "size_quote": "| [Qwen3.8-27B-Q7_K](./Qwen3.8-27B-Q7_K.gguf) |  7.5000 |      24.0 |  6.678988 ±0.042743 | 99.94% | 0.002050 ±0.000086 | 97.913 ±0.037 |",
+              "score": 82.27,
+              "raw": "82.27",
+              "line": 133,
+              "quote": "| [Qwen3.8-27B-Q7_K](./Qwen3.8-27B-Q7_K.gguf) | 64.2667 ±1.7510 | 32.8283 ±3.3457 |     82.27 | 82.2667 ±1.3956 | 33.7333 ±1.7276 | 76.0000 ±1.5605 |     61.89 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "Qwen3.8-27B-Q8_0",
+              "size_value": 27.0,
+              "size_unit": "GB",
+              "size_raw": "27.0",
+              "size_line": 118,
+              "size_quote": "| [Qwen3.8-27B-Q8_0](./Qwen3.8-27B-Q8_0.gguf) |  8.5000 |      27.0 |  6.671738 ±0.042653 | 99.96% | 0.001442 ±0.000061 | 98.134 ±0.035 |",
+              "score": 82.4,
+              "raw": "82.40",
+              "line": 134,
+              "quote": "| [Qwen3.8-27B-Q8_0](./Qwen3.8-27B-Q8_0.gguf) | 64.0000 ±1.7539 | 32.3232 ±3.3323 |     82.40 | 82.2667 ±1.3956 | 33.4667 ±1.7242 | 75.7333 ±1.5664 |     61.70 |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        },
+        {
+          "name": "ARC Challenge",
+          "unit": "as published",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "Qwen3.8-27B-Q1_L",
+              "size_value": 5.6,
+              "size_unit": "GB",
+              "size_raw": "5.6",
+              "size_line": 111,
+              "size_quote": "| [Qwen3.8-27B-Q1_L](./Qwen3.8-27B-Q1_L.gguf) |  1.7500 |       5.6 | 15.076645 ±0.103470 | 80.83% | 0.931233 ±0.002887 | 60.773 ±0.127 |",
+              "score": 52.5333,
+              "raw": "52.5333",
+              "line": 127,
+              "quote": "| [Qwen3.8-27B-Q1_L](./Qwen3.8-27B-Q1_L.gguf) | 52.5333 ±1.8246 | 23.7374 ±3.0314 |     62.53 | 54.8000 ±1.8185 | 30.0000 ±1.6744 | 63.2000 ±1.7621 |     47.80 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 52.5333 ±1.8246"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q2_K",
+              "size_value": 8.0,
+              "size_unit": "GB",
+              "size_raw": "8.0",
+              "size_line": 112,
+              "size_quote": "| [Qwen3.8-27B-Q2_K](./Qwen3.8-27B-Q2_K.gguf) |  2.5000 |       8.0 |  8.213575 ±0.052813 | 93.16% | 0.288783 ±0.001496 | 77.247 ±0.109 |",
+              "score": 66.2667,
+              "raw": "66.2667",
+              "line": 128,
+              "quote": "| [Qwen3.8-27B-Q2_K](./Qwen3.8-27B-Q2_K.gguf) | 66.2667 ±1.7276 | 30.3030 ±3.2743 |     76.00 | 78.1333 ±1.5103 | 32.1333 ±1.7063 | 71.8667 ±1.6430 |     59.12 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 66.2667 ±1.7276"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q3_K",
+              "size_value": 11.0,
+              "size_unit": "GB",
+              "size_raw": "11.0",
+              "size_line": 113,
+              "size_quote": "| [Qwen3.8-27B-Q3_K](./Qwen3.8-27B-Q3_K.gguf) |  3.5000 |      11.0 |  6.960375 ±0.043746 | 98.13% | 0.082257 ±0.000671 | 87.799 ±0.085 |",
+              "score": 62.9333,
+              "raw": "62.9333",
+              "line": 129,
+              "quote": "| [Qwen3.8-27B-Q3_K](./Qwen3.8-27B-Q3_K.gguf) | 62.9333 ±1.7648 | 34.3434 ±3.3832 |     81.20 | 82.6667 ±1.3831 | 34.6667 ±1.7389 | 74.8000 ±1.5864 |     61.77 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 62.9333 ±1.7648"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q4_K",
+              "size_value": 14.0,
+              "size_unit": "GB",
+              "size_raw": "14.0",
+              "size_line": 114,
+              "size_quote": "| [Qwen3.8-27B-Q4_K](./Qwen3.8-27B-Q4_K.gguf) |  4.5000 |      14.0 |  6.736913 ±0.043056 | 99.48% | 0.022733 ±0.000324 | 93.505 ±0.064 |",
+              "score": 63.4667,
+              "raw": "63.4667",
+              "line": 130,
+              "quote": "| [Qwen3.8-27B-Q4_K](./Qwen3.8-27B-Q4_K.gguf) | 63.4667 ±1.7594 | 32.3232 ±3.3323 |     82.00 | 81.3333 ±1.4237 | 34.4000 ±1.7358 | 75.4667 ±1.5722 |     61.50 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 63.4667 ±1.7594"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q5_K",
+              "size_value": 18.0,
+              "size_unit": "GB",
+              "size_raw": "18.0",
+              "size_line": 115,
+              "size_quote": "| [Qwen3.8-27B-Q5_K](./Qwen3.8-27B-Q5_K.gguf) |  5.5000 |      18.0 |  6.696776 ±0.042814 | 99.75% | 0.009866 ±0.000216 | 95.745 ±0.052 |",
+              "score": 64.0,
+              "raw": "64.0000",
+              "line": 131,
+              "quote": "| [Qwen3.8-27B-Q5_K](./Qwen3.8-27B-Q5_K.gguf) | 64.0000 ±1.7539 | 31.3131 ±3.3042 |     82.40 | 82.0000 ±1.4038 | 32.9333 ±1.7172 | 76.1333 ±1.5576 |     61.46 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 64.0000 ±1.7539"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q6_K",
+              "size_value": 21.0,
+              "size_unit": "GB",
+              "size_raw": "21.0",
+              "size_line": 116,
+              "size_quote": "| [Qwen3.8-27B-Q6_K](./Qwen3.8-27B-Q6_K.gguf) |  6.5000 |      21.0 |  6.661399 ±0.042549 | 99.89% | 0.004195 ±0.000167 | 97.225 ±0.043 |",
+              "score": 63.7333,
+              "raw": "63.7333",
+              "line": 132,
+              "quote": "| [Qwen3.8-27B-Q6_K](./Qwen3.8-27B-Q6_K.gguf) | 63.7333 ±1.7567 | 33.8384 ±3.3711 |     82.40 | 81.8667 ±1.4078 | 34.0000 ±1.7309 | 76.0000 ±1.5605 |     61.97 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 63.7333 ±1.7567"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q7_K",
+              "size_value": 24.0,
+              "size_unit": "GB",
+              "size_raw": "24.0",
+              "size_line": 117,
+              "size_quote": "| [Qwen3.8-27B-Q7_K](./Qwen3.8-27B-Q7_K.gguf) |  7.5000 |      24.0 |  6.678988 ±0.042743 | 99.94% | 0.002050 ±0.000086 | 97.913 ±0.037 |",
+              "score": 64.2667,
+              "raw": "64.2667",
+              "line": 133,
+              "quote": "| [Qwen3.8-27B-Q7_K](./Qwen3.8-27B-Q7_K.gguf) | 64.2667 ±1.7510 | 32.8283 ±3.3457 |     82.27 | 82.2667 ±1.3956 | 33.7333 ±1.7276 | 76.0000 ±1.5605 |     61.89 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 64.2667 ±1.7510"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q8_0",
+              "size_value": 27.0,
+              "size_unit": "GB",
+              "size_raw": "27.0",
+              "size_line": 118,
+              "size_quote": "| [Qwen3.8-27B-Q8_0](./Qwen3.8-27B-Q8_0.gguf) |  8.5000 |      27.0 |  6.671738 ±0.042653 | 99.96% | 0.001442 ±0.000061 | 98.134 ±0.035 |",
+              "score": 64.0,
+              "raw": "64.0000",
+              "line": 134,
+              "quote": "| [Qwen3.8-27B-Q8_0](./Qwen3.8-27B-Q8_0.gguf) | 64.0000 ±1.7539 | 32.3232 ±3.3323 |     82.40 | 82.2667 ±1.3956 | 33.4667 ±1.7242 | 75.7333 ±1.5664 |     61.70 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 64.0000 ±1.7539"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "GPQA-Diamond",
+          "unit": "as published",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "Qwen3.8-27B-Q1_L",
+              "size_value": 5.6,
+              "size_unit": "GB",
+              "size_raw": "5.6",
+              "size_line": 111,
+              "size_quote": "| [Qwen3.8-27B-Q1_L](./Qwen3.8-27B-Q1_L.gguf) |  1.7500 |       5.6 | 15.076645 ±0.103470 | 80.83% | 0.931233 ±0.002887 | 60.773 ±0.127 |",
+              "score": 23.7374,
+              "raw": "23.7374",
+              "line": 127,
+              "quote": "| [Qwen3.8-27B-Q1_L](./Qwen3.8-27B-Q1_L.gguf) | 52.5333 ±1.8246 | 23.7374 ±3.0314 |     62.53 | 54.8000 ±1.8185 | 30.0000 ±1.6744 | 63.2000 ±1.7621 |     47.80 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 23.7374 ±3.0314"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q2_K",
+              "size_value": 8.0,
+              "size_unit": "GB",
+              "size_raw": "8.0",
+              "size_line": 112,
+              "size_quote": "| [Qwen3.8-27B-Q2_K](./Qwen3.8-27B-Q2_K.gguf) |  2.5000 |       8.0 |  8.213575 ±0.052813 | 93.16% | 0.288783 ±0.001496 | 77.247 ±0.109 |",
+              "score": 30.303,
+              "raw": "30.3030",
+              "line": 128,
+              "quote": "| [Qwen3.8-27B-Q2_K](./Qwen3.8-27B-Q2_K.gguf) | 66.2667 ±1.7276 | 30.3030 ±3.2743 |     76.00 | 78.1333 ±1.5103 | 32.1333 ±1.7063 | 71.8667 ±1.6430 |     59.12 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 30.3030 ±3.2743"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q3_K",
+              "size_value": 11.0,
+              "size_unit": "GB",
+              "size_raw": "11.0",
+              "size_line": 113,
+              "size_quote": "| [Qwen3.8-27B-Q3_K](./Qwen3.8-27B-Q3_K.gguf) |  3.5000 |      11.0 |  6.960375 ±0.043746 | 98.13% | 0.082257 ±0.000671 | 87.799 ±0.085 |",
+              "score": 34.3434,
+              "raw": "34.3434",
+              "line": 129,
+              "quote": "| [Qwen3.8-27B-Q3_K](./Qwen3.8-27B-Q3_K.gguf) | 62.9333 ±1.7648 | 34.3434 ±3.3832 |     81.20 | 82.6667 ±1.3831 | 34.6667 ±1.7389 | 74.8000 ±1.5864 |     61.77 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 34.3434 ±3.3832"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q4_K",
+              "size_value": 14.0,
+              "size_unit": "GB",
+              "size_raw": "14.0",
+              "size_line": 114,
+              "size_quote": "| [Qwen3.8-27B-Q4_K](./Qwen3.8-27B-Q4_K.gguf) |  4.5000 |      14.0 |  6.736913 ±0.043056 | 99.48% | 0.022733 ±0.000324 | 93.505 ±0.064 |",
+              "score": 32.3232,
+              "raw": "32.3232",
+              "line": 130,
+              "quote": "| [Qwen3.8-27B-Q4_K](./Qwen3.8-27B-Q4_K.gguf) | 63.4667 ±1.7594 | 32.3232 ±3.3323 |     82.00 | 81.3333 ±1.4237 | 34.4000 ±1.7358 | 75.4667 ±1.5722 |     61.50 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 32.3232 ±3.3323"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q5_K",
+              "size_value": 18.0,
+              "size_unit": "GB",
+              "size_raw": "18.0",
+              "size_line": 115,
+              "size_quote": "| [Qwen3.8-27B-Q5_K](./Qwen3.8-27B-Q5_K.gguf) |  5.5000 |      18.0 |  6.696776 ±0.042814 | 99.75% | 0.009866 ±0.000216 | 95.745 ±0.052 |",
+              "score": 31.3131,
+              "raw": "31.3131",
+              "line": 131,
+              "quote": "| [Qwen3.8-27B-Q5_K](./Qwen3.8-27B-Q5_K.gguf) | 64.0000 ±1.7539 | 31.3131 ±3.3042 |     82.40 | 82.0000 ±1.4038 | 32.9333 ±1.7172 | 76.1333 ±1.5576 |     61.46 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 31.3131 ±3.3042"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q6_K",
+              "size_value": 21.0,
+              "size_unit": "GB",
+              "size_raw": "21.0",
+              "size_line": 116,
+              "size_quote": "| [Qwen3.8-27B-Q6_K](./Qwen3.8-27B-Q6_K.gguf) |  6.5000 |      21.0 |  6.661399 ±0.042549 | 99.89% | 0.004195 ±0.000167 | 97.225 ±0.043 |",
+              "score": 33.8384,
+              "raw": "33.8384",
+              "line": 132,
+              "quote": "| [Qwen3.8-27B-Q6_K](./Qwen3.8-27B-Q6_K.gguf) | 63.7333 ±1.7567 | 33.8384 ±3.3711 |     82.40 | 81.8667 ±1.4078 | 34.0000 ±1.7309 | 76.0000 ±1.5605 |     61.97 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 33.8384 ±3.3711"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q7_K",
+              "size_value": 24.0,
+              "size_unit": "GB",
+              "size_raw": "24.0",
+              "size_line": 117,
+              "size_quote": "| [Qwen3.8-27B-Q7_K](./Qwen3.8-27B-Q7_K.gguf) |  7.5000 |      24.0 |  6.678988 ±0.042743 | 99.94% | 0.002050 ±0.000086 | 97.913 ±0.037 |",
+              "score": 32.8283,
+              "raw": "32.8283",
+              "line": 133,
+              "quote": "| [Qwen3.8-27B-Q7_K](./Qwen3.8-27B-Q7_K.gguf) | 64.2667 ±1.7510 | 32.8283 ±3.3457 |     82.27 | 82.2667 ±1.3956 | 33.7333 ±1.7276 | 76.0000 ±1.5605 |     61.89 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 32.8283 ±3.3457"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q8_0",
+              "size_value": 27.0,
+              "size_unit": "GB",
+              "size_raw": "27.0",
+              "size_line": 118,
+              "size_quote": "| [Qwen3.8-27B-Q8_0](./Qwen3.8-27B-Q8_0.gguf) |  8.5000 |      27.0 |  6.671738 ±0.042653 | 99.96% | 0.001442 ±0.000061 | 98.134 ±0.035 |",
+              "score": 32.3232,
+              "raw": "32.3232",
+              "line": 134,
+              "quote": "| [Qwen3.8-27B-Q8_0](./Qwen3.8-27B-Q8_0.gguf) | 64.0000 ±1.7539 | 32.3232 ±3.3323 |     82.40 | 82.2667 ±1.3956 | 33.4667 ±1.7242 | 75.7333 ±1.5664 |     61.70 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 32.3232 ±3.3323"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "MMLU-Redux",
+          "unit": "as published",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "Qwen3.8-27B-Q1_L",
+              "size_value": 5.6,
+              "size_unit": "GB",
+              "size_raw": "5.6",
+              "size_line": 111,
+              "size_quote": "| [Qwen3.8-27B-Q1_L](./Qwen3.8-27B-Q1_L.gguf) |  1.7500 |       5.6 | 15.076645 ±0.103470 | 80.83% | 0.931233 ±0.002887 | 60.773 ±0.127 |",
+              "score": 54.8,
+              "raw": "54.8000",
+              "line": 127,
+              "quote": "| [Qwen3.8-27B-Q1_L](./Qwen3.8-27B-Q1_L.gguf) | 52.5333 ±1.8246 | 23.7374 ±3.0314 |     62.53 | 54.8000 ±1.8185 | 30.0000 ±1.6744 | 63.2000 ±1.7621 |     47.80 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 54.8000 ±1.8185"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q2_K",
+              "size_value": 8.0,
+              "size_unit": "GB",
+              "size_raw": "8.0",
+              "size_line": 112,
+              "size_quote": "| [Qwen3.8-27B-Q2_K](./Qwen3.8-27B-Q2_K.gguf) |  2.5000 |       8.0 |  8.213575 ±0.052813 | 93.16% | 0.288783 ±0.001496 | 77.247 ±0.109 |",
+              "score": 78.1333,
+              "raw": "78.1333",
+              "line": 128,
+              "quote": "| [Qwen3.8-27B-Q2_K](./Qwen3.8-27B-Q2_K.gguf) | 66.2667 ±1.7276 | 30.3030 ±3.2743 |     76.00 | 78.1333 ±1.5103 | 32.1333 ±1.7063 | 71.8667 ±1.6430 |     59.12 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 78.1333 ±1.5103"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q3_K",
+              "size_value": 11.0,
+              "size_unit": "GB",
+              "size_raw": "11.0",
+              "size_line": 113,
+              "size_quote": "| [Qwen3.8-27B-Q3_K](./Qwen3.8-27B-Q3_K.gguf) |  3.5000 |      11.0 |  6.960375 ±0.043746 | 98.13% | 0.082257 ±0.000671 | 87.799 ±0.085 |",
+              "score": 82.6667,
+              "raw": "82.6667",
+              "line": 129,
+              "quote": "| [Qwen3.8-27B-Q3_K](./Qwen3.8-27B-Q3_K.gguf) | 62.9333 ±1.7648 | 34.3434 ±3.3832 |     81.20 | 82.6667 ±1.3831 | 34.6667 ±1.7389 | 74.8000 ±1.5864 |     61.77 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 82.6667 ±1.3831"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q4_K",
+              "size_value": 14.0,
+              "size_unit": "GB",
+              "size_raw": "14.0",
+              "size_line": 114,
+              "size_quote": "| [Qwen3.8-27B-Q4_K](./Qwen3.8-27B-Q4_K.gguf) |  4.5000 |      14.0 |  6.736913 ±0.043056 | 99.48% | 0.022733 ±0.000324 | 93.505 ±0.064 |",
+              "score": 81.3333,
+              "raw": "81.3333",
+              "line": 130,
+              "quote": "| [Qwen3.8-27B-Q4_K](./Qwen3.8-27B-Q4_K.gguf) | 63.4667 ±1.7594 | 32.3232 ±3.3323 |     82.00 | 81.3333 ±1.4237 | 34.4000 ±1.7358 | 75.4667 ±1.5722 |     61.50 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 81.3333 ±1.4237"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q5_K",
+              "size_value": 18.0,
+              "size_unit": "GB",
+              "size_raw": "18.0",
+              "size_line": 115,
+              "size_quote": "| [Qwen3.8-27B-Q5_K](./Qwen3.8-27B-Q5_K.gguf) |  5.5000 |      18.0 |  6.696776 ±0.042814 | 99.75% | 0.009866 ±0.000216 | 95.745 ±0.052 |",
+              "score": 82.0,
+              "raw": "82.0000",
+              "line": 131,
+              "quote": "| [Qwen3.8-27B-Q5_K](./Qwen3.8-27B-Q5_K.gguf) | 64.0000 ±1.7539 | 31.3131 ±3.3042 |     82.40 | 82.0000 ±1.4038 | 32.9333 ±1.7172 | 76.1333 ±1.5576 |     61.46 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 82.0000 ±1.4038"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q6_K",
+              "size_value": 21.0,
+              "size_unit": "GB",
+              "size_raw": "21.0",
+              "size_line": 116,
+              "size_quote": "| [Qwen3.8-27B-Q6_K](./Qwen3.8-27B-Q6_K.gguf) |  6.5000 |      21.0 |  6.661399 ±0.042549 | 99.89% | 0.004195 ±0.000167 | 97.225 ±0.043 |",
+              "score": 81.8667,
+              "raw": "81.8667",
+              "line": 132,
+              "quote": "| [Qwen3.8-27B-Q6_K](./Qwen3.8-27B-Q6_K.gguf) | 63.7333 ±1.7567 | 33.8384 ±3.3711 |     82.40 | 81.8667 ±1.4078 | 34.0000 ±1.7309 | 76.0000 ±1.5605 |     61.97 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 81.8667 ±1.4078"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q7_K",
+              "size_value": 24.0,
+              "size_unit": "GB",
+              "size_raw": "24.0",
+              "size_line": 117,
+              "size_quote": "| [Qwen3.8-27B-Q7_K](./Qwen3.8-27B-Q7_K.gguf) |  7.5000 |      24.0 |  6.678988 ±0.042743 | 99.94% | 0.002050 ±0.000086 | 97.913 ±0.037 |",
+              "score": 82.2667,
+              "raw": "82.2667",
+              "line": 133,
+              "quote": "| [Qwen3.8-27B-Q7_K](./Qwen3.8-27B-Q7_K.gguf) | 64.2667 ±1.7510 | 32.8283 ±3.3457 |     82.27 | 82.2667 ±1.3956 | 33.7333 ±1.7276 | 76.0000 ±1.5605 |     61.89 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 82.2667 ±1.3956"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q8_0",
+              "size_value": 27.0,
+              "size_unit": "GB",
+              "size_raw": "27.0",
+              "size_line": 118,
+              "size_quote": "| [Qwen3.8-27B-Q8_0](./Qwen3.8-27B-Q8_0.gguf) |  8.5000 |      27.0 |  6.671738 ±0.042653 | 99.96% | 0.001442 ±0.000061 | 98.134 ±0.035 |",
+              "score": 82.2667,
+              "raw": "82.2667",
+              "line": 134,
+              "quote": "| [Qwen3.8-27B-Q8_0](./Qwen3.8-27B-Q8_0.gguf) | 64.0000 ±1.7539 | 32.3232 ±3.3323 |     82.40 | 82.2667 ±1.3956 | 33.4667 ±1.7242 | 75.7333 ±1.5664 |     61.70 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 82.2667 ±1.3956"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Truthful QA",
+          "unit": "as published",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "Qwen3.8-27B-Q1_L",
+              "size_value": 5.6,
+              "size_unit": "GB",
+              "size_raw": "5.6",
+              "size_line": 111,
+              "size_quote": "| [Qwen3.8-27B-Q1_L](./Qwen3.8-27B-Q1_L.gguf) |  1.7500 |       5.6 | 15.076645 ±0.103470 | 80.83% | 0.931233 ±0.002887 | 60.773 ±0.127 |",
+              "score": 30.0,
+              "raw": "30.0000",
+              "line": 127,
+              "quote": "| [Qwen3.8-27B-Q1_L](./Qwen3.8-27B-Q1_L.gguf) | 52.5333 ±1.8246 | 23.7374 ±3.0314 |     62.53 | 54.8000 ±1.8185 | 30.0000 ±1.6744 | 63.2000 ±1.7621 |     47.80 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 30.0000 ±1.6744"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q2_K",
+              "size_value": 8.0,
+              "size_unit": "GB",
+              "size_raw": "8.0",
+              "size_line": 112,
+              "size_quote": "| [Qwen3.8-27B-Q2_K](./Qwen3.8-27B-Q2_K.gguf) |  2.5000 |       8.0 |  8.213575 ±0.052813 | 93.16% | 0.288783 ±0.001496 | 77.247 ±0.109 |",
+              "score": 32.1333,
+              "raw": "32.1333",
+              "line": 128,
+              "quote": "| [Qwen3.8-27B-Q2_K](./Qwen3.8-27B-Q2_K.gguf) | 66.2667 ±1.7276 | 30.3030 ±3.2743 |     76.00 | 78.1333 ±1.5103 | 32.1333 ±1.7063 | 71.8667 ±1.6430 |     59.12 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 32.1333 ±1.7063"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q3_K",
+              "size_value": 11.0,
+              "size_unit": "GB",
+              "size_raw": "11.0",
+              "size_line": 113,
+              "size_quote": "| [Qwen3.8-27B-Q3_K](./Qwen3.8-27B-Q3_K.gguf) |  3.5000 |      11.0 |  6.960375 ±0.043746 | 98.13% | 0.082257 ±0.000671 | 87.799 ±0.085 |",
+              "score": 34.6667,
+              "raw": "34.6667",
+              "line": 129,
+              "quote": "| [Qwen3.8-27B-Q3_K](./Qwen3.8-27B-Q3_K.gguf) | 62.9333 ±1.7648 | 34.3434 ±3.3832 |     81.20 | 82.6667 ±1.3831 | 34.6667 ±1.7389 | 74.8000 ±1.5864 |     61.77 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 34.6667 ±1.7389"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q4_K",
+              "size_value": 14.0,
+              "size_unit": "GB",
+              "size_raw": "14.0",
+              "size_line": 114,
+              "size_quote": "| [Qwen3.8-27B-Q4_K](./Qwen3.8-27B-Q4_K.gguf) |  4.5000 |      14.0 |  6.736913 ±0.043056 | 99.48% | 0.022733 ±0.000324 | 93.505 ±0.064 |",
+              "score": 34.4,
+              "raw": "34.4000",
+              "line": 130,
+              "quote": "| [Qwen3.8-27B-Q4_K](./Qwen3.8-27B-Q4_K.gguf) | 63.4667 ±1.7594 | 32.3232 ±3.3323 |     82.00 | 81.3333 ±1.4237 | 34.4000 ±1.7358 | 75.4667 ±1.5722 |     61.50 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 34.4000 ±1.7358"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q5_K",
+              "size_value": 18.0,
+              "size_unit": "GB",
+              "size_raw": "18.0",
+              "size_line": 115,
+              "size_quote": "| [Qwen3.8-27B-Q5_K](./Qwen3.8-27B-Q5_K.gguf) |  5.5000 |      18.0 |  6.696776 ±0.042814 | 99.75% | 0.009866 ±0.000216 | 95.745 ±0.052 |",
+              "score": 32.9333,
+              "raw": "32.9333",
+              "line": 131,
+              "quote": "| [Qwen3.8-27B-Q5_K](./Qwen3.8-27B-Q5_K.gguf) | 64.0000 ±1.7539 | 31.3131 ±3.3042 |     82.40 | 82.0000 ±1.4038 | 32.9333 ±1.7172 | 76.1333 ±1.5576 |     61.46 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 32.9333 ±1.7172"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q6_K",
+              "size_value": 21.0,
+              "size_unit": "GB",
+              "size_raw": "21.0",
+              "size_line": 116,
+              "size_quote": "| [Qwen3.8-27B-Q6_K](./Qwen3.8-27B-Q6_K.gguf) |  6.5000 |      21.0 |  6.661399 ±0.042549 | 99.89% | 0.004195 ±0.000167 | 97.225 ±0.043 |",
+              "score": 34.0,
+              "raw": "34.0000",
+              "line": 132,
+              "quote": "| [Qwen3.8-27B-Q6_K](./Qwen3.8-27B-Q6_K.gguf) | 63.7333 ±1.7567 | 33.8384 ±3.3711 |     82.40 | 81.8667 ±1.4078 | 34.0000 ±1.7309 | 76.0000 ±1.5605 |     61.97 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 34.0000 ±1.7309"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q7_K",
+              "size_value": 24.0,
+              "size_unit": "GB",
+              "size_raw": "24.0",
+              "size_line": 117,
+              "size_quote": "| [Qwen3.8-27B-Q7_K](./Qwen3.8-27B-Q7_K.gguf) |  7.5000 |      24.0 |  6.678988 ±0.042743 | 99.94% | 0.002050 ±0.000086 | 97.913 ±0.037 |",
+              "score": 33.7333,
+              "raw": "33.7333",
+              "line": 133,
+              "quote": "| [Qwen3.8-27B-Q7_K](./Qwen3.8-27B-Q7_K.gguf) | 64.2667 ±1.7510 | 32.8283 ±3.3457 |     82.27 | 82.2667 ±1.3956 | 33.7333 ±1.7276 | 76.0000 ±1.5605 |     61.89 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 33.7333 ±1.7276"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q8_0",
+              "size_value": 27.0,
+              "size_unit": "GB",
+              "size_raw": "27.0",
+              "size_line": 118,
+              "size_quote": "| [Qwen3.8-27B-Q8_0](./Qwen3.8-27B-Q8_0.gguf) |  8.5000 |      27.0 |  6.671738 ±0.042653 | 99.96% | 0.001442 ±0.000061 | 98.134 ±0.035 |",
+              "score": 33.4667,
+              "raw": "33.4667",
+              "line": 134,
+              "quote": "| [Qwen3.8-27B-Q8_0](./Qwen3.8-27B-Q8_0.gguf) | 64.0000 ±1.7539 | 32.3232 ±3.3323 |     82.40 | 82.2667 ±1.3956 | 33.4667 ±1.7242 | 75.7333 ±1.5664 |     61.70 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 33.4667 ±1.7242"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "WinoGrande",
+          "unit": "as published",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "Qwen3.8-27B-Q1_L",
+              "size_value": 5.6,
+              "size_unit": "GB",
+              "size_raw": "5.6",
+              "size_line": 111,
+              "size_quote": "| [Qwen3.8-27B-Q1_L](./Qwen3.8-27B-Q1_L.gguf) |  1.7500 |       5.6 | 15.076645 ±0.103470 | 80.83% | 0.931233 ±0.002887 | 60.773 ±0.127 |",
+              "score": 63.2,
+              "raw": "63.2000",
+              "line": 127,
+              "quote": "| [Qwen3.8-27B-Q1_L](./Qwen3.8-27B-Q1_L.gguf) | 52.5333 ±1.8246 | 23.7374 ±3.0314 |     62.53 | 54.8000 ±1.8185 | 30.0000 ±1.6744 | 63.2000 ±1.7621 |     47.80 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 63.2000 ±1.7621"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q2_K",
+              "size_value": 8.0,
+              "size_unit": "GB",
+              "size_raw": "8.0",
+              "size_line": 112,
+              "size_quote": "| [Qwen3.8-27B-Q2_K](./Qwen3.8-27B-Q2_K.gguf) |  2.5000 |       8.0 |  8.213575 ±0.052813 | 93.16% | 0.288783 ±0.001496 | 77.247 ±0.109 |",
+              "score": 71.8667,
+              "raw": "71.8667",
+              "line": 128,
+              "quote": "| [Qwen3.8-27B-Q2_K](./Qwen3.8-27B-Q2_K.gguf) | 66.2667 ±1.7276 | 30.3030 ±3.2743 |     76.00 | 78.1333 ±1.5103 | 32.1333 ±1.7063 | 71.8667 ±1.6430 |     59.12 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 71.8667 ±1.6430"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q3_K",
+              "size_value": 11.0,
+              "size_unit": "GB",
+              "size_raw": "11.0",
+              "size_line": 113,
+              "size_quote": "| [Qwen3.8-27B-Q3_K](./Qwen3.8-27B-Q3_K.gguf) |  3.5000 |      11.0 |  6.960375 ±0.043746 | 98.13% | 0.082257 ±0.000671 | 87.799 ±0.085 |",
+              "score": 74.8,
+              "raw": "74.8000",
+              "line": 129,
+              "quote": "| [Qwen3.8-27B-Q3_K](./Qwen3.8-27B-Q3_K.gguf) | 62.9333 ±1.7648 | 34.3434 ±3.3832 |     81.20 | 82.6667 ±1.3831 | 34.6667 ±1.7389 | 74.8000 ±1.5864 |     61.77 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 74.8000 ±1.5864"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q4_K",
+              "size_value": 14.0,
+              "size_unit": "GB",
+              "size_raw": "14.0",
+              "size_line": 114,
+              "size_quote": "| [Qwen3.8-27B-Q4_K](./Qwen3.8-27B-Q4_K.gguf) |  4.5000 |      14.0 |  6.736913 ±0.043056 | 99.48% | 0.022733 ±0.000324 | 93.505 ±0.064 |",
+              "score": 75.4667,
+              "raw": "75.4667",
+              "line": 130,
+              "quote": "| [Qwen3.8-27B-Q4_K](./Qwen3.8-27B-Q4_K.gguf) | 63.4667 ±1.7594 | 32.3232 ±3.3323 |     82.00 | 81.3333 ±1.4237 | 34.4000 ±1.7358 | 75.4667 ±1.5722 |     61.50 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 75.4667 ±1.5722"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q5_K",
+              "size_value": 18.0,
+              "size_unit": "GB",
+              "size_raw": "18.0",
+              "size_line": 115,
+              "size_quote": "| [Qwen3.8-27B-Q5_K](./Qwen3.8-27B-Q5_K.gguf) |  5.5000 |      18.0 |  6.696776 ±0.042814 | 99.75% | 0.009866 ±0.000216 | 95.745 ±0.052 |",
+              "score": 76.1333,
+              "raw": "76.1333",
+              "line": 131,
+              "quote": "| [Qwen3.8-27B-Q5_K](./Qwen3.8-27B-Q5_K.gguf) | 64.0000 ±1.7539 | 31.3131 ±3.3042 |     82.40 | 82.0000 ±1.4038 | 32.9333 ±1.7172 | 76.1333 ±1.5576 |     61.46 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 76.1333 ±1.5576"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q6_K",
+              "size_value": 21.0,
+              "size_unit": "GB",
+              "size_raw": "21.0",
+              "size_line": 116,
+              "size_quote": "| [Qwen3.8-27B-Q6_K](./Qwen3.8-27B-Q6_K.gguf) |  6.5000 |      21.0 |  6.661399 ±0.042549 | 99.89% | 0.004195 ±0.000167 | 97.225 ±0.043 |",
+              "score": 76.0,
+              "raw": "76.0000",
+              "line": 132,
+              "quote": "| [Qwen3.8-27B-Q6_K](./Qwen3.8-27B-Q6_K.gguf) | 63.7333 ±1.7567 | 33.8384 ±3.3711 |     82.40 | 81.8667 ±1.4078 | 34.0000 ±1.7309 | 76.0000 ±1.5605 |     61.97 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 76.0000 ±1.5605"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q7_K",
+              "size_value": 24.0,
+              "size_unit": "GB",
+              "size_raw": "24.0",
+              "size_line": 117,
+              "size_quote": "| [Qwen3.8-27B-Q7_K](./Qwen3.8-27B-Q7_K.gguf) |  7.5000 |      24.0 |  6.678988 ±0.042743 | 99.94% | 0.002050 ±0.000086 | 97.913 ±0.037 |",
+              "score": 76.0,
+              "raw": "76.0000",
+              "line": 133,
+              "quote": "| [Qwen3.8-27B-Q7_K](./Qwen3.8-27B-Q7_K.gguf) | 64.2667 ±1.7510 | 32.8283 ±3.3457 |     82.27 | 82.2667 ±1.3956 | 33.7333 ±1.7276 | 76.0000 ±1.5605 |     61.89 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 76.0000 ±1.5605"
+              ]
+            },
+            {
+              "variant": "Qwen3.8-27B-Q8_0",
+              "size_value": 27.0,
+              "size_unit": "GB",
+              "size_raw": "27.0",
+              "size_line": 118,
+              "size_quote": "| [Qwen3.8-27B-Q8_0](./Qwen3.8-27B-Q8_0.gguf) |  8.5000 |      27.0 |  6.671738 ±0.042653 | 99.96% | 0.001442 ±0.000061 | 98.134 ±0.035 |",
+              "score": 75.7333,
+              "raw": "75.7333",
+              "line": 134,
+              "quote": "| [Qwen3.8-27B-Q8_0](./Qwen3.8-27B-Q8_0.gguf) | 64.0000 ±1.7539 | 32.3232 ±3.3323 |     82.40 | 82.2667 ±1.3956 | 33.4667 ±1.7242 | 75.7333 ±1.5664 |     61.70 |",
+              "reference": false,
+              "flags": [
+                "Published uncertainty: 75.7333 ±1.5664"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "repo": "tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF",
+      "card_sha256": "df9c9252798143e323ddeac94fc22289b0bd65c6541eec6d8ede629f11b93053",
+      "label": "tooltd · EvalPlus",
+      "context": "pass@1 · no thinking · q4_0 KV",
+      "notes": [
+        "EvalPlus benchmark table reports HumanEval (164 tasks) and MBPP (378 tasks) [L29–31].",
+        "Scores are pass@1, no-thinking mode, with kvcache ctk q4_0 and ctv q4_0 [L32]; fractional values are preserved on their published 0–1 scale.",
+        "File-size table header explicitly says Size (GB) [L58]. Benchmark and size rows link the same full GGUF artifacts for the five retained builds.",
+        "The GSQ-RCO-BuffedMod linked artifact is hosted in a separate tooltd repository; measurement attribution remains this model card.",
+        "Old struck-through versions, unlinked cross-publisher builds and UD3-Q3_K_XL (no matched size) are excluded."
+      ],
+      "metrics": [
+        {
+          "name": "HumanEval",
+          "unit": "fraction",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "ZB4.00-MIN-v5.1-IQ4_XS",
+              "size_value": 12.74,
+              "size_unit": "GB",
+              "size_raw": "12.74",
+              "size_line": 83,
+              "size_quote": "| **⭐[ZB4.00-MIN-v5.1-IQ4_XS](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB4.00-MIN-v5.1-IQ4_XS.gguf)**  | ZB-MIN    | **12.74** | **0.033810**| **92.309%**    | 7.106519|",
+              "score": 0.945,
+              "raw": "0.945",
+              "line": 37,
+              "quote": "| [ZB4.00-MIN-v5.1-IQ4_XS](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB4.00-MIN-v5.1-IQ4_XS.gguf)   | 0.945 | **0.921**   | 0.897 | **0.780** | 👑💀 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "ZB3.88-MIN-v5-IQ3_M_XL",
+              "size_value": 12.34,
+              "size_unit": "GB",
+              "size_raw": "12.34",
+              "size_line": 85,
+              "size_quote": "| **⭐[ZB3.88-MIN-v5-IQ3_M_XL](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.88-MIN-v5-IQ3_M_XL.gguf)**  | ZB-MIN    | **12.34** | **0.042164**| **91.452%**    | **7.132594**|",
+              "score": 0.945,
+              "raw": "0.945",
+              "line": 39,
+              "quote": "| [ZB3.88-MIN-v5-IQ3_M_XL](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.88-MIN-v5-IQ3_M_XL.gguf)   | 0.945     | 0.915      | **0.91** | 0.775 | — |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "GSQ-RCO-BuffedMod",
+              "size_value": 11.49,
+              "size_unit": "GB",
+              "size_raw": "11.49",
+              "size_line": 88,
+              "size_quote": "| **⭐[GSQ-RCO-BuffedMod](https://huggingface.co/tooltd/Qwen3.8-27B-GSQ-RCO-BuffedMod-GGUF/blob/main/Qwen3.8-27B-GSQ-RCO-BuffedMod-IQ3_S_XL-mtp-IQ4XS.gguf)** | ISTA+Mod | **11.49** | 0.051738  | 90.535%  | **7.032142** |",
+              "score": 0.921,
+              "raw": "0.921",
+              "line": 41,
+              "quote": "| [GSQ-RCO-BuffedMod](https://huggingface.co/tooltd/Qwen3.8-27B-GSQ-RCO-BuffedMod-GGUF/blob/main/Qwen3.8-27B-GSQ-RCO-BuffedMod-IQ3_S_XL-mtp-IQ4XS.gguf) | 0.921     | 0.890      | 0.897 | 0.772 | ISTA+Mod |",
+              "reference": false,
+              "flags": [],
+              "repo": "tooltd/Qwen3.8-27B-GSQ-RCO-BuffedMod-GGUF"
+            },
+            {
+              "variant": "ZB3.73-MIN-v5.1-IQ3_M_L",
+              "size_value": 11.88,
+              "size_unit": "GB",
+              "size_raw": "11.88",
+              "size_line": 87,
+              "size_quote": "| **⭐[ZB3.73-MIN-v5.1-IQ3_M_L](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.73-MIN-v5.1-IQ3_M_L.gguf)**    | ZB-MIN | **11.88**  | **0.048117**  | **90.759%** | 7.199937  |",
+              "score": 0.927,
+              "raw": "0.927",
+              "line": 43,
+              "quote": "| [ZB3.73-MIN-v5.1-IQ3_M_L](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.73-MIN-v5.1-IQ3_M_L.gguf)  | 0.927     | 0.896      | 0.881 | 0.757\t| — |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "ZB3.00bpw-IQ3_XXS",
+              "size_value": 9.62,
+              "size_unit": "GB",
+              "size_raw": "9.62",
+              "size_line": 93,
+              "size_quote": "| [ZB3.0BPW-IQ3_XXS](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.00bpw-IQ3_XXS.gguf)       | ZB-MIN       | 9.62         | **0.120503**| **85.320%**    | **7.474669**|",
+              "score": 0.927,
+              "raw": "0.927",
+              "line": 45,
+              "quote": "| [ZB3.00bpw-IQ3_XXS](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.00bpw-IQ3_XXS.gguf)        | 0.927     | 0.884      | 0.865 | 0.743\t| — |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        },
+        {
+          "name": "HumanEval+",
+          "unit": "fraction",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "ZB4.00-MIN-v5.1-IQ4_XS",
+              "size_value": 12.74,
+              "size_unit": "GB",
+              "size_raw": "12.74",
+              "size_line": 83,
+              "size_quote": "| **⭐[ZB4.00-MIN-v5.1-IQ4_XS](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB4.00-MIN-v5.1-IQ4_XS.gguf)**  | ZB-MIN    | **12.74** | **0.033810**| **92.309%**    | 7.106519|",
+              "score": 0.921,
+              "raw": "0.921",
+              "line": 37,
+              "quote": "| [ZB4.00-MIN-v5.1-IQ4_XS](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB4.00-MIN-v5.1-IQ4_XS.gguf)   | 0.945 | **0.921**   | 0.897 | **0.780** | 👑💀 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "ZB3.88-MIN-v5-IQ3_M_XL",
+              "size_value": 12.34,
+              "size_unit": "GB",
+              "size_raw": "12.34",
+              "size_line": 85,
+              "size_quote": "| **⭐[ZB3.88-MIN-v5-IQ3_M_XL](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.88-MIN-v5-IQ3_M_XL.gguf)**  | ZB-MIN    | **12.34** | **0.042164**| **91.452%**    | **7.132594**|",
+              "score": 0.915,
+              "raw": "0.915",
+              "line": 39,
+              "quote": "| [ZB3.88-MIN-v5-IQ3_M_XL](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.88-MIN-v5-IQ3_M_XL.gguf)   | 0.945     | 0.915      | **0.91** | 0.775 | — |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "GSQ-RCO-BuffedMod",
+              "size_value": 11.49,
+              "size_unit": "GB",
+              "size_raw": "11.49",
+              "size_line": 88,
+              "size_quote": "| **⭐[GSQ-RCO-BuffedMod](https://huggingface.co/tooltd/Qwen3.8-27B-GSQ-RCO-BuffedMod-GGUF/blob/main/Qwen3.8-27B-GSQ-RCO-BuffedMod-IQ3_S_XL-mtp-IQ4XS.gguf)** | ISTA+Mod | **11.49** | 0.051738  | 90.535%  | **7.032142** |",
+              "score": 0.89,
+              "raw": "0.890",
+              "line": 41,
+              "quote": "| [GSQ-RCO-BuffedMod](https://huggingface.co/tooltd/Qwen3.8-27B-GSQ-RCO-BuffedMod-GGUF/blob/main/Qwen3.8-27B-GSQ-RCO-BuffedMod-IQ3_S_XL-mtp-IQ4XS.gguf) | 0.921     | 0.890      | 0.897 | 0.772 | ISTA+Mod |",
+              "reference": false,
+              "flags": [],
+              "repo": "tooltd/Qwen3.8-27B-GSQ-RCO-BuffedMod-GGUF"
+            },
+            {
+              "variant": "ZB3.73-MIN-v5.1-IQ3_M_L",
+              "size_value": 11.88,
+              "size_unit": "GB",
+              "size_raw": "11.88",
+              "size_line": 87,
+              "size_quote": "| **⭐[ZB3.73-MIN-v5.1-IQ3_M_L](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.73-MIN-v5.1-IQ3_M_L.gguf)**    | ZB-MIN | **11.88**  | **0.048117**  | **90.759%** | 7.199937  |",
+              "score": 0.896,
+              "raw": "0.896",
+              "line": 43,
+              "quote": "| [ZB3.73-MIN-v5.1-IQ3_M_L](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.73-MIN-v5.1-IQ3_M_L.gguf)  | 0.927     | 0.896      | 0.881 | 0.757\t| — |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "ZB3.00bpw-IQ3_XXS",
+              "size_value": 9.62,
+              "size_unit": "GB",
+              "size_raw": "9.62",
+              "size_line": 93,
+              "size_quote": "| [ZB3.0BPW-IQ3_XXS](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.00bpw-IQ3_XXS.gguf)       | ZB-MIN       | 9.62         | **0.120503**| **85.320%**    | **7.474669**|",
+              "score": 0.884,
+              "raw": "0.884",
+              "line": 45,
+              "quote": "| [ZB3.00bpw-IQ3_XXS](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.00bpw-IQ3_XXS.gguf)        | 0.927     | 0.884      | 0.865 | 0.743\t| — |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        },
+        {
+          "name": "MBPP",
+          "unit": "fraction",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "ZB4.00-MIN-v5.1-IQ4_XS",
+              "size_value": 12.74,
+              "size_unit": "GB",
+              "size_raw": "12.74",
+              "size_line": 83,
+              "size_quote": "| **⭐[ZB4.00-MIN-v5.1-IQ4_XS](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB4.00-MIN-v5.1-IQ4_XS.gguf)**  | ZB-MIN    | **12.74** | **0.033810**| **92.309%**    | 7.106519|",
+              "score": 0.897,
+              "raw": "0.897",
+              "line": 37,
+              "quote": "| [ZB4.00-MIN-v5.1-IQ4_XS](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB4.00-MIN-v5.1-IQ4_XS.gguf)   | 0.945 | **0.921**   | 0.897 | **0.780** | 👑💀 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "ZB3.88-MIN-v5-IQ3_M_XL",
+              "size_value": 12.34,
+              "size_unit": "GB",
+              "size_raw": "12.34",
+              "size_line": 85,
+              "size_quote": "| **⭐[ZB3.88-MIN-v5-IQ3_M_XL](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.88-MIN-v5-IQ3_M_XL.gguf)**  | ZB-MIN    | **12.34** | **0.042164**| **91.452%**    | **7.132594**|",
+              "score": 0.91,
+              "raw": "0.91",
+              "line": 39,
+              "quote": "| [ZB3.88-MIN-v5-IQ3_M_XL](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.88-MIN-v5-IQ3_M_XL.gguf)   | 0.945     | 0.915      | **0.91** | 0.775 | — |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "GSQ-RCO-BuffedMod",
+              "size_value": 11.49,
+              "size_unit": "GB",
+              "size_raw": "11.49",
+              "size_line": 88,
+              "size_quote": "| **⭐[GSQ-RCO-BuffedMod](https://huggingface.co/tooltd/Qwen3.8-27B-GSQ-RCO-BuffedMod-GGUF/blob/main/Qwen3.8-27B-GSQ-RCO-BuffedMod-IQ3_S_XL-mtp-IQ4XS.gguf)** | ISTA+Mod | **11.49** | 0.051738  | 90.535%  | **7.032142** |",
+              "score": 0.897,
+              "raw": "0.897",
+              "line": 41,
+              "quote": "| [GSQ-RCO-BuffedMod](https://huggingface.co/tooltd/Qwen3.8-27B-GSQ-RCO-BuffedMod-GGUF/blob/main/Qwen3.8-27B-GSQ-RCO-BuffedMod-IQ3_S_XL-mtp-IQ4XS.gguf) | 0.921     | 0.890      | 0.897 | 0.772 | ISTA+Mod |",
+              "reference": false,
+              "flags": [],
+              "repo": "tooltd/Qwen3.8-27B-GSQ-RCO-BuffedMod-GGUF"
+            },
+            {
+              "variant": "ZB3.73-MIN-v5.1-IQ3_M_L",
+              "size_value": 11.88,
+              "size_unit": "GB",
+              "size_raw": "11.88",
+              "size_line": 87,
+              "size_quote": "| **⭐[ZB3.73-MIN-v5.1-IQ3_M_L](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.73-MIN-v5.1-IQ3_M_L.gguf)**    | ZB-MIN | **11.88**  | **0.048117**  | **90.759%** | 7.199937  |",
+              "score": 0.881,
+              "raw": "0.881",
+              "line": 43,
+              "quote": "| [ZB3.73-MIN-v5.1-IQ3_M_L](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.73-MIN-v5.1-IQ3_M_L.gguf)  | 0.927     | 0.896      | 0.881 | 0.757\t| — |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "ZB3.00bpw-IQ3_XXS",
+              "size_value": 9.62,
+              "size_unit": "GB",
+              "size_raw": "9.62",
+              "size_line": 93,
+              "size_quote": "| [ZB3.0BPW-IQ3_XXS](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.00bpw-IQ3_XXS.gguf)       | ZB-MIN       | 9.62         | **0.120503**| **85.320%**    | **7.474669**|",
+              "score": 0.865,
+              "raw": "0.865",
+              "line": 45,
+              "quote": "| [ZB3.00bpw-IQ3_XXS](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.00bpw-IQ3_XXS.gguf)        | 0.927     | 0.884      | 0.865 | 0.743\t| — |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        },
+        {
+          "name": "MBPP+",
+          "unit": "fraction",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "ZB4.00-MIN-v5.1-IQ4_XS",
+              "size_value": 12.74,
+              "size_unit": "GB",
+              "size_raw": "12.74",
+              "size_line": 83,
+              "size_quote": "| **⭐[ZB4.00-MIN-v5.1-IQ4_XS](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB4.00-MIN-v5.1-IQ4_XS.gguf)**  | ZB-MIN    | **12.74** | **0.033810**| **92.309%**    | 7.106519|",
+              "score": 0.78,
+              "raw": "0.780",
+              "line": 37,
+              "quote": "| [ZB4.00-MIN-v5.1-IQ4_XS](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB4.00-MIN-v5.1-IQ4_XS.gguf)   | 0.945 | **0.921**   | 0.897 | **0.780** | 👑💀 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "ZB3.88-MIN-v5-IQ3_M_XL",
+              "size_value": 12.34,
+              "size_unit": "GB",
+              "size_raw": "12.34",
+              "size_line": 85,
+              "size_quote": "| **⭐[ZB3.88-MIN-v5-IQ3_M_XL](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.88-MIN-v5-IQ3_M_XL.gguf)**  | ZB-MIN    | **12.34** | **0.042164**| **91.452%**    | **7.132594**|",
+              "score": 0.775,
+              "raw": "0.775",
+              "line": 39,
+              "quote": "| [ZB3.88-MIN-v5-IQ3_M_XL](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.88-MIN-v5-IQ3_M_XL.gguf)   | 0.945     | 0.915      | **0.91** | 0.775 | — |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "GSQ-RCO-BuffedMod",
+              "size_value": 11.49,
+              "size_unit": "GB",
+              "size_raw": "11.49",
+              "size_line": 88,
+              "size_quote": "| **⭐[GSQ-RCO-BuffedMod](https://huggingface.co/tooltd/Qwen3.8-27B-GSQ-RCO-BuffedMod-GGUF/blob/main/Qwen3.8-27B-GSQ-RCO-BuffedMod-IQ3_S_XL-mtp-IQ4XS.gguf)** | ISTA+Mod | **11.49** | 0.051738  | 90.535%  | **7.032142** |",
+              "score": 0.772,
+              "raw": "0.772",
+              "line": 41,
+              "quote": "| [GSQ-RCO-BuffedMod](https://huggingface.co/tooltd/Qwen3.8-27B-GSQ-RCO-BuffedMod-GGUF/blob/main/Qwen3.8-27B-GSQ-RCO-BuffedMod-IQ3_S_XL-mtp-IQ4XS.gguf) | 0.921     | 0.890      | 0.897 | 0.772 | ISTA+Mod |",
+              "reference": false,
+              "flags": [],
+              "repo": "tooltd/Qwen3.8-27B-GSQ-RCO-BuffedMod-GGUF"
+            },
+            {
+              "variant": "ZB3.73-MIN-v5.1-IQ3_M_L",
+              "size_value": 11.88,
+              "size_unit": "GB",
+              "size_raw": "11.88",
+              "size_line": 87,
+              "size_quote": "| **⭐[ZB3.73-MIN-v5.1-IQ3_M_L](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.73-MIN-v5.1-IQ3_M_L.gguf)**    | ZB-MIN | **11.88**  | **0.048117**  | **90.759%** | 7.199937  |",
+              "score": 0.757,
+              "raw": "0.757",
+              "line": 43,
+              "quote": "| [ZB3.73-MIN-v5.1-IQ3_M_L](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.73-MIN-v5.1-IQ3_M_L.gguf)  | 0.927     | 0.896      | 0.881 | 0.757\t| — |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "ZB3.00bpw-IQ3_XXS",
+              "size_value": 9.62,
+              "size_unit": "GB",
+              "size_raw": "9.62",
+              "size_line": 93,
+              "size_quote": "| [ZB3.0BPW-IQ3_XXS](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.00bpw-IQ3_XXS.gguf)       | ZB-MIN       | 9.62         | **0.120503**| **85.320%**    | **7.474669**|",
+              "score": 0.743,
+              "raw": "0.743",
+              "line": 45,
+              "quote": "| [ZB3.00bpw-IQ3_XXS](https://huggingface.co/tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF/blob/main/Qwen3.8-27B-ZB3.00bpw-IQ3_XXS.gguf)        | 0.927     | 0.884      | 0.865 | 0.743\t| — |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

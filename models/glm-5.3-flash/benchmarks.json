@@ -1,0 +1,122 @@
+{
+  "sources": [
+    {
+      "repo": "mbehr90/GLM-5.3-Flash-nvfp4",
+      "card_sha256": "b4d44ec19fc37b30d5e9f5556b618df747372c724349ab860d2ccf06a768c950",
+      "label": "mbehr90 · 4× H100 80 GB",
+      "context": "Measured on 4× H100 80 GB using vLLM. The source checkpoint is native FP8. Its GSM8K chat result used per-GPU CPU offload; this affects throughput comparability. Prompting, score units and full evaluation settings are not specified in this table.",
+      "notes": [
+        "File sizes are publisher-reported GiB on disk, converted to decimal GB for the horizontal axis. File size is not total VRAM usage.",
+        "The source FP8 reference has only a GSM8K chat score in this table; no missing reference benchmark values are inferred.",
+        "Source FP8 CPU offload makes its throughput incomparable with this NVFP4 build (card lines 78–81); throughput is not plotted."
+      ],
+      "metrics": [
+        {
+          "name": "GSM8K chat",
+          "unit": "as published",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "this build (NVFP4)",
+              "repo": "mbehr90/GLM-5.3-Flash-nvfp4",
+              "size_value": 191.0,
+              "size_unit": "GiB",
+              "size_raw": "191.0",
+              "size_line": 76,
+              "size_quote": "| **this build** (NVFP4) | 191.0 GiB | 98.4 | 84.6 | 90.4 | 69.2 | 136 | 1509 |",
+              "score": 98.4,
+              "raw": "98.4",
+              "line": 76,
+              "quote": "| **this build** (NVFP4) | 191.0 GiB | 98.4 | 84.6 | 90.4 | 69.2 | 136 | 1509 |",
+              "reference": false,
+              "flags": []
+            },
+            {
+              "variant": "zai-org/GLM-5.3-Flash (source FP8)",
+              "repo": "zai-org/GLM-5.3-Flash",
+              "size_value": 305.8,
+              "size_unit": "GiB",
+              "size_raw": "305.8",
+              "size_line": 75,
+              "size_quote": "| [zai-org/GLM-5.3-Flash](https://huggingface.co/zai-org/GLM-5.3-Flash) (source, FP8) | 305.8 GiB | 98.8 | n/a | n/a | n/a | n/a | n/a |",
+              "score": 98.8,
+              "raw": "98.8",
+              "line": 75,
+              "quote": "| [zai-org/GLM-5.3-Flash](https://huggingface.co/zai-org/GLM-5.3-Flash) (source, FP8) | 305.8 GiB | 98.8 | n/a | n/a | n/a | n/a | n/a |",
+              "reference": true,
+              "flags": [
+                "Source FP8 run used CPU offload."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "GSM8K lm-eval",
+          "unit": "as published",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "this build (NVFP4)",
+              "repo": "mbehr90/GLM-5.3-Flash-nvfp4",
+              "size_value": 191.0,
+              "size_unit": "GiB",
+              "size_raw": "191.0",
+              "size_line": 76,
+              "size_quote": "| **this build** (NVFP4) | 191.0 GiB | 98.4 | 84.6 | 90.4 | 69.2 | 136 | 1509 |",
+              "score": 90.4,
+              "raw": "90.4",
+              "line": 76,
+              "quote": "| **this build** (NVFP4) | 191.0 GiB | 98.4 | 84.6 | 90.4 | 69.2 | 136 | 1509 |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        },
+        {
+          "name": "ARC-C",
+          "unit": "as published",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "this build (NVFP4)",
+              "repo": "mbehr90/GLM-5.3-Flash-nvfp4",
+              "size_value": 191.0,
+              "size_unit": "GiB",
+              "size_raw": "191.0",
+              "size_line": 76,
+              "size_quote": "| **this build** (NVFP4) | 191.0 GiB | 98.4 | 84.6 | 90.4 | 69.2 | 136 | 1509 |",
+              "score": 69.2,
+              "raw": "69.2",
+              "line": 76,
+              "quote": "| **this build** (NVFP4) | 191.0 GiB | 98.4 | 84.6 | 90.4 | 69.2 | 136 | 1509 |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        },
+        {
+          "name": "AI2D vision",
+          "unit": "as published",
+          "direction": "higher",
+          "points": [
+            {
+              "variant": "this build (NVFP4)",
+              "repo": "mbehr90/GLM-5.3-Flash-nvfp4",
+              "size_value": 191.0,
+              "size_unit": "GiB",
+              "size_raw": "191.0",
+              "size_line": 76,
+              "size_quote": "| **this build** (NVFP4) | 191.0 GiB | 98.4 | 84.6 | 90.4 | 69.2 | 136 | 1509 |",
+              "score": 84.6,
+              "raw": "84.6",
+              "line": 76,
+              "quote": "| **this build** (NVFP4) | 191.0 GiB | 98.4 | 84.6 | 90.4 | 69.2 | 136 | 1509 |",
+              "reference": false,
+              "flags": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
