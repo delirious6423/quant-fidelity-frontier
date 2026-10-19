@@ -14,7 +14,11 @@ jobs:
       - run: pip install pillow numpy playwright && python -m playwright install --with-deps chromium
       - name: Gates + build + UI tests, every live model (build.py refuses on any gate failure)
         run: |
-          for d in $(python3 pipeline/qcl_live.py); do QCL_ROOT="$d" python3 build.py && QCL_SITE="$d/site" python3 tests/test_ui.py || exit 1; done
+          # on failure, the last lines also go out as annotations (readable from the API without the log archive)
+          for d in $(python3 pipeline/qcl_live.py); do
+            { QCL_ROOT="$d" python3 build.py && QCL_SITE="$d/site" python3 tests/test_ui.py; } > step.log 2>&1 && continue
+            cat step.log; grep -E "FAIL|Error|Traceback|MISMATCH" step.log | head -20 | sed "s|^|::error title=$d::|"; tail -5 step.log | sed "s|^|::error title=$d tail::|"; exit 1
+          done
       - name: Gate regression tests (external-review counterfactuals)
         run: python3 tests/test_gates.py
       - name: Review regression checks (F1-F24, Flash-Next)
