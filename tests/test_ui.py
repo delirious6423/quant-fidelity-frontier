@@ -126,8 +126,12 @@ async def main():
             await pg.evaluate("(()=>{const r=document.getElementById('exxr');r.value=500;r.dispatchEvent(new Event('input'))})()"); await pg.wait_for_timeout(100)
             xmax = await pg.evaluate("parseFloat(document.getElementById('exxo').textContent.replace('≤',''))")
             xs = await pg.evaluate("[...document.querySelectorAll('#extable tbody tr')].map(r=>parseFloat(r.cells[1].textContent))")
-            check(xs and max(xs) <= xmax + 0.01 and len(xs) < _nk([x for x in _sets if x["id"] == BIG][0]), f"{name}: size limit filters table ({len(xs)} rows, max {max(xs) if xs else None} <= {xmax})")
-            check(await pg.locator("#exsvg circle.mk").count() == len(xs), f"{name}: size limit filters chart too")
+            # the table lists every quant under the limit; the chart plots those of them that report the open metric
+            _B = [x for x in _sets if x["id"] == BIG][0]; _m0 = _B["metrics"][0]; _tol = 0.5 if xmax >= 100 else 0.05   # limits show rounded
+            check(xs and max(xs) <= xmax + _tol and len(xs) < len(_B["points"]), f"{name}: size limit filters table ({len(xs)} rows of {len(_B['points'])}, max {max(xs) if xs else None} <= {xmax})")
+            _rq = set(await pg.evaluate("[...document.querySelectorAll('#extable tbody tr[data-qid]')].map(r=>r.dataset.qid)"))
+            _nc = sum(1 for q in _B["points"] if q["qid"] in _rq and _m0 in q["m"])
+            check(await pg.locator("#exsvg circle.mk").count() == _nc, f"{name}: size limit filters chart too ({_nc} with {_m0})")
             await pg.click("#exrclear"); await pg.wait_for_timeout(100)
             await pg.evaluate("(()=>{const r=document.getElementById('exyr');r.value=400;r.dispatchEvent(new Event('input'))})()"); await pg.wait_for_timeout(100)
             ylim = await pg.evaluate("parseFloat(document.getElementById('exyo').textContent.replace('≤',''))")
@@ -194,13 +198,18 @@ async def main():
             check(st[0] == SH and st[1] and st[2] and max(st[2]) <= CAP, f"{name}: shared view link restores set, size cap and efficient-only {st[:2]}")
             await pg2.close()
             # find across sets -> jump
-            _ft = "UD-Q4_K_XL" if FIND == "UD-Q4_K_XL" or "UD-Q4_K_XL" in json.dumps(_DX["sets"])[:10**7] else FIND
+            _ft = "UD-Q4_K_XL" if _vs.get("UD-Q4_K_XL", 0) >= 2 else FIND   # a quant listed in at least two sets
             if _ft and FIND_N >= 2:
-                await pg.fill("#exfind", _ft); await pg.wait_for_timeout(150)
+                await pg.fill("#exfind", _ft)
+                try: await pg.wait_for_function("document.querySelectorAll('#exfindres button[data-set]').length >= 2", timeout=5000)   # slow CI runners
+                except Exception: pass
                 btns = pg.locator("#exfindres button[data-set]"); nb = await btns.count()
                 check(nb >= 2, f"{name}: find lists sets containing {_ft} ({nb})")
-                target = await btns.nth(1).get_attribute("data-set"); await btns.nth(1).click(); await pg.wait_for_timeout(200)
-                check(await pg.input_value("#exset") == target and not await pg.evaluate("document.getElementById('extip').hidden"), f"{name}: find jumps to set and pins the quant")
+                if nb >= 2:
+                    target = await btns.nth(1).get_attribute("data-set"); await btns.nth(1).click()
+                    try: await pg.wait_for_function("!document.getElementById('extip').hidden", timeout=5000)
+                    except Exception: pass
+                    check(await pg.input_value("#exset") == target and not await pg.evaluate("document.getElementById('extip').hidden"), f"{name}: find jumps to set and pins the quant")
             # every set renders without error and with unique checkbox ids
             bad = []
             for sid in opts:
