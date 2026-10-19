@@ -55,7 +55,11 @@ async def main():
                 res = await s.call_tool("frontier", {"model": name, "set_id": "all"})
                 check((getattr(res, "is_error", None) or getattr(res, "isError", False)), f"{name}: frontier refuses the not-comparable overview")
                 # best_under respects the budget and never mixes sets
-                b = J(await s.call_tool("best_under", {"model": name, "max_size_gb": BUD}))
+                # budget and metric from the data: the median size of the points in comparable GB sets that report the metric
+                _met = next((k for k in ("kld", "ppl", "top1") if any(x.get("comparable") and (x.get("x") or {}).get("unit") == "GB" and any(k in q["m"] for q in x["points"]) for x in d["sets"])), "kld")
+                _xs = sorted(q["x"] for x in d["sets"] if x.get("comparable") and (x.get("x") or {}).get("unit") == "GB" for q in x["points"] if _met in q["m"] and q.get("x") is not None and not q.get("is_ref"))
+                BUD = round(_xs[len(_xs) // 2], 3) if _xs else BUD
+                b = J(await s.call_tool("best_under", {"model": name, "max_size_gb": BUD, "metric": _met}))
                 check(b["per_set"] and all(e["best"]["x"] <= BUD for e in b["per_set"]) and len({e["set"] for e in b["per_set"]}) == len(b["per_set"]) and "own set" in b["caveat"],
                       f"{name}: best_under per set, within budget ({len(b['per_set'])} sets)")
             res = await s.call_tool("search_quants", {"model": "nonexistent-model"})

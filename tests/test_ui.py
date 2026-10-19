@@ -167,7 +167,7 @@ async def main():
                 await pg.click("#exrclear"); await pg.wait_for_timeout(50)
             bopts = await pg.evaluate("[...document.querySelectorAll('#exbasis option')].map(o=>o.value).filter(Boolean)")
             check(NBASIS < 2 or (len(bopts) >= 2 and not await pg.evaluate("document.getElementById('exbasiswrap').hidden")), f"{name}: size-type selector on the mixed set ({len(bopts)} types)")
-            if bopts:
+            if len(bopts) >= 2:   # with one size type the selector is hidden by design
               await pg.select_option("#exbasis", bopts[0]); await pg.wait_for_timeout(100)
               only = await pg.evaluate("document.getElementById('excount').textContent")
               data_n = sum(1 for q in [x for x in json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), os.environ.get("QCL_SITE", "models/qwen3.8-flash-next/site"), "data.json")))["sets"] if x["id"] == "all"][0]["points"] if (q["basis"] or "unknown") == bopts[0])
