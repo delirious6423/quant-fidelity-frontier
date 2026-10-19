@@ -21,7 +21,7 @@
   {
    "repo": "anoane/DeepSeek-V4-Flash-0731-exl3-hybrid-2.72bpw",
    "kind": "variants",
-   "entry": "2.72 bpw hybrid, --fp4-prefill",
+   "entry": "2.72 bpw hybrid",
    "reason": "failed a gate"
   },
   {
@@ -31,15 +31,15 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "anoane/DeepSeek-V4-Flash-0731-exl3-hybrid-2.72bpw",
-   "kind": "variants",
-   "entry": "2.72 bpw hybrid",
-   "reason": "failed a gate"
-  },
-  {
    "repo": "ox-ox/DeepSeek-V4-Flash-0731-gguf-ds4",
    "kind": "variants",
    "entry": "imatrix",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "anoane/DeepSeek-V4-Flash-0731-exl3-hybrid-2.72bpw",
+   "kind": "variants",
+   "entry": "2.72 bpw hybrid, --fp4-prefill",
    "reason": "failed a gate"
   }
  ],
@@ -213,6 +213,60 @@
    "raw": "16/17"
   },
   {
+   "repo": "Jon-Nielsen/DeepSeek-V4-Flash-0731-MXFP4-INT8",
+   "entry": "DeepSeek-V4-Flash-0731",
+   "key": "bench:Terminal-Bench_2.1",
+   "raw": "82.7"
+  },
+  {
+   "repo": "Jon-Nielsen/DeepSeek-V4-Flash-0731-MXFP4-INT8",
+   "entry": "DeepSeek-V4-Flash-0731",
+   "key": "bench:NL2Repo",
+   "raw": "54.2"
+  },
+  {
+   "repo": "Jon-Nielsen/DeepSeek-V4-Flash-0731-MXFP4-INT8",
+   "entry": "DeepSeek-V4-Flash-0731",
+   "key": "bench:Cybergym",
+   "raw": "76.7"
+  },
+  {
+   "repo": "Jon-Nielsen/DeepSeek-V4-Flash-0731-MXFP4-INT8",
+   "entry": "DeepSeek-V4-Flash-0731",
+   "key": "bench:DeepSWE",
+   "raw": "54.4"
+  },
+  {
+   "repo": "Jon-Nielsen/DeepSeek-V4-Flash-0731-MXFP4-INT8",
+   "entry": "DeepSeek-V4-Flash-0731",
+   "key": "bench:Toolathlon-Verified",
+   "raw": "70.3"
+  },
+  {
+   "repo": "Jon-Nielsen/DeepSeek-V4-Flash-0731-MXFP4-INT8",
+   "entry": "DeepSeek-V4-Flash-0731",
+   "key": "bench:Agents_Last_Exam",
+   "raw": "25.2"
+  },
+  {
+   "repo": "Jon-Nielsen/DeepSeek-V4-Flash-0731-MXFP4-INT8",
+   "entry": "DeepSeek-V4-Flash-0731",
+   "key": "bench:AutomationBench_Public",
+   "raw": "25.1"
+  },
+  {
+   "repo": "Jon-Nielsen/DeepSeek-V4-Flash-0731-MXFP4-INT8",
+   "entry": "DeepSeek-V4-Flash-0731",
+   "key": "bench:DSBench-FullStack",
+   "raw": "68.7"
+  },
+  {
+   "repo": "Jon-Nielsen/DeepSeek-V4-Flash-0731-MXFP4-INT8",
+   "entry": "DeepSeek-V4-Flash-0731",
+   "key": "bench:DSBench-Hard",
+   "raw": "59.6"
+  },
+  {
    "repo": "KeinNiemand/DeepSeek-V4-Flash-0731-IK_GGUF",
    "entry": "XS_IQ1_KT",
    "key": "kld:wikitext-2",
@@ -345,6 +399,30 @@
    "raw": "1.9126"
   },
   {
+   "repo": "appmana/deepseek-v4-int4-int8",
+   "entry": "DeepSeek-V4-Flash-0731 INT4/INT8",
+   "key": "bench:BFCL non-live AST",
+   "raw": "non-live AST 87.3%"
+  },
+  {
+   "repo": "appmana/deepseek-v4-int4-int8",
+   "entry": "DeepSeek-V4-Flash-0731 INT4/INT8",
+   "key": "bench:BFCL live",
+   "raw": "live 77.9%"
+  },
+  {
+   "repo": "appmana/deepseek-v4-int4-int8",
+   "entry": "DeepSeek-V4-Flash-0731 INT4/INT8",
+   "key": "bench:BFCL multi-turn",
+   "raw": "multi-turn 0.0%"
+  },
+  {
+   "repo": "appmana/deepseek-v4-int4-int8",
+   "entry": "DeepSeek-V4-Flash-0731 INT4/INT8",
+   "key": "bench:BFCL overall",
+   "raw": "overall 21.1%"
+  },
+  {
    "repo": "auroter/DeepSeek-V4-Flash-0731-NVFP4",
    "entry": "Source MXFP4 \u00b7 marlin",
    "key": "ppl",
@@ -463,6 +541,60 @@
    "entry": "DeepSeek-V4-Flash-0731-NVFP4",
    "key": "bench:exact_match_to_source_24",
    "raw": "18/24"
+  },
+  {
+   "repo": "nazeshinjite/DeepSeek-V4-Flash-0731-ds4-GGUF",
+   "entry": "DeepSeek-V4-Flash-0731 (official release)",
+   "key": "bench:Terminal Bench 2.1",
+   "raw": "82.7"
+  },
+  {
+   "repo": "nazeshinjite/DeepSeek-V4-Flash-0731-ds4-GGUF",
+   "entry": "DeepSeek-V4-Flash-0731 (official release)",
+   "key": "bench:NL2Repo",
+   "raw": "54.2"
+  },
+  {
+   "repo": "nazeshinjite/DeepSeek-V4-Flash-0731-ds4-GGUF",
+   "entry": "DeepSeek-V4-Flash-0731 (official release)",
+   "key": "bench:Cybergym",
+   "raw": "76.7"
+  },
+  {
+   "repo": "nazeshinjite/DeepSeek-V4-Flash-0731-ds4-GGUF",
+   "entry": "DeepSeek-V4-Flash-0731 (official release)",
+   "key": "bench:DeepSWE",
+   "raw": "54.4"
+  },
+  {
+   "repo": "nazeshinjite/DeepSeek-V4-Flash-0731-ds4-GGUF",
+   "entry": "DeepSeek-V4-Flash-0731 (official release)",
+   "key": "bench:Toolathlon-Verified",
+   "raw": "70.3"
+  },
+  {
+   "repo": "nazeshinjite/DeepSeek-V4-Flash-0731-ds4-GGUF",
+   "entry": "DeepSeek-V4-Flash-0731 (official release)",
+   "key": "bench:Agents' Last Exam",
+   "raw": "25.2"
+  },
+  {
+   "repo": "nazeshinjite/DeepSeek-V4-Flash-0731-ds4-GGUF",
+   "entry": "DeepSeek-V4-Flash-0731 (official release)",
+   "key": "bench:AutomationBench Public",
+   "raw": "25.1"
+  },
+  {
+   "repo": "nazeshinjite/DeepSeek-V4-Flash-0731-ds4-GGUF",
+   "entry": "DeepSeek-V4-Flash-0731 (official release)",
+   "key": "bench:DSBench-FullStack",
+   "raw": "68.7"
+  },
+  {
+   "repo": "nazeshinjite/DeepSeek-V4-Flash-0731-ds4-GGUF",
+   "entry": "DeepSeek-V4-Flash-0731 (official release)",
+   "key": "bench:DSBench-Hard",
+   "raw": "59.6"
   },
   {
    "repo": "neuromaniacmd/DeepSeek-V4-Flash-0731-affinity-2.875bpw",
@@ -855,6 +987,18 @@
    "raw": "88/100"
   },
   {
+   "repo": "wrldsuksgo2mars/DeepSeek-V4-Flash-0731-EXL3-K2.1-D2.2-calibrated-v3",
+   "entry": "K2.1 + dSpark K2.2 calibrated v3",
+   "key": "bench:Tool Eval Bench 2.3.2 (69 scenarios)",
+   "raw": "88/100"
+  },
+  {
+   "repo": "wrldsuksgo2mars/DeepSeek-V4-Flash-0731-EXL3-K2.1-D2.2-calibrated-v3",
+   "entry": "K2 calibrated v1 control",
+   "key": "bench:Tool Eval Bench 2.3.2 (69 scenarios)",
+   "raw": "90/100"
+  },
+  {
    "repo": "wrldsuksgo2mars/DeepSeek-V4-Flash-0731-EXL3-K3-calibrated-v1",
    "entry": "EXL3 K3 calibrated v1",
    "key": "bench:Tool Eval Bench 2.3.2 (69-scenario)",
@@ -874,5 +1018,6 @@
   }
  ],
  "resolved_disagreements": [],
- "resolved_repos": 0
+ "resolved_repos": 0,
+ "tiebroken": []
 }
