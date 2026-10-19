@@ -438,17 +438,13 @@ input[type=checkbox]{accent-color:var(--accent)}
   .ex-scope{line-height:1.4;padding-block:7px}
 }
 
-/* Chart navigation and progressive disclosure */
-.chart-tabs{display:flex;gap:24px;flex:none}
-.chart-tabs a[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
-.chart-tabs a[aria-selected="false"]{color:var(--muted);border-bottom-color:transparent}
+/* Progressive disclosure */
 .ex-body,.ex-body.wide{grid-template-columns:minmax(0,1fr)}
 .ex-picker{position:static}
 #quant-picker summary,#quant-results summary{cursor:pointer;font-weight:600;padding:8px 0}
 #quant-picker summary .count{margin-left:12px;font-weight:400}
 #quant-picker[open] summary{margin-bottom:12px}
 #quant-results{margin-top:18px;border-top:1px solid var(--line);padding-top:8px}
-@media(max-width:600px){.chart-tabs{gap:20px}}
 /* Evidence disclosures add no visual weight to the plot itself. */
 .comparison-method{font-size:13px;line-height:1.5;overflow-wrap:anywhere}
 .comparison-method>summary{cursor:pointer;color:var(--muted);padding:5px 0}

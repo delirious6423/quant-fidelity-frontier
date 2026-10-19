@@ -1,6 +1,6 @@
 # Comparison classification validation
 
-Feature branch: `feat/evidence-comparison-classifications`. Integrated with production base `d92a580` (benchmark tabs and collapsed quant/evidence sections). No merge or deployment was performed.
+Feature branch: `feat/evidence-comparison-classifications`. Integrated with production base `ca6748a` (stacked benchmark charts and collapsed quant/evidence sections). Owner explicitly approved merge and GitHub Pages deployment; the integrated release is awaiting green CI.
 
 ## Preservation check
 
@@ -67,3 +67,7 @@ This measures classification of that fixed population, not page-load or model-in
 ## CI SDK compatibility
 
 GitHub CI installed MCP SDK 2.3.0, which exposes error results as `is_error`; SDK 1.30.0 uses `isError`. The black-box tests accept both spellings. Both SDK versions passed all 33 MCP smoke checks and all 19 MCP comparison regressions, including accepted verified rankings and rejected unverified rankings.
+
+## Final release integration
+
+Main advanced to `ca6748a` during approval. The merge preserves its stacked benchmark charts and removes the obsolete tab styles/scripts while keeping comparison disclosures. Rebuilt GLM and Qwen3.8-27B with all source gates; benchmark and comparison browser suites passed at 320/390/1366px. A fresh independent release reviewer reran all 87 classification, adapter, grouping and MCP regressions successfully and found no blocking code issues.

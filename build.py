@@ -709,14 +709,14 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
 <footer class="foot"><div class="wrap"><p>QFF (Quant Fidelity Frontier): what publishers claim, pinned to the line they said it · data captured {captured} · claims belong to their publishers · <a href="{REPO_URL}">source and data</a>{SUPPORT_HTML}</p></div></footer>
 """
     if CFG.get("benchmark_pilot") and SLUG == "glm-5.3-flash":
-        body = body.replace('<a href="#chart">Compare</a>', '<div class="chart-tabs" aria-label="Chart view"><a id="tab-fidelity" href="#chart">Fidelity</a><a id="tab-benchmarks" href="#benchmarks">Benchmarks</a></div>')
+        body = body.replace('<a href="#chart">Compare</a>', '<a href="#chart">Fidelity</a><a href="#benchmarks">Benchmarks</a>')
         body = body.replace('<section id="read-first"', render_pilot(build_pilot(rows, CFG)) + '<section id="read-first"')
     return body.replace("__EXDATA__", exdata)
 
 CSS = open(os.path.join(CODE, "web", "site_style.css")).read() if os.path.exists(os.path.join(CODE, "web", "site_style.css")) else ""
 if CFG.get("benchmark_pilot") and SLUG == "glm-5.3-flash":
     CSS += "\n" + open(os.path.join(CODE, "web", "site_benchmarks.css")).read()
-JS = "\n".join(open(os.path.join(CODE, "web", f)).read() for f in ("site_script.js", "site_explorer.js", "site_tabs.js"))
+JS = "\n".join(open(os.path.join(CODE, "web", f)).read() for f in ("site_script.js", "site_explorer.js"))
 if CFG.get("benchmark_pilot") and SLUG == "glm-5.3-flash":
     JS += "\n" + open(os.path.join(CODE, "web", "site_benchmarks.js")).read()
 
