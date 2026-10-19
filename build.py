@@ -596,7 +596,9 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
     body = f"""
 <header class="top"><div class="wrap">
   <nav class="topbar" aria-label="Site"><a class="home" href="../" title="All models">QFF</a>{OTHER_MODELS}</nav>
-  <h1>Every Hugging Face quant of {E(MNAME)}, compared by what its publisher claims</h1>
+  <h1>{E(MNAME)}</h1>
+  <p class="model-summary">{s["repos"]:,} repos indexed · {s["with_quality"]:,} with own quality claims · <a href="#coverage">Coverage &amp; sources</a></p>
+  <details class="coverage" id="coverage"><summary>Coverage &amp; sources</summary>
   <p class="lede">All {s["repos"]} repositories Hugging Face tags as quantizations of this model on {captured}. {s["with_quality"]} publish quality numbers about their own files; {verify_counts["values"]} published values are copied from the card text at a pinned commit and checked against it mechanically. Nothing here was re-measured by us.</p>
   <p class="lede">Compare KLD only within a compatible measurement set; the overview mixes methods. File size is not total VRAM usage: KV cache, runtime buffers, context length and offloading matter. <a href="../guides/">How to interpret and cite QFF</a>.</p>
   <dl class="stats">
@@ -608,28 +610,22 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
     <div><dt>Measurements of rivals' files</dt><dd>{s["cross"]}</dd></div>
     <div><dt>Cards captured</dt><dd>{captured}</dd></div>
   </dl>
+  </details>
 </div></header>
-<nav class="toc" aria-label="Sections"><div class="wrap"><a href="#read-first">Read first</a><a href="#chart">Compare</a><a href="#head-to-head">Head-to-head</a><a href="#ledger">Ledger</a><a href="#publishers">Publisher notes</a><a href="#no-claims">No claims</a><a href="#method">Method</a><a class="ext" href="{REPO_URL}" rel="noopener" data-umami-event="github">GitHub ↗</a></div></nav>
+<nav class="toc" aria-label="Sections"><div class="wrap"><a href="#chart">Compare</a><a href="#ledger">All claims</a><a href="#method">Sources &amp; method</a><a class="ext" href="{REPO_URL}" rel="noopener" data-umami-event="github">GitHub ↗</a></div></nav>
 <main class="wrap">
-<section id="read-first" class="rules">
-  <h2>Read this first</h2>
-  <ol>
-    <li><strong>These are claims, not our measurements.</strong> Each publisher ran its own test. A lower KLD on one card is not evidence of a better file than a higher KLD on another.</li>
-    <li><strong>Methods rarely match.</strong> Publishers use different reference models (BF16, their own Q8_0, someone else's Q8_0), different text, context lengths and tools. Each row shows its reference; the cards below give the rest.</li>
-    <li><strong>Sizes mean different things.</strong> {E(SIZE_NOTE)}</li>
-  </ol>
-</section>
-<section id="chart"><h2>Compare quants inside one measurement</h2>
-<p class="note">Every point in a set was measured the same way by the same party, so points in one set can be compared with each other; points from different sets cannot. Your ticks carry across sets, so you can follow a quant through every set that measured it. Quants that publish no comparable numbers are listed under <a href="#no-claims">Repos without extracted claims</a>.</p>
+<section id="chart"><h2>Fidelity vs. size</h2>
 <div class="explorer" id="explorer">
   <div class="ex-top">
-    <div class="ex-field"><label for="exset">Measurement set</label><select id="exset"></select></div>
+    <div class="ex-field"><label for="exset">Measurement set</label><input id="exsetsearch" type="search" placeholder="Search publisher, method or metric…" aria-label="Search measurement sets" aria-controls="exset"><select id="exset"></select></div>
     <div class="ex-field ex-find"><label for="exfind">Find a quant in any set</label><input id="exfind" type="search" placeholder="e.g. UD-Q4_K_XL, nvfp4, bartowski   ( / )" autocomplete="off" aria-controls="exfindres"><div id="exfindres" class="ex-findres" hidden aria-live="polite"></div></div>
   </div>
   <div class="ex-bar">
     <div class="ex-metrics" role="radiogroup" aria-label="Metric" id="exmetric"></div>
-    <div class="ex-toggles"><label class="cb" for="exlabels"><input id="exlabels" type="checkbox" checked> Labels</label><label class="cb" for="exfront"><input id="exfront" type="checkbox"> Efficient frontier</label><span class="seg" role="group" aria-label="Y axis scale"><button type="button" id="exlog" aria-pressed="true">Log</button><button type="button" id="exlin" aria-pressed="false">Linear</button></span><button type="button" id="exlink" class="tiny">Copy link to view</button></div>
+    <button type="button" id="exlink" class="tiny">Copy link to view</button>
   </div>
+  <details class="ex-options"><summary>Filters &amp; chart options</summary>
+    <div class="ex-toggles"><label class="cb" for="exlabels"><input id="exlabels" type="checkbox"> Show point labels</label><label class="cb" for="exfront"><input id="exfront" type="checkbox"> Efficient frontier</label><span class="seg" role="group" aria-label="Y axis scale"><button type="button" id="exlog" aria-pressed="true">Log</button><button type="button" id="exlin" aria-pressed="false">Linear</button></span></div>
   <div class="ex-range" id="exrange" role="group" aria-label="Size and quality limits">
     <label class="rg" for="exxr"><span>Max size</span><input id="exxr" type="range" min="0" max="1000" step="1" value="1000"><output id="exxo" for="exxr">any</output></label>
     <label class="rg" for="exyr"><span id="exylab">Max metric</span><input id="exyr" type="range" min="0" max="1000" step="1" value="1000"><output id="exyo" for="exyr">any</output></label>
@@ -638,10 +634,12 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
     <label class="cb" for="exonly"><input id="exonly" type="checkbox"> Only efficient quants</label>
     <button type="button" id="exrclear" class="tiny" hidden>Clear limits</button>
   </div>
-  <p class="ex-meta" id="exmeta"></p>
+  </details>
+  <p class="ex-scope" id="exscope"></p>
   <div class="ex-body">
     <div class="ex-chart"><div id="exsvg" class="chartbox"><noscript>The interactive chart needs JavaScript. All numbers are in the ledger below.</noscript></div><div id="extip" class="ex-tip" role="tooltip" hidden></div><p class="ex-chartnote dim" id="exchartnote"></p><div class="legend" id="exlegend" aria-label="Show or hide a repository"></div></div>
     <aside class="ex-picker" aria-label="Choose quants">
+      <section id="exdetail" class="quant-detail" hidden aria-label="Selected quant"></section>
       <div class="ex-pick-head"><b>Quants</b><span id="excount" class="count" aria-live="polite"></span><button type="button" id="exexpand" class="tiny" aria-pressed="false">Expand list</button></div>
       <input id="exq" type="search" placeholder="Filter by name, publisher, format…" aria-label="Filter quants in this set">
       <div id="exfmts" class="ex-fmts" aria-label="Formats"></div>
@@ -649,10 +647,19 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
       <div id="expick" class="ex-picklist"></div>
     </aside>
   </div>
+  <details class="measurement-details"><summary>Measurement details &amp; interpretation</summary><p class="ex-meta" id="exmeta"></p><p>File size is not total memory usage. <a href="#read-first">Read the comparison rules</a> · <a href="#head-to-head">Publisher comparisons</a> · <a href="#no-claims">Repos without extracted claims</a>.</p></details>
   <div class="ex-tablehead"><span id="extcap" class="dim"></span><button type="button" id="excopy" class="tiny">Copy as CSV</button></div>
   <div class="tablebox ex-tablebox"><table class="disagree" id="extable"></table></div>
 </div>
 <script type="application/json" id="exdata">__EXDATA__</script>
+</section>
+<section id="read-first" class="rules">
+  <h2>Read this first</h2>
+  <ol>
+    <li><strong>These are claims, not our measurements.</strong> Each publisher ran its own test. A lower KLD on one card is not evidence of a better file than a higher KLD on another.</li>
+    <li><strong>Methods rarely match.</strong> Publishers use different reference models (BF16, their own Q8_0, someone else's Q8_0), different text, context lengths and tools. Each row shows its reference; the cards below give the rest.</li>
+    <li><strong>Sizes mean different things.</strong> {E(SIZE_NOTE)}</li>
+  </ol>
 </section>
 <section id="head-to-head"><h2>When one publisher measured several</h2>
 <p class="note">These are the only tables where different publishers' files went through the same test. They are still one party's measurement, often of competitors.</p>
@@ -669,7 +676,7 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
   <label class="cb" for="fm"><input id="fm" type="checkbox" checked> Include modified weights</label>
   <button type="button" id="freset" class="tiny">Reset</button><span id="count" class="count" aria-live="polite"></span>
 </div>
-<div class="tablebox"><table id="t">
+<div class="tablebox"><table id="t" class="mobile-cards">
 <thead><tr><th data-sort="s">Repository</th><th data-sort="s">Variant</th><th data-sort="s">Format</th><th class="n" data-sort="n">Size GB</th><th>Size is</th><th class="n" data-sort="n">Mean KLD</th><th class="n" data-sort="n">Top-1</th><th class="n" data-sort="n">PPL</th><th class="n" title="Change in perplexity against the baseline the row's card states (BF16, a sibling build, or a previous build); check the source line">PPL change<br><small>vs the card's baseline</small></th><th>Other metrics (as published)</th><th>Reference</th><th>Source line</th></tr></thead>
 <tbody>{"".join(tr)}</tbody></table></div>
 </section>
@@ -683,7 +690,7 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
 <div class="filters"><label for="ncq">Search</label><input id="ncq" type="search" placeholder="publisher or format…"><label for="ncs">Status</label><select id="ncs"><option value="">Any</option><option>not yet reviewed</option><option>read in full: no quality claims</option></select><span id="nccount" class="count" aria-live="polite"></span></div>
 <div class="tablebox"><table class="disagree" id="nctable"><thead><tr><th>Repository</th><th>Status</th><th>Format</th><th>Weights</th><th>Note</th><th>Card</th></tr></thead><tbody>{nc_rows}</tbody></table></div>
 </section>
-<section id="method" class="method-sec"><h2>How this was built</h2>
+<section id="method" class="method-sec"><h2>Sources &amp; method</h2><p><a href="#publishers">Publisher notes</a> · <a href="#read-first">Comparison rules</a> · <a href="#no-claims">Repos without extracted claims</a></p>
 <p>We listed every repository Hugging Face tags as a quantization of <a href="https://huggingface.co/{E(MODEL)}">{E(MODEL)}</a> ({s["repos"]} on {captured}) and saved each raw <code>README.md</code> at its pinned commit into a local ledger, so nothing is re-fetched. Cards that reproduce another publisher's numbers are detected by comparing claim lines across all cards and are not counted as independent measurements. Results published only as chart images were transcribed from their labels and checked against the marker positions in the image. Numbers were extracted with the line they came from, then a script confirmed that {verify_counts["values"]} published values appear verbatim on their cited lines ({verify_counts["fails"]} failures). For every card that carried measured claims at the first pass (196 of {s["repos"]}), a second reader re-extracted the numbers without seeing our data, and disagreements were resolved against the source text; the remaining cards were each read in full by one reader. Rows a card quotes from elsewhere are marked "quoted" and are not counted as measurements; rows measured on a different model are left out ({s["other_model"]}). File sizes without a card figure come from Hugging Face's file listing at the same commit.</p>
 {('<p>' + E(PIN_NOTE) + '</p>') if PIN_NOTE else ''}
 <p>Not covered: {E(COVER_NOTE)}, and repos created or changed after {captured}. Found an error or a new quant? <a href="{REPO_URL}">Open an issue or pull request</a>; each claim lives in a plain data file with its source line.</p>
