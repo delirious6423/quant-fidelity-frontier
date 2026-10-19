@@ -221,7 +221,7 @@ class MCPComparisonTransportTests(unittest.IsolatedAsyncioTestCase):
                     self.assertTrue(payload["ranking_permitted"])
                     self.assertTrue(payload["evidence"])
                     result = await client.call_tool("frontier", {"model": "test", "set_id": "stale-true"})
-                    self.assertTrue(result.isError)
+                    self.assertTrue(bool(getattr(result, "is_error", None) or getattr(result, "isError", False)))
 
 
 class MCPPublishedDataTests(unittest.TestCase):

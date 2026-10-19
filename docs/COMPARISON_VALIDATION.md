@@ -63,3 +63,7 @@ Compatibility is based on published evidence, not independent reproduction. Curr
 The first unoptimized classifier required 24.540644497 seconds for the fixed actual Qwen overview KLD population: 540 measurements and 145,530 pairs. The target was at least 100× improvement (245.406 ms). After exact-profile memoization and the final correctness fixes, the median of nine runs was 10.069 ms: approximately 2,437× faster than that original run. The entire structured output matched the naive baseline exactly, including all pair counts, 354 compatible pairs, evidence/reasons and first failure examples. Workload SHA-256: `50a3a80dfc886ae071026ef066a1a6da8783975f3ec23bef159bc362b0fced0b`.
 
 This measures classification of that fixed population, not page-load or model-inference speed. No frontend performance claim is made.
+
+## CI SDK compatibility
+
+GitHub CI installed MCP SDK 2.3.0, which exposes error results as `is_error`; SDK 1.30.0 uses `isError`. The black-box tests accept both spellings. Both SDK versions passed all 33 MCP smoke checks and all 19 MCP comparison regressions, including accepted verified rankings and rejected unverified rankings.

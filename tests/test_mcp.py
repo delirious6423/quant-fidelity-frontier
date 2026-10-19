@@ -48,9 +48,9 @@ async def main():
                         eligible = S.get("comparisons", {}).get(k, {}).get("ranking_permitted", False)
                         result = await s.call_tool("frontier", {"model": name, "set_id": S["id"], "metric": k})
                         if not eligible:
-                            if not result.isError: rejected.append((S["id"], k))
+                            if not bool(getattr(result, "is_error", None) or getattr(result, "isError", False)): rejected.append((S["id"], k))
                             continue
-                        if result.isError:
+                        if bool(getattr(result, "is_error", None) or getattr(result, "isError", False)):
                             bad.append((S["id"], k, "eligible metric refused"))
                             continue
                         fr = J(result)
