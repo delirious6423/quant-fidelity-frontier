@@ -170,7 +170,10 @@
 
   function render() {
     var S = setById(state.set);
-    if (!state.metric || S.metrics.indexOf(state.metric) < 0) state.metric = S.metrics[0];
+    if (!state.metric || S.metrics.indexOf(state.metric) < 0) {   // a quant found or jumped to opens on a metric it reports, so it can be pinned
+      var fq = state.focus && S.points.filter(function (p) { return p.qid === state.focus; })[0];
+      state.metric = (fq && fq.m && S.metrics.filter(function (k) { return fq.m[k] != null; })[0]) || S.metrics[0];
+    }
     metBox.innerHTML = '';
     // many per-corpus series: show the most reported few, the rest behind "More metrics" (the chosen one always shows)
     var cnt = {}; S.metrics.forEach(function (k) { cnt[k] = S.points.filter(function (p) { return p.m[k] && p.m[k].v != null; }).length; });

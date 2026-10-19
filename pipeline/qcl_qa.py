@@ -52,7 +52,7 @@ def entries(src):
             for e in r.get(kind) or []:
                 nm = str(e.get("name") or e.get("variant")); Ls = [e.get("L")] + list(e.get("L_extra") or [])
                 for k, v in (e.get("m") or {}).items(): out[(r["repo"], kind, nm, k)] = (str(v), [x for x in Ls if x])
-                if e.get("size") is not None: out[(r["repo"], kind, nm, "size")] = (f"{e['size']} {e.get('unit') or ''}".strip(), [x for x in Ls if x])
+                if e.get("size") is not None: out[(r["repo"], kind, nm, "size")] = (f"{int(e['size']) if float(e['size']).is_integer() else e['size']} {e.get('unit') or ''}".strip() if isinstance(e['size'], (int, float)) else f"{e['size']} {e.get('unit') or ''}".strip(), [x for x in Ls if x])   # 166.0 -> "166", as cards print it
     return out
 
 args = sys.argv[1:]

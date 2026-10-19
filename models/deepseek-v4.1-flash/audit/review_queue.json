@@ -1,12 +1,6 @@
 {
  "quarantined": [
   {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "kind": "variants",
-   "entry": "minus10gib, exact",
-   "reason": "failed a gate"
-  },
-  {
    "repo": "sfxnz/DeepSeek-V4.1-Flash-EXL3",
    "kind": "variants",
    "entry": "Viterbi + scale refit",
@@ -14,26 +8,8 @@
   },
   {
    "repo": "sfxnz/DeepSeek-V4.1-Flash-EXL3",
-   "kind": "variants",
-   "entry": "2.0bpw-mcg-viterbi-lmhead-mxfp8",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "kind": "cross",
-   "entry": "antirez Q2",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-REAP-272E",
-   "kind": "variants",
-   "entry": "this repo",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "kind": "variants",
-   "entry": "final, Lucebox profile + DSpark",
+   "kind": "ladder",
+   "entry": "2.0bpw-mcg-lmhead-mxfp8",
    "reason": "failed a gate"
   },
   {
@@ -49,9 +25,33 @@
    "reason": "failed a gate"
   },
   {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "kind": "cross",
+   "entry": "antirez Q2",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "kind": "variants",
+   "entry": "minus10gib, exact",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "kind": "variants",
+   "entry": "final, Lucebox profile + DSpark",
+   "reason": "failed a gate"
+  },
+  {
    "repo": "sfxnz/DeepSeek-V4.1-Flash-EXL3",
-   "kind": "ladder",
-   "entry": "2.0bpw-mcg-lmhead-mxfp8",
+   "kind": "variants",
+   "entry": "2.0bpw-mcg-viterbi-lmhead-mxfp8",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-REAP-272E",
+   "kind": "variants",
+   "entry": "this repo",
    "reason": "failed a gate"
   }
  ],
@@ -1426,20 +1426,6 @@
   },
   {
    "repo": "amd/DeepSeek-V4.1-Flash-Quark-MXFP4",
-   "entry": "amd/DeepSeek-V4.1-Flash-MXFP4 \u2014 GPQA Diamond",
-   "key": "bench:GPQA Diamond (0-shot, thinking)",
-   "raw": "90.40",
-   "resolver": {
-    "source_sha256": "f0d00c4ede0e01f0289a9a3d5738a2f879d1f4dca05832f4fa4d1351d74e63c0",
-    "mapping_sha256": "59a11ee494198277a4919f8780e06d86b52c3d24629e6cb6c837bfd45caf3a30",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "67833ea41a15198ed5ded44c0abbc87deb7786696e5d1c8845e542009e0d4c85",
-    "mapping_file": "maps/resolved/amd__DeepSeek-V4.1-Flash-Quark-MXFP4.map.json"
-   }
-  },
-  {
-   "repo": "amd/DeepSeek-V4.1-Flash-Quark-MXFP4",
    "entry": "deepseek-ai/DeepSeek-V4.1-Flash \u2014 GSM8K",
    "key": "bench:GSM8K (8-shot, flexible-extract)",
    "raw": "92.87",
@@ -2098,34 +2084,6 @@
   },
   {
    "repo": "coolbho3k/DeepSeek-V4.1-Flash-GRAFT-3bpw",
-   "entry": "GRAFT (this repo)",
-   "key": "mean_kld",
-   "raw": "0.0369",
-   "resolver": {
-    "source_sha256": "365370018286aa8c31ee06f623269a659dd7af405f7c3daaf858bb01bad1481c",
-    "mapping_sha256": "7e2a97a2302e2146b1978063e6963183d5ff6917f4bd412db82252bc8bdab52f",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "dd62620e79740910fe6db0f32f20be586ba2b9f598c777d9017ec9ade825122e",
-    "mapping_file": "maps/resolved/coolbho3k__DeepSeek-V4.1-Flash-GRAFT-3bpw.map.json"
-   }
-  },
-  {
-   "repo": "coolbho3k/DeepSeek-V4.1-Flash-GRAFT-3bpw",
-   "entry": "GRAFT (this repo)",
-   "key": "top1_pct",
-   "raw": "92.5%",
-   "resolver": {
-    "source_sha256": "365370018286aa8c31ee06f623269a659dd7af405f7c3daaf858bb01bad1481c",
-    "mapping_sha256": "7e2a97a2302e2146b1978063e6963183d5ff6917f4bd412db82252bc8bdab52f",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "dd62620e79740910fe6db0f32f20be586ba2b9f598c777d9017ec9ade825122e",
-    "mapping_file": "maps/resolved/coolbho3k__DeepSeek-V4.1-Flash-GRAFT-3bpw.map.json"
-   }
-  },
-  {
-   "repo": "coolbho3k/DeepSeek-V4.1-Flash-GRAFT-3bpw",
    "entry": "EXL3 3 bpw",
    "key": "bench:held-out expert error relative to EXL3",
    "raw": "1",
@@ -2143,34 +2101,6 @@
    "entry": "EXL3 3 bpw",
    "key": "bench:excess NLL over native (nats)",
    "raw": "0.0131",
-   "resolver": {
-    "source_sha256": "365370018286aa8c31ee06f623269a659dd7af405f7c3daaf858bb01bad1481c",
-    "mapping_sha256": "7e2a97a2302e2146b1978063e6963183d5ff6917f4bd412db82252bc8bdab52f",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "dd62620e79740910fe6db0f32f20be586ba2b9f598c777d9017ec9ade825122e",
-    "mapping_file": "maps/resolved/coolbho3k__DeepSeek-V4.1-Flash-GRAFT-3bpw.map.json"
-   }
-  },
-  {
-   "repo": "coolbho3k/DeepSeek-V4.1-Flash-GRAFT-3bpw",
-   "entry": "EXL3 3 bpw",
-   "key": "mean_kld",
-   "raw": "0.0469",
-   "resolver": {
-    "source_sha256": "365370018286aa8c31ee06f623269a659dd7af405f7c3daaf858bb01bad1481c",
-    "mapping_sha256": "7e2a97a2302e2146b1978063e6963183d5ff6917f4bd412db82252bc8bdab52f",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "dd62620e79740910fe6db0f32f20be586ba2b9f598c777d9017ec9ade825122e",
-    "mapping_file": "maps/resolved/coolbho3k__DeepSeek-V4.1-Flash-GRAFT-3bpw.map.json"
-   }
-  },
-  {
-   "repo": "coolbho3k/DeepSeek-V4.1-Flash-GRAFT-3bpw",
-   "entry": "EXL3 3 bpw",
-   "key": "top1_pct",
-   "raw": "91.7%",
    "resolver": {
     "source_sha256": "365370018286aa8c31ee06f623269a659dd7af405f7c3daaf858bb01bad1481c",
     "mapping_sha256": "7e2a97a2302e2146b1978063e6963183d5ff6917f4bd412db82252bc8bdab52f",
@@ -2407,34 +2337,6 @@
   {
    "repo": "drowzeys/DeepSeek-V4.1-Flash-TR3-Hybrid",
    "entry": "TR3-Hybrid",
-   "key": "mean_kld",
-   "raw": "0.032",
-   "resolver": {
-    "source_sha256": "7c5a7183a12e01a89b3bf3797e0859c8d589fad233ac9e3821478e90b9446eb7",
-    "mapping_sha256": "5ca664cfcd0a33e53777ffff43262dd0df8de3bbbba68ac85c814efbaf0e203e",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "5ece3252f12233049de421f5bb7c39ecd3820ec7394d57466f1fd53a6df6ff25",
-    "mapping_file": "maps/resolved/drowzeys__DeepSeek-V4.1-Flash-TR3-Hybrid.map.json"
-   }
-  },
-  {
-   "repo": "drowzeys/DeepSeek-V4.1-Flash-TR3-Hybrid",
-   "entry": "TR3-Hybrid",
-   "key": "top1_pct",
-   "raw": "0.984",
-   "resolver": {
-    "source_sha256": "7c5a7183a12e01a89b3bf3797e0859c8d589fad233ac9e3821478e90b9446eb7",
-    "mapping_sha256": "5ca664cfcd0a33e53777ffff43262dd0df8de3bbbba68ac85c814efbaf0e203e",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "5ece3252f12233049de421f5bb7c39ecd3820ec7394d57466f1fd53a6df6ff25",
-    "mapping_file": "maps/resolved/drowzeys__DeepSeek-V4.1-Flash-TR3-Hybrid.map.json"
-   }
-  },
-  {
-   "repo": "drowzeys/DeepSeek-V4.1-Flash-TR3-Hybrid",
-   "entry": "TR3-Hybrid",
    "key": "bench:objective-battery-correct",
    "raw": "25",
    "resolver": {
@@ -2449,64 +2351,8 @@
   {
    "repo": "drowzeys/DeepSeek-V4.1-Flash-TR3-Hybrid",
    "entry": "EXL3 3.5bpw Pollard",
-   "key": "mean_kld",
-   "raw": "0.057",
-   "resolver": {
-    "source_sha256": "7c5a7183a12e01a89b3bf3797e0859c8d589fad233ac9e3821478e90b9446eb7",
-    "mapping_sha256": "5ca664cfcd0a33e53777ffff43262dd0df8de3bbbba68ac85c814efbaf0e203e",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "5ece3252f12233049de421f5bb7c39ecd3820ec7394d57466f1fd53a6df6ff25",
-    "mapping_file": "maps/resolved/drowzeys__DeepSeek-V4.1-Flash-TR3-Hybrid.map.json"
-   }
-  },
-  {
-   "repo": "drowzeys/DeepSeek-V4.1-Flash-TR3-Hybrid",
-   "entry": "EXL3 3.5bpw Pollard",
-   "key": "top1_pct",
-   "raw": "0.976",
-   "resolver": {
-    "source_sha256": "7c5a7183a12e01a89b3bf3797e0859c8d589fad233ac9e3821478e90b9446eb7",
-    "mapping_sha256": "5ca664cfcd0a33e53777ffff43262dd0df8de3bbbba68ac85c814efbaf0e203e",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "5ece3252f12233049de421f5bb7c39ecd3820ec7394d57466f1fd53a6df6ff25",
-    "mapping_file": "maps/resolved/drowzeys__DeepSeek-V4.1-Flash-TR3-Hybrid.map.json"
-   }
-  },
-  {
-   "repo": "drowzeys/DeepSeek-V4.1-Flash-TR3-Hybrid",
-   "entry": "EXL3 3.5bpw Pollard",
    "key": "bench:objective-battery-correct",
    "raw": "25",
-   "resolver": {
-    "source_sha256": "7c5a7183a12e01a89b3bf3797e0859c8d589fad233ac9e3821478e90b9446eb7",
-    "mapping_sha256": "5ca664cfcd0a33e53777ffff43262dd0df8de3bbbba68ac85c814efbaf0e203e",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "5ece3252f12233049de421f5bb7c39ecd3820ec7394d57466f1fd53a6df6ff25",
-    "mapping_file": "maps/resolved/drowzeys__DeepSeek-V4.1-Flash-TR3-Hybrid.map.json"
-   }
-  },
-  {
-   "repo": "drowzeys/DeepSeek-V4.1-Flash-TR3-Hybrid",
-   "entry": "native (ref)",
-   "key": "mean_kld",
-   "raw": "0",
-   "resolver": {
-    "source_sha256": "7c5a7183a12e01a89b3bf3797e0859c8d589fad233ac9e3821478e90b9446eb7",
-    "mapping_sha256": "5ca664cfcd0a33e53777ffff43262dd0df8de3bbbba68ac85c814efbaf0e203e",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "5ece3252f12233049de421f5bb7c39ecd3820ec7394d57466f1fd53a6df6ff25",
-    "mapping_file": "maps/resolved/drowzeys__DeepSeek-V4.1-Flash-TR3-Hybrid.map.json"
-   }
-  },
-  {
-   "repo": "drowzeys/DeepSeek-V4.1-Flash-TR3-Hybrid",
-   "entry": "native (ref)",
-   "key": "top1_pct",
-   "raw": "1.000",
    "resolver": {
     "source_sha256": "7c5a7183a12e01a89b3bf3797e0859c8d589fad233ac9e3821478e90b9446eb7",
     "mapping_sha256": "5ca664cfcd0a33e53777ffff43262dd0df8de3bbbba68ac85c814efbaf0e203e",
@@ -2661,20 +2507,6 @@
    "entry": "W4A16 (experts INT4 GPTQ + Engram INT4)",
    "key": "bench:GSM8K",
    "raw": "93.93 / 94.01",
-   "resolver": {
-    "source_sha256": "13ce52ac88959edb57dfcced696e722c8060f71fdfcb6161f08d574569257c66",
-    "mapping_sha256": "d4a71bfc5bd7a09d3897f3228e0e1ef94db3c6db0b680e3857fffcf1ff207065",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "5869e10d213d83aec82578f8b56906c2635f4680da14ea0ca19a1c505d7db3e2",
-    "mapping_file": "maps/resolved/lvkaokao__DeepSeek-V4.1-Flash-W4A16-Engram-AutoRound.map.json"
-   }
-  },
-  {
-   "repo": "lvkaokao/DeepSeek-V4.1-Flash-W4A16-Engram-AutoRound",
-   "entry": "official baseline",
-   "key": "bench:GSM8K",
-   "raw": "92.87",
    "resolver": {
     "source_sha256": "13ce52ac88959edb57dfcced696e722c8060f71fdfcb6161f08d574569257c66",
     "mapping_sha256": "d4a71bfc5bd7a09d3897f3228e0e1ef94db3c6db0b680e3857fffcf1ff207065",
@@ -2896,90 +2728,6 @@
   },
   {
    "repo": "nvidia/DeepSeek-V4.1-Flash-NVFP4",
-   "entry": "NVFP4 + MXFP4 Engram",
-   "key": "bench:GPQA Diamond",
-   "raw": "90.783",
-   "resolver": {
-    "source_sha256": "dc6d77c8cad19d2537364502077e230852babc3ac5c196c468ae525014fd6ee7",
-    "mapping_sha256": "649d9371e72550d37f00da01cdd76444a04335530a298a3a7ecc7076842aa8a7",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "dc65d3b8bab95934b566cec7f1ce1b9243f3b7d6ce0a6cbd6f45a60bf41a2204",
-    "mapping_file": "maps/resolved/nvidia__DeepSeek-V4.1-Flash-NVFP4.map.json"
-   }
-  },
-  {
-   "repo": "nvidia/DeepSeek-V4.1-Flash-NVFP4",
-   "entry": "NVFP4 + MXFP4 Engram",
-   "key": "bench:AA-LCR",
-   "raw": "79.562",
-   "resolver": {
-    "source_sha256": "dc6d77c8cad19d2537364502077e230852babc3ac5c196c468ae525014fd6ee7",
-    "mapping_sha256": "649d9371e72550d37f00da01cdd76444a04335530a298a3a7ecc7076842aa8a7",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "dc65d3b8bab95934b566cec7f1ce1b9243f3b7d6ce0a6cbd6f45a60bf41a2204",
-    "mapping_file": "maps/resolved/nvidia__DeepSeek-V4.1-Flash-NVFP4.map.json"
-   }
-  },
-  {
-   "repo": "nvidia/DeepSeek-V4.1-Flash-NVFP4",
-   "entry": "NVFP4 + MXFP4 Engram",
-   "key": "bench:SciCode",
-   "raw": "53.994",
-   "resolver": {
-    "source_sha256": "dc6d77c8cad19d2537364502077e230852babc3ac5c196c468ae525014fd6ee7",
-    "mapping_sha256": "649d9371e72550d37f00da01cdd76444a04335530a298a3a7ecc7076842aa8a7",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "dc65d3b8bab95934b566cec7f1ce1b9243f3b7d6ce0a6cbd6f45a60bf41a2204",
-    "mapping_file": "maps/resolved/nvidia__DeepSeek-V4.1-Flash-NVFP4.map.json"
-   }
-  },
-  {
-   "repo": "nvidia/DeepSeek-V4.1-Flash-NVFP4",
-   "entry": "NVFP4 + MXFP4 Engram",
-   "key": "bench:IFBench",
-   "raw": "77.867",
-   "resolver": {
-    "source_sha256": "dc6d77c8cad19d2537364502077e230852babc3ac5c196c468ae525014fd6ee7",
-    "mapping_sha256": "649d9371e72550d37f00da01cdd76444a04335530a298a3a7ecc7076842aa8a7",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "dc65d3b8bab95934b566cec7f1ce1b9243f3b7d6ce0a6cbd6f45a60bf41a2204",
-    "mapping_file": "maps/resolved/nvidia__DeepSeek-V4.1-Flash-NVFP4.map.json"
-   }
-  },
-  {
-   "repo": "nvidia/DeepSeek-V4.1-Flash-NVFP4",
-   "entry": "NVFP4 + MXFP4 Engram",
-   "key": "bench:MMMU-Pro",
-   "raw": "74.566",
-   "resolver": {
-    "source_sha256": "dc6d77c8cad19d2537364502077e230852babc3ac5c196c468ae525014fd6ee7",
-    "mapping_sha256": "649d9371e72550d37f00da01cdd76444a04335530a298a3a7ecc7076842aa8a7",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "dc65d3b8bab95934b566cec7f1ce1b9243f3b7d6ce0a6cbd6f45a60bf41a2204",
-    "mapping_file": "maps/resolved/nvidia__DeepSeek-V4.1-Flash-NVFP4.map.json"
-   }
-  },
-  {
-   "repo": "nvidia/DeepSeek-V4.1-Flash-NVFP4",
-   "entry": "NVFP4 + MXFP4 Engram, Terminal-Bench 2.1",
-   "key": "bench:Terminal-Bench 2.1",
-   "raw": "81.88",
-   "resolver": {
-    "source_sha256": "dc6d77c8cad19d2537364502077e230852babc3ac5c196c468ae525014fd6ee7",
-    "mapping_sha256": "649d9371e72550d37f00da01cdd76444a04335530a298a3a7ecc7076842aa8a7",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "dc65d3b8bab95934b566cec7f1ce1b9243f3b7d6ce0a6cbd6f45a60bf41a2204",
-    "mapping_file": "maps/resolved/nvidia__DeepSeek-V4.1-Flash-NVFP4.map.json"
-   }
-  },
-  {
-   "repo": "nvidia/DeepSeek-V4.1-Flash-NVFP4",
    "entry": "MXFP4 (source)",
    "key": "bench:GPQA Diamond",
    "raw": "91.035",
@@ -3065,36 +2813,8 @@
   {
    "repo": "pfeifferj/DeepSeek-V4.1-Flash-GSQ-RCO-GGUF",
    "entry": "DeepSeek-V4.1-Flash-GSQ-RCO-3.0bit.gguf",
-   "key": "bench:MMLU-Pro",
-   "raw": "61.00% (1,220/2,000)",
-   "resolver": {
-    "source_sha256": "0db27c5dcc6b50f0b1fc5c1adb1f63299c1e6ca7b7d0e083a12e859fd73e015d",
-    "mapping_sha256": "9c23b3e201538d4744ee42f621d24e2e69900932e53dc92b47130eac3dc69825",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "f1700a0572ae56130e5c5ccd750002ff79053ecc6e3f23e470776975361f0ab4",
-    "mapping_file": "maps/resolved/pfeifferj__DeepSeek-V4.1-Flash-GSQ-RCO-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "pfeifferj/DeepSeek-V4.1-Flash-GSQ-RCO-GGUF",
-   "entry": "DeepSeek-V4.1-Flash-GSQ-RCO-3.0bit.gguf",
    "key": "bpw",
    "raw": "2.9986",
-   "resolver": {
-    "source_sha256": "0db27c5dcc6b50f0b1fc5c1adb1f63299c1e6ca7b7d0e083a12e859fd73e015d",
-    "mapping_sha256": "9c23b3e201538d4744ee42f621d24e2e69900932e53dc92b47130eac3dc69825",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "f1700a0572ae56130e5c5ccd750002ff79053ecc6e3f23e470776975361f0ab4",
-    "mapping_file": "maps/resolved/pfeifferj__DeepSeek-V4.1-Flash-GSQ-RCO-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "pfeifferj/DeepSeek-V4.1-Flash-GSQ-RCO-GGUF",
-   "entry": "DeepSeek-V4.1-Flash-GSQ-RCO-3.0bit.gguf \u2014 held-out PPL",
-   "key": "ppl",
-   "raw": "3.4845570141",
    "resolver": {
     "source_sha256": "0db27c5dcc6b50f0b1fc5c1adb1f63299c1e6ca7b7d0e083a12e859fd73e015d",
     "mapping_sha256": "9c23b3e201538d4744ee42f621d24e2e69900932e53dc92b47130eac3dc69825",

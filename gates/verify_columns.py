@@ -150,6 +150,29 @@ def combined_corpus_cell(doc_n, i, header, cell, key, value):
         j -= 1
     paragraph = re.sub(r"\s+", " ", _strip_md(" ".join(doc_n[j + 1:end]))).lower()
     return re.search(r"\beach cell shows (?:the )?mean kl(?: lower bound)?(?: in nats)?, then top-1 agreement\b", paragraph) is not None
+def caption_above(doc_n, i):
+    """The paragraph directly above the table that holds row i (blank lines skipped; stops at a heading or table)."""
+    a, _ = table_span(doc_n, i)
+    j = a - 1
+    while j >= 0 and not doc_n[j].strip(): j -= 1
+    end = j + 1
+    while j >= 0 and doc_n[j].strip() and not doc_n[j].lstrip().startswith(("#", "|")): j -= 1
+    return re.sub(r"\s+", " ", _strip_md(" ".join(doc_n[j + 1:end]))).strip()
+def corpus_column_caption(doc_n, i, header, cell, key, value, fam):
+    """A per-corpus value (kld:<corpus>, ppl:<corpus>, top1:<corpus>) in a table whose columns are corpora and whose
+    metric is named only in the caption right above it ("Mean KL-divergence vs the bf16 model: | | wikitext-2 | ...").
+    Accepted only when the column header is exactly the filed corpus, the cell holds just this one number, and the
+    caption names this metric and no other metric family (so the caption cannot be about a different column)."""
+    m = re.fullmatch(r"(kld|kl|top1|ppl):(.+)", key)
+    if not m: return False
+    corpus = lambda text: re.sub(r"[^a-z0-9]", "", _strip_md(text).lower())
+    if not corpus(m[2]) or corpus(m[2]) != corpus(header): return False
+    if numtoks(norm(cell)) != numtoks(norm(str(value))) or len(numtoks(norm(cell))) != 1: return False
+    cap = caption_above(doc_n, i)
+    if not cap or not re.search(fam, cap, re.I): return False
+    others = [kw for test, kw in FAMILY[:3] if kw != fam]   # KL, top-1, perplexity
+    return not any(re.search(kw, cap, re.I) for kw in others)
+
 def label_of(row, first_val_col):
     return " | ".join(row[:max(1, min(first_val_col, 3))])
 label_bad, label_checked, label_pivot, label_single = [], 0, 0, 0
@@ -231,6 +254,7 @@ for r in load():
             if not cols: continue                       # value is not in this row (cited via L_extra); presence gate covers it
             checked += 1
             if any(combined_corpus_cell(doc_n, L - 1, hdr[ci], row[ci], k, v) for ci in cols): continue
+            if any(corpus_column_caption(doc_n, L - 1, hdr[ci], row[ci], k, v, fam) for ci in cols): continue
             if any(re.search(fam, hdr[ci], re.I) or re.search(fam, row[ci], re.I) for ci in cols): continue
             if row and re.search(fam, row[0], re.I) and 0 not in cols: continue          # key/value table: label in first cell
             if re.search(fam, k.split(":", 1)[-1], re.I) and any(re.search(fam, h, re.I) for h in hdr) is False and \

@@ -13,15 +13,45 @@
    "reason": "review hold: label is the MTP draft-head precision (card L206 header 'draft head'), not a quant variant"
   },
   {
-   "repo": "spectator2026/GLM-5.3-Flash-W5-HQQ-g32",
-   "kind": "ladder",
-   "entry": "8-bit g32 + HQQ (reference point)",
+   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
+   "kind": "variants",
+   "entry": "this build",
    "reason": "failed a gate"
   },
   {
-   "repo": "spectator2026/GLM-5.3-Flash-W5-HQQ-g32",
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "kind": "ladder",
+   "entry": "mixed-4_8bit",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
    "kind": "variants",
-   "entry": "this W5 checkpoint (served)",
+   "entry": "GLM-5.3-Flash-TQ3_4S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "kind": "ladder",
+   "entry": "8bit",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "kind": "ladder",
+   "entry": "6bit",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
+   "kind": "cross",
+   "entry": "original release, after routed-expert VQ",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "kind": "ladder",
+   "entry": "4bit",
    "reason": "failed a gate"
   }
  ],
@@ -273,12 +303,6 @@
    "raw": "4.8555"
   },
   {
-   "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
-   "entry": "original release, after routed-expert VQ",
-   "key": "ppl:held-out prose",
-   "raw": "8.0797"
-  },
-  {
    "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
    "entry": "this model (IQ1_S)",
    "key": "bench:HumanEval-164 pass@1",
@@ -527,18 +551,6 @@
   {
    "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
    "entry": "This quant",
-   "key": "kld:wikitext",
-   "raw": "0.0903"
-  },
-  {
-   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
-   "entry": "This quant",
-   "key": "kld:workload",
-   "raw": "0.3150"
-  },
-  {
-   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
-   "entry": "This quant",
    "key": "bench:GSM8K",
    "raw": "98.8%"
   },
@@ -553,18 +565,6 @@
    "entry": "This quant",
    "key": "bench:HumanEval+MBPP+",
    "raw": "86.5%"
-  },
-  {
-   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
-   "entry": "brandonmusic-TR3-4bpw",
-   "key": "kld:wikitext",
-   "raw": "0.0990"
-  },
-  {
-   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
-   "entry": "brandonmusic-TR3-4bpw",
-   "key": "kld:workload",
-   "raw": "0.3271"
   },
   {
    "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
@@ -587,50 +587,8 @@
   {
    "repo": "OpenMOSE/GLM-5.3-Flash-REAP-250B-A18B",
    "entry": "GLM-5.3-Flash-REAP-250B-A18B",
-   "key": "mean_kld",
-   "raw": "0.453"
-  },
-  {
-   "repo": "OpenMOSE/GLM-5.3-Flash-REAP-250B-A18B",
-   "entry": "GLM-5.3-Flash-REAP-250B-A18B",
-   "key": "top1_pct",
-   "raw": "86.0 %"
-  },
-  {
-   "repo": "OpenMOSE/GLM-5.3-Flash-REAP-250B-A18B",
-   "entry": "GLM-5.3-Flash-REAP-250B-A18B",
    "key": "top1:confident tokens",
    "raw": "92.4 %"
-  },
-  {
-   "repo": "OpenMOSE/GLM-5.3-Flash-REAP-250B-A18B",
-   "entry": "(reference) uniform 224 experts, single mixed calibration set",
-   "key": "mean_kld",
-   "raw": "0.476"
-  },
-  {
-   "repo": "OpenMOSE/GLM-5.3-Flash-REAP-250B-A18B",
-   "entry": "(reference) uniform 224 experts, single mixed calibration set",
-   "key": "top1_pct",
-   "raw": "85.7 %"
-  },
-  {
-   "repo": "OpenMOSE/GLM-5.3-Flash-REAP-250B-A18B",
-   "entry": "GLM-5.3-Flash (original)",
-   "key": "mean_kld",
-   "raw": "0"
-  },
-  {
-   "repo": "OpenMOSE/GLM-5.3-Flash-REAP-250B-A18B",
-   "entry": "GLM-5.3-Flash (original)",
-   "key": "top1_pct",
-   "raw": "100 %"
-  },
-  {
-   "repo": "OpenMOSE/GLM-5.3-Flash-REAP-250B-A18B",
-   "entry": "GLM-5.3-Flash (original)",
-   "key": "ppl:heldout",
-   "raw": "4.068"
   },
   {
    "repo": "OsaurusAI/GLM-5.3-Flash-JANGHT2.4",
@@ -661,108 +619,6 @@
    "entry": "orcarouter GLM-5.3-Flash-MLX 2bit-lite",
    "key": "top1_pct",
    "raw": "71.4%"
-  },
-  {
-   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
-   "entry": "Q4_K_XL",
-   "key": "ppl:wikitext",
-   "raw": "3.3105 \u00b1 0.043"
-  },
-  {
-   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
-   "entry": "Q3_K_XL",
-   "key": "ppl:wikitext",
-   "raw": "3.6015 \u00b1 0.047"
-  },
-  {
-   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
-   "entry": "Q3_K_XL",
-   "key": "mean_kld",
-   "raw": "0.152"
-  },
-  {
-   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
-   "entry": "Q3_K_XL",
-   "key": "top1_pct",
-   "raw": "87.7%"
-  },
-  {
-   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
-   "entry": "Q3_K_M",
-   "key": "ppl:wikitext",
-   "raw": "3.7038 \u00b1 0.049"
-  },
-  {
-   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
-   "entry": "Q3_K_M",
-   "key": "mean_kld",
-   "raw": "0.188"
-  },
-  {
-   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
-   "entry": "Q3_K_M",
-   "key": "top1_pct",
-   "raw": "86.0%"
-  },
-  {
-   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
-   "entry": "Q2_K_XL",
-   "key": "ppl:wikitext",
-   "raw": "4.6112 \u00b1 0.065"
-  },
-  {
-   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
-   "entry": "Q2_K_XL",
-   "key": "mean_kld",
-   "raw": "0.378"
-  },
-  {
-   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
-   "entry": "Q2_K_XL",
-   "key": "top1_pct",
-   "raw": "79.5%"
-  },
-  {
-   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
-   "entry": "Q3_K_M with Q6_K KDA projections (not published)",
-   "key": "ppl:wikitext",
-   "raw": "3.6855 \u00b1 0.049"
-  },
-  {
-   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
-   "entry": "Q3_K_M with Q6_K KDA projections (not published)",
-   "key": "mean_kld",
-   "raw": "0.189"
-  },
-  {
-   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
-   "entry": "Q3_K_M with Q6_K KDA projections (not published)",
-   "key": "top1_pct",
-   "raw": "85.9%"
-  },
-  {
-   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
-   "entry": "Q3_K_M with Q2_K to blk.28 (not published)",
-   "key": "ppl:wikitext",
-   "raw": "4.0427 \u00b1 0.055"
-  },
-  {
-   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
-   "entry": "Q3_K_M with Q2_K to blk.28 (not published)",
-   "key": "mean_kld",
-   "raw": "0.263"
-  },
-  {
-   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
-   "entry": "Q3_K_M with Q2_K to blk.28 (not published)",
-   "key": "top1_pct",
-   "raw": "83.1%"
-  },
-  {
-   "repo": "SixVolts/GLM-5.3-Flash-ewaste-edition-GGUF",
-   "entry": "unsloth UD-Q4_K_XL (reference)",
-   "key": "ppl:wikitext",
-   "raw": "3.3038 \u00b1 0.042 \u2020"
   },
   {
    "repo": "TensorFold/GLM-5.3-Flash-MLX-2bit-MTP",
@@ -799,450 +655,6 @@
    "entry": "this model",
    "key": "bench:Acceptance, native MTP depth 1",
    "raw": "57.9%"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "this model (d4/K2048)",
-   "key": "mean_kl_mnats",
-   "raw": "199.53"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "this model (d4/K2048)",
-   "key": "top1_pct",
-   "raw": "88.6%"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "this model (d4/K2048)",
-   "key": "ppl:prose",
-   "raw": "2.1954"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "this model (d4/K2048)",
-   "key": "ppl:code",
-   "raw": "1.6187"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "this model (d4/K2048)",
-   "key": "ppl:literary",
-   "raw": "1.3402"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "VQ 2.7bpw (mixed best-8)",
-   "key": "mean_kl_mnats",
-   "raw": "293.84"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "VQ 2.7bpw (mixed best-8)",
-   "key": "top1_pct",
-   "raw": "85.7%"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "VQ 2.7bpw (mixed best-8)",
-   "key": "ppl:prose",
-   "raw": "2.4014"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "VQ 2.7bpw (mixed best-8)",
-   "key": "ppl:code",
-   "raw": "1.6671"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "VQ 2.7bpw (mixed best-8)",
-   "key": "ppl:literary",
-   "raw": "1.4811"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "affine q3 (ours)",
-   "key": "mean_kl_mnats",
-   "raw": "377.08"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "affine q3 (ours)",
-   "key": "top1_pct",
-   "raw": "83.1%"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "affine q3 (ours)",
-   "key": "ppl:prose",
-   "raw": "2.6824"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "affine q3 (ours)",
-   "key": "ppl:code",
-   "raw": "1.7842"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "affine q3 (ours)",
-   "key": "ppl:literary",
-   "raw": "1.4731"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "VQ 3.6bpw (d4/K8192)",
-   "key": "mean_kl_mnats",
-   "raw": "94.54"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "VQ 3.6bpw (d4/K8192)",
-   "key": "top1_pct",
-   "raw": "92.1%"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "VQ 3.6bpw (d4/K8192)",
-   "key": "ppl:prose",
-   "raw": "2.0379"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "VQ 3.6bpw (d4/K8192)",
-   "key": "ppl:code",
-   "raw": "1.5475"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "VQ 3.6bpw (d4/K8192)",
-   "key": "ppl:literary",
-   "raw": "1.2154"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "affine q4 (ours)",
-   "key": "mean_kl_mnats",
-   "raw": "98.34"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "affine q4 (ours)",
-   "key": "top1_pct",
-   "raw": "91.9%"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "affine q4 (ours)",
-   "key": "ppl:prose",
-   "raw": "2.0263"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "affine q4 (ours)",
-   "key": "ppl:code",
-   "raw": "1.5718"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "affine q4 (ours)",
-   "key": "ppl:literary",
-   "raw": "1.2025"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "affine q6 (ours)",
-   "key": "mean_kl_mnats",
-   "raw": "13.47"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "affine q6 (ours)",
-   "key": "top1_pct",
-   "raw": "97.1%"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "affine q6 (ours)",
-   "key": "ppl:prose",
-   "raw": "1.9285"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "affine q6 (ours)",
-   "key": "ppl:code",
-   "raw": "1.4929"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "affine q6 (ours)",
-   "key": "ppl:literary",
-   "raw": "1.1660"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "bf16 teacher",
-   "key": "top1_pct",
-   "raw": "100%"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "bf16 teacher",
-   "key": "ppl:prose",
-   "raw": "1.9024"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "bf16 teacher",
-   "key": "ppl:code",
-   "raw": "1.4888"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.1bpw",
-   "entry": "bf16 teacher",
-   "key": "ppl:literary",
-   "raw": "1.1580"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "this model (d4/K8192)",
-   "key": "mean_kl_mnats",
-   "raw": "94.54"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "this model (d4/K8192)",
-   "key": "top1_pct",
-   "raw": "92.1%"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "this model (d4/K8192)",
-   "key": "ppl:prose",
-   "raw": "2.0379"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "this model (d4/K8192)",
-   "key": "ppl:code",
-   "raw": "1.5475"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "this model (d4/K8192)",
-   "key": "ppl:literary",
-   "raw": "1.2154"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "VQ 2.7bpw (mixed best-8)",
-   "key": "mean_kl_mnats",
-   "raw": "293.84"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "VQ 2.7bpw (mixed best-8)",
-   "key": "top1_pct",
-   "raw": "85.7%"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "VQ 2.7bpw (mixed best-8)",
-   "key": "ppl:prose",
-   "raw": "2.4014"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "VQ 2.7bpw (mixed best-8)",
-   "key": "ppl:code",
-   "raw": "1.6671"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "VQ 2.7bpw (mixed best-8)",
-   "key": "ppl:literary",
-   "raw": "1.4811"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "VQ 3.1bpw (d4/K2048)",
-   "key": "mean_kl_mnats",
-   "raw": "199.53"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "VQ 3.1bpw (d4/K2048)",
-   "key": "top1_pct",
-   "raw": "88.6%"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "VQ 3.1bpw (d4/K2048)",
-   "key": "ppl:prose",
-   "raw": "2.1954"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "VQ 3.1bpw (d4/K2048)",
-   "key": "ppl:code",
-   "raw": "1.6187"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "VQ 3.1bpw (d4/K2048)",
-   "key": "ppl:literary",
-   "raw": "1.3402"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "affine q3 (ours)",
-   "key": "mean_kl_mnats",
-   "raw": "377.08"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "affine q3 (ours)",
-   "key": "top1_pct",
-   "raw": "83.1%"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "affine q3 (ours)",
-   "key": "ppl:prose",
-   "raw": "2.6824"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "affine q3 (ours)",
-   "key": "ppl:code",
-   "raw": "1.7842"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "affine q3 (ours)",
-   "key": "ppl:literary",
-   "raw": "1.4731"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "affine q4 (ours)",
-   "key": "mean_kl_mnats",
-   "raw": "98.34"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "affine q4 (ours)",
-   "key": "top1_pct",
-   "raw": "91.9%"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "affine q4 (ours)",
-   "key": "ppl:prose",
-   "raw": "2.0263"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "affine q4 (ours)",
-   "key": "ppl:code",
-   "raw": "1.5718"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "affine q4 (ours)",
-   "key": "ppl:literary",
-   "raw": "1.2025"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "affine q6 (ours)",
-   "key": "mean_kl_mnats",
-   "raw": "13.47"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "affine q6 (ours)",
-   "key": "top1_pct",
-   "raw": "97.1%"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "affine q6 (ours)",
-   "key": "ppl:prose",
-   "raw": "1.9285"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "affine q6 (ours)",
-   "key": "ppl:code",
-   "raw": "1.4929"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "affine q6 (ours)",
-   "key": "ppl:literary",
-   "raw": "1.1660"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "bf16 teacher",
-   "key": "ppl:prose",
-   "raw": "1.9024"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "bf16 teacher",
-   "key": "ppl:code",
-   "raw": "1.4888"
-  },
-  {
-   "repo": "TheDrainFlorist/GLM-5.3-Flash-VQ-3.6bpw",
-   "entry": "bf16 teacher",
-   "key": "ppl:literary",
-   "raw": "1.1580"
-  },
-  {
-   "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
-   "entry": "GLM-5.3-Flash-TQ3_4S",
-   "key": "bench:Hard86",
-   "raw": "77.9% (67/86)"
-  },
-  {
-   "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
-   "entry": "GLM-5.3-Flash-TQ3_4S",
-   "key": "bench:Coding",
-   "raw": "81.2 (9/12)"
-  },
-  {
-   "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
-   "entry": "GLM-5.3-Flash-TQ3_4S",
-   "key": "bench:Toolcall",
-   "raw": "90.0 (13/15)"
-  },
-  {
-   "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
-   "entry": "GLM-5.3-Flash-TQ3_4S",
-   "key": "bench:Data extraction",
-   "raw": "90.8 (12/15)"
-  },
-  {
-   "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
-   "entry": "GLM-5.3-Flash-TQ3_4S",
-   "key": "bench:Instruction following",
-   "raw": "90.0 (13/15)"
-  },
-  {
-   "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
-   "entry": "GLM-5.3-Flash-TQ3_4S",
-   "key": "bench:Reasoning / math",
-   "raw": "73.3 (11/15)"
-  },
-  {
-   "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
-   "entry": "GLM-5.3-Flash-TQ3_4S",
-   "key": "bench:Quality composite",
-   "raw": "85.1"
   },
   {
    "repo": "aj9o9/GLM-5.3-Flash-GGUF",
@@ -1291,54 +703,6 @@
    "entry": "AJ-IQ2_XXS",
    "key": "bench:tg128",
    "raw": "11.55 \u00b1 0.68"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "This model (E192)",
-   "key": "bench:HumanEval (164) greedy",
-   "raw": "93.9 % (154/164)"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "This model (E192)",
-   "key": "bench:GPQA-Diamond (198) effort=low",
-   "raw": "79.8 % (158/198)"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "This model (E192)",
-   "key": "bench:GPQA-Diamond (198) effort=max",
-   "raw": "84.8 % (168/198)"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "This model (E192)",
-   "key": "bench:C-Eval val (1,606)",
-   "raw": "78.3 % (1,258/1,606)"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "This model (E192)",
-   "key": "bench:MMMU val (900) effort=low",
-   "raw": "70.7 % (636/900)"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "This model (E192)",
-   "key": "bench:BFCL v4 Non-Live AST",
-   "raw": "88.5 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "This model (E192)",
-   "key": "bench:BFCL v4 Live AST (weighted)",
-   "raw": "79.8 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "This model (E192)",
-   "key": "bench:BFCL v4 Multi-Turn Base (200)",
-   "raw": "79.5 %"
   },
   {
    "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
@@ -1475,98 +839,14 @@
   {
    "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
    "entry": "E224",
-   "key": "bench:HumanEval (164) greedy",
-   "raw": "95.7 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "E224",
-   "key": "bench:GPQA-Diamond (198) effort=low",
-   "raw": "78.3 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "E224",
-   "key": "bench:GPQA-Diamond (198) effort=max",
-   "raw": "90.9 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "E224",
-   "key": "bench:C-Eval val (1,606)",
-   "raw": "84.0 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "E224",
    "key": "bench:AIME 2025 effort=high",
    "raw": "75.0 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "E224",
-   "key": "bench:MMMU val (900) effort=low",
-   "raw": "73.6 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "E224",
-   "key": "bench:BFCL v4 Non-Live AST",
-   "raw": "88.3 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "E224",
-   "key": "bench:BFCL v4 Live AST (weighted)",
-   "raw": "80.3 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "E224",
-   "key": "bench:BFCL v4 Multi-Turn Base (200)",
-   "raw": "80.0 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "E256",
-   "key": "bench:HumanEval (164) greedy",
-   "raw": "97.6 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "E256",
-   "key": "bench:GPQA-Diamond (198) effort=low",
-   "raw": "77.3 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "E256",
-   "key": "bench:C-Eval val (1,606)",
-   "raw": "89.4 %"
   },
   {
    "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
    "entry": "E256",
    "key": "bench:AIME 2025 effort=high",
    "raw": "74.2 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "E256",
-   "key": "bench:MMMU val (900) effort=low",
-   "raw": "76.1 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "E256",
-   "key": "bench:BFCL v4 Non-Live AST",
-   "raw": "87.7 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "E256",
-   "key": "bench:BFCL v4 Live AST (weighted)",
-   "raw": "80.5 %"
   },
   {
    "repo": "autotrust/GLM5.3-Flash-E224-DGX-Spark",
@@ -1611,54 +891,6 @@
    "raw": "80.3 %"
   },
   {
-   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
-   "entry": "this build",
-   "key": "kld:en",
-   "raw": "0.0695"
-  },
-  {
-   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
-   "entry": "this build",
-   "key": "kld:ko",
-   "raw": "0.0468"
-  },
-  {
-   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
-   "entry": "this build",
-   "key": "kld:code",
-   "raw": "0.0599"
-  },
-  {
-   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
-   "entry": "this build",
-   "key": "mean_kld",
-   "raw": "0.0569"
-  },
-  {
-   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
-   "entry": "4-bit RTN baseline",
-   "key": "kld:en",
-   "raw": "0.0778"
-  },
-  {
-   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
-   "entry": "4-bit RTN baseline",
-   "key": "kld:ko",
-   "raw": "0.0501"
-  },
-  {
-   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
-   "entry": "4-bit RTN baseline",
-   "key": "kld:code",
-   "raw": "0.0652"
-  },
-  {
-   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
-   "entry": "4-bit RTN baseline",
-   "key": "mean_kld",
-   "raw": "0.0622"
-  },
-  {
    "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-6bit",
    "entry": "GLM-5.3-Flash-Alis-MLX-6bit",
    "key": "kld:ko",
@@ -1701,18 +933,6 @@
    "raw": "86.08%"
   },
   {
-   "repo": "cafonez/GLM-5.3-Flash-Gorgon-GGUF",
-   "entry": "GLM-5.3-Flash-Q5K-IQ3S",
-   "key": "mean_kld",
-   "raw": "mean KLD 0.040"
-  },
-  {
-   "repo": "cafonez/GLM-5.3-Flash-Gorgon-GGUF",
-   "entry": "GLM-5.3-Flash-Q5K-IQ3S",
-   "key": "top1_pct",
-   "raw": "same top-1 token 93.1%"
-  },
-  {
    "repo": "canada-quant/GLM-5.3-Flash-W4A16-MTP",
    "entry": "W4A16 (this)",
    "key": "bench:MMMU_validation",
@@ -1732,33 +952,9 @@
   },
   {
    "repo": "ddalcu/GLM-5.3-Flash-MLX-Serve-iQ-MLX-5.1bpw",
-   "entry": "iQ-MLX-5.1bpw (this pack)",
-   "key": "top1_pct",
-   "raw": "91.92%"
-  },
-  {
-   "repo": "ddalcu/GLM-5.3-Flash-MLX-Serve-iQ-MLX-5.1bpw",
    "entry": "this pack",
    "key": "top1_pct",
    "raw": "89.03%"
-  },
-  {
-   "repo": "ddalcu/GLM-5.3-Flash-MLX-Serve-iQ-MLX-5.1bpw",
-   "entry": "uniform GPTQ 4/5 (gate-up/down), same pipeline",
-   "key": "top1_pct",
-   "raw": "91.74%"
-  },
-  {
-   "repo": "ddalcu/GLM-5.3-Flash-MLX-Serve-iQ-MLX-5.1bpw",
-   "entry": "oQ5e-mtp",
-   "key": "top1_pct",
-   "raw": "92.19%"
-  },
-  {
-   "repo": "ddalcu/GLM-5.3-Flash-MLX-Serve-iQ-MLX-5.1bpw",
-   "entry": "oQ4-MTP",
-   "key": "top1_pct",
-   "raw": "88.58%"
   },
   {
    "repo": "ddalcu/GLM-5.3-Flash-MLX-Serve-iQ-MLX-5.1bpw",
@@ -2255,12 +1451,6 @@
   {
    "repo": "elvezjp/GLM-5.3-Flash-ELVEZ-KDA-Q8_0-gguf",
    "entry": "GLM-5.3-Flash-ELVEZ-KDA-Q8_0",
-   "key": "bench:HumanEval",
-   "raw": "96.34%"
-  },
-  {
-   "repo": "elvezjp/GLM-5.3-Flash-ELVEZ-KDA-Q8_0-gguf",
-   "entry": "GLM-5.3-Flash-ELVEZ-KDA-Q8_0",
    "key": "bench:Japanese long-form writing",
    "raw": "19.5"
   },
@@ -2269,12 +1459,6 @@
    "entry": "GLM-5.3-Flash-ELVEZ-KDA-Q8_0",
    "key": "bench:Blind judge Claude Opus 5 (/20)",
    "raw": "18.83"
-  },
-  {
-   "repo": "elvezjp/GLM-5.3-Flash-ELVEZ-KDA-Q8_0-gguf",
-   "entry": "GLM-5.3-Flash-Q4_K.gguf (Original)",
-   "key": "bench:HumanEval",
-   "raw": "95.12%"
   },
   {
    "repo": "elvezjp/GLM-5.3-Flash-ELVEZ-KDA-Q8_0-gguf",
@@ -2289,36 +1473,6 @@
    "raw": "18.50"
   },
   {
-   "repo": "fly9i/GLM-5.3-Flash-SPX1-V1.1",
-   "entry": "SPX1 V1.1 (this)",
-   "key": "mean_kld",
-   "raw": "0.0171"
-  },
-  {
-   "repo": "fly9i/GLM-5.3-Flash-SPX1-V1.1",
-   "entry": "SPX1 V1.1 (this)",
-   "key": "top1_pct",
-   "raw": "96.5 %"
-  },
-  {
-   "repo": "fly9i/GLM-5.3-Flash-SPX1-V1.1",
-   "entry": "SPX1 V1.1 (this)",
-   "key": "bench:GSM8K",
-   "raw": "98.5 %"
-  },
-  {
-   "repo": "fly9i/GLM-5.3-Flash-SPX1-V1.1",
-   "entry": "tr3 4bpw (upstream, uniform K4)",
-   "key": "mean_kld",
-   "raw": "0.0231"
-  },
-  {
-   "repo": "fly9i/GLM-5.3-Flash-SPX1-V1.1",
-   "entry": "tr3 4bpw (upstream, uniform K4)",
-   "key": "top1_pct",
-   "raw": "95.6 %"
-  },
-  {
    "repo": "genevera/GLM-5.3-Flash-Uncensored-EXL3-2.5bpw",
    "entry": "CRACK Uncensored FP8",
    "key": "bench:MMLU (overall)",
@@ -2331,34 +1485,10 @@
    "raw": "86.74%"
   },
   {
-   "repo": "gitcommit90/GLM-5.3-Flash-EXL3-2.05-One-Spark",
-   "entry": "Turboderp EXL3 2.05",
-   "key": "top1_pct",
-   "raw": "88.92%"
-  },
-  {
-   "repo": "gitcommit90/GLM-5.3-Flash-EXL3-2.05-One-Spark",
-   "entry": "Turboderp EXL3 2.05",
-   "key": "mean_kld",
-   "raw": "0.121638"
-  },
-  {
-   "repo": "graphistry/GLM-5.3-Flash-W4AFP8",
-   "entry": "GLM-5.3-Flash w4afp8",
-   "key": "bench:GPQA-Diamond",
-   "raw": "90.9"
-  },
-  {
    "repo": "graphistry/GLM-5.3-Flash-W4AFP8",
    "entry": "GLM-5.3-Flash w4afp8",
    "key": "bench:Graphistry_CyBT59_on_Louie",
    "raw": "59.3%"
-  },
-  {
-   "repo": "graphistry/GLM-5.3-Flash-W4AFP8",
-   "entry": "GLM-5.3-Flash unquantized",
-   "key": "bench:GPQA-Diamond",
-   "raw": "91.2"
   },
   {
    "repo": "graphistry/GLM-5.3-Flash-W4AFP8",
@@ -2435,32 +1565,8 @@
   {
    "repo": "mbehr90/GLM-5.3-Flash-nvfp4",
    "entry": "this build (NVFP4)",
-   "key": "bench:GSM8K chat",
-   "raw": "98.4"
-  },
-  {
-   "repo": "mbehr90/GLM-5.3-Flash-nvfp4",
-   "entry": "this build (NVFP4)",
    "key": "bench:AI2D vision",
    "raw": "84.6"
-  },
-  {
-   "repo": "mbehr90/GLM-5.3-Flash-nvfp4",
-   "entry": "this build (NVFP4)",
-   "key": "bench:GSM8K lm-eval",
-   "raw": "90.4"
-  },
-  {
-   "repo": "mbehr90/GLM-5.3-Flash-nvfp4",
-   "entry": "this build (NVFP4)",
-   "key": "bench:ARC-C",
-   "raw": "69.2"
-  },
-  {
-   "repo": "mbehr90/GLM-5.3-Flash-nvfp4",
-   "entry": "zai-org/GLM-5.3-Flash",
-   "key": "bench:GSM8K chat",
-   "raw": "98.8"
   },
   {
    "repo": "neuralll/GLM-5.3-Flash-MTP-GGUF",
@@ -2483,20 +1589,8 @@
   {
    "repo": "nuottroisaoduoc/GLM-5.3-Flash-UNCENSORED-FP8",
    "entry": "CRACK Uncensored FP8",
-   "key": "bench:MMLU",
-   "raw": "86.26%"
-  },
-  {
-   "repo": "nuottroisaoduoc/GLM-5.3-Flash-UNCENSORED-FP8",
-   "entry": "CRACK Uncensored FP8",
    "key": "bench:HarmBench-320_compliance",
    "raw": "100.0%"
-  },
-  {
-   "repo": "nuottroisaoduoc/GLM-5.3-Flash-UNCENSORED-FP8",
-   "entry": "Base FP8",
-   "key": "bench:MMLU",
-   "raw": "86.74%"
   },
   {
    "repo": "nvidia/GLM-5.3-Flash-FP4-Local",
@@ -2511,138 +1605,6 @@
    "raw": "91.9%"
   },
   {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "6-bit",
-   "key": "ppl",
-   "raw": "2.7864"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "6-bit",
-   "key": "ppl_delta_pct",
-   "raw": "+0.24 %"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "4-bit",
-   "key": "ppl",
-   "raw": "2.8620"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "4-bit",
-   "key": "ppl_delta_pct",
-   "raw": "+2.96 %"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "3-bit",
-   "key": "ppl",
-   "raw": "3.0566"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "3-bit",
-   "key": "ppl_delta_pct",
-   "raw": "+9.96 %"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "2-bit",
-   "key": "ppl",
-   "raw": "4.3622"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "2-bit",
-   "key": "ppl_delta_pct",
-   "raw": "+56.9 %"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "2bit-lite",
-   "key": "ppl",
-   "raw": "6.7018"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "2bit-lite",
-   "key": "ppl_delta_pct",
-   "raw": "+141 %"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "6-bit",
-   "key": "mean_kld",
-   "raw": "0.0063"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "6-bit",
-   "key": "top1_pct",
-   "raw": "97.76 %"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "4-bit",
-   "key": "mean_kld",
-   "raw": "0.0131"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "4-bit",
-   "key": "top1_pct",
-   "raw": "96.13 %"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "3-bit",
-   "key": "mean_kld",
-   "raw": "0.0421"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "3-bit",
-   "key": "top1_pct",
-   "raw": "92.06 %"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "2-bit",
-   "key": "mean_kld",
-   "raw": "0.1647"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "2-bit",
-   "key": "top1_pct",
-   "raw": "86.56 %"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "2bit-lite",
-   "key": "mean_kld",
-   "raw": "0.3456"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "2bit-lite",
-   "key": "top1_pct",
-   "raw": "77.19 %"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "FP8 (ref)",
-   "key": "ppl",
-   "raw": "2.7797"
-  },
-  {
-   "repo": "orcarouter/GLM-5.3-Flash-MLX",
-   "entry": "FP8 (ref)",
-   "key": "top1_pct",
-   "raw": "100 %"
-  },
-  {
    "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-FP8-v2",
    "entry": "per-expert (was shipped)",
    "key": "top1_pct",
@@ -2653,36 +1615,6 @@
    "entry": "v1",
    "key": "top1_pct",
    "raw": "0.8370"
-  },
-  {
-   "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-GGUF",
-   "entry": "GLM-5.3-Flash-REAP50-IQ3_M",
-   "key": "ppl:heldout",
-   "raw": "4.6253"
-  },
-  {
-   "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-GGUF",
-   "entry": "GLM-5.3-Flash-REAP50-IQ4_XS",
-   "key": "ppl:heldout",
-   "raw": "4.6002"
-  },
-  {
-   "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-GGUF",
-   "entry": "GLM-5.3-Flash-REAP50-Q3_K_M",
-   "key": "ppl:heldout",
-   "raw": "4.6502"
-  },
-  {
-   "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-GGUF",
-   "entry": "GLM-5.3-Flash-REAP50-Q4_K_M",
-   "key": "ppl:heldout",
-   "raw": "4.5959"
-  },
-  {
-   "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-GGUF",
-   "entry": "GLM-5.3-Flash-REAP50-Q4_K_S",
-   "key": "ppl:heldout",
-   "raw": "4.5833"
   },
   {
    "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-NVFP4-v2",
@@ -2889,84 +1821,6 @@
    "raw": "+0.6123 [+0.5552, +0.6722]"
   },
   {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "entry": "REAP37-mixed-4_8bit",
-   "key": "ppl:wikitext",
-   "raw": "4.8752"
-  },
-  {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "entry": "8bit",
-   "key": "ppl:wikitext",
-   "raw": "3.4607"
-  },
-  {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "entry": "6bit",
-   "key": "ppl:wikitext",
-   "raw": "3.4646"
-  },
-  {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "entry": "6bit",
-   "key": "ppl_delta_pct",
-   "raw": "6-bit +0.1%"
-  },
-  {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "entry": "mixed-4_8bit",
-   "key": "ppl:wikitext",
-   "raw": "3.5705"
-  },
-  {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "entry": "mixed-4_8bit",
-   "key": "ppl_delta_pct",
-   "raw": "mixed 4/8-bit +3.2%"
-  },
-  {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "entry": "4bit",
-   "key": "ppl:wikitext",
-   "raw": "3.7549"
-  },
-  {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "entry": "4bit",
-   "key": "ppl_delta_pct",
-   "raw": "uniform 4-bit +8.5%"
-  },
-  {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "entry": "REAP25-mixed-4_8bit",
-   "key": "ppl:wikitext",
-   "raw": "4.2249"
-  },
-  {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "entry": "REAP50-mixed-4_8bit",
-   "key": "ppl:wikitext",
-   "raw": "6.0757"
-  },
-  {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "entry": "REAP25-4bit",
-   "key": "ppl:wikitext",
-   "raw": "4.4361"
-  },
-  {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "entry": "REAP37-4bit",
-   "key": "ppl:wikitext",
-   "raw": "5.1057"
-  },
-  {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "entry": "REAP50-4bit",
-   "key": "ppl:wikitext",
-   "raw": "6.3840"
-  },
-  {
    "repo": "pipenetwork/GLM-5.3-Flash-REAP50-MLX-mixed-4_8bit",
    "entry": "REAP50-mixed-4_8bit",
    "key": "bench:dNLL_per_token_vs_8bit",
@@ -3095,24 +1949,6 @@
   {
    "repo": "sayyidfareed/GLM-5.3-Flash-Spark-Q2XL-MTP",
    "entry": "this file (Spark Q2XL MTP)",
-   "key": "bench:HumanEval pass@1",
-   "raw": "159/164 (97.0%)"
-  },
-  {
-   "repo": "sayyidfareed/GLM-5.3-Flash-Spark-Q2XL-MTP",
-   "entry": "this file (Spark Q2XL MTP)",
-   "key": "bench:HumanEval+ Mini pass@1",
-   "raw": "153/164 (93.3%)"
-  },
-  {
-   "repo": "sayyidfareed/GLM-5.3-Flash-Spark-Q2XL-MTP",
-   "entry": "this file (Spark Q2XL MTP)",
-   "key": "bench:34-point coding microbenchmark",
-   "raw": "29/34 (85.3%)"
-  },
-  {
-   "repo": "sayyidfareed/GLM-5.3-Flash-Spark-Q2XL-MTP",
-   "entry": "this file (Spark Q2XL MTP)",
    "key": "bench:Generation failures",
    "raw": "0"
   },
@@ -3217,54 +2053,6 @@
    "entry": "this model (B200 speed table)",
    "key": "bench:Generation, 32 parallel",
    "raw": "253"
-  },
-  {
-   "repo": "voska/GLM-5.3-Flash-W4A16",
-   "entry": "official FP8 release",
-   "key": "mean_kld",
-   "raw": "0.0206"
-  },
-  {
-   "repo": "voska/GLM-5.3-Flash-W4A16",
-   "entry": "4-bit weight-only",
-   "key": "mean_kld",
-   "raw": "0.0246"
-  },
-  {
-   "repo": "voska/GLM-5.3-Flash-W4A16",
-   "entry": "NVFP4 W4A4",
-   "key": "mean_kld",
-   "raw": "0.0605"
-  },
-  {
-   "repo": "yamz-labs/GLM-5.3-Flash-EXL3-Yamz",
-   "entry": "GLM-5.3-Flash EXL3 pack",
-   "key": "kld:held_out_30_rows",
-   "raw": "0.15081"
-  },
-  {
-   "repo": "yamz-labs/GLM-5.3-Flash-EXL3-Yamz",
-   "entry": "GLM-5.3-Flash EXL3 pack",
-   "key": "top1:held_out_30_rows",
-   "raw": "89.31 %"
-  },
-  {
-   "repo": "yamz-labs/GLM-5.3-Flash-EXL3-Yamz",
-   "entry": "GLM-5.3-Flash EXL3 pack",
-   "key": "kld:long_rows_4x4096",
-   "raw": "0.22737"
-  },
-  {
-   "repo": "yamz-labs/GLM-5.3-Flash-EXL3-Yamz",
-   "entry": "GLM-5.3-Flash EXL3 pack",
-   "key": "top1:long_rows_4x4096",
-   "raw": "88.74 %"
-  },
-  {
-   "repo": "yamz-labs/GLM-5.3-Flash-EXL3-Yamz",
-   "entry": "GLM-5.3-Flash EXL3 pack",
-   "key": "top1:held_out_126_rows",
-   "raw": "90.11 %"
   }
  ],
  "resolved_disagreements": [],

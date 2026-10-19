@@ -3,5 +3,15 @@
   "repo": "True2456/DeepSeek-V4-Flash-0731-AWQ",
   "entry": "this build",
   "reason": "QA review 2026-10-19: bench:MMLU: [L123] 64.5% is likelihood-scored MMLU against the teacher, while this build's omlx.eval MMLU benchmark is 61.5% [L106]."
+ },
+ {
+  "repo": "TensorFold/DeepSeek-V4-Flash-0731-MXFP4-MLX",
+  "entry": "lm_head 8-bit",
+  "reason": "review 2026-10-19: ppl_delta_pct: The -0.10% matches [L137], but that row is an lm_head 8-bit setting tested within one build, not a quant build, so it is not a ladder entry."
+ },
+ {
+  "repo": "GaelicThunder/DSpark-DeepSeek-V4-Flash-0731-drafter-dflash-GGUF",
+  "entry": "UD-IQ4_XS",
+  "reason": "review 2026-10-19: mean_kld: [L53] and [L61] say the 0.0747 KLD is Unsloth's published figure, so the role is quoted, not cross (author-measured)."
  }
 ]

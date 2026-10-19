@@ -40,9 +40,16 @@ def applied_from(d):
         a = Q.apply(json.load(open(m)), json.load(open(cf))); out[a["repo"]] = a
     return out
 
+def panel_key(p):
+    """Panel titles are typed by each run; compare them without markdown heading marks, case or spacing."""
+    return re.sub(r"\s+", " ", re.sub(r"^#+\s*|[*`]", "", str(p).strip())).strip().lower() if p else None
+
 def agree(a, b):
-    """Keep a value only if the other run also filed the same published string, under the same metric family and
-    the same role, somewhere on the card (entry names differ between runs, so they are not compared)."""
+    """Keep a value only if the other run also filed the same published string, under the same metric family, the
+    same role and the same panel, somewhere on the card (entry names differ between runs, so they are not compared).
+    Panels: two different named panels disagree (e.g. a legacy top-k panel vs the current full-vocabulary one). A run
+    that names no panel does not contradict one that does; the named panel is kept, so a value is never moved into the
+    default panel by the run that did not separate them."""
     import autoextract as AX
     def fam(k):
         if k == "mean_kl_mnats": return k
@@ -51,14 +58,24 @@ def agree(a, b):
         if k.startswith("bench:"): return "bench:" + re.sub(r"[^a-z0-9]", "", k[6:].lower())   # runs spell benchmark names differently
         return AX.gt_family(k) if AX.gt_family(k) != "other" else k
     role = {"variants": "own", "ladder": "ladder", "cross": "cross"}
-    sb = {(role[k], e.get("panel"), e.get("measured", True), fam(mk), v) for k in role for e in b[k] for mk, v in e["m"].items()}
+    sb = {}   # (role, measured, family, string) -> {normalized panel: panel as B wrote it}
+    for k in role:
+        for e in b[k]:
+            for mk, v in e["m"].items(): sb.setdefault((role[k], e.get("measured", True), fam(mk), v), {})[panel_key(e.get("panel"))] = e.get("panel")
     out = dict(a, variants=[], ladder=[], cross=[], weights_modified=(None if a.get("weights_modified") is None and b.get("weights_modified") is None else bool(a.get("weights_modified") or b.get("weights_modified")))); held = []
     for k in role:
         for e in a[k]:
-            keep = {mk: v for mk, v in e["m"].items() if (role[k], e.get("panel"), e.get("measured", True), fam(mk), v) in sb}
+            pa = panel_key(e.get("panel")); keep = {}; adopt = set()
+            for mk, v in e["m"].items():
+                pb = sb.get((role[k], e.get("measured", True), fam(mk), v), {})
+                if pa in pb or (pa is not None and None in pb): keep[mk] = v
+                elif pa is None and len(pb) == 1: keep[mk] = v; adopt.add(next(iter(pb.values())))
+            if len(adopt) > 1:   # A named no panel and B split its values across panels: keep only the unpanelled matches
+                keep = {mk: v for mk, v in keep.items() if None in sb.get((role[k], e.get("measured", True), fam(mk), v), {})}; adopt = set()
             held += [(a["repo"], e.get("name") or e.get("variant"), mk, v) for mk, v in e["m"].items() if mk not in keep]
-            if keep: out[k].append(dict(e, m=keep))
+            if keep: out[k].append(dict(e, m=keep, **({"panel": next(iter(adopt))} if adopt else {})))
     return out, held
+
 
 def resolved_from(allowed_repos):
     """Load reviewed overrides pinned to the current card and exact resolver-map bytes.

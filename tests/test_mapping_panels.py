@@ -49,7 +49,7 @@ AX = types.ModuleType("autoextract")
 AX.__dict__["re"] = re
 source_functions("pipeline/autoextract.py", {"NUM", "numtoks", "clean", "gt_family"}, AX.__dict__)
 MAP = source_functions("pipeline/qcl_map.py", {"clean_raw", "clean_label", "apply", "exact_in", "QUAL", "APPROX"}, {"re": re, "A": AX})
-WATCH = source_functions("pipeline/qcl_watch.py", {"agree", "write"}, {"re": re, "json": json})
+WATCH = source_functions("pipeline/qcl_watch.py", {"agree", "panel_key", "write"}, {"re": re, "json": json})
 
 
 def mapping(entries, **extra):
@@ -108,11 +108,29 @@ class MappingPanels(unittest.TestCase):
                     self.assertIs(agreed[kind][0]["measured"], False)
 
     def test_identical_values_in_different_panels_do_not_agree(self):
-        for panel in ("Legacy top-k", None):
-            with self.subTest(other_panel=panel):
-                result, held = self.agree(applied({"mean_kld": "0.0123"}), applied({"mean_kld": "0.0123"}, panel=panel))
-                self.assertEqual(result["variants"], [])
-                self.assertEqual(held, [("publisher/test-GGUF", "Q4", "mean_kld", "0.0123")])
+        result, held = self.agree(applied({"mean_kld": "0.0123"}), applied({"mean_kld": "0.0123"}, panel="Legacy top-k"))
+        self.assertEqual(result["variants"], [])
+        self.assertEqual(held, [("publisher/test-GGUF", "Q4", "mean_kld", "0.0123")])
+
+    def test_panel_titles_compare_without_heading_marks_or_case(self):
+        result, held = self.agree(applied({"mean_kld": "0.0123"}, panel="## Benchmarks"), applied({"mean_kld": "0.0123"}, panel="benchmarks"))
+        self.assertEqual((len(result["variants"]), held), (1, []))
+        self.assertEqual(result["variants"][0]["panel"], "## Benchmarks")
+
+    def test_a_run_naming_no_panel_agrees_and_the_named_panel_is_kept(self):
+        for a_panel, b_panel in (("Legacy top-k", None), (None, "Legacy top-k")):
+            with self.subTest(a=a_panel, b=b_panel):
+                result, held = self.agree(applied({"mean_kld": "0.0123"}, panel=a_panel), applied({"mean_kld": "0.0123"}, panel=b_panel))
+                self.assertEqual(held, [])
+                self.assertEqual(result["variants"][0]["panel"], "Legacy top-k")
+
+    def test_unpanelled_entry_whose_values_split_across_named_panels_is_held(self):
+        a = applied({"mean_kld": "0.0123", "top1_pct": "99.1%"}, panel=None)
+        b = applied({"mean_kld": "0.0123"}, panel="Legacy top-k")
+        b["variants"].append(dict(name="Q4", panel="Current", m={"top1_pct": "99.1%"}))
+        result, held = self.agree(a, b)
+        self.assertEqual(result["variants"], [])
+        self.assertEqual(len(held), 2)
 
     def test_identical_values_from_different_domains_do_not_agree(self):
         for prefix in ("kld", "top1", "ppl", "kl_mnats"):
@@ -230,7 +248,7 @@ class ResolverOverlay(unittest.TestCase):
             "failing": lambda _: set(),
             "build_failing": lambda _: set(),
         }
-        source_functions("pipeline/qcl_watch.py", {"agree", "resolved_from", "merge"}, namespace)
+        source_functions("pipeline/qcl_watch.py", {"agree", "panel_key", "resolved_from", "merge"}, namespace)
         return repo, map_path, manifest, pin, namespace, writes
 
     def merge(self, namespace, root):
