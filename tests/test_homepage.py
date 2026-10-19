@@ -30,6 +30,11 @@ async def main():
             page.on('pageerror', lambda e: errors.append(str(e)))
             await page.goto(HOME)
             assert await page.locator('.model-card').count() == len(manifest)
+            names = {'deepseek-ai':'DeepSeek','Qwen':'Qwen','zai-org':'Z.ai'}
+            provider = lambda m: names.get(m['model'].split('/')[0], m['model'].split('/')[0])
+            expected = sorted(manifest, key=lambda m: (provider(m).casefold(), -m['repos'], m['model'].casefold()))
+            assert await page.locator('.provider-group > h3').all_text_contents() == sorted({provider(m) for m in manifest}, key=str.casefold)
+            assert await page.locator('.model-card h4 a').all_text_contents() == [m['model'].split('/')[-1] for m in expected]
             assert await page.locator('#quick').is_visible()
             assert await page.input_value('#home-model') == 'qwen3.8-27b'
             assert await page.input_value('#home-set') == 'a-atomicchat-gguf'
@@ -78,7 +83,7 @@ async def main():
             await page.close()
         page = await browser.new_page(java_script_enabled=False)
         await page.goto(HOME)
-        assert await page.locator('.model-card h3 a').count() == len(manifest)
+        assert await page.locator('.model-card h4 a').count() == len(manifest)
         assert not await page.locator('#quick').is_visible()
         print('PASS: model navigation remains available without JavaScript')
         await browser.close()
