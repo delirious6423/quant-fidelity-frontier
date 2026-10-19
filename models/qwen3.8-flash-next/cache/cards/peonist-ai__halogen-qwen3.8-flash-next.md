@@ -114,7 +114,7 @@ podman run --rm -p 8731:8731 \
   --device /dev/kfd --device /dev/dri --group-add keep-groups \
   --ipc=host --ulimit memlock=-1:-1 \
   -v ~/halogen-models:/models:ro \
-  ghcr.io/peonist-ai/halogen-flash-server:0.18.10
+  ghcr.io/peonist-ai/halogen-flash-server:0.18.11
 ```
 
 This repo carries the tokenizer, so one `-v` is all you need. On Docker rather

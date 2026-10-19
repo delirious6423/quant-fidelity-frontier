@@ -43,7 +43,8 @@ So with thinking on it answers correctly; with thinking off it can still slip on
 
 ## Running it
 
-Built for and tested on **Intel Arc Pro B70 + vLLM XPU v0.31.0** with the launcher and patches in
+Built for and tested on **Intel Arc Pro B70 + vLLM XPU v0.31.0** (the v0.32.0 image runs the same code path; tested there
+with the Uncensored variant) with the launcher and B70 vLLM changes in
 **[riceharvest/b70-qwen38-cookbook](https://github.com/riceharvest/b70-qwen38-cookbook)**. That setup gives 262K context
 with vision, MTP k=4, and fp8 KV on one card.
 
@@ -61,7 +62,7 @@ On a B70 at 275 W, one request at a time:
 | Prefill | 2042 tok/s at 5.7K, 1422 at 74K, 824 at 237K |
 | Context | 262,144 tokens with vision; 237K-token needle retrieved |
 
-**Prebuilt image:** `ghcr.io/riceharvest/b70-vllm:v0.31.0-b70.3` (= `:latest`) has the cookbook patches and B70 kernels
+**Prebuilt image:** `ghcr.io/riceharvest/b70-vllm:v0.32.0-b70.7` (= `:latest`, vLLM v0.32.0) has the B70 vLLM changes and kernels
 baked in: `docker run -d --device /dev/dri -v /dev/dri:/dev/dri:ro --shm-size 8g -p 8000:8000 -v ~/models:/models -e
 MODEL=darioooooo0o/Qwen3.8-27B-GPTQ-Int4-asym ghcr.io/riceharvest/b70-vllm:latest`.
 
@@ -75,8 +76,8 @@ The image (v0.31.0-b70.3) with this quant: 102 / 77 tok/s code / prose for one r
 8 concurrent thinking-length requests.
 
 **Other runtimes:** the format is standard asymmetric GPTQ v1, so GPTQModel / transformers / vLLM on CUDA should load
-it. I only tested on Intel XPU. Stock vLLM XPU v0.31 does **not** load asym GPTQ correctly without the cookbook's
-`patch_asym_gptq.py`.
+it. I only tested on Intel XPU. Stock vLLM XPU (v0.31, v0.32) does **not** load asym GPTQ correctly without the cookbook's
+asym GPTQ change (upstream PR [vllm#61731](https://github.com/vllm-project/vllm/pull/61731)).
 
 ## How it was made
 

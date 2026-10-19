@@ -2,14 +2,14 @@
  "quarantined": [
   {
    "repo": "sfxnz/DeepSeek-V4.1-Flash-EXL3",
-   "kind": "ladder",
-   "entry": "prior MCG encoder",
+   "kind": "variants",
+   "entry": "Viterbi + scale refit",
    "reason": "failed a gate"
   },
   {
-   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-REAP-272E",
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
    "kind": "variants",
-   "entry": "this repo",
+   "entry": "final, exact",
    "reason": "failed a gate"
   },
   {
@@ -25,13 +25,200 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "sfxnz/DeepSeek-V4.1-Flash-EXL3",
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "kind": "cross",
+   "entry": "antirez Q2",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-REAP-272E",
    "kind": "variants",
-   "entry": "Viterbi + scale refit",
+   "entry": "this repo",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "kind": "variants",
+   "entry": "final, Lucebox profile + DSpark",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "kind": "variants",
+   "entry": "minus10gib, exact",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "sfxnz/DeepSeek-V4.1-Flash-EXL3",
+   "kind": "ladder",
+   "entry": "prior MCG encoder",
    "reason": "failed a gate"
   }
  ],
- "disagreements": [],
+ "disagreements": [
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "DeepSeek-V4.1-Flash-ROCMFP23.gguf",
+   "key": "mean_kld",
+   "raw": "0.272"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "DeepSeek-V4.1-Flash-ROCMFP23.gguf",
+   "key": "top1_pct",
+   "raw": "77.9%"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "DeepSeek-V4.1-Flash-ROCMFP23.gguf",
+   "key": "ppl",
+   "raw": "9.80"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "DeepSeek-V4.1-Flash-ROCMFP2S.gguf",
+   "key": "mean_kld",
+   "raw": "0.266"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "DeepSeek-V4.1-Flash-ROCMFP2S.gguf",
+   "key": "top1_pct",
+   "raw": "77.7%"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "DeepSeek-V4.1-Flash-ROCMFP2S.gguf",
+   "key": "ppl",
+   "raw": "9.59"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "DeepSeek-V4.1-Flash-ROCMFP2S-MIX10.gguf",
+   "key": "mean_kld",
+   "raw": "0.246"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "DeepSeek-V4.1-Flash-ROCMFP2S-MIX10.gguf",
+   "key": "top1_pct",
+   "raw": "78.3%"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "DeepSeek-V4.1-Flash-ROCMFP2S-MIX10.gguf",
+   "key": "ppl",
+   "raw": "9.45"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "final, Lucebox profile + DSpark",
+   "key": "bench:internal hard bench 96 questions",
+   "raw": "94"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "final, Lucebox profile + DSpark",
+   "key": "bench:internal hard bench 32 long-reasoning questions",
+   "raw": "27"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "final, Lucebox profile + DSpark",
+   "key": "bench:internal hard bench 49 long-reasoning questions",
+   "raw": "37"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "final, exact",
+   "key": "bench:internal hard bench 96 questions",
+   "raw": "93"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "final, exact",
+   "key": "bench:internal hard bench 32 long-reasoning questions",
+   "raw": "30"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "final, exact",
+   "key": "bench:internal hard bench 49 long-reasoning questions",
+   "raw": "41"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "minus10gib, exact",
+   "key": "bench:internal hard bench 96 questions",
+   "raw": "91"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "minus10gib, exact",
+   "key": "bench:internal hard bench 32 long-reasoning questions",
+   "raw": "30"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "minus10gib, exact",
+   "key": "bench:internal hard bench 49 long-reasoning questions",
+   "raw": "34"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "teacher (fp4 checkpoint)",
+   "key": "mean_kld",
+   "raw": "0"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "teacher (fp4 checkpoint)",
+   "key": "top1_pct",
+   "raw": "100%"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "teacher (fp4 checkpoint)",
+   "key": "ppl",
+   "raw": "8.45"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "antirez Q2 (IQ2_XXS / Q2_K)",
+   "key": "mean_kld",
+   "raw": "0.260"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "antirez Q2 (IQ2_XXS / Q2_K)",
+   "key": "top1_pct",
+   "raw": "78.3%"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "antirez Q2 (IQ2_XXS / Q2_K)",
+   "key": "ppl",
+   "raw": "9.71"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "antirez Q2",
+   "key": "bench:internal hard bench 96 questions",
+   "raw": "86"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "antirez Q2",
+   "key": "bench:internal hard bench 32 long-reasoning questions",
+   "raw": "26"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "entry": "antirez Q2",
+   "key": "bench:internal hard bench 49 long-reasoning questions",
+   "raw": "29"
+  }
+ ],
  "resolved_disagreements": [
   {
    "repo": "AtomicChat/DeepSeek-V4.1-Flash-NVFP4-nvidia",
@@ -969,384 +1156,6 @@
     "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
     "candidates_sha256": "0d97cba1f7048efec12172c2ff98005fb9cac38fb545dcf9d16a4f2a8c6c52ce",
     "mapping_file": "maps/resolved/LibertAIDAI__DeepSeek-V4.1-Flash-REAP-272E.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "DeepSeek-V4.1-Flash-ROCMFP23.gguf",
-   "key": "mean_kld",
-   "raw": "0.272",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "DeepSeek-V4.1-Flash-ROCMFP23.gguf",
-   "key": "top1_pct",
-   "raw": "77.9%",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "DeepSeek-V4.1-Flash-ROCMFP23.gguf",
-   "key": "ppl",
-   "raw": "9.80",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "DeepSeek-V4.1-Flash-ROCMFP2S.gguf",
-   "key": "mean_kld",
-   "raw": "0.266",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "DeepSeek-V4.1-Flash-ROCMFP2S.gguf",
-   "key": "top1_pct",
-   "raw": "77.7%",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "DeepSeek-V4.1-Flash-ROCMFP2S.gguf",
-   "key": "ppl",
-   "raw": "9.59",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "DeepSeek-V4.1-Flash-ROCMFP2S-MIX10.gguf",
-   "key": "mean_kld",
-   "raw": "0.246",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "DeepSeek-V4.1-Flash-ROCMFP2S-MIX10.gguf",
-   "key": "top1_pct",
-   "raw": "78.3%",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "DeepSeek-V4.1-Flash-ROCMFP2S-MIX10.gguf",
-   "key": "ppl",
-   "raw": "9.45",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "final, Lucebox profile + DSpark",
-   "key": "bench:internal hard bench 96 questions",
-   "raw": "94",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "final, Lucebox profile + DSpark",
-   "key": "bench:internal hard bench 32 long-reasoning questions",
-   "raw": "27",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "final, Lucebox profile + DSpark",
-   "key": "bench:internal hard bench 49 long-reasoning questions",
-   "raw": "37",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "final, exact",
-   "key": "bench:internal hard bench 96 questions",
-   "raw": "93",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "final, exact",
-   "key": "bench:internal hard bench 32 long-reasoning questions",
-   "raw": "30",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "final, exact",
-   "key": "bench:internal hard bench 49 long-reasoning questions",
-   "raw": "41",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "minus10gib, exact",
-   "key": "bench:internal hard bench 96 questions",
-   "raw": "91",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "minus10gib, exact",
-   "key": "bench:internal hard bench 32 long-reasoning questions",
-   "raw": "30",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "minus10gib, exact",
-   "key": "bench:internal hard bench 49 long-reasoning questions",
-   "raw": "34",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "teacher (fp4 checkpoint)",
-   "key": "mean_kld",
-   "raw": "0",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "teacher (fp4 checkpoint)",
-   "key": "top1_pct",
-   "raw": "100%",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "teacher (fp4 checkpoint)",
-   "key": "ppl",
-   "raw": "8.45",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "antirez Q2 (IQ2_XXS / Q2_K)",
-   "key": "mean_kld",
-   "raw": "0.260",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "antirez Q2 (IQ2_XXS / Q2_K)",
-   "key": "top1_pct",
-   "raw": "78.3%",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "antirez Q2 (IQ2_XXS / Q2_K)",
-   "key": "ppl",
-   "raw": "9.71",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "antirez Q2",
-   "key": "bench:internal hard bench 96 questions",
-   "raw": "86",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "antirez Q2",
-   "key": "bench:internal hard bench 32 long-reasoning questions",
-   "raw": "26",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
-   }
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "entry": "antirez Q2",
-   "key": "bench:internal hard bench 49 long-reasoning questions",
-   "raw": "29",
-   "resolver": {
-    "source_sha256": "3859c60744576f5f3b9db8bb72ae6ef0149263dd40ba5dc52722ed061936c07c",
-    "mapping_sha256": "800c88ba6080d018842db4e0506c9aa50f92e57f6f0c7555f2c87a8da39896c8",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "564d9982157aa24906c88f9dafc591c8f9cf14bf38afa6606e6beacedb118d76",
-    "mapping_file": "maps/resolved/Lucebox__DeepSeek-V4.1-Flash-ROCMFP23-GGUF.map.json"
    }
   },
   {
@@ -5214,5 +5023,5 @@
    }
   }
  ],
- "resolved_repos": 42
+ "resolved_repos": 41
 }

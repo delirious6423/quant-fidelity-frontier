@@ -1,0 +1,13 @@
+{
+ "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 (KL figures only) [L63, L65]", "dataset": "wikitext-2 (KL); Inspect AI GSM8K and MMLU-Pro, 150 questions each [L63, L89]", "ctx": "3,072-token cap [L89]", "tool": "Inspect AI tasks as shipped [L89]", "L": [63, 65, 89]},
+ "entries": [
+  {"role": "own", "name": "Precise", "metrics": {"kld:wikitext": "c35.1"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["0.40 KL in v0.1 is a legacy figure, not mapped [L63]", "GSM8K and MMLU-Pro given as counts out of 150 with no percentage, not mapped [L93-L94]", "Star Drift result is v0.1, not mapped [L95]", "about 3 bits per weight stated in prose, not a candidate [L62]"]},
+  {"role": "own", "name": "Best", "metrics": {"mean_kld": "c36.0"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["corpus not named on this figure [L65]", "GSM8K and MMLU-Pro given as counts out of 150 with no percentage, not mapped [L93-L94]", "about 30% of experts at 4 bits, rest at 3, stated in prose [L65]"]},
+  {"role": "own", "name": "Fast", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["GSM8K and MMLU-Pro given as counts out of 150 with no percentage, not mapped [L93-L94]", "Star Drift result is v0.1, not mapped [L95]", "no KL stated for this mode [L63-L67]", "about 2.1 bits per weight stated in prose, not a candidate [L67]"]}
+ ],
+ "prose": []
+}

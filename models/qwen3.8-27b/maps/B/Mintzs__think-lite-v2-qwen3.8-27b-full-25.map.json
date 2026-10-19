@@ -1,0 +1,20 @@
+{
+ "repo": "Mintzs/think-lite-v2-qwen3.8-27b-full-25",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "bf16 weights", "dataset": "GSM8K (1,319); AIME 2025 (30 x 2, avg@2); MMLU-Pro (1,000-question stratified subset); IFEval (541, prompt-level strict); LiveCodeBench v6 (131, 2025-02 to 2025-04, pass@1); BFCL v4 non-live core (1,240)", "ctx": "not stated", "tool": "Suite 0.91.1, vLLM 0.30.0", "L": [32, 33, 37, 38, 39, 40, 41, 42]},
+ "entries": [
+  {"role": "own", "name": "This model (low)",
+   "metrics": {"bench:GSM8K": "c3", "bench:AIME 2025": "c9", "bench:MMLU-Pro": "c15", "bench:IFEval": "c21", "bench:LiveCodeBench v6": "c27", "bench:BFCL v4": "c33"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L37-42] reasoning-token columns not mapped: no metric key"]},
+  {"role": "cross", "name": "Base (xhigh)", "of": "not named on card",
+   "metrics": {"bench:GSM8K": "c1", "bench:AIME 2025": "c7", "bench:MMLU-Pro": "c13", "bench:IFEval": "c19", "bench:LiveCodeBench v6": "c25", "bench:BFCL v4": "c31"},
+   "size": null, "unit": null, "basis": null, "bpw": null, "flags": []},
+  {"role": "cross", "name": "Base (low)", "of": "not named on card",
+   "metrics": {"bench:GSM8K": "c2", "bench:AIME 2025": "c8", "bench:MMLU-Pro": "c14", "bench:IFEval": "c20", "bench:LiveCodeBench v6": "c26", "bench:BFCL v4": "c32"},
+   "size": null, "unit": null, "basis": null, "bpw": null, "flags": []}
+ ],
+ "prose": []
+}

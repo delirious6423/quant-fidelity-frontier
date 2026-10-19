@@ -1,0 +1,13 @@
+{
+ "repo": "leoncca/Qwen3.8-Flash-Next-AWQ-g32",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 official text model, transformers CPU full-vocabulary forward [L133-L135]", "dataset": "stratified 66-record text subset, 39,101 scored tokens [L132]", "ctx": "not stated", "tool": "transformers CPU forward for the reference; served arm on the V100 vLLM configuration [L109, L133-L137]", "L": [109, 132, 133]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8 Flash Next AWQ g32 + QSA FP8 E4M3 KV", "methodology": {"reference": "BF16 official text model, transformers CPU full-vocabulary forward [L133-L135]", "dataset": "stratified 66-record text subset, 39,101 scored tokens [L132]", "ctx": "not stated", "tool": "served arm on the V100 vLLM configuration; comparison includes runtime arithmetic and KV effects [L109, L135-L137]", "L": [109, 132, 135, 137]}, "metrics": {"top1_pct": "c5", "top1:instructions": "c10", "top1:dialogue": "c15", "top1:documents-code": "c20"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["the table column is labelled New; this is the 2026-10-17 release [L143-L148]", "KL approximations are top-20-plus-tail, not full-vocabulary, and no top-k key exists, so not mapped [L29-L31, L143-L148, L156-L164]", "Instructions is a subset of Dialogue; All = Dialogue + Documents [L155-L156]", "fixed text subset, not a capability benchmark [L29-L33, L169]", "previous-weight GSM8K, HumanEval, MBPP and IFEval results are not claimed for this release [L183-L186]"]},
+  {"role": "ladder", "name": "Previous (previous weights)", "metrics": {"top1_pct": "c4", "top1:instructions": "c9", "top1:dialogue": "c14", "top1:documents-code": "c19"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["the earlier release from this publisher, measured on the same subset and method [L143-L148]", "previous-weight KL approximations are top-20-plus-tail, not full-vocabulary, so not mapped [L143-L148]"]},
+  {"role": "own", "name": "whole checkpoint", "metrics": {}, "size": "c26", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["2026-10-17 update: 137.07 GB (127.66 GiB) across 85 model shards [L19]", "the optional FP8 MTP tensor payload of 4.88 GiB is separate, not mapped [L210]"]}
+ ],
+ "prose": []
+}

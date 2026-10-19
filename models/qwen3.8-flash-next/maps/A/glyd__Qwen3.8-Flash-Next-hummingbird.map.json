@@ -1,0 +1,25 @@
+{"repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 original model [L63, L65]", "dataset": "wikitext-2 (precise); not named on card (best)", "ctx": "not stated", "tool": "not stated", "L": [63, 65]},
+ "entries": [
+   {"role": "own",
+    "name": "precise/",
+    "metrics": {"kld:wikitext": "c35.1"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["KL vs bf16 on wikitext-2 [L63]", "v0.1 KL of 0.40 omitted, earlier version [L63]", "GSM8K and MMLU-Pro given as counts out of 150, not mapped [L93-94]", "mode sizes printed in files table, not in this row [L60]"]},
+   {"role": "own",
+    "name": "best/",
+    "metrics": {"mean_kld": "c36.0"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["KL 0.165 vs bf16, corpus not named on card [L65]"]}
+ ],
+ "prose": []
+}

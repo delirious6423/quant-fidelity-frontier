@@ -1,0 +1,27 @@
+{"repo": "leoncca/Qwen3.8-Flash-Next-AWQ-g32",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 reference distributions from a transformers CPU full-vocabulary forward [L133]", "dataset": "stratified 66-record subset, 39,101 scored tokens [L132]", "ctx": "not stated", "tool": "transformers CPU forward for reference; vLLM serving on four V100 for collection [L109, L133]", "L": [109, 132, 133]},
+ "entries": [
+   {"role": "own",
+    "name": "this release (AWQ g32, 2026-10-17)",
+    "panel": "BF16 fidelity comparison — 2026-10-17",
+    "metrics": {"top1_pct": "c5", "top1:instructions-english-chinese-code": "c10", "top1:dialogue-incl-math": "c15", "top1:documents-code": "c20"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["top-1 agreement against captured BF16 argmax [L140-141]", "KL is a top-20-plus-tail approximation, not full-vocabulary KL; not mapped [L139, L153-164]", "reference is text-only [L169]"]},
+   {"role": "ladder",
+    "name": "previous release",
+    "panel": "BF16 fidelity comparison — 2026-10-17",
+    "metrics": {"top1_pct": "c4", "top1:instructions-english-chinese-code": "c9", "top1:dialogue-incl-math": "c14", "top1:documents-code": "c19"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["previous checkpoint, the release the calibration activations were captured from [L74-75]", "KL approximation not mapped [L145]"]}
+ ],
+ "prose": []
+}

@@ -26,6 +26,13 @@ It sits between the NVIDIA checkpoint (FP8 GDN and attention projections) and al
 in NVFP4, quantization-aware training): it removes 77% of the projection bytes QUASAR removes and gets most of its speed,
 but keeps the quality of the NVIDIA checkpoint, including parallel tool calls, where all-NVFP4 checkpoints lose ground.
 
+It is the default checkpoint of [**qwen3-27b-5090**](https://github.com/mkyt/qwen3-27b-5090), an open-source inference
+engine written for Qwen3.8-27B on one RTX 5090 (OpenAI- and Anthropic-compatible server, usable from coding agents).
+With this model, an NVFP4 KV cache and DFlash2 speculative decoding, the 32 GB card holds a 605K-token KV cache: the
+model's full 262,144-token context with eight concurrent requests and images at the same time. One request decodes
+386 / 500 / 258 tok/s (code / JSON / prose), eight total 1,395 tok/s ([details](#serving-with-qwen3-27b-5090)). The
+checkpoint also runs on vLLM ([usage](#usage)).
+
 |  | nvidia/Qwen3.8-27B-NVFP4 | **this model** | QUASAR-QAT/Qwen3.8-27B-QUASAR-NVFP4 |
 | --- | --- | --- | --- |
 | MLP (64 layers) | NVFP4 | NVFP4 (NVIDIA's tensors) | NVFP4 (QAT) |
@@ -76,8 +83,8 @@ All runs on one RTX 5090 at a 400 W power limit, FP8 KV cache unless stated, gre
 On vLLM this model decodes fastest of the three; QUASAR, although the smallest, decodes slower than the NVIDIA checkpoint
 (likely its BF16 `lm_head`, about 2.3 GB read per token against 0.6 GB in NVFP4).
 
-**A custom inference engine** (the numbers this model was selected with; for QUASAR the engine uses the NVIDIA NVFP4
-`lm_head`, since QUASAR's is the BF16 original):
+**[qwen3-27b-5090](https://github.com/mkyt/qwen3-27b-5090)**, the custom engine (the numbers this model was selected
+with; for QUASAR the engine uses the NVIDIA NVFP4 `lm_head`, since QUASAR's is the BF16 original):
 
 |  | nvidia | **this model** | QUASAR |
 | --- | ---: | ---: | ---: |
@@ -98,8 +105,8 @@ judged by Gemma 4 within its noise, found 16/16 needles at 190K tokens and 58/64
 and produced no runaway or looping responses in 200 low-effort thinking samples at temperature 0.6 (NVIDIA also none).
 
 **The same engine with an NVFP4 KV cache** (this model; the KV cache 44% smaller than FP8, so the pool at 262K context
-holds 589,888 tokens instead of 339,968; the prefill attention reads the NVFP4 keys with FP4 MMAs, the decode attention
-with FP8 MMAs):
+with up to 4 requests holds 589,888 tokens instead of 339,968; the prefill attention reads the NVFP4 keys with FP4
+MMAs, the decode attention with FP8 MMAs):
 
 |  | FP8 KV | NVFP4 KV |
 | --- | ---: | ---: |
@@ -119,10 +126,7 @@ step for 1 / 2 / 4 / 8 sequences and the total tok/s of 8:
 | this model, FP8 KV, 32K context each | 13.54 / 15.81 / 20.62 / 30.55 | 1,027–1,040 |
 | this model, NVFP4 KV, 64K context each | 13.73 / 16.16 / 21.45 / 32.36 | 984–1,002 |
 
-The totals vary with the sampled acceptance length; compare the step times. Through the engine's OpenAI-compatible
-server, 8 concurrent streams of 4,096 reasoning tokens (temperature 1.0, top-p 0.95, top-k 20) total 1,404–1,411 tok/s
-(4 streams: 946–954) with this model and NVFP4 KV, against 1,262 (846) for the NVIDIA checkpoint with FP8 KV measured a
-day earlier with the same settings.
+The totals vary with the sampled acceptance length; compare the step times.
 
 The NVFP4 KV cache passes the same quality checks (GSM8K 95.3%, BFCL 88.9%, the Japanese set, needles 256K 56/64) with
 one measurable cost: on short BFCL `parallel` / `parallel_multiple` prompts at temperature 0.7 it gets 306.0 of 400
@@ -132,7 +136,40 @@ coding-agent history the difference disappears (−4 and +2.4 of 400).
 These are small, saturated benchmarks; differences of a point or two are within their noise. Not evaluated: SWE-style
 agent benchmarks, other languages, the vision tower (unchanged from the NVIDIA checkpoint).
 
+### Serving with qwen3-27b-5090
+
+The engine's defaults (this model, NVFP4 KV cache, DFlash2 speculative decoding, up to 8 requests, 262,144-token
+context) through its server, against other engines' own serving setups on the same day (2026-10-11), card, driver and
+400 W limit, with the same scripts and sampling (temperature 1.0, top-p 0.95, top-k 20). The other engines run their
+own checkpoints and FP8 KV caches; each one's settings, versions and the commands are in the engine's
+[benchmarks](https://github.com/mkyt/qwen3-27b-5090/blob/main/docs/benchmarks.md#other-engines).
+
+|  | qwen3-27b-5090 | [NInfer](https://github.com/Neroued/ninfer) | [SGLang](https://github.com/sgl-project/sglang) v0.5.21 | vLLM v0.29.0 |
+| --- | ---: | ---: | ---: | ---: |
+| KV cache (tokens) | **605,504** | 96,128 | 214,219 | 173,913 |
+| Longest context of one request | **262,144** | 94,208 | 196,608 | 160,000 |
+| Decode, one request: code / JSON / prose (tok/s) | **386 / 500 / 258** | 285 / 362 / 197 | 246 / 320 / 167 | 154 / 180 / 128 |
+| Eight concurrent requests, total (tok/s) | **1,395–1,397** | 1,260–1,277 | 837–851 | 912–930 |
+| Time to first token, 152K-token document | **23 s** | 31 s | 50 s | 56 s |
+| Time to first token, agent turn after a 20K-token history | **0.19 s** | 0.39 s | 0.31 s | 0.57 s |
+
+The other engines' columns are the largest settings with concurrency and speculative decoding that ran on the card;
+NInfer also reaches 262,144 tokens serving one request without speculative decoding.
+
+In-process without speculative decoding, the defaults prefill 11,295 / 8,773 / 5,875 tok/s at 19K / 73K / 194K
+tokens and decode 92.9 / 87.2 / 76.7 tok/s at those contexts. Through the server the defaults score GSM8K 95.3%,
+BFCL v3 88.9%, and find 16/16 needles at 190K and 56/64 at 256K tokens.
+
 ## Usage
+
+[qwen3-27b-5090](https://github.com/mkyt/qwen3-27b-5090) (RTX 5090 only; Linux or WSL2 with Docker and the NVIDIA
+Container Toolkit), which downloads this model and the DFlash2 draft and serves `127.0.0.1:8000`:
+
+```bash
+git clone https://github.com/mkyt/qwen3-27b-5090 && cd qwen3-27b-5090
+scripts/download-weights.sh
+docker compose up -d serve
+```
 
 vLLM (tested with v0.29.0):
 

@@ -1,0 +1,28 @@
+{
+ "repo": "Mintzs/thinklite-27B",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "bf16 weights", "dataset": "GSM8K (1,319); AIME 2025 (30 x 2, avg@2); MMLU-Pro (1,000-question stratified subset); IFEval (541, prompt-level strict); LiveCodeBench v6 (131, pass@1); BFCL v4 non-live (1,240)", "ctx": "not stated", "tool": "vLLM 0.30.0", "L": [87, 88, 89, 93, 94, 95, 96, 97, 98]},
+ "entries": [
+  {"role": "own", "name": "Thinklite-27B Low",
+   "metrics": {"bench:GSM8K": "c3", "bench:AIME 2025": "c8", "bench:MMLU-Pro": "c13", "bench:IFEval": "c17", "bench:LiveCodeBench v6": "c22", "bench:BFCL v4": "c27"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L110] Average row not mapped: no metric key", "[L116-122] token-count tables not mapped: no metric key"]},
+  {"role": "own", "name": "Thinklite-27B High",
+   "metrics": {"bench:GSM8K": "c4", "bench:AIME 2025": "c9", "bench:IFEval": "c18", "bench:LiveCodeBench v6": "c23"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L106][L109] no High value for MMLU-Pro or BFCL v4 on card", "[L110] Average row not mapped: no metric key", "[L116-122] token-count tables not mapped: no metric key"]},
+  {"role": "own", "name": "Thinklite-27B Max",
+   "metrics": {"bench:GSM8K": "c5", "bench:AIME 2025": "c10", "bench:MMLU-Pro": "c14", "bench:IFEval": "c19", "bench:LiveCodeBench v6": "c24", "bench:BFCL v4": "c28"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L110] Average row not mapped: no metric key", "[L116-122] token-count tables not mapped: no metric key"]},
+  {"role": "cross", "name": "Qwen3.8-27B (xhigh)", "of": "not named on card",
+   "metrics": {"bench:GSM8K": "c1", "bench:AIME 2025": "c6", "bench:MMLU-Pro": "c11", "bench:IFEval": "c15", "bench:LiveCodeBench v6": "c20", "bench:BFCL v4": "c25"},
+   "size": null, "unit": null, "basis": null, "bpw": null, "flags": []},
+  {"role": "cross", "name": "Qwen3.8-27B (low)", "of": "not named on card",
+   "metrics": {"bench:GSM8K": "c2", "bench:AIME 2025": "c7", "bench:MMLU-Pro": "c12", "bench:IFEval": "c16", "bench:LiveCodeBench v6": "c21", "bench:BFCL v4": "c26"},
+   "size": null, "unit": null, "basis": null, "bpw": null, "flags": []}
+ ],
+ "prose": []
+}

@@ -1,0 +1,16 @@
+{
+ "repo": "GreenBitAI/Qwen3.8-Flash-Next-4bit-paged",
+ "no_quality_claims": true,
+ "no_claims_reason": "size, memory and speed figures only; the build gates compare paging with the source checkpoint [L131-L133]",
+ "weights_modified": false,
+ "method": {"reference": "source checkpoint at build time [L131]", "dataset": "not stated", "ctx": "not stated", "tool": "gbx_lm [L131]", "L": [131, 133]},
+ "entries": [
+  {"role": "own", "name": "model.safetensors", "metrics": {}, "size": "c1", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["holds the resident weights [L31]"]},
+  {"role": "own", "name": "experts.bin", "metrics": {}, "size": "c2", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["holds the routed experts, read a fraction at a time [L32, L23-L27]"]},
+  {"role": "own", "name": "ple-q4.rows", "metrics": {}, "size": "c3", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["holds the n-gram table [L33]"]},
+  {"role": "own", "name": "mtp/", "metrics": {}, "size": "c4", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["draft head, off by default [L34, L41]"]},
+  {"role": "own", "name": "Total", "metrics": {}, "size": "c5", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["total of all files as stated [L36]"]},
+  {"role": "own", "name": "resident memory, 512 GB Mac Studio", "metrics": {}, "size": "c24", "unit": "GB", "basis": "resident", "bpw": null, "flags": ["paged build settles at about this figure with room to spare; memory is not fixed for a paged build [L65-L67]"]}
+ ],
+ "prose": []
+}

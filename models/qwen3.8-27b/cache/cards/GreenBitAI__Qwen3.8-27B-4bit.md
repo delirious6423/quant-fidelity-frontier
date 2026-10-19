@@ -120,6 +120,22 @@ curl http://127.0.0.1:11688/v1/chat/completions \
   -d '{"model":"GreenBitAI/Qwen3.8-27B-4bit","messages":[{"role":"user","content":"Hello"}]}'
 ```
 
+### Images
+
+The model reads images as well as text. Send them as OpenAI `image_url` parts --
+an http(s) URL or a base64 `data:` URL:
+
+```bash
+curl http://127.0.0.1:11688/v1/chat/completions \
+  -H 'Content-Type: application/json' \
+  -d '{"model":"GreenBitAI/Qwen3.8-27B-4bit","messages":[{"role":"user","content":[
+        {"type":"text","text":"What is in this picture?"},
+        {"type":"image_url","image_url":{"url":"https://example.com/photo.jpg"}}]}]}'
+```
+
+From the command line, `--images` takes one or more files:
+`gbx_lm generate --model GreenBitAI/Qwen3.8-27B-4bit --images photo.jpg --prompt "What is in this picture?" --max-tokens 2048`.
+
 ### From the command line
 
 From `gbx_lm` v0.7.1, the binary also runs the model without a server -- one

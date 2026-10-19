@@ -93,8 +93,9 @@ MLX_SERVE_GPU_CEILING_MB=114688 mlx-serve serve --model /abs/path/to/GLM-5.3-Fla
 ```
 
 `--ctx-size` is the context the memory bill covers (prompt plus generation). The settings go in the pack's
-`config.json` under `expert_streaming.settings`. The pack ships without a settings block. The measured headline
-settings:
+`config.json` under `expert_streaming.settings`. The pack ships with `{"mtp_lane": true, "draft_depth": 3, "draft_gate": 0.5}`: the exact stack with the MTP lane on,
+the rows filled from the memory bill at load (since 2026-10-18; earlier downloads had no block). The measured headline
+settings, which also pin the rows and name the q8 head:
 
 ```json
 "expert_streaming": { "settings": {

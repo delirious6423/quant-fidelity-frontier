@@ -3,4 +3,6 @@ R = []
 def repo(**k): R.append(k); return k
 
 repo(repo='RESMP-DEV/Qwen3.8-Flash-Next-IQ2_XS-Q2_0-iMatrix-Calibrated-256x2048-GGUF', sha='main', fmt='GGUF', runtime=None, weights_modified=False, method=None, methodology=None, variants=[], auto=True, flags=['Not yet reviewed: card has not been read in full; it may contain quality claims'])
+repo(repo='huihui-ai/Huihui-Qwen3.8-Flash-Next-abliterated-v2-GGUF', sha='main', fmt='GGUF', runtime=None, weights_modified=True, method=None, methodology=None, variants=[], auto=True, flags=['Card changed after it was reviewed; its earlier claims are withdrawn until it is reviewed again'])
+repo(repo='naftulikay/Qwen3.8-Flash-Next-NVFP4', sha='main', fmt='NVFP4', runtime=None, weights_modified=False, method=None, methodology=None, variants=[], auto=True, flags=['Not yet reviewed: card has not been read in full; it may contain quality claims'])
 repo(repo='peonist-ai/halogen-qwen3.8-flash-next', sha='main', fmt='other', runtime=None, weights_modified=True, method=None, methodology=None, variants=[], auto=True, flags=['Card changed after it was reviewed; its earlier claims are withdrawn until it is reviewed again'])

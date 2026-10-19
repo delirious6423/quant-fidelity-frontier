@@ -1,0 +1,76 @@
+{
+ "repo": "Mintzs/think-lite-v2-qwen3.8-27b-full-25",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+  "reference": "Base model at reasoning effort low, xhigh column also shown",
+  "dataset": "six benchmarks: GSM8K (1,319), AIME 2025 (30 x 2, avg@2), MMLU-Pro (1,000-question stratified subset), IFEval (541, prompt-level strict), LiveCodeBench v6 2025-02 to 2025-04 (131, pass@1), BFCL v4 non-live core (1,240)",
+  "ctx": "not stated",
+  "tool": "Suite 0.91.1, vLLM 0.30.0, bf16 weights, FP8 KV cache, Qwen's thinking-mode sampling",
+  "L": [32, 33, 35, 37, 42]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "This model (low)",
+   "metrics": {
+    "bench:GSM8K": "c3",
+    "bench:AIME 2025": "c9",
+    "bench:MMLU-Pro": "c15",
+    "bench:IFEval": "c21",
+    "bench:LiveCodeBench v6": "c27",
+    "bench:BFCL v4": "c33"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "finetune basis from 'How it was made' heading only; body not in digest [L14, L20]",
+    "reasoning-token columns and total output-token count not mapped (no metric key) [L37-44]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Base (xhigh)",
+   "of": "not named on card",
+   "metrics": {
+    "bench:GSM8K": "c1",
+    "bench:AIME 2025": "c7",
+    "bench:MMLU-Pro": "c13",
+    "bench:IFEval": "c19",
+    "bench:LiveCodeBench v6": "c25",
+    "bench:BFCL v4": "c31"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "base model at xhigh, reference column [L37-42]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Base (low)",
+   "of": "not named on card",
+   "metrics": {
+    "bench:GSM8K": "c2",
+    "bench:AIME 2025": "c8",
+    "bench:MMLU-Pro": "c14",
+    "bench:IFEval": "c20",
+    "bench:LiveCodeBench v6": "c26",
+    "bench:BFCL v4": "c32"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "base model at low effort, the comparison baseline [L35-42]"
+   ]
+  }
+ ],
+ "prose": []
+}

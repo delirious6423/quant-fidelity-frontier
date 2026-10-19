@@ -1,0 +1,14 @@
+{
+ "repo": "xv0y5ncu/Qwen3.8-Flash-Next-GLQ-trellis-3inst-3bpw-ple4-3mtp",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated for this build; the figures are the sibling's, with no bf16 baseline [L269-L273, L294-L298]", "dataset": "wikitext-2, 128 chunks x 2048 [L294]; aime_2026, n=30, avg@8 [L315]", "ctx": "2048-token chunks [L294]; 262,144-token budget for AIME-2026 [L316]", "tool": "wikitext2_ppl_vllm [L294]; glq-bench aime_2026 [L315]", "L": [294, 314, 315, 316]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-Flash-Next-GLQ-trellis-3inst-3bpw-ple4-3mtp", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["no quality figure is measured on this build; the Measured and Quality figures belong to the sibling [L267-L273]", "on-disk 73.66 GiB for this build is not a candidate, not mapped [L281]", "speculation decode and acceptance figures have no key, not mapped [L161-L171]", "27B arm table is another model, not mapped [L305-L308]", "base-model benchmark tables are the base model's, not mapped [L422-L663]", "no MMLU-Pro number for this checkpoint [L332]"]},
+  {"role": "ladder", "name": "Qwen3.8-Flash-Next-GLQ-trellis-3inst-3bpw-ple4", "metrics": {"ppl:wikitext": "c76.0"}, "size": "c26", "unit": "GiB", "basis": "resident", "bpw": null, "flags": ["this publisher's sibling build, measured by the card author; not this build [L267-L273]", "wikitext-2 perplexity 4.8898 with no bf16 baseline [L294-L298]", "AIME-2026 99.58% is a prose value, thinking mode, 262,144-token budget [L314-L316]", "size is the weight memory after load of the sibling, text decoder only [L280]"]}
+ ],
+ "prose": [
+  {"entry": "Qwen3.8-Flash-Next-GLQ-trellis-3inst-3bpw-ple4", "key": "bench:AIME-2026", "L": 314, "raw": "99.58%"}
+ ]
+}

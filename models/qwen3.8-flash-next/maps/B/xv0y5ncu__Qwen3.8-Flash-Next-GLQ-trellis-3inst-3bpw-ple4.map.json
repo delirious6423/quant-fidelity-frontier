@@ -1,0 +1,12 @@
+{
+ "repo": "xv0y5ncu/Qwen3.8-Flash-Next-GLQ-trellis-3inst-3bpw-ple4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "no bf16 baseline for this model [L219-L221]", "dataset": "wikitext-2 for perplexity, 128 chunks x 2048 [L216]; aime_2026 n=30 for AIME-2026 [L236-L237]", "ctx": "2048-token chunks for perplexity [L216]; 262,144-token budget for AIME-2026 [L238]", "tool": "wikitext2_ppl_vllm [L216]; glq-bench aime_2026, avg@8, thinking mode [L237-L238]", "L": [216, 236, 238]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-Flash-Next-GLQ-trellis-3inst-3bpw-ple4", "metrics": {"ppl:wikitext": "c36.0"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["AIME-2026 99.58% is a prose value on [L236], see prose", "no bf16 baseline, so no quantization cost is stated [L219-L221]", "Qwen3.8-27B arm table is another model, not mapped [L223-L231]", "base-model benchmark tables are the base model's, not mapped [L344-L583]", "offload and decode-speed tables are not quality metrics, not mapped [L126-L131, L200-L209]", "3 bpw decoder and 4 bpw n-gram table stated in prose, not candidates [L33, L259-L260]"]},
+  {"role": "own", "name": "weights after vLLM load (text decoder)", "metrics": {}, "size": "c7", "unit": "GiB", "basis": "resident", "bpw": null, "flags": ["loaded weight memory, text decoder only, not the file size [L202, L209-L211]", "on-disk 77.52 GiB is in the same table but not a candidate [L203]"]}
+ ],
+ "prose": [{"entry": "Qwen3.8-Flash-Next-GLQ-trellis-3inst-3bpw-ple4", "key": "bench:AIME-2026", "L": 236, "raw": "99.58%"}]
+}

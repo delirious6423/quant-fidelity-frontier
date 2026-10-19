@@ -73,6 +73,10 @@ The tested resident runtime prepared 151.76 GiB of language-model tensor spans, 
 
 The importance matrix was collected from the native 1017 checkpoint using 49,152 text tokens and 6,246 vision-conditioned prefill tokens from 7 images. Of 15,360 routed experts, 15,268 were observed; 92 use the public converter fallback. This is a new 1017 calibration matrix. The Q2 was converted directly from the original native weights using this matrix.
 
+The reusable [1017 importance matrix](calibration/DeepSeek-V4.1-Flash-1017-imatrix.dat) is available with its [calibration provenance and pinned Q2 conversion instructions](calibration/README.md). It is the exact 770,707,978-byte matrix used for this release; no new calibration run is needed to reuse it.
+
+The [native QA references](https://huggingface.co/datasets/kyuz0/deepseek-v4.1-flash-1017-qa) and [scorer instructions](https://github.com/kyuz0/ds4/blob/2902788b6a79c088a9f86d1e28e1cb11810dd880/gguf-tools/quality-testing/deepseek41-1017/README.md) are public. The routine comparison uses 100 cases; vision, long continuations and deep-context panels are optional downloads.
+
 ### 1017 paired quality measurements
 
 These comparisons teacher-force identical frozen token histories through the original native 1017 checkpoint and Q2. The original weights are mixed FP8/FP4. Forward KL uses full-vocabulary distributions at temperature 1. Results include quantization and runtime arithmetic; image results include the complete existing image pipeline.

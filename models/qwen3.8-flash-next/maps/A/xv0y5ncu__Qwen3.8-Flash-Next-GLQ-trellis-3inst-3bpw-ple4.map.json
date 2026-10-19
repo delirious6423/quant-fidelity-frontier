@@ -1,0 +1,17 @@
+{"repo": "xv0y5ncu/Qwen3.8-Flash-Next-GLQ-trellis-3inst-3bpw-ple4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "no bf16 baseline on one card [L219-221]", "dataset": "wikitext-2; AIME-2026", "ctx": "128 chunks x 2048 (PPL); 262,144-token budget (AIME)", "tool": "wikitext2_ppl_vllm; glq-bench aime_2026", "L": [216, 236, 238]},
+ "entries": [
+   {"role": "own",
+    "name": "xv0y5ncu/Qwen3.8-Flash-Next-GLQ-trellis-3inst-3bpw-ple4",
+    "metrics": {"ppl:wikitext": "c36.0"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["PPL run on one RTX PRO 6000 96 GB, vLLM 0.29.0 [L197-198]", "no bf16 baseline on one card [L219-221]", "AIME-2026 avg@8 run on one RTX PRO 6000, vLLM 0.30.0, glq 0.8.23 [L239]", "Qwen3.8-27B comparison table omitted, different model [L223-230]", "implied bf16 of about 4.81 is an extrapolation, not used [L232-233]"]}
+ ],
+ "prose": [{"entry": "xv0y5ncu/Qwen3.8-Flash-Next-GLQ-trellis-3inst-3bpw-ple4", "key": "bench:AIME-2026", "L": 236, "raw": "AIME-2026 avg@8 = 99.58%"}]
+}

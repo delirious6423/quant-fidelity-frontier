@@ -7,6 +7,18 @@
    "reason": "failed a gate"
   },
   {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
+   "kind": "variants",
+   "entry": "INT3 (this repository)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "kind": "variants",
+   "entry": "this release (4-bit)",
+   "reason": "failed a gate"
+  },
+  {
    "repo": "spectator2026/Qwen3.8-Flash-Next-W6-INT8-HQQ-g32",
    "kind": "variants",
    "entry": "this release (int6 experts + int8 dense)",
@@ -37,6 +49,48 @@
    "entry": "table fully deleted (0/16)",
    "key": "ppl:wikitext",
    "raw": "4.80"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
+   "entry": "bf16 (two correct implementations against each other)",
+   "key": "mean_kld",
+   "raw": "0.0077"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
+   "entry": "bf16 (two correct implementations against each other)",
+   "key": "top1_pct",
+   "raw": "96.77 %"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "16-bit (original checkpoint)",
+   "key": "bench:GSM8K",
+   "raw": "96.9 %"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "16-bit (original checkpoint)",
+   "key": "bench:HumanEval",
+   "raw": "96.3 %"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "16-bit (original checkpoint)",
+   "key": "bench:MMLU-Pro",
+   "raw": "84.7 %"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "bf16 (two correct implementations against each other)",
+   "key": "mean_kld",
+   "raw": "0.0077"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "bf16 (two correct implementations against each other)",
+   "key": "top1_pct",
+   "raw": "96.77 %"
   },
   {
    "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
@@ -307,6 +361,84 @@
    "entry": "qwen38-flash-next-q4tp.cmf",
    "key": "ppl:wikitext",
    "raw": "5.43"
+  },
+  {
+   "repo": "leoncca/Qwen3.8-Flash-Next-AWQ-g32",
+   "entry": "this release (AWQ g32, 2026-10-17)",
+   "key": "top1_pct",
+   "raw": "97.06%"
+  },
+  {
+   "repo": "leoncca/Qwen3.8-Flash-Next-AWQ-g32",
+   "entry": "this release (AWQ g32, 2026-10-17)",
+   "key": "top1:instructions-english-chinese-code",
+   "raw": "95.56%"
+  },
+  {
+   "repo": "leoncca/Qwen3.8-Flash-Next-AWQ-g32",
+   "entry": "this release (AWQ g32, 2026-10-17)",
+   "key": "top1:dialogue-incl-math",
+   "raw": "96.17%"
+  },
+  {
+   "repo": "leoncca/Qwen3.8-Flash-Next-AWQ-g32",
+   "entry": "this release (AWQ g32, 2026-10-17)",
+   "key": "top1:documents-code",
+   "raw": "97.49%"
+  },
+  {
+   "repo": "leoncca/Qwen3.8-Flash-Next-AWQ-g32",
+   "entry": "previous release",
+   "key": "top1_pct",
+   "raw": "96.32%"
+  },
+  {
+   "repo": "leoncca/Qwen3.8-Flash-Next-AWQ-g32",
+   "entry": "previous release",
+   "key": "top1:instructions-english-chinese-code",
+   "raw": "93.78%"
+  },
+  {
+   "repo": "leoncca/Qwen3.8-Flash-Next-AWQ-g32",
+   "entry": "previous release",
+   "key": "top1:dialogue-incl-math",
+   "raw": "94.71%"
+  },
+  {
+   "repo": "leoncca/Qwen3.8-Flash-Next-AWQ-g32",
+   "entry": "previous release",
+   "key": "top1:documents-code",
+   "raw": "97.11%"
+  },
+  {
+   "repo": "nace-ai/Qwen3.8-Flash-Next-MLX-4bit",
+   "entry": "bf16 weights, bf16 activations (noise floor)",
+   "key": "mean_kld",
+   "raw": "0.024"
+  },
+  {
+   "repo": "nace-ai/Qwen3.8-Flash-Next-MLX-4bit",
+   "entry": "bf16 weights, bf16 activations (noise floor)",
+   "key": "top1_pct",
+   "raw": "94.6%"
+  },
+  {
+   "repo": "nace-ai/Qwen3.8-Flash-Next-MLX-4bit",
+   "entry": "bf16 weights, bf16 activations (noise floor)",
+   "key": "ppl",
+   "raw": "4.021"
+  },
+  {
+   "repo": "xv0y5ncu/Qwen3.8-Flash-Next-GLQ-trellis-3inst-3bpw-ple4-3mtp",
+   "entry": "xv0y5ncu/Qwen3.8-Flash-Next-GLQ-trellis-3inst-3bpw-ple4",
+   "key": "bench:AIME-2026",
+   "raw": "AIME-2026 avg@8 = 99.58%"
+  },
+  {
+   "repo": "xv0y5ncu/Qwen3.8-Flash-Next-GLQ-trellis-3inst-3bpw-ple4",
+   "entry": "xv0y5ncu/Qwen3.8-Flash-Next-GLQ-trellis-3inst-3bpw-ple4",
+   "key": "bench:AIME-2026",
+   "raw": "AIME-2026 avg@8 = 99.58%"
   }
  ],
  "resolved_disagreements": [],
