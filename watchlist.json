@@ -39,14 +39,85 @@
    "status": "queued"
   },
   {
-   "model": "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
-   "slug": "nemotron-3-ultra",
+   "model": "google/gemma-4-26B-A4B-it",
+   "slug": "gemma-4-26b-a4b-it",
+   "status": "queued"
+  },
+  {
+   "model": "ornith-ai/Ornith-1.5-35B-A3B",
+   "slug": "ornith-1.5-35b-a3b",
+   "status": "queued"
+  },
+  {
+   "model": "google/gemma-4-31B-it",
+   "slug": "gemma-4-31b-it",
+   "status": "queued"
+  },
+  {
+   "model": "google/gemma-4-E4B-it",
+   "slug": "gemma-4-e4b-it",
+   "status": "queued"
+  },
+  {
+   "model": "google/gemma-4-12B-it",
+   "slug": "gemma-4-12b-it",
+   "status": "queued"
+  },
+  {
+   "model": "openai/gpt-oss-120b",
+   "slug": "gpt-oss-120b",
+   "status": "queued"
+  },
+  {
+   "model": "ornith-ai/Ornith-1.5-9B",
+   "slug": "ornith-1.5-9b",
+   "status": "queued"
+  },
+  {
+   "model": "LiquidAI/LFM2.5-24B-A2B",
+   "slug": "lfm2.5-24b-a2b",
+   "status": "queued"
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "slug": "gpt-oss-20b",
+   "status": "queued"
+  },
+  {
+   "model": "google/gemma-4-E2B-it",
+   "slug": "gemma-4-e2b-it",
+   "status": "queued"
+  },
+  {
+   "model": "XiaomiMiMo/MiMo-V2.6-Flash-RL",
+   "slug": "mimo-v2.6-flash-rl",
+   "status": "queued"
+  },
+  {
+   "model": "moonshotai/Kimi-K3",
+   "slug": "kimi-k3",
    "status": "queued"
   },
   {
    "model": "meta-models/Muse-Spark-Open-816B-A42B",
    "slug": "muse-spark-open",
    "status": "queued"
+  },
+  {
+   "model": "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+   "slug": "nemotron-3-ultra",
+   "status": "queued"
+  },
+  {
+   "model": "Qwen/Qwen3.8-2.4T-A95B",
+   "slug": "qwen3.8-2.4t-a95b",
+   "status": "queued"
+  },
+  {
+   "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+   "slug": "deepseek-v4.1-flash-1017",
+   "status": "queued"
   }
- ]
+ ],
+ "queue_policy": "Latest model family of each lab only; ordered by how many quant repos carry the base_model:quantized tag and how many of those have 1,000+ downloads (survey 2026-10-19)."
 }

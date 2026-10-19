@@ -25,21 +25,21 @@
    "reason": "review hold: QA review 2026-10-19: top1_pct: The 88.92% matches [L80], but [L76] says it is an independent measurement by malaiwah, so it is quoted, not cross-measured by the author."
   },
   {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "kind": "variants",
+   "entry": "this model, mtp-nvfp4 draft (2 tokens)",
+   "reason": "review hold: QA review 2026-10-19: bench:Single-stream decode tok/s: The [L105] row is the mtp-nvfp4 draft at 2 tokens, a speculative-decoding setting, not a quant row; its 265 tok/s value is correct for that setting."
+  },
+  {
    "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
    "kind": "variants",
    "entry": "GLM-5.3-Flash-TQ3_4S",
    "reason": "failed a gate"
   },
   {
-   "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
-   "kind": "cross",
-   "entry": "original release, after routed-expert VQ",
-   "reason": "failed a gate"
-  },
-  {
    "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
    "kind": "ladder",
-   "entry": "4bit",
+   "entry": "8bit",
    "reason": "failed a gate"
   },
   {
@@ -63,7 +63,13 @@
   {
    "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
    "kind": "ladder",
-   "entry": "8bit",
+   "entry": "4bit",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
+   "kind": "cross",
+   "entry": "original release, after routed-expert VQ",
    "reason": "failed a gate"
   }
  ],
@@ -2001,6 +2007,18 @@
    "raw": "81.3 %"
   },
   {
+   "repo": "OsaurusAI/GLM-5.3-Flash-JANGHT2.4",
+   "entry": "GLM-5.3-Flash-JANGHT2.4",
+   "key": "top1:assistant text",
+   "raw": "83.8%"
+  },
+  {
+   "repo": "OsaurusAI/GLM-5.3-Flash-JANGHT2.4",
+   "entry": "GLM-5.3-Flash-JANGHT2.4",
+   "key": "top1:assistant text",
+   "raw": "83.8%"
+  },
+  {
    "repo": "Ar3ntiz/glm5-3_flash_tcq",
    "entry": "SUC1 tcq (this model)",
    "key": "top1_pct",
@@ -2019,24 +2037,6 @@
    "raw": "0.41"
   },
   {
-   "repo": "OsaurusAI/GLM-5.3-Flash-JANGHT2.4",
-   "entry": "GLM-5.3-Flash-JANGHT2.4",
-   "key": "top1:assistant text",
-   "raw": "83.8%"
-  },
-  {
-   "repo": "OsaurusAI/GLM-5.3-Flash-JANGHT2.4",
-   "entry": "GLM-5.3-Flash-JANGHT2.4",
-   "key": "top1:assistant text",
-   "raw": "83.8%"
-  },
-  {
-   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
-   "entry": "quickstart line settings",
-   "key": "bench:capped, no answer",
-   "raw": "0"
-  },
-  {
    "repo": "autotrust/GLM5.3-Flash-E224-DGX-Spark",
    "entry": "This model",
    "key": "bench:BFCL_v4_non_live_overall",
@@ -2047,6 +2047,12 @@
    "entry": "This model",
    "key": "bench:BFCL_v4_live_overall",
    "raw": "80.3 %"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "quickstart line settings",
+   "key": "bench:capped, no answer",
+   "raw": "0"
   }
  ],
  "resolved_disagreements": [],
