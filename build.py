@@ -331,18 +331,23 @@ def build_sets(rows, repos):
         if r["size_gb"] is None or r.get("copied_from"): continue
         if r["kind"] == "quoted": continue
         p = pt(r, {c: k for c, k in metric_series(r).items()
-                   if c in ("kld", "top1") or c.startswith(("kld:", "top1:"))}, "size_gb")
+                   if c in ("kld", "top1", "ppl") or c.startswith(("kld:", "top1:", "ppl:"))}, "size_gb")
         if not p["m"]: continue
         p["qid"] = p["qid"] + "@" + owner(r["measured_by"]).lower()
         allp.append(p)
-    all_metrics = ["kld", "top1"]
+    all_metrics = ["kld", "top1", "ppl"]
     if CFG.get("named_metric_series"):
         available = {k for p in allp for k in p["m"]}
         if available:
             all_metrics = [k for k in all_metrics if k in available] + sorted(k for k in available if NAMED_METRIC.match(k))
+    # the overview opens on the metric most cards report (a model whose publishers mostly quote perplexity opens on it)
+    _n = collections.Counter(k for p in allp for k in p["m"])
+    all_metrics = sorted([k for k in all_metrics if _n.get(k)] or all_metrics[:1], key=lambda k: (-_n.get(k, 0), all_metrics.index(k)))
+    if "kld" in all_metrics and _n.get(all_metrics[0], 0) < 1.5 * _n.get("kld", 0):   # KLD stays the default unless another metric is far more common
+        all_metrics = ["kld"] + [k for k in all_metrics if k != "kld"]
     out.append({"id": "all", "title": "Every claim together (not comparable)", "reference": "Mixed", "data": "Mixed",
                 "x": {"field": "size_gb", "label": "Size, GB as published (download, GPU or resident; see each point)", "unit": "GB"},
-                "note": "Every KLD and top-1 figure with a size, from every card. Methods, references and size definitions differ, so read this only for orientation.",
+                "note": "Every KLD, top-1 and perplexity figure with a size, from every card. Perplexity depends on the text it was measured on, so it is not comparable across cards. Methods, references and size definitions differ, so read this only for orientation.",
                 "refs": {}, "metrics": all_metrics, "points": allp, "comparable": False})
     metrics = dict(ns["METRICS"])
     if CFG.get("named_metric_series"):
@@ -511,11 +516,22 @@ def _others():
         c = json.load(open(mj)); slug = c.get("slug")
         if not slug or slug == SLUG or status.get(slug, "live") != "live": continue   # link only models that are on the site
         nm = c.get("name") or c.get("model", "").split("/")[-1]
-        out.append({"name": nm, "href": f"../{slug}/", "artifact": arts.get(nm), "_k": order.index(slug) if slug in order else 999})
+        out.append({"name": nm, "org": (c.get("model") or "").split("/")[0], "href": f"../{slug}/", "artifact": arts.get(nm), "_k": order.index(slug) if slug in order else 999})
     return [{k: v for k, v in o.items() if k != "_k"} for o in sorted(out, key=lambda o: (o["_k"], o["name"]))]
 OTHERS = _others()
 def render(rows, repos, stats, verify_counts, highlights, exdata=''):
-    OTHER_MODELS = "".join(f' · <a href="{E(o["href"])}">{E(o["name"])}</a>' for o in OTHERS)
+    # model switcher: one compact menu grouped by publisher org, so the header stays one line however many models we add
+    _org = MODEL.split("/")[0] if "/" in MODEL else ""
+    _all = [{"name": MNAME, "org": _org, "href": None}] + OTHERS
+    _groups = {}
+    for o in _all: _groups.setdefault(o.get("org") or "other", []).append(o)
+    _cur_first = sorted(_groups, key=lambda g: (g != _org, g.lower()))
+    MODEL_MENU = "".join(
+        f'<div class="msw-group"><p class="msw-org">{E(g)}</p>' + "".join(
+            (f'<span class="msw-cur" aria-current="page">{E(o["name"])}</span>' if o["href"] is None else f'<a href="{E(o["href"])}">{E(o["name"])}</a>')
+            for o in _groups[g]) + '</div>' for g in _cur_first)
+    OTHER_MODELS = ("<details class=\"msw\"><summary><span class=\"msw-label\">" + E(_org or "model") + "</span> " + E(MNAME) + " <span class=\"msw-n\">"
+                    + "· " + str(len(_all)) + " models</span></summary><div class=\"msw-panel\">" + MODEL_MENU + '<a class="msw-all" href="../">All models</a></div></details>')
     captured = IDX["captured_at"][:10]
     own = [r for r in rows if r["kind"] == "own"]
     def mcell(r, k, pct=False):
@@ -577,7 +593,7 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
     s = stats
     body = f"""
 <header class="top"><div class="wrap">
-  <p class="eyebrow"><a class="home" href="../" title="All models">QFF</a> · {E(MODEL)}{OTHER_MODELS}</p>
+  <nav class="topbar" aria-label="Site"><a class="home" href="../" title="All models">QFF</a>{OTHER_MODELS}</nav>
   <h1>Every Hugging Face quant of {E(MNAME)}, compared by what its publisher claims</h1>
   <p class="lede">All {s["repos"]} repositories Hugging Face tags as quantizations of this model on {captured}. {s["with_quality"]} publish quality numbers about their own files; {verify_counts["values"]} published values are copied from the card text at a pinned commit and checked against it mechanically. Nothing here was re-measured by us.</p>
   <p class="lede">Compare KLD only within a compatible measurement set; the overview mixes methods. File size is not total VRAM usage: KV cache, runtime buffers, context length and offloading matter. <a href="../guides/">How to interpret and cite QFF</a>.</p>

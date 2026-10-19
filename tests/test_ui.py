@@ -19,6 +19,13 @@ async def main():
             pg.on("pageerror", lambda e: errs.append(str(e)))
             pg.on("console", lambda m: m.type == "error" and "ERR_TUNNEL" not in m.text and "ERR_FAILED" not in m.text and errs.append(m.text))
             await pg.goto(SRC); await pg.wait_for_timeout(500)
+            # header: one-line model menu, grouped by org; opens and closes; links open in a new tab
+            check(await pg.locator(".topbar .msw > summary").count() == 1, f"{name}: header has one model menu")
+            await pg.click(".msw > summary"); await pg.wait_for_timeout(100)
+            check(await pg.evaluate("document.querySelector('.msw').open") and await pg.locator(".msw-cur").count() == 1, f"{name}: model menu opens and marks the current model")
+            hs = await pg.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth"); check(hs <= 0, f"{name}: open model menu fits the screen ({hs}px)")
+            await pg.keyboard.press("Escape"); await pg.wait_for_timeout(50)
+            check(not await pg.evaluate("document.querySelector('.msw').open"), f"{name}: Escape closes the model menu")
             sw = await pg.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth")
             check(sw <= 0, f"{name}: no horizontal page scroll (got {sw}px)")
             ids = await pg.evaluate("[...document.querySelectorAll('[id]')].map(e=>e.id)")
@@ -26,7 +33,7 @@ async def main():
             # expectations derived from this model's data, so the suite works for any model size
             _DX = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), os.environ.get("QCL_SITE", "models/qwen3.8-flash-next/site"), "data.json")))
             _ALL = next(x for x in _DX["sets"] if x["id"] == "all"); NALL = len(_ALL["points"])
-            _gx = [q["x"] for q in _ALL["points"] if q.get("x") is not None]
+            _gx = [q["x"] for q in _ALL["points"] if q.get("x") is not None and _ALL["metrics"][0] in q["m"]]   # the overview opens on its first metric
             NTIER = sum(1 for t_ in (8, 12, 16, 20, 24, 32, 48, 64, 96, 128, 192, 256) if _gx and min(_gx) < t_ < max(_gx)) if (_ALL.get("x") or {}).get("unit") == "GB" else 0
             NBASIS = len({q.get("basis") or "unknown" for q in _ALL["points"]})
             import collections as _c
@@ -173,10 +180,11 @@ async def main():
               data_n = sum(1 for q in [x for x in json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), os.environ.get("QCL_SITE", "models/qwen3.8-flash-next/site"), "data.json")))["sets"] if x["id"] == "all"][0]["points"] if (q["basis"] or "unknown") == bopts[0])
               check(only.startswith(f"{data_n} of"), f"{name}: size type '{bopts[0]}' shows exactly its {data_n} points ({only})")
               await pg.click("#exrclear"); await pg.wait_for_timeout(50)
-            await pg.click("#exlin"); await pg.wait_for_timeout(100)
-            ax = await pg.evaluate("[...document.querySelectorAll('#exsvg text.axis')].map(t=>t.textContent).join(' ')")
-            check(", log" not in ax, f"{name}: linear scale toggle")
-            await pg.click("#exlog"); await pg.wait_for_timeout(50)
+            if await pg.locator("#exlin").is_visible():   # the log/linear toggle shows only for log-scale metrics (KLD)
+                await pg.click("#exlin"); await pg.wait_for_timeout(100)
+                ax = await pg.evaluate("[...document.querySelectorAll('#exsvg text.axis')].map(t=>t.textContent).join(' ')")
+                check(", log" not in ax, f"{name}: linear scale toggle")
+                await pg.click("#exlog"); await pg.wait_for_timeout(50)
             order = await pg.evaluate("[...document.querySelectorAll('main > section')].map(s=>s.id)")
             check(order.index("chart") < order.index("head-to-head"), f"{name}: explorer comes before head-to-head")
             SH = "gyro" if any(x["id"] == "gyro" for x in _sets) else BIG

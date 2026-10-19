@@ -71,7 +71,8 @@ if s is None:
     head = sh("git rev-parse HEAD").stdout.strip()
     base = (json.load(open(DEPLOYED)) if os.path.exists(DEPLOYED) else {}).get("commit")
     review = [m["slug"] for m in wl()["models"] if m["status"] == "review"]
-    changed = [l for l in sh(f"git diff --name-only {base} {head} -- models").stdout.split() if "/verified/" in l or "/snapshots/" in l] if base else ["(first run)"]
+    changed = [l for l in sh(f"git diff --name-only {base} {head} -- models build.py assemble.py discovery.py web").stdout.split()
+               if "/verified/" in l or "/snapshots/" in l or not l.startswith("models/")] if base else ["(first run)"]   # data or site code
     s = {"step": "start", "head": head, "base": base, "review": review, "notes": []}
     if not changed and not review: sh("rm -f qa.lock"); s["step"] = "done"; save(s); say({"do": "stop", "report": {"skipped": "nothing new since the last published commit", "commit": head}})
     push("QA lock", "qa.lock")

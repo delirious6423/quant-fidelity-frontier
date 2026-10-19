@@ -1,3 +1,15 @@
+(function () {   // links open in a new tab by default; in-page anchors (#...) stay in the tab. Delegated, so links added later count too.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]'); if (!a) return;
+    var h = a.getAttribute('href'); if (!h || h.charAt(0) === '#' || /^(javascript:|mailto:|tel:)/i.test(h)) return;
+    if (!a.target) { a.target = '_blank'; a.rel = ((a.rel || '') + ' noopener').trim(); }
+  }, true);
+  var m = document.querySelector('.msw');   // model menu: close on outside click and Escape
+  if (m) {
+    document.addEventListener('click', function (e) { if (m.open && !m.contains(e.target)) m.open = false; });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && m.open) { m.open = false; m.querySelector('summary').focus(); } });
+  }
+})();
 (function () {
   var t = document.getElementById('t'); if (!t) return;
   var rows = Array.prototype.slice.call(t.tBodies[0].rows);
