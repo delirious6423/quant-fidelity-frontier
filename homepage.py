@@ -33,8 +33,11 @@ def build_homepage(out, models, base, analytics, support):
                              size_label=source['x']['label'], reference=source.get('reference', 'Not stated'),
                              points=[dict(fmt=family(p.get('fmt')), basis=p.get('basis') or 'unknown', x=p['x']) for p in points]))
             # A real, homogeneous KLD example, with every point linked to its source.
-            if preview is None and metric == 'kld' and len(points) >= 3 and len({p.get('basis') for p in points}) == 1:
-                preview = (model, source, points)
+            if metric == 'kld' and len(points) >= 3 and len({p.get('basis') for p in points}) == 1:
+                rank = (model['slug'] == 'qwen3.8-27b', len(points))
+                previous = (preview[0]['slug'] == 'qwen3.8-27b', len(preview[2])) if preview else (False, 0)
+                if rank > previous:
+                    preview = (model, source, points)
         entry = dict(slug=model['slug'], name=model['model'].split('/')[-1], sets=sets)
         catalog.append(entry)
         quality = {r['measured_by'] for r in data['rows'] if r.get('metrics') and r['kind'] == 'own' and not r.get('copied_from')}
@@ -69,7 +72,11 @@ def build_homepage(out, models, base, analytics, support):
         chart = f'''<figure class="preview"><figcaption><span class="eyebrow">A REAL COMPARISON</span><strong>{esc(model['model'].split('/')[-1])}</strong></figcaption>
 <svg viewBox="0 0 330 170" role="img" aria-label="Mean KLD versus size within {esc(source['title'])}; linear axes"><path d="M48 20V130H305"/><path class="gridline" d="M48 78H305M48 26H305"/><text x="42" y="134" text-anchor="end">0</text><text x="42" y="29" text-anchor="end">{y1:.3g}</text><text x="48" y="148">{x0:g}</text><text x="298" y="148" text-anchor="end">{x1:g}</text><text x="170" y="166" text-anchor="middle">Size (GB)</text><text transform="translate(12 76) rotate(-90)" text-anchor="middle">Mean KLD ↓</text>{dots}</svg>
 <p>{esc(source['title'])}<br>{esc(source['x']['label'])}</p><a href="{esc(href)}">Explore this comparison →</a></figure>'''
-    options = ''.join(f'<option value="{esc(m["slug"])}">{esc(m["name"])}</option>' for m in catalog)
+    default_slug = preview[0]['slug'] if preview else (catalog[0]['slug'] if catalog else '')
+    for entry in catalog:
+        if preview and entry['slug'] == default_slug:
+            entry['sets'].sort(key=lambda item: item['id'] != preview[1]['id'])
+    options = ''.join(f'<option {"selected" if m["slug"] == default_slug else ""} value="{esc(m["slug"])}">{esc(m["name"])}</option>' for m in catalog)
     payload = json.dumps(catalog).replace('<', '\\u003c')
     page = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>LLM quantization comparison: KLD vs size · QFF</title>{analytics}<meta name="description" content="Compare published LLM quantization fidelity: KLD, perplexity and model size, with source-linked claims and explicit measurement boundaries."><link rel="canonical" href="{base}"><link rel="stylesheet" href="home.css"><script defer src="home.js"></script></head><body>

@@ -80,3 +80,4 @@
 - Independent reviewer: 320/390/760/1024/1440px overflow 0, no JS errors, all five static project-prefix routes restored correct filters and rendered points; no blockers.
 - GitHub Pages: static-only output, relative links, no backend/API dependency, 11.5 MB assembled site. Assembly now rejects output at the documented 1 GB published-site limit.
 - Review screenshots: `docs/previews/homepage-desktop.png` and `docs/previews/homepage-mobile.png`. Merge/deployment remains for owner review.
+- Owner refinement: Qwen3.8-27B now supplies the example chart and quick-start default. Uses AtomicChat's 27 source-linked KLD points, all with download-size basis; the preview and selected measurement set agree. Other model ordering remains unchanged.

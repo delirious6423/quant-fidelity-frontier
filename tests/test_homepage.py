@@ -31,6 +31,10 @@ async def main():
             await page.goto(HOME)
             assert await page.locator('.model-card').count() == len(manifest)
             assert await page.locator('#quick').is_visible()
+            assert await page.input_value('#home-model') == 'qwen3.8-27b'
+            assert await page.input_value('#home-set') == 'a-atomicchat-gguf'
+            assert await page.locator('.preview strong').inner_text() == 'Qwen3.8-27B'
+            assert await page.locator('.preview circle').count() == 27
             assert await page.evaluate('document.documentElement.scrollWidth <= innerWidth'), width
             # Expanded provenance and all model options must fit narrow screens too.
             await page.locator('summary').first.click()
