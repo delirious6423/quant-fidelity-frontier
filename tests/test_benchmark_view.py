@@ -113,13 +113,78 @@ async def browser_checks(base):
                     await box.check()
                 assert await page.locator('.shared-dot').count()==len(view['points'])
             await page.select_option('#shared-benchmark','0')
+            # Rectangular zoom: exact inclusive boundaries and axis extent, not only a size cap.
+            sizes=sorted({p['size'] for p in default['points']})
+            scores=sorted({p['score'] for p in default['points']})
+            lower_size=sizes[len(sizes)//3];upper_size=sizes[-1]
+            lower_score=scores[len(scores)//3];upper_score=scores[-1]
+            await page.fill('#shared-size-min',str(lower_size))
+            await page.fill('#shared-size-max',str(upper_size))
+            await page.fill('#shared-score-min',str(lower_score))
+            await page.fill('#shared-score-max',str(upper_score))
+            expected=[p for p in default['points'] if lower_size<=p['size']<=upper_size and lower_score<=p['score']<=upper_score]
+            assert await page.locator('.shared-dot').count()==len(expected)
+            svg=page.locator('#shared-plot svg')
+            assert float(await svg.get_attribute('data-x-min'))==lower_size
+            assert float(await svg.get_attribute('data-x-max'))==upper_size
+            assert float(await svg.get_attribute('data-y-min'))==lower_score
+            assert float(await svg.get_attribute('data-y-max'))==upper_score
+            assert await page.locator('#shared-zero').is_disabled()
+            range_url=page.url
+            await page.goto(range_url)
+            assert await page.locator('.shared-dot').count()==len(expected)
+            assert float(await page.locator('#shared-score-min').input_value())==lower_score
+            # Exact-match rectangle keeps every source report at the boundary.
+            point=expected[0]
+            await page.fill('#shared-size-min',str(point['size']))
+            await page.fill('#shared-size-max',str(point['size']))
+            await page.fill('#shared-score-min',str(point['score']))
+            await page.fill('#shared-score-max',str(point['score']))
+            assert await page.locator('.shared-dot').count()==sum(p['size']==point['size'] and p['score']==point['score'] for p in default['points'])
+            assert 'NaN' not in await svg.inner_html() and 'Infinity' not in await svg.inner_html()
+            # Crossed handles clamp; an empty numeric field is harmless until committed.
+            await page.fill('#shared-size-min',str(point['size']+1))
+            await page.locator('#shared-size-min').dispatch_event('change')
+            assert float(await page.locator('#shared-size-min').input_value())==point['size']
+            await page.fill('#shared-score-min','')
+            assert await page.locator('.shared-dot').count()>0
+            await page.locator('#shared-score-min').dispatch_event('change')
+            await page.click('#shared-reset')
+            assert await page.locator('.shared-dot').count()==len(default['points'])
+            assert await page.locator('#shared-reset').is_disabled()
+            # Native range handles work with keyboard and real pointer drags.
+            handle=page.locator('#shared-size-low')
+            await handle.focus();await page.keyboard.press('ArrowRight')
+            assert float(await page.locator('#shared-size-min').input_value())>0
+            await page.click('#shared-reset')
+            track=await page.locator('#shared-size-range .range-track').bounding_box()
+            await page.mouse.move(track['x']+14,track['y']+22)
+            await page.mouse.down();await page.mouse.move(track['x']+track['width']*.35,track['y']+22,steps=8);await page.mouse.up()
+            assert float(await page.locator('#shared-size-min').input_value())>0
+            assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth')
+            await page.click('#shared-reset')
+            typed_score=str(round(float(await page.locator('#shared-score-max').input_value())/2,4))
+            await page.fill('#shared-score-min','')
+            await page.locator('#shared-score-min').press_sequentially(typed_score)
+            assert await page.locator('#shared-score-min').input_value()==typed_score
+            assert parse_qs(urlparse(page.url).query)['score_min']==[typed_score]
+            await page.click('#shared-reset')
+            # Benchmark changes restore full size/score bounds in that task's published units.
+            for vi,v in enumerate(data['views']):
+                await page.select_option('#shared-benchmark',str(vi))
+                mid=sorted(p['score'] for p in v['points'])[len(v['points'])//2]
+                await page.fill('#shared-score-min',str(mid))
+                assert await page.locator('.shared-dot').count()==sum(p['score']>=mid for p in v['points'])
+                await page.click('#shared-reset')
+                assert await page.locator('.shared-dot').count()==len(v['points'])
+            await page.select_option('#shared-benchmark','0')
             await page.locator('#shared-options > summary').click()
             cap=sorted(p['size'] for p in default['points'])[len(default['points'])//2]
-            await page.fill('#shared-limit',str(cap))
+            await page.fill('#shared-size-max',str(cap))
             assert await page.locator('.shared-dot').count()==sum(p['size']<=cap for p in default['points'])
-            await page.fill('#shared-limit','0')
+            await page.fill('#shared-size-max','0')
             assert await page.locator('.shared-dot').count()==0
-            await page.fill('#shared-limit','')
+            await page.click('#shared-reset')
             await page.uncheck('#shared-refs')
             assert await page.locator('.shared-dot').count()==sum(not p['reference'] for p in default['points'])
             await page.check('#shared-log');await page.uncheck('#shared-zero')
@@ -150,15 +215,38 @@ async def browser_checks(base):
             assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth')
             await page.keyboard.press('Escape')
             assert not await page.locator('.page-picker').evaluate('(e)=>e.open')
+            await page.goto(base+'benchmarks/?min=Infinity&max=-20&score_min=bad&score_max=')
+            assert await page.locator('.shared-dot').count()==0
+            await page.locator('#shared-options > summary').click();await page.check('#shared-log')
+            assert 'NaN' not in await page.locator('#shared-plot svg').inner_html()
+            await page.click('#shared-reset')
+            assert await page.locator('.shared-dot').count()==len(default['points'])
             assert not errors,errors
             await page.close()
-            print(f'PASS shared benchmark view {width}px: both tasks, all reports, source links, filters, sharing, keyboard and navigation')
+            print(f'PASS shared benchmark view {width}px: all shared tasks, exact rectangles, reset, pointer/keyboard controls, sharing and navigation')
+        if default:
+            touch=await browser.new_context(viewport={'width':390,'height':1000},has_touch=True,is_mobile=True)
+            page=await touch.new_page();await page.goto(base+'benchmarks/')
+            await page.locator('#shared-ranges').scroll_into_view_if_needed()
+            client=await touch.new_cdp_session(page)
+            track=await page.locator('#shared-size-range .range-track').bounding_box()
+            for kind,x in [('touchStart',track['x']+14),('touchMove',track['x']+track['width']*.25),('touchEnd',0)]:
+                await client.send('Input.dispatchTouchEvent',{'type':kind,'touchPoints':[] if kind=='touchEnd' else [{'x':x,'y':track['y']+22}]})
+            assert float(await page.locator('#shared-size-min').input_value())>0
+            track=await page.locator('#shared-score-range .range-track').bounding_box()
+            before=float(await page.locator('#shared-score-max').input_value())
+            for kind,x in [('touchStart',track['x']+track['width']-14),('touchMove',track['x']+track['width']*.85),('touchEnd',0)]:
+                await client.send('Input.dispatchTouchEvent',{'type':kind,'touchPoints':[] if kind=='touchEnd' else [{'x':x,'y':track['y']+22}]})
+            assert float(await page.locator('#shared-score-max').input_value())<before
+            await touch.close()
+            print('PASS mobile touch: drag size minimum and score maximum handles')
         page=await browser.new_page(java_script_enabled=False,viewport={'width':390,'height':1000})
         await page.goto(base+'benchmarks/')
         assert await page.locator('.shared-dot').count()==(len(default['points']) if default else 0)
         assert await page.locator('#shared-evidence').evaluate('(e)=>e.open')
         assert await page.locator('#shared-evidence tbody tr').count()==total
         assert not await page.locator('#shared-controls').is_visible()
+        assert not await page.locator('#shared-ranges').is_visible()
         await page.close()
         page=await browser.new_page()
         await page.route(re.compile(r'^https?://(?!127\.0\.0\.1:)'),lambda route:route.abort())
