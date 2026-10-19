@@ -75,7 +75,7 @@
 })();
 
 (function () {  // highlight the current section in the nav
-  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a[href^="#"]:not(.chart-tabs a)')); if (!links.length || !window.IntersectionObserver) return;
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a[href^="#"]')); if (!links.length || !window.IntersectionObserver) return;
   var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) links.forEach(function (a) { a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); }); }); }, { rootMargin: '-45% 0px -50% 0px' });
   links.forEach(function (a) { var s = document.querySelector(a.getAttribute('href')); if (s) io.observe(s); });
 })();
