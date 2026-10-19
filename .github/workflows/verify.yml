@@ -36,6 +36,8 @@ jobs:
         run: python3 assemble.py _site
       - name: README lists every live model and has no dead links (counts are refreshed by the QA worker)
         run: python3 pipeline/readme_sync.py --check --structure
+      - name: Homepage layouts and quick-start links
+        run: python3 tests/test_homepage.py
       - name: Discovery pages and dataset export
         run: python3 tests/test_discovery.py
       - name: MCP server answers match the data (stdio, black-box)

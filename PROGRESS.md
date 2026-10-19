@@ -70,4 +70,20 @@
 - 2026-10-19 04:00 UTC hourly scan: deepseek-v4-flash-0731 189 repos, 206 values; deepseek-v4.1-flash 134 repos, 1081 values; glm-5.3-flash 175 repos, 330 values; qwen3.8-27b 1229 repos, 4707 values; qwen3.8-flash-next 462 repos, 2934 values
 - 2026-10-19 04:46 UTC hourly scan: deepseek-v4-flash-0731 189 repos, 206 values; deepseek-v4.1-flash 134 repos, 1081 values; glm-5.3-flash 175 repos, 330 values; qwen3.8-27b 1229 repos, 4707 values; qwen3.8-flash-next 463 repos, 2934 values
 - 2026-10-19 05:49 UTC hourly scan: deepseek-v4-flash-0731 189 repos, 333 values; deepseek-v4.1-flash 134 repos, 1081 values; glm-5.3-flash 175 repos, 533 values; qwen3.8-27b 1230 repos, 4716 values; qwen3.8-flash-next 463 repos, 2958 values
+
+## Homepage redesign (2026-10-19)
+- Approved visual direction implemented in `homepage.py`, `web/home.css`, and `web/home.js`; assembled from current model output.
+- Two-column model cards show actual format families and repositories with own, non-copied quality claims. Capture and scan dates remain separate in expandable details.
+- Homepage quick start opens one explicitly selected comparable GB measurement set, format family, size basis, and optional limit. Format selections now survive explorer share URLs.
+- Hero SVG uses actual source-linked KLD points from a homogeneous size-basis set, never a synthetic cross-method frontier.
+- Guides, machine-readable index and existing MCP documentation are prominent. No fabricated activity feed; no measurements changed.
+- Added homepage browser regressions to CI. Validation results and review recorded before commit.
+- Validation passed: all five live model builds; gate and claim regressions; all five explorer UI suites; 33 MCP checks; discovery export preserved 3,087 claim rows across 10 canonical pages.
+- New homepage suite passed 360/390/768/1366px layouts, every available measurement-set option, all five model deep links and reloads under `/quant-fidelity-frontier/`, format share round-trips, and no-JavaScript navigation.
+- Independent reviewer: 320/390/760/1024/1440px overflow 0, no JS errors, all five static project-prefix routes restored correct filters and rendered points; no blockers.
+- GitHub Pages: static-only output, relative links, no backend/API dependency, 11.5 MB assembled site. Assembly now rejects output at the documented 1 GB published-site limit.
+- Review screenshots: `docs/previews/homepage-desktop.png` and `docs/previews/homepage-mobile.png`. Merge/deployment remains for owner review.
+- Owner refinement: Qwen3.8-27B now supplies the example chart and quick-start default. Uses AtomicChat's 27 source-linked KLD points, all with download-size basis; the preview and selected measurement set agree. Other model ordering remains unchanged.
+- Owner visual correction: homepage Mean KLD preview now uses an explicitly labeled logarithmic y-axis and a taller plot, retaining all 27 actual positive KLD values. Source values and linear GB x-axis are unchanged. No illustrative/jittered points. Regression checks verify the log label and vertical spread.
+- Browse models now groups by base-model provider (DeepSeek, Qwen, Z.ai), providers A–Z, and repository count descending within each provider. Ties use model name A–Z. Qwen3.8-27B remains the quick-start default and chart example. Browser regression checks validate grouping and model order against the manifest.
 - 2026-10-19 06:53 UTC hourly scan: deepseek-v4-flash-0731 189 repos, 386 values; deepseek-v4.1-flash 134 repos, 1081 values; glm-5.3-flash 175 repos, 543 values; qwen3.8-27b 1230 repos, 4716 values; qwen3.8-flash-next 463 repos, 2950 values

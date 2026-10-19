@@ -48,26 +48,8 @@ _A = _S.get("analytics") or {}
 AN = (f'<script defer src="{H.escape(_A.get("script") or "https://cloud.umami.is/script.js")}" data-website-id="{H.escape(_A["website_id"])}" data-domains="delirious6423.github.io"></script>' if _A.get("website_id") else "")
 SUP = (f' · <a href="{H.escape(_S["support_url"])}" rel="noopener" data-umami-event="support">{H.escape(_S.get("support_label") or "Support QFF")}</a>'
        f' (<a href="https://github.com/delirious6423/quant-fidelity-frontier/blob/main/docs/SPONSORS.md">sponsor policy</a>)') if _S.get("support_url") else ""
-cards = "".join(f'<a class="card" href="{H.escape(m["slug"])}/"><h2>{H.escape(m["model"].split("/")[-1])}</h2><p class="org">{H.escape(m["model"])}</p>'
-                f'<p>{m["repos"]:,} quant repos · {m["rows"]:,} claim rows · {m["sets"]} measurement sets</p><p class="dim">Captured {H.escape((m["captured_at"] or "")[:10])}{(" · checked for new quants " + H.escape(m["checked_at"][:16].replace("T", " ")) + " UTC") if m.get("checked_at") else ""}</p></a>' for m in man)
-open(os.path.join(OUT, "index.html"), "w").write(f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LLM quantization comparison: KLD vs size · QFF</title>{AN}<meta name="description" content="Compare published LLM quantization fidelity: KLD, perplexity and model size, with source-linked claims and explicit measurement boundaries.">
-<link rel="canonical" href="{BASE}"><style>
-:root{{--bg:#f7f7f4;--fg:#1d2124;--dim:#5d666d;--card:#fff;--line:#d9dcd6;--acc:#0e7c86}}
-@media (prefers-color-scheme:dark){{:root{{--bg:#111416;--fg:#e8eaeb;--dim:#9aa3a9;--card:#181c1f;--line:#2b3135;--acc:#5cc3cc;color-scheme:dark}}}}
-body{{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}}
-main{{max-width:880px;margin:0 auto;padding:48px max(16px,env(safe-area-inset-left)) 64px max(16px,env(safe-area-inset-right))}}
-h1{{font-size:clamp(28px,5vw,40px);line-height:1.15;margin:0 0 8px;text-wrap:balance}} .lede{{color:var(--dim);max-width:62ch;margin:0 0 32px}}
-.grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}}
-.card{{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;color:inherit;text-decoration:none}}
-.card:hover,.card:focus-visible{{border-color:var(--acc)}} .card h2{{margin:0 0 2px;font-size:20px;color:var(--acc)}} .card p{{margin:4px 0}}
-.org,.dim{{color:var(--dim);font-size:14px}} footer{{margin-top:40px;color:var(--dim);font-size:14px}} footer a{{color:var(--acc)}} .top{{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}} .gh{{color:var(--fg);border:1px solid var(--line);border-radius:999px;padding:2px 12px;text-decoration:none}}
-</style></head><body><main><p class="dim top">QFF · Quant Fidelity Frontier <a class="gh" href="https://github.com/delirious6423/quant-fidelity-frontier">GitHub ↗</a></p>
-<h1>LLM quantization comparison, backed by publisher sources</h1>
-<p class="lede">Each number is copied from the publisher's own model card and links to the line it came from. Nothing is re-measured; numbers are comparable only within one measurement set.</p>
-<div class="grid">{cards}</div>
-<p><a href="guides/">How to compare KLD, interpret size and cite QFF</a> · <a href="llms.txt">Agent reading guide</a></p>
-<footer><a href="models.json">models.json</a> (machine-readable index) · <a href="https://github.com/delirious6423/quant-fidelity-frontier">source and data</a>{SUP}</footer></main><script>(function(){{var p=location.pathname,i=p.indexOf('/quant-fidelity-frontier/'),B=location.origin+(i>=0?p.slice(0,i)+'/quant-fidelity-frontier/':'/');document.addEventListener('click',function(e){{var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href');if(!h||h.charAt(0)==='#'||/^(javascript:|mailto:|tel:)/i.test(h))return;var ext=a.protocol==='file:'?/^https?:/i.test(h):a.href.indexOf(B)!==0;if(ext&&!a.target){{a.target='_blank';a.rel=((a.rel||'')+' noopener').trim()}}}},true)}})();</script></body></html>""")
+from homepage import build_homepage
+build_homepage(OUT, man, BASE, AN, SUP)
 from discovery import build_discovery
 build_discovery(OUT, BASE, man, AN)
 open(os.path.join(OUT, ".nojekyll"), "w").close()   # serve files as-is; no Jekyll processing
@@ -76,4 +58,5 @@ assert not bad, f"non-static files in site: {bad[:5]}"
 big = [(p, os.path.getsize(p)) for p in glob.glob(os.path.join(OUT, "**", "*"), recursive=True) if os.path.isfile(p) and os.path.getsize(p) > 50e6]
 assert not big, f"files over 50 MB (GitHub warns at 50, rejects at 100): {big}"
 tot = sum(os.path.getsize(p) for p in glob.glob(os.path.join(OUT, "**", "*"), recursive=True) if os.path.isfile(p))
+assert tot < 1_000_000_000, "published site exceeds the GitHub Pages 1 GB limit"
 print(json.dumps({"out": OUT, "files": sum(1 for p in glob.glob(os.path.join(OUT, '**', '*'), recursive=True) if os.path.isfile(p)), "MB": round(tot / 1e6, 1)}))
