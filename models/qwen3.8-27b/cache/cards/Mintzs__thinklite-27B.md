@@ -18,15 +18,17 @@ help it reach the answer: restating the question, repeating a step it already di
 already checked, and exploring approaches it then abandons. Answers arrive sooner, with the same model, the same chat
 template and the same hardware cost per token.
 
-| Version | Output tokens vs Qwen3.8-27B | Time to full answer (TTFA) |
-|---|---|---|
-| **Thinklite-27B Low** | 14% fewer | 1.12x faster |
-| **Thinklite-27B High** | 20% fewer | 1.22x faster |
-| **Thinklite-27B Max** | 33% fewer | 1.43x faster |
+| Version | Reasoning tokens (avg per benchmark) | All output tokens | Time to full answer (TTFA) |
+|---|---|---|---|
+| **Thinklite-27B Low** | 20% fewer | 14% fewer | 12% faster |
+| **Thinklite-27B High** | 28% fewer | 20% fewer | 22% faster |
+| **Thinklite-27B Max** | 40% fewer | 33% fewer | 43% faster |
 
-Measured on six benchmarks at `reasoning_effort=low` against Qwen3.8-27B at the same setting (details below). TTFA is
-the time a single user waits for the complete answer; Thinklite-27B decodes at exactly the base model's speed, so the
-whole speedup comes from writing fewer tokens.
+Measured on six benchmarks at `reasoning_effort=low` against Qwen3.8-27B at the same setting (details below).
+- *Reasoning tokens*: the thinking part only; the change is averaged over the six benchmarks.
+- *All output tokens*: thinking plus answer, summed over all 4,291 requests.
+- *TTFA*: the time a single user waits for the complete answer, averaged over the six benchmarks. Thinklite-27B
+  decodes at exactly the base model's speed, so the whole speedup comes from writing fewer tokens.
 
 ## Versions
 
@@ -41,6 +43,28 @@ All three versions are full models (merged bf16 weights, drop-in replacements fo
 "Low", "High" and "Max" name the versions, not reasoning settings: every version supports `reasoning_effort` `low`,
 `medium` and `xhigh`, exactly like Qwen3.8-27B. A Q4_K_M GGUF of Thinklite-27B High is on `main`; the LoRA adapters are
 on the `adapters` branch.
+
+### How to get each version
+
+Each version lives on its own **branch** of this repository: `main` is High (the default), `low` is Low, `max` is Max.
+Pick the branch (Hugging Face calls it a *revision*) wherever you load the model:
+
+- **On the website:** open the **Files and versions** tab and switch the branch menu (it shows `main`) to `low` or
+  `max`.
+- **Download with the CLI:**
+
+  ```bash
+  hf download Mintzs/thinklite-27B --revision low --local-dir Thinklite-27B-Low
+  hf download Mintzs/thinklite-27B --revision max --local-dir Thinklite-27B-Max
+  hf download Mintzs/thinklite-27B --local-dir Thinklite-27B-High          # main
+  ```
+
+- **Python:** `snapshot_download("Mintzs/thinklite-27B", revision="low")`, or pass `revision="low"` / `revision="max"` to any
+  `from_pretrained(...)` call.
+- **vLLM:** add `--revision low` or `--revision max` to `vllm serve` (examples under Usage).
+- **Git:** `git clone -b low https://huggingface.co/Mintzs/thinklite-27B` (requires `git lfs`).
+
+Without a revision you always get `main`, which is Thinklite-27B High.
 
 ## Objective
 
@@ -95,7 +119,7 @@ base model on hard problems. Thinklite-27B Max applies the full update.
 - **MMLU-Pro**: 1,000-question stratified subset
 - **IFEval**: 541 prompts, prompt-level strict
 - **LiveCodeBench v6**: 131 problems (2025-02 to 2025-04), pass@1
-- **BFCL v4**: 1,240 non-live function-calling cases
+- **BFCL**: 1,240 non-live function-calling cases (BFCL v3 categories, official AST checker)
 
 ### Accuracy (%)
 
@@ -106,7 +130,7 @@ base model on hard problems. Thinklite-27B Max applies the full update.
 | MMLU-Pro | 86.3 | 84.4 | 84.7 | 84.7 | 82.6 |
 | IFEval | 91.1 | 86.3 | 84.3 | 83.9 | 83.0 |
 | LiveCodeBench v6 | 84.0 | 71.8 | 72.5 | 67.2 | 61.8 |
-| BFCL v4 | 88.7 | 90.8 | 90.4 | 90.4 | 90.2 |
+| BFCL | 88.7 | 90.8 | 90.4 | 90.4 | 90.2 |
 | **Average** | | **86.8** | **86.2** | **83.6** | **79.9** |
 
 ### Reasoning tokens per answer (mean; change vs Qwen3.8-27B at low)
@@ -118,19 +142,19 @@ base model on hard problems. Thinklite-27B Max applies the full update.
 | MMLU-Pro | 1,103 | 934 (-15%) | 748 (-32%) | 554 (-50%) |
 | IFEval | 659 | 464 (-30%) | 416 (-37%) | 326 (-51%) |
 | LiveCodeBench v6 | 10,741 | 9,152 (-15%) | 7,581 (-29%) | 5,639 (-48%) |
-| BFCL v4 | 96 | 80 (-17%) | 76 (-21%) | 70 (-27%) |
+| BFCL | 96 | 80 (-17%) | 76 (-21%) | 70 (-27%) |
 | **All output tokens, 4,291 requests** | 4,915,895 | 4,244,014 (-14%) | 3,915,800 (-20%) | 3,285,976 (-33%) |
 
-### Time to full answer, single user (seconds, median / p95; speedup at the median)
+### Time to full answer, single user (seconds, median / p95; speed-up at the median)
 
 | Benchmark | Qwen3.8-27B (low) | Thinklite-27B Low | Thinklite-27B High | Thinklite-27B Max |
 |---|---|---|---|---|
-| GSM8K | 11.3 / 23 | 10.4 / 21 (1.08x) | 10.3 / 20 (1.10x) | 9.7 / 17 (1.16x) |
-| AIME 2025 | 181.9 / 1612 | 156.9 / 1109 (1.16x) | 147.6 / 1227 (1.23x) | 122.7 / 1163 (1.48x) |
-| MMLU-Pro | 28.9 / 169 | 25.4 / 118 (1.14x) | 24.3 / 88 (1.19x) | 20.9 / 68 (1.38x) |
-| IFEval | 25.1 / 110 | 19.3 / 85 (1.30x) | 18.9 / 80 (1.33x) | 15.8 / 69 (1.59x) |
-| LiveCodeBench v6 | 129.4 / 1764 | 125.0 / 1588 (1.04x) | 89.4 / 1542 (1.45x) | 67.6 / 1323 (1.91x) |
-| BFCL v4 | 5.6 / 19 | 5.4 / 17 (1.04x) | 5.4 / 16 (1.04x) | 5.4 / 16 (1.04x) |
+| GSM8K | 11.3 / 23 | 10.4 / 21 (8% faster) | 10.3 / 20 (10% faster) | 9.7 / 17 (16% faster) |
+| AIME 2025 | 181.9 / 1612 | 156.9 / 1109 (16% faster) | 147.6 / 1227 (23% faster) | 122.7 / 1163 (48% faster) |
+| MMLU-Pro | 28.9 / 169 | 25.4 / 118 (14% faster) | 24.3 / 88 (19% faster) | 20.9 / 68 (38% faster) |
+| IFEval | 25.1 / 110 | 19.3 / 85 (30% faster) | 18.9 / 80 (33% faster) | 15.8 / 69 (59% faster) |
+| LiveCodeBench v6 | 129.4 / 1764 | 125.0 / 1588 (4% faster) | 89.4 / 1542 (45% faster) | 67.6 / 1323 (91% faster) |
+| BFCL | 5.6 / 19 | 5.4 / 17 (4% faster) | 5.4 / 16 (4% faster) | 5.4 / 16 (4% faster) |
 
 TTFA is computed from each answer's length, the prompt prefill time and the single-user decode speed measured on the
 same GPU (about 28 tokens/s for every model). Thinklite-27B Low was timed in a separate run on the same GPU type; its

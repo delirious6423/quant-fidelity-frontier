@@ -30,6 +30,14 @@ tags:
 This is an uncensored version of [Qwen/Qwen3.8-Flash-Next](https://huggingface.co/Qwen/Qwen3.8-Flash-Next) created with abliteration (see [remove-refusals-with-transformers](https://github.com/Sumandora/remove-refusals-with-transformers) to know more about it).
 This is a crude, proof-of-concept implementation to remove refusals from an LLM model without using TransformerLens.
 
+# Last Update
+We used calibration3.txt to generate imatrix_micro3.gguf, and then based on that produced 
+[unsloth-UD-Q4_K_XL-V2](https://huggingface.co/huihui-ai/Huihui-Qwen3.8-Flash-Next-abliterated-v2-GGUF/tree/main/unsloth-UD-Q4_K_XL-V2), 
+with the PPL value decreasing slightly.
+
+The llama.cpp version used for testing is [llama.cpp-b11540](https://github.com/ggml-org/llama.cpp/releases/tag/b11540).
+
+
 # Note
 This version Compared to the [first version](https://huggingface.co/huihui-ai/Huihui-Qwen3.8-Flash-Next-abliterated-GGUF), the ablation emphasis has been adjusted, and none of the experts have been ablated. Suitable for novel writing and programming.
 
