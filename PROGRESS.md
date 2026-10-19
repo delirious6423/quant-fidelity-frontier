@@ -92,3 +92,10 @@
 - Owner approved chart-first model page redesign with one explicit exception: preserve initial measurement-set selection, including existing saved/hash/query precedence.
 - Compact model header and expandable coverage; searchable measurement picker, controls and method disclosures, selected-quant evidence panel and same-set shortlist; mobile claim cards.
 - Validation: 488 existing explorer UI checks passed; all five models pass new 320/390/1366px layout, source evidence, shortlist, and initial-set precedence tests. Gates, claims, homepage, MCP, discovery checks passed. All five data.json exports remain byte-identical. Independent review cleared provenance and keyboard fixes. Static build 11.6 MB. Ready for CI and deployment.
+
+## Chart tabs and collapsed quant lists (2026-10-19)
+- GLM Fidelity and Benchmarks now share the top chart area via accessible, sticky tabs; direct hashes and browser history select the corresponding panel without resetting chart choices.
+- Quant picker and quant results table start collapsed on model pages. Initial measurement-set selection is unchanged.
+- Progressive enhancement: without JavaScript, both chart sections remain accessible and disclosures still work.
+- Validation: GLM benchmark interactions at 320/390/1366px; GLM full desktop/mobile explorer regression; five source-data tests. Qwen 27B regression checks the shared disclosure change without tabs.
+- Pending: owner review before production deployment.
