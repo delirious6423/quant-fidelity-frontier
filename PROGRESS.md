@@ -107,3 +107,9 @@
 - Prepared for owner review before deployment.
 
 - Owner refinement: Repos without extracted claims also starts collapsed, with its repository count visible. Direct links, retained status filters and no-JavaScript opening covered in the same responsive regression.
+
+## Stacked benchmark chart (2026-10-19)
+- Owner replaced the tab approach: Fidelity and the GLM benchmark pilot remain visible together, with benchmarks directly after the fidelity section and collapsed quant controls, before comparison guidance and evidence sections.
+- Removed chart-tab JavaScript/CSS. Navigation links are ordinary section anchors; initial measurement sets, data and collapsed defaults are preserved.
+- Responsive benchmark checks pass at 320/390/1366px for stacked order, both-chart visibility, direct anchors/history and existing chart interactions. Evidence disclosures and benchmark provenance tests pass.
+- Prepared for owner review before deployment.
