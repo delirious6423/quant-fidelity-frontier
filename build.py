@@ -4,7 +4,7 @@ Outputs: site/data.json, site/index.html (full doc for GitHub Pages), site/artif
 import json, glob, os, re, html, math, datetime, collections
 
 CODE = os.path.dirname(os.path.abspath(__file__))
-import sys; sys.path[:0] = [os.path.join(CODE, "pipeline"), os.path.join(CODE, "gates")]
+import sys; sys.path[:0] = [CODE, os.path.join(CODE, "pipeline"), os.path.join(CODE, "gates")]
 import qcl_fmt as FMT
 from benchmarks import build_pilot, render_pilot
 ROOT = os.environ.get("QCL_ROOT") or os.path.join(CODE, "models", "qwen3.8-flash-next")          # data root: one folder per model (models/<slug>/); code stays here
