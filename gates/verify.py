@@ -1,19 +1,36 @@
 #!/usr/bin/env python3
 """Gate 1 (mechanical): every published value we cite must appear verbatim on its cited line(s)
 of the pinned snapshot. No model judgment involved. Exit 1 on any failure."""
-import json, glob, os, re, sys
+import hashlib, json, glob, os, re, sys
+from pathlib import Path
+from decimal import Decimal
 
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # repo root
 sys.path[:0] = [os.path.join(CODE, "pipeline"), os.path.join(CODE, "gates")]   # sibling modules
+import current as CUR
 ROOT = os.environ.get("QCL_ROOT") or os.path.join(CODE, "models", "qwen3.8-flash-next")          # data root: one folder per model (models/<slug>/); code stays here
 IDX = json.load(open(f"{ROOT}/snapshots/index.json"))["repos"]
 SIZES = json.load(open(f"{ROOT}/snapshots/hf_sizes_summary.json"))
 BRANCH = json.load(open(f"{ROOT}/snapshots/hf_branch_sizes.json"))
-UNSLOTH = open(f"{ROOT}/snapshots/unsloth.ai__docs__qwen3.8-next.md").read().split("\n") if os.path.exists(f"{ROOT}/snapshots/unsloth.ai__docs__qwen3.8-next.md") else []
+UNSLOTH = []  # loaded only through a content pin when an active claim cites it
 
 def load_parts():
-    import current as CUR   # gates/current.py: entries whose card changed since review are withdrawn, not failed
     return CUR.load(ROOT)
+
+def pinned_lines(meta):
+    """Read the exact indexed source bytes, never merely trust its commit label."""
+    path = (Path(ROOT) / meta["file"]).resolve()
+    if not path.is_relative_to(Path(ROOT).resolve()):
+        raise ValueError("source path is outside the model directory")
+    raw = path.read_bytes()
+    digest = meta.get("sha256")
+    if not isinstance(digest, str) or not re.fullmatch(r"[a-fA-F0-9]{64}", digest):
+        raise ValueError("source has no valid pinned SHA-256")
+    if hashlib.sha256(raw).hexdigest() != digest.lower():
+        raise ValueError("source SHA-256 differs from its pinned bytes")
+    if "bytes" in meta and meta["bytes"] != len(raw):
+        raise ValueError("source byte count differs from its pin")
+    return raw.decode("utf-8").split("\n")
 
 def norm(s):  # strip markdown emphasis / code / escapes / thin spaces, collapse whitespace
     s = s.replace("**", "").replace("`", "").replace("\\_", "_").replace(" ", " ").replace(" ", " ")
@@ -61,7 +78,26 @@ def signed_tok(val):
     return (m.group(1) + m.group(2).replace(",", "")) if m else None
 def check_sign(val, lines):
     want = signed_tok(val)
-    if want is None: return True
+    if want is None:
+        # An unsigned value is positive, not an excuse to drop a source minus.
+        # This check only rejects a matching negative magnitude; the presence
+        # and column gates remain responsible for locating the value itself.
+        raw = unminus(norm(str(val))).strip()
+        pattern = r"\d{1,3}(?:[ \u202f\u2009]\d{3})+(?:\.\d+)?|\d[\d,]*(?:\.\d+)?|\.\d+"
+        number = re.match(pattern, raw)
+        if number is None: return True
+        magnitude = Decimal(numtoks(number.group())[0])
+        tokens = re.compile(r"(?<![\w.\d])([+-]?)\s*(" + pattern + r")")
+        negative = False
+        for line in lines:
+            # A Markdown bullet or spaced em dash is punctuation, not a minus.
+            text = re.sub(r"^\s*[-*+]\s+", "", norm(line))
+            text = re.sub(r"[−﹣－]|[–‒—](?=\d|\.\d)", "-", text)
+            for match in tokens.finditer(text):
+                if Decimal(numtoks(match[2])[0]) != magnitude: continue
+                if match[1] != "-": return True
+                negative = True
+        return not negative
     have = set()
     for l in lines:
         for m in SIGNED.finditer(unminus(norm(l))):
@@ -135,14 +171,29 @@ QUOTED_RE = re.compile(r"reported by|\bquoted\b|\bquotes?\b|per (?:their|the(?:i
 fails, passes, notes, image_claims = [], 0, [], 0
 sign_checked = sign_fails = unit_checked = unit_fails = quoted_ctx = 0
 R = load_parts()
+external_doc = "snapshots/unsloth.ai__docs__qwen3.8-next.md"
+external_claims = [entry for record in R for kind in ("variants", "cross", "ladder")
+                   for entry in (record.get(kind) or []) if entry.get("src") == "unsloth_docs"]
+external_claims += [record[key] for record in R for key in ("baseline", "baseline2")
+                    if isinstance(record.get(key), dict) and record[key].get("src") == "unsloth_docs"]
+if external_claims:
+    try:
+        registry = json.load(open(f"{ROOT}/audit/review_pins.json"))
+        UNSLOTH = pinned_lines({**registry["sources"][external_doc], "file": external_doc})
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        fails.append(f"external unsloth_docs: SOURCE {error}")
 seen = set()
 for r in R:
     name = r["repo"]; seen.add(name)
     meta = IDX.get(name)
     if not meta: fails.append(f"{name}: not in snapshot index"); continue
-    if not meta["sha"].startswith(r.get("sha", "")[:8]):
-        fails.append(f"{name}: sha {r.get('sha')} does not match snapshot {meta['sha'][:12]}")
-    src_lines = open(f"{ROOT}/{meta['file']}").read().split("\n")
+    if not r.get("auto") and not CUR.fresh(r, IDX):
+        fails.append(f"{name}: reviewed source does not match the current snapshot")
+    try:
+        src_lines = pinned_lines(meta)
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        fails.append(f"{name}: SOURCE {error}")
+        continue
     def lines_for(e):
         doc = UNSLOTH if e.get("src") == "unsloth_docs" else src_lines
         Ls = [e.get("L")] + list(e.get("L_extra", []) or [])
@@ -182,15 +233,19 @@ for r in R:
         if kind in ("cross", "ladder") and any(re.search(r"quoted|not measured", str(f), re.I) for f in list(e.get("flags") or []) + [e.get("name"), e.get("variant"), e.get("note")] if f) and e.get("measured") is not False:
             fails.append(f"{name} [{kind}] {e.get('name') or e.get('variant')}: flag says quoted/not measured but measured is not False")
         if e.get("basis") == "hf_branch_total":
-            ok = abs(BRANCH[name][e["branch"]]["GB"] - e["size"]) < 0.02
-            (passes := passes + 1) if ok else fails.append(f"{name} {e.get('name')}: branch size mismatch")
+            branch = BRANCH[name][e["branch"]]
+            unit = e.get("unit")
+            ok = unit in TO_BYTES and abs(branch["bytes"] / TO_BYTES[unit] - e["size"]) < 0.02
+            (passes := passes + 1) if ok else fails.append(f"{name} {e.get('name')}: branch size or UNIT mismatch")
             vals.pop("size", None)
             if not vals: continue
         lines, Ls = lines_for(e)
         if e.get("basis") == "hf_listing_total" and e.get("size") is not None:
-            s = SIZES[name]; ok = abs(s["total_GB"] - e["size"]) < 0.02 or abs(s["total_GiB"] - e["size"]) < 0.02 \
-                or any(abs(g[0]-e["size"]) < 0.02 or abs(g[1]-e["size"]) < 0.02 for g in s["groups"].values())
-            (passes := passes + 1) if ok else fails.append(f"{name} [{kind}] {e.get('name')}: size {e['size']} not in HF listing")
+            s = SIZES[name]; unit = e.get("unit")
+            column = {"GB": 0, "GiB": 1}.get(unit)
+            candidates = ([s[f"total_{unit}"]] + [group[column] for group in s["groups"].values()]) if column is not None else []
+            ok = any(abs(value - e["size"]) < 0.02 for value in candidates)
+            (passes := passes + 1) if ok else fails.append(f"{name} [{kind}] {e.get('name')}: size {e['size']} {unit} not in HF listing (value/UNIT mismatch)")
             vals.pop("size", None)
         if vals and not lines:
             fails.append(f"{name} [{kind}] {e.get('name')}: values but no valid line refs {Ls}"); continue

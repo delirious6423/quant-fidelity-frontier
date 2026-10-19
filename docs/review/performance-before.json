@@ -1,0 +1,71 @@
+{
+  "workload": "real-model inline chart JSON; V8, 10 warmups, 9 x 30 parses",
+  "node": "v24.19.0",
+  "models": [
+    {
+      "model": "deepseek-v4-flash-0731",
+      "html_bytes": 631315,
+      "html_gzip_bytes": 74968,
+      "inline_bytes": 198912,
+      "parse": {
+        "median_ms": 0.603191399999999,
+        "min_ms": 0.5647296333333335,
+        "max_ms": 0.8767237333333336,
+        "count": 1890
+      },
+      "data_sha256": "dc07d2e3bbfd43f78d55f96ddad8b7391fb8356218967909da7ffba51c680f6d"
+    },
+    {
+      "model": "deepseek-v4.1-flash",
+      "html_bytes": 980312,
+      "html_gzip_bytes": 113784,
+      "inline_bytes": 368283,
+      "parse": {
+        "median_ms": 1.1436727666666664,
+        "min_ms": 1.0675160333333338,
+        "max_ms": 1.2269843,
+        "count": 2700
+      },
+      "data_sha256": "e0f626252e876151a5554d148a09ff8de00a51b9dd9c60e3748581c62acd682a"
+    },
+    {
+      "model": "glm-5.3-flash",
+      "html_bytes": 788126,
+      "html_gzip_bytes": 83845,
+      "inline_bytes": 357329,
+      "parse": {
+        "median_ms": 1.0655927666666665,
+        "min_ms": 0.956620133333333,
+        "max_ms": 1.5585538000000005,
+        "count": 2970
+      },
+      "data_sha256": "c8ba9951e384da82fc2ffe977923b498a1e56647536fc43c54ce0f302527a725"
+    },
+    {
+      "model": "qwen3.8-27b",
+      "html_bytes": 7146224,
+      "html_gzip_bytes": 400847,
+      "inline_bytes": 4889322,
+      "parse": {
+        "median_ms": 12.801920666666668,
+        "min_ms": 12.301426999999997,
+        "max_ms": 13.492740533333336,
+        "count": 25110
+      },
+      "data_sha256": "e27a5546ff9a9d22847c3358820a3048a9f190b2556bee37bdb0a508cc660ae8"
+    },
+    {
+      "model": "qwen3.8-flash-next",
+      "html_bytes": 2806138,
+      "html_gzip_bytes": 311295,
+      "inline_bytes": 1173017,
+      "parse": {
+        "median_ms": 4.095001966666667,
+        "min_ms": 3.500924900000003,
+        "max_ms": 4.813049133333334,
+        "count": 9720
+      },
+      "data_sha256": "83eccd041ecf29da27e1bf94f3eb84cbcd2a3f4346c26ddd0896859be4988402"
+    }
+  ]
+}

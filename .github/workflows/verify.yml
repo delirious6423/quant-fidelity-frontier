@@ -1,27 +1,46 @@
 name: verify-claims
 on:
+  workflow_call:
+    inputs:
+      publish_pages_artifact:
+        type: boolean
+        default: false
   pull_request:
   push:
     branches: [main]
+permissions:
+  contents: read
 jobs:
   verify:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install pillow numpy playwright && python -m playwright install --with-deps chromium
+      - name: Assembly and workflow safety regressions
+        run: |
+          python3 -m unittest discover -s tests -p 'test_assembly_safety.py'
+          python3 -m unittest discover -s tests -p 'test_workflow_security.py'
+          python3 tests/test_fetch_security.py
+          python3 tests/test_gate_integrity.py
+          python3 tests/test_source_pins.py
+          python3 tests/test_mapping_provenance.py
+          python3 tests/test_qa_release.py
       - name: Gates + build + UI tests, every live model (build.py refuses on any gate failure)
         run: |
           # on failure, the last lines also go out as annotations (readable from the API without the log archive)
-          for d in $(python3 pipeline/qcl_live.py); do
+          python3 pipeline/qcl_live.py > live-models.txt
+          while IFS= read -r d; do
             { QCL_ROOT="$d" python3 build.py && QCL_SITE="$d/site" python3 tests/test_ui.py; } > step.log 2>&1 && continue
             cat step.log; grep -E "FAIL|Error|Traceback|MISMATCH" step.log | head -20 | sed "s|^|::error title=$d::|"; tail -5 step.log | sed "s|^|::error title=$d tail::|"; exit 1
-          done
+          done < live-models.txt
       - name: Source-backed benchmarks and responsive interactions
         run: |
           python3 tests/test_benchmarks.py
+          python3 tests/test_benchmark_integrity.py
           python3 tests/test_benchmarks_ui.py
           python3 tests/test_disclosures_ui.py
       - name: Benchmark screenshots
@@ -53,7 +72,10 @@ jobs:
       - name: Homepage layouts and quick-start links
         run: python3 tests/test_homepage.py
       - name: Model page layout and measurement-set preservation
-        run: python3 tests/test_model_redesign.py
+        run: |
+          python3 tests/test_model_redesign.py
+          python3 tests/test_explorer_state.py
+          python3 tests/test_web_payload.py
       - name: Discovery pages and dataset export
         run: python3 tests/test_discovery.py
       - name: Protocol comparison engine, source bindings, and cross-publisher groups
@@ -63,6 +85,22 @@ jobs:
           python3 -m unittest discover -s tests -p 'test_verified_protocol_sets.py'
           python3 tests/test_comparison_ui.py
       - name: MCP server answers match the data (stdio, black-box)
-        run: pip install "mcp>=1.9" && QFF_DATA=_site python3 tests/test_mcp.py
+        run: pip install "mcp==2.3.0" && QFF_DATA=_site python3 tests/test_mcp.py
       - name: MCP protocol and provenance regressions
-        run: python3 -m unittest discover -s tests -p 'test_mcp_comparison.py'
+        run: |
+          python3 -m unittest discover -s tests -p 'test_mcp_comparison.py'
+          python3 tests/test_mcp_loading.py
+          python3 tests/test_mcp_benchmarks.py
+          python3 tests/test_mcp_http.py
+      - name: MCP 1.x transport compatibility
+        run: |
+          python3 -m venv /tmp/qff-mcp-v1
+          /tmp/qff-mcp-v1/bin/pip install "mcp==1.30.0"
+          QFF_DATA=_site /tmp/qff-mcp-v1/bin/python tests/test_mcp_http.py
+      # A caller deploys this exact artifact only after every check above passes.
+      # The local reusable workflow and checkout share the caller's immutable SHA.
+      - name: Upload verified Pages artifact
+        if: ${{ inputs.publish_pages_artifact == true }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site

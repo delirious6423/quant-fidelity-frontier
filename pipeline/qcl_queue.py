@@ -24,7 +24,8 @@ for rp, n in zip(todo, names):
     cands = json.load(open(f"{R}/maps/cands/{n}.cands.json"))
     cl = cands.get("candidates", cands) if isinstance(cands, dict) else cands
     if not cl:
-        m = {"repo": rp, "no_quality_claims": True, "no_claims_reason": "the card has no numbers in tables or text (detected by code)", "entries": [], "prose": []}
+        m = {"repo": rp, "source_sha256": cands["source_sha256"], "candidates_sha256": cands["candidates_sha256"],
+             "no_quality_claims": True, "no_claims_reason": "the card has no numbers in tables or text (detected by code)", "entries": [], "prose": []}
         for run in ("A", "B"): json.dump(m, open(f"{R}/maps/{run}/{n}.map.json", "w"), indent=1)
         empty.append(n)
 names = [n for n in names if n not in empty]

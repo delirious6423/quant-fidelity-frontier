@@ -9,8 +9,9 @@ The LLM never types a number. It receives every numeric table cell as a numbered
 row label, raw text) and answers with a small JSON mapping: which candidate is which metric of which entry, the
 entry's role (own / ladder / cross / quoted), and the method. Code then copies the published strings verbatim.
 """
-import json, os, re, sys, collections
+import hashlib, json, os, re, sys, collections
 import autoextract as A
+import mapping_provenance as MP
 
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # repo root
 sys.path[:0] = [os.path.join(CODE, "pipeline"), os.path.join(CODE, "gates")]   # sibling modules
@@ -18,6 +19,8 @@ ROOT = os.environ.get("QCL_ROOT") or os.path.join(CODE, "models", "qwen3.8-flash
 
 SCHEMA = """Answer with ONE JSON object, no prose:
 {"repo": "<repo id>",
+ "source_sha256": "<copy the Source SHA-256 from this task exactly>",
+ "candidates_sha256": "<copy the Candidates SHA-256 from this task exactly>",
  "no_quality_claims": false,          // true if the card states no quality number about any quant (speed/size-only cards count as true)
  "no_claims_reason": "",              // when true: one short reason with line numbers, e.g. "speed table only [L40-52]"
  "weights_modified": false, // true for pruned, finetuned, abliterated or otherwise modified base weights
@@ -51,6 +54,7 @@ Native MXFP4/FP8 checkpoints are not BF16 references. For split storage, disting
 Read the full source card as well when the digest omits measurement context."""
 
 def task(repo):
+    pin = source_pin(repo)
     cands = A.extract(repo)
     seen = {}
     for c in cands:
@@ -69,8 +73,13 @@ def task(repo):
             c["id"] = f"c{n}.{c['sub']}"
         else: n += 1; last = None; c["id"] = f"c{n}"
     text = "\n".join(f'{c["id"]} L{c["L"]} [{c["header"][:30]}] row="{c["label"][:50]}" ' + (f'value="{c["raw"]}" of cell="{c["cell"][:60]}"' if "sub" in c else f'cell="{c["raw"][:40]}"') for c in cl)
-    return {"repo": repo, "candidates": {c["id"]: {"L": c["L"], "raw": c["raw"], "header": c["header"], "label": c["label"]} for c in cl},
-            "prompt": f"Card: {repo}\n\n## Numeric table cells (candidates)\n{text}\n\n## Card digest (line: text)\n{A.digest(repo)}\n\n## Output\n{SCHEMA}"}
+    digest = A.digest(repo)
+    if source_pin(repo) != pin:
+        raise ValueError(f"source changed while preparing mapping task: {repo}")
+    candidates = {c["id"]: {"L": c["L"], "raw": c["raw"], "header": c["header"], "label": c["label"]} for c in cl}
+    candidate_pin = MP.candidates_digest(candidates)
+    return {"repo": repo, "source_sha256": pin, "candidates_sha256": candidate_pin, "candidates": candidates,
+            "prompt": f"Card: {repo}\nSource SHA-256: {pin}\nCandidates SHA-256: {candidate_pin}\n\n## Numeric table cells (candidates)\n{text}\n\n## Card digest (line: text)\n{digest}\n\n## Output\n{SCHEMA}"}
 
 def clean_raw(s): return re.sub(r"\*\*|`", "", s).strip()
 
@@ -96,7 +105,7 @@ def exact_in(raw, line):
     return False
 APPROX = re.compile(r"(?:~|≈|∼|\babout|\baround|\bapprox|\broughly|\bup to|(?:^|[\s(])(?:<|>|≤|≥))\s*\d|\d\s*(?:[A-Za-z]{1,4}\s*)?(?:–|—|\bto\b)\s*~?\d|\d\s+-\s+\d", re.I)
 
-def apply(mapping, cands):
+def apply(mapping, cands, *, source_sha256=None):
     """-> repo(...) dict in the verified/ schema. Raw strings come from the candidate cells, never from the LLM."""
     ent = {"variants": [], "ladder": [], "cross": []}
     for e in mapping.get("entries", []):
@@ -152,11 +161,25 @@ def apply(mapping, cands):
                 if "L" not in tgt: tgt["L"] = p["L"]; tgt["L_extra"] = []
                 elif p["L"] != tgt["L"] and p["L"] not in tgt.get("L_extra", []): tgt.setdefault("L_extra", []).append(p["L"])
     return {"repo": mapping["repo"], "methodology": mapping.get("method"), "weights_modified": mapping.get("weights_modified"), **ent,
+            **({"source_sha256": source_sha256} if source_sha256 is not None else {}),
             "flags": ([f"No quality claims for the quant (card read in full): {mapping.get('no_claims_reason','')}"] if mapping.get("no_quality_claims") else [])}
 
 _lc = {}
+def source_pin(repo):
+    """Pin the exact source consumed by an application; refresh its line cache."""
+    meta = A.IDX[repo]
+    path = os.path.realpath(os.path.join(ROOT, meta["file"]))
+    if os.path.commonpath([os.path.realpath(ROOT), path]) != os.path.realpath(ROOT):
+        raise ValueError(f"source outside model directory: {repo}")
+    raw = open(path, "rb").read()
+    digest = hashlib.sha256(raw).hexdigest()
+    if digest != meta.get("sha256"):
+        raise ValueError(f"source bytes changed before mapping: {repo}")
+    _lc[repo] = raw.decode("utf-8").split("\n")
+    return digest
+
 def A_lines(repo):
-    if repo not in _lc: _lc[repo] = open(f"{ROOT}/{A.IDX[repo]['file']}", encoding="utf-8", errors="replace").read().split("\n")
+    if repo not in _lc: source_pin(repo)
     return _lc[repo]
 
 def score(applied):
@@ -196,13 +219,15 @@ if __name__ == "__main__":
         out = sys.argv[2]; os.makedirs(out, exist_ok=True)
         for rp in sys.argv[3:]:
             t = task(rp); fn = rp.replace("/", "__")
-            json.dump(t["candidates"], open(f"{out}/{fn}.cands.json", "w"))
+            json.dump({key: t[key] for key in ("repo", "source_sha256", "candidates_sha256", "candidates")}, open(f"{out}/{fn}.cands.json", "w"))
             open(f"{out}/{fn}.prompt.txt", "w").write(t["prompt"])
             print(fn, len(t["candidates"]), "candidates", len(t["prompt"]), "chars")
     elif cmd in ("apply", "score"):
         applied = []
         for p in sys.argv[2:]:
-            m = json.load(open(p)); c = json.load(open(p.replace(".map.json", ".cands.json")))
-            applied.append(apply(m, c))
+            m = json.load(open(p)); c = json.load(open(MP.candidate_path(p)))
+            pin = MP.mapping_source(m, c, A.IDX, MP.recorded_pins(ROOT, os.path.basename(os.path.dirname(p))), path=p)
+            if source_pin(m["repo"]) != pin: raise ValueError("mapped source changed before application")
+            applied.append(apply(m, MP.candidate_values(c), source_sha256=pin))
         if cmd == "apply": print(json.dumps(applied, indent=1)[:4000])
         else: score(applied)

@@ -12,7 +12,8 @@ Loop:
 2. The queue file lists card NAMEs, one per line. For each NAME:
    - Read `W/tasks/NAME.prompt.txt` in full (if a Read is truncated, Read again with an offset until the end).
    - Write the JSON answer the prompt asks for to `M/maps/RUN/NAME.map.json`. Ids like `c14.2` point at one number inside
-     a multi-number cell; use them.
+     a multi-number cell; use them. Copy the prompt's `Source SHA-256` and `Candidates SHA-256` into `source_sha256`
+     and `candidates_sha256`; a map from older card bytes or candidate IDs is withheld and must be remapped.
 3. Check your own files: `python3 pipeline/qcl_mapcheck.py <claimed queue path> M/maps/RUN`. Fix any file it lists, then check again.
 4. Go to 1.
 

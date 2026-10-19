@@ -6,7 +6,7 @@ CORE = {"kld", "top1", "ppl", "ppl_delta"}
 def produced(d):
     out = {}; meta = {}
     for p in glob.glob(d + "/*.map.json"):
-        m = json.load(open(p)); c = json.load(open(p.replace(".map.json", ".cands.json")))
+        m = json.load(open(p)); c = Q.MP.candidate_values(json.load(open(Q.MP.candidate_path(p))))
         for e in m.get("entries", []):
             for k, cid in (e.get("metrics") or {}).items():
                 cc = c.get(str(cid)); f = A.gt_family(k)

@@ -16,6 +16,7 @@ merge:
 import glob, hashlib, json, os, re, subprocess, sys, time
 import qcl_map as Q
 import qcl_fmt as F
+import mapping_provenance as MP
 
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # repo root
 sys.path[:0] = [os.path.join(CODE, "pipeline"), os.path.join(CODE, "gates")]   # sibling modules
@@ -34,10 +35,18 @@ def load_verified(skip_machine=True):
 
 def applied_from(d):
     out = {}
+    legacy = MP.recorded_pins(ROOT, os.path.basename(os.path.normpath(d)))
     for m in sorted(glob.glob(f"{d}/*.map.json")):
-        cf = m.replace(".map.json", ".cands.json")
-        if not os.path.exists(cf): cf = os.path.join(os.path.dirname(os.path.dirname(m)), "cands", os.path.basename(cf))   # models/<slug>/maps/cands/
-        a = Q.apply(json.load(open(m)), json.load(open(cf))); out[a["repo"]] = a
+        cf = MP.candidate_path(m)
+        try:
+            mapping = json.load(open(m)); candidates = json.load(open(cf))
+            pin = MP.mapping_source(mapping, candidates, Q.A.IDX, legacy, path=m)
+            if Q.source_pin(mapping["repo"]) != pin: raise ValueError("mapped source changed before application")
+            a = Q.apply(mapping, MP.candidate_values(candidates), source_sha256=pin)
+        except (OSError, ValueError, KeyError, TypeError) as error:
+            print(f"withheld stale/invalid mapping {os.path.basename(m)}: {error}", file=sys.stderr)
+            continue
+        out[a["repo"]] = a
     return out
 
 def panel_key(p):
@@ -105,7 +114,9 @@ def resolved_from(allowed_repos):
             candidate_path = f"{directory}/{name}.cands.json"
             if not os.path.exists(candidate_path): candidate_path = f"{ROOT}/maps/cands/{name}.cands.json"
             with open(candidate_path, "rb") as f: candidate_raw = f.read()
-            if record.get("candidates_sha256") and hashlib.sha256(candidate_raw).hexdigest() != record["candidates_sha256"]: continue
+            candidate_pin = record.get("candidates_sha256")
+            if (not isinstance(candidate_pin, str) or not re.fullmatch(r"[a-f0-9]{64}", candidate_pin)
+                    or hashlib.sha256(candidate_raw).hexdigest() != candidate_pin): continue
             cands = json.loads(candidate_raw)
             if candidate_path.startswith(directory):   # resolver-written candidates: their raw strings are re-checked on the card line
                 gen_p = f"{ROOT}/maps/cands/{name}.cands.json"; gen = json.load(open(gen_p)) if os.path.exists(gen_p) else {}
@@ -116,7 +127,7 @@ def resolved_from(allowed_repos):
                     lines = Q.A_lines(rp); L = c.get("L")
                     if not (isinstance(L, int) and 0 < L <= len(lines) and (Q.exact_in(str(c.get("raw", "")), lines[L - 1]) or Q.exact_in(Q.clean_raw(str(c.get("raw", ""))), lines[L - 1]))): del cc[cid]; continue
                     cc[cid] = {**c, "header": "", "label": "(prose)"}   # header/label were typed by the resolver, not card wording
-            applied = Q.apply(mapping, cands)
+            applied = Q.apply(mapping, cands.get("candidates", cands), source_sha256=source_sha)
         except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError): continue
         out[rp] = applied
         provenance[rp] = {**record, "mapping_file": os.path.relpath(path, ROOT)}
@@ -129,7 +140,12 @@ def write(entries, base):
              "R = []", "def repo(**k): R.append(k); return k", ""]
     for rp, a in sorted(entries.items()):
         o = by.get(rp, {})
-        lines.append("repo(**" + repr(dict(repo=rp, sha=idx[rp]["sha"], fmt=o.get("fmt") or F.fmt_of(rp, idx[rp].get("tags")), runtime=o.get("runtime"),
+        pin = a.get("source_sha256")
+        if not isinstance(pin, str) or not re.fullmatch(r"[a-f0-9]{64}", pin) or pin != idx[rp].get("sha256"):
+            raise ValueError(f"missing or stale mapped source pin: {rp}")
+        if hashlib.sha256(open(os.path.join(ROOT, idx[rp]["file"]), "rb").read()).hexdigest() != pin:
+            raise ValueError(f"source bytes changed before writing claims: {rp}")
+        lines.append("repo(**" + repr(dict(repo=rp, sha=idx[rp]["sha"], source_sha256=pin, fmt=o.get("fmt") or F.fmt_of(rp, idx[rp].get("tags")), runtime=o.get("runtime"),
                      weights_modified=a.get("weights_modified") if a.get("weights_modified") is not None else o.get("weights_modified"), method=o.get("method"),
                      methodology=a["methodology"] if isinstance(a.get("methodology"), dict) else None,
                      variants=a["variants"], ladder=a["ladder"], cross=a["cross"], flags=a["flags"] or [])) + ")")

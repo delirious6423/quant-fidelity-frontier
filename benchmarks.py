@@ -10,7 +10,207 @@ import math
 import os
 import re
 from pathlib import Path
+from urllib.parse import urljoin, urlsplit
 from comparison import classify_group
+
+
+# Reviewed source vocabulary, not numeric claims. Display names sometimes expand
+# abbreviated headers or row labels; keep those aliases scoped to their source.
+# In particular, an acc/acc_norm pair is two different metrics in one cell.
+_SOURCE_BINDINGS = {
+    'intel-ai/DeepSeek-V4-Flash-0731-MXFP4-Mixed-CT-AutoRound': {
+        'unit': 'fraction',
+        'metrics': {
+            'GSM8K strict (5-shot)': ('GSM8K (strict)', None),
+            'MMLU (0-shot)': ('MMLU', None),
+            'PIQA (0-shot)': ('PIQA', None),
+            'HellaSwag (0-shot)': ('HellaSwag', None),
+            'AVG (four-task average)': ('AVG', None),
+        },
+        'rows': {
+            'Official DeepSeek-V4-Flash-0731 (native FP4+FP8)':
+                ('Official native FP4/FP8', 'deepseek-ai/DeepSeek-V4-Flash-0731', True, 'Official'),
+            'MXFP4-Mixed-CT (this checkpoint)':
+                ('MXFP4/MXFP8 AutoRound', None, False, 'This checkpoint'),
+        },
+    },
+    'intel-ai/DeepSeek-V4.1-Flash-MXFP4-Mixed-CT-AutoRound': {
+        'unit': 'fraction',
+        'metrics': {
+            'GSM8K strict (5-shot)': ('GSM8K (5-shot, strict / flexible)', 0),
+            'GSM8K flexible (5-shot)': ('GSM8K (5-shot, strict / flexible)', 1),
+            'MMLU': ('MMLU', None),
+            'PIQA acc': ('PIQA (acc / acc_norm)', 0),
+            'PIQA acc_norm': ('PIQA (acc / acc_norm)', 1),
+            'HellaSwag acc': ('HellaSwag (acc / acc_norm)', 0),
+            'HellaSwag acc_norm': ('HellaSwag (acc / acc_norm)', 1),
+        },
+        'rows': {
+            'deepseek-ai/DeepSeek-V4.1-Flash (official, W4A8 MoE)':
+                ('Official native mixed precision (W4A8 MoE)', 'deepseek-ai/DeepSeek-V4.1-Flash', True, 'Official'),
+            'This checkpoint (W4A4 MoE, OCP MXFP8)':
+                ('MXFP4/MXFP8 AutoRound (W4A4 MoE)', None, False, 'This checkpoint'),
+        },
+    },
+    'mlx-community/DeepSeek-V4-Flash-0731-2.4bit-mixed': {
+        'unit': 'fraction',
+        'metrics': {'MMLU-Pro (600-question sample)': ('mmlu_pro (n=600)', None)},
+        'rows': {
+            'DeepSeek-V4-Flash-0731-2.4bit-mixed (this repo)':
+                ('MLX mixed 2.44 bits/weight', None, False, None),
+        },
+    },
+    'mbehr90/GLM-5.3-Flash-nvfp4': {
+        'unit': 'as published',
+        'metrics': {name: (name, None) for name in ('GSM8K chat', 'GSM8K lm-eval', 'ARC-C', 'AI2D vision')},
+        'rows': {
+            'zai-org/GLM-5.3-Flash (source, FP8)':
+                ('zai-org/GLM-5.3-Flash (source FP8)', 'zai-org/GLM-5.3-Flash', True, None),
+        },
+    },
+    'eaddario/Qwen3.8-27B-GGUF': {
+        'unit': 'as published',
+        'metrics': {
+            **{name: (name, None) for name in ('HellaSwag', 'ARC Challenge', 'GPQA-Diamond', 'Truthful QA', 'WinoGrande')},
+            # The card's section heading and dataset link identify Redux; its
+            # table header has the documented spelling error "Redox".
+            'MMLU-Redux': ('MMLU-Redox', None),
+        },
+    },
+    'tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF': {
+        'unit': 'fraction',
+        'metrics': {name: (name, None) for name in ('HumanEval', 'HumanEval+', 'MBPP', 'MBPP+')},
+    },
+    'ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF': {
+        'unit': 'as published',
+        'metrics': {
+            'AIME25': ('AIME25↑', None),
+            'GPQA-Diamond': ('GPQA-D↑', None),
+            'LiveCodeBench v6': ('LCB v6↑', None),
+        },
+        'rows': {'BF16': ('BF16 reference', 'Qwen/Qwen3.8-Flash-Next', True, None)},
+    },
+}
+_SCALAR = r'[-+]?(?:\d+(?:\.\d+)?|\.\d+)'
+_LINK = re.compile(r'\[([^\]]+)\]\(([^\s)]+)\)')
+
+
+def _plain(cell):
+    """Remove presentation markup without erasing meaningful name characters."""
+    cell = _LINK.sub(lambda match: match[1], cell)
+    return ' '.join(cell.replace('**', '').replace('`', '').strip().split())
+
+
+def _cells(line):
+    line = line.strip()
+    if not line.startswith('|') or not line.endswith('|'):
+        raise ValueError('evidence is not a complete table row')
+    return [cell.strip() for cell in re.split(r'(?<!\\)\|', line[1:-1])]
+
+
+def _table_row(lines, line):
+    """Bind a cited row to the header of its own contiguous Markdown table."""
+    start = line - 1
+    while start > 0 and lines[start - 1].strip().startswith('|'):
+        start -= 1
+    if line - 1 < start + 2:
+        raise ValueError('evidence is not a table data row')
+    headers, separator, cells = _cells(lines[start]), _cells(lines[start + 1]), _cells(lines[line - 1])
+    if len(headers) != len(cells) or len(headers) != len(separator) or not all(
+        re.fullmatch(r':?-{3,}:?', cell) for cell in separator
+    ):
+        raise ValueError('unsupported or ambiguous source table')
+    return [_plain(header) for header in headers], cells
+
+
+def _column(headers, name):
+    columns = [i for i, header in enumerate(headers) if header == name]
+    if len(columns) != 1:
+        raise ValueError('benchmark or size column is absent or ambiguous')
+    return columns[0]
+
+
+def _artifact(cell, repo, revision):
+    """The full linked artifact, including its revision, identifies a row."""
+    links = _LINK.findall(cell)
+    if len(links) > 1:
+        raise ValueError('ambiguous row artifact')
+    if not links:
+        return None
+    url = urljoin(f'https://huggingface.co/{repo}/blob/{revision}/README.md', links[0][1])
+    parsed = urlsplit(url)
+    parts = parsed.path.strip('/').split('/')
+    if parsed.scheme != 'https' or parsed.netloc != 'huggingface.co' or len(parts) < 2:
+        raise ValueError('unsupported row artifact')
+    return url, '/'.join(parts[:2])
+
+
+def _bound_evidence(lines, source, metric, point, revision):
+    """Validate the metric cell, row identity, and same-artifact size cell.
+
+    A pinned line proves only that bytes existed. These bindings additionally
+    prove which column and build those bytes describe. Unknown source layouts
+    fail closed until their vocabulary is reviewed; no nearest-name matching.
+    """
+    repo = source['repo']
+    schema = _SOURCE_BINDINGS.get(repo)
+    if schema is None or metric['name'] not in schema['metrics'] or metric['unit'] != schema['unit']:
+        raise ValueError('unreviewed benchmark name or score scale')
+    headers, row = _table_row(lines, point['line'])
+    header, part = schema['metrics'][metric['name']]
+    cell = _plain(row[_column(headers, header)])
+    if part is not None:
+        pair = cell.split('/')
+        if len(pair) != 2:
+            raise ValueError('paired benchmark cell changed')
+        cell = pair[part].strip()
+    score = re.fullmatch(r'(' + _SCALAR + r'%?)(?:\s*±\s*' + _SCALAR + r')?', cell)
+    if not score or score[1] != str(point['raw']):
+        raise ValueError('score differs from its benchmark column')
+
+    label = _plain(row[0])
+    variant, build_repo, reference, size_column = schema.get('rows', {}).get(
+        label, (label, None, False, None))
+    artifact = _artifact(row[0], repo, revision)
+    build_repo = build_repo or (artifact[1] if artifact else repo)
+    if (point['variant'] != variant or point.get('repo', repo) != build_repo
+            or point.get('reference', False) is not reference):
+        raise ValueError('benchmark row variant or repository differs from source')
+    if artifact and artifact[1] != build_repo:
+        raise ValueError('benchmark row artifact differs from repository')
+
+    size_headers, size_row = _table_row(lines, point['size_line'])
+    if size_column is not None:
+        # Intel publishes sizes in a transposed summary: select the reviewed
+        # Official/This checkpoint column, never either number on the line.
+        if _plain(size_row[0]) not in ('Size', 'Size on disk'):
+            raise ValueError('size evidence is not a full-checkpoint size row')
+        column = _column(size_headers, size_column)
+    else:
+        size_artifact = _artifact(size_row[0], repo, revision)
+        if artifact != size_artifact or (artifact is None and label != _plain(size_row[0])):
+            raise ValueError('score and size describe different artifacts')
+        candidates = [i for i, name in enumerate(size_headers)
+                      if name.lower() in ('size', 'size (gb)', 'size (gib)', 'gb', 'gib')]
+        if len(candidates) != 1:
+            raise ValueError('full-file size column is absent or ambiguous')
+        column = candidates[0]
+    size_cell = _plain(size_row[column])
+    units = re.findall(r'\b(GB|GiB)\b', size_headers[column])
+    # A unit can be supplied by the header, or accompany its own number in a
+    # dual-unit cell. Text after a comma describes shards or source notes.
+    measurements = size_cell.split(',', 1)[0].split('/')
+    matches = []
+    for measurement in measurements:
+        match = re.fullmatch(r'\s*(' + _SCALAR + r')\s*(GB|GiB)?\s*', measurement)
+        if not match:
+            raise ValueError('unsupported full-file size cell')
+        unit = match[2] or (units[0] if len(units) == 1 else None)
+        if unit is None or (units and unit not in units):
+            raise ValueError('size unit is not bound to its source cell')
+        matches.append((match[1], unit))
+    if (str(point['size_raw']), point['size_unit']) not in matches:
+        raise ValueError('size value or unit differs from its source column')
 
 
 def _number(raw):
@@ -24,7 +224,7 @@ def _evidence(lines, point, prefix):
     line = point['size_line' if prefix == 'size' else 'line']
     quote = point['size_quote' if prefix == 'size' else 'quote']
     raw = str(point['size_raw' if prefix == 'size' else 'raw'])
-    if not isinstance(line, int) or line < 1 or line > len(lines) or lines[line - 1] != quote:
+    if isinstance(line, bool) or not isinstance(line, int) or line < 1 or line > len(lines) or lines[line - 1] != quote:
         raise ValueError('source quote or line changed')
     # Numeric boundaries prevent a reviewed 8.0 silently matching 88.0.
     if not re.search(r'(?<![+\-−–\d.])' + re.escape(raw) + r'(?![\d.])', quote):
@@ -76,6 +276,7 @@ def build_benchmarks(root, cfg):
                 for point in metric['points']:
                     _evidence(lines, point, 'size')
                     _evidence(lines, point, 'score')
+                    _bound_evidence(lines, source, metric, point, meta['sha'])
                     if point['size_unit'] not in ('GB', 'GiB') or point['size_value'] <= 0:
                         raise ValueError('invalid full-file size')
                     size = round(point['size_value'] * (1.073741824 if point['size_unit'] == 'GiB' else 1), 2)

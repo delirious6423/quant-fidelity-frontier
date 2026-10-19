@@ -4,8 +4,13 @@ only candidate ids that exist for that card. Prints problems; exit 1 if any.
 
   python3 pipeline/qcl_mapcheck.py WORK/claimed/QUEUE.txt MODEL/maps/RUN"""
 import json, os, re, sys
+from pathlib import Path
+import mapping_provenance as MP
 q, out = sys.argv[1], sys.argv[2]
 cands_dir = os.path.join(os.path.dirname(out), "cands")
+root = Path(out).resolve().parents[1]
+index = json.loads((root / "snapshots/index.json").read_text())["repos"]
+legacy = MP.recorded_pins(root, Path(out).name)
 bad = []
 for name in [l.strip() for l in open(q) if l.strip()]:
     p = os.path.join(out, name + ".map.json")
@@ -13,8 +18,13 @@ for name in [l.strip() for l in open(q) if l.strip()]:
     try: m = json.load(open(p))
     except Exception as e: bad.append(f"{name}: not JSON ({e})"); continue
     if (m.get("repo") or "").replace("/", "__") != name: bad.append(f"{name}: repo field is {m.get('repo')!r}")
-    cf = os.path.join(cands_dir, name + ".cands.json")
-    ids = set(json.load(open(cf))) if os.path.exists(cf) else None
+    cf = MP.candidate_path(p)
+    try:
+        candidates = json.load(open(cf))
+        MP.mapping_source(m, candidates, index, legacy, path=p)
+        ids = set(MP.candidate_values(candidates))
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        bad.append(f"{name}: invalid source provenance ({error})"); continue
     if ids is None: bad.append(f"{name}: no candidates file"); continue
     used = set(re.findall(r'"(c\d+(?:\.\d+)?)"', json.dumps(m)))
     unknown = sorted(used - ids)

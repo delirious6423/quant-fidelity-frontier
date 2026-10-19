@@ -181,7 +181,9 @@ async def browser_checks(base):
             await page.locator('.page-picker > summary').click()
             assert await page.locator('.page-menu a').count()==len(data['models'])
             providers=await page.locator('.page-provider').all_text_contents();assert providers==sorted(providers,key=str.casefold)
+            await page.locator('.page-picker a').first.focus()
             await page.keyboard.press('Escape');assert not await page.locator('.page-picker').evaluate('(e)=>e.open')
+            assert await page.locator('.page-picker > summary').evaluate('(e)=>e===document.activeElement')
             for query,expected_count in [('max=Infinity&score_min=bad',len(default['points'])),('max=0&scale=log',0)]:
                 await page.goto(base+'benchmarks/?'+query)
                 assert await page.locator('.shared-dot').count()==expected_count

@@ -159,7 +159,7 @@ elif cmd == "prepare":
     ms = json.loads(run("python3 pipeline/qcl_mapset.py --record", e).stdout.strip().splitlines()[-1])   # --record first: maps from an interrupted run count
     W = os.path.join(CODE, "work", slug); subprocess.run(f"rm -rf {W}", shell=True)
     q = json.loads(run(f"python3 pipeline/qcl_queue.py {W}", e).stdout.strip().splitlines()[-1])
-    if not q["queues"]:   # nothing to map, but fetched cards still change the index: re-merge (stale entries are re-pinned or quarantined) and relist unreviewed repos
+    if not q["queues"]:   # nothing to map, but fetched cards still change the index: re-merge (stale mappings are withheld; changed cards await review) and relist unreviewed repos
         mg = run("python3 pipeline/qcl_watch.py merge", e).stdout.strip().splitlines()[-1]; run("python3 pipeline/gen_auto.py", e)
         out({**ms, **q, "merge": mg, "next": "no cards to map; merged and relisted, go to publish"}, 2)
     out({**ms, **q, "work": os.path.relpath(W, CODE), "next": "start Haiku workers per docs/agents/MAP.md for RUN=A and RUN=B"}, 0)
@@ -231,8 +231,12 @@ elif cmd == "publish":
         if next((m["status"] for m in wl()["models"] if m["slug"] == slug), "live") != "live": continue
         p = run("python3 build.py", env(slug)); stats[slug] = json.loads(p.stdout.strip().splitlines()[-1].split(" | ")[0])
     run("python3 assemble.py")
-    run("python3 tests/test_gates.py"); run("python3 tests/test_claims.py"); run("python3 tests/test_mcp.py"); run("python3 tests/test_discovery.py")
-    for t in ("test_model_panels", "test_mapping_panels", "test_combined_columns", "test_qualifiers", "test_current"): run(f"python3 tests/{t}.py")
+    run("python3 pipeline/readme_sync.py")
+    # Newly added regressions are release gates automatically. Match the full CI
+    # workload rather than keeping a second, incomplete hand-maintained list.
+    for test_file in sorted(glob.glob(f"{CODE}/tests/test_*.py")):
+        if os.path.basename(test_file) == "test_ui.py": continue
+        run(f"python3 tests/{os.path.basename(test_file)}", {"QFF_DATA": os.path.join(CODE, "_site")})
     for slug in stats: run("python3 tests/test_ui.py", {"QCL_SITE": f"models/{slug}/site"})
     line = f"- {now:%Y-%m-%d %H:%M} UTC hourly scan: " + "; ".join(f"{s} {v['repos']} repos, {v['values']} values" for s, v in stats.items()) + (f"; ingested {ing}" if ing else "")
     with open(f"{CODE}/PROGRESS.md", "a") as f: f.write(line + "\n")
