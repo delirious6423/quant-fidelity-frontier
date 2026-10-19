@@ -330,16 +330,18 @@ def build_sets(rows, repos):
     for r in rows:
         if r["size_gb"] is None or r.get("copied_from"): continue
         if r["kind"] == "quoted": continue
-        p = pt(r, {c: k for c, k in metric_series(r).items()
-                   if c in ("kld", "top1", "ppl") or c.startswith(("kld:", "top1:", "ppl:"))}, "size_gb")
+        ms = metric_series(r)
+        fam = {}
+        for c, k in ms.items():   # the overview plots one value per family: the plain series, else the first per-corpus one
+            f = c.split(":")[0]
+            if f in ("kld", "top1", "ppl") and (f not in fam or c == f): fam[f] = k
+        p = pt(r, fam, "size_gb")
+        for f_, k_ in fam.items():   # say which per-corpus series stood in for the family
+            if k_ != f_ and f_ in p["m"]: p["m"][f_]["series"] = k_
         if not p["m"]: continue
         p["qid"] = p["qid"] + "@" + owner(r["measured_by"]).lower()
         allp.append(p)
-    all_metrics = ["kld", "top1", "ppl"]
-    if CFG.get("named_metric_series"):
-        available = {k for p in allp for k in p["m"]}
-        if available:
-            all_metrics = [k for k in all_metrics if k in available] + sorted(k for k in available if NAMED_METRIC.match(k))
+    all_metrics = ["kld", "top1", "ppl"]   # families only: per-corpus series belong in their own measurement sets
     # the overview opens on the metric most cards report (a model whose publishers mostly quote perplexity opens on it)
     _n = collections.Counter(k for p in allp for k in p["m"])
     all_metrics = sorted([k for k in all_metrics if _n.get(k)] or all_metrics[:1], key=lambda k: (-_n.get(k, 0), all_metrics.index(k)))

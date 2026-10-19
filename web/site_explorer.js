@@ -172,10 +172,20 @@
     var S = setById(state.set);
     if (!state.metric || S.metrics.indexOf(state.metric) < 0) state.metric = S.metrics[0];
     metBox.innerHTML = '';
-    S.metrics.forEach(function (k) {
-      var b = h('button', { type: 'button', role: 'radio', 'aria-checked': String(k === state.metric), class: 'mchip' + (k === state.metric ? ' on' : '') }, esc(MET[k].label));
+    // many per-corpus series: show the most reported few, the rest behind "More metrics" (the chosen one always shows)
+    var cnt = {}; S.metrics.forEach(function (k) { cnt[k] = S.points.filter(function (p) { return p.m[k] && p.m[k].v != null; }).length; });
+    var ordered = S.metrics.slice(), FEW = 6, many = ordered.length > FEW + 2;
+    var top = many ? ordered.slice().sort(function (a, b) { return cnt[b] - cnt[a] || S.metrics.indexOf(a) - S.metrics.indexOf(b); }).slice(0, FEW) : ordered;
+    ordered.forEach(function (k) {
+      var hide = many && !state.allMetrics && top.indexOf(k) < 0 && k !== state.metric;
+      var b = h('button', { type: 'button', role: 'radio', 'aria-checked': String(k === state.metric), class: 'mchip' + (k === state.metric ? ' on' : '') }, esc(MET[k].label) + (many ? ' <span class="dim">' + cnt[k] + '</span>' : ''));
+      b.hidden = hide;
       b.addEventListener('click', function () { state.metric = k; state.sort = null; state.ylim = null; render(); }); metBox.appendChild(b);
     });
+    if (many) {
+      var mb = h('button', { type: 'button', class: 'mchip more' }, state.allMetrics ? 'Fewer metrics' : 'More metrics (' + (ordered.length - FEW) + ')');
+      mb.addEventListener('click', function () { state.allMetrics = !state.allMetrics; render(); }); metBox.appendChild(mb);
+    }
     $('exmeta').innerHTML = (S.comparable ? '' : '<span class="chip w">not comparable</span> <b>Overview.</b> Every published claim on one chart. Measurers, reference models, datasets and methods differ, so a gap between two points here can come from the method rather than the quant. Pick a single-card set above to compare like with like.<br>') +
       '<b>Measured by</b> ' + esc(S.title.split(' · ')[0]) + ' · <b>Reference</b> ' + esc(S.reference) + ' · <b>Text</b> ' + esc(S.data) + (S.note ? '<br><span class="dim">' + esc(S.note) + '</span>' : '');
     // format chips for this set
@@ -344,7 +354,7 @@
     var S = setById(state.set), k = state.metric, M = MET[k];
     var others = S.metrics.filter(function (m) { return m !== k && p.m[m]; }).map(function (m) { return '<div><span>' + esc(MET[m].label) + '</span><b>' + esc(p.m[m].raw) + '</b></div>'; }).join('');
     tip.innerHTML = '<p class="tt-name">' + esc(p.variant) + '</p><p class="tt-repo">' + esc(p.repo) + (p.fmt ? ' · ' + esc(p.fmt) : '') + '</p>' +
-      '<div class="tt-grid"><div><span>' + esc(M.label) + '</span><b>' + esc(p.m[k].raw) + '</b></div>' + others +
+      '<div class="tt-grid"><div><span>' + esc(M.label) + (p.m[k].series ? ' · ' + esc(p.m[k].series.split(':').slice(1).join(':')) : '') + '</span><b>' + esc(p.m[k].raw) + '</b></div>' + others +
       '<div><span>' + esc(S.x.unit) + '</span><b>' + fmt(p.x) + (p.size_raw && String(p.size_raw) !== fmt(p.x) ? ' <small>(card: ' + esc(p.size_raw) + ')</small>' : '') + '</b></div></div>' +
       (p.kind === 'cross' ? '<p class="tt-by">Measured by ' + esc(owner(p.measured_by)) + ', not the file\u2019s publisher</p>' : '') +
       (p.inferred ? '<p class="tt-by">The card names this file but not its repository; attributed from the file name.</p>' : '') +

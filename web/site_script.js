@@ -1,8 +1,13 @@
-(function () {   // links open in a new tab by default; in-page anchors (#...) stay in the tab. Delegated, so links added later count too.
+(function () {   // links that leave QFF open in a new tab; QFF's own pages open in the same tab. Delegated, so links added later count too.
+  var BASE = (function () { var p = location.pathname; var i = p.indexOf('/quant-fidelity-frontier/'); return location.origin + (i >= 0 ? p.slice(0, i) + '/quant-fidelity-frontier/' : '/'); })();
+  function isExternal(a) {
+    if (a.protocol === 'file:') return /^https?:/i.test(a.getAttribute('href'));   // local preview: only absolute web links leave
+    return a.href.indexOf(BASE) !== 0;   // outside the QFF site (Hugging Face, GitHub, Ko-fi, ...)
+  }
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href]'); if (!a) return;
     var h = a.getAttribute('href'); if (!h || h.charAt(0) === '#' || /^(javascript:|mailto:|tel:)/i.test(h)) return;
-    if (!a.target) { a.target = '_blank'; a.rel = ((a.rel || '') + ' noopener').trim(); }
+    if (!a.target && isExternal(a)) { a.target = '_blank'; a.rel = ((a.rel || '') + ' noopener').trim(); }
   }, true);
   var m = document.querySelector('.msw');   // model menu: close on outside click and Escape
   if (m) {

@@ -108,6 +108,12 @@ class ModelPanels(unittest.TestCase):
         for st in sets:
             self.assertTrue(set(st["metrics"]) <= set(definitions))
             for point in st["points"]:
+                if st["id"] == "all":   # the overview shows one value per family, taken verbatim from a named series
+                    for fam, value in point["m"].items():
+                        self.assertIn(fam, ("kld", "top1", "ppl"))
+                        self.assertTrue(value["series"].startswith(fam + ":"))
+                        self.assertEqual({k: value[k] for k in ("v", "raw")}, values[value["series"]])
+                    continue
                 self.assertFalse({"kld", "top1", "ppl"} & set(point["m"]))
                 for key, value in point["m"].items():
                     self.assertEqual(value, values[key])
