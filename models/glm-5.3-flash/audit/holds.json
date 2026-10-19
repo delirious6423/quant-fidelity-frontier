@@ -18,5 +18,10 @@
   "repo": "gitcommit90/GLM-5.3-Flash-EXL3-2.05-One-Spark",
   "entry": "Turboderp EXL3 2.05",
   "reason": "QA review 2026-10-19: top1_pct: The 88.92% matches [L80], but [L76] says it is an independent measurement by malaiwah, so it is quoted, not cross-measured by the author."
+ },
+ {
+  "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+  "entry": "this model, mtp-nvfp4 draft (2 tokens)",
+  "reason": "QA review 2026-10-19: bench:Single-stream decode tok/s: The [L105] row is the mtp-nvfp4 draft at 2 tokens, a speculative-decoding setting, not a quant row; its 265 tok/s value is correct for that setting."
  }
 ]
