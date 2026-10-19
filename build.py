@@ -6,6 +6,7 @@ import json, glob, os, re, html, math, datetime, collections
 CODE = os.path.dirname(os.path.abspath(__file__))
 import sys; sys.path[:0] = [os.path.join(CODE, "pipeline"), os.path.join(CODE, "gates")]
 import qcl_fmt as FMT
+from benchmarks import build_pilot, render_pilot
 ROOT = os.environ.get("QCL_ROOT") or os.path.join(CODE, "models", "qwen3.8-flash-next")          # data root: one folder per model (models/<slug>/); code stays here
 IDX = json.load(open(f"{ROOT}/snapshots/index.json"))
 SIZES = json.load(open(f"{ROOT}/snapshots/hf_sizes_summary.json"))
@@ -137,7 +138,9 @@ def build_rows(R):
                         "n_variants": len(r.get("variants", [])), "copied_from": cf, "auto": bool(r.get("auto"))})
         def add(e, kind, measured_by, of):
             eflags = [str(f) for f in (e.get("flags") or [])]
-            if any(re.search(r"not this model", f, re.I) for f in eflags) or re.search(r"\bGLM\b", str(e.get("name") or e.get("variant") or "")):
+            if any(re.search(r"not this model", f, re.I) for f in eflags) or (re.search(r"\bGLM\b", str(e.get("name") or e.get("variant") or ""))
+                    and not (CFG.get("benchmark_pilot") and SLUG == "glm-5.3-flash" and of == MODEL
+                             and r["repo"] == "mbehr90/GLM-5.3-Flash-nvfp4")):
                 OTHER_MODEL.append((r["repo"], e.get("name") or e.get("variant"))); return      # measured on a different model: not a row
             vname = str(e.get("name") or e.get("variant") or "")
             quoted = kind in ("cross", "ladder") and (e.get("measured") is False or any(re.search(r"quoted|not measured|reported by|publisher-reported|as published by", f, re.I) for f in eflags)
@@ -691,10 +694,17 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
 </main>
 <footer class="foot"><div class="wrap"><p>QFF (Quant Fidelity Frontier): what publishers claim, pinned to the line they said it · data captured {captured} · claims belong to their publishers · <a href="{REPO_URL}">source and data</a>{SUPPORT_HTML}</p></div></footer>
 """
+    if CFG.get("benchmark_pilot") and SLUG == "glm-5.3-flash":
+        body = body.replace('<a href="#chart">Compare</a>', '<a href="#chart">Fidelity</a><a href="#benchmarks">Benchmarks</a>')
+        body = body.replace('<section id="head-to-head">', render_pilot(build_pilot(rows, CFG)) + '<section id="head-to-head">')
     return body.replace("__EXDATA__", exdata)
 
 CSS = open(os.path.join(CODE, "web", "site_style.css")).read() if os.path.exists(os.path.join(CODE, "web", "site_style.css")) else ""
+if CFG.get("benchmark_pilot") and SLUG == "glm-5.3-flash":
+    CSS += "\n" + open(os.path.join(CODE, "web", "site_benchmarks.css")).read()
 JS = "\n".join(open(os.path.join(CODE, "web", f)).read() for f in ("site_script.js", "site_explorer.js"))
+if CFG.get("benchmark_pilot") and SLUG == "glm-5.3-flash":
+    JS += "\n" + open(os.path.join(CODE, "web", "site_benchmarks.js")).read()
 
 def main():
     global RAW

@@ -19,6 +19,17 @@ jobs:
             { QCL_ROOT="$d" python3 build.py && QCL_SITE="$d/site" python3 tests/test_ui.py; } > step.log 2>&1 && continue
             cat step.log; grep -E "FAIL|Error|Traceback|MISMATCH" step.log | head -20 | sed "s|^|::error title=$d::|"; tail -5 step.log | sed "s|^|::error title=$d tail::|"; exit 1
           done
+      - name: GLM benchmark pilot and responsive interactions
+        run: |
+          python3 tests/test_benchmarks.py
+          python3 tests/test_benchmarks_ui.py
+      - name: Benchmark pilot screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: glm-benchmark-previews
+          path: test-results/glm-benchmarks-*.png
+          if-no-files-found: ignore
       - name: Gate regression tests (external-review counterfactuals)
         run: python3 tests/test_gates.py
       - name: Review regression checks (F1-F24, Flash-Next)
