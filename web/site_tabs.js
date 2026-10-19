@@ -28,7 +28,7 @@
   }
   function fromHash() {
     if (location.hash === '#benchmarks') show(1);
-    else if (location.hash === '#chart' || location.hash === '#explorer') show(0);
+    else if (!location.hash || location.hash === '#chart' || location.hash === '#explorer') show(0);
   }
   show(location.hash === '#benchmarks' ? 1 : 0);
   window.addEventListener('hashchange', fromHash);

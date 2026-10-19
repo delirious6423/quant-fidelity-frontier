@@ -14,7 +14,16 @@ async def main():
             await page.route('https://**/*', lambda route: route.abort())
             errors = []
             page.on('pageerror', lambda e: errors.append(str(e)))
-            await page.goto((ROOT / 'models/glm-5.3-flash/site/index.html').as_uri() + '#benchmarks')
+            url = (ROOT / 'models/glm-5.3-flash/site/index.html').as_uri()
+            await page.goto(url)
+            assert await page.locator('#chart').is_visible()
+            await page.locator('#tab-benchmarks').click()
+            await page.go_back()
+            assert await page.locator('#chart').is_visible()
+            assert not await page.locator('#benchmarks').is_visible()
+            await page.go_forward()
+            assert await page.locator('#benchmarks').is_visible()
+            await page.goto(url + '#benchmarks')
             await page.locator('#bm-plot svg').wait_for()
             assert await page.locator('#bm-plot .bm-dot').count() == 2
             assert await page.locator('#bm-metric option').count() == 4
