@@ -9,6 +9,7 @@ import qcl_fmt as FMT
 from benchmarks import build_benchmarks, render_benchmarks
 from protocol_metadata import attach_protocols, classify_sets
 from verified_protocol_sets import add_verified_cross_publisher_sets
+from web_payload import chart_payload
 ROOT = os.environ.get("QCL_ROOT") or os.path.join(CODE, "models", "qwen3.8-flash-next")          # data root: one folder per model (models/<slug>/); code stays here
 IDX = json.load(open(f"{ROOT}/snapshots/index.json"))
 SIZES = json.load(open(f"{ROOT}/snapshots/hf_sizes_summary.json"))
@@ -785,7 +786,7 @@ def main():
     add_verified_cross_publisher_sets(sets)
     assert len({s_["id"] for s_ in sets}) == len(sets), "duplicate protocol set ids"
     classify_sets(sets)
-    exdata = json.dumps({'sets': sets, 'metrics': metrics}, separators=(',', ':')).replace('</', '<\\/')
+    exdata = json.dumps(chart_payload(sets, metrics), separators=(',', ':')).replace('</', '<\\/')
     body = render(rows, repos, stats, vc, hl, exdata)
     os.makedirs(f"{OUT}", exist_ok=True)
     json.dump({"model": MODEL, "captured_at": IDX["captured_at"], "repos": repos, "rows": rows, "sets": sets, "benchmarks": build_benchmarks(ROOT, CFG)},

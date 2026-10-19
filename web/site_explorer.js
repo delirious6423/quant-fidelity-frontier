@@ -24,6 +24,16 @@
   function hay(p) { return (p.variant + ' ' + p.repo + ' ' + (p.fmt || '')).toLowerCase(); }
   function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   function load(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function usesLog(k) { return !!MET[k].log && !state.lin; }
+  function rememberFocus(root) {
+    var active = document.activeElement;
+    return root.contains(active) ? { node: active, id: active.id, key: active.getAttribute('data-focus') } : null;
+  }
+  function restoreFocus(mark, root) {
+    if (!mark || mark.node.isConnected) return;
+    var target = mark.id ? $(mark.id) : mark.key && Array.prototype.filter.call(root.querySelectorAll('[data-focus]'), function (n) { return n.getAttribute('data-focus') === mark.key; })[0];
+    if (target && !target.hidden) target.focus({ preventScroll: true });
+  }
 
   // Ranking is an evidence-based, metric-specific permission. Legacy flags are never proof.
   function overview(S) { return S.id === 'all' || S.is_overview === true; }
@@ -165,7 +175,7 @@
     var k = state.metric, M = MET[k];
     if (state.basis && (p.basis || 'unknown') !== state.basis) return false;
     if (state.xmax != null && p.x > state.xmax + 1e-9) return false;
-    if (state.ylim != null) { if (!p.m[k] || p.m[k].v == null) return false; if (M.better === 'lower' ? p.m[k].v > state.ylim * (1 + 1e-9) : p.m[k].v < state.ylim * (1 - 1e-9)) return false; }
+    if (state.ylim != null) { if (!p.m[k] || p.m[k].v == null) return false; var tolerance = Math.max(1, Math.abs(state.ylim)) * 1e-9; if (M.better === 'lower' ? p.m[k].v > state.ylim + tolerance : p.m[k].v < state.ylim - tolerance) return false; }
     return true;
   }
   function base(S) { return S.points.filter(function (p) { return matches(p) && isPicked(p) && inRange(p); }); }
@@ -193,13 +203,13 @@
   // ---- size / quality limits ----
   var xr = $('exxr'), yr = $('exyr'), xo = $('exxo'), yo = $('exyo'), onlyCb = $('exonly'), rclr = $('exrclear');
   function bounds(S) {
-    var k = state.metric, ps = S.points.filter(function (p) { return p.m[k] && p.m[k].v != null && (!MET[k].log || p.m[k].v > 0); });
+    var k = state.metric, ps = S.points.filter(function (p) { return p.m[k] && p.m[k].v != null && (!usesLog(k) || p.m[k].v > 0); });
     if (!ps.length) return null;
     var xs = ps.map(function (p) { return p.x; }), ys = ps.map(function (p) { return p.m[k].v; });
-    return { x0: Math.min.apply(null, xs), x1: Math.max.apply(null, xs), y0: Math.min.apply(null, ys), y1: Math.max.apply(null, ys), log: MET[k].log && Math.min.apply(null, ys) > 0 };
+    return { x0: Math.min.apply(null, xs), x1: Math.max.apply(null, xs), y0: Math.min.apply(null, ys), y1: Math.max.apply(null, ys), log: usesLog(k) && Math.min.apply(null, ys) > 0 };
   }
   function yAt(B, t) { return B.log ? Math.pow(10, Math.log10(B.y0) + t * (Math.log10(B.y1) - Math.log10(B.y0))) : B.y0 + t * (B.y1 - B.y0); }
-  function tAt(B, v) { return B.y1 === B.y0 ? 1 : B.log ? (Math.log10(v) - Math.log10(B.y0)) / (Math.log10(B.y1) - Math.log10(B.y0)) : (v - B.y0) / (B.y1 - B.y0); }
+  function tAt(B, v) { return B.y1 === B.y0 ? 1 : v <= B.y0 ? 0 : v >= B.y1 ? 1 : B.log ? (Math.log10(v) - Math.log10(B.y0)) / (Math.log10(B.y1) - Math.log10(B.y0)) : (v - B.y0) / (B.y1 - B.y0); }
   function syncRange() {
     var S = setById(state.set), k = state.metric, M = MET[k], B = bounds(S), lower = M.better === 'lower';
     $('exrange').hidden = !B;
@@ -210,6 +220,7 @@
     yr.value = Math.round(1000 * yt);
     xo.textContent = state.xmax == null ? 'any' : '≤ ' + fmt(state.xmax) + ' ' + S.x.unit;
     yo.textContent = state.ylim == null ? 'any' : (lower ? '≤ ' : '≥ ') + fmt(state.ylim) + (M.unit === '%' ? '%' : '');
+    xr.setAttribute('aria-valuetext', xo.textContent); yr.setAttribute('aria-valuetext', yo.textContent);
     onlyCb.checked = state.onlyFront; onlyCb.parentNode.hidden = !comparable(S);
     rclr.hidden = state.xmax == null && state.ylim == null && !state.onlyFront && !state.basis;
   }
@@ -221,9 +232,9 @@
   // ---- size budget presets, size type, axis scale, shareable link ----
   var TIERS = [8, 12, 16, 20, 24, 32, 48, 64, 96, 128, 192, 256];
   function syncExtras() {
-    var S = setById(state.set), B = bounds(S), box = $('expresets'); box.innerHTML = '';
+    var S = setById(state.set), B = bounds(S), box = $('expresets'), focus = rememberFocus(box); box.innerHTML = '';
     if (B && S.x.unit === 'GB') TIERS.filter(function (t) { return t > B.x0 && t < B.x1; }).forEach(function (t) {
-      var b = h('button', { type: 'button', class: 'fchip' + (state.xmax === t ? ' on' : ''), title: 'Only quants of at most ' + t + ' GB on this set\u2019s size measure' }, '≤ ' + t + ' GB');
+      var b = h('button', { type: 'button', 'data-focus': 'size-preset:' + t, class: 'fchip' + (state.xmax === t ? ' on' : ''), title: 'Only quants of at most ' + t + ' GB on this set\u2019s size measure' }, '≤ ' + t + ' GB');
       b.addEventListener('click', function () { state.xmax = state.xmax === t ? null : t; syncRange(); syncExtras(); renderBody(); }); box.appendChild(b);
     });
     var bases = {}; S.points.forEach(function (p) { var b = p.basis || 'unknown'; bases[b] = (bases[b] || 0) + 1; });
@@ -231,11 +242,33 @@
     sel.innerHTML = '<option value="">All size types (' + S.points.length + ')</option>' + bk.sort(function (a, b) { return bases[b] - bases[a]; }).map(function (b) { return '<option value="' + esc(b) + '"' + (state.basis === b ? ' selected' : '') + '>' + esc(b) + ' (' + bases[b] + ')</option>'; }).join('');
     var lg = MET[state.metric] && MET[state.metric].log; $('exlog').parentNode.hidden = !lg;
     $('exlog').setAttribute('aria-pressed', String(!state.lin)); $('exlin').setAttribute('aria-pressed', String(state.lin));
+    restoreFocus(focus, box);
   }
   $('exbasis').addEventListener('change', function () { state.basis = this.value; syncRange(); renderBody(); });
-  $('exlog').addEventListener('click', function () { state.lin = false; syncExtras(); drawChart(); });
-  $('exlin').addEventListener('click', function () { state.lin = true; syncExtras(); drawChart(); });
-  function viewParams() { var q = new URLSearchParams(); q.set('set', state.set); if (state.metric) q.set('m', state.metric); if (state.q) q.set('q', state.q); if (state.xmax != null) q.set('max', fmt(state.xmax)); if (state.onlyFront) q.set('eff', '1'); if (state.basis) q.set('basis', state.basis); Object.keys(state.fmts).filter(function (f) { return state.fmts[f]; }).sort().forEach(function (f) { q.append('fmt', f); }); return q; }
+  $('exlog').addEventListener('click', function () { state.lin = false; syncRange(); syncExtras(); renderBody(); });
+  $('exlin').addEventListener('click', function () { state.lin = true; syncRange(); syncExtras(); renderBody(); });
+  function viewParams() {
+    var q = new URLSearchParams(), S = setById(state.set); q.set('set', state.set);
+    if (state.metric) q.set('m', state.metric);
+    if (state.q) q.set('q', state.q);
+    // Display formatting must never round a threshold in a reproducible view.
+    if (state.xmax != null) q.set('max', state.xmax);
+    if (state.ylim != null) q.set('ylim', state.ylim);
+    if (state.lin) q.set('scale', 'linear');
+    if (state.onlyFront) q.set('eff', '1');
+    if (state.basis) q.set('basis', state.basis);
+    if (frontCb.checked) q.set('frontier', '1');
+    // Labels otherwise inherit a local preference, so both states are explicit.
+    q.set('labels', labelsCb.checked ? '1' : '0');
+    if (state.sort) { q.set('sort', state.sort.key); if (state.sort.dir === -1) q.set('dir', 'desc'); }
+    if (state.pinned) q.set('point', state.pinned);
+    Object.keys(state.fmts).filter(function (f) { return state.fmts[f]; }).sort().forEach(function (f) { q.append('fmt', f); });
+    var hidden = S.points.filter(function (p) { return !isPicked(p); });
+    if (hidden.length > S.points.length / 2) {
+      q.set('selection', 'only'); S.points.filter(isPicked).forEach(function (p) { q.append('pick', p.qid); });
+    } else hidden.forEach(function (p) { q.append('hide', p.qid); });
+    return q;
+  }
   $('exlink').addEventListener('click', function () {
     var btn = this, url = location.href.split(/[?#]/)[0] + '?' + viewParams().toString() + '#chart';
     function done(ok) { btn.textContent = ok ? 'Link copied' : url; setTimeout(function () { btn.textContent = 'Copy link to view'; }, 2500); }
@@ -246,16 +279,25 @@
     if (U.get('set') && setById(U.get('set'))) { state.set = U.get('set'); selSet.value = state.set; }
     if (U.get('m')) state.metric = U.get('m');
     if (U.get('q')) { state.q = U.get('q').toLowerCase(); qIn.value = U.get('q'); }
-    if (U.get('max') && Number.isFinite(+U.get('max')) && +U.get('max') > 0) state.xmax = +U.get('max');
+    if (U.has('max') && U.get('max').trim() !== '' && Number.isFinite(+U.get('max')) && +U.get('max') >= 0) state.xmax = +U.get('max');
+    if (U.has('ylim') && U.get('ylim').trim() !== '' && Number.isFinite(+U.get('ylim'))) state.ylim = +U.get('ylim');
+    state.lin = U.get('scale') === 'linear';
     var allowedFormats = setById(state.set).points.map(function (p) { return famOf(p.fmt); });
     U.getAll('fmt').forEach(function (f) { if (allowedFormats.indexOf(f) >= 0) state.fmts[f] = true; });
     if (U.get('eff') === '1') state.onlyFront = true;
     if (U.get('basis')) state.basis = U.get('basis');
+    if (U.has('labels')) labelsCb.checked = U.get('labels') === '1';
+    frontCb.checked = U.get('frontier') === '1';
+    var S = setById(state.set), key = U.get('sort');
+    if (key === '_name' || key === '_x' || (S.metrics.indexOf(key) >= 0 && comparable(S, key))) state.sort = { key: key, dir: U.get('dir') === 'desc' ? -1 : 1 };
+    var only = U.get('selection') === 'only', picks = U.getAll('pick'), hidden = U.getAll('hide');
+    S.points.forEach(function (p) { if (only || hidden.indexOf(p.qid) >= 0) state.picked[p.qid] = only && picks.indexOf(p.qid) >= 0; });
+    if (S.points.some(function (p) { return p.qid === U.get('point'); })) state.focus = state.pinned = U.get('point');
   } catch (e) {}
   document.addEventListener('keydown', function (e) { if (e.key === '/' && !/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); findIn.focus(); } });
 
   function render() {
-    var S = setById(state.set);
+    var S = setById(state.set), focus = rememberFocus($('explorer'));
     if (!state.metric || S.metrics.indexOf(state.metric) < 0) {   // a quant found or jumped to opens on a metric it reports, so it can be pinned
       var fq = state.focus && S.points.filter(function (p) { return p.qid === state.focus; })[0];
       state.metric = (fq && fq.m && S.metrics.filter(function (k) { return fq.m[k] != null; })[0]) || S.metrics[0];
@@ -267,12 +309,20 @@
     var top = many ? ordered.slice().sort(function (a, b) { return cnt[b] - cnt[a] || S.metrics.indexOf(a) - S.metrics.indexOf(b); }).slice(0, FEW) : ordered;
     ordered.forEach(function (k) {
       var hide = many && !state.allMetrics && top.indexOf(k) < 0 && k !== state.metric;
-      var b = h('button', { type: 'button', role: 'radio', 'aria-checked': String(k === state.metric), class: 'mchip' + (k === state.metric ? ' on' : '') }, esc(MET[k].label) + (many ? ' <span class="dim">' + cnt[k] + '</span>' : ''));
+      var b = h('button', { type: 'button', role: 'radio', 'data-focus': 'metric:' + k, 'data-metric': k, tabindex: k === state.metric ? '0' : '-1', 'aria-checked': String(k === state.metric), class: 'mchip' + (k === state.metric ? ' on' : '') }, esc(MET[k].label) + (many ? ' <span class="dim">' + cnt[k] + '</span>' : ''));
       b.hidden = hide;
       b.addEventListener('click', function () { state.metric = k; state.sort = null; state.ylim = null; render(); }); metBox.appendChild(b);
+      b.addEventListener('keydown', function (e) {
+        if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].indexOf(e.key) < 0) return;
+        e.preventDefault();
+        var choices = Array.prototype.filter.call(metBox.querySelectorAll('[role=radio]'), function (n) { return !n.hidden; }), i = choices.indexOf(b);
+        var next = e.key === 'Home' ? 0 : e.key === 'End' ? choices.length - 1 : (i + (e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? -1 : 1) + choices.length) % choices.length;
+        var key = choices[next].dataset.metric; choices[next].click();
+        Array.prototype.filter.call(metBox.querySelectorAll('[role=radio]'), function (n) { return n.dataset.metric === key; })[0].focus({ preventScroll: true });
+      });
     });
     if (many) {
-      var mb = h('button', { type: 'button', class: 'mchip more' }, state.allMetrics ? 'Fewer metrics' : 'More metrics (' + (ordered.length - FEW) + ')');
+      var mb = h('button', { type: 'button', class: 'mchip more', 'data-focus': 'more-metrics' }, state.allMetrics ? 'Fewer metrics' : 'More metrics (' + (ordered.length - FEW) + ')');
       mb.addEventListener('click', function () { state.allMetrics = !state.allMetrics; render(); }); metBox.appendChild(mb);
     }
     var C = comparison(S);
@@ -289,16 +339,17 @@
     fmtBox.innerHTML = ''; fmtBox.hidden = fks.length < 2;
     var TOP = 8, extra = fks.length - TOP;
     fks.forEach(function (f, i) {
-      var b = h('button', { type: 'button', class: 'fchip' + (state.fmts[f] ? ' on' : ''), 'aria-pressed': String(!!state.fmts[f]), title: 'Show only ' + f + ' (click again to clear)' }, esc(f) + ' <span>' + fm[f] + '</span>');
+      var b = h('button', { type: 'button', 'data-focus': 'format:' + f, class: 'fchip' + (state.fmts[f] ? ' on' : ''), 'aria-pressed': String(!!state.fmts[f]), title: 'Show only ' + f + ' (click again to clear)' }, esc(f) + ' <span>' + fm[f] + '</span>');
       if (i >= TOP && !state.moreFmts && !state.fmts[f]) b.hidden = true;
       b.addEventListener('click', function () { state.fmts[f] = !state.fmts[f]; render(); }); fmtBox.appendChild(b);
     });
-    if (extra > 0) { var mb = h('button', { type: 'button', class: 'fchip more' }, state.moreFmts ? 'fewer' : '+' + extra + ' more'); mb.addEventListener('click', function () { state.moreFmts = !state.moreFmts; render(); }); fmtBox.appendChild(mb); }
+    if (extra > 0) { var mb = h('button', { type: 'button', class: 'fchip more', 'data-focus': 'more-formats' }, state.moreFmts ? 'fewer' : '+' + extra + ' more'); mb.addEventListener('click', function () { state.moreFmts = !state.moreFmts; render(); }); fmtBox.appendChild(mb); }
     frontCb.parentNode.hidden = !comparable(S);
     syncRange(); syncExtras();
     renderBody();
+    restoreFocus(focus, $('explorer'));
   }
-  function renderBody() { var S = setById(state.set); picker(S); drawChart(); table(S); renderDetail(); }
+  function renderBody() { var S = setById(state.set), focus = rememberFocus($('explorer')); picker(S); drawChart(); table(S); renderDetail(); restoreFocus(focus, $('explorer')); }
 
   function picker(S) {
     var box = $('expick'); box.innerHTML = '';
@@ -343,20 +394,24 @@
   var lastPts = [];
   function drawChart() {
     var focused = document.activeElement, focusedQid = focused && host.contains(focused) ? focused.getAttribute('data-qid') : null;
-    var S = setById(state.set), k = state.metric, M = MET[k];
-    var pts = shown(S).filter(function (p) { return p.m[k] && p.m[k].v != null && (!M.log || p.m[k].v > 0); });
+    var S = setById(state.set), k = state.metric, M = MET[k], legendFocus = rememberFocus($('exlegend'));
+    var candidates = shown(S).filter(function (p) { return p.m[k] && p.m[k].v != null; });
+    var useLog = usesLog(k), pts = candidates.filter(function (p) { return !useLog || p.m[k].v > 0; });
+    var omitted = candidates.length - pts.length;
+    var note = omitted ? [omitted + ' zero or negative ' + M.label + ' value' + (omitted === 1 ? '' : 's') + ' cannot appear on a log axis; switch to Linear to view ' + (omitted === 1 ? 'it.' : 'them.')] : [];
+    $('exchartnote').textContent = note.join(' ');
     lastPts = pts; host.innerHTML = ''; hideTip(true);
     var cw = Math.max(300, (host.clientWidth || 760) - 24), narrow = cw < 560;
     var W = cw, H = narrow ? Math.round(cw * 0.95) : Math.min(500, Math.round(cw * 0.6)), ml = narrow ? 48 : 62, mr = narrow ? 10 : 18, mt = 34, mb = narrow ? 44 : 50;
     var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, class: 'chart', role: 'img', 'aria-label': M.label + ' against ' + S.x.label + ' for ' + pts.length + ' quants in ' + S.title });
     host.appendChild(svg);
     var lg = $('exlegend'); lg.innerHTML = '';
-    if (pts.length === 0) { legend(S, svg); svg.appendChild(el('text', { x: W / 2, y: H / 2, class: 'axis', 'text-anchor': 'middle' }, S.points.some(function (p) { return p.m[k]; }) ? 'No quant selected. Tick some in the list.' : 'No quant in this set has this metric.')); return; }
+    if (pts.length === 0) { legend(S, svg); svg.appendChild(el('text', { x: W / 2, y: H / 2, class: 'axis', 'text-anchor': 'middle' }, omitted ? 'These values need Linear scale.' : S.points.some(function (p) { return p.m[k]; }) ? 'No values match the current filters.' : 'No quant in this set has this metric.')); restoreFocus(legendFocus, $('exlegend')); return; }
     var xs = pts.map(function (p) { return p.x; }), ys = pts.map(function (p) { return p.m[k].v; });
-    var ref = S.refs[k]; if (ref) ys.push(ref[0]);
+    var ref = S.refs[k]; if (ref && useLog && ref[0] <= 0) ref = null;
+    if (ref) ys.push(ref[0]);
     var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs); var xp = (x1 - x0) * 0.08 || Math.max(1, x0 * 0.05); x0 -= xp; x1 += xp;
     var y0, y1, Y;
-    var useLog = M.log && !state.lin;
     if (useLog) {
       y0 = Math.pow(10, Math.log10(Math.min.apply(null, ys)) - 0.12); y1 = Math.pow(10, Math.log10(Math.max.apply(null, ys)) + 0.12);
       Y = function (v) { return mt + (Math.log10(y1) - Math.log10(v)) / (Math.log10(y1) - Math.log10(y0)) * (H - mt - mb); };
@@ -442,7 +497,7 @@
       var reps = {}; S.points.filter(matches).forEach(function (p) { (reps[p.repo] = reps[p.repo] || []).push(p); });
       Object.keys(reps).sort(function (a, b) { return a.toLowerCase() < b.toLowerCase() ? -1 : 1; }).forEach(function (repo) {
         var ps = reps[repo], on = ps.some(isPicked);
-        var b = h('button', { type: 'button', class: 'lg' + (on ? '' : ' off'), 'aria-pressed': String(on), title: (on ? 'Hide ' : 'Show ') + repo }, '<span class="sw" style="background:' + colour(ps[0].pub) + '"></span>' + esc(repo) + ' <span class="dim">' + ps.length + '</span>');
+        var b = h('button', { type: 'button', 'data-focus': 'legend:' + repo, class: 'lg' + (on ? '' : ' off'), 'aria-pressed': String(on), title: (on ? 'Hide ' : 'Show ') + repo }, '<span class="sw" style="background:' + colour(ps[0].pub) + '"></span>' + esc(repo) + ' <span class="dim">' + ps.length + '</span>');
         b.addEventListener('click', function () { ps.forEach(function (p) { state.picked[p.qid] = !on; }); renderBody(); });
         b.addEventListener('pointerenter', function () { svg.classList.add('dimmed'); Array.prototype.forEach.call(svg.querySelectorAll('[data-qid]'), function (n) { if (ps.some(function (p) { return p.qid === n.getAttribute('data-qid'); })) n.classList.add('hl'); }); });
         b.addEventListener('pointerleave', function () { svg.classList.remove('dimmed'); Array.prototype.forEach.call(svg.querySelectorAll('.hl'), function (n) { n.classList.remove('hl'); }); });
@@ -450,12 +505,12 @@
       });
       var nrep = lg.children.length;
       if (nrep > 16 && !state.legendOpen) { Array.prototype.forEach.call(lg.children, function (c) { c.hidden = true; }); }
-      if (nrep > 16) { var tb = h('button', { type: 'button', class: 'lg more' }, state.legendOpen ? 'Hide legend' : 'Show legend (' + nrep + ' repos)'); tb.addEventListener('click', function () { state.legendOpen = !state.legendOpen; drawChart(); }); lg.appendChild(tb); }
+      if (nrep > 16) { var tb = h('button', { type: 'button', class: 'lg more', 'data-focus': 'legend-more' }, state.legendOpen ? 'Hide legend' : 'Show legend (' + nrep + ' repos)'); tb.addEventListener('click', function () { state.legendOpen = !state.legendOpen; drawChart(); }); lg.appendChild(tb); }
     }
-    var note = [];
     if (labelsCb.checked && pts.length > maxLab) note.push('Labels hidden with more than ' + maxLab + ' points: filter, or tap a point.');
     if (fp.length) note.push('Frontier: no other shown quant is both smaller and better on this metric, in this set only' + (pts.some(function (p) { return p.is_ref; }) ? '; the reference build is not ranked.' : '.'));
     $('exchartnote').textContent = note.join(' ');
+    restoreFocus(legendFocus, $('exlegend'));
     if (state.focus) { var fc = svg.querySelector('circle.mk[data-qid="' + cssq(state.focus) + '"]'); var fpnt = pts.filter(function (p) { return p.qid === state.focus; })[0]; if (fc && fpnt) { showTip(fpnt, fc, true); fc.classList.add('pulse'); } state.focus = null; }
     else if (state.pinned) { var pc = svg.querySelector('circle.mk[data-qid="' + cssq(state.pinned) + '"]'), pp = pts.filter(function (p) { return p.qid === state.pinned; })[0]; if (pc && pp) showTip(pp, pc, true); else state.pinned = null; }
     if (focusedQid) {
@@ -552,14 +607,14 @@
   }
 
   function table(S) {
-    var t = $('extable'), ks = S.metrics, k = state.metric, pts = shown(S).slice();
+    var t = $('extable'), ks = S.metrics, k = state.metric, pts = shown(S).slice(), focus = rememberFocus($('extable'));
     var F = comparable(S) && (frontCb.checked || state.onlyFront) ? frontier(pts.filter(function (p) { return p.m[k] && p.m[k].v != null; }), k) : {};
     var pool = base(S);
     var sort = state.sort;
     if (!sort || (sort.key.charAt(0) !== '_' && !comparable(S, sort.key))) sort = comparable(S) ? { key: k, dir: MET[k].better === 'lower' ? 1 : -1 } : { key: '_x', dir: 1 };
     function val(p) { return sort.key === '_x' ? p.x : sort.key === '_name' ? p.variant.toLowerCase() : (p.m[sort.key] ? p.m[sort.key].v : null); }
     pts.sort(function (a, b) { var x = val(a), y = val(b); if (x == null) return 1; if (y == null) return -1; return (x < y ? -1 : x > y ? 1 : 0) * sort.dir; });
-    function th(key, label, cls) { if (key.charAt(0) !== '_' && !comparable(S, key)) return '<th class="' + (cls || '') + '" title="Metric sorting requires verified protocol compatibility" aria-disabled="true">' + esc(label) + '</th>'; var on = sort.key === key; return '<th class="' + (cls || '') + '" data-key="' + key + '" tabindex="0" aria-sort="' + (on ? (sort.dir === 1 ? 'ascending' : 'descending') : 'none') + '">' + esc(label) + '</th>'; }
+    function th(key, label, cls) { if (key.charAt(0) !== '_' && !comparable(S, key)) return '<th class="' + (cls || '') + '" title="Metric sorting requires verified protocol compatibility" aria-disabled="true">' + esc(label) + '</th>'; var on = sort.key === key; return '<th class="' + (cls || '') + '" data-key="' + esc(key) + '" data-focus="sort:' + esc(key) + '" tabindex="0" aria-sort="' + (on ? (sort.dir === 1 ? 'ascending' : 'descending') : 'none') + '">' + esc(label) + '</th>'; }
     var head = '<thead><tr>' + th('_name', 'Quant') + th('_x', S.x.unit, 'n') + ks.map(function (m) { return th(m, MET[m].label, 'n'); }).join('') + (comparable(S) ? '<th title="Another quant in this set that is no larger and better on ' + esc(MET[k].label) + '">Beaten by</th>' : '') + '<th>Also measured in</th><th>Source</th></tr></thead>';
     var body = pts.map(function (p) {
       var others = p.inferred ? [] : SETS.filter(function (s) { return s.id !== S.id && comparable(s) && s.points.some(function (q) { return q.qid === p.qid && !q.inferred; }); });
@@ -593,6 +648,7 @@
       var btn = $('excopy'), done = function (ok) { btn.textContent = ok ? 'Copied ' + pts.length + ' rows' : 'Copy failed: select the table instead'; setTimeout(function () { btn.textContent = 'Copy as CSV'; }, 2200); };
       try { navigator.clipboard.writeText(csv).then(function () { done(true); }, function () { done(false); }); } catch (e) { done(false); }
     };
+    restoreFocus(focus, t);
   }
 
   var rt; if (window.ResizeObserver) new ResizeObserver(function () { clearTimeout(rt); rt = setTimeout(drawChart, 120); }).observe(host);

@@ -1,8 +1,15 @@
-# Builds the static site in GitHub Actions (Python runs here, never on Pages) and deploys plain files to GitHub Pages.
+# Verifies the selected commit and deploys that exact tested static artifact.
 # Manual trigger only, so nothing goes public until the owner runs it (Settings > Pages > Source: GitHub Actions).
 name: deploy-pages
+run-name: deploy-pages ${{ inputs.expected_sha || github.sha }}
 on:
   workflow_dispatch:
+    inputs:
+      expected_sha:
+        description: "Optional exact approved commit; reject an advanced branch"
+        type: string
+        required: false
+        default: ""
 permissions:
   contents: read
   pages: write
@@ -11,24 +18,27 @@ concurrency:
   group: pages
   cancel-in-progress: false
 jobs:
-  build:
+  approved-commit:
     runs-on: ubuntu-latest
+    permissions: {}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - run: pip install pillow numpy
-      - name: Gates + build, every model (build.py refuses on any gate failure)
+      - name: Require the requested commit
+        env:
+          EXPECTED_SHA: ${{ inputs.expected_sha }}
         run: |
-          for d in $(python3 pipeline/qcl_live.py); do QCL_ROOT="$d" python3 build.py || exit 1; done
-      - name: Assemble static site (HTML/CSS/JS/JSON only, .nojekyll)
-        run: python3 assemble.py _site
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
+          if [ -n "$EXPECTED_SHA" ] && [ "$EXPECTED_SHA" != "$GITHUB_SHA" ]; then
+            echo "The branch advanced after approval; refusing a different commit." >&2
+            exit 1
+          fi
+  verify:
+    needs: approved-commit
+    permissions:
+      contents: read
+    uses: ./.github/workflows/verify.yml
+    with:
+      publish_pages_artifact: true
   deploy:
-    needs: build
+    needs: verify
     runs-on: ubuntu-latest
     environment:
       name: github-pages

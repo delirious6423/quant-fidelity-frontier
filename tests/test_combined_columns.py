@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Focused counterfactuals for documented corpus-column KL/top-1 pairs."""
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -42,9 +43,13 @@ class CombinedColumnsTest(unittest.TestCase):
             root = Path(tmp)
             (root / "snapshots").mkdir()
             (root / "verified").mkdir()
-            (root / "snapshots/card.md").write_text("\n".join(lines) + "\n")
-            (root / "snapshots/index.json").write_text(json.dumps({"repos": {"test/model": {"file": "snapshots/card.md"}}}))
-            (root / "verified/part1.py").write_text("R = " + repr([dict(repo="test/model", variants=variants)]))
+            card = "\n".join(lines) + "\n"
+            digest = hashlib.sha256(card.encode()).hexdigest()
+            (root / "snapshots/card.md").write_text(card)
+            (root / "snapshots/index.json").write_text(json.dumps({"repos": {"test/model": {
+                "file": "snapshots/card.md", "sha": "a" * 40, "sha256": digest}}}))
+            (root / "verified/part1.py").write_text("R = " + repr([dict(
+                repo="test/model", sha="a" * 40, source_sha256=digest, variants=variants)]))
             env = dict(os.environ, QCL_ROOT=str(root))
             return subprocess.run([sys.executable, str(REPO_ROOT / "gates/verify_columns.py")],
                                   env=env, capture_output=True, text=True)

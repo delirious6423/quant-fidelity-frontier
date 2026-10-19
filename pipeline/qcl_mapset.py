@@ -10,6 +10,7 @@ A card needs mapping when triage puts it in wave 1 (core metrics) or wave 2 (ben
 cards map once, through their oldest repo; >= 60% copied cards are labelled as copies), and its current bytes have no
 mapping yet (maps/A and maps/B record the card SHA-256 they were made from in maps/mapped.json)."""
 import collections, glob, json, os, sys
+import mapping_provenance as MP
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 R = os.environ.get("QCL_ROOT") or os.path.join(CODE, "models", "qwen3.8-flash-next")
 t = json.load(open(f"{R}/audit/triage.json")); idx = json.load(open(f"{R}/snapshots/index.json"))["repos"]
@@ -18,14 +19,32 @@ mp = f"{R}/maps/mapped.json"; mapped = json.load(open(mp)) if os.path.exists(mp)
 def _repo_of(f):
     try: return json.load(open(f)).get("repo")
     except Exception: return None                  # unreadable or half-written map: not recorded, so the card is queued again
-if "--record" in sys.argv:   # after a mapping run (or a run that stopped early): a card counts as mapped once both runs have a readable map for it
+if "--record" in sys.argv:   # only maps made from these exact card bytes count
     for f in glob.glob(f"{R}/maps/A/*.map.json"):
         rp = _repo_of(f); fb = f.replace("/A/", "/B/")
-        if rp in idx and os.path.exists(fb) and _repo_of(fb) == rp: mapped[rp] = idx[rp]["sha256"]
+        if rp not in idx or not os.path.exists(fb) or _repo_of(fb) != rp: continue
+        try:
+            pins = [MP.mapping_source(json.load(open(path)), json.load(open(MP.candidate_path(path))), idx, mapped, path=path)
+                    for path in (f, fb)]
+            if pins[0] == pins[1]: mapped[rp] = pins[0]
+        except (OSError, ValueError, KeyError, TypeError):
+            continue   # existing maps never acquire a new source pin implicitly
     os.makedirs(os.path.dirname(mp), exist_ok=True)   # a new model has no maps/ yet
     json.dump(mapped, open(mp, "w"), indent=1, sort_keys=True)
-if "--baseline" in sys.argv:   # hand-reviewed models (Flash-Next): every card already reviewed counts as mapped at its current bytes
-    for rp, m in idx.items(): mapped.setdefault(rp, m["sha256"])
+if "--baseline" in sys.argv:   # only a still-current reviewed entry can establish a baseline
+    sys.path.insert(0, os.path.join(CODE, "gates"))
+    import current as CUR
+    retained_maps = {_repo_of(path) for run in ("A", "B") for path in glob.glob(f"{R}/maps/{run}/*.map.json")}
+    for review in CUR.load(R):
+        if not review.get("auto") and CUR.fresh(review, idx):
+            repo = review["repo"]
+            # A review of current claims does not establish when older mapping
+            # files were made. Seeding their shared legacy pin would silently
+            # reactivate those files, so existing maps must be remapped first.
+            if repo not in mapped and (repo in retained_maps or any(
+                    os.path.exists(f"{R}/maps/{run}/{repo.replace('/', '__')}.map.json") for run in ("A", "B"))):
+                continue
+            mapped.setdefault(repo, idx[repo]["sha256"])
     os.makedirs(os.path.dirname(mp), exist_ok=True); json.dump(mapped, open(mp, "w"), indent=1, sort_keys=True)
 def copied(r): c = cp.get(r) or {}; return c.get("share", 0) >= 0.6 and c.get("claim_lines", 0) >= 4
 by = collections.defaultdict(list)

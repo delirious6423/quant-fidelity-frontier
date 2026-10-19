@@ -1,16 +1,31 @@
 """Which verified entries still describe the card the index pins now.
 
-A reviewed entry is pinned to the card it was read from (its `sha`, matched like verify.py: the index sha starts with
-the entry's first 8 characters). When the hourly scan saves a newer card for that repo, the old claims are no longer on
-the card the site links to. They are withdrawn (fail-closed), and the repo is listed as not yet reviewed until a new
-mapping covers it, instead of stopping the whole build."""
-import glob, json, os
+A reviewed entry is pinned to the exact source content it was read from. Legacy
+immutable commit prefixes remain supported; mutable references require an exact
+content pin. When a scan saves a changed card, its old claims are withdrawn and
+the repo is listed as not yet reviewed until a new mapping covers it."""
+import glob, hashlib, json, os, re
 
 STALE_FLAG = "Card changed after it was reviewed; its earlier claims are withdrawn until it is reviewed again"
 
 def fresh(r, idx):
     m = idx.get(r["repo"])
-    return bool(m) and str(m.get("sha", "")).startswith(str(r.get("sha", ""))[:8])
+    if not m: return False
+    pin = r.get("source_sha256") if "source_sha256" in r else r.get("_review_source_sha256")
+    if pin is not None:
+        return isinstance(pin, str) and bool(re.fullmatch(r"[a-f0-9]{64}", pin)) and pin == m.get("sha256")
+    # Only immutable commit prefixes can establish legacy freshness without a
+    # content pin. Empty values and mutable branch names never establish it.
+    revision, current_revision = r.get("sha"), m.get("sha")
+    return (isinstance(revision, str) and bool(re.fullmatch(r"[a-fA-F0-9]{8,40}", revision))
+            and isinstance(current_revision, str) and bool(re.fullmatch(r"[a-fA-F0-9]{40}", current_revision))
+            and current_revision.lower().startswith(revision.lower()))
+
+def entry_fingerprint(entry):
+    """Bind a migration pin to the entire reviewed entry, not just its repo."""
+    value = {key: item for key, item in entry.items() if key not in ("_part", "_review_source_sha256")}
+    raw = json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False, allow_nan=False).encode("utf-8")
+    return hashlib.sha256(raw).hexdigest()
 
 def current(R, idx):
     """R: entries from every verified/part*.py (each may carry _part). Returns the entries to use."""
@@ -28,9 +43,24 @@ def current(R, idx):
                     "method": None, "methodology": None, "variants": [], "auto": True, "flags": [STALE_FLAG], "_part": "stale"})
     return out
 
-def load(root):
-    idx = json.load(open(f"{root}/snapshots/index.json"))["repos"]; R = []
+def load_entries(root):
+    """Load raw entries and attach only exact legacy-review pin matches."""
+    pin_file = f"{root}/audit/review_pins.json"
+    pins = json.load(open(pin_file)) if os.path.exists(pin_file) else {"version": 1, "entries": {}}
+    if pins.get("version") != 1 or not isinstance(pins.get("entries"), dict):
+        raise ValueError("Unsupported legacy review pin registry")
+    R = []
     for p in sorted(glob.glob(f"{root}/verified/part*.py")):
         ns = {}; exec(open(p).read(), ns)
-        for r in ns["R"]: r["_part"] = os.path.basename(p); R.append(r)
-    return current(R, idx)
+        for r in ns["R"]:
+            r.pop("_review_source_sha256", None)  # this field is supplied only by the registry
+            if not r.get("auto") and "source_sha256" not in r:
+                pin = pins["entries"].get(entry_fingerprint(r))
+                if isinstance(pin, dict) and pin.get("repo") == r.get("repo"):
+                    r["_review_source_sha256"] = pin.get("source_sha256")
+            r["_part"] = os.path.basename(p); R.append(r)
+    return R
+
+def load(root):
+    idx = json.load(open(f"{root}/snapshots/index.json"))["repos"]
+    return current(load_entries(root), idx)

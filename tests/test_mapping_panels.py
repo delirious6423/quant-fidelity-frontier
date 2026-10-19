@@ -196,15 +196,17 @@ class MappingPanels(unittest.TestCase):
         with tempfile.TemporaryDirectory(prefix="qff-mapping-panels-") as temp:
             root = Path(temp)
             (root / "snapshots").mkdir()
-            (root / "snapshots/index.json").write_text(json.dumps({"repos": {"publisher/test-GGUF": {"sha": "a" * 40}}}))
+            source = b"| Q4 | 0.0123 |\n"; (root / "card.md").write_bytes(source)
+            source_pin = hashlib.sha256(source).hexdigest()
+            (root / "snapshots/index.json").write_text(json.dumps({"repos": {"publisher/test-GGUF": {"sha": "a" * 40, "file": "card.md", "sha256": source_pin}}}))
             namespace = dict(WATCH, ROOT=str(root), OUT=str(root / "machine.py"),
-                             F=types.SimpleNamespace(fmt_of=lambda *_: "GGUF"))
+                             F=types.SimpleNamespace(fmt_of=lambda *_: "GGUF"), hashlib=hashlib, os=os)
             # Functions retain their source namespace, so load write with this temporary destination.
             source_functions("pipeline/qcl_watch.py", {"write"}, namespace)
             for modified in (True, False, None):
                 with self.subTest(modified=modified):
                     extra = {} if modified is None else {"weights_modified": modified}
-                    a = MAP["apply"](mapping([entry({"mean_kld": "c1"})], **extra), cands)
+                    a = MAP["apply"](mapping([entry({"mean_kld": "c1"})], **extra), cands, source_sha256=source_pin)
                     agreed, held = self.agree(a, a)
                     self.assertEqual(held, [])
                     self.assertIs(agreed["weights_modified"], modified)
@@ -217,6 +219,7 @@ class MappingPanels(unittest.TestCase):
                     written = generated["R"][0]
                     self.assertIs(written["weights_modified"], True if modified is None else modified)
                     self.assertEqual(written["sha"], "a" * 40)
+                    self.assertEqual(written["source_sha256"], source_pin)
                     self.assertEqual(written["variants"][0]["m"], {"mean_kld": "0.0123"})
 
 
@@ -235,6 +238,7 @@ class ResolverOverlay(unittest.TestCase):
         map_path = root / f"maps/resolved/{name}.map.json"
         map_path.write_text(json.dumps(mapping([entry({"mean_kld": "c1"}, panel="Current")])) + "\n")
         pin = {"source_sha256": source_hash, "mapping_sha256": hashlib.sha256(map_path.read_bytes()).hexdigest(),
+               "candidates_sha256": hashlib.sha256((root / f"maps/cands/{name}.cands.json").read_bytes()).hexdigest(),
                "resolved_by": "source review", "reason": "panel headings reconciled"}
         manifest = root / "maps/resolved/manifest.json"
         manifest.write_text(json.dumps({"repos": {repo: pin}}))
@@ -276,7 +280,8 @@ class ResolverOverlay(unittest.TestCase):
             self.assertEqual(path.read_bytes(), original_map)
 
     def test_stale_source_or_mapping_and_missing_pins_leave_disagreements_held(self):
-        for stale in ("source", "mapping", "missing_source_pin", "missing_manifest", "missing_map"):
+        for stale in ("source", "mapping", "missing_source_pin", "missing_candidate_pin", "candidate",
+                      "missing_manifest", "missing_map"):
             with self.subTest(stale=stale), tempfile.TemporaryDirectory(prefix="qff-resolver-") as temp:
                 root = Path(temp)
                 repo, path, manifest, pin, namespace, writes = self.fixture(root)
@@ -290,6 +295,12 @@ class ResolverOverlay(unittest.TestCase):
                 elif stale == "missing_source_pin":
                     del pin["source_sha256"]
                     manifest.write_text(json.dumps({"repos": {repo: pin}}))
+                elif stale == "missing_candidate_pin":
+                    del pin["candidates_sha256"]
+                    manifest.write_text(json.dumps({"repos": {repo: pin}}))
+                elif stale == "candidate":
+                    candidate = root / f"maps/cands/{repo.replace('/', '__')}.cands.json"
+                    candidate.write_text(json.dumps({"c1": {"raw": "0.2500", "L": 3, "label": "Q8"}}))
                 elif stale == "missing_manifest": manifest.unlink()
                 else: path.unlink()
                 audit, output = self.merge(namespace, root)

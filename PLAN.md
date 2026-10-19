@@ -1,3 +1,17 @@
+# Holistic hardening review
+
+Baseline `35d7c50`; branch `review/holistic-hardening`.
+
+- [x] Inspect current source and fixed five-model baseline.
+- [x] Delegate independent source integrity, UI, system, and benchmark reviews.
+- [x] Reproduce and repair defects with counterfactual regression tests.
+- [x] Measure browser payload performance before/after on the same workload.
+- [x] Verify all live models and all 36 regression suites.
+- [x] Close final independent mapping review and MCP latency measurement.
+- [x] Prepare review branch and report; production requires owner approval.
+
+---
+
 # Explicit comparison classifications
 
 Branch: `feat/evidence-comparison-classifications`. Owner explicitly approved merging PR #8 and deploying GitHub Pages on 2026-10-19 after the production approval question.

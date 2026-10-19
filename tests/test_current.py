@@ -2,7 +2,7 @@
 import os, sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "gates"))
 import current as C
-idx = {"a/x": {"sha": "main"}, "b/y": {"sha": "abc12345ffff"}, "c/z": {"sha": "main"}}
+idx = {"a/x": {"sha": "main"}, "b/y": {"sha": "abc12345" + "f" * 32}, "c/z": {"sha": "main"}}
 R = [{"repo": "a/x", "sha": "1234567890", "variants": [{"m": {"kld": "0.1"}}], "fmt": "GGUF"},     # hand entry, card changed
      {"repo": "b/y", "sha": "abc12345", "variants": [{"m": {"kld": "0.2"}}]},                        # still current
      {"repo": "c/z", "sha": "deadbeef", "variants": [], "auto": True}]                               # unreviewed listing, card changed

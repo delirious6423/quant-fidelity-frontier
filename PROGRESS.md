@@ -1,3 +1,15 @@
+# Holistic review (2026-10-19)
+
+- Fixed source/cache/image/unit/sign verification, benchmark attribution, stale mapping provenance, collection credentials/checkpoints, atomic assembly, QA verdict validation and exact-commit deployment receipts.
+- MCP: nine read-only tools including benchmark discovery/search; current stable SDK 2.3.0; HTTP hostname defenses and production-sized JSON responses; 1.30 transport compatibility retained.
+- UI: complete share-state round trips, keyboard/focus behavior, linear zero KLD visibility and inclusive negative thresholds; approved defaults/layout preserved.
+- All five gated builds, all 36 regression suites, per-model UI runs and both MCP SDK transport checks pass. All seven exports/manifests remain byte-identical to baseline (3,086 rows, 113 benchmark reports).
+- Largest page: 46.3% smaller HTML; chart JSON parsing 2.45× faster. Target remains 100× and was not reached; quantified limits in `docs/HOLISTIC_REVIEW.md`.
+- Independent mapping/release/MCP reviews are cleared. A bounded MCP classification-cache prototype returned identical results but only noisy 1.09–1.15× transport ratios, so it was rejected; no production cache added.
+- Review branch is ready with reproducible benchmarks and verification records in `docs/review/`. No merge or deployment performed.
+
+---
+
 # Progress
 
 ## Done (2026-10-18)

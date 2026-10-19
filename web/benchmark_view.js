@@ -159,6 +159,6 @@
   [log,zero,refs].forEach(function(n){n.addEventListener('change',function(){render();save();});});
   pick.addEventListener('change',function(){selected=pick.value;detail();draw();});
   $('shared-copy').addEventListener('click',function(){var b=this;function done(){b.textContent='Link copied';setTimeout(function(){b.textContent='Copy view link';},2000);}try{navigator.clipboard.writeText(url()).then(done,function(){b.textContent='Copy the page URL';});}catch(e){b.textContent='Copy the page URL';}});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelector('.page-picker').open=false;});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var picker=document.querySelector('.page-picker');if(picker.open){picker.open=false;picker.querySelector('summary').focus();}}});
   models();contexts();render();new ResizeObserver(draw).observe(host);
 })();

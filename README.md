@@ -22,7 +22,7 @@ The table is generated from the published data (`pipeline/readme_sync.py`) each 
 Compare numbers directly only when the selected metric is classified **Same Protocol — Comparable**. The default overview keeps mixed protocols visible without ranking them. [Comparison rules and evidence](docs/COMPARISON_CLASSIFICATIONS.md).
 
 ## For agents
-A read-only MCP server lets agents search claims, get a set's efficiency frontier, or find the best quant under a size budget:
+A read-only MCP server lets agents search quantization claims and benchmark reports, inspect comparison evidence, get a set's efficiency frontier, or find the best quant under a size budget:
 ```bash
 claude mcp add qff -e QFF_DATA=https://delirious6423.github.io/quant-fidelity-frontier/ -- python3 qff_mcp/qff_mcp.py
 ```

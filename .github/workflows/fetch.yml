@@ -8,22 +8,50 @@ on:
       slug:  { description: "folder under models/, e.g. qwen3.8-flash-next", required: true }
 permissions:
   contents: write
+concurrency:
+  group: fetch-cards-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
   fetch:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      MODEL_ID: ${{ inputs.model }}
+      MODEL_SLUG: ${{ inputs.slug }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
+      - name: Validate model identity and destination
+        run: |
+          python3 - <<'PY'
+          import os, re
+          from pipeline.qcl_fetch import load_ledger
+          model, slug = os.environ["MODEL_ID"], os.environ["MODEL_SLUG"]
+          if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,95}/[A-Za-z0-9][A-Za-z0-9_.-]{0,95}", model) or ".." in model:
+              raise SystemExit("model must be a Hugging Face owner/repository ID")
+          if not re.fullmatch(r"[a-z0-9][a-z0-9.-]{0,95}", slug) or ".." in slug:
+              raise SystemExit("slug must be one lowercase model directory name")
+          try:
+              load_ledger(f"models/{slug}/cache", model, expected_slug=slug)
+          except ValueError as error:
+              raise SystemExit(str(error)) from None
+          PY
       - name: Fetch catalogue, cards at pinned sha, file trees (resumable, throttled)
+        id: fetch
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: python3 pipeline/qcl_fetch.py "${{ inputs.model }}" --out "models/${{ inputs.slug }}/cache" --workers 8
-      - name: Commit the ledger
+        run: python3 pipeline/qcl_fetch.py "$MODEL_ID" --out "models/$MODEL_SLUG/cache" --workers 8
+      - name: Commit successful ledger checkpoints
+        if: ${{ !cancelled() && (steps.fetch.outcome == 'success' || steps.fetch.outcome == 'failure') }}
         run: |
+          if [ ! -d "models/$MODEL_SLUG/cache" ]; then exit 0; fi
           git config user.name "quant-claims-bot"
           git config user.email "quant-claims-bot@users.noreply.github.com"
-          git add "models/${{ inputs.slug }}/cache"
-          git commit -m "ledger: ${{ inputs.model }} ($(date -u +%F))" || echo "nothing new"
-          git push
+          git add -- "models/$MODEL_SLUG/cache"
+          if git diff --cached --quiet; then
+            echo "nothing new"
+          else
+            git commit -m "ledger: $MODEL_ID ($(date -u +%F))"
+            git push
+          fi

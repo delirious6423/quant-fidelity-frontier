@@ -1,5 +1,5 @@
 FROM python:3.12-slim
-RUN pip install --no-cache-dir "mcp>=1.9"
+RUN pip install --no-cache-dir "mcp==2.3.0"
 COPY qff_mcp.py comparison.py /app/
 ENV QFF_DATA=https://delirious6423.github.io/quant-fidelity-frontier/
 EXPOSE 7860

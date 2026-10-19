@@ -34,6 +34,22 @@ GitHub Pages serves only static files, and that is all the site is (HTML, CSS, J
 Python runs at build time only. `.github/workflows/pages.yml` builds in Actions and deploys `_site/` (manual trigger;
 Settings → Pages → Source: GitHub Actions).
 
+Publishing invokes the reusable `verify.yml` workflow and deploys its exact tested
+artifact. A failed test cannot be bypassed by rebuilding in a separate deployment
+job. Keep every `tests/test_*.py` suite in that workflow; a coverage check rejects
+omitted suites.
+
+Assembly requires every live model to have valid build output. Its destination
+must be new, empty, or an existing QFF assembly; source directories and unrelated
+files are refused. It stages and validates the complete site before replacing the
+previous output, and restores that output if the final replacement fails.
+
+The browser receives a smaller chart projection from `web_payload.py`. Full point
+protocols and classifier diagnostics remain in `data.json`; numerical claims,
+source links and displayed per-metric evidence remain in both. Run
+`python3 tests/benchmark_payload.py --site _site` for a repeatable V8 JSON parsing
+benchmark. It measures payload parsing, not whole-page or network latency.
+
 ## Site analytics
 Optional and cookie-free (Umami Cloud). Set `analytics.website_id` in `site.json` to turn it on; the script is added
 only to the public pages (never the claude.ai previews) and counts only on `delirious6423.github.io`, so local and CI

@@ -200,6 +200,7 @@ class MCPComparisonTransportTests(unittest.IsolatedAsyncioTestCase):
         from mcp.client.stdio import stdio_client
         with tempfile.TemporaryDirectory(prefix="qff-mcp-evidence-") as folder:
             data = fixture([point("a"), point("b", "quant-b", 5, .05)])
+            data['model'] = 'test/base'
             bad = copy.deepcopy(data["sets"][0])
             bad["id"] = "stale-true"
             bad["points"][1]["protocol"].pop("reference_checkpoint")
