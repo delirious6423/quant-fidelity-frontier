@@ -1,0 +1,25 @@
+{
+  "repo": "JANGQ-AI/GLM-5.3-Flash-W4A16",
+  "no_quality_claims": true,
+  "no_claims_reason": "size, layout and usage only in digest [L32-66]; Method section [L77] body not in digest",
+  "weights_modified": false,
+  "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": []},
+  "entries": [
+    {
+      "role": "own",
+      "name": "GLM-5.3-Flash-W4A16",
+      "metrics": {},
+      "size": "c1",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "INT4 W4A16 routed experts, compressed-tensors pack-quantized [L32-33]",
+        "bundle ~195 GB with 37,152 expert tensors quantized [L51]",
+        "MTP and vision preserved [L52]",
+        "BF16 source sizes 643, 43 and 3 GB are source repos, omitted [L32]"
+      ]
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,17 @@
+{"repo": "local-inference-lab/DeepSeek-V4.1-Flash-lossless-CSF",
+ "no_quality_claims": true,
+ "no_claims_reason": "size and byte-identity checks only [L29, L41-42]",
+ "weights_modified": false,
+ "method": {"reference": "source safetensors shards, rebuilt and SHA-256 checked [L48]", "dataset": "not stated", "ctx": "not stated", "tool": "trellis-quant lossless_scale_checkpoint [L47]", "L": [47, 48]},
+ "entries": [
+   {"role": "own",
+    "name": "DeepSeek-V4.1-Flash-lossless-CSF",
+    "methodology": {"reference": "source safetensors shards, SHA-256 comparison [L48]", "dataset": "not stated", "ctx": "not stated", "tool": "trellis-quant lossless_scale_checkpoint [L47]", "L": [41, 42, 47, 48]},
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["weight file sizes (510.30 GB source, 495.63 GB here) are in prose with no metric row; not mapped [L41]", "scale compression (16.99 GB to 2.31 GB) is a storage figure in prose with no metric row; not mapped [L42]", "bit-exact restoration is a byte-identity check, not a quality metric [L29, L48]"]}
+ ],
+ "prose": []}
