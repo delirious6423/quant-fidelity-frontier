@@ -49,6 +49,9 @@ AN = (f'<script defer src="{H.escape(_A.get("script") or "https://cloud.umami.is
 SUP = (f' · <a href="{H.escape(_S["support_url"])}" rel="noopener" data-umami-event="support">{H.escape(_S.get("support_label") or "Support QFF")}</a>'
        f' (<a href="https://github.com/delirious6423/quant-fidelity-frontier/blob/main/docs/SPONSORS.md">sponsor policy</a>)') if _S.get("support_url") else ""
 from homepage import build_homepage
+from benchmark_view import build_benchmark_view
+# Its chart catalog is not a model; generate it after the model manifest above.
+build_benchmark_view(OUT, man, BASE, AN, SUP)
 build_homepage(OUT, man, BASE, AN, SUP)
 from discovery import build_discovery
 build_discovery(OUT, BASE, man, AN)

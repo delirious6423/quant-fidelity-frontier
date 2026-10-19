@@ -541,7 +541,7 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
             (f'<span class="msw-cur" aria-current="page">{E(o["name"])}</span>' if o["href"] is None else f'<a href="{E(o["href"])}">{E(o["name"])}</a>')
             for o in _groups[g]) + '</div>' for g in _cur_first)
     OTHER_MODELS = ("<details class=\"msw\"><summary><span class=\"msw-label\">" + E(_org or "model") + "</span> " + E(MNAME) + " <span class=\"msw-n\">"
-                    + "· " + str(len(_all)) + " models</span></summary><div class=\"msw-panel\">" + MODEL_MENU + '<a class="msw-all" href="../">All models</a></div></details>')
+                    + "· " + str(len(_all)) + " models</span></summary><div class=\"msw-panel\"><a class=\"msw-benchmarks\" href=\"../benchmarks/\">All-model benchmarks</a>" + MODEL_MENU + '<a class="msw-all" href="../">All models</a></div></details>')
     captured = IDX["captured_at"][:10]
     own = [r for r in rows if r["kind"] == "own"]
     def mcell(r, k, pct=False):
