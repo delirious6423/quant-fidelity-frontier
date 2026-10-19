@@ -1,27 +1,21 @@
 {
  "quarantined": [
   {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "kind": "variants",
+   "entry": "minus10gib, exact",
+   "reason": "failed a gate"
+  },
+  {
    "repo": "sfxnz/DeepSeek-V4.1-Flash-EXL3",
    "kind": "variants",
    "entry": "Viterbi + scale refit",
    "reason": "failed a gate"
   },
   {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "kind": "variants",
-   "entry": "final, exact",
-   "reason": "failed a gate"
-  },
-  {
    "repo": "sfxnz/DeepSeek-V4.1-Flash-EXL3",
    "kind": "variants",
    "entry": "2.0bpw-mcg-viterbi-lmhead-mxfp8",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "sfxnz/DeepSeek-V4.1-Flash-EXL3",
-   "kind": "ladder",
-   "entry": "2.0bpw-mcg-lmhead-mxfp8",
    "reason": "failed a gate"
   },
   {
@@ -45,13 +39,19 @@
   {
    "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
    "kind": "variants",
-   "entry": "minus10gib, exact",
+   "entry": "final, exact",
    "reason": "failed a gate"
   },
   {
    "repo": "sfxnz/DeepSeek-V4.1-Flash-EXL3",
    "kind": "ladder",
    "entry": "prior MCG encoder",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "sfxnz/DeepSeek-V4.1-Flash-EXL3",
+   "kind": "ladder",
+   "entry": "2.0bpw-mcg-lmhead-mxfp8",
    "reason": "failed a gate"
   }
  ],
