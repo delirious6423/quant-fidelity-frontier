@@ -84,3 +84,28 @@
   document.querySelectorAll('a[href="#coverage"]').forEach(function (a) { a.addEventListener('click', function () { document.getElementById('coverage').open = true; }); });
   if (location.hash === '#coverage') document.getElementById('coverage').open = true;
 })();
+
+(function () { // Keep section and individual publisher links reachable inside collapsed sections.
+  function reveal(hash) {
+    if (!hash || hash === '#') return;
+    var target;
+    try { target = document.getElementById(decodeURIComponent(hash.slice(1))); } catch (_) { return; }
+    if (!target) return;
+    var disclosure = target.closest('details.section-disclosure') || target.querySelector('details.section-disclosure');
+    if (!disclosure) return;
+    disclosure.open = true;
+    // A publisher link must also reveal a card hidden by a previous search.
+    if (target.closest('#cards') && target.hidden) {
+      document.getElementById('cq').value = '';
+      document.getElementById('cflag').checked = false;
+      document.getElementById('cq').dispatchEvent(new Event('input', { bubbles: true }));
+    }
+    requestAnimationFrame(function () { target.scrollIntoView({ block: 'start' }); });
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (a && a.origin === location.origin && a.pathname === location.pathname && a.search === location.search) reveal(a.hash);
+  });
+  window.addEventListener('hashchange', function () { reveal(location.hash); });
+  reveal(location.hash);
+})();
