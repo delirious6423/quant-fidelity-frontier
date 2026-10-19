@@ -643,16 +643,16 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
     <div class="ex-chart"><div id="exsvg" class="chartbox"><noscript>The interactive chart needs JavaScript. All numbers are in the ledger below.</noscript></div><div id="extip" class="ex-tip" role="tooltip" hidden></div><p class="ex-chartnote dim" id="exchartnote"></p><div class="legend" id="exlegend" aria-label="Show or hide a repository"></div></div>
     <aside class="ex-picker" aria-label="Choose quants">
       <section id="exdetail" class="quant-detail" hidden aria-label="Selected quant"></section>
-      <div class="ex-pick-head"><b>Quants</b><span id="excount" class="count" aria-live="polite"></span><button type="button" id="exexpand" class="tiny" aria-pressed="false">Expand list</button></div>
+      <details id="quant-picker"><summary>Choose quants <span id="excount" class="count" aria-live="polite"></span></summary><div class="ex-pick-head"><button type="button" id="exexpand" class="tiny" aria-pressed="false">Expand list</button></div>
       <input id="exq" type="search" placeholder="Filter by name, publisher, format…" aria-label="Filter quants in this set">
       <div id="exfmts" class="ex-fmts" aria-label="Formats"></div>
       <div class="ex-pick-actions"><button type="button" id="exall">Tick matches</button><button type="button" id="exnone">Untick matches</button><button type="button" id="exreset" hidden>Reset</button></div>
-      <div id="expick" class="ex-picklist"></div>
+      <div id="expick" class="ex-picklist"></div></details>
     </aside>
   </div>
   <details class="measurement-details"><summary>Measurement details &amp; interpretation</summary><p class="ex-meta" id="exmeta"></p><p>File size is not total memory usage. <a href="#read-first">Read the comparison rules</a> · <a href="#head-to-head">Publisher comparisons</a> · <a href="#no-claims">Repos without extracted claims</a>.</p></details>
-  <div class="ex-tablehead"><span id="extcap" class="dim"></span><button type="button" id="excopy" class="tiny">Copy as CSV</button></div>
-  <div class="tablebox ex-tablebox"><table class="disagree" id="extable"></table></div>
+  <details id="quant-results"><summary>Quant results</summary><div class="ex-tablehead"><span id="extcap" class="dim"></span><button type="button" id="excopy" class="tiny">Copy as CSV</button></div>
+  <div class="tablebox ex-tablebox"><table class="disagree" id="extable"></table></div></details>
 </div>
 <script type="application/json" id="exdata">__EXDATA__</script>
 </section>
@@ -702,14 +702,14 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
 <footer class="foot"><div class="wrap"><p>QFF (Quant Fidelity Frontier): what publishers claim, pinned to the line they said it · data captured {captured} · claims belong to their publishers · <a href="{REPO_URL}">source and data</a>{SUPPORT_HTML}</p></div></footer>
 """
     if CFG.get("benchmark_pilot") and SLUG == "glm-5.3-flash":
-        body = body.replace('<a href="#chart">Compare</a>', '<a href="#chart">Fidelity</a><a href="#benchmarks">Benchmarks</a>')
-        body = body.replace('<section id="head-to-head">', render_pilot(build_pilot(rows, CFG)) + '<section id="head-to-head">')
+        body = body.replace('<a href="#chart">Compare</a>', '<div class="chart-tabs" aria-label="Chart view"><a id="tab-fidelity" href="#chart">Fidelity</a><a id="tab-benchmarks" href="#benchmarks">Benchmarks</a></div>')
+        body = body.replace('<section id="read-first"', render_pilot(build_pilot(rows, CFG)) + '<section id="read-first"')
     return body.replace("__EXDATA__", exdata)
 
 CSS = open(os.path.join(CODE, "web", "site_style.css")).read() if os.path.exists(os.path.join(CODE, "web", "site_style.css")) else ""
 if CFG.get("benchmark_pilot") and SLUG == "glm-5.3-flash":
     CSS += "\n" + open(os.path.join(CODE, "web", "site_benchmarks.css")).read()
-JS = "\n".join(open(os.path.join(CODE, "web", f)).read() for f in ("site_script.js", "site_explorer.js"))
+JS = "\n".join(open(os.path.join(CODE, "web", f)).read() for f in ("site_script.js", "site_explorer.js", "site_tabs.js"))
 if CFG.get("benchmark_pilot") and SLUG == "glm-5.3-flash":
     JS += "\n" + open(os.path.join(CODE, "web", "site_benchmarks.js")).read()
 

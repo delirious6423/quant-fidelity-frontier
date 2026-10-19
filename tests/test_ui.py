@@ -62,6 +62,8 @@ async def main():
             fit = await pg.evaluate("(()=>{const s=document.querySelector('#exsvg svg'),h=document.getElementById('exsvg');return s.getBoundingClientRect().right<=h.getBoundingClientRect().right+1})()")
             check(fit, f"{name}: chart fits its box")
             n0 = await pg.locator("#exsvg circle.mk").count()
+            await pg.locator('#quant-picker > summary').click()
+            await pg.locator('#quant-results > summary').click()
             # picker filter narrows chart and list
             first_set = next(x for x in _DX["sets"] if x["id"] == _first)
             first_metric = first_set["metrics"][0]
