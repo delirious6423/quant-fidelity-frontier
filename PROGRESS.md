@@ -105,3 +105,5 @@
 - Section and individual-publisher links open the corresponding disclosure; a direct publisher link also clears a filter hiding that card.
 - Responsive checks pass at 320/390/1366px for defaults, search, retained filters, section/card anchors and overflow; native disclosures open with JavaScript disabled. Added to CI.
 - Prepared for owner review before deployment.
+
+- Owner refinement: Repos without extracted claims also starts collapsed, with its repository count visible. Direct links, retained status filters and no-JavaScript opening covered in the same responsive regression.

@@ -13,7 +13,7 @@ async def main():
             page.on('pageerror', lambda e: errors.append(str(e)))
             url=(ROOT/'models/glm-5.3-flash/site/index.html').as_uri()
             await page.goto(url)
-            for ident in ('ledger-details','publisher-details'):
+            for ident in ('ledger-details','publisher-details','no-claims-details'):
                 assert not await page.locator('#'+ident).evaluate('(e) => e.open')
             await page.locator('#ledger').scroll_into_view_if_needed()
             out=ROOT/'docs/previews'; out.mkdir(exist_ok=True)
@@ -36,6 +36,14 @@ async def main():
             await page.goto(url+'#ledger')
             assert await page.locator('#q').is_visible()
             assert await page.evaluate('document.documentElement.scrollWidth <= innerWidth')
+            await page.goto(url+'#no-claims')
+            assert await page.locator('#ncq').is_visible()
+            await page.select_option('#ncs', 'read in full: no quality claims')
+            assert not (await page.locator('#nccount').inner_text()).startswith('0 ')
+            await page.locator('#no-claims-details > summary').click()
+            await page.locator('#method a[href="#no-claims"]').click()
+            assert await page.locator('#ncs').input_value() == 'read in full: no quality claims'
+            assert await page.locator('#ncq').is_visible()
             assert not errors, errors
             print(f'PASS {width}px: collapsed defaults, direct section/card links, search state, no overflow or JS errors')
             await page.close()
@@ -44,8 +52,10 @@ async def main():
         await page.goto(url)
         await page.locator('#ledger-details > summary').click()
         await page.locator('#publisher-details > summary').click()
+        await page.locator('#no-claims-details > summary').click()
+        assert await page.locator('#nctable').is_visible()
         assert await page.locator('#t').is_visible()
         assert await page.locator('#cards').is_visible()
-        print('PASS no JavaScript: both sections open natively')
+        print('PASS no JavaScript: all three sections open natively')
         await browser.close()
 asyncio.run(main())

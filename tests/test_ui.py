@@ -244,6 +244,8 @@ async def main():
             note_term = next(t for t in re.findall(r"[A-Za-z]{4,}", note_texts[0]) if 0 < sum(t.lower() in x.lower() for x in note_texts) < len(note_texts))
             await pg.fill("#cq", note_term); await pg.wait_for_timeout(100)
             cc = await pg.text_content("#ccount"); check(cc and cc.startswith(str(sum(note_term.lower() in x.lower() for x in note_texts)) + " of"), f"{name}: notes search ({cc})")
+            check(not await pg.locator('#no-claims-details').evaluate('(e) => e.open'), f"{name}: repos without extracted claims start collapsed")
+            await pg.locator('#no-claims-details > summary').click()
             await pg.select_option("#ncs", "read in full: no quality claims"); await pg.wait_for_timeout(50)
             ncc = await pg.text_content("#nccount"); check(ncc and not ncc.startswith("0 "), f"{name}: no-claims status filter ({ncc})")
             sw = await pg.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth")
