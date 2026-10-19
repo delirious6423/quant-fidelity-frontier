@@ -33,6 +33,7 @@ reps, dup = [], {}
 for sha, rs in by.items():
     rs.sort(key=lambda r: (r not in mapped, idx[r].get("lastModified") or "z"))   # keep an already-mapped repo as the representative
     reps.append(rs[0]); dup.update({x: rs[0] for x in rs[1:]})
-todo = sorted(r for r in reps if not copied(r) and mapped.get(r) != idx[r]["sha256"])
+sp = f"{R}/audit/skipped_maps.json"; skipped = json.load(open(sp)) if os.path.exists(sp) else {}   # gave up after repeated failed rounds
+todo = sorted(r for r in reps if not copied(r) and mapped.get(r) != idx[r]["sha256"] and skipped.get(r) != idx[r]["sha256"])
 json.dump({"todo": todo, "copied": sorted(r for r in reps if copied(r)), "dup_of": dup}, open(f"{R}/audit/mapset.json", "w"), indent=1)
 print(json.dumps({"wave1": len(t["wave1"]), "unique": len(reps), "already_mapped": sum(1 for r in reps if mapped.get(r) == idx[r]["sha256"]), "todo": len(todo)}))

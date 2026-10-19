@@ -163,6 +163,20 @@ elif cmd == "prepare":
         mg = run("python3 pipeline/qcl_watch.py merge", e).stdout.strip().splitlines()[-1]; run("python3 pipeline/gen_auto.py", e)
         out({**ms, **q, "merge": mg, "next": "no cards to map; merged and relisted, go to publish"}, 2)
     out({**ms, **q, "work": os.path.relpath(W, CODE), "next": "start Haiku workers per docs/agents/MAP.md for RUN=A and RUN=B"}, 0)
+elif cmd == "skip-pending":
+    # after repeated failed mapping rounds, give up on the cards still queued: they are listed as not yet reviewed and
+    # are not re-queued until their card changes (audit/skipped_maps.json pins each card's SHA-256)
+    slug = sys.argv[2]; W = os.path.join(CODE, "work", slug); R = M(slug)
+    idx = json.load(open(f"{R}/snapshots/index.json"))["repos"]
+    sp = f"{R}/audit/skipped_maps.json"; skipped = json.load(open(sp)) if os.path.exists(sp) else {}
+    names = []
+    for q in sorted(glob.glob(f"{W}/pending/*.txt")):
+        names += [l.strip() for l in open(q) if l.strip()]; os.remove(q)
+    for n in names:
+        rp = next((r for r in idx if r.replace("/", "__") == n), None)
+        if rp: skipped[rp] = idx[rp]["sha256"]
+    os.makedirs(f"{R}/audit", exist_ok=True); json.dump(skipped, open(sp, "w"), indent=1, sort_keys=True)
+    out({"slug": slug, "skipped": len(set(names))})
 elif cmd == "finish":
     slug = sys.argv[2]; e = env(slug); W = os.path.join(CODE, "work", slug)
     pending = sorted(os.listdir(f"{W}/pending")) if os.path.isdir(f"{W}/pending") else []

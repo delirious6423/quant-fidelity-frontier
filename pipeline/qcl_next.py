@@ -235,7 +235,10 @@ if step == "b_finish":
         pend = sorted(os.listdir(f"{CODE}/work/{slug}/pending")) if os.path.isdir(f"{CODE}/work/{slug}/pending") else []
         if pend and s["b_retries"] <= 2 and minutes() < 40:   # maps that failed the check go back to workers once or twice
             agents([MAP_PROMPT.format(code=CODE, slug=slug, run=r) for r in sorted({p[0] for p in pend})], s, "b_mapped")
-        finish_run(s, f"finish: {d.get('error')}; the next run re-queues")
+        if pend and s["b_retries"] > 2:   # still failing: give those cards up (listed as not yet reviewed) instead of blocking the model
+            _, k = scan(f"skip-pending {slug}"); s["notes"].append(f"gave up mapping {k.get('skipped')} card(s) after 3 rounds")
+            code, d = scan(f"finish {slug}")
+        if code == 1: finish_run(s, f"finish: {d.get('error')}; the next run re-queues")
     code, d = scan(f"stage --review {slug}")   # complete: hand it to the QA worker, which tests it and puts it live
     if code == 0:
         s["part_b"]["review"] = d.get("staged"); s["b_progress"] = False
