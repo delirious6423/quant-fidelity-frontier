@@ -34,80 +34,95 @@
    "last_scan_at": "2026-10-19T06:10:52.000Z"
   },
   {
-   "model": "zai-org/GLM-5.3",
-   "slug": "glm-5.3",
-   "status": "queued"
-  },
-  {
-   "model": "google/gemma-4-26B-A4B-it",
-   "slug": "gemma-4-26b-a4b-it",
-   "status": "queued"
-  },
-  {
-   "model": "ornith-ai/Ornith-1.5-35B-A3B",
-   "slug": "ornith-1.5-35b-a3b",
-   "status": "queued"
-  },
-  {
-   "model": "google/gemma-4-31B-it",
-   "slug": "gemma-4-31b-it",
-   "status": "queued"
-  },
-  {
-   "model": "google/gemma-4-E4B-it",
-   "slug": "gemma-4-e4b-it",
-   "status": "queued"
-  },
-  {
-   "model": "google/gemma-4-12B-it",
-   "slug": "gemma-4-12b-it",
-   "status": "queued"
-  },
-  {
-   "model": "ornith-ai/Ornith-1.5-9B",
-   "slug": "ornith-1.5-9b",
-   "status": "queued"
-  },
-  {
-   "model": "LiquidAI/LFM2.5-24B-A2B",
-   "slug": "lfm2.5-24b-a2b",
-   "status": "queued"
-  },
-  {
-   "model": "google/gemma-4-E2B-it",
-   "slug": "gemma-4-e2b-it",
-   "status": "queued"
-  },
-  {
-   "model": "XiaomiMiMo/MiMo-V2.6-Flash-RL",
-   "slug": "mimo-v2.6-flash-rl",
-   "status": "queued"
-  },
-  {
-   "model": "moonshotai/Kimi-K3",
-   "slug": "kimi-k3",
-   "status": "queued"
+   "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+   "slug": "deepseek-v4.1-flash-1017",
+   "status": "queued",
+   "released": "2026-10-17"
   },
   {
    "model": "meta-models/Muse-Spark-Open-816B-A42B",
    "slug": "muse-spark-open",
-   "status": "queued"
+   "status": "queued",
+   "released": "2026-10-15"
+  },
+  {
+   "model": "LiquidAI/LFM2.5-24B-A2B",
+   "slug": "lfm2.5-24b-a2b",
+   "status": "queued",
+   "released": "2026-10-13"
+  },
+  {
+   "model": "XiaomiMiMo/MiMo-V2.6-Flash-RL",
+   "slug": "mimo-v2.6-flash-rl",
+   "status": "queued",
+   "released": "2026-10-09"
+  },
+  {
+   "model": "moonshotai/Kimi-K3",
+   "slug": "kimi-k3",
+   "status": "queued",
+   "released": "2026-09"
+  },
+  {
+   "model": "zai-org/GLM-5.3",
+   "slug": "glm-5.3",
+   "status": "queued",
+   "released": "2026-08-28"
   },
   {
    "model": "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
    "slug": "nemotron-3-ultra",
-   "status": "queued"
+   "status": "queued",
+   "released": "2026-08-24"
+  },
+  {
+   "model": "ornith-ai/Ornith-1.5-35B-A3B",
+   "slug": "ornith-1.5-35b-a3b",
+   "status": "queued",
+   "released": "2026-08-23"
+  },
+  {
+   "model": "ornith-ai/Ornith-1.5-9B",
+   "slug": "ornith-1.5-9b",
+   "status": "queued",
+   "released": "2026-08-23"
   },
   {
    "model": "Qwen/Qwen3.8-2.4T-A95B",
    "slug": "qwen3.8-2.4t-a95b",
-   "status": "queued"
+   "status": "queued",
+   "released": "2026-08-12"
   },
   {
-   "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
-   "slug": "deepseek-v4.1-flash-1017",
-   "status": "queued"
+   "model": "google/gemma-4-26B-A4B-it",
+   "slug": "gemma-4-26b-a4b-it",
+   "status": "queued",
+   "released": "2026-07"
+  },
+  {
+   "model": "google/gemma-4-31B-it",
+   "slug": "gemma-4-31b-it",
+   "status": "queued",
+   "released": "2026-07"
+  },
+  {
+   "model": "google/gemma-4-E4B-it",
+   "slug": "gemma-4-e4b-it",
+   "status": "queued",
+   "released": "2026-07"
+  },
+  {
+   "model": "google/gemma-4-12B-it",
+   "slug": "gemma-4-12b-it",
+   "status": "queued",
+   "released": "2026-07"
+  },
+  {
+   "model": "google/gemma-4-E2B-it",
+   "slug": "gemma-4-e2b-it",
+   "status": "queued",
+   "released": "2026-07"
   }
  ],
- "queue_policy": "Latest model family of each lab only, and only families with a release in the last 6 months (stale families such as gpt-oss are left out); ordered by how many quant repos carry the base_model:quantized tag and how many of those have 1,000+ downloads (survey 2026-10-19)."
+ "queue_policy": "Newest models first. Latest model family of each lab only, and only families with a release in the last 6 months (stale families such as gpt-oss are left out). 'released' is approximate: the date in the model name, else the earliest activity seen on the Hub for the model or its first quants (survey 2026-10-19)."
 }
