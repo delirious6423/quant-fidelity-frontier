@@ -20,7 +20,7 @@
   var rows = Array.prototype.slice.call(t.tBodies[0].rows);
   var q = document.getElementById('q'), ffmt = document.getElementById('ffmt'), fref = document.getElementById('fref'),
       fq = document.getElementById('fq'), fx = document.getElementById('fx'), fm = document.getElementById('fm'), count = document.getElementById('count');
-  rows.forEach(function (r) { r._txt = r.textContent.toLowerCase(); });
+  rows.forEach(function (r) { r._txt = r.textContent.toLowerCase(); Array.prototype.forEach.call(r.cells, function (c, i) { c.dataset.label = t.tHead.rows[0].cells[i].textContent.trim(); }); });
   function apply() {
     var terms = q.value.trim().toLowerCase().split(/\s+/).filter(Boolean), n = 0;
     rows.forEach(function (r) {
@@ -78,4 +78,9 @@
   var links = Array.prototype.slice.call(document.querySelectorAll('.toc a[href^="#"]')); if (!links.length || !window.IntersectionObserver) return;
   var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) links.forEach(function (a) { a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); }); }); }, { rootMargin: '-45% 0px -50% 0px' });
   links.forEach(function (a) { var s = document.querySelector(a.getAttribute('href')); if (s) io.observe(s); });
+})();
+
+(function () { // Allow coverage links to open the disclosure before anchor navigation.
+  document.querySelectorAll('a[href="#coverage"]').forEach(function (a) { a.addEventListener('click', function () { document.getElementById('coverage').open = true; }); });
+  if (location.hash === '#coverage') document.getElementById('coverage').open = true;
 })();

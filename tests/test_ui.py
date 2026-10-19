@@ -46,6 +46,7 @@ async def main():
             check(await pg.locator("#exsvg circle.mk").count() == sum(1 for q in _ALL["points"] if q["m"].get(_ALL["metrics"][0], {}).get("v", 0) > 0), f"{name}: overview chart draws every claim ({NALL} points)")
             owners = await pg.evaluate("[...document.querySelectorAll('#exset optgroup')].slice(1).map(g=>[...g.querySelectorAll('option')].map(o=>o.textContent.split(' · ')[0].toLowerCase()))")
             check(all(g == sorted(g) for g in owners), f"{name}: sets listed alphabetically by owner within each group")
+            await pg.locator(".ex-options > summary").click()
             _first = None
             for _v in await pg.evaluate("[...document.querySelectorAll('#exset optgroup')].slice(1).flatMap(g=>[...g.querySelectorAll('option')].map(o=>o.value))"):
                 await pg.select_option("#exset", _v); await pg.wait_for_timeout(40)

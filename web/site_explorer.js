@@ -25,27 +25,61 @@
   function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   function load(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
 
+  // Detail and shortlist state is local to this measurement set, never a cross-set ranking.
+  var detailPoint = null, shortlist = [], detailOpen = false, dismissedQid = null, suppressFocusTip = false;
+  var duplicateTitles = {};
+  SETS.forEach(function (s) { duplicateTitles[s.title] = (duplicateTitles[s.title] || 0) + 1; });
+  function setSuffix(s) {
+    var domains = [];
+    s.metrics.forEach(function (k) {
+      if (k.indexOf(':') < 0) return;
+      var d = k.split(':').slice(1).join(':').split('/').pop();
+      if (domains.indexOf(d) < 0) domains.push(d);
+    });
+    var text = domains.length ? domains.join(' / ') : s.data;
+    return text.length > 78 ? text.slice(0, 75) + '…' : text;
+  }
+  function setLabel(s) {
+    var suffix = '';
+    if (duplicateTitles[s.title] > 1) {
+      var context = setSuffix(s);
+      var peers = SETS.filter(function (other) { return other.title === s.title && setSuffix(other) === context; });
+      suffix = ' · ' + context + (peers.length > 1 ? ' · measurement ' + (peers.indexOf(s) + 1) : '');
+    }
+    return s.title + suffix + ' · ' + s.points.length + ' quants';
+  }
   // ---- set chooser: grouped ----
   var groupsDef = [['Overview: every claim together (not comparable)', function (s) { return !s.comparable; }],
                    ['Curated sets: one measurer, one method', function (s) { return s.comparable && !s.auto; }],
                    ['From a single card (assembled automatically)', function (s) { return s.comparable && s.auto; }]];
   groupsDef.forEach(function (g) {
     var og = document.createElement('optgroup'); og.label = g[0];
-    SETS.filter(g[1]).slice().sort(function (a, b) { var x = a.title.split(' · ')[0].toLowerCase(), y = b.title.split(' · ')[0].toLowerCase(); return x < y ? -1 : x > y ? 1 : (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1); }).forEach(function (s) { var o = document.createElement('option'); o.value = s.id; o.textContent = s.title + ' · ' + s.points.length + ' quants'; og.appendChild(o); });
+    SETS.filter(g[1]).slice().sort(function (a, b) { var x = a.title.split(' · ')[0].toLowerCase(), y = b.title.split(' · ')[0].toLowerCase(); return x < y ? -1 : x > y ? 1 : (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1); }).forEach(function (s) { var o = document.createElement('option'); o.value = s.id; o.textContent = setLabel(s); o.dataset.search = (setLabel(s) + ' ' + s.data + ' ' + s.metrics.map(function (k) { return MET[k].label; }).join(' ')).toLowerCase(); og.appendChild(o); });
     if (og.children.length) selSet.appendChild(og);
   });
+  var setSearch = $('exsetsearch');
+  function filterSets() {
+    var terms = setSearch ? setSearch.value.trim().toLowerCase().split(/\s+/).filter(Boolean) : [];
+    Array.prototype.forEach.call(selSet.options, function (o) {
+      // The selected option stays available: typing never changes the active measurement.
+      o.hidden = o.value !== state.set && !terms.every(function (term) { return o.dataset.search.indexOf(term) >= 0; });
+    });
+    Array.prototype.forEach.call(selSet.querySelectorAll('optgroup'), function (g) { g.hidden = Array.prototype.every.call(g.children, function (o) { return o.hidden; }); });
+  }
+  if (setSearch) setSearch.addEventListener('input', filterSets);
   var saved = load('qff.set'); if (saved && setById(saved)) state.set = saved;
   if (/^#set-[a-z0-9-]+$/.test(location.hash) && setById(location.hash.slice(5))) state.set = location.hash.slice(5);
   selSet.value = state.set;
   function goSet(id, focusQid) {
     try { if (window.umami && id !== state.set) window.umami.track('set', { id: id }); } catch (e) {}   // which comparisons people open (cookie-free stats)
     state.set = id; selSet.value = id; state.metric = null; state.q = ''; qIn.value = ''; state.fmts = {}; state.sort = null; state.xmax = null; state.ylim = null; state.basis = ''; state.focus = focusQid || null; state.pinned = focusQid || null;
+    detailPoint = null; shortlist = []; detailOpen = false; filterSets();
     store('qff.set', id); render();
   }
   selSet.addEventListener('change', function () { goSet(selSet.value); });
   labelsCb.addEventListener('change', function () { store('qcl.labels', labelsCb.checked ? '1' : '0'); drawChart(); });
   frontCb.addEventListener('change', function () { renderBody(); });
-  if (load('qcl.labels') === '0') labelsCb.checked = false;
+  labelsCb.checked = load('qcl.labels') === '1';
 
   // ---- find a quant across all sets ----
   var findIn = $('exfind'), findRes = $('exfindres');
@@ -193,6 +227,10 @@
     }
     $('exmeta').innerHTML = (S.comparable ? '' : '<span class="chip w">not comparable</span> <b>Overview.</b> Every published claim on one chart. Measurers, reference models, datasets and methods differ, so a gap between two points here can come from the method rather than the quant. Pick a single-card set above to compare like with like.<br>') +
       '<b>Measured by</b> ' + esc(S.title.split(' · ')[0]) + ' · <b>Reference</b> ' + esc(S.reference) + ' · <b>Text</b> ' + esc(S.data) + (S.note ? '<br><span class="dim">' + esc(S.note) + '</span>' : '');
+    if ($('exscope')) {
+      $('exscope').textContent = S.comparable ? 'One measurement set · ' + S.title + ' · Size: ' + S.x.label : 'Mixed methods — points are not directly comparable. Select one measurement set to compare like with like. Size: ' + S.x.label;
+      $('exscope').classList.toggle('mixed', !S.comparable);
+    }
     // format chips for this set
     var fm = {}; S.points.forEach(function (p) { var f = famOf(p.fmt); fm[f] = (fm[f] || 0) + 1; });
     var fks = Object.keys(fm).sort(function (a, b) { return fm[b] - fm[a] || (a < b ? -1 : 1); });
@@ -208,7 +246,7 @@
     syncRange(); syncExtras();
     renderBody();
   }
-  function renderBody() { var S = setById(state.set); picker(S); drawChart(); table(S); }
+  function renderBody() { var S = setById(state.set); picker(S); drawChart(); table(S); renderDetail(); }
 
   function picker(S) {
     var box = $('expick'); box.innerHTML = '';
@@ -299,20 +337,35 @@
     pts.slice().sort(function (a, b) { return a.x - b.x; }).forEach(function (p) {
       var cx = X(p.x), cy = Y(p.m[k].v);
       if (F[p.qid]) svg.appendChild(el('circle', { cx: cx.toFixed(1), cy: cy.toFixed(1), r: r + 3.5, class: 'fring' }));
-      var c = el('circle', { cx: cx.toFixed(1), cy: cy.toFixed(1), r: r, class: 'mk' + (p.kind === 'cross' ? ' cross' : ''), 'data-qid': p.qid, style: 'fill:' + colour(p.pub), tabindex: '0', role: 'button',
+      var c = el('circle', { cx: cx.toFixed(1), cy: cy.toFixed(1), r: r, class: 'mk' + (p.kind === 'cross' ? ' cross' : ''), 'data-qid': p.qid, style: (p.is_ref ? 'fill:var(--panel, #fff);stroke:' : 'fill:') + colour(p.pub), tabindex: '0', role: 'button',
         'aria-label': p.variant + ' from ' + p.repo + ': ' + M.label + ' ' + p.m[k].raw + ', ' + fmt(p.x) + ' ' + S.x.unit });
-      c.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { showTip(p, c); hl(p.qid, true); } });
+      c.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { if (dismissedQid !== p.qid) dismissedQid = null; showTip(p, c); hl(p.qid, true); } });
       c.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') { hl(p.qid, false); if (state.pinned !== p.qid) hideTip(); } });
-      c.addEventListener('focus', function () { showTip(p, c); hl(p.qid, true); });
+      c.addEventListener('focus', function () { if (suppressFocusTip) return; showTip(p, c, state.pinned === p.qid); hl(p.qid, true); });
       c.addEventListener('blur', function () { hl(p.qid, false); if (state.pinned !== p.qid) hideTip(); });
-      c.addEventListener('click', function () { state.pinned = state.pinned === p.qid ? null : p.qid; if (state.pinned) showTip(p, c, true); else hideTip(true); });
-      c.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); c.dispatchEvent(new Event('click')); } if (e.key === 'Escape') { state.pinned = null; hideTip(true); } });
+      function activatePoint(keyboard) {
+        var hadFocus = document.activeElement === c;
+        dismissedQid = null; detailPoint = p; detailOpen = true; state.pinned = p.qid;
+        drawChart(); renderDetail();
+        var mobileClose = keyboard && window.matchMedia('(max-width: 700px)').matches && $('exdetail') && $('exdetail').querySelector('.quant-close');
+        if (mobileClose) mobileClose.focus({ preventScroll: true });
+        else if (hadFocus) {
+          var replacement = host.querySelector('circle.mk[data-qid="' + cssq(p.qid) + '"]');
+          if (replacement) { suppressFocusTip = true; replacement.focus({ preventScroll: true }); suppressFocusTip = false; }
+        }
+      }
+      c.addEventListener('click', function (e) { activatePoint(e.detail === 0); });
+      c.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activatePoint(true); }
+        if (e.key === 'Escape') { dismissedQid = p.qid; state.pinned = null; hideTip(true); }
+      });
       svg.appendChild(c); boxes.push({ x0: cx - r - 1, x1: cx + r + 1, y0: cy - r - 1, y1: cy + r + 1 });
     });
     var maxLab = narrow ? 14 : 36;
-    if (labelsCb.checked && pts.length <= maxLab) {
+    var labelPts = labelsCb.checked && pts.length <= maxLab ? pts : pts.filter(function (p) { return detailPoint === p; });
+    if (labelPts.length) {
       var placed = boxes.slice();
-      pts.slice().sort(function (a, b) { return a.x - b.x; }).forEach(function (p) {
+      labelPts.slice().sort(function (a, b) { return a.x - b.x; }).forEach(function (p) {
         var cx = X(p.x), cy = Y(p.m[k].v), lim = narrow ? 14 : 22;
         var name = p.variant.length > lim ? p.variant.slice(0, lim - 1) + '…' : p.variant, val = p.m[k].raw.replace(/\s*±.*$/, '').replace(/\*\*/g, '');
         var w = Math.max(name.length, val.length) * 6.4 + 6, hgt = 26;
@@ -353,11 +406,53 @@
     if (state.focus) { var fc = svg.querySelector('circle.mk[data-qid="' + cssq(state.focus) + '"]'); var fpnt = pts.filter(function (p) { return p.qid === state.focus; })[0]; if (fc && fpnt) { showTip(fpnt, fc, true); fc.classList.add('pulse'); } state.focus = null; }
     else if (state.pinned) { var pc = svg.querySelector('circle.mk[data-qid="' + cssq(state.pinned) + '"]'), pp = pts.filter(function (p) { return p.qid === state.pinned; })[0]; if (pc && pp) showTip(pp, pc, true); else state.pinned = null; }
   }
+  function closeDetail() {
+    detailOpen = false; dismissedQid = detailPoint && detailPoint.qid; state.pinned = null; hideTip(true); renderDetail();
+    var marker = detailPoint && host.querySelector('circle.mk[data-qid="' + cssq(detailPoint.qid) + '"]');
+    var target = marker || $('exdetailopen');
+    if (target) { suppressFocusTip = true; target.focus({ preventScroll: true }); suppressFocusTip = false; }
+
+  }
+  function renderDetail() {
+    var box = $('exdetail'); if (!box) return;
+    var S = setById(state.set), p = detailPoint, k = state.metric;
+    var openBtn = $('exdetailopen');
+    if (!openBtn) {
+      openBtn = h('button', { id: 'exdetailopen', type: 'button', class: 'tiny', 'aria-controls': 'exdetail' }, 'Selected quant');
+      box.parentNode.insertBefore(openBtn, box);
+      openBtn.addEventListener('click', function () { detailOpen = !detailOpen; renderDetail(); });
+    }
+    openBtn.hidden = !p;
+    openBtn.setAttribute('aria-expanded', String(!!p && detailOpen));
+    openBtn.textContent = 'Selected quant' + (shortlist.length ? ' · shortlist ' + shortlist.length : '');
+    box.hidden = !p || !detailOpen; box.dataset.open = String(!!p && detailOpen);
+    if (!p) { box.innerHTML = ''; return; }
+    var metrics = S.metrics.filter(function (m) { return p.m[m]; });
+    box.innerHTML = '<button type="button" class="quant-close tiny" aria-label="Close selected quant">Close ×</button>' +
+      '<p class="dim">Selected quant</p><h3>' + esc(p.variant) + '</h3><p class="tt-repo">' + esc(p.repo) + (p.fmt ? ' · ' + esc(p.fmt) : '') + '</p>' +
+      '<div class="tt-grid"><div><span>' + esc(S.x.label) + '</span><b>' + fmt(p.x) + ' ' + esc(S.x.unit) + '</b></div>' +
+      metrics.map(function (m) { return '<div><span>' + esc(MET[m].label) + (p.m[m].series ? ' · ' + esc(p.m[m].series.split(':').slice(1).join(':')) : '') + '</span><b>' + esc(p.m[m].raw) + '</b></div>'; }).join('') + '</div>' +
+      (shown(S).indexOf(p) < 0 ? '<p class="dim">This selected quant is outside the current chart filters.</p>' : '') +
+      '<p class="dim">Reference: ' + esc(S.reference) + '</p>' +
+      (p.basis ? '<p class="dim">Size type: ' + esc(p.basis) + '</p>' : '') +
+      (p.kind === 'cross' ? '<p>Measured by ' + esc(p.measured_by) + ', not the file’s publisher.</p>' : '') +
+      (p.is_ref ? '<p>This reference build is not ranked for efficiency.</p>' : '') +
+      (p.inferred ? '<p>The source names this file but not its repository; attribution is inferred from the filename.</p>' : '') +
+      '<p><a href="' + esc(p.src) + '">View source evidence: ' + esc(p.src_label) + '</a></p>' +
+      (S.comparable ? '<button type="button" class="tiny" id="exshortadd">' + (shortlist.indexOf(p) >= 0 ? 'Remove from shortlist' : 'Add to shortlist') + '</button><p class="dim">Shortlist stays within this measurement set and clears when you switch sets. Values use the current metric; no ranking is implied.</p>' : '<p class="dim">Choose a single measurement set to build a comparable shortlist.</p>') +
+      (shortlist.length ? '<ul class="quant-shortlist">' + shortlist.map(function (q, i) { return '<li><b>' + esc(q.variant) + '</b> · ' + fmt(q.x) + ' ' + esc(S.x.unit) + ' · ' + esc(MET[k].label) + ': ' + (q.m[k] ? esc(q.m[k].raw) : 'not reported') + ' <button type="button" class="tiny" data-short-remove="' + i + '" aria-label="Remove ' + esc(q.variant) + ' from shortlist">Remove</button></li>'; }).join('') + '</ul>' : '');
+    box.querySelector('.quant-close').addEventListener('click', closeDetail);
+    var add = $('exshortadd'); if (add) add.addEventListener('click', function () { var i = shortlist.indexOf(p); if (i >= 0) shortlist.splice(i, 1); else shortlist.push(p); renderDetail(); $('exshortadd').focus(); });
+    Array.prototype.forEach.call(box.querySelectorAll('[data-short-remove]'), function (b) { b.addEventListener('click', function () { var removed = +b.dataset.shortRemove; shortlist.splice(removed, 1); renderDetail(); var buttons = box.querySelectorAll('[data-short-remove]'); var next = buttons[Math.min(removed, buttons.length - 1)] || $('exshortadd'); if (next) next.focus(); }); });
+  }
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && detailOpen) closeDetail(); });
   function cssq(s) { return String(s).replace(/["\\]/g, '\\$&'); }
 
   function showTip(p, c, pinned) {
+    if (dismissedQid === p.qid && !pinned) return;
+    pinned = !!pinned || state.pinned === p.qid;
     var S = setById(state.set), k = state.metric, M = MET[k];
-    var others = S.metrics.filter(function (m) { return m !== k && p.m[m]; }).map(function (m) { return '<div><span>' + esc(MET[m].label) + '</span><b>' + esc(p.m[m].raw) + '</b></div>'; }).join('');
+    var others = S.metrics.filter(function (m) { return m !== k && p.m[m]; }).map(function (m) { return '<div><span>' + esc(MET[m].label) + (p.m[m].series ? ' · ' + esc(p.m[m].series.split(':').slice(1).join(':')) : '') + '</span><b>' + esc(p.m[m].raw) + '</b></div>'; }).join('');
     tip.innerHTML = '<p class="tt-name">' + esc(p.variant) + '</p><p class="tt-repo">' + esc(p.repo) + (p.fmt ? ' · ' + esc(p.fmt) : '') + '</p>' +
       '<div class="tt-grid"><div><span>' + esc(M.label) + (p.m[k].series ? ' · ' + esc(p.m[k].series.split(':').slice(1).join(':')) : '') + '</span><b>' + esc(p.m[k].raw) + '</b></div>' + others +
       '<div><span>' + esc(S.x.unit) + '</span><b>' + fmt(p.x) + (p.size_raw && String(p.size_raw) !== fmt(p.x) ? ' <small>(card: ' + esc(p.size_raw) + ')</small>' : '') + '</b></div></div>' +
@@ -373,11 +468,11 @@
     tip.style.left = x + 'px'; tip.style.top = y + 'px';
     var xb = $('extipx'); if (xb) xb.addEventListener('click', function () { state.pinned = null; hideTip(true); });
     Array.prototype.forEach.call(document.querySelectorAll('#extable tr.sel'), function (r) { r.classList.remove('sel'); });
-    if (pinned) { var row = document.querySelector('#extable tr[data-qid="' + cssq(p.qid) + '"]'); if (row) row.classList.add('sel'); }
+    if (pinned) { detailPoint = p; detailOpen = true; renderDetail(); var row = document.querySelector('#extable tr[data-qid="' + cssq(p.qid) + '"]'); if (row) row.classList.add('sel'); }
   }
   function hideTip(force) { if (force || !state.pinned) { tip.hidden = true; tip.classList.remove('pinned'); } }
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && state.pinned) { state.pinned = null; hideTip(true); } });
-  document.addEventListener('click', function (e) { if (state.pinned && document.contains(e.target) && !e.target.closest('#extip') && !e.target.closest('#exfindres') && !e.target.closest('.jump') && !e.target.closest('circle.mk') && !e.target.closest('#extable')) { state.pinned = null; hideTip(true); } });
+  document.addEventListener('click', function (e) { if (state.pinned && document.contains(e.target) && !e.target.closest('#extip') && !e.target.closest('#exdetail') && !e.target.closest('#exdetailopen') && !e.target.closest('#exfindres') && !e.target.closest('.jump') && !e.target.closest('circle.mk') && !e.target.closest('#extable')) { state.pinned = null; hideTip(true); } });
 
   function hl(qid, on) {
     var svg = host.querySelector('svg'); if (!svg) return;
@@ -405,6 +500,11 @@
         '<td class="src"><a href="' + esc(p.src) + '">' + esc(p.src_label) + '</a></td></tr>';
     }).join('');
     t.innerHTML = head + '<tbody>' + (body || '<tr><td colspan="' + (ks.length + 5) + '" class="dim">No quant matches the current list and limits.</td></tr>') + '</tbody>';
+    t.classList.add('mobile-cards');
+    var columnNames = Array.prototype.map.call(t.querySelectorAll('thead th'), function (c) { return c.textContent; });
+    Array.prototype.forEach.call(t.querySelectorAll('tbody tr[data-qid]'), function (r) {
+      Array.prototype.forEach.call(r.cells, function (c, i) { c.dataset.label = columnNames[i]; });
+    });
     $('extcap').textContent = pts.length + ' quant' + (pts.length === 1 ? '' : 's') + ' · sorted by ' + (sort.key === '_x' ? S.x.unit : sort.key === '_name' ? 'name' : MET[sort.key].label) + ' · click a header to sort';
     Array.prototype.forEach.call(t.querySelectorAll('th[data-key]'), function (c) {
       function go() { var key = c.dataset.key; state.sort = { key: key, dir: sort.key === key ? -sort.dir : (key === '_name' || key === '_x' || (MET[key] && MET[key].better === 'lower') ? 1 : -1) }; table(S); }

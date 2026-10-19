@@ -87,3 +87,8 @@
 - Owner visual correction: homepage Mean KLD preview now uses an explicitly labeled logarithmic y-axis and a taller plot, retaining all 27 actual positive KLD values. Source values and linear GB x-axis are unchanged. No illustrative/jittered points. Regression checks verify the log label and vertical spread.
 - Browse models now groups by base-model provider (DeepSeek, Qwen, Z.ai), providers A–Z, and repository count descending within each provider. Ties use model name A–Z. Qwen3.8-27B remains the quick-start default and chart example. Browser regression checks validate grouping and model order against the manifest.
 - 2026-10-19 06:53 UTC hourly scan: deepseek-v4-flash-0731 189 repos, 386 values; deepseek-v4.1-flash 134 repos, 1081 values; glm-5.3-flash 175 repos, 543 values; qwen3.8-27b 1230 repos, 4716 values; qwen3.8-flash-next 463 repos, 2950 values
+
+## Model-page design refresh (2026-10-19)
+- Owner approved chart-first model page redesign with one explicit exception: preserve initial measurement-set selection, including existing saved/hash/query precedence.
+- Compact model header and expandable coverage; searchable measurement picker, controls and method disclosures, selected-quant evidence panel and same-set shortlist; mobile claim cards.
+- Validation: 488 existing explorer UI checks passed; all five models pass new 320/390/1366px layout, source evidence, shortlist, and initial-set precedence tests. Gates, claims, homepage, MCP, discovery checks passed. All five data.json exports remain byte-identical. Independent review cleared provenance and keyboard fixes. Static build 11.6 MB. Ready for CI and deployment.
