@@ -64,11 +64,6 @@
    "status": "queued"
   },
   {
-   "model": "openai/gpt-oss-120b",
-   "slug": "gpt-oss-120b",
-   "status": "queued"
-  },
-  {
    "model": "ornith-ai/Ornith-1.5-9B",
    "slug": "ornith-1.5-9b",
    "status": "queued"
@@ -76,11 +71,6 @@
   {
    "model": "LiquidAI/LFM2.5-24B-A2B",
    "slug": "lfm2.5-24b-a2b",
-   "status": "queued"
-  },
-  {
-   "model": "openai/gpt-oss-20b",
-   "slug": "gpt-oss-20b",
    "status": "queued"
   },
   {
@@ -119,5 +109,5 @@
    "status": "queued"
   }
  ],
- "queue_policy": "Latest model family of each lab only; ordered by how many quant repos carry the base_model:quantized tag and how many of those have 1,000+ downloads (survey 2026-10-19)."
+ "queue_policy": "Latest model family of each lab only, and only families with a release in the last 6 months (stale families such as gpt-oss are left out); ordered by how many quant repos carry the base_model:quantized tag and how many of those have 1,000+ downloads (survey 2026-10-19)."
 }
