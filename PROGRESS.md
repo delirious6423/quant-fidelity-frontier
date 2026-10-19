@@ -81,3 +81,4 @@
 - GitHub Pages: static-only output, relative links, no backend/API dependency, 11.5 MB assembled site. Assembly now rejects output at the documented 1 GB published-site limit.
 - Review screenshots: `docs/previews/homepage-desktop.png` and `docs/previews/homepage-mobile.png`. Merge/deployment remains for owner review.
 - Owner refinement: Qwen3.8-27B now supplies the example chart and quick-start default. Uses AtomicChat's 27 source-linked KLD points, all with download-size basis; the preview and selected measurement set agree. Other model ordering remains unchanged.
+- Owner visual correction: homepage Mean KLD preview now uses an explicitly labeled logarithmic y-axis and a taller plot, retaining all 27 actual positive KLD values. Source values and linear GB x-axis are unchanged. No illustrative/jittered points. Regression checks verify the log label and vertical spread.

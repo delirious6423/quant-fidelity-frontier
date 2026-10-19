@@ -2,6 +2,7 @@
 import html
 from collections import Counter
 import json
+import math
 import re
 from pathlib import Path
 from urllib.parse import urlencode
@@ -61,17 +62,28 @@ def build_homepage(out, models, base, analytics, support):
     if preview:
         model, source, points = preview
         x0, x1 = min(p['x'] for p in points), max(p['x'] for p in points)
-        y1 = max(p['m']['kld']['v'] for p in points) * 1.12 or 1
+        omitted = sum(p['m']['kld']['v'] <= 0 for p in points)
+        points = [p for p in points if p['m']['kld']['v'] > 0]
+        low = math.log10(min(p['m']['kld']['v'] for p in points)) - .12
+        high = math.log10(max(p['m']['kld']['v'] for p in points)) + .12
+        def Y(value):
+            return 185 - 155 * (math.log10(value) - low) / (high - low)
+        ticks = ''
+        for exponent in range(math.ceil(low), math.floor(high) + 1):
+            value = 10 ** exponent
+            y = Y(value)
+            ticks += f'<path class="gridline" d="M58 {y:.2f}H338"/><text x="49" y="{y+3:.2f}" text-anchor="end">{value:g}</text>'
+        zero_note = f' · {omitted} zero/non-positive values omitted from log scale' if omitted else ''
         dots = ''
         for p in points:
-            x = 48 + 250 * (p['x']-x0)/(x1-x0 or 1)
-            y = 130 - 105 * p['m']['kld']['v']/y1
+            x = 65 + 265 * (p['x']-x0)/(x1-x0 or 1)
+            y = Y(p['m']['kld']['v'])
             title = f"{p['variant']}: {p['x']:g} GB, KLD {p['m']['kld']['raw']}"
             dots += f'<a href="{esc(p["src"])}" aria-label="{esc(title)}"><circle cx="{x:.2f}" cy="{y:.2f}" r="4"><title>{esc(title)}</title></circle></a>'
         href = model['slug'] + '/?' + urlencode({'set':source['id'], 'm':'kld'}) + '#chart'
         chart = f'''<figure class="preview"><figcaption><span class="eyebrow">A REAL COMPARISON</span><strong>{esc(model['model'].split('/')[-1])}</strong></figcaption>
-<svg viewBox="0 0 330 170" role="img" aria-label="Mean KLD versus size within {esc(source['title'])}; linear axes"><path d="M48 20V130H305"/><path class="gridline" d="M48 78H305M48 26H305"/><text x="42" y="134" text-anchor="end">0</text><text x="42" y="29" text-anchor="end">{y1:.3g}</text><text x="48" y="148">{x0:g}</text><text x="298" y="148" text-anchor="end">{x1:g}</text><text x="170" y="166" text-anchor="middle">Size (GB)</text><text transform="translate(12 76) rotate(-90)" text-anchor="middle">Mean KLD ↓</text>{dots}</svg>
-<p>{esc(source['title'])}<br>{esc(source['x']['label'])}</p><a href="{esc(href)}">Explore this comparison →</a></figure>'''
+<svg viewBox="0 0 360 225" role="img" aria-label="Mean KLD versus size within {esc(source['title'])}; logarithmic KLD axis, linear size axis"><path d="M58 24V185H338"/>{ticks}<text x="65" y="203">{x0:g}</text><text x="330" y="203" text-anchor="end">{x1:g}</text><text x="195" y="221" text-anchor="middle">Size (GB)</text><text transform="translate(14 106) rotate(-90)" text-anchor="middle">Mean KLD · log ↓</text>{dots}</svg>
+<p>{esc(source['title'])} · Log scale{esc(zero_note)}<br>{esc(source['x']['label'])}</p><a href="{esc(href)}">Explore this comparison →</a></figure>'''
     default_slug = preview[0]['slug'] if preview else (catalog[0]['slug'] if catalog else '')
     for entry in catalog:
         if preview and entry['slug'] == default_slug:

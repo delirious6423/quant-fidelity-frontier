@@ -35,6 +35,9 @@ async def main():
             assert await page.input_value('#home-set') == 'a-atomicchat-gguf'
             assert await page.locator('.preview strong').inner_text() == 'Qwen3.8-27B'
             assert await page.locator('.preview circle').count() == 27
+            assert 'logarithmic KLD' in await page.locator('.preview svg').get_attribute('aria-label')
+            ys = await page.locator('.preview circle').evaluate_all('(nodes) => nodes.map(n => Number(n.getAttribute("cy")))')
+            assert max(ys) - min(ys) > 140  # real values spread over the logarithmic axis
             assert await page.evaluate('document.documentElement.scrollWidth <= innerWidth'), width
             # Expanded provenance and all model options must fit narrow screens too.
             await page.locator('summary').first.click()
