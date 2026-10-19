@@ -1,0 +1,9 @@
+{
+ "repo": "appmana/deepseek-v4-int4-int8",
+ "no_quality_claims": true,
+ "no_claims_reason": "speed and latency tables only [L170-255]; the +4.2 to +8.7 dB weight-reconstruction gain [L113-114] is a quantizer fit figure, not a model quality measure",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "dsv4_needle_bench needle-in-haystack prompts [L163-165]", "ctx": "1,000,000-token window [L157]; 500,000-token admission limit on DGX Spark [L223]", "tool": "tools/ampere/dsv4_needle_bench.py [L163]", "L": [138, 157, 163, 223]},
+ "entries": [],
+ "prose": []
+}

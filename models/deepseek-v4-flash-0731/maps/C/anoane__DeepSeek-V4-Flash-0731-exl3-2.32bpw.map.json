@@ -1,0 +1,25 @@
+{
+ "repo": "anoane/DeepSeek-V4-Flash-0731-exl3-2.32bpw",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "2.72 bpw hybrid pack, measured identically (the card's reference)", "dataset": "364,544 held-out tokens across 24 engineering and software domains [L61-62]", "ctx": "not stated for the perplexity run; serving configuration 1,048,576 [L145]", "tool": "not stated", "L": [36, 61, 62, 117, 121, 145]},
+ "entries": [
+  {"role": "own", "name": "2.32 bpw uniform",
+   "metrics": {"ppl:held-out": "c11"},
+   "size": "c17", "unit": "GB", "basis": "disk", "bpw": "c20",
+   "flags": ["Held-out perplexity 1.9126 over the 364,544-token set [L117]", "NLL 0.6485 has no metric key and is not mapped [L117]", "The +1.00% delta is versus the 2.72 hybrid pack, the card's reference [L36, L121]", "Card calls this the lowest-quality of the three packs [L226]", "Decode speed figures are not quality metrics and are not mapped [L37-38]"]},
+  {"role": "ladder", "name": "2.54 bpw uniform",
+   "metrics": {"ppl:held-out": "c10"},
+   "size": "c16", "unit": "GB", "basis": "disk", "bpw": "c19",
+   "flags": ["Delta of +0.66% is versus the 2.72 hybrid pack [L36]", "Card gives +0.34% for 2.32 versus 2.54 [L70, L122]"]},
+  {"role": "ladder", "name": "2.72 bpw hybrid",
+   "metrics": {"ppl:held-out": "c9"},
+   "size": "c15", "unit": "GB", "basis": "disk", "bpw": "c18",
+   "flags": ["Reference pack for the card's perplexity deltas [L36, L121]"]}
+ ],
+ "prose": [
+  {"entry": "2.32 bpw uniform", "key": "ppl_delta_pct", "L": 36, "raw": "+1.00%"},
+  {"entry": "2.54 bpw uniform", "key": "ppl_delta_pct", "L": 36, "raw": "+0.66%"}
+ ]
+}

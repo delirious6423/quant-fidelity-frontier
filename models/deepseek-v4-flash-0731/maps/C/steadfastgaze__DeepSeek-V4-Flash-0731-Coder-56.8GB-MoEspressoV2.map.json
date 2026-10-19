@@ -1,0 +1,20 @@
+{
+ "repo": "steadfastgaze/DeepSeek-V4-Flash-0731-Coder-56.8GB-MoEspressoV2",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "MoEspresso 2.37 bpw package (this publisher's build) for code and rendered panels; official DeepSeek 0731 output for API continuation [L42-45, L64-65]", "dataset": "code.utf8 code panel (12 windows of 2,048 tokens, 24,564 targets); WikiText-2 test (32 windows, 32,736 targets); API continuation (100 prompts, 2,313 tokens); rendered reasoning and tool validation (8,188 positions)", "ctx": "2,048-token windows [L40, L62]", "tool": "not stated", "L": [39, 40, 42, 45, 59, 60, 62, 63, 64, 65, 69, 74, 75, 76, 77]},
+ "entries": [
+  {"role": "own", "name": "This Coder package",
+   "methodology": {"reference": "MoEspresso 2.37 bpw package; official DeepSeek 0731 for API continuation", "dataset": "code panel, WikiText-2, API continuation, rendered reasoning/tool panel", "ctx": "2,048-token windows [L40]", "tool": "not stated", "L": [39, 42, 59, 60, 64, 74, 75, 76, 77]},
+   "metrics": {"ppl:code": "c3", "top1:code": "c4", "ppl:wikitext": "c9", "top1:api-continuation": "c11.0", "top1:rendered-all": "c19", "top1:reasoning": "c24", "top1:tool-calls": "c29", "top1:tool-history": "c34"},
+   "size": "c1", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["Top-1 agreement on code is against the 2.37 bpw package, not the official model [L42-44]", "Mean NLL values are not mapped; no metric key exists for them [L44, L59, L74]", "API first-token agreement 48/100 is numerator only, denominator in c11.1 [L59]", "Card says specialization trades broad-text quality for code quality [L51-52]", "Safetensors size only; the total package is stated as 56.869 GB in prose [L14]", "Digest shows one Quality heading for all panels; entries merged and separated by corpus keys [L37, L39-40, L62-63, L69-70]"]},
+  {"role": "ladder", "name": "MoEspresso 2.37 bpw",
+   "methodology": {"reference": "official DeepSeek 0731 for API continuation", "dataset": "code panel, WikiText-2, API continuation, rendered reasoning/tool panel", "ctx": "2,048-token windows [L40]", "tool": "not stated", "L": [45, 60, 65, 75, 76, 77]},
+   "metrics": {"ppl:code": "c7", "ppl:wikitext": "c13", "top1:api-continuation": "c15.0", "top1:rendered-all": "c20", "top1:reasoning": "c25", "top1:tool-calls": "c30", "top1:tool-history": "c35"},
+   "size": "c5", "unit": "GB", "basis": "disk", "bpw": "c36",
+   "flags": ["Publisher's own 2.37 bpw comparison build [L16-17, L45]", "API first-token agreement 66/100 is numerator only, denominator in c15.1 [L60]"]}
+ ],
+ "prose": []
+}

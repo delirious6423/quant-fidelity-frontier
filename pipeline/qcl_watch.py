@@ -216,10 +216,22 @@ def merge(dirs):
     # machine entries replace the same repos' older entries: drop those repos from the base parts' view via the build's duplicate rule
     write(entries, base)
     quarantined = list(held_by_review)
-    for _ in range(4):
+    for _ in range(6):   # tie-broken values may need a pass of their own
         bad = failing(entries) or build_failing(entries)   # source/column gates first, then the build's sign/plausibility checks
         if not bad: break
         for rp, k, nm in bad:
+            # an entry that fails only after tie-broken values were added to it: drop those values (held again), keep the
+            # values A and B agreed on; the next pass re-checks the entry as it was
+            tbk = {(h[2], h[3]) for h in tiebroken if h[0] == rp and str(h[1]) == nm}
+            hit = [e for e in entries[rp][k] if str(e.get("name") or e.get("variant")) == nm and tbk & set(e["m"].items())]
+            if hit:
+                for e in hit:
+                    back = [(mk, v) for mk, v in e["m"].items() if (mk, v) in tbk]
+                    e["m"] = {mk: v for mk, v in e["m"].items() if (mk, v) not in tbk}
+                    held += [(rp, nm, mk, v) for mk, v in back]
+                    tiebroken = [h for h in tiebroken if not (h[0] == rp and str(h[1]) == nm and (h[2], h[3]) in back)]
+                entries[rp][k] = [e for e in entries[rp][k] if e["m"] or e.get("size") is not None]
+                continue
             entries[rp][k] = [e for e in entries[rp][k] if str(e.get("name") or e.get("variant")) != nm]
             quarantined.append({"repo": rp, "kind": k, "entry": nm, "reason": "failed a gate"})
         write(entries, base)

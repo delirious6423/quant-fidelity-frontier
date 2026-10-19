@@ -1,0 +1,25 @@
+{
+ "repo": "Lucebox/DeepSeek-V4-Flash-0731-ROCmFP3",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "published 2.88-bit reference (not named on card)", "dataset": "92-question evaluation", "ctx": "not stated", "tool": "same grader and reasoning allowance as the reference (not named on card)", "L": [14, 18, 21, 24, 25, 26]},
+ "entries": [
+  {"role": "own", "name": "This file", "panel": "Quality",
+   "methodology": {"reference": "published reference (full score stated to match, not named on card)", "dataset": "Full 92-question evaluation; COMPSEC-17", "ctx": "not stated", "tool": "same grader as reference (not named on card)", "L": [16, 18, 19, 24, 25, 26]},
+   "metrics": {"bench:Full 92-question evaluation": "c1.0", "bench:COMPSEC-17": "c2.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["82/92 is one fraction; numerator mapped, denominator 92 is c1.1 [L18]", "Full 82/92 evaluation was run only in quality mode [L36-37]", "Card states 2.766 bits per weight in prose, not in a table cell [L21]", "Vision-model figures at L85-95 are for DeepSeek-V4-Flash-Vision-Exp, a different model, and are omitted [L66-72]"]},
+  {"role": "own", "name": "This file, quality mode", "panel": "Quality or speed",
+   "methodology": {"reference": "not stated", "dataset": "COMPSEC-17", "ctx": "not stated", "tool": "not stated", "L": [30, 32, 35, 36]},
+   "metrics": {"bench:COMPSEC-17": "c3.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Quality (default), no extra flags [L32]", "Decode speed 18.1 tok/s is in the row label and is not a metric key [L32]"]},
+  {"role": "own", "name": "This file, faster mode", "panel": "Quality or speed",
+   "methodology": {"reference": "not stated", "dataset": "COMPSEC-17", "ctx": "not stated", "tool": "not stated", "L": [30, 33, 35, 36]},
+   "metrics": {"bench:COMPSEC-17": "c4.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Uses --ds4-expert-top-k 4 and fused decode flags [L33]", "Card says faster mode is 23% quicker and misses one more COMPSEC question [L35-36]"]}
+ ],
+ "prose": []
+}

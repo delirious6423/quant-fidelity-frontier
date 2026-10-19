@@ -366,5 +366,20 @@ class TieBreaker(unittest.TestCase):
                 self.assertEqual(audit["disagreements"], [dict(repo=repo, entry="Q4", key="mean_kld", raw="0.012300")])
                 self.assertEqual(audit["tiebroken"], [])
 
+    def test_gate_failure_after_tiebreak_drops_only_the_tiebroken_values(self):
+        with tempfile.TemporaryDirectory(prefix="qff-tb-") as temp:
+            root = Path(temp); repo, ns, writes = self.fixture(root)
+            calls = []
+            def failing(entries):   # the entry fails while it holds the tie-broken KLD
+                calls.append(1)
+                v = entries[repo]["variants"]
+                return {(repo, "variants", "Q4")} if v and "mean_kld" in v[0]["m"] else set()
+            ns["failing"] = failing
+            audit, output = self.merge(ns, root)
+            self.assertEqual(writes[-1][repo]["variants"][0]["m"], {"top1_pct": "99.1%"})
+            self.assertEqual(audit["quarantined"], [])
+            self.assertEqual(audit["tiebroken"], [])
+            self.assertEqual(audit["disagreements"], [dict(repo=repo, entry="Q4", key="mean_kld", raw="0.012300")])
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

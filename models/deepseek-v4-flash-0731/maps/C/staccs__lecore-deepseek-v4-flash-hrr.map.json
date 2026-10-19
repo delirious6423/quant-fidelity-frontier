@@ -1,0 +1,22 @@
+{
+ "repo": "staccs/lecore-deepseek-v4-flash-hrr",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "vanilla Flash on the same box for memory rows; published Flash-0731 effort splits for capability rows (quoted in row labels, not mapped)", "dataset": "memory rows: T2 nonce cite, multi-turn 3-cite; capability rows: AIME 2025 (30), AIME 2024 (30), GSM8K (1319), MATH-500 (500)", "ctx": "131,072 GPU attend context [L211]", "tool": "not stated", "L": [86, 88, 92, 93, 98, 99, 100, 101, 211]},
+ "entries": [
+  {"role": "own", "name": "This overlay (Flash + in-weight HRR)",
+   "methodology": {"reference": "vanilla Flash on same box (memory rows); published Flash-0731 effort splits (capability rows)", "dataset": "memory: T2 nonce cite, multi-turn 3-cite; capability: AIME 2025, AIME 2024, GSM8K, MATH-500", "ctx": "131,072 GPU attend [L211]", "tool": "greedy temp 0, no reasoning_effort=max [L88]", "L": [88, 92, 93, 98, 99, 100, 101]},
+   "metrics": {"bench:T2 nonce cite (empty next messages)": "c3.0", "bench:Multi-turn 3-cite": "c5.0", "bench:AIME 2025": "c6", "bench:AIME 2024": "c7", "bench:GSM8K": "c8", "bench:MATH-500": "c9"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Greedy temp 0 without reasoning_effort=max; published figures are third-party effort splits, not a same-day dual-serve [L88-89]", "Published Flash-0731 effort-split figures sit inside capability row labels [L98-101] and are not mapped; the digest truncates the max column", "Overlay replaces only the embed.weight shard; attention is unmodified [L18, L147-151]", "Summary table [L78] repeats memory rows and is not mapped", "SWE, Terminal-Bench and DeepSWE not run; MMLU-Pro is first-n only and not mapped [L106, L216]", "BEIR retrieval comparison [L234-252] is not a quantization quality metric and is not mapped"]},
+  {"role": "cross", "name": "Vanilla Flash", "of": "not named on card",
+   "methodology": {"reference": "vanilla Flash on same box", "dataset": "multi-turn 3-cite; T2 nonce cite", "ctx": "not stated", "tool": "not stated", "L": [86, 92, 93]},
+   "metrics": {"bench:Multi-turn 3-cite": "c4.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Sticky-off arm is vanilla Flash behavior, measured on this box [L86]", "T2 nonce cite vanilla value is in the row label, not a candidate cell [L92]"]}
+ ],
+ "prose": [
+  {"entry": "Vanilla Flash", "key": "bench:T2 nonce cite (empty next messages)", "L": 92, "raw": "**0/5**"}
+ ]
+}

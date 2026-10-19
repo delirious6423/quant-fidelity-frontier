@@ -21,25 +21,13 @@
   {
    "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
    "kind": "ladder",
-   "entry": "mixed-4_8bit",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "kind": "ladder",
    "entry": "6bit",
    "reason": "failed a gate"
   },
   {
    "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
    "kind": "ladder",
-   "entry": "8bit",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
-   "kind": "cross",
-   "entry": "original release, after routed-expert VQ",
+   "entry": "mixed-4_8bit",
    "reason": "failed a gate"
   },
   {
@@ -49,9 +37,21 @@
    "reason": "failed a gate"
   },
   {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "kind": "ladder",
+   "entry": "8bit",
+   "reason": "failed a gate"
+  },
+  {
    "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
    "kind": "variants",
    "entry": "GLM-5.3-Flash-TQ3_4S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
+   "kind": "cross",
+   "entry": "original release, after routed-expert VQ",
    "reason": "failed a gate"
   }
  ],
@@ -61,12 +61,6 @@
    "entry": "master (BF16, not in this repo)",
    "key": "ppl:wikitext2",
    "raw": "6.6974 \u00b1 0.34871"
-  },
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "top1_pct",
-   "raw": "0.793"
   },
   {
    "repo": "Ar3ntiz/glm5-3_flash_tcq",
@@ -113,18 +107,6 @@
   {
    "repo": "Ar3ntiz/glm5-3_flash_tcq",
    "entry": "SUC1 tcq (this model)",
-   "key": "bench:Prefill tok/s, short prompt",
-   "raw": "35"
-  },
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:TTFT, short prompt (s)",
-   "raw": "0.41"
-  },
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "SUC1 tcq (this model)",
    "key": "bench:Prefill tok/s, 2k tokens",
    "raw": "116"
   },
@@ -145,12 +127,6 @@
    "entry": "SUC1 tcq (this model)",
    "key": "bench:TTFT, 32k tokens (s)",
    "raw": "349"
-  },
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "original GLM-5.3-Flash",
-   "key": "ppl",
-   "raw": "3.27"
   },
   {
    "repo": "Ar3ntiz/glm5-3_flash_tcq",
@@ -232,18 +208,6 @@
   },
   {
    "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
-   "entry": "AZ-Focus (earlier build, \u2020)",
-   "key": "bench:\u03c4\u00b2-bench airline",
-   "raw": "0.88"
-  },
-  {
-   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
-   "entry": "AZ-Focus (earlier build, \u2020)",
-   "key": "bench:\u03c4\u00b2-bench retail",
-   "raw": "0.905"
-  },
-  {
-   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
    "entry": "GLM-5.3-Flash",
    "key": "bench:BIG-Bench Hard",
    "raw": "83.7"
@@ -285,28 +249,10 @@
    "raw": "85.8%"
   },
   {
-   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
-   "entry": "GLM-5.3-Flash (earlier build, \u2020)",
-   "key": "bench:\u03c4\u00b2-bench airline",
-   "raw": "0.89"
-  },
-  {
-   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
-   "entry": "GLM-5.3-Flash (earlier build, \u2020)",
-   "key": "bench:\u03c4\u00b2-bench retail",
-   "raw": "0.919"
-  },
-  {
    "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
    "entry": "original release, before routed-expert VQ",
    "key": "ppl:held-out prose",
    "raw": "4.8555"
-  },
-  {
-   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
-   "entry": "this model (IQ1_S)",
-   "key": "bench:HumanEval-164 pass@1",
-   "raw": "87.2%"
   },
   {
    "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
@@ -353,12 +299,6 @@
   {
    "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
    "entry": "shipped baked defaults, no reasoning budget",
-   "key": "bench:capped, no answer",
-   "raw": "3"
-  },
-  {
-   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
-   "entry": "shipped baked defaults, no reasoning budget",
    "key": "bench:reasoning (of 8)",
    "raw": "8"
   },
@@ -373,12 +313,6 @@
    "entry": "same, repetition penalty off (control)",
    "key": "bench:coherence pass (of 24)",
    "raw": "20"
-  },
-  {
-   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
-   "entry": "same, repetition penalty off (control)",
-   "key": "bench:capped, no answer",
-   "raw": "4"
   },
   {
    "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
@@ -407,12 +341,6 @@
   {
    "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
    "entry": "quickstart line settings",
-   "key": "bench:capped, no answer",
-   "raw": "0"
-  },
-  {
-   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
-   "entry": "quickstart line settings",
    "key": "bench:reasoning (of 8)",
    "raw": "8"
   },
@@ -427,12 +355,6 @@
    "entry": "tested: temp 0, seed 0, penalty, reasoning budget 1024",
    "key": "bench:coherence pass (of 24)",
    "raw": "24"
-  },
-  {
-   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
-   "entry": "tested: temp 0, seed 0, penalty, reasoning budget 1024",
-   "key": "bench:capped, no answer",
-   "raw": "0"
   },
   {
    "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
@@ -547,42 +469,6 @@
    "entry": "BF16",
    "key": "bench:average_4_tasks",
    "raw": "0.8399"
-  },
-  {
-   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
-   "entry": "This quant",
-   "key": "bench:GSM8K",
-   "raw": "98.8%"
-  },
-  {
-   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
-   "entry": "This quant",
-   "key": "bench:HumanEval",
-   "raw": "95.7%"
-  },
-  {
-   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
-   "entry": "This quant",
-   "key": "bench:HumanEval+MBPP+",
-   "raw": "86.5%"
-  },
-  {
-   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
-   "entry": "brandonmusic-TR3-4bpw",
-   "key": "bench:GSM8K",
-   "raw": "98.0%"
-  },
-  {
-   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
-   "entry": "brandonmusic-TR3-4bpw",
-   "key": "bench:HumanEval",
-   "raw": "97.6%"
-  },
-  {
-   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
-   "entry": "brandonmusic-TR3-4bpw",
-   "key": "bench:HumanEval+MBPP+",
-   "raw": "86.3%"
   },
   {
    "repo": "OpenMOSE/GLM-5.3-Flash-REAP-250B-A18B",
@@ -790,54 +676,6 @@
   },
   {
    "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "this model, MTP off",
-   "key": "bench:Single-stream decode tok/s",
-   "raw": "147"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "this model, MTP off",
-   "key": "bench:Speed-up (1 stream)",
-   "raw": "1.00\u00d7"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "this model, MTP off",
-   "key": "bench:Aggregate tok/s @ 8",
-   "raw": "508"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "this model, mtp-nvfp4 draft (2 tokens)",
-   "key": "bench:Mean acceptance length",
-   "raw": "2.45"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "this model, mtp-nvfp4 draft (2 tokens)",
-   "key": "bench:Draft acceptance",
-   "raw": "72.3 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "this model, mtp-nvfp4 draft (2 tokens)",
-   "key": "bench:Single-stream decode tok/s",
-   "raw": "265"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "this model, mtp-nvfp4 draft (2 tokens)",
-   "key": "bench:Speed-up (1 stream)",
-   "raw": "1.80\u00d7"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-   "entry": "this model, mtp-nvfp4 draft (2 tokens)",
-   "key": "bench:Aggregate tok/s @ 8",
-   "raw": "725"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
    "entry": "E224",
    "key": "bench:AIME 2025 effort=high",
    "raw": "75.0 %"
@@ -859,18 +697,6 @@
    "entry": "This model",
    "key": "bench:HumanEval",
    "raw": "98.2 % (161/164)"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E224-DGX-Spark",
-   "entry": "This model",
-   "key": "bench:BFCL_v4_non_live_overall",
-   "raw": "88.3 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E224-DGX-Spark",
-   "entry": "This model",
-   "key": "bench:BFCL_v4_live_overall",
-   "raw": "80.3 %"
   },
   {
    "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
@@ -925,12 +751,6 @@
    "entry": "Base W4A16",
    "key": "bench:HarmBench_true_compliance",
    "raw": "44 / 145 (30.3%)"
-  },
-  {
-   "repo": "baselquants/GLM-5.3-Flash-CYBERSECURITY-W4A16",
-   "entry": "Base W4A16",
-   "key": "bench:MMLU",
-   "raw": "86.08%"
   },
   {
    "repo": "canada-quant/GLM-5.3-Flash-W4A16-MTP",
@@ -1557,18 +1377,6 @@
    "raw": "48"
   },
   {
-   "repo": "lapadatbogdan/GLM-5.3-Flash-REAP144-Coder-GGUF",
-   "entry": "GLM-5.3-Flash, full (Q8)",
-   "key": "ppl:code",
-   "raw": "1.681"
-  },
-  {
-   "repo": "mbehr90/GLM-5.3-Flash-nvfp4",
-   "entry": "this build (NVFP4)",
-   "key": "bench:AI2D vision",
-   "raw": "84.6"
-  },
-  {
    "repo": "neuralll/GLM-5.3-Flash-MTP-GGUF",
    "entry": "MTP head (this repo)",
    "key": "bench:decode t/s, with MTP head (range low)",
@@ -1591,18 +1399,6 @@
    "entry": "CRACK Uncensored FP8",
    "key": "bench:HarmBench-320_compliance",
    "raw": "100.0%"
-  },
-  {
-   "repo": "nvidia/GLM-5.3-Flash-FP4-Local",
-   "entry": "BF16",
-   "key": "bench:GPQA Diamond",
-   "raw": "92.1%"
-  },
-  {
-   "repo": "nvidia/GLM-5.3-Flash-FP4-Local",
-   "entry": "BF16",
-   "key": "bench:ToolEvalBench",
-   "raw": "91.9%"
   },
   {
    "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-FP8-v2",
@@ -1637,12 +1433,6 @@
   {
    "repo": "peasantsmith/GLM-5.3-Flash-Maya-GGUF",
    "entry": "Maya-S24",
-   "key": "mean_kld",
-   "raw": "0.444\u00b9"
-  },
-  {
-   "repo": "peasantsmith/GLM-5.3-Flash-Maya-GGUF",
-   "entry": "Maya-S24",
    "key": "bench:top1_next_token_accuracy",
    "raw": "67.9%"
   },
@@ -1651,12 +1441,6 @@
    "entry": "Maya-M",
    "key": "bench:top1_next_token_accuracy",
    "raw": "70.3%"
-  },
-  {
-   "repo": "peasantsmith/GLM-5.3-Flash-Maya-GGUF",
-   "entry": "Maya-L",
-   "key": "mean_kld",
-   "raw": "0.188\u00b2"
   },
   {
    "repo": "peasantsmith/GLM-5.3-Flash-Maya-GGUF",
@@ -1935,18 +1719,6 @@
    "raw": "Full 200: 174/200 (87.0%)"
   },
   {
-   "repo": "rbinrs/GLM-5.3-Flash-ABLITERATED-NVFP4",
-   "entry": "CRACK Uncensored",
-   "key": "bench:MMLU (overall)",
-   "raw": "85.09%"
-  },
-  {
-   "repo": "rbinrs/GLM-5.3-Flash-ABLITERATED-NVFP4",
-   "entry": "Base",
-   "key": "bench:MMLU (overall)",
-   "raw": "86.16%"
-  },
-  {
    "repo": "sayyidfareed/GLM-5.3-Flash-Spark-Q2XL-MTP",
    "entry": "this file (Spark Q2XL MTP)",
    "key": "bench:Generation failures",
@@ -2059,9 +1831,406 @@
    "entry": "this model (B200 speed table)",
    "key": "bench:Generation, 32 parallel",
    "raw": "253"
+  },
+  {
+   "repo": "OsaurusAI/GLM-5.3-Flash-JANGHT2.4",
+   "entry": "GLM-5.3-Flash-JANGHT2.4",
+   "key": "top1:assistant text",
+   "raw": "83.8%"
+  },
+  {
+   "repo": "OsaurusAI/GLM-5.3-Flash-JANGHT2.4",
+   "entry": "GLM-5.3-Flash-JANGHT2.4",
+   "key": "top1:assistant text",
+   "raw": "83.8%"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 simple (Python)",
+   "raw": "95.8 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 simple (Java)",
+   "raw": "59.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 simple (JavaScript)",
+   "raw": "74.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 multiple",
+   "raw": "95.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 parallel",
+   "raw": "93.5 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 parallel-multiple",
+   "raw": "86.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 irrelevance detection",
+   "raw": "69.2 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live simple",
+   "raw": "88.4 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live multiple",
+   "raw": "78.9 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live parallel",
+   "raw": "75.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live parallel-multiple",
+   "raw": "66.7 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live irrelevance",
+   "raw": "71.6 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live relevance",
+   "raw": "81.3 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 simple (Python)",
+   "raw": "95.8 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 simple (Java)",
+   "raw": "59.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 simple (JavaScript)",
+   "raw": "74.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 multiple",
+   "raw": "95.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 parallel",
+   "raw": "93.5 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 parallel-multiple",
+   "raw": "86.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 irrelevance detection",
+   "raw": "69.2 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live simple",
+   "raw": "88.4 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live multiple",
+   "raw": "78.9 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live parallel",
+   "raw": "75.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live parallel-multiple",
+   "raw": "66.7 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live irrelevance",
+   "raw": "71.6 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live relevance",
+   "raw": "81.3 %"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "top1_pct",
+   "raw": "0.793"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "bench:Prefill tok/s, short prompt",
+   "raw": "35"
+  },
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "SUC1 tcq (this model)",
+   "key": "bench:TTFT, short prompt (s)",
+   "raw": "0.41"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E224-DGX-Spark",
+   "entry": "This model",
+   "key": "bench:BFCL_v4_non_live_overall",
+   "raw": "88.3 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E224-DGX-Spark",
+   "entry": "This model",
+   "key": "bench:BFCL_v4_live_overall",
+   "raw": "80.3 %"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "quickstart line settings",
+   "key": "bench:capped, no answer",
+   "raw": "0"
   }
  ],
  "resolved_disagreements": [],
  "resolved_repos": 0,
- "tiebroken": []
+ "tiebroken": [
+  {
+   "repo": "Ar3ntiz/glm5-3_flash_tcq",
+   "entry": "original GLM-5.3-Flash",
+   "key": "ppl",
+   "raw": "3.27"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "AZ-Focus (earlier build, \u2020)",
+   "key": "bench:\u03c4\u00b2-bench airline",
+   "raw": "0.88"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "AZ-Focus (earlier build, \u2020)",
+   "key": "bench:\u03c4\u00b2-bench retail",
+   "raw": "0.905"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "GLM-5.3-Flash (earlier build, \u2020)",
+   "key": "bench:\u03c4\u00b2-bench airline",
+   "raw": "0.89"
+  },
+  {
+   "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+   "entry": "GLM-5.3-Flash (earlier build, \u2020)",
+   "key": "bench:\u03c4\u00b2-bench retail",
+   "raw": "0.919"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "this model (IQ1_S)",
+   "key": "bench:HumanEval-164 pass@1",
+   "raw": "87.2%"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "shipped baked defaults, no reasoning budget",
+   "key": "bench:capped, no answer",
+   "raw": "3"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "same, repetition penalty off (control)",
+   "key": "bench:capped, no answer",
+   "raw": "4"
+  },
+  {
+   "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
+   "entry": "tested: temp 0, seed 0, penalty, reasoning budget 1024",
+   "key": "bench:capped, no answer",
+   "raw": "0"
+  },
+  {
+   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+   "entry": "This quant",
+   "key": "bench:GSM8K",
+   "raw": "98.8%"
+  },
+  {
+   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+   "entry": "This quant",
+   "key": "bench:HumanEval",
+   "raw": "95.7%"
+  },
+  {
+   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+   "entry": "This quant",
+   "key": "bench:HumanEval+MBPP+",
+   "raw": "86.5%"
+  },
+  {
+   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+   "entry": "brandonmusic-TR3-4bpw",
+   "key": "bench:GSM8K",
+   "raw": "98.0%"
+  },
+  {
+   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+   "entry": "brandonmusic-TR3-4bpw",
+   "key": "bench:HumanEval",
+   "raw": "97.6%"
+  },
+  {
+   "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+   "entry": "brandonmusic-TR3-4bpw",
+   "key": "bench:HumanEval+MBPP+",
+   "raw": "86.3%"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "this model, MTP off",
+   "key": "bench:Single-stream decode tok/s",
+   "raw": "147"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "this model, MTP off",
+   "key": "bench:Speed-up (1 stream)",
+   "raw": "1.00\u00d7"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "this model, MTP off",
+   "key": "bench:Aggregate tok/s @ 8",
+   "raw": "508"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "this model, mtp-nvfp4 draft (2 tokens)",
+   "key": "bench:Mean acceptance length",
+   "raw": "2.45"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "this model, mtp-nvfp4 draft (2 tokens)",
+   "key": "bench:Draft acceptance",
+   "raw": "72.3 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "this model, mtp-nvfp4 draft (2 tokens)",
+   "key": "bench:Single-stream decode tok/s",
+   "raw": "265"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "this model, mtp-nvfp4 draft (2 tokens)",
+   "key": "bench:Speed-up (1 stream)",
+   "raw": "1.80\u00d7"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+   "entry": "this model, mtp-nvfp4 draft (2 tokens)",
+   "key": "bench:Aggregate tok/s @ 8",
+   "raw": "725"
+  },
+  {
+   "repo": "baselquants/GLM-5.3-Flash-CYBERSECURITY-W4A16",
+   "entry": "Base W4A16",
+   "key": "bench:MMLU",
+   "raw": "86.08%"
+  },
+  {
+   "repo": "lapadatbogdan/GLM-5.3-Flash-REAP144-Coder-GGUF",
+   "entry": "GLM-5.3-Flash, full (Q8)",
+   "key": "ppl:code",
+   "raw": "1.681"
+  },
+  {
+   "repo": "mbehr90/GLM-5.3-Flash-nvfp4",
+   "entry": "this build (NVFP4)",
+   "key": "bench:AI2D vision",
+   "raw": "84.6"
+  },
+  {
+   "repo": "nvidia/GLM-5.3-Flash-FP4-Local",
+   "entry": "BF16",
+   "key": "bench:GPQA Diamond",
+   "raw": "92.1%"
+  },
+  {
+   "repo": "nvidia/GLM-5.3-Flash-FP4-Local",
+   "entry": "BF16",
+   "key": "bench:ToolEvalBench",
+   "raw": "91.9%"
+  },
+  {
+   "repo": "peasantsmith/GLM-5.3-Flash-Maya-GGUF",
+   "entry": "Maya-S24",
+   "key": "mean_kld",
+   "raw": "0.444\u00b9"
+  },
+  {
+   "repo": "peasantsmith/GLM-5.3-Flash-Maya-GGUF",
+   "entry": "Maya-L",
+   "key": "mean_kld",
+   "raw": "0.188\u00b2"
+  },
+  {
+   "repo": "rbinrs/GLM-5.3-Flash-ABLITERATED-NVFP4",
+   "entry": "CRACK Uncensored",
+   "key": "bench:MMLU (overall)",
+   "raw": "85.09%"
+  },
+  {
+   "repo": "rbinrs/GLM-5.3-Flash-ABLITERATED-NVFP4",
+   "entry": "Base",
+   "key": "bench:MMLU (overall)",
+   "raw": "86.16%"
+  }
+ ]
 }

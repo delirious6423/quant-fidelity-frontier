@@ -1,0 +1,28 @@
+{
+  "repo": "Kevletesteur/DeepSeek-V4-Flash-0731-StrixHalo-Verified-GGUF",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "full-precision official DeepSeek API", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [21, 22, 105, 114]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "StrixHalo-Verified (q6kattn GGUF)",
+      "methodology": {"reference": "full-precision official DeepSeek API", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [105, 114]},
+      "metrics": {"bench:confident_wrong_answers": "c1"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Confident-wrong-answer rate P(answers and wrong) vs full-precision API [L114]",
+        "103 GB (2.90 bpw) is stated in TL;DR prose only and is not mapped [L20]",
+        "Other probe table rows around L109-113 are not in the candidate list or digest, so they are not mapped [L108-116]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "StrixHalo-Verified (q6kattn GGUF)", "key": "bench:token_identical_vs_api", "L": 21, "raw": "90.8% token-identical"},
+    {"entry": "StrixHalo-Verified (q6kattn GGUF)", "key": "bench:paired_qa_parity", "L": 22, "raw": "240/240 paired-QA parity"}
+  ]
+}

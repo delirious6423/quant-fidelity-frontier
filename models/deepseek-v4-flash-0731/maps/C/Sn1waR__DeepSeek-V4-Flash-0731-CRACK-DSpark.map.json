@@ -1,0 +1,19 @@
+{"repo": "Sn1waR/DeepSeek-V4-Flash-0731-CRACK-DSpark",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "Source checkpoint, deepseek-ai/DeepSeek-V4-Flash-0731", "dataset": "GSM8K, HumanEval and MMLU-Pro deterministic screens and confirmations; synthetic regression suite", "ctx": "not stated", "tool": "eager/no-MTP TP=2 profile, same for source and edited", "L": [17, 51, 52]},
+ "entries": [
+  {"role": "own", "name": "Edited",
+   "metrics": {"bench:GSM8K 100-question screen": "c3.0", "bench:HumanEval full 164-task": "c6.0", "bench:MMLU-Pro balanced 560": "c8.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["edited FP8 shards with refusal behaviour changed [L40-43, L67-72]", "scores are pass counts out of the stated total, not percent [L56-60]", "HumanEval 32-task screen has no edited value in the table, omitted [L58]", "judge scores in prose (e.g. the dialogue judge total) have no metric key, omitted [L78]"]},
+  {"role": "cross", "name": "Source", "of": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "metrics": {"bench:Synthetic regression suite": "c1.0", "bench:GSM8K 100-question screen": "c2.0", "bench:HumanEval 32-task screen": "c4.0", "bench:HumanEval full 164-task": "c5.0", "bench:MMLU-Pro balanced 560": "c7.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["unedited checkpoint measured by this card's author under the same profile [L51-52]", "scores are pass counts out of the stated total, not percent [L56-60]"]}
+ ],
+ "prose": [
+  {"entry": "Edited", "key": "bench:Hard-constraint compliance", "L": 80, "raw": "8/12"},
+  {"entry": "Source", "key": "bench:Hard-constraint compliance", "L": 80, "raw": "8/12"}
+ ]}

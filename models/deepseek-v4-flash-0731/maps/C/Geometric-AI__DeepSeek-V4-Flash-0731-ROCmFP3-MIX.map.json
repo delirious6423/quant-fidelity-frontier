@@ -1,0 +1,30 @@
+{"repo": "Geometric-AI/DeepSeek-V4-Flash-0731-ROCmFP3-MIX",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "ds4-eval 92 (COMPSEC, AIME2025, GPQA-Diamond); COMPSEC-17 subset", "ctx": "thinking budget 15488 for the COMPSEC-17 row; model-default top-k 6 for the quality serving config", "tool": "ds4-eval --regrade-trace (reference grader, self-check 92/92); dflash serving, fused decode off", "L": [21, 22, 27, 28, 29, 30, 31]},
+ "entries": [
+  {"role": "own", "name": "ds4-0731-gu106down-v3.gguf", "panel": "Quality",
+   "methodology": {"reference": "not stated", "dataset": "COMPSEC-17; ds4-eval 92 (COMPSEC, AIME2025, GPQA-Diamond)", "ctx": "thinking budget 15488 [L21]", "tool": "ds4-eval --regrade-trace; dflash serving, fused decode off [L30-31]", "L": [21, 22, 27, 28, 29, 30, 31]},
+   "metrics": {"bench:COMPSEC-17 (think budget 15488)": "c1.0", "bench:full ds4-eval 92": "c2.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["scores are counts out of 17 and 92; numerator mapped [L21-22]", "calibration holds out all 92 eval items; the reference calibration contained 75 of them [L27-29]", "file-level 2.766 bpw and 98.29 GB stated in prose, not in this table, so not mapped [L9, L24]"]},
+  {"role": "own", "name": "quality (default)", "panel": "Serving configs (measured, Radeon 8060S iGPU, 128 GB)",
+   "methodology": {"reference": "not stated", "dataset": "COMPSEC-17", "ctx": "model-default top-k 6, fused decode", "tool": "Radeon 8060S iGPU, 128 GB; dflash", "L": [33, 42, 45]},
+   "metrics": {"bench:COMPSEC-17": "c3.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["the card says the 82/92 full-eval score was measured at this quality config [L45]", "scores are counts out of 17; numerator mapped [L42]"]},
+  {"role": "own", "name": "throughput", "panel": "Serving configs (measured, Radeon 8060S iGPU, 128 GB)",
+   "methodology": {"reference": "not stated", "dataset": "COMPSEC-17", "ctx": "--ds4-expert-top-k 4 with fused decode (throughput config)", "tool": "Radeon 8060S iGPU, 128 GB; dflash", "L": [33, 37, 43]},
+   "metrics": {"bench:COMPSEC-17": "c4.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["throughput config trades measured quality, stated on card [L37, L43]", "scores are counts out of 17; numerator mapped [L43]"]},
+  {"role": "quoted", "name": "published reference artifact (2.88 bpw)", "panel": "Quality", "of": "not named on card",
+   "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [9, 27, 28]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["the card states the reference's score (82/92) and bpw (2.88) as published; reference artifact not identified on card [L9, L27]", "reference calibration set contained 75 of the 92 eval items [L28-29]"]}
+ ],
+ "prose": [
+  {"entry": "published reference artifact (2.88 bpw)", "panel": "Quality", "key": "bench:full ds4-eval 92", "L": 27, "raw": "82/92 equals the published reference artifact"}
+ ]}

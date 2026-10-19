@@ -1,0 +1,20 @@
+{"repo": "noooop/DeepSeek-V4-Flash-REAP-noMTP",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "per-benchmark (JCommonsenseQA, MMLU variants, held-out perplexity, RULER)", "ctx": "64K context", "tool": "vLLM on DGX Spark (GB10), --kv-cache-dtype fp8, --gpu-memory-utilization 0.75", "L": [119, 121, 122]},
+ "entries": [
+  {"role": "own", "name": "DeepSeek-V4-Flash-REAP-noMTP", "panel": "Evaluation",
+   "methodology": {"reference": "not stated", "dataset": "per-benchmark (JCommonsenseQA, MMLU variants, held-out perplexity, RULER)", "ctx": "64K context", "tool": "vLLM on DGX Spark (GB10), --kv-cache-dtype fp8, --gpu-memory-utilization 0.75", "L": [121, 122, 124, 132]},
+   "metrics": {"bench:JCommonsenseQA (full 1,119, 3-shot)": "c1", "bench:English MMLU (570-item diagnostic)": "c3", "bench:Chinese global_mmlu_zh (full 400)": "c5", "bench:Japanese global_mmlu_ja (full 400)": "c7", "bench:English global_mmlu_en (full 400)": "c9", "ppl": "c11", "bench:RULER 4K (12-task mean)": "c12.0", "bench:RULER 16K (12-task mean)": "c12.1", "bench:RULER 32K (12-task mean)": "c12.2", "bench:RULER 64K (12-task mean)": "c12.3"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Baseline column is chance level or the RULER effective-length threshold, not a measured comparison; not mapped [L126-132]", "perplexity held-out corpus not named on card, only the token count [L131]", "128K context untested on this build [L116]", "pruned build with no unpruned quality measured in this table [L15, L124]"]},
+  {"role": "quoted", "name": "DeepSeek-V4-Flash-0731", "panel": "Introduction", "of": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "methodology": {"reference": "not stated", "dataset": "per-benchmark (public agent and coding benchmarks; DSBench-FullStack and DSBench-Hard are internal)", "ctx": "not stated", "tool": "DeepSeek Harness minimal mode for Code Agent tasks, max reasoning effort, temperature 1.0, top_p 0.95", "L": [220, 221]},
+   "metrics": {"bench:Terminal Bench 2.1": "c14", "bench:NL2Repo": "c19", "bench:Cybergym": "c24", "bench:DeepSWE": "c28", "bench:Toolathlon-Verified": "c33", "bench:Agents' Last Exam": "c38", "bench:AutomationBench Public": "c43", "bench:DSBench-FullStack": "c48", "bench:DSBench-Hard": "c53"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["copied from the original deepseek-ai model card reproduced in this card [L158, L196-204]", "DeepSeek-V4-Flash (Preview), DeepSeek-V4-Pro (Preview), GLM-5.2 and Opus-4.8 columns are other models, omitted [L204-214]", "DSBench-FullStack and DSBench-Hard are internal test sets [L221]"]}
+ ],
+ "prose": [
+  {"entry": "DeepSeek-V4-Flash-REAP-noMTP", "panel": "Evaluation", "key": "bench:eight needle-in-a-haystack tasks (up to 32K)", "L": 136, "raw": "1.000"}
+ ]}

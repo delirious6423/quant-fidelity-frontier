@@ -1,0 +1,12 @@
+{
+ "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-FP8-v2",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "unpruned zai-org/GLM-5.3-Flash (teacher)", "dataset": "241,516 held-out tokens the calibration never saw (agentic, math, science, finance, ballast, code)", "ctx": "not stated", "tool": "not stated (teacher-forced paired evaluation)", "L": [116, 117, 118, 121, 122]},
+ "entries": [
+  {"role": "own", "panel": "Measured against the unpruned teacher", "name": "v2 (repo root)", "metrics": {"top1:heldout": "c2", "top1:agentic": "c8", "top1:math": "c11", "top1:science": "c14", "top1:finance": "c17", "top1:ballast": "c20", "top1:code": "c23"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["size (c1, 160.6 GiB) sits in a different table, so size null [L16]", "delta NLL (c3, c4 and per-domain c9, c12, c15, c18, c21, c24) not mapped: no matching key [L122-L135]", "top-k KL (c5) not mapped: no key separate from full-vocabulary KL [L124]", "teacher and student NLL (c6) not mapped: no key [L125]", "v3 (pass3-hope) has no end-to-end evaluation, no entry [L110]", "retained-saliency tables are not quality metrics, not mapped [L157-L166]"]},
+  {"role": "ladder", "panel": "Corrections to this repository", "name": "per-expert healing (was shipped)", "metrics": {"top1:heldout": "c33"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["earlier healing variant of the same checkpoint, superseded [L254]", "delta NLL and top-k KL not mapped [L257-L258]"]}
+ ],
+ "prose": []
+}

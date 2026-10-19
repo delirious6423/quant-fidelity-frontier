@@ -1,0 +1,15 @@
+{
+ "repo": "6block/GLM-5.3-Flash-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 master measured in the same run (not in this repo)", "dataset": "wikitext-2 test", "ctx": "n_ctx=512, 12 chunks", "tool": "not stated", "L": [92, 93]},
+ "entries": [
+  {"role": "own", "name": "IQ4_XS", "metrics": {"ppl:wikitext": "c9"}, "size": "c6", "unit": "GiB", "basis": "disk", "bpw": "c8", "flags": ["PPL only comparable within this table [L93-L94]", "shard count (c7) not mapped: no key [L38]"]},
+  {"role": "own", "name": "IQ3_XXS", "metrics": {"ppl:wikitext": "c13"}, "size": "c10", "unit": "GiB", "basis": "disk", "bpw": "c12", "flags": ["PPL only comparable within this table [L93-L94]", "shard count (c11) not mapped: no key [L39]"]},
+  {"role": "own", "name": "IQ2_XS", "metrics": {"ppl:wikitext": "c18"}, "size": "c15", "unit": "GiB", "basis": "disk", "bpw": "c17", "flags": ["PPL only comparable within this table [L93-L94]", "shard count (c16) not mapped: no key [L40]"]},
+  {"role": "own", "name": "IQ1_M", "metrics": {"ppl:wikitext": "c23"}, "size": "c20", "unit": "GiB", "basis": "disk", "bpw": "c22", "flags": ["PPL only comparable within this table [L93-L94]", "shard count (c21) not mapped: no key [L41]"]},
+  {"role": "cross", "name": "master (BF16, not in this repo)", "of": "not named on card", "metrics": {"ppl:wikitext": "c4"}, "size": "c1", "unit": "GiB", "basis": "disk", "bpw": "c3", "flags": ["BF16 baseline measured by the card author; file not in this repo [L37]", "shard count (c2) not mapped: no key [L37]"]}
+ ],
+ "prose": []
+}

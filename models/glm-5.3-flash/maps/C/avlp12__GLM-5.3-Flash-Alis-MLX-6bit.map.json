@@ -1,0 +1,15 @@
+{
+ "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-6bit",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "8-bit teacher of this family (quantized teacher, not BF16)", "dataset": "private panel: en, ko, code (held-out)", "ctx": "2048", "tool": "same harness as the 4-bit builds (not named)", "L": [40, 41, 42, 43]},
+ "entries": [
+  {"role": "own", "name": "GLM-5.3-Flash-Alis-MLX-6bit", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["KL per corpus (en, ko, code) mapped from prose [L41]", "weighted mean 0.0226 not mapped: weighting not in key set [L41]", "decode speed (c2, c4, c6) not mapped: no key [L34-L38]", "KL -8.5% vs 4-bit RTN (c11) not mapped: no key [L51]", "4-bit QUASAR and 4-bit RTN KL figures omitted: other builds, not split by corpus [L41-L42]", "recipe section not visible in the digest; weights_modified set false from the quant-only description"]}
+ ],
+ "prose": [
+  {"entry": "GLM-5.3-Flash-Alis-MLX-6bit", "key": "kld:en", "L": 41, "raw": "0.0269 / 0.0226 / 0.0177"},
+  {"entry": "GLM-5.3-Flash-Alis-MLX-6bit", "key": "kld:ko", "L": 41, "raw": "0.0269 / 0.0226 / 0.0177"},
+  {"entry": "GLM-5.3-Flash-Alis-MLX-6bit", "key": "kld:code", "L": 41, "raw": "0.0269 / 0.0226 / 0.0177"}
+ ]
+}

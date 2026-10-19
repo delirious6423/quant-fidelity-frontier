@@ -1,0 +1,27 @@
+{
+  "repo": "thetom-ai/DeepSeek-V4-Flash-ConfigI-GGUF",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "not stated", "dataset": "Wikitext (test split not named)", "ctx": "512 and 2048 (two readings)", "tool": "not stated", "L": [41, 62]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "Config-I hybrid",
+      "methodology": {"reference": "not stated", "dataset": "Wikitext (test split not named)", "ctx": "512 (60 chunks) and 2048 (15 chunks)", "tool": "not stated; measured on CUDA (GB10)", "L": [62]},
+      "metrics": {"ppl:wikitext": "c17"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c11",
+      "flags": [
+        "No base-model reference is given for the perplexity figures [L62]",
+        "Compression table size rows give the source sizes only; the Config-I size 95 GiB is stated in prose [L23] and is not mapped",
+        "Honesty notes say measurements were taken under heavy I/O contention and quiet-condition re-runs are pending [L65]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "Config-I hybrid", "key": "ppl:wikitext_ctx2048", "L": 62, "raw": "12.86"}
+  ]
+}

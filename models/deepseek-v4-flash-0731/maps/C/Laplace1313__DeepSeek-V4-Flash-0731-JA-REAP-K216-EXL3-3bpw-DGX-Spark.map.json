@@ -1,0 +1,12 @@
+{"repo": "Laplace1313/DeepSeek-V4-Flash-0731-JA-REAP-K216-EXL3-3bpw-DGX-Spark",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "MMLU full 5-shot; MMLU 0-shot, ARC-Challenge, HellaSwag, GSM8K, MMLU-ProX Japanese, HumanEval, MBPP sanitized (fixed-seed 0-shot except MMLU full 5-shot)", "ctx": "not stated", "tool": "sparkinfer runtime image [L92]", "L": [92, 109, 124]},
+ "entries": [
+  {"role": "own", "name": "K216 TP1メインモデル",
+   "metrics": {"bench:MMLU full 5-shot": "c6.0", "bench:MMLU 0-shot (200)": "c7.0", "bench:ARC-Challenge 0-shot (200)": "c8.0", "bench:HellaSwag 0-shot (200)": "c9.0", "bench:GSM8K 0-shot (100)": "c10.0", "bench:MMLU-ProX Japanese (200)": "c11.0", "bench:HumanEval pass@1 (50)": "c12.0", "bench:MBPP sanitized pass@1 (50)": "c13.0"},
+   "size": null, "unit": null, "basis": null, "bpw": "c20",
+   "flags": ["REAP expert pruning to 216 experts, so the base weights are modified [L23, L130]", "results table carries no size; main model and total download sizes are in the file table [L130-134]", "behavioural pass counts (Japanese prompts, tool calls) have no benchmark name, omitted [L113-114]", "bpw is the card's stated main model figure [L37]"]}
+ ],
+ "prose": []}

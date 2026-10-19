@@ -1,0 +1,44 @@
+{
+  "repo": "wrldsuksgo2mars/DeepSeek-V4-Flash-0731-EXL3-K2-calibrated-v1",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "native experts (block reconstruction); v0 control (Tool Eval)", "dataset": "source-disjoint 88-prompt / 67,437-token held-out split; Tool Eval Bench 2.3.2 69-scenario suite", "ctx": "not stated", "tool": "numerical publication gate; DS4RT matched run; Tool Eval Bench 2.3.2", "L": [36, 38]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "DeepSeek V4 Flash 0731 EXL3 K2 calibrated v1",
+      "methodology": {"reference": "native experts (block reconstruction)", "dataset": "source-disjoint 88-prompt / 67,437-token held-out split", "ctx": "not stated", "tool": "numerical publication gate", "L": [36]},
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Tool Eval score of 86/100 for v1 [L38] is mapped below as a prose value",
+        "Reconstruction metrics are layer-level fidelity measures, not end-to-end quality [L36]",
+        "2 bpw (MCG codebook) is stated in prose [L14] and is not mapped as a candidate",
+        "Card states no size figure, so none is mapped"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "v0 control",
+      "methodology": {"reference": "not stated", "dataset": "Tool Eval Bench 2.3.2 69-scenario suite", "ctx": "not stated", "tool": "DS4RT matched run", "L": [38]},
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Matched control artifact from the same author [L38]"]
+    }
+  ],
+  "prose": [
+    {"entry": "DeepSeek V4 Flash 0731 EXL3 K2 calibrated v1", "key": "bench:tool_eval_bench_69", "L": 38, "raw": "86/100"},
+    {"entry": "v0 control", "key": "bench:tool_eval_bench_69", "L": 38, "raw": "88/100"},
+    {"entry": "DeepSeek V4 Flash 0731 EXL3 K2 calibrated v1", "key": "bench:weakest_block_cosine", "L": 36, "raw": "0.91196"},
+    {"entry": "DeepSeek V4 Flash 0731 EXL3 K2 calibrated v1", "key": "bench:weakest_block_rel_L2", "L": 36, "raw": "0.41132"},
+    {"entry": "DeepSeek V4 Flash 0731 EXL3 K2 calibrated v1", "key": "bench:tp4_full_model_cosine", "L": 36, "raw": "0.99999988"},
+    {"entry": "DeepSeek V4 Flash 0731 EXL3 K2 calibrated v1", "key": "bench:tp4_full_model_rel_L2", "L": 36, "raw": "0.000296"}
+  ]
+}

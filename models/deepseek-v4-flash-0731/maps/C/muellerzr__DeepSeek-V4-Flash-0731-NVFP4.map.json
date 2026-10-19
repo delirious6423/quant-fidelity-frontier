@@ -1,0 +1,20 @@
+{
+ "repo": "muellerzr/DeepSeek-V4-Flash-0731-NVFP4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Source 0731 (deepseek-ai/DeepSeek-V4-Flash-0731)", "dataset": "strict-format sanity set (24 prompts; math, code, chat)", "ctx": "not stated", "tool": "vLLM 0.27.1 on 4x NVIDIA B200, TP4 with expert parallelism", "L": [19, 33, 35, 37, 38, 39, 41]},
+ "entries": [
+  {"role": "own", "name": "NVFP4",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["NVFP4 strict-format score and draft acceptance (54.04%, 3.78 tokens per step) are in the validation table but have no mapped key for this file [L37-39]", "Card calls this a conversion sanity check, not a substitute for full downstream evaluation [L41]"]},
+  {"role": "cross", "name": "Source 0731", "of": "deepseek-ai/DeepSeek-V4-Flash-0731",
+   "metrics": {"bench:Strict-format sanity set": "c1.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Score 14/24 with denominator 24 in c1.1 [L37]", "Draft acceptance 48.54% and 3.40 tokens per step are not mapped to a key [L38-39]"]}
+ ],
+ "prose": [
+  {"entry": "NVFP4", "key": "bench:Exact-match responses vs source", "L": 41, "raw": "18/24 generated responses matched exactly"}
+ ]
+}

@@ -1,0 +1,12 @@
+{"repo": "MorinoNushi/DeepSeek-V4-Flash-0731-heretic-GGUF",
+ "no_quality_claims": true,
+ "no_claims_reason": "no quality benchmark; only refusal rate and first-token KL on harmless prompts, both measured on the LoRA adapter [L48-63]",
+ "weights_modified": true,
+ "method": {"reference": "UD-Q8_K_XL base", "dataset": "140 harmful prompts (100 from mlabonne/harmful_behaviors test + 40 custom) and 100 harmless prompts (mlabonne/harmless_alpaca test)", "ctx": "greedy decoding, 100-token responses", "tool": "not stated", "L": [48, 49, 50, 51]},
+ "entries": [
+  {"role": "own", "name": "DeepSeek-V4-Flash-0731 Heretic — merged GGUF (UD-Q8_K_XL)",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["scores were measured on the lossless LoRA adapter, not this merged file, so omitted [L63]", "refusal rate has no metric key, omitted [L53-56]", "KL is on first-token logits for harmless prompts, not the mean KLD the keys describe, omitted [L59]", "prose KL of a different trial is not this model, omitted [L61-62]", "directional ablation of the base weights [L81-82]"]}
+ ],
+ "prose": []}

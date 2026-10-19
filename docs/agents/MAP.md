@@ -16,5 +16,5 @@ Loop:
 3. Check your own files: `python3 pipeline/qcl_mapcheck.py <claimed queue path> M/maps/RUN`. Fix any file it lists, then check again.
 4. Go to 1.
 
-Only write `M/maps/RUN/<NAME>.map.json` for names in queues you claimed. Never open other files. Final message: the queue
+Only write `M/maps/RUN/<NAME>.map.json` for names in queues you claimed. You may read the saved card the prompt points to (`M/cache/cards/<NAME>.md`) when its digest leaves out context; never open any map under `M/maps/` (the runs must stay independent: a C map made after reading an A or B map is not a tie-breaker), and no other files. Final message: the queue
 files you processed, nothing else.
