@@ -3,42 +3,31 @@
   var $ = function (id) { return document.getElementById(id); };
   var data = JSON.parse($('shared-data').textContent), selector = $('shared-benchmark');
   var log = $('shared-log'), zero = $('shared-zero'), refs = $('shared-refs'), host = $('shared-plot'), pick = $('shared-pick');
-  var ranges = {}, hidden = {}, selected = null, ns = 'http://www.w3.org/2000/svg';
+  var limits = {size:null,score:null}, bounds = {}, hidden = {}, selected = null, ns = 'http://www.w3.org/2000/svg';
   function node(tag, attrs, text) { var n = document.createElementNS(ns, tag); Object.keys(attrs).forEach(function (k) { n.setAttribute(k, attrs[k]); }); if (text != null) n.textContent = text; return n; }
   function option(value, text) { var n = document.createElement('option'); n.value = value; n.textContent = text; return n; }
   function view() { return data.views[+selector.value]; }
-  function changed(axis) { var r = ranges[axis]; return r.low !== r.min || r.high !== r.max; }
-  function syncRange(axis, editing) {
-    var r = ranges[axis], prefix = 'shared-' + axis + '-';
-    ['min', 'max', 'low', 'high'].forEach(function (key) {
-      var n = $(prefix + key); n.min = r.min; n.max = r.max;
-      n.step = key === 'low' || key === 'high' ? r.step : 'any';
-      if (n !== editing) n.value = key === 'min' || key === 'low' ? r.low : r.high;
-    });
-    $(prefix + 'low').setAttribute('aria-valuemax', r.high);
-    $(prefix + 'high').setAttribute('aria-valuemin', r.low);
-    var track = $('shared-' + axis + '-range').querySelector('.range-track');
-    track.style.setProperty('--low', (r.low-r.min)/(r.max-r.min)*100 + '%');
-    track.style.setProperty('--high', (r.high-r.min)/(r.max-r.min)*100 + '%');
-    // At coincident handles, keep both ends available with keyboard/numeric input.
-    $(prefix + 'low').style.zIndex = r.low === r.max ? 3 : 1;
-    zero.disabled = changed('score');
-    $('shared-reset').disabled = !changed('size') && !changed('score');
+  function syncLimits() {
+    var xr = $('shared-size'), yr = $('shared-score');
+    xr.value = limits.size == null ? 1000 : Math.round(1000*(limits.size-bounds.x0)/(bounds.x1-bounds.x0 || 1));
+    yr.value = limits.score == null ? 0 : Math.round(1000*(limits.score-bounds.y0)/(bounds.y1-bounds.y0 || 1));
+    var sizeText = limits.size == null ? 'any' : '≤ '+fmt(limits.size)+' GB';
+    var scoreText = limits.score == null ? 'any' : '≥ '+fmt(limits.score)+(view().unit==='percent'?'%':'');
+    $('shared-size-output').textContent = sizeText; $('shared-score-output').textContent = scoreText;
+    xr.setAttribute('aria-valuetext',sizeText);yr.setAttribute('aria-valuetext',scoreText);
+    zero.disabled = limits.score != null;
+    $('shared-reset').hidden = limits.size == null && limits.score == null;
+    $('shared-options').querySelector('summary').textContent = 'Filters & chart options'+(limits.size != null || limits.score != null ? ' · limits active' : '');
   }
-  function resetRanges() {
-    ['size','score'].forEach(function (axis) {
-      var values = view().points.map(function (p) { return p[axis]; }), step = axis === 'score' && view().unit === 'fraction' ? .0001 : .01;
-      var min = axis === 'size' ? 0 : Math.min(0, Math.floor(Math.min.apply(null,values)/step)*step);
-      var max = Math.ceil(Math.max.apply(null,values)/step)*step;
-      min = +min.toFixed(4); max = +Math.max(min+step,max).toFixed(4);
-      ranges[axis] = {min:min,max:max,low:min,high:max,step:step};
-    });
-    ['size','score'].forEach(syncRange);
+  function resetLimits() {
+    var xs = view().points.map(function(p){return p.size;}), ys = view().points.map(function(p){return p.score;});
+    bounds = {x0:Math.min.apply(null,xs),x1:Math.max.apply(null,xs),y0:Math.min.apply(null,ys),y1:Math.max.apply(null,ys)};
+    limits = {size:null,score:null};syncLimits();
   }
   function points() {
     return view().points.filter(function (p) {
-      return !hidden[p.slug] && p.size >= ranges.size.low && p.size <= ranges.size.high &&
-        p.score >= ranges.score.low && p.score <= ranges.score.high && (refs.checked || !p.reference);
+      return !hidden[p.slug] && (limits.size == null || p.size <= limits.size+1e-9) &&
+        (limits.score == null || p.score >= limits.score-1e-9) && (refs.checked || !p.reference);
     });
   }
   function fmt(n) { return +n.toPrecision(4); }
@@ -47,11 +36,8 @@
     if (data.views.some(function (v) { return v !== view() && v.name === view().name; })) q.set('unit', view().unit);
     var enabled = view().models.filter(function (slug) { return !hidden[slug]; });
     if (enabled.length !== view().models.length) q.set('models', enabled.length ? enabled.join(',') : 'none');
-    [['size','min','max'],['score','score_min','score_max']].forEach(function (keys) {
-      var r = ranges[keys[0]];
-      if (r.low !== r.min) q.set(keys[1], r.low);
-      if (r.high !== r.max) q.set(keys[2], r.high);
-    });
+    if (limits.size != null) q.set('max',limits.size);
+    if (limits.score != null) q.set('score_min',limits.score);
     if (log.checked) q.set('scale', 'log');
     if (!zero.checked) q.set('zero', '0');
     if (!refs.checked) q.set('references', '0');
@@ -97,7 +83,7 @@
   }
   function draw() {
     var active = document.activeElement, focusId = host.contains(active) ? active.getAttribute('data-point') : null;
-    var ps = points(), w = Math.max(280, host.clientWidth - 24), narrow = w < 600, h = narrow ? 360 : 410;
+    var padding = getComputedStyle(host), ps = points(), w = Math.max(240, host.clientWidth-parseFloat(padding.paddingLeft)-parseFloat(padding.paddingRight)), narrow = w < 600, h = narrow ? Math.round(w*.95) : 410;
     var L = narrow ? 48 : 62, R = w-18, T = 35, B = h-52;
     var svg = node('svg', {viewBox:'0 0 '+w+' '+h, role:'img', 'aria-label':view().name+' score versus file size in GB across models'});
     svg.appendChild(node('title', {}, 'Publisher-reported scores. Model colors identify separate models; evaluation settings may differ.'));
@@ -106,12 +92,12 @@
     var xs = (ps.length ? ps : view().points).map(function (p) { return p.size; });
     var lo = Math.min.apply(null,ys), hi = Math.max.apply(null,ys), pad = Math.max((hi-lo)*.12, view().unit==='fraction'?.001:1);
     lo = zero.checked ? Math.min(0,lo-pad) : lo-pad; hi += pad;
-    if (changed('score')) { lo = ranges.score.low; hi = ranges.score.high; }
+    if (limits.score != null) lo = limits.score;
     var xmin = log.checked ? Math.min.apply(null,xs)/1.08 : 0, xmax = Math.max.apply(null,xs)*1.08;
-    if (changed('size')) { xmin = ranges.size.low; xmax = ranges.size.high; }
+    if (limits.size != null) xmax = limits.size;
     if (log.checked && xmin <= 0) xmin = Math.min.apply(null,view().points.map(function(p){return p.size;}))/1.08;
     // Keep exact-match and empty intervals drawable, including zero on a log axis.
-    if (hi <= lo) { lo -= pad; hi += pad; }
+    if (hi <= lo) hi = lo+pad;
     if (xmax <= xmin) {
       if (log.checked) { xmin = xmax > 0 ? xmax/1.08 : xmin; xmax = xmax > 0 ? xmax : xmin*1.08; }
       else { xmin = Math.max(0,xmax-.01); xmax = Math.max(xmax,xmin+.01); }
@@ -145,7 +131,7 @@
     pick.replaceChildren();ps.forEach(function(p){pick.appendChild(option(p.id,p.model_name+' · '+p.variant+' · '+p.size+' GB · '+p.source_label));});if(selected)pick.value=selected;
     $('shared-inspect').hidden=!ps.length;
     var modelCount=new Set(ps.map(function(p){return p.slug;})).size;
-    $('shared-status').textContent=modelCount+(modelCount===1?' model':' models')+' · '+ps.length+' of '+view().points.length+' results'+(changed('size')||changed('score')?' in range':'');
+    $('shared-status').textContent=modelCount+(modelCount===1?' model':' models')+' · '+ps.length+' of '+view().points.length+' results'+(limits.size != null || limits.score != null?' within limits':'');
     detail();draw();
   }
   if(!data.views.length)return;
@@ -154,33 +140,22 @@
   var q=new URLSearchParams(location.search), initial=data.views.findIndex(function(v){return v.name===q.get('benchmark')&&(!q.has('unit')||v.unit===q.get('unit'));});
   selector.value=initial>=0?initial:0;
   if(q.has('models')){var enabled=q.get('models').split(',');view().models.forEach(function(slug){hidden[slug]=enabled.indexOf(slug)<0;});}
-  resetRanges();
-  [['size','min','max'],['score','score_min','score_max']].forEach(function(keys){
-    var r=ranges[keys[0]];
-    [keys[1],keys[2]].forEach(function(key,i){
-      if(q.has(key)&&q.get(key).trim()!==''&&Number.isFinite(+q.get(key)))r[i?'high':'low']=Math.max(r.min,Math.min(r.max,+q.get(key)));
-    });
-    if(r.low>r.high){r.low=r.min;r.high=r.max;}
-    syncRange(keys[0]);
+  resetLimits();
+  [['size','max'],['score','score_min']].forEach(function(keys){
+    var value=q.get(keys[1]);
+    if(value!=null&&value.trim()!==''&&Number.isFinite(+value)&&(keys[0]!=='size'||+value>=0))limits[keys[0]]=+value;
   });
+  syncLimits();
   log.checked=q.get('scale')==='log';zero.checked=q.get('zero')!=='0';refs.checked=q.get('references')!=='0';
   $('shared-ranges').hidden=false;$('shared-controls').hidden=false;$('shared-options').hidden=false;$('shared-evidence').open=false;
-  selector.addEventListener('change',function(){hidden={};selected=null;resetRanges();models();contexts();render();save();});
-  ['size','score'].forEach(function(axis){
-    ['min','max','low','high'].forEach(function(key){
-      var n=$('shared-'+axis+'-'+key), lower=key==='min'||key==='low';
-      function update(commit) {
-        if(n.value===''||!n.validity.valid){if(commit)syncRange(axis);return;}
-        var r=ranges[axis], value=+n.value;
-        if(!commit&&n.type==='number'&&(lower?value>r.high:value<r.low))return;
-        r[lower?'low':'high']=lower?Math.min(value,r.high):Math.max(value,r.low);
-        syncRange(axis,commit?null:n);render();save();
-      }
-      n.addEventListener('input',function(){update(false);});
-      n.addEventListener('change',function(){update(true);});
-    });
+  selector.addEventListener('change',function(){hidden={};selected=null;resetLimits();models();contexts();render();save();});
+  $('shared-size').addEventListener('input',function(){
+    var t=+this.value/1000;limits.size=t>=1?null:bounds.x0+t*(bounds.x1-bounds.x0);syncLimits();render();save();
   });
-  $('shared-reset').addEventListener('click',function(){resetRanges();render();save();});
+  $('shared-score').addEventListener('input',function(){
+    var t=+this.value/1000;limits.score=t<=0?null:bounds.y0+t*(bounds.y1-bounds.y0);syncLimits();render();save();
+  });
+  $('shared-reset').addEventListener('click',function(){resetLimits();render();save();});
   [log,zero,refs].forEach(function(n){n.addEventListener('change',function(){render();save();});});
   pick.addEventListener('change',function(){selected=pick.value;detail();draw();});
   $('shared-copy').addEventListener('click',function(){var b=this;function done(){b.textContent='Link copied';setTimeout(function(){b.textContent='Copy view link';},2000);}try{navigator.clipboard.writeText(url()).then(done,function(){b.textContent='Copy the page URL';});}catch(e){b.textContent='Copy the page URL';}});
