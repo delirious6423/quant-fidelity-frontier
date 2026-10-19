@@ -58,6 +58,8 @@ class BenchmarkPilot(unittest.TestCase):
         self.assertNotIn('</script><script>alert', page)
         self.assertIn('score units', page)
         self.assertEqual(page.count('<tr>'), 6)
+        self.assertIn('<div id="bm-plot" class="bm-plot"><svg', page)
+        self.assertEqual(page.count('class="bm-dot"'), 2)
 
 
 if __name__ == '__main__':
