@@ -46,6 +46,8 @@ jobs:
           python3 tests/test_readme.py
       - name: Assembled site is static only
         run: python3 assemble.py _site
+      - name: Shared benchmark data and cross-model chart interactions
+        run: python3 tests/test_benchmark_view.py
       - name: README lists every live model and has no dead links (counts are refreshed by the QA worker)
         run: python3 pipeline/readme_sync.py --check --structure
       - name: Homepage layouts and quick-start links
