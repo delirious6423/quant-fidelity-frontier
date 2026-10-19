@@ -1,0 +1,24 @@
+{"repo": "jarrelscy/GLM-5.3-Flash-NestQuant-1.5-4bit",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 teacher for the decode KL [L149]", "dataset": "Spark Bench, 80 scenarios with 2 repeats (TrueScore, Quality, Completion); four pinned BF16 confirmation windows for decode KL [L149]", "ctx": "262,144-token context and 2 GiB KV in the published artifacts [L84]", "tool": "Spark Bench official scorer (pinned), Docker on one native ARM64 DGX Spark [L32, L129]", "L": [32, 36, 43, 84, 129, 149]},
+ "entries": [
+  {"role": "own",
+   "name": "NestQuant",
+   "methodology": {"reference": "BF16 teacher for the decode KL [L149]", "dataset": "Spark Bench, 80 scenarios with 2 repeats; four pinned BF16 confirmation windows for decode KL [L149]", "ctx": "262,144-token context and 2 GiB KV in the published artifacts [L84]", "tool": "Spark Bench official scorer (pinned), Docker on one native ARM64 DGX Spark [L32, L129]", "L": [32, 36, 38, 39, 40, 41, 43, 84, 149]},
+   "metrics": {
+    "bench:Spark Bench TrueScore (thinking on)": "c1",
+    "bench:Spark Bench Quality (thinking on)": "c2",
+    "bench:Spark Bench completion, of 160 (thinking on)": "c3.0",
+    "bench:Spark Bench TrueScore (thinking off)": "c5",
+    "bench:Spark Bench Quality (thinking off)": "c6",
+    "bench:Spark Bench completion, of 160 (thinking off)": "c7.0",
+    "mean_kld": "c19"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["mean_kld is the full-vocabulary decode KL over 8,188 positions in four BF16 windows [L149]", "thinking on and off share one entry; the mode is in each metric name", "the effective routed-expert bpw 2.0436 [L90] is prose, not a candidate id, so bpw is left null", "the thinking-on run's 15 transport-error placeholders were rerun before aggregation [L43]", "decode speed 21.25 tok/s [L151] is speed only; not mapped"]
+  }
+ ],
+ "prose": []
+}

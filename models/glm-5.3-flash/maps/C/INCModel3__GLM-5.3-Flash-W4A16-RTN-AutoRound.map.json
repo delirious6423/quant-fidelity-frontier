@@ -1,0 +1,52 @@
+{
+  "repo": "INCModel3/GLM-5.3-Flash-W4A16-RTN-AutoRound",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "BF16 GLM-5.3-Flash (BF16 row of the card table)",
+    "dataset": "GSM8K, MMLU, PIQA, HelleSwag (as listed in the table)",
+    "ctx": "not stated",
+    "tool": "not stated (quantized with intel/auto-round, RTN mode)",
+    "L": [12, 14, 16, 17]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "INT4",
+      "metrics": {
+        "bench:GSM8K": "c7",
+        "bench:MMLU": "c8",
+        "bench:PIQA": "c9",
+        "bench:HelleSwag": "c10",
+        "bench:Average": "c11"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Relative to BF16 (99.65%) not mapped, no metric key [L17]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "BF16",
+      "metrics": {
+        "bench:GSM8K": "c2",
+        "bench:MMLU": "c3",
+        "bench:PIQA": "c4",
+        "bench:HelleSwag": "c5",
+        "bench:Average": "c6"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "BF16 reference row of the comparison table, measured by this publisher [L16]"
+      ]
+    }
+  ],
+  "prose": []
+}

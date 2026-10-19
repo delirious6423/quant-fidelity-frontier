@@ -1,0 +1,39 @@
+{
+ "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "GLM-5.3-Flash (Z.AI BF16 release)", "dataset": "BBH (540), AIME 2025 (30, 2 runs), GPQA Diamond (198), HumanEval+ & MBPP+ (EvalPlus), SWE-bench Verified first 100, τ²-bench airline / retail", "ctx": "max effort", "tool": "not stated", "L": [14, 36, 51]},
+ "entries": [
+  {"role": "own", "name": "AZ-Focus", "panel": "Results (max effort)",
+   "methodology": {"reference": "GLM-5.3-Flash", "dataset": "BBH (540), AIME 2025 (30, 2 runs), GPQA Diamond (198), HumanEval+ & MBPP+, SWE-bench Verified first 100, τ²-bench airline / retail", "ctx": "max effort", "tool": "not stated", "L": [36, 51]},
+   "metrics": {
+    "bench:BBH": "c2.0", "bench:BBH tokens": "c2.1", "bench:BBH thinking tokens vs base": "c3",
+    "bench:AIME 2025 (30, 2 runs)": "c5.0", "bench:AIME 2025 tokens": "c5.1", "bench:AIME 2025 thinking tokens vs base": "c6",
+    "bench:GPQA Diamond (198)": "c8", "bench:GPQA Diamond thinking tokens vs base": "c9",
+    "bench:HumanEval+ & MBPP+ (EvalPlus)": "c11", "bench:HumanEval+ & MBPP+ thinking tokens vs base": "c12",
+    "bench:SWE-bench Verified first 100 run 1": "c14.0", "bench:SWE-bench Verified first 100 run 2": "c14.1",
+    "bench:τ²-bench airline": "c16.0", "bench:τ²-bench retail": "c16.1"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["rows marked † (AIME, GPQA, EvalPlus, τ²) were measured on an earlier build of the same edit [L42-46, L51]", "token figures have no unit printed [L41-42]"]},
+  {"role": "cross", "name": "GLM-5.3-Flash", "of": "not named on card", "panel": "Results (max effort)",
+   "methodology": {"reference": "not stated", "dataset": "BBH (540), AIME 2025 (30, 2 runs), GPQA Diamond (198), HumanEval+ & MBPP+, SWE-bench Verified first 100, τ²-bench airline / retail", "ctx": "max effort", "tool": "not stated", "L": [36, 51]},
+   "metrics": {
+    "bench:BBH": "c1.0", "bench:BBH tokens": "c1.1",
+    "bench:AIME 2025 (30, 2 runs)": "c4.0", "bench:AIME 2025 tokens": "c4.1",
+    "bench:GPQA Diamond (198)": "c7", "bench:HumanEval+ & MBPP+ (EvalPlus)": "c10",
+    "bench:SWE-bench Verified first 100 run 1": "c13.0", "bench:SWE-bench Verified first 100 run 2": "c13.1",
+    "bench:τ²-bench airline": "c15.0", "bench:τ²-bench retail": "c15.1"},
+   "size": null, "unit": null, "basis": null, "bpw": null, "flags": []},
+  {"role": "own", "name": "AZ-Focus", "panel": "Effort setting", "methodology": {"reference": "GLM-5.3-Flash", "dataset": "BBH, MMLU-Pro", "ctx": "low effort", "tool": "not stated", "L": [55, 57]}, "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["values are in prose only; the card says the edit costs accuracy at low effort [L55-57]"]},
+  {"role": "cross", "name": "GLM-5.3-Flash", "of": "not named on card", "panel": "Effort setting", "methodology": {"reference": "not stated", "dataset": "BBH, MMLU-Pro", "ctx": "low effort", "tool": "not stated", "L": [55, 57]}, "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["values are in prose only [L56-57]"]}
+ ],
+ "prose": [
+  {"entry": "AZ-Focus", "panel": "Effort setting", "key": "bench:BBH effort=low", "L": 56, "raw": "BBH 80.0%"},
+  {"entry": "GLM-5.3-Flash", "panel": "Effort setting", "key": "bench:BBH effort=low", "L": 56, "raw": "vs 83.5%"},
+  {"entry": "AZ-Focus", "panel": "Effort setting", "key": "bench:MMLU-Pro effort=low", "L": 56, "raw": "MMLU-Pro 83.0%"},
+  {"entry": "GLM-5.3-Flash", "panel": "Effort setting", "key": "bench:MMLU-Pro effort=low", "L": 57, "raw": "84.2%"}
+ ]
+}

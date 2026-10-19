@@ -1,0 +1,52 @@
+{
+  "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-8bit",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "this 8-bit build (teacher)",
+    "dataset": "held-out paired panel",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [33, 34, 35, 36]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "GLM-5.3-Flash-Alis-MLX-8bit",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "8-bit teacher build; the card states no quality number for this file itself [L33]",
+        "334.1 GB on disk is in prose with no metric row [L24]",
+        "4-bit QUASAR KL change (-8.5% vs its RTN baseline) not mapped, KL delta has no key [L34-35]",
+        "tok/s figures and numbers taken from model names (c5, c7) not mapped [L34-36]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "6-bit",
+      "methodology": {
+        "reference": "this 8-bit build (teacher)",
+        "dataset": "held-out paired panel",
+        "ctx": "not stated",
+        "tool": "not stated",
+        "L": [34, 35, 36]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "mean KL against this 8-bit teacher is mapped as prose [L36]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "6-bit", "key": "mean_kld", "L": 36, "raw": "0.0226"}
+  ]
+}

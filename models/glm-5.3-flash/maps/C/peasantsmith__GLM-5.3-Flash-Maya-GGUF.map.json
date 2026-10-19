@@ -1,0 +1,19 @@
+{
+ "repo": "peasantsmith/GLM-5.3-Flash-Maya-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "FP8 model (Z.ai release)", "dataset": "held-out text never used for calibration, 7,672 positions (token by token); zero-shot ARC, HellaSwag, WinoGrande, PIQA, 400 questions per task", "ctx": "not stated", "tool": "FP8 run layer by layer in PyTorch; quants through Project Maya engine (zero-shot)", "L": [94, 96, 97]},
+ "entries": [
+  {"role": "own", "panel": "Against the original (FP8)", "name": "Maya-S", "metrics": {"top1:heldout": "c12", "kld:heldout": "c17"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["top-1 vs actual next token (c22) not mapped: no key [L102]", "zero-shot per-task table not in candidates or digest, not mapped [L85-L93]", "sizes sit in the Files table, which has no metric in the same row [L45-L54]"]},
+  {"role": "own", "panel": "Against the original (FP8)", "name": "Maya-S24", "metrics": {"top1:heldout": "c13", "kld:heldout": "c18"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["footnote 1: later-engine re-measure (Maya-S 0.421 same run) not mapped [L104]", "top-1 vs actual next token (c23) not mapped: no key [L102]"]},
+  {"role": "own", "panel": "Against the original (FP8)", "name": "Maya-M", "metrics": {"top1:heldout": "c14", "kld:heldout": "c19"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["top-1 vs actual next token (c24) not mapped: no key [L102]", "later-engine re-measure (0.291, 86.8% same top token) not mapped [L104]"]},
+  {"role": "own", "panel": "Against the original (FP8)", "name": "Maya-L", "metrics": {"top1:heldout": "c15", "kld:heldout": "c20"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["footnote 2: later-engine re-measure (Maya-M 0.291 same run) not mapped [L104]", "top-1 vs actual next token (c25) not mapped: no key [L102]"]}
+ ],
+ "prose": [
+  {"entry": "Maya-L", "panel": "Against the original (FP8)", "key": "bench:zero-shot-retention-pct", "L": 81, "raw": "Maya-L keeps 99.2% of the full model's zero-shot accuracy"},
+  {"entry": "Maya-S", "panel": "Against the original (FP8)", "key": "bench:zero-shot-retention-pct", "L": 81, "raw": "Maya-S and Maya-M 97.9%"},
+  {"entry": "Maya-M", "panel": "Against the original (FP8)", "key": "bench:zero-shot-retention-pct", "L": 81, "raw": "Maya-S and Maya-M 97.9%"},
+  {"entry": "Maya-S24", "panel": "Against the original (FP8)", "key": "bench:zero-shot-retention-pct", "L": 81, "raw": "Maya-S24 97.7%"}
+ ]
+}

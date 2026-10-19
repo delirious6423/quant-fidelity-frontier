@@ -1,0 +1,30 @@
+{"repo": "nvidia/GLM-5.3-Flash-FP4-Local",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "BF16 GLM-5.3-Flash baseline [L106-L109]", "dataset": "GPQA Diamond (198); ToolEvalBench (deterministic multi-turn agent scenarios) [L100, L104]", "ctx": "not stated", "tool": "not stated", "L": [100, 102, 104, 106, 107, 109]},
+ "entries": [
+  {"role": "own",
+   "name": "FP4-Local",
+   "methodology": {"reference": "BF16 GLM-5.3-Flash baseline [L106-L109]", "dataset": "GPQA Diamond (198); ToolEvalBench [L100, L104]", "ctx": "not stated", "tool": "not stated", "L": [100, 104, 107]},
+   "metrics": {
+    "bench:GPQA Diamond": "c4",
+    "bench:ToolEvalBench": "c5"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["quantization-aware distillation trains the BF16 weights, so weights_modified is true [L114]", "vRAM figures [L24] are prose; size left null"]
+  },
+  {"role": "cross",
+   "name": "BF16",
+   "of": "zai-org/GLM-5.3-Flash",
+   "methodology": {"reference": "not stated (this is the baseline)", "dataset": "GPQA Diamond (198); ToolEvalBench [L100, L104]", "ctx": "not stated", "tool": "not stated", "L": [100, 104, 106, 109]},
+   "metrics": {
+    "bench:GPQA Diamond": "c2",
+    "bench:ToolEvalBench": "c3"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["baseline row is linked to zai-org/GLM-5.3-Flash [L109]; the card does not say who measured it, so kept as cross"]
+  }
+ ],
+ "prose": []
+}

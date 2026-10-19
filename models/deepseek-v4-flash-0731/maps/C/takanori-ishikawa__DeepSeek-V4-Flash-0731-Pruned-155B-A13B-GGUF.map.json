@@ -1,0 +1,23 @@
+{"repo": "takanori-ishikawa/DeepSeek-V4-Flash-0731-Pruned-155B-A13B-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "DeepSeek official API serving unpruned FP8 release weights (same harness)", "dataset": "SWE-bench Verified, 100-instance stratified subset", "ctx": "not stated", "tool": "Codex CLI", "L": [157, 159, 183, 187]},
+ "entries": [
+  {"role": "own", "name": "This build, on one Mac mini M4 Pro 64 GB", "panel": "SWE-bench Verified, 100-instance subset: 77.5%",
+   "methodology": {"reference": "not stated", "dataset": "SWE-bench Verified, 100-instance stratified subset", "ctx": "not stated", "tool": "mini-SWE-agent leaderboard rows vs Codex CLI here (caveated)", "L": [161, 163, 183]},
+   "metrics": {"bench:SWE-bench Verified, same 100 instances (pass 1)": "c10.2"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["comparison rows for GLM 5, MiniMax M2.5, DeepSeek V3.2, Kimi K2.5, GLM 4.6 and Qwen3-Coder are other models, omitted [L165-171]", "leaderboard comparison uses a different agent harness; card calls it a sanity anchor, not a head-to-head [L183]"]},
+  {"role": "cross", "name": "DeepSeek official API (FP8 reference, unpruned)", "panel": "Delta vs. the FP8 reference weights (same harness)", "of": "not named on card",
+   "methodology": {"reference": "DeepSeek official API serving unpruned FP8 release weights", "dataset": "SWE-bench Verified, same 100 instances", "ctx": "not stated", "tool": "Codex CLI, identical configuration on both sides", "L": [187, 189, 191]},
+   "metrics": {"bench:SWE-bench Verified pass 1": "c19.2", "bench:SWE-bench Verified pass 2": "c20.2", "bench:SWE-bench Verified pass@1 mean": "c21"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["every cell is a single k=1 draw [L196]", "reference measured by this card's author under the identical harness [L187]"]},
+  {"role": "own", "name": "This build (pruned + IQ3_XXS, one Mac mini)", "panel": "Delta vs. the FP8 reference weights (same harness)",
+   "methodology": {"reference": "DeepSeek official API serving unpruned FP8 release weights (same harness)", "dataset": "SWE-bench Verified, same 100 instances", "ctx": "not stated", "tool": "Codex CLI, identical configuration on both sides", "L": [187, 189, 192]},
+   "metrics": {"bench:SWE-bench Verified pass 1": "c22.2", "bench:SWE-bench Verified pass 2": "c23.2", "bench:SWE-bench Verified pass@1 mean": "c24"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["mean gap 6.5 points below reference; per-pass gaps 10 and 3 points [L194]", "delta combines pruning, IQ3_XXS quantization and serving-stack differences, not pruning alone [L205]", "every cell is a single k=1 draw [L196]"]}
+ ],
+ "prose": []}

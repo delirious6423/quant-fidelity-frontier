@@ -1,0 +1,62 @@
+{
+  "repo": "intel-ai/GLM-5.3-Flash-MXFP8-CT-AutoRound",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "BF16 base checkpoint (reference row supplied for the base checkpoint)",
+    "dataset": "GSM8K (strict), MMLU, PIQA, HellaSwag",
+    "ctx": "max_model_len 8192",
+    "tool": "lm-eval 0.4.13 with vLLM backend, TP=4 on 4x B300, seed=42, thinking off",
+    "L": [135, 136, 137, 138, 214]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "GLM-5.3-Flash-MXFP8-CT-AutoRound",
+      "metrics": {
+        "bench:GSM8K (strict)": "c18",
+        "bench:MMLU": "c19",
+        "bench:PIQA": "c20",
+        "bench:HellaSwag": "c21",
+        "bench:Average": "c22"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "size on disk (339.39 GB) sits in a row with no metric, not attached [L123]",
+        "delta row (+0.07 to +0.12 pp) not mapped, no delta key [L144]",
+        "compression 1.89x and layer-count and scale-overhead rows not mapped, no metric key [L41, L110, L118-123]"
+      ]
+    },
+    {
+      "role": "quoted",
+      "name": "BF16 reference",
+      "of": "not named on card",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "GSM8K (strict), MMLU, PIQA, HellaSwag",
+        "ctx": "not stated",
+        "tool": "not stated",
+        "L": [137, 138, 142]
+      },
+      "metrics": {
+        "bench:GSM8K (strict)": "c13",
+        "bench:MMLU": "c14",
+        "bench:PIQA": "c15",
+        "bench:HellaSwag": "c16",
+        "bench:Average": "c17"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "BF16 row is the reference table supplied for the base checkpoint, copied by the card [L137-138]"
+      ]
+    }
+  ],
+  "prose": []
+}

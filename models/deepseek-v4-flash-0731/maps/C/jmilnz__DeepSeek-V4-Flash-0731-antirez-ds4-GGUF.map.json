@@ -1,0 +1,18 @@
+{"repo": "jmilnz/DeepSeek-V4-Flash-0731-antirez-ds4-GGUF",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "DeepSeek API official continuations (100 tracked, data/flash)", "dataset": "100 tracked DeepSeek API continuations in data/flash", "ctx": "not stated", "tool": "gguf-tools/quality-testing/score_official; compare_scores.py", "L": [114, 115, 117]},
+ "entries": [
+  {"role": "own", "name": "v2 (real imatrix)",
+   "methodology": {"reference": "DeepSeek API official continuations (100 tracked, data/flash)", "dataset": "100 tracked DeepSeek API continuations in data/flash", "ctx": "not stated", "tool": "gguf-tools/quality-testing/score_official; compare_scores.py", "L": [114, 115, 117]},
+   "metrics": {"bench:Mean NLL (official continuations)": "c8", "bench:Cases won (of 100)": "c10", "bench:First-token match": "c12.0", "bench:Avg greedy longest-common-prefix": "c14"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["custom 100-case harness metrics, not standard benchmarks [L114-115, L122-125]", "mean NLL is not stated as perplexity; no ppl key used [L122]", "single 100-case run per card caveat [L184]"]},
+  {"role": "ladder", "name": "v1 (synthetic)",
+   "methodology": {"reference": "DeepSeek API official continuations (100 tracked, data/flash)", "dataset": "100 tracked DeepSeek API continuations in data/flash", "ctx": "not stated", "tool": "gguf-tools/quality-testing/score_official; compare_scores.py", "L": [114, 115, 117]},
+   "metrics": {"bench:Mean NLL (official continuations)": "c7", "bench:Cases won (of 100)": "c9", "bench:First-token match": "c11.0", "bench:Avg greedy longest-common-prefix": "c13"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["prior build using quantizer synthetic imatrix fallback [L91, L112]", "custom 100-case harness metrics, not standard benchmarks [L114-115, L122-125]"]}
+ ],
+ "prose": []}

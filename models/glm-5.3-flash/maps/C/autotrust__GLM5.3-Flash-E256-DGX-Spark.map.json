@@ -1,0 +1,64 @@
+{"repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "E224 build from the same harness and machine, as a ladder comparison [L61]", "dataset": "HumanEval (164), GPQA-Diamond (198), C-Eval val (1,606), AIME 2025, MMMU val (900), BFCL v4", "ctx": "reasoning_effort budgets: 65,536 tokens (16,384 for MMMU) [L61]", "tool": "vLLM on a single B200 [L59]; bfcl-eval v4 for BFCL [L95]", "L": [59, 61, 62, 95]},
+ "entries": [
+  {"role": "own",
+   "name": "This model (E256)",
+   "panel": "Benchmarks",
+   "methodology": {"reference": "not stated", "dataset": "HumanEval (164), C-Eval val (1,606), MMMU val (900), BFCL v4", "ctx": "reasoning_effort budgets: 65,536 tokens (16,384 for MMMU) [L61]", "tool": "vLLM on a single B200 [L59]", "L": [59, 61, 63, 65, 67, 69, 70, 71, 72]},
+   "metrics": {
+    "bench:HumanEval (164) greedy": "c15",
+    "bench:C-Eval val (1,606, 52 subjects)": "c18",
+    "bench:MMMU val (900) effort=low": "c21",
+    "bench:BFCL v4 Non-Live AST (template default)": "c23",
+    "bench:BFCL v4 Live AST weighted (template default)": "c25",
+    "bench:BFCL v4 Multi-Turn Base (200), first of two runs": "c27.0",
+    "bench:BFCL v4 Multi-Turn Base (200), second of two runs": "c27.1"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["GPQA-Diamond and AIME 2025 cells for This model have no candidate ids [L66, L68]; not mapped", "E224 ladder values are in a separate entry [L65-L72]"]
+  },
+  {"role": "ladder",
+   "name": "E224",
+   "panel": "Benchmarks",
+   "methodology": {"reference": "not stated", "dataset": "HumanEval (164), GPQA-Diamond (198), C-Eval val (1,606), AIME 2025, MMMU val (900), BFCL v4", "ctx": "reasoning_effort budgets: 65,536 tokens (16,384 for MMMU) [L61]", "tool": "same harness and machine as This model [L61]", "L": [59, 61, 65, 66, 67, 68, 69, 70, 71, 72]},
+   "metrics": {
+    "bench:HumanEval (164) greedy": "c16",
+    "bench:GPQA-Diamond (198) effort=low quick self-test": "c17",
+    "bench:C-Eval val (1,606, 52 subjects)": "c19",
+    "bench:AIME 2025 (30 x 4 samples, pass@1) effort=high": "c20",
+    "bench:MMMU val (900) effort=low": "c22",
+    "bench:BFCL v4 Non-Live AST (template default)": "c24",
+    "bench:BFCL v4 Live AST weighted (template default)": "c26",
+    "bench:BFCL v4 Multi-Turn Base (200)": "c28"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["values measured on the E224 build, same harness [L61]"]
+  },
+  {"role": "own",
+   "name": "This model (E256)",
+   "panel": "Tool use: BFCL v4 (function calling, AST match)",
+   "methodology": {"reference": "not stated", "dataset": "BFCL v4 AST categories", "ctx": "template-default effort", "tool": "bfcl-eval v4 against local OpenAI-compatible endpoint, --tool-call-parser glm47, --num-threads 32 [L95]", "L": [95, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93]},
+   "metrics": {
+    "bench:BFCL v4 simple (Python)": "c29",
+    "bench:BFCL v4 simple (Java)": "c30",
+    "bench:BFCL v4 simple (JavaScript)": "c31",
+    "bench:BFCL v4 multiple": "c32",
+    "bench:BFCL v4 parallel": "c33",
+    "bench:BFCL v4 parallel-multiple": "c34",
+    "bench:BFCL v4 irrelevance detection": "c35",
+    "bench:BFCL v4 live simple": "c36",
+    "bench:BFCL v4 live multiple": "c37",
+    "bench:BFCL v4 live parallel": "c38",
+    "bench:BFCL v4 live parallel-multiple": "c39",
+    "bench:BFCL v4 live irrelevance": "c40",
+    "bench:BFCL v4 live relevance": "c41"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Multi-Turn Base is reported in the Benchmarks panel [L72]"]
+  }
+ ],
+ "prose": []
+}
