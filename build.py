@@ -669,7 +669,7 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
 {hl}
 </section>
 
-<section id="ledger"><h2>The ledger</h2>
+<section id="ledger"><details id="ledger-details" class="section-disclosure"><summary><h2>The ledger</h2><span class="dim">{len(tr)} rows</span></summary>
 <div class="filters" role="group" aria-label="Filter the ledger">
   <label for="q">Search</label><input id="q" type="search" placeholder="publisher, quant type, metric…">
   <label for="ffmt">Format</label><select id="ffmt"><option value="">All</option>{"".join(f'<option>{E(f)}</option>' for f in fmts)}</select>
@@ -682,12 +682,12 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
 <div class="tablebox"><table id="t" class="mobile-cards">
 <thead><tr><th data-sort="s">Repository</th><th data-sort="s">Variant</th><th data-sort="s">Format</th><th class="n" data-sort="n">Size GB</th><th>Size is</th><th class="n" data-sort="n">Mean KLD</th><th class="n" data-sort="n">Top-1</th><th class="n" data-sort="n">PPL</th><th class="n" title="Change in perplexity against the baseline the row's card states (BF16, a sibling build, or a previous build); check the source line">PPL change<br><small>vs the card's baseline</small></th><th>Other metrics (as published)</th><th>Reference</th><th>Source line</th></tr></thead>
 <tbody>{"".join(tr)}</tbody></table></div>
-</section>
-<section id="publishers"><h2>Publisher notes</h2>
+</details></section>
+<section id="publishers"><details id="publisher-details" class="section-disclosure"><summary><h2>Publisher notes</h2><span class="dim">{len(cards)} notes</span></summary>
 <p class="note">Method, evaluation setup and problems we found, per repository. Line numbers refer to the card snapshot linked at the bottom of each note.</p>
 <div class="filters"><label for="cq">Search</label><input id="cq" type="search" placeholder="publisher, format, flag text…"><label class="cb" for="cflag"><input id="cflag" type="checkbox"> Only notes with flags</label><span id="ccount" class="count" aria-live="polite"></span></div>
 <div class="cards" id="cards">{"".join(cards)}</div>
-</section>
+</details></section>
 <section id="no-claims"><h2>Repos without extracted claims ({len(noclaim)})</h2>
 <p class="note">Two different situations, marked in the Status column. <b>Read in full: no quality claims</b> means a reviewer read the whole card and found no quality number about the quant itself. <b>Not yet reviewed</b> means the card has not been read in full yet and may contain claims; it is listed so the catalogue is complete, not as a finding.</p>
 <div class="filters"><label for="ncq">Search</label><input id="ncq" type="search" placeholder="publisher or format…"><label for="ncs">Status</label><select id="ncs"><option value="">Any</option><option>not yet reviewed</option><option>read in full: no quality claims</option></select><span id="nccount" class="count" aria-live="polite"></span></div>

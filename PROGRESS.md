@@ -99,3 +99,9 @@
 - Progressive enhancement: without JavaScript, both chart sections remain accessible and disclosures still work.
 - Validation: GLM benchmark interactions at 320/390/1366px; GLM full desktop/mobile explorer regression; five source-data tests. Qwen 27B regression checks the shared disclosure change without tabs.
 - Pending: owner review before production deployment.
+
+## Collapsed ledger and publisher notes (2026-10-19)
+- Ledger and publisher notes now use native closed disclosures with row/note counts on every model page.
+- Section and individual-publisher links open the corresponding disclosure; a direct publisher link also clears a filter hiding that card.
+- Responsive checks pass at 320/390/1366px for defaults, search, retained filters, section/card anchors and overflow; native disclosures open with JavaScript disabled. Added to CI.
+- Prepared for owner review before deployment.

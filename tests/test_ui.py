@@ -231,6 +231,11 @@ async def main():
             format_term = next(q.get("fmt") for q in _ALL["points"] if q.get("fmt") and q["m"].get(_ALL["metrics"][0], {}).get("v", 0) > 0)
             await pg.fill("#exq", format_term); await pg.wait_for_timeout(100)
             check(await pg.locator("#exsvg circle.mk").count() > 0, f"{name}: 'all' view filterable by format text")
+            # Ledger and publisher notes are collapsed until requested.
+            check(not await pg.locator('#ledger-details').evaluate('(e) => e.open'), f"{name}: ledger starts collapsed")
+            check(not await pg.locator('#publisher-details').evaluate('(e) => e.open'), f"{name}: publisher notes start collapsed")
+            await pg.locator('#ledger-details > summary').click()
+            await pg.locator('#publisher-details > summary').click()
             # ledger + notes filters
             await pg.fill("#q", QS); await pg.wait_for_timeout(100)
             c = await pg.text_content("#count"); check(c and not c.startswith("0 ") and "of" in c, f"{name}: ledger multi-word search ({c})")
