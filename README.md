@@ -9,7 +9,7 @@ with a link to the line it came from.
 <!-- qff:models:start -->
 | Model | Repos | Claimed values |
 |---|---|---|
-| [Qwen/Qwen3.8-Flash-Next](https://delirious6423.github.io/quant-fidelity-frontier/qwen3.8-flash-next/) | 463 | 2,958 |
+| [Qwen/Qwen3.8-Flash-Next](https://delirious6423.github.io/quant-fidelity-frontier/qwen3.8-flash-next/) | 463 | 2,950 |
 | [Qwen/Qwen3.8-27B](https://delirious6423.github.io/quant-fidelity-frontier/qwen3.8-27b/) | 1,230 | 4,716 |
 | [deepseek-ai/DeepSeek-V4.1-Flash](https://delirious6423.github.io/quant-fidelity-frontier/deepseek-v4.1-flash/) | 134 | 1,081 |
 | [zai-org/GLM-5.3-Flash](https://delirious6423.github.io/quant-fidelity-frontier/glm-5.3-flash/) | 175 | 548 |

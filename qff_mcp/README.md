@@ -9,9 +9,9 @@ comparable.
 | Tool | What it answers |
 |---|---|
 | `list_models` | Which base models QFF covers, capture dates, counts |
-| `search_quants(model, query, fmt, max_size_gb, has_metric, publisher)` | Claim rows matching filters |
+| `search_quants(model, query, fmt, max_size_gb, has_metric, publisher, limit)` | Claim rows matching filters |
 | `get_repo(model, repo)` | Everything for one repo: method, methodology, flags, card pin, all rows |
-| `list_sets(model)` | Measurement sets (one measurer, one method) and the not-comparable overview |
+| `list_sets(model, comparable_only)` | Measurement sets (one measurer, one method); the not-comparable overview only with `comparable_only=false` |
 | `frontier(model, set_id, metric, max_x)` | Efficient quants in one set, and what beats each of the others |
 | `best_under(model, max_size_gb, metric)` | Best quant under a size budget in each set, listed side by side, never ranked across sets |
 
@@ -34,6 +34,6 @@ Claude Desktop (`claude_desktop_config.json`):
 that does this; add the Space URL + `/mcp` as a custom connector.
 
 ## Tests
-`python3 test_mcp.py` starts the server over real stdio and checks every tool against `data.json` independently:
+`python3 tests/test_mcp.py` starts the server over real stdio and checks every tool against `data.json` independently:
 rows are real and filters hold, strings are verbatim, the frontier equals an independent Pareto computation on every
 comparable set, the not-comparable overview is refused for ranking, and budgets are respected.
