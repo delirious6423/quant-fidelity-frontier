@@ -36,6 +36,20 @@ def _evidence(lines, point, prefix):
         raise ValueError('numeric value differs from source text')
 
 
+def group_benchmarks(sources):
+    """Index exact task variants and units, retaining every independent result."""
+    groups = {}
+    for si, source in enumerate(sources):
+        for mi, metric in enumerate(source['metrics']):
+            key = (metric['name'], metric['unit'])
+            group = groups.setdefault(key, dict(name=key[0], unit=key[1], evaluations=[]))
+            group['evaluations'].append(dict(source=si, metric=mi))
+    for group in groups.values():
+        points = [point for e in group['evaluations'] for point in sources[e['source']]['metrics'][e['metric']]['points']]
+        group['comparison'] = classify_group(points, metric='bench:' + group['name'])
+    return list(groups.values())
+
+
 def build_benchmarks(root, cfg):
     root = Path(root)
     manifest = root / 'benchmarks.json'
@@ -83,14 +97,15 @@ def build_benchmarks(root, cfg):
                                     metrics=metrics, revision=meta['sha'], card_sha256=source['card_sha256']))
         except (KeyError, ValueError, OSError, TypeError) as exc:
             withheld.append(dict(repo=repo, reason=str(exc)))
-    return dict(model=cfg.get('name', cfg.get('model', 'Model')), sources=sources, withheld=withheld)
+    return dict(model=cfg.get('name', cfg.get('model', 'Model')), sources=sources, groups=group_benchmarks(sources), withheld=withheld)
 
 
 def static_chart(payload):
     if not payload['sources']:
         return '<p>No reviewed benchmark scores with verified file sizes are currently available.</p>'
     metric = payload['sources'][0]['metrics'][0]
-    points = metric['points']
+    points = [dict(p, _source=e['source']) for e in payload['groups'][0]['evaluations']
+              for p in payload['sources'][e['source']]['metrics'][e['metric']]['points']]
     lo, hi = min(p['score'] for p in points), max(p['score'] for p in points)
     pad = max((hi - lo) * .2, .001 if metric['unit'] == 'fraction' else 1)
     lo -= pad; hi += pad
@@ -105,10 +120,12 @@ def static_chart(payload):
         score = lo + (hi - lo) * i / 3; yy = y(score); size = xmax * i / 3
         svg.append(f'<line x1="18%" x2="94%" y1="{yy}" y2="{yy}" stroke="var(--line)"/><text x="15%" y="{yy+4}" text-anchor="end">{score:.3g}</text>')
         svg.append(f'<text x="{x(size)}%" y="283" text-anchor="middle">{size:.0f}</text>')
+    colors = ('var(--accent)', '#a36bcc', '#bd772b', '#4379bd', '#b65c7d', '#58893b')
     for i, p in enumerate(points):
         xx, yy = x(p['size']), y(p['score'])
         shape = '<rect x="-5" y="-5" width="10" height="10" transform="rotate(45)" class="bm-dot"/>' if p['reference'] else '<circle r="6" class="bm-dot"/>'
-        svg.append(f'<svg x="{xx}%" y="{yy}" width="1" height="1" overflow="visible">{shape}<title>{E(p["variant"])}: {E(str(p["raw"]))}</title></svg>')
+        shape = shape.replace('class="bm-dot"', f'class="bm-dot" style="fill:{colors[p["_source"] % len(colors)]}"')
+        svg.append(f'<svg x="{xx}%" y="{yy}" width="1" height="1" overflow="visible">{shape}<title>{E(payload["sources"][p["_source"]]["label"])} · {E(p["variant"])}: {E(str(p["raw"]))}</title></svg>')
         if len(points) <= 4 or i == 0:
             svg.append(f'<text x="{xx}%" y="{yy-17}" text-anchor="middle" class="bm-label">{E(str(p["raw"]))}</text>')
     svg.append('<text x="56%" y="312" text-anchor="middle">File size (GB)</text></svg>')
@@ -124,23 +141,24 @@ def render_benchmarks(payload):
                     f'<td><a href="{E(p["src"], quote=True)}">Score L{p["line"]}</a> · <a href="{E(p["size_src"], quote=True)}">Size L{p["size_line"]}</a></td></tr>'
                     for s in payload['sources'] for m in s['metrics'] for p in m['points'])
     data = json.dumps(payload, separators=(',', ':')).replace('<', '\\u003c')
-    context = E(payload['sources'][0]['context']) if payload['sources'] else ''
+    context = E('Evaluation source: ' + payload['sources'][0]['label']) if payload['sources'] else ''
     notes = ''.join('<p><strong>' + E(s['label']) + '</strong></p><p>' + E(s['context']) + '</p><ul>' + ''.join('<li>' + E(n) + '</li>' for n in s['notes']) + '</ul>' for s in payload['sources'])
-    comparison = payload['sources'][0]['metrics'][0]['comparison'] if payload['sources'] else None
+    comparison = payload['groups'][0]['comparison'] if payload['sources'] else None
     classification = E(comparison['label']) if comparison else ''
     reason = E(comparison['explanation']) if comparison else ''
     withheld = f'<p class="dim">{len(payload["withheld"])} source table(s) awaiting review after a source change.</p>' if payload['withheld'] else ''
     return '''<section id="benchmarks" class="bm-pilot" aria-labelledby="bm-title">
 <h2 id="bm-title">Benchmark score vs file size</h2>
 <p id="bm-classification" class="dim">''' + classification + '''</p>
-<p class="note">Published scores, grouped by evaluation source.</p>
+
 <div class="bm-controls" id="bm-controls" hidden>
-<label for="bm-source">Evaluation source<select id="bm-source"></select></label>
 <label for="bm-metric">Benchmark<select id="bm-metric"></select></label>
+<label id="bm-source-choice" for="bm-source" hidden>Source<select id="bm-source"></select></label>
 <label class="bm-check"><input id="bm-zero" type="checkbox"> Start score axis at zero</label>
 <label for="bm-limit">File-size limit (GB)<input id="bm-limit" type="number" min="0" step="any" placeholder="Any size"></label>
 </div><p id="bm-context" class="dim" hidden>''' + context + '''</p><p id="bm-status" class="dim" role="status"></p>
 <p id="bm-axis" class="dim" hidden></p><div id="bm-plot" class="bm-plot">''' + static_chart(payload) + '''</div>
+<div id="bm-sources" class="bm-sources" hidden aria-label="Evaluation sources"></div>
 <p class="bm-legend" id="bm-legend">● Quantized build &nbsp; ◆ Reference · Higher score ↑</p>
 <div id="bm-selection" hidden><label for="bm-pick">Inspect result<select id="bm-pick"></select></label><div id="bm-detail" class="bm-detail" aria-live="polite"></div></div>
 <details id="bm-notes"><summary>Evaluation &amp; size notes</summary><p id="bm-reason">''' + reason + '''</p><p>File size is not total VRAM usage. Scores retain their published scale; no cross-source ranking is inferred. Source links may open a mutable model card; captured card hashes are recorded in the data.</p><div id="bm-source-notes">''' + notes + '''</div></details>''' + withheld + '''

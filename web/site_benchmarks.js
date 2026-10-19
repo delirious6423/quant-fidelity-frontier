@@ -6,27 +6,59 @@
   var NS = 'http://www.w3.org/2000/svg';
   function el(tag, attrs, text) { var n = document.createElementNS(NS, tag); Object.keys(attrs).forEach(function (k) { n.setAttribute(k, attrs[k]); }); if (text != null) n.textContent = text; return n; }
   function option(value, label) { var o = document.createElement('option'); o.value = value; o.textContent = label; return o; }
-  function currentSource() { return D.sources[+source.value]; }
-  function currentMetric() { return currentSource().metrics[+metric.value]; }
+  var colors = ['var(--accent)', '#a36bcc', '#bd772b', '#4379bd', '#b65c7d', '#58893b'];
+  var benchmarks = D.groups.slice().sort(function (a, b) { return a.name.localeCompare(b.name) || a.unit.localeCompare(b.unit); });
+  function currentBenchmark() { return benchmarks[+metric.value]; }
+  function evaluations() { return currentBenchmark().evaluations.filter(function (e) { return source.value === 'all' || e.source === +source.value; }); }
+  function currentMetric() { var e = evaluations()[0]; return D.sources[e.source].metrics[e.metric]; }
+  function sourceColor(si) { return colors[si % colors.length]; }
   function unitText() { return currentMetric().unit === 'fraction' ? 'fraction (0–1)' : currentMetric().unit === 'percent' ? 'percent' : 'not stated'; }
   if (!D.sources.length) { $('bm-legend').hidden = true; $('bm-evidence').open = false; return; }
-  D.sources.forEach(function (s, i) { source.appendChild(option(i, s.label)); });
-  function points() { return currentMetric().points; }
+  benchmarks.forEach(function (b, i) {
+    var ambiguous = benchmarks.some(function (other) { return other !== b && other.name === b.name; });
+    metric.appendChild(option(i, b.name + (ambiguous ? ' · ' + b.unit : '')));
+  });
+  metric.value = benchmarks.findIndex(function (b) { return b.name === D.sources[0].metrics[0].name && b.unit === D.sources[0].metrics[0].unit; });
+  function points() {
+    var all = [];
+    evaluations().forEach(function (e) { D.sources[e.source].metrics[e.metric].points.forEach(function (p) { all.push(Object.assign({}, p, { _source: e.source })); }); });
+    return all;
+  }
   function changeSource() {
-    metric.replaceChildren();
-    currentSource().metrics.forEach(function (m, i) { metric.appendChild(option(i, m.name + ' · ' + m.points.length + ' result' + (m.points.length === 1 ? '' : 's'))); });
-    $('bm-context').textContent = currentSource().context;
-    changeMetric();
+    var selected = evaluations(), multiple = selected.length > 1;
+    $('bm-context').textContent = multiple ? selected.length + ' evaluation sources · test settings may differ' : 'Evaluation source: ' + D.sources[selected[0].source].label;
+    var sourceLegend = $('bm-sources'); sourceLegend.replaceChildren(); sourceLegend.hidden = !multiple;
+    $('bm-source-notes').replaceChildren();
+    selected.forEach(function (e) {
+      var s = D.sources[e.source];
+      if (multiple) {
+        var item = document.createElement('span'); item.className = 'bm-source-label'; item.style.setProperty('--bm-source-color', sourceColor(e.source)); item.textContent = s.label; sourceLegend.appendChild(item);
+      }
+      var title = document.createElement('strong'); title.textContent = s.label; $('bm-source-notes').appendChild(title);
+      var context = document.createElement('p'); context.textContent = s.context; $('bm-source-notes').appendChild(context);
+      var notes = document.createElement('ul');
+      s.notes.forEach(function (note) { var li = document.createElement('li'); li.textContent = note; notes.appendChild(li); });
+      $('bm-source-notes').appendChild(notes);
+    });
+    pick.replaceChildren(); points().forEach(function (p, i) { pick.appendChild(option(i, p.variant + ' · ' + p.size + ' GB' + (multiple ? ' · ' + D.sources[p._source].label : ''))); });
+    $('bm-selection').hidden = !points().length; detail(); draw();
+  }
+  function changeMetric() {
+    source.replaceChildren();
+    if (currentBenchmark().evaluations.length > 1) source.appendChild(option('all', 'All sources'));
+    currentBenchmark().evaluations.forEach(function (e) { source.appendChild(option(e.source, D.sources[e.source].label)); });
+    $('bm-source-choice').hidden = currentBenchmark().evaluations.length < 2;
+    changeSource();
   }
   function detail() {
     var p = points()[+pick.value], box = $('bm-detail'); box.replaceChildren(); if (!p) return;
     var title = document.createElement('strong'); title.textContent = p.raw + ' published score · ' + p.size + ' GB'; box.appendChild(title);
-    var desc = document.createElement('p'); desc.textContent = p.variant + ' — ' + p.repo + '. Original size: ' + p.size_raw + '. Score unit: ' + unitText() + '.'; box.appendChild(desc);
+    var desc = document.createElement('p'); desc.textContent = p.variant + ' — ' + p.repo + '. Evaluation source: ' + D.sources[p._source].label + '. Original size: ' + p.size_raw + '. Score unit: ' + unitText() + '.'; box.appendChild(desc);
     var a = document.createElement('a'); a.href = p.src; a.textContent = 'Read publisher source · line ' + p.line; box.appendChild(a); var sizeLink = document.createElement('a'); sizeLink.href = p.size_src; sizeLink.textContent = 'File-size source · line ' + p.size_line; box.appendChild(document.createTextNode(' · ')); box.appendChild(sizeLink);
     var ul = document.createElement('ul'); p.flags.forEach(function (f) { var li = document.createElement('li'); li.textContent = f; ul.appendChild(li); }); box.appendChild(ul);
   }
   function draw() {
-    var comparison = currentMetric().comparison;
+    var comparison = evaluations().length > 1 ? currentBenchmark().comparison : currentMetric().comparison;
     $('bm-classification').textContent = comparison.label;
     $('bm-reason').textContent = comparison.explanation;
     $('bm-axis').textContent = zero.checked ? 'Linear score axis · zero baseline' : 'Zoomed linear score axis · small differences are magnified';
@@ -52,18 +84,17 @@
     ps.forEach(function (p, j) {
       var cx = X(p.size), cy = Y(p.score), radius = j === +pick.value ? 8 : 6;
       var shape = p.reference ? el('path', { d: 'M' + cx + ' ' + (cy-radius) + 'l' + radius + ' ' + radius + 'l-' + radius + ' ' + radius + 'l-' + radius + ' -' + radius + 'Z' }) : el('circle', { cx: cx, cy: cy, r: radius });
-      shape.setAttribute('class', 'bm-dot'); shape.setAttribute('opacity', p.size > cap ? '.3' : '1');
-      var hit = el('a', { href: '#bm-selection', 'aria-label': p.variant + ', ' + p.raw + ', ' + p.size + ' GB' });
+      shape.setAttribute('class', 'bm-dot'); shape.style.fill = sourceColor(p._source); shape.setAttribute('data-source', String(p._source)); shape.setAttribute('opacity', p.size > cap ? '.3' : '1');
+      var hit = el('a', { href: '#bm-selection', 'aria-label': D.sources[p._source].label + ', ' + p.variant + ', ' + p.raw + ', ' + p.size + ' GB' });
       hit.appendChild(el('circle', { cx: cx, cy: cy, r: 22, fill: 'transparent' })); hit.appendChild(shape);
-      hit.appendChild(el('title', {}, p.variant + ': ' + p.raw + ' at ' + p.size + ' GB'));
+      hit.appendChild(el('title', {}, D.sources[p._source].label + ' · ' + p.variant + ': ' + p.raw + ' at ' + p.size + ' GB'));
       hit.addEventListener('click', function (e) { e.preventDefault(); pick.value = j; detail(); draw(); host.querySelectorAll('a')[j].focus(); }); svg.appendChild(hit);
       if (ps.length <= 4 || j === +pick.value) svg.appendChild(el('text', { x: cx, y: cy - 17, 'text-anchor': 'middle', 'class': 'bm-label' }, p.raw));
     });
     var n = ps.filter(function (p) { return p.size <= cap; }).length;
     $('bm-status').textContent = ps.length + ' reported result' + (ps.length === 1 ? ' — no pairwise comparison available.' : 's.') + (cap < Infinity ? ' ' + n + ' within file-size limit; shaded region exceeds it.' : '') + ' Unit: ' + unitText() + '.';
   }
-  function changeMetric() { pick.replaceChildren(); points().forEach(function (p, i) { pick.appendChild(option(i, p.variant + ' · ' + p.size + ' GB')); }); $('bm-selection').hidden = !points().length; detail(); draw(); }
-  $('bm-axis').hidden = false; $('bm-controls').hidden = false; host.hidden = false; $('bm-legend').hidden = false; $('bm-evidence').open = false;
+  $('bm-context').hidden = false; $('bm-axis').hidden = false; $('bm-controls').hidden = false; host.hidden = false; $('bm-legend').hidden = false; $('bm-evidence').open = false;
   source.addEventListener('change', changeSource); metric.addEventListener('change', changeMetric); pick.addEventListener('change', function () { detail(); draw(); }); zero.addEventListener('change', draw); limit.addEventListener('input', draw);
-  new ResizeObserver(draw).observe(host); changeSource();
+  changeMetric(); new ResizeObserver(draw).observe(host);
 })();
