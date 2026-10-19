@@ -1,0 +1,25 @@
+{
+  "repo": "Yanun/GLM-5.3-Flash-MXFP4-mtp",
+  "no_quality_claims": true,
+  "no_claims_reason": "conversion checks only; task quality, speed and MTP decoding explicitly not validated [L66-68]",
+  "weights_modified": false,
+  "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "SHA-256 read-back of converted files [L66]", "L": [66]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "GLM-5.3-Flash-MXFP4-mtp",
+      "metrics": {},
+      "size": "c1.0",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "custom packed binary, not MLX, GGUF or directly loadable Transformers [L37]",
+        "payload 182,191,831,203 bytes, 46 binary files [L47]",
+        "routed experts MXFP4 (lossy); non-routed weights keep FP8/BF16/FP32 [L44-45]",
+        "no source-model benchmark claimed for this conversion [L68]"
+      ]
+    }
+  ],
+  "prose": []
+}

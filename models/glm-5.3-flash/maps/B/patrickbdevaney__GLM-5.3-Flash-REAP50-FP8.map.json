@@ -1,0 +1,26 @@
+{
+  "repo": "patrickbdevaney/GLM-5.3-Flash-REAP50-FP8",
+  "no_quality_claims": true,
+  "no_claims_reason": "card states evaluation status NONE [L63-68]; pruning saliency ratio measures the criterion, not model quality [L70-72]",
+  "weights_modified": true,
+  "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": []},
+  "entries": [
+    {
+      "role": "own",
+      "name": "REAP-50 (FP8)",
+      "metrics": {},
+      "size": "c1",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "router-weighted expert pruning (REAP), 144 retained experts per layer [L22-26]",
+        "revised checkpoint: healing gain corrected from 0.6933 to 0.9111 in block scales only [L11-26]",
+        "saliency mass 0.643 vs 0.50 random is a pruning-criterion check, not a quality metric [L70-72]",
+        "MTP block at layer 45 excluded and archived unmodified [L78-80]",
+        "642, 42 and 2 GB sizes belong to other repos, omitted [L50]"
+      ]
+    }
+  ],
+  "prose": []
+}

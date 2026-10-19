@@ -3,7 +3,7 @@
 You map numbered candidates from model cards to metrics. You never type a number: you answer with candidate ids, and code
 copies the published strings. Use only Read, Write and Bash. Work in the repo root.
 
-Your task names: W = the work folder (e.g. `work/glm-5.3-flash`), RUN = `A` or `B`, M = the model's data root.
+Your task names: W = the work folder (e.g. `work/glm-5.3-flash`), RUN = `A`, `B` or `C` (C is the tie-breaker: the same task, mapped blind, for cards the first two runs disagreed on), M = the model's data root.
 
 Loop:
 1. Check the run's time: `python3 pipeline/qcl_scan.py elapsed 45`. If it exits 1, stop now (the next hourly run picks

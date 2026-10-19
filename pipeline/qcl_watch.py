@@ -177,6 +177,27 @@ def merge(dirs):
         for rp in runs[0]:
             if rp in runs[1]: entries[rp], h = agree(runs[0][rp], runs[1][rp]); held += h
     else: entries = runs[0]
+    # Tie-breaker (run C, pipeline/qcl_tiebreak.py): a held run-A value is published when C, mapping the same card bytes
+    # blind, filed the same string under the same role, family and panel. Only values held above are added; agreed
+    # values are never changed, and the gates below check every value against its card line as usual.
+    tiebroken = []
+    if len(runs) == 2 and os.path.isdir(f"{ROOT}/maps/C"):
+        idx_c = json.load(open(f"{ROOT}/snapshots/index.json"))["repos"]
+        mcp = f"{ROOT}/maps/mapped_c.json"; mapped_c = json.load(open(mcp)) if os.path.exists(mcp) else {}
+        held_repos = {h[0] for h in held}
+        for rp, c in applied_from(f"{ROOT}/maps/C").items():
+            if rp not in held_repos or rp not in entries or mapped_c.get(rp) != idx_c.get(rp, {}).get("sha256"): continue
+            ac, _ = agree(runs[0][rp], c)
+            for k in ("variants", "ladder", "cross"):
+                for e in ac[k]:
+                    nm = e.get("name") or e.get("variant")
+                    tgt = next((x for x in entries[rp][k] if (x.get("name") or x.get("variant")) == nm), None)
+                    new = {mk: v for mk, v in e["m"].items() if not (tgt and mk in tgt["m"])}
+                    if not new: continue
+                    if tgt: tgt["m"] = {**tgt["m"], **new}
+                    else: entries[rp][k].append(dict(e, m=new))
+                    tiebroken += [(rp, nm, mk, v) for mk, v in new.items()]
+        tb = set(tiebroken); held = [h for h in held if tuple(h) not in tb]
     # The original independent maps remain untouched; a source-pinned review can supersede their agreement.
     resolved, provenance = resolved_from(entries) if len(runs) == 2 else ({}, {})
     entries.update(resolved)
@@ -203,10 +224,11 @@ def merge(dirs):
             quarantined.append({"repo": rp, "kind": k, "entry": nm, "reason": "failed a gate"})
         write(entries, base)
     json.dump({"quarantined": quarantined, "disagreements": [dict(zip(("repo", "entry", "key", "raw"), h)) for h in held],
-               "resolved_disagreements": resolved_held, "resolved_repos": len(resolved)},
+               "resolved_disagreements": resolved_held, "resolved_repos": len(resolved),
+               "tiebroken": [dict(zip(("repo", "entry", "key", "raw"), h)) for h in tiebroken if h[0] not in resolved]},
               open(f"{ROOT}/audit/review_queue.json", "w"), indent=1)
     nvals = sum(len(e["m"]) for a in entries.values() for k in ("variants", "ladder", "cross") for e in a[k])
-    print(f"merged {len(entries)} repos, {nvals} values; resolved {len(resolved)} repos; quarantined {len(quarantined)} entries; held {len(held)} disagreements; {time.time()-t0:.1f}s")
+    print(f"merged {len(entries)} repos, {nvals} values; resolved {len(resolved)} repos; tie-broken {len(tiebroken)} values; quarantined {len(quarantined)} entries; held {len(held)} disagreements; {time.time()-t0:.1f}s")
 
 if __name__ == "__main__":
     cmd = sys.argv[1]
