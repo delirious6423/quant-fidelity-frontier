@@ -7,6 +7,8 @@ CODE = os.path.dirname(os.path.abspath(__file__))
 import sys; sys.path[:0] = [CODE, os.path.join(CODE, "pipeline"), os.path.join(CODE, "gates")]
 import qcl_fmt as FMT
 from benchmarks import build_pilot, render_pilot
+from protocol_metadata import attach_protocols, classify_sets
+from verified_protocol_sets import add_verified_cross_publisher_sets
 ROOT = os.environ.get("QCL_ROOT") or os.path.join(CODE, "models", "qwen3.8-flash-next")          # data root: one folder per model (models/<slug>/); code stays here
 IDX = json.load(open(f"{ROOT}/snapshots/index.json"))
 SIZES = json.load(open(f"{ROOT}/snapshots/hf_sizes_summary.json"))
@@ -158,6 +160,7 @@ def build_rows(R):
                 "size_gb": to_gb(e.get("size"), e.get("unit")), "size_raw": f"{e.get('size')} {e.get('unit') or ''}".strip() if e.get("size") is not None else None,
                 "basis": e.get("basis"), "bpw": e.get("bpw"),
                 "metrics": m, "ref_class": row_rc, "methodology": row_meth, "panel": e.get("panel"),
+                "methodology_override": e.get("methodology") or {},
                 "is_ref": e.get("is_ref", True if of == MODEL else None),
                 "weights_modified": bool(r.get("weights_modified")) if kind == "own" else None,
                 "src": hf_line(r["repo"], sha, e.get("L"), e.get("src")), "L": e.get("L"), "sha": sha, "copied_from": cf, "flags": eflags,
@@ -291,7 +294,8 @@ def build_sets(rows, repos):
         return {"qid": qid(r["repo"], r["variant"]), "repo": r["repo"], "pub": owner(r["repo"]), "variant": str(r["variant"]), "inferred": bool(r.get("inferred")),
                 "fmt": fmt_of.get(r["repo"]) or "", "kind": r["kind"], "x": x, "size_gb": r.get("size_gb"), "size_raw": r.get("size_raw"),
                 "bpw": r.get("bpw"), "basis": BASIS_LABEL.get(r.get("basis"), r.get("basis")), "m": m, "is_ref": r.get("is_ref"),
-                "src": r["src"], "src_label": r["src_label"], "measured_by": r["measured_by"]}
+                "src": r["src"], "src_label": r["src_label"], "measured_by": r["measured_by"],
+                **{k: r[k] for k in ("measurement_id", "measurement_owner", "quantization_owner", "claim_provenance", "protocol") if k in r}}
     for st in ns["SETS"]:
         pts, seen = [], set()
         for r in rows:
@@ -316,7 +320,7 @@ def build_sets(rows, repos):
                         "m": m, "src": hf_line(src_repo, sha, base.get("L")), "src_label": f"L{base.get('L')} @ {sha[:7]}", "measured_by": src_repo})
         avail = [k for k in st["metrics"] if sum(1 for p in pts if k in p["m"]) >= 2]
         out.append({k: st[k] for k in ("id", "title", "reference", "data", "x", "note")} |
-                   {"refs": {k: list(v) for k, v in st["refs"].items()}, "metrics": avail, "points": pts, "comparable": True})
+                   {"refs": {k: list(v) for k, v in st["refs"].items()}, "metrics": avail, "points": pts, "comparable": False})
     curated_by = {b for st in ns["SETS"] for b in st["by"]}
     for a in sorted(auto_sets(rows, repos, curated_by), key=lambda x: -len(x["points"])):
         aq = {p["qid"] for p in a["points"]}; aown = a["title"].split(" · ")[0]
@@ -350,9 +354,9 @@ def build_sets(rows, repos):
     all_metrics = sorted([k for k in all_metrics if _n.get(k)] or all_metrics[:1], key=lambda k: (-_n.get(k, 0), all_metrics.index(k)))
     if "kld" in all_metrics and _n.get(all_metrics[0], 0) < 1.5 * _n.get("kld", 0):   # KLD stays the default unless another metric is far more common
         all_metrics = ["kld"] + [k for k in all_metrics if k != "kld"]
-    out.append({"id": "all", "title": "Every claim together (not comparable)", "reference": "Mixed", "data": "Mixed",
+    out.append({"id": "all", "title": "Every claim together (mixed protocols)", "reference": "Mixed", "data": "Mixed",
                 "x": {"field": "size_gb", "label": "Size, GB as published (download, GPU or resident; see each point)", "unit": "GB"},
-                "note": "Every KLD, top-1 and perplexity figure with a size, from every card. Perplexity depends on the text it was measured on, so it is not comparable across cards. Methods, references and size definitions differ, so read this only for orientation.",
+                "note": "Every KLD, top-1 and perplexity figure with a size, from every card. Protocols may differ or remain unverified. Use an evidence-verified measurement set for direct ranking, including sets with different quant publishers.",
                 "refs": {}, "metrics": all_metrics, "points": allp, "comparable": False})
     metrics = dict(ns["METRICS"])
     if CFG.get("named_metric_series"):
@@ -485,7 +489,8 @@ def auto_sets(rows, repos, curated_by):
                 seen.add(q)
                 pts.append({"qid": q, "repo": r["repo"], "pub": owner(r["repo"]), "variant": str(r["variant"]), "fmt": "", "kind": r["kind"], "inferred": bool(r.get("inferred")),
                             "x": r["size_gb"], "size_gb": r["size_gb"], "size_raw": r.get("size_raw"), "bpw": r.get("bpw"),
-                            "basis": BASIS_LABEL.get(r.get("basis"), r.get("basis")), "m": m, "is_ref": r.get("is_ref"), "src": r["src"], "src_label": r["src_label"], "measured_by": r["measured_by"]})
+                            "basis": BASIS_LABEL.get(r.get("basis"), r.get("basis")), "m": m, "is_ref": r.get("is_ref"), "src": r["src"], "src_label": r["src_label"], "measured_by": r["measured_by"],
+                            **{k: r[k] for k in ("measurement_id", "measurement_owner", "quantization_owner", "claim_provenance", "protocol") if k in r}})
             bc = collections.Counter(p["basis"] for p in pts)
             ownb = collections.Counter(p["basis"] for p in pts if p["kind"] == "own")
             if bc:
@@ -503,7 +508,7 @@ def auto_sets(rows, repos, curated_by):
                         "reference": str(mm.get("reference") or "Not stated"), "data": str(mm.get("dataset") or "Not stated"),
                         "x": {"field": "size_gb", "label": "Size, GB (" + ", ".join(bases) + ")", "unit": "GB"},
                         "note": "Set assembled automatically from one publisher's card" + ("s" if len(bys) > 1 else "") + ". It includes other publishers' files only where this card's author ran them in the same test; figures the card quotes from elsewhere are left out. Check the source lines." + (" Context: " + str(mm.get("ctx")) + ". Tool/settings: " + str(mm.get("tool")) + "." if CFG.get("named_metric_series") else ""),
-                        "refs": {}, "metrics": avail, "points": pts, "comparable": True, "auto": True,
+                        "refs": {}, "metrics": avail, "points": pts, "comparable": False, "auto": True,
                         "method_signature": [signature, panel, size_basis]})
     return out
 
@@ -639,6 +644,7 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
   </div>
   </details>
   <p class="ex-scope" id="exscope"></p>
+  <div class="ex-meta" id="exmeta"></div>
   <div class="ex-body">
     <div class="ex-chart"><div id="exsvg" class="chartbox"><noscript>The interactive chart needs JavaScript. All numbers are in the ledger below.</noscript></div><div id="extip" class="ex-tip" role="tooltip" hidden></div><p class="ex-chartnote dim" id="exchartnote"></p><div class="legend" id="exlegend" aria-label="Show or hide a repository"></div></div>
     <aside class="ex-picker" aria-label="Choose quants">
@@ -650,7 +656,7 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
       <div id="expick" class="ex-picklist"></div></details>
     </aside>
   </div>
-  <details class="measurement-details"><summary>Measurement details &amp; interpretation</summary><p class="ex-meta" id="exmeta"></p><p>File size is not total memory usage. <a href="#read-first">Read the comparison rules</a> · <a href="#head-to-head">Publisher comparisons</a> · <a href="#no-claims">Repos without extracted claims</a>.</p></details>
+  <details class="measurement-details"><summary>Measurement details &amp; interpretation</summary><p>File size is not total memory usage. <a href="#read-first">Read the comparison rules</a> · <a href="#head-to-head">Publisher comparisons</a> · <a href="#no-claims">Repos without extracted claims</a>.</p></details>
   <details id="quant-results"><summary>Quant results</summary><div class="ex-tablehead"><span id="extcap" class="dim"></span><button type="button" id="excopy" class="tiny">Copy as CSV</button></div>
   <div class="tablebox ex-tablebox"><table class="disagree" id="extable"></table></div></details>
 </div>
@@ -659,17 +665,18 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
 <section id="read-first" class="rules">
   <h2>Read this first</h2>
   <ol>
-    <li><strong>These are claims, not our measurements.</strong> Each publisher ran its own test. A lower KLD on one card is not evidence of a better file than a higher KLD on another.</li>
+    <li><strong>These are claims, not our measurements.</strong> Quant publishers and measurement publishers can differ. Compare numerical fidelity only when source evidence establishes the same protocol; publisher names alone do not decide compatibility.</li>
     <li><strong>Methods rarely match.</strong> Publishers use different reference models (BF16, their own Q8_0, someone else's Q8_0), different text, context lengths and tools. Each row shows its reference; the cards below give the rest.</li>
     <li><strong>Sizes mean different things.</strong> {E(SIZE_NOTE)}</li>
   </ol>
 </section>
 <section id="head-to-head"><h2>When one publisher measured several</h2>
-<p class="note">These are the only tables where different publishers' files went through the same test. They are still one party's measurement, often of competitors.</p>
+<p class="note">Source-reported comparisons, often of competitors. Each comparison below shows whether protocol evidence supports direct ranking. The measurement publisher and quant publisher may differ.</p>
 {hl}
 </section>
 
 <section id="ledger"><details id="ledger-details" class="section-disclosure"><summary><h2>The ledger</h2><span class="dim">{len(tr)} rows</span></summary>
+<p class="note"><b>Different or Unverified Protocol — Not Directly Comparable.</b> This ledger mixes measurement protocols. Values remain visible; use a verified chart set for numerical ranking. Repository, variant, format and size sorting remain available.</p>
 <div class="filters" role="group" aria-label="Filter the ledger">
   <label for="q">Search</label><input id="q" type="search" placeholder="publisher, quant type, metric…">
   <label for="ffmt">Format</label><select id="ffmt"><option value="">All</option>{"".join(f'<option>{E(f)}</option>' for f in fmts)}</select>
@@ -680,7 +687,7 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
   <button type="button" id="freset" class="tiny">Reset</button><span id="count" class="count" aria-live="polite"></span>
 </div>
 <div class="tablebox"><table id="t" class="mobile-cards">
-<thead><tr><th data-sort="s">Repository</th><th data-sort="s">Variant</th><th data-sort="s">Format</th><th class="n" data-sort="n">Size GB</th><th>Size is</th><th class="n" data-sort="n">Mean KLD</th><th class="n" data-sort="n">Top-1</th><th class="n" data-sort="n">PPL</th><th class="n" title="Change in perplexity against the baseline the row's card states (BF16, a sibling build, or a previous build); check the source line">PPL change<br><small>vs the card's baseline</small></th><th>Other metrics (as published)</th><th>Reference</th><th>Source line</th></tr></thead>
+<thead><tr><th data-sort="s">Repository</th><th data-sort="s">Variant</th><th data-sort="s">Format</th><th class="n" data-sort="n">Size GB</th><th>Size is</th><th class="n" aria-disabled="true" title="Metric ranking requires a verified compatible protocol">Mean KLD</th><th class="n" aria-disabled="true" title="Metric ranking requires a verified compatible protocol">Top-1</th><th class="n" aria-disabled="true" title="Metric ranking requires a verified compatible protocol">PPL</th><th class="n" title="Change in perplexity against the baseline the row's card states (BF16, a sibling build, or a previous build); check the source line">PPL change<br><small>vs the card's baseline</small></th><th>Other metrics (as published)</th><th>Reference</th><th>Source line</th></tr></thead>
 <tbody>{"".join(tr)}</tbody></table></div>
 </details></section>
 <section id="publishers"><details id="publisher-details" class="section-disclosure"><summary><h2>Publisher notes</h2><span class="dim">{len(cards)} notes</span></summary>
@@ -725,6 +732,7 @@ def main():
         for gate, (rc, out, hit) in GATE_OUT.items():
             if rc != 0: raise SystemExit(f"REFUSING TO BUILD: {gate} failed (exit {rc})\n" + out[-3000:])
     R = load(); RAW = R; rows, repos = build_rows(R)
+    attach_protocols(rows, ROOT, MODEL, IDX, metric_mapper=metric_series)
     # sign agreement: a published value written with a leading minus must parse negative, and vice versa
     sign_bad = []
     for r in rows:
@@ -774,6 +782,9 @@ def main():
             # the yardstick of a measurement is not a candidate for "efficient"
             p_["is_ref"] = p_["is_ref"] if p_.get("is_ref") is not None else p_["kind"] == "baseline" or bool(re.search(r"\breference\b|\bbaseline\b|\bteacher\b|\(ref\)|unquanti[sz]ed|^\s*(bf16|fp16|fp32|base|native)\s*(\(.*\))?\s*$", p_["variant"], re.I))
     assert len({s_["id"] for s_ in sets}) == len(sets), "duplicate set ids"
+    add_verified_cross_publisher_sets(sets)
+    assert len({s_["id"] for s_ in sets}) == len(sets), "duplicate protocol set ids"
+    classify_sets(sets)
     exdata = json.dumps({'sets': sets, 'metrics': metrics}, separators=(',', ':')).replace('</', '<\\/')
     body = render(rows, repos, stats, vc, hl, exdata)
     os.makedirs(f"{OUT}", exist_ok=True)

@@ -3,6 +3,9 @@ import asyncio, sys, json, os, re
 from playwright.async_api import async_playwright
 import os
 SRC = "file://" + os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), os.environ.get("QCL_SITE", "models/qwen3.8-flash-next/site"), "index.html")
+def ranking_allowed(s, metric=None):
+    return s['id'] != 'all' and s.get('comparisons', {}).get(metric or s['metrics'][0], {}).get('ranking_permitted') is True
+
 fails, oks = [], []
 def check(c, name):
     (oks if c else fails).append(name)
@@ -41,8 +44,8 @@ async def main():
             FIND, FIND_N = (_vs.most_common(1)[0] if _vs else ("", 0))
             gh = await pg.evaluate("[...document.querySelectorAll('.toc a.ext')].map(a=>a.href)")
             check(gh == ["https://github.com/delirious6423/quant-fidelity-frontier"], f"{name}: header links back to the GitHub repo {gh}")
-            dflt = await pg.evaluate("[document.getElementById('exset').value, document.getElementById('exset').options[0].value, document.getElementById('exmeta').textContent]")
-            check(dflt[0] == "all" and dflt[1] == "all" and "Overview" in dflt[2] and "not comparable" in dflt[2], f"{name}: overview of every claim is the default, listed first and labelled not comparable {dflt[:2]}")
+            dflt = await pg.evaluate("[document.getElementById('exset').value, document.getElementById('exset').options[0].value, document.getElementById('exscope').textContent]")
+            check(dflt[0] == "all" and dflt[1] == "all" and "Mixed protocols" in dflt[2] and "Not Directly Comparable" in dflt[2], f"{name}: overview of every claim is the default, listed first and labelled not comparable {dflt[:2]}")
             check(await pg.locator("#exsvg circle.mk").count() == sum(1 for q in _ALL["points"] if q["m"].get(_ALL["metrics"][0], {}).get("v", 0) > 0), f"{name}: overview chart draws every claim ({NALL} points)")
             owners = await pg.evaluate("[...document.querySelectorAll('#exset optgroup')].slice(1).map(g=>[...g.querySelectorAll('option')].map(o=>o.textContent.split(' · ')[0].toLowerCase()))")
             check(all(g == sorted(g) for g in owners), f"{name}: sets listed alphabetically by owner within each group")
@@ -52,9 +55,9 @@ async def main():
                 await pg.select_option("#exset", _v); await pg.wait_for_timeout(40)
                 candidate = next(x for x in _DX["sets"] if x["id"] == _v)
                 nonrefs = [q for q in candidate["points"] if not q.get("is_ref") and q["m"].get(candidate["metrics"][0], {}).get("v", 0) > 0]
-                if len(nonrefs) >= 2 and await pg.locator("#exlegend .lg:not([hidden]):not(.more)").count() >= 2: _first = _v; break
+                if ranking_allowed(candidate) and len(nonrefs) >= 2 and await pg.locator("#exlegend .lg:not([hidden]):not(.more)").count() >= 2: _first = _v; break
             if _first is None:   # small models may have no multi-publisher set: use the largest comparable set
-                _first = max((x for x in _DX["sets"] if x.get("comparable")), key=lambda x: len(x["points"]))["id"]
+                _first = max((x for x in _DX["sets"] if x["id"] != "all"), key=lambda x: (ranking_allowed(x), len(x["points"])))["id"]
             await pg.select_option("#exset", _first); await pg.wait_for_timeout(150)
             opts = await pg.evaluate("[...document.querySelectorAll('#exset option')].map(o=>o.value)")
             check(len(opts) == len(set(opts)) and len(opts) == len(_DX["sets"]), f"{name}: one unique option per set ({len(opts)} of {len(_DX['sets'])})")
@@ -103,19 +106,26 @@ async def main():
             await pg.keyboard.press("Escape"); await pg.wait_for_timeout(50)
             check(await pg.evaluate("document.getElementById('extip').hidden"), f"{name}: Escape closes tooltip")
             # frontier
-            await pg.check("#exfront"); await pg.wait_for_timeout(100)
-            frontier_marks = await pg.locator("#extable .chip.f").filter(has_text=re.compile(r"^frontier$")).count()
-            check(frontier_marks >= 1 and await pg.locator("#exsvg polyline.frontier").count() == int(frontier_marks > 1), f"{name}: frontier drawn and marked ({frontier_marks} efficient points)")
-            await pg.uncheck("#exfront")
+            if ranking_allowed(first_set):
+                await pg.check("#exfront"); await pg.wait_for_timeout(100)
+                frontier_marks = await pg.locator("#extable .chip.f").filter(has_text=re.compile(r"^frontier$")).count()
+                check(frontier_marks >= 1 and await pg.locator("#exsvg polyline.frontier").count() == int(frontier_marks > 1), f"{name}: frontier drawn and marked ({frontier_marks} efficient points)")
+                await pg.uncheck("#exfront")
+            else:
+                check(not await pg.locator("#exfront").is_visible() and await pg.locator("#extable th[data-key='" + first_metric + "']").count() == 0, f"{name}: unverified real claims disable frontier and metric rankings")
             # table sort by size
-            await pg.locator("#extable th[data-key=_x]").click(); await pg.wait_for_timeout(50)
+            if await pg.locator("#extable th[data-key=_x]").get_attribute("aria-sort") != "ascending":
+                await pg.locator("#extable th[data-key=_x]").click()
+            await pg.wait_for_timeout(50)
             xs = await pg.evaluate("[...document.querySelectorAll('#extable tbody tr')].map(r=>parseFloat(r.cells[1].textContent))")
             check(xs == sorted(xs), f"{name}: table sorts by size")
             _D = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), os.environ.get("QCL_SITE", "models/qwen3.8-flash-next/site"), "data.json")))
             _sets = [x for x in _D["sets"] if x["id"] != "all"]
             _nk = lambda x: sum(1 for q in x["points"] if "kld" in q["m"])
             BIG = "turboderp" if any(x["id"] == "turboderp" for x in _sets) else max(_sets, key=lambda x: (sum(1 for q in x["points"] if q["m"].get("kld", {}).get("v", 0) > 0 and not q.get("is_ref")), _nk(x)))["id"]
-            REF = "strata" if any(x["id"] == "strata" for x in _sets) else next((x["id"] for x in _sets if any(q.get("is_ref") for q in x["points"])), None)
+            verified_kld = [x for x in _sets if x['metrics'][0] == 'kld' and ranking_allowed(x, 'kld') and len(x['points']) >= 2]
+            if verified_kld: BIG = max(verified_kld, key=lambda x: len(x['points']))['id']
+            REF = next((x['id'] for x in _sets if ranking_allowed(x) and any(q.get('is_ref') for q in x['points'])), None)
             import re as _re
             def _qs():   # two words that occur together in one ledger row: a publisher and a word of its variant name
                 if any("unsloth" in r["repo"].lower() and "q4" in str(r.get("variant")).lower() for r in _D["rows"]): return "unsloth Q4"
@@ -141,19 +151,23 @@ async def main():
             ys = await pg.evaluate("[...document.querySelectorAll('#extable tbody tr')].map(r=>{const t=r.querySelector('td.cur').textContent;const v=parseFloat(t);return /mnat/i.test(t)?v/1000:v})")   # millinat cells show the card's unit
             check(ys and max(ys) <= ylim * 1.0001 and len(ys) < _nk([x for x in _sets if x["id"] == BIG][0]), f"{name}: KLD limit filters ({len(ys)} rows, max {max(ys) if ys else None} <= {ylim})")
             await pg.click("#exrclear"); await pg.wait_for_timeout(100)
-            await pg.check("#exonly"); await pg.wait_for_timeout(100)
-            ui_eff = sorted(await pg.evaluate("[...document.querySelectorAll('#extable tbody tr')].map(r=>r.dataset.qid)"))
-            beats = await pg.evaluate("[...document.querySelectorAll('#extable tbody td.beat')].map(c=>c.textContent)")
-            check(beats and all(b.startswith('none') for b in beats), f"{name}: efficient-only rows are all unbeaten")
-            S = [x for x in json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), os.environ.get("QCL_SITE", "models/qwen3.8-flash-next/site"), "data.json")))["sets"] if x["id"] == BIG][0]
-            P = [q for q in S["points"] if "kld" in q["m"] and not q.get("is_ref")]
-            ref_eff = sorted(q["qid"] for q in P if not any((o["x"] <= q["x"] and o["m"]["kld"]["v"] < q["m"]["kld"]["v"]) or (o["x"] < q["x"] and o["m"]["kld"]["v"] <= q["m"]["kld"]["v"]) for o in P if o is not q))
-            check(ui_eff == ref_eff, f"{name}: efficient set matches independent Pareto computation ({len(ui_eff)} vs {len(ref_eff)})")
-            await pg.uncheck("#exonly"); await pg.check("#exfront"); await pg.wait_for_timeout(100)
-            cons = await pg.evaluate("[...document.querySelectorAll('#extable tbody tr')].every(r=>!!r.querySelector('.chip.f') === r.querySelector('td.beat').textContent.startsWith('none') || (r.querySelectorAll('.chip.f').length===2))")
-            fr = sorted(await pg.evaluate("[...document.querySelectorAll('#extable tbody tr')].filter(r=>[...r.querySelectorAll('.chip.f')].some(c=>c.textContent==='frontier')).map(r=>r.dataset.qid)"))
-            check(fr == ref_eff, f"{name}: frontier marks == unbeaten quants")
-            await pg.uncheck("#exfront")
+            if ranking_allowed(_B, 'kld'):
+                await pg.check("#exonly"); await pg.wait_for_timeout(100)
+                ui_eff = sorted(await pg.evaluate("[...document.querySelectorAll('#extable tbody tr')].map(r=>r.dataset.qid)"))
+                beats = await pg.evaluate("[...document.querySelectorAll('#extable tbody td.beat')].map(c=>c.textContent)")
+                check(beats and all(b.startswith('none') for b in beats), f"{name}: efficient-only rows are all unbeaten")
+                S = [x for x in json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), os.environ.get("QCL_SITE", "models/qwen3.8-flash-next/site"), "data.json")))["sets"] if x["id"] == BIG][0]
+                P = [q for q in S["points"] if "kld" in q["m"] and not q.get("is_ref")]
+                ref_eff = sorted(q["qid"] for q in P if not any((o["x"] <= q["x"] and o["m"]["kld"]["v"] < q["m"]["kld"]["v"]) or (o["x"] < q["x"] and o["m"]["kld"]["v"] <= q["m"]["kld"]["v"]) for o in P if o is not q))
+                check(ui_eff == ref_eff, f"{name}: efficient set matches independent Pareto computation ({len(ui_eff)} vs {len(ref_eff)})")
+                await pg.uncheck("#exonly"); await pg.check("#exfront"); await pg.wait_for_timeout(100)
+                cons = await pg.evaluate("[...document.querySelectorAll('#extable tbody tr')].every(r=>!!r.querySelector('.chip.f') === r.querySelector('td.beat').textContent.startsWith('none') || (r.querySelectorAll('.chip.f').length===2))")
+                fr = sorted(await pg.evaluate("[...document.querySelectorAll('#extable tbody tr')].filter(r=>[...r.querySelectorAll('.chip.f')].some(c=>c.textContent==='frontier')).map(r=>r.dataset.qid)"))
+                check(fr == ref_eff, f"{name}: frontier marks == unbeaten quants")
+                await pg.uncheck("#exfront")
+            else:
+                check(not await pg.locator('#exonly').is_visible() and not await pg.locator('#exfront').is_visible(), f"{name}: legacy sets with unverified methodology fail closed for efficient-only and frontiers")
+                check(await pg.locator('#extable .beat').count() == 0, f"{name}: unverified real claims have no dominance ranking")
             # F13: references never ranked; F20: no frontier controls on the non-comparable set; F10: inferred rows not cross-linked
             if REF:
                 await pg.select_option("#exset", REF); await pg.wait_for_timeout(100)
@@ -194,7 +208,7 @@ async def main():
                 await pg.click("#exlog"); await pg.wait_for_timeout(50)
             order = await pg.evaluate("[...document.querySelectorAll('main > section')].map(s=>s.id)")
             check(order.index("chart") < order.index("head-to-head"), f"{name}: explorer comes before head-to-head")
-            SH = "gyro" if any(x["id"] == "gyro" for x in _sets) else BIG
+            SH = BIG
             _xs = sorted(q["x"] for x in _sets if x["id"] == SH for q in x["points"] if q.get("x")); CAP = 40 if SH == "gyro" else int(_xs[len(_xs) // 2]) + 1
             pg2 = await ctx.new_page(); await pg2.goto(SRC + f"?set={SH}&max={CAP}&eff=1#chart"); await pg2.wait_for_timeout(400)
             st = await pg2.evaluate("[document.getElementById('exset').value, document.getElementById('exonly').checked, [...document.querySelectorAll('#extable tbody tr')].map(r=>parseFloat(r.cells[1].textContent))]")

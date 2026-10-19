@@ -14,7 +14,7 @@
     if (!s) { $('selection-note').textContent = 'No comparable size-based set available. Browse the model below.'; $('start').disabled = true; return; }
     var matches = s.points.filter(function (p) { return p.basis === basis.value && (!format.value || p.fmt === format.value) && (!limit.value || p.x <= Number(limit.value)); });
     $('start').disabled = matches.length === 0;
-    $('selection-note').textContent = matches.length + ' matching claims (zero values may not appear on log charts) · Reference: ' + s.reference + '. ' + (matches.length ? 'Opens one measurement set.' : 'Try another format, size limit or set.');
+    $('selection-note').textContent = matches.length + ' matching claims (zero values may not appear on log charts) · Reference: ' + s.reference + '. ' + (matches.length ? 'Opens one measurement set. ' + ((s.comparison || {}).label || 'Protocol unverified.') : 'Try another format, size limit or set.');
   }
   function formats() {
     var s = currentSet(), previous = format.value;

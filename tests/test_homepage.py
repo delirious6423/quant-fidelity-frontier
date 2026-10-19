@@ -54,8 +54,10 @@ async def main():
                 home = next(m for m in catalog if m['slug'] == model['slug'])
                 for item in home['sets']:
                     actual = next(s for s in source['sets'] if s['id'] == item['id'])
-                    assert actual['comparable'] and actual['x']['unit'] == 'GB'
+                    assert actual['id'] != 'all' and actual['x']['unit'] == 'GB'
+                    assert item['comparison'] == actual['comparisons'][item['metric']]
                     await page.select_option('#home-set', item['id'])
+                    assert item['comparison']['label'] in await page.locator('#selection-note').inner_text()
                     assert await page.evaluate('document.documentElement.scrollWidth <= innerWidth')
                 if not home['sets']: continue
                 await page.select_option('#home-set', home['sets'][0]['id'])

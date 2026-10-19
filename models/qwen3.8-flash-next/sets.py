@@ -1,5 +1,5 @@
-# Comparable measurement sets: one measurer, one method, several quants. Points inside a set are comparable;
-# points from different sets are not. Each set maps that measurer's metric keys to canonical metrics.
+# Candidate measurement views; membership alone does not establish comparison eligibility.
+# The shared classifier verifies each metric from source-bound protocol evidence, across publishers when supported.
 # x: which size field to plot (size_gb from the row, or bpw), and its label.
 SETS = [
   dict(id="turboderp", title="turboderp · ExLlamaV3 quality benchmark",

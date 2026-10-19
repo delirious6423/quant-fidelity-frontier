@@ -56,3 +56,7 @@ After two mapping runs, an independent resolver may write `maps/resolved/<repo>.
 keeps the original disagreements and resolution provenance in the audit, then runs normal quarantine gates.
 Never rewrite A/B mappings to manufacture agreement. Supplemental candidates must be extracted from the
 exact pinned source and retain its line/header/row binding.
+
+## Comparison evidence
+
+See [COMPARISON_CLASSIFICATIONS.md](COMPARISON_CLASSIFICATIONS.md) before adding protocol assertions. Never infer compatibility from a publisher or missing methodology. Review source quotes, hashes, row scope, metric aliases and contradictions. New evidence changes eligibility only; it must not modify published values. Run `test_comparison.py`, `test_protocol_metadata.py`, `test_verified_protocol_sets.py`, `test_comparison_ui.py` and `test_mcp_comparison.py` as well as the existing gates/UI/MCP suites. The shared classifier ships with the read-only MCP package; Pages remains static.

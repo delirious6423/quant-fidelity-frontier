@@ -2,6 +2,7 @@
 import html
 import json
 import math
+from comparison import classify_group
 
 BENCHMARKS = ('GSM8K chat', 'GSM8K lm-eval', 'ARC-C', 'AI2D vision')
 
@@ -30,7 +31,8 @@ def build_pilot(rows, cfg):
                                size_raw=r['size_raw'], score=v['v'], raw=v['raw'],
                                reference=bool(r.get('is_ref')), src=r['src'],
                                flags=r.get('flags', []), line=r['L']))
-        metrics.append(dict(name=name, points=points))
+        measured = [r for r in eligible if r.get('metrics', {}).get('bench:' + name, {}).get('v') is not None]
+        metrics.append(dict(name=name, points=points, comparison=classify_group(measured, metric='bench:' + name)))
     return dict(source=source, metrics=metrics)
 
 
@@ -74,7 +76,9 @@ def render_pilot(payload):
     markup = '''<section id="benchmarks" class="bm-pilot" aria-labelledby="bm-title">
 <p class="eyebrow">GLM pilot · Publisher-reported evidence</p>
 <h2 id="bm-title">Benchmark score vs file size</h2>
+<p id="bm-classification" class="dim">__CLASSIFICATION__</p>
 <p class="note">One publisher's table, separate benchmarks. Scores are shown exactly as published; the card does not state their unit or full evaluation settings. No frontier or cross-publisher ranking is inferred.</p>
+<details id="bm-methodology"><summary>Methodology &amp; comparison evidence</summary><p id="bm-reason">__REASON__</p><p>The source table omits exact dataset/token selection, implementation, scoring units and other evaluation settings. A shared publisher alone cannot verify compatibility. <a href="#bm-evidence">Read the source-linked values below</a>.</p></details>
 <div class="bm-controls" id="bm-controls" hidden>
 <label for="bm-metric">Benchmark<select id="bm-metric"></select></label>
 <label class="bm-check"><input id="bm-zero" type="checkbox"> Start score axis at zero</label>
@@ -91,4 +95,7 @@ def render_pilot(payload):
 <div class="tablebox"><table class="disagree"><thead><tr><th>Benchmark</th><th>Build</th><th>File GB</th><th>Published score</th><th>Source</th></tr></thead><tbody>''' + table + '''</tbody></table></div></details>
 <script id="bm-data" type="application/json">''' + data + '''</script></section>'''
 
-    return markup.replace('__STATIC_CHART__', static_chart(payload))
+    comparison = payload['metrics'][0]['comparison']
+    return (markup.replace('__STATIC_CHART__', static_chart(payload))
+            .replace('__CLASSIFICATION__', E(comparison['label']))
+            .replace('__REASON__', E(comparison['explanation'])))

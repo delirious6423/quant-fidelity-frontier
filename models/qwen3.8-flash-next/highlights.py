@@ -1,5 +1,19 @@
 # Head-to-head tables (one measurer, several publishers' files) and same-file disagreements.
 # Every value is looked up from verified rows (never retyped); a missing lookup raises, so the build fails loudly.
+from comparison import classify_group
+
+
+def comparison_details(entries, metric):
+    result = classify_group(entries, metric=metric)
+    issues = result['differences'] + result['unknowns']
+    conditions = sorted({issue['condition'].replace('_', ' ') for issue in issues})
+    sources = {r['src']: r['measured_by'] for r in entries}
+    links = ' · '.join(f'<a href="{E(url)}">{E(publisher)}</a>' for url, publisher in sources.items())
+    return (f'<p class="dim"><b>{E(result["label"])}</b></p>'
+            f'<details><summary>Methodology &amp; evidence</summary><p>{E(result["explanation"])}</p>'
+            f'<p>Different or unverified conditions: {E(", ".join(conditions) or "none")}.</p>'
+            f'<p>Quant publishers: {E(", ".join(sorted({r["repo"].split("/")[0] for r in entries})))}. '
+            f'Measurement publishers and sources: {links}.</p></details>')
 
 def find(repo, by, variant_sub, kind=None):
     c = [r for r in rows if r["repo"] == repo and r["measured_by"] == by and variant_sub.lower() in str(r["variant"]).lower()
@@ -17,8 +31,10 @@ def bars(title, sub, measurer, metric, entries, lower_better):
     if not any(v is not None for v in vals):
         import sys; print(f"highlight skipped (no rows): {title}", file=sys.stderr); return ""
     top = max(v for v in vals if v is not None)
-    out = [f'<figure><figcaption><b>{E(title)}</b><span>{E(sub)}</span></figcaption><div class="bars">']
-    for r in sorted(entries, key=lambda r: mv(r, metric)[0], reverse=not lower_better):
+    result = classify_group(entries, metric=metric)
+    out = [f'<figure><figcaption><b>{E(title)}</b><span>{E(sub)}</span></figcaption>', comparison_details(entries, metric), '<div class="bars">']
+    ordered = sorted(entries, key=lambda r: mv(r, metric)[0], reverse=not lower_better) if result['ranking_permitted'] else entries
+    for r in ordered:
         v, raw = mv(r, metric); self_ = r["measured_by"] == r["repo"]
         size = f'{r["size_raw"]} {BASIS_LABEL.get(r["basis"], "")}'.strip() if r["size_raw"] else ""
         who = r["repo"].split("/")[0]
@@ -89,7 +105,7 @@ def render_highlights():
         (find(DD, DD, "mixed"), "own card"),
         (find(D3, D3, "mixed-4-8bit", "ladder"), "same publisher's 3.3bpw card"),
     ])
-    H.append('<h3 class="sub">Same file, different numbers</h3><p class="note">Where two cards report on the same file, the figures rarely agree. The Setup column lists what each card states about its method; where the stated setups differ, that may explain the gap, but the cause of any particular difference is not established, and the two cards may not have tested the same file revision.</p>'
+    H.append('<h3 class="sub">Same file, different numbers</h3><p class="note"><b>Different or Unverified Protocol — Not Directly Comparable.</b> Where two cards report on the same file, the figures rarely agree. The Setup column lists what each card states about its method; where the stated setups differ, that may explain the gap, but the cause of any particular difference is not established, and the two cards may not have tested the same file revision.</p>'
              '<div class="tablebox"><table class="disagree"><thead><tr><th>File</th><th>Measured by</th><th>Claim</th><th>Setup</th><th>Source</th></tr></thead><tbody>'
              + "".join(D) + "</tbody></table></div>")
     return H

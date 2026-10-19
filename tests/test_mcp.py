@@ -39,29 +39,48 @@ async def main():
                 row = next(r for r in d["rows"] if r.get("metrics", {}).get("mean_kld", {}).get("v") is not None)
                 g = J(await s.call_tool("get_repo", {"model": name, "repo": row["repo"]}))
                 check(any(x["claims"].get("mean_kld") == row["metrics"]["mean_kld"]["raw"] for x in g["rows"]), f"{name}: get_repo returns the published string verbatim")
-                # frontier equals an independent Pareto computation, for every comparable set
+                # Classifications are serialized per metric. Verify transport enforces each
+                # metric's eligibility, including legacy boolean disagreement.
                 bad = []
-                for S in [x for x in d["sets"] if x.get("comparable")]:
-                    k = (S.get("metrics") or [None])[0]
-                    if not k: continue
-                    fr = J(await s.call_tool("frontier", {"model": name, "set_id": S["id"]}))
-                    P = [q for q in S["points"] if q.get("x") is not None and q.get("m", {}).get(k, {}).get("v") is not None and not q.get("is_ref")]
-                    sign = -1 if k == "top1" or k.startswith("top1:") else 1
-                    want = sorted((q["variant"], q["repo"]) for q in P if not any((o["x"] <= q["x"] and sign * o["m"][k]["v"] < sign * q["m"][k]["v"]) or (o["x"] < q["x"] and sign * o["m"][k]["v"] <= sign * q["m"][k]["v"]) for o in P if o is not q))
-                    got = sorted((q["variant"], q["repo"]) for q in fr["efficient"])
-                    if got != want or any(q.get("reference_build") for q in fr["efficient"]): bad.append(S["id"])
-                check(not bad, f"{name}: frontier == independent Pareto on every comparable set {bad[:3]}")
-                # not-comparable overview is refused for ranking
-                res = await s.call_tool("frontier", {"model": name, "set_id": "all"})
-                check((getattr(res, "is_error", None) or getattr(res, "isError", False)), f"{name}: frontier refuses the not-comparable overview")
-                # best_under respects the budget and never mixes sets
-                # budget and metric from the data: the median size of the points in comparable GB sets that report the metric
-                _met = next((k for k in ("kld", "ppl", "top1") if any(x.get("comparable") and (x.get("x") or {}).get("unit") == "GB" and any(k in q["m"] for q in x["points"]) for x in d["sets"])), "kld")
-                _xs = sorted(q["x"] for x in d["sets"] if x.get("comparable") and (x.get("x") or {}).get("unit") == "GB" for q in x["points"] if _met in q["m"] and q.get("x") is not None and not q.get("is_ref"))
+                rejected = []
+                for S in d["sets"]:
+                    for k in S.get("metrics", []):
+                        eligible = S.get("comparisons", {}).get(k, {}).get("ranking_permitted", False)
+                        result = await s.call_tool("frontier", {"model": name, "set_id": S["id"], "metric": k})
+                        if not eligible:
+                            if not bool(getattr(result, "is_error", None) or getattr(result, "isError", False)): rejected.append((S["id"], k))
+                            continue
+                        if bool(getattr(result, "is_error", None) or getattr(result, "isError", False)):
+                            bad.append((S["id"], k, "eligible metric refused"))
+                            continue
+                        fr = J(result)
+                        P = [q for q in S["points"] if q.get("x") is not None and q.get("m", {}).get(k, {}).get("v") is not None and not q.get("is_ref")]
+                        sign = -1 if k == "top1" or k.startswith("top1:") else 1
+                        want = sorted((q["variant"], q["repo"]) for q in P if not any((o["x"] <= q["x"] and sign * o["m"][k]["v"] < sign * q["m"][k]["v"]) or (o["x"] < q["x"] and sign * o["m"][k]["v"] <= sign * q["m"][k]["v"]) for o in P if o is not q))
+                        got = sorted((q["variant"], q["repo"]) for q in fr["efficient"])
+                        if got != want or not fr.get("ranking_permitted") or any(q.get("reference_build") for q in fr["efficient"]):
+                            bad.append((S["id"], k))
+                check(not bad, f"{name}: frontier == independent Pareto on every eligible metric {bad[:3]}")
+                check(not rejected, f"{name}: every unverified metric refused for ranking {rejected[:3]}")
+                # Best-under independently derives eligible candidates and exact winners.
+                eligible_gb = [x for x in d["sets"] if (x.get("x") or {}).get("unit") == "GB"]
+                _met = next((k for k in ("kld", "ppl", "top1") if any(x.get("comparisons", {}).get(k, {}).get("ranking_permitted") for x in eligible_gb)), "kld")
+                _xs = sorted(q["x"] for x in eligible_gb if x.get("comparisons", {}).get(_met, {}).get("ranking_permitted") for q in x["points"] if q.get("m", {}).get(_met, {}).get("v") is not None and q.get("x") is not None and not q.get("is_ref"))
                 BUD = round(_xs[len(_xs) // 2], 3) if _xs else BUD
                 b = J(await s.call_tool("best_under", {"model": name, "max_size_gb": BUD, "metric": _met}))
-                check(b["per_set"] and all(e["best"]["x"] <= BUD for e in b["per_set"]) and len({e["set"] for e in b["per_set"]}) == len(b["per_set"]) and "own set" in b["caveat"],
-                      f"{name}: best_under per set, within budget ({len(b['per_set'])} sets)")
+                want_best = {}
+                for S in eligible_gb:
+                    ks = S.get("metrics") or []
+                    k = _met if _met in ks else next((x for x in ks if x.startswith(_met)), None)
+                    if not k or not S.get("comparisons", {}).get(k, {}).get("ranking_permitted"): continue
+                    P = [q for q in S["points"] if not q.get("is_ref") and q.get("x") is not None and q["x"] <= BUD and q.get("m", {}).get(k, {}).get("v") is not None]
+                    if not P: continue
+                    sign = -1 if k == "top1" or k.startswith("top1:") else 1
+                    best = min(P, key=lambda q: (sign * q["m"][k]["v"], q["x"]))
+                    want_best[S["id"]] = (best["repo"], best["variant"], len(P))
+                got_best = {e["set"]: (e["best"]["repo"], e["best"]["variant"], e["candidates"]) for e in b["per_set"]}
+                check(got_best == want_best and all(e["best"]["x"] <= BUD and e.get("ranking_permitted") for e in b["per_set"]) and len(got_best) == len(b["per_set"]),
+                      f"{name}: best_under exact eligible candidates and winners ({len(b['per_set'])} sets)")
             res = await s.call_tool("search_quants", {"model": "nonexistent-model"})
             check((getattr(res, "is_error", None) or getattr(res, "isError", False)), "unknown model is an error, not an empty answer")
 asyncio.run(main()); print(f"{ok} passed, {fail} failed"); sys.exit(1 if fail else 0)
