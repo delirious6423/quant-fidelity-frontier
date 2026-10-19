@@ -5,3 +5,6 @@
 {"at": "2026-10-19T00:33:43Z", "cmd": "ingest-state deepseek-v4-flash-0731", "exit": 0, "slug": "deepseek-v4-flash-0731", "phase": "map"}
 {"at": "2026-10-19T00:33:43Z", "cmd": "elapsed 999", "exit": 0, "minutes": 0.0}
 {"at": "2026-10-19T00:33:43Z", "cmd": "prepare deepseek-v4-flash-0731", "exit": 0, "todo": 1, "cards": 1, "queues": 2}
+{"at": "2026-10-19T00:34:26Z", "cmd": "checkpoint deepseek-v4-flash-0731", "exit": 0, "slug": "deepseek-v4-flash-0731", "status": "ingesting"}
+{"at": "2026-10-19T00:34:28Z", "cmd": "finish deepseek-v4-flash-0731", "exit": 1, "error": "some maps failed the check; their queues are back in pending; rerun workers then finish", "bad": [{"queue": "A00.txt", "problems": ["kn322__DeepSeek-V4-Flash-0731-os-192e: missing"]}]}
+{"at": "2026-10-19T00:34:28Z", "cmd": "elapsed 999", "exit": 0, "minutes": 0.8}
