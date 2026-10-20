@@ -1,0 +1,12 @@
+[
+ {
+  "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-4bit",
+  "entry": "Google published results, base model",
+  "reason": "QA review 2026-10-20: bench:HLE no tools: [L78] shows HLE no tools 8.7%, but [L88] says these are Google's published results, not the author's measurements, so the role is quoted, not cross."
+ },
+ {
+  "repo": "hsng95/gemma-4-26b-a4b-mlx-imatrix3plus-awq",
+  "entry": "AFFINE 3-bit",
+  "reason": "QA review 2026-10-20: ppl:tulu-3-sft-mixture: [L113] is one row of the embed_tokens bit-width sweep ([L106-L113]), a tested setting rather than a published build, so it is not a ladder entry."
+ }
+]
