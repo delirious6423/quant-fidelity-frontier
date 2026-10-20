@@ -1,6 +1,6 @@
 {
- "about": "Models the hourly scan keeps current. status: live = on the site, deltas every hour; queued = ingested one per 5-hour window, in this order. Source: OpenRouter and OpenCode weekly top 10 (open weights with Hub quants), 18 Oct 2026.",
- "min_hours_between_ingests": 5,
+ "about": "Models the hourly scan keeps current. status: live = on the site, deltas every hour; queued = ingested one after another (no wait between models; min_hours_between_ingests), in this order. Queue is maintained by the weekly discovery job (pipeline/qcl_discover.py).",
+ "min_hours_between_ingests": 0,
  "last_ingest_at": "2026-10-20T08:53:30.632199+00:00",
  "models": [
   {
@@ -59,14 +59,6 @@
    "quants_1k": 29
   },
   {
-   "model": "zai-org/GLM-5.3",
-   "slug": "glm-5.3",
-   "status": "queued",
-   "released": "2026-08-28",
-   "quants": 80,
-   "quants_1k": 17
-  },
-  {
    "model": "google/gemma-4-26B-A4B-it",
    "slug": "gemma-4-26b-a4b-it",
    "status": "queued",
@@ -75,20 +67,12 @@
    "quants_1k": 36
   },
   {
-   "model": "ornith-ai/Ornith-1.5-9B",
-   "slug": "ornith-1.5-9b",
+   "model": "zai-org/GLM-5.3",
+   "slug": "glm-5.3",
    "status": "queued",
-   "released": "2026-08-23",
+   "released": "2026-08-28",
    "quants": 80,
-   "quants_1k": 15
-  },
-  {
-   "model": "XiaomiMiMo/MiMo-V2.6-Flash-RL",
-   "slug": "mimo-v2.6-flash-rl",
-   "status": "queued",
-   "released": "2026-10-09",
-   "quants": 37,
-   "quants_1k": 13
+   "quants_1k": 17
   },
   {
    "model": "google/gemma-4-31B-it",
@@ -107,12 +91,36 @@
    "quants_1k": 22
   },
   {
+   "model": "ornith-ai/Ornith-1.5-9B",
+   "slug": "ornith-1.5-9b",
+   "status": "queued",
+   "released": "2026-08-23",
+   "quants": 80,
+   "quants_1k": 15
+  },
+  {
    "model": "google/gemma-4-12B-it",
    "slug": "gemma-4-12b-it",
    "status": "queued",
    "released": "2026-07-15",
    "quants": 80,
    "quants_1k": 20
+  },
+  {
+   "model": "google/gemma-4-E2B-it",
+   "slug": "gemma-4-e2b-it",
+   "status": "queued",
+   "released": "2026-07-15",
+   "quants": 80,
+   "quants_1k": 14
+  },
+  {
+   "model": "XiaomiMiMo/MiMo-V2.6-Flash-RL",
+   "slug": "mimo-v2.6-flash-rl",
+   "status": "queued",
+   "released": "2026-10-09",
+   "quants": 37,
+   "quants_1k": 13
   },
   {
    "model": "moonshotai/Kimi-K3",
@@ -131,14 +139,6 @@
    "quants_1k": 5
   },
   {
-   "model": "google/gemma-4-E2B-it",
-   "slug": "gemma-4-e2b-it",
-   "status": "queued",
-   "released": "2026-07-15",
-   "quants": 80,
-   "quants_1k": 14
-  },
-  {
    "model": "Qwen/Qwen3.8-2.4T-A95B",
    "slug": "qwen3.8-2.4t-a95b",
    "status": "queued",
@@ -155,5 +155,5 @@
    "quants_1k": 4
   }
  ],
- "queue_policy": "Latest model family of each lab only, with a release in the last 6 months. Order: pipeline/qcl_rank.py (score = (quants + 2 x quants used 1k+) x half-life 90 days x early-growth boost under 2 weeks). 'released' is approximate: the date in the model name, else the earliest activity seen on the Hub (survey 2026-10-19)."
+ "queue_policy": "Latest model family of each lab only (discovery.json), released in the last 6 months, at least 40 quant repos. Order: pipeline/qcl_rank.py with the weights in discovery.json (score = (quants + used_weight x quants used 1k+) x half-life freshness x early-growth boost under 2 weeks). Full queue: docs/QUEUE.md."
 }
