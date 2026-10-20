@@ -1,9 +1,39 @@
 {
  "quarantined": [
   {
+   "repo": "Lottolabs/LFM2.5-24B-A2B-TT-Mixed-BFP4-BFP8-P150",
+   "kind": "ladder",
+   "entry": "BF16 experts, BFP8 dense/head only",
+   "reason": "review hold: QA review 2026-10-20: ppl_delta_pct: reviewer unsure: The 0.37% \u0394PPL all value is on the cited row [L99], but that row is a fake-quant ablation from the recipe table [L91-94], not a published build, so the ladder role is ambiguous."
+  },
+  {
    "repo": "marchfederico/LFM2.5-24B-A2B-4bit-GPTQ-GGUF",
    "kind": "cross",
-   "entry": "unsloth UD-Q4_K_XL",
+   "entry": "LiquidAI Q4_K_M",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "kind": "cross",
+   "entry": "infinity-ai-institute NVFP4, W4A4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "kind": "cross",
+   "entry": "myroslavtryhubets NVFP4A16, W4A16",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit",
+   "kind": "variants",
+   "entry": "4-bit DWQ (this model)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "kind": "cross",
+   "entry": "LFM2.5-24B-A2B-FP8, FP8 release",
    "reason": "failed a gate"
   },
   {
@@ -14,20 +44,20 @@
   },
   {
    "repo": "marchfederico/LFM2.5-24B-A2B-4bit-GPTQ-GGUF",
-   "kind": "cross",
-   "entry": "LiquidAI Q4_K_M",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "marchfederico/LFM2.5-24B-A2B-4bit-GPTQ-GGUF",
    "kind": "variants",
    "entry": "LFM2.5-24B-A2B-GPTQ-Q4_K.gguf",
    "reason": "failed a gate"
   },
   {
-   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit",
-   "kind": "variants",
-   "entry": "4-bit DWQ (this model)",
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "kind": "cross",
+   "entry": "CoolJohn-AI NVFP4-AutoRound, W4A4 (dagger row)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "marchfederico/LFM2.5-24B-A2B-4bit-GPTQ-GGUF",
+   "kind": "cross",
+   "entry": "unsloth UD-Q4_K_XL",
    "reason": "failed a gate"
   },
   {
@@ -40,30 +70,6 @@
    "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
    "kind": "variants",
    "entry": "this repo, NVFP4A16",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
-   "kind": "cross",
-   "entry": "myroslavtryhubets NVFP4A16, W4A16",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
-   "kind": "cross",
-   "entry": "CoolJohn-AI NVFP4-AutoRound, W4A4 (dagger row)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
-   "kind": "cross",
-   "entry": "infinity-ai-institute NVFP4, W4A4",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
-   "kind": "cross",
-   "entry": "LFM2.5-24B-A2B-FP8, FP8 release",
    "reason": "failed a gate"
   }
  ],
@@ -1035,24 +1041,6 @@
    "raw": "1923"
   },
   {
-   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit",
-   "entry": "4-bit",
-   "key": "ppl",
-   "raw": "6.97"
-  },
-  {
-   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit",
-   "entry": "4-bit",
-   "key": "mean_kld",
-   "raw": "0.0746"
-  },
-  {
-   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit",
-   "entry": "4-bit",
-   "key": "top1_pct",
-   "raw": "81.4%"
-  },
-  {
    "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
    "entry": "JANG_8M",
    "key": "mean_kld",
@@ -1507,6 +1495,24 @@
    "entry": "JANGH2",
    "key": "top1:turn after a tool result",
    "raw": "87.7%"
+  },
+  {
+   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit",
+   "entry": "4-bit",
+   "key": "ppl",
+   "raw": "6.97"
+  },
+  {
+   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit",
+   "entry": "4-bit",
+   "key": "mean_kld",
+   "raw": "0.0746"
+  },
+  {
+   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit",
+   "entry": "4-bit",
+   "key": "top1_pct",
+   "raw": "81.4%"
   }
  ],
  "resolved_disagreements": [],
