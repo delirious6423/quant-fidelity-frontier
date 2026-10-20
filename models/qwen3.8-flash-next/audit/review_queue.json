@@ -1,15 +1,33 @@
 {
  "quarantined": [
   {
-   "repo": "spectator2026/Qwen3.8-Flash-Next-W6-INT8-HQQ-g32",
+   "repo": "nace-ai/Qwen3.8-Flash-Next-MLX-4bit",
    "kind": "ladder",
-   "entry": "previous release (int6 experts, BF16 dense)",
+   "entry": "bf16 weights, bf16 activations (noise floor)",
+   "reason": "review hold: QA review 2026-10-20: top1_pct: The cited row on [L69] is the unquantized bf16 noise-floor reference, not a quant build from the publisher's ladder."
+  },
+  {
+   "repo": "SiliconSpecies/Qwen3.8-Flash-Next-EXL3-Ijah",
+   "kind": "cross",
+   "entry": "oMLX, Jundot oQ4e (4.72 bpw mixed)",
    "reason": "failed a gate"
   },
   {
    "repo": "spectator2026/Qwen3.8-Flash-Next-W6-INT8-HQQ-g32",
    "kind": "variants",
    "entry": "this release (int6 experts + int8 dense)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "SiliconSpecies/Qwen3.8-Flash-Next-EXL3-Ijah",
+   "kind": "variants",
+   "entry": "this pack (Ijah T6)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "spectator2026/Qwen3.8-Flash-Next-W6-INT8-HQQ-g32",
+   "kind": "ladder",
+   "entry": "previous release (int6 experts, BF16 dense)",
    "reason": "failed a gate"
   },
   {
@@ -20,14 +38,8 @@
   },
   {
    "repo": "leoncca/Qwen3.8-Flash-Next-AWQ-g32",
-   "kind": "variants",
-   "entry": "this release (AWQ g32, 2026-10-17)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "SiliconSpecies/Qwen3.8-Flash-Next-EXL3-Ijah",
-   "kind": "cross",
-   "entry": "oMLX, Jundot oQ4e (4.72 bpw mixed)",
+   "kind": "ladder",
+   "entry": "previous release",
    "reason": "failed a gate"
   },
   {
@@ -38,14 +50,8 @@
   },
   {
    "repo": "leoncca/Qwen3.8-Flash-Next-AWQ-g32",
-   "kind": "ladder",
-   "entry": "previous release",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "SiliconSpecies/Qwen3.8-Flash-Next-EXL3-Ijah",
    "kind": "variants",
-   "entry": "this pack (Ijah T6)",
+   "entry": "this release (AWQ g32, 2026-10-17)",
    "reason": "failed a gate"
   }
  ],
@@ -1275,6 +1281,66 @@
    "raw": "AIME-2026 avg@8 = 99.58%"
   },
   {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "top1_pct",
+   "raw": "95.609"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "top1_pct",
+   "raw": "95.609"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "top1_pct",
+   "raw": "95.609"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "top1_pct",
+   "raw": "95.609"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "top1_pct",
+   "raw": "95.844"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "top1_pct",
+   "raw": "95.844"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
+  },
+  {
    "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
    "entry": "Balanced-PLE8",
    "key": "top1_pct",
@@ -1293,214 +1359,82 @@
    "raw": "95.844"
   },
   {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
-   "entry": "Max-PLE8",
-   "key": "top1_pct",
-   "raw": "95.918"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
-   "entry": "Max-PLE8",
-   "key": "bench:blind_svg",
-   "raw": "3.62"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
-   "entry": "Max-PLE8",
-   "key": "top1_pct",
-   "raw": "95.918"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
-   "entry": "Balanced-PLE4",
-   "key": "top1_pct",
-   "raw": "95.609"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
-   "entry": "Balanced-PLE4",
-   "key": "top1_pct",
-   "raw": "95.609"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:general",
-   "raw": "0.309"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:general",
-   "raw": "86.60 %"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:reasoning_traces",
-   "raw": "0.159"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:reasoning_traces",
-   "raw": "89.71 %"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:tool_conversations",
-   "raw": "0.653"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:tool_conversations",
-   "raw": "80.95 %"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:office_finance_math",
-   "raw": "0.132"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:office_finance_math",
-   "raw": "91.02 %"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:model_written_traces",
-   "raw": "0.197"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:model_written_traces",
-   "raw": "87.97 %"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:agent_sessions",
-   "raw": "0.813"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:agent_sessions",
-   "raw": "71.52 %"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:general",
-   "raw": "0.309"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:general",
-   "raw": "86.60 %"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:reasoning_traces",
-   "raw": "0.159"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:reasoning_traces",
-   "raw": "89.71 %"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:tool_conversations",
-   "raw": "0.653"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:tool_conversations",
-   "raw": "80.95 %"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:office_finance_math",
-   "raw": "0.132"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:office_finance_math",
-   "raw": "91.02 %"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:model_written_traces",
-   "raw": "0.197"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:model_written_traces",
-   "raw": "87.97 %"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:agent_sessions",
-   "raw": "0.813"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:agent_sessions",
-   "raw": "71.52 %"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
-   "entry": "Max-PLE8",
-   "key": "top1_pct",
-   "raw": "95.918"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
-   "entry": "Max-PLE8",
-   "key": "top1_pct",
-   "raw": "95.918"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
    "entry": "Quality-PLE4",
    "key": "top1_pct",
    "raw": "95.663"
   },
   {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
    "entry": "Quality-PLE4",
    "key": "top1_pct",
    "raw": "95.663"
   },
   {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
-   "entry": "Quality-PLE4",
-   "key": "top1_pct",
-   "raw": "95.663"
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Max-PLE8",
+   "key": "mean_kld",
+   "raw": "0.012537"
   },
   {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
-   "entry": "Quality-PLE4",
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Max-PLE8",
+   "key": "ppl_ratio",
+   "raw": "1.001522"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Max-PLE8",
    "key": "top1_pct",
-   "raw": "95.663"
+   "raw": "95.918"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "mean_kld",
+   "raw": "0.0306"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "top1_pct",
+   "raw": "93.36 %"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "kld:long-v1",
+   "raw": "0.0307"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "top1:long-v1",
+   "raw": "92.75"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "mean_kld",
+   "raw": "0.0306"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "top1_pct",
+   "raw": "93.36 %"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "kld:long-v1",
+   "raw": "0.0307"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "top1:long-v1",
+   "raw": "92.75"
   },
   {
    "repo": "Ar3ntiz/qwen3.8_flash_next_side8",
@@ -1545,78 +1479,6 @@
    "raw": "20"
   },
   {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
-   "entry": "Quality-PLE8",
-   "key": "top1_pct",
-   "raw": "95.928"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
-   "entry": "Quality-PLE8",
-   "key": "top1_pct",
-   "raw": "95.928"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
-   "entry": "Quality-PLE4",
-   "key": "top1_pct",
-   "raw": "95.663"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
-   "entry": "Quality-PLE4",
-   "key": "top1_pct",
-   "raw": "95.663"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
-   "entry": "Balanced-PLE8",
-   "key": "top1_pct",
-   "raw": "95.844"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
-   "entry": "Balanced-PLE8",
-   "key": "top1_pct",
-   "raw": "95.844"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
-   "entry": "INT3 (this repository)",
-   "key": "kld:long-v1",
-   "raw": "0.0561"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
-   "entry": "INT3 (this repository)",
-   "key": "top1:long-v1",
-   "raw": "90.39"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
-   "entry": "INT3 (this repository)",
-   "key": "kld:long-v1",
-   "raw": "0.0561"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
-   "entry": "INT3 (this repository)",
-   "key": "top1:long-v1",
-   "raw": "90.39"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
-   "entry": "Balanced-PLE4",
-   "key": "top1_pct",
-   "raw": "95.609"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
-   "entry": "Balanced-PLE4",
-   "key": "top1_pct",
-   "raw": "95.609"
-  },
-  {
    "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
    "entry": "Quality-PLE8",
    "key": "mean_kld",
@@ -1635,118 +1497,70 @@
    "raw": "95.928"
   },
   {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
-   "entry": "this release (4-bit)",
-   "key": "mean_kld",
-   "raw": "0.0306"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
-   "entry": "this release (4-bit)",
-   "key": "top1_pct",
-   "raw": "93.36 %"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
-   "entry": "this release (4-bit)",
-   "key": "kld:long-v1",
-   "raw": "0.0307"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
-   "entry": "this release (4-bit)",
-   "key": "top1:long-v1",
-   "raw": "92.75"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
-   "entry": "this release (4-bit)",
-   "key": "mean_kld",
-   "raw": "0.0306"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
-   "entry": "this release (4-bit)",
-   "key": "top1_pct",
-   "raw": "93.36 %"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
-   "entry": "this release (4-bit)",
-   "key": "kld:long-v1",
-   "raw": "0.0307"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
-   "entry": "this release (4-bit)",
-   "key": "top1:long-v1",
-   "raw": "92.75"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
-   "entry": "Balanced-PLE8",
-   "key": "top1_pct",
-   "raw": "95.844"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
-   "entry": "Balanced-PLE8",
-   "key": "top1_pct",
-   "raw": "95.844"
-  },
-  {
    "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
-   "entry": "Quality-PLE8",
-   "key": "top1_pct",
-   "raw": "95.928"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
-   "entry": "Quality-PLE8",
-   "key": "top1_pct",
-   "raw": "95.928"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
-   "entry": "Quality-PLE4",
-   "key": "top1_pct",
-   "raw": "95.663"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
-   "entry": "Quality-PLE4",
-   "key": "top1_pct",
-   "raw": "95.663"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
-   "entry": "Balanced-PLE4",
-   "key": "top1_pct",
-   "raw": "95.609"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
-   "entry": "Balanced-PLE4",
-   "key": "top1_pct",
-   "raw": "95.609"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
-   "entry": "Max-PLE8",
-   "key": "mean_kld",
-   "raw": "0.012537"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
-   "entry": "Max-PLE8",
-   "key": "ppl_ratio",
-   "raw": "1.001522"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
    "entry": "Max-PLE8",
    "key": "top1_pct",
    "raw": "95.918"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Max-PLE8",
+   "key": "top1_pct",
+   "raw": "95.918"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
+   "entry": "INT3 (this repository)",
+   "key": "kld:long-v1",
+   "raw": "0.0561"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
+   "entry": "INT3 (this repository)",
+   "key": "top1:long-v1",
+   "raw": "90.39"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
+   "entry": "INT3 (this repository)",
+   "key": "kld:long-v1",
+   "raw": "0.0561"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
+   "entry": "INT3 (this repository)",
+   "key": "top1:long-v1",
+   "raw": "90.39"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Max-PLE8",
+   "key": "top1_pct",
+   "raw": "95.918"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:blind_svg",
+   "raw": "3.62"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Max-PLE8",
+   "key": "top1_pct",
+   "raw": "95.918"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "top1_pct",
+   "raw": "95.928"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "top1_pct",
+   "raw": "95.928"
   },
   {
    "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
@@ -1765,6 +1579,198 @@
    "entry": "Quality-PLE8",
    "key": "top1_pct",
    "raw": "95.928"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "top1_pct",
+   "raw": "95.928"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "top1_pct",
+   "raw": "95.928"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:general",
+   "raw": "0.309"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:general",
+   "raw": "86.60 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:reasoning_traces",
+   "raw": "0.159"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:reasoning_traces",
+   "raw": "89.71 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:tool_conversations",
+   "raw": "0.653"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:tool_conversations",
+   "raw": "80.95 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:office_finance_math",
+   "raw": "0.132"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:office_finance_math",
+   "raw": "91.02 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:model_written_traces",
+   "raw": "0.197"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:model_written_traces",
+   "raw": "87.97 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:agent_sessions",
+   "raw": "0.813"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:agent_sessions",
+   "raw": "71.52 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:general",
+   "raw": "0.309"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:general",
+   "raw": "86.60 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:reasoning_traces",
+   "raw": "0.159"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:reasoning_traces",
+   "raw": "89.71 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:tool_conversations",
+   "raw": "0.653"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:tool_conversations",
+   "raw": "80.95 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:office_finance_math",
+   "raw": "0.132"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:office_finance_math",
+   "raw": "91.02 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:model_written_traces",
+   "raw": "0.197"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:model_written_traces",
+   "raw": "87.97 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:agent_sessions",
+   "raw": "0.813"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:agent_sessions",
+   "raw": "71.52 %"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "top1_pct",
+   "raw": "95.609"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "top1_pct",
+   "raw": "95.609"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "top1_pct",
+   "raw": "95.844"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "top1_pct",
+   "raw": "95.844"
   }
  ],
  "resolved_disagreements": [],

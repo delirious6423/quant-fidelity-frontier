@@ -9,13 +9,14 @@ with a link to the line it came from.
 <!-- qff:models:start -->
 | Model | Repos | Claimed values |
 |---|---|---|
-| [Qwen/Qwen3.8-Flash-Next](https://delirious6423.github.io/quant-fidelity-frontier/qwen3.8-flash-next/) | 463 | 2,950 |
-| [Qwen/Qwen3.8-27B](https://delirious6423.github.io/quant-fidelity-frontier/qwen3.8-27b/) | 1,230 | 4,716 |
-| [deepseek-ai/DeepSeek-V4.1-Flash](https://delirious6423.github.io/quant-fidelity-frontier/deepseek-v4.1-flash/) | 134 | 1,081 |
-| [zai-org/GLM-5.3-Flash](https://delirious6423.github.io/quant-fidelity-frontier/glm-5.3-flash/) | 175 | 545 |
-| [deepseek-ai/DeepSeek-V4-Flash-0731](https://delirious6423.github.io/quant-fidelity-frontier/deepseek-v4-flash-0731/) | 189 | 386 |
+| [Qwen/Qwen3.8-Flash-Next](https://delirious6423.github.io/quant-fidelity-frontier/qwen3.8-flash-next/) | 477 | 3,072 |
+| [Qwen/Qwen3.8-27B](https://delirious6423.github.io/quant-fidelity-frontier/qwen3.8-27b/) | 1,251 | 4,890 |
+| [deepseek-ai/DeepSeek-V4.1-Flash](https://delirious6423.github.io/quant-fidelity-frontier/deepseek-v4.1-flash/) | 138 | 1,074 |
+| [zai-org/GLM-5.3-Flash](https://delirious6423.github.io/quant-fidelity-frontier/glm-5.3-flash/) | 177 | 555 |
+| [deepseek-ai/DeepSeek-V4-Flash-0731](https://delirious6423.github.io/quant-fidelity-frontier/deepseek-v4-flash-0731/) | 189 | 394 |
 | [LiquidAI/LFM2.5-24B-A2B](https://delirious6423.github.io/quant-fidelity-frontier/lfm2.5-24b-a2b/) | 75 | 522 |
-| [deepseek-ai/DeepSeek-V4.1-Flash-1017](https://delirious6423.github.io/quant-fidelity-frontier/deepseek-v4.1-flash-1017/) | 64 | 370 |
+| [deepseek-ai/DeepSeek-V4.1-Flash-1017](https://delirious6423.github.io/quant-fidelity-frontier/deepseek-v4.1-flash-1017/) | 75 | 377 |
+| [ornith-ai/Ornith-1.5-35B-A3B](https://delirious6423.github.io/quant-fidelity-frontier/ornith-1.5-35b-a3b/) | 186 | 729 |
 <!-- qff:models:end -->
 The table is generated from the published data (`pipeline/readme_sync.py`) each time the site is published.
 
