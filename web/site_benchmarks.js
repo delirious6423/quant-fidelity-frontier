@@ -16,7 +16,8 @@
   if (!D.sources.length) { $('bm-legend').hidden = true; $('bm-evidence').open = false; return; }
   benchmarks.forEach(function (b, i) {
     var ambiguous = benchmarks.some(function (other) { return other !== b && other.name === b.name; });
-    metric.appendChild(option(i, b.name + (ambiguous ? ' · ' + b.unit : '')));
+    var n = b.evaluations.reduce(function (t, e) { return t + D.sources[e.source].metrics[e.metric].points.length; }, 0);   // every reported result in this benchmark, all sources
+    metric.appendChild(option(i, b.name + (ambiguous ? ' · ' + b.unit : '') + ' · ' + n + (n === 1 ? ' result' : ' results')));
   });
   metric.value = benchmarks.findIndex(function (b) { return b.name === D.sources[0].metrics[0].name && b.unit === D.sources[0].metrics[0].unit; });
   function points() {

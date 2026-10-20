@@ -5,6 +5,11 @@ from playwright.async_api import async_playwright
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from benchmarks import group_benchmarks
+
+
+async def bench_value(page, name):
+    return await page.evaluate("(n) => [...document.querySelectorAll('#bm-metric option')].find(o => o.textContent.startsWith(n + ' · ')).value", name)
+
 SLUGS=sorted(p.parent.name for p in (ROOT/'models').glob('*/benchmarks.json'))
 async def check_combined_sources(browser):
     # Test-only second report uses the same artifact/coordinates: neither may disappear.
@@ -21,7 +26,7 @@ async def check_combined_sources(browser):
         errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
         await page.set_content(html)
         # No source choice is needed to find GPQA or EvalPlus tasks.
-        await page.select_option('#bm-metric',label='GPQA-Diamond')
+        await page.select_option('#bm-metric',value=await bench_value(page,'GPQA-Diamond'))
         assert await page.locator('#bm-source').input_value()=='all'
         assert await page.locator('#bm-plot .bm-dot').count()==9
         assert await page.locator('#bm-sources .bm-source-label').count()==2
@@ -33,10 +38,10 @@ async def check_combined_sources(browser):
         assert await page.locator('#bm-plot .bm-dot').count()==1
         await page.select_option('#bm-source','0')
         assert await page.locator('#bm-plot .bm-dot').count()==8
-        await page.select_option('#bm-metric',label='HumanEval')
+        await page.select_option('#bm-metric',value=await bench_value(page,'HumanEval'))
         assert not await page.locator('#bm-source-choice').is_visible()
         assert await page.locator('#bm-plot .bm-dot').count()==5
-        await page.select_option('#bm-metric',label='GPQA-Diamond')
+        await page.select_option('#bm-metric',value=await bench_value(page,'GPQA-Diamond'))
         assert await page.locator('#bm-source').input_value()=='all'
         assert await page.locator('#bm-plot .bm-dot').count()==9
         assert await page.evaluate('document.documentElement.scrollWidth <= innerWidth')
@@ -72,7 +77,10 @@ async def main():
                 assert await page.locator('#bm-metric option').count() == len(d['groups'])
                 choices = await page.locator('#bm-metric option').evaluate_all('(options) => options.map(o => ({value:o.value,label:o.textContent}))')
                 for group in d['groups']:
-                    choice = next(o for o in choices if o['label'] == group['name'] or o['label'] == group['name'] + ' · ' + group['unit'])
+                    total = sum(len(d['sources'][e['source']]['metrics'][e['metric']]['points']) for e in group['evaluations'])
+                    tail = f" · {total} result" + ('' if total == 1 else 's')
+                    # the selector says how many results each benchmark has
+                    choice = next(o for o in choices if o['label'] == group['name'] + tail or o['label'] == group['name'] + ' · ' + group['unit'] + tail)
                     await page.select_option('#bm-metric', choice['value'])
                     expected = sum(len(d['sources'][e['source']]['metrics'][e['metric']]['points']) for e in group['evaluations'])
                     assert await page.locator('#bm-plot .bm-dot').count() == expected
