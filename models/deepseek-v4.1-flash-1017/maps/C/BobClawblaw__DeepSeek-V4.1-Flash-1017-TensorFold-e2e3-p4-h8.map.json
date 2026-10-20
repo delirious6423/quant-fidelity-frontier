@@ -1,0 +1,29 @@
+{
+ "repo": "BobClawblaw/DeepSeek-V4.1-Flash-1017-TensorFold-e2e3-p4-h8",
+ "source_sha256": "4f03d0f7a30db8641b2be5ec0db322edb5351d56737b22efc292ee85d5a9f849",
+ "candidates_sha256": "4176077383d44f19a29d2258dea946eba818c8d6cddf72c305c6eb2fd0017b67",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "release's own fp4 weights", "dataset": "four prompts of 64 tokens each, taken from the fp4 model's greedy replies", "ctx": "not stated", "tool": "recipe's own tool", "L": [71, 72]},
+ "entries": [
+  {"role": "own", "name": "TensorFold e2e3-p4-h8", "panel": "Quality",
+   "methodology": {"reference": "release's own fp4 weights", "dataset": "four prompts of 64 tokens each, taken from the fp4 model's greedy replies", "ctx": "not stated", "tool": "recipe's own tool", "L": [71, 72]},
+   "metrics": {"mean_kld": "c31.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["KL is reported without a mean label [L72]", "top-1 agreement is a fraction, not mapped [L72]", "reference is the release's native fp4 weights, not a BF16 reference [L71]", "whole-model NRMS gate is a different check, not mapped [L74-L77]"]},
+  {"role": "own", "name": "TensorFold e2e3-p4-h8, thinking off", "panel": "Quality",
+   "methodology": {"reference": "not stated", "dataset": "recipe-harness quality suite (GSM8K first 250, MATH-500, MGSM, MMLU, IFEval, tools, structured output)", "ctx": "not stated", "tool": "recipe-harness, greedy decoding", "L": [78, 79, 80, 85, 86, 87, 88, 89, 90]},
+   "metrics": {"bench:GSM8K": "c1", "bench:MATH-500": "c3", "bench:MGSM": "c5", "bench:MMLU": "c6"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["MATH-500 fixed-grader figures are at-least values, not mapped [L86]", "strict IFEval grading not mapped [L90]", "tools and structured output cells hold two counts each, not mapped [L91-L92]"]},
+  {"role": "own", "name": "TensorFold e2e3-p4-h8, thinking on", "panel": "Quality",
+   "methodology": {"reference": "not stated", "dataset": "recipe-harness quality suite, thinking on (GSM8K first 250, MATH-500)", "ctx": "32,768-token thinking reserve", "tool": "recipe-harness, greedy decoding", "L": [78, 79, 81, 85, 87]},
+   "metrics": {"bench:GSM8K": "c2", "bench:MATH-500": "c4"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["MATH-500 fixed-grader figures are at-least values, not mapped [L86]", "thinking problems count is a two-number cell, not mapped [L94]", "GPQA-Diamond not run to the end, no value [L102-L104]"]}
+ ],
+ "prose": [
+  {"entry": "TensorFold e2e3-p4-h8, thinking off", "panel": "Quality", "key": "bench:IFEval", "L": 90, "raw": "129/150"}
+ ]
+}

@@ -1,0 +1,27 @@
+{"repo": "acrogenesis/DeepSeek-V4.1-Flash-1017-IQ2_XXS-GGUF",
+ "source_sha256": "1c880bd1e63f0501dce9ab5f116026044109c1c459ce45ee6f878de964e84714",
+ "candidates_sha256": "f30dccc9313539b27160b8af4cd177a9545abcd44cebf34636cbc5f5d47d1fa8",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "paired converted reference (MXFP4 experts, converted Q8 dense/Engram)", "dataset": "2,040 scored held-out positions", "ctx": "not stated", "tool": "not stated", "L": [50, 51, 52, 53, 54]},
+ "entries": [
+  {"role": "own", "name": "This IQ2_XXS / Q8 quant",
+   "metrics": {"ppl": "c4", "mean_kld": "c33", "ppl_delta_pct": "c32"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L23] 359.32 GB mixed-precision GGUF is stated in the prose, not in the table row; size left null",
+             "[L50-54] quality is versus the paired converted reference, not a full native-forward comparison",
+             "[L52] top-choice agreement 76.863% is mapped to top1_pct from the prose"]},
+  {"role": "ladder", "name": "MXFP4 / Q8 converted reference",
+   "metrics": {"ppl": "c12"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L40, L52-54] the reference keeps native MXFP4 experts and has converted Q8 dense/Engram weights; not a full native-forward comparison"]},
+  {"role": "cross", "of": "not named on card", "name": "Public Q2_K mix",
+   "metrics": {"ppl": "c8"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L107] the public Q2_K quant is not used as conversion input; its repo is not named on the card",
+             "[L59] public Q2 produced different repeated outputs at temperature 0; cause unresolved"]}
+ ],
+ "prose": [
+  {"entry": "This IQ2_XXS / Q8 quant", "key": "top1_pct", "L": 52, "raw": "top-choice agreement 76.863%"}
+ ]}

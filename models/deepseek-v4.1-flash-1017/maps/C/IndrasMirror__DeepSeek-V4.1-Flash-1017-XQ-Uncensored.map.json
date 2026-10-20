@@ -1,0 +1,28 @@
+{
+ "repo": "IndrasMirror/DeepSeek-V4.1-Flash-1017-XQ-Uncensored",
+ "source_sha256": "e612e8e765b81040386305ac9b831c49111a727a5c56578d29f7966805607702",
+ "candidates_sha256": "875b371173b1cf8a37345400e6e7a69d232a6e08edc1c8b13d6482fca5c47af4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "edited full-precision teacher on the same mix", "dataset": "held-out calibration tokens (never used for fitting)", "ctx": "not stated", "tool": "not stated", "L": [174, 175, 184, 185]},
+ "entries": [
+  {"role": "own", "name": "XQ (quantized)", "panel": "Quality",
+   "methodology": {"reference": "edited full-precision teacher on the same mix", "dataset": "held-out calibration tokens (never used for fitting)", "ctx": "not stated", "tool": "not stated", "L": [174, 175, 184, 185]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["table does not label the build; values match the V2 build note [L33]", "edited teacher column is a different model, omitted [L177-L182]", "top-1 is reported as a fraction, not mapped [L179-L182]", "behavioural probe counts and Gauntlet results not mapped [L187-L196]"]},
+  {"role": "own", "name": "V3", "panel": "Builds in this repo (20 Oct)",
+   "methodology": {"reference": "edited full-precision teacher", "dataset": "own held-out mix, code and agentic heavy", "ctx": "not stated", "tool": "not stated", "L": [35]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["measured on its own held-out mix, not comparable to the Quality panel [L35]", "teacher figures are a different model, omitted [L35]", "top-1 is reported as a fraction, not mapped [L35]", "speed, DSpark and Gauntlet figures not mapped [L35]"]}
+ ],
+ "prose": [
+  {"entry": "XQ (quantized)", "panel": "Quality", "key": "ppl", "L": 179, "raw": "6.934"},
+  {"entry": "XQ (quantized)", "panel": "Quality", "key": "ppl:chat", "L": 180, "raw": "5.489"},
+  {"entry": "XQ (quantized)", "panel": "Quality", "key": "ppl:code", "L": 181, "raw": "2.161"},
+  {"entry": "XQ (quantized)", "panel": "Quality", "key": "ppl:agent", "L": 182, "raw": "3.148"},
+  {"entry": "V3", "panel": "Builds in this repo (20 Oct)", "key": "ppl", "L": 35, "raw": "6.72"}
+ ]
+}

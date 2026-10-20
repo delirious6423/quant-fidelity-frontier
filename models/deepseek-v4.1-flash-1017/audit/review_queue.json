@@ -1,0 +1,1192 @@
+{
+ "quarantined": [
+  {
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
+   "kind": "ladder",
+   "entry": "EXL3 3.5 bpw",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "jayleaton/DeepSeek-V4.1-Flash-1017-EXL3-2.8bpw",
+   "kind": "ladder",
+   "entry": "q28-v2",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
+   "kind": "variants",
+   "entry": "EXL3 2.9 bpw (this repo)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "kind": "variants",
+   "entry": "EXL3 3.5 bpw (this repo)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "jayleaton/DeepSeek-V4.1-Flash-1017-EXL3-2.8bpw",
+   "kind": "cross",
+   "entry": "2.9 bpw (Mia-AiLab)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "kind": "ladder",
+   "entry": "EXL3 2.9 bpw",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "jayleaton/DeepSeek-V4.1-Flash-1017-EXL3-2.8bpw",
+   "kind": "variants",
+   "entry": "this pack",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "kind": "ladder",
+   "entry": "v0: greedy EXL3",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "sudoingx/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw",
+   "kind": "cross",
+   "entry": "object-oriented-architects 2.7 bpw",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "HeNryous/DeepSeek-V4.1-Flash-1017-EXL3-2.75bpw-DGX-Spark",
+   "kind": "variants",
+   "entry": "this repo",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "kind": "variants",
+   "entry": "this model (v1 + scale calibration)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "rapid-mlx/DeepSeek-V4.1-Flash-1017-MLX",
+   "kind": "variants",
+   "entry": "This build",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "kind": "ladder",
+   "entry": "v1: Viterbi + refit",
+   "reason": "failed a gate"
+  }
+ ],
+ "disagreements": [
+  {
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "entry": "this model (v1 + scale calibration)",
+   "key": "bench:image_qa_245",
+   "raw": "88.0% (paired diff +0.1 [-1.2, +1.4])"
+  },
+  {
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "entry": "this model (v1 + scale calibration)",
+   "key": "bench:chinese_mixing_ja_text",
+   "raw": "2.35%"
+  },
+  {
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "entry": "v1: Viterbi + refit",
+   "key": "bench:image_qa_245",
+   "raw": "87.9%"
+  },
+  {
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "entry": "v1: Viterbi + refit",
+   "key": "bench:chinese_mixing_ja_text",
+   "raw": "1.19%"
+  },
+  {
+   "repo": "IndrasMirror/DeepSeek-V4.1-Flash-1017-XQ-Uncensored",
+   "entry": "V2",
+   "key": "top1",
+   "raw": "0.670"
+  },
+  {
+   "repo": "IndrasMirror/DeepSeek-V4.1-Flash-1017-XQ-Uncensored",
+   "entry": "V2",
+   "key": "top1:chat",
+   "raw": "0.661"
+  },
+  {
+   "repo": "IndrasMirror/DeepSeek-V4.1-Flash-1017-XQ-Uncensored",
+   "entry": "V2",
+   "key": "top1:code",
+   "raw": "0.828"
+  },
+  {
+   "repo": "IndrasMirror/DeepSeek-V4.1-Flash-1017-XQ-Uncensored",
+   "entry": "V2",
+   "key": "top1:agent",
+   "raw": "0.830"
+  },
+  {
+   "repo": "IndrasMirror/DeepSeek-V4.1-Flash-1017-XQ-Uncensored",
+   "entry": "Edited teacher (full precision)",
+   "key": "ppl",
+   "raw": "6.572"
+  },
+  {
+   "repo": "IndrasMirror/DeepSeek-V4.1-Flash-1017-XQ-Uncensored",
+   "entry": "Edited teacher (full precision)",
+   "key": "top1",
+   "raw": "0.687"
+  },
+  {
+   "repo": "IndrasMirror/DeepSeek-V4.1-Flash-1017-XQ-Uncensored",
+   "entry": "Edited teacher (full precision)",
+   "key": "ppl:chat",
+   "raw": "5.170"
+  },
+  {
+   "repo": "IndrasMirror/DeepSeek-V4.1-Flash-1017-XQ-Uncensored",
+   "entry": "Edited teacher (full precision)",
+   "key": "top1:chat",
+   "raw": "0.681"
+  },
+  {
+   "repo": "IndrasMirror/DeepSeek-V4.1-Flash-1017-XQ-Uncensored",
+   "entry": "Edited teacher (full precision)",
+   "key": "ppl:code",
+   "raw": "1.980"
+  },
+  {
+   "repo": "IndrasMirror/DeepSeek-V4.1-Flash-1017-XQ-Uncensored",
+   "entry": "Edited teacher (full precision)",
+   "key": "top1:code",
+   "raw": "0.851"
+  },
+  {
+   "repo": "IndrasMirror/DeepSeek-V4.1-Flash-1017-XQ-Uncensored",
+   "entry": "Edited teacher (full precision)",
+   "key": "ppl:agent",
+   "raw": "3.328"
+  },
+  {
+   "repo": "IndrasMirror/DeepSeek-V4.1-Flash-1017-XQ-Uncensored",
+   "entry": "Edited teacher (full precision)",
+   "key": "top1:agent",
+   "raw": "0.828"
+  },
+  {
+   "repo": "IndrasMirror/DeepSeek-V4.1-Flash-1017-XQ-Uncensored",
+   "entry": "V3",
+   "key": "top1",
+   "raw": "0.691"
+  },
+  {
+   "repo": "IndrasMirror/DeepSeek-V4.1-Flash-1017-XQ-Uncensored",
+   "entry": "teacher (V3 mix)",
+   "key": "ppl",
+   "raw": "6.36"
+  },
+  {
+   "repo": "IndrasMirror/DeepSeek-V4.1-Flash-1017-XQ-Uncensored",
+   "entry": "teacher (V3 mix)",
+   "key": "top1",
+   "raw": "0.706"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "This pack",
+   "key": "bench:MMLU-Pro Math",
+   "raw": "58.8"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "This pack",
+   "key": "bench:MMLU-Pro Physics",
+   "raw": "54.4"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "This pack",
+   "key": "bench:MMLU-Pro Chemistry",
+   "raw": "51.3"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "This pack",
+   "key": "bench:MMLU-Pro Law",
+   "raw": "65.2"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "This pack",
+   "key": "bench:MMLU-Pro Engineering",
+   "raw": "51.6"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "This pack",
+   "key": "bench:MMLU-Pro Other",
+   "raw": "73.2"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "This pack",
+   "key": "bench:MMLU-Pro Economics",
+   "raw": "82.5"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "This pack",
+   "key": "bench:MMLU-Pro Health",
+   "raw": "78.5"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "This pack",
+   "key": "bench:MMLU-Pro Psychology",
+   "raw": "83.5"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "This pack",
+   "key": "bench:MMLU-Pro Business",
+   "raw": "57.7"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "This pack",
+   "key": "bench:MMLU-Pro Biology",
+   "raw": "88.8"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "This pack",
+   "key": "bench:MMLU-Pro Philosophy",
+   "raw": "75.2"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "This pack",
+   "key": "bench:MMLU-Pro Computer Science",
+   "raw": "72.2"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "This pack",
+   "key": "bench:MMLU-Pro History",
+   "raw": "74.5"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Original (API)",
+   "key": "bench:MMLU-Pro Math",
+   "raw": "60.0"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Original (API)",
+   "key": "bench:MMLU-Pro Physics",
+   "raw": "58.2"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Original (API)",
+   "key": "bench:MMLU-Pro Chemistry",
+   "raw": "52.6"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Original (API)",
+   "key": "bench:MMLU-Pro Law",
+   "raw": "66.5"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Original (API)",
+   "key": "bench:MMLU-Pro Engineering",
+   "raw": "56.0"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Original (API)",
+   "key": "bench:MMLU-Pro Other",
+   "raw": "73.3"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Original (API)",
+   "key": "bench:MMLU-Pro Economics",
+   "raw": "83.1"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Original (API)",
+   "key": "bench:MMLU-Pro Health",
+   "raw": "78.1"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Original (API)",
+   "key": "bench:MMLU-Pro Psychology",
+   "raw": "83.5"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Original (API)",
+   "key": "bench:MMLU-Pro Business",
+   "raw": "58.7"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Original (API)",
+   "key": "bench:MMLU-Pro Biology",
+   "raw": "89.5"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Original (API)",
+   "key": "bench:MMLU-Pro Philosophy",
+   "raw": "75.4"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Original (API)",
+   "key": "bench:MMLU-Pro Computer Science",
+   "raw": "72.0"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Original (API)",
+   "key": "bench:MMLU-Pro History",
+   "raw": "74.3"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Mia EAQ v1",
+   "key": "bench:MMLU-Pro Math",
+   "raw": "57.6"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Mia EAQ v1",
+   "key": "bench:MMLU-Pro Physics",
+   "raw": "55.6"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Mia EAQ v1",
+   "key": "bench:MMLU-Pro Chemistry",
+   "raw": "49.5"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Mia EAQ v1",
+   "key": "bench:MMLU-Pro Law",
+   "raw": "66.3"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Mia EAQ v1",
+   "key": "bench:MMLU-Pro Engineering",
+   "raw": "49.3"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Mia EAQ v1",
+   "key": "bench:MMLU-Pro Other",
+   "raw": "73.1"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Mia EAQ v1",
+   "key": "bench:MMLU-Pro Economics",
+   "raw": "80.6"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Mia EAQ v1",
+   "key": "bench:MMLU-Pro Health",
+   "raw": "77.6"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Mia EAQ v1",
+   "key": "bench:MMLU-Pro Psychology",
+   "raw": "82.8"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Mia EAQ v1",
+   "key": "bench:MMLU-Pro Business",
+   "raw": "56.9"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Mia EAQ v1",
+   "key": "bench:MMLU-Pro Biology",
+   "raw": "88.8"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Mia EAQ v1",
+   "key": "bench:MMLU-Pro Philosophy",
+   "raw": "76.4"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Mia EAQ v1",
+   "key": "bench:MMLU-Pro Computer Science",
+   "raw": "72.4"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Mia EAQ v1",
+   "key": "bench:MMLU-Pro History",
+   "raw": "73.2"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:MMLU-Pro Math",
+   "raw": "54.8"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:MMLU-Pro Physics",
+   "raw": "52.7"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:MMLU-Pro Chemistry",
+   "raw": "45.1"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:MMLU-Pro Law",
+   "raw": "65.0"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:MMLU-Pro Engineering",
+   "raw": "49.3"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:MMLU-Pro Other",
+   "raw": "71.4"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:MMLU-Pro Economics",
+   "raw": "80.0"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:MMLU-Pro Health",
+   "raw": "78.0"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:MMLU-Pro Psychology",
+   "raw": "84.2"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:MMLU-Pro Business",
+   "raw": "50.8"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:MMLU-Pro Biology",
+   "raw": "88.0"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:MMLU-Pro Philosophy",
+   "raw": "74.7"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:MMLU-Pro Computer Science",
+   "raw": "70.5"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:MMLU-Pro History",
+   "raw": "75.1"
+  },
+  {
+   "repo": "acrogenesis/DeepSeek-V4.1-Flash-1017-IQ2_XXS-GGUF",
+   "entry": "This IQ2_XXS / Q8 quant",
+   "key": "mean_kld",
+   "raw": "0.365186"
+  },
+  {
+   "repo": "acrogenesis/DeepSeek-V4.1-Flash-1017-IQ2_XXS-GGUF",
+   "entry": "MXFP4 / Q8 converted reference",
+   "key": "ppl",
+   "raw": "6.34"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2-Mix",
+   "entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2 Mix",
+   "key": "kld:windows_8192",
+   "raw": "**0.2023**"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2",
+   "entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2",
+   "key": "kld:long_context_transduction",
+   "raw": "long-context transduction 0.020"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K3",
+   "entry": "Serving formats",
+   "key": "kld:agentic",
+   "raw": "0.189"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K3",
+   "entry": "Serving formats",
+   "key": "kld:swe_agent",
+   "raw": "0.084"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K3",
+   "entry": "Serving formats",
+   "key": "kld:math",
+   "raw": "0.034"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K3",
+   "entry": "Serving formats",
+   "key": "kld:science",
+   "raw": "0.044"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K3",
+   "entry": "Serving formats",
+   "key": "kld:competitive_programming",
+   "raw": "0.045"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K3",
+   "entry": "Serving formats",
+   "key": "kld:instruction_following_chat",
+   "raw": "0.034"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K3",
+   "entry": "Serving formats",
+   "key": "kld:multilingual",
+   "raw": "0.037"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K3",
+   "entry": "Serving formats",
+   "key": "kld:long_context_transduction",
+   "raw": "0.011"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K3",
+   "entry": "Serving formats",
+   "key": "kld:safety",
+   "raw": "0.054"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K3",
+   "entry": "Serving formats",
+   "key": "kld:web_text",
+   "raw": "0.067"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K3",
+   "entry": "Serving formats",
+   "key": "kld:legal",
+   "raw": "0.057"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K4",
+   "entry": "Serving formats",
+   "key": "kld:agentic",
+   "raw": "agentic 0.154"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K4",
+   "entry": "Serving formats",
+   "key": "kld:swe_agent",
+   "raw": "SWE agent 0.060"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K4",
+   "entry": "Serving formats",
+   "key": "kld:math",
+   "raw": "math 0.026"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K4",
+   "entry": "Serving formats",
+   "key": "kld:science",
+   "raw": "science 0.032"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K4",
+   "entry": "Serving formats",
+   "key": "kld:competitive_programming",
+   "raw": "competitive programming 0.034"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K4",
+   "entry": "Serving formats",
+   "key": "kld:instruction_chat",
+   "raw": "instruction following and chat 0.024"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K4",
+   "entry": "Serving formats",
+   "key": "kld:multilingual",
+   "raw": "multilingual 0.025"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K4",
+   "entry": "Serving formats",
+   "key": "kld:long_context_transduction",
+   "raw": "long-context transduction 0.010"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K4",
+   "entry": "Serving formats",
+   "key": "kld:safety",
+   "raw": "safety 0.036"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K4",
+   "entry": "Serving formats",
+   "key": "kld:web_text",
+   "raw": "web text 0.040"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K4",
+   "entry": "Serving formats",
+   "key": "kld:legal",
+   "raw": "legal 0.034"
+  },
+  {
+   "repo": "cliecy/DeepSeek-V4.1-Flash-1017-EXL3-3bpw-2xRTXPRO6000",
+   "entry": "EXL3 3 bpw, thinking off",
+   "key": "bench:C-Eval",
+   "raw": "93%"
+  },
+  {
+   "repo": "cliecy/DeepSeek-V4.1-Flash-1017-EXL3-3bpw-2xRTXPRO6000",
+   "entry": "EXL3 3 bpw, thinking on",
+   "key": "bench:C-Eval",
+   "raw": "92%"
+  },
+  {
+   "repo": "icecubetr/DeepSeek-V4.1-Flash-1017-dsx-2.6bit",
+   "entry": "FP8 / FP4 teacher",
+   "key": "ppl",
+   "raw": "8.56"
+  },
+  {
+   "repo": "lxe/DeepSeek-V4.1-Flash-1017-dsx-mxfp4",
+   "entry": "FP8 / FP4 original",
+   "key": "ppl",
+   "raw": "8.56"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "DeepSeek API",
+   "key": "bench:GSM8K_thinking_on",
+   "raw": "97.0%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:MMLU_thinking_off",
+   "raw": "85.0%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:MMLU_thinking_on",
+   "raw": "92.5%"
+  },
+  {
+   "repo": "rapid-mlx/DeepSeek-V4.1-Flash-1017-MLX",
+   "entry": "This build",
+   "key": "bench:HLE-text",
+   "raw": "3/30 (10%)"
+  },
+  {
+   "repo": "sfxnz/DeepSeek-V4.1-Flash-1017-EXL3",
+   "entry": "EXL3 2.7 bpw MCG (mixed K)",
+   "key": "top1_pct",
+   "raw": "95.3%"
+  },
+  {
+   "repo": "sfxnz/DeepSeek-V4.1-Flash-1017-EXL3",
+   "entry": "EXL3 2.7 bpw MCG (mixed K)",
+   "key": "kld:encyclopedic",
+   "raw": "0.114"
+  },
+  {
+   "repo": "sudoingx/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "mean_kld",
+   "raw": "KLD 0.0304"
+  },
+  {
+   "repo": "sudoingx/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "kld:multilingual",
+   "raw": "multilingual (0.0571"
+  },
+  {
+   "repo": "sudoingx/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw",
+   "entry": "object-oriented-architects 2.7 bpw",
+   "key": "kld:ifeval_replies",
+   "raw": "IFEval-reply 0.1201"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "This pack",
+   "key": "bench:MMLU-Pro",
+   "raw": "66.7%"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "This pack",
+   "key": "bench:MMLU-Pro",
+   "raw": "66.7%"
+  },
+  {
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "Unquantized (base FP8 / MXFP4 weights, dequantized)",
+   "key": "ppl:code",
+   "raw": "1.8749"
+  },
+  {
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "Unquantized (base FP8 / MXFP4 weights, dequantized)",
+   "key": "ppl:prose",
+   "raw": "6.4277"
+  },
+  {
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "This repo with Engram switched off (sanity check)",
+   "key": "ppl:code",
+   "raw": "4.1548"
+  },
+  {
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "This repo with Engram switched off (sanity check)",
+   "key": "ppl:prose",
+   "raw": "8.9702"
+  },
+  {
+   "repo": "rapid-mlx/DeepSeek-V4.1-Flash-1017-MLX",
+   "entry": "This build",
+   "key": "bench:GSM8K",
+   "raw": "91.2%"
+  },
+  {
+   "repo": "rapid-mlx/DeepSeek-V4.1-Flash-1017-MLX",
+   "entry": "This build",
+   "key": "bench:MMLU-Pro",
+   "raw": "66.7%"
+  },
+  {
+   "repo": "rapid-mlx/DeepSeek-V4.1-Flash-1017-MLX",
+   "entry": "This build",
+   "key": "bench:GPQA-Diamond",
+   "raw": "11/15 (73%)"
+  },
+  {
+   "repo": "rapid-mlx/DeepSeek-V4.1-Flash-1017-MLX",
+   "entry": "This build",
+   "key": "bench:GSM8K",
+   "raw": "91.2%"
+  },
+  {
+   "repo": "rapid-mlx/DeepSeek-V4.1-Flash-1017-MLX",
+   "entry": "This build",
+   "key": "bench:GPQA-Diamond",
+   "raw": "11/15 (73%)"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Mia EAQ v1",
+   "key": "bench:MMLU-Pro",
+   "raw": "66.2%"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Mia EAQ v1",
+   "key": "bench:MMLU-Pro",
+   "raw": "66.2%"
+  },
+  {
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
+   "entry": "This repo with Engram switched off (sanity check)",
+   "key": "ppl:code",
+   "raw": "4.1648"
+  },
+  {
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
+   "entry": "This repo with Engram switched off (sanity check)",
+   "key": "ppl:prose",
+   "raw": "9.0627"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "This repo, 2.7 bpw",
+   "key": "bench:MMLU_thinking_off",
+   "raw": "85.0%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "This repo, 2.7 bpw",
+   "key": "bench:MMLU_thinking_on",
+   "raw": "92.5%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "This repo, 2.7 bpw",
+   "key": "bench:GSM8K_thinking_off",
+   "raw": "97.0%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "This repo, 2.7 bpw",
+   "key": "bench:GSM8K_thinking_on",
+   "raw": "97.0%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "This repo, 2.7 bpw",
+   "key": "bench:MMLU_thinking_off",
+   "raw": "85.0%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "This repo, 2.7 bpw",
+   "key": "bench:MMLU_thinking_on",
+   "raw": "92.5%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "This repo, 2.7 bpw",
+   "key": "bench:GSM8K_thinking_off",
+   "raw": "97.0%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "This repo, 2.7 bpw",
+   "key": "bench:GSM8K_thinking_on",
+   "raw": "97.0%"
+  },
+  {
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
+   "entry": "Unquantized (base FP8 / MXFP4 weights, dequantized)",
+   "key": "ppl:code",
+   "raw": "1.8749"
+  },
+  {
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
+   "entry": "Unquantized (base FP8 / MXFP4 weights, dequantized)",
+   "key": "ppl:prose",
+   "raw": "6.4277"
+  },
+  {
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "entry": "this model (v1 + scale calibration)",
+   "key": "bench:image_qa_ja",
+   "raw": "85.5"
+  },
+  {
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "entry": "this model (v1 + scale calibration)",
+   "key": "bench:image_qa_en",
+   "raw": "91.7"
+  },
+  {
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "entry": "this model (v1 + scale calibration)",
+   "key": "bench:image_qa_ja",
+   "raw": "85.5"
+  },
+  {
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "entry": "this model (v1 + scale calibration)",
+   "key": "bench:image_qa_en",
+   "raw": "91.7"
+  },
+  {
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "entry": "v1: Viterbi + refit",
+   "key": "bench:image_qa_ja",
+   "raw": "85.8"
+  },
+  {
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "entry": "v1: Viterbi + refit",
+   "key": "bench:image_qa_en",
+   "raw": "91.0"
+  },
+  {
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "entry": "v1: Viterbi + refit",
+   "key": "bench:image_qa_ja",
+   "raw": "85.8"
+  },
+  {
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "entry": "v1: Viterbi + refit",
+   "key": "bench:image_qa_en",
+   "raw": "91.0"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:GSM8K_thinking_on",
+   "raw": "98.0%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:GSM8K_thinking_off",
+   "raw": "96.0%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:GSM8K_thinking_on",
+   "raw": "98.0%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:GSM8K_thinking_off",
+   "raw": "96.0%"
+  }
+ ],
+ "resolved_disagreements": [],
+ "resolved_repos": 0,
+ "tiebroken": [
+  {
+   "repo": "BobClawblaw/DeepSeek-V4.1-Flash-1017-TensorFold-e2e3-p4-h8",
+   "entry": "TensorFold e2e3-p4-h8",
+   "key": "mean_kld",
+   "raw": "0.138"
+  },
+  {
+   "repo": "BobClawblaw/DeepSeek-V4.1-Flash-1017-TensorFold-e2e3-p4-h8",
+   "entry": "TensorFold e2e3-p4-h8 (thinking off)",
+   "key": "bench:GSM8K",
+   "raw": "247/250 (98.8%)"
+  },
+  {
+   "repo": "BobClawblaw/DeepSeek-V4.1-Flash-1017-TensorFold-e2e3-p4-h8",
+   "entry": "TensorFold e2e3-p4-h8 (thinking off)",
+   "key": "bench:MATH-500",
+   "raw": "457/500 (91.4%)"
+  },
+  {
+   "repo": "BobClawblaw/DeepSeek-V4.1-Flash-1017-TensorFold-e2e3-p4-h8",
+   "entry": "TensorFold e2e3-p4-h8 (thinking off)",
+   "key": "bench:MGSM",
+   "raw": "217/240 (90.4%)"
+  },
+  {
+   "repo": "BobClawblaw/DeepSeek-V4.1-Flash-1017-TensorFold-e2e3-p4-h8",
+   "entry": "TensorFold e2e3-p4-h8 (thinking off)",
+   "key": "bench:MMLU",
+   "raw": "307/342 (89.8%)"
+  },
+  {
+   "repo": "BobClawblaw/DeepSeek-V4.1-Flash-1017-TensorFold-e2e3-p4-h8",
+   "entry": "TensorFold e2e3-p4-h8 (thinking on)",
+   "key": "bench:GSM8K",
+   "raw": "243/250 (97.2%)"
+  },
+  {
+   "repo": "BobClawblaw/DeepSeek-V4.1-Flash-1017-TensorFold-e2e3-p4-h8",
+   "entry": "TensorFold e2e3-p4-h8 (thinking on)",
+   "key": "bench:MATH-500",
+   "raw": "451/500 (90.2%)"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-1017-ROCMFP-GGUF",
+   "entry": "teacher (fp4 checkpoint, 1017)",
+   "key": "ppl",
+   "raw": "8.56"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2-Mix",
+   "entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2 Mix",
+   "key": "kld:sequences_2048",
+   "raw": "0.1306 [0.1213, 0.1414]"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2-Mix",
+   "entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2 Mix",
+   "key": "top1:sequences_2048",
+   "raw": "87.56%"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2-Mix",
+   "entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2 Mix",
+   "key": "top1:windows_8192",
+   "raw": "87.16"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2-Mix",
+   "entry": "K2 build",
+   "key": "kld:sequences_2048",
+   "raw": "0.1429"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2-Mix",
+   "entry": "K2 build",
+   "key": "kld:windows_8192",
+   "raw": "0.2158"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2",
+   "entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2",
+   "key": "kld:sequences_2048",
+   "raw": "0.1439 [0.1346, 0.1545]"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2",
+   "entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2",
+   "key": "top1:sequences_2048",
+   "raw": "86.82% [86.75, 86.88]"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2",
+   "entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2",
+   "key": "kld:windows_8192",
+   "raw": "0.2182 [0.1779, 0.2690]"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2",
+   "entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2",
+   "key": "top1:windows_8192",
+   "raw": "86.41% [86.34, 86.47]"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2",
+   "entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2",
+   "key": "kld:agentic",
+   "raw": "agentic 0.341"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2",
+   "entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2",
+   "key": "kld:swe_agent",
+   "raw": "SWE agent 0.173"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2",
+   "entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2",
+   "key": "kld:math",
+   "raw": "math 0.075"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2",
+   "entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2",
+   "key": "kld:science",
+   "raw": "science 0.098"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2",
+   "entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2",
+   "key": "kld:competitive_programming",
+   "raw": "competitive programming 0.107"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2",
+   "entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2",
+   "key": "kld:instruction_chat",
+   "raw": "instruction following and chat 0.091"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2",
+   "entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2",
+   "key": "kld:multilingual",
+   "raw": "multilingual 0.099"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2",
+   "entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2",
+   "key": "kld:safety",
+   "raw": "safety 0.150"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2",
+   "entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2",
+   "key": "kld:web_text",
+   "raw": "web text 0.189"
+  },
+  {
+   "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2",
+   "entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2",
+   "key": "kld:legal",
+   "raw": "legal 0.166"
+  },
+  {
+   "repo": "lxe/DeepSeek-V4.1-Flash-1017-dsx-2bit",
+   "entry": "Lucebox ROCMFP",
+   "key": "mean_kld",
+   "raw": "0.253"
+  },
+  {
+   "repo": "lxe/DeepSeek-V4.1-Flash-1017-dsx-2bit",
+   "entry": "Lucebox ROCMFP",
+   "key": "top1_pct",
+   "raw": "78.7%"
+  },
+  {
+   "repo": "lxe/DeepSeek-V4.1-Flash-1017-dsx-2bit",
+   "entry": "Lucebox ROCMFP",
+   "key": "ppl",
+   "raw": "9.78"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "Official weights (FP8 / MXFP4)",
+   "key": "ppl",
+   "raw": "1.5614"
+  },
+  {
+   "repo": "pqhaz/DeepSeek-V4.1-Flash-1017-heretic",
+   "entry": "attention 2.5 (this model)",
+   "key": "kld:harmless_first_token",
+   "raw": "0.136"
+  },
+  {
+   "repo": "sudoingx/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw",
+   "entry": "this build",
+   "key": "kld:multilingual",
+   "raw": "0.0697"
+  }
+ ]
+}

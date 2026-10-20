@@ -1,0 +1,22 @@
+{"repo": "cliecy/DeepSeek-V4.1-Flash-1017-EXL3-3bpw-2xRTXPRO6000",
+ "source_sha256": "c6a03d759a8ed662622f1412e04f7b937ba0c01996aaa6a657d1b6d5cc504beb",
+ "candidates_sha256": "4d947fb2a5af19261efc265d4ee109d0a455480e833c26b6211c27dd0829b61d",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "small fixed samples: GSM8K (100), MATH-500 (50), HumanEval (50), MMLU-Pro (200), C-Eval val (100), tool calls (10)", "ctx": "not stated", "tool": "eval harness at github.com/cliecy/DeepSeek-V4.1-Flash-1017-2xRTXPRO6000", "L": [90, 92, 97, 98]},
+ "entries": [
+  {"role": "own", "name": "Thinking off",
+   "metrics": {"bench:GSM8K": "c1", "bench:MATH-500": "c2", "bench:HumanEval": "c3", "bench:MMLU-Pro": "c4", "bench:C-Eval-val": "c5"},
+   "size": null, "unit": null, "basis": null, "bpw": "c13",
+   "flags": ["[L94] tool calls are shown as 10/10 (a count, not a percentage); left out as ambiguous",
+             "[L104] routed experts are EXL3 3 bpw; attention, shared experts and dense layers are FP8",
+             "[L90, L145-146] quality is spot-checked on small fixed samples; no KL or perplexity measured"]},
+  {"role": "own", "name": "Thinking on",
+   "metrics": {"bench:GSM8K": "c7", "bench:MATH-500": "c8", "bench:HumanEval": "c9", "bench:MMLU-Pro": "c10", "bench:C-Eval-val": "c11"},
+   "size": null, "unit": null, "basis": null, "bpw": "c13",
+   "flags": ["[L95] MMLU-Pro figure has n=64, not the 200 in the table header",
+             "[L104] routed experts are EXL3 3 bpw; attention, shared experts and dense layers are FP8",
+             "[L90, L145-146] quality is spot-checked on small fixed samples; no KL or perplexity measured"]}
+ ],
+ "prose": []}

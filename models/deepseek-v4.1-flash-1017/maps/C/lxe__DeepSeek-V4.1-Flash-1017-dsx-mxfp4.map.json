@@ -1,0 +1,28 @@
+{
+ "repo": "lxe/DeepSeek-V4.1-Flash-1017-dsx-mxfp4",
+ "source_sha256": "5ede1cc7c9bdb91d9606514c555ae1a677cf1e1dfa73636a47fb1c763dc83192",
+ "candidates_sha256": "94262e77624efd1aaf7adcb2dee94668f755b492ded8f719989b2bff39289c05",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "FP8 model's top-256 log-probs, teacher-forced through the decoder", "dataset": "Lucebox's 1017 eval set, 8 x 1024 tokens", "ctx": "not stated", "tool": "not stated", "L": [39, 40]},
+ "entries": [
+  {"role": "own", "name": "dsx MXFP4 + 3-bit",
+   "metrics": {"mean_kld": "c6", "top1_pct": "c7", "ppl": "c8"},
+   "size": "c5", "unit": "GB", "basis": "excl_engram", "bpw": null,
+   "flags": ["quality table row [L45]", "sizes exclude Engram tables [L50]", "measured on these shards [L50-51]", "a second run reported in the card gives a different KL, attributed to float atomics [L51-52]", "FP8 / FP4 original row [L44] omitted: reference checkpoint, not a quant of this model"]},
+  {"role": "ladder", "name": "dsx 2-bit",
+   "metrics": {"mean_kld": "c19", "top1_pct": "c20", "ppl": "c21"},
+   "size": "c18", "unit": "GB", "basis": "excl_engram", "bpw": null,
+   "flags": ["quality table row [L48]", "sizes exclude Engram tables [L50]", "sibling 2-bit build linked [L25-26]"]},
+  {"role": "cross", "name": "Lucebox ROCMFP23S", "of": "not named on card",
+   "metrics": {"mean_kld": "c10", "top1_pct": "c11", "ppl": "c12"},
+   "size": "c9", "unit": "GiB", "basis": "excl_engram", "bpw": null,
+   "flags": ["quality table row [L46]", "sizes exclude Engram tables [L50]", "card does not state the repo measured for this row; eval-set link at [L39] is a Lucebox repo"]},
+  {"role": "cross", "name": "Lucebox ROCMFP 2.5 bpw", "of": "not named on card",
+   "metrics": {"mean_kld": "c14", "top1_pct": "c15", "ppl": "c16"},
+   "size": "c13", "unit": "GiB", "basis": "excl_engram", "bpw": "c28",
+   "flags": ["quality table row [L47]", "sizes exclude Engram tables [L50]", "card does not state the repo measured for this row; eval-set link at [L39] is a Lucebox repo"]}
+ ],
+ "prose": []
+}

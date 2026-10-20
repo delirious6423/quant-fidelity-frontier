@@ -1,7 +1,7 @@
 {
  "about": "Models the hourly scan keeps current. status: live = on the site, deltas every hour; queued = ingested one after another (no wait between models; min_hours_between_ingests), in this order. Queue is maintained by the weekly discovery job (pipeline/qcl_discover.py).",
  "min_hours_between_ingests": 0,
- "last_ingest_at": "2026-10-20T08:53:30.632199+00:00",
+ "last_ingest_at": "2026-10-20T10:55:53.894462+00:00",
  "models": [
   {
    "model": "Qwen/Qwen3.8-Flash-Next",
@@ -45,7 +45,7 @@
   {
    "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
    "slug": "deepseek-v4.1-flash-1017",
-   "status": "ingesting",
+   "status": "review",
    "released": "2026-10-17",
    "quants": 60,
    "quants_1k": 3,
