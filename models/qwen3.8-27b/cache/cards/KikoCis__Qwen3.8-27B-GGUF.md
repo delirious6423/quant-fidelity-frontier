@@ -168,12 +168,14 @@ llama-server -m Qwen3.8-27B-Q4_K_M.gguf --lora heal/Qwen3.8-27B-heal-LoRA.gguf -
 |---|---|---:|---:|---:|---:|
 | original Q4_K_M | — | 8 % | 92 % | 17 % | 10.75 |
 | heal v1 | 2026-10-13 | 25 % | 92 % | 25 % | 10.75 |
+| heal v2 | 2026-10-20 | 8 % | 100 % | 8 % | 11.5 |
 
 Measured (results appear in the table as each day's evaluation completes) on 12 held-out bug-fix tasks — one-token bugs planted in real functions of public repos never used for training, counted only if the file ends byte-identical to the original — with native tool calling, temperature 1.0 / top_p 0.95, on the Q4_K_M file above plus that day's adapter. Every daily version is a git tag (`heal-<date>`). Built alongside [elffuss.com](https://elffuss.com).
 <!-- heal:end -->
 
 ## 🗒️ Changelog
 
+- 2026-10-20 — daily heal LoRA (heal v2): 8 % planted bugs fixed on the held-out set.
 - 2026-10-13 — daily heal LoRA (heal v1): 25 % planted bugs fixed on the held-out set.
 - **2026-09-20** — `IQ2_M` re-uploaded without the inherited unsloth repo/tag fields.
 - **2026-09-20** — added the backend caveat: the scores in this card were measured through Ollama, and the same `IQ1_M-compact` file scores 19/40 through llama-server. Seven tasks apart — the figures describe a build on a runtime, not a file.

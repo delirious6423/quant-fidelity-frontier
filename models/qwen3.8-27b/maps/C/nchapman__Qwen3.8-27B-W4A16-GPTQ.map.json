@@ -1,0 +1,21 @@
+{
+ "repo": "nchapman/Qwen3.8-27B-W4A16-GPTQ",
+ "source_sha256": "e18e784b4487db94dc6c04bea5eb0376b130a375c1a3752d576f4c27f3d1361a",
+ "candidates_sha256": "edc5bb38caeab87321812db03f0dd8c6b668959e9e7294be7a19c343d5bd736c",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 base", "dataset": "held-out probe over domains and languages, with an out-of-distribution guard set", "ctx": "not stated", "tool": "not stated", "L": [34, 36, 39, 40]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B-W4A16-GPTQ", "methodology": {"reference": "BF16 base", "dataset": "held-out probe over domains and languages, with an out-of-distribution guard set", "ctx": "not stated", "tool": "not stated", "L": [34, 36, 39, 40]}, "metrics": {"ppl_delta_pct": "c3.0"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["KL direction is base to quant as labelled [L39]", "p99.9 long-tail KL figure is not in a mapped key [L56]"]}
+ ],
+ "prose": [
+  {"entry": "Qwen3.8-27B-W4A16-GPTQ", "key": "ppl_delta_pct:guard set", "L": 36, "raw": "-0.52%"},
+  {"entry": "Qwen3.8-27B-W4A16-GPTQ", "key": "kld:chat", "L": 39, "raw": "0.033"},
+  {"entry": "Qwen3.8-27B-W4A16-GPTQ", "key": "kld:IF", "L": 39, "raw": "0.053"},
+  {"entry": "Qwen3.8-27B-W4A16-GPTQ", "key": "kld:math", "L": 39, "raw": "0.098"},
+  {"entry": "Qwen3.8-27B-W4A16-GPTQ", "key": "kld:science", "L": 39, "raw": "0.097"},
+  {"entry": "Qwen3.8-27B-W4A16-GPTQ", "key": "kld:multilingual", "L": 40, "raw": "0.109"},
+  {"entry": "Qwen3.8-27B-W4A16-GPTQ", "key": "kld:terminal-agent", "L": 40, "raw": "0.486"}
+ ]
+}

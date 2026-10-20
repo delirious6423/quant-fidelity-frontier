@@ -1,0 +1,25 @@
+{
+ "repo": "aden1350/Qwen3.8-27B-BonsaiStyle-Ternary-QAT-Experimental",
+ "source_sha256": "bf2ea807deeda6766778917e7e9bd78391cf102545376335c3853e6995b20cfb",
+ "candidates_sha256": "c77e90e4766cdd4269f56f27459d5f83ef2c6fcb29e3f65ffa843660c3550eec",
+ "no_quality_claims": true,
+ "no_claims_reason": "speed and size only; quality stated as not passed, no numeric quality metric [L17, L21]",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "eight development questions, not a full capability evaluation [L67]", "ctx": "batch=1, greedy, dynamic KV cache, max 32 new tokens [L23]", "tool": "courses/qwen38_bonsai2/inference/infer.py --mode decode_rotate [L57-59]", "L": [17, 23, 67]},
+ "entries": [
+  {"role": "own",
+   "name": "qat-step32",
+   "metrics": {},
+   "size": "c1",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "Download size only; decode speed (9.37 token/s) and peak allocated memory (8.12GiB) are not quality metrics and are not mapped [L21]",
+    "Private GDN Graph experiment at about 13.02 token/s is unreleased and not mapped [L25]",
+    "Quantization-aware training with 32 weight updates, so weights are modified [L17]",
+    "Custom format; not loadable in standard Transformers, vLLM or llama.cpp [L69]"
+   ]}
+ ],
+ "prose": []
+}

@@ -1,0 +1,25 @@
+{
+ "repo": "vcruz305/DSV4.1-Flash-1017-SAGE-EXL3-1.62bpw",
+ "source_sha256": "1057dfd99e3ee148acd70837138b679a37e8372e94199cdcad9a1a72d5880fc7",
+ "candidates_sha256": "1c224409092a684b40c56ff3c8ee13c02a05bc6efb6f4ce958c3903d80e2664f",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "DeepSeek official mixed FP8/FP4 release (deepseek-ai/DeepSeek-V4.1-Flash-1017)", "dataset": "held-out sequences", "ctx": "not stated", "tool": "not stated", "L": [29]},
+ "entries": [
+  {"role": "own",
+   "name": "this pack, 1.62 bpw (1017)",
+   "methodology": {"reference": "DeepSeek official mixed FP8/FP4 release (deepseek-ai/DeepSeek-V4.1-Flash-1017)", "dataset": "held-out sequences", "ctx": "not stated", "tool": "not stated", "L": [29]},
+   "metrics": {"mean_kld": "c2", "top1_pct": "c4",
+     "top1:code": "c9", "top1:reasoning": "c13", "top1:math": "c17",
+     "top1:general": "c22", "kld:general": "c20"},
+   "size": "c1", "unit": "GiB", "basis": "resident", "bpw": "c28",
+   "flags": ["reference is the native FP8/FP4 release, not BF16 [L29]", "official reference row omitted, it is the reference itself [L34]", "answer-only top-1 and answer-only KL have no key, omitted [L40-L43]", "p50 KL has no key, omitted [L33]"]
+  }
+ ],
+ "prose": [
+  {"entry": "this pack, 1.62 bpw (1017)", "key": "kld:code", "L": 40, "raw": "0.0186"},
+  {"entry": "this pack, 1.62 bpw (1017)", "key": "kld:reasoning", "L": 41, "raw": "0.0349"},
+  {"entry": "this pack, 1.62 bpw (1017)", "key": "kld:math", "L": 42, "raw": "0.0477"}
+ ]
+}

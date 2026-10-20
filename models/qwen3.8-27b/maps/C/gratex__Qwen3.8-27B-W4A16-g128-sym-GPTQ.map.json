@@ -1,0 +1,29 @@
+{
+  "repo": "gratex/Qwen3.8-27B-W4A16-g128-sym-GPTQ",
+  "source_sha256": "e0072dfd5c2c96b5c7e60def07ee288722f392f5190988d6e8f88f197de3ada0",
+  "candidates_sha256": "5d6ab3b9ab86d0ac8e2d2e8a0eb613f7b6b053df73b844f4e27500ee38726fa0",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "BF16 base model [L25, L112, L116]", "dataset": "wikitext-2-raw-v1 test split, non-overlapping chunks [L103]", "ctx": "non-overlapping chunks of fixed length [L103]", "tool": "vLLM completions API with echo and logprobs; lm-evaluation-harness for downstream tasks [L103, L134]", "L": [103, 107, 112, 116, 130, 134]},
+  "entries": [
+    {"role": "own", "name": "This model (v9-2 g128 sym)", "panel": "PPL (Perplexity)",
+     "methodology": {"reference": "BF16 base model [L109-L110]", "dataset": "wikitext-2-raw-v1 test split [L103]", "ctx": "non-overlapping chunks of fixed length [L103]", "tool": "vLLM completions API with echo and logprobs [L103]", "L": [103, 109, 110]},
+     "metrics": {"ppl:wikitext": "c16", "ppl_delta_pct": "c17"}, "size": "c18", "unit": "GB", "basis": "disk", "bpw": null,
+     "flags": ["PPL is measured on the WikiText-2 raw test split [L103]"]},
+    {"role": "cross", "name": "BF16 base", "of": "Qwen/Qwen3.8-27B", "panel": "PPL (Perplexity)",
+     "methodology": {"reference": "BF16 base model [L109]", "dataset": "wikitext-2-raw-v1 test split [L103]", "ctx": "non-overlapping chunks of fixed length [L103]", "tool": "vLLM completions API with echo and logprobs [L103]", "L": [103, 109]},
+     "metrics": {"ppl:wikitext": "c14"}, "size": "c15", "unit": "GB", "basis": "disk", "bpw": null,
+     "flags": ["base model named in card metadata [L4, L25]"]},
+    {"role": "own", "name": "This model (v9-2 g128 sym)", "panel": "KL Divergence (vs BF16 base)",
+     "methodology": {"reference": "BF16 base model [L114-L116]", "dataset": "wikitext-2-raw-v1 test split [L103]", "ctx": "non-overlapping chunks of fixed length [L103]", "tool": "sparse top-20 logprob comparison [L103, L116]", "L": [103, 116, 118, 130]},
+     "metrics": {"mean_kld": "c19", "kld_99": "c22", "top1_pct": "c23"}, "size": null, "unit": null, "basis": null, "bpw": null,
+     "flags": ["KL is a sparse top-20 approximation, not full-vocabulary [L116]", "median and p95 KLD not mapped: no metric key [L120-L121]", "same-top-p agreement mapped as top-1 agreement [L130]", "Δp RMS and token counts not mapped: no metric key [L125-L127]"]},
+    {"role": "own", "name": "This model (v9-2 g128 sym)", "panel": "Downstream Task Benchmarks (lm-evaluation-harness)",
+     "methodology": {"reference": "not stated", "dataset": "lm-evaluation-harness downstream tasks [L134-L153]", "ctx": "not stated", "tool": "lm-evaluation-harness, version stated [L134]", "L": [134, 136, 138, 153]},
+     "metrics": {"bench:MMLU acc 5-shot": "c28", "bench:MMLU-Pro exact match": "c29", "bench:Global MMLU en acc": "c30", "bench:BBH exact match": "c31", "bench:GSM8K strict-match": "c32", "bench:GSM8K Platinum strict-match": "c33", "bench:HellaSwag acc_norm": "c34", "bench:ARC-Challenge acc_norm": "c35", "bench:Winogrande acc": "c36", "bench:PIQA acc_norm": "c37", "bench:TruthfulQA mc1": "c38.0", "bench:TruthfulQA mc2": "c38.1", "bench:IFEval prompt-level strict": "c39.0", "bench:IFEval prompt-level loose": "c39.1", "bench:HumanEval pass@1": "c40", "bench:MBPP pass@1": "c41", "bench:BABILong mean acc": "c42", "bench:LongBench mean score": "c43"},
+     "size": null, "unit": null, "basis": null, "bpw": null,
+     "flags": ["footnoted values copied as printed [L155-L157]", "no BF16 comparison values are given for these tasks [L136-L153]"]}
+  ],
+  "prose": []
+}

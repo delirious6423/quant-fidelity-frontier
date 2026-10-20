@@ -25,7 +25,10 @@ router, norms, embeddings, the n-gram table codec) follow the layout and types R
 
 | Folder | Source branch | Experts / dense / head bits | Size |
 |---|---|---|---|
-| `EXL3-4.05bpw` | `4.05bpw_h6_ng6` | 4 / 6 / 6 | ~104 GB (shards) |
+| `EXL3-4.05bpw` | `4.05bpw_h6_ng6` | 4 / 6 / 6 | 104.3 GB, 6 shards |
+
+The first shard holds only the metadata (11 MB), so a client can read the model's header before the weights; the
+third (39 GB) is one tensor, the per-layer token embedding table, which cannot be split.
 
 Also here: `mtp-Qwen3.8-Flash-Next-lr512-ownhead.gguf`, the multi-token-prediction draft for these files (the model's
 MTP layers plus Rulith's low-rank draft head with its own output head: an EXL3 target cannot lend its head rows). For
@@ -34,8 +37,8 @@ image input use the `mmproj-F16.gguf` of [unsloth/Qwen3.8-Flash-Next-GGUF](https
 ## Compatibility
 
 These files use EXL3 tensor types (GGUF type ids 256 and up) that upstream llama.cpp, LM Studio, Ollama and other
-llama.cpp-based tools do not have. They load in Rulith Inference 0.6.0 or newer, which picks them from its model list and
-downloads them itself; pass the first shard to `llama-server` if you run it by hand, the other shards are found by name.
+llama.cpp-based tools do not have. They load in Rulith Inference 0.6.0 or newer, which lists them under Downloads and fetches
+them from Hugging Face itself; pass the first shard to `llama-server` if you run it by hand, the other shards are found by name.
 
 ## Quality
 

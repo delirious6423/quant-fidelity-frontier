@@ -1,0 +1,18 @@
+{
+ "repo": "MESHIVEAI/Qwen-3.8-27B-Q4_K_M-Imatrix",
+ "source_sha256": "0d3c08db72ddd709e94cd88341a9ba39dc1462447ff309aee899eeb55bda2ece",
+ "candidates_sha256": "ebfca026736f158fe831975fb934da89d3a01df0a026ef91900cd02801505735",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "F16 GGUF", "dataset": "Wikitext-2 test set, plus Korean Wikipedia", "ctx": "chunked perplexity evaluation", "tool": "llama-perplexity", "L": [50, 75, 219]},
+ "entries": [
+  {"role": "own", "name": "This model (imatrix)", "panel": "Why imatrix", "methodology": {"reference": "F16 GGUF", "dataset": "Wikitext-2 test set", "ctx": "chunked evaluation as in the reproduction section", "tool": "llama-perplexity", "L": [50, 52, 61, 219, 223]}, "metrics": {"mean_kld": "c4", "top1_pct": "c7", "ppl:wikitext": "c16"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["RMS Δp, mean Δp and ΔPPL rows have no mapped key [L56-L59]"]},
+  {"role": "ladder", "name": "Same quant, no imatrix", "panel": "Why imatrix", "methodology": {"reference": "F16 GGUF", "dataset": "Wikitext-2 test set", "ctx": "chunked evaluation as in the reproduction section", "tool": "llama-perplexity", "L": [47, 48, 52, 219, 228]}, "metrics": {"mean_kld": "c5", "top1_pct": "c8", "ppl:wikitext": "c17"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["control built from the same F16 GGUF without imatrix [L47-L48]", "RMS Δp, mean Δp and ΔPPL rows have no mapped key [L56-L59]"]},
+  {"role": "cross", "of": "Qwen/Qwen3.8-27B", "name": "F16", "panel": "Why imatrix", "methodology": {"reference": "F16 GGUF", "dataset": "Wikitext-2 test set", "ctx": "chunked evaluation as in the reproduction section", "tool": "llama-perplexity", "L": [61]}, "metrics": {"ppl:wikitext": "c54"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["F16 reference line below the table, not a table row [L61]"]},
+  {"role": "own", "name": "This model (imatrix)", "panel": "Out-of-domain check: Korean", "methodology": {"reference": "F16 GGUF", "dataset": "Korean Wikipedia", "ctx": "chunked evaluation as in the reproduction section", "tool": "llama-perplexity", "L": [75, 77, 87]}, "metrics": {"ppl:korean wikipedia": "c22", "ppl_delta_pct": "c24"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["perplexity only, without paired per-token statistics [L87-L88]", "margin is indicative, not an established effect size [L89]"]},
+  {"role": "ladder", "name": "Same quant, no imatrix", "panel": "Out-of-domain check: Korean", "methodology": {"reference": "F16 GGUF", "dataset": "Korean Wikipedia", "ctx": "chunked evaluation as in the reproduction section", "tool": "llama-perplexity", "L": [75, 77, 87]}, "metrics": {"ppl:korean wikipedia": "c23", "ppl_delta_pct": "c25"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["perplexity only, without paired per-token statistics [L87-L88]"]},
+  {"role": "cross", "of": "Qwen/Qwen3.8-27B", "name": "F16", "panel": "Out-of-domain check: Korean", "methodology": {"reference": "F16 GGUF", "dataset": "Korean Wikipedia", "ctx": "chunked evaluation as in the reproduction section", "tool": "llama-perplexity", "L": [75, 77]}, "metrics": {"ppl:korean wikipedia": "c21"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["unquantized reference row [L79]"]}
+ ],
+ "prose": []
+}

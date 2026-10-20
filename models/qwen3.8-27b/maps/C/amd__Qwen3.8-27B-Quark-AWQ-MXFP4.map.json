@@ -1,0 +1,20 @@
+{
+  "repo": "amd/Qwen3.8-27B-Quark-AWQ-MXFP4",
+  "source_sha256": "acfbd8c9a14c5b69fee7cedc38c05c509b9db9b9e4dc52ea508929edb17ddaaa",
+  "candidates_sha256": "e54a9795807002ae357c74866bcb47bd480c11c51b9fc7acd49c3bc51d78927c",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "BF16 base Qwen/Qwen3.8-27B, measured by the author [L22, L29]", "dataset": "GSM8K 5-shot [L27-L30]", "ctx": "not stated", "tool": "lm-evaluation-harness vLLM backend [L40-L44]", "L": [22, 27, 29, 30, 40]},
+  "entries": [
+    {"role": "own", "name": "Qwen3.8-27B-Quark-AWQ-MXFP4",
+     "metrics": {"bench:GSM8K flexible-extract (thinking)": "c1.0", "bench:GSM8K strict-match (thinking)": "c1.1", "bench:GSM8K flexible-extract (no thinking)": "c4.0", "bench:GSM8K strict-match (no thinking)": "c4.1"},
+     "size": null, "unit": null, "basis": null, "bpw": null,
+     "flags": ["recovery percentages are derived and not mapped [L29-L30]", "no-thinking run uses different sampling settings from the thinking run [L101]"]},
+    {"role": "cross", "name": "BF16 base", "of": "Qwen/Qwen3.8-27B",
+     "metrics": {"bench:GSM8K flexible-extract (thinking)": "c2.0", "bench:GSM8K strict-match (thinking)": "c2.1", "bench:GSM8K flexible-extract (no thinking)": "c5.0", "bench:GSM8K strict-match (no thinking)": "c5.1"},
+     "size": null, "unit": null, "basis": null, "bpw": null,
+     "flags": ["base model measured in the same table [L29-L30]"]}
+  ],
+  "prose": []
+}

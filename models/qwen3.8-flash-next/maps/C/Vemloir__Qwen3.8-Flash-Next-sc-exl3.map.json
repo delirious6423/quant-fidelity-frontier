@@ -1,0 +1,165 @@
+{
+ "repo": "Vemloir/Qwen3.8-Flash-Next-sc-exl3",
+ "source_sha256": "b8c599ce7661ee063cd0881282a1db14c11d61dc7a071d77e10fe7a5ae78aa5d",
+ "candidates_sha256": "49006da5913b9820ac93ffce06c9e32b7e95905bfa65197995901c2f26d78c61",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "BF16 checkpoint of Qwen/Qwen3.8-Flash-Next (KL divergence of the output distribution against BF16)",
+   "dataset": "NVIDIA Nemotron 3.5 Super post-training conversations (48 rows) and Multilingual (Russian + 9 languages, 52 rows); teacher-forced on assistant turns",
+   "ctx": "not stated",
+   "tool": "exllamav3 qbench",
+   "L": [50, 51, 56, 57, 63, 64]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "4.05bpw_sc_h8_ng8",
+     "panel": "Results",
+     "metrics": {
+       "kld:nemotron": "c8",
+       "kld:multilingual": "c14",
+       "kld:math_proofs": "c19",
+       "kld:kb_support_agent": "c23",
+       "kld:chat": "c27",
+       "kld:swe": "c31",
+       "kld:agentic_tool_calling": "c35",
+       "kld:multi_turn_instruction": "c39",
+       "kld:french": "c43",
+       "kld:portuguese": "c47",
+       "kld:russian": "c51",
+       "kld:hindi": "c55",
+       "kld:chinese": "c59",
+       "kld:korean": "c63",
+       "kld:japanese": "c67",
+       "kld:german": "c71",
+       "kld:spanish": "c75",
+       "kld:italian": "c79"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": "c1",
+     "flags": [
+       "[L29] branch row gives 69 GB model files and a 52 GB n-gram table; no size is printed in the metric table",
+       "[L159-161] ablation on Gemma 4 26B A4B (different model) omitted"
+     ]
+   },
+   {
+     "role": "own",
+     "name": "4.05bpw_sc_h8_ng8",
+     "panel": "Against turboderp's SC quants",
+     "methodology": {
+       "reference": "BF16, same cached reference logits as the main panel",
+       "dataset": "NVIDIA Nemotron 3.5 Super post-training conversations; Multilingual (Russian + 9 languages); template-written positions left out",
+       "ctx": "not stated",
+       "tool": "exllamav3 qbench",
+       "L": [120, 121, 122, 123, 124]
+     },
+     "metrics": {
+       "kld:nemotron": "c82",
+       "kld:multilingual": "c86"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": "c1",
+     "flags": [
+       "[L123] 120.4 GB appears only in the table header, with no size cell candidate",
+       "[L129] 68.6 GB model weights for this quant (4.05 bpw, 8-bit head) and 51.8 GB n-gram table"
+     ]
+   },
+   {
+     "role": "own",
+     "name": "524a19ebbbd653cd8cf31b766a56e7183133d7a0",
+     "panel": "Versions",
+     "methodology": {
+       "reference": "not stated",
+       "dataset": "Nemotron and multilingual traces; set 1 calibration (~1M tokens)",
+       "ctx": "not stated",
+       "tool": "not stated",
+       "L": [136, 137, 139, 141, 146]
+     },
+     "metrics": {
+       "kld:nemotron": "c94",
+       "kld:multilingual": "c95"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "[L141] same recipe as set 2, so bpw is not stated in this row",
+       "[L144-145] the first version of this card scored template-written positions too; basis of this row not stated",
+       "[L141-142] set 1 had reasoning cut off at 3,072 tokens, some looping answers and sessions truncated at 25k tokens"
+     ]
+   },
+   {
+     "role": "cross",
+     "name": "4.05bpw_h6_ng6",
+     "of": "turboderp/Qwen3.8-Flash-Next-exl3",
+     "panel": "Results",
+     "metrics": {
+       "kld:nemotron": "c9",
+       "kld:multilingual": "c15",
+       "kld:math_proofs": "c20",
+       "kld:kb_support_agent": "c24",
+       "kld:chat": "c28",
+       "kld:swe": "c32",
+       "kld:agentic_tool_calling": "c36",
+       "kld:multi_turn_instruction": "c40",
+       "kld:french": "c44",
+       "kld:portuguese": "c48",
+       "kld:russian": "c52",
+       "kld:hindi": "c56",
+       "kld:chinese": "c60",
+       "kld:korean": "c64",
+       "kld:japanese": "c68",
+       "kld:german": "c72",
+       "kld:spanish": "c76",
+       "kld:italian": "c80"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "[L52-54] reference is turboderp's 4.05bpw_h6_ng6: 68.4 GB model files and a 6-bit 39 GB n-gram table",
+       "[L63-64] the Nemotron and multilingual trace totals are repeated in the per-source and per-language tables"
+     ]
+   },
+   {
+     "role": "cross",
+     "name": "SC 4.18 bpw",
+     "of": "turboderp/Qwen3.8-Flash-Next-exl3",
+     "panel": "Against turboderp's SC quants",
+     "methodology": {
+       "reference": "BF16, same cached reference logits as the main panel",
+       "dataset": "NVIDIA Nemotron 3.5 Super post-training conversations; Multilingual (Russian + 9 languages); template-written positions left out",
+       "ctx": "not stated",
+       "tool": "exllamav3 qbench",
+       "L": [119, 120, 121, 122, 123, 131, 132]
+     },
+     "metrics": {
+       "kld:nemotron": "c83",
+       "kld:multilingual": "c87"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "[L123] 121.8 GB appears only in the table header, with no size cell candidate",
+       "[L129] 70.0 GB model weights (4.18 bpw, 6-bit head)",
+       "[L131-132] scored on an RTX PRO 6000 (Colab G4); this quant was scored on an RTX 5070 Ti"
+     ]
+   }
+ ],
+ "prose": [
+   {"entry": "4.05bpw_sc_h8_ng8", "panel": "Results", "key": "ppl:nemotron", "L": 67, "raw": "1.9275"},
+   {"entry": "4.05bpw_h6_ng6", "panel": "Results", "key": "ppl:nemotron", "L": 67, "raw": "1.9316"},
+   {"entry": "4.05bpw_sc_h8_ng8", "panel": "Results", "key": "ppl:multilingual", "L": 68, "raw": "2.3385"},
+   {"entry": "4.05bpw_h6_ng6", "panel": "Results", "key": "ppl:multilingual", "L": 68, "raw": "2.3443"}
+ ]
+}

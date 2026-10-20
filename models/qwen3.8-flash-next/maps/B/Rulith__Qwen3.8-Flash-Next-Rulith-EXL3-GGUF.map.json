@@ -1,16 +1,16 @@
 {
  "repo": "Rulith/Qwen3.8-Flash-Next-Rulith-EXL3-GGUF",
- "source_sha256": "6a699b695b6b01d9ccabebc953335172a6a4fc8da5629ed41dda9c753e3db162",
- "candidates_sha256": "af5c0918f020913faf7aca8a19786211329ff24368bbcbc4604dba6b61c02998",
+ "source_sha256": "69badaf83c178b757f7577cbb12c698f980361ddfb5a8a0d8f06b0eef68f0ca0",
+ "candidates_sha256": "586bc0ac4e5fc63e6b03983381bb4dc4e7d26724ced3796fd6047f94d2b871f4",
  "no_quality_claims": false,
  "no_claims_reason": "",
  "weights_modified": false,
- "method": {"reference": "BF16 model", "dataset": "Rulith's evaluation set, mixed corpus", "ctx": "1024", "tool": "not stated", "L": [42]},
+ "method": {"reference": "BF16 model", "dataset": "Rulith's evaluation set, a mixed corpus", "ctx": "1024", "tool": "not stated", "L": [45]},
  "entries": [
   {"role": "own", "name": "EXL3 4.05 bpw",
    "metrics": {"mean_kld": "c4", "kld_99": "c5", "top1_pct": "c6"},
    "size": null, "unit": null, "basis": null, "bpw": "c8",
-   "flags": ["[L42] measured by Rulith on its own evaluation set, KL to the BF16 model", "[L28] folder size (~104 GB) sits in a different table and is not mapped"]}
+   "flags": ["re-packed from turboderp's EXL3 4.05 bpw conversion, measured by Rulith [L22-23, L45-49]"]}
  ],
  "prose": []
 }

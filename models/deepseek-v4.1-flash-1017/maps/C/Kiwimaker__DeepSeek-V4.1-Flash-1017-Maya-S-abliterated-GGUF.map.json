@@ -1,0 +1,28 @@
+{
+ "repo": "Kiwimaker/DeepSeek-V4.1-Flash-1017-Maya-S-abliterated-GGUF",
+ "source_sha256": "5e229655da4831aa901d0d5fda3d22d4f8f0130ae8d55819c6c3cdec6e2cd787",
+ "candidates_sha256": "e72722e6628bbd1559cce1124006a1cfcf78b8f1dc8cb337be35812ad65177a1",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "normal (unedited) Maya-S, matched prompts and settings", "dataset": "short-answer accuracy set, harmless prompts, harmful prompts, borderline lawful-intent prompts, needle tests", "ctx": "context setting stated [L209]", "tool": "Maya engine, version stated [L209]", "L": [231]},
+ "entries": [
+  {"role": "own",
+   "name": "Abliterated Maya-S",
+   "panel": "Maya v1.1.17, six shards, DSpark on",
+   "methodology": {"reference": "normal (unedited) Maya-S, matched prompts and settings", "dataset": "short-answer accuracy set, harmless prompts, harmful prompts, borderline lawful-intent prompts, needle tests", "ctx": "context setting stated [L209]", "tool": "Maya engine, version stated [L209]", "L": [209, 231]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["accuracy is a count out of a repeated short-answer set, no metric key, omitted [L213]", "agreement, refusal, speed and needle results have no metric key, omitted [L222-L225]", "normal Maya-S rows are the unedited reference, omitted [L213-L259]", "loop flags are heuristic counts, omitted [L214]"]
+  },
+  {"role": "own",
+   "name": "Abliterated Maya-S",
+   "panel": "Historical comparison: Maya v1.1.16, four shards, DSpark off",
+   "methodology": {"reference": "normal (unedited) Maya-S, matched prompts and settings", "dataset": "short-answer accuracy set, harmless prompts, harmful prompts, borderline lawful-intent prompts, needle tests", "ctx": "context setting stated [L241]", "tool": "Maya engine, version stated [L241]", "L": [241, 263, 265]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["accuracy is a count out of a repeated short-answer set, no metric key, omitted [L245]", "agreement, refusal, speed and needle results have no metric key, omitted [L254-L257]", "normal Maya-S rows are the unedited reference, omitted [L245-L259]", "earlier four-shard layout differs from the six-shard run, so the two panels are not interchangeable [L241]"]
+  }
+ ],
+ "prose": []
+}

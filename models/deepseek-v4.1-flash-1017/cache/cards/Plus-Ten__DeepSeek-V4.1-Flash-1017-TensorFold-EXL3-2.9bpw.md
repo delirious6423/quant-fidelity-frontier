@@ -115,32 +115,33 @@ reasoning and is not comparable to published chain-of-thought MMLU-Pro scores.
 | | Accuracy | vs original | No answer | Same answer as original |
 |---|---|---|---|---|
 | Original (API) | 68.0% | – | 609 | – |
-| **This pack** | **66.7%** | **−1.3** | **727** | **88.7%** |
+| **This pack** | **67.0%** | **−1.0** | **689** | **88.7%** |
 | [Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw](https://huggingface.co/Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw) (`2004dfdb`) | 66.2% | −1.8 | 728 | 87.8% |
 | [LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw](https://huggingface.co/LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw) (`c178a012`) | 64.5% | −3.5 | 1,005 | 84.8% |
 
 Paired on the same questions (exact McNemar test): all three packs are below the original (p < 0.001). This pack vs
-Mia EAQ v1: +0.5 points accuracy (p = 0.022) and +0.9 points same-answer rate (p = 0.003), with the same number of
-unanswered questions. The gap to the original is concentrated in calculation-heavy categories, partly from replies
-that start working the problem instead of giving the letter and are cut at 64 tokens.
+Mia EAQ v1: +0.8 points accuracy (p < 0.001) and +0.9 points same-answer rate (p = 0.002), with fewer unanswered
+questions (689 vs 728). The gap to the original is concentrated in calculation-heavy categories, partly from replies
+that start working the problem instead of giving the letter and are cut at 64 tokens. This pack was measured as v1.1;
+v1 (fp16-rounded router bias) scored 66.7% with 727 unanswered (v1.1 vs v1: +0.3 points, p = 0.063).
 
 | Category (questions) | Original | This pack | Mia EAQ v1 | LibertAIDAI |
 |---|---|---|---|---|
-| Math (1,351) | 60.0 | 58.8 | 57.6 | 54.8 |
-| Physics (1,299) | 58.2 | 54.4 | 55.6 | 52.7 |
-| Chemistry (1,132) | 52.6 | 51.3 | 49.5 | 45.1 |
-| Law (1,101) | 66.5 | 65.2 | 66.3 | 65.0 |
-| Engineering (969) | 56.0 | 51.6 | 49.3 | 49.3 |
-| Other (924) | 73.3 | 73.2 | 73.1 | 71.4 |
-| Economics (844) | 83.1 | 82.5 | 80.6 | 80.0 |
-| Health (818) | 78.1 | 78.5 | 77.6 | 78.0 |
-| Psychology (798) | 83.5 | 83.5 | 82.8 | 84.2 |
-| Business (789) | 58.7 | 57.7 | 56.9 | 50.8 |
-| Biology (717) | 89.5 | 88.8 | 88.8 | 88.0 |
-| Philosophy (499) | 75.4 | 75.2 | 76.4 | 74.7 |
-| Computer Science (410) | 72.0 | 72.2 | 72.4 | 70.5 |
-| History (381) | 74.3 | 74.5 | 73.2 | 75.1 |
-| **All (12,032)** | **68.0** | **66.7** | **66.2** | **64.5** |
+| Math (1,351) | 60.0 | 59.9 | 57.6 | 54.8 |
+| Physics (1,299) | 58.2 | 55.5 | 55.6 | 52.7 |
+| Chemistry (1,132) | 52.6 | 51.1 | 49.5 | 45.1 |
+| Law (1,101) | 66.5 | 65.8 | 66.3 | 65.0 |
+| Engineering (969) | 56.0 | 52.1 | 49.3 | 49.3 |
+| Other (924) | 73.3 | 73.3 | 73.1 | 71.4 |
+| Economics (844) | 83.1 | 82.3 | 80.6 | 80.0 |
+| Health (818) | 78.1 | 78.1 | 77.6 | 78.0 |
+| Psychology (798) | 83.5 | 83.1 | 82.8 | 84.2 |
+| Business (789) | 58.7 | 57.9 | 56.9 | 50.8 |
+| Biology (717) | 89.5 | 89.5 | 88.8 | 88.0 |
+| Philosophy (499) | 75.4 | 74.3 | 76.4 | 74.7 |
+| Computer Science (410) | 72.0 | 72.7 | 72.4 | 70.5 |
+| History (381) | 74.3 | 74.3 | 73.2 | 75.1 |
+| **All (12,032)** | **68.0** | **67.0** | **66.2** | **64.5** |
 
 ## Credits
 

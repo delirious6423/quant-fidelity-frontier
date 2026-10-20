@@ -1,0 +1,24 @@
+{
+ "repo": "oroboros-labs/claude-opus-9-undecillion-v",
+ "source_sha256": "ae237e343b1945da0b256ca3af9a98f04f4072e6988fc5df574560dd6f8927ad",
+ "candidates_sha256": "bb087093b3c21f133fd1f03a67374899247f2515aadf24cc036ccd5bbe7fbf3d",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "frozen held-out math (50 items) and controls (20 items) [L65-70]", "ctx": "num_ctx 8192; 262,144 declared [L54, L137]", "tool": "Ollama tag and frozen totalcontrol-harness, run 2026-10-20 [L43, L62]", "L": [43, 54, 62, 65, 67, 68, 69, 70, 71]},
+ "entries": [
+  {"role": "own", "name": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["body size 10.12 GiB [L52] is not attached: it is in the Model facts table, not the evaluation row", "Q2_K [L51] is a quant type, not a bits-per-weight value, so bpw is left null", "verified agent layer scored the same as raw on math [L75-77]", "GPQA interrupted at 80/198 with no score reported [L144-145]", "261.4 t/s is aggregate batch throughput, not quality, and is not mapped [L96-97]", "card states no weights were trained or edited [L146]; capability and memory markdown files are listed as non-weight files [L160-161]"]}
+ ],
+ "prose": [
+  {"entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf", "key": "bench:math", "L": 67, "raw": "45/"},
+  {"entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf", "key": "bench:math_total", "L": 67, "raw": "/50"},
+  {"entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf", "key": "bench:math_agent", "L": 68, "raw": "45/"},
+  {"entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf", "key": "bench:math_agent_total", "L": 68, "raw": "/50"},
+  {"entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf", "key": "bench:controls", "L": 69, "raw": "19/"},
+  {"entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf", "key": "bench:controls_total", "L": 69, "raw": "/20"},
+  {"entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf", "key": "bench:controls_agent", "L": 70, "raw": "20/"},
+  {"entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf", "key": "bench:controls_agent_total", "L": 70, "raw": "/20"},
+  {"entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf", "key": "bench:guard_refusal_rate", "L": 71, "raw": "1.00"}
+ ]
+}

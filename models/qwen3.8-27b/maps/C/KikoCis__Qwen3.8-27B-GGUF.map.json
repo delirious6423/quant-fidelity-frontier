@@ -1,0 +1,25 @@
+{
+ "repo": "KikoCis/Qwen3.8-27B-GGUF",
+ "source_sha256": "6c3045e34276f38d8199484cd8cd93023f73893b1daee3643e1d3b14559c5c8f",
+ "candidates_sha256": "1c299c1823845bfe712a96f2be5c0e41c7391354580c9d9e40938110951d72bc",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "objective tool-use benchmark, artifact checked by running it, no LLM judge", "ctx": "not stated", "tool": "Ollama", "L": [59, 60, 90]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B-Q3_K_M.gguf", "metrics": {"bench:agentic_tasks": "c5.0"}, "size": "c3", "unit": "GB", "basis": "disk", "bpw": "c4", "flags": ["agentic verdict from the files table [L24]", "pass count shown beside the total task count [L24]", "argmax disagreement vs BF16 is a disagreement rate and is not mapped [L87]"]},
+  {"role": "own", "name": "Qwen3.8-27B-IQ2_M.gguf", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": "c7", "flags": ["agentic result comes from the cliff table [L66], which has no size", "file size is listed only in the files table [L25]"]},
+  {"role": "own", "name": "Qwen3.8-27B-IQ2_XS.gguf", "metrics": {"bench:agentic_tasks": "c10.0"}, "size": "c8", "unit": "GB", "basis": "disk", "bpw": "c9", "flags": ["agentic verdict from the files table [L26]", "pass count shown beside the total task count [L26]", "paired comparison against IQ2_M is not mapped [L76]"]},
+  {"role": "own", "name": "Qwen3.8-27B-IQ1_M-compact.gguf", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": "c12", "flags": ["agentic result comes from the cliff table [L69], which has no size", "file size is listed only in the files table [L27]", "llama-server re-run of this file scored differently and is not mapped [L91-L92]"]},
+  {"role": "own", "name": "IQ1_M (uniform)", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["agentic result comes from the cliff table [L68]", "bits per weight 2.23 is stated only in the cliff table [L68]", "no file size is listed for this build"]},
+  {"role": "own", "name": "Qwen3.8-27B-Q4_K_M.gguf", "panel": "🩹 Daily heal (LoRA)", "methodology": {"reference": "not stated", "dataset": "held-out bug-fix tasks with one-token bugs planted in real functions, counted only if the file ends byte-identical to the original", "ctx": "not stated", "tool": "native tool calling", "L": [161, 173]}, "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["original row, measured without the LoRA adapter [L169]", "heal v1 and heal v2 rows include the adapter and are not mapped [L170-L171]"]}
+ ],
+ "prose": [
+  {"entry": "Qwen3.8-27B-IQ2_M.gguf", "key": "bench:agentic_tasks", "L": 66, "raw": "79/80"},
+  {"entry": "IQ1_M (uniform)", "key": "bench:agentic_tasks", "L": 68, "raw": "60/160"},
+  {"entry": "Qwen3.8-27B-IQ1_M-compact.gguf", "key": "bench:agentic_tasks", "L": 69, "raw": "49/160"},
+  {"entry": "Qwen3.8-27B-Q4_K_M.gguf", "panel": "🩹 Daily heal (LoRA)", "key": "bench:planted_bugs_fixed", "L": 169, "raw": "8 %"},
+  {"entry": "Qwen3.8-27B-Q4_K_M.gguf", "panel": "🩹 Daily heal (LoRA)", "key": "bench:valid_tool_calls", "L": 169, "raw": "92 %"},
+  {"entry": "Qwen3.8-27B-Q4_K_M.gguf", "panel": "🩹 Daily heal (LoRA)", "key": "bench:finished", "L": 169, "raw": "17 %"}
+ ]
+}

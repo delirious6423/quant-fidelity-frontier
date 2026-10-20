@@ -1,0 +1,20 @@
+{
+ "repo": "webmp3/Sakura-Qwen3.8-Flash-Next-Compact-43.9GiB-K352-CP2-v1-GGUF",
+ "source_sha256": "a032156684c2da9561cbce387565515aec689978ee0aa281fd85f2908d580481",
+ "candidates_sha256": "dbcda28bbada383b81cee6d96c388d366137e7a04fec967837f4dd8787172abd",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "original Sakura K352 (same conversion inputs)", "dataset": "fixed text slices: English, Code, German", "ctx": "eight 512-token chunks per slice", "tool": "not stated", "L": [157, 165]},
+ "entries": [
+  {"role": "own", "name": "Compact CP2 v1",
+   "metrics": {"ppl:english": "c2", "ppl_delta_pct:english": "c3", "ppl:code": "c5", "ppl_delta_pct:code": "c6", "ppl:german": "c8", "ppl_delta_pct:german": "c9"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Expert pruning inherited from Sakura K352 (352 of 512 experts) [L83, L197]", "Lossy lookup-table compression [L197]", "Speed and memory tables not mapped: no matching metric key [L171-181]"]},
+  {"role": "ladder", "name": "Original K352",
+   "metrics": {"ppl:english": "c1", "ppl:code": "c4", "ppl:german": "c7"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Same publisher's Sakura K352 IQ3 build [L30, L83]"]}
+ ],
+ "prose": []
+}

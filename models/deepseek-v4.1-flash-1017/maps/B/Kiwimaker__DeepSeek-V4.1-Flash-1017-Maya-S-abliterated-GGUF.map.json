@@ -1,0 +1,97 @@
+{
+  "repo": "Kiwimaker/DeepSeek-V4.1-Flash-1017-Maya-S-abliterated-GGUF",
+  "source_sha256": "5e229655da4831aa901d0d5fda3d22d4f8f0130ae8d55819c6c3cdec6e2cd787",
+  "candidates_sha256": "e72722e6628bbd1559cce1124006a1cfcf78b8f1dc8cb337be35812ad65177a1",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "normal Maya-S (peasantsmith GGUF) in the same setup",
+    "dataset": "short-answer accuracy, harmless, AdvBench-derived harmful, borderline lawful-intent and needle sets",
+    "ctx": "greedy, top_p 1, matched prompts and settings",
+    "tool": "Maya engine",
+    "L": [207, 231]
+  },
+  "entries": [
+    {
+      "role": "cross",
+      "name": "Normal Maya-S",
+      "of": "peasantsmith/DeepSeek-V4.1-Flash-1017-Maya-GGUF",
+      "panel": "Maya v1.1.17, six shards, DSpark on",
+      "methodology": {
+        "reference": "normal Maya-S from the peasantsmith six-shard build, run first in the same setup",
+        "dataset": "short-answer accuracy set asked twice, harmless prompts, AdvBench-derived harmful prompts, borderline lawful-intent prompts, needle tests",
+        "ctx": "greedy, top_p 1; refusal screens with a short completion cap",
+        "tool": "Maya v1.1.17 engine",
+        "L": [207, 209, 231]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["count-based accuracy, loop, timing and warmup rows have no metric key here [L213-227]", "needle and borderline refusal rows not mapped [L219-225]"]
+    },
+    {
+      "role": "own",
+      "name": "Abliterated Maya-S",
+      "panel": "Maya v1.1.17, six shards, DSpark on",
+      "methodology": {
+        "reference": "normal Maya-S from the peasantsmith six-shard build, run first in the same setup",
+        "dataset": "short-answer accuracy set asked twice, harmless prompts, AdvBench-derived harmful prompts, borderline lawful-intent prompts, needle tests",
+        "ctx": "greedy, top_p 1; refusal screens with a short completion cap",
+        "tool": "Maya v1.1.17 engine",
+        "L": [207, 209, 231]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["corrected accuracy counts equal the normal model, not mapped [L213]", "reduced refusal is a screen, not verified substantive harmful assistance [L229]", "unsloth builds in the same card are unevaluated, no entries [L147]"]
+    },
+    {
+      "role": "cross",
+      "name": "Normal Maya-S",
+      "of": "peasantsmith/DeepSeek-V4.1-Flash-1017-Maya-GGUF",
+      "panel": "Historical comparison: Maya v1.1.16, four shards, DSpark off",
+      "methodology": {
+        "reference": "normal Maya-S from the peasantsmith four-shard build, run first in the same setup",
+        "dataset": "short-answer accuracy set asked twice, harmless prompts, AdvBench-derived harmful prompts, borderline lawful-intent prompts, needle tests",
+        "ctx": "greedy, top_p 1, no prompt cuts; refusal screens with a short completion cap",
+        "tool": "Maya v1.1.16 engine",
+        "L": [241, 263]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["count-based accuracy, loop, timing and warmup rows have no metric key here [L245-259]", "needle and borderline refusal rows not mapped [L251-257]"]
+    },
+    {
+      "role": "own",
+      "name": "Abliterated Maya-S",
+      "panel": "Historical comparison: Maya v1.1.16, four shards, DSpark off",
+      "methodology": {
+        "reference": "normal Maya-S from the peasantsmith four-shard build, run first in the same setup",
+        "dataset": "short-answer accuracy set asked twice, harmless prompts, AdvBench-derived harmful prompts, borderline lawful-intent prompts, needle tests",
+        "ctx": "greedy, top_p 1, no prompt cuts; refusal screens with a short completion cap",
+        "tool": "Maya v1.1.16 engine",
+        "L": [241, 263]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["corrected accuracy counts equal the normal model, not mapped [L245]", "reduced refusal is a screen, not verified substantive harmful assistance [L261]", "results apply to the four-shard configuration only [L241]"]
+    }
+  ],
+  "prose": [
+    {"entry": "Normal Maya-S", "panel": "Maya v1.1.17, six shards, DSpark on", "key": "bench:HarmfulRefusal", "L": 224, "raw": "(100%)"},
+    {"entry": "Abliterated Maya-S", "panel": "Maya v1.1.17, six shards, DSpark on", "key": "bench:HarmfulRefusal", "L": 224, "raw": "(4%)"},
+    {"entry": "Normal Maya-S", "panel": "Historical comparison: Maya v1.1.16, four shards, DSpark off", "key": "bench:HarmfulRefusal", "L": 256, "raw": "(100%)"},
+    {"entry": "Abliterated Maya-S", "panel": "Historical comparison: Maya v1.1.16, four shards, DSpark off", "key": "bench:HarmfulRefusal", "L": 256, "raw": "(4%)"}
+  ]
+}

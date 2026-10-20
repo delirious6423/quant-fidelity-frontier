@@ -1,0 +1,32 @@
+{
+  "repo": "Calandracas/Qwen3.8-27B-heretic-ara-exl3-SC-4.90bpw",
+  "source_sha256": "3ce3a43cc00370ca269156f90398ab1ccd39b868622936dd31f2a8b1dae1bc7a",
+  "candidates_sha256": "dfae2d206bdd2ab287f8be915c56a080efc89d69abd5a2c05de2e3449583e3fe",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {"reference": "bf16 source model [L26]", "dataset": "in-domain trace rows, self-sampled chat and reasoning output [L23, L26]", "ctx": "as stated [L26]", "tool": "not stated", "L": [23, 26, 30, 58, 60]},
+  "entries": [
+    {"role": "own", "name": "SC 4.90bpw (this repo)", "panel": "Quality (KLD vs bf16 source, 6×1024-token in-domain trace rows)",
+     "methodology": {"reference": "bf16 source model [L26]", "dataset": "in-domain trace rows [L26]", "ctx": "as stated [L26]", "tool": "not stated", "L": [26, 32]},
+     "metrics": {"mean_kld": "c40"}, "size": null, "unit": null, "basis": null, "bpw": "c53",
+     "flags": ["calibration on a self-sampled in-domain trace rather than the default web mix [L23]"]},
+    {"role": "ladder", "name": "SC 4.50bpw (before K=5→6 promotion)", "panel": "Quality (KLD vs bf16 source, 6×1024-token in-domain trace rows)",
+     "methodology": {"reference": "bf16 source model [L26]", "dataset": "in-domain trace rows [L26]", "ctx": "as stated [L26]", "tool": "not stated", "L": [26, 31]},
+     "metrics": {"mean_kld": "c39"}, "size": null, "unit": null, "basis": null, "bpw": "c52",
+     "flags": ["same author's earlier rung [L31]"]},
+    {"role": "ladder", "name": "uniform EXL3 4.5bpw (ends-first)", "panel": "Quality (KLD vs bf16 source, 6×1024-token in-domain trace rows)",
+     "methodology": {"reference": "bf16 source model [L26]", "dataset": "in-domain trace rows [L26]", "ctx": "as stated [L26]", "tool": "not stated", "L": [26, 30]},
+     "metrics": {"mean_kld": "c38"}, "size": null, "unit": null, "basis": null, "bpw": "c51",
+     "flags": ["uniform comparison build [L30]"]},
+    {"role": "own", "name": "SC 4.90bpw (this repo)", "panel": "Performance",
+     "methodology": {"reference": "original model, same table [L58-L61]", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [58, 60, 61]},
+     "metrics": {"bench:Refusals": "c49.0"}, "size": null, "unit": null, "basis": null, "bpw": "c53",
+     "flags": ["refusal count is out of the prompt set of 100 [L61]", "KL divergence row left out: instrument and corpus not stated [L60]", "Qwen benchmark tables describe the unquantized base and other models, so they are omitted [L117-L269]"]},
+    {"role": "cross", "name": "Original model (Qwen3.8-27B)", "of": "Qwen/Qwen3.8-27B", "panel": "Performance",
+     "methodology": {"reference": "original model, same table [L58-L61]", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [58, 60, 61]},
+     "metrics": {"bench:Refusals": "c50.0"}, "size": null, "unit": null, "basis": null, "bpw": null,
+     "flags": ["original model row of the same table [L61]"]}
+  ],
+  "prose": []
+}

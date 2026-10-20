@@ -1,47 +1,16 @@
 {
  "repo": "Rulith/Qwen3.8-Flash-Next-Rulith-EXL3-GGUF",
- "source_sha256": "6a699b695b6b01d9ccabebc953335172a6a4fc8da5629ed41dda9c753e3db162",
- "candidates_sha256": "af5c0918f020913faf7aca8a19786211329ff24368bbcbc4604dba6b61c02998",
+ "source_sha256": "69badaf83c178b757f7577cbb12c698f980361ddfb5a8a0d8f06b0eef68f0ca0",
+ "candidates_sha256": "586bc0ac4e5fc63e6b03983381bb4dc4e7d26724ced3796fd6047f94d2b871f4",
  "no_quality_claims": false,
  "no_claims_reason": "",
  "weights_modified": false,
- "method": {
-  "reference": "BF16 model",
-  "dataset": "mixed corpus (Rulith evaluation set)",
-  "ctx": "1024",
-  "tool": "Rulith evaluation set",
-  "L": [
-   42
-  ]
- },
+ "method": {"reference": "BF16 model", "dataset": "mixed corpus (Rulith evaluation set)", "ctx": "1024", "tool": "not stated", "L": [45]},
  "entries": [
-  {
-   "role": "own",
-   "name": "EXL3 4.05 bpw",
-   "methodology": {
-    "reference": "BF16 model",
-    "dataset": "mixed corpus (Rulith evaluation set)",
-    "ctx": "1024",
-    "tool": "Rulith evaluation set",
-    "L": [
-     42
-    ]
-   },
-   "metrics": {
-    "mean_kld": "c4",
-    "kld_99": "c5",
-    "top1_pct": "c6"
-   },
-   "size": null,
-   "unit": null,
-   "basis": null,
-   "bpw": "c1.0",
-   "flags": [
-    "size (~104 GB, shards) is in the folder table, not the quality row [L28]",
-    "experts 4 bits, dense 6, head 6 [L28]",
-    "EXL3 quantization by turboderp, only re-packed here [L21-22]"
-   ]
-  }
+  {"role": "own", "name": "EXL3 4.05 bpw",
+   "metrics": {"mean_kld": "c4", "kld_99": "c5", "top1_pct": "c6"},
+   "size": null, "unit": null, "basis": null, "bpw": "c8",
+   "flags": ["Re-packed from turboderp 4.05bpw_h6_ng6; quantization credited to turboderp [L21-22]", "Folder size table not on the metrics row [L28]"]}
  ],
  "prose": []
 }

@@ -1,16 +1,99 @@
-{"repo":"KikoCis/Qwen3.8-27B-GGUF",
-"no_quality_claims":false,
-"no_claims_reason":"",
-"method":{"reference":"none per tier (no fidelity table); one BF16 argmax-disagreement figure for Q3_K_M","dataset":"objective tool-use benchmark, 40 tasks checked by running the produced artifact (no LLM judge)","ctx":"not stated","tool":"Ollama (rows) and llama-server (one cross-check); sampling temp 1 / top_p 0.95 / top_k 20","L":[59,60,61,86,87,90,91,92,110]},
-"entries":[
-{"role":"own","name":"Qwen3.8-27B-Q4_K_M.gguf","metrics":{},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["not put through the agentic benchmark [L29-30]"]},
-{"role":"own","name":"Qwen3.8-27B-IQ4_XS.gguf","metrics":{},"size":"c2","unit":"GB","basis":"disk","bpw":null,"flags":["not put through the agentic benchmark [L29-30]"]},
-{"role":"own","name":"Qwen3.8-27B-Q3_K_M.gguf","metrics":{"bench:agentic_tasks_passed_of_40":"c5.0"},"size":"c3","unit":"GB","basis":"disk","bpw":"c4","flags":["40/40 agentic verdict [L24]","card says build disagrees with BF16 on next-token argmax for 9.5% of positions yet scores 40/40 (see prose) [L86-87]"]},
-{"role":"own","name":"Qwen3.8-27B-IQ2_M.gguf","metrics":{},"size":"c6","unit":"GB","basis":"disk","bpw":"c7","flags":["agentic verdict cell not among candidates; prose says it matches the 3.40-bpw build at 28 % less size [L75]"]},
-{"role":"own","name":"Qwen3.8-27B-IQ2_XS.gguf","metrics":{"bench:agentic_tasks_passed_of_80":"c10.0"},"size":"c8","unit":"GB","basis":"disk","bpw":"c9","flags":["72/80 across two rounds, measurably worse than IQ2_M, paired p = 0.031 [L26,L76]"]},
-{"role":"own","name":"Qwen3.8-27B-IQ1_M-compact.gguf","metrics":{},"size":"c11","unit":"GB","basis":"disk","bpw":"c12","flags":["score 30.6% through Ollama but 19/40 (47.5%) through llama-server; 'for text, not for driving tools' [L38-39,L90-94]","single runs of one unchanged build spread 17,12,16,15 of 40 [L82-83]"]}
-],
-"prose":[
-{"entry":"Qwen3.8-27B-Q3_K_M.gguf","key":"top1_disagree_pct","L":87,"raw":"9.5 %"},
-{"entry":"Qwen3.8-27B-IQ1_M-compact.gguf","key":"bench:agentic_pct_ollama","L":93,"raw":"30.6 %"}
-]}
+{
+ "repo": "KikoCis/Qwen3.8-27B-GGUF",
+ "source_sha256": "6c3045e34276f38d8199484cd8cd93023f73893b1daee3643e1d3b14559c5c8f",
+ "candidates_sha256": "1c299c1823845bfe712a96f2be5c0e41c7391354580c9d9e40938110951d72bc",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "40 agentic tool-use tasks; 12 held-out bug-fix tasks", "ctx": "not stated", "tool": "Ollama", "L": [59, 60, 90, 173]},
+ "entries": [
+  {"role": "own",
+   "name": "Qwen3.8-27B-Q3_K_M.gguf",
+   "panel": "The agentic cliff — where this model stops working",
+   "methodology": {"reference": "not stated", "dataset": "40 tool-use tasks, checked by running the artifact", "ctx": "not stated", "tool": "Ollama", "L": [59, 60, 90]},
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c4",
+   "flags": [
+    "Size 13.50 GB is in the Files table, not in the cliff-table row, so it is not attached [L24]",
+    "Argmax disagreement with BF16 at 9.5 % of positions is a fidelity figure with no matching key; not mapped [L87]"
+   ]},
+  {"role": "own",
+   "name": "Qwen3.8-27B-IQ2_M.gguf",
+   "panel": "The agentic cliff — where this model stops working",
+   "methodology": {"reference": "not stated", "dataset": "40 tool-use tasks, checked by running the artifact", "ctx": "not stated", "tool": "Ollama", "L": [59, 60, 90]},
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c7",
+   "flags": [
+    "Size 10.00 GB is in the Files table, not in the cliff-table row, so it is not attached [L25]"
+   ]},
+  {"role": "own",
+   "name": "Qwen3.8-27B-IQ2_XS.gguf",
+   "panel": "The agentic cliff — where this model stops working",
+   "methodology": {"reference": "not stated", "dataset": "40 tool-use tasks, checked by running the artifact", "ctx": "not stated", "tool": "Ollama", "L": [59, 60, 90]},
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c9",
+   "flags": [
+    "Size 9.09 GB is in the Files table, not in the cliff-table row, so it is not attached [L26]",
+    "Paired test against IQ2_M (p = 0.031) is a statistical note, not a metric; not mapped [L76]"
+   ]},
+  {"role": "ladder",
+   "name": "IQ1_M (uniform)",
+   "panel": "The agentic cliff — where this model stops working",
+   "methodology": {"reference": "not stated", "dataset": "40 tool-use tasks, checked by running the artifact", "ctx": "not stated", "tool": "Ollama", "L": [59, 60, 90]},
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Uniform 1-bit build is named only in the cliff table, not in the Files table [L68]",
+    "Bits per weight 2.23 is in the cliff table only and has no candidate id [L68]"
+   ]},
+  {"role": "own",
+   "name": "Qwen3.8-27B-IQ1_M-compact.gguf",
+   "panel": "The agentic cliff — where this model stops working",
+   "methodology": {"reference": "not stated", "dataset": "40 tool-use tasks, checked by running the artifact", "ctx": "not stated", "tool": "Ollama", "L": [59, 60, 90]},
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c12",
+   "flags": [
+    "Size 6.46 GB is in the Files table, not in the cliff-table row, so it is not attached [L27]",
+    "llama-server rerun scores 19/40 (47.5 %) on another runtime; not mapped as it is a different backend [L92]"
+   ]},
+  {"role": "own",
+   "name": "Qwen3.8-27B-Q4_K_M.gguf",
+   "panel": "🩹 Daily heal (LoRA)",
+   "methodology": {"reference": "not stated", "dataset": "12 held-out bug-fix tasks", "ctx": "not stated", "tool": "native tool calling", "L": [173]},
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Original Q4_K_M row has no adapter; heal v1 and v2 rows include the LoRA and are not mapped to the quant [L170-171]",
+    "Avg. steps column is not a percentage; not mapped [L169]",
+    "Q4_K_M and IQ4_XS are not measured on the cliff benchmark [L22-23]"
+   ]}
+ ],
+ "prose": [
+  {"entry": "Qwen3.8-27B-Q3_K_M.gguf", "panel": "The agentic cliff — where this model stops working", "key": "bench:agentic tool-use", "L": 65, "raw": "100 %"},
+  {"entry": "Qwen3.8-27B-IQ2_M.gguf", "panel": "The agentic cliff — where this model stops working", "key": "bench:agentic tool-use", "L": 66, "raw": "98.8 %"},
+  {"entry": "Qwen3.8-27B-IQ2_XS.gguf", "panel": "The agentic cliff — where this model stops working", "key": "bench:agentic tool-use", "L": 67, "raw": "90.0 %"},
+  {"entry": "IQ1_M (uniform)", "panel": "The agentic cliff — where this model stops working", "key": "bench:agentic tool-use", "L": 68, "raw": "37.5 %"},
+  {"entry": "Qwen3.8-27B-IQ1_M-compact.gguf", "panel": "The agentic cliff — where this model stops working", "key": "bench:agentic tool-use", "L": 69, "raw": "30.6 %"},
+  {"entry": "Qwen3.8-27B-Q4_K_M.gguf", "panel": "🩹 Daily heal (LoRA)", "key": "bench:heal planted bugs fixed", "L": 169, "raw": "8 %"},
+  {"entry": "Qwen3.8-27B-Q4_K_M.gguf", "panel": "🩹 Daily heal (LoRA)", "key": "bench:heal valid tool calls", "L": 169, "raw": "92 %"},
+  {"entry": "Qwen3.8-27B-Q4_K_M.gguf", "panel": "🩹 Daily heal (LoRA)", "key": "bench:heal finished", "L": 169, "raw": "17 %"}
+ ]
+}

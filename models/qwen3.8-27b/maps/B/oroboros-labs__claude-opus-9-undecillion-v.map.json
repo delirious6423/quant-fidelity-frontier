@@ -1,0 +1,28 @@
+{
+ "repo": "oroboros-labs/claude-opus-9-undecillion-v",
+ "source_sha256": "ae237e343b1945da0b256ca3af9a98f04f4072e6988fc5df574560dd6f8927ad",
+ "candidates_sha256": "bb087093b3c21f133fd1f03a67374899247f2515aadf24cc036ccd5bbe7fbf3d",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "evidence/heldout-math.jsonl, 50 held-out math items", "ctx": "num_ctx 8192", "tool": "totalcontrol-harness", "L": [54, 62, 169]},
+ "entries": [
+  {"role": "own",
+   "name": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Single held-out math accuracy for the Q2_K body; no reference-model comparison stated [L67]",
+    "Verified agent math row shows the same 45/50 with an agent layer; not mapped as a separate entry [L68]",
+    "Table of five held-out misses is per-item output, not a metric; not mapped [L82-88]",
+    "Control rows and guard refusal rate are not quantization metrics; not mapped [L69-71]",
+    "261.4 t/s is aggregate batch throughput, not a quality metric; not mapped [L96]",
+    "GPQA interrupted at 80/198 with no score given [L144]",
+    "Q8 27B was not run; its 27.92 GB figure is for another quant and is excluded [L141]"
+   ]}
+ ],
+ "prose": [{"entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf", "key": "bench:Raw Opus 9 math", "L": 67, "raw": "45/50 = 90.0%"}]
+}

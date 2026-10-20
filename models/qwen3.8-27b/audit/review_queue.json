@@ -7,159 +7,21 @@
    "reason": "review hold: QA review 2026-10-20: top1:prose: The bf16 row is the unquantized teacher that every other row is scored against, so its 100% top-1 is by definition and it is not one of the publisher's '(ours)' quant builds [L113, L119-L125]."
   },
   {
-   "repo": "jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF",
-   "kind": "cross",
-   "entry": "llama.cpp IQ2_M (imatrix)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Lottolabs/Qwen3.8-27B-TT-Mixed-BFP4-BFP8-P150",
-   "kind": "variants",
-   "entry": "GPTQ BFP4 (this checkpoint) vs CPU BF16",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "zerodigest/Qwen3.8-27B-YMQ-MTP-GGUF",
-   "kind": "variants",
-   "entry": "M",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "mudler/Qwen3.8-27B-APEX-GGUF",
-   "kind": "ladder",
-   "entry": "flat Q6_K",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Jundot/Qwen3.8-27B-oQ4e-mtp",
-   "kind": "variants",
-   "entry": "Updated oQ4e",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "primitive-ai/Qwen3.8-27B-mixed-NVFP4-FP8",
-   "kind": "cross",
-   "entry": "RadixArk NVFP4",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Mintzs/thinklite-27B",
-   "kind": "cross",
-   "entry": "Qwen3.8-27B (xhigh)",
-   "reason": "failed a gate"
-  },
-  {
    "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
    "kind": "cross",
-   "entry": "GSQ-RCO-IQ2_XS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF",
-   "kind": "cross",
-   "entry": "unsloth UD-IQ2_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ggh5454/Qwen3.8-27B-MLX-4bit",
-   "kind": "ladder",
-   "entry": "8-bit",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "slevinw/Qwen3.8-27B-RAM-13GB-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-RAM-13GB.gguf",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "cross",
-   "entry": "AD-IQ2_S",
+   "entry": "UD-Q4_K_XL",
    "reason": "failed a gate"
   },
   {
    "repo": "anemll/anemll-forge-qwen3.8-27B",
    "kind": "cross",
-   "entry": "Unsloth UD-IQ3_XXS",
+   "entry": "DT-IQ3_XXS",
    "reason": "failed a gate"
   },
   {
-   "repo": "Lottolabs/Qwen3.8-27B-TT-Mixed-BFP4-BFP8-P150",
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
    "kind": "ladder",
-   "entry": "Round-to-nearest BFP4 vs CPU BF16",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "vrfai/Qwen3.8-27B-FP8",
-   "kind": "ladder",
-   "entry": "bf16 (unquantized reference run)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "joydle/Qwen3.8-27B-Arf-GGUF",
-   "kind": "cross",
-   "entry": "MLX 4-bit (mlx-community)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ji-farthing/Qwen3.8-27B-ik-llama-GGUF",
-   "kind": "variants",
-   "entry": "IQ3_XXS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "RadixArk/Qwen3.8-27B-NVFP4",
-   "kind": "variants",
-   "entry": "RadixArk/Qwen3.8-27B-NVFP4",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-CRACK-IQ4_XS.gguf",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "OsaurusAI/Qwen3.8-27B-MXFP8",
-   "kind": "ladder",
-   "entry": "JANG_4D",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Mintzs/thinklite-27B",
-   "kind": "variants",
-   "entry": "Thinklite-27B High",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "variants",
-   "entry": "AP-IQ4_XS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "anemll/anemll-quantized-qwen3.8-27b-for-CoreAI",
-   "kind": "ladder",
-   "entry": "ANEMLL release 1 (PyTorch)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "cross",
-   "entry": "AD-IQ3_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "anemll/anemll-forge-qwen3.8-27B",
-   "kind": "variants",
-   "entry": "ANEMLL release 0.2 (PyTorch, comparison table)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "abhishekchohan/Qwen3.8-27B-GPTQ-INT4-FP8KV",
-   "kind": "variants",
-   "entry": "GPTQ-INT4-FP8KV (this model)",
+   "entry": "VQ-4.5bpw",
    "reason": "failed a gate"
   },
   {
@@ -175,15 +37,147 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "cross",
-   "entry": "UD-IQ4_XS",
+   "repo": "mudler/Qwen3.8-27B-APEX-GGUF",
+   "kind": "ladder",
+   "entry": "flat control, Nano size",
    "reason": "failed a gate"
   },
   {
-   "repo": "joydle/Qwen3.8-27B-Arf-GGUF",
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
    "kind": "variants",
-   "entry": "Qwen3.8-27B-arf-g64-imat-Q4_1.gguf",
+   "entry": "AP-Q4_K_M",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "AtomicChat/Qwen3.8-27B-GGUF",
+   "kind": "cross",
+   "entry": "UD-IQ3_XXS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.8bpw",
+   "kind": "variants",
+   "entry": "VQ-4.8bpw",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "DuoNeural/Qwen3.8-27B-TAP-DPQ-v2-GGUF",
+   "kind": "ladder",
+   "entry": "Vanilla_BF16 (Reference)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "slevinw/Qwen3.8-27B-RAM-13GB-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-RAM-13GB.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "zerodigest/Qwen3.8-27B-YMQ-MTP-GGUF",
+   "kind": "variants",
+   "entry": "M",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.8bpw",
+   "kind": "ladder",
+   "entry": "affine q4 (ours)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.8bpw",
+   "kind": "ladder",
+   "entry": "affine q8 (ours)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Jundot/Qwen3.8-27B-oQ4e-mtp",
+   "kind": "variants",
+   "entry": "Updated oQ4e",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+   "kind": "cross",
+   "entry": "UD-IQ2_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "cross",
+   "entry": "AD-IQ3_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF",
+   "kind": "cross",
+   "entry": "unsloth UD-IQ2_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "lackonendes/PAW-27B-X3-GGUF",
+   "kind": "variants",
+   "entry": "PAW-27B-X3-2.5bit (B2.5)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "lribeiro/Qwen3.8-27B-FP8-Pessoa",
+   "kind": "ladder",
+   "entry": "gptq-nvfp4-mixed-8",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "nibor1896/Qwen3.8-27B-CNQ4.5",
+   "kind": "ladder",
+   "entry": "earlier --scales mse build (not published)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Mintzs/thinklite-27B",
+   "kind": "variants",
+   "entry": "Thinklite-27B High",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-CRACK-Q8_0.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.5bpw",
+   "kind": "variants",
+   "entry": "VQ-4.5bpw",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "cross",
+   "entry": "AD-IQ2_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "lackonendes/PAW-27B-X3-GGUF",
+   "kind": "variants",
+   "entry": "PAW-27B-X3-3.5bit (B3.5)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "cross",
+   "entry": "GSQ-RCO-IQ2_XS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Qwen3.8-27B-mixed-NVFP4-FP8",
+   "kind": "cross",
+   "entry": "cyankiwi AWQ-INT4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-CRACK-Q6_K.gguf",
    "reason": "failed a gate"
   },
   {
@@ -193,21 +187,429 @@
    "reason": "failed a gate"
   },
   {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "cross",
+   "entry": "UD-Q3_K_XL",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "joydle/Qwen3.8-27B-Arf-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-arf-g64-imat-Q4_1.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "acyildirimer/Qwen3.8-27B-AutoQuant-NVFP4-FP8-5bit",
+   "kind": "variants",
+   "entry": "acyildirimer/Qwen3.8-27B-AutoQuant-NVFP4-FP8-5bit",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-CRACK-IQ3_M.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Qwen3.8-27B-mixed-NVFP4-FP8",
+   "kind": "cross",
+   "entry": "gittensor NVFP4-RTX5090",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "cross",
+   "entry": "AD-IQ4_XS-IQ3_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF",
+   "kind": "cross",
+   "entry": "llama.cpp IQ2_XXS (imatrix)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "cross",
+   "entry": "UD-IQ4_XS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "darioooooo0o/Qwen3.8-27B-GPTQ-Int4-asym",
+   "kind": "cross",
+   "entry": "SergiioB's GPTQ int4 (symmetric)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF",
+   "kind": "cross",
+   "entry": "llama.cpp IQ2_XS (imatrix)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Jianqiao1/Qwen3.8-27b-MoQ-GGUF",
+   "kind": "ladder",
+   "entry": "BF16 reference",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "variants",
+   "entry": "AP-IQ3_XXS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "anemll/anemll-quantized-qwen3.8-27b-for-CoreAI",
+   "kind": "cross",
+   "entry": "Unsloth UD-IQ3_XXS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-CRACK-IQ2_M.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+   "kind": "ladder",
+   "entry": "BF16",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+   "kind": "cross",
+   "entry": "UD-IQ3_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "anemll/anemll-forge-qwen3.8-27B",
+   "kind": "variants",
+   "entry": "ANEMLL release 0.2 (PyTorch, comparison table)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF",
+   "kind": "cross",
+   "entry": "llama.cpp IQ2_M (imatrix)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Lottolabs/Qwen3.8-27B-TT-Mixed-BFP4-BFP8-P150",
+   "kind": "ladder",
+   "entry": "TT all-BFP8 vs CPU BF16",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Jundot/Qwen3.8-27B-oQ4e-mtp",
+   "kind": "ladder",
+   "entry": "Previous oQ4e (2026-08-17)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
+   "kind": "variants",
+   "entry": "VQ-3.9bpw",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Mintzs/thinklite-27B",
+   "kind": "cross",
+   "entry": "Qwen3.8-27B (xhigh)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.5bpw",
+   "kind": "ladder",
+   "entry": "affine q4 (ours)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "abhishekchohan/Qwen3.8-27B-AWQ-INT4",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-AWQ-INT4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "anemll/anemll-quantized-qwen3.8-27b-for-CoreAI",
+   "kind": "cross",
+   "entry": "DT-IQ3_XXS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.5bpw",
+   "kind": "ladder",
+   "entry": "affine q8 (ours)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "OsaurusAI/Qwen3.8-27B-MXFP8",
+   "kind": "ladder",
+   "entry": "JANG_4D",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ggh5454/Qwen3.8-27B-MLX-4bit",
+   "kind": "variants",
+   "entry": "4-bit",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "joydle/Qwen3.8-27B-Arf-GGUF",
+   "kind": "cross",
+   "entry": "MLX 4-bit (mlx-community)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ji-farthing/Qwen3.8-27B-ik-llama-GGUF",
+   "kind": "variants",
+   "entry": "IQ4_KS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "aj9o9/Qwen3.8-27B-GGUF",
+   "kind": "cross",
+   "entry": "Unsloth Q5_K_M",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "dancinlab/Qwen3.8-27B-Uncensored-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-Uncensored (abliterated build, vLLM)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "OsaurusAI/Qwen3.8-27B-MXFP8",
+   "kind": "variants",
+   "entry": "MXFP8",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "AtomicChat/Qwen3.8-27B-GGUF",
+   "kind": "cross",
+   "entry": "UD-Q6_K_XL",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "DuoNeural/Qwen3.8-27B-TAP-DPQ-v2-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-TAP-DPQ-v2-IQ2_XXS.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+   "kind": "variants",
+   "entry": "GSQ-RCO IQ2_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+   "kind": "variants",
+   "entry": "GSQ-RCO IQ3_XXS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "AtomicChat/Qwen3.8-27B-GGUF",
+   "kind": "cross",
+   "entry": "Q4_K_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "abhishekchohan/Qwen3.8-27B-GPTQ-INT4-FP8KV",
+   "kind": "variants",
+   "entry": "GPTQ-INT4-FP8KV (this model)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "lribeiro/Qwen3.8-27B-FP8-Pessoa",
+   "kind": "ladder",
+   "entry": "gptq-mxfp8-mixed",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ggh5454/Qwen3.8-27B-MLX-4bit",
+   "kind": "ladder",
+   "entry": "8-bit",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "variants",
+   "entry": "AP-IQ3_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.5bpw",
+   "kind": "ladder",
+   "entry": "VQ-4.8bpw",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "variants",
+   "entry": "AP-IQ4_XS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "dfed24/Qwen3.8-27B-GPTQ-GGUF",
+   "kind": "cross",
+   "entry": "unsloth UD-Q4_K_M (PyTorch eval vs bf16)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "variants",
+   "entry": "AP-Q4_K_XL",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "cross",
+   "entry": "GSQ-RCO-IQ3_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "malaiwah/Qwen3.8-27B-GGUF-archival-f1bfb127",
+   "kind": "cross",
+   "entry": "Qwen3.8-27B-UD-Q5_K_XL.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+   "kind": "cross",
+   "entry": "UD-Q2_K_XL",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "aj9o9/Qwen3.8-27B-GGUF",
+   "kind": "cross",
+   "entry": "Unsloth Q4_K_M",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "cross",
+   "entry": "GSQ-RCO-IQ2_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "anemll/anemll-forge-qwen3.8-27B",
+   "kind": "ladder",
+   "entry": "ANEMLL release 1 (PyTorch, comparison table)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "kirillbilchenko/Qwen3.8-27B-MXFP4-MxWave",
+   "kind": "cross",
+   "entry": "AMD Quark-AWQ MXFP4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "darioooooo0o/Qwen3.8-27B-GPTQ-Int4-asym",
+   "kind": "variants",
+   "entry": "this quant",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Lottolabs/Qwen3.8-27B-TT-Mixed-BFP4-BFP8-P150",
+   "kind": "variants",
+   "entry": "GPTQ BFP4 (this checkpoint) vs CPU BF16",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-CRACK-Q6_K_L.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Frosty40/Qwen3.8-27B-GGUF",
+   "kind": "ladder",
+   "entry": "Q8_0 (reference ceiling, not published)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "malaiwah/Qwen3.8-27B-GGUF-archival-f1bfb127",
+   "kind": "cross",
+   "entry": "Qwen3.8-27B-Q6_K.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.5bpw",
+   "kind": "ladder",
+   "entry": "VQ-3.9bpw",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+   "kind": "variants",
+   "entry": "GSQ-RCO IQ3_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "anemll/anemll-quantized-qwen3.8-27b-for-CoreAI",
+   "kind": "ladder",
+   "entry": "ANEMLL release 1 (PyTorch)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ji-farthing/Qwen3.8-27B-ik-llama-GGUF",
+   "kind": "variants",
+   "entry": "IQ3_XXS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Qwen3.8-27B-mixed-NVFP4-FP8",
+   "kind": "cross",
+   "entry": "RadixArk NVFP4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "zerodigest/Qwen3.8-27B-YMQ-MTP-GGUF",
+   "kind": "variants",
+   "entry": "L",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "variants",
+   "entry": "AP-IQ3_XS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "lackonendes/PAW-27B-X3-GGUF",
+   "kind": "variants",
+   "entry": "PAW-27B-X3-3bit (B3.0)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "baa-ai/Qwen3.8-27B-RAM-13GB-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-RAM-13GB.gguf (v2, RAM mixed Q2_K-Q8_0)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "aj9o9/Qwen3.8-27B-GGUF",
+   "kind": "cross",
+   "entry": "bartowski Q3_K_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Qwen3.8-27B-mixed-NVFP4-FP8",
+   "kind": "cross",
+   "entry": "sakamakismile MTP-NVFP4",
+   "reason": "failed a gate"
+  },
+  {
    "repo": "nibor1896/Qwen3.8-27B-CNQ4.5",
    "kind": "variants",
    "entry": "Qwen3.8-27B-CNQ4.5 (container in the engine, BF16 KV)",
    "reason": "failed a gate"
   },
   {
-   "repo": "mudler/Qwen3.8-27B-APEX-GGUF",
-   "kind": "ladder",
-   "entry": "flat control, Nano size",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "cross",
-   "entry": "UD-Q4_K_XL",
+   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-CRACK-Q4_K_M.gguf",
    "reason": "failed a gate"
   },
   {
@@ -223,9 +625,9 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "baa-ai/Qwen3.8-27B-RAM-13GB-GGUF",
+   "repo": "Mintzs/thinklite-27B",
    "kind": "variants",
-   "entry": "Qwen3.8-27B-RAM-13GB.gguf (v2, RAM mixed Q2_K-Q8_0)",
+   "entry": "Thinklite-27B Low",
    "reason": "failed a gate"
   },
   {
@@ -235,33 +637,201 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "repo": "billmccartney/Qwen3.8-27B-exl3-8.00bpw",
    "kind": "cross",
-   "entry": "UD-Q3_K_XL",
+   "entry": "BF16",
    "reason": "failed a gate"
   },
   {
-   "repo": "nibor1896/Qwen3.8-27B-CNQ4.5",
-   "kind": "ladder",
-   "entry": "earlier --scales mse build (not published)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF",
-   "kind": "cross",
-   "entry": "llama.cpp IQ2_XXS (imatrix)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.5bpw",
+   "repo": "darioooooo0o/Qwen3.8-27B-GPTQ-Int4-asym",
    "kind": "variants",
-   "entry": "VQ-4.5bpw",
+   "entry": "this quant + fp8 lm_head (as served in cookbook)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "dfed24/Qwen3.8-27B-GPTQ-GGUF",
+   "kind": "variants",
+   "entry": "this file (PyTorch eval vs bf16)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "vrfai/Qwen3.8-27B-FP8",
+   "kind": "ladder",
+   "entry": "bf16 (unquantized reference run)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Lottolabs/Qwen3.8-27B-TT-Mixed-BFP4-BFP8-P150",
+   "kind": "ladder",
+   "entry": "Round-to-nearest BFP4 vs CPU BF16",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "RadixArk/Qwen3.8-27B-NVFP4",
+   "kind": "variants",
+   "entry": "RadixArk/Qwen3.8-27B-NVFP4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "juzbox/Qwen3.8-27B-NVFP4-GDN",
+   "kind": "cross",
+   "entry": "nvidia/Qwen3.8-27B-NVFP4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Mintzs/thinklite-27B",
+   "kind": "variants",
+   "entry": "Thinklite-27B Max",
    "reason": "failed a gate"
   },
   {
    "repo": "ji-farthing/Qwen3.8-27B-ik-llama-GGUF",
    "kind": "variants",
    "entry": "IQ3_KT",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "joydle/Qwen3.8-27B-Arf-GGUF",
+   "kind": "cross",
+   "entry": "Q4_K_M (unsloth)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "aj9o9/Qwen3.8-27B-GGUF",
+   "kind": "cross",
+   "entry": "bartowski IQ3_M",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "cross",
+   "entry": "UD-Q4_K_M",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "avlp12/Qwen3.8-27B-Alis-MLX-4bit",
+   "kind": "ladder",
+   "entry": "6-bit",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "variants",
+   "entry": "AP-IQ2_S",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
+   "kind": "cross",
+   "entry": "GSQ-RCO-IQ3_XXS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "abhishekchohan/Qwen3.8-27B-GPTQ-INT4",
+   "kind": "variants",
+   "entry": "GPTQ-INT4 (this)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "aj9o9/Qwen3.8-27B-GGUF",
+   "kind": "cross",
+   "entry": "Unsloth UD-Q3_K_XL",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "anemll/anemll-forge-qwen3.8-27B",
+   "kind": "cross",
+   "entry": "Unsloth UD-IQ3_XXS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
+   "kind": "variants",
+   "entry": "Qwen3.8-27B-CRACK-IQ4_XS.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "vrfai/Qwen3.8-27B-FP8-dynamic",
+   "kind": "ladder",
+   "entry": "bf16 (unquantized reference)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "mudler/Qwen3.8-27B-APEX-GGUF",
+   "kind": "ladder",
+   "entry": "flat control, Balanced size",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "juzbox/Qwen3.8-27B-NVFP4-GDN",
+   "kind": "cross",
+   "entry": "QUASAR-QAT/Qwen3.8-27B-QUASAR-NVFP4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "mudler/Qwen3.8-27B-APEX-GGUF",
+   "kind": "ladder",
+   "entry": "flat Q6_K",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ji-farthing/Qwen3.8-27B-ik-llama-GGUF",
+   "kind": "ladder",
+   "entry": "BF16 (reference)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
+   "kind": "ladder",
+   "entry": "VQ-4.8bpw",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "pearsonkyle/Qwen3.8-27B-imatrix-MTP-GGUF",
+   "kind": "ladder",
+   "entry": "FP16 (ref)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "lackonendes/PAW-27B-X3-GGUF",
+   "kind": "variants",
+   "entry": "PAW-27B-X3-2bit (B2.0)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "malaiwah/Qwen3.8-27B-GGUF-archival-f1bfb127",
+   "kind": "cross",
+   "entry": "BF16 two-part set (cross-engine floor)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF",
+   "kind": "cross",
+   "entry": "unsloth UD-IQ2_XXS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
+   "kind": "variants",
+   "entry": "GSQ-RCO IQ2_XS",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "anemll/anemll-quantized-qwen3.8-27b-for-CoreAI",
+   "kind": "variants",
+   "entry": "ANEMLL release 0.2 (PyTorch)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "mudler/Qwen3.8-27B-APEX-GGUF",
+   "kind": "ladder",
+   "entry": "flat control, Mini size",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "lackonendes/PAW-27B-X3-GGUF",
+   "kind": "variants",
+   "entry": "PAW-27B-X3-1.5bit (B1.5)",
    "reason": "failed a gate"
   },
   {
@@ -273,571 +843,13 @@
   {
    "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
    "kind": "variants",
-   "entry": "AP-IQ3_XXS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "cross",
-   "entry": "UD-Q4_K_M",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "AtomicChat/Qwen3.8-27B-GGUF",
-   "kind": "cross",
-   "entry": "UD-Q6_K_XL",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
-   "kind": "cross",
-   "entry": "UD-IQ3_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
-   "kind": "ladder",
-   "entry": "BF16",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
-   "kind": "cross",
-   "entry": "UD-Q2_K_XL",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.5bpw",
-   "kind": "ladder",
-   "entry": "affine q8 (ours)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
-   "kind": "ladder",
-   "entry": "VQ-4.8bpw",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "cross",
-   "entry": "GSQ-RCO-IQ3_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "darioooooo0o/Qwen3.8-27B-GPTQ-Int4-asym",
-   "kind": "variants",
-   "entry": "this quant",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.5bpw",
-   "kind": "ladder",
-   "entry": "VQ-3.9bpw",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "anemll/anemll-quantized-qwen3.8-27b-for-CoreAI",
-   "kind": "cross",
-   "entry": "DT-IQ3_XXS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "variants",
-   "entry": "AP-IQ3_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "lackonendes/PAW-27B-X3-GGUF",
-   "kind": "variants",
-   "entry": "PAW-27B-X3-3.5bit (B3.5)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-CRACK-Q6_K_L.gguf",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "juzbox/Qwen3.8-27B-NVFP4-GDN",
-   "kind": "cross",
-   "entry": "nvidia/Qwen3.8-27B-NVFP4",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.8bpw",
-   "kind": "ladder",
-   "entry": "affine q4 (ours)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
-   "kind": "variants",
-   "entry": "VQ-3.9bpw",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "zerodigest/Qwen3.8-27B-YMQ-MTP-GGUF",
-   "kind": "variants",
-   "entry": "L",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "kirillbilchenko/Qwen3.8-27B-MXFP4-MxWave",
-   "kind": "cross",
-   "entry": "AMD Quark-AWQ MXFP4",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
-   "kind": "ladder",
-   "entry": "VQ-4.5bpw",
+   "entry": "AP-Q3_K_XL",
    "reason": "failed a gate"
   },
   {
    "repo": "AtomicChat/Qwen3.8-27B-GGUF",
    "kind": "cross",
    "entry": "UD-Q5_K_XL",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "anemll/anemll-forge-qwen3.8-27B",
-   "kind": "ladder",
-   "entry": "ANEMLL release 1 (PyTorch, comparison table)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "lackonendes/PAW-27B-X3-GGUF",
-   "kind": "variants",
-   "entry": "PAW-27B-X3-2bit (B2.0)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "billmccartney/Qwen3.8-27B-exl3-8.00bpw",
-   "kind": "cross",
-   "entry": "BF16",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "malaiwah/Qwen3.8-27B-GGUF-archival-f1bfb127",
-   "kind": "cross",
-   "entry": "Qwen3.8-27B-UD-Q5_K_XL.gguf",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "DuoNeural/Qwen3.8-27B-TAP-DPQ-v2-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-TAP-DPQ-v2-IQ2_XXS.gguf",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Lottolabs/Qwen3.8-27B-TT-Mixed-BFP4-BFP8-P150",
-   "kind": "ladder",
-   "entry": "TT all-BFP8 vs CPU BF16",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "cross",
-   "entry": "GSQ-RCO-IQ2_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "cross",
-   "entry": "AD-IQ4_XS-IQ3_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "avlp12/Qwen3.8-27B-Alis-MLX-4bit",
-   "kind": "ladder",
-   "entry": "6-bit",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF",
-   "kind": "cross",
-   "entry": "llama.cpp IQ2_XS (imatrix)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Mintzs/thinklite-27B",
-   "kind": "variants",
-   "entry": "Thinklite-27B Low",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "jkim96/Qwen3.8-27B-DASHQ-Q2-GGUF",
-   "kind": "cross",
-   "entry": "unsloth UD-IQ2_XXS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "variants",
-   "entry": "AP-Q4_K_M",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "anemll/anemll-forge-qwen3.8-27B",
-   "kind": "cross",
-   "entry": "DT-IQ3_XXS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-CRACK-Q6_K.gguf",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "aj9o9/Qwen3.8-27B-GGUF",
-   "kind": "cross",
-   "entry": "bartowski IQ3_M",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "AtomicChat/Qwen3.8-27B-GGUF",
-   "kind": "cross",
-   "entry": "UD-IQ3_XXS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "pearsonkyle/Qwen3.8-27B-imatrix-MTP-GGUF",
-   "kind": "ladder",
-   "entry": "FP16 (ref)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-CRACK-IQ2_M.gguf",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "lackonendes/PAW-27B-X3-GGUF",
-   "kind": "variants",
-   "entry": "PAW-27B-X3-1.5bit (B1.5)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "aj9o9/Qwen3.8-27B-GGUF",
-   "kind": "cross",
-   "entry": "Unsloth Q4_K_M",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "lackonendes/PAW-27B-X3-GGUF",
-   "kind": "variants",
-   "entry": "PAW-27B-X3-3bit (B3.0)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.8bpw",
-   "kind": "variants",
-   "entry": "VQ-4.8bpw",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "variants",
-   "entry": "AP-Q3_K_XL",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "primitive-ai/Qwen3.8-27B-mixed-NVFP4-FP8",
-   "kind": "cross",
-   "entry": "gittensor NVFP4-RTX5090",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "aj9o9/Qwen3.8-27B-GGUF",
-   "kind": "cross",
-   "entry": "Unsloth Q5_K_M",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
-   "kind": "variants",
-   "entry": "GSQ-RCO IQ2_XS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "variants",
-   "entry": "AP-IQ3_XS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "abhishekchohan/Qwen3.8-27B-AWQ-INT4",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-AWQ-INT4",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "lackonendes/PAW-27B-X3-GGUF",
-   "kind": "variants",
-   "entry": "PAW-27B-X3-2.5bit (B2.5)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "anemll/anemll-quantized-qwen3.8-27b-for-CoreAI",
-   "kind": "variants",
-   "entry": "ANEMLL release 0.2 (PyTorch)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
-   "kind": "variants",
-   "entry": "GSQ-RCO IQ2_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "aj9o9/Qwen3.8-27B-GGUF",
-   "kind": "cross",
-   "entry": "Unsloth UD-Q3_K_XL",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-CRACK-IQ3_M.gguf",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "mudler/Qwen3.8-27B-APEX-GGUF",
-   "kind": "ladder",
-   "entry": "flat control, Mini size",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "joydle/Qwen3.8-27B-Arf-GGUF",
-   "kind": "cross",
-   "entry": "Q4_K_M (unsloth)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "vrfai/Qwen3.8-27B-FP8-dynamic",
-   "kind": "ladder",
-   "entry": "bf16 (unquantized reference)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Jianqiao1/Qwen3.8-27b-MoQ-GGUF",
-   "kind": "ladder",
-   "entry": "BF16 reference",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.5bpw",
-   "kind": "ladder",
-   "entry": "VQ-4.8bpw",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Mintzs/thinklite-27B",
-   "kind": "variants",
-   "entry": "Thinklite-27B Max",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "dfed24/Qwen3.8-27B-GPTQ-GGUF",
-   "kind": "variants",
-   "entry": "this file (PyTorch eval vs bf16)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.8bpw",
-   "kind": "ladder",
-   "entry": "affine q8 (ours)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
-   "kind": "variants",
-   "entry": "GSQ-RCO IQ3_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "acyildirimer/Qwen3.8-27B-AutoQuant-NVFP4-FP8-5bit",
-   "kind": "variants",
-   "entry": "acyildirimer/Qwen3.8-27B-AutoQuant-NVFP4-FP8-5bit",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "dancinlab/Qwen3.8-27B-Uncensored-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-Uncensored (abliterated build, vLLM)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
-   "kind": "cross",
-   "entry": "UD-IQ2_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ji-farthing/Qwen3.8-27B-ik-llama-GGUF",
-   "kind": "variants",
-   "entry": "IQ4_KS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "dfed24/Qwen3.8-27B-GPTQ-GGUF",
-   "kind": "cross",
-   "entry": "unsloth UD-Q4_K_M (PyTorch eval vs bf16)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "OsaurusAI/Qwen3.8-27B-MXFP8",
-   "kind": "variants",
-   "entry": "MXFP8",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ggh5454/Qwen3.8-27B-MLX-4bit",
-   "kind": "variants",
-   "entry": "4-bit",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-CRACK-Q8_0.gguf",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "primitive-ai/Qwen3.8-27B-mixed-NVFP4-FP8",
-   "kind": "cross",
-   "entry": "sakamakismile MTP-NVFP4",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "cross",
-   "entry": "GSQ-RCO-IQ3_XXS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "dealignai/Qwen3.8-27B-UNCENSORED-GGUF",
-   "kind": "variants",
-   "entry": "Qwen3.8-27B-CRACK-Q4_K_M.gguf",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "malaiwah/Qwen3.8-27B-GGUF-archival-f1bfb127",
-   "kind": "cross",
-   "entry": "BF16 two-part set (cross-engine floor)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "primitive-ai/Qwen3.8-27B-mixed-NVFP4-FP8",
-   "kind": "cross",
-   "entry": "cyankiwi AWQ-INT4",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "variants",
-   "entry": "AP-Q4_K_XL",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "darioooooo0o/Qwen3.8-27B-GPTQ-Int4-asym",
-   "kind": "cross",
-   "entry": "SergiioB's GPTQ int4 (symmetric)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Jundot/Qwen3.8-27B-oQ4e-mtp",
-   "kind": "ladder",
-   "entry": "Previous oQ4e (2026-08-17)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "malaiwah/Qwen3.8-27B-GGUF-archival-f1bfb127",
-   "kind": "cross",
-   "entry": "Qwen3.8-27B-Q6_K.gguf",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "AtomicChat/Qwen3.8-27B-GGUF",
-   "kind": "cross",
-   "entry": "Q4_K_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "aj9o9/Qwen3.8-27B-GGUF",
-   "kind": "cross",
-   "entry": "bartowski Q3_K_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ji-farthing/Qwen3.8-27B-ik-llama-GGUF",
-   "kind": "ladder",
-   "entry": "BF16 (reference)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "anemll/anemll-quantized-qwen3.8-27b-for-CoreAI",
-   "kind": "cross",
-   "entry": "Unsloth UD-IQ3_XXS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "darioooooo0o/Qwen3.8-27B-GPTQ-Int4-asym",
-   "kind": "variants",
-   "entry": "this quant + fp8 lm_head (as served in cookbook)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "agentionai/Qwen3.8-27B-AP-GGUF",
-   "kind": "variants",
-   "entry": "AP-IQ2_S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "abhishekchohan/Qwen3.8-27B-GPTQ-INT4",
-   "kind": "variants",
-   "entry": "GPTQ-INT4 (this)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "juzbox/Qwen3.8-27B-NVFP4-GDN",
-   "kind": "cross",
-   "entry": "QUASAR-QAT/Qwen3.8-27B-QUASAR-NVFP4",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
-   "kind": "variants",
-   "entry": "GSQ-RCO IQ3_XXS",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-4.5bpw",
-   "kind": "ladder",
-   "entry": "affine q4 (ours)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "DuoNeural/Qwen3.8-27B-TAP-DPQ-v2-GGUF",
-   "kind": "ladder",
-   "entry": "Vanilla_BF16 (Reference)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Frosty40/Qwen3.8-27B-GGUF",
-   "kind": "ladder",
-   "entry": "Q8_0 (reference ceiling, not published)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "mudler/Qwen3.8-27B-APEX-GGUF",
-   "kind": "ladder",
-   "entry": "flat control, Balanced size",
    "reason": "failed a gate"
   },
   {
@@ -1096,18 +1108,6 @@
   },
   {
    "repo": "AveLabs/Qwen3.8-27B-Perplexing-Pegasus-NVFP4",
-   "entry": "Perplexing-Pegasus NVFP4 (chat)",
-   "key": "bench:IFEval-prompt-strict",
-   "raw": "85.2"
-  },
-  {
-   "repo": "AveLabs/Qwen3.8-27B-Perplexing-Pegasus-NVFP4",
-   "entry": "Perplexing-Pegasus NVFP4 (chat)",
-   "key": "bench:IFEval-prompt-loose",
-   "raw": "87.6"
-  },
-  {
-   "repo": "AveLabs/Qwen3.8-27B-Perplexing-Pegasus-NVFP4",
    "entry": "Perplexing-Pegasus NVFP4 (decisions)",
    "key": "bench:JevBench",
    "raw": "87.0%"
@@ -1117,18 +1117,6 @@
    "entry": "Perplexing-Pegasus NVFP4 (decisions)",
    "key": "bench:Open-Jev-v1.1-mix",
    "raw": "81.1%"
-  },
-  {
-   "repo": "AveLabs/Qwen3.8-27B-Perplexing-Pegasus-NVFP4",
-   "entry": "Stock Qwen3.8-27B NVFP4 (chat)",
-   "key": "bench:IFEval-prompt-strict",
-   "raw": "84.3"
-  },
-  {
-   "repo": "AveLabs/Qwen3.8-27B-Perplexing-Pegasus-NVFP4",
-   "entry": "Stock Qwen3.8-27B NVFP4 (chat)",
-   "key": "bench:IFEval-prompt-loose",
-   "raw": "87.3"
   },
   {
    "repo": "AveLabs/Qwen3.8-27B-Perplexing-Pegasus-NVFP4",
@@ -1301,12 +1289,6 @@
   {
    "repo": "Bucoid/Qwen3.8-27B-IQ4-XS-MTP-16GB-VRAM-GGUF",
    "entry": "IQ4_XS",
-   "key": "kld_99",
-   "raw": "1.134"
-  },
-  {
-   "repo": "Bucoid/Qwen3.8-27B-IQ4-XS-MTP-16GB-VRAM-GGUF",
-   "entry": "IQ4_XS",
    "key": "bench:max_KLD",
    "raw": "12.089\uff08\u66f4\u5c0f\uff09"
   },
@@ -1321,12 +1303,6 @@
    "entry": "IQ4_XS",
    "key": "bench:rms_delta_p",
    "raw": "4.893% \u00b1 0.041%\uff08\u66f4\u5c0f\uff09"
-  },
-  {
-   "repo": "Bucoid/Qwen3.8-27B-IQ4-XS-MTP-16GB-VRAM-GGUF",
-   "entry": "UD_IQ3_K_XL",
-   "key": "kld_99",
-   "raw": "1.219"
   },
   {
    "repo": "Bucoid/Qwen3.8-27B-IQ4-XS-MTP-16GB-VRAM-GGUF",
@@ -2825,20 +2801,62 @@
   {
    "repo": "KikoCis/Qwen3.8-27B-GGUF",
    "entry": "Qwen3.8-27B-Q3_K_M.gguf",
-   "key": "bench:agentic_tasks",
+   "key": "bench:agentic_tasks_total",
    "raw": "40"
   },
   {
    "repo": "KikoCis/Qwen3.8-27B-GGUF",
    "entry": "Qwen3.8-27B-IQ2_XS.gguf",
-   "key": "bench:agentic_tasks",
-   "raw": "72"
+   "key": "bench:agentic_tasks_total",
+   "raw": "80"
   },
   {
    "repo": "KikoCis/Qwen3.8-27B-GGUF",
-   "entry": "Qwen3.8-27B-IQ1_M-compact.gguf (llama-server)",
+   "entry": "IQ2_M",
    "key": "bench:agentic_tasks",
-   "raw": "19/40 (47.5 %)"
+   "raw": "79/"
+  },
+  {
+   "repo": "KikoCis/Qwen3.8-27B-GGUF",
+   "entry": "IQ2_M",
+   "key": "bench:agentic_tasks_total",
+   "raw": "/80"
+  },
+  {
+   "repo": "KikoCis/Qwen3.8-27B-GGUF",
+   "entry": "IQ1_M-compact",
+   "key": "bench:agentic_tasks",
+   "raw": "49/"
+  },
+  {
+   "repo": "KikoCis/Qwen3.8-27B-GGUF",
+   "entry": "IQ1_M-compact",
+   "key": "bench:agentic_tasks_total",
+   "raw": "/160"
+  },
+  {
+   "repo": "KikoCis/Qwen3.8-27B-GGUF",
+   "entry": "IQ1_M-compact (llama-server)",
+   "key": "bench:agentic_tasks",
+   "raw": "19/"
+  },
+  {
+   "repo": "KikoCis/Qwen3.8-27B-GGUF",
+   "entry": "IQ1_M-compact (llama-server)",
+   "key": "bench:agentic_tasks_total",
+   "raw": "/40"
+  },
+  {
+   "repo": "KikoCis/Qwen3.8-27B-GGUF",
+   "entry": "IQ1_M (uniform)",
+   "key": "bench:agentic_tasks",
+   "raw": "60/"
+  },
+  {
+   "repo": "KikoCis/Qwen3.8-27B-GGUF",
+   "entry": "IQ1_M (uniform)",
+   "key": "bench:agentic_tasks_total",
+   "raw": "/160"
   },
   {
    "repo": "Launch80/Qwen3.8-27B-PARO-MXFP4",
@@ -3429,66 +3447,6 @@
    "raw": "96.36% (1,271/1,319)"
   },
   {
-   "repo": "Reza2kn/Bev",
-   "entry": "Bev (byte-identical Prism Ternary-Bonsai-2-27B GGUF)",
-   "key": "bench:Jev Choice exact option %",
-   "raw": "95.42"
-  },
-  {
-   "repo": "Reza2kn/Bev",
-   "entry": "Bev (byte-identical Prism Ternary-Bonsai-2-27B GGUF)",
-   "key": "bench:Jev Score within 0.5 levels %",
-   "raw": "87.50"
-  },
-  {
-   "repo": "Reza2kn/Bev",
-   "entry": "Bev (byte-identical Prism Ternary-Bonsai-2-27B GGUF)",
-   "key": "bench:Jev Choice Brier",
-   "raw": "0.067756"
-  },
-  {
-   "repo": "Reza2kn/Bev",
-   "entry": "Bev (byte-identical Prism Ternary-Bonsai-2-27B GGUF)",
-   "key": "bench:Jev Noul Brier",
-   "raw": "0.041239"
-  },
-  {
-   "repo": "Reza2kn/Bev",
-   "entry": "Bev (byte-identical Prism Ternary-Bonsai-2-27B GGUF)",
-   "key": "bench:Jev Score MAE",
-   "raw": "0.191233"
-  },
-  {
-   "repo": "Reza2kn/Bev",
-   "entry": "Published Jev 1.13.0 reference",
-   "key": "bench:Jev Choice exact option %",
-   "raw": "99.58"
-  },
-  {
-   "repo": "Reza2kn/Bev",
-   "entry": "Published Jev 1.13.0 reference",
-   "key": "bench:Jev Score within 0.5 levels %",
-   "raw": "95.00"
-  },
-  {
-   "repo": "Reza2kn/Bev",
-   "entry": "Published Jev 1.13.0 reference",
-   "key": "bench:Jev Choice Brier",
-   "raw": "0.0112"
-  },
-  {
-   "repo": "Reza2kn/Bev",
-   "entry": "Published Jev 1.13.0 reference",
-   "key": "bench:Jev Noul Brier",
-   "raw": "0.0120"
-  },
-  {
-   "repo": "Reza2kn/Bev",
-   "entry": "Published Jev 1.13.0 reference",
-   "key": "bench:Jev Score MAE",
-   "raw": "0.0709"
-  },
-  {
    "repo": "RonnieOps/Qwen3.8-27B-IQ4_XS",
    "entry": "Full-vocab build (Qwen3.8-27B-IQ4_XS-fullvocab-E3.gguf)",
    "key": "bench:Domain harness 59 tasks",
@@ -3577,12 +3535,6 @@
    "entry": "Unsloth UD-IQ4_XS",
    "key": "bench:Ext115_32K_MTP",
    "raw": "91"
-  },
-  {
-   "repo": "RonnieOps/Qwen3.8-27B-uncensored-IQ4_XS",
-   "entry": "BF16 full-file PPL anchor",
-   "key": "ppl",
-   "raw": "6.744"
   },
   {
    "repo": "RukaRat/Qwen3.8-27B-INT8-W8A8-imatrix-MTP",
@@ -4936,12 +4888,6 @@
   },
   {
    "repo": "ThakiCloud/Qwen3.8-27B-NVFP4-FP8ATTN",
-   "entry": "this build + KV FP8",
-   "key": "bench:MMMU-val MC",
-   "raw": "0.9009"
-  },
-  {
-   "repo": "ThakiCloud/Qwen3.8-27B-NVFP4-FP8ATTN",
    "entry": "our pure NVFP4 (MLP only, GPTQ-txt)",
    "key": "bench:GSM8K strict-match",
    "raw": "0.4783"
@@ -5638,27 +5584,9 @@
   },
   {
    "repo": "airagrp/Qwen3.8-27B-iq4-iq6-mlx",
-   "entry": "bf16 reference",
-   "key": "ppl:wikitext2",
-   "raw": "7.0468"
-  },
-  {
-   "repo": "airagrp/Qwen3.8-27B-iq4-iq6-mlx",
-   "entry": "bf16",
-   "key": "bench:MMLU",
-   "raw": "91.0%"
-  },
-  {
-   "repo": "airagrp/Qwen3.8-27B-iq4-iq6-mlx",
    "entry": "bf16",
    "key": "bench:ARC-Challenge",
    "raw": "99.0%"
-  },
-  {
-   "repo": "airagrp/Qwen3.8-27B-iq4-iq6-mlx",
-   "entry": "bf16",
-   "key": "bench:GSM8K",
-   "raw": "97.0%"
   },
   {
    "repo": "airagrp/Qwen3.8-27B-iq4-iq6-mlx",
@@ -5692,27 +5620,9 @@
   },
   {
    "repo": "airagrp/Qwen3.8-27B-iq6-iq8-mlx",
-   "entry": "bf16 reference",
-   "key": "ppl:wikitext2",
-   "raw": "7.0468"
-  },
-  {
-   "repo": "airagrp/Qwen3.8-27B-iq6-iq8-mlx",
-   "entry": "bf16",
-   "key": "bench:MMLU",
-   "raw": "91.0%"
-  },
-  {
-   "repo": "airagrp/Qwen3.8-27B-iq6-iq8-mlx",
    "entry": "bf16",
    "key": "bench:ARC-Challenge",
    "raw": "99.0%"
-  },
-  {
-   "repo": "airagrp/Qwen3.8-27B-iq6-iq8-mlx",
-   "entry": "bf16",
-   "key": "bench:GSM8K",
-   "raw": "97.0%"
   },
   {
    "repo": "airagrp/Qwen3.8-27B-iq6-iq8-mlx",
@@ -6028,51 +5938,9 @@
   },
   {
    "repo": "andrew-paul/Qwen3.8-27B-GGUF",
-   "entry": "KERN-eqQ4",
-   "key": "bench:28Q",
-   "raw": "90.48%"
-  },
-  {
-   "repo": "andrew-paul/Qwen3.8-27B-GGUF",
-   "entry": "KERN-eqQ3_M",
-   "key": "bench:28Q",
-   "raw": "85.71%"
-  },
-  {
-   "repo": "andrew-paul/Qwen3.8-27B-GGUF",
-   "entry": "KERN-eqQ3_S",
-   "key": "bench:28Q",
-   "raw": "71.43%"
-  },
-  {
-   "repo": "andrew-paul/Qwen3.8-27B-GGUF",
-   "entry": "KERN-eqIQ2_M",
-   "key": "bench:28Q",
-   "raw": "80.95%"
-  },
-  {
-   "repo": "andrew-paul/Qwen3.8-27B-GGUF",
    "entry": "BF16",
    "key": "bench:28Q",
    "raw": "100.00%"
-  },
-  {
-   "repo": "andrew-paul/Qwen3.8-27B-GGUF",
-   "entry": "Stock Q4_K_M",
-   "key": "bench:28Q",
-   "raw": "85.71%"
-  },
-  {
-   "repo": "andrew-paul/Qwen3.8-27B-GGUF",
-   "entry": "Stock Q3_K_S",
-   "key": "bench:28Q",
-   "raw": "80.95%"
-  },
-  {
-   "repo": "andrew-paul/Qwen3.8-27B-GGUF",
-   "entry": "Stock IQ2_M",
-   "key": "bench:28Q",
-   "raw": "85.71%"
   },
   {
    "repo": "anemll/anemll-quantized-qwen3.8-27b-for-CoreAI",
@@ -7493,12 +7361,6 @@
   {
    "repo": "finalvent/OddEye-0.1-27B-NVFP4",
    "entry": "Original (BF16)",
-   "key": "bench:ReferenceFactsCaptured",
-   "raw": "0.54"
-  },
-  {
-   "repo": "finalvent/OddEye-0.1-27B-NVFP4",
-   "entry": "Original (BF16)",
    "key": "bench:ReferenceFactsContradictedPct",
    "raw": "9.3%"
   },
@@ -7507,12 +7369,6 @@
    "entry": "Original (BF16)",
    "key": "bench:OverconfidentPerPhoto",
    "raw": "0.70"
-  },
-  {
-   "repo": "finalvent/OddEye-0.1-27B-NVFP4",
-   "entry": "Original (BF16)",
-   "key": "bench:ClearErrorsPerPhoto",
-   "raw": "0.35"
   },
   {
    "repo": "finalvent/OddEye-0.1-27B-NVFP4",
@@ -7699,18 +7555,6 @@
    "entry": "Q8.5",
    "key": "bench:Missed Divergence",
    "raw": "9.92%"
-  },
-  {
-   "repo": "inferencerlabs/Qwen3.8-27B-MLX-Q9",
-   "entry": "Base",
-   "key": "ppl",
-   "raw": "1.20312"
-  },
-  {
-   "repo": "inferencerlabs/Qwen3.8-27B-MLX-Q9",
-   "entry": "Base",
-   "key": "top1_pct",
-   "raw": "100%"
   },
   {
    "repo": "inferencerlabs/Qwen3.8-27B-MLX-Q9",
@@ -8029,54 +7873,6 @@
    "entry": "original (unmodified base)",
    "key": "bench:GSM8K",
    "raw": "0.76"
-  },
-  {
-   "repo": "johnnyeric/Qwen3.8-27B-Uncensored-NVFP4",
-   "entry": "Qwen3.8-27B-Uncensored-FP8 (sibling)",
-   "key": "bench:MMLU",
-   "raw": "84.7"
-  },
-  {
-   "repo": "johnnyeric/Qwen3.8-27B-Uncensored-NVFP4",
-   "entry": "Qwen3.8-27B-Uncensored-FP8 (sibling)",
-   "key": "bench:MMLU-Pro",
-   "raw": "76.8"
-  },
-  {
-   "repo": "johnnyeric/Qwen3.8-27B-Uncensored-NVFP4",
-   "entry": "Qwen3.8-27B-Uncensored-FP8 (sibling)",
-   "key": "bench:GSM8K",
-   "raw": "88.7"
-  },
-  {
-   "repo": "johnnyeric/Qwen3.8-27B-Uncensored-NVFP4",
-   "entry": "Qwen3.8-27B-Uncensored-FP8 (sibling)",
-   "key": "bench:CMMLU",
-   "raw": "80.8"
-  },
-  {
-   "repo": "johnnyeric/Qwen3.8-27B-Uncensored-NVFP4",
-   "entry": "base Qwen3.8-27B (as quoted)",
-   "key": "bench:MMLU",
-   "raw": "84.3"
-  },
-  {
-   "repo": "johnnyeric/Qwen3.8-27B-Uncensored-NVFP4",
-   "entry": "base Qwen3.8-27B (as quoted)",
-   "key": "bench:MMLU-Pro",
-   "raw": "77.6"
-  },
-  {
-   "repo": "johnnyeric/Qwen3.8-27B-Uncensored-NVFP4",
-   "entry": "base Qwen3.8-27B (as quoted)",
-   "key": "bench:GSM8K",
-   "raw": "90.0"
-  },
-  {
-   "repo": "johnnyeric/Qwen3.8-27B-Uncensored-NVFP4",
-   "entry": "base Qwen3.8-27B (as quoted)",
-   "key": "bench:CMMLU",
-   "raw": "81.4"
   },
   {
    "repo": "juzbox/Qwen3.8-27B-NVFP4-GDN",
@@ -8433,54 +8229,6 @@
    "raw": "76.3%"
   },
   {
-   "repo": "lribeiro/Qwen3.8-27B-FP8-Pessoa",
-   "entry": "ModelOpt best FP8 (weight-only)",
-   "key": "mean_kld",
-   "raw": "0.01265"
-  },
-  {
-   "repo": "lribeiro/Qwen3.8-27B-FP8-Pessoa",
-   "entry": "GPTQ best FP8 (weight-only)",
-   "key": "mean_kld",
-   "raw": "0.00556"
-  },
-  {
-   "repo": "lribeiro/Qwen3.8-27B-FP8-Pessoa",
-   "entry": "ModelOpt best FP8 (W8A8 mixed)",
-   "key": "mean_kld",
-   "raw": "0.01725"
-  },
-  {
-   "repo": "lribeiro/Qwen3.8-27B-FP8-Pessoa",
-   "entry": "GPTQ best FP8 (W8A8 mixed)",
-   "key": "mean_kld",
-   "raw": "0.01016"
-  },
-  {
-   "repo": "lribeiro/Qwen3.8-27B-FP8-Pessoa",
-   "entry": "ModelOpt best MXFP8 (weight-only)",
-   "key": "mean_kld",
-   "raw": "0.01265"
-  },
-  {
-   "repo": "lribeiro/Qwen3.8-27B-FP8-Pessoa",
-   "entry": "GPTQ best MXFP8 (weight-only)",
-   "key": "mean_kld",
-   "raw": "0.01072"
-  },
-  {
-   "repo": "lribeiro/Qwen3.8-27B-FP8-Pessoa",
-   "entry": "ModelOpt best NVFP4 (mixed)",
-   "key": "mean_kld",
-   "raw": "0.35026"
-  },
-  {
-   "repo": "lribeiro/Qwen3.8-27B-FP8-Pessoa",
-   "entry": "GPTQ best NVFP4 (mixed)",
-   "key": "mean_kld",
-   "raw": "0.01087"
-  },
-  {
    "repo": "lued/Qwen3.8-27B-INT8-W8A16-MTP",
    "entry": "This W8 / BF16 A16 (INT8 symmetric, groups of 128)",
    "key": "kld:long_context_probe",
@@ -8781,54 +8529,6 @@
    "raw": "0.011211"
   },
   {
-   "repo": "nchapman/Qwen3.8-27B-W4A16-GPTQ",
-   "entry": "W4A16 GPTQ (llm-compressor)",
-   "key": "ppl_delta_pct",
-   "raw": "+1.00"
-  },
-  {
-   "repo": "nchapman/Qwen3.8-27B-W4A16-GPTQ",
-   "entry": "W4A16 GPTQ (llm-compressor)",
-   "key": "ppl_delta_pct:guard_ood",
-   "raw": "-0.52%"
-  },
-  {
-   "repo": "nchapman/Qwen3.8-27B-W4A16-GPTQ",
-   "entry": "W4A16 GPTQ (llm-compressor)",
-   "key": "kld:chat",
-   "raw": "0.033"
-  },
-  {
-   "repo": "nchapman/Qwen3.8-27B-W4A16-GPTQ",
-   "entry": "W4A16 GPTQ (llm-compressor)",
-   "key": "kld:instruction_following",
-   "raw": "0.053"
-  },
-  {
-   "repo": "nchapman/Qwen3.8-27B-W4A16-GPTQ",
-   "entry": "W4A16 GPTQ (llm-compressor)",
-   "key": "kld:math",
-   "raw": "0.098"
-  },
-  {
-   "repo": "nchapman/Qwen3.8-27B-W4A16-GPTQ",
-   "entry": "W4A16 GPTQ (llm-compressor)",
-   "key": "kld:science",
-   "raw": "0.097"
-  },
-  {
-   "repo": "nchapman/Qwen3.8-27B-W4A16-GPTQ",
-   "entry": "W4A16 GPTQ (llm-compressor)",
-   "key": "kld:multilingual",
-   "raw": "0.109"
-  },
-  {
-   "repo": "nchapman/Qwen3.8-27B-W4A16-GPTQ",
-   "entry": "W4A16 GPTQ (llm-compressor)",
-   "key": "kld:terminal_agent",
-   "raw": "0.486"
-  },
-  {
    "repo": "nerkyor/Qwen3.8-27B-Uncensored-Heretic-T10-BF16",
    "entry": "Frozen Q8_0 results",
    "key": "bench:LCB100",
@@ -8947,6 +8647,60 @@
    "entry": "SWE-bench Verified / Terminal-Bench 2.1 (OrcaSAQ2)",
    "key": "bench:Terminal-Bench 2.1",
    "raw": "58.4"
+  },
+  {
+   "repo": "oroboros-labs/claude-opus-9-undecillion-v",
+   "entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf",
+   "key": "bench:math",
+   "raw": "45/"
+  },
+  {
+   "repo": "oroboros-labs/claude-opus-9-undecillion-v",
+   "entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf",
+   "key": "bench:math_total",
+   "raw": "/50"
+  },
+  {
+   "repo": "oroboros-labs/claude-opus-9-undecillion-v",
+   "entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf",
+   "key": "bench:math_agent",
+   "raw": "45/"
+  },
+  {
+   "repo": "oroboros-labs/claude-opus-9-undecillion-v",
+   "entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf",
+   "key": "bench:math_agent_total",
+   "raw": "/50"
+  },
+  {
+   "repo": "oroboros-labs/claude-opus-9-undecillion-v",
+   "entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf",
+   "key": "bench:controls",
+   "raw": "19/"
+  },
+  {
+   "repo": "oroboros-labs/claude-opus-9-undecillion-v",
+   "entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf",
+   "key": "bench:controls_total",
+   "raw": "/20"
+  },
+  {
+   "repo": "oroboros-labs/claude-opus-9-undecillion-v",
+   "entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf",
+   "key": "bench:controls_agent",
+   "raw": "20/"
+  },
+  {
+   "repo": "oroboros-labs/claude-opus-9-undecillion-v",
+   "entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf",
+   "key": "bench:controls_agent_total",
+   "raw": "/20"
+  },
+  {
+   "repo": "oroboros-labs/claude-opus-9-undecillion-v",
+   "entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf",
+   "key": "bench:guard_refusal_rate",
+   "raw": "1.00"
   },
   {
    "repo": "oshiteku/Sanshoku-Qwen3.8-27B-GGUF",
@@ -9229,72 +8983,6 @@
    "entry": "EXL3 4.00 bpw",
    "key": "bench:Q200v2 ifeval",
    "raw": "ifeval 84.62 %"
-  },
-  {
-   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
-   "entry": "mixed 3.5bpw",
-   "key": "bench:MMLU-Pro",
-   "raw": "61.0"
-  },
-  {
-   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
-   "entry": "mixed 3.5bpw",
-   "key": "bench:GSM8K",
-   "raw": "94.7"
-  },
-  {
-   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
-   "entry": "mixed 3.5bpw",
-   "key": "bench:HumanEval+",
-   "raw": "80.0"
-  },
-  {
-   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
-   "entry": "mixed 3.5bpw",
-   "key": "bench:MMBench-EN",
-   "raw": "86.7"
-  },
-  {
-   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
-   "entry": "4-bit",
-   "key": "bench:MMLU-Pro",
-   "raw": "60.8"
-  },
-  {
-   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
-   "entry": "4-bit",
-   "key": "bench:GSM8K",
-   "raw": "95.3"
-  },
-  {
-   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
-   "entry": "4-bit",
-   "key": "bench:HumanEval+",
-   "raw": "77.5"
-  },
-  {
-   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
-   "entry": "4-bit",
-   "key": "bench:MMBench-EN",
-   "raw": "90.3"
-  },
-  {
-   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
-   "entry": "uniform 3-bit",
-   "key": "bench:MMLU-Pro",
-   "raw": "54.2"
-  },
-  {
-   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
-   "entry": "uniform 3-bit",
-   "key": "bench:GSM8K",
-   "raw": "92.7"
-  },
-  {
-   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
-   "entry": "uniform 3-bit",
-   "key": "bench:MMBench-EN",
-   "raw": "87.3"
   },
   {
    "repo": "rdtand/Qwen3.8-27B-PrismaAQUA-5.5bit-vllm",
@@ -9958,12 +9646,6 @@
   },
   {
    "repo": "varshavvvvv/Ternary-CyberX-2-27B-gguf",
-   "entry": "Ternary Bonsai 27B (previous release)",
-   "key": "bench:Average(14)",
-   "raw": "80.98"
-  },
-  {
-   "repo": "varshavvvvv/Ternary-CyberX-2-27B-gguf",
    "entry": "Qwen3.8-27B UD-Q4_K_XL",
    "key": "bench:Average(14)",
    "raw": "85.18"
@@ -10515,34 +10197,148 @@
    "raw": "78.0"
   },
   {
-   "repo": "lackonendes/PAW-27B-X3-GGUF",
-   "entry": "B1.0 (uniform K1, not shipped)",
-   "key": "bench:MMLU-Pro",
-   "raw": "0.0%"
+   "repo": "airagrp/Qwen3.8-27B-iq6-iq8-mlx",
+   "entry": "this (M)",
+   "key": "bench:MMLU",
+   "raw": "91.0%"
   },
   {
-   "repo": "lackonendes/PAW-27B-X3-GGUF",
-   "entry": "B1.0 (uniform K1, not shipped)",
-   "key": "bench:MBPP",
-   "raw": "11.6"
+   "repo": "airagrp/Qwen3.8-27B-iq6-iq8-mlx",
+   "entry": "this (M)",
+   "key": "bench:GSM8K",
+   "raw": "97.0%"
   },
   {
-   "repo": "lackonendes/PAW-27B-X3-GGUF",
-   "entry": "B1.0 (uniform K1, not shipped)",
-   "key": "bench:MBPP+",
-   "raw": "10.1"
+   "repo": "airagrp/Qwen3.8-27B-iq6-iq8-mlx",
+   "entry": "this (M)",
+   "key": "bench:MMLU",
+   "raw": "91.0%"
+  },
+  {
+   "repo": "airagrp/Qwen3.8-27B-iq6-iq8-mlx",
+   "entry": "this (M)",
+   "key": "bench:GSM8K",
+   "raw": "97.0%"
+  },
+  {
+   "repo": "airagrp/Qwen3.8-27B-iq6-iq8-mlx",
+   "entry": "Qwen3.8-27B-iq4-iq6-mlx (S)",
+   "key": "bench:MMLU",
+   "raw": "89.0%"
+  },
+  {
+   "repo": "airagrp/Qwen3.8-27B-iq6-iq8-mlx",
+   "entry": "Qwen3.8-27B-iq4-iq6-mlx (S)",
+   "key": "bench:GSM8K",
+   "raw": "97.0%"
+  },
+  {
+   "repo": "airagrp/Qwen3.8-27B-iq6-iq8-mlx",
+   "entry": "Qwen3.8-27B-iq4-iq6-mlx (S)",
+   "key": "bench:MMLU",
+   "raw": "89.0%"
+  },
+  {
+   "repo": "airagrp/Qwen3.8-27B-iq6-iq8-mlx",
+   "entry": "Qwen3.8-27B-iq4-iq6-mlx (S)",
+   "key": "bench:GSM8K",
+   "raw": "97.0%"
+  },
+  {
+   "repo": "vrfai/Qwen3.8-27B-NVFP4",
+   "entry": "Qwen3.8-27B bf16 (author-measured reference)",
+   "key": "bench:ERQA",
+   "raw": "65.00"
   },
   {
    "repo": "malaiwah/Qwen3.8-27B-EXL3-K5K6-hydrated",
-   "entry": "GGUF Q8_0 WikiText-2 (their protocol)",
+   "entry": "GGUF Q6_K WikiText-2 (their protocol)",
    "key": "kld:wikitext2",
-   "raw": "0.000926 \u00b1 0.000042"
+   "raw": "0.002286 \u00b1 0.000108"
   },
   {
    "repo": "malaiwah/Qwen3.8-27B-EXL3-K5K6-hydrated",
-   "entry": "GGUF Q8_0 WikiText-2 (their protocol)",
+   "entry": "GGUF Q6_K WikiText-2 (their protocol)",
    "key": "top1:wikitext2",
-   "raw": "98.761 %"
+   "raw": "97.875 %"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
+   "entry": "affine q4 (ours)",
+   "key": "kl_mnats:prose",
+   "raw": "67.4"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
+   "entry": "affine q4 (ours)",
+   "key": "kl_mnats:code",
+   "raw": "23.2"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
+   "entry": "affine q4 (ours)",
+   "key": "kl_mnats:literary",
+   "raw": "314.3"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
+   "entry": "affine q4 (ours)",
+   "key": "mean_kl_mnats",
+   "raw": "135.0"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
+   "entry": "affine q4 (ours)",
+   "key": "top1_pct",
+   "raw": "90.5%"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
+   "entry": "affine q8 (ours)",
+   "key": "kl_mnats:prose",
+   "raw": "3.2"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
+   "entry": "affine q8 (ours)",
+   "key": "kl_mnats:code",
+   "raw": "0.6"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
+   "entry": "affine q8 (ours)",
+   "key": "kl_mnats:literary",
+   "raw": "4.9"
+  },
+  {
+   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
+   "entry": "affine q8 (ours)",
+   "key": "mean_kl_mnats",
+   "raw": "2.9"
+  },
+  {
+   "repo": "airagrp/Qwen3.8-27B-iq4-iq6-mlx",
+   "entry": "Qwen3.8-27B-iq6-iq8-mlx (M)",
+   "key": "bench:MMLU",
+   "raw": "91.0%"
+  },
+  {
+   "repo": "airagrp/Qwen3.8-27B-iq4-iq6-mlx",
+   "entry": "Qwen3.8-27B-iq6-iq8-mlx (M)",
+   "key": "bench:GSM8K",
+   "raw": "97.0%"
+  },
+  {
+   "repo": "airagrp/Qwen3.8-27B-iq4-iq6-mlx",
+   "entry": "Qwen3.8-27B-iq6-iq8-mlx (M)",
+   "key": "bench:MMLU",
+   "raw": "91.0%"
+  },
+  {
+   "repo": "airagrp/Qwen3.8-27B-iq4-iq6-mlx",
+   "entry": "Qwen3.8-27B-iq6-iq8-mlx (M)",
+   "key": "bench:GSM8K",
+   "raw": "97.0%"
   },
   {
    "repo": "acyildirimer/Qwen3.8-27B-AutoQuant-NVFP4-FP8-5bit",
@@ -10581,54 +10377,6 @@
    "raw": "93.2"
   },
   {
-   "repo": "vrfai/Qwen3.8-27B-NVFP4",
-   "entry": "Qwen3.8-27B bf16 (author-measured reference)",
-   "key": "bench:ERQA",
-   "raw": "65.00"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
-   "entry": "affine q4 (ours)",
-   "key": "kl_mnats:prose",
-   "raw": "67.4"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
-   "entry": "affine q4 (ours)",
-   "key": "kl_mnats:code",
-   "raw": "23.2"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
-   "entry": "affine q4 (ours)",
-   "key": "kl_mnats:literary",
-   "raw": "314.3"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
-   "entry": "affine q4 (ours)",
-   "key": "mean_kl_mnats",
-   "raw": "135.0"
-  },
-  {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
-   "entry": "affine q4 (ours)",
-   "key": "top1_pct",
-   "raw": "90.5%"
-  },
-  {
-   "repo": "malaiwah/Qwen3.8-27B-EXL3-K5K6-hydrated",
-   "entry": "GGUF Q6_K WikiText-2 (their protocol)",
-   "key": "kld:wikitext2",
-   "raw": "0.002286 \u00b1 0.000108"
-  },
-  {
-   "repo": "malaiwah/Qwen3.8-27B-EXL3-K5K6-hydrated",
-   "entry": "GGUF Q6_K WikiText-2 (their protocol)",
-   "key": "top1:wikitext2",
-   "raw": "97.875 %"
-  },
-  {
    "repo": "malaiwah/Qwen3.8-27B-EXL3-K5K6-hydrated",
    "entry": "GGUF UD-Q5_K_XL WikiText-2 (their protocol)",
    "key": "kld:wikitext2",
@@ -10641,33 +10389,87 @@
    "raw": "97.178 %"
   },
   {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
-   "entry": "affine q8 (ours)",
-   "key": "kl_mnats:prose",
-   "raw": "3.2"
+   "repo": "airagrp/Qwen3.8-27B-iq4-iq6-mlx",
+   "entry": "this (S)",
+   "key": "bench:MMLU",
+   "raw": "89.0%"
   },
   {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
-   "entry": "affine q8 (ours)",
-   "key": "kl_mnats:code",
-   "raw": "0.6"
+   "repo": "airagrp/Qwen3.8-27B-iq4-iq6-mlx",
+   "entry": "this (S)",
+   "key": "bench:GSM8K",
+   "raw": "97.0%"
   },
   {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
-   "entry": "affine q8 (ours)",
-   "key": "kl_mnats:literary",
-   "raw": "4.9"
+   "repo": "airagrp/Qwen3.8-27B-iq4-iq6-mlx",
+   "entry": "this (S)",
+   "key": "bench:MMLU",
+   "raw": "89.0%"
   },
   {
-   "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
-   "entry": "affine q8 (ours)",
-   "key": "mean_kl_mnats",
-   "raw": "2.9"
+   "repo": "airagrp/Qwen3.8-27B-iq4-iq6-mlx",
+   "entry": "this (S)",
+   "key": "bench:GSM8K",
+   "raw": "97.0%"
+  },
+  {
+   "repo": "lackonendes/PAW-27B-X3-GGUF",
+   "entry": "B1.0 (uniform K1, not shipped)",
+   "key": "bench:MMLU-Pro",
+   "raw": "0.0%"
+  },
+  {
+   "repo": "lackonendes/PAW-27B-X3-GGUF",
+   "entry": "B1.0 (uniform K1, not shipped)",
+   "key": "bench:MBPP",
+   "raw": "11.6"
+  },
+  {
+   "repo": "lackonendes/PAW-27B-X3-GGUF",
+   "entry": "B1.0 (uniform K1, not shipped)",
+   "key": "bench:MBPP+",
+   "raw": "10.1"
+  },
+  {
+   "repo": "malaiwah/Qwen3.8-27B-EXL3-K5K6-hydrated",
+   "entry": "GGUF Q8_0 WikiText-2 (their protocol)",
+   "key": "kld:wikitext2",
+   "raw": "0.000926 \u00b1 0.000042"
+  },
+  {
+   "repo": "malaiwah/Qwen3.8-27B-EXL3-K5K6-hydrated",
+   "entry": "GGUF Q8_0 WikiText-2 (their protocol)",
+   "key": "top1:wikitext2",
+   "raw": "98.761 %"
   }
  ],
  "resolved_disagreements": [],
  "resolved_repos": 0,
  "tiebroken": [
+  {
+   "repo": "AveLabs/Qwen3.8-27B-Perplexing-Pegasus-NVFP4",
+   "entry": "Perplexing-Pegasus NVFP4 (chat)",
+   "key": "bench:IFEval-prompt-strict",
+   "raw": "85.2"
+  },
+  {
+   "repo": "AveLabs/Qwen3.8-27B-Perplexing-Pegasus-NVFP4",
+   "entry": "Perplexing-Pegasus NVFP4 (chat)",
+   "key": "bench:IFEval-prompt-loose",
+   "raw": "87.6"
+  },
+  {
+   "repo": "AveLabs/Qwen3.8-27B-Perplexing-Pegasus-NVFP4",
+   "entry": "Stock Qwen3.8-27B NVFP4 (chat)",
+   "key": "bench:IFEval-prompt-strict",
+   "raw": "84.3"
+  },
+  {
+   "repo": "AveLabs/Qwen3.8-27B-Perplexing-Pegasus-NVFP4",
+   "entry": "Stock Qwen3.8-27B NVFP4 (chat)",
+   "key": "bench:IFEval-prompt-loose",
+   "raw": "87.3"
+  },
   {
    "repo": "BoldingBuilds/Qwen3.8-27B-Abliterated-ThinkFix-GGUF",
    "entry": "Q4_K_M (main file)",
@@ -10711,6 +10513,18 @@
    "raw": "154"
   },
   {
+   "repo": "Bucoid/Qwen3.8-27B-IQ4-XS-MTP-16GB-VRAM-GGUF",
+   "entry": "IQ4_XS",
+   "key": "kld_99",
+   "raw": "1.134"
+  },
+  {
+   "repo": "Bucoid/Qwen3.8-27B-IQ4-XS-MTP-16GB-VRAM-GGUF",
+   "entry": "UD_IQ3_K_XL",
+   "key": "kld_99",
+   "raw": "1.219"
+  },
+  {
    "repo": "EschaLabs/Qwen3.8-27B-Escha-W2",
    "entry": "Escha-W2",
    "key": "bench:arc_c",
@@ -10745,6 +10559,84 @@
    "entry": "NVFP4 (FP8-protected release)",
    "key": "bench:ai2d_no_mask",
    "raw": "84.27"
+  },
+  {
+   "repo": "KikoCis/Qwen3.8-27B-GGUF",
+   "entry": "Qwen3.8-27B-Q3_K_M.gguf",
+   "key": "bench:agentic_tasks",
+   "raw": "40"
+  },
+  {
+   "repo": "KikoCis/Qwen3.8-27B-GGUF",
+   "entry": "Qwen3.8-27B-IQ2_XS.gguf",
+   "key": "bench:agentic_tasks",
+   "raw": "72"
+  },
+  {
+   "repo": "Reza2kn/Bev",
+   "entry": "Bev (byte-identical Prism Ternary-Bonsai-2-27B GGUF)",
+   "key": "bench:Jev Choice exact option %",
+   "raw": "95.42"
+  },
+  {
+   "repo": "Reza2kn/Bev",
+   "entry": "Bev (byte-identical Prism Ternary-Bonsai-2-27B GGUF)",
+   "key": "bench:Jev Score within 0.5 levels %",
+   "raw": "87.50"
+  },
+  {
+   "repo": "Reza2kn/Bev",
+   "entry": "Bev (byte-identical Prism Ternary-Bonsai-2-27B GGUF)",
+   "key": "bench:Jev Choice Brier",
+   "raw": "0.067756"
+  },
+  {
+   "repo": "Reza2kn/Bev",
+   "entry": "Bev (byte-identical Prism Ternary-Bonsai-2-27B GGUF)",
+   "key": "bench:Jev Noul Brier",
+   "raw": "0.041239"
+  },
+  {
+   "repo": "Reza2kn/Bev",
+   "entry": "Bev (byte-identical Prism Ternary-Bonsai-2-27B GGUF)",
+   "key": "bench:Jev Score MAE",
+   "raw": "0.191233"
+  },
+  {
+   "repo": "Reza2kn/Bev",
+   "entry": "Published Jev 1.13.0 reference",
+   "key": "bench:Jev Choice exact option %",
+   "raw": "99.58"
+  },
+  {
+   "repo": "Reza2kn/Bev",
+   "entry": "Published Jev 1.13.0 reference",
+   "key": "bench:Jev Score within 0.5 levels %",
+   "raw": "95.00"
+  },
+  {
+   "repo": "Reza2kn/Bev",
+   "entry": "Published Jev 1.13.0 reference",
+   "key": "bench:Jev Choice Brier",
+   "raw": "0.0112"
+  },
+  {
+   "repo": "Reza2kn/Bev",
+   "entry": "Published Jev 1.13.0 reference",
+   "key": "bench:Jev Noul Brier",
+   "raw": "0.0120"
+  },
+  {
+   "repo": "Reza2kn/Bev",
+   "entry": "Published Jev 1.13.0 reference",
+   "key": "bench:Jev Score MAE",
+   "raw": "0.0709"
+  },
+  {
+   "repo": "RonnieOps/Qwen3.8-27B-uncensored-IQ4_XS",
+   "entry": "BF16 full-file PPL anchor",
+   "key": "ppl",
+   "raw": "6.744"
   },
   {
    "repo": "RukaRat/Qwen3.8-27B-W4A16-imatrix-heretic-int8head-MTP",
@@ -10835,6 +10727,12 @@
    "entry": "unsloth/Qwen3.8-27B-NVFP4",
    "key": "bench:divmed",
    "raw": "19"
+  },
+  {
+   "repo": "ThakiCloud/Qwen3.8-27B-NVFP4-FP8ATTN",
+   "entry": "this build + KV FP8",
+   "key": "bench:MMMU-val MC",
+   "raw": "0.9009"
   },
   {
    "repo": "TheDrainFlorist/Qwen3.8-27B-VQ-3.9bpw",
@@ -11155,6 +11053,84 @@
    "raw": "93.3"
   },
   {
+   "repo": "airagrp/Qwen3.8-27B-iq4-iq6-mlx",
+   "entry": "bf16 reference",
+   "key": "ppl:wikitext2",
+   "raw": "7.0468"
+  },
+  {
+   "repo": "airagrp/Qwen3.8-27B-iq4-iq6-mlx",
+   "entry": "bf16",
+   "key": "bench:MMLU",
+   "raw": "91.0%"
+  },
+  {
+   "repo": "airagrp/Qwen3.8-27B-iq4-iq6-mlx",
+   "entry": "bf16",
+   "key": "bench:GSM8K",
+   "raw": "97.0%"
+  },
+  {
+   "repo": "airagrp/Qwen3.8-27B-iq6-iq8-mlx",
+   "entry": "bf16 reference",
+   "key": "ppl:wikitext2",
+   "raw": "7.0468"
+  },
+  {
+   "repo": "airagrp/Qwen3.8-27B-iq6-iq8-mlx",
+   "entry": "bf16",
+   "key": "bench:MMLU",
+   "raw": "91.0%"
+  },
+  {
+   "repo": "airagrp/Qwen3.8-27B-iq6-iq8-mlx",
+   "entry": "bf16",
+   "key": "bench:GSM8K",
+   "raw": "97.0%"
+  },
+  {
+   "repo": "andrew-paul/Qwen3.8-27B-GGUF",
+   "entry": "KERN-eqQ4",
+   "key": "bench:28Q",
+   "raw": "90.48%"
+  },
+  {
+   "repo": "andrew-paul/Qwen3.8-27B-GGUF",
+   "entry": "KERN-eqQ3_M",
+   "key": "bench:28Q",
+   "raw": "85.71%"
+  },
+  {
+   "repo": "andrew-paul/Qwen3.8-27B-GGUF",
+   "entry": "KERN-eqQ3_S",
+   "key": "bench:28Q",
+   "raw": "71.43%"
+  },
+  {
+   "repo": "andrew-paul/Qwen3.8-27B-GGUF",
+   "entry": "KERN-eqIQ2_M",
+   "key": "bench:28Q",
+   "raw": "80.95%"
+  },
+  {
+   "repo": "andrew-paul/Qwen3.8-27B-GGUF",
+   "entry": "Stock Q4_K_M",
+   "key": "bench:28Q",
+   "raw": "85.71%"
+  },
+  {
+   "repo": "andrew-paul/Qwen3.8-27B-GGUF",
+   "entry": "Stock Q3_K_S",
+   "key": "bench:28Q",
+   "raw": "80.95%"
+  },
+  {
+   "repo": "andrew-paul/Qwen3.8-27B-GGUF",
+   "entry": "Stock IQ2_M",
+   "key": "bench:28Q",
+   "raw": "85.71%"
+  },
+  {
    "repo": "axuhongbo/ALM-V1.0",
    "entry": "ALM-V1.0",
    "key": "bench:Composite Score",
@@ -11197,6 +11173,18 @@
    "raw": "52.18 \u5206"
   },
   {
+   "repo": "finalvent/OddEye-0.1-27B-NVFP4",
+   "entry": "Original (BF16)",
+   "key": "bench:ReferenceFactsCaptured",
+   "raw": "0.54"
+  },
+  {
+   "repo": "finalvent/OddEye-0.1-27B-NVFP4",
+   "entry": "Original (BF16)",
+   "key": "bench:ClearErrorsPerPhoto",
+   "raw": "0.35"
+  },
+  {
    "repo": "greghavens/Qwen3.8-27B-bnb-4bit",
    "entry": "NF4 (this repo, bf16 vision tower)",
    "key": "bench:IFEval-instruction-strict",
@@ -11207,6 +11195,18 @@
    "entry": "NF4 (this repo, bf16 vision tower)",
    "key": "bench:IFEval-instruction-loose",
    "raw": "0.8933"
+  },
+  {
+   "repo": "inferencerlabs/Qwen3.8-27B-MLX-Q9",
+   "entry": "Base",
+   "key": "ppl",
+   "raw": "1.20312"
+  },
+  {
+   "repo": "inferencerlabs/Qwen3.8-27B-MLX-Q9",
+   "entry": "Base",
+   "key": "top1_pct",
+   "raw": "100%"
   },
   {
    "repo": "jenerallee78/Qwen3.8-27B-Abliterated-SFT",
@@ -11257,6 +11257,102 @@
    "raw": "0.750"
   },
   {
+   "repo": "johnnyeric/Qwen3.8-27B-Uncensored-NVFP4",
+   "entry": "Qwen3.8-27B-Uncensored-FP8 (sibling)",
+   "key": "bench:MMLU",
+   "raw": "84.7"
+  },
+  {
+   "repo": "johnnyeric/Qwen3.8-27B-Uncensored-NVFP4",
+   "entry": "Qwen3.8-27B-Uncensored-FP8 (sibling)",
+   "key": "bench:MMLU-Pro",
+   "raw": "76.8"
+  },
+  {
+   "repo": "johnnyeric/Qwen3.8-27B-Uncensored-NVFP4",
+   "entry": "Qwen3.8-27B-Uncensored-FP8 (sibling)",
+   "key": "bench:GSM8K",
+   "raw": "88.7"
+  },
+  {
+   "repo": "johnnyeric/Qwen3.8-27B-Uncensored-NVFP4",
+   "entry": "Qwen3.8-27B-Uncensored-FP8 (sibling)",
+   "key": "bench:CMMLU",
+   "raw": "80.8"
+  },
+  {
+   "repo": "johnnyeric/Qwen3.8-27B-Uncensored-NVFP4",
+   "entry": "base Qwen3.8-27B (as quoted)",
+   "key": "bench:MMLU",
+   "raw": "84.3"
+  },
+  {
+   "repo": "johnnyeric/Qwen3.8-27B-Uncensored-NVFP4",
+   "entry": "base Qwen3.8-27B (as quoted)",
+   "key": "bench:MMLU-Pro",
+   "raw": "77.6"
+  },
+  {
+   "repo": "johnnyeric/Qwen3.8-27B-Uncensored-NVFP4",
+   "entry": "base Qwen3.8-27B (as quoted)",
+   "key": "bench:GSM8K",
+   "raw": "90.0"
+  },
+  {
+   "repo": "johnnyeric/Qwen3.8-27B-Uncensored-NVFP4",
+   "entry": "base Qwen3.8-27B (as quoted)",
+   "key": "bench:CMMLU",
+   "raw": "81.4"
+  },
+  {
+   "repo": "lribeiro/Qwen3.8-27B-FP8-Pessoa",
+   "entry": "ModelOpt best FP8 (weight-only)",
+   "key": "mean_kld",
+   "raw": "0.01265"
+  },
+  {
+   "repo": "lribeiro/Qwen3.8-27B-FP8-Pessoa",
+   "entry": "GPTQ best FP8 (weight-only)",
+   "key": "mean_kld",
+   "raw": "0.00556"
+  },
+  {
+   "repo": "lribeiro/Qwen3.8-27B-FP8-Pessoa",
+   "entry": "ModelOpt best FP8 (W8A8 mixed)",
+   "key": "mean_kld",
+   "raw": "0.01725"
+  },
+  {
+   "repo": "lribeiro/Qwen3.8-27B-FP8-Pessoa",
+   "entry": "GPTQ best FP8 (W8A8 mixed)",
+   "key": "mean_kld",
+   "raw": "0.01016"
+  },
+  {
+   "repo": "lribeiro/Qwen3.8-27B-FP8-Pessoa",
+   "entry": "ModelOpt best MXFP8 (weight-only)",
+   "key": "mean_kld",
+   "raw": "0.01265"
+  },
+  {
+   "repo": "lribeiro/Qwen3.8-27B-FP8-Pessoa",
+   "entry": "GPTQ best MXFP8 (weight-only)",
+   "key": "mean_kld",
+   "raw": "0.01072"
+  },
+  {
+   "repo": "lribeiro/Qwen3.8-27B-FP8-Pessoa",
+   "entry": "ModelOpt best NVFP4 (mixed)",
+   "key": "mean_kld",
+   "raw": "0.35026"
+  },
+  {
+   "repo": "lribeiro/Qwen3.8-27B-FP8-Pessoa",
+   "entry": "GPTQ best NVFP4 (mixed)",
+   "key": "mean_kld",
+   "raw": "0.01087"
+  },
+  {
    "repo": "malaiwah/Qwen3.8-27B-EXL3-K5K6-hydrated",
    "entry": "this build (hydrated) MMLU-Pro 70",
    "key": "bench:MMLU-Pro",
@@ -11287,10 +11383,130 @@
    "raw": "56/70 (80.0 %)"
   },
   {
+   "repo": "nchapman/Qwen3.8-27B-W4A16-GPTQ",
+   "entry": "W4A16 GPTQ (llm-compressor)",
+   "key": "ppl_delta_pct",
+   "raw": "+1.00"
+  },
+  {
+   "repo": "nchapman/Qwen3.8-27B-W4A16-GPTQ",
+   "entry": "W4A16 GPTQ (llm-compressor)",
+   "key": "ppl_delta_pct:guard_ood",
+   "raw": "-0.52%"
+  },
+  {
+   "repo": "nchapman/Qwen3.8-27B-W4A16-GPTQ",
+   "entry": "W4A16 GPTQ (llm-compressor)",
+   "key": "kld:chat",
+   "raw": "0.033"
+  },
+  {
+   "repo": "nchapman/Qwen3.8-27B-W4A16-GPTQ",
+   "entry": "W4A16 GPTQ (llm-compressor)",
+   "key": "kld:instruction_following",
+   "raw": "0.053"
+  },
+  {
+   "repo": "nchapman/Qwen3.8-27B-W4A16-GPTQ",
+   "entry": "W4A16 GPTQ (llm-compressor)",
+   "key": "kld:math",
+   "raw": "0.098"
+  },
+  {
+   "repo": "nchapman/Qwen3.8-27B-W4A16-GPTQ",
+   "entry": "W4A16 GPTQ (llm-compressor)",
+   "key": "kld:science",
+   "raw": "0.097"
+  },
+  {
+   "repo": "nchapman/Qwen3.8-27B-W4A16-GPTQ",
+   "entry": "W4A16 GPTQ (llm-compressor)",
+   "key": "kld:multilingual",
+   "raw": "0.109"
+  },
+  {
+   "repo": "nchapman/Qwen3.8-27B-W4A16-GPTQ",
+   "entry": "W4A16 GPTQ (llm-compressor)",
+   "key": "kld:terminal_agent",
+   "raw": "0.486"
+  },
+  {
    "repo": "penkia/TernaryQuench-Qwen3.8-27B-MLX",
    "entry": "Qwen3.8-27B 4-bit",
    "key": "ppl:wikitext2",
    "raw": "7.7471"
+  },
+  {
+   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
+   "entry": "mixed 3.5bpw",
+   "key": "bench:MMLU-Pro",
+   "raw": "61.0"
+  },
+  {
+   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
+   "entry": "mixed 3.5bpw",
+   "key": "bench:GSM8K",
+   "raw": "94.7"
+  },
+  {
+   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
+   "entry": "mixed 3.5bpw",
+   "key": "bench:HumanEval+",
+   "raw": "80.0"
+  },
+  {
+   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
+   "entry": "mixed 3.5bpw",
+   "key": "bench:MMBench-EN",
+   "raw": "86.7"
+  },
+  {
+   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
+   "entry": "4-bit",
+   "key": "bench:MMLU-Pro",
+   "raw": "60.8"
+  },
+  {
+   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
+   "entry": "4-bit",
+   "key": "bench:GSM8K",
+   "raw": "95.3"
+  },
+  {
+   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
+   "entry": "4-bit",
+   "key": "bench:HumanEval+",
+   "raw": "77.5"
+  },
+  {
+   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
+   "entry": "4-bit",
+   "key": "bench:MMBench-EN",
+   "raw": "90.3"
+  },
+  {
+   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
+   "entry": "uniform 3-bit",
+   "key": "bench:MMLU-Pro",
+   "raw": "54.2"
+  },
+  {
+   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
+   "entry": "uniform 3-bit",
+   "key": "bench:GSM8K",
+   "raw": "92.7"
+  },
+  {
+   "repo": "rapid-mlx/Qwen3.8-27B-mixed-3.5bpw-MLX",
+   "entry": "uniform 3-bit",
+   "key": "bench:MMBench-EN",
+   "raw": "87.3"
+  },
+  {
+   "repo": "varshavvvvv/Ternary-CyberX-2-27B-gguf",
+   "entry": "Ternary Bonsai 27B (previous release)",
+   "key": "bench:Average(14)",
+   "raw": "80.98"
   },
   {
    "repo": "vasiliy-mikhailov/Qwen3.8-27B-nvfp4-ru-NInfer",

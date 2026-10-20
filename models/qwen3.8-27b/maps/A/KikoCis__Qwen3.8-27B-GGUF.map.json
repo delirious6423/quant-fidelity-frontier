@@ -1,12 +1,42 @@
-{"repo":"KikoCis/Qwen3.8-27B-GGUF","no_quality_claims":false,"no_claims_reason":"",
-"method":{"reference":"objective tool-use benchmark, 40 tasks checked by running the produced artifact, no LLM judge; BF16 original used only for an argmax disagreement remark","dataset":"40-task agentic tool-use benchmark","ctx":"not stated","tool":"Ollama (llama-server for one re-run)","L":[59,60,61,90,91,92]},
-"entries":[
-{"role":"own","name":"Qwen3.8-27B-Q4_K_M.gguf","metrics":{},"size":"c1","unit":"GB","basis":"disk","bpw":null,"flags":["not put through the benchmark [L29-30]"]},
-{"role":"own","name":"Qwen3.8-27B-IQ4_XS.gguf","metrics":{},"size":"c2","unit":"GB","basis":"disk","bpw":null,"flags":["not put through the benchmark [L29-30]"]},
-{"role":"own","name":"Qwen3.8-27B-Q3_K_M.gguf","metrics":{"bench:agentic_tasks":"c5.0"},"size":"c3","unit":"GB","basis":"disk","bpw":"c4","flags":["40/40 verdict; denominator c5.1 [L24]"]},
-{"role":"own","name":"Qwen3.8-27B-IQ2_M.gguf","metrics":{},"size":"c6","unit":"GB","basis":"disk","bpw":"c7","flags":["verdict cell has no count in the table; card text says it matches the 3.40-bpw build [L25,L75]"]},
-{"role":"own","name":"Qwen3.8-27B-IQ2_XS.gguf","metrics":{"bench:agentic_tasks":"c10.0"},"size":"c8","unit":"GB","basis":"disk","bpw":"c9","flags":["72/80 verdict; denominator c10.1 (two rounds) [L26]"]},
-{"role":"own","name":"Qwen3.8-27B-IQ1_M-compact.gguf","metrics":{},"size":"c11","unit":"GB","basis":"disk","bpw":"c12","flags":["card reports 30.6 % via Ollama in the cliff table and 19/40 via llama-server [L92]"]},
-{"role":"own","name":"Qwen3.8-27B-IQ1_M-compact.gguf (llama-server)","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["backend caveat [L90-94]"]}
-],
-"prose":[{"entry":"Qwen3.8-27B-IQ1_M-compact.gguf (llama-server)","key":"bench:agentic_tasks","L":92,"raw":"19/40 (47.5 %)"}]}
+{
+ "repo": "KikoCis/Qwen3.8-27B-GGUF",
+ "source_sha256": "6c3045e34276f38d8199484cd8cd93023f73893b1daee3643e1d3b14559c5c8f",
+ "candidates_sha256": "1c299c1823845bfe712a96f2be5c0e41c7391354580c9d9e40938110951d72bc",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated for the agentic benchmark (BF16 original is the fidelity reference only) [L86-87]", "dataset": "40 objective tool-use tasks, checked by running the produced artifact, no LLM judge; sampling temp 1 / top_p 0.95 / top_k 20 [L59-61]", "ctx": "not stated; 262,144 is the declared native window, not verified [L106-107]", "tool": "Ollama [L90]", "L": [59, 60, 61, 90]},
+ "entries": [
+  {"role": "own", "name": "Qwen3.8-27B-Q4_K_M.gguf", "metrics": {}, "size": "c1", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["not measured on the benchmark [L22, L29-30]", "daily heal LoRA is a separate adapter file, not part of these weights [L157-165]; its table [L167-171] measures Q4_K_M plus adapter on bug-fix tasks and is not mapped"]},
+  {"role": "own", "name": "Qwen3.8-27B-IQ4_XS.gguf", "metrics": {}, "size": "c2", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["not measured on the benchmark [L23, L29-30]"]},
+  {"role": "own", "name": "Qwen3.8-27B-Q3_K_M.gguf", "metrics": {"bench:agentic_tasks": "c5.0", "bench:agentic_tasks_total": "c5.1"}, "size": "c3", "unit": "GB", "basis": "disk", "bpw": "c4",
+   "flags": ["agentic verdict 40/40 from the Files table [L24]", "single runs vary by about five tasks [L82-83]"]},
+  {"role": "own", "name": "Qwen3.8-27B-IQ2_M.gguf", "metrics": {}, "size": "c6", "unit": "GB", "basis": "disk", "bpw": "c7",
+   "flags": ["Files-table verdict is non-numeric [L25]; benchmark figures are on entry 'IQ2_M' from the cliff table [L66]"]},
+  {"role": "own", "name": "Qwen3.8-27B-IQ2_XS.gguf", "metrics": {"bench:agentic_tasks": "c10.0", "bench:agentic_tasks_total": "c10.1"}, "size": "c8", "unit": "GB", "basis": "disk", "bpw": "c9",
+   "flags": ["paired test against IQ2_M: 6 tasks for IQ2_M, 0 the other way, p = 0.031 [L76-77]", "single runs vary by about five tasks [L82-83]"]},
+  {"role": "own", "name": "Qwen3.8-27B-IQ1_M-compact.gguf", "metrics": {}, "size": "c11", "unit": "GB", "basis": "disk", "bpw": "c12",
+   "flags": ["Files-table verdict is non-numeric [L27]; benchmark figures are on entry 'IQ1_M-compact' from the cliff table [L69]"]},
+  {"role": "own", "name": "IQ2_M", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": "c7",
+   "flags": ["cliff-table row [L66]; the 10.00 GB size is in the Files table [L25] and is not attached to this row", "80 is two rounds of 40 tasks [L84]"]},
+  {"role": "own", "name": "IQ1_M-compact", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": "c12",
+   "flags": ["cliff-table row [L69], Ollama runtime; size is in the Files table [L27] and is not attached to this row", "160 is four rounds of 40 tasks [L84]", "no pairwise difference is statistically significant vs the reference or the uniform 1-bit build [L98-101]"]},
+  {"role": "own", "name": "IQ1_M-compact (llama-server)", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": "c12",
+   "methodology": {"reference": "not stated", "dataset": "same file, same 40 tasks, same sampling profile [L91-92]", "ctx": "not stated", "tool": "llama.cpp llama-server [L91]", "L": [91, 92]},
+   "flags": ["same file scores 19/40 through llama-server against 49/160 through Ollama; figures are specific to the backend [L90-94]"]},
+  {"role": "ladder", "name": "IQ1_M (uniform)", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["2.23 bpw is stated in the cliff row [L68] but has no candidate id, so bpw is left null", "160 is four rounds of 40 tasks [L84]", "build is not in the Files table, so it is a comparison build"]}
+ ],
+ "prose": [
+  {"entry": "IQ2_M", "key": "bench:agentic_tasks", "L": 66, "raw": "79/"},
+  {"entry": "IQ2_M", "key": "bench:agentic_tasks_total", "L": 66, "raw": "/80"},
+  {"entry": "IQ1_M-compact", "key": "bench:agentic_tasks", "L": 69, "raw": "49/"},
+  {"entry": "IQ1_M-compact", "key": "bench:agentic_tasks_total", "L": 69, "raw": "/160"},
+  {"entry": "IQ1_M-compact (llama-server)", "key": "bench:agentic_tasks", "L": 92, "raw": "19/"},
+  {"entry": "IQ1_M-compact (llama-server)", "key": "bench:agentic_tasks_total", "L": 92, "raw": "/40"},
+  {"entry": "IQ1_M (uniform)", "key": "bench:agentic_tasks", "L": 68, "raw": "60/"},
+  {"entry": "IQ1_M (uniform)", "key": "bench:agentic_tasks_total", "L": 68, "raw": "/160"}
+ ]
+}

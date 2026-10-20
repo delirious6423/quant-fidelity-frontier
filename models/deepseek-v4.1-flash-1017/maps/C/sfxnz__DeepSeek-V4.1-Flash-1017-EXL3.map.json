@@ -1,24 +1,85 @@
-{"repo": "sfxnz/DeepSeek-V4.1-Flash-1017-EXL3",
- "source_sha256": "28a104cf1ca86706cfce6a12428a34988fbc7853648aa7e1ea99926eafa5875d",
- "candidates_sha256": "44b564bdc903be037aa9bc8ee7630fd81bf0de273d240ead0e4c83d23d6a7388",
+{
+ "repo": "sfxnz/DeepSeek-V4.1-Flash-1017-EXL3",
+ "source_sha256": "d43c0bd5962ae678cb16d8b77d1a1503642b1f7c6f8a09bdc3d6749f3fe78778",
+ "candidates_sha256": "977f1ad3e1ec49fb1d74eb725744b741f193bc0eddb0f0d8ce72f8291e5f2862",
  "no_quality_claims": false,
  "no_claims_reason": "",
  "weights_modified": false,
- "method": {"reference": "native unquantized 1017", "dataset": "72 rows, 92,818 tokens (served KL)", "ctx": "not stated", "tool": "not stated", "L": [47]},
+ "method": {
+  "reference": "native unquantized 1017 for served KL (L48); not stated for benchmark rows",
+  "dataset": "GSM8K, MMLU 4x57, needle and long-needle tests (L43-47); served KL on 72 rows, 92,818 tokens (L48)",
+  "ctx": "500,000-token window (L33)",
+  "tool": "2x DGX Spark recipe ./run.sh, perf2 defaults (L29, L33)",
+  "L": [29, 33, 43, 44, 46, 47, 48]
+ },
  "entries": [
-  {"role": "own", "name": "EXL3 2.7 bpw MCG (mixed K)", "panel": "Results",
-   "methodology": {"reference": "native unquantized 1017", "dataset": "served KL: 72 rows, 92,818 tokens; MMLU 4×57", "ctx": "not stated", "tool": "not stated", "L": [42, 43, 47]},
-   "metrics": {"bench:MMLU": "c2"},
-   "size": null, "unit": null, "basis": null, "bpw": "c7",
-   "flags": ["[L47] served KL and top-1 are against the native unquantized 1017; the card does not say whether the KL is top-k or full-vocabulary",
-             "[L47] the NLL change (+0.63%) is not a perplexity delta; left out",
-             "[L42-46, L44] count-only results (GSM8K 97/100 and 39/40, needle, tool calls) have no percentage and are left out",
-             "[L63] size on disk is in a different table from the results; size left null",
-             "[L70, L72] KL_eq and noise-injection estimates are a different measurement from served KL; left out"]}
+  {
+   "role": "own",
+   "name": "2.7bpw-mcg-hq (perf2 defaults, FINAL)",
+   "metrics": {
+    "bench:GSM8K-100 thinking off": "c1.0",
+    "bench:GSM8K-40 thinking on": "c1.2",
+    "bench:MMLU 4×57": "c3",
+    "bench:Needle 8k / 32k / 128k × 3 depths": "c5.0",
+    "bench:Long needles 256k": "c6.1",
+    "bench:Long needles 500k": "c6.4"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c10",
+   "flags": [
+    "[L33] perf2 defaults, boot FINAL, 500,000-token window",
+    "[L43] GSM8K-100 value is a count of 100 (98 correct); denominator is c1.1",
+    "[L43] GSM8K-40 value is a count of 40 (38 correct); denominator is c1.3",
+    "[L44] MMLU cell is 211 of 228 correct (92.5%)",
+    "[L46] Needle cell 9/9 covers 8k, 32k and 128k at 3 depths",
+    "[L47] Long needles: 256k 3/3 (numerator c6.1) and 500k 3/3 (numerator c6.4)",
+    "[L48] served KL, top-1 and encyclopedic-worst values are prose entries; delta NLL not mapped (NLL delta, not perplexity)",
+    "[L42] teacher-forced NLL 0.1458 nats/token not mapped (no matching key)",
+    "[L75] KL_eq allocation-validation figures use injected noise, not the served pack; not mapped"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "2.7bpw-mcg-hq (release defaults, D1, history)",
+   "methodology": {
+    "reference": "native unquantized 1017 for served KL (L48)",
+    "dataset": "GSM8K, MMLU 4x57, needle and long-needle tests (L43-47); served KL on 72 rows, 92,818 tokens (L48)",
+    "ctx": "1,048,576-token window (L33)",
+    "tool": "release defaults: DSpark k=3, MAX_NUM_SEQS=2, boot D1 (L33)",
+    "L": [33, 43, 44, 46, 47, 48]
+   },
+   "metrics": {
+    "bench:GSM8K-100 thinking off": "c2.0",
+    "bench:GSM8K-40 thinking on": "c2.2",
+    "bench:MMLU 4×57": "c4",
+    "bench:Long needles 1M": "c7.4"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c10",
+   "flags": [
+    "[L33] release defaults, boot D1, kept by the card as history",
+    "[L43] GSM8K-100 value is a count of 100 (97 correct); denominator is c2.1",
+    "[L43] GSM8K-40 value is a count of 40 (39 correct); denominator is c2.3",
+    "[L44] MMLU cell is 208 of 228 correct (91.2%)",
+    "[L46] Needle cell 9/9 covers 8k, 32k and 128k at 3 depths",
+    "[L47] Long needles: 256k 3/3 and 1M 3/3 (numerator c7.4 for 1M)",
+    "[L48] served KL, top-1 and encyclopedic-worst values are prose entries; delta NLL not mapped (NLL delta, not perplexity)"
+   ]
+  }
  ],
  "prose": [
-  {"entry": "EXL3 2.7 bpw MCG (mixed K)", "panel": "Results", "key": "mean_kld", "L": 47, "raw": "0.025 nats/token"},
-  {"entry": "EXL3 2.7 bpw MCG (mixed K)", "panel": "Results", "key": "top1_pct", "L": 47, "raw": "top-1 95.3%"},
-  {"entry": "EXL3 2.7 bpw MCG (mixed K)", "panel": "Results", "key": "kld:encyclopedic", "L": 47, "raw": "encyclopedic worst: 0.114"},
-  {"entry": "EXL3 2.7 bpw MCG (mixed K)", "panel": "Results", "key": "top1:encyclopedic", "L": 47, "raw": "encyclopedic worst: 0.114, 88.1%"}
- ]}
+  {"entry": "2.7bpw-mcg-hq (perf2 defaults, FINAL)", "key": "mean_kld", "L": 48, "raw": "0.0253 nats/token"},
+  {"entry": "2.7bpw-mcg-hq (perf2 defaults, FINAL)", "key": "top1_pct", "L": 48, "raw": "top-1 95.2%"},
+  {"entry": "2.7bpw-mcg-hq (perf2 defaults, FINAL)", "key": "kld:encyclopedic", "L": 48, "raw": "0.112"},
+  {"entry": "2.7bpw-mcg-hq (perf2 defaults, FINAL)", "key": "top1:encyclopedic", "L": 48, "raw": "87.5%"},
+  {"entry": "2.7bpw-mcg-hq (release defaults, D1, history)", "key": "mean_kld", "L": 48, "raw": "0.025 nats/token"},
+  {"entry": "2.7bpw-mcg-hq (release defaults, D1, history)", "key": "top1_pct", "L": 48, "raw": "top-1 95.3%"},
+  {"entry": "2.7bpw-mcg-hq (release defaults, D1, history)", "key": "kld:encyclopedic", "L": 48, "raw": "0.114"},
+  {"entry": "2.7bpw-mcg-hq (release defaults, D1, history)", "key": "top1:encyclopedic", "L": 48, "raw": "88.1%"},
+  {"entry": "2.7bpw-mcg-hq (release defaults, D1, history)", "key": "bench:Needle 8k / 32k / 128k × 3 depths", "L": 46, "raw": "9/9"}
+ ]
+}

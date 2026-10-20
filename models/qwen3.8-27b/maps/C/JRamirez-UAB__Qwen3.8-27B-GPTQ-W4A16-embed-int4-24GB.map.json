@@ -1,0 +1,32 @@
+{
+  "repo": "JRamirez-UAB/Qwen3.8-27B-GPTQ-W4A16-embed-int4-24GB",
+  "source_sha256": "9cb15b8fa793bdbe7cf555610c4f30dafc25d5650af26c52e39f247df1d99ea0",
+  "candidates_sha256": "84eace0381ad968091c2a70519cd266573f61d942854b352dd8453367187008c",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "bf16 copy holding the dequantized weights for GPTQ rows [L104]", "dataset": "internal evaluation set and public turboderp trace [L104]", "ctx": "not stated", "tool": "exllamav3 qbench [L104]", "L": [87, 104]},
+  "entries": [
+    {"role": "own", "name": "GPTQ W4A16 + INT4 embeddings", "panel": "Family comparison (Qwen3.8-27B, same conditions)",
+     "methodology": {"reference": "bf16 copy holding the dequantized weights for GPTQ rows [L104]", "dataset": "internal evaluation set and public turboderp trace [L104]", "ctx": "not stated", "tool": "exllamav3 qbench [L104]", "L": [87, 104]},
+     "metrics": {"kld:internal": "c30.0", "kld:public": "c30.2", "ppl:internal": "c31.0", "ppl:public": "c31.1", "bench:Needle retrieval": "c32.0", "bench:Tools opencode request": "c33.0", "bench:Agent tasks": "c34.0", "bench:Reasoning xhigh correct": "c35.0", "bench:Vision": "c36.0"},
+     "size": "c29", "unit": "GiB", "basis": "disk", "bpw": null,
+     "flags": ["median KLD values not mapped: no metric key [L89]", "needle context, tool-call denominators and reasoning token count are in the same row but not mapped [L91]", "speed, KV pool and memory tables not mapped: no metric key [L96-L132]"]},
+    {"role": "ladder", "name": "GPTQ W4A16 g64 + INT8 embeddings", "panel": "Family comparison (Qwen3.8-27B, same conditions)",
+     "methodology": {"reference": "bf16 copy holding the dequantized weights for GPTQ rows [L104]", "dataset": "internal evaluation set and public turboderp trace [L104]", "ctx": "not stated", "tool": "exllamav3 qbench [L104]", "L": [87, 104]},
+     "metrics": {"kld:internal": "c38.0", "kld:public": "c38.2", "ppl:internal": "c39.0", "ppl:public": "c39.1", "bench:Needle retrieval": "c40.0", "bench:Tools opencode request": "c41.0", "bench:Agent tasks": "c42.0", "bench:Reasoning xhigh correct": "c43.0", "bench:Vision": "c44.0"},
+     "size": "c37", "unit": "GiB", "basis": "disk", "bpw": null,
+     "flags": ["sibling row of the same family table [L92]"]},
+    {"role": "ladder", "name": "EXL3 3.85 bpw (main)", "panel": "Family comparison (Qwen3.8-27B, same conditions)",
+     "methodology": {"reference": "bf16 copy holding the dequantized weights for GPTQ rows [L104]", "dataset": "internal evaluation set and public turboderp trace [L104]", "ctx": "not stated", "tool": "exllamav3 qbench [L104]", "L": [87, 104]},
+     "metrics": {"kld:internal": "c46.0", "kld:public": "c46.2", "ppl:internal": "c47.0", "ppl:public": "c47.1", "bench:Needle retrieval": "c48.0", "bench:Tools opencode request": "c49.0", "bench:Agent tasks": "c50.0", "bench:Reasoning xhigh correct": "c51.0", "bench:Vision": "c52.0"},
+     "size": "c45", "unit": "GiB", "basis": "disk", "bpw": "c213",
+     "flags": ["sibling EXL3 row of the same family table [L93]"]},
+    {"role": "ladder", "name": "EXL3 3.70 bpw (3.70bpw)", "panel": "Family comparison (Qwen3.8-27B, same conditions)",
+     "methodology": {"reference": "bf16 copy holding the dequantized weights for GPTQ rows [L104]", "dataset": "internal evaluation set and public turboderp trace [L104]", "ctx": "not stated", "tool": "exllamav3 qbench [L104]", "L": [87, 104]},
+     "metrics": {"kld:internal": "c54.0", "kld:public": "c54.2", "ppl:internal": "c55.0", "ppl:public": "c55.1", "bench:Needle retrieval": "c56.0", "bench:Tools opencode request": "c57.0", "bench:Agent tasks": "c58.0", "bench:Reasoning xhigh correct": "c59.0", "bench:Vision": "c60.0"},
+     "size": "c53", "unit": "GiB", "basis": "disk", "bpw": "c214",
+     "flags": ["sibling EXL3 branch of the same family table [L94]"]}
+  ],
+  "prose": []
+}

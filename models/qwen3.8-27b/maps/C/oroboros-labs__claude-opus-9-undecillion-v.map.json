@@ -1,0 +1,21 @@
+{"repo": "oroboros-labs/claude-opus-9-undecillion-v",
+ "source_sha256": "ae237e343b1945da0b256ca3af9a98f04f4072e6988fc5df574560dd6f8927ad",
+ "candidates_sha256": "bb087093b3c21f133fd1f03a67374899247f2515aadf24cc036ccd5bbe7fbf3d",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "held-out math items (50 word problems) [L67, L77, L169]", "ctx": "num_ctx 8192 [L54, L137]", "tool": "totalcontrol-harness frozen run [L62]", "L": [54, 60, 62, 67, 68, 77, 137, 169]},
+ "entries": [
+   {"role": "own",
+    "name": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf",
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["Gold vs model-final table lists per-item answers, not an aggregate metric; not mapped [L84-L88]", "Raw and guarded control rows and CI column not mapped [L69-L70]", "Parameter and quantization cells are not metrics [L50-L51]", "Math accuracy stated in prose only, not in a table cell [L67-L68]"]}
+ ],
+ "prose": [
+   {"entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf", "key": "bench:HeldoutMath", "L": 67, "raw": "45/50 = 90.0%"},
+   {"entry": "claude-opus-9-undecillion-v-q2k-10.12gb.gguf", "key": "bench:HeldoutMathAgent", "L": 68, "raw": "45/50 = 90.0%"}
+ ]}

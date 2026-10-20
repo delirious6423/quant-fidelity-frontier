@@ -1,0 +1,15 @@
+{
+ "repo": "Launch80/Qwen3.8-27B-PARO-int5",
+ "source_sha256": "b246561d04816c1fc53845c7478bb92bd081901da1bc6b645dcef58dfbc0d505",
+ "candidates_sha256": "7fba7f37789e826f4a7ad6950528da387673726ef9a7a9fb48fdbf922ffeb874",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "bf16 base served on the same stack", "dataset": "wikitext chunks, top-k KL", "ctx": "not stated", "tool": "ParoQuant vLLM plugin on the same stack", "L": [72, 73, 76]},
+ "entries": [
+  {"role": "own", "name": "this checkpoint", "metrics": {"top1_pct": "c8", "bench:GSM8K": "c11"}, "size": null, "unit": null, "basis": null, "bpw": "c2", "flags": ["KL is measured over top-k logits, not mapped to a full-vocabulary key [L79]", "cumulative ablation KL values in the prose are not mapped [L88-L89]", "decode, prefill and cache rows are speed or memory only [L82-L84]", "on-disk size is in its own row [L85]"]},
+  {"role": "ladder", "name": "PARO-MXFP4", "metrics": {"top1_pct": "c7"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["KL is top-k, not mapped [L79]", "GSM8K is a range, not mapped [L81]", "bits per weight for this row is not in a candidate cell [L78]"]},
+  {"role": "cross", "of": "not named on card", "name": "int4 ParoQuant", "metrics": {"top1_pct": "c6"}, "size": null, "unit": null, "basis": null, "bpw": "c1", "flags": ["KL is top-k, not mapped [L79]", "GSM8K is a range, not mapped [L81]"]}
+ ],
+ "prose": []
+}

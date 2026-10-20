@@ -1,0 +1,24 @@
+{
+  "repo": "finalvent/OddEye-0.1-27B-NVFP4",
+  "source_sha256": "a9d1c737a6a45180e115a095c38acdee67cc023976a1b4111b721e7a856adba9",
+  "candidates_sha256": "ac0ce9e8435b3a7da3a24d8766e5ceb5677d45fc4b4f641fbe398476aeffb407",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {"reference": "AI-written reference facts per photo, graded side by side [L91-L94]", "dataset": "michiyomi blind evaluation, street photos [L22-L24, L73]", "ctx": "not stated", "tool": "Claude model grader, blind side by side [L94]", "L": [73, 91, 94]},
+  "entries": [
+    {"role": "own", "name": "OddEye",
+     "metrics": {"bench:Reference facts captured": "c3", "bench:Reference facts contradicted": "c6", "bench:Overconfident statements per photo": "c9", "bench:Clear errors per photo": "c12", "bench:Useful observations beyond the references per photo": "c15"},
+     "size": null, "unit": null, "basis": null, "bpw": null,
+     "flags": ["blind comparison with the recommended prompt [L73-L77]", "speed and size table not mapped: no metric key [L83-L90]", "self-distilled fine-tune on the base model's own answers [L122]"]},
+    {"role": "cross", "name": "Original (BF16)", "of": "not named on card",
+     "metrics": {"bench:Reference facts captured": "c1", "bench:Reference facts contradicted": "c4", "bench:Overconfident statements per photo": "c7", "bench:Clear errors per photo": "c10", "bench:Useful observations beyond the references per photo": "c13"},
+     "size": null, "unit": null, "basis": null, "bpw": null,
+     "flags": ["base model measured in the same blind comparison [L75-L81]"]},
+    {"role": "cross", "name": "Generic 4-bit", "of": "not named on card",
+     "metrics": {"bench:Reference facts captured": "c2", "bench:Reference facts contradicted": "c5", "bench:Overconfident statements per photo": "c8", "bench:Clear errors per photo": "c11", "bench:Useful observations beyond the references per photo": "c14"},
+     "size": null, "unit": null, "basis": null, "bpw": null,
+     "flags": ["publicly distributed NVFP4 version of the same base model [L95]"]}
+  ],
+  "prose": []
+}

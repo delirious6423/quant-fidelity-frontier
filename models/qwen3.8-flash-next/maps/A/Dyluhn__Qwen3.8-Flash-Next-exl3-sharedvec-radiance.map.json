@@ -1,0 +1,22 @@
+{
+ "repo": "Dyluhn/Qwen3.8-Flash-Next-exl3-sharedvec-radiance",
+ "source_sha256": "c39009875f9137e9469e28e300f153c867ec99073babe278a3188bd74528faef",
+ "candidates_sha256": "b5377d3fc49a307b41fc495621c527a501d343f4dfefd731b637e91ce05b1c7c",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 model", "dataset": "ref64 (52,132 scored positions)", "ctx": "not stated", "tool": "radiance KL mode", "L": [30]},
+ "entries": [
+  {"role": "own", "name": "shared-input-vector EXL3 container",
+   "metrics": {"mean_kld": "c2"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Radiance KL mode on ref64 [L30]", "Relative KL difference +3.9% (CI -0.7% to +8.6%) not mapped: no matching metric key [L30-32]", "No control conversion was run [L32]"]},
+  {"role": "ladder", "name": "turboderp-4.05 container",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Same publisher's comparison container, Dyluhn/qwen3.8-flash-next-exl3 [L31]"]}
+ ],
+ "prose": [
+  {"entry": "turboderp-4.05 container", "key": "mean_kld", "L": 31, "raw": "0.046732"}
+ ]
+}

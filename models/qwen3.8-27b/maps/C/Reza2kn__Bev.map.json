@@ -1,0 +1,18 @@
+{
+ "repo": "Reza2kn/Bev",
+ "source_sha256": "1764a54d25c635001095dacefdaae157907574bf50fe9e9e6bd61760b2465953",
+ "candidates_sha256": "96b23e1561967fee1aa5f343b9c205980f95c769fba559812ed8604ff3b15726",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "published Jev reference, not rerun here", "dataset": "Jev Persian Benchmark, complete run with the original dataset, question order, batches and scorer", "ctx": "validated serving configuration per field", "tool": "Bev scoring API on the Linux CUDA setup", "L": [99, 101, 110]},
+ "entries": [
+  {"role": "own", "name": "Bev", "panel": "Persian evaluation", "methodology": {"reference": "published Jev reference, not rerun here", "dataset": "Jev Persian Benchmark, complete run with the original dataset, question order, batches and scorer", "ctx": "validated serving configuration per field", "tool": "Bev scoring API on the Linux CUDA setup", "L": [51, 99, 101, 110]}, "metrics": {"bench:Jev Choice exact option": "c1.2", "bench:Jev Noul": "c3.2", "bench:Jev Score within 0.5 levels": "c5.2", "bench:Jev Choice Brier": "c7", "bench:Jev Noul Brier": "c9", "bench:Jev Score MAE": "c11"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["numbers not independently reproduced on other platforms [L71]", "no size column in this table [L101]"]},
+  {"role": "quoted", "of": "not named on card", "name": "Published Jev 1.13.0 reference", "panel": "Persian evaluation", "methodology": {"reference": "benchmark author's published reference, not an independent run here", "dataset": "Jev Persian Benchmark, published reference figures", "ctx": "not stated", "tool": "not stated", "L": [101, 110]}, "metrics": {"bench:Jev Choice exact option": "c2.2", "bench:Jev Noul": "c4.2", "bench:Jev Score within 0.5 levels": "c6.2", "bench:Jev Choice Brier": "c8", "bench:Jev Noul Brier": "c10", "bench:Jev Score MAE": "c12"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["benchmark author's published figures, not rerun [L110]", "hosted reference with different hardware and serving [L112]"]},
+  {"role": "own", "name": "Bev", "panel": "Limits and intended use", "methodology": {"reference": "not stated", "dataset": "earlier small general diagnostic on MMLU and SimpleBench subsets", "ctx": "not stated", "tool": "not stated", "L": [120]}, "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["earlier small diagnostic, not the Persian benchmark [L120]", "loaded-source attestation was incomplete [L120]"]}
+ ],
+ "prose": [
+  {"entry": "Bev", "panel": "Limits and intended use", "key": "bench:MMLU", "L": 120, "raw": "7/12"},
+  {"entry": "Bev", "panel": "Limits and intended use", "key": "bench:SimpleBench", "L": 120, "raw": "2/10"}
+ ]
+}
