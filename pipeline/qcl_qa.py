@@ -104,6 +104,18 @@ def dispatch(pending):
     release.write_json(PENDING, pending)
     return pending["status"]
 
+def dispatch_if_current(pending):
+    """Request Pages only for a commit that is still the tip of main on the remote. The workflow refuses any other
+    commit (and a SHA that never reached the remote), so asking would only add a failed deploy-pages run."""
+    target = release.resolve_target(pending)["target_commit"]
+    tip = command(["git", "ls-remote", "origin", "refs/heads/main"])
+    names = tip.stdout.split()[:1] if tip.returncode == 0 else []
+    if names == [target]: return dispatch(pending)
+    pending["status"] = "dispatch_failed"; pending["dispatch_at"] = release.utc_now()
+    pending["error"] = "main on the remote does not name the tested candidate; no deploy requested, the next QA run starts a new candidate."
+    release.write_json(PENDING, pending)
+    return pending["status"]
+
 def reconcile_pending():
     """Run before skip detection, including after a fresh automation clone."""
     pending = release.read_json(PENDING)
@@ -284,7 +296,7 @@ def main(args=None):
             stop(s, "Release push failed; deployed receipt unchanged. Synchronize and revalidate before retrying.", pushed_lock=False)
         candidate = command(["git", "rev-parse", "HEAD"])
         pending = release.resolve_target(pending, candidate.stdout.strip() if candidate.returncode == 0 else None)
-        s["deploy"] = dispatch(pending)
+        s["deploy"] = dispatch_if_current(pending)
         s["notes"].append("Deployed receipt remains unchanged until the exact Pages workflow succeeds.")
         stop(s)
     stop(s, f"unexpected state {s.get('step')}")

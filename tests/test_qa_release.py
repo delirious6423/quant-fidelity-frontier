@@ -218,6 +218,20 @@ class MockedAdapters(ReleaseReceipt):
         self.assertEqual(gh.call_count, 1)
         self.assert_not_deployed()
 
+    def test_dispatch_waits_for_a_candidate_that_is_still_the_remote_tip(self):
+        with patch.object(qa, 'command', side_effect=[completed(stdout=TARGET + '\trefs/heads/main\n'), completed()]) as gh:
+            self.assertEqual(qa.dispatch_if_current(self.pending), 'dispatched')
+        self.assertIn('POST', gh.call_args.args[0])
+
+    def test_no_deploy_is_requested_for_a_commit_that_is_not_the_remote_tip(self):
+        for reply in (completed(stdout=ADVANCED + '\trefs/heads/main\n'), completed(stdout=''), completed(1, stderr='offline')):
+            with self.subTest(reply=reply.stdout or reply.returncode):
+                with patch.object(qa, 'command', return_value=reply) as gh:
+                    self.assertEqual(qa.dispatch_if_current(copy.deepcopy(self.pending)), 'dispatch_failed')
+                self.assertEqual(gh.call_count, 1)
+                self.assertEqual(state.read_json(self.pending_path)['status'], 'dispatch_failed')
+                self.assert_not_deployed()
+
     def test_reconcile_in_fresh_clone_uses_external_success(self):
         state.write_json(self.pending_path, state.new_pending(self.review))
         replies = [completed(stdout=TARGET + '\n'), completed(stdout=json.dumps([{'workflow_runs': [run()]}]))]

@@ -15,7 +15,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
-from playwright.async_api import async_playwright
+from playwright.async_api import TimeoutError as PlaywrightTimeout, async_playwright
 from test_comparison_ui import fixture as comparison_fixture
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -256,7 +256,15 @@ async def main(base):
                 await page.route(re.compile(r'^https?://(?!127\.0\.0\.1:)'), lambda route: route.abort())
                 page.on('pageerror', lambda error: errors.append(str(error)))
                 try:
-                    await check(page, base)
+                    try:
+                        await check(page, base)
+                    except PlaywrightTimeout:   # a loaded CI runner can stall a click once (CI run 210); a second timeout is real
+                        print(f'RETRY {width}px: {check.__name__} timed out once', flush=True)
+                        await page.close()
+                        page = await browser.new_page(viewport={'width': width, 'height': 900})
+                        await page.route(re.compile(r'^https?://(?!127\.0\.0\.1:)'), lambda route: route.abort())
+                        page.on('pageerror', lambda error: errors.append(str(error)))
+                        await check(page, base)
                     print(f'PASS {width}px: {check.__name__}')
                 except Exception as error:
                     traceback.print_exc()
