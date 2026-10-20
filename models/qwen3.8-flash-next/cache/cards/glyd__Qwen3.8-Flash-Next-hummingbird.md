@@ -97,9 +97,11 @@ Contexts up to 262,144 tokens (the model's native length). Follow-up messages re
 
 The logs and the scripts that produced them are in the GitHub repository (`results/`, `bench/`).
 
-**Limits of this release:** text only (the base model's vision encoder is not supported yet), NVIDIA GPUs only, and one request at a time
-(others wait their turn). Windows is tested on one machine so far; 12 GB cards and 32 GB of RAM were measured on a 4080 held back to
-those sizes.
+**Since v0.2.3:** images (PNG and JPEG through the OpenAI and Anthropic APIs, up to 1,024 tokens an image by default), up to 4
+requests at once, and the layers split over two cards (`GLYD_GPUS=0,1`; on 2x4090 the same output as one card, byte for byte).
+
+**Limits of this release:** NVIDIA GPUs only (RTX 30 series or newer); total speed with several users stays near one user's; no video.
+Windows is tested on one machine so far; 12 GB cards and 32 GB of RAM were measured on a 4080 held back to those sizes.
 
 ---
 

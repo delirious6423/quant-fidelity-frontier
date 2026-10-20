@@ -1,0 +1,16 @@
+{"repo": "webmp3/Sakura-Qwen3.8-Flash-Next-Compact-47.6GiB-K512-CP2-v1-GGUF",
+ "source_sha256": "aa069b26f70af25bfb95a1a4875c3465c1fced4b499c72e382dddf4bf18d0091",
+ "candidates_sha256": "806ab3f48291f7469f5d92514545e38e4a9029498eba07dd1490a653672c3ca5",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "original ISTA Q2_0 quant (comparison baseline) [L162]", "dataset": "fixed text slices: English, Code, German [L164-167]", "ctx": "512-token chunks [L169]", "tool": "not stated", "L": [160, 162, 169]},
+ "entries": [
+   {"role": "own", "name": "Compact CP2", "size": null, "unit": null, "basis": null, "bpw": null,
+    "metrics": {"ppl:english_8chunks": "c2", "ppl_delta_pct:english_8chunks": "c3", "ppl:code_8chunks": "c5", "ppl_delta_pct:code_8chunks": "c6", "ppl:german_8chunks": "c8", "ppl_delta_pct:german_8chunks": "c9", "ppl:german_40chunks": "c11", "ppl_delta_pct:german_40chunks": "c12"},
+    "flags": ["Relative PPL change is the card's own column [L162-167]", "German deviations retained and documented [L169]", "Coding benchmark (2 PASS, 2 TRUNC) and speed not mapped: no metric key [L175-183]", "Lookup table re-encoded with lossy CP2 format; expert weights byte-identical to source [L89, L196]"]},
+   {"role": "cross", "name": "Original Q2_0", "of": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF", "size": null, "unit": null, "basis": null, "bpw": null,
+    "metrics": {"ppl:english_8chunks": "c1", "ppl:code_8chunks": "c4", "ppl:german_8chunks": "c7", "ppl:german_40chunks": "c10"},
+    "flags": ["Measured by this card's author on the same slices [L160-162]", "ISTA Q2_0 named as the source of this conversion [L83]"]}
+ ],
+ "prose": []}
