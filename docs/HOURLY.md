@@ -110,3 +110,11 @@ Include the failed step and its output when something blocks progress.
     they are never guessed. Expect Haiku-mapped cards to show fewer values than Sonnet-mapped ones.
 - **Bug found and fixed:** a shell `mv` with an empty queue name moved the whole `pending` folder. Workers now claim
   only through `pipeline/qcl_claim.py` (an atomic rename of one file).
+
+## Weekly discovery (queue maintenance)
+`QFF weekly discovery` runs `pipeline/qcl_discover.py` once a week (same step-by-step protocol as `qcl_next.py`: do only what it prints).
+It lists each lab's newest repos (labs and current-family prefixes in `discovery.json`), counts quant repos per candidate
+(five search sorts, so counts pass the 80-per-search cap), admits models that pass the rules (>= 40 quant repos, released in the
+last 6 months, current family), refreshes the counts of queued models, re-ranks the queue with `pipeline/qcl_rank.py`, and
+commits `watchlist.json`, `audit/discovery.json` and `docs/QUEUE.md`. A new family from a listed lab is only reported
+(owner adds its prefix to `discovery.json`). Models are ingested back to back: `min_hours_between_ingests` is 0.

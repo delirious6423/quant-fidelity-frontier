@@ -136,3 +136,8 @@ Integrated main `d92a580` to retain benchmark tabs and collapsed quant controls.
 - Integrated main `ca6748a` so the current stacked benchmark design is preserved. Retained comparison disclosures, all measurement data and existing chart defaults.
 - GLM/Qwen gated builds and benchmark/comparison browser checks passed at 320/390/1366px. Fresh independent release review reran 87 regressions successfully and found no code blockers.
 - Awaiting full CI on the integrated commit before merge/publication.
+
+## 2026-10-20 Queue weights, no ingest wait, weekly discovery
+- Ranking weights moved to `discovery.json`: half-life 180 days, used-quant weight 3 (early boost unchanged). Gemma-4 sizes now rank 3rd-10th.
+- `min_hours_between_ingests` is 0: the next queued model starts as soon as the previous one is checkpointed or in review.
+- `pipeline/qcl_discover.py` (weekly): candidates from lab listings, 5-sort quant counts, admission rules, re-rank, `docs/QUEUE.md`. Verified offline against a local bare remote with synthetic search results (lock, rounds, push, unlock); first real run pending. `tests/test_rank.py` added to CI.

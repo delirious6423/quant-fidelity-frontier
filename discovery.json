@@ -1,0 +1,38 @@
+{
+ "about": "Settings for the weekly discovery job (pipeline/qcl_discover.py) and the queue ranking (pipeline/qcl_rank.py). Edit by hand; the job never changes this file.",
+ "ranking": {
+  "half_life_days": 180,
+  "used_weight": 3,
+  "early_days": 14,
+  "early_max": 2.0
+ },
+ "admission": {
+  "min_quants": 40,
+  "max_age_months": 6
+ },
+ "labs": {
+  "Qwen": ["Qwen3.8"],
+  "google": ["gemma-4"],
+  "deepseek-ai": ["DeepSeek-V4.1"],
+  "zai-org": ["GLM-5.3"],
+  "moonshotai": ["Kimi-K3"],
+  "meta-models": ["Muse-Spark"],
+  "nvidia": ["NVIDIA-Nemotron-3"],
+  "ornith-ai": ["Ornith-1.5"],
+  "LiquidAI": ["LFM2.5"],
+  "XiaomiMiMo": ["MiMo-V2.6"],
+  "openbmb": ["MiniCPM5"],
+  "mistralai": [],
+  "microsoft": [],
+  "ibm-granite": [],
+  "allenai": [],
+  "openai": [],
+  "tencent": [],
+  "inclusionAI": [],
+  "baidu": [],
+  "stepfun-ai": [],
+  "MiniMaxAI": [],
+  "ByteDance-Seed": []
+ },
+ "labs_note": "Each lab's current (latest) model family, as a model-name prefix. A new model from a listed lab that matches none of its prefixes is reported in docs/QUEUE.md as a possible new family and is not queued until its prefix is added here. Labs with an empty list are watched for new families only."
+}
