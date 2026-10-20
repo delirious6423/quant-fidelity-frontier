@@ -254,6 +254,9 @@ def kld_chart(rows):
     xs = [p["size_gb"] for p in pts]; ys = [p["metrics"]["mean_kld"]["v"] for p in pts]
     x0, x1 = 20, math.ceil(max(xs) / 20) * 20
     y0, y1 = 10 ** math.floor(math.log10(min(ys))), 10 ** math.ceil(math.log10(max(ys)))
+    # A new small model or a single exact decade must still have finite axes.
+    if x1 <= x0: x0 = 0
+    if y1 <= y0: y1 = y0 * 10
     X = lambda v: ml + (v - x0) / (x1 - x0) * (W - ml - mr)
     Y = lambda v: mt + (math.log10(y1) - math.log10(v)) / (math.log10(y1) - math.log10(y0)) * (H - mt - mb)
     pubs = sorted({owner(p["measured_by"]) for p in pts})
