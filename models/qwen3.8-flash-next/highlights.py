@@ -1,5 +1,6 @@
 # Head-to-head tables (one measurer, several publishers' files) and same-file disagreements.
-# Every value is looked up from verified rows (never retyped); a missing lookup raises, so the build fails loudly.
+# Every value is looked up from verified rows (never retyped). A row that is no longer there (its card changed) is left out of its
+# table with a note on stderr; one vanished row must not stop the model's whole update from building.
 from comparison import classify_group
 
 
@@ -19,7 +20,8 @@ def find(repo, by, variant_sub, kind=None):
     c = [r for r in rows if r["repo"] == repo and r["measured_by"] == by and variant_sub.lower() in str(r["variant"]).lower()
          and (kind is None or r["kind"] == kind) and r["kind"] != "quoted"]
     if len(c) != 1:
-        raise SystemExit(f"highlight lookup failed: {repo} by {by} ~ {variant_sub!r} -> {len(c)} matches")
+        import sys; print(f"highlight row left out: {repo} by {by} ~ {variant_sub!r} -> {len(c)} matches", file=sys.stderr)
+        return None
     return c[0]
 
 def mv(r, k):
@@ -73,6 +75,8 @@ def render_highlights():
     D = []
     def add(file_label, entries):
         cells = []
+        entries = [e for e in entries if e[0] is not None]   # lookup came back empty or ambiguous (see stderr)
+        if len(entries) < 2: return   # one claim is not a disagreement
         for r, note in entries:
             ks = [k for k in ("mean_kld", "top1_pct", "ppl_delta_pct") if k in r["metrics"]]
             vals = "; ".join(f'{ {"mean_kld":"KLD","top1_pct":"top-1","ppl_delta_pct":"PPL"}[k]} {r["metrics"][k]["raw"]}' for k in ks)
