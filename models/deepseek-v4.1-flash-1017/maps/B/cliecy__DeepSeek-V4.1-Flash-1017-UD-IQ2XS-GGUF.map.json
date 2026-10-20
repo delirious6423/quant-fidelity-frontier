@@ -1,0 +1,28 @@
+{
+  "repo": "cliecy/DeepSeek-V4.1-Flash-1017-UD-IQ2XS-GGUF",
+  "source_sha256": "442b372994cf14e50bed16db425704b25084c76e7f05384a4fe01d188625939d",
+  "candidates_sha256": "961279c7655182b85e8d28e6a91dde99439ac3ce6d3168b3b257784c787c4afa",
+  "no_quality_claims": true,
+  "no_claims_reason": "this file's perplexity and output quality are stated as not checked; the only quality figure is for a different quant (Q2_K) [L27-L28, L153, L171]",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated for this file",
+    "dataset": "not stated for this file",
+    "ctx": "not stated for this file",
+    "tool": "not stated for this file",
+    "L": [27, 28, 153, 171]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "UD-IQ2XS",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["routed experts are at about 2.3-2.5 bits in prose, not as a candidate [L31]", "the wikitext-2 perplexity 4.749 and the needle check belong to the Q2_K reference file, a different quant, and are omitted [L153, L171, L172]", "the Q2_K throughput tables and the context-depth speed rows are not quality metrics and are not mapped [L159-L168]", "file-size table (total 261.4 GiB) carries no quality metric and is not mapped [L102-L114]"]
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,62 @@
+{
+  "repo": "HeNryous/DeepSeek-V4.1-Flash-1017-EXL3-2.75bpw-DGX-Spark",
+  "source_sha256": "3182f1c57c1b1ed5c5aa1fc7609462295f747d7a7d2ab4ee12d2c22bb9d2f040",
+  "candidates_sha256": "b5729a16fe10a08e6dd4076ce0316a63d994cd08cd3a0938377507b512cbbeae",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "native 1017 checkpoint run through DeepSeek's reference code",
+    "dataset": "sudoingX KLD panel: 199 conversations, 254,846 scored positions",
+    "ctx": "not stated",
+    "tool": "sudoingX recipe KLD panel; KLD and top-1 agreement",
+    "L": [43, 44, 45, 53]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "this repo",
+      "methodology": {"reference": "native 1017 checkpoint (DeepSeek reference code)", "dataset": "sudoingX KLD panel: 199 conversations, 254,846 scored positions", "ctx": "not stated", "tool": "sudoingX recipe KLD panel", "L": [43, 44, 45, 49]},
+      "metrics": {"mean_kld": "c1", "top1_pct": "c2"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c19",
+      "flags": ["bpw is the routed-experts rate, per expert [L49]", "KL basis (top-k or full vocabulary) is not stated [L43]", "Engram tables are not in this repo [L26]"]
+    },
+    {
+      "role": "ladder",
+      "name": "same, dense K4 / head K4",
+      "methodology": {"reference": "native 1017 checkpoint (DeepSeek reference code)", "dataset": "sudoingX KLD panel: 199 conversations, 254,846 scored positions", "ctx": "not stated", "tool": "sudoingX recipe KLD panel", "L": [43, 44, 45, 50]},
+      "metrics": {"mean_kld": "c3"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c20",
+      "flags": ["dense and head at K4, routed experts at 2.75 bpw [L50]", "top-1 is not reported for this build [L50]", "KL basis (top-k or full vocabulary) is not stated [L43]"]
+    },
+    {
+      "role": "quoted",
+      "name": "0xSero 1017 EXL3 2.7 bpw",
+      "of": "0xSero/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw",
+      "methodology": {"reference": "native 1017 checkpoint run through DeepSeek's reference code", "dataset": "sudoingX KLD panel: 199 conversations, 254,846 scored positions", "ctx": "not stated", "tool": "sudoingX recipe KLD panel", "L": [43, 44, 45, 51]},
+      "metrics": {"mean_kld": "c5", "top1_pct": "c6"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c4",
+      "flags": ["figures carried as reported on the same panel [L51]", "95 % CI in the row label is not mapped [L51]"]
+    }
+  ],
+  "prose": [
+    {"entry": "this repo", "key": "kld:code", "L": 53, "raw": "code 0.0125"},
+    {"entry": "this repo", "key": "kld:math", "L": 53, "raw": "math 0.0152"},
+    {"entry": "this repo", "key": "kld:agentic", "L": 53, "raw": "agentic 0.0183"},
+    {"entry": "this repo", "key": "kld:long", "L": 53, "raw": "long 0.0258"},
+    {"entry": "this repo", "key": "kld:knowledge", "L": 53, "raw": "knowledge 0.0382"},
+    {"entry": "this repo", "key": "kld:chat", "L": 53, "raw": "chat 0.0482"},
+    {"entry": "this repo", "key": "kld:writing", "L": 53, "raw": "writing 0.0514"},
+    {"entry": "this repo", "key": "kld:multilingual", "L": 54, "raw": "multilingual 0.0601"},
+    {"entry": "this repo", "key": "ppl", "L": 45, "raw": "1.6119"}
+  ]
+}

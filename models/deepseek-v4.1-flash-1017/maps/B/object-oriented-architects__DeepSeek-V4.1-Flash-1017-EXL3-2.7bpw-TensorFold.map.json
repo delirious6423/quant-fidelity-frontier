@@ -1,0 +1,181 @@
+{
+  "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+  "source_sha256": "efde21af1f4857d0543cac525532450ecafcdb9835332072b446f8210bb316d1",
+  "candidates_sha256": "d3c31cc635efa6d4a200dd6dafa8992ef2ef2eba621870d5de3cf8bf852304b7",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "official checkpoint (FP8 / MXFP4) in the recipe's reference forward (p4_kld.py --mode ref)",
+    "dataset": "199 conversations (301,828 tokens, 239,716 scored positions) from prompts answered by DeepSeek-V4.1-Flash-1017",
+    "ctx": "not stated",
+    "tool": "p4_kld.py (sudoingX recipe), both packs scored by the same script",
+    "L": [51]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "This repo, 2.7 bpw",
+      "panel": "KL divergence against the official model",
+      "metrics": {
+        "mean_kld": "c6",
+        "kld_99": "c7",
+        "top1_pct": "c8",
+        "ppl": "c9",
+        "kld:code": "c15",
+        "top1:code": "c17",
+        "kld:agentic": "c20",
+        "top1:agentic": "c22",
+        "kld:long": "c25",
+        "top1:long": "c27",
+        "kld:chat": "c30",
+        "top1:chat": "c32",
+        "kld:knowledge": "c35",
+        "top1:knowledge": "c37",
+        "kld:math": "c40",
+        "top1:math": "c42",
+        "kld:multilingual": "c45",
+        "top1:multilingual": "c47",
+        "kld:writing": "c50",
+        "top1:writing": "c52"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c66",
+      "flags": [
+        "vocabulary scope of the KL figures is not stated [L51, L56]",
+        "pack is 185.2 GiB (198.8 GB) and excludes the Engram tables [L29]; no size in the measured table",
+        "memory and speed figures [L36-45, L88-97] not mapped: no metric key",
+        "'same answer as DeepSeek API' agreement rows [L82] not mapped: agreement, not accuracy"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Official weights (FP8 / MXFP4)",
+      "panel": "KL divergence against the official model",
+      "metrics": {
+        "ppl": "c5"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "reference row: official checkpoint, perplexity only [L55]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "LibertAIDAI 2.9 bpw",
+      "of": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
+      "panel": "KL divergence against the official model",
+      "metrics": {
+        "mean_kld": "c10",
+        "kld_99": "c11",
+        "top1_pct": "c12",
+        "ppl": "c13",
+        "kld:code": "c16",
+        "top1:code": "c18",
+        "kld:agentic": "c21",
+        "top1:agentic": "c23",
+        "kld:long": "c26",
+        "top1:long": "c28",
+        "kld:chat": "c31",
+        "top1:chat": "c33",
+        "kld:knowledge": "c36",
+        "top1:knowledge": "c38",
+        "kld:math": "c41",
+        "top1:math": "c43",
+        "kld:multilingual": "c46",
+        "top1:multilingual": "c48",
+        "kld:writing": "c51",
+        "top1:writing": "c53"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c67",
+      "flags": [
+        "scored by this card's author on the same panel and positions [L51]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "This repo, 2.7 bpw",
+      "panel": "MMLU / GSM8K",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "seeded subset of 200 MMLU and 100 GSM8K questions (digest 09c2e6cc43e275af)",
+        "ctx": "not stated",
+        "tool": "lucataco's recipe eval (eval/compare.py), greedy, thinking off and on at effort high",
+        "L": [74]
+      },
+      "metrics": {
+        "bench:MMLU_thinking_off": "c54",
+        "bench:MMLU_thinking_on": "c56",
+        "bench:GSM8K_thinking_off": "c58",
+        "bench:GSM8K_thinking_on": "c60"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c66",
+      "flags": [
+        "2x DGX Spark run [L76]",
+        "McNemar and same-answer statements [L82-84] not mapped"
+      ]
+    },
+    {
+      "role": "quoted",
+      "name": "DeepSeek API",
+      "of": "not named on card",
+      "panel": "MMLU / GSM8K",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "seeded subset of 200 MMLU and 100 GSM8K questions (digest 09c2e6cc43e275af)",
+        "ctx": "not stated",
+        "tool": "lucataco's recipe published runs",
+        "L": [74]
+      },
+      "metrics": {
+        "bench:MMLU_thinking_off": "c55",
+        "bench:MMLU_thinking_on": "c57",
+        "bench:GSM8K_thinking_off": "c59"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "figures copied from the recipe's published runs [L74]",
+        "GSM8K thinking-on value 97.0% [L81] not mapped: repeated on the same line, no unique candidate"
+      ]
+    },
+    {
+      "role": "quoted",
+      "name": "LibertAIDAI 2.9 bpw",
+      "of": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
+      "panel": "MMLU / GSM8K",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "seeded subset of 200 MMLU and 100 GSM8K questions (digest 09c2e6cc43e275af)",
+        "ctx": "not stated",
+        "tool": "lucataco's recipe published runs",
+        "L": [74]
+      },
+      "metrics": {
+        "bench:GSM8K_thinking_on": "c61"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "figures copied from the recipe's published runs [L74]",
+        "other LibertAIDAI column values [L78-81] not mapped: no unique candidate cell"
+      ]
+    }
+  ],
+  "prose": []
+}

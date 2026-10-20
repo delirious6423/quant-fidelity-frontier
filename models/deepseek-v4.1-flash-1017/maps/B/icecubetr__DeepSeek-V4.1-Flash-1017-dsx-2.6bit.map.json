@@ -1,0 +1,52 @@
+{
+  "repo": "icecubetr/DeepSeek-V4.1-Flash-1017-dsx-2.6bit",
+  "source_sha256": "188916c14f02f05e59fee1909cff5c721e3afa2f4f72981fb3de2e9aab0da51f",
+  "candidates_sha256": "c9536dc38c560142a9cb24ae66af39dcbb6ca5162dd5f9a7159b419e6a8a54f2",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "FP8/FP4 teacher (official DeepSeek-V4.1-Flash-1017 checkpoint)",
+    "dataset": "Lucebox 1017 eval set, 8 x 1024 held-out tokens",
+    "ctx": "not stated",
+    "tool": "dsx eval; KL and top-1 against teacher top-256 log-probs",
+    "L": [29, 31, 40, 41, 42, 51]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "This model",
+      "methodology": {"reference": "FP8/FP4 teacher", "dataset": "Lucebox 1017 eval set, 8 x 1024 held-out tokens", "ctx": "not stated", "tool": "dsx eval; all experts resident", "L": [40, 41, 42, 49]},
+      "metrics": {"mean_kld": "c14", "top1_pct": "c15", "ppl": "c16"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c13",
+      "flags": ["bpw is the routed-experts average, not the whole model [L31]", "KL is top-256 log-prob KL against the teacher, not full-vocabulary KL [L41]", "teacher row (FP8/FP4) is the reference and is not mapped as an entry [L46]", "Engram tables are read from the official shards at runtime and are not in the file [L29]"]
+    },
+    {
+      "role": "cross",
+      "name": "Lucebox ROCMFP",
+      "of": "Lucebox/DeepSeek-V4.1-Flash-1017-ROCMFP-GGUF",
+      "methodology": {"reference": "FP8/FP4 teacher", "dataset": "Lucebox 1017 eval set, 8 x 1024 held-out tokens", "ctx": "not stated", "tool": "dsx eval; KL and top-1 against teacher top-256 log-probs", "L": [40, 41, 42, 47]},
+      "metrics": {"mean_kld": "c6", "top1_pct": "c7", "ppl": "c8"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c5",
+      "flags": ["measured by the card author with dsx eval [L40-L41]", "repo taken from the eval-set link, not the row label [L40]", "KL is top-256 log-prob KL, not full-vocabulary KL [L41]"]
+    },
+    {
+      "role": "ladder",
+      "name": "Author's 2.03 bpw build",
+      "methodology": {"reference": "FP8/FP4 teacher", "dataset": "Lucebox 1017 eval set, 8 x 1024 held-out tokens", "ctx": "not stated", "tool": "dsx eval; KL and top-1 against teacher top-256 log-probs", "L": [40, 41, 42, 48]},
+      "metrics": {"mean_kld": "c10", "top1_pct": "c11", "ppl": "c12"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c9",
+      "flags": ["earlier build by the same author [L48]", "KL is top-256 log-prob KL, not full-vocabulary KL [L41]"]
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,14 @@
+{"repo": "bertholomus/DeepSeek-V4.1-Flash-1017-EXL3-4.0bpw",
+ "source_sha256": "8e497b0d67c5f4ab6f4f8e7eba67b27a3c1d596fd8d6c4db172b591995245585",
+ "candidates_sha256": "cfc60d774ebbc3c6c3c7226aaba6049b45661e85caba21268e1180a0ec073a2e",
+ "no_quality_claims": true,
+ "no_claims_reason": "quality section says KL against the native model is not measured yet [L48]; only serving gates and speed are reported [L32-40]",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "served on four GB10 nodes, TensorFold tensor parallel 4 over RDMA", "L": [32, 34, 36, 48]},
+ "entries": [
+   {"role": "own", "name": "EXL3 4.0 bpw",
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": "c10",
+    "flags": ["speed table only for the served lane [L34-40]", "functional gate counts (exact chat, tool calls, needles) are serving checks, not quant-quality metrics: not mapped [L32]"]}
+ ],
+ "prose": []}

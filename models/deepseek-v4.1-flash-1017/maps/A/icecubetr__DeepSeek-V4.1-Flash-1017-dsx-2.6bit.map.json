@@ -1,0 +1,74 @@
+{
+ "repo": "icecubetr/DeepSeek-V4.1-Flash-1017-dsx-2.6bit",
+ "source_sha256": "188916c14f02f05e59fee1909cff5c721e3afa2f4f72981fb3de2e9aab0da51f",
+ "candidates_sha256": "c9536dc38c560142a9cb24ae66af39dcbb6ca5162dd5f9a7159b419e6a8a54f2",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+   "reference": "FP8/FP4 teacher, KL and top-1 against its top-256 log-probs [L41]",
+   "dataset": "Lucebox's 1017 eval set, 8 x 1024 held-out tokens [L40-L41]",
+   "ctx": "not stated",
+   "tool": "dsx eval [L40]",
+   "L": [40, 41, 44]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "This model",
+   "metrics": {
+     "mean_kld": "c14",
+     "top1_pct": "c15",
+     "ppl": "c16"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c13",
+   "flags": ["KL and top-1 are against the teacher's top-256 log-probs [L41]; size 187.6 GB is stated in prose, not in the quality table, not mapped [L22]"]
+  },
+  {
+   "role": "ladder",
+   "name": "Author's 2.03 bpw build",
+   "metrics": {
+     "mean_kld": "c10",
+     "top1_pct": "c11",
+     "ppl": "c12"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c9",
+   "flags": []
+  },
+  {
+   "role": "cross",
+   "of": "Lucebox/DeepSeek-V4.1-Flash-1017-ROCMFP-GGUF",
+   "name": "Lucebox ROCMFP",
+   "metrics": {
+     "mean_kld": "c6",
+     "top1_pct": "c7",
+     "ppl": "c8"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c5",
+   "flags": ["repo taken from the eval-set link, the measured file is not named [L40, L47]"]
+  },
+  {
+   "role": "cross",
+   "of": "not named on card",
+   "name": "FP8 / FP4 teacher",
+   "metrics": {
+     "ppl": "c4"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["reference row; its KL and top-1 are zero by construction and not mapped [L46]"]
+  }
+ ],
+ "prose": []
+}

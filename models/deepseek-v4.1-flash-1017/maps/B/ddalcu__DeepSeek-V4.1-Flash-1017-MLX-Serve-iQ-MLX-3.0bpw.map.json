@@ -1,0 +1,108 @@
+{
+  "repo": "ddalcu/DeepSeek-V4.1-Flash-1017-MLX-Serve-iQ-MLX-3.0bpw",
+  "source_sha256": "2929551b425c10872da85e4280107496a1c775e18bc0f57a4f242e481a392d46",
+  "candidates_sha256": "101e1f2dd02bf44f471d1f130dffea13de02ca757b50dd399284c05df9cda400",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "released checkpoint's own logits (bit-exact repack of its FP4 experts and FP8 trunk)",
+    "dataset": "31 held-out windows of 2,048 tokens (7,936 scored positions), disjoint from calibration windows",
+    "ctx": "2,048-token windows",
+    "tool": "oMLX DeepSeek-V4.1 port",
+    "L": [76, 77, 78, 79, 80, 81]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "iQ-MLX-3.0bpw 1.0 (this pack)",
+      "metrics": {
+        "top1_pct": "c20.0",
+        "top1:agent": "c20.1",
+        "top1:code": "c20.2",
+        "top1:math": "c20.3",
+        "top1:prose": "c20.4",
+        "top1:wiki": "c20.5",
+        "mean_kld": "c22",
+        "ppl": "c23"
+      },
+      "size": "c19",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c25",
+      "flags": [
+        "download is total, including Engram tables (203 GB) read from SSD and not resident [L41]",
+        "KLD median (c21) has no metric key; not mapped [L87]",
+        "scored with a dense LM head; mlx-serve serves 8-bit at load, not in these numbers [L91]",
+        "wiki KLD 0.21 in Known limits [L170]; statistic (mean or median) not stated"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "1.0",
+      "metrics": {
+        "ppl_delta_pct": "c8"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "perplexity vs released, from the Versions table row 1.0 [L58]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "oMLX oQ3e",
+      "of": "mlx-community/DeepSeek-V4.1-Flash-1017-oQ3e-mtp",
+      "metrics": {
+        "top1_pct": "c10.0",
+        "top1:agent": "c10.1",
+        "top1:code": "c10.2",
+        "top1:math": "c10.3",
+        "top1:prose": "c10.4",
+        "top1:wiki": "c10.5",
+        "mean_kld": "c12",
+        "ppl": "c13"
+      },
+      "size": "c9",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "KLD median (c11) has no metric key; not mapped [L85]",
+        "scored by this card's author through the oMLX port [L78]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "same experts, trunk as released (not published)",
+      "metrics": {
+        "top1_pct": "c15.0",
+        "top1:agent": "c15.1",
+        "top1:code": "c15.2",
+        "top1:math": "c15.3",
+        "top1:prose": "c15.4",
+        "top1:wiki": "c15.5",
+        "mean_kld": "c17",
+        "ppl": "c18"
+      },
+      "size": "c14",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "KLD median (c16) has no metric key; not mapped [L86]",
+        "not published; trunk kept as released [L86]"
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "iQ-MLX-3.0bpw 1.0 (this pack)",
+      "key": "kld:wiki",
+      "L": 170,
+      "raw": "KLD 0.21"
+    }
+  ]
+}

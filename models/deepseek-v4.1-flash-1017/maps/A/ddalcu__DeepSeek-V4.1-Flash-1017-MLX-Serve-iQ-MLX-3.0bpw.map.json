@@ -1,0 +1,83 @@
+{
+ "repo": "ddalcu/DeepSeek-V4.1-Flash-1017-MLX-Serve-iQ-MLX-3.0bpw",
+ "source_sha256": "2929551b425c10872da85e4280107496a1c775e18bc0f57a4f242e481a392d46",
+ "candidates_sha256": "101e1f2dd02bf44f471d1f130dffea13de02ca757b50dd399284c05df9cda400",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+   "reference": "released checkpoint's own logits, a bit-exact repack of its FP4 experts and FP8 trunk [L76-L77]",
+   "dataset": "31 held-out windows of 2,048 tokens, 7,936 scored positions, disjoint from calibration [L77-L81]",
+   "ctx": "2,048-token windows [L77]",
+   "tool": "oMLX's DeepSeek-V4.1 port; KLD over the full 129,280-token vocabulary [L78-L80]",
+   "L": [76, 77, 78, 79, 80, 81]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "iQ-MLX-3.0bpw 1.0 (this pack)",
+   "panel": "Calibration and what it buys",
+   "metrics": {
+     "top1_pct": "c20.0",
+     "top1:agent": "c20.1",
+     "top1:code": "c20.2",
+     "top1:math": "c20.3",
+     "top1:prose": "c20.4",
+     "top1:wiki": "c20.5",
+     "mean_kld": "c22",
+     "ppl": "c23"
+   },
+   "size": "c19",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c25",
+   "flags": [
+     "download size includes the Engram tables [L41, L122]",
+     "KLD median not mapped, no matching key [L83, L87]",
+     "same-experts variant with trunk as released is not published, omitted [L86]"
+   ]
+  },
+  {
+   "role": "cross",
+   "of": "mlx-community/DeepSeek-V4.1-Flash-1017-oQ3e-mtp",
+   "name": "oMLX oQ3e",
+   "panel": "Calibration and what it buys",
+   "metrics": {
+     "top1_pct": "c10.0",
+     "top1:agent": "c10.1",
+     "top1:code": "c10.2",
+     "top1:math": "c10.3",
+     "top1:prose": "c10.4",
+     "top1:wiki": "c10.5",
+     "mean_kld": "c12",
+     "ppl": "c13"
+   },
+   "size": "c9",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": ["KLD median not mapped, no matching key [L85]"]
+  },
+  {
+   "role": "own",
+   "name": "1.0",
+   "panel": "Versions",
+   "methodology": {
+     "reference": "released checkpoint, as in the section below [L60]",
+     "dataset": "as in the section below [L60]",
+     "ctx": "not stated",
+     "tool": "oMLX DeepSeek-V4.1 port, as in the section below [L60, L78]",
+     "L": [56, 58, 60]
+   },
+   "metrics": {
+     "ppl_delta_pct": "c8"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["perplexity change against the released model, the same value as the calibration table [L58]"]
+  }
+ ],
+ "prose": []
+}

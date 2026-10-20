@@ -1,0 +1,18 @@
+{"repo": "cliecy/DeepSeek-V4.1-Flash-1017-EXL3-3bpw-2xRTXPRO6000",
+ "source_sha256": "c6a03d759a8ed662622f1412e04f7b937ba0c01996aaa6a657d1b6d5cc504beb",
+ "candidates_sha256": "4d947fb2a5af19261efc265d4ee109d0a455480e833c26b6211c27dd0829b61d",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "GSM8K, MATH-500, HumanEval, MMLU-Pro, C-Eval validation and tool-call checks; small fixed samples", "ctx": "not stated", "tool": "temperature 0, scored automatically, eval harness published with the card", "L": [90, 94, 95, 97]},
+ "entries": [
+   {"role": "own", "name": "EXL3 3 bpw, thinking off",
+    "metrics": {"bench:GSM8K": "c1", "bench:MATH-500": "c2", "bench:HumanEval": "c3", "bench:MMLU-Pro": "c4", "bench:C-Eval": "c5"},
+    "size": null, "unit": null, "basis": null, "bpw": "c12",
+    "flags": ["small fixed samples per benchmark [L90]", "tool-call pass count not mapped: count with no percent cell [L94]", "weights credited to PixelML for the 1017 EXL3 3 bpw quantization; this repo packages them with other serving work [L159-162]"]},
+   {"role": "own", "name": "EXL3 3 bpw, thinking on",
+    "metrics": {"bench:GSM8K": "c7", "bench:MATH-500": "c8", "bench:HumanEval": "c9", "bench:MMLU-Pro": "c10", "bench:C-Eval": "c11"},
+    "size": null, "unit": null, "basis": null, "bpw": "c12",
+    "flags": ["small fixed samples per benchmark [L90]", "MMLU-Pro thinking-on cell reports 64 items, not the 200 in the column header [L95]", "weights credited to PixelML for the 1017 EXL3 3 bpw quantization [L162]"]}
+ ],
+ "prose": []}

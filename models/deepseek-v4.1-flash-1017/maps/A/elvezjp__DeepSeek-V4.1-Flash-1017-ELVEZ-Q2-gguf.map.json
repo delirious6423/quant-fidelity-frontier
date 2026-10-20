@@ -1,0 +1,15 @@
+{"repo": "elvezjp/DeepSeek-V4.1-Flash-1017-ELVEZ-Q2-gguf",
+ "source_sha256": "dbc717fa5f6e0810de5033690d9f3a8f141a94d4d8ee7d3bb4a67f5cd0b4ac99",
+ "candidates_sha256": "c6b4e3e3d57b730c9630f114457174098ecd1de53d1ccd2cd90501df5e75917d",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated for this file; the card's reference column is an earlier V4.1 Flash measurement on another machine, not 1017", "dataset": "Japanese knowledge QA, HumanEval, number test, long-form prompts and image cases; small sets", "ctx": "not stated; HumanEval thinking-on runs capped at 16,384 tokens", "tool": "IXV runtime on one Mac Studio M3 Ultra; the card gives per-test settings", "L": [150, 151, 162, 164, 166, 167, 169, 174, 189]},
+ "entries": [
+   {"role": "own", "name": "This file",
+    "methodology": {"reference": "not stated", "dataset": "Japanese knowledge QA (48), HumanEval (164), number test (20)", "ctx": "not stated", "tool": "IXV runtime 5e30513c for quality", "L": [164, 166, 167, 169]},
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["quality results are fraction counts (46/48, 152/164, 20/20), and one HumanEval cell carries a percent inside a fraction; not mapped [L166-169]", "reference column is an earlier V4.1 Flash measurement on another machine and engine, not 1017; omitted [L152-153][L166-167]", "no comparison against other 1017 quantizations on the same machine [L151-152]", "the card says the model sometimes thinks to the token limit and never answers [L174-177]", "small test sets [L189-190]"]}
+ ],
+ "prose": []}

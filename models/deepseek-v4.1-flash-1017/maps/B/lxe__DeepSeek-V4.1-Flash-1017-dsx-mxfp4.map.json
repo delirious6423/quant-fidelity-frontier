@@ -1,0 +1,91 @@
+{
+ "repo": "lxe/DeepSeek-V4.1-Flash-1017-dsx-mxfp4",
+ "source_sha256": "5ede1cc7c9bdb91d9606514c555ae1a677cf1e1dfa73636a47fb1c763dc83192",
+ "candidates_sha256": "94262e77624efd1aaf7adcb2dee94668f755b492ded8f719989b2bff39289c05",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "FP8 model",
+  "dataset": "Lucebox's 1017 eval set",
+  "ctx": "8 x 1024 tokens",
+  "tool": "not stated",
+  "L": [
+   39,
+   40
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "dsx MXFP4 + 3-bit",
+   "metrics": {
+    "mean_kld": "c6",
+    "top1_pct": "c7",
+    "ppl": "c8"
+   },
+   "size": "c5",
+   "unit": "GB",
+   "basis": "excl_engram",
+   "bpw": null,
+   "flags": [
+    "KL and top-1 are over the FP8 model's top-256 log-probs, not full vocabulary [L40]",
+    "second run gave KL 0.047, not mapped [L51-52]",
+    "FP8 original row (ppl 8.56) not mapped as an entry, it is the reference model [L44]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Lucebox ROCMFP23S",
+   "of": "Lucebox/DeepSeek-V4.1-Flash-1017-ROCMFP-GGUF",
+   "metrics": {
+    "mean_kld": "c10",
+    "top1_pct": "c11",
+    "ppl": "c12"
+   },
+   "size": "c9",
+   "unit": "GiB",
+   "basis": "excl_engram",
+   "bpw": null,
+   "flags": [
+    "repo taken from the eval-set link on this card [L39]",
+    "measured in this card's table on the same eval set [L39-40]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Lucebox ROCMFP 2.5 bpw",
+   "of": "Lucebox/DeepSeek-V4.1-Flash-1017-ROCMFP-GGUF",
+   "metrics": {
+    "mean_kld": "c14",
+    "top1_pct": "c15",
+    "ppl": "c16"
+   },
+   "size": "c13",
+   "unit": "GiB",
+   "basis": "excl_engram",
+   "bpw": "c28",
+   "flags": [
+    "repo taken from the eval-set link on this card [L39]",
+    "measured in this card's table on the same eval set [L39-40]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "dsx 2-bit",
+   "metrics": {
+    "mean_kld": "c19",
+    "top1_pct": "c20",
+    "ppl": "c21"
+   },
+   "size": "c18",
+   "unit": "GB",
+   "basis": "excl_engram",
+   "bpw": null,
+   "flags": [
+    "same publisher's 2-bit build, for comparison [L48]"
+   ]
+  }
+ ],
+ "prose": []
+}

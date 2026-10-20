@@ -1,0 +1,75 @@
+{
+  "repo": "acrogenesis/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw-5090",
+  "source_sha256": "86e8216c14a327101a7e9e66345bab60cff646caa3d20244e02041850d5e5190",
+  "candidates_sha256": "9ea9c8f5b49dc02192720abf237c44216a965756fee85fac1d054946c0430d4d",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "converted reference (native MXFP4 experts with Q8 dense/Engram conversion; not an exact native forward pass)",
+    "dataset": "2,040 held-out token positions (table header); eight 512-token WikiText-2 chunks for perplexity",
+    "ctx": "512-token chunks (perplexity)",
+    "tool": "not stated",
+    "L": [61, 63, 64, 65, 68, 69, 70]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "EXL3",
+      "metrics": {
+        "ppl:wikitext": "c1",
+        "mean_kld": "c3",
+        "top1_pct": "c5"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "mirror of LibertAIDAI's 2.9 bpw EXL3 quant with the original Engram shards; weights unchanged [L22-25]",
+        "perplexity row sits under a header that says 2,040 held-out positions, but the text describes eight 512-token WikiText-2 chunks; mapped as ppl:wikitext [L61, L68]",
+        "KL statistic and vocabulary scope not stated; read as mean KL [L64]",
+        "exact-answer panel 20/24 [L66] not mapped: a count out of 24, not a percentage",
+        "about 413.91 GB for the original files including Engram shards [L84]; not in the measured row"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Our IQ2_XXS GGUF",
+      "metrics": {
+        "ppl:wikitext": "c2",
+        "mean_kld": "c4",
+        "top1_pct": "c6"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "this publisher's IQ2_XXS GGUF build, same comparison as the own row [L61-66]",
+        "perplexity row mapped as ppl:wikitext under the same header caveat [L61, L68]",
+        "exact-answer panel 11/24 [L66] not mapped: a count out of 24, not a percentage"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "converted reference",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "reference model's perplexity on the same WikiText-2 chunks [L68-69]"
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "converted reference",
+      "key": "ppl:wikitext",
+      "L": 69,
+      "raw": "6.335829"
+    }
+  ]
+}

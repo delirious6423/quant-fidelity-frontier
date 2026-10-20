@@ -1,0 +1,128 @@
+{
+ "repo": "jayleaton/DeepSeek-V4.1-Flash-1017-EXL3-2.8bpw",
+ "source_sha256": "1230ca10112748a9414872e81114170edd13e3fea6ff9fc042edb14cd4ebf30d",
+ "candidates_sha256": "ae2e3202d045cb634614cd02115713c7f86cccd64df58540483bfde0c5ee81f6",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "each pack's own release (this pack vs 1017)",
+  "dataset": "same held-out per-domain set, about 24.5K tokens per domain",
+  "ctx": "not stated",
+  "tool": "not stated",
+  "L": [
+   125,
+   126,
+   127
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "this pack",
+   "panel": "Fidelity to the release, as served",
+   "metrics": {
+    "kld:code": "c5.0",
+    "top1:code": "c5.1",
+    "kld:science": "c8.0",
+    "top1:science": "c8.1",
+    "kld:math": "c11.0",
+    "top1:math": "c11.1",
+    "kld:tool_calls": "c14.0",
+    "top1:tool_calls": "c14.1",
+    "kld:multilingual": "c17.0",
+    "top1:multilingual": "c17.1",
+    "kld:chat": "c20.0",
+    "top1:chat": "c20.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "scored with TensorFold's served expert pruning (top-p 0.85, at least 3 experts) [L126-127]",
+    "per-domain KL and top-1 only; confident-mistake counts per 10,000 positions not mapped [L127-128]",
+    "the bases differ (1017 vs September), not a paired comparison [L140-141]",
+    "task pass counts (N / M per suite) not mapped: counts without percentages [L154-166]",
+    "speed and image/agent results not mapped [L182-191]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "q28-v2",
+   "panel": "Fidelity to the release, as served",
+   "methodology": {
+    "reference": "September release (own base of that pack)",
+    "dataset": "same held-out per-domain set (~24.5K tokens a domain)",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     125,
+     126,
+     127
+    ]
+   },
+   "metrics": {
+    "kld:code": "c6.0",
+    "top1:code": "c6.1",
+    "kld:science": "c9.0",
+    "top1:science": "c9.1",
+    "kld:math": "c12.0",
+    "top1:math": "c12.1",
+    "kld:tool_calls": "c15.0",
+    "top1:tool_calls": "c15.1",
+    "kld:multilingual": "c18.0",
+    "top1:multilingual": "c18.1",
+    "kld:chat": "c21.0",
+    "top1:chat": "c21.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "this publisher's predecessor pack, scored against the September release, not 1017 [L130]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "2.9 bpw (Mia-AiLab)",
+   "panel": "Fidelity to the release, as served",
+   "of": "not named on card",
+   "methodology": {
+    "reference": "September release (own base of that pack)",
+    "dataset": "same held-out per-domain set (~24.5K tokens a domain)",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     125,
+     126,
+     127
+    ]
+   },
+   "metrics": {
+    "kld:code": "c7.0",
+    "top1:code": "c7.1",
+    "kld:science": "c10.0",
+    "top1:science": "c10.1",
+    "kld:math": "c13.0",
+    "top1:math": "c13.1",
+    "kld:tool_calls": "c16.0",
+    "top1:tool_calls": "c16.1",
+    "kld:multilingual": "c19.0",
+    "top1:multilingual": "c19.1",
+    "kld:chat": "c22.0",
+    "top1:chat": "c22.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "publisher named as Mia-AiLab, no repo id on card [L130]",
+    "scored against the September release, not 1017 [L130]"
+   ]
+  }
+ ],
+ "prose": []
+}

@@ -1,0 +1,34 @@
+{
+ "repo": "pqhaz/DeepSeek-V4.1-Flash-1017-heretic",
+ "source_sha256": "1b4f1cd6a17b651f8830199f120b9a536291912d5b84bdbe511a6f228140e2f4",
+ "candidates_sha256": "be5627a2d8185525c12dfc350f70e6e23636d7dc43318cb3e4fa05ceec5403a6",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+  "reference": "base model (the table's base row, KL 0)",
+  "dataset": "100 harmless prompts",
+  "ctx": "first generated token",
+  "tool": "DeepSeek's reference inference code",
+  "L": [
+   33
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "attention 2.5 (this model)",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "KL 0.136 is on the first generated token for 100 harmless prompts, not a full-sequence KLD, so not mapped [L33, L40]",
+    "refusal counts and the SGLang behaviour table are not quality metrics, not mapped [L37-44, L52-58]",
+    "unreleased edit strengths in the sweep are not mapped [L37-44]"
+   ]
+  }
+ ],
+ "prose": []
+}

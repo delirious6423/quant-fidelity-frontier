@@ -1,0 +1,28 @@
+{
+  "repo": "GreenBitAI/DeepSeek-V4.1-Flash-1017-4bit-paged",
+  "source_sha256": "23babe0a3de340d2a38bb25f5888f3d75bccc654f8339c7eeea965c225e94dc6",
+  "candidates_sha256": "44b521c3d97c609361c395e84ea8e144e0768afed1730986932f0e9d51b562d3",
+  "no_quality_claims": true,
+  "no_claims_reason": "file sizes, memory and decode-speed figures only [L29-L37, L62-L66, L222-L236]",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated",
+    "dataset": "not stated",
+    "ctx": "not stated",
+    "tool": "gbx_lm v0.8.1 on a 512 GB Mac Studio (M3 Ultra); decode timed from the first token",
+    "L": [222, 223, 224, 225]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "4-bit paged build",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["routed experts are 4-bit and the attention, shared experts, embedding and head are 8-bit, as stated [L24-L25]", "file sizes (406.10 GiB total, experts 284.77 GiB) are in a table with no quality metric and are not mapped [L29-L37]", "no quality measurement is given; the speed comparison with the earlier weights is not mapped [L226-L236]"]
+    }
+  ],
+  "prose": []
+}

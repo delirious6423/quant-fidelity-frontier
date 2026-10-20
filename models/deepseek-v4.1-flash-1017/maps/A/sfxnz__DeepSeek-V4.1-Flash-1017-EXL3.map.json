@@ -1,0 +1,19 @@
+{"repo": "sfxnz/DeepSeek-V4.1-Flash-1017-EXL3",
+ "source_sha256": "28a104cf1ca86706cfce6a12428a34988fbc7853648aa7e1ea99926eafa5875d",
+ "candidates_sha256": "44b564bdc903be037aa9bc8ee7630fd81bf0de273d240ead0e4c83d23d6a7388",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "native unquantized 1017 model", "dataset": "served-output rows of the card's KL check, plus GSM8K, MMLU, tool-call, needle and soak checks", "ctx": "not stated", "tool": "served on 2x DGX Spark at recipe defaults; KL against the native unquantized model", "L": [33, 41, 42, 44, 45, 46, 47, 48, 70, 72]},
+ "entries": [
+   {"role": "own", "name": "EXL3 2.7 bpw MCG (mixed K)",
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": "c7",
+    "flags": ["served KL row: estimator not stated, covers 72 rows of served output [L47]", "encyclopedic worst-corpus figures are mapped as per-corpus values [L47]", "GSM8K, MMLU, tool-call, needle and soak results are fraction counts with no percent cell, so not mapped [L42-46][L48]", "KL_eq validation figures are allocation-validation proxies, not a served-KL metric: not mapped [L72]", "teacher-forced NLL is not a perplexity figure: not mapped [L41]", "size on disk is not in the same row as a metric [L63]"]}
+ ],
+ "prose": [
+   {"entry": "EXL3 2.7 bpw MCG (mixed K)", "key": "mean_kld", "L": 47, "raw": "0.025 nats/token"},
+   {"entry": "EXL3 2.7 bpw MCG (mixed K)", "key": "top1_pct", "L": 47, "raw": "95.3%"},
+   {"entry": "EXL3 2.7 bpw MCG (mixed K)", "key": "kld:encyclopedic", "L": 47, "raw": "0.114"},
+   {"entry": "EXL3 2.7 bpw MCG (mixed K)", "key": "top1:encyclopedic", "L": 47, "raw": "88.1%"}
+ ]}

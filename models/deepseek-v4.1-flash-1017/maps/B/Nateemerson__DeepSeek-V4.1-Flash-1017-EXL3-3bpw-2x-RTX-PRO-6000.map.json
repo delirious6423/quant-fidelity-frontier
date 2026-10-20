@@ -1,0 +1,17 @@
+{
+ "repo": "Nateemerson/DeepSeek-V4.1-Flash-1017-EXL3-3bpw-2x-RTX-PRO-6000",
+ "source_sha256": "b2a5d5e03a5aa4201c275bfc6a52d7f54cfa36942356acb554514b1185383b67",
+ "candidates_sha256": "c9d6abb4c4aaa6ba62e0be7e5fae0806f154fa48813a6014857188ad2a9ca1d4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "GSM8K first 200 and HumanEval 164", "ctx": "not stated", "tool": "diffbot's recipe/bench/quality-probe.py, greedy, thinking off, 4 streams, max 4,096 tokens", "L": [112, 113]},
+ "entries": [
+  {"role": "own", "name": "This pack (1017, uncalibrated experts)",
+   "methodology": {"reference": "not stated", "dataset": "GSM8K first 200 and HumanEval 164", "ctx": "not stated", "tool": "diffbot's recipe/bench/quality-probe.py, greedy, thinking off, 4 streams, max 4,096 tokens", "L": [112, 113]},
+   "metrics": {"bench:GSM8K-200": "c14", "bench:HumanEval-164": "c15"},
+   "size": null, "unit": null, "basis": null, "bpw": "c20",
+   "flags": ["Routed experts are uncalibrated (identity Hessian) [L146]", "Routed-expert shards are 3 bpw [L44]", "Comparison rows for the V4.1-Flash model are a different model and are not mapped [L117-119]"]}
+ ],
+ "prose": []
+}

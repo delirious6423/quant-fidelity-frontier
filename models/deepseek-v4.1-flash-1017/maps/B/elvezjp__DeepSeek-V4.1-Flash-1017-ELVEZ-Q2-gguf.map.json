@@ -1,0 +1,37 @@
+{
+ "repo": "elvezjp/DeepSeek-V4.1-Flash-1017-ELVEZ-Q2-gguf",
+ "source_sha256": "dbc717fa5f6e0810de5033690d9f3a8f141a94d4d8ee7d3bb4a67f5cd0b4ac99",
+ "candidates_sha256": "c6b4e3e3d57b730c9630f114457174098ecd1de53d1ccd2cd90501df5e75917d",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "not stated",
+  "dataset": "ELVEZ internal sets (Japanese QA, long-form, number test, images) and HumanEval, 164 problems",
+  "ctx": "16,384 tokens (HumanEval), 4,096 tokens (long-form)",
+  "tool": "IXV runtime 5e30513c",
+  "L": [
+   150,
+   151,
+   164,
+   166
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "This file",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "pass counts (46/48, 152/164, 20/20) and the long-form score /20 not mapped: counts with mixed denominators, no bench key fits [L166-169]",
+    "reference column is V4.1 Flash, not 1017, omitted [L164-168]",
+    "speed table not mapped, not a quality metric [L155-160]"
+   ]
+  }
+ ],
+ "prose": []
+}

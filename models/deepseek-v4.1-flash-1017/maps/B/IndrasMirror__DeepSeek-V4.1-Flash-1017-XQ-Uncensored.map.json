@@ -1,0 +1,31 @@
+{
+ "repo": "IndrasMirror/DeepSeek-V4.1-Flash-1017-XQ-Uncensored",
+ "source_sha256": "e612e8e765b81040386305ac9b831c49111a727a5c56578d29f7966805607702",
+ "candidates_sha256": "875b371173b1cf8a37345400e6e7a69d232a6e08edc1c8b13d6482fca5c47af4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "edited full-precision teacher, same held-out tokens", "dataset": "49,146 held-out calibration tokens, never used for fitting", "ctx": "not stated", "tool": "not stated", "L": [174, 175]},
+ "entries": [
+  {"role": "own", "name": "V2", "panel": "Quality",
+   "methodology": {"reference": "edited full-precision teacher, same held-out tokens", "dataset": "49,146 held-out calibration tokens, never used for fitting", "ctx": "not stated", "tool": "not stated", "L": [174, 175, 177]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": "c11",
+   "flags": ["Carries a rank-2 refusal-direction edit to the base weights [L52]", "Top-1 is given as a fraction (0.670), not mapped to top1_pct [L179]", "Edited teacher column is not mapped; it is not a file in this repo [L177-182]", "Refusal probe counts are not mapped [L187-189]", "Expert bpw row is the all-40-layer allocation [L162]"]},
+  {"role": "own", "name": "V3", "panel": "Builds in this repo (20 Oct)",
+   "methodology": {"reference": "edited full-precision teacher on the same held-out mix", "dataset": "V3's own held-out mix, code and agentic heavy", "ctx": "not stated", "tool": "not stated", "L": [35]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Carries the same rank-2 refusal-direction edit [L35, L52]", "Measured on its own held-out mix, not directly comparable to V2 [L35]"]}
+ ],
+ "prose": [
+  {"entry": "V2", "panel": "Quality", "key": "ppl", "L": 179, "raw": "6.934"},
+  {"entry": "V2", "panel": "Quality", "key": "ppl:chat", "L": 180, "raw": "5.489"},
+  {"entry": "V2", "panel": "Quality", "key": "ppl:code", "L": 181, "raw": "2.161"},
+  {"entry": "V2", "panel": "Quality", "key": "ppl:agent", "L": 182, "raw": "3.148"},
+  {"entry": "V2", "panel": "Quality", "key": "ppl_delta_pct", "L": 33, "raw": "+5.5%"},
+  {"entry": "V2", "panel": "Quality", "key": "bench:Short Gauntlet", "L": 191, "raw": "2.77"},
+  {"entry": "V3", "panel": "Builds in this repo (20 Oct)", "key": "ppl", "L": 35, "raw": "6.72"},
+  {"entry": "V3", "panel": "Builds in this repo (20 Oct)", "key": "ppl_delta_pct", "L": 35, "raw": "+5.7%"}
+ ]
+}

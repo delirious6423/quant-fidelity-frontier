@@ -1,0 +1,78 @@
+{
+  "repo": "prometheusAIR/DeepSeek-V4.1-Flash-1017-GGUF",
+  "source_sha256": "df7a3fe6ac937d871db62359911fc73453b91b66d940b4e5261e49fb335391f3",
+  "candidates_sha256": "bdb8aeb1cb1e4ab29f2066a5d6724b0588721dd922563e8af8bc8ac80956a8ed",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "source GGUF (routed experts bit-identical to the release MXFP4; trunk and engram Q8_0), not an exact native forward",
+    "dataset": "wikitext-2 test, 40 chunks of 4,096 tokens, second half of each scored (81,920 tokens)",
+    "ctx": "4,096-token chunks",
+    "tool": "llama.cpp DeepSeek-V4.1 fork (smalinin my_build_deepseek41 at cfd8adcf6, patched)",
+    "L": [30, 31, 106, 107, 108, 187, 188, 189]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "IQ3_XXS",
+      "metrics": {
+        "mean_kld": "c9",
+        "top1_pct": "c15",
+        "ppl_delta_pct": "c18"
+      },
+      "size": "c6",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "size is total download, which includes the 194.6 GiB Engram tables read from disk [L41-42]",
+        "median KL 0.023 [L44] not mapped: no metric key",
+        "depth ladder 16/16 [L47] not mapped: a count out of 16, not a percentage",
+        "table dataset assumed to be the KL validation set described at [L187-189]; not restated in the table",
+        "quality numbers were measured on the older my_build_deepseek41 build; a re-test of IQ3_XXS on my_build differs by KL 0.011 [L106-117], not mapped"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "IQ2_XS",
+      "metrics": {
+        "mean_kld": "c10",
+        "top1_pct": "c16",
+        "ppl_delta_pct": "c19"
+      },
+      "size": "c7",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "size is total download, which includes the 194.6 GiB Engram tables read from disk [L41-42]",
+        "median KL 0.033 [L44] not mapped: no metric key",
+        "depth ladder 16/16 [L47] not mapped: a count out of 16, not a percentage",
+        "table dataset assumed to be the KL validation set described at [L187-189]; not restated in the table",
+        "measured on the older my_build_deepseek41 build; not re-run on my_build [L123]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "IQ2_XXS",
+      "metrics": {
+        "mean_kld": "c11",
+        "top1_pct": "c17",
+        "ppl_delta_pct": "c20"
+      },
+      "size": "c8",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "size is total download, which includes the 194.6 GiB Engram tables read from disk [L41-42]",
+        "median KL 0.046 [L44] not mapped: no metric key",
+        "depth ladder 16/16 [L47] not mapped: a count out of 16, not a percentage",
+        "table dataset assumed to be the KL validation set described at [L187-189]; not restated in the table",
+        "measured on the older my_build_deepseek41 build; not re-run on my_build [L123]"
+      ]
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,20 @@
+{
+ "repo": "pipenetwork/DeepSeek-V4.1-Flash-1017-MLX-mixed-4_8bit",
+ "source_sha256": "dd8c27f779acaabbf9d8b99517f97dac106616a79c2d93bdc5cbf63f18c323b6",
+ "candidates_sha256": "ae1f73011b9691734d64ed2aec74070513885814a6c1bae38c7fd4d49b9200e8",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "wikitext-2 test, 286,580 tokens in 140 windows of 2048", "ctx": "2048 tokens per window", "tool": "this runtime (MLX port)", "L": [78]},
+ "entries": [
+  {"role": "own", "name": "this build",
+   "methodology": {"reference": "not stated", "dataset": "wikitext-2 test, 286,580 tokens in 140 windows of 2048", "ctx": "2048 tokens per window", "tool": "this runtime (MLX port)", "L": [78]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Size table gives engram tables as 8-bit for this build, while the size line (427.6 GB) and the quality text fit the 4-bit engram 512 GB build; the per-layer ladder rows are not mapped because which row is this repo is ambiguous [L52-58, L69-71, L75-76]", "The per-layer divergence metric is not named as KL; the ladder is not mapped [L63-71]", "Ratio x1.0095 is against the previous checkpoint's build, not the reference [L78]"]}
+ ],
+ "prose": [
+  {"entry": "this build", "key": "ppl:wikitext-2", "L": 78, "raw": "2.9238"},
+  {"entry": "this build", "key": "ppl_ratio", "L": 78, "raw": "x1.0095"}
+ ]
+}

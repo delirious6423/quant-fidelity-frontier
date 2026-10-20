@@ -1,0 +1,82 @@
+{
+  "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2-Mix-5GB",
+  "source_sha256": "4b3ee68cb9cdefbb5878c8579dc10e7a2a506c2bb3de4dfa5de714c9bba2ba39",
+  "candidates_sha256": "6da19f8438af28b553e2d7aba8729d0edbbedcb5983f5ebb94ea8fa9b96c9dc8",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "official checkpoint run in DeepSeek's reference implementation (FP32 teacher logits, published teacher logits)",
+    "dataset": "64 of the 512 fresh 2,048-token sequences (cuts 0, 8, ..., 504), 131,008 scored rows; the subset the expert widths were chosen on",
+    "ctx": "2,048-token sequences",
+    "tool": "DeepSeek reference implementation, layer by layer on 4x NVIDIA B200 at model parallel 4; KL in FP64 over the full vocabulary",
+    "L": [102, 103, 107, 108, 119, 126, 127]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "DeepSeek-V4.1-Flash-1017 TrellisMX K2 Mix 5GB",
+      "metrics": {
+        "mean_kld": "c1",
+        "top1_pct": "c2"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "measured path is routed experts only, with the official FP8 Engram tables; the shipped checkpoint uses 4-bit Engram tables, expected about 0.001 nats higher [L122-124]",
+        "figures are on the 64 sequences the expert widths were chosen on, so not an independent test [L119]",
+        "64 of 512 sequences only; full 512-sequence and 8,192-token protocol not run [L77-78, L108-109]",
+        "routed experts 143.79 GB stated in prose [L71], not in the measured row; not mapped",
+        "native SM120 kernel path not measured [L128]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "K2 build",
+      "metrics": {
+        "top1_pct": "c25.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "same 64 sequences and same path as the own row [L115]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "K2 Mix",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "sibling build, same 64 sequences and same path [L116]"
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "K2 build",
+      "key": "mean_kld",
+      "L": 115,
+      "raw": "0.1687"
+    },
+    {
+      "entry": "K2 Mix",
+      "key": "mean_kld",
+      "L": 116,
+      "raw": "0.1466"
+    },
+    {
+      "entry": "K2 Mix",
+      "key": "top1_pct",
+      "L": 116,
+      "raw": "87.87%"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+ "repo": "Lucebox/DeepSeek-V4.1-Flash-1017-ROCMFP-GGUF",
+ "source_sha256": "018dfd63c1697aa3c4e0f4b3fbf1e60f4d3ad02231487fd86fb49664b3dea652",
+ "candidates_sha256": "a7c9217339e5cd63099d8e84182c54587c5d1cae4cae38d31845fc60c11460f6",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "unquantized 1017 model (teacher), same reference forward pass",
+  "dataset": "8,184 held-out tokens",
+  "ctx": "not stated",
+  "tool": "Lucebox quality harness (lucebox_training/quantization)",
+  "L": [
+   22,
+   93,
+   94
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "DeepSeek-V4.1-Flash-1017-ROCMFP2S.gguf",
+   "metrics": {
+    "mean_kld": "c8",
+    "top1_pct": "c9",
+    "ppl": "c10"
+   },
+   "size": "c7",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "KL is top-256 against the unquantized 1017 teacher, not full vocabulary [L22, L93-94]",
+    "routed experts fp2s everywhere [L25]",
+    "size column includes both Engram tables [L22]",
+    "teacher row (FP4 checkpoint) and September-model scores not mapped [L24, L32-34]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "DeepSeek-V4.1-Flash-1017-ROCMFP2S-MIX10.gguf",
+   "metrics": {
+    "mean_kld": "c13",
+    "top1_pct": "c14",
+    "ppl": "c15"
+   },
+   "size": "c12",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "KL is top-256 against the unquantized 1017 teacher, not full vocabulary [L22, L93-94]",
+    "fp2s, fp3 down on layers 0-9 [L26]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "DeepSeek-V4.1-Flash-1017-ROCMFP23S.gguf",
+   "metrics": {
+    "mean_kld": "c18",
+    "top1_pct": "c19",
+    "ppl": "c20"
+   },
+   "size": "c17",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "KL is top-256 against the unquantized 1017 teacher, not full vocabulary [L22, L93-94]",
+    "fp2s gate/up, fp3 down everywhere [L27]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "DeepSeek-V4.1-Flash-1017-ROCMFP2S-IM1017.gguf",
+   "metrics": {
+    "mean_kld": "c23",
+    "top1_pct": "c24",
+    "ppl": "c25"
+   },
+   "size": "c22",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "KL is top-256 against the unquantized 1017 teacher, not full vocabulary [L22, L93-94]",
+    "fp2s everywhere, imatrix collected on 1017 [L28]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "DeepSeek-V4.1-Flash-1017-ROCMFP2S-MIX10-IM1017.gguf",
+   "metrics": {
+    "mean_kld": "c28",
+    "top1_pct": "c29",
+    "ppl": "c30"
+   },
+   "size": "c27",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "KL is top-256 against the unquantized 1017 teacher, not full vocabulary [L22, L93-94]",
+    "MIX10, imatrix collected on 1017 [L29]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "DeepSeek-V4.1-Flash-1017-ROCMFP23S-IM1017.gguf",
+   "metrics": {
+    "mean_kld": "c33",
+    "top1_pct": "c34",
+    "ppl": "c35"
+   },
+   "size": "c32",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "KL is top-256 against the unquantized 1017 teacher, not full vocabulary [L22, L93-94]",
+    "ROCMFP23S, imatrix collected on 1017 [L30]"
+   ]
+  }
+ ],
+ "prose": []
+}

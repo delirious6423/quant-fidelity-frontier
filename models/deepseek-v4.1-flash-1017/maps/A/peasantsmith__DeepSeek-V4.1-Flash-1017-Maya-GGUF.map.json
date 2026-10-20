@@ -1,0 +1,18 @@
+{"repo": "peasantsmith/DeepSeek-V4.1-Flash-1017-Maya-GGUF",
+ "source_sha256": "68aaac4edb8d61c8a739329745b0a40db7fde98bfd0f30fe985d084ca58f9914",
+ "candidates_sha256": "dd2f48cd56b8fa065b14691b7dceb7a098809f35d9a2957ddc1ec7ecbf803f3b",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "original model's own predictions, DeepSeek's reference implementation running the original weights [L38-40]", "dataset": "held-out text never used for calibration [L38]", "ctx": "not stated", "tool": "Project Maya's engine [L38-39]", "L": [38, 39, 40, 44]},
+ "entries": [
+   {"role": "own", "name": "Maya-S", "panel": "Against the original",
+    "metrics": {"top1_pct": "c3", "mean_kld": "c4"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["KL is the card's KL divergence from the original; the aggregation basis is not stated [L45]", "Engram-table ablation figures (KL 0.011 against FP8 tables, and 0.0858 and 0.0866 against the original) have no matching variant key and are not mapped [L50-53]", "measured on a small held-out set [L38]"]},
+   {"role": "ladder", "name": "The original weights, through Project Maya's engine", "panel": "Against the original",
+    "metrics": {"top1_pct": "c1", "mean_kld": "c2"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["yardstick floor: the engine's rounding against the reference implementation, not a quant [L47]"]}
+ ],
+ "prose": []}

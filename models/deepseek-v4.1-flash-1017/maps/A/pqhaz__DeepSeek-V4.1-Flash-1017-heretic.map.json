@@ -1,0 +1,35 @@
+{
+ "repo": "pqhaz/DeepSeek-V4.1-Flash-1017-heretic",
+ "source_sha256": "1b4f1cd6a17b651f8830199f120b9a536291912d5b84bdbe511a6f228140e2f4",
+ "candidates_sha256": "be5627a2d8185525c12dfc350f70e6e23636d7dc43318cb3e4fa05ceec5403a6",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+   "reference": "base model, KL reported as 0 in the base row [L37]",
+   "dataset": "100 harmless prompts for KL; search set mlabonne/harmful_behaviors test[:100]; held-out JailbreakBench JBB-Behaviors harmful (100) [L33, L46]",
+   "ctx": "KL on the first generated token; refusals judged on the first 48 generated tokens [L33]",
+   "tool": "DeepSeek's reference inference code, greedy decoding, reasoning closed; refusals counted by an LLM judge [L33]",
+   "L": [33, 35, 46]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "attention 2.5 (this model)",
+   "panel": "Chat mode",
+   "metrics": {
+     "kld:harmless_first_token": "c11"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+     "KL is on the first generated token for 100 harmless prompts, not a per-token mean over a corpus [L33]",
+     "refusal counts are an edit-safety measure, not a quality metric, and are not mapped [L35-L40]",
+     "other edit strengths are sweep rows, not published models, and are omitted [L37-L44]"
+   ]
+  }
+ ],
+ "prose": []
+}

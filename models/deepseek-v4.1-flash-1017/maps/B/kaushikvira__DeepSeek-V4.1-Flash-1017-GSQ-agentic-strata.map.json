@@ -1,0 +1,31 @@
+{
+  "repo": "kaushikvira/DeepSeek-V4.1-Flash-1017-GSQ-agentic-strata",
+  "source_sha256": "dc879ba9155cbdf9d9da648762d07e06f9439a976fcde83e72f9d58c2065c774",
+  "candidates_sha256": "6f0dd4824edbb84826f908b3ebe7e4b91cd7e5b22e322e5f183cf820c588000c",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated",
+    "dataset": "HumanEval, 21 problems; streaming tool calls, 10",
+    "ctx": "not stated",
+    "tool": "strata engine (ds41_generate), thinking on, RTX PRO 5000 72 GB",
+    "L": [197, 199, 201, 202, 205, 208]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "strata GSQ",
+      "methodology": {"reference": "not stated", "dataset": "HumanEval, 21 problems", "ctx": "not stated", "tool": "strata engine, thinking on, served through strata", "L": [197, 201, 205]},
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["21 problems is too small a sample to rank quality [L205]", "full quality evaluation has not been run yet [L208]", "streaming tool-call check (10/10 valid) is a sanity check, not mapped [L202]", "proxy quantization error 2.169 to 1.680 is a calibration proxy, not a quality metric, not mapped [L126]", "tier table gives per-tier bpw and byte shares only, no quality metric [L120]"]
+    }
+  ],
+  "prose": [
+    {"entry": "strata GSQ", "key": "bench:HumanEval", "L": 201, "raw": "21/21 correct"}
+  ]
+}

@@ -1,0 +1,22 @@
+{
+ "repo": "BobClawblaw/DeepSeek-V4.1-Flash-1017-TensorFold-e2e3-p4-h8",
+ "source_sha256": "4f03d0f7a30db8641b2be5ec0db322edb5351d56737b22efc292ee85d5a9f849",
+ "candidates_sha256": "4176077383d44f19a29d2258dea946eba818c8d6cddf72c305c6eb2fd0017b67",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "release's own fp4 weights", "dataset": "four prompts x 64 tokens of the fp4 model's greedy replies", "ctx": "not stated", "tool": "recipe's own tool", "L": [71, 72]},
+ "entries": [
+  {"role": "own", "name": "TensorFold e2e3-p4-h8",
+   "methodology": {"reference": "not stated", "dataset": "recipe-harness suite (GLM-5.3 recipe's suite), greedy, thinking off and on", "ctx": "not stated", "tool": "recipe-harness (run 20261018-202801-dsv41-quality and 20261019-034805-dsv41-thinking)", "L": [78, 79, 80, 81, 85, 86, 88, 89, 90]},
+   "metrics": {"bench:GSM8K thinking off": "c1", "bench:GSM8K thinking on": "c2", "bench:MATH-500 as graded, thinking off": "c3", "bench:MATH-500 as graded, thinking on": "c4", "bench:MGSM thinking off": "c5", "bench:MMLU thinking off": "c6"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["MATH-500 fixed-grader values are lower bounds ('at least') and are mapped as prose [L86, L96-99]", "KL 0.138 on four short prompts is a different measurement and is not mapped [L71-72]", "Top-1 agreement is given as a fraction (0.909) and is not mapped [L72]", "Tools, structured-output and harness counts are not mapped [L91-94]", "NRMS gate figures are not mapped [L73-77]", "Model size is stated as 201 GB, not in a metric row [L58]"]}
+ ],
+ "prose": [
+  {"entry": "TensorFold e2e3-p4-h8", "key": "bench:MATH-500 fixed grader, thinking off", "L": 86, "raw": "at least 465/500"},
+  {"entry": "TensorFold e2e3-p4-h8", "key": "bench:MATH-500 fixed grader, thinking on", "L": 86, "raw": "at least 469/500"},
+  {"entry": "TensorFold e2e3-p4-h8", "key": "bench:IFEval loose, thinking off", "L": 90, "raw": "129/150 loose"},
+  {"entry": "TensorFold e2e3-p4-h8", "key": "bench:IFEval strict, thinking off", "L": 90, "raw": "122/150 strict"}
+ ]
+}

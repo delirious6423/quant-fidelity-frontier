@@ -1,0 +1,154 @@
+{
+ "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+ "source_sha256": "ad6e0ab9ebc5b03d9009bdeb80851d265f575393249d8f963302b6800791eeea",
+ "candidates_sha256": "bf66822f91fb48a7ff51b8c0bfe643bd4f200e638e7ffc5efffc0aeb9319ac9f",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+   "reference": "official DeepSeek-V4.1-Flash-1017 weights (MXFP4 experts, FP8 Engram) as teacher [L129]",
+   "dataset": "agentic and Japanese requests from private logs, not released [L146]; image rows as labelled in each table",
+   "ctx": "not stated",
+   "tool": "reference harness; KL approximated on teacher top-32 [L129-L131]",
+   "L": [129, 130, 131, 146]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "this model (v1 + scale calibration)",
+   "panel": "Teacher-forced KL against the original weights / 原重みとの teacher-forced KL",
+   "methodology": {
+     "reference": "official DeepSeek-V4.1-Flash-1017 weights as teacher [L129]",
+     "dataset": "private agentic and Japanese logs [L146]; image rows as labelled [L142-L144]",
+     "ctx": "not stated",
+     "tool": "reference harness, top-32 KL, mean per scored token [L130-L131]",
+     "L": [130, 131, 137, 146]
+   },
+   "metrics": {
+     "kld:agent24": "c4.0",
+     "top1:agent24": "c4.1",
+     "kld:ja16": "c9.0",
+     "top1:ja16": "c9.1",
+     "kld:jakl32": "c13.0",
+     "top1:jakl32": "c13.1",
+     "kld:images_ja": "c17.0",
+     "top1:images_ja": "c17.1",
+     "kld:images_en": "c21.0",
+     "top1:images_en": "c21.1",
+     "kld:images_all": "c25.0",
+     "top1:images_all": "c25.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c51",
+   "flags": ["Tokens column and vs-v1 relative-change column not mapped [L139-L144]"]
+  },
+  {
+   "role": "ladder",
+   "name": "v0: greedy EXL3",
+   "panel": "Teacher-forced KL against the original weights / 原重みとの teacher-forced KL",
+   "methodology": {
+     "reference": "official DeepSeek-V4.1-Flash-1017 weights as teacher [L129]",
+     "dataset": "private agentic and Japanese logs [L146]; image rows as labelled [L142-L144]",
+     "ctx": "not stated",
+     "tool": "reference harness, top-32 KL, mean per scored token [L130-L131]",
+     "L": [130, 131, 137, 146]
+   },
+   "metrics": {
+     "kld:agent24": "c2.0",
+     "top1:agent24": "c2.1",
+     "kld:ja16": "c7.0",
+     "top1:ja16": "c7.1",
+     "kld:images_ja": "c15.0",
+     "top1:images_ja": "c15.1",
+     "kld:images_en": "c19.0",
+     "top1:images_en": "c19.1",
+     "kld:images_all": "c23"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c51",
+   "flags": ["greedy beam-16 EXL3 encoding, same format and size [L69]; no top-1 reported for images all [L144]"]
+  },
+  {
+   "role": "ladder",
+   "name": "v1: Viterbi + refit",
+   "panel": "Teacher-forced KL against the original weights / 原重みとの teacher-forced KL",
+   "methodology": {
+     "reference": "official DeepSeek-V4.1-Flash-1017 weights as teacher [L129]",
+     "dataset": "private agentic and Japanese logs [L146]; image rows as labelled [L142-L144]",
+     "ctx": "not stated",
+     "tool": "reference harness, top-32 KL, mean per scored token [L130-L131]",
+     "L": [130, 131, 137, 146]
+   },
+   "metrics": {
+     "kld:agent24": "c3.0",
+     "top1:agent24": "c3.1",
+     "kld:ja16": "c8.0",
+     "top1:ja16": "c8.1",
+     "kld:jakl32": "c12.0",
+     "top1:jakl32": "c12.1",
+     "kld:images_ja": "c16.0",
+     "top1:images_ja": "c16.1",
+     "kld:images_en": "c20.0",
+     "top1:images_en": "c20.1",
+     "kld:images_all": "c24.0",
+     "top1:images_all": "c24.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c51",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "this model (v1 + scale calibration)",
+   "panel": "Generation checks on ds41rt / ds41rt での生成の確認",
+   "methodology": {
+     "reference": "not stated",
+     "dataset": "245 image questions (ja 145 / en 100) from JMMMU, MECHA-ja, CC-OCR, JA-VG-VQA-500, ChartQA, DocVQA, TextVQA, MMBench and synthetic renders; 200 Japanese prompts [L177-L181]",
+     "ctx": "not stated",
+     "tool": "ds41rt v15, 0-spark layout [L167-L169, L188]",
+     "L": [167, 169, 171, 172, 174, 177, 188]
+   },
+   "metrics": {
+     "bench:image_qa_245": "c38",
+     "bench:image_qa_ja": "c40.0",
+     "bench:image_qa_en": "c40.1",
+     "bench:chinese_mixing_ja_text": "c43"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c51",
+   "flags": ["paired diff vs v1 not mapped [L171]; Chinese mixing is a rate over 200 prompts, not a standard benchmark [L174]"]
+  },
+  {
+   "role": "ladder",
+   "name": "v1: Viterbi + refit",
+   "panel": "Generation checks on ds41rt / ds41rt での生成の確認",
+   "methodology": {
+     "reference": "not stated",
+     "dataset": "245 image questions (ja 145 / en 100) from JMMMU, MECHA-ja, CC-OCR, JA-VG-VQA-500, ChartQA, DocVQA, TextVQA, MMBench and synthetic renders; 200 Japanese prompts [L177-L181]",
+     "ctx": "not stated",
+     "tool": "ds41rt v15, 0-spark layout [L167-L169, L188]",
+     "L": [167, 169, 171, 172, 174, 177, 188]
+   },
+   "metrics": {
+     "bench:image_qa_245": "c37",
+     "bench:image_qa_ja": "c39.0",
+     "bench:image_qa_en": "c39.1",
+     "bench:chinese_mixing_ja_text": "c42"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c51",
+   "flags": ["Simplified Chinese count row (0 / 145) not mapped, it is a count [L173]; text mixing differences of 2-4 answers are not statistically distinguishable [L177]"]
+  }
+ ],
+ "prose": []
+}

@@ -1,0 +1,56 @@
+{
+ "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
+ "source_sha256": "0510713312e3f960b061915ba189d20a785596eee6dc8e9d16dd2913c5bacf1b",
+ "candidates_sha256": "79b72c9579267a26ecbfd23065a309612646df18587ac5262f53530da4089196",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "DeepSeek's FP8 1017 checkpoint (DeepSeek-V4.1-Flash-1017)",
+  "dataset": "exllamav3 default eval text, 100 rows of 2,048 tokens, same tokens for both quants",
+  "ctx": "2,048 tokens per row",
+  "tool": "exllamav3 eval/model_diff.py",
+  "L": [
+   53,
+   54,
+   55
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "This quant (2.9 bpw)",
+   "metrics": {
+    "mean_kld": "c1",
+    "top1_pct": "c3"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c23",
+   "flags": [
+    "median per-token KL and reverse-direction KL(FP8 || quant) not mapped, no matching key [L59]",
+    "no paired interval computed for the comparison [L62-63]",
+    "speed and prefill tables not mapped, not quality metrics [L76-86]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
+   "of": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
+   "metrics": {
+    "mean_kld": "c5",
+    "top1_pct": "c7"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c24",
+   "flags": [
+    "reverse-direction KL and median per-token KL not mapped [L60]",
+    "measured by this card's author for comparison only [L141]"
+   ]
+  }
+ ],
+ "prose": []
+}

@@ -1,0 +1,65 @@
+{
+  "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
+  "source_sha256": "bb716b82c00557c110692ecffb5ec161796cbb4405cebb64ddbfcc5ae849f075",
+  "candidates_sha256": "a11e7f86f417c795aeea974228b03e981c7acb380d941d9b77f1d3eb3db35d1b",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "unquantized model (base FP8 / MXFP4 weights, dequantized)",
+    "dataset": "two held-out sets of unpublished text, 32 sequences x 2048 tokens each (65,504 scored tokens per set); code and prose",
+    "ctx": "2048 tokens per sequence",
+    "tool": "custom DeepseekV41 model definition, full-sequence forward",
+    "L": [64, 68, 129, 130]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "EXL3 2.9 bpw (this repo)",
+      "metrics": {
+        "ppl:code": "c4",
+        "ppl:prose": "c5"
+      },
+      "size": "c3",
+      "unit": "GiB",
+      "basis": "excl_engram",
+      "bpw": "c13",
+      "flags": [
+        "size excludes the Engram tables, which are not in this repo; take them from the base repo [L34, L75]",
+        "per-corpus perplexity deltas vs unquantized (+1.8 code / +0.4 prose) [L15] not mapped: ppl_delta_pct has no corpus form",
+        "Engram-switched-off sanity-check row [L71] omitted: different configuration"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Unquantized (base FP8 / MXFP4 weights, dequantized)",
+      "metrics": {
+        "ppl:code": "c1",
+        "ppl:prose": "c2"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "unquantized reference row, not a quant [L68]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "EXL3 3.5 bpw",
+      "metrics": {
+        "ppl:code": "c7",
+        "ppl:prose": "c8"
+      },
+      "size": "c6",
+      "unit": "GiB",
+      "basis": null,
+      "bpw": "c17",
+      "flags": [
+        "size basis not stated for this row [L70]"
+      ]
+    }
+  ],
+  "prose": []
+}

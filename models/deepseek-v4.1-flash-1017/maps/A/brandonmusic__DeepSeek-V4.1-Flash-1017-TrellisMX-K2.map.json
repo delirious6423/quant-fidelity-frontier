@@ -1,0 +1,48 @@
+{
+ "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2",
+ "source_sha256": "3f6b95f6b442246481dec42ca064df70b6a5a4daef024ff45a7fa5ba828037b5",
+ "candidates_sha256": "72950d67c9b7219d7682310a3de52980429fa309184af1171fdd2be14085540a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+   "reference": "official checkpoint run in DeepSeek's reference implementation, FP32 teacher logits [L156-L158]",
+   "dataset": "128 evaluation windows of 8,192 tokens, also cut into 512 sequences of 2,048 tokens [L161-L162, L174]",
+   "ctx": "2,048-token sequences and 8,192-token windows [L161, L174]",
+   "tool": "KL in FP64 over the full 129,280-id vocabulary, layers run in DeepSeek's reference implementation [L156-L157, L191]",
+   "L": [156, 157, 158, 161, 162, 174, 191]
+  },
+ "entries": [
+  {
+   "role": "own",
+   "name": "DeepSeek-V4.1-Flash-1017 TrellisMX K2",
+   "metrics": {
+     "kld:sequences_2048": "c1",
+     "top1:sequences_2048": "c6",
+     "kld:windows_8192": "c13",
+     "top1:windows_8192": "c18"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+     "rows labelled Weights only, Official experts, K4 Engram and K2 experts, official Engram are variants or ablations, not published builds, and are omitted [L167, L179-L181]",
+     "the 2-bit build size and the Engram size are in prose, not in the metric table, not mapped [L59, L85]"
+   ]
+  }
+ ],
+ "prose": [
+  {"entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2", "key": "kld:agentic", "L": 183, "raw": "agentic 0.341"},
+  {"entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2", "key": "kld:swe_agent", "L": 183, "raw": "SWE agent 0.173"},
+  {"entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2", "key": "kld:math", "L": 183, "raw": "math 0.075"},
+  {"entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2", "key": "kld:science", "L": 183, "raw": "science 0.098"},
+  {"entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2", "key": "kld:competitive_programming", "L": 183, "raw": "competitive programming 0.107"},
+  {"entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2", "key": "kld:instruction_chat", "L": 183, "raw": "instruction following and chat 0.091"},
+  {"entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2", "key": "kld:multilingual", "L": 183, "raw": "multilingual 0.099"},
+  {"entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2", "key": "kld:long_context_transduction", "L": 183, "raw": "long-context transduction 0.020"},
+  {"entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2", "key": "kld:safety", "L": 183, "raw": "safety 0.150"},
+  {"entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2", "key": "kld:web_text", "L": 183, "raw": "web text 0.189"},
+  {"entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2", "key": "kld:legal", "L": 183, "raw": "legal 0.166"}
+ ]
+}

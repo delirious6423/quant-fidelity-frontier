@@ -1,0 +1,128 @@
+{
+ "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2-Mix",
+ "source_sha256": "83981cb7cd899d1aa32acd19f4e0dfa1ecf06a2b9787d4776cae5cc92ec2be68",
+ "candidates_sha256": "062dc733efa45c84e9fd7bf068ae3c99d9267d5ffd259ad531fa5e38f7c1eb2c",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "official checkpoint (DeepSeek-V4.1-Flash-1017) in DeepSeek's reference implementation, FP32 teacher logits",
+  "dataset": "512 fresh 2,048-token sequences cut from 128 evaluation windows of 8,192 tokens",
+  "ctx": "2,048-token sequences and 8,192-token windows",
+  "tool": "not stated",
+  "L": [
+   108,
+   109,
+   110,
+   113,
+   114,
+   118,
+   120
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "Routed experts in serving formats (E4M3 operands, E4M3 activations), official FP8 Engram tables",
+   "panel": "Headline, 2,048-token sequences",
+   "methodology": {
+    "reference": "official checkpoint, FP32 teacher logits",
+    "dataset": "512 fresh 2,048-token sequences",
+    "ctx": "2,048 tokens",
+    "tool": "not stated",
+    "L": [
+     113,
+     114,
+     118
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c1",
+    "top1_pct": "c2"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Engram tables are the official FP8 ones, not the K4 tables this checkpoint ships [L125-127]",
+    "headline widths were chosen on 64 of the 512 sequences, so not an independent test [L129-130]",
+    "median and tail KLD not mapped, no matching keys [L118]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Routed experts in serving formats (E4M3 operands, E4M3 activations), official FP8 Engram tables",
+   "panel": "Full 8,192-token windows",
+   "methodology": {
+    "reference": "official checkpoint, FP32 teacher logits",
+    "dataset": "128 evaluation windows of 8,192 tokens",
+    "ctx": "8,192 tokens",
+    "tool": "not stated",
+    "L": [
+     120
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c23.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "mean KLD in prose on the same line [L120]",
+    "median and tail KLD not stated for this panel"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "K2 build",
+   "panel": "Headline, 2,048-token sequences",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "this publisher's K2 build, measured on the same path [L122]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "K2 build",
+   "panel": "Full 8,192-token windows",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "this publisher's K2 build, measured on the same path [L122]"
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "Routed experts in serving formats (E4M3 operands, E4M3 activations), official FP8 Engram tables",
+   "panel": "Full 8,192-token windows",
+   "key": "mean_kld",
+   "L": 120,
+   "raw": "0.2023"
+  },
+  {
+   "entry": "K2 build",
+   "panel": "Headline, 2,048-token sequences",
+   "key": "mean_kld",
+   "L": 122,
+   "raw": "0.1429"
+  },
+  {
+   "entry": "K2 build",
+   "panel": "Full 8,192-token windows",
+   "key": "mean_kld",
+   "L": 122,
+   "raw": "0.2158"
+  }
+ ]
+}

@@ -1,0 +1,55 @@
+{
+ "repo": "0xSero/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw",
+ "source_sha256": "7032d57c459ea029bf1142d08c6e8d1b79985c7c07b0e45e5486b9f926297f5b",
+ "candidates_sha256": "cc69b687f8c29e206d09bf74de0c7403925d0fa0a50f41001a31d4cc26cc4f1e",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+   "reference": "native 1017 model, DeepSeek's own inference/model.py streamed layer by layer on an H200 [L30-L32]",
+   "dataset": "sudoingX's KLD panel, 199 conversations, 254,846 scored assistant positions [L30-L31]",
+   "ctx": "not stated",
+   "tool": "teacher-forced KL against the native reference [L30-L32]",
+   "L": [30, 31, 32]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "DeepSeek-V4.1-Flash-1017 EXL3 2.7 bpw",
+   "metrics": {
+     "mean_kld": "c1",
+     "kld_99": "c3",
+     "top1_pct": "c4",
+     "ppl": "c5.1",
+     "kld:code": "c6",
+     "top1:code": "c7",
+     "kld:math": "c8",
+     "top1:math": "c9",
+     "kld:agentic": "c10",
+     "top1:agentic": "c11",
+     "kld:long_context": "c12",
+     "top1:long_context": "c13",
+     "kld:knowledge": "c14",
+     "top1:knowledge": "c15",
+     "kld:writing": "c16",
+     "top1:writing": "c17",
+     "kld:multilingual": "c18",
+     "top1:multilingual": "c19",
+     "kld:chat": "c20",
+     "top1:chat": "c21"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+     "8-domain equal-weighted mean KLD not mapped, it is domain-equal and not comparable to mean_kld [L37]",
+     "native reference perplexity in the same row not mapped [L40]",
+     "repo size stated in prose, not in the metric table, not mapped [L69]",
+     "2.70 bits per weight stated in prose, not a candidate, so bpw left null [L20]",
+     "sudoingX's quant of the previous checkpoint is a different model, omitted [L53-L54]"
+   ]
+  }
+ ],
+ "prose": []
+}

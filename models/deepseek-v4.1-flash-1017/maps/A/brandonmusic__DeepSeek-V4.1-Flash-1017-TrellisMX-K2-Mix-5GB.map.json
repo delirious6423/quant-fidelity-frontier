@@ -1,0 +1,26 @@
+{"repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2-Mix-5GB",
+ "source_sha256": "4b3ee68cb9cdefbb5878c8579dc10e7a2a506c2bb3de4dfa5de714c9bba2ba39",
+ "candidates_sha256": "6da19f8438af28b553e2d7aba8729d0edbbedcb5983f5ebb94ea8fa9b96c9dc8",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "official checkpoint teacher logits, run in DeepSeek's reference implementation", "dataset": "64 of 512 fresh 2,048-token sequences from the 8,192-token evaluation windows", "ctx": "2,048-token sequences", "tool": "full-vocabulary KL in FP64 at every next-token row", "L": [102, 107, 113, 115, 116]},
+ "entries": [
+   {"role": "own", "name": "TrellisMX K2 Mix 5GB",
+    "metrics": {"mean_kld": "c1", "top1_pct": "c2"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["measured on 64 of 512 sequences only; full protocol and the 8,192-token window measurement were not run [L107-109]", "routed experts only, with official FP8 Engram tables; the shipped checkpoint uses the K2 build's 4-bit Engram tables and the card expects a slightly higher KLD [L98-124]", "relative KLD gain figures are derived and not mapped [L120]", "native SM120 kernel path, serving speed and KV capacity not measured [L83-84][L128]"]},
+   {"role": "ladder", "name": "K2 build",
+    "metrics": {"top1_pct": "c25.1"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["same 64 sequences and same path as this build [L115]"]},
+   {"role": "ladder", "name": "K2 Mix",
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["sibling build, same 64 sequences and path [L116]"]}
+ ],
+ "prose": [
+   {"entry": "K2 build", "key": "mean_kld", "L": 115, "raw": "0.1687"},
+   {"entry": "K2 Mix", "key": "mean_kld", "L": 116, "raw": "0.1466"},
+   {"entry": "K2 Mix", "key": "top1_pct", "L": 116, "raw": "87.87%"}
+ ]}

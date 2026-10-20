@@ -1,0 +1,89 @@
+{
+ "repo": "lxe/DeepSeek-V4.1-Flash-1017-dsx-mxfp4",
+ "source_sha256": "5ede1cc7c9bdb91d9606514c555ae1a677cf1e1dfa73636a47fb1c763dc83192",
+ "candidates_sha256": "94262e77624efd1aaf7adcb2dee94668f755b492ded8f719989b2bff39289c05",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+   "reference": "FP8 model, top-256 log-probs [L40]",
+   "dataset": "Lucebox's 1017 eval set, 8 x 1024 tokens [L39-L40]",
+   "ctx": "not stated",
+   "tool": "teacher-forced through the decoder [L40]",
+   "L": [39, 40, 50]
+ },
+ "entries": [
+  {
+   "role": "cross",
+   "of": "not named on card",
+   "name": "FP8 / FP4 original",
+   "metrics": {
+     "ppl": "c4"
+   },
+   "size": "c1",
+   "unit": "GB",
+   "basis": "excl_engram",
+   "bpw": null,
+   "flags": ["reference row; KL and top-1 are zero by construction and not mapped [L44]; sizes exclude Engram, and for the original also the vision and draft layers [L50]"]
+  },
+  {
+   "role": "own",
+   "name": "dsx MXFP4 + 3-bit",
+   "metrics": {
+     "mean_kld": "c6",
+     "top1_pct": "c7",
+     "ppl": "c8"
+   },
+   "size": "c5",
+   "unit": "GB",
+   "basis": "excl_engram",
+   "bpw": null,
+   "flags": ["a second run gave a different KL, not mapped [L50-L52]"]
+  },
+  {
+   "role": "cross",
+   "of": "Lucebox/DeepSeek-V4.1-Flash-1017-ROCMFP-GGUF",
+   "name": "Lucebox ROCMFP23S",
+   "metrics": {
+     "mean_kld": "c10",
+     "top1_pct": "c11",
+     "ppl": "c12"
+   },
+   "size": "c9",
+   "unit": "GiB",
+   "basis": "excl_engram",
+   "bpw": null,
+   "flags": ["repo taken from the eval-set link, the measured file is not named [L39, L46]"]
+  },
+  {
+   "role": "cross",
+   "of": "Lucebox/DeepSeek-V4.1-Flash-1017-ROCMFP-GGUF",
+   "name": "Lucebox ROCMFP 2.5 bpw",
+   "metrics": {
+     "mean_kld": "c14",
+     "top1_pct": "c15",
+     "ppl": "c16"
+   },
+   "size": "c13",
+   "unit": "GiB",
+   "basis": "excl_engram",
+   "bpw": "c28",
+   "flags": ["repo taken from the eval-set link, the measured file is not named [L39, L47]"]
+  },
+  {
+   "role": "ladder",
+   "name": "dsx 2-bit",
+   "metrics": {
+     "mean_kld": "c19",
+     "top1_pct": "c20",
+     "ppl": "c21"
+   },
+   "size": "c18",
+   "unit": "GB",
+   "basis": "excl_engram",
+   "bpw": null,
+   "flags": ["companion 2-bit build for NVIDIA desktops, linked in the introduction [L25-L26]"]
+  }
+ ],
+ "prose": []
+}

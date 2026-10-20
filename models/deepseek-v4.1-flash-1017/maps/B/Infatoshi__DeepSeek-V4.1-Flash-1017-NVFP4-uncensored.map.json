@@ -1,0 +1,107 @@
+{
+  "repo": "Infatoshi/DeepSeek-V4.1-Flash-1017-NVFP4-uncensored",
+  "source_sha256": "297bf744f59f17c295addf7291a69404af12fac71774d3386d9dc670fd2aed03",
+  "candidates_sha256": "a372486530fff1736567237c2ec70e158eca9c780c39d89d9312480244f04ddc",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "Unmodified base (DeepSeek-V4.1-Flash-1017, same protocol and budgets)",
+    "dataset": "GSM8K (1,319 items), HumanEval (164 tasks), strict MMLU (14,042 items)",
+    "ctx": "not stated",
+    "tool": "temperature 0, thinking off, matched prompts and budgets; HumanEval network-disabled sandbox; strict MMLU with an eight-token answer cap",
+    "L": [44, 50, 125, 166, 814]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "NVFP4 target",
+      "panel": "Capability outcomes",
+      "metrics": {
+        "bench:gsm8k": "c108",
+        "bench:humaneval": "c123",
+        "bench:mmlu": "c138"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "attention-edited checkpoint: the edit is pqhaz's published 38-tensor patch applied to DeepSeek's release [L802]",
+        "strict MMLU is format-sensitive with an eight-token answer cap; not an official leaderboard protocol [L44, L814]",
+        "weight file total 527.29 GB (decimal) [L241, L798] is in a different table from these accuracies; not mapped as size",
+        "harmful-compliance behavior counts (HarmBench, JBB) are behavior measures, not quality; not mapped [L136-160, L818-822]",
+        "real editing fixtures (2/2 per harness) [L184-197] not mapped: counts out of 2"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Unmodified base",
+      "panel": "Capability outcomes",
+      "metrics": {
+        "bench:gsm8k": "c102",
+        "bench:humaneval": "c117",
+        "bench:mmlu": "c132"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "reference row: unmodified DeepSeek-V4.1-Flash-1017 [L166, L171, L176]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Native MXFP4",
+      "panel": "Capability outcomes",
+      "metrics": {
+        "bench:gsm8k": "c105",
+        "bench:humaneval": "c120",
+        "bench:mmlu": "c135"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "mixed native MXFP4 format, the same attention-edited weights [L167, L172, L177]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "EXL3 2.875",
+      "panel": "Capability outcomes",
+      "metrics": {
+        "bench:gsm8k": "c111",
+        "bench:humaneval": "c126",
+        "bench:mmlu": "c141"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "EXL3 2.875 bpw main routed experts, same attention-edited weights [L169, L174, L179]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "EXL3 3.5",
+      "panel": "Capability outcomes",
+      "metrics": {
+        "bench:gsm8k": "c114",
+        "bench:humaneval": "c129",
+        "bench:mmlu": "c144"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "EXL3 3.5 bpw main routed experts, same attention-edited weights [L170, L175, L180]"
+      ]
+    }
+  ],
+  "prose": []
+}

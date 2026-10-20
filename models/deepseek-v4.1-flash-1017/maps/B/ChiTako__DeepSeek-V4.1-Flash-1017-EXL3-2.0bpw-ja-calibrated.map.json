@@ -1,0 +1,114 @@
+{
+  "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+  "source_sha256": "ad6e0ab9ebc5b03d9009bdeb80851d265f575393249d8f963302b6800791eeea",
+  "candidates_sha256": "bf66822f91fb48a7ff51b8c0bfe643bd4f200e638e7ffc5efffc0aeb9319ac9f",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "official 1017 weights (MXFP4 experts, FP8 Engram) in a reference harness",
+    "dataset": "agent24, ja16, jakl32 and image sets (disjoint from calibration); 245 image QA questions; 200 Japanese text prompts",
+    "ctx": "not stated",
+    "tool": "reference harness with teacher top-32 KL; ds41rt v15 generation checks",
+    "L": [129, 130, 131, 132, 146, 151, 167, 171, 174]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "this model (v1 + scale calibration)",
+      "panel": "Teacher-forced KL against the original weights / 原重みとの teacher-forced KL",
+      "methodology": {"reference": "official 1017 weights (MXFP4 experts, FP8 Engram)", "dataset": "agent24, ja16, jakl32 and image sets; scored tokens per set [L137]", "ctx": "not stated", "tool": "reference harness; KL approximated on teacher top-32; mean per scored token", "L": [129, 130, 131, 132, 137]},
+      "metrics": {"kld:agent24": "c4.0", "top1:agent24": "c4.1", "kld:ja16": "c9.0", "top1:ja16": "c9.1", "kld:jakl32": "c13.0", "top1:jakl32": "c13.1", "kld:images-ja": "c17.0", "top1:images-ja": "c17.1", "kld:images-en": "c21.0", "top1:images-en": "c21.1", "kld:images-all": "c25.0", "top1:images-all": "c25.1"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c51",
+      "flags": ["KL is approximated on the teacher's top-32, not full-vocabulary KL [L130]", "per-set scored token counts and the vs-v1 relative changes are not mapped [L137]", "per-expert scales are trained against teacher outputs, while the card states no weights are trained [L78, L83]"]
+    },
+    {
+      "role": "own",
+      "name": "this model (v1 + scale calibration)",
+      "panel": "Chinese-only token mass / 中国語専用トークンの確率質量",
+      "methodology": {"reference": "teacher (official 1017 weights)", "dataset": "answer spans of ja16, agent24, jakl32 and Japanese image answers", "ctx": "not stated", "tool": "teacher-forced probability mass on Chinese-only tokens, relative to teacher", "L": [151, 152, 157]},
+      "metrics": {"bench:zh-mass-ja16": "c29", "bench:zh-mass-agent24": "c32", "bench:zh-mass-jakl32": "c34", "bench:zh-mass-images-ja": "c36"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c51",
+      "flags": ["ratio to the teacher, 1.0 means the same as the original [L152]", "images Japanese value is a calibration pilot with a wide interval [L162]"]
+    },
+    {
+      "role": "own",
+      "name": "this model (v1 + scale calibration)",
+      "panel": "Generation checks on ds41rt / ds41rt での生成の確認",
+      "methodology": {"reference": "not stated", "dataset": "245 image questions (ja 145 / en 100); 200 Japanese text prompts", "ctx": "not stated", "tool": "ds41rt v15 generation checks; greedy for image QA, T=1.0 for text mixing", "L": [167, 171, 172, 174]},
+      "metrics": {"bench:image-qa": "c38", "bench:image-qa-ja": "c40.0", "bench:image-qa-en": "c40.1", "bench:zh-mixing-ja-text": "c43"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c51",
+      "flags": ["paired difference for image QA is not mapped [L171]", "differences below a few points are not resolved at this sample size [L309]", "speed, prefill and cold-start tables are not mapped [L193]"]
+    },
+    {
+      "role": "ladder",
+      "name": "v1: Viterbi + refit",
+      "panel": "Teacher-forced KL against the original weights / 原重みとの teacher-forced KL",
+      "methodology": {"reference": "official 1017 weights (MXFP4 experts, FP8 Engram)", "dataset": "agent24, ja16, jakl32 and image sets; scored tokens per set [L137]", "ctx": "not stated", "tool": "reference harness; KL approximated on teacher top-32; mean per scored token", "L": [129, 130, 131, 132, 137]},
+      "metrics": {"kld:agent24": "c3.0", "top1:agent24": "c3.1", "kld:ja16": "c8.0", "top1:ja16": "c8.1", "kld:jakl32": "c12.0", "top1:jakl32": "c12.1", "kld:images-ja": "c16.0", "top1:images-ja": "c16.1", "kld:images-en": "c20.0", "top1:images-en": "c20.1", "kld:images-all": "c24.0", "top1:images-all": "c24.1"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["KL is approximated on the teacher's top-32, not full-vocabulary KL [L130]", "earlier build by the same publisher [L139]"]
+    },
+    {
+      "role": "ladder",
+      "name": "v1: Viterbi + refit",
+      "panel": "Chinese-only token mass / 中国語専用トークンの確率質量",
+      "methodology": {"reference": "teacher (official 1017 weights)", "dataset": "answer spans of ja16, agent24, jakl32 and Japanese image answers", "ctx": "not stated", "tool": "teacher-forced probability mass on Chinese-only tokens, relative to teacher", "L": [151, 152, 157]},
+      "metrics": {"bench:zh-mass-ja16": "c28", "bench:zh-mass-agent24": "c31", "bench:zh-mass-jakl32": "c33", "bench:zh-mass-images-ja": "c35"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["ratio to the teacher, 1.0 means the same as the original [L152]"]
+    },
+    {
+      "role": "ladder",
+      "name": "v1: Viterbi + refit",
+      "panel": "Generation checks on ds41rt / ds41rt での生成の確認",
+      "methodology": {"reference": "not stated", "dataset": "245 image questions (ja 145 / en 100); 200 Japanese text prompts", "ctx": "not stated", "tool": "ds41rt v15 generation checks; greedy for image QA, T=1.0 for text mixing", "L": [167, 171, 172, 174]},
+      "metrics": {"bench:image-qa": "c37", "bench:image-qa-ja": "c39.0", "bench:image-qa-en": "c39.1", "bench:zh-mixing-ja-text": "c42"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["earlier build by the same publisher [L169]"]
+    },
+    {
+      "role": "ladder",
+      "name": "v0: greedy EXL3",
+      "panel": "Teacher-forced KL against the original weights / 原重みとの teacher-forced KL",
+      "methodology": {"reference": "official 1017 weights (MXFP4 experts, FP8 Engram)", "dataset": "agent24, ja16 and image sets; scored tokens per set [L137]", "ctx": "not stated", "tool": "reference harness; KL approximated on teacher top-32; mean per scored token", "L": [129, 130, 131, 132, 137]},
+      "metrics": {"kld:agent24": "c2.0", "top1:agent24": "c2.1", "kld:ja16": "c7.0", "top1:ja16": "c7.1", "kld:images-ja": "c15.0", "top1:images-ja": "c15.1", "kld:images-en": "c19.0", "top1:images-en": "c19.1", "kld:images-all": "c23"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["KL is approximated on the teacher's top-32, not full-vocabulary KL [L130]", "no top-1 is reported for v0 on the all-images set [L144]", "jakl32 is not measured for v0 [L141]"]
+    },
+    {
+      "role": "ladder",
+      "name": "v0: greedy EXL3",
+      "panel": "Chinese-only token mass / 中国語専用トークンの確率質量",
+      "methodology": {"reference": "teacher (official 1017 weights)", "dataset": "answer spans of ja16 and agent24", "ctx": "not stated", "tool": "teacher-forced probability mass on Chinese-only tokens, relative to teacher", "L": [151, 152, 157]},
+      "metrics": {"bench:zh-mass-ja16": "c27", "bench:zh-mass-agent24": "c30"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["ratio to the teacher, 1.0 means the same as the original [L152]", "not measured for jakl32 or the Japanese image answers [L161-L162]"]
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,52 @@
+{
+ "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2-Mix",
+ "source_sha256": "83981cb7cd899d1aa32acd19f4e0dfa1ecf06a2b9787d4776cae5cc92ec2be68",
+ "candidates_sha256": "062dc733efa45c84e9fd7bf068ae3c99d9267d5ffd259ad531fa5e38f7c1eb2c",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+   "reference": "official checkpoint run in DeepSeek's reference implementation, FP32 logits [L108-L110]",
+   "dataset": "teacher logits published as brandonmusic/DeepSeek-V4.1-Flash-1017-Teacher-Logits: 128 windows of 8,192 tokens, also cut into 512 sequences of 2,048 tokens [L110, L113-L114]",
+   "ctx": "2,048-token sequences and 8,192-token windows [L113, L120]",
+   "tool": "KL in FP64 over the full 129,280-id vocabulary, layers run in DeepSeek's reference implementation [L108, L132]",
+   "L": [108, 109, 110, 113, 114, 132]
+  },
+ "entries": [
+  {
+   "role": "own",
+   "name": "DeepSeek-V4.1-Flash-1017 TrellisMX K2 Mix",
+   "metrics": {
+     "kld:sequences_2048": "c1",
+     "top1:sequences_2048": "c2",
+     "top1:windows_8192": "c23.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+     "headline scored with the official FP8 Engram tables, while this checkpoint ships 4-bit Engram tables, about 0.001 nats higher per the card [L125-L127]",
+     "8,192-token window KLD 0.2023 is stated in prose, not in the candidate list [L120]",
+     "mean KLD for the K3 build is not mapped, the measured path is not stated [L123]",
+     "percentage reductions against K2 are not mapped [L123]",
+     "routed-expert size in prose is not in the metric table, not mapped [L77]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "K2 build",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["comparison build measured on the same path [L122]"]
+  }
+ ],
+ "prose": [
+  {"entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2 Mix", "key": "kld:windows_8192", "L": 120, "raw": "**0.2023**"},
+  {"entry": "K2 build", "key": "kld:sequences_2048", "L": 122, "raw": "0.1429"},
+  {"entry": "K2 build", "key": "kld:windows_8192", "L": 122, "raw": "0.2158"}
+ ]
+}

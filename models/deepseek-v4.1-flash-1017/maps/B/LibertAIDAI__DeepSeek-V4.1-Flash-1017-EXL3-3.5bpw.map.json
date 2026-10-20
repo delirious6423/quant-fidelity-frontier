@@ -1,0 +1,65 @@
+{
+  "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+  "source_sha256": "3dfe8dd8e4861a3e2a95d72962d2c323fef9d663e829f1c1c134893ff23964d4",
+  "candidates_sha256": "d79ee0549748e8692c0f88d86652f4882d1f59b305b160ed0789b81f695c3541",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "unquantized model (base FP8 / MXFP4 weights, dequantized)",
+    "dataset": "two held-out sets of unpublished text, 32 sequences x 2048 tokens each (65,504 scored tokens per set); code and prose",
+    "ctx": "2048 tokens per sequence",
+    "tool": "custom DeepseekV41 model definition, full-sequence forward",
+    "L": [65, 69, 132]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "Unquantized (base FP8 / MXFP4 weights, dequantized)",
+      "metrics": {
+        "ppl:code": "c1",
+        "ppl:prose": "c2"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "unquantized reference row, not a quant [L69]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "EXL3 2.9 bpw",
+      "metrics": {
+        "ppl:code": "c4",
+        "ppl:prose": "c5"
+      },
+      "size": "c3",
+      "unit": "GiB",
+      "basis": null,
+      "bpw": "c16",
+      "flags": [
+        "size basis (disk, excl_engram or other) not stated for this row [L70]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "EXL3 3.5 bpw (this repo)",
+      "metrics": {
+        "ppl:code": "c7",
+        "ppl:prose": "c8"
+      },
+      "size": "c6",
+      "unit": "GiB",
+      "basis": "excl_engram",
+      "bpw": "c13",
+      "flags": [
+        "size excludes the Engram tables, which are not in this repo; take them from the base repo [L36, L76]",
+        "per-corpus perplexity deltas vs unquantized (+0.8 code / +0.1 prose) [L15] not mapped: ppl_delta_pct has no corpus form",
+        "Engram-switched-off sanity-check row [L72] omitted: different configuration"
+      ]
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,71 @@
+{
+ "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
+ "source_sha256": "bb716b82c00557c110692ecffb5ec161796cbb4405cebb64ddbfcc5ae849f075",
+ "candidates_sha256": "a11e7f86f417c795aeea974228b03e981c7acb380d941d9b77f1d3eb3db35d1b",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+   "reference": "unquantized base model (FP8 / MXFP4 weights, dequantized) [L19, L68]",
+   "dataset": "two held-out sets of unpublished text, code and prose, 32 sequences x 2048 tokens each [L64]",
+   "ctx": "2048 tokens per sequence, tokens 2-2048 of each sequence scored [L64]",
+   "tool": "same full-sequence forward for every row (see How it was made) [L64]",
+   "L": [19, 64, 68]
+  },
+ "entries": [
+  {
+   "role": "own",
+   "name": "EXL3 2.9 bpw (this repo)",
+   "metrics": {
+     "ppl:code": "c4",
+     "ppl:prose": "c5"
+   },
+   "size": "c3",
+   "unit": "GiB",
+   "basis": "excl_engram",
+   "bpw": "c16",
+   "flags": ["size excludes the Engram tables, which are not in this repo [L19]; per-corpus perplexity change (+1.8% code, +0.4% prose) not mapped, no per-corpus delta key [L15]"]
+  },
+  {
+   "role": "ladder",
+   "name": "EXL3 3.5 bpw",
+   "metrics": {
+     "ppl:code": "c7",
+     "ppl:prose": "c8"
+   },
+   "size": "c6",
+   "unit": "GiB",
+   "basis": null,
+   "bpw": "c17",
+   "flags": ["sibling build by this publisher [L70]; size basis not stated on this card [L70]"]
+  },
+  {
+   "role": "own",
+   "name": "This repo with Engram switched off (sanity check)",
+   "metrics": {
+     "ppl:code": "c9",
+     "ppl:prose": "c10"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["row is labelled as a sanity check with Engram switched off [L71]"]
+  },
+  {
+   "role": "cross",
+   "of": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+   "name": "Unquantized (base FP8 / MXFP4 weights, dequantized)",
+   "metrics": {
+     "ppl:code": "c1",
+     "ppl:prose": "c2"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["base model reference row, no size given [L68]"]
+  }
+ ],
+ "prose": []
+}

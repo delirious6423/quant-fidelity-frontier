@@ -1,0 +1,66 @@
+{
+  "repo": "rapid-mlx/DeepSeek-V4.1-Flash-1017-MLX",
+  "source_sha256": "63baacaa0e866002db6b4ff06926eb58dc8ecf7c3a9c216f3dc79ef59345064e",
+  "candidates_sha256": "bbb85ae3420d69064fe120088f1f8e5c6dc126571761a2f4889563d8c494f80f",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "source FP4/FP8 checkpoint (source-precision teacher logits)",
+    "dataset": "38 held-out text slices of 512 tokens; GSM8K test subset; MMLU-Pro 300 stratified; GPQA Diamond and HLE text-only samples",
+    "ctx": "512 tokens per KL slice; 4,096-token output cap in the early sampled comparison",
+    "tool": "teacher-forced token-level KL in nats; Rapid-MLX server for task benchmarks",
+    "L": [72, 73, 90, 91, 115, 131]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "This build",
+      "panel": "Quality",
+      "methodology": {"reference": "source-precision reference (teacher logits)", "dataset": "38 held-out text slices of 512 tokens", "ctx": "512 tokens per slice", "tool": "teacher-forced token-level KL in nats", "L": [90, 91, 98]},
+      "metrics": {"mean_kld": "c6", "bench:top1-flip": "c8", "kld:code": "c9", "kld:agentic-terminal": "c10", "kld:math": "c11", "kld:tool-call-transcripts": "c12", "kld:general-chat-en": "c13", "kld:general-chat-zh": "c14", "kld:hardest-slice": "c15"},
+      "size": "c5",
+      "unit": "GB",
+      "basis": "resident",
+      "bpw": null,
+      "flags": ["top-1 is reported as a flip rate, not as agreement [L93]", "the worst-slice column duplicates the hardest-slice row and is not mapped separately [L96, L108]", "resident weights in RAM; the 122.9 GB of Engram tables on SSD are outside this figure [L26]"]
+    },
+    {
+      "role": "own",
+      "name": "This build",
+      "panel": "Task benchmarks",
+      "methodology": {"reference": "not stated", "dataset": "GSM8K test subset (250 items); MMLU-Pro 300 stratified", "ctx": "512-token output cap on MMLU-Pro; not stated otherwise", "tool": "Rapid-MLX server; greedy, non-thinking mode, fixed sample IDs; zero-shot", "L": [115, 117, 118, 119, 121]},
+      "metrics": {"bench:GSM8K": "c17", "bench:MMLU-Pro-300": "c19"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["GSM8K is a 250-item subset [L119]", "26 MMLU-Pro items hit the 512-token cap [L121]"]
+    },
+    {
+      "role": "own",
+      "name": "This build",
+      "panel": "Against the original model (early, sampled)",
+      "methodology": {"reference": "original model, early and sampled; original-model columns not mapped", "dataset": "GPQA Diamond samples (15 of 198; 8 with reasoning completed); HLE text-only sample (30 of 2,158)", "ctx": "4,096-token output cap on this serving lane", "tool": "Rapid-MLX server; unfinished answers were completed from the reasoning so far", "L": [131, 132, 133, 137, 138, 139, 141]},
+      "metrics": {"bench:GPQA-Diamond": "c22", "bench:GPQA-Diamond-reasoning-completed": "c26", "bench:HLE-text-only": "c29"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["read as direction, not as scores; samples are small [L141]", "original-model scores are omitted because they name V4.1-Flash, a different model [L137-L139]", "HLE result is limited by the output cap and is not a quality comparison [L139]"]
+    },
+    {
+      "role": "ladder",
+      "name": "Uniform 2-bit experts",
+      "panel": "Quality",
+      "methodology": {"reference": "source-precision reference (teacher logits)", "dataset": "38 held-out text slices of 512 tokens", "ctx": "512 tokens per slice", "tool": "teacher-forced token-level KL in nats", "L": [90, 91, 95]},
+      "metrics": {"mean_kld": "c2", "bench:top1-flip": "c4"},
+      "size": "c1",
+      "unit": "GB",
+      "basis": "resident",
+      "bpw": null,
+      "flags": ["comparison build with uniform 2-bit experts [L95]", "worst slice (5.93) has no per-domain row for this build and is not mapped [L95]", "top-1 is reported as a flip rate, not as agreement [L93]"]
+    }
+  ],
+  "prose": []
+}

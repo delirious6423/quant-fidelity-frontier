@@ -1,0 +1,44 @@
+{
+  "repo": "bearzi/DeepSeek-V4.1-Flash-1017-oQ4e-mtp",
+  "source_sha256": "269685f4515d4c9c4c4b78f9c7a1c896b2cedc2221a07e619dab2a76a630e866",
+  "candidates_sha256": "1e3ef67853d04c1e0b95ee8dd930637158dfe85a9818e02a2c110f2c9b85e0ab",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "original DeepSeek-V4.1-Flash-1017 checkpoint (MXFP4/FP8 weights, BF16 Engram tables), run in oMLX with 1017 numerics",
+    "dataset": "mixed text, 1,024 tokens, teacher-forced",
+    "ctx": "not stated",
+    "tool": "oMLX on M3 Ultra (512 GB)",
+    "L": [35, 37, 90, 94, 96, 154]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "oQ4e-mtp",
+      "panel": "Verification",
+      "methodology": {"reference": "original DeepSeek-V4.1-Flash-1017 checkpoint, both run with 1017 reference numerics", "dataset": "mixed text, 1,024 tokens, teacher-forced", "ctx": "not stated", "tool": "oMLX with 1017 reference numerics on M3 Ultra", "L": [94, 96]},
+      "metrics": {"top1_pct": "c8.1", "bench:top1-logprob-mean-abs-change": "c9.1"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["only the Engram tables are quantized; linear layers keep the release precision [L35-L37]", "effective 4.365 bits per weight is stated in prose and not mapped as a candidate [L35]", "top-5 overlap of 88.48% is not mapped [L96]", "the 0.0536 value is a mean absolute change in top-1 log-probability in nats, not a KL [L96]", "memory and speed tables carry no quality metric and are not mapped [L69-L72]"]
+    },
+    {
+      "role": "own",
+      "name": "oQ4e-mtp under stock oMLX",
+      "panel": "Verification",
+      "methodology": {"reference": "original checkpoint, under the 1017 numerics", "dataset": "not stated", "ctx": "not stated", "tool": "stock oMLX (upstream main, without the 1017 act_quant step)", "L": [90, 154]},
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["stock oMLX result is 94.53% top-1 agreement, carried as prose [L154]", "the dataset for the stock oMLX figure is not restated [L154]", "greedy-answer comparisons are not mapped [L160-L205]"]
+    }
+  ],
+  "prose": [
+    {"entry": "oQ4e-mtp under stock oMLX", "key": "top1_pct", "L": 154, "raw": "94.53%"}
+  ]
+}

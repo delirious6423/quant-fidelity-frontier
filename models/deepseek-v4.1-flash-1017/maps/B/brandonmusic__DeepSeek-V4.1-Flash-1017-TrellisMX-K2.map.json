@@ -1,0 +1,207 @@
+{
+ "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2",
+ "source_sha256": "3f6b95f6b442246481dec42ca064df70b6a5a4daef024ff45a7fa5ba828037b5",
+ "candidates_sha256": "72950d67c9b7219d7682310a3de52980429fa309184af1171fdd2be14085540a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "official checkpoint (DeepSeek-V4.1-Flash-1017) in DeepSeek's reference implementation, FP32 teacher logits",
+  "dataset": "evaluation windows of 8,192 tokens, scored as 512 fresh 2,048-token sequences and as full windows",
+  "ctx": "2,048 and 8,192 tokens",
+  "tool": "not stated",
+  "L": [
+   156,
+   157,
+   158,
+   159
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "Serving formats",
+   "panel": "Headline, 2,048-token sequences",
+   "methodology": {
+    "reference": "official checkpoint, DeepSeek reference implementation, FP32 teacher logits",
+    "dataset": "512 fresh 2,048-token sequences cut from 128 evaluation windows of 8,192 tokens",
+    "ctx": "2,048-token sequences",
+    "tool": "not stated",
+    "L": [
+     161,
+     162
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c1",
+    "top1_pct": "c6"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "median, p90, p99 and p99.9 tails not mapped, no matching keys [L166]",
+    "per-domain KLD mapped from the by-domain line [L183]",
+    "official-expert and K2-only ablation rows component ablation rather than this build, not mapped [L170-171, L180-181]",
+    "KL is full-vocabulary, FP64 [L156]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Weights only: the same weights, activations unquantized",
+   "panel": "Headline, 2,048-token sequences",
+   "methodology": {
+    "reference": "official checkpoint, DeepSeek reference implementation, FP32 teacher logits",
+    "dataset": "512 fresh 2,048-token sequences cut from 128 evaluation windows of 8,192 tokens",
+    "ctx": "2,048-token sequences",
+    "tool": "not stated",
+    "L": [
+     161,
+     162
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c7",
+    "top1_pct": "c12"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "same weights with unquantized activations, a variant of this build's files [L167]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Serving formats",
+   "panel": "Full 8,192-token windows",
+   "methodology": {
+    "reference": "official checkpoint, DeepSeek reference implementation, FP32 teacher logits",
+    "dataset": "128 evaluation windows of 8,192 tokens",
+    "ctx": "8,192-token windows",
+    "tool": "not stated",
+    "L": [
+     174
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c13",
+    "top1_pct": "c18"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "median, p90, p99 and p99.9 tails not mapped, no matching keys [L178]",
+    "official-expert and K2-only ablation rows component ablation rather than this build, not mapped [L170-171, L180-181]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Weights only",
+   "panel": "Full 8,192-token windows",
+   "methodology": {
+    "reference": "official checkpoint, DeepSeek reference implementation, FP32 teacher logits",
+    "dataset": "128 evaluation windows of 8,192 tokens",
+    "ctx": "8,192-token windows",
+    "tool": "not stated",
+    "L": [
+     174
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c19",
+    "top1_pct": "c24"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "same weights with unquantized activations, a variant of this build's files [L179]"
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "Serving formats",
+   "panel": "Headline, 2,048-token sequences",
+   "key": "kld:agentic",
+   "L": 183,
+   "raw": "agentic 0.341"
+  },
+  {
+   "entry": "Serving formats",
+   "panel": "Headline, 2,048-token sequences",
+   "key": "kld:swe_agent",
+   "L": 183,
+   "raw": "SWE agent 0.173"
+  },
+  {
+   "entry": "Serving formats",
+   "panel": "Headline, 2,048-token sequences",
+   "key": "kld:math",
+   "L": 183,
+   "raw": "math 0.075"
+  },
+  {
+   "entry": "Serving formats",
+   "panel": "Headline, 2,048-token sequences",
+   "key": "kld:science",
+   "L": 183,
+   "raw": "science 0.098"
+  },
+  {
+   "entry": "Serving formats",
+   "panel": "Headline, 2,048-token sequences",
+   "key": "kld:competitive_programming",
+   "L": 183,
+   "raw": "competitive programming 0.107"
+  },
+  {
+   "entry": "Serving formats",
+   "panel": "Headline, 2,048-token sequences",
+   "key": "kld:instruction_following_and_chat",
+   "L": 183,
+   "raw": "instruction following and chat 0.091"
+  },
+  {
+   "entry": "Serving formats",
+   "panel": "Headline, 2,048-token sequences",
+   "key": "kld:multilingual",
+   "L": 183,
+   "raw": "multilingual 0.099"
+  },
+  {
+   "entry": "Serving formats",
+   "panel": "Headline, 2,048-token sequences",
+   "key": "kld:long_context_transduction",
+   "L": 183,
+   "raw": "long-context transduction 0.020"
+  },
+  {
+   "entry": "Serving formats",
+   "panel": "Headline, 2,048-token sequences",
+   "key": "kld:safety",
+   "L": 183,
+   "raw": "safety 0.150"
+  },
+  {
+   "entry": "Serving formats",
+   "panel": "Headline, 2,048-token sequences",
+   "key": "kld:web_text",
+   "L": 183,
+   "raw": "web text 0.189"
+  },
+  {
+   "entry": "Serving formats",
+   "panel": "Headline, 2,048-token sequences",
+   "key": "kld:legal",
+   "L": 183,
+   "raw": "legal 0.166"
+  }
+ ]
+}

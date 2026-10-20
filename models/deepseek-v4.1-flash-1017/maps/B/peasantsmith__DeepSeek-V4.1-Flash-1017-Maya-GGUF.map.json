@@ -1,0 +1,52 @@
+{
+  "repo": "peasantsmith/DeepSeek-V4.1-Flash-1017-Maya-GGUF",
+  "source_sha256": "68aaac4edb8d61c8a739329745b0a40db7fde98bfd0f30fe985d084ca58f9914",
+  "candidates_sha256": "dd2f48cd56b8fa065b14691b7dceb7a098809f35d9a2957ddc1ec7ecbf803f3b",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "original model's own predictions (DeepSeek's reference implementation running the original weights)",
+    "dataset": "held-out text never used for calibration, 10 sequences of 2,047 tokens",
+    "ctx": "2,047-token sequences",
+    "tool": "Project Maya's engine",
+    "L": [38, 39, 40]
+  },
+  "entries": [
+    {
+      "role": "ladder",
+      "name": "The original weights, through Project Maya's engine",
+      "metrics": {
+        "top1_pct": "c1",
+        "mean_kld": "c2"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "yardstick row: engine rounding against the reference implementation, nothing quantized [L47]",
+        "'KL divergence' is not labelled with a statistic; read as mean [L44]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "Maya-S",
+      "metrics": {
+        "top1_pct": "c3",
+        "mean_kld": "c4"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "file set 339.5 GB includes 161.3 GB of Engram tables read from SSD; size is not in the measured table row [L18, L59]",
+        "'KL divergence' is not labelled with a statistic; read as mean [L45]",
+        "experts about 2 to 3 bits (IQ2_XXS gate/up, IQ3_XXS down) [L27-28]",
+        "Engram-table comparisons on 4 held-out sequences (KL 0.011 vs FP8 tables; KL 0.0858 Q6_K and 0.0866 FP8 against the original) [L51-52] not mapped: a smaller separate comparison"
+      ]
+    }
+  ],
+  "prose": []
+}

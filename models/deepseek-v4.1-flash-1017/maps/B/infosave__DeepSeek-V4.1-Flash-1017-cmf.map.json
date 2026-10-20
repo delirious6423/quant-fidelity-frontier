@@ -1,0 +1,70 @@
+{
+  "repo": "infosave/DeepSeek-V4.1-Flash-1017-cmf",
+  "source_sha256": "9a0073e84f85e37a1230fd19b378da83125d6d60622c405583b7da06256f9d8f",
+  "candidates_sha256": "2aca4dc90c1c9bba29cb20058f9d56669b1a72e46ebfbf9ec47ab2dbaf2585c6",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated",
+    "dataset": "wikitext-2 test (8 windows x 512 tokens) and a 438-token English prose passage",
+    "ctx": "512-token windows (wikitext-2)",
+    "tool": "teacher-forced evaluation on the GPU (cortiq engine)",
+    "L": [72, 73]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "dsv41-1017-fp4.cmf",
+      "metrics": {
+        "ppl:wikitext": "c2",
+        "ppl:prose": "c3"
+      },
+      "size": "c1",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "MXFP4 routed experts, bit-identical to DeepSeek's release [L62]",
+        "file leaves out MTP/DSpark layers, which cortiq does not execute [L69-70]",
+        "task pass count 7/8 [L62] not mapped: a count out of eight, not a percentage",
+        "differences of about 1% are within the measurement's noise [L73]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "dsv41-1017-q4tp.cmf",
+      "metrics": {
+        "ppl:wikitext": "c6",
+        "ppl:prose": "c7"
+      },
+      "size": "c5",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "q4tp, re-quantized from FP4 [L63]",
+        "task pass count 6/8 [L63] not mapped: a count out of eight, not a percentage",
+        "differences of about 1% are within the measurement's noise [L73]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "dsv41-1017-q2tp.cmf",
+      "metrics": {
+        "ppl:wikitext": "c11",
+        "ppl:prose": "c12"
+      },
+      "size": "c10",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "gate/up 2-bit, down 4-bit routed experts [L64]",
+        "task pass count 5/8 [L64] not mapped: a count out of eight, not a percentage",
+        "differences of about 1% are within the measurement's noise [L73]"
+      ]
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,18 @@
+{"repo": "bearzi/DeepSeek-V4.1-Flash-1017-oQ4e-mtp",
+ "source_sha256": "269685f4515d4c9c4c4b78f9c7a1c896b2cedc2221a07e619dab2a76a630e866",
+ "candidates_sha256": "1e3ef67853d04c1e0b95ee8dd930637158dfe85a9818e02a2c110f2c9b85e0ab",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "original DeepSeek-V4.1-Flash-1017 checkpoint (MXFP4 / FP8 weights with BF16 Engram tables), both run by oMLX with 1017 numerics", "dataset": "1,024 tokens of mixed text", "ctx": "not stated", "tool": "oMLX", "L": [94, 96]},
+ "entries": [
+  {"role": "own",
+   "name": "DeepSeek-V4.1-Flash-1017-oQ4e-mtp",
+   "metrics": {"top1_pct": "c8.1"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["reference is the native MXFP4 / FP8 checkpoint, not a BF16 reference [L94]", "top-5 overlap 88.48% and mean top-1 log-probability change 0.0536 nats [L96] have no metric key", "stock oMLX top-1 agreement 94.53% [L154] not mapped: same checkpoint under different runtime numerics", "4.365 bits per weight [L35] not attached: not a candidate cell", "memory and decode tables [L69-72] not mapped: no metric key"]}
+ ],
+ "prose": []}

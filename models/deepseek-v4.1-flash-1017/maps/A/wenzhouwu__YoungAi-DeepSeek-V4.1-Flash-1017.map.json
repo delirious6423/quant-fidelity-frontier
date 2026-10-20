@@ -1,0 +1,30 @@
+{"repo": "wenzhouwu/YoungAi-DeepSeek-V4.1-Flash-1017",
+ "source_sha256": "316efa5ffd8491250e94431767612b7466c56f1c28edc64f946cb20dfebd7e36",
+ "candidates_sha256": "7cb3e26e5ddcd0ab21e2c6d6792e00a6b639981950f824a2df3a9d07299cc070",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "original full-precision model", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [57, 58, 59]},
+ "entries": [
+  {"role": "own",
+   "name": "113.6 GB base",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["next-token match rates against the full-precision model, as stated in the card [L57-58]", "English range 77.9-79.7 with sidecars is a range, not a single value, not mapped [L58]", "113.6 GB base [L53] not attached: it is in the model table, not the metric row", "full tables are in docs/TECHNICAL.md, not on this card [L59]"]},
+  {"role": "own",
+   "name": "113.6 GB base + coding sidecar",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["next-token match rate with the coding sidecar on [L58]", "the 2.6-3.8 point gain is stated as a range and not mapped [L57]"]}
+ ],
+ "prose": [
+  {"entry": "113.6 GB base", "key": "top1:code", "L": 58, "raw": "78.3%"},
+  {"entry": "113.6 GB base", "key": "top1:english", "L": 58, "raw": "76.8%"},
+  {"entry": "113.6 GB base + coding sidecar", "key": "top1:code", "L": 58, "raw": "82.0%"}
+ ]}

@@ -1,0 +1,77 @@
+{
+  "repo": "acrogenesis/DeepSeek-V4.1-Flash-1017-IQ2_XXS-GGUF",
+  "source_sha256": "1c880bd1e63f0501dce9ab5f116026044109c1c459ce45ee6f878de964e84714",
+  "candidates_sha256": "f30dccc9313539b27160b8af4cd177a9545abcd44cebf34636cbc5f5d47d1fa8",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "paired MXFP4 / Q8 converted reference (native MXFP4 experts, converted Q8 dense/Engram weights)",
+    "dataset": "2,040 scored held-out positions (corpus not named)",
+    "ctx": "not stated",
+    "tool": "patched llama.cpp runtime",
+    "L": [50, 51, 52, 53, 54, 55]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "This IQ2_XXS / Q8 quant",
+      "metrics": {
+        "ppl": "c4"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "file size 359.32 GB is stated in prose, not in the measured table [L23]",
+        "ppl_delta_pct and top1_pct are taken from prose against the paired converted reference [L50, L52]",
+        "mean KL 0.365186 [L52] not mapped: reference probabilities are uint16-encoded with tail clipping, so the KL basis (full vocabulary or truncated) is not stated [L54-55]",
+        "reference is a converted Q8 dense/Engram build, not a full native-forward comparison [L53-54]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "MXFP4 / Q8 converted reference",
+      "metrics": {
+        "ppl": "c12"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "paired reference for the perplexity comparison [L50]; converted Q8 dense/Engram build, not a full native-forward comparison [L53-54]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "Public Q2_K mix",
+      "of": "not named on card",
+      "metrics": {
+        "ppl": "c8"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "publisher and repo not named on card; referred to as the public Q2 quant [L59, L107]"
+      ]
+    }
+  ],
+  "prose": [
+    {
+      "entry": "This IQ2_XXS / Q8 quant",
+      "key": "ppl_delta_pct",
+      "L": 50,
+      "raw": "19.51%"
+    },
+    {
+      "entry": "This IQ2_XXS / Q8 quant",
+      "key": "top1_pct",
+      "L": 52,
+      "raw": "76.863%"
+    }
+  ]
+}
