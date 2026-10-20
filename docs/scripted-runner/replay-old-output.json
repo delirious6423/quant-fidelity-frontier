@@ -1,0 +1,198 @@
+{
+ "claims": [
+  {
+   "repo": "Publisher/disagree-GGUF",
+   "sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "source_sha256": "068b36f0478639aa6244a265e2301bffa89b87cb84ac6b5d07e616005e6fdc5b",
+   "fmt": "GGUF",
+   "runtime": null,
+   "weights_modified": null,
+   "method": null,
+   "methodology": {
+    "reference": "BF16",
+    "dataset": "Wiki",
+    "ctx": "2048",
+    "tool": "llama.cpp",
+    "L": [
+     2,
+     4
+    ]
+   },
+   "variants": [
+    {
+     "name": "Q4_K_M",
+     "m": {
+      "mean_kld": "0.1250"
+     },
+     "size": 4.0,
+     "unit": "GB",
+     "basis": "disk",
+     "L": 7,
+     "L_extra": [],
+     "panel": "Full vocabulary",
+     "row_label": [
+      "Q4_K_M"
+     ]
+    }
+   ],
+   "ladder": [],
+   "cross": [],
+   "flags": []
+  },
+  {
+   "repo": "Publisher/image-GGUF",
+   "sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "source_sha256": "5d66f4d805d3f4d5d9780b9faac0aeb8499e47f4dd9f28c6fd719ce27a0ccd6c",
+   "fmt": "GGUF",
+   "runtime": null,
+   "weights_modified": null,
+   "method": null,
+   "methodology": null,
+   "variants": [],
+   "ladder": [],
+   "cross": [],
+   "flags": [
+    "No quality claims for the quant (card read in full): the card has no numbers in tables or text (detected by code)",
+    "No numbers in the card text, but it embeds 1 image [L3] (Results) that may show quant results or details; image contents are not read by the mapper, so anything shown only in them is not on this site"
+   ]
+  },
+  {
+   "repo": "Publisher/new-GGUF",
+   "sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "source_sha256": "5d2a5e37650e45ed4961cf8e5631456c446c377df0d1cca8003692f7c0220781",
+   "fmt": "GGUF",
+   "runtime": null,
+   "weights_modified": null,
+   "method": null,
+   "methodology": {
+    "reference": "BF16",
+    "dataset": "Wiki",
+    "ctx": "2048",
+    "tool": "llama.cpp",
+    "L": [
+     2,
+     4
+    ]
+   },
+   "variants": [
+    {
+     "name": "Q4_K_M",
+     "m": {
+      "mean_kld": "0.1250"
+     },
+     "size": 4.0,
+     "unit": "GB",
+     "basis": "disk",
+     "L": 7,
+     "L_extra": [],
+     "panel": "Full vocabulary",
+     "row_label": [
+      "Q4_K_M"
+     ]
+    }
+   ],
+   "ladder": [],
+   "cross": [],
+   "flags": []
+  },
+  {
+   "repo": "Publisher/normal-GGUF",
+   "sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "source_sha256": "562c14d3328dcda14a4555ed3c541dc4683b25b8b81134d41537aa85fd281d5b",
+   "fmt": "GGUF",
+   "runtime": null,
+   "weights_modified": null,
+   "method": null,
+   "methodology": {
+    "reference": "BF16",
+    "dataset": "Wiki",
+    "ctx": "2048",
+    "tool": "llama.cpp",
+    "L": [
+     2,
+     4
+    ]
+   },
+   "variants": [
+    {
+     "name": "Q4_K_M",
+     "m": {
+      "mean_kld": "0.1250"
+     },
+     "size": 4.0,
+     "unit": "GB",
+     "basis": "disk",
+     "L": 7,
+     "L_extra": [],
+     "panel": "Full vocabulary",
+     "row_label": [
+      "Q4_K_M"
+     ]
+    }
+   ],
+   "ladder": [],
+   "cross": [],
+   "flags": []
+  },
+  {
+   "repo": "Publisher/partial-GGUF",
+   "sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "source_sha256": "8026f9fe100913870c3eb0c4f07582a6979e79897348fe2ccc401151329763ed",
+   "fmt": "GGUF",
+   "runtime": null,
+   "weights_modified": null,
+   "method": null,
+   "methodology": {
+    "reference": "BF16",
+    "dataset": "Wiki",
+    "ctx": "2048",
+    "tool": "llama.cpp",
+    "L": [
+     2,
+     4
+    ]
+   },
+   "variants": [
+    {
+     "name": "Q4_K_M",
+     "m": {
+      "mean_kld": "0.1250"
+     },
+     "size": 4.0,
+     "unit": "GB",
+     "basis": "disk",
+     "L": 7,
+     "L_extra": [],
+     "panel": "Full vocabulary",
+     "row_label": [
+      "Q4_K_M"
+     ]
+    }
+   ],
+   "ladder": [],
+   "cross": [],
+   "flags": []
+  }
+ ],
+ "review_queue": {
+  "quarantined": [],
+  "disagreements": [],
+  "resolved_disagreements": [],
+  "resolved_repos": 0,
+  "tiebroken": [
+   {
+    "repo": "Publisher/disagree-GGUF",
+    "entry": "Q4_K_M",
+    "key": "mean_kld",
+    "raw": "0.1250"
+   }
+  ]
+ },
+ "mapped": {
+  "Publisher/disagree-GGUF": "068b36f0478639aa6244a265e2301bffa89b87cb84ac6b5d07e616005e6fdc5b",
+  "Publisher/image-GGUF": "5d66f4d805d3f4d5d9780b9faac0aeb8499e47f4dd9f28c6fd719ce27a0ccd6c",
+  "Publisher/new-GGUF": "5d2a5e37650e45ed4961cf8e5631456c446c377df0d1cca8003692f7c0220781",
+  "Publisher/normal-GGUF": "562c14d3328dcda14a4555ed3c541dc4683b25b8b81134d41537aa85fd281d5b",
+  "Publisher/partial-GGUF": "8026f9fe100913870c3eb0c4f07582a6979e79897348fe2ccc401151329763ed"
+ }
+}

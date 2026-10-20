@@ -31,3 +31,17 @@ Independent work: pinned-source evidence audit, classifier/tests, MCP, UI. Integ
 - [ ] Publish updated PR branch; require green CI before merge.
 - [ ] Merge PR #8 and deploy GitHub Pages.
 - [ ] Verify live data preservation, classification behavior and chart defaults.
+
+## Scripted runner — first migration (workflow/scripted-runner)
+Starting default-branch commit: `670acdfb0c84e4ebf609d656ac06912dfaba8f2a`.
+
+- [x] Inspect current source, runbooks, workflow triggers and historical logs.
+- [x] Record bounded legacy dispatch baseline before runtime work; 100× stretch target.
+- [x] Durable fair scheduler, confined shadow workspace, one-shot/resume commands.
+- [x] Direct-fetch contract, complete model evidence boundary and persisted QA.
+- [x] Frozen-input shadow comparisons, fault injection and existing regressions.
+- [x] Independent review; migration/rollback/runbook and local PR description.
+
+No production commands, schedules, data edits, paid calls, merge or deployment.
+A draft PR triggers `verify.yml` (`pull_request` has no filter); retain local
+review branch until opening a PR and its Actions run are explicitly authorized.

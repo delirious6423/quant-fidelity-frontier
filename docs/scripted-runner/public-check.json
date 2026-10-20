@@ -1,0 +1,23 @@
+{
+  "checked_at": "2026-10-20T18:27:29.451810+00:00",
+  "kind": "bounded public read-only HTTP source check",
+  "provider_model_execution": false,
+  "credentials_used": false,
+  "requests": [
+    {
+      "url": "https://huggingface.co/api/models/openai-community/gpt2",
+      "status": 200,
+      "bytes": 4910,
+      "sha256": "66f412d05eb2f1f0611ce61e7eff9e613e10f15a8fdfe59edcc0e96faa79ecc8"
+    },
+    {
+      "url": "https://huggingface.co/openai-community/gpt2/raw/607a30d783dfa663caf39e06633721c8d4cfcd7e/README.md",
+      "status": 200,
+      "bytes": 8092,
+      "sha256": "0fcd631078093c2aa1d93438b898320b8a1167784e2a1ab37b8016e9de8b3c2e",
+      "full_response_read": true
+    }
+  ],
+  "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+  "result": "passed"
+}

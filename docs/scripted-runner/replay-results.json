@@ -1,0 +1,81 @@
+{
+ "measurement": "offline synthetic recorded responses; no actual model calls",
+ "qa_replay": {
+  "legacy_partial_review_ready": false,
+  "legacy_missing": 1,
+  "legacy_completed_reviews_repeated_on_new_session": 1,
+  "legacy_repeat_basis": "qcl_qa stops done on missing verdict; fresh session samples both frozen items again",
+  "scripted_completed_reviews_repeated": 0,
+  "scripted_remaining_claim": "two",
+  "unchanged_number_changed_panel_detected_legacy": false,
+  "unchanged_number_changed_panel_detected_scripted": true
+ },
+ "legacy_dispatch": {
+  "eligible_mapping_requests": 24,
+  "logical_model_requests": 24,
+  "simulated_worker_launches": 24,
+  "coordinator_handoffs": 2,
+  "first_dispatch": 8,
+  "first_dispatch_unstarted": 16,
+  "completed": 24,
+  "completed_repeated": 0,
+  "scan_operations": 48,
+  "runtime_seconds": 0.0062092930002108915,
+  "actual_agent_launches": 0,
+  "tokens": null,
+  "cost": null
+ },
+ "scripted_dispatch": {
+  "logical_model_requests": 24,
+  "actual_agent_launches": 0,
+  "coordinator_handoffs": 0,
+  "completed": 24,
+  "completed_repeated": 0,
+  "max_running": 8,
+  "runtime_seconds": 0.0681223899998713,
+  "tokens": null,
+  "cost": null
+ },
+ "shadow": {
+  "equal": true,
+  "logical_requests": 17,
+  "accepted_metric_claims": 4,
+  "held": 0,
+  "unresolved_tasks": 0,
+  "old_stage_seconds": 2.756004976999975,
+  "new_stage_seconds": 4.469379771999911,
+  "restart_repeated_stage_operations": 0,
+  "output_sha256": "2ba92d10638872e3f7f7aa1a5e61cea7002973382dced874ce3fcca0dacb7ae3"
+ },
+ "historical": {
+  "20261020T1412Z-live": {
+   "records": 48,
+   "prepare_calls": 6,
+   "finish_calls": 17,
+   "connector_op_lists_requested": 7,
+   "last_reported_minutes": 35.8
+  },
+  "20261020T1621Z-live": {
+   "records": 33,
+   "prepare_calls": 3,
+   "finish_calls": 6,
+   "connector_op_lists_requested": 8,
+   "last_reported_minutes": 16.5
+  },
+  "20261020T1713Z-live": {
+   "records": 30,
+   "prepare_calls": 3,
+   "finish_calls": 3,
+   "connector_op_lists_requested": 8,
+   "last_reported_minutes": 8.8
+  },
+  "20261020T1714Z-ingest": {
+   "records": 11,
+   "prepare_calls": 1,
+   "finish_calls": 1,
+   "connector_op_lists_requested": 0,
+   "last_reported_minutes": 0.4
+  }
+ },
+ "stretch_target": "100x runtime; not achieved or claimed"
+}

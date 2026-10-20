@@ -1,0 +1,470 @@
+{
+  "scope": "Existing regression suites; offline repository inputs; no workflow dispatch or publication",
+  "model_data_diff_unchanged": true,
+  "results": [
+    {
+      "name": "build-deepseek-v4-flash-0731",
+      "command": [
+        "python3",
+        "build.py"
+      ],
+      "env": {
+        "QCL_ROOT": "models/deepseek-v4-flash-0731"
+      },
+      "rc": 0,
+      "seconds": 1.174
+    },
+    {
+      "name": "build-deepseek-v4.1-flash-1017",
+      "command": [
+        "python3",
+        "build.py"
+      ],
+      "env": {
+        "QCL_ROOT": "models/deepseek-v4.1-flash-1017"
+      },
+      "rc": 0,
+      "seconds": 0.834
+    },
+    {
+      "name": "build-deepseek-v4.1-flash",
+      "command": [
+        "python3",
+        "build.py"
+      ],
+      "env": {
+        "QCL_ROOT": "models/deepseek-v4.1-flash"
+      },
+      "rc": 0,
+      "seconds": 7.815
+    },
+    {
+      "name": "build-glm-5.3-flash",
+      "command": [
+        "python3",
+        "build.py"
+      ],
+      "env": {
+        "QCL_ROOT": "models/glm-5.3-flash"
+      },
+      "rc": 0,
+      "seconds": 1.334
+    },
+    {
+      "name": "build-lfm2.5-24b-a2b",
+      "command": [
+        "python3",
+        "build.py"
+      ],
+      "env": {
+        "QCL_ROOT": "models/lfm2.5-24b-a2b"
+      },
+      "rc": 0,
+      "seconds": 0.67
+    },
+    {
+      "name": "build-ornith-1.5-35b-a3b",
+      "command": [
+        "python3",
+        "build.py"
+      ],
+      "env": {
+        "QCL_ROOT": "models/ornith-1.5-35b-a3b"
+      },
+      "rc": 0,
+      "seconds": 1.533
+    },
+    {
+      "name": "build-qwen3.8-27b",
+      "command": [
+        "python3",
+        "build.py"
+      ],
+      "env": {
+        "QCL_ROOT": "models/qwen3.8-27b"
+      },
+      "rc": 0,
+      "seconds": 10.146
+    },
+    {
+      "name": "build-qwen3.8-flash-next",
+      "command": [
+        "python3",
+        "build.py"
+      ],
+      "env": {
+        "QCL_ROOT": "models/qwen3.8-flash-next"
+      },
+      "rc": 0,
+      "seconds": 5.954
+    },
+    {
+      "name": "assemble",
+      "command": [
+        "python3",
+        "assemble.py",
+        "/tmp/qff-runner-site"
+      ],
+      "env": {},
+      "rc": 0,
+      "seconds": 10.583
+    },
+    {
+      "name": "test_gates",
+      "command": [
+        "python3",
+        "tests/test_gates.py"
+      ],
+      "env": {},
+      "rc": 0,
+      "seconds": 57.927
+    },
+    {
+      "name": "test_claims",
+      "command": [
+        "python3",
+        "tests/test_claims.py"
+      ],
+      "env": {},
+      "rc": 0,
+      "seconds": 0.115
+    },
+    {
+      "name": "test_fetch_security",
+      "command": [
+        "python3",
+        "tests/test_fetch_security.py"
+      ],
+      "env": {},
+      "rc": 0,
+      "seconds": 1.162,
+      "checks": 13,
+      "environment_note": "Initial sandbox socket denial; same suite passed outside syscall sandbox using loopback servers."
+    },
+    {
+      "name": "test_source_pins",
+      "command": [
+        "python3",
+        "tests/test_source_pins.py"
+      ],
+      "env": {},
+      "rc": 0,
+      "seconds": 0.675
+    },
+    {
+      "name": "test_mapping_provenance",
+      "command": [
+        "python3",
+        "tests/test_mapping_provenance.py"
+      ],
+      "env": {},
+      "rc": 0,
+      "seconds": 8.92
+    },
+    {
+      "name": "test_qa_release",
+      "command": [
+        "python3",
+        "tests/test_qa_release.py"
+      ],
+      "env": {},
+      "rc": 0,
+      "seconds": 0.317
+    },
+    {
+      "name": "test_mapping_panels",
+      "command": [
+        "python3",
+        "tests/test_mapping_panels.py"
+      ],
+      "env": {},
+      "rc": 0,
+      "seconds": 0.416
+    },
+    {
+      "name": "test_column_caption",
+      "command": [
+        "python3",
+        "tests/test_column_caption.py"
+      ],
+      "env": {},
+      "rc": 0,
+      "seconds": 0.165
+    },
+    {
+      "name": "test_current",
+      "command": [
+        "python3",
+        "tests/test_current.py"
+      ],
+      "env": {},
+      "rc": 0,
+      "seconds": 0.067
+    },
+    {
+      "name": "test_image_flag",
+      "command": [
+        "python3",
+        "tests/test_image_flag.py"
+      ],
+      "env": {},
+      "rc": 0,
+      "seconds": 0.121
+    },
+    {
+      "name": "test_gate_integrity",
+      "command": [
+        "python3",
+        "tests/test_gate_integrity.py"
+      ],
+      "env": {},
+      "rc": 0,
+      "seconds": 29.977
+    },
+    {
+      "name": "test_readme",
+      "command": [
+        "python3",
+        "tests/test_readme.py"
+      ],
+      "env": {},
+      "rc": 0,
+      "seconds": 1.385
+    },
+    {
+      "name": "test_assembly_safety",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_assembly_safety.py"
+      ],
+      "env": {},
+      "rc": 0,
+      "seconds": 3.39
+    },
+    {
+      "name": "test_workflow_security",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_workflow_security.py"
+      ],
+      "env": {},
+      "rc": 0,
+      "seconds": 5.077,
+      "checks": 9,
+      "environment_note": "Initial missing-suite regression fixed by registering runner tests; all workflow triggers unchanged."
+    },
+    {
+      "name": "test_discovery",
+      "command": [
+        "python3",
+        "tests/test_discovery.py"
+      ],
+      "env": {},
+      "rc": 0,
+      "seconds": 2.039
+    },
+    {
+      "name": "test_mcp",
+      "command": [
+        "python3",
+        "tests/test_mcp.py"
+      ],
+      "env": {
+        "QFF_DATA": "/tmp/qff-runner-site"
+      },
+      "rc": 0,
+      "seconds": null,
+      "checks": 51,
+      "environment_note": "Initial sandbox stdio initialization stalled; same suite passed outside syscall sandbox, mcp 1.29.0."
+    },
+    {
+      "name": "browser-deepseek-v4.1-flash-1017",
+      "command": [
+        "python3",
+        "tests/test_ui.py"
+      ],
+      "env": {
+        "QCL_SITE": "models/deepseek-v4.1-flash-1017/site",
+        "PLAYWRIGHT_BROWSERS_PATH": "/tmp/qff-browsers"
+      },
+      "rc": 0,
+      "seconds": 21.573,
+      "checks": 94
+    },
+    {
+      "name": "browser-deepseek-v4-flash-0731",
+      "command": [
+        "python3",
+        "tests/test_ui.py"
+      ],
+      "env": {
+        "QCL_SITE": "models/deepseek-v4-flash-0731/site",
+        "PLAYWRIGHT_BROWSERS_PATH": "/tmp/qff-browsers"
+      },
+      "rc": 0,
+      "seconds": 29.958,
+      "checks": 98
+    },
+    {
+      "name": "browser-deepseek-v4.1-flash",
+      "command": [
+        "python3",
+        "tests/test_ui.py"
+      ],
+      "env": {
+        "QCL_SITE": "models/deepseek-v4.1-flash/site",
+        "PLAYWRIGHT_BROWSERS_PATH": "/tmp/qff-browsers"
+      },
+      "rc": 0,
+      "seconds": 64.498,
+      "checks": 98
+    },
+    {
+      "name": "browser-glm-5.3-flash",
+      "command": [
+        "python3",
+        "tests/test_ui.py"
+      ],
+      "env": {
+        "QCL_SITE": "models/glm-5.3-flash/site",
+        "PLAYWRIGHT_BROWSERS_PATH": "/tmp/qff-browsers"
+      },
+      "rc": 0,
+      "seconds": 61.808,
+      "checks": 100
+    },
+    {
+      "name": "browser-lfm2.5-24b-a2b",
+      "command": [
+        "python3",
+        "tests/test_ui.py"
+      ],
+      "env": {
+        "QCL_SITE": "models/lfm2.5-24b-a2b/site",
+        "PLAYWRIGHT_BROWSERS_PATH": "/tmp/qff-browsers"
+      },
+      "rc": 0,
+      "seconds": 19.352,
+      "checks": 98
+    },
+    {
+      "name": "browser-ornith-1.5-35b-a3b",
+      "command": [
+        "python3",
+        "tests/test_ui.py"
+      ],
+      "env": {
+        "QCL_SITE": "models/ornith-1.5-35b-a3b/site",
+        "PLAYWRIGHT_BROWSERS_PATH": "/tmp/qff-browsers"
+      },
+      "rc": 0,
+      "seconds": 19.128,
+      "checks": 92
+    },
+    {
+      "name": "browser-qwen3.8-flash-next",
+      "command": [
+        "python3",
+        "tests/test_ui.py"
+      ],
+      "env": {
+        "QCL_SITE": "models/qwen3.8-flash-next/site",
+        "PLAYWRIGHT_BROWSERS_PATH": "/tmp/qff-browsers"
+      },
+      "rc": 0,
+      "seconds": 61.469,
+      "checks": 104
+    },
+    {
+      "name": "browser-qwen3.8-27b",
+      "command": [
+        "python3",
+        "tests/test_ui.py"
+      ],
+      "env": {
+        "QCL_SITE": "models/qwen3.8-27b/site",
+        "PLAYWRIGHT_BROWSERS_PATH": "/tmp/qff-browsers"
+      },
+      "rc": 0,
+      "seconds": 87.713,
+      "checks": 102
+    },
+    {
+      "name": "test_mcp-v2",
+      "command": [
+        "/tmp/qff-mcp-v2/bin/python",
+        "tests/test_mcp.py"
+      ],
+      "env": {
+        "QFF_DATA": "/tmp/qff-runner-site"
+      },
+      "rc": 0,
+      "checks": 51,
+      "dependency": "mcp==2.3.0"
+    }
+  ],
+  "axis_guard_rebuild": {
+    "before_files": 40,
+    "after_files": 40,
+    "differences": [],
+    "builds": [
+      {
+        "model": "models/deepseek-v4-flash-0731",
+        "rc": 0,
+        "seconds": 0.359
+      },
+      {
+        "model": "models/deepseek-v4.1-flash-1017",
+        "rc": 0,
+        "seconds": 0.243
+      },
+      {
+        "model": "models/deepseek-v4.1-flash",
+        "rc": 0,
+        "seconds": 0.655
+      },
+      {
+        "model": "models/glm-5.3-flash",
+        "rc": 0,
+        "seconds": 0.39
+      },
+      {
+        "model": "models/lfm2.5-24b-a2b",
+        "rc": 0,
+        "seconds": 0.45
+      },
+      {
+        "model": "models/ornith-1.5-35b-a3b",
+        "rc": 0,
+        "seconds": 0.569
+      },
+      {
+        "model": "models/qwen3.8-27b",
+        "rc": 0,
+        "seconds": 3.3
+      },
+      {
+        "model": "models/qwen3.8-flash-next",
+        "rc": 0,
+        "seconds": 1.615
+      }
+    ]
+  },
+  "axis_guard_assembly": {
+    "before_files": 30,
+    "after_files": 30,
+    "differences": []
+  }
+}
