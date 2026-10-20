@@ -1,0 +1,76 @@
+{
+  "repo": "sigmanih/ornith-ai-Ornith-1.5-35B-A3B-GGUF-Q8_0",
+  "source_sha256": "9f76fb8bbb5bb4e9aa951dc929e9189aea5b5f6e7e03f4c14970edb190f039da",
+  "candidates_sha256": "ad472f2236c19297e4019e0d8b494464ce59559d75fa521b93605c7e99b7d349",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated",
+    "dataset": "benchmark slices across several suites; protocol lists code execution, continuation log-likelihood, chain-of-thought generation and letter log-likelihood [L92]",
+    "ctx": "not stated",
+    "tool": "Sigma Studio Training Lab, deterministic seed and zero temperature [L46]",
+    "L": [46, 92, 94]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "ornith-ai-Ornith-1.5-35B-A3B-GGUF-Q8_0",
+      "panel": "🏆 Official Benchmark Performance",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "benchmark slices across several suites [L48-L50, L77-L89]",
+        "ctx": "not stated",
+        "tool": "Sigma Studio Training Lab, deterministic seed and zero temperature [L46]",
+        "L": [46, 92, 94]
+      },
+      "metrics": {
+        "bench:Overall": "c3",
+        "bench:ARC_Challenge": "c12",
+        "bench:BIG_Bench_Hard": "c14",
+        "bench:GPQA": "c16",
+        "bench:GSM8K": "c18",
+        "bench:HellaSwag": "c20",
+        "bench:HumanEval": "c22",
+        "bench:MATH": "c24",
+        "bench:MBPP": "c26",
+        "bench:MMLU": "c28",
+        "bench:MMLU_Pro": "c30",
+        "bench:TruthfulQA": "c32"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "slice of each dataset, not the full suite, and not comparable with full-suite results [L94]",
+        "disk footprint is given as zero in the card, not mapped [L40]",
+        "Italian section repeats the same figures, not mapped separately [L171-L182]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "ornith-ai-Ornith-1.5-35B-A3B-GGUF-Q8_0",
+      "panel": "🧠 Reasoning Mode Comparison: No-Thinking vs Thinking",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "question subsets of different sizes, one per reasoning mode [L72-L73]",
+        "ctx": "not stated",
+        "tool": "Sigma Studio Training Lab, deterministic seed and zero temperature [L46]",
+        "L": [46, 52, 55]
+      },
+      "metrics": {
+        "bench:No_thinking_mode": "c6",
+        "bench:Deep_thinking_mode": "c8"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "question subsets differ from the official table, and the card notes they are slices [L72-L73, L94]"
+      ]
+    }
+  ],
+  "prose": []
+}

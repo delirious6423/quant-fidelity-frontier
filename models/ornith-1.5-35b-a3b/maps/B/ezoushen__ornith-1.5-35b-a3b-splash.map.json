@@ -1,0 +1,30 @@
+{"repo": "ezoushen/ornith-1.5-35b-a3b-splash",
+ "source_sha256": "fec1402d8f36e9e9e11f7919ba85450077c19f6ae36aa263de42cc1d6c9306fe",
+ "candidates_sha256": "432e7b8486ce9ee7f8f6725c73a65b270c2f24586c274f4d441eb894709a496a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "MLX production lane (GSM8K comparison and greedy-output check)", "dataset": "GSM8K 32-item subset; JevBench public decisions (231, /v1/systemone); 200 prompts across code, vision, long context, math and chat", "ctx": "not stated", "tool": "not stated", "L": [48, 56, 57, 58, 74, 77]},
+ "entries": [
+   {"role": "own",
+    "name": "this package",
+    "metrics": {"bench:GSM8K-32": "c1.0", "bench:JevBench-231": "c3"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["GSM8K value is the correct count out of 32 items [L57]", "JevBench is a public-decisions subset of 231 items [L58]", "card says the 32-item GSM8K result is a subset result, not a quality verdict [L77]"]},
+   {"role": "cross",
+    "name": "MLX production lane",
+    "of": "not named on card",
+    "metrics": {"bench:GSM8K-32": "c2.0"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["GSM8K value is the correct count out of 32 items [L57]", "card calls this Ornith's MLX 4-bit repo but gives no repo id [L52]"]}
+ ],
+ "prose": [
+   {"entry": "this package", "key": "bench:identical_greedy_vs_mlx", "L": 56, "raw": "136 of 200 prompts"}
+ ]
+}

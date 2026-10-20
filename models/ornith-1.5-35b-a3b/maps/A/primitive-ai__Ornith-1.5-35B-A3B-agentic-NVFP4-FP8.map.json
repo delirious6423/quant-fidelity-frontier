@@ -1,0 +1,83 @@
+{
+  "repo": "primitive-ai/Ornith-1.5-35B-A3B-agentic-NVFP4-FP8",
+  "source_sha256": "e58088a405f4f602ef4d2242eb218dca13c493d05e07dc2a6273726e50dc581b",
+  "candidates_sha256": "9cd2d86821d9ea712940cfdc66e7c39b9730e13cd37117fe4424d726221aa4bf",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "BF16 reference row (base checkpoint)",
+    "dataset": "1,370 items across fourteen public benchmarks: a 1,170-item knowledge suite and a 200-item tool-calling suite",
+    "ctx": "thinking forced on, 16,384-token generation budget",
+    "tool": "not stated",
+    "L": [76, 77, 78, 79]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "this repo (tool-calling build)",
+      "metrics": {"bench:call": "c12", "bench:abstain": "c13", "bench:knowledge": "c14", "bench:pooled": "c15"},
+      "size": "c11",
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L85] size column reads 22.6 G with no unit; the badge at [L26] says GiB, not mapped as a unit",
+        "[L91-92] single runs span 67.5 to 75.5; differences under about 2 points are not differences",
+        "[L119] call and abstain are reported separately from pooled, as the card explains"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "our general build",
+      "metrics": {"bench:call": "c22", "bench:abstain": "c23", "bench:knowledge": "c24", "bench:pooled": "c25"},
+      "size": "c21",
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L87] size column reads 22.6 G with no unit; not mapped as a unit"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "ornith-ai FP8",
+      "of": "not named on card",
+      "metrics": {"bench:call": "c7", "bench:abstain": "c8", "bench:knowledge": "c9", "bench:pooled": "c10"},
+      "size": "c6",
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L84] size column reads 36.7 G with no unit; not mapped as a unit"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "ornith-ai NVFP4",
+      "of": "not named on card",
+      "metrics": {"bench:call": "c17", "bench:abstain": "c18", "bench:knowledge": "c19", "bench:pooled": "c20"},
+      "size": "c16",
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L86] size column reads 21.8 G with no unit; not mapped as a unit"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "BF16 reference",
+      "of": "ornith-ai/Ornith-1.5-35B-A3B",
+      "metrics": {"bench:call": "c2", "bench:abstain": "c3", "bench:knowledge": "c4", "bench:pooled": "c5"},
+      "size": "c1",
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L83] size column reads 67.0 G with no unit; not mapped as a unit"
+      ]
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,90 @@
+{
+  "repo": "0xSero/Ornith-1.5-35B-A3B-EXL3-3.5bpw",
+  "source_sha256": "dce83ac0a3e45c5402d1a92e8263d1ca6ebcf9c156626f9020191c2f82fdb4b1",
+  "candidates_sha256": "74c940f92ae4fa1d00f85edbcf2f6096db645609cdf94f32355f379470079f8d",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "BF16 base",
+    "dataset": "wikitext",
+    "ctx": "fixed-length token windows over many rounds [L44]",
+    "tool": "exllamav3 eval/model_diff",
+    "L": [44]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Ornith-1.5-35B-A3B-EXL3-3.5bpw",
+      "metrics": {
+        "kld:wikitext": "c1",
+        "top1:wikitext": "c2"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c11",
+      "flags": [
+        "BF16 base perplexity and three rung perplexities are given only in prose, with no row assignment for the rungs; not mapped [L54, L55]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "EXL3 2.75 bpw",
+      "metrics": {
+        "kld:wikitext": "c3",
+        "top1:wikitext": "c4"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c12",
+      "flags": []
+    },
+    {
+      "role": "ladder",
+      "name": "EXL3 3 bpw",
+      "metrics": {
+        "kld:wikitext": "c5",
+        "top1:wikitext": "c6"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c13",
+      "flags": []
+    },
+    {
+      "role": "ladder",
+      "name": "EXL3 3.5 bpw",
+      "metrics": {
+        "kld:wikitext": "c7",
+        "top1:wikitext": "c8"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c14",
+      "flags": [
+        "same figures as the own row above; the card does not say whether it is the same checkpoint [L48, L51]"
+      ]
+    },
+    {
+      "role": "cross",
+      "of": "not named on card",
+      "name": "reference: plain -hq 3 bpw",
+      "metrics": {
+        "kld:wikitext": "c9",
+        "top1:wikitext": "c10"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c15",
+      "flags": [
+        "stock -hq 3 bpw reference measured by the card author [L52]"
+      ]
+    }
+  ],
+  "prose": []
+}

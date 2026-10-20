@@ -1,0 +1,23 @@
+{"repo": "dotnfc/Tiel-Coder-35B-A3B-GGUF-MTP",
+ "source_sha256": "9d29d5924c62a9aeff9f55fbba12e7f202dda9a3c3199311793a5363f9f4f1fe",
+ "candidates_sha256": "4458bd28c8ce5bbae60f20ed1dfcc7574a814daab9140de3e90f1008d9d06762",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "SWE-bench-Live (25 problems); Claw-Eval multi-turn (114 scored conversations); MMLU-Pro", "ctx": "not stated", "tool": "not stated", "L": [56, 62, 68]},
+ "entries": [
+   {"role": "own",
+    "name": "Tiel-Coder-35B-A3B-MTP-UD-Q4_K_XL.gguf",
+    "panel": "The numbers",
+    "methodology": {"reference": "not stated", "dataset": "SWE-bench-Live (25 problems); Claw-Eval multi-turn (114 scored conversations); MMLU-Pro", "ctx": "not stated", "tool": "not stated", "L": [56, 62, 68, 93]},
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["the card names UD-Q4_K_XL as the benchmarked tier plus the head [L93]; the figures are restated from the stripped Tiel build, and the card says each tier is its stripped counterpart plus the MTP head, so they are mapped here with that caveat [L98-99]",
+              "SWE-bench-Live is a solve count (12 of 25), not a percent [L56]",
+              "scores for Nail, Ornith-1.5, Qwen3.6, Dirk, Opus and Sonnet are measured on other models and are omitted [L56-68]",
+              "speculative-decoding speed and acceptance tables are speed, not quality, and are omitted [L139-147]"]}
+ ],
+ "prose": [{"entry": "Tiel-Coder-35B-A3B-MTP-UD-Q4_K_XL.gguf", "panel": "The numbers", "key": "bench:SWE-bench-Live", "L": 56, "raw": "Tiel fixes 12"},
+           {"entry": "Tiel-Coder-35B-A3B-MTP-UD-Q4_K_XL.gguf", "panel": "The numbers", "key": "bench:Claw-Eval", "L": 62, "raw": "Tiel scores 67.2"},
+           {"entry": "Tiel-Coder-35B-A3B-MTP-UD-Q4_K_XL.gguf", "panel": "The numbers", "key": "bench:MMLU-Pro", "L": 68, "raw": "73.7 on MMLU-Pro"}]
+}

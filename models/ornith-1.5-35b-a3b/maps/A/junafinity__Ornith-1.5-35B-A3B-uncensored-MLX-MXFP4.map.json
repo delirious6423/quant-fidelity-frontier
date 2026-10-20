@@ -1,0 +1,9 @@
+{"repo": "junafinity/Ornith-1.5-35B-A3B-uncensored-MLX-MXFP4",
+ "source_sha256": "830e08888406911133cb0bd630686dcb103a98ec70f12542f2997b071fc10931",
+ "candidates_sha256": "cc41611329e960e22a183609ee57c2636271c7123849e23f83d42c47077c45d3",
+ "no_quality_claims": true,
+ "no_claims_reason": "the abliteration figures (refusals 100 to 9, KL 0.3985) were measured on the bf16 parent, not on this quantized checkpoint [L77-87]",
+ "weights_modified": true,
+ "method": {"reference": "bf16 parent (abliterated); not this quantized checkpoint", "dataset": "held-out harmful set (refusals)", "ctx": "not stated", "tool": "not stated", "L": [77, 87, 94]},
+ "entries": [],
+ "prose": []}

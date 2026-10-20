@@ -1,0 +1,11 @@
+{"repo": "Shiftedx/ornith-1.5-35b-a3b-attention8-bf16recurrence-vision-mtplx",
+ "source_sha256": "63c603b71f63b7eeaf183328b9581f2b1ef15f2680a780275fdb6662e20521d8",
+ "candidates_sha256": "88601f09a6abc41e9d9f8a89e2cf77d39231dd2f281e15175e2d75cfa7ced67a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "Executable Python tasks (8); text exact-output smoke; vision smoke; MTP tensor gate", "ctx": "not stated", "tool": "not stated", "L": [40, 42, 44]},
+ "entries": [
+  {"role": "own", "name": "MLX Vision + Native MTP", "methodology": {"reference": "not stated", "dataset": "Executable Python tasks (8)", "ctx": "not stated", "tool": "not stated", "L": [44]}, "metrics": {"bench:ExecutablePythonTasks": "c1.0"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["8 of 8 executable Python tasks is a small functional pass count, not a standard benchmark [L44]", "text smoke, vision smoke and MTP tensor gate are pass/fail checks with no metric key [L45-47]", "speed (109.0 decode tok/s) is not a quality metric and is not mapped [L49]", "4-bit expert body with 8-bit attention is stated in prose without a bpw cell [L20]", "no file size appears in the qualification table [L42-47]"]}
+ ],
+ "prose": []}

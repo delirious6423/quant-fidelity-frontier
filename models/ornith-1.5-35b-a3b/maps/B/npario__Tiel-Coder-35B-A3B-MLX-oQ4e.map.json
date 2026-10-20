@@ -1,0 +1,30 @@
+{"repo": "npario/Tiel-Coder-35B-A3B-MLX-oQ4e",
+ "source_sha256": "0904e26306df1d6212de47aba4008a219a3c3a7e594674642d71014b1b0b18ef",
+ "candidates_sha256": "2802f519561ee6d20f00e507362f7f4d53dcebda51b051e236869c693de097e9",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "SWE-bench-Live (25 problems); Claw-Eval multi-turn (114 conversations each); MMLU-Pro (three seeds) [L63, L69, L134]", "ctx": "not stated", "tool": "not stated", "L": [32, 38, 63, 69, 75]},
+ "entries": [
+   {"role": "own",
+    "name": "oQ4e",
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["The card says its numbers were measured on the GGUF build, not this MLX file [L32-38]; this file has no measurement of its own", "Size of 21 GB is in prose [L42]; not a table row, left null"]},
+   {"role": "ladder",
+    "name": "GGUF build (tier not named on card)",
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["Figures measured on the GGUF build of the same model, per the card [L32-38]; not a measurement of this oQ4e file", "Card asks to read them as evidence about the model, not this file [L36-37]"]}
+ ],
+ "prose": [
+   {"entry": "GGUF build (tier not named on card)", "key": "bench:SWE-bench-Live_solved", "L": 63, "raw": "12"},
+   {"entry": "GGUF build (tier not named on card)", "key": "bench:Claw-Eval_multi-turn", "L": 69, "raw": "67.2"},
+   {"entry": "GGUF build (tier not named on card)", "key": "bench:MMLU-Pro", "L": 75, "raw": "73.7"}
+ ]}

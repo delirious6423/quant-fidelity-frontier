@@ -1,0 +1,186 @@
+{
+  "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+  "source_sha256": "c20c3bb27e450c05eafa3f5a273baab5e9a5158535abbf653a5f3287af1b833b",
+  "candidates_sha256": "544ed5ae07b3c7d58730f53472e8178737afff9bc523b0216d39466b4fdcf9bc",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "BF16 Ornith-1.5-35B-A3B",
+    "dataset": "internal sysadmin/agent evaluation set (not published) and turboderp's public qbench_prompts_gen.json",
+    "ctx": "served context of each row; needle prompt at about ninety-two percent of it",
+    "tool": "exllamav3 qbench for KLD and perplexity; vLLM serving with exllamav3 and plugins for the other checks",
+    "L": [69, 84, 85]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "EXL3 4.00 bpw (main)",
+      "panel": "Family comparison (Ornith-1.5-35B-A3B, same conditions)",
+      "metrics": {
+        "kld:internal": "c24.0",
+        "kld:public": "c24.2",
+        "ppl:internal": "c25.0",
+        "ppl:public": "c25.1",
+        "bench:Needle": "c26.0",
+        "bench:Tools_opencode": "c27.0",
+        "bench:Agent_tasks": "c28.0",
+        "bench:Reasoning_xhigh": "c29.0",
+        "bench:Vision": "c30.0"
+      },
+      "size": "c23",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": "c175",
+      "flags": [
+        "median KLD values not mapped [L73]",
+        "needle context lengths not mapped [L73]",
+        "build with model-generated calibration trace, KLD given only in prose, not mapped [L272]",
+        "plugin version KL comparison in prose not mapped [L256]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "EXL3 4.50 bpw (4.50bpw)",
+      "panel": "Family comparison (Ornith-1.5-35B-A3B, same conditions)",
+      "metrics": {
+        "kld:internal": "c32.0",
+        "kld:public": "c32.2",
+        "ppl:internal": "c33.0",
+        "ppl:public": "c33.1",
+        "bench:Needle": "c34.0",
+        "bench:Tools_opencode": "c35.0",
+        "bench:Agent_tasks": "c36.0",
+        "bench:Reasoning_xhigh": "c37.0",
+        "bench:Vision": "c38.0"
+      },
+      "size": "c31",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": "c176",
+      "flags": [
+        "median KLD values not mapped [L74]",
+        "needle context lengths not mapped [L74]",
+        "24 GB fit notes give a separate needle and free-memory result, not mapped [L199]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "EXL3 5.00 bpw (5.00bpw)",
+      "panel": "Family comparison (Ornith-1.5-35B-A3B, same conditions)",
+      "metrics": {
+        "kld:internal": "c40.0",
+        "kld:public": "c40.2",
+        "ppl:internal": "c41.0",
+        "ppl:public": "c41.1",
+        "bench:Needle": "c42.0",
+        "bench:Tools_opencode": "c43.0",
+        "bench:Agent_tasks": "c44.0",
+        "bench:Reasoning_xhigh": "c45.0"
+      },
+      "size": "c39",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": "c178",
+      "flags": [
+        "median KLD values not mapped [L75]",
+        "needle context lengths not mapped [L75]",
+        "vision not measured for this variant in this table [L75]",
+        "24 GB fit notes not mapped [L200]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "main",
+      "panel": "Earlier measurements",
+      "methodology": {
+        "reference": "BF16 Ornith-1.5-35B-A3B",
+        "dataset": "internal sysadmin/agent evaluation set (not published) and turboderp's public trace",
+        "ctx": "served context of each row; needle with two concurrent sessions also checked",
+        "tool": "exllamav3 qbench for KLD; opencode request for tool calls; earlier settings as stated per table",
+        "L": [121, 122, 123, 124, 125, 127]
+      },
+      "metrics": {
+        "kld:internal": "c88.0",
+        "kld:public": "c88.1",
+        "bench:Needle": "c93.0",
+        "bench:Vision": "c94.0",
+        "bench:Tools_A": "c95.0",
+        "bench:Tools_B": "c95.1",
+        "bench:Tools_C": "c95.2"
+      },
+      "size": "c87",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": "c86",
+      "flags": [
+        "legacy measurement, earlier date and settings [L111]",
+        "tool settings A, B and C defined in the how-to-read notes [L124]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "4.50bpw",
+      "panel": "Earlier measurements",
+      "methodology": {
+        "reference": "BF16 Ornith-1.5-35B-A3B",
+        "dataset": "internal sysadmin/agent evaluation set (not published) and turboderp's public trace",
+        "ctx": "served context of each row; needle with two concurrent sessions also checked",
+        "tool": "exllamav3 qbench for KLD; opencode request for tool calls; earlier settings as stated per table",
+        "L": [121, 122, 123, 124, 125, 127]
+      },
+      "metrics": {
+        "kld:internal": "c101.0",
+        "kld:public": "c101.1",
+        "bench:Needle": "c106.0",
+        "bench:Vision": "c107.0",
+        "bench:Tools_A": "c108.0",
+        "bench:Tools_B": "c108.1",
+        "bench:Tools_C": "c108.2"
+      },
+      "size": "c100",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": "c99",
+      "flags": [
+        "legacy measurement, earlier date and settings [L111]",
+        "measured on an L40S 48 GB GPU, not the 24 GB card [L117]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "5.00bpw",
+      "panel": "Earlier measurements",
+      "methodology": {
+        "reference": "BF16 Ornith-1.5-35B-A3B",
+        "dataset": "internal sysadmin/agent evaluation set (not published) and turboderp's public trace",
+        "ctx": "served context of each row; needle with two concurrent sessions also checked",
+        "tool": "exllamav3 qbench for KLD; opencode request for tool calls; earlier settings as stated per table",
+        "L": [121, 122, 123, 124, 125, 127]
+      },
+      "metrics": {
+        "kld:internal": "c114.0",
+        "kld:public": "c114.1",
+        "bench:Needle": "c119.0",
+        "bench:Vision": "c120.0",
+        "bench:Tools_A": "c121.0",
+        "bench:Tools_B": "c121.1",
+        "bench:Tools_C": "c121.2"
+      },
+      "size": "c113",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": "c112",
+      "flags": [
+        "legacy measurement, earlier date and settings [L111]",
+        "measured on an L40S 48 GB GPU, not the 24 GB card [L118]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "main", "panel": "Earlier measurements", "key": "bench:Agent_tasks_4x2", "L": 126, "raw": "6/8"},
+    {"entry": "main", "panel": "Earlier measurements", "key": "bench:Reasoning_xhigh", "L": 116, "raw": "47/48"},
+    {"entry": "4.50bpw", "panel": "Earlier measurements", "key": "bench:Reasoning_xhigh", "L": 117, "raw": "45/48"},
+    {"entry": "5.00bpw", "panel": "Earlier measurements", "key": "bench:Reasoning_xhigh", "L": 118, "raw": "48/48"}
+  ]
+}

@@ -1,0 +1,16 @@
+{"repo": "carsenk/Ornith-1.5-35B-A3B-ROGUE-MLX-4bit",
+ "source_sha256": "ade34830c3c76477ec09e6d2363c7fe6becd3ab2641c89ef9364009e6da61bdc",
+ "candidates_sha256": "0acfd7150641b0aa25d8825c865812fdcc7a2fbfd7aee743bbbc324fe936d2e5",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "Base MLX 4-bit", "dataset": "ROGUE Pareto v2 deterministic smoke suite, 40 prompts", "ctx": "not stated", "tool": "MLX backend; refusal classified by phrase markers", "L": [61, 72]},
+ "entries": [
+   {"role": "own",
+    "name": "This model",
+    "methodology": {"reference": "Base MLX 4-bit", "dataset": "ROGUE Pareto v2 deterministic smoke suite, 40 prompts", "ctx": "not stated", "tool": "MLX backend; refusal classified by phrase markers", "L": [61, 72]},
+    "metrics": {"bench:Refusal-marker rate": "c2", "bench:Retain score": "c4"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["smoke test, not leaderboard-grade per card [L72]", "base MLX 4-bit arm is the unmodified model, not mapped [L65-66]", "over-refusal rate for this model not mapped, value duplicates base column [L67]"]}
+ ],
+ "prose": []}

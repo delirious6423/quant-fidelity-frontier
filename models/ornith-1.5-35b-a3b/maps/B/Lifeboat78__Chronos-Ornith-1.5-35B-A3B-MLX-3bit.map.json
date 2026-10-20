@@ -1,0 +1,21 @@
+{"repo": "Lifeboat78/Chronos-Ornith-1.5-35B-A3B-MLX-3bit",
+ "source_sha256": "9e25f7e771a968266e7bc4a77a513dbae7d46f7546b2c3a4e2aba14760f18adf",
+ "candidates_sha256": "74a65a9d1a1122cb2321c4dda038323a8f98c42adefbcce9f1e977cea0fb44b3",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Qwen3.6-35B-A3B UD 3-bit, same harness, same day", "dataset": "private 36-case suite", "ctx": "includes a 32k-token retrieval case", "tool": "same harness", "L": [48]},
+ "entries": [
+   {"role": "own",
+    "name": "This build",
+    "metrics": {"bench:Graded score": "c1"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["private 36-case suite, not public; one ungraded summarization miscount noted [L58]"]},
+   {"role": "cross",
+    "name": "Qwen3.6-35B-A3B UD 3-bit",
+    "of": "not named on card",
+    "metrics": {"bench:Graded score": "c2"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["card names it as Unsloth's Qwen3.6-35B-A3B-UD-MLX-3bit, no owner/repo id [L48]"]}
+ ],
+ "prose": []}

@@ -1,0 +1,12 @@
+{"repo": "roman220220/Ornith-1.5-35B-A3B-gptq-mlx-jang-small",
+ "source_sha256": "f57fa580c14112d362004d572d8de8d3216967bb486920ecc25bed4bb66832e5",
+ "candidates_sha256": "3e386d1dafaed6c96fb90c8060c5f7d5b92da912381b90121c820f0e1333e98e",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 (HF transformers) row of the same table", "dataset": "wikitext-2 test; Python standard library", "ctx": "40 x 512 tokens", "tool": "not stated (reference row: HF transformers)", "L": [71, 72, 76]},
+ "entries": [
+  {"role": "own", "name": "this model, gate / up at 2 bits (MLX)", "metrics": {"ppl:wikitext": "c10", "ppl:code": "c12"}, "size": "c9", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["percent-vs-bf16 deltas (c11, c13) not mapped: one ppl_delta_pct key cannot carry two corpora [L78]", "bits per weight not stated as one figure; bit recipe by component [L44-45, L53-66]", "MTP draft acceptance rates are speculative-decoding speed, not mapped [L103-104]"]},
+  {"role": "ladder", "name": "3-bit experts (Ornith-1.5-35B-A3B-gptq-mlx-jang)", "metrics": {"ppl:wikitext": "c5", "ppl:code": "c7"}, "size": "c4", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["same publisher's 3-bit build, comparison row [L77]", "percent-vs-bf16 deltas (c6, c8) not mapped: one ppl_delta_pct key cannot carry two corpora [L77]"]}
+ ],
+ "prose": []}

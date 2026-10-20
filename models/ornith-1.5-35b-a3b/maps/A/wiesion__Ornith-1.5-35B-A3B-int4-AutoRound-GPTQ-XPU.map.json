@@ -1,0 +1,50 @@
+{
+  "repo": "wiesion/Ornith-1.5-35B-A3B-int4-AutoRound-GPTQ-XPU",
+  "source_sha256": "cea8aa3629db9d360528a874bae60cc12e5a2d5ab4bb5080e2a26a5238c24e4a",
+  "candidates_sha256": "51d25f290d6f271ae7d013c1149656225b6cec326c8d03c1a8574a331ce001d0",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "official FP8 checkpoint served on the same llm-scaler stack (TP=2), not BF16",
+    "dataset": "fixed 108,911-token corpus: wikitext-2, Python source, UltraChat (all, prose, code and chat rows)",
+    "ctx": "not stated",
+    "tool": "vLLM in intel/llm-scaler-vllm 0.26.0-b2 (XPU)",
+    "L": [29, 112, 121, 153, 154]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "int4 (this repo)",
+      "metrics": {
+        "ppl": "c25",
+        "ppl_ratio": "c26",
+        "top1_pct": "c23",
+        "ppl:prose": "c31",
+        "top1:prose": "c29",
+        "ppl:code": "c37",
+        "top1:code": "c35",
+        "ppl:chat": "c43",
+        "top1:chat": "c41",
+        "bench:GSM8K_5shot_flexible": "c46",
+        "bench:GSM8K_5shot_strict": "c49",
+        "bench:IFEval_prompt_strict": "c52",
+        "bench:IFEval_instruction_strict": "c55",
+        "bench:MMLU-Pro_CoT_5shot": "c58"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L114] ppl, ppl ratio and top-1 are against the official FP8 checkpoint, not BF16 [L110]",
+        "[L112-117] top-20 KL against FP8 has no matching metric key; not mapped",
+        "[L117] per-corpus ppl ratios have no key; not mapped",
+        "[L119] run-to-run noise floor, not a quantization result; not mapped",
+        "[L153-155] card says the GSM8K, IFEval and MMLU-Pro figures are relative, not absolute capability",
+        "[L274] KL 0.0926 is a calibration ablation build that is not shipped; omitted"
+      ]
+    }
+  ],
+  "prose": []
+}

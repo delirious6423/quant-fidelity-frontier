@@ -1,0 +1,22 @@
+{"repo": "LookUpMark/Ornith-1.5-35B-A3B-oQ6e-mtp",
+ "source_sha256": "6074298432a49dc3b35cd78d748d31abb454e840d7d98d1f030c67f6cdaacba8",
+ "candidates_sha256": "f95cc3aa78cf58cf995d29a419669107f04dde40f940d5dada69cf9c6c8c3a32",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "needle-in-a-haystack probe (fixed codes, ~23k context); factual, math and Italian-language checks; agentic bug-fix and multi-file analysis tasks", "ctx": "~23k (needle probe)", "tool": "oMLX server; pi agent (headless runs)", "L": [27, 39, 40]},
+ "entries": [
+   {"role": "own",
+    "name": "oQ6e (6-bit)",
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["quality probes are counts only; card says the needle probe was run on all three sibling variants [L39]", "no KLD, perplexity or task-suite score stated [L39-40]"]}
+ ],
+ "prose": [
+   {"entry": "oQ6e (6-bit)", "key": "bench:needle_in_haystack_recall", "L": 39, "raw": "4/4"},
+   {"entry": "oQ6e (6-bit)", "key": "bench:agentic_checks_completed", "L": 40, "raw": "6/6"}
+ ]
+}

@@ -1,0 +1,14 @@
+{"repo": "LookUpMark/Ornith-1.5-35B-A3B-oQ8e-mtp",
+ "source_sha256": "08c5229f9baf496b88ad6475fbcc9da05f9be0b18d25eada29119e646411f101",
+ "candidates_sha256": "798c7e1837f09036054e17ca4d40efc2b8047dc0df9a95a43db133bca638ec3a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "needle-in-a-haystack recall (~23k context); factual, math and Italian checks; agentic bug-fix and multi-file tasks", "ctx": "~23k context for the needle probe", "tool": "oMLX server; pi agent (headless)", "L": [31, 43, 44]},
+ "entries": [
+  {"role": "own", "name": "oQ8e (8-bit)", "panel": "Benchmarks on Apple Silicon (M1 Max 64 GB)", "methodology": {"reference": "not stated", "dataset": "needle-in-a-haystack recall (~23k context); agentic checks (pi agent)", "ctx": "~23k context for the needle probe", "tool": "oMLX server", "L": [31, 43, 44]}, "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["quality probes are small pass counts, read as stated, with no more detail than the n shown [L43-44]", "decode speed, acceptance rate and wall-clock times are speed measures, not mapped [L33-46]", "the ~35 GB size is in Quantization details, not in this measurement [L26]", "the probe results are stated for all three variants together [L43]"]}
+ ],
+ "prose": [
+  {"entry": "oQ8e (8-bit)", "panel": "Benchmarks on Apple Silicon (M1 Max 64 GB)", "key": "bench:NeedleRecall", "L": 43, "raw": "4/4"},
+  {"entry": "oQ8e (8-bit)", "panel": "Benchmarks on Apple Silicon (M1 Max 64 GB)", "key": "bench:AgenticChecks", "L": 44, "raw": "6/6"}
+ ]}

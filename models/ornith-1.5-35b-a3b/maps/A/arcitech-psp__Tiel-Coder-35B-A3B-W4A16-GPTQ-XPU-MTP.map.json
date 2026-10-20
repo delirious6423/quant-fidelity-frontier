@@ -1,0 +1,23 @@
+{"repo": "arcitech-psp/Tiel-Coder-35B-A3B-W4A16-GPTQ-XPU-MTP",
+ "source_sha256": "7afb021b094fe0dbaadf8d12d5ebe4bb954b314e01d0f70d3338d782a371d95c",
+ "candidates_sha256": "45a6a0c4eb0852a0fa0ca0011abbae5611e7f6a230559dea009b2912533e365e",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "internal eval of 224 items (code, tool and edit subsets)", "ctx": "not stated", "tool": "not stated", "L": [60, 62, 117, 120, 122]},
+ "entries": [
+  {"role": "own", "name": "Tiel-Coder XPU fixed-K3 + draft INT4", "panel": "Measured results", "methodology": {"reference": "not stated", "dataset": "internal eval of 224 items, 10-run mean with code, tool and edit subsets", "ctx": "not stated", "tool": "not stated", "L": [117, 120, 122]}, "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["10-run means from the controlled comparison table; values are prose in bold cells [L122]", "run range 215-221 is not a metric key and is not mapped [L122]", "speed figures are not quality metrics and are not mapped [L131-137, L147-169]", "93.5% int4 weight share is a composition statement, not a bpw figure [L35]"]},
+  {"role": "ladder", "name": "Same-night published-build baseline", "panel": "Measured results", "methodology": {"reference": "not stated", "dataset": "internal eval of 224 items, 10-run mean with code, tool and edit subsets", "ctx": "not stated", "tool": "not stated", "L": [117, 120, 123]}, "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["same-night baseline for the earlier published build, a comparison row [L123]", "run range 214-219 is not a metric key and is not mapped [L123]"]},
+  {"role": "own", "name": "Tiel-Coder XPU fixed-K3 + draft INT4", "panel": "What we did to improve it", "methodology": {"reference": "not stated", "dataset": "Internal eval (of 224)", "ctx": "not stated", "tool": "not stated", "L": [60, 62]}, "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["single internal-eval value in the build comparison table, given as prose [L62]", "Community Tiel GGUF (216-217) and Community AutoRound int4 + MTP (213-215) are ranges, not single values, so they are not mapped [L63-64]", "the single-run 219 for the first release is historical and not mapped [L66]"]}
+ ],
+ "prose": [
+  {"entry": "Tiel-Coder XPU fixed-K3 + draft INT4", "panel": "Measured results", "key": "bench:InternalEval224", "L": 122, "raw": "**217.7**"},
+  {"entry": "Tiel-Coder XPU fixed-K3 + draft INT4", "panel": "Measured results", "key": "bench:InternalEvalCode", "L": 122, "raw": "**180.3**"},
+  {"entry": "Tiel-Coder XPU fixed-K3 + draft INT4", "panel": "Measured results", "key": "bench:InternalEvalTool", "L": 122, "raw": "**17.7**"},
+  {"entry": "Tiel-Coder XPU fixed-K3 + draft INT4", "panel": "Measured results", "key": "bench:InternalEvalEdit", "L": 122, "raw": "**19.7**"},
+  {"entry": "Same-night published-build baseline", "panel": "Measured results", "key": "bench:InternalEval224", "L": 123, "raw": "217.2"},
+  {"entry": "Same-night published-build baseline", "panel": "Measured results", "key": "bench:InternalEvalCode", "L": 123, "raw": "180.2"},
+  {"entry": "Same-night published-build baseline", "panel": "Measured results", "key": "bench:InternalEvalTool", "L": 123, "raw": "17.1"},
+  {"entry": "Same-night published-build baseline", "panel": "Measured results", "key": "bench:InternalEvalEdit", "L": 123, "raw": "19.9"},
+  {"entry": "Tiel-Coder XPU fixed-K3 + draft INT4", "panel": "What we did to improve it", "key": "bench:InternalEval224", "L": 62, "raw": "**217.7 mean**"}
+ ]}

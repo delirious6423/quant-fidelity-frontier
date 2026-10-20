@@ -1,0 +1,82 @@
+{
+  "repo": "sleepyeldrazi/Ornith-1.5-REAP-20B-A3B-GGUF",
+  "source_sha256": "5636109801d9e6bceb587f96631313700ca385180202abecd5f5b9a3ff52e2ca",
+  "candidates_sha256": "0c0a9533559b14d46c70e8a05ed445cfaa899a4fe99284a03ac135b6080bcd28",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "Q8_0 35B (reference for the card's delta column)",
+    "dataset": "382 KB held-out chat-format mixed-domain text, not in any calibration corpus",
+    "ctx": "25 x 4096-token chunks, greedy",
+    "tool": "llama.cpp",
+    "L": [152, 153, 191]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "q5k_ud",
+      "metrics": {"ppl": "c32"},
+      "size": "c31",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "[L195] Q5_K_M with UD-style map; bits/weight is mixed (experts ~5.5 plus Q8_0 raises), not mapped [L101]",
+        "[L157-158] 35B-A3B Q8_0 and IQ3 rows are the unpruned 35B model, a different model; omitted",
+        "[L159-161] delta-vs-35B column has no metric key; not mapped"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "q5k_plain",
+      "metrics": {"ppl": "c35"},
+      "size": "c34",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c10",
+      "flags": ["[L196] Q5_K_M without the UD-style map; bits/weight is approximate [L102]"]
+    },
+    {
+      "role": "own",
+      "name": "q6k_plain",
+      "metrics": {"ppl": "c38"},
+      "size": "c37",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["[L197] Q6_K variant; no bits/weight stated"]
+    },
+    {
+      "role": "own",
+      "name": "ud_iq4nl",
+      "metrics": {"ppl": "c42"},
+      "size": "c41",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["[L198] IQ4_NL with IQ3_S expert map; bits/weight is mixed, not mapped [L103]"]
+    },
+    {
+      "role": "ladder",
+      "name": "REAP-20B, recovered (F16)",
+      "metrics": {"ppl": "c24"},
+      "size": "c23",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["[L160] unquantized recovered build used as the comparison base; size is the F16 GGUF"]
+    },
+    {
+      "role": "ladder",
+      "name": "REAP-20B, pre-recovery (F16)",
+      "metrics": {"ppl": "c21"},
+      "size": "c20",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["[L159] pre-recovery F16 build; the card notes the recovery LoRA left generic-text PPL unchanged [L168]"]
+    }
+  ],
+  "prose": []
+}

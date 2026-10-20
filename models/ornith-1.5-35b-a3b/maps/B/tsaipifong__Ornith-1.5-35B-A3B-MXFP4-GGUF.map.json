@@ -1,0 +1,27 @@
+{"repo": "tsaipifong/Ornith-1.5-35B-A3B-MXFP4-GGUF",
+ "source_sha256": "c0756e46286dd90cc5f5aa7e9dd306077a7bfadb97d6255d08594978fb1c0d5f",
+ "candidates_sha256": "859161625bff55df5dc2794d11c5c178d6c4f99491fa93184ce339a1586b410e",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 model (unquantized Ornith-1.5-35B-A3B converted to BF16 GGUF)", "dataset": "80 chunks of 512 tokens of mixed text: C++/HIP source with Chinese comments (70,000 characters) plus Chinese technical prose (40,000 characters)", "ctx": "512", "tool": "llama.cpp b11719 llama-perplexity (CPU)", "L": [207]},
+ "entries": [
+   {"role": "own",
+    "name": "this rebuild",
+    "metrics": {"mean_kld": "c7", "kld_99": "c8", "top1_pct": "c9", "ppl": "c10", "ppl_ratio": "c11", "ppl_delta_pct": "c39.4"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["same file name as first release; re-quantized 2026-10-19 with imatrix-weighted MXFP4 [L23]", "BF16 perplexity on this text 6.2537 [L207]"]},
+   {"role": "own",
+    "name": "first release",
+    "metrics": {"mean_kld": "c12", "kld_99": "c13", "top1_pct": "c14", "ppl": "c15", "ppl_ratio": "c16", "ppl_delta_pct": "c30.1"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["2026-10-03 file, upstream llama-quantize without importance matrix [L119]", "same measurement settings as this rebuild [L207]"]}
+ ],
+ "prose": []
+}

@@ -1,0 +1,32 @@
+{
+  "repo": "JThomas-CoE/coe-tiel-coder-python-n1-55-19b-a3b-q4_k_xl",
+  "source_sha256": "de44c2164b8ddd23637bd01df90e0edb132f4d0e7cc4eb64fac1b462559e2545",
+  "candidates_sha256": "bfa8c25f998993101ae91b2ae8f4d7c61940357f806aa6dd3d27af5817a0d508",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "not stated",
+    "dataset": "frozen LiveCodeBench v6, 75 questions (25 easy, 25 medium, 25 hard)",
+    "ctx": "32,768 context, 24,576 output cap",
+    "tool": "upstream LiveCheckBench checker, single canonical runner",
+    "L": [279, 280, 281]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "This model (Ornith/Tiel r55)",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L285-286] LiveCodeBench results are pass counts out of 75, not percentages; bench metric not mapped",
+        "[L288-290] parent and pruned Qwen3.6 rows are other models; omitted",
+        "[L302-303] card gives run-to-run noise of about 9% per problem; single-run validation [L375-376]"
+      ]
+    }
+  ],
+  "prose": []
+}

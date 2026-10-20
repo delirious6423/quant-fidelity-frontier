@@ -1,0 +1,32 @@
+{
+  "repo": "Lifeboat78/Chronos-Ornith-1.5-35B-A3B-MLX-3bit",
+  "source_sha256": "9e25f7e771a968266e7bc4a77a513dbae7d46f7546b2c3a4e2aba14760f18adf",
+  "candidates_sha256": "74a65a9d1a1122cb2321c4dda038323a8f98c42adefbcce9f1e977cea0fb44b3",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated",
+    "dataset": "private 36-case domain suite (routing, domain vocabulary, JSON output, reasoning, instruction following, false-premise handling, 32k retrieval)",
+    "ctx": "not stated",
+    "tool": "same harness as the comparison model (not named)",
+    "L": [46, 48]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Chronos-Ornith-1.5-35B-A3B MLX 3-bit",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L52] graded score cell reads 33/36 (91.7%): count and percent in one cell, metric unit ambiguous; not mapped",
+        "[L52-56] comparison column is Qwen3.6-35B-A3B, a different model; omitted",
+        "[L58] card reports one ungraded summarization miscount"
+      ]
+    }
+  ],
+  "prose": []
+}

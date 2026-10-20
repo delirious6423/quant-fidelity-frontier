@@ -1,0 +1,110 @@
+{
+  "repo": "IsValorum/Tiel-Coder-35B-A3B-APEX-I-NanoPlus-GGUF",
+  "source_sha256": "d4623dbaca1e2785413ab7ff74d9ea4ab0f8e1115b35b1b831e0eafe0eabf467",
+  "candidates_sha256": "c0beaf1f74f583d07ed27ed6494671fa061d3a5beeee538c767a67103d4fe88b",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "unquantized BF16 base in the WikiText-2 table; FP16 baseline in the quality spectrum table",
+    "dataset": "WikiText-2 in the first table; corpus not named in the second",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [89, 91, 139, 141, 143]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "APEX-I-NanoPlus (CURRENT)",
+      "panel": "🏆 EMPIRICAL BENCHMARK & QUALITY COMPARISON",
+      "methodology": {
+        "reference": "unquantized BF16 base",
+        "dataset": "WikiText-2",
+        "ctx": "not stated",
+        "tool": "not stated",
+        "L": [89, 91]
+      },
+      "metrics": {},
+      "size": "c138.0",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "MTP draft layer removed from this build [L86]",
+        "bits per weight in this table is approximate and differs from the second table [L95, L149]",
+        "ARC-Challenge figure is not tied to a row in the card, not mapped [L100]",
+        "generic community IQ2_S row is a bound and approximate values, not mapped [L96]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "APEX-I-MiniPlus V2.1",
+      "panel": "🏆 EMPIRICAL BENCHMARK & QUALITY COMPARISON",
+      "methodology": {
+        "reference": "unquantized BF16 base",
+        "dataset": "WikiText-2",
+        "ctx": "not stated",
+        "tool": "not stated",
+        "L": [89, 91]
+      },
+      "metrics": {},
+      "size": "c130.0",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c134.1",
+      "flags": [
+        "size and bits per weight differ from the second table [L148]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "APEX-I-NanoPlus (IsValorum)",
+      "panel": "Quality Spectrum: APEX-I-NanoPlus vs. Standard Flat Quantizations",
+      "methodology": {
+        "reference": "FP16 / BF16 baseline",
+        "dataset": "not stated",
+        "ctx": "not stated",
+        "tool": "llama.cpp, as the section states",
+        "L": [139, 141, 143]
+      },
+      "metrics": {},
+      "size": "c37",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c36",
+      "flags": [
+        "MTP draft layer removed from this build [L86]",
+        "bits per weight and perplexity differ from the first table [L149, L95]",
+        "flat quantization rows give approximate ranges and no single value, not mapped [L146, L147, L150, L151, L152]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "APEX-I-MiniPlus V2.1",
+      "panel": "Quality Spectrum: APEX-I-NanoPlus vs. Standard Flat Quantizations",
+      "methodology": {
+        "reference": "FP16 / BF16 baseline",
+        "dataset": "not stated",
+        "ctx": "not stated",
+        "tool": "llama.cpp, as the section states",
+        "L": [139, 141, 143]
+      },
+      "metrics": {},
+      "size": "c33",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c32",
+      "flags": [
+        "size and bits per weight differ from the first table [L94]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "APEX-I-MiniPlus V2.1", "panel": "🏆 EMPIRICAL BENCHMARK & QUALITY COMPARISON", "key": "ppl:wikitext", "L": 94, "raw": "7.5117"},
+    {"entry": "APEX-I-MiniPlus V2.1", "panel": "🏆 EMPIRICAL BENCHMARK & QUALITY COMPARISON", "key": "ppl_delta_pct", "L": 94, "raw": "+0.69%"},
+    {"entry": "APEX-I-NanoPlus (CURRENT)", "panel": "🏆 EMPIRICAL BENCHMARK & QUALITY COMPARISON", "key": "ppl:wikitext", "L": 95, "raw": "8.2842"},
+    {"entry": "APEX-I-NanoPlus (CURRENT)", "panel": "🏆 EMPIRICAL BENCHMARK & QUALITY COMPARISON", "key": "ppl_delta_pct", "L": 95, "raw": "+11.05%"},
+    {"entry": "APEX-I-MiniPlus V2.1", "panel": "Quality Spectrum: APEX-I-NanoPlus vs. Standard Flat Quantizations", "key": "ppl", "L": 148, "raw": "6.2432"},
+    {"entry": "APEX-I-NanoPlus (IsValorum)", "panel": "Quality Spectrum: APEX-I-NanoPlus vs. Standard Flat Quantizations", "key": "ppl", "L": 149, "raw": "6.4015"}
+  ]
+}

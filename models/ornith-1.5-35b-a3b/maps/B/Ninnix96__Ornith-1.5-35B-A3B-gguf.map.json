@@ -1,0 +1,20 @@
+{"repo": "Ninnix96/Ornith-1.5-35B-A3B-gguf",
+ "source_sha256": "7a887bd8ab72f639b69906424f9c0bbc99d85175f5539f8436d1bf83390bbd15",
+ "candidates_sha256": "617eb95d1098cceeabe13ce2699b97d8405d6e9adbb363d67509828cad08e8fb",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "official ornith-ai Q8_0 [L56]", "dataset": "ds4 short prompts [L56]", "ctx": "60 [L56]", "tool": "KL divergence on CPU, 2 chunks [L56]", "L": [56]},
+ "entries": [
+  {"role": "own",
+   "name": "antirez-recipe quants",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c5.1",
+   "flags": ["Mean KL 0.238 is the average of two per-chunk KLs on short prompts at ctx 60, a very small sample [L56]", "Top-1 agreement is given per chunk (86.2 and 81.0) with no average, so it is not mapped [L56]", "The 9/12 smoke pass is a count with no score key, so it is not mapped [L54]", "Reference is the official ornith-ai Q8_0 and not BF16 [L56]", "Perplexity is named in the validation text with no value [L30]"]}
+ ],
+ "prose": [
+  {"entry": "antirez-recipe quants", "key": "mean_kld", "L": 56, "raw": "0.238"}
+ ]}

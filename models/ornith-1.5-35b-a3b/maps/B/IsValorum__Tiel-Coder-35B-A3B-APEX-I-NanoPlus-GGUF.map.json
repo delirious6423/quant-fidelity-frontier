@@ -1,0 +1,21 @@
+{"repo": "IsValorum/Tiel-Coder-35B-A3B-APEX-I-NanoPlus-GGUF",
+ "source_sha256": "d4623dbaca1e2785413ab7ff74d9ea4ab0f8e1115b35b1b831e0eafe0eabf467",
+ "candidates_sha256": "c0beaf1f74f583d07ed27ed6494671fa061d3a5beeee538c767a67103d4fe88b",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Unquantized BF16 base, approx. 7.46 [L93]", "dataset": "WikiText-2 [L91]", "ctx": "not stated", "tool": "not stated", "L": [91, 93, 95]},
+ "entries": [
+  {"role": "own",
+   "name": "Tiel-Coder-35B-A3B.APEX-I-NanoPlus.gguf",
+   "methodology": {"reference": "not stated", "dataset": "ARC-Challenge, 0-shot, 1,172 questions [L100]", "ctx": "not stated", "tool": "not stated", "L": [100]},
+   "metrics": {},
+   "size": "c50",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c52",
+   "flags": ["Top-table WikiText-2 PPL (8.2842, +11.05%) [L95] conflicts with the quality-spectrum table (PPL 6.4015, +0.2215, baseline 6.18) [L149]; neither is mapped", "Headline says approx. 2.93 BPW [L95]; the table and file list say 2.82 [L149, L161], and the file-list value is mapped", "ARC-Challenge figure is stated as approximate [L100]", "Generic community IQ2_S row gives only a bound (> 8.10) with no named measurer, so it is not mapped [L96]", "Standard-quant rows give only absolute PPL deltas or ranges with no key and are omitted [L146-L152]"]}
+ ],
+ "prose": [
+  {"entry": "Tiel-Coder-35B-A3B.APEX-I-NanoPlus.gguf", "key": "bench:ARC-Challenge", "L": 100, "raw": "95.69%"}
+ ]}

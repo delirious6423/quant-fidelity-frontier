@@ -1,0 +1,18 @@
+{"repo": "Shiftedx/ornith-1.5-35b-a3b-affine4-router8-bf16recurrence-vision-mtplx",
+ "source_sha256": "e53524afe3b99025a9435479606b3e9dd67b76ded97cdff72d962b929b1fb9ee",
+ "candidates_sha256": "622d99513fa336762b9665d5ffc9526ca435572d95cabfc3d906232a458076eb",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 parent parity not run on the qualification host [L61]", "dataset": "Shiftedx Bench v0.3.0: Quality, Long context, Tool calling, Agentic and Vision lanes [L68, L79]", "ctx": "4,096 to 131,072 prompt tokens; effective tested context 131,072 [L80]", "tool": "MTPLX 2.7.1; MLX 0.32.0; mlx-lm 0.31.3; D1; turbo; thinking on; reasoning effort medium; KV cache off; MTP depth 1 [L81]", "L": [61, 68, 79, 80, 81]},
+ "entries": [
+   {"role": "own",
+    "name": "affine4-router8-bf16recurrence-vision-mtplx",
+    "metrics": {"bench:ShiftedxBench_Quality": "c2", "bench:ShiftedxBench_Long_context": "c7", "bench:ShiftedxBench_Tool_calling": "c12", "bench:ShiftedxBench_Agentic": "c17", "bench:ShiftedxBench_Vision": "c20"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["Accuracy per lane [L72-76]; pass counts (6/10, 11/15, 6/6, 1/2, 2/4) not entered, each is a fraction of two numbers", "Lanes are reported separately; the card says no composite score is produced [L68]", "Card calls this an experimental control quant [L60]; scores tied to revision bbaff3c [L86]", "Logical size 24.29 GB is in prose [L26], not in the benchmark row; left null"]}
+ ],
+ "prose": []}

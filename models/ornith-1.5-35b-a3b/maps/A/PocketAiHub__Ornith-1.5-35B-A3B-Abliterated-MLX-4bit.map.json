@@ -1,0 +1,41 @@
+{
+  "repo": "PocketAiHub/Ornith-1.5-35B-A3B-Abliterated-MLX-4bit",
+  "source_sha256": "fc3cc1cab7c09e6d3918400f071db6f85665722961f499fda64d52a490bda896",
+  "candidates_sha256": "5f191836e3e33bb33fca4bc5d36601a5f7f360b7354b9ff0d6f30e200622b61c",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "abliterated BF16 master (PocketAiHub BF16 reference, [L45])",
+    "dataset": "36-prompt drift suite (12 capability, 12 harmful, 12 benign); 481 shared teacher positions",
+    "ctx": "exact KL over all 248,320 logits [L84]",
+    "tool": "not stated",
+    "L": [45, 83, 84, 99]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "4-bit compact",
+      "panel": "Matched-teacher drift",
+      "methodology": {
+        "reference": "abliterated BF16 master [L99]",
+        "dataset": "36-prompt drift suite, 481 shared teacher positions",
+        "ctx": "exact KL over all 248,320 logits [L84]",
+        "tool": "not stated",
+        "L": [83, 84, 99]
+      },
+      "metrics": {"mean_kld": "c19.0", "top1_pct": "c19.2"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L88-92] split rows are for the pure BF16 ablation, not this quantization; omitted",
+        "[L101-103] the comparison against regular BF16 (KL 0.664004, top-1 75.26%) has a different reference; not mapped",
+        "[L65-77] behavioral screen is phrase-based refusal flags with a 128-token ceiling; not a quality measure; not mapped",
+        "[L124] card states long-context evaluations remain future work"
+      ]
+    }
+  ],
+  "prose": []
+}

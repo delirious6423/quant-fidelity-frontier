@@ -1,0 +1,18 @@
+{"repo": "Shiftedx/ornith-1.5-35b-a3b-attention8-bf16recurrence-vision-mtplx",
+ "source_sha256": "63c603b71f63b7eeaf183328b9581f2b1ef15f2680a780275fdb6662e20521d8",
+ "candidates_sha256": "88601f09a6abc41e9d9f8a89e2cf77d39231dd2f281e15175e2d75cfa7ced67a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "three-prompt sweep; executable Python tasks (8) [L44, L49]", "ctx": "512-token sweep [L49]", "tool": "MTPLX 2.9.1, MLX 0.32.1, MLX-LM 0.31.3; M4 Max 64 GB [L24, L40]", "L": [24, 40, 44, 49]},
+ "entries": [
+   {"role": "own",
+    "name": "attention8-bf16recurrence-vision-mtplx",
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["Quality evidence is pass/fail only: executable Python tasks 8/8 [L44] and a quality gate passed for D1 to D3 [L49]; no quality number, not entered", "Decode speed 109.0 tok/s [L49] is not a quality metric; not entered", "4-bit expert body and 8-bit attention stated in prose [L20]; bpw left null"]}
+ ],
+ "prose": []}

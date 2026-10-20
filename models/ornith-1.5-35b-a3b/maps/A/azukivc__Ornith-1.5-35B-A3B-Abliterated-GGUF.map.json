@@ -1,0 +1,65 @@
+{
+  "repo": "azukivc/Ornith-1.5-35B-A3B-Abliterated-GGUF",
+  "source_sha256": "e245b0e814881347be73f02767b373b6fc0766fe669405161e32c97d9f65fa7b",
+  "candidates_sha256": "0ad68a2a68fd93307cb5311269b3c066457e6096aa1fddfa000f8432be0c35b1",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "GGUF BF16 build of this model",
+    "dataset": "a fixed set of prompts with shared teacher positions [L111]",
+    "ctx": "not stated",
+    "tool": "exact full-vocabulary KL over teacher positions [L112, L113]",
+    "L": [111, 112, 113]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Q8_0",
+      "panel": "Matched GGUF quantization drift",
+      "methodology": {
+        "reference": "GGUF BF16 build of this model",
+        "dataset": "a fixed set of prompts with shared teacher positions [L111]",
+        "ctx": "not stated",
+        "tool": "exact full-vocabulary KL over teacher positions [L112, L113]",
+        "L": [111, 112, 113]
+      },
+      "metrics": {
+        "mean_kld": "c7",
+        "top1_pct": "c8"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "refusal screen counts are a separate panel and not a quality metric, not mapped [L98]",
+        "BF16 self-check value is given in prose, not mapped [L120]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "Q4_K_M",
+      "panel": "Matched GGUF quantization drift",
+      "methodology": {
+        "reference": "GGUF BF16 build of this model",
+        "dataset": "a fixed set of prompts with shared teacher positions [L111]",
+        "ctx": "not stated",
+        "tool": "exact full-vocabulary KL over teacher positions [L112, L113]",
+        "L": [111, 112, 113]
+      },
+      "metrics": {
+        "mean_kld": "c10",
+        "top1_pct": "c11"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "refusal screen counts are a separate panel and not a quality metric, not mapped [L98]"
+      ]
+    }
+  ],
+  "prose": []
+}

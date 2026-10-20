@@ -1,0 +1,45 @@
+{
+  "repo": "Shiftedx/ornith-1.5-35b-a3b-affine4-router8-bf16recurrence-vision-mtplx",
+  "source_sha256": "e53524afe3b99025a9435479606b3e9dd67b76ded97cdff72d962b929b1fb9ee",
+  "candidates_sha256": "622d99513fa336762b9665d5ffc9526ca435572d95cabfc3d906232a458076eb",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated; full BF16 parent parity was not run [L61]",
+    "dataset": "Shiftedx Bench lanes: quality, long context, tool calling, agentic and vision [L68, L79]",
+    "ctx": "prompt lengths up to the effective tested context [L80]",
+    "tool": "MTPLX runtime on MLX, thinking on, medium reasoning effort [L81]",
+    "L": [68, 79, 80, 81]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "ornith-1.5-35b-a3b-affine4-router8-bf16recurrence-vision-mtplx",
+      "methodology": {
+        "reference": "not stated; full BF16 parent parity was not run [L61]",
+        "dataset": "Shiftedx Bench lanes: quality, long context, tool calling, agentic and vision [L68, L79]",
+        "ctx": "prompt lengths up to the effective tested context [L80]",
+        "tool": "MTPLX runtime on MLX, thinking on, medium reasoning effort [L81]",
+        "L": [68, 79, 80, 81]
+      },
+      "metrics": {
+        "bench:Quality": "c2",
+        "bench:Long_context": "c7",
+        "bench:Tool_calling": "c12",
+        "bench:Agentic": "c17",
+        "bench:Vision": "c20"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "lanes are small and categories are not combined into one score [L68]",
+        "logical size stated in the format section, not in the results row, not mapped [L26]",
+        "card says the quant may behave differently from its BF16 parent [L60]"
+      ]
+    }
+  ],
+  "prose": []
+}

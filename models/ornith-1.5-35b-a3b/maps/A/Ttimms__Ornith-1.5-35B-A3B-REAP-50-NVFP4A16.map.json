@@ -1,0 +1,64 @@
+{
+  "repo": "Ttimms/Ornith-1.5-35B-A3B-REAP-50-NVFP4A16",
+  "source_sha256": "5cf82ee759800a7941135a4366072f9dd80fcdf4cdbb185e8d6605c90f6b4a4c",
+  "candidates_sha256": "7b29d4e1a6819762d256ccffbf3e0eee5e9f873562ea1081c2995bd6061fd642",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "not stated",
+    "dataset": "HumanEval+, HumanEval and MBPP+ (lm-eval-harness); SWE-bench Verified 50-instance slice",
+    "ctx": "max_model_len 2048 for the code benchmarks [L166]",
+    "tool": "lm-eval-harness served through vLLM [L90]",
+    "L": [90, 166]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "REAP-50-NVFP4A16",
+      "panel": "Evaluation",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "HumanEval+ (n=164), HumanEval (n=164), MBPP+ (n=378)",
+        "ctx": "max_model_len 2048 [L166]",
+        "tool": "lm-eval-harness, greedy, instruct framing, Wilson 95% CI [L90]",
+        "L": [90, 94, 95, 96, 166]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L100-104] card says run-to-run spread is not measured for this checkpoint; scores move between identical reruns",
+        "[L108] comparison with the KAT-Coder REAP-50 sibling is tier context only; that model is not this one"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "REAP-50-NVFP4A16",
+      "panel": "SWE-bench Verified — read before citing the 44.0% figure alone",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "SWE-bench Verified, 50-instance slice",
+        "ctx": "49,152-token window; 15 of 50 instances hit the ceiling before submitting [L123, L174]",
+        "tool": "mini-swe-agent bash-only scaffold; official SWE-bench harness [L112]",
+        "L": [112, 116, 117, 123, 125]
+      },
+      "metrics": {"bench:SWE-bench_Verified": "c1.2", "bench:SWE-bench_Verified_resolved_of_completed": "c2.2"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L123, L174] 44.0% is a floor under this context budget, not an unconditional number",
+        "[L123] the prior release's 52.0% figure is a different model; omitted"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "REAP-50-NVFP4A16", "panel": "Evaluation", "key": "bench:HumanEval+", "L": 94, "raw": "84.15%"},
+    {"entry": "REAP-50-NVFP4A16", "panel": "Evaluation", "key": "bench:HumanEval", "L": 95, "raw": "90.24%"},
+    {"entry": "REAP-50-NVFP4A16", "panel": "Evaluation", "key": "bench:MBPP+", "L": 96, "raw": "89.15%"}
+  ]
+}

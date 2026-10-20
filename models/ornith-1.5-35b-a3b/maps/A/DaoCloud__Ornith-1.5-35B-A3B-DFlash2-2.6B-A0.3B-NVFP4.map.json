@@ -1,0 +1,9 @@
+{"repo": "DaoCloud/Ornith-1.5-35B-A3B-DFlash2-2.6B-A0.3B-NVFP4",
+ "source_sha256": "c024d41ad57a45537b582f6b11bc808501a143e705537f443caf1352fd0b7d21",
+ "candidates_sha256": "1e640f665b606f5d64cea15a6a04cd06f7660648dc2efb9cb70d0eb9ec961706",
+ "no_quality_claims": true,
+ "no_claims_reason": "reports speculative-decoding acceptance lengths and per-position rates only, which are speed measures, not output quality of the quant [L21-87]",
+ "weights_modified": false,
+ "method": {"reference": "BF16 target and NVFP4 target (acceptance rates, not quality)", "dataset": "AA-LCR, AIME26, GSM8K, HumanEval, LiveCodeBench, LongBench-v2, MATH500, MBPP, MMSpec, MT-Bench, SWE-bench Pro, SpeedBench subsets", "ctx": "262,144 native; max new tokens 4,096", "tool": "vLLM", "L": [21, 33, 35, 85, 86]},
+ "entries": [],
+ "prose": []}

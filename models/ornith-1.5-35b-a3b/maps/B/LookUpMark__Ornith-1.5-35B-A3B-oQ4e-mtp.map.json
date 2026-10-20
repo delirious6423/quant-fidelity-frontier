@@ -1,0 +1,18 @@
+{"repo": "LookUpMark/Ornith-1.5-35B-A3B-oQ4e-mtp",
+ "source_sha256": "b9b60e2923d8424b8b321d0ac1f6183bc246b1aa2ac963747cda43b94710175e",
+ "candidates_sha256": "f95cc3aa78cf58cf995d29a419669107f04dde40f940d5dada69cf9c6c8c3a32",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "seed-fixed prompts (speed); needle-in-a-haystack and factual/math/Italian checks, agentic tasks (probes)", "ctx": "~4k to ~23k (speed table); ~23k (needle probe)", "tool": "oMLX server; TurboQuant KV cache 4-bit; DFlash2 speculative decoding; greedy decoding", "L": [29, 31, 39, 40]},
+ "entries": [
+   {"role": "own",
+    "name": "oQ4e",
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["No KLD, PPL or top-1 value on card; decode speed table [L31-36] not a quality metric", "Quality probes [L39-40] (needle recall, factual, math, Italian, agentic) are pass/fail counts, not entered; probes cover all three variants"]}
+ ],
+ "prose": []}

@@ -1,0 +1,27 @@
+{"repo": "SergiioB/Ornith-1.5-35B-A3B-AutoRound-W4A16-sym-G128-MTP-BF16",
+ "source_sha256": "5ade0d489d1d1d0f6b55084bd64bf11f9220f8daeba56dc0d973ae753433f2ce",
+ "candidates_sha256": "8a8110e808d9c6ce9a3dc4dd41e12ce8616947fbfdcc45b629e58d2a25d09e16",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 source (teacher-forced)", "dataset": "12 out-of-calibration prompts, 315 positions", "ctx": "not stated", "tool": "not stated", "L": [42, 43, 46, 50, 53, 54]},
+ "entries": [
+   {"role": "own",
+    "name": "AutoRound",
+    "metrics": {"bench:mean_abs_dlogprob": "c1", "bench:top1_agreement": "c3", "bench:top20_union_kl": "c5", "bench:p95_abs_dlogprob": "c7"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["logprob parity measured on 315 positions over 12 prompts [L42-43]", "top-20-union KL is a top-k KL, not full-vocabulary KL [L50]", "card states no end-task superiority claim [L53-54]"]},
+   {"role": "ladder",
+    "name": "MixedCal-v2 GPTQ",
+    "metrics": {"bench:mean_abs_dlogprob": "c2", "bench:top1_agreement": "c4", "bench:top20_union_kl": "c6", "bench:p95_abs_dlogprob": "c8"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["reference GPTQ from the same publisher [L32]", "top-20-union KL is a top-k KL, not full-vocabulary KL [L50]"]}
+ ],
+ "prose": []
+}

@@ -1,0 +1,12 @@
+{"repo": "r0b0tlab/Ornith-1.5-35B-A3B-NVFP4-W4A16",
+ "source_sha256": "2f0492c404914e726b7fa6c0504e3d6ad37302e4de91af40aaca96bd72051608",
+ "candidates_sha256": "d815e1c325f501a8b32368ed417c0b0eb1b3bd716ccff906005f759362f8e00f",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 baseline on the same suite", "dataset": "200-question in-house suite: GSM8K (flex) n=80, HumanEval pass@1 n=40, IFEval strict subset n=40, agentic coding n=20", "ctx": "32K context window, greedy, thinking disabled", "tool": "not stated", "L": [55, 57, 138, 139]},
+ "entries": [
+  {"role": "own", "name": "This model + MTP", "panel": "Evaluation — 200-question suite (greedy, thinking disabled)", "methodology": {"reference": "BF16 baseline on the same suite", "dataset": "GSM8K (flex) n=80; HumanEval pass@1 n=40; IFEval strict subset n=40; agentic coding n=20", "ctx": "32K context window, greedy, thinking disabled", "tool": "not stated", "L": [55, 57, 62, 63, 64, 65]}, "metrics": {"bench:GSM8K": "c2", "bench:HumanEval": "c4", "bench:AgenticCoding": "c8"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["fixed final-numeric-answer scorer; per-family n is small, with the card's own ±5–11 pp noise band [L57-58]", "IFEval value (90.00% (36/40)) is identical text in three columns, so it is not mapped to this column [L64]", "the 23 GB on-disk size is in prose, not in the metrics table [L31]", "decode throughput and acceptance rate are speed, not quality, and are not mapped [L67-70]"]},
+  {"role": "own", "name": "This model (base AR)", "panel": "Evaluation — 200-question suite (greedy, thinking disabled)", "methodology": {"reference": "BF16 baseline on the same suite", "dataset": "agentic coding n=20", "ctx": "32K context window, greedy, thinking disabled", "tool": "not stated", "L": [55, 57, 65]}, "metrics": {"bench:AgenticCoding": "c7"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["GSM8K, HumanEval and IFEval base-AR cells read the same text as the BF16 column, so they are not mapped to this entry [L62-64]", "the 23 GB on-disk size is in prose, not in the metrics table [L31]"]}
+ ],
+ "prose": []}

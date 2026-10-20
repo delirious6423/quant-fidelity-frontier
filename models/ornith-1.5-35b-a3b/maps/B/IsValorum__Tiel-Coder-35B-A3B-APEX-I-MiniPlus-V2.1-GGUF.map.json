@@ -1,0 +1,29 @@
+{"repo": "IsValorum/Tiel-Coder-35B-A3B-APEX-I-MiniPlus-V2.1-GGUF",
+ "source_sha256": "d4661bdcc96ce9e16dee62430a8e394b3e3ce89b7fd70127450a1fe6449c2470",
+ "candidates_sha256": "266587c7a22fe45f71c6b3b763441868f595089d9bebc438598e1adca740a681",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Unquantized BF16 base, approx. 7.46 [L90]", "dataset": "WikiText-2 [L88]", "ctx": "not stated", "tool": "not stated", "L": [88, 90, 191]},
+ "entries": [
+  {"role": "own",
+   "name": "Tiel-Coder-35B-A3B.APEX-I-MiniPlus-V2.1.gguf",
+   "metrics": {"ppl": "c26", "ppl_delta_pct": "c25"},
+   "size": "c24",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c23",
+   "flags": ["Absolute PPL delta (+0.0517) has no matching metric key and is not mapped [L191]", "Standard-quant rows (Q8_0 to IQ2_S) give only absolute PPL deltas or ranges with no key and are omitted [L189-L195]", "Independent SWE-style benchmark was run on Occamy-1.0 APEX-I-MiniPlus V2, not this V2.1 model, and is omitted [L154-L168]"]},
+  {"role": "ladder",
+   "name": "APEX-I-NanoPlus",
+   "metrics": {},
+   "size": "c130.0",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": ["Sibling build from the same publisher, listed in the comparison table; its PPL values are in prose, not table candidates [L92]"]}
+ ],
+ "prose": [
+  {"entry": "APEX-I-NanoPlus", "key": "ppl", "L": 92, "raw": "8.2842"},
+  {"entry": "APEX-I-NanoPlus", "key": "ppl_delta_pct", "L": 92, "raw": "+11.05%"}
+ ]}

@@ -1,0 +1,59 @@
+{
+  "repo": "LookUpMark/Ornith-1.5-35B-A3B-oQ6e-mtp",
+  "source_sha256": "6074298432a49dc3b35cd78d748d31abb454e840d7d98d1f030c67f6cdaacba8",
+  "candidates_sha256": "f95cc3aa78cf58cf995d29a419669107f04dde40f940d5dada69cf9c6c8c3a32",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated",
+    "dataset": "not stated; retrieval probe uses fixed codes [L39]",
+    "ctx": "retrieval probe at the context stated on the card [L39]",
+    "tool": "oMLX server, greedy decoding, 4-bit TurboQuant KV cache [L27]",
+    "L": [27, 39, 40]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "oQ6e",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "agentic completion count is given for all variants together, not per variant, not mapped [L40]",
+        "factual, math and language checks are stated only as all correct, not mapped [L39]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "oQ4e",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "retrieval figure stated as applying to all three variants [L39]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "oQ8e",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "retrieval figure stated as applying to all three variants [L39]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "oQ6e", "key": "bench:Needle", "L": 39, "raw": "4/4"},
+    {"entry": "oQ4e", "key": "bench:Needle", "L": 39, "raw": "4/4"},
+    {"entry": "oQ8e", "key": "bench:Needle", "L": 39, "raw": "4/4"}
+  ]
+}

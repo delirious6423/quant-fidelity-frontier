@@ -1,0 +1,71 @@
+{
+  "repo": "gbuzhf/Ornith-1.5-35B-A3B-TIEL-Calibrated-MTPv2-ICE-GGUF",
+  "source_sha256": "e3bdab1a864ce41c249b3d8f9cd2a53f30b61cec9a0d0ac41539b1f0c53bfea4",
+  "candidates_sha256": "055614a88c8fbd46ba71c54719d415c605f2b944f32aaec6b0a1b2891b408bb0",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "BF16 master this repo was built from",
+    "dataset": "WikiText-2 raw test, 64 chunks",
+    "ctx": "n_ctx 2048",
+    "tool": "not stated (one binary and one reference for all four files)",
+    "L": [33, 34, 35]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "25G-ICE",
+      "metrics": {"mean_kld": "c14", "kld_99": "c15", "ppl_ratio": "c17", "top1_pct": "c18"},
+      "size": "c13",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c20",
+      "flags": [
+        "[L42] composite 'overall' score (c21) has no metric key; not mapped",
+        "[L42] 99.9% KLD has no metric key; not mapped",
+        "[L42] active bpw is not the file bpw; file bpw used"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "23G-ICE",
+      "metrics": {"mean_kld": "c23", "kld_99": "c24", "ppl_ratio": "c26", "top1_pct": "c27"},
+      "size": "c22",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c29",
+      "flags": [
+        "[L43] composite 'overall' score (c30) has no metric key; not mapped",
+        "[L43] 99.9% KLD has no metric key; not mapped"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "21G-ICE",
+      "metrics": {"mean_kld": "c32", "kld_99": "c33", "ppl_ratio": "c35", "top1_pct": "c36"},
+      "size": "c31",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c38",
+      "flags": [
+        "[L44] composite 'overall' score (c39) has no metric key; not mapped",
+        "[L44] 99.9% KLD has no metric key; not mapped"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "19G-ICE",
+      "metrics": {"mean_kld": "c41", "kld_99": "c42", "ppl_ratio": "c44", "top1_pct": "c45"},
+      "size": "c40",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c47",
+      "flags": [
+        "[L45] composite 'overall' score (c48) has no metric key; not mapped",
+        "[L45] 99.9% KLD has no metric key; not mapped"
+      ]
+    }
+  ],
+  "prose": []
+}

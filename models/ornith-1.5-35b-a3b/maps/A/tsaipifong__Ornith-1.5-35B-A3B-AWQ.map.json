@@ -1,0 +1,18 @@
+{"repo": "tsaipifong/Ornith-1.5-35B-A3B-AWQ",
+ "source_sha256": "f0a83eb08824fce7cc81e3dd0a6d0a9650a2e610f500c4f965b4ef4bb1052fcf",
+ "candidates_sha256": "72f84e8a34e902f841e78203dceb5fdc893c1186821a1b01cf8351aaac5e74c8",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 original (ornith-ai/Ornith-1.5-35B-A3B)", "dataset": "24 held-out chat samples from 5 sources (not used for calibration)", "ctx": "each sample <=2048 tokens", "tool": "transformers (int4 weights dequantized from this checkpoint)", "L": [85, 86, 88, 89]},
+ "entries": [
+  {"role": "own", "name": "AWQ (this repo)", "metrics": {"ppl:assistant_only": "c7", "ppl:full_sequence": "c20", "top1:assistant_only": "c14", "top1:full_sequence": "c17"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["assistant-only vs full-sequence scoring split keyed as metric variant [L88-89, L93, L98]", "median NLL change and AWQ-vs-RTN win count not mapped [L94-95]", "weight size appears only in prose, not in the table [L126]", "card states the checkpoint is not yet tested on vLLM [L25-27]"]},
+  {"role": "ladder", "name": "RTN baseline", "metrics": {"ppl:assistant_only": "c8", "ppl:full_sequence": "c21", "top1:assistant_only": "c15", "top1:full_sequence": "c18"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["data-free round-to-nearest W4A16 g128 baseline made by this author [L89, L103]", "median NLL change and AWQ-vs-RTN win count not mapped [L94-95]"]}
+ ],
+ "prose": [
+  {"entry": "AWQ (this repo)", "key": "ppl:ultrachat", "L": 100, "raw": "English chat (UltraChat) 3.274 → 3.394 / 3.398"},
+  {"entry": "AWQ (this repo)", "key": "ppl:chinese_coding", "L": 100, "raw": "Chinese coding 2.745 → **2.820** / 2.907"},
+  {"entry": "AWQ (this repo)", "key": "ppl:chinese_general", "L": 100, "raw": "Chinese general 3.379 → **3.462** / 3.610"},
+  {"entry": "AWQ (this repo)", "key": "ppl:english_code", "L": 100, "raw": "English code 1.972 → **1.964** / 2.004"},
+  {"entry": "AWQ (this repo)", "key": "ppl:tool_calling", "L": 100, "raw": "tool calling 2.744 → **2.454** / 2.475"}
+ ]}

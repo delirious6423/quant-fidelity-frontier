@@ -1,0 +1,29 @@
+{"repo": "r0b0tlab/Ornith-1.5-35B-A3B-NVFP4-W4A16",
+ "source_sha256": "2f0492c404914e726b7fa6c0504e3d6ad37302e4de91af40aaca96bd72051608",
+ "candidates_sha256": "d815e1c325f501a8b32368ed417c0b0eb1b3bd716ccff906005f759362f8e00f",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 baseline (same suite)", "dataset": "200-question suite: GSM8K (flex) n=80, HumanEval pass@1 n=40, IFEval strict subset n=40, agentic coding n=20", "ctx": "32K context window", "tool": "fixed scorer (final-numeric-answer extraction); greedy, thinking disabled", "L": [57, 58, 139]},
+ "entries": [
+   {"role": "own",
+    "name": "This model (base AR)",
+    "panel": "Evaluation — 200-question suite (greedy, thinking disabled)",
+    "methodology": {"reference": "BF16 baseline (same suite)", "dataset": "200-question suite: GSM8K (flex) n=80, HumanEval pass@1 n=40, IFEval strict subset n=40, agentic coding n=20", "ctx": "32K context window", "tool": "fixed scorer (final-numeric-answer extraction); greedy, thinking disabled", "L": [57, 58, 139]},
+    "metrics": {"bench:Agentic coding": "c7"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["BF16 baseline column is the unquantized model, not mapped [L62-65]", "n=20 to 80 per family, card gives +/-5-11 pp noise bands [L58]", "per-tensor NVFP4 reconstruction cosines not mapped, no metric key [L72-73]"]},
+   {"role": "own",
+    "name": "This model + MTP",
+    "panel": "Evaluation — 200-question suite (greedy, thinking disabled)",
+    "methodology": {"reference": "BF16 baseline (same suite)", "dataset": "200-question suite: GSM8K (flex) n=80, HumanEval pass@1 n=40, IFEval strict subset n=40, agentic coding n=20", "ctx": "32K context window", "tool": "fixed scorer (final-numeric-answer extraction); greedy, thinking disabled; BF16 MTP head, K=1 draft", "L": [57, 58, 67, 68, 139]},
+    "metrics": {"bench:GSM8K (flex)": "c2", "bench:HumanEval pass@1": "c4", "bench:Agentic coding": "c8"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["BF16 baseline column is the unquantized model, not mapped [L62-65]", "n=20 to 80 per family, card gives +/-5-11 pp noise bands [L58]", "IFEval value copied as prose [L64]"]}
+ ],
+ "prose": [
+   {"entry": "This model (base AR)", "panel": "Evaluation — 200-question suite (greedy, thinking disabled)", "key": "bench:GSM8K (flex)", "L": 62, "raw": "76.25% (61/80)"},
+   {"entry": "This model (base AR)", "panel": "Evaluation — 200-question suite (greedy, thinking disabled)", "key": "bench:HumanEval pass@1", "L": 63, "raw": "92.50% (37/40)"},
+   {"entry": "This model (base AR)", "panel": "Evaluation — 200-question suite (greedy, thinking disabled)", "key": "bench:IFEval (strict subset)", "L": 64, "raw": "90.00% (36/40)"},
+   {"entry": "This model + MTP", "panel": "Evaluation — 200-question suite (greedy, thinking disabled)", "key": "bench:IFEval (strict subset)", "L": 64, "raw": "90.00% (36/40)"}
+ ]}

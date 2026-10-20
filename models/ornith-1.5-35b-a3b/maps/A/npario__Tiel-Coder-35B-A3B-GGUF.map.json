@@ -1,0 +1,24 @@
+{"repo": "npario/Tiel-Coder-35B-A3B-GGUF",
+ "source_sha256": "bbe43f4f00aa36507b7eb454e783ad105bb2faddec4c2bbba5f99c4ce6f395bf",
+ "candidates_sha256": "bd8c3b7a6727eba525bf18f01658f2e675e73057fa32e1f1d108636510b171e3",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "SWE-bench-Live (25 problems); Claw-Eval multi-turn (114 scored conversations); MMLU-Pro", "ctx": "not stated", "tool": "not stated", "L": [53, 59, 65]},
+ "entries": [
+   {"role": "own",
+    "name": "Tiel-Coder-35B-A3B-UD-Q4_K_XL.gguf",
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["card names UD-Q4_K_XL as the benchmarked tier [L86] and the 4-bit, 22 GB build the scores describe [L32]; no size is printed on the benchmark lines, so size is null",
+              "SWE-bench-Live reported as a solve count (12 of 25 problems), not a percentage [L53]",
+              "Claw-Eval 67.2 over 114 scored conversations [L59]; MMLU-Pro 73.7 both at 4-bit [L65]",
+              "scores for Nail, Ornith-1.5, Qwen3.6/3.8, Dirk, Opus and Sonnet are measured on other models and omitted [L53, L59, L65-66]"]}
+ ],
+ "prose": [{"entry": "Tiel-Coder-35B-A3B-UD-Q4_K_XL.gguf", "key": "bench:SWE-bench-Live", "L": 53, "raw": "Tiel fixes 12"},
+           {"entry": "Tiel-Coder-35B-A3B-UD-Q4_K_XL.gguf", "key": "bench:Claw-Eval", "L": 59, "raw": "Tiel scores 67.2"},
+           {"entry": "Tiel-Coder-35B-A3B-UD-Q4_K_XL.gguf", "key": "bench:MMLU-Pro", "L": 65, "raw": "73.7 on MMLU-Pro"}]
+}

@@ -1,0 +1,67 @@
+{
+  "repo": "0xSero/Ornith-1.5-35B-A3B-EXL3-3bpw",
+  "source_sha256": "8bc169d55ec8e943e2b34bc0daae90e277350c831a7b499373df2ac8f06b96b4",
+  "candidates_sha256": "fe8d4e992b2a932eeaef7444ef1def0a2f44b4c33cb6188125ef50aa5e88f813",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "BF16 base (ornith-ai/Ornith-1.5-35B-A3B)",
+    "dataset": "wikitext, 100 rounds x 2048 tokens",
+    "ctx": "2048-token rounds",
+    "tool": "exllamav3 eval/model_diff",
+    "L": [43, 44, 54]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Ornith-1.5-35B-A3B-EXL3-3bpw",
+      "metrics": {"mean_kld": "c1", "top1_pct": "c2"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c11",
+      "flags": [
+        "[L44-52] card labels the metric KL(A->B) and does not state whether it is full-vocabulary or top-k",
+        "[L54-55] perplexity values are not mapped: the card does not pair each value with a rung"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "EXL3 2.75 bpw",
+      "metrics": {"mean_kld": "c3", "top1_pct": "c4"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c12",
+      "flags": [
+        "[L49] sibling 0xSero build; KL(A->B) reduction not stated"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "EXL3 3.5 bpw",
+      "metrics": {"mean_kld": "c7", "top1_pct": "c8"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c14",
+      "flags": [
+        "[L51] sibling 0xSero build; KL(A->B) reduction not stated"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "reference: plain -hq 3 bpw",
+      "metrics": {"mean_kld": "c9", "top1_pct": "c10"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c15",
+      "flags": [
+        "[L22-24, L52] reference arm is the plain -hq 3 bpw convert the card argues against for this architecture"
+      ]
+    }
+  ],
+  "prose": []
+}

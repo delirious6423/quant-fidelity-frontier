@@ -1,0 +1,49 @@
+{
+  "repo": "IsValorum/Tiel-Coder-35B-A3B-APEX-I-MiniPlus-V2.1-GGUF",
+  "source_sha256": "d4661bdcc96ce9e16dee62430a8e394b3e3ce89b7fd70127450a1fe6449c2470",
+  "candidates_sha256": "266587c7a22fe45f71c6b3b763441868f595089d9bebc438598e1adca740a681",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "BF16 unquantized base (card states approx. 7.46)",
+    "dataset": "WikiText-2",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [88, 90]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "APEX-I-MiniPlus V2.1 (IsValorum)",
+      "metrics": {"ppl:wikitext": "c26"},
+      "size": "c24",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c23",
+      "flags": [
+        "[L191] Delta-PPL +0.0517 (+0.69%) is one candidate (c25) holding both absolute and percent values; percent delta omitted as ambiguous",
+        "[L191] absolute delta-PPL has no metric key; not mapped",
+        "[L188-195] flat-quant rows give absolute delta-PPL only; not mapped",
+        "[L156-168] Occamy V2 benchmarks were run on Occamy-1.0 MiniPlus V2, not this model; omitted"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "APEX-I-NanoPlus",
+      "metrics": {},
+      "size": "c130.0",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "[L92] sibling APEX-I build in this card's comparison table; PPL values carried as prose",
+        "[L92] approx. 2.93 BPW is not a candidate id; bpw left null"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "APEX-I-NanoPlus", "key": "ppl:wikitext", "L": 92, "raw": "8.2842"},
+    {"entry": "APEX-I-NanoPlus", "key": "ppl_delta_pct", "L": 92, "raw": "+11.05%"}
+  ]
+}

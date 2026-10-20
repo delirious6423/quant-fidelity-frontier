@@ -1,0 +1,20 @@
+{"repo": "Shiftedx/ornith-1.5-35b-a3b-abliterated-attention8-bf16recurrence-vision-mtplx",
+ "source_sha256": "0f30ccfb5df0ca80ad84ca01827efa571ade11f6af403166ecbd766b0c1edcc3",
+ "candidates_sha256": "ac18ad55553ae6c46581bcb053d9546f6720f5ad8d69ef82a2693e738ba1e0da",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "held-out benign prompts and the local qualification gates", "ctx": "512-token MTPLX sweep", "tool": "MTPLX 2.9.1, MLX 0.32.1, MLX-LM 0.31.3", "L": [25, 26, 42, 44, 49, 50, 61]},
+ "entries": [
+   {"role": "own",
+    "name": "Ornith 1.5 35B-A3B Abliterated — MLX Vision + Native MTP",
+    "panel": "Local qualification",
+    "methodology": {"reference": "not stated", "dataset": "held-out benign prompts and local gates", "ctx": "not stated", "tool": "MTPLX 2.9.1, MLX 0.32.1, MLX-LM 0.31.3", "L": [42, 44, 46, 49, 50]},
+    "metrics": {"bench:held-out-benign-refusal-rate": "c1", "bench:held-out-utility-pass-rate": "c2"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["the count gates (executable Python 8/8, native function-call 6/6, parallel tool-plan 6/6, OpenAI API 3/3, vision 4/4) are pass counts with no matching key and are not mapped [L51-55]",
+              "the abliteration strength (1.5) and the 4-bit affine body with 8-bit attention are stated as description, not measured [L21-25]",
+              "the decode speed (112.1 tok/s) is speed, not quality, and is omitted [L61]"]}
+ ],
+ "prose": []
+}

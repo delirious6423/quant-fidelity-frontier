@@ -1,0 +1,22 @@
+{"repo": "SergiioB/Ornith-1.5-35B-A3B-AutoRound-W4A16-sym-G128-MTP-BF16",
+ "source_sha256": "5ade0d489d1d1d0f6b55084bd64bf11f9220f8daeba56dc0d973ae753433f2ce",
+ "candidates_sha256": "8a8110e808d9c6ce9a3dc4dd41e12ce8616947fbfdcc45b629e58d2a25d09e16",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 source", "dataset": "12 out-of-calibration prompts, 315 teacher-forced positions", "ctx": "not stated", "tool": "not stated", "L": [42, 43, 46]},
+ "entries": [
+   {"role": "own",
+    "name": "AutoRound (this repo)",
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["table rows mean |Δlogprob|, p95 |Δlogprob|, top-20-union KL and top-1 agreement have no matching metric key, so none are mapped [L48-51]",
+              "top-1 agreement is given as a fraction (0.9143), not a percent, and top-20-union KL is top-k, not full-vocabulary KL [L48-51]"]},
+   {"role": "ladder",
+    "name": "MixedCal-v2 GPTQ",
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["the GPTQ reference from the same publisher, compared in the same table; its rows have no matching metric key and are not mapped [L48-51]"]}
+ ],
+ "prose": []
+}

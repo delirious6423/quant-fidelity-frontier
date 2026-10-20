@@ -1,0 +1,83 @@
+{
+  "repo": "mavis-ai/Ornith1.5-35B-MoE-Q3T",
+  "source_sha256": "c86b78aadb2a8ec75a6d113870467c7f70af87a57bcea08303bbf67ed51a0661",
+  "candidates_sha256": "3def81d9f0db0f755302b171cc467ab298bb5d9405fa47336025f98da2e39347",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "BF16 (ornith-ai/Ornith-1.5-35B-A3B)",
+    "dataset": "48 documents, 17,877 scored positions: WikiText-2, technical documents, and Qwen3.6-generated responses",
+    "ctx": "KV cache emulated at 8 bits",
+    "tool": "GPU research harnesses decoding the stored weight codes (not the R.E.V.I.S. engine)",
+    "L": [85, 89]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Q3T (this repository)",
+      "metrics": {"mean_kld": "c19"},
+      "size": "c21",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "[L91-98] top-1 agreement is given as a fraction (0.891), not a percent; top1_pct not mapped",
+        "[L85] preliminary measurement; speed not reported [L128]",
+        "[L93] BF16-matmul floor is a control arm, not a shipped build; omitted"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Q4T",
+      "metrics": {"mean_kld": "c16"},
+      "size": "c18",
+      "unit": "GB",
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L94] top-1 agreement is a fraction; not mapped",
+        "[L94] basis of the weight size is not stated"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Q5, the same recipe at 5 bits",
+      "metrics": {"mean_kld": "c25"},
+      "size": "c27",
+      "unit": "GB",
+      "basis": "text_weights",
+      "bpw": null,
+      "flags": [
+        "[L97] weight size is an estimate; top-1 agreement is a fraction, not mapped"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "Q4, official",
+      "of": "ornith-ai/Ornith-1.5-35B-A3B-MLX-4bit",
+      "metrics": {"mean_kld": "c22"},
+      "size": "c24",
+      "unit": "GB",
+      "basis": "text_weights",
+      "bpw": null,
+      "flags": [
+        "[L96] top-1 agreement is a fraction; not mapped"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "Q6, official",
+      "of": "ornith-ai/Ornith-1.5-35B-A3B-MLX-6bit",
+      "metrics": {"mean_kld": "c28"},
+      "size": "c30",
+      "unit": "GB",
+      "basis": "text_weights",
+      "bpw": null,
+      "flags": [
+        "[L98] top-1 agreement is a fraction; not mapped"
+      ]
+    }
+  ],
+  "prose": []
+}

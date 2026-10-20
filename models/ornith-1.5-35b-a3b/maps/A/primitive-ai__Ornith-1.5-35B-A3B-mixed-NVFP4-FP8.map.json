@@ -1,0 +1,107 @@
+{
+  "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+  "source_sha256": "64bb675139894bc81bc1669e0ee830dcee3417670c994fbeb7b751a24452af4f",
+  "candidates_sha256": "1060654e7b6ba1fc787b82d03bde26a3df9e43b74063f821691b5372eb59625c",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "BF16 reference row (ornith-ai/Ornith-1.5-35B-A3B)",
+    "dataset": "1,370 items across fourteen public benchmarks: a 1,170-item knowledge suite and a 200-item tool-calling suite",
+    "ctx": "thinking forced on, 16,384-token budget",
+    "tool": "not stated",
+    "L": [82, 83, 84, 85]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "this repo",
+      "panel": "Measured",
+      "metrics": {"bench:pooled": "c22", "bench:knowledge": "c23", "bench:call": "c24", "bench:abstain": "c25"},
+      "size": "c21",
+      "unit": "GiB",
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L91] table reads 22.6 G; the card text gives 22.6 GiB [L37, L46]",
+        "[L93] knowledge half re-measured at 91.9 is a separate row; not mapped, the 91.7 row is used",
+        "[L138-139] card says differences under about 2 points are noise"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "this repo",
+      "panel": "Comparable with our other models",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "1,170-item knowledge suite (MMLU-Pro, ARC-Challenge, HellaSwag, WinoGrande, CommonsenseQA, BoolQ, OpenBookQA, GSM8K, MATH-500) and 200-item tool-calling suite (BFCL v4, xLAM/APIGen, ToolACE, Glaive v2, nvidia When2Call)",
+        "ctx": "thinking forced on, 16,384-token budget, no reasoning parser, last ANSWER: scored",
+        "tool": "not stated",
+        "L": [161, 162, 163, 164, 165, 166]
+      },
+      "metrics": {
+        "bench:MMLU-Pro": "c105",
+        "bench:MATH-500": "c110",
+        "bench:GSM8K": "c117",
+        "bench:ARC-Challenge": "c121",
+        "bench:HellaSwag": "c126",
+        "bench:CommonsenseQA": "c138",
+        "bench:OpenBookQA": "c148",
+        "bench:BFCL_v4": "c153",
+        "bench:xLAM": "c158",
+        "bench:Glaive_v2": "c171",
+        "bench:When2Call": "c176"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L193-210] per-benchmark values are read from the bold Ornith-1.5-35B-A3B column, which the card marks as this repo"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "BF16 reference",
+      "panel": "Measured",
+      "of": "ornith-ai/Ornith-1.5-35B-A3B",
+      "metrics": {"bench:pooled": "c2", "bench:knowledge": "c3", "bench:call": "c4", "bench:abstain": "c5"},
+      "size": "c1",
+      "unit": "GiB",
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L89] BF16 is the reference row; the repo link is the base model named at L37"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "ornith-ai FP8",
+      "panel": "Measured",
+      "of": "ornith-ai/Ornith-1.5-35B-A3B-FP8",
+      "metrics": {"bench:pooled": "c12", "bench:knowledge": "c13", "bench:call": "c14", "bench:abstain": "c15"},
+      "size": "c11",
+      "unit": "GiB",
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L90] comparison row for the official FP8 build measured by this card's author"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "ornith-ai NVFP4",
+      "panel": "Measured",
+      "of": "ornith-ai/Ornith-1.5-35B-A3B-NVFP4",
+      "metrics": {"bench:pooled": "c32", "bench:knowledge": "c33", "bench:call": "c34", "bench:abstain": "c35"},
+      "size": "c31",
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L92] size column reads 21.8 G with no unit; not mapped as a unit"
+      ]
+    }
+  ],
+  "prose": []
+}

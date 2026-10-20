@@ -1,0 +1,27 @@
+{"repo": "PocketAiHub/Ornith-1.5-35B-A3B-Abliterated-MLX-4bit",
+ "source_sha256": "fc3cc1cab7c09e6d3918400f071db6f85665722961f499fda64d52a490bda896",
+ "candidates_sha256": "5f191836e3e33bb33fca4bc5d36601a5f7f360b7354b9ff0d6f30e200622b61c",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "abliterated BF16 master (quant only) and regular BF16 (total path)", "dataset": "481 shared teacher positions from 36 prompts (12 capability, 12 harmful, 12 benign)", "ctx": "not stated", "tool": "exact KL over all 248,320 logits", "L": [83, 84, 99, 101]},
+ "entries": [
+   {"role": "own",
+    "name": "4-bit compact",
+    "panel": "Matched-teacher drift",
+    "methodology": {"reference": "abliterated BF16 master", "dataset": "481 shared teacher positions from 36 prompts (12 capability, 12 harmful, 12 benign)", "ctx": "not stated", "tool": "exact KL over all 248,320 logits", "L": [83, 84, 99]},
+    "metrics": {"mean_kld": "c19.0", "top1_pct": "c19.2"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["pure BF16 ablation split rows are a different model (unquantized), not mapped [L88-92, L94-96]", "residual cosine 0.958471 not mapped, no metric key [L99]", "behavioral screen counts not mapped, count pairs from a phrase-based screen [L71-77]"]},
+   {"role": "own",
+    "name": "4-bit compact, total path vs regular BF16",
+    "panel": "Matched-teacher drift",
+    "methodology": {"reference": "regular BF16 (unablated)", "dataset": "481 shared teacher positions from 36 prompts (12 capability, 12 harmful, 12 benign)", "ctx": "not stated", "tool": "exact KL over all 248,320 logits", "L": [83, 84, 101, 102, 103]},
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["values copied as prose [L102-103]", "reference is the unmodified model, so this includes the abliteration change [L101]"]}
+ ],
+ "prose": [
+   {"entry": "4-bit compact, total path vs regular BF16", "panel": "Matched-teacher drift", "key": "mean_kld", "L": 102, "raw": "0.664004"},
+   {"entry": "4-bit compact, total path vs regular BF16", "panel": "Matched-teacher drift", "key": "top1_pct", "L": 103, "raw": "75.26%"}
+ ]}

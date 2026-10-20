@@ -1,0 +1,21 @@
+{"repo": "ooptimum/Humo-Coder-35B-A3B-GPTQ-Int4",
+ "source_sha256": "e65321ff009524d21e0d42c67427bf3036198c2153484704a786d0c67055e7a7",
+ "candidates_sha256": "7d5b431cb76ff62742812822eda0c5e8277719e90da47d9086d73dd292dd5436",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated (comparison set: five 4-bit Qwen3.6-35B-A3B quants and Qwen3.5-35B-A3B-GPTQ-Int4 [L81])", "dataset": "agentic coding loop (318 LiveCodeBench Go tasks), BFCL, GSM8K, MMLU-Pro, MBPP+, MultiPL-E Go [L85-93]", "ctx": "not stated", "tool": "vLLM 0.29.0; temperature 0.6, top_p 0.95, top_k 20, min_p 0; one run per task; raw scores [L77, L83]", "L": [77, 81, 83]},
+ "entries": [
+   {"role": "own",
+    "name": "Humo-Coder-35B-A3B-GPTQ-Int4",
+    "metrics": {"bench:agentic_loop_go_solved": "c1", "bench:BFCL_memory": "c3", "bench:GSM8K": "c6", "bench:MBPP+": "c9", "bench:MultiPL-E_Go": "c11"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["Range column (other six, Qwen3.6 quants and Qwen3.5 GPTQ, a different model) omitted [L87-93]", "Humo row values marked (last) on card [L89, L91]", "Image and video input untested [L60]"]}
+ ],
+ "prose": [
+   {"entry": "Humo-Coder-35B-A3B-GPTQ-Int4", "key": "bench:BFCL_multi_turn_solved", "L": 89, "raw": "385"},
+   {"entry": "Humo-Coder-35B-A3B-GPTQ-Int4", "key": "bench:MMLU-Pro", "L": 91, "raw": "82.9%"}
+ ]}

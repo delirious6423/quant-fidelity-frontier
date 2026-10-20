@@ -1,0 +1,14 @@
+{"repo": "Ninnix96/Ornith-1.5-35B-A3B-gguf",
+ "source_sha256": "7a887bd8ab72f639b69906424f9c0bbc99d85175f5539f8436d1bf83390bbd15",
+ "candidates_sha256": "617eb95d1098cceeabe13ce2699b97d8405d6e9adbb363d67509828cad08e8fb",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "official ornith-ai Q8_0 for the KL row; none stated for the hard-smoke eval", "dataset": "ds4 short prompts (KL); 12-case hard-smoke eval (pass count)", "ctx": "60 (KL, 2 chunks); 15360 (hard-smoke)", "tool": "llama-perplexity --kl-divergence", "L": [30, 54, 56]},
+ "entries": [
+  {"role": "own", "name": "Ornith-1.5-35B-A3B-Q2-IQ2_XXS-Q2_K.gguf", "methodology": {"reference": "official ornith-ai Q8_0", "dataset": "ds4 short prompts, 2 chunks", "ctx": "60", "tool": "llama-perplexity --kl-divergence", "L": [56]}, "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["KL reference is the official Q8_0, not BF16, so it is not comparable to BF16-referenced rows [L56]", "the average KL is mapped; per-chunk KL 0.214 and 0.262 are not mapped [L56]", "same-token top-1 86.2 / 81.0% is per chunk with no average, so it is not mapped [L56]", "delta-p RMS ~10.8% has no metric key [L56]", "hard-smoke pass count 9/12 is a small self-run check [L54]", "file size 14215041696 bytes is in the Files table, not beside the metrics [L36]", "about 2.9 BPW is stated in prose, not as a table cell [L50]"]}
+ ],
+ "prose": [
+  {"entry": "Ornith-1.5-35B-A3B-Q2-IQ2_XXS-Q2_K.gguf", "key": "bench:HardSmoke", "L": 54, "raw": "9/12 PASS"},
+  {"entry": "Ornith-1.5-35B-A3B-Q2-IQ2_XXS-Q2_K.gguf", "key": "mean_kld", "L": 56, "raw": "avg 0.238"}
+ ]}

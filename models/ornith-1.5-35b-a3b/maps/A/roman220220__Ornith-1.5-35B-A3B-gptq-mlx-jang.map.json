@@ -1,0 +1,66 @@
+{
+  "repo": "roman220220/Ornith-1.5-35B-A3B-gptq-mlx-jang",
+  "source_sha256": "3795b815106c28b9a3c411c018210e52a71b2657bee75e9ebfdb7f5022a84895",
+  "candidates_sha256": "a5e3f22b816327e676266937e64acc2e59484114ef40e50ab08d93221aa6e175",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "bf16 (HF transformers) in the same table",
+    "dataset": "wikitext-2 test and the Python standard library",
+    "ctx": "fixed number of windows of fixed length [L62]",
+    "tool": "not stated",
+    "L": [62, 63, 65]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "this model (MLX)",
+      "metrics": {
+        "ppl:wikitext": "c5",
+        "ppl_delta_pct:wikitext": "c6",
+        "ppl:code": "c7",
+        "ppl_delta_pct:code": "c8"
+      },
+      "size": "c4",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "vision feature match and speculative acceptance rates are not quality perplexity figures, not mapped [L103, L113]",
+        "comparison with MLX re-quantization of the calibrated weights is not a perplexity figure, not mapped [L77]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "2-bit gate / up build",
+      "metrics": {
+        "ppl:wikitext": "c10",
+        "ppl_delta_pct:wikitext": "c11",
+        "ppl:code": "c12",
+        "ppl_delta_pct:code": "c13"
+      },
+      "size": "c9",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": []
+    },
+    {
+      "role": "ladder",
+      "name": "bf16 (HF transformers)",
+      "metrics": {
+        "ppl:wikitext": "c2",
+        "ppl:code": "c3"
+      },
+      "size": "c1",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "reference row of the same table, not a quantized build [L67]"
+      ]
+    }
+  ],
+  "prose": []
+}

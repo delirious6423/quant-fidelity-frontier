@@ -1,0 +1,12 @@
+{"repo": "ezoushen/ornith-1.5-35b-a3b-splash",
+ "source_sha256": "fec1402d8f36e9e9e11f7919ba85450077c19f6ae36aa263de42cc1d6c9306fe",
+ "candidates_sha256": "432e7b8486ce9ee7f8f6725c73a65b270c2f24586c274f4d441eb894709a496a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "GSM8K (32-item subset); JevBench public decisions (231)", "ctx": "not stated", "tool": "not stated", "L": [48, 57, 58]},
+ "entries": [
+  {"role": "own", "name": "This package", "methodology": {"reference": "not stated", "dataset": "GSM8K (32-item subset)", "ctx": "not stated", "tool": "not stated", "L": [57]}, "metrics": {"bench:GSM8K": "c1.0", "bench:JevBench": "c3"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["GSM8K value is the count 30 of 32, not a percentage [L57]", "JevBench public decisions (231) [L58]", "93.75% and 87.50% GSM8K percentages in prose not mapped: the key already holds the count [L77]", "identical greedy output 136 of 200 not mapped: no metric key [L56, L74]", "speed ratios and draft acceptance are not quality metrics and are not mapped [L53-54, L65-66, L108-109]", "20.9 GB size sits in the At-a-glance Size row, not beside these metrics [L52]"]},
+  {"role": "cross", "name": "MLX production lane", "methodology": {"reference": "not stated", "dataset": "GSM8K (32-item subset)", "ctx": "not stated", "tool": "not stated", "L": [57]}, "of": "not named on card", "metrics": {"bench:GSM8K": "c2.0"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["same weights run on MLX; the card names the build only as Ornith's MLX 4-bit repo [L52]", "GSM8K value is the count 28 of 32 [L57]", "MLX lane figure is a comparison column, not this package's own result [L57]"]}
+ ],
+ "prose": []}

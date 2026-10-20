@@ -1,0 +1,29 @@
+{"repo": "IsValorum/Ornith-1.5-35B-A3B-APEX-I-MiniPlus-V2.1-GGUF",
+ "source_sha256": "28a3d8ed39f07f1d2a4aaab52ed528bca2af2a6018f008cb017208f00f9adb24",
+ "candidates_sha256": "a81dd5e990dc94353be6a2e4613ddddc0e10d2f24ca7ee0d6912172ca27adfcd",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Unquantized BF16 base, approx. 7.58 [L112]", "dataset": "WikiText-2 [L113]", "ctx": "not stated", "tool": "not stated", "L": [112, 113, 201]},
+ "entries": [
+  {"role": "own",
+   "name": "Ornith-1.5-35B-A3B.APEX-I-MiniPlus-V2.1.gguf",
+   "metrics": {"ppl": "c26", "ppl_delta_pct": "c25"},
+   "size": "c24",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c23",
+   "flags": ["Absolute PPL delta (+0.0570) has no matching metric key and is not mapped [L201]", "Standard-quant rows (Q6_K to IQ2_S) give only absolute PPL deltas or ranges with no key and are omitted [L196-L205]", "Independent SWE-style benchmark was run on Occamy-1.0 APEX-I-MiniPlus V2, not this V2.1 model, and is omitted [L166-L178]"]},
+  {"role": "ladder",
+   "name": "APEX-I-NanoPlus",
+   "metrics": {},
+   "size": "c150.0",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": ["Sibling build from the same publisher, listed in the comparison table; its PPL values are in prose, not table candidates [L114]"]}
+ ],
+ "prose": [
+  {"entry": "APEX-I-NanoPlus", "key": "ppl", "L": 114, "raw": "8.0913"},
+  {"entry": "APEX-I-NanoPlus", "key": "ppl_delta_pct", "L": 114, "raw": "+6.75%"}
+ ]}

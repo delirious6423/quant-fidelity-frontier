@@ -1,0 +1,24 @@
+{"repo": "PocketAiHub/Ornith-1.5-35B-A3B-Abliterated-MLX-8bit",
+ "source_sha256": "cba1cfd5cc52a102c61f819b000ad351ce3d52ce96bb67ffc0f5642a1b0e6528",
+ "candidates_sha256": "ac14a66a664f776808e4605f3cc5c90b10326779639c9c0caac35525c46b61fc",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "abliterated BF16 master (quantization); regular BF16 (total path)", "dataset": "matched-teacher drift suite: 36 prompts, 481 shared teacher positions, exact KL over all 248,320 logits", "ctx": "not stated", "tool": "not stated", "L": [84, 85, 99, 101, 102, 103]},
+ "entries": [
+   {"role": "own",
+    "name": "MLX affine 8-bit",
+    "panel": "Matched-teacher drift",
+    "methodology": {"reference": "abliterated BF16 master", "dataset": "matched-teacher drift suite: 481 shared teacher positions, exact KL over all 248,320 logits", "ctx": "not stated", "tool": "not stated", "L": [84, 99]},
+    "metrics": {"mean_kld": "c19.0", "top1_pct": "c19.2"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["measured against the abliterated BF16 master, so it isolates the quantization cost [L99]", "the 'pure BF16 ablation split' table (L88-92) measures the abliteration itself, not this build, and is omitted [L88-92]"]}
+ ],
+ "prose": [
+   {"entry": "MLX affine 8-bit", "panel": "Matched-teacher drift", "key": "bench:mean_KL_vs_regular_BF16_total_path", "L": 102, "raw": "0.549199"},
+   {"entry": "MLX affine 8-bit", "panel": "Matched-teacher drift", "key": "bench:top1_vs_regular_BF16_total_path", "L": 103, "raw": "77.55%"}
+ ]
+}

@@ -1,0 +1,18 @@
+{"repo": "sigmanih/ornith-ai-Ornith-1.5-35B-A3B-GGUF-Q8_0",
+ "source_sha256": "9f76fb8bbb5bb4e9aa951dc929e9189aea5b5f6e7e03f4c14970edb190f039da",
+ "candidates_sha256": "ad472f2236c19297e4019e0d8b494464ce59559d75fa521b93605c7e99b7d349",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "per-dataset slices of ARC-Challenge, BIG-Bench Hard, GPQA, GSM8K, HellaSwag, HumanEval, MATH, MBPP, MMLU, MMLU-Pro, TruthfulQA (7 to 14 items each) [L77-90]", "ctx": "32,768 tokens context window [L39]", "tool": "Sigma Studio / SigmaEngine; code_execution, continuation_logprob, cot_generation, letter_logprob; temperature 0.0; seed 42 [L92]", "L": [39, 46, 92, 94]},
+ "entries": [
+   {"role": "own",
+    "name": "ornith-ai-Ornith-1.5-35B-A3B-GGUF-Q8_0",
+    "metrics": {"bench:overall_accuracy": "c34", "bench:No_thinking_accuracy": "c6", "bench:Deep_thinking_CoT_accuracy": "c8", "bench:ARC-Challenge": "c12", "bench:BIG-Bench_Hard": "c14", "bench:GPQA": "c16", "bench:GSM8K": "c18", "bench:HellaSwag": "c20", "bench:HumanEval": "c22", "bench:MATH": "c24", "bench:MBPP": "c26", "bench:MMLU": "c28", "bench:MMLU-Pro": "c30", "bench:TruthfulQA": "c32"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["Card says the run is a slice, not comparable to a full suite [L94]; per-dataset counts are 7 to 14 items", "Card labels these 'official' but they are the publisher's own run [L46]", "Disk footprint shows 0.0 GB [L40], invalid; size left null", "Italian section repeats the same numbers [L167-182]; not entered twice", "Speed figures [L99-103] are not quality; omitted"]}
+ ],
+ "prose": []}

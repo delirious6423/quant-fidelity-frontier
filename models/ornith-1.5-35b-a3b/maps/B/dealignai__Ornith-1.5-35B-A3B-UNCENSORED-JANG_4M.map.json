@@ -1,0 +1,26 @@
+{"repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+ "source_sha256": "64786ddc25f21cf1287b7967a12dd9c95b676f3f5ceb7c7080f044b1d9881205",
+ "candidates_sha256": "3c5de6863d574cf681ad3935a9f30ab1817d357719d4d136bcdb74fb4b30a5c3",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "base bundle (MMLU); uncracked MXFP8 (KL)", "dataset": "MMLU 57-subject; HarmBench (copyright-reproduction behaviors excluded)", "ctx": "not stated", "tool": "MMLU logit mode; HarmBench coherence-gated", "L": [62, 63, 64]},
+ "entries": [
+   {"role": "own",
+    "name": "JANG_4M",
+    "panel": "Results",
+    "methodology": {"reference": "base bundle (MMLU); uncracked MXFP8 (KL)", "dataset": "MMLU 57-subject; HarmBench (copyright-reproduction behaviors excluded)", "ctx": "not stated", "tool": "MMLU logit mode; HarmBench coherence-gated", "L": [62, 63, 64]},
+    "metrics": {"bench:HarmBench compliance": "c1"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["MMLU 57-subject value 78.4% copied as prose [L69]", "KL vs uncracked MXFP8 0.1504 nats not mapped: vocabulary support not stated and reference is MXFP8, not BF16 [L71]", "size ~20 GB not mapped as approximate [L72]", "base 81.1% and delta not mapped (unmodified model) [L69]"]},
+   {"role": "own",
+    "name": "JANG_4M",
+    "panel": "MMLU by category — base vs uncensored",
+    "methodology": {"reference": "base bundle", "dataset": "MMLU 57-subject, by category", "ctx": "not stated", "tool": "MMLU logit mode", "L": [62, 76]},
+    "metrics": {"bench:MMLU (57-subject)": "c16", "bench:MMLU STEM": "c4", "bench:MMLU Humanities": "c7", "bench:MMLU Social Sciences": "c10", "bench:MMLU Other": "c13"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["base column (81.1%, 75.3%, 83.1%, 88.8%, 80.8%) is the unmodified model, not mapped [L78-82]", "deltas not mapped [L78-82]"]}
+ ],
+ "prose": [
+   {"entry": "JANG_4M", "panel": "Results", "key": "bench:MMLU (57-subject)", "L": 69, "raw": "78.4%"}
+ ]}

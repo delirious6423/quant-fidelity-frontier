@@ -1,0 +1,11 @@
+{"repo": "ultimatechris/Ornith-1.5-35B-A3B-EXL3-4bpw",
+ "source_sha256": "41e3eb33eabf18d5e13071e460e81a39959a4eca90e42676446dbfae7b1aaa27",
+ "candidates_sha256": "7346688a91c8418894f8575416d5373fae8c2198b940b787edbaa63866a3c3ac",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "original BF16 base", "dataset": "five fixed text continuations, 60 target tokens", "ctx": "not stated", "tool": "not stated", "L": [29, 31, 32]},
+ "entries": [
+  {"role": "own", "name": "EXL3 4.0 bpw HQ", "metrics": {"top1_pct": "c7.1"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["top-1 agreement on a 60-token teacher-forced check of five continuations [L29-32]", "renormalized KL 0.01702 is on the shared finite vocabulary support, not full-vocabulary KL, so not mapped [L31]", "NLL delta -0.0381 nats/token has no metric key [L33]", "artifact size 18.47 GiB is in the Quantization list, not beside these metrics [L22]", "4.0 bpw target is stated in prose with no table cell [L21]"]}
+ ],
+ "prose": []}

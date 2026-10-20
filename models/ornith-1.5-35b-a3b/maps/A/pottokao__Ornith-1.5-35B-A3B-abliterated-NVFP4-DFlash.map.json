@@ -1,0 +1,12 @@
+{"repo": "pottokao/Ornith-1.5-35B-A3B-abliterated-NVFP4-DFlash",
+ "source_sha256": "1de0a8a505a821976a23c2e01bc4afa6e118c52c2548fab8d0ff251359979c2f",
+ "candidates_sha256": "c5b5d493f6bcd9c2af1fedf9bc52c66fc78bce3ed569553368be70d93d419354",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "none; the card says no external baseline exists for AIME 2026 [L176-178]", "dataset": "AIME 2026 (AIME I and AIME II, 30 questions)", "ctx": "max_tokens 96000, thinking enabled", "tool": "not stated", "L": [172, 176, 180, 181, 186, 187]},
+ "entries": [
+  {"role": "own", "name": "Ornith-1.5-35B-A3B-abliterated-NVFP4 (1st pass, temp 0.6)", "panel": "5. AIME 2026 — sanity check only", "methodology": {"reference": "none stated", "dataset": "AIME 2026 (AIME I 15 questions, AIME II 15 questions)", "ctx": "max_tokens 96000, thinking enabled, top_p 0.95, top_k 20", "tool": "not stated", "L": [180, 181, 186]}, "metrics": {"bench:AIME2026-I": "c56.0", "bench:AIME2026-II": "c57.0", "bench:AIME2026": "c58.0"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["values are correct-answer counts out of 15, 15 and 30 [L186]", "the card calls this a sanity check for loud failure modes, not a capability benchmark, and says it cannot rank against the unquantized model [L174-178]", "the 20 GB size is in the lead summary, not in this table [L28]", "tok/s, ITL and acceptance rows are speed measures, not mapped [L146-164]"]},
+  {"role": "own", "name": "Ornith-1.5-35B-A3B-abliterated-NVFP4 (after retries, temp 0.6 → 0.9)", "panel": "5. AIME 2026 — sanity check only", "methodology": {"reference": "none stated", "dataset": "AIME 2026 (AIME I 15 questions, AIME II 15 questions)", "ctx": "max_tokens 96000, thinking enabled, top_p 0.95, top_k 20; retries on wrong or truncated answers", "tool": "not stated", "L": [180, 182, 187]}, "metrics": {"bench:AIME2026-I": "c59.0", "bench:AIME2026-II": "c60.0", "bench:AIME2026": "c61.0"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["values are correct-answer counts out of 15, 15 and 30 after retries [L187]", "the card calls this a sanity check for loud failure modes, not a capability benchmark [L174-178]", "retries change temperature from 0.6 to 0.9 and were applied to wrong or truncated answers [L182, L213]"]}
+ ],
+ "prose": []}

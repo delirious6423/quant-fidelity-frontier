@@ -1,0 +1,31 @@
+{"repo": "protoLabsAI/Ornith-1.5-35B-A3B-NVFP4",
+ "source_sha256": "4e61ce0da08b23c66e0914a1078266b4ebc0227b006e47b3ddddb678ceed07e6",
+ "candidates_sha256": "0099fb322b28ec5416770df5425d81da5ec62a8e3337ea74165af22015d719dd",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "frontier battery: claw (10 tasks), reasoning_hard (9 problems), function_call (54 checks), livecodebench (30 hard problems)", "ctx": "not stated", "tool": "claw judged by independent cloud judge; livecodebench exec-graded, thinking off", "L": [90, 91, 98]},
+ "entries": [
+   {"role": "own",
+    "name": "this build",
+    "panel": "Scorecard",
+    "methodology": {"reference": "not stated", "dataset": "frontier battery: claw (10 tasks), reasoning_hard (9 problems), function_call (54 checks), livecodebench (30 hard problems)", "ctx": "not stated", "tool": "claw judged by independent cloud judge; livecodebench exec-graded, thinking off", "L": [90, 91, 98]},
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["scores are in prose: claw, reasoning_hard, function_call and livecodebench [L95-98]", "claw uses an independent cloud judge, not a local model [L91]"]},
+   {"role": "cross",
+    "name": "upstream ModelOpt build",
+    "panel": "Scorecard",
+    "of": "not named on card",
+    "methodology": {"reference": "not stated", "dataset": "livecodebench (30 hard problems)", "ctx": "not stated", "tool": "identical harness as this build; exec-graded", "L": [108, 109]},
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["upstream build run through the same harness on livecodebench only [L108-109]"]}
+ ],
+ "prose": [
+   {"entry": "this build", "panel": "Scorecard", "key": "bench:claw", "L": 95, "raw": "0.719"},
+   {"entry": "this build", "panel": "Scorecard", "key": "bench:reasoning_hard", "L": 96, "raw": "0.861"},
+   {"entry": "this build", "panel": "Scorecard", "key": "bench:function_call", "L": 97, "raw": "0.889"},
+   {"entry": "this build", "panel": "Scorecard", "key": "bench:livecodebench", "L": 98, "raw": "0.205"},
+   {"entry": "upstream ModelOpt build", "panel": "Scorecard", "key": "bench:livecodebench", "L": 109, "raw": "0.192"}
+ ]}

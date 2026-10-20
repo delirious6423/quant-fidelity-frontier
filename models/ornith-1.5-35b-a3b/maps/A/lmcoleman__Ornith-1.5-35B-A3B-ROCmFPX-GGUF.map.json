@@ -1,0 +1,15 @@
+{"repo": "lmcoleman/Ornith-1.5-35B-A3B-ROCmFPX-GGUF",
+ "source_sha256": "49cf76f22a8a6890ef0fd862344334031c1fda4fb66b38d9c0a633f8785a8c1d",
+ "candidates_sha256": "8fbb037d71d0d44efc542458cdcba275e48d534b12af5c6e836a8e3217392501",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated (short perplexity smoke-gate run on a corpus path different from the search)", "ctx": "not stated", "tool": "pipeline perplexity smoke gate", "L": [40, 42, 44]},
+ "entries": [
+  {"role": "own", "name": "Ornith-1.5-35B-A3B-ROCMFPX-MQ-Q4.gguf", "metrics": {}, "size": "c1", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["perplexity smoke value 6.55 is in prose [L40]", "smoke gate is not comparable to the MagicQuant PPL table and no matched comparison was run [L42-48]", "size from the Files table row [L36]", "mmproj vision projector file is not a quantized variant and is not mapped [L38]"]},
+  {"role": "own", "name": "Ornith-1.5-35B-A3B-ROCMFPX-MQ-Q6.gguf", "metrics": {}, "size": "c2", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["perplexity smoke value 6.50 is in prose [L40]", "smoke gate is not comparable to the MagicQuant PPL table and no matched comparison was run [L42-48]", "size from the Files table row [L37]", "the Q6_0_ROCMFPX_AGENT variant crashed in perplexity evaluation and is not published, so it is not mapped [L56-59]"]}
+ ],
+ "prose": [
+  {"entry": "Ornith-1.5-35B-A3B-ROCMFPX-MQ-Q4.gguf", "key": "ppl", "L": 40, "raw": "6.55"},
+  {"entry": "Ornith-1.5-35B-A3B-ROCMFPX-MQ-Q6.gguf", "key": "ppl", "L": 40, "raw": "6.50"}
+ ]}

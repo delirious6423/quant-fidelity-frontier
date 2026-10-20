@@ -1,0 +1,45 @@
+{
+  "repo": "carsenk/Ornith-1.5-35B-A3B-ROGUE-MLX-4bit",
+  "source_sha256": "ade34830c3c76477ec09e6d2363c7fe6becd3ab2641c89ef9364009e6da61bdc",
+  "candidates_sha256": "0acfd7150641b0aa25d8825c865812fdcc7a2fbfd7aee743bbbc324fe936d2e5",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "Base MLX 4-bit (unablated)",
+    "dataset": "ROGUE Pareto v2 deterministic smoke suite, 40 prompts",
+    "ctx": "not stated",
+    "tool": "MLX backend (mlx-lm 0.31.3, mlx 0.32.0), Apple M1 Ultra",
+    "L": [36, 61, 70, 72]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "This model",
+      "metrics": {"bench:refusal_marker_rate": "c2", "bench:retain_score": "c4"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L72] smoke test, not a leaderboard-grade safety or capability evaluation; refusal is classified by phrase markers",
+        "[L67] over-refusal rate is listed for the base only in the candidate table; this model's value not mapped",
+        "[L70] uncensor gain 0.50 and retain delta -0.0417 are derived figures; not mapped"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "Base MLX 4-bit",
+      "of": "not named on card",
+      "metrics": {"bench:refusal_marker_rate": "c1", "bench:retain_score": "c3"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L65-66] base row is the unablated parent measured by the same author; repo not named on card"
+      ]
+    }
+  ],
+  "prose": []
+}

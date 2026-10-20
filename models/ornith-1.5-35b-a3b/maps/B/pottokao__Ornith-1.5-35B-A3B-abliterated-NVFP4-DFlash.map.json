@@ -1,0 +1,17 @@
+{"repo": "pottokao/Ornith-1.5-35B-A3B-abliterated-NVFP4-DFlash",
+ "source_sha256": "1de0a8a505a821976a23c2e01bc4afa6e118c52c2548fab8d0ff251359979c2f",
+ "candidates_sha256": "c5b5d493f6bcd9c2af1fedf9bc52c66fc78bce3ed569553368be70d93d419354",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "none; card states no external baseline exists", "dataset": "AIME 2026, 30 questions", "ctx": "max_tokens 96000", "tool": "answer parsed from \\boxed{N}; top_p 0.95, top_k 20", "L": [180, 181, 182]},
+ "entries": [
+   {"role": "own",
+    "name": "abliterated-NVFP4",
+    "panel": "5. AIME 2026 — sanity check only",
+    "methodology": {"reference": "none; card states no external baseline exists", "dataset": "AIME 2026, 30 questions", "ctx": "max_tokens 96000", "tool": "answer parsed from \\boxed{N}; top_p 0.95, top_k 20", "L": [174, 180, 181, 182]},
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["AIME pass counts (27/30 first pass, 29/30 after retries) not mapped: card calls it a sanity check, not a capability benchmark, and the counts need a two-number form [L186-187]", "speed and memory figures not mapped [L117-118, L146-164]"]}
+ ],
+ "prose": []}

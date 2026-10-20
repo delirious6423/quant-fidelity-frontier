@@ -1,0 +1,67 @@
+{
+  "repo": "0xSero/Ornith-1.5-35B-A3B-EXL3-2.75bpw",
+  "source_sha256": "7453390a2da11dd432d011b0427e4e2d0e945e990bb5b7622ee220fba0b4cd5b",
+  "candidates_sha256": "d412477fdcb8545b4c2ffc5db59edd1b3259a3d7c51db998a4affaa142f0ce93",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "BF16 base (ornith-ai/Ornith-1.5-35B-A3B)",
+    "dataset": "wikitext, 100 rounds x 2048 tokens",
+    "ctx": "2048-token rounds",
+    "tool": "exllamav3 eval/model_diff",
+    "L": [43, 44, 54]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Ornith-1.5-35B-A3B-EXL3-2.75bpw",
+      "metrics": {"mean_kld": "c1", "top1_pct": "c2"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c11",
+      "flags": [
+        "[L44-52] card labels the metric KL(A->B) and does not state whether it is full-vocabulary or top-k",
+        "[L54-55] perplexity values per rung are not mapped: the card does not pair each value with a rung"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "EXL3 3 bpw",
+      "metrics": {"mean_kld": "c5", "top1_pct": "c6"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c13",
+      "flags": [
+        "[L50] KL(A->B) reduction not stated; same measurement as the own row"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "EXL3 3.5 bpw",
+      "metrics": {"mean_kld": "c7", "top1_pct": "c8"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c14",
+      "flags": [
+        "[L51] KL(A->B) reduction not stated; same measurement as the own row"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "reference: plain -hq 3 bpw",
+      "metrics": {"mean_kld": "c9", "top1_pct": "c10"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c15",
+      "flags": [
+        "[L22-24, L52] reference arm is the plain -hq 3 bpw convert the card argues against for this architecture"
+      ]
+    }
+  ],
+  "prose": []
+}

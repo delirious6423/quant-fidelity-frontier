@@ -1,0 +1,22 @@
+{"repo": "Ttimms/Ornith-1.5-35B-A3B-REAP-50-GGUF",
+ "source_sha256": "dab9d8f6a5cfb9fca3fab674db306aa09905d28a5d7f6ba6d11f4db7e252daab",
+ "candidates_sha256": "76e562cbff52d34aa7195e30cd58e17ab90e0577ac494e3578b17afdcf196219",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "HumanEval+, MBPP+ [L30]", "ctx": "not stated", "tool": "not stated", "L": [30]},
+ "entries": [
+  {"role": "ladder",
+   "name": "REAP-50-NVFP4A16",
+   "methodology": {"reference": "not stated", "dataset": "HumanEval+ and MBPP+, single greedy draws [L30]", "ctx": "not stated", "tool": "not stated", "L": [30]},
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["Quality numbers are for the NVFP4A16 build before GGUF quantization, not for any GGUF file in this repo [L30]", "Card gives no quality numbers for the GGUF files [L57-L64]", "SWE-bench Verified 44.0% appears only in the architecture diagram with no build or method stated, so it is not mapped [L48]"]}
+ ],
+ "prose": [
+  {"entry": "REAP-50-NVFP4A16", "key": "bench:HumanEval+", "L": 30, "raw": "84.2%"},
+  {"entry": "REAP-50-NVFP4A16", "key": "bench:MBPP+", "L": 30, "raw": "89.2%"}
+ ]}

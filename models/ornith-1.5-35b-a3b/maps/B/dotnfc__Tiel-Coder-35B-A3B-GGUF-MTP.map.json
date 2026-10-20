@@ -1,0 +1,22 @@
+{"repo": "dotnfc/Tiel-Coder-35B-A3B-GGUF-MTP",
+ "source_sha256": "9d29d5924c62a9aeff9f55fbba12e7f202dda9a3c3199311793a5363f9f4f1fe",
+ "candidates_sha256": "4458bd28c8ce5bbae60f20ed1dfcc7574a814daab9140de3e90f1008d9d06762",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "SWE-bench-Live (25 problems, one run each); MMLU-Pro (three seeds); Claw-Eval multi-turn (114 scored conversations)", "ctx": "not stated", "tool": "llama.cpp llama-server; sampling temperature 0.6 for agentic coding", "L": [56, 62, 119, 204]},
+ "entries": [
+   {"role": "own",
+    "name": "Tiel-Coder-35B-A3B-MTP-UD-Q4_K_XL.gguf",
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["Benchmarked tier per card [L93]; the other tiers carry no quality numbers", "Benchmark values are in prose [L56, L62, L68]; file size 23.3 GB is in the size table [L93], not the benchmark row, so left null", "Base Ornith-1.5, Nail, Dirk and Qwen comparison scores are other models; omitted [L62-78]", "Speed and draft-acceptance table [L139-147] is not a quality metric; omitted"]}
+ ],
+ "prose": [
+   {"entry": "Tiel-Coder-35B-A3B-MTP-UD-Q4_K_XL.gguf", "key": "bench:SWE-bench-Live_solved", "L": 56, "raw": "12"},
+   {"entry": "Tiel-Coder-35B-A3B-MTP-UD-Q4_K_XL.gguf", "key": "bench:Claw-Eval_multi-turn", "L": 62, "raw": "67.2"},
+   {"entry": "Tiel-Coder-35B-A3B-MTP-UD-Q4_K_XL.gguf", "key": "bench:MMLU-Pro", "L": 68, "raw": "73.7"}
+ ]}

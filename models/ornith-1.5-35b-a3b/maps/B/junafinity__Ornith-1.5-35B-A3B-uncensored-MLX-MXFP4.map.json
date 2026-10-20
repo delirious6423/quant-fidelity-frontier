@@ -1,0 +1,9 @@
+{"repo": "junafinity/Ornith-1.5-35B-A3B-uncensored-MLX-MXFP4",
+ "source_sha256": "830e08888406911133cb0bd630686dcb103a98ec70f12542f2997b071fc10931",
+ "candidates_sha256": "cc41611329e960e22a183609ee57c2636271c7123849e23f83d42c47077c45d3",
+ "no_quality_claims": true,
+ "no_claims_reason": "refusal rate and KL figures are measured on the bf16 parent, not on this quantized checkpoint [L79-L87]",
+ "weights_modified": true,
+ "method": {"reference": "bf16 parent, not this quant [L87]", "dataset": "held-out harmful set; KL from base [L79-L80]", "ctx": "not stated", "tool": "not stated", "L": [79, 80, 87]},
+ "entries": [],
+ "prose": []}

@@ -1,0 +1,18 @@
+{"repo": "majentik/Ornith-1.5-35B-A3B-MLX-2bit",
+ "source_sha256": "2ffddf0cdd79e4e899305fccfd62b300851f5d7839bb260e727b1b7c8310e3e7",
+ "candidates_sha256": "d0c26b9fff9c1592e0bf39092ff03cc82a2dda149a797881fda32c39914ac7b9",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated (benchmark labels only: arc_easy_acc, hellaswag_acc)", "ctx": "not stated", "tool": "not stated", "L": [41, 43, 44]},
+ "entries": [
+   {"role": "own",
+    "name": "Ornith-1.5-35B-A3B-MLX-2bit",
+    "metrics": {"bench:arc_easy_acc": "c1", "bench:hellaswag_acc": "c2"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["evaluation table gives no sample size, reference model, or task settings [L39-44]",
+              "the smoke gate is a coherence check on 48-token generations, not a quality measure, so it is not mapped [L25-30]",
+              "the other tiers in the family (3-bit, 5-bit, MXFP4) are listed without numbers [L51-58]"]}
+ ],
+ "prose": []
+}

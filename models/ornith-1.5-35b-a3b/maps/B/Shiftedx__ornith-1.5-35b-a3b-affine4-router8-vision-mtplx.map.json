@@ -1,0 +1,18 @@
+{"repo": "Shiftedx/ornith-1.5-35b-a3b-affine4-router8-vision-mtplx",
+ "source_sha256": "c7f0e96064d143e6c22e873febbd4c450385e3d65f0eb19559cd78d39f8e6c62",
+ "candidates_sha256": "630e8dcbe8c3854e1629cdda796d988418ed4bd6fabf4fc840b882ca44c71b92",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "Shiftedx Bench v0.3.0 [L79]", "ctx": "4,096 tokens effective [L80]", "tool": "MTPLX 2.7.1; MLX 0.32.0; mlx-lm 0.31.3 [L81]", "L": [79, 80, 81]},
+ "entries": [
+  {"role": "own",
+   "name": "ornith-1.5-35b-a3b-affine4-router8-vision-mtplx",
+   "metrics": {"bench:Quality": "c2", "bench:Long context": "c7", "bench:Tool calling": "c12", "bench:Agentic": "c17", "bench:Vision": "c20"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["Each lane is a separate score and the card gives no composite [L68]", "Lane sizes differ (Quality 10, Long context 15, Tool calling 6, Agentic 2, Vision 4 items), so Agentic at 2 items is very noisy [L72-L76]", "The Long context lane ran at an effective 4,096-token context, not the 131,072 maximum [L80]", "Card calls the quant experimental and says full BF16 parent parity was not run [L60-L61]", "Logical size 24.28 GB is in prose and not in the results row, so size is left null [L26]"]}
+ ],
+ "prose": []}

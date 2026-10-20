@@ -1,0 +1,39 @@
+{
+  "repo": "Shiftedx/ornith-1.5-35b-a3b-affine4-router8-vision-mtplx",
+  "source_sha256": "c7f0e96064d143e6c22e873febbd4c450385e3d65f0eb19559cd78d39f8e6c62",
+  "candidates_sha256": "630e8dcbe8c3854e1629cdda796d988418ed4bd6fabf4fc840b882ca44c71b92",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated (BF16 parent parity was not run [L61])",
+    "dataset": "Shiftedx Bench v0.3.0 (quality, long context, tool calling, agentic and vision lanes)",
+    "ctx": "effective tested context 4,096 tokens [L80]",
+    "tool": "MTPLX 2.7.1; MLX 0.32.0; mlx-lm 0.31.3 [L81]",
+    "L": [61, 68, 79, 80, 81]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "ornith-1.5-35b-a3b-affine4-router8-vision-mtplx",
+      "metrics": {
+        "bench:quality": "c2",
+        "bench:long_context": "c7",
+        "bench:tool_calling": "c12",
+        "bench:agentic": "c17",
+        "bench:vision": "c20"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L68] lanes are kept separate; the card says the benchmark gives no composite score",
+        "[L72-76] lanes have between 2 and 15 items; passed counts are in the same rows",
+        "[L61] card calls this a control quant; behavior may differ from the BF16 parent, which was not run",
+        "[L80] card lists 4,096 to 131,072 context lengths but states the effective tested context is 4,096 tokens"
+      ]
+    }
+  ],
+  "prose": []
+}

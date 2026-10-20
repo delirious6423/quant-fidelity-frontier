@@ -1,0 +1,74 @@
+{
+  "repo": "singulared/Ornith-1.5-35B-ROCmFPX-GGUF",
+  "source_sha256": "1041d710b6f2a75cbc77e7d2ad233e59614e63bc75c63b05104e5327dd4b25bc",
+  "candidates_sha256": "be5e9083190b0da4694356a13857ec0f80ac48af722fdd4b9cb7dd9d5e3cdf93",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "other builds of the same weights in the perplexity table",
+    "dataset": "wikitext-2, identical corpus across builds",
+    "ctx": "fixed short context stated in the perplexity header [L52]",
+    "tool": "not stated; Vulkan backend [L52]",
+    "L": [52, 61]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Ornith-1.5-35B-HYBRID-fp6.gguf",
+      "metrics": {
+        "ppl:wikitext": "c7"
+      },
+      "size": "c6",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": "c5",
+      "flags": [
+        "prose gives the perplexity change against the stock presets as a movement, mapped as a percent change [L63]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "Ornith-1.5-35B-ROCMFP4-FAST.gguf",
+      "metrics": {
+        "ppl:wikitext": "c10"
+      },
+      "size": "c9",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": "c8",
+      "flags": [
+        "card states the same perplexity with the MTP head kept at Q8_0 [L100]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "ROCMFP4_COHERENT",
+      "metrics": {
+        "ppl:wikitext": "c13"
+      },
+      "size": "c12",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": "c11",
+      "flags": [
+        "Ornith 1.0 perplexity figures are a different model, not mapped [L133]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "ROCMFP4_STRIX",
+      "metrics": {
+        "ppl:wikitext": "c16"
+      },
+      "size": "c15",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": "c14",
+      "flags": []
+    }
+  ],
+  "prose": [
+    {"entry": "Ornith-1.5-35B-HYBRID-fp6.gguf", "key": "ppl_delta_pct", "L": 63, "raw": "4.8%"}
+  ]
+}

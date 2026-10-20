@@ -1,0 +1,32 @@
+{
+  "repo": "Myric/Ornith-1.5-35B-A3B-APEX-GGUF",
+  "source_sha256": "6628610b04fe11e767bc68903901dd451bc9c53ba1c01b4fb87928dced3390cd",
+  "candidates_sha256": "e072c68a08f1409505de36ba5577f8a5c6e9937d7eb438739f879b6ef5ad1dd1",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated",
+    "dataset": "agentic coding suite, frontier tier (9 tasks), one run; vision check of 5 items",
+    "ctx": "not stated",
+    "tool": "stock llama.cpp on DGX Spark (GB10) [L96-97]",
+    "L": [96, 97]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Ornith-1.5-35B-A3B-APEX-i-quality.gguf",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c2",
+      "flags": [
+        "[L101-102] agentic results are counts (9 of 9 tasks, 154 of 154 tests) for i-quality; not mapped as percentages",
+        "[L115-116] vision check is counts (5 of 5 with image, 0 of 5 without); not mapped",
+        "[L77-92] draft-acceptance and speed figures are not quality metrics; not mapped"
+      ]
+    }
+  ],
+  "prose": []
+}

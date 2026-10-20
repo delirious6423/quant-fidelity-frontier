@@ -1,0 +1,28 @@
+{"repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_2L",
+ "source_sha256": "8cb8aa04d16fb7442fee9c3142d56504586199e94bcb069da02ba557bd4ab12b",
+ "candidates_sha256": "135ba46a8894476fa194c4296b1e31f0086e086a2f5d27ce594f2f43c9fde265",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "uncracked MXFP8 (KL, per card); base bundle at the same quantization (MMLU comparison)", "dataset": "MMLU 57-subject; HarmBench (coherence-gated, copyright-reproduction behaviors excluded); neutral held-out text for KL", "ctx": "not stated", "tool": "MMLU in logit mode; other tool not stated", "L": [62, 63, 64, 65]},
+ "entries": [
+   {"role": "own",
+    "name": "JANG_2L",
+    "metrics": {"bench:MMLU": "c16", "bench:MMLU_STEM": "c4", "bench:MMLU_Humanities": "c7", "bench:MMLU_Social_Sciences": "c10", "bench:MMLU_Other": "c13", "bench:HarmBench_compliance": "c1"},
+    "size": "c2",
+    "unit": "GB",
+    "basis": "disk",
+    "bpw": null,
+    "flags": ["Refusal removed at the weight level [L56]; weights_modified set true", "KL vs uncracked MXFP8 (not BF16) [L64-65]; stored as a bench value, not mean_kld", "HarmBench is a refusal-removal measure, coherence-gated [L62-63]", "2-bit stated in title [L40], not a table cell; bpw null", "Size shown as approximate (~16 GB) [L72]"]},
+   {"role": "ladder",
+    "name": "Base",
+    "metrics": {"bench:MMLU": "c15", "bench:MMLU_STEM": "c3", "bench:MMLU_Humanities": "c6", "bench:MMLU_Social_Sciences": "c9", "bench:MMLU_Other": "c12"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["Base bundle at the same quantization, not named on card [L76-82]"]}
+ ],
+ "prose": [
+   {"entry": "JANG_2L", "key": "bench:KL_vs_MXFP8_uncracked_nats", "L": 71, "raw": "0.2222"}
+ ]}

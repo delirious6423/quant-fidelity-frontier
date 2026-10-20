@@ -1,0 +1,21 @@
+{"repo": "IsValorum/Ornith-1.5-35B-A3B-APEX-I-NanoPlus-GGUF",
+ "source_sha256": "478979cb6a4f3c0f72a0a3aed253f6f1e2804dd9c3c7cd40fc2fde683378b8cd",
+ "candidates_sha256": "5ece4eec574a01c9fb9849f4de651a0311eda9d6472f8ede5d9cee8fb67381e6",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "unquantized BF16 base (build table); FP16 baseline (spectrum table)", "dataset": "WikiText-2 (build table); not stated (spectrum table)", "ctx": "not stated", "tool": "not stated", "L": [84, 86, 96, 137, 141]},
+ "entries": [
+  {"role": "own", "name": "APEX-I-NanoPlus (CURRENT)", "panel": "🏆 BUILD & VERIFIED REFERENCE COMPARISON", "methodology": {"reference": "unquantized BF16 base (approx. 7.58 WikiText-2 PPL, reference row)", "dataset": "WikiText-2", "ctx": "not stated", "tool": "not stated", "L": [84, 86, 88, 90]}, "metrics": {}, "size": "c137.0", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["WikiText-2 PPL 8.0913 and delta +6.75% are prose values from this row [L90]", "approx. 2.93 BPW in this row conflicts with the 2.82 BPW in the file table and spectrum row [L90, L147, L159]", "this row also says the build is the current release; the file table gives 12.55 GB [L81, L159]", "ARC-Challenge approx. 95.71% in the summary blurb has no candidate id and no panel heading, not mapped [L98]"]},
+  {"role": "ladder", "name": "APEX-I-MiniPlus V2.1", "panel": "🏆 BUILD & VERIFIED REFERENCE COMPARISON", "methodology": {"reference": "unquantized BF16 base (approx. 7.58 WikiText-2 PPL, reference row)", "dataset": "WikiText-2", "ctx": "not stated", "tool": "not stated", "L": [84, 86, 88, 89]}, "metrics": {}, "size": "c129.0", "unit": "GB", "basis": "disk", "bpw": "c133.1", "flags": ["WikiText-2 PPL 7.6370 and delta +0.75% are prose values from this row [L89]", "same publisher's sibling build, comparison row [L89]", "spectrum-panel row for this build lists 14.75 GB and 3.40 bpw, which differ from this row [L146]"]},
+  {"role": "own", "name": "APEX-I-NanoPlus (IsValorum)", "panel": "Quality Spectrum: APEX-I-NanoPlus vs. Standard Flat Quantizations", "methodology": {"reference": "FP16 baseline (perplexity delta column; base PPL not stated)", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [141, 147]}, "metrics": {}, "size": "c37", "unit": "GB", "basis": "disk", "bpw": "c36", "flags": ["PPL 6.4015 is prose from this row [L147]", "absolute PPL delta +0.2215 has no metric key, not mapped [L147]", "PPL 6.4015 does not match the 7.58 BF16 reference of the build table, so the two panels are not comparable [L88, L147]", "flat-quant rows (Q8_0, Q6_K, Q4_K_M, Q3_K_M, IQ2_S) use approx. values and no measured file, not mapped [L144-150]"]},
+  {"role": "ladder", "name": "APEX-I-MiniPlus V2.1", "panel": "Quality Spectrum: APEX-I-NanoPlus vs. Standard Flat Quantizations", "methodology": {"reference": "FP16 baseline (perplexity delta column; base PPL not stated)", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [141, 146]}, "metrics": {}, "size": "c33", "unit": "GB", "basis": "disk", "bpw": "c32", "flags": ["PPL 6.2432 is prose from this row [L146]", "absolute PPL delta +0.0632 has no metric key, not mapped [L146]", "footprint 14.75 GB and 3.40 bpw here differ from the build-table row of 15.23 GB and 3.43 BPW [L89, L146]"]}
+ ],
+ "prose": [
+  {"entry": "APEX-I-NanoPlus (CURRENT)", "panel": "🏆 BUILD & VERIFIED REFERENCE COMPARISON", "key": "ppl:wikitext", "L": 90, "raw": "8.0913"},
+  {"entry": "APEX-I-NanoPlus (CURRENT)", "panel": "🏆 BUILD & VERIFIED REFERENCE COMPARISON", "key": "ppl_delta_pct", "L": 90, "raw": "+6.75%"},
+  {"entry": "APEX-I-MiniPlus V2.1", "panel": "🏆 BUILD & VERIFIED REFERENCE COMPARISON", "key": "ppl:wikitext", "L": 89, "raw": "7.6370"},
+  {"entry": "APEX-I-MiniPlus V2.1", "panel": "🏆 BUILD & VERIFIED REFERENCE COMPARISON", "key": "ppl_delta_pct", "L": 89, "raw": "+0.75%"},
+  {"entry": "APEX-I-NanoPlus (IsValorum)", "panel": "Quality Spectrum: APEX-I-NanoPlus vs. Standard Flat Quantizations", "key": "ppl", "L": 147, "raw": "6.4015"},
+  {"entry": "APEX-I-MiniPlus V2.1", "panel": "Quality Spectrum: APEX-I-NanoPlus vs. Standard Flat Quantizations", "key": "ppl", "L": 146, "raw": "6.2432"}
+ ]}

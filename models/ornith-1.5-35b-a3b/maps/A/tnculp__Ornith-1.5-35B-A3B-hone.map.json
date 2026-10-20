@@ -1,0 +1,18 @@
+{"repo": "tnculp/Ornith-1.5-35B-A3B-hone",
+ "source_sha256": "5e64fb9b7e7cf60a9b9f3f2908e991c4c8121c8b8c458ed2b4048a4615b264b0",
+ "candidates_sha256": "b39ce2b52b50771e400a15f3734afca8f7f76e0a384c5a0ca3b53556c692798c",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "unquantized-profile artifact", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [29, 30]},
+ "entries": [
+   {"role": "own",
+    "name": "groupwise-int-compact",
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["the perplexity deltas are stated in prose against the unquantized-profile artifact, with no corpus or context named [L30]",
+              "the 24 GB and 4 GB figures on the card are hardware requirements, not measurements, and are not mapped [L29-30]"]}
+ ],
+ "prose": [{"entry": "groupwise-int-compact", "key": "ppl_delta_pct", "L": 30, "raw": "costs about 2.5 % perplexity"},
+           {"entry": "groupwise-int-compact", "key": "ppl_delta_pct:code", "L": 30, "raw": "+0.5 % on code"}]
+}

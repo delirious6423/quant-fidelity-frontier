@@ -1,0 +1,14 @@
+{"repo": "LookUpMark/Ornith-1.5-35B-A3B-oQ4e-mtp",
+ "source_sha256": "b9b60e2923d8424b8b321d0ac1f6183bc246b1aa2ac963747cda43b94710175e",
+ "candidates_sha256": "f95cc3aa78cf58cf995d29a419669107f04dde40f940d5dada69cf9c6c8c3a32",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "needle-in-a-haystack recall (~23k context); factual, math and Italian checks; agentic bug-fix and multi-file tasks", "ctx": "~23k context for the needle probe", "tool": "oMLX server; pi agent (headless)", "L": [27, 39, 40]},
+ "entries": [
+  {"role": "own", "name": "oQ4e (4-bit)", "panel": "Benchmarks on Apple Silicon (M1 Max 64 GB)", "methodology": {"reference": "not stated", "dataset": "needle-in-a-haystack recall (~23k context); agentic checks (pi agent)", "ctx": "~23k context for the needle probe", "tool": "oMLX server", "L": [27, 39, 40]}, "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["quality probes are small pass counts, read as stated, with no more detail than the n shown [L39-40]", "decode speed, acceptance rate and wall-clock times are speed measures, not mapped [L31-42]", "the probe results are stated for all three variants together [L39]", "the 4-bit build's own size is not stated in this measurement table [L18-24]"]}
+ ],
+ "prose": [
+  {"entry": "oQ4e (4-bit)", "panel": "Benchmarks on Apple Silicon (M1 Max 64 GB)", "key": "bench:NeedleRecall", "L": 39, "raw": "4/4"},
+  {"entry": "oQ4e (4-bit)", "panel": "Benchmarks on Apple Silicon (M1 Max 64 GB)", "key": "bench:AgenticChecks", "L": 40, "raw": "6/6"}
+ ]}

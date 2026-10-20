@@ -1,0 +1,14 @@
+{"repo": "vonvonhero/Ornith-1.5-35B-A3B-Uncensored-GGUF",
+ "source_sha256": "b9e99d1a4ff5f8a7e16e193f948c0064540973aa553ec13f87ed57d45f44acd3",
+ "candidates_sha256": "1727fa7515110fb5091a94a32e3266b00444074eb32904598f72942e1ecac51d",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated (no unquantized comparison on the card)", "dataset": "JailbreakBench (100 behaviors); HarmBench standard behaviors (159)", "ctx": "256-token output limit", "tool": "HarmBench-Llama-2-13b-cls classifier", "L": [29, 30, 31]},
+ "entries": [
+  {"role": "own", "name": "Ornith-1.5-35B-A3B-Uncensored-Q8_0.gguf", "panel": "Files and evaluation", "methodology": {"reference": "not stated", "dataset": "JailbreakBench (100); HarmBench standard behaviors (159)", "ctx": "256-token output limit", "tool": "HarmBench-Llama-2-13b-cls classifier", "L": [24, 29, 30, 31]}, "metrics": {"bench:JailbreakBench-ASR": "c2", "bench:HarmBench-ASR": "c3"}, "size": "c1", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["ASR is attack success, i.e. fewer refusals, not output quality [L29]", "bits per weight not stated [L24]"]},
+  {"role": "own", "name": "Ornith-1.5-35B-A3B-Uncensored-Q6_K.gguf", "panel": "Files and evaluation", "methodology": {"reference": "not stated", "dataset": "JailbreakBench (100); HarmBench standard behaviors (159)", "ctx": "256-token output limit", "tool": "HarmBench-Llama-2-13b-cls classifier", "L": [25, 29, 30, 31]}, "metrics": {"bench:JailbreakBench-ASR": "c5", "bench:HarmBench-ASR": "c6"}, "size": "c4", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["ASR is attack success, i.e. fewer refusals, not output quality [L29]", "bits per weight not stated [L25]"]},
+  {"role": "own", "name": "Ornith-1.5-35B-A3B-Uncensored-Q5_K_M.gguf", "panel": "Files and evaluation", "methodology": {"reference": "not stated", "dataset": "JailbreakBench (100); HarmBench standard behaviors (159)", "ctx": "256-token output limit", "tool": "HarmBench-Llama-2-13b-cls classifier", "L": [26, 29, 30, 31]}, "metrics": {"bench:JailbreakBench-ASR": "c8", "bench:HarmBench-ASR": "c9"}, "size": "c7", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["ASR is attack success, i.e. fewer refusals, not output quality [L29]", "bits per weight not stated [L26]"]},
+  {"role": "own", "name": "Ornith-1.5-35B-A3B-Uncensored-Q4_K_M.gguf", "panel": "Files and evaluation", "methodology": {"reference": "not stated", "dataset": "JailbreakBench (100); HarmBench standard behaviors (159)", "ctx": "256-token output limit", "tool": "HarmBench-Llama-2-13b-cls classifier", "L": [27, 29, 30, 31]}, "metrics": {"bench:JailbreakBench-ASR": "c11", "bench:HarmBench-ASR": "c12"}, "size": "c10", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["ASR is attack success, i.e. fewer refusals, not output quality [L29]", "bits per weight not stated [L27]"]}
+ ],
+ "prose": []}

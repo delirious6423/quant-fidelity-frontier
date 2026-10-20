@@ -1,0 +1,15 @@
+{"repo": "PocketAiHub/Ornith-1.5-35B-A3B-Abliterated-MLX-8bit",
+ "source_sha256": "cba1cfd5cc52a102c61f819b000ad351ce3d52ce96bb67ffc0f5642a1b0e6528",
+ "candidates_sha256": "ac14a66a664f776808e4605f3cc5c90b10326779639c9c0caac35525c46b61fc",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "abliterated BF16 master (this lineage) for the drift row; regular BF16 parent for the total-path row", "dataset": "36-prompt matched-teacher drift suite (12 capability, 12 harmful, 12 benign), 481 shared teacher positions", "ctx": "not stated", "tool": "not stated", "L": [84, 99, 101]},
+ "entries": [
+  {"role": "own", "name": "8-bit recommended (vs abliterated BF16 master)", "panel": "Matched-teacher drift", "methodology": {"reference": "abliterated BF16 master (this lineage)", "dataset": "matched-teacher drift suite, 481 shared teacher positions; exact KL over all 248,320 logits", "ctx": "not stated", "tool": "not stated", "L": [84, 99]}, "metrics": {"mean_kld": "c19.0", "top1_pct": "c19.2"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["this quantization against the abliterated master [L99]", "residual cosine 0.994969 is in prose; no metric key [L99]", "pure BF16 ablation split (abliterated vs regular BF16) not mapped: not this file [L88-96]", "refusal-phrase screen (Batch-1) not mapped: no metric key, and the table does not name the measured model [L71-74]", "payload size 35.16 GiB is in Format, not in this table row [L37]"]},
+  {"role": "own", "name": "8-bit recommended path (vs regular BF16)", "panel": "Matched-teacher drift", "methodology": {"reference": "regular BF16 parent (not the abliterated master)", "dataset": "matched-teacher drift suite, 481 shared teacher positions; exact KL over all 248,320 logits", "ctx": "not stated", "tool": "not stated", "L": [101, 102, 103]}, "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["total 8-bit path measured against regular BF16, not the abliterated master [L101]", "values are in prose, not table cells [L102-103]", "residual cosine 0.949564 is in prose; no metric key [L104]"]}
+ ],
+ "prose": [
+  {"entry": "8-bit recommended path (vs regular BF16)", "panel": "Matched-teacher drift", "key": "mean_kld", "L": 102, "raw": "`0.549199`"},
+  {"entry": "8-bit recommended path (vs regular BF16)", "panel": "Matched-teacher drift", "key": "top1_pct", "L": 103, "raw": "`77.55%`"}
+ ]}

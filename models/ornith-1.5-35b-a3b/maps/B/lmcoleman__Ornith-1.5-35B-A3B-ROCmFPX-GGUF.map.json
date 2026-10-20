@@ -1,0 +1,30 @@
+{"repo": "lmcoleman/Ornith-1.5-35B-A3B-ROCmFPX-GGUF",
+ "source_sha256": "49cf76f22a8a6890ef0fd862344334031c1fda4fb66b38d9c0a633f8785a8c1d",
+ "candidates_sha256": "8fbb037d71d0d44efc542458cdcba275e48d534b12af5c6e836a8e3217392501",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "pipeline perplexity smoke gate (tool not named)", "L": [40, 42, 43, 44]},
+ "entries": [
+   {"role": "own",
+    "name": "Ornith-1.5-35B-A3B-ROCMFPX-MQ-Q4.gguf",
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["perplexity smoke gate value; card says it is not comparable to the MagicQuant repo PPL table [L42-44]", "no matched-instrument comparison run, no quality claim vs MagicQuant [L45-47]"]},
+   {"role": "own",
+    "name": "Ornith-1.5-35B-A3B-ROCMFPX-MQ-Q6.gguf",
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["perplexity smoke gate value; card says it is not comparable to the MagicQuant repo PPL table [L42-44]", "no matched-instrument comparison run, no quality claim vs MagicQuant [L45-47]"]}
+ ],
+ "prose": [
+   {"entry": "Ornith-1.5-35B-A3B-ROCMFPX-MQ-Q4.gguf", "key": "ppl", "L": 40, "raw": "6.55"},
+   {"entry": "Ornith-1.5-35B-A3B-ROCMFPX-MQ-Q6.gguf", "key": "ppl", "L": 40, "raw": "6.50"}
+ ]
+}

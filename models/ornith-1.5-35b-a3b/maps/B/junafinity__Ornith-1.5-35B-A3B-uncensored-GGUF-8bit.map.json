@@ -1,0 +1,10 @@
+{"repo": "junafinity/Ornith-1.5-35B-A3B-uncensored-GGUF-8bit",
+ "source_sha256": "f2446eb33a67e6c7bd277be4e0b109171108652f0552fb4205ad13141c642d1f",
+ "candidates_sha256": "ff237da90aa5c5c02d3574ccc282fc6b2abf726b69f7d5f25aa4ceb7ac0e4f2a",
+ "no_quality_claims": true,
+ "no_claims_reason": "the only figures (refusals 9%, KL 0.3985) were measured on the bf16 parent, not on this quantized GGUF [L76-77, L86]",
+ "weights_modified": true,
+ "method": {"reference": "bf16 parent (abliterated; not this quantized checkpoint)", "dataset": "held-out harmful prompt set (refusal count); KL vs base", "ctx": "not stated", "tool": "Abliterix 1.12.2", "L": [72, 74, 86]},
+ "entries": [],
+ "prose": []
+}
