@@ -1,7 +1,7 @@
 {
  "about": "Models the hourly scan keeps current. status: live = on the site, deltas every hour; queued = ingested one per 5-hour window, in this order. Source: OpenRouter and OpenCode weekly top 10 (open weights with Hub quants), 18 Oct 2026.",
  "min_hours_between_ingests": 5,
- "last_ingest_at": "2026-10-19T02:53:22.552125+00:00",
+ "last_ingest_at": "2026-10-20T08:53:30.632199+00:00",
  "models": [
   {
    "model": "Qwen/Qwen3.8-Flash-Next",
@@ -36,7 +36,7 @@
   {
    "model": "LiquidAI/LFM2.5-24B-A2B",
    "slug": "lfm2.5-24b-a2b",
-   "status": "ingesting",
+   "status": "review",
    "released": "2026-10-13",
    "quants": 75,
    "quants_1k": 15,

@@ -1,0 +1,63 @@
+{
+  "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+  "source_sha256": "2f696e20eddf52bb366586c482a959ea51aa1a7cb5ec89c10f7ed5726e55ecd3",
+  "candidates_sha256": "5d8f348b28c2542de8aae60630a399d6bbacfff4621d402aa631951a56b6a398",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "bf16 model (LiquidAI/LFM2.5-24B-A2B, revision 1769516ac588)",
+    "dataset": "232,094 teacher-forced positions on held-out sequences the bf16 model generated itself (never seen in calibration)",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [56, 58, 62]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "JANGH2",
+      "metrics": {
+        "mean_kld": "c8",
+        "top1_pct": "c9",
+        "top1:multi-step tool agent": "c12",
+        "top1:tool use (single turn)": "c14",
+        "top1:code: cpp": "c16",
+        "top1:code: go": "c18",
+        "top1:code: javascript": "c20",
+        "top1:code: python": "c22",
+        "top1:code: rust": "c24",
+        "top1:code: shell": "c26",
+        "top1:code: swift": "c28",
+        "top1:code: typescript": "c30",
+        "top1:creative writing": "c32",
+        "top1:cybersecurity": "c34",
+        "top1:finance": "c36",
+        "top1:general / multilingual / structured output": "c38",
+        "top1:coding agent (native tools)": "c40",
+        "top1:coding agent, next turn": "c42",
+        "top1:long documents": "c44",
+        "top1:math": "c46",
+        "top1:networking": "c48",
+        "top1:office tasks": "c50",
+        "top1:PyTorch code": "c52",
+        "top1:science": "c54",
+        "top1:SWE-agent": "c56",
+        "top1:terminal agent (shell)": "c58",
+        "top1:turn after a tool result": "c60"
+      },
+      "size": "c6",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "KL is top-128 (top-k) KL against the bf16 model, not full-vocabulary KL [L56]",
+        "mixed precision: routed experts gate/up 2-bit, routed experts down 3-bit, other quantized parts 8-bit; no single bits-per-weight figure is stated [L47-50]",
+        "KL median (5.5e-03) has no metric key and is not mapped [L63]",
+        "dNLL (+0.0989) has no metric key and is not mapped [L63]",
+        "per-family KL medians have no metric key and are not mapped [L69-93]",
+        "floor row (bf16 with embeddings perturbed by 1 ULP) is a control, not a build, and is not mapped as an entry [L58, L62]"
+      ]
+    }
+  ],
+  "prose": []
+}

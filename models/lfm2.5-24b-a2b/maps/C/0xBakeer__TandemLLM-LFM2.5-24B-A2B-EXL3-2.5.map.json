@@ -1,0 +1,122 @@
+{
+  "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5",
+  "source_sha256": "4c1851724cc076cc59ac38dda396e3820cd7f73ee102c5ef3fd8c7a3d1f05a5f",
+  "candidates_sha256": "b55ae6217ed07fbe6dfc8a89e5adec840a1d7ef244541e848c97daadd79362f2",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "BF16 model (Liquid AI LFM2.5-24B-A2B BF16 release)",
+    "dataset": "wikitext-2 and chat (oasst1 validation split, in the model's chat template), 20 rows of 2,048 tokens each",
+    "ctx": "2,048 tokens per row",
+    "tool": "exllamav3 model_diff",
+    "L": [13, 19]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "2.5",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "table GB column (8.20) and the stated 2.5 bits per weight have no candidate id and are not mapped [L11, L13, L23]",
+        "KL basis (full vocabulary or top-k) not stated [L19]",
+        "all layers at 2.5 bits; output head at 6 bits; embedding in BF16 [L13]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "3.0",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "table GB column (9.68) has no candidate id and is not mapped [L24]",
+        "KL basis (full vocabulary or top-k) not stated [L19]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "3.5",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "table GB column (11.16) has no candidate id and is not mapped [L25]",
+        "KL basis (full vocabulary or top-k) not stated [L19]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "4.0",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "table GB column (12.64) has no candidate id and is not mapped [L26]",
+        "KL basis (full vocabulary or top-k) not stated [L19]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "4.5",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "table GB column (14.12) has no candidate id and is not mapped [L27]",
+        "KL basis (full vocabulary or top-k) not stated [L19]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "6.0",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "table GB column (18.63) has no candidate id and is not mapped [L28]",
+        "KL basis (full vocabulary or top-k) not stated [L19]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "2.5", "key": "kld:wikitext", "L": 23, "raw": "0.463"},
+    {"entry": "2.5", "key": "top1:wikitext", "L": 23, "raw": "70.4"},
+    {"entry": "2.5", "key": "kld:chat", "L": 23, "raw": "0.313"},
+    {"entry": "2.5", "key": "top1:chat", "L": 23, "raw": "78.9"},
+    {"entry": "3.0", "key": "kld:wikitext", "L": 24, "raw": "0.335"},
+    {"entry": "3.0", "key": "top1:wikitext", "L": 24, "raw": "75.2"},
+    {"entry": "3.0", "key": "kld:chat", "L": 24, "raw": "0.195"},
+    {"entry": "3.0", "key": "top1:chat", "L": 24, "raw": "83.6"},
+    {"entry": "3.5", "key": "kld:wikitext", "L": 25, "raw": "0.226"},
+    {"entry": "3.5", "key": "top1:wikitext", "L": 25, "raw": "79.0"},
+    {"entry": "3.5", "key": "kld:chat", "L": 25, "raw": "0.136"},
+    {"entry": "3.5", "key": "top1:chat", "L": 25, "raw": "86.7"},
+    {"entry": "4.0", "key": "kld:wikitext", "L": 26, "raw": "0.201"},
+    {"entry": "4.0", "key": "top1:wikitext", "L": 26, "raw": "80.7"},
+    {"entry": "4.0", "key": "kld:chat", "L": 26, "raw": "0.098"},
+    {"entry": "4.0", "key": "top1:chat", "L": 26, "raw": "88.5"},
+    {"entry": "4.5", "key": "kld:wikitext", "L": 27, "raw": "0.113"},
+    {"entry": "4.5", "key": "top1:wikitext", "L": 27, "raw": "85.4"},
+    {"entry": "4.5", "key": "kld:chat", "L": 27, "raw": "0.063"},
+    {"entry": "4.5", "key": "top1:chat", "L": 27, "raw": "91.2"},
+    {"entry": "6.0", "key": "kld:wikitext", "L": 28, "raw": "0.080"},
+    {"entry": "6.0", "key": "top1:wikitext", "L": 28, "raw": "88.2"},
+    {"entry": "6.0", "key": "kld:chat", "L": 28, "raw": "0.039"},
+    {"entry": "6.0", "key": "top1:chat", "L": 28, "raw": "93.4"}
+  ]
+}

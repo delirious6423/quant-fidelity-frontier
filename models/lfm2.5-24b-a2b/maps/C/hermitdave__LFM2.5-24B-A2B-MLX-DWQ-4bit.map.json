@@ -1,0 +1,125 @@
+{
+  "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit",
+  "source_sha256": "ab0f42c056e5a3c6d958177c93c5cb61dfb05c02a2a39f2eba95ed17869583eb",
+  "candidates_sha256": "6172ac78d511e5354e9239fb6c4f02912fc23fc7fc29a61b5da728d304afd5aa",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "8-bit teacher, LiquidAI/LFM2.5-24B-A2B-MLX-8bit",
+    "dataset": "TULU-3 sft mixture (allenai/tulu-3-sft-mixture), 32 held-out sequences",
+    "ctx": "1025 tokens per sequence",
+    "tool": "scripts/benchmark.py (perplexity + KL/top-1)",
+    "L": [49, 178, 262, 288]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "4-bit DWQ (this model)",
+      "metrics": {"ppl": "c6", "mean_kld": "c7", "top1_pct": "c8"},
+      "size": "c9",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c35",
+      "flags": [
+        "card: perplexity 6.97 is marginally below the 8-bit teacher's 7.05; card states this is not better than the teacher [L61]",
+        "requires mlx-lm >= 0.32.0 for correct LFM2 routing [L215-218]",
+        "KL computation basis (full vocabulary or top-k) not stated; DWQ teacher targets are stored as top-1024 logits [L173]",
+        "softmax vs sigmoid routing table is measured on the 8-bit teacher and omitted [L226-232]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "4-bit RTN (baseline)",
+      "metrics": {"ppl": "c3", "mean_kld": "c4", "top1_pct": "c5"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "size cell is a dash for this row [L55]",
+        "RTN baseline from the bf16 base via mlx_lm convert [L171]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit-v2",
+      "metrics": {"mean_kld": "c67.0"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "DWQ run on Liquid AI's 4-bit allocation; KL is compared with this model's figure in prose [L102-107]",
+        "top-1 81.9% is stated in prose only, not in a table cell [L107]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "3-bit",
+      "metrics": {"ppl": "c53", "mean_kld": "c54", "top1_pct": "c55"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Sibling quants table; size and effective bits per weight not given for this row [L158]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "2-bit",
+      "metrics": {"ppl": "c56", "mean_kld": "c57", "top1_pct": "c58"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "card marks this build as not published [L159]",
+        "Sibling quants table does not restate the quantization method for this row [L159]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "2-bit RTN",
+      "metrics": {"top1_pct": "c81.2"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "perplexity is stated as an approximate value (approx. 4782) in the same sentence and is not mapped [L278]",
+        "limitations section; RTN collapse at 2-bit [L277-278]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "LFM2.5-24B-A2B-MLX-4bit",
+      "of": "LiquidAI/LFM2.5-24B-A2B-MLX-4bit",
+      "metrics": {"ppl": "c40", "mean_kld": "c42", "top1_pct": "c44"},
+      "size": "c38",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c36",
+      "flags": [
+        "measured by this card's author on the same held-out windows [L116-117]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "8-bit teacher (reference)",
+      "of": "LiquidAI/LFM2.5-24B-A2B-MLX-8bit",
+      "metrics": {"ppl": "c1"},
+      "size": "c2",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "reference model; KL and top-1 cells are dashes for the teacher [L54]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit-v2", "key": "top1_pct", "L": 107, "raw": "81.9%"}
+  ]
+}

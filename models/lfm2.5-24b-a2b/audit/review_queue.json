@@ -1,0 +1,1780 @@
+{
+ "quarantined": [
+  {
+   "repo": "marchfederico/LFM2.5-24B-A2B-4bit-GPTQ-GGUF",
+   "kind": "cross",
+   "entry": "unsloth UD-Q4_K_XL",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "kind": "cross",
+   "entry": "LFM2.5-24B-A2B, BF16 release",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "marchfederico/LFM2.5-24B-A2B-4bit-GPTQ-GGUF",
+   "kind": "cross",
+   "entry": "LiquidAI Q4_K_M",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "marchfederico/LFM2.5-24B-A2B-4bit-GPTQ-GGUF",
+   "kind": "variants",
+   "entry": "LFM2.5-24B-A2B-GPTQ-Q4_K.gguf",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit",
+   "kind": "variants",
+   "entry": "4-bit DWQ (this model)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "kind": "cross",
+   "entry": "cloudnathan5 NVFP4-W4A4, W4A4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "kind": "variants",
+   "entry": "this repo, NVFP4A16",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "kind": "cross",
+   "entry": "myroslavtryhubets NVFP4A16, W4A16",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "kind": "cross",
+   "entry": "CoolJohn-AI NVFP4-AutoRound, W4A4 (dagger row)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "kind": "cross",
+   "entry": "infinity-ai-institute NVFP4, W4A4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "kind": "cross",
+   "entry": "LFM2.5-24B-A2B-FP8, FP8 release",
+   "reason": "failed a gate"
+  }
+ ],
+ "disagreements": [
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5",
+   "entry": "BF16",
+   "key": "ppl:wikitext",
+   "raw": "perplexity is 21.00 on the wikitext rows"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5",
+   "entry": "BF16",
+   "key": "ppl:chat",
+   "raw": "7.43"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0",
+   "entry": "3.0",
+   "key": "top1:wikitext-2",
+   "raw": "75.2 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0",
+   "entry": "3.0",
+   "key": "top1:chat",
+   "raw": "83.6 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0",
+   "entry": "2.5",
+   "key": "top1:wikitext-2",
+   "raw": "70.4 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0",
+   "entry": "2.5",
+   "key": "top1:chat",
+   "raw": "78.9 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0",
+   "entry": "3.5",
+   "key": "top1:wikitext-2",
+   "raw": "79.0 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0",
+   "entry": "3.5",
+   "key": "top1:chat",
+   "raw": "86.7 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0",
+   "entry": "4.0",
+   "key": "top1:wikitext-2",
+   "raw": "80.7 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0",
+   "entry": "4.0",
+   "key": "top1:chat",
+   "raw": "88.5 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0",
+   "entry": "4.5",
+   "key": "top1:wikitext-2",
+   "raw": "85.4 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0",
+   "entry": "4.5",
+   "key": "top1:chat",
+   "raw": "91.2 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0",
+   "entry": "6.0",
+   "key": "top1:wikitext-2",
+   "raw": "88.2 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0",
+   "entry": "6.0",
+   "key": "top1:chat",
+   "raw": "93.4 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5",
+   "entry": "BF16",
+   "key": "ppl:wikitext",
+   "raw": "perplexity is 21.00 on the wikitext rows"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5",
+   "entry": "BF16",
+   "key": "ppl:chat",
+   "raw": "7.43"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0",
+   "entry": "4.0",
+   "key": "top1:wikitext-2",
+   "raw": "80.7 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0",
+   "entry": "4.0",
+   "key": "top1:chat",
+   "raw": "88.5 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0",
+   "entry": "2.5",
+   "key": "top1:wikitext-2",
+   "raw": "70.4 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0",
+   "entry": "2.5",
+   "key": "top1:chat",
+   "raw": "78.9 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0",
+   "entry": "3.0",
+   "key": "top1:wikitext-2",
+   "raw": "75.2 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0",
+   "entry": "3.0",
+   "key": "top1:chat",
+   "raw": "83.6 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0",
+   "entry": "3.5",
+   "key": "top1:wikitext-2",
+   "raw": "79.0 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0",
+   "entry": "3.5",
+   "key": "top1:chat",
+   "raw": "86.7 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0",
+   "entry": "4.5",
+   "key": "top1:wikitext-2",
+   "raw": "85.4 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0",
+   "entry": "4.5",
+   "key": "top1:chat",
+   "raw": "91.2 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0",
+   "entry": "6.0",
+   "key": "top1:wikitext-2",
+   "raw": "88.2 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0",
+   "entry": "6.0",
+   "key": "top1:chat",
+   "raw": "93.4 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "4.5",
+   "key": "bench:chat tok/s",
+   "raw": "128"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "4.5",
+   "key": "bench:edit tok/s",
+   "raw": "281"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "4.5",
+   "key": "bench:copy tok/s",
+   "raw": "339"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "2.5",
+   "key": "bench:chat tok/s",
+   "raw": "185"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "2.5",
+   "key": "bench:edit tok/s",
+   "raw": "351"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "2.5",
+   "key": "bench:copy tok/s",
+   "raw": "271"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "3.0",
+   "key": "bench:chat tok/s",
+   "raw": "171"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "3.0",
+   "key": "bench:edit tok/s",
+   "raw": "328"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "3.0",
+   "key": "bench:copy tok/s",
+   "raw": "414"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "3.5",
+   "key": "bench:chat tok/s",
+   "raw": "151"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "3.5",
+   "key": "bench:edit tok/s",
+   "raw": "269"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "3.5",
+   "key": "bench:copy tok/s",
+   "raw": "287"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "4.0",
+   "key": "bench:chat tok/s",
+   "raw": "144"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "4.0",
+   "key": "bench:edit tok/s",
+   "raw": "291"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "4.0",
+   "key": "bench:copy tok/s",
+   "raw": "326"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "6.0",
+   "key": "bench:chat tok/s",
+   "raw": "105"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "6.0",
+   "key": "bench:edit tok/s",
+   "raw": "210"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "6.0",
+   "key": "bench:copy tok/s",
+   "raw": "280"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "BF16",
+   "key": "ppl:wikitext",
+   "raw": "perplexity is 21.00 on the wikitext rows"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "BF16",
+   "key": "ppl:chat",
+   "raw": "7.43"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "BF16",
+   "key": "bench:chat tok/s",
+   "raw": "45"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "BF16",
+   "key": "bench:edit tok/s",
+   "raw": "154"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+   "entry": "BF16",
+   "key": "bench:copy tok/s",
+   "raw": "158"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0",
+   "entry": "6.0",
+   "key": "top1:wikitext",
+   "raw": "88.2 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0",
+   "entry": "6.0",
+   "key": "top1:chat",
+   "raw": "93.4 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0",
+   "entry": "2.5",
+   "key": "top1:wikitext",
+   "raw": "70.4 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0",
+   "entry": "2.5",
+   "key": "top1:chat",
+   "raw": "78.9 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0",
+   "entry": "3.0",
+   "key": "top1:wikitext",
+   "raw": "75.2 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0",
+   "entry": "3.0",
+   "key": "top1:chat",
+   "raw": "83.6 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0",
+   "entry": "3.5",
+   "key": "top1:wikitext",
+   "raw": "79.0 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0",
+   "entry": "3.5",
+   "key": "top1:chat",
+   "raw": "86.7 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0",
+   "entry": "4.0",
+   "key": "top1:wikitext",
+   "raw": "80.7 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0",
+   "entry": "4.0",
+   "key": "top1:chat",
+   "raw": "88.5 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0",
+   "entry": "4.5",
+   "key": "top1:wikitext",
+   "raw": "85.4 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0",
+   "entry": "4.5",
+   "key": "top1:chat",
+   "raw": "91.2 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0",
+   "entry": "BF16",
+   "key": "ppl:wikitext",
+   "raw": "perplexity is 21.00 on the wikitext rows"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0",
+   "entry": "BF16",
+   "key": "ppl:chat",
+   "raw": "7.43"
+  },
+  {
+   "repo": "0xzknw/LFM2.5-24B-A2B-EXL3-4bpw",
+   "entry": "EXL3 4 bpw, v2",
+   "key": "ppl:WikiText test,8\u00d71024,no BOS,all positions",
+   "raw": "26.861628"
+  },
+  {
+   "repo": "0xzknw/LFM2.5-24B-A2B-EXL3-4bpw",
+   "entry": "EXL3 4 bpw, v2",
+   "key": "kld:WikiText test,8\u00d71024,no BOS,all positions",
+   "raw": "0.187928"
+  },
+  {
+   "repo": "0xzknw/LFM2.5-24B-A2B-EXL3-4bpw",
+   "entry": "EXL3 4 bpw, v2",
+   "key": "ppl:WikiText test,BOS/8\u00d71024,positions512\u20131022",
+   "raw": "16.932095"
+  },
+  {
+   "repo": "0xzknw/LFM2.5-24B-A2B-EXL3-4bpw",
+   "entry": "EXL3 4 bpw, v2",
+   "key": "kld:WikiText test,BOS/8\u00d71024,positions512\u20131022",
+   "raw": "0.083458"
+  },
+  {
+   "repo": "0xzknw/LFM2.5-24B-A2B-EXL3-4bpw",
+   "entry": "BF16 teacher",
+   "key": "ppl:WikiText test,8\u00d71024,no BOS,all positions",
+   "raw": "PPL is28.15363; the paired BOS teacher P"
+  },
+  {
+   "repo": "CanadaApollo6/LFM2.5-24B-A2B-M3TiS-3090",
+   "entry": "These files on this server",
+   "key": "bench:Terminal-Bench 2 (mean solved, of 19)",
+   "raw": "5.0 (26%)"
+  },
+  {
+   "repo": "CanadaApollo6/LFM2.5-24B-A2B-M3TiS-3090",
+   "entry": "Same, 4-bit embedding table (these files), reference maths",
+   "key": "mean_kld",
+   "raw": "0.152"
+  },
+  {
+   "repo": "CanadaApollo6/LFM2.5-24B-A2B-M3TiS-3090",
+   "entry": "These files on this server",
+   "key": "mean_kld",
+   "raw": "**0.14**"
+  },
+  {
+   "repo": "CanadaApollo6/LFM2.5-24B-A2B-M3TiS-3090",
+   "entry": "Liquid's Q8_0, llama.cpp",
+   "key": "bench:Terminal-Bench 2 (mean solved, of 19)",
+   "raw": "5.7 (30%)"
+  },
+  {
+   "repo": "CanadaApollo6/LFM2.5-24B-A2B-M3TiS-3090",
+   "entry": "Liquid's MLX 4-bit as published (6-bit embedding table), reference maths",
+   "key": "mean_kld",
+   "raw": "0.135"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "this repo",
+   "key": "bench:MMLU (5-shot)",
+   "raw": "61.84"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "this repo",
+   "key": "bench:HellaSwag (10-shot)",
+   "raw": "70.02"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "this repo",
+   "key": "bench:ARC-Challenge (25-shot)",
+   "raw": "60.84"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "this repo",
+   "key": "bench:Winogrande (5-shot)",
+   "raw": "62.51"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "this repo",
+   "key": "bench:TruthfulQA-MC2 (0-shot)",
+   "raw": "53.74"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "this repo",
+   "key": "ppl:WikiText-2",
+   "raw": "this repo 18.428"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "this repo",
+   "key": "kld:WikiText-2",
+   "raw": "0.0849 (0.0793\u20130.0911)"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "this repo",
+   "key": "top1:WikiText-2",
+   "raw": "86.68%"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "this repo",
+   "key": "kld:C4",
+   "raw": "0.1339 (0.1255\u20130.1424)"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "this repo",
+   "key": "top1:C4",
+   "raw": "83.12%"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "MSE \u00b7 W4A16 experts \u00b7 FP8 KV (this repo)",
+   "key": "kld:WikiText-2",
+   "raw": "0.085"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "MSE \u00b7 W4A16 experts \u00b7 FP8 KV (this repo)",
+   "key": "kld:C4",
+   "raw": "0.134"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "MSE \u00b7 W4A16 experts \u00b7 BF16 KV (ablation)",
+   "key": "kld:WikiText-2",
+   "raw": "0.073"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "MSE \u00b7 W4A16 experts \u00b7 BF16 KV (ablation)",
+   "key": "kld:C4",
+   "raw": "0.117"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "MSE \u00b7 W4A4 experts \u00b7 FP8 KV",
+   "key": "kld:WikiText-2",
+   "raw": "0.126"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "MSE \u00b7 W4A4 experts \u00b7 FP8 KV",
+   "key": "kld:C4",
+   "raw": "0.188"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "max \u00b7 W4A4 experts \u00b7 FP8 KV",
+   "key": "kld:WikiText-2",
+   "raw": "0.136"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "max \u00b7 W4A4 experts \u00b7 FP8 KV",
+   "key": "kld:C4",
+   "raw": "0.206"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "Local-Hessian \u00b7 W4A4 experts+MLP \u00b7 FP8 attn/conv",
+   "key": "kld:WikiText-2",
+   "raw": "0.149"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "Local-Hessian \u00b7 W4A4 experts+MLP \u00b7 FP8 attn/conv",
+   "key": "kld:C4",
+   "raw": "0.216"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "RTN \u00b7 W4A16 \u00b7 all linears (llm-compressor)",
+   "key": "kld:WikiText-2",
+   "raw": "0.159"
+  },
+  {
+   "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+   "entry": "RTN \u00b7 W4A16 \u00b7 all linears (llm-compressor)",
+   "key": "kld:C4",
+   "raw": "0.253"
+  },
+  {
+   "repo": "Lottolabs/LFM2.5-24B-A2B-TT-Mixed-BFP4-BFP8-P150",
+   "entry": "BF16 noise floor (chunked vs whole)",
+   "key": "ppl_delta_pct",
+   "raw": "\u22120.02%"
+  },
+  {
+   "repo": "Lottolabs/LFM2.5-24B-A2B-TT-Mixed-BFP4-BFP8-P150",
+   "entry": "BF16 noise floor (chunked vs whole)",
+   "key": "top1_pct",
+   "raw": "0.975"
+  },
+  {
+   "repo": "Lottolabs/LFM2.5-24B-A2B-TT-Mixed-BFP4-BFP8-P150",
+   "entry": "BF16 noise floor (chunked vs whole)",
+   "key": "mean_kld",
+   "raw": "0.0045"
+  },
+  {
+   "repo": "Omega-Factory/LFM2.5-24B-A2B-GGUF",
+   "entry": "BF16 GGUF Baseline",
+   "key": "bench:ARC-MC",
+   "raw": "88.0% (176/200)"
+  },
+  {
+   "repo": "Omega-Factory/LFM2.5-24B-A2B-GGUF",
+   "entry": "BF16 GGUF Baseline",
+   "key": "bench:GSM8K",
+   "raw": "78.5% (157/200)"
+  },
+  {
+   "repo": "Omega-Factory/LFM2.5-24B-A2B-GGUF",
+   "entry": "BF16 GGUF Baseline",
+   "key": "bench:MATH-500",
+   "raw": "58.5% (117/200)"
+  },
+  {
+   "repo": "Omega-Factory/LFM2.5-24B-A2B-GGUF",
+   "entry": "BF16 GGUF Baseline",
+   "key": "bench:Babble Rate",
+   "raw": "0.0033"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "bf16 model, embeddings perturbed by 1 ULP (the floor)",
+   "key": "mean_kld",
+   "raw": "0.0036"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "bf16 model, embeddings perturbed by 1 ULP (the floor)",
+   "key": "top1_pct",
+   "raw": "98.24%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "bf16 model, embeddings perturbed by 1 ULP (the floor)",
+   "key": "mean_kld",
+   "raw": "0.0036"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "bf16 model, embeddings perturbed by 1 ULP (the floor)",
+   "key": "top1_pct",
+   "raw": "98.24%"
+  },
+  {
+   "repo": "PollardWeights/LFM2.5-24B-A2B-Pollard",
+   "entry": "LFM2.5-24B-A2B-Pollard-IQ1_KT.gguf",
+   "key": "bench:Tool-ready",
+   "raw": "no (78% of f16; CI 67-88)"
+  },
+  {
+   "repo": "PollardWeights/LFM2.5-24B-A2B-Pollard",
+   "entry": "LFM2.5-24B-A2B-Pollard-IQ2_XXS.gguf",
+   "key": "bench:Tool-ready",
+   "raw": "yes (92% of f16; CI 83-98)"
+  },
+  {
+   "repo": "PollardWeights/LFM2.5-24B-A2B-Pollard",
+   "entry": "LFM2.5-24B-A2B-Pollard-IQ3_S.gguf",
+   "key": "bench:Tool-ready",
+   "raw": "yes (97% of f16; CI 92-100)"
+  },
+  {
+   "repo": "PollardWeights/LFM2.5-24B-A2B-Pollard",
+   "entry": "LFM2.5-24B-A2B-Pollard-IQ4_XS.gguf",
+   "key": "bench:Tool-ready",
+   "raw": "yes (100% of f16; CI 100-100)"
+  },
+  {
+   "repo": "PollardWeights/LFM2.5-24B-A2B-Pollard",
+   "entry": "LFM2.5-24B-A2B-Pollard-Q6_K.gguf",
+   "key": "bench:Tool-ready",
+   "raw": "yes (100% of f16; CI 100-100)"
+  },
+  {
+   "repo": "PollardWeights/LFM2.5-24B-A2B-Pollard",
+   "entry": "LFM2.5-24B-A2B-Pollard-IQ1_KT.gguf",
+   "key": "bench:Tool calls (share of f16)",
+   "raw": "78.3%"
+  },
+  {
+   "repo": "PollardWeights/LFM2.5-24B-A2B-Pollard",
+   "entry": "LFM2.5-24B-A2B-Pollard-IQ2_XXS.gguf",
+   "key": "bench:Tool calls (share of f16)",
+   "raw": "91.7%"
+  },
+  {
+   "repo": "PollardWeights/LFM2.5-24B-A2B-Pollard",
+   "entry": "LFM2.5-24B-A2B-Pollard-IQ3_S.gguf",
+   "key": "bench:Tool calls (share of f16)",
+   "raw": "96.7%"
+  },
+  {
+   "repo": "PollardWeights/LFM2.5-24B-A2B-Pollard",
+   "entry": "LFM2.5-24B-A2B-Pollard-IQ4_XS.gguf",
+   "key": "bench:Tool calls (share of f16)",
+   "raw": "100.0%"
+  },
+  {
+   "repo": "PollardWeights/LFM2.5-24B-A2B-Pollard",
+   "entry": "LFM2.5-24B-A2B-Pollard-Q6_K.gguf",
+   "key": "bench:Tool calls (share of f16)",
+   "raw": "100.0%"
+  },
+  {
+   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit-v2",
+   "entry": "v2 \u2014 this model",
+   "key": "ppl",
+   "raw": "6.9428"
+  },
+  {
+   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit-v2",
+   "entry": "v2 \u2014 this model",
+   "key": "mean_kld",
+   "raw": "0.06931"
+  },
+  {
+   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit-v2",
+   "entry": "v2 \u2014 this model",
+   "key": "top1_pct",
+   "raw": "81.89%"
+  },
+  {
+   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit-v2",
+   "entry": "v1 \u2014 uniform-4-bit DWQ",
+   "key": "ppl",
+   "raw": "6.9739"
+  },
+  {
+   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit-v2",
+   "entry": "v1 \u2014 uniform-4-bit DWQ",
+   "key": "mean_kld",
+   "raw": "0.07465"
+  },
+  {
+   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit-v2",
+   "entry": "v1 \u2014 uniform-4-bit DWQ",
+   "key": "top1_pct",
+   "raw": "81.40%"
+  },
+  {
+   "repo": "infinity-ai-institute/LFM2.5-24B-A2B-NVFP4",
+   "entry": "NVFP4 (this)",
+   "key": "bench:tau2-style agent tasks, 60 tasks x 2 trials, pass",
+   "raw": "0.517"
+  },
+  {
+   "repo": "infinity-ai-institute/LFM2.5-24B-A2B-NVFP4",
+   "entry": "NVFP4 (this)",
+   "key": "bench:Time per output token",
+   "raw": "3.31 ms"
+  },
+  {
+   "repo": "infinity-ai-institute/LFM2.5-24B-A2B-NVFP4",
+   "entry": "NVFP4 (this)",
+   "key": "bench:Time to first token",
+   "raw": "69 ms"
+  },
+  {
+   "repo": "infinity-ai-institute/LFM2.5-24B-A2B-NVFP4",
+   "entry": "NVFP4 (this)",
+   "key": "bench:Output throughput, 16 concurrent, 1024 in / 512 out",
+   "raw": "4655 tok/s"
+  },
+  {
+   "repo": "infinity-ai-institute/LFM2.5-24B-A2B-NVFP4",
+   "entry": "BF16",
+   "key": "bench:tau2-style agent tasks, 60 tasks x 2 trials, pass",
+   "raw": "0.525"
+  },
+  {
+   "repo": "infinity-ai-institute/LFM2.5-24B-A2B-NVFP4",
+   "entry": "BF16",
+   "key": "bench:tau2-style, database end state correct",
+   "raw": "0.725"
+  },
+  {
+   "repo": "infinity-ai-institute/LFM2.5-24B-A2B-NVFP4",
+   "entry": "BF16",
+   "key": "bench:GSM8K (strict match)",
+   "raw": "0.774"
+  },
+  {
+   "repo": "infinity-ai-institute/LFM2.5-24B-A2B-NVFP4",
+   "entry": "BF16",
+   "key": "bench:Time per output token",
+   "raw": "5.27 ms"
+  },
+  {
+   "repo": "infinity-ai-institute/LFM2.5-24B-A2B-NVFP4",
+   "entry": "BF16",
+   "key": "bench:Time to first token",
+   "raw": "74 ms"
+  },
+  {
+   "repo": "infinity-ai-institute/LFM2.5-24B-A2B-NVFP4",
+   "entry": "BF16",
+   "key": "bench:Output throughput, 16 concurrent, 1024 in / 512 out",
+   "raw": "2959 tok/s"
+  },
+  {
+   "repo": "m9ter1a/LFM2.5-24B-A2B-GGUF",
+   "entry": "BF16, for reference",
+   "key": "mean_kld",
+   "raw": "0"
+  },
+  {
+   "repo": "m9ter1a/LFM2.5-24B-A2B-GGUF",
+   "entry": "BF16, for reference",
+   "key": "top1_pct",
+   "raw": "100%"
+  },
+  {
+   "repo": "m9ter1a/LFM2.5-24B-A2B-GGUF",
+   "entry": "BF16, for reference",
+   "key": "bench:BFCL",
+   "raw": "72.7%"
+  },
+  {
+   "repo": "m9ter1a/LFM2.5-24B-A2B-GGUF",
+   "entry": "BF16",
+   "key": "mean_kld",
+   "raw": "0"
+  },
+  {
+   "repo": "m9ter1a/LFM2.5-24B-A2B-GGUF",
+   "entry": "BF16",
+   "key": "top1_pct",
+   "raw": "100%"
+  },
+  {
+   "repo": "m9ter1a/LFM2.5-24B-A2B-GGUF",
+   "entry": "BF16",
+   "key": "bench:BFCL",
+   "raw": "72.7%"
+  },
+  {
+   "repo": "myroslavtryhubets/LFM2.5-24B-A2B-NVFP4A16",
+   "entry": "NVFP4A16",
+   "key": "bench:MATH-500 first 50 + GSM8K first 100",
+   "raw": "96.0% (92.7-98.7)"
+  },
+  {
+   "repo": "myroslavtryhubets/LFM2.5-24B-A2B-NVFP4A16",
+   "entry": "bf16 KV",
+   "key": "bench:HumanEval pass@1, 164 tasks x 2 samples",
+   "raw": "96.3%"
+  },
+  {
+   "repo": "myroslavtryhubets/LFM2.5-24B-A2B-NVFP4A16",
+   "entry": "fp8 KV",
+   "key": "bench:HumanEval pass@1, 164 tasks x 2 samples",
+   "raw": "97.3% (diff +0.9 pt, CI -0.9 to +2.7, p=0.51)"
+  },
+  {
+   "repo": "myroslavtryhubets/LFM2.5-24B-A2B-NVFP4A16",
+   "entry": "Q8_0 GGUF (llama.cpp)",
+   "key": "bench:MATH-500 first 50 + GSM8K first 100",
+   "raw": "94.7% (90.7-98.0)"
+  },
+  {
+   "repo": "notfakerv/LFM2.5-24B-A2B-MLX-Q4_K_S",
+   "entry": "MLX (Q4_K_S weights, repacked)",
+   "key": "top1:decode positions",
+   "raw": "100 %"
+  },
+  {
+   "repo": "notfakerv/LFM2.5-24B-A2B-MLX-Q4_K_S",
+   "entry": "fp32 activations",
+   "key": "ppl:English technical text (8,191 tokens)",
+   "raw": "5.990"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "entry": "this repo, NVFP4A16",
+   "key": "bench:tok/s @1",
+   "raw": "218.2"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "entry": "this repo, NVFP4A16",
+   "key": "bench:tok/s @32",
+   "raw": "1395"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "entry": "LFM2.5-24B-A2B NVFP4A16 (this repo)",
+   "key": "bench:out/answer",
+   "raw": "1603"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "entry": "LFM2.5-24B-A2B, BF16 release",
+   "key": "bench:tok/s @1",
+   "raw": "179.3"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "entry": "LFM2.5-24B-A2B, BF16 release",
+   "key": "bench:tok/s @32",
+   "raw": "861"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "entry": "LFM2.5-24B-A2B-FP8, FP8 release",
+   "key": "bench:tok/s @1",
+   "raw": "204.1"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "entry": "LFM2.5-24B-A2B-FP8, FP8 release",
+   "key": "bench:tok/s @32",
+   "raw": "1131"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "entry": "infinity-ai-institute NVFP4, W4A4",
+   "key": "bench:tok/s @1",
+   "raw": "219.7"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "entry": "infinity-ai-institute NVFP4, W4A4",
+   "key": "bench:tok/s @32",
+   "raw": "1639"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "entry": "cloudnathan5 NVFP4-W4A4, W4A4",
+   "key": "bench:tok/s @1",
+   "raw": "249.2"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "entry": "cloudnathan5 NVFP4-W4A4, W4A4",
+   "key": "bench:tok/s @32",
+   "raw": "1848"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "entry": "myroslavtryhubets NVFP4A16, W4A16",
+   "key": "bench:tok/s @1",
+   "raw": "238.7"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "entry": "myroslavtryhubets NVFP4A16, W4A16",
+   "key": "bench:tok/s @32",
+   "raw": "1395"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "entry": "CoolJohn-AI NVFP4-AutoRound, W4A4 (dagger row)",
+   "key": "bench:tok/s @1",
+   "raw": "241.9"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "entry": "CoolJohn-AI NVFP4-AutoRound, W4A4 (dagger row)",
+   "key": "bench:tok/s @32",
+   "raw": "1923"
+  },
+  {
+   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit",
+   "entry": "4-bit",
+   "key": "ppl",
+   "raw": "6.97"
+  },
+  {
+   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit",
+   "entry": "4-bit",
+   "key": "mean_kld",
+   "raw": "0.0746"
+  },
+  {
+   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit",
+   "entry": "4-bit",
+   "key": "top1_pct",
+   "raw": "81.4%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "mean_kld",
+   "raw": "0.0039"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:multi-step tool agent",
+   "raw": "97.4%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:tool use (single turn)",
+   "raw": "98.0%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:code: cpp",
+   "raw": "98.1%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:code: go",
+   "raw": "98.5%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:code: javascript",
+   "raw": "98.3%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:code: python",
+   "raw": "98.5%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:code: rust",
+   "raw": "98.3%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:code: shell",
+   "raw": "97.8%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:code: swift",
+   "raw": "97.7%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:code: typescript",
+   "raw": "98.2%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:creative writing",
+   "raw": "97.6%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:cybersecurity",
+   "raw": "97.3%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:finance",
+   "raw": "98.4%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:general / multilingual / structured output",
+   "raw": "97.8%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:coding agent (native tools)",
+   "raw": "98.4%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:coding agent, next turn",
+   "raw": "98.6%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:long documents",
+   "raw": "97.1%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:math",
+   "raw": "98.8%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:networking",
+   "raw": "98.2%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:office tasks",
+   "raw": "98.6%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:PyTorch code",
+   "raw": "98.2%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:science",
+   "raw": "98.6%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:SWE-agent",
+   "raw": "96.5%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:terminal agent (shell)",
+   "raw": "98.0%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+   "entry": "JANG_8M",
+   "key": "top1:turn after a tool result",
+   "raw": "97.5%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:multi-step tool agent",
+   "raw": "86.3%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:tool use (single turn)",
+   "raw": "88.9%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: cpp",
+   "raw": "91.1%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: go",
+   "raw": "94.6%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: javascript",
+   "raw": "91.0%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: python",
+   "raw": "93.5%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: rust",
+   "raw": "89.3%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: shell",
+   "raw": "89.0%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: swift",
+   "raw": "89.8%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: typescript",
+   "raw": "90.8%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:creative writing",
+   "raw": "85.8%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:cybersecurity",
+   "raw": "83.4%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:finance",
+   "raw": "90.1%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:general / multilingual / structured output",
+   "raw": "87.9%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:coding agent (native tools)",
+   "raw": "93.7%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:coding agent, next turn",
+   "raw": "93.5%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:long documents",
+   "raw": "87.6%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:math",
+   "raw": "92.6%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:networking",
+   "raw": "91.9%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:office tasks",
+   "raw": "91.8%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:PyTorch code",
+   "raw": "90.4%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:science",
+   "raw": "90.9%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:SWE-agent",
+   "raw": "84.7%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:terminal agent (shell)",
+   "raw": "90.5%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:turn after a tool result",
+   "raw": "87.7%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:multi-step tool agent",
+   "raw": "86.3%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:tool use (single turn)",
+   "raw": "88.9%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: cpp",
+   "raw": "91.1%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: go",
+   "raw": "94.6%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: javascript",
+   "raw": "91.0%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: python",
+   "raw": "93.5%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: rust",
+   "raw": "89.3%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: shell",
+   "raw": "89.0%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: swift",
+   "raw": "89.8%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: typescript",
+   "raw": "90.8%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:creative writing",
+   "raw": "85.8%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:cybersecurity",
+   "raw": "83.4%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:finance",
+   "raw": "90.1%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:general / multilingual / structured output",
+   "raw": "87.9%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:coding agent (native tools)",
+   "raw": "93.7%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:coding agent, next turn",
+   "raw": "93.5%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:long documents",
+   "raw": "87.6%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:math",
+   "raw": "92.6%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:networking",
+   "raw": "91.9%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:office tasks",
+   "raw": "91.8%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:PyTorch code",
+   "raw": "90.4%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:science",
+   "raw": "90.9%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:SWE-agent",
+   "raw": "84.7%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:terminal agent (shell)",
+   "raw": "90.5%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:turn after a tool result",
+   "raw": "87.7%"
+  }
+ ],
+ "resolved_disagreements": [],
+ "resolved_repos": 0,
+ "tiebroken": [
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5",
+   "entry": "3.5",
+   "key": "top1:wikitext",
+   "raw": "79.0 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5",
+   "entry": "3.5",
+   "key": "top1:chat",
+   "raw": "86.7 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5",
+   "entry": "2.5",
+   "key": "top1:wikitext",
+   "raw": "70.4 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5",
+   "entry": "2.5",
+   "key": "top1:chat",
+   "raw": "78.9 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5",
+   "entry": "3.0",
+   "key": "top1:wikitext",
+   "raw": "75.2 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5",
+   "entry": "3.0",
+   "key": "top1:chat",
+   "raw": "83.6 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5",
+   "entry": "4.0",
+   "key": "top1:wikitext",
+   "raw": "80.7 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5",
+   "entry": "4.0",
+   "key": "top1:chat",
+   "raw": "88.5 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5",
+   "entry": "4.5",
+   "key": "top1:wikitext",
+   "raw": "85.4 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5",
+   "entry": "4.5",
+   "key": "top1:chat",
+   "raw": "91.2 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5",
+   "entry": "6.0",
+   "key": "top1:wikitext",
+   "raw": "88.2 %"
+  },
+  {
+   "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5",
+   "entry": "6.0",
+   "key": "top1:chat",
+   "raw": "93.4 %"
+  },
+  {
+   "repo": "0xzknw/LFM2.5-24B-A2B-EXL3-4bpw",
+   "entry": "BF16 teacher",
+   "key": "ppl:WikiText test,BOS/8\u00d71024,positions512\u20131022",
+   "raw": "17.55602"
+  },
+  {
+   "repo": "Lottolabs/LFM2.5-24B-A2B-TT-Mixed-BFP4-BFP8-P150",
+   "entry": "BF16",
+   "key": "ppl:chat",
+   "raw": "2.9590"
+  },
+  {
+   "repo": "Lottolabs/LFM2.5-24B-A2B-TT-Mixed-BFP4-BFP8-P150",
+   "entry": "BF16",
+   "key": "ppl:instruct",
+   "raw": "2.8325"
+  },
+  {
+   "repo": "Lottolabs/LFM2.5-24B-A2B-TT-Mixed-BFP4-BFP8-P150",
+   "entry": "BF16",
+   "key": "ppl:code",
+   "raw": "3.7181"
+  },
+  {
+   "repo": "Lottolabs/LFM2.5-24B-A2B-TT-Mixed-BFP4-BFP8-P150",
+   "entry": "BF16",
+   "key": "ppl:book",
+   "raw": "10.4953"
+  },
+  {
+   "repo": "Lottolabs/LFM2.5-24B-A2B-TT-Mixed-BFP4-BFP8-P150",
+   "entry": "BF16",
+   "key": "ppl",
+   "raw": "4.6416"
+  },
+  {
+   "repo": "OS-Software/LFM2.5-24B-A2B-Uncensored-Heretic-GGUF",
+   "entry": "QAD Q4_0",
+   "key": "bench:HumanEval",
+   "raw": "87.20% (\u22121.21, p = 0.79)"
+  },
+  {
+   "repo": "Omega-Factory/LFM2.5-24B-A2B-GGUF",
+   "entry": "Q8_0",
+   "key": "bench:ARC-MC",
+   "raw": "88.0% (\u0394 +0.0 pp)"
+  },
+  {
+   "repo": "Omega-Factory/LFM2.5-24B-A2B-GGUF",
+   "entry": "Q8_0",
+   "key": "bench:GSM8K",
+   "raw": "77.0% (\u0394 -1.5 pp)"
+  },
+  {
+   "repo": "Omega-Factory/LFM2.5-24B-A2B-GGUF",
+   "entry": "Q8_0",
+   "key": "bench:MATH-500",
+   "raw": "54.5% (\u0394 -4.0 pp)"
+  },
+  {
+   "repo": "Omega-Factory/LFM2.5-24B-A2B-GGUF",
+   "entry": "Q4_K_M",
+   "key": "bench:ARC-MC",
+   "raw": "89.0% (\u0394 +1.0 pp)"
+  },
+  {
+   "repo": "Omega-Factory/LFM2.5-24B-A2B-GGUF",
+   "entry": "Q4_K_M",
+   "key": "bench:GSM8K",
+   "raw": "78.5% (\u0394 +0.0 pp)"
+  },
+  {
+   "repo": "Omega-Factory/LFM2.5-24B-A2B-GGUF",
+   "entry": "Q4_K_M",
+   "key": "bench:MATH-500",
+   "raw": "50.5% (\u0394 -8.0 pp)"
+  },
+  {
+   "repo": "Omega-Factory/LFM2.5-24B-A2B-GGUF",
+   "entry": "Q2_K",
+   "key": "bench:ARC-MC",
+   "raw": "70.5% (\u0394 -17.5 pp)"
+  },
+  {
+   "repo": "Omega-Factory/LFM2.5-24B-A2B-GGUF",
+   "entry": "Q2_K",
+   "key": "bench:GSM8K",
+   "raw": "54.5% (\u0394 -24.0 pp)"
+  },
+  {
+   "repo": "Omega-Factory/LFM2.5-24B-A2B-GGUF",
+   "entry": "Q2_K",
+   "key": "bench:MATH-500",
+   "raw": "37.5% (\u0394 -21.0 pp)"
+  },
+  {
+   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-3bit",
+   "entry": "3-bit",
+   "key": "ppl",
+   "raw": "8.12"
+  },
+  {
+   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-3bit",
+   "entry": "3-bit",
+   "key": "mean_kld",
+   "raw": "0.1458"
+  },
+  {
+   "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-3bit",
+   "entry": "3-bit",
+   "key": "top1_pct",
+   "raw": "70.7%"
+  },
+  {
+   "repo": "infinity-ai-institute/LFM2.5-24B-A2B-NVFP4",
+   "entry": "NVFP4 (this)",
+   "key": "bench:tau2-style, database end state correct",
+   "raw": "0.708"
+  },
+  {
+   "repo": "infinity-ai-institute/LFM2.5-24B-A2B-NVFP4",
+   "entry": "NVFP4 (this)",
+   "key": "bench:GSM8K (strict match)",
+   "raw": "0.767"
+  },
+  {
+   "repo": "lackonendes/PAW-24B-X3.1",
+   "entry": "Q8_0 (llama.cpp)",
+   "key": "mean_kld",
+   "raw": "0.033"
+  },
+  {
+   "repo": "lackonendes/PAW-24B-X3.1",
+   "entry": "Q8_0 (llama.cpp)",
+   "key": "top1_pct",
+   "raw": "95.8%"
+  },
+  {
+   "repo": "lackonendes/PAW-24B-X3.1",
+   "entry": "Q8_0 (llama.cpp)",
+   "key": "ppl",
+   "raw": "5.212"
+  },
+  {
+   "repo": "m9ter1a/LFM2.5-24B-A2B-GGUF",
+   "entry": "LFM2.5-24B-A2B-Q5_K_M.gguf",
+   "key": "bench:BFCL",
+   "raw": "77.0%\\*"
+  },
+  {
+   "repo": "m9ter1a/LFM2.5-24B-A2B-GGUF",
+   "entry": "LFM2.5-24B-A2B-Q4_K_M.gguf",
+   "key": "bench:BFCL",
+   "raw": "78.0%"
+  },
+  {
+   "repo": "m9ter1a/LFM2.5-24B-A2B-GGUF",
+   "entry": "LFM2.5-24B-A2B-IQ4_XS.gguf",
+   "key": "bench:BFCL",
+   "raw": "75.7%"
+  },
+  {
+   "repo": "m9ter1a/LFM2.5-24B-A2B-GGUF",
+   "entry": "AtomicChat AD-Q4_K_M",
+   "key": "bench:BFCL",
+   "raw": "73.7%"
+  },
+  {
+   "repo": "m9ter1a/LFM2.5-24B-A2B-GGUF",
+   "entry": "unsloth UD-Q4_K_XL",
+   "key": "bench:BFCL",
+   "raw": "73.0%"
+  },
+  {
+   "repo": "m9ter1a/LFM2.5-24B-A2B-GGUF",
+   "entry": "AtomicChat AD-IQ4_XS",
+   "key": "bench:BFCL",
+   "raw": "73.0%"
+  },
+  {
+   "repo": "m9ter1a/LFM2.5-24B-A2B-GGUF",
+   "entry": "LiquidAI QAD-Q4_0",
+   "key": "bench:BFCL",
+   "raw": "67.0%"
+  },
+  {
+   "repo": "notfakerv/LFM2.5-24B-A2B-MLX-Q4_K_S",
+   "entry": "MLX (Q4_K_S weights, repacked)",
+   "key": "ppl:English technical text (8,191 tokens)",
+   "raw": "5.956"
+  }
+ ]
+}

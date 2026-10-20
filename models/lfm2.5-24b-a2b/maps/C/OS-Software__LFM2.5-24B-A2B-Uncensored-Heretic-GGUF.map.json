@@ -1,0 +1,113 @@
+{
+  "repo": "OS-Software/LFM2.5-24B-A2B-Uncensored-Heretic-GGUF",
+  "source_sha256": "5b0d26991f074929ff65bd386152e958be3e1a2c990921014da54ec49c33befd",
+  "candidates_sha256": "9c43fd5f954cc45de9491db417a6ccbaf33f770fcf8e9b7bb9ef9877445724fa",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "official file of the same type (per-file comparison); official QAD Q4_0 as 'Original model' for the benchmark table",
+    "dataset": "100 Japanese harmful prompts (refusals); 100 Japanese prompts from OS-Software/harmless_alpaca_ja, test[:100] (first-token KL); MMLU 14,042 questions or a 3,510 spread; HumanEval 164 problems",
+    "ctx": "first-token KL; HumanEval greedy, 2,048 tokens; refusals judged on the first 100 answer tokens",
+    "tool": "llama.cpp",
+    "L": [33, 39, 42, 80]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "LFM2.5-24B-A2B-Uncensored-Heretic-QAD-Q4_0.gguf",
+      "metrics": {"kld:harmless_alpaca_ja": "c18", "bench:MMLU": "c37", "bench:HumanEval": "c39"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "KL is first-token KL against the official file of the same type, not against BF16 [L80]",
+        "file size is in the separate File table and not in the metric row; not mapped [L33]",
+        "MMLU and HumanEval are the 'This model' column of the QAD Q4_0 benchmark table [L75-78]",
+        "MMLU delta vs original (-0.62) and HumanEval delta (-1.21) have no metric key and are not mapped [L69, L77-78]",
+        "refusal counts (99/100 to 0/100) have no metric key and are not mapped [L69]",
+        "abliteration edits attn.o_proj in layers 18, 22 and 26 only [L39]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "LFM2.5-24B-A2B-Uncensored-Heretic-Q4_K_M.gguf",
+      "metrics": {"kld:harmless_alpaca_ja": "c22"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "KL is first-token KL against the official file of the same type, not against BF16 [L80]",
+        "file size is in the separate File table and not in the metric row; not mapped [L34]",
+        "MMLU delta vs original (-1.28) has no metric key and is not mapped [L70]",
+        "refusal counts (96/100 to 1/100) have no metric key and are not mapped [L70]",
+        "made from the official BF16 and quantized with llama.cpp default llama-quantize [L42]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "LFM2.5-24B-A2B-Uncensored-Heretic-Q5_K_M.gguf",
+      "metrics": {"kld:harmless_alpaca_ja": "c26"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "KL is first-token KL against the official file of the same type, not against BF16 [L80]",
+        "file size is in the separate File table and not in the metric row; not mapped [L35]",
+        "MMLU delta vs original (-0.83) has no metric key and is not mapped [L71]",
+        "refusal counts (99/100 to 0/100) have no metric key and are not mapped [L71]",
+        "made from the official BF16 and quantized with llama.cpp default llama-quantize [L42]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "LFM2.5-24B-A2B-Uncensored-Heretic-Q6_K.gguf",
+      "metrics": {"kld:harmless_alpaca_ja": "c30"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "KL is first-token KL against the official file of the same type, not against BF16 [L80]",
+        "file size is in the separate File table and not in the metric row; not mapped [L36]",
+        "MMLU delta vs original (-0.68) has no metric key and is not mapped [L72]",
+        "refusal counts (98/100 to 0/100) have no metric key and are not mapped [L72]",
+        "made from the official BF16 and quantized with llama.cpp default llama-quantize [L42]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "LFM2.5-24B-A2B-Uncensored-Heretic-Q8_0.gguf",
+      "metrics": {"kld:harmless_alpaca_ja": "c34"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "KL is first-token KL against the official file of the same type, not against BF16 [L80]",
+        "file size is in the separate File table and not in the metric row; not mapped [L37]",
+        "MMLU delta vs original (-0.77) has no metric key and is not mapped [L73]",
+        "refusal counts (94/100 to 0/100) have no metric key and are not mapped [L73]",
+        "made from the official BF16 and quantized with llama.cpp default llama-quantize [L42]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "Original model",
+      "of": "LiquidAI/LFM2.5-24B-A2B-GGUF",
+      "metrics": {"bench:MMLU": "c36", "bench:HumanEval": "c38"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "the unmodified reference in the QAD Q4_0 benchmark table; the card names the official QAD Q4_0 file as the source [L33, L75-78]",
+        "MMLU is 0-shot, lm-eval prompt, all 14,042 questions [L77]"
+      ]
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,38 @@
+{
+  "repo": "notfakerv/LFM2.5-24B-A2B-MLX-Q4_K_S",
+  "source_sha256": "df7bc10380457ace4d4e37463cb7751b61fad866b81acccb92cf68ad938fa15d",
+  "candidates_sha256": "31c9678030b8cdd68bd1ef02e4f619f26cb96e528ff52b9d2b0eb5c1f9761793",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "fp32 NumPy forward pass of the source Q4_K_S GGUF (Hugging Face Lfm2Moe semantics)",
+    "dataset": "31-token chat prompt (KL and top-1); English technical text, 8,191 tokens (perplexity)",
+    "ctx": "31-token prompt for KL and top-1; perplexity window not stated beyond 8,191 tokens",
+    "tool": "independent fp32 NumPy forward pass; perplexity tool not stated",
+    "L": [72, 73, 77]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "LFM2.5-24B-A2B — MLX (Q4_K_S weights, repacked)",
+      "metrics": {"mean_kld": "c16", "top1_pct": "c17.1"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "KL and top-1 are against the fp32 reference of the source GGUF, not against BF16 [L72-73]",
+        "top-1 84% is over prompt positions; the card also reports 100% over decode positions, not mapped [L73]",
+        "scope of the mean KL (prompt, decode or both) not stated [L73]",
+        "perplexity 5.956 is with bf16 activations on 8,191 tokens of English technical text; not measured against the reference [L77]",
+        "file size is stated in prose, not in the metric row: 14.7 GiB (15.8 GB) in three shards [L62]",
+        "one Q6_K tensor is re-quantized to 8-bit during conversion [L58]",
+        "softmax-routing KL of 1.14 nats per token is a routing-bug demonstration and is omitted [L98]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "LFM2.5-24B-A2B — MLX (Q4_K_S weights, repacked)", "key": "ppl", "L": 77, "raw": "5.956"}
+  ]
+}

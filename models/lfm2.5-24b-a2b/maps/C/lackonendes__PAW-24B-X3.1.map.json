@@ -1,0 +1,115 @@
+{
+  "repo": "lackonendes/PAW-24B-X3.1",
+  "source_sha256": "e78445d685849c189d00a1f48928141f4dada8a696d41c6e492ffd9cd58e72d0",
+  "candidates_sha256": "b0c0402440cdfb400b9195970297c4fcabf88f51c9f2ccbe38131f06ed5394e7",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "BF16 model (transformers, fp32 math)",
+    "dataset": "32 held-out chunks of 1,024 tokens of code (never used for calibration)",
+    "ctx": "1,024-token chunks; second half of each chunk scored (16,352 tokens)",
+    "tool": "transformers for BF16 reference; llama.cpp for official GGUFs; tool for TRUSS files not stated",
+    "L": [37, 38, 39]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "PAW-24B-X3.1-K3.5.gguf",
+      "metrics": {"ppl": "c32", "mean_kld": "c30", "top1_pct": "c31"},
+      "size": "c29",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c1",
+      "flags": [
+        "bpw cell is the routed-expert rate; other tensors are Q8_0 [L30-33]",
+        "KL basis (full vocabulary or top-k) not stated [L37-39]",
+        "needs the TRUSS engine; stock llama.cpp cannot read these files [L21]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "PAW-24B-X3.1-K3.gguf",
+      "metrics": {"ppl": "c36", "mean_kld": "c34", "top1_pct": "c35"},
+      "size": "c33",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c5",
+      "flags": [
+        "bpw cell is the routed-expert rate; other tensors are Q8_0 [L30-33]",
+        "KL basis (full vocabulary or top-k) not stated [L37-39]",
+        "needs the TRUSS engine; stock llama.cpp cannot read these files [L21]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "PAW-24B-X3.1-K2.5.gguf",
+      "metrics": {"ppl": "c40", "mean_kld": "c38", "top1_pct": "c39"},
+      "size": "c37",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c9",
+      "flags": [
+        "bpw cell is the routed-expert rate; other tensors are Q8_0 [L30-33]",
+        "KL basis (full vocabulary or top-k) not stated [L37-39]",
+        "needs the TRUSS engine; stock llama.cpp cannot read these files [L21]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "PAW-24B-X3.1-K2.gguf",
+      "metrics": {"ppl": "c44", "mean_kld": "c42", "top1_pct": "c43"},
+      "size": "c41",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c13",
+      "flags": [
+        "bpw cell is the routed-expert rate; other tensors are Q8_0 [L30-33]",
+        "KL basis (full vocabulary or top-k) not stated [L37-39]",
+        "needs the TRUSS engine; stock llama.cpp cannot read these files [L21]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Q8_0 (llama.cpp)",
+      "metrics": {"ppl": "c20", "mean_kld": "c18", "top1_pct": "c19"},
+      "size": "c17",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "llama.cpp Q8_0 row, not labelled official [L43]",
+        "card attributes the Q8_0 KL of 0.033 to tie-heavy routing in this model [L55-56]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "official Q4_K_M (llama.cpp)",
+      "of": "not named on card",
+      "metrics": {"ppl": "c24", "mean_kld": "c22", "top1_pct": "c23"},
+      "size": "c21",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "official file; card states it was scored with llama.cpp on the same tokens [L39]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "official QAD-Q4_0 (llama.cpp)",
+      "of": "not named on card",
+      "metrics": {"ppl": "c28", "mean_kld": "c26", "top1_pct": "c27"},
+      "size": "c25",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "quantization-aware distilled, not a rounding of BF16; card says compare it by KL [L51-52]",
+        "perplexity cell carries a footnote asterisk in the card [L45]",
+        "official file; card states it was scored with llama.cpp on the same tokens [L39]"
+      ]
+    }
+  ],
+  "prose": []
+}
