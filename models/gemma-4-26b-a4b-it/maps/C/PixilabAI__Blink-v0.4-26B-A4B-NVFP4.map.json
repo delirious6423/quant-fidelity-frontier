@@ -1,0 +1,65 @@
+{
+  "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+  "source_sha256": "14e22cf2e186e4540f653b4a9a2cef3fc1e014e7000187df1ceb26b149d05784",
+  "candidates_sha256": "9526b5b3c963a1ed453f7b1bbd682cdb8b9950e453ffdd155cd844661c07b8cb",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "not stated",
+    "dataset": "Decision Index 0.2.1 suite (38 scored benchmarks, five areas), 150,759 requests each",
+    "ctx": "not stated",
+    "tool": "own runs; harness not named",
+    "L": [40, 45]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Blink v0.4 · 26B-A4B NVFP4",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "Decision Index 0.2.1 suite (38 scored benchmarks, five areas), 150,759 requests each",
+        "ctx": "not stated",
+        "tool": "own runs; harness not named",
+        "L": [40, 45]
+      },
+      "metrics": {
+        "bench:Decision Index 0.2.1": "c7",
+        "bench:Knowledge": "c8",
+        "bench:Language": "c9",
+        "bench:Retrieval": "c10",
+        "bench:Tools": "c11",
+        "bench:Arts": "c12"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Other rows are other models (board numbers and other Blink builds), omitted [L40, L44-57]",
+        "Calibration figures not mapped [L33]",
+        "17.5 GB is in bullet text, not a table; size not mapped [L34]",
+        "Weights are a Blink build, not the Gemma base; training method not named [L3, L36]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "Blink v0.4 · 26B-A4B NVFP4", "key": "bench:PhishNChips", "L": 32, "raw": "PhishNChips 62.8"},
+    {"entry": "Blink v0.4 · 26B-A4B NVFP4", "key": "bench:FinEntity", "L": 32, "raw": "FinEntity 89.5"},
+    {"entry": "Blink v0.4 · 26B-A4B NVFP4", "key": "bench:SATA-Bench", "L": 32, "raw": "SATA-Bench 36.4"},
+    {"entry": "Blink v0.4 · 26B-A4B NVFP4", "key": "bench:BPoMP", "L": 32, "raw": "BPoMP 83.1"},
+    {"entry": "Blink v0.4 · 26B-A4B NVFP4", "key": "bench:API-Bank", "L": 32, "raw": "API-Bank 84.8"},
+    {"entry": "Blink v0.4 · 26B-A4B NVFP4", "key": "bench:New Yorker captions", "L": 32, "raw": "New Yorker captions 69.7"},
+    {"entry": "Blink v0.4 · 26B-A4B NVFP4", "key": "bench:CLINC150", "L": 59, "raw": "CLINC150 90.3"},
+    {"entry": "Blink v0.4 · 26B-A4B NVFP4", "key": "bench:Amazon ESCI", "L": 59, "raw": "Amazon ESCI 45.5"},
+    {"entry": "Blink v0.4 · 26B-A4B NVFP4", "key": "bench:WinoGrande", "L": 59, "raw": "WinoGrande 71.0"},
+    {"entry": "Blink v0.4 · 26B-A4B NVFP4", "key": "bench:When2Call", "L": 109, "raw": "When2Call 55.0"},
+    {"entry": "Blink v0.4 · 26B-A4B NVFP4", "key": "bench:GPQA Diamond", "L": 110, "raw": "GPQA Diamond 24.5"},
+    {"entry": "Blink v0.4 · 26B-A4B NVFP4", "key": "bench:Home appliance simulator", "L": 110, "raw": "Home appliance simulator 45.5"},
+    {"entry": "Blink v0.4 · 26B-A4B NVFP4", "key": "bench:GSM8K", "L": 110, "raw": "GSM8K 73.4"},
+    {"entry": "Blink v0.4 · 26B-A4B NVFP4", "key": "bench:RAGTruth", "L": 110, "raw": "RAGTruth 57.5"},
+    {"entry": "Blink v0.4 · 26B-A4B NVFP4", "key": "bench:HoVer", "L": 110, "raw": "HoVer 57.7"},
+    {"entry": "Blink v0.4 · 26B-A4B NVFP4", "key": "bench:Habermas Machine", "L": 112, "raw": "Habermas Machine 21.1"},
+    {"entry": "Blink v0.4 · 26B-A4B NVFP4", "key": "bench:iSarcasmEval", "L": 112, "raw": "iSarcasmEval 58.7"}
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "repo": "tenhkspark/gemma-4-26B-A4B-NVFP4-lmhead",
+  "source_sha256": "e3c0a6b7364a5da59d8ff64e5a15dfa26d859b4f4f89947ef000cbb991075a22",
+  "candidates_sha256": "c35886a5593c358a753d94a34c6274a5a9555e57adf7bb44831ee70e84957253",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "v1 of the same checkpoint (same weights, earlier serving setup) [L18, L22, L32]", "dataset": "125-question benchmark, name not stated [L83]", "ctx": "not stated", "tool": "not stated", "L": [83]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "NVFP4 with untied lm_head, v2",
+      "methodology": {"reference": "v1 serving setup [L22-33]", "dataset": "125-question benchmark, name not stated; real-use checks in sample mode [L83]", "ctx": "not stated", "tool": "not stated", "L": [83]},
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Quality is reported only as pairs without saying which number belongs to v2: 82.4% against 82.4% (MTP=2) and 83.2% against 84.0% (MTP=8); left out [L83]",
+        "Derivative of nvidia/Gemma-4-26B-A4B-NVFP4 with tie_word_embeddings=false and a separately NVFP4-quantized lm_head; the card says the weights are unchanged in v2 [L14, L18]",
+        "Weights of 19.2 GB and on-GPU footprint of 17.08 GiB appear in prose, not in a metric row; size left null [L18]",
+        "Decode and time-to-first-token figures have no quality metric key; not mapped [L20-35]",
+        "v1 is the same weights in an earlier serving setup, so it is not a separate build entry [L18, L22]"
+      ]
+    }
+  ],
+  "prose": []
+}

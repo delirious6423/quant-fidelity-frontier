@@ -1,0 +1,25 @@
+{
+ "repo": "InfiniCloud/gemma-4-26B-A4B-it-GPTQ-INT4-G64",
+ "source_sha256": "55aabdd723342e9232a01a2cdf706234216aabd11a4b705e8af6ebc2033b9ada",
+ "candidates_sha256": "8f7b59bdff60a30573907eb2f5f7ae87aa589f32f34bb6af871e63f8fec3ce74",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "original BF16 model, same tokenizer and template [L93, L134]", "dataset": "GSM8K full test set (1319) and Japanese MGSM (250); native CoT, 5-shot, thinking disabled [L93]", "ctx": "8192 [L93]", "tool": "temperature 0, output limit 2048 [L93]; serving on vLLM 0.29.0, Blackwell [L140]", "L": [93, 95, 102, 104, 140]},
+ "entries": [
+  {"role": "own",
+   "name": "INT4 G64",
+   "metrics": {"bench:GSM8K / strict": "c21", "bench:GSM8K / flexible": "c24", "bench:Japanese MGSM / flexible": "c29"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Japanese MGSM strict value is taken from the prose table row [L99]", "Both metrics score correctness of the extracted answer, not JSON compliance [L102]", "Generated weight file 15,656,878,852 bytes (14.582 GiB) is stated in prose and not mapped as a size [L47]", "No significance test was performed [L104]"]},
+  {"role": "cross",
+   "name": "BF16",
+   "of": "not named on card",
+   "metrics": {"bench:GSM8K / strict": "c20", "bench:GSM8K / flexible": "c23", "bench:Japanese MGSM / strict": "c26", "bench:Japanese MGSM / flexible": "c28"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Original BF16 run; the body names no repo, and front matter lists base_model google/gemma-4-26B-A4B-it [L5]"]}
+ ],
+ "prose": [
+  {"entry": "INT4 G64", "key": "bench:Japanese MGSM / strict", "L": 99, "raw": "4.0% (10/250)"}
+ ]
+}

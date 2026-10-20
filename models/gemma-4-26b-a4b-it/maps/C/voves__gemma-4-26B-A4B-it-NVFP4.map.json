@@ -1,0 +1,56 @@
+{
+  "repo": "voves/gemma-4-26B-A4B-it-NVFP4",
+  "source_sha256": "9223d0d0743aff71a2834f657ff7222f2cce1a57f16c3453f3515cf03a05c83e",
+  "candidates_sha256": "5f6a9a09f43213429069a5705f8d71b299c1d2a5ec1720a7a8a830af7588cbb2",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "BF16 run of the same model; repo not named on card [L15, L19]", "dataset": "MMLU, ARC-Challenge, GSM8K, MATH, HumanEval, IFEval (subset) at 30 samples each; curated RU+EN set (2-5 per sub-category)", "ctx": "max_tokens per category, 512 to 8192 [L40-57]", "tool": "not stated (per-category evaluators at L76-86)", "L": [29, 31, 32, 40, 63, 76, 87]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "NVFP4",
+      "metrics": {"bench:MMLU (no-think)": "c28", "bench:MMLU (thinking)": "c39", "bench:GSM8K": "c64", "bench:Curated translation": "c126", "bench:OVERALL": "c151"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Greedy decoding (temperature 0), seed 42 [L31-32]",
+        "Per-category n is 2 to 30; overall n=270 across 16 categories [L91-107]",
+        "Evaluator skipped 9 IFEval tasks (rules not implemented) [L20, L84]",
+        "GSM8K gap is attributed to repetition loops that hit the 8192-token cap [L162]",
+        "Values repeated within a row are carried as prose with the cell text (for example ARC-Challenge, MATH, HumanEval and the curated rows) [L93-106]",
+        "Quantized checkpoint; no pruning or finetuning stated [L15, L164-179]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "BF16",
+      "of": "not named on card",
+      "metrics": {"bench:MMLU (no-think)": "c27", "bench:MMLU (thinking)": "c38", "bench:ARC-Challenge (no-think)": "c49", "bench:ARC-Challenge (thinking)": "c57", "bench:GSM8K": "c63", "bench:MATH": "c74", "bench:HumanEval": "c84", "bench:IFEval (subset)": "c92", "bench:Curated logical": "c100", "bench:Curated knowledge": "c108", "bench:Curated instr-follow": "c113", "bench:Curated creative": "c119", "bench:Curated translation": "c125", "bench:Curated code": "c134", "bench:Curated multi-reason": "c140", "bench:Curated safety": "c146", "bench:OVERALL": "c150"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "BF16 reference measured by this card's author; the card's base_model field lists google/gemma-4-26B-A4B-it [L3]",
+        "Card does not name the BF16 repo itself [L15-19]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "NVFP4", "key": "bench:ARC-Challenge (no-think)", "L": 93, "raw": "93.3% (28/30)"},
+    {"entry": "NVFP4", "key": "bench:ARC-Challenge (thinking)", "L": 94, "raw": "100.0% (30/30)"},
+    {"entry": "NVFP4", "key": "bench:MATH", "L": 96, "raw": "46.7% (14/30)"},
+    {"entry": "NVFP4", "key": "bench:HumanEval", "L": 97, "raw": "96.7% (29/30)"},
+    {"entry": "NVFP4", "key": "bench:IFEval (subset)", "L": 98, "raw": "56.7% (17/30)"},
+    {"entry": "NVFP4", "key": "bench:Curated logical", "L": 99, "raw": "80.0% (4/5)"},
+    {"entry": "NVFP4", "key": "bench:Curated knowledge", "L": 100, "raw": "100.0% (5/5)"},
+    {"entry": "NVFP4", "key": "bench:Curated instr-follow", "L": 101, "raw": "100.0% (5/5)"},
+    {"entry": "NVFP4", "key": "bench:Curated creative", "L": 102, "raw": "100.0% (3/3)"},
+    {"entry": "NVFP4", "key": "bench:Curated code", "L": 104, "raw": "100.0% (3/3)"},
+    {"entry": "NVFP4", "key": "bench:Curated multi-reason", "L": 105, "raw": "100.0% (3/3)"},
+    {"entry": "NVFP4", "key": "bench:Curated safety", "L": 106, "raw": "100.0% (2/2)"}
+  ]
+}

@@ -1,0 +1,40 @@
+{
+ "repo": "fraQtl/Gemma-4-26B-A4B-it-Hi-Fi-GGUF",
+ "source_sha256": "eaf7c9f5e0681adbdf74111c6d0262ea4dcfea20cc16adae0840d23d6e314c51",
+ "candidates_sha256": "665ac8722e8daf86a27fe622065a70913a8d11cd562afd70f0771412295da117",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "original bf16 google/gemma-4-26B-A4B-it (KLD teacher: Q8_0 of the bf16 checkpoint)", "dataset": "code/math 400-record held-out; general chat/tool/wikitext 400-record; GSM8K n=200 0-shot instructed CoT", "ctx": "eval not stated; calibration ctx 2048 [L82]", "tool": "llama-cpp-python 0.3.33 (llama.cpp 78d2f524682d9fee790a6460c93d018dafeb5229) [L86]", "L": [46, 82, 86, 114, 131]},
+ "entries": [
+  {"role": "own",
+   "name": "fraQtl Hi-Fi",
+   "metrics": {"kld:code_math": "c1", "kld:general": "c4", "top1:code_math": "c7", "top1:general": "c9", "bench:GSM8K 0-shot instructed CoT n=200": "c11"},
+   "size": "c14", "unit": "bytes", "basis": "disk", "bpw": null,
+   "flags": ["Split result: KLD and top-1 ahead of the baseline, GSM8K 59.5% vs 68.5% is outside the tie band [L26, L41]", "KLD is symmetric top-20 on Q8 teacher support, mean over positions [L46]", "Top-1 agreement is given as a fraction, not a percent [L39-40]", "Sweep-arm KLD values (0.7391 and similar) are not mapped: they are not the shipped arm [L82]"]},
+  {"role": "cross",
+   "name": "bartowski Q4_K_M (pinned)",
+   "of": "bartowski/google_gemma-4-26B-A4B-it-GGUF",
+   "metrics": {"kld:code_math": "c2", "kld:general": "c5", "top1:code_math": "c8", "top1:general": "c10", "bench:GSM8K 0-shot instructed CoT n=200": "c12"},
+   "size": "c15", "unit": "bytes", "basis": "disk", "bpw": null,
+   "flags": ["Pinned community Q4_K_M baseline, measured by the card's author [L165]"]},
+  {"role": "cross",
+   "name": "unsloth qat UD-Q4_K_XL",
+   "of": "unsloth/gemma-4-26B-A4B-it-qat-GGUF",
+   "metrics": {"top1:code_math": "c19", "top1:general": "c20"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["QAT checkpoint is retrained; its KLD measures distance from the original model, not QAT quality [L125]"]},
+  {"role": "cross",
+   "name": "google QAT q4_0",
+   "of": "google/gemma-4-26B-A4B-it-qat-q4_0-gguf",
+   "metrics": {"top1:code_math": "c21", "top1:general": "c22"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["QAT checkpoint is retrained; its KLD measures distance from the original model, not QAT quality [L125]"]}
+ ],
+ "prose": [
+  {"entry": "unsloth qat UD-Q4_K_XL", "key": "kld:code_math", "L": 121, "raw": "1.1830"},
+  {"entry": "unsloth qat UD-Q4_K_XL", "key": "kld:general", "L": 121, "raw": "1.2261"},
+  {"entry": "google QAT q4_0", "key": "kld:code_math", "L": 122, "raw": "1.2357"},
+  {"entry": "google QAT q4_0", "key": "kld:general", "L": 122, "raw": "1.2791"}
+ ]
+}

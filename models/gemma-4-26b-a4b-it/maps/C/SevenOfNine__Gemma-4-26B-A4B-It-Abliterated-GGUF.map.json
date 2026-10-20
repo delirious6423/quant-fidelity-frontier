@@ -1,0 +1,14 @@
+{"repo": "SevenOfNine/Gemma-4-26B-A4B-It-Abliterated-GGUF",
+ "source_sha256": "9baff593e4e53c29747a0f183ad9e1a1bf8a63fe33d1c9a365a94e09b8d8f179",
+ "candidates_sha256": "0d7705977f0115fd8c8f515a4d545e4af0b55dd7baa5ea368d579c1d3a287f55",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "original google/gemma-4-26B-A4B-it [L20,L33]", "dataset": "refusal benchmark prompts, described as extreme harmful prompts [L39]", "ctx": "not stated", "tool": "Heretic TPE trials [L65]", "L": [20, 33, 37, 39, 65]},
+ "entries": [
+  {"role": "own", "name": "Gemma-4-26B-A4B-It-Abliterated-BF16.gguf",
+   "metrics": {"mean_kld": "c13"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["KL is reported for the bf16 abliterated model used as the GGUF source, not per quant [L33,L65]", "Refusal counts have no metric key, not mapped [L35,L36]", "File sizes are in a separate table without metrics, not mapped [L22,L26]"]}
+ ],
+ "prose": []}

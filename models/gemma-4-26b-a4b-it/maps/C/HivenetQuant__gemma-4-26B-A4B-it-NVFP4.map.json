@@ -1,0 +1,68 @@
+{
+  "repo": "HivenetQuant/gemma-4-26B-A4B-it-NVFP4",
+  "source_sha256": "2755bc293739b76a316ffc5bfce9dbdb11a059728c3f5a3bdf4fdff8d5eba36b",
+  "candidates_sha256": "d2251c7857b6bcc466a4c46977f1d4c1488f7529dcb5d7bd1fbc7eb7ec141473",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "FP16 original weights, run head-to-head by this card's author [L47, L51]", "dataset": "representative sample per task across nine benchmarks; sample sizes are in REPRODUCIBILITY.md, which is not in the card [L53, L59-69, L85]", "ctx": "128k context, max-model-len 131072, FP8 KV cache [L26, L40]", "tool": "vLLM serve config [L27-38]; harness per REPRODUCIBILITY.md, not in the card [L85]", "L": [26, 27, 40, 47, 51, 53, 59, 85]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "NVFP4",
+      "panel": "Benchmark vs FP16",
+      "methodology": {"reference": "FP16 original weights [L47, L51]", "dataset": "representative sample per task; identical prompts, harness and decoding on both precisions [L51, L53]", "ctx": "128k context, FP8 KV cache [L26, L40]", "tool": "vLLM serve config [L27-38]; harness in REPRODUCIBILITY.md [L85]", "L": [51, 53, 59]},
+      "metrics": {
+        "bench:mmlu_pro": "c2",
+        "bench:gpqa_diamond_cot_zeroshot": "c5",
+        "bench:aime25": "c8",
+        "bench:mmmu_pro_standard_cot": "c13",
+        "bench:ai2d_no_mask": "c16",
+        "bench:livecodebench (codegen v6)": "c19",
+        "bench:bfcl (tool-calling)": "c22",
+        "bench:niah": "c25"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "W4A16 NVFP4 post-training quantization (GPTQ and RTN), no pruning or finetuning stated [L44-46]",
+        "Vision encoder and lm_head kept in BF16; multimodal rows included [L22, L65-66]",
+        "Paired deltas (the card's Δ column) are not mapped: there is no delta metric key [L59-69]",
+        "ifeval (ifeval_safe) NVFP4 value 94.73 equals the FP16 value, so it is carried as prose [L64]",
+        "Speed table (decode, prefill and throughput at TP4 on RTX 5090) has no quality metric key; not mapped [L73-81]",
+        "No checkpoint size is printed in the benchmark rows; size left null [L59-69]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "FP16",
+      "of": "google/gemma-4-26B-A4B-it",
+      "panel": "Benchmark vs FP16",
+      "methodology": {"reference": "FP16 original weights, the base model [L18, L47]", "dataset": "representative sample per task; identical prompts, harness and decoding on both precisions [L51, L53]", "ctx": "128k context, FP8 KV cache [L26, L40]", "tool": "harness in REPRODUCIBILITY.md, not in the card [L85]", "L": [51, 53, 59]},
+      "metrics": {
+        "bench:mmlu_pro": "c1",
+        "bench:gpqa_diamond_cot_zeroshot": "c4",
+        "bench:aime25": "c7",
+        "bench:ifeval (ifeval_safe)": "c10",
+        "bench:mmmu_pro_standard_cot": "c12",
+        "bench:ai2d_no_mask": "c15",
+        "bench:livecodebench (codegen v6)": "c18",
+        "bench:bfcl (tool-calling)": "c21",
+        "bench:niah": "c24"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Original full-precision weights run by this card's author under identical settings; the repo is the base model named in the card [L18, L47]",
+        "Card describes FP16 as a stricter baseline than comparisons against an already-lossy FP8 checkpoint [L47]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "NVFP4", "panel": "Benchmark vs FP16", "key": "bench:ifeval (ifeval_safe)", "L": 64, "raw": "94.73"}
+  ]
+}

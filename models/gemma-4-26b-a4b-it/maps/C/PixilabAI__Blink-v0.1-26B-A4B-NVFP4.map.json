@@ -1,0 +1,55 @@
+{
+  "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+  "source_sha256": "9be9abc3e05f23ff1de556aded743d2f5338c7b98030b6003d745c5d08fca0c8",
+  "candidates_sha256": "5a3e69efb653f2d3af9f344c026b412cc3e13a7d813e2055fed4596161182843",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "not stated",
+    "dataset": "Decision Index 0.2.1 suite (38 scored benchmarks, five areas), 150,759 requests",
+    "ctx": "not stated",
+    "tool": "own runs; harness not named",
+    "L": [33, 35, 37]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Blink v0.1 · 26B-A4B NVFP4",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "Decision Index 0.2.1 suite (38 scored benchmarks, five areas), 150,759 requests",
+        "ctx": "not stated",
+        "tool": "own runs; harness not named",
+        "L": [33, 35, 37]
+      },
+      "metrics": {
+        "bench:Decision Index 0.2.1": "c31",
+        "bench:Knowledge": "c32",
+        "bench:Language": "c33",
+        "bench:Retrieval": "c34",
+        "bench:Tools": "c35",
+        "bench:Arts": "c36"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Other rows are other models (board numbers), omitted [L35, L39-49]",
+        "Calibration figures not mapped [L30]",
+        "17.5 GB is in bullet text, not a table; size not mapped [L31]",
+        "Weights are a Blink build on a Gemma base (front matter); training method not named [L3]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "Blink v0.1 · 26B-A4B NVFP4", "key": "bench:iSarcasmEval", "L": 51, "raw": "iSarcasmEval 59.4"},
+    {"entry": "Blink v0.1 · 26B-A4B NVFP4", "key": "bench:Habermas Machine", "L": 51, "raw": "Habermas Machine 26.1"},
+    {"entry": "Blink v0.1 · 26B-A4B NVFP4", "key": "bench:New Yorker captions", "L": 51, "raw": "New Yorker captions 72.3"},
+    {"entry": "Blink v0.1 · 26B-A4B NVFP4", "key": "bench:BPoMP", "L": 51, "raw": "BPoMP 85.0"},
+    {"entry": "Blink v0.1 · 26B-A4B NVFP4", "key": "bench:MuSR", "L": 51, "raw": "MuSR 48.4"},
+    {"entry": "Blink v0.1 · 26B-A4B NVFP4", "key": "bench:RAGTruth", "L": 51, "raw": "RAGTruth 55.5"},
+    {"entry": "Blink v0.1 · 26B-A4B NVFP4", "key": "bench:BRIGHT", "L": 51, "raw": "BRIGHT 41.9"}
+  ]
+}

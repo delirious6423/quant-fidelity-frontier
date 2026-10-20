@@ -1,0 +1,18 @@
+{"repo": "bogdan-radulescu/gemma-4-26B-A4B-it-asym-GGUF",
+ "source_sha256": "c8a6b7113c07502b2f62224ea7541a709e20e400f67d9cdc9ef132eca538fb2e",
+ "candidates_sha256": "bcdb3e6ac45fe61b13375312fada875f99bb983d0c767275edd9537f147d2ca7",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "QAT Q4_0 uniform baseline in the results table [L90]", "dataset": "objective run-the-code tasks and an instruction-formatting score [L83,L84]", "ctx": "not stated", "tool": "llama.cpp with llama-imatrix calibration [L53]", "L": [53, 54, 55, 83, 84, 90, 91]},
+ "entries": [
+  {"role": "own", "name": "asym (this model)",
+   "metrics": {"bench:coding": "c9.0", "bench:polish": "c10"},
+   "size": "c8", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["Coding is reported as a count over the objective tasks; the numerator is mapped [L83,L91]", "Cold-byte and tokens-per-second columns have no metric key, not mapped [L91]", "Routed-expert bpw is stated for a tensor group, not the file [L47]", "Crude 2-bit comparison in the prose is a different quant, not mapped [L56,L57]"]},
+  {"role": "cross", "of": "not named on card", "name": "QAT Q4_0 (uniform baseline)",
+   "metrics": {"bench:coding": "c3.0", "bench:polish": "c4"},
+   "size": "c2", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["Baseline file repo is not named on the card; the card's author measured it in the same table [L90]"]}
+ ],
+ "prose": []}

@@ -1,0 +1,27 @@
+{
+ "repo": "PixilabAI/Blink-v0.3-26B-A4B-FP8",
+ "source_sha256": "8209b5b0a90aef51fa02783fc9aef708b226afaad415fe2390d592abda3e2657",
+ "candidates_sha256": "d60678ad0df0dbfd0c786d0f7e848543c75fb330373d5894b6d034d21240a90e",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "Decision Index 0.2.1 suite (38 scored benchmarks, five areas) [L38]", "ctx": "not stated", "tool": "publisher's own harness on the same suite, 150,759 requests per run [L38]", "L": [38, 40]},
+ "entries": [
+  {"role": "ladder",
+   "name": "Blink v0.3 · 26B-A4B NVFP4",
+   "metrics": {"bench:Decision Index": "c7", "bench:Knowledge": "c8", "bench:Language": "c9", "bench:Retrieval": "c10", "bench:Tools": "c11", "bench:Arts": "c12"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Scores were measured on the NVFP4 build; the FP8 build was checked against unquantized weights on 16 decisions only, with a largest probability difference of 0.065 [L38]", "Rows for other models on the board (Jev, Surogate Rune, Decider, AutoJev, Qwen-based, Eikos, reflex, frontier-infra) are not mapped: they were not measured on this artifact [L40-54]", "Decision Index is chance-corrected skill x 100 [L38]"]},
+  {"role": "ladder",
+   "name": "Blink v0.2 · 26B-A4B NVFP4",
+   "metrics": {"bench:Decision Index": "c31", "bench:Knowledge": "c32", "bench:Language": "c33", "bench:Retrieval": "c34", "bench:Tools": "c35", "bench:Arts": "c36"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Earlier version from the same publisher, run on the same suite [L47]"]},
+  {"role": "ladder",
+   "name": "Blink v0.1 · 26B-A4B NVFP4",
+   "metrics": {"bench:Decision Index": "c43", "bench:Knowledge": "c44", "bench:Language": "c45", "bench:Retrieval": "c46", "bench:Tools": "c47", "bench:Arts": "c48"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Earlier version from the same publisher, run on the same suite [L49]"]}
+ ],
+ "prose": []
+}

@@ -1,0 +1,62 @@
+{
+  "repo": "spicyneuron/Gemma-4-26B-A4B-MLX-4.7bit-vision",
+  "source_sha256": "9cf614f67d331190954882de2106e16b5a62b4c8c7f80deb923dfbcdd3319d77",
+  "candidates_sha256": "027668030de219540a3aae6bb75ffea6fdec4b246e244ee04276efb0ce547705",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "not stated", "dataset": "hellaswag, piqa, winogrande (0-shot, --limit 2000); perplexity dataset not stated", "ctx": "perplexity: --sequence-length 4096 [L56]", "tool": "mlx_lm.perplexity and mlx_lm.evaluate [L56-60]", "L": [49, 56, 58, 59, 60]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "4.7 bit (this model)",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Mixed-precision MLX quant of google/gemma-4-26B-A4B-it; no pruning or finetuning stated [L8, L29-33]",
+        "bpw row [L39] has no candidate id, so bpw left null; card says bpw counts only language_model weights [L48]",
+        "Perplexity is called surprisingly high and a weaker signal; card suggests the tulu-3-sft-mixture data may be a cause [L49-51]",
+        "Candidate c1 spans the whole perplexity row, so values are carried as prose instead"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "mlx-community/gemma-4-26b-a4b-it-4bit",
+      "of": "mlx-community/gemma-4-26b-a4b-it-4bit",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Column header on the card's benchmark table [L37]; bpw left null (no candidate id)"]
+    },
+    {
+      "role": "cross",
+      "name": "unsloth/gemma-4-26b-a4b-it-UD-MLX-4bit",
+      "of": "unsloth/gemma-4-26b-a4b-it-UD-MLX-4bit",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Column header on the card's benchmark table [L37]; bpw left null (no candidate id)"]
+    }
+  ],
+  "prose": [
+    {"entry": "4.7 bit (this model)", "key": "ppl", "L": 43, "raw": "133.539"},
+    {"entry": "4.7 bit (this model)", "key": "bench:hellaswag", "L": 44, "raw": "0.532"},
+    {"entry": "4.7 bit (this model)", "key": "bench:piqa", "L": 45, "raw": "0.719"},
+    {"entry": "4.7 bit (this model)", "key": "bench:winogrande", "L": 46, "raw": "0.639"},
+    {"entry": "mlx-community/gemma-4-26b-a4b-it-4bit", "key": "ppl", "L": 43, "raw": "146.663"},
+    {"entry": "mlx-community/gemma-4-26b-a4b-it-4bit", "key": "bench:hellaswag", "L": 44, "raw": "0.525"},
+    {"entry": "mlx-community/gemma-4-26b-a4b-it-4bit", "key": "bench:piqa", "L": 45, "raw": "0.72"},
+    {"entry": "mlx-community/gemma-4-26b-a4b-it-4bit", "key": "bench:winogrande", "L": 46, "raw": "0.635"},
+    {"entry": "unsloth/gemma-4-26b-a4b-it-UD-MLX-4bit", "key": "ppl", "L": 43, "raw": "211.070"},
+    {"entry": "unsloth/gemma-4-26b-a4b-it-UD-MLX-4bit", "key": "bench:hellaswag", "L": 44, "raw": "0.531"},
+    {"entry": "unsloth/gemma-4-26b-a4b-it-UD-MLX-4bit", "key": "bench:piqa", "L": 45, "raw": "0.712"},
+    {"entry": "unsloth/gemma-4-26b-a4b-it-UD-MLX-4bit", "key": "bench:winogrande", "L": 46, "raw": "0.635"}
+  ]
+}

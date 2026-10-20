@@ -1,0 +1,23 @@
+{
+ "repo": "BCCard/gemma-4-26B-A4B-it-FP8-Dynamic",
+ "source_sha256": "ca4c6921aa5df90ad769310e62ea1d28366a0be5afd3ed3ee53fa823389afc31",
+ "candidates_sha256": "73b80508258f8cbb85283bc017bfb5509454033c7fca91a465cdde82c48e4c61",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "the card's Original block, repo not named in the body [L44-51]", "dataset": "gsm8k_platinum_cot_llama, 5-shot, multiturn few-shot, chat template [L33-38]", "ctx": "max_length 96000 [L35]", "tool": "lm-eval local-chat-completions against vLLM main; do_sample=True, temperature=1.0, top_p=0.95, top_k=64, seed 1234 [L35-41]", "L": [27, 33, 35, 36, 38, 40, 41]},
+ "entries": [
+  {"role": "own",
+   "name": "FP8 (BC Card distribution)",
+   "metrics": {"bench:gsm8k_platinum_cot_llama": "c10"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Preliminary version, subject to change [L16]", "Value is an exact_match fraction (0.9669), not a percent; strict-match row repeats it [L58-59]", "Stderr 0.0051 not mapped [L58]"]},
+  {"role": "cross",
+   "name": "Original",
+   "of": "not named on card",
+   "metrics": {"bench:gsm8k_platinum_cot_llama": "c3"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Original block; the body names no repo, and front matter lists base_model google/gemma-4-26B-A4B-it [L2-3, L44]", "Value is an exact_match fraction (0.9702), not a percent; strict-match row repeats it [L49-50]", "Stderr 0.0049 not mapped [L49]"]}
+ ],
+ "prose": []
+}

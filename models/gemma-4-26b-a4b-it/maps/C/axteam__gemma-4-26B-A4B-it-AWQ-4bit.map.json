@@ -1,0 +1,22 @@
+{"repo": "axteam/gemma-4-26B-A4B-it-AWQ-4bit",
+ "source_sha256": "56c6ddb92d4feffbddd3db8564a41b37a740b68564a8c98aa49d94c42fb11b01",
+ "candidates_sha256": "86f1387c0280d98a9b1c3864d92601bb9b892b6af92f0a74a9defddcf33f02ff",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 original [L52,L56]", "dataset": "internal mixed English/Korean set [L52]", "ctx": "not stated", "tool": "the author's internal harness [L63]", "L": [52, 56, 57, 63, 71]},
+ "entries": [
+  {"role": "own", "name": "AWQ INT4 (W4A16)",
+   "metrics": {"ppl:internal": "c2", "top1:internal": "c4"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Size on disk is stated in the header table, not in the metrics rows [L29]", "The card says these numbers measure fidelity to the base model, not task scores [L59]"]},
+  {"role": "cross", "of": "google/gemma-4-26B-A4B-it", "name": "BF16 original",
+   "metrics": {"ppl:internal": "c3", "top1:internal": "c5"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Full-precision reference measured by the card's author on the same set [L56,L57]"]},
+  {"role": "cross", "of": "cyankiwi/gemma-4-26B-A4B-it-AWQ-4bit", "name": "cyankiwi/gemma-4-26B-A4B-it-AWQ-4bit",
+   "metrics": {"ppl:internal": "c10", "top1:internal": "c11"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Public same-format build the card says was run on its own harness [L63,L71]"]}
+ ],
+ "prose": []}

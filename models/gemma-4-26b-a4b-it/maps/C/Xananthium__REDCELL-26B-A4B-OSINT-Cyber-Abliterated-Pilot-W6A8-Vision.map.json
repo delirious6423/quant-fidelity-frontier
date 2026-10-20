@@ -1,0 +1,25 @@
+{"repo": "Xananthium/REDCELL-26B-A4B-OSINT-Cyber-Abliterated-Pilot-W6A8-Vision",
+ "source_sha256": "1df9f0e02e97d94f62f81487e2a80de374ddfc3a6417c6d3a0fcf0b98eddd39d",
+ "candidates_sha256": "369a43c330e630e9d9cc9dfcd9a506b8e6a20d8182cc79b7db7b3df7581803d0",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "unedited REDCELL in NF4 for the research comparison [L141,L144]", "dataset": "capability probe and held-out refusal prompts [L149,L150]", "ctx": "greedy, thinking disabled, short output limit [L151,L152]", "tool": "vLLM for the W6A8 deployment [L144]", "L": [141, 144, 146, 149, 151]},
+ "entries": [
+  {"role": "cross", "of": "not named on card", "name": "Original REDCELL, NF4",
+   "metrics": {"bench:capability": "c1.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["NF4 research comparison on the unedited model, not the shipped file [L141,L146]", "Refusal-marker matches have no metric key, not mapped [L147]", "The capability denominator is the stated question count, not mapped [L146]"]},
+  {"role": "own", "name": "Heretic W6A8, vLLM",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Shipped W6A8 checkpoint; capability is mapped through prose because no candidate covers this column [L146]", "Refusal-marker matches have no metric key, not mapped [L147]", "Optimization-trial KL is not tied to the shipped checkpoint, not mapped [L163]"]},
+  {"role": "ladder", "name": "Heretic edit, NF4",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Publisher's NF4 edit in the research comparison [L144,L146]", "Refusal-marker matches have no metric key, not mapped [L147]"]}
+ ],
+ "prose": [
+  {"entry": "Heretic W6A8, vLLM", "key": "bench:capability", "L": 146, "raw": "19"},
+  {"entry": "Heretic edit, NF4", "key": "bench:capability", "L": 146, "raw": "19"}
+ ]}

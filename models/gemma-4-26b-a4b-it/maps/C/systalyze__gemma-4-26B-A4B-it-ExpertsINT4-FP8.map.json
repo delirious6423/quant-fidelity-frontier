@@ -1,0 +1,337 @@
+{
+  "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+  "source_sha256": "308e807bc20ac27178511ecb3faeb03fd125b733b0bd4a7233e4ef778706e5b5",
+  "candidates_sha256": "9fb472307a5789a145aaf0a5155059fa2d25f76877321e3816c6f7e65006cb57",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "Base BF16 google/gemma-4-26B-A4B-it (unquantized), same session",
+    "dataset": "full test sets: IFEval, MMLU-Pro, GPQA Diamond, BIG-Bench Hard, GSM8K Platinum, MATH, AIME 2025, HumanEval, MBPP+, DROP, MGSM, MMLU-ProX lite",
+    "ctx": "not stated",
+    "tool": "lm_eval 0.4.13 against vLLM 0.27.1, one H200 per checkpoint, greedy, seed 1234, enable_thinking=False",
+    "L": [103, 106, 107, 108, 109]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "ExpertsINT4",
+      "panel": "Accuracy",
+      "methodology": {
+        "reference": "Base BF16 google/gemma-4-26B-A4B-it (unquantized), same session",
+        "dataset": "full test sets: IFEval, MMLU-Pro, GPQA Diamond, BIG-Bench Hard, GSM8K Platinum, MATH, AIME 2025, HumanEval, MBPP+, DROP, MGSM, MMLU-ProX lite",
+        "ctx": "not stated",
+        "tool": "lm_eval 0.4.13 against vLLM 0.27.1, one H200 per checkpoint, greedy, seed 1234, enable_thinking=False",
+        "L": [103, 106, 107, 108, 109]
+      },
+      "metrics": {
+        "bench:IFEval (0-shot, prompt-level strict)": "c3",
+        "bench:IFEval (0-shot, inst-level strict)": "c6",
+        "bench:MMLU-Pro (5-shot CoT)": "c9",
+        "bench:GPQA Diamond (0-shot CoT)": "c12",
+        "bench:MATH (4-shot CoT, answer-content scoring)": "c19",
+        "bench:HumanEval (0-shot, pass@1)": "c23",
+        "bench:DROP (0-shot, F1)": "c27",
+        "bench:MGSM, native CoT (11 languages)": "c30",
+        "bench:MGSM, English CoT (11 languages)": "c33",
+        "bench:MMLU-ProX lite, 7 languages pooled (5-shot)": "c36"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Thinking disabled [L108]", "On-disk sizes sit in a separate table [L47-51], not mapped"]
+    },
+    {
+      "role": "cross",
+      "name": "Base BF16",
+      "panel": "Accuracy",
+      "of": "google/gemma-4-26B-A4B-it",
+      "methodology": {
+        "reference": "Base BF16 google/gemma-4-26B-A4B-it (unquantized), same session",
+        "dataset": "full test sets: IFEval, MMLU-Pro, GPQA Diamond, BIG-Bench Hard, GSM8K Platinum, MATH, AIME 2025, HumanEval, MBPP+, DROP, MGSM, MMLU-ProX lite",
+        "ctx": "not stated",
+        "tool": "lm_eval 0.4.13 against vLLM 0.27.1, one H200 per checkpoint, greedy, seed 1234, enable_thinking=False",
+        "L": [103, 106, 107, 108, 109]
+      },
+      "metrics": {
+        "bench:IFEval (0-shot, prompt-level strict)": "c1",
+        "bench:IFEval (0-shot, inst-level strict)": "c4",
+        "bench:MMLU-Pro (5-shot CoT)": "c7",
+        "bench:GPQA Diamond (0-shot CoT)": "c10",
+        "bench:BIG-Bench Hard (3-shot CoT)": "c13",
+        "bench:GSM8K Platinum (0-shot CoT)": "c15",
+        "bench:MATH (4-shot CoT, answer-content scoring)": "c17",
+        "bench:AIME 2025 (0-shot, pass@1)": "c20",
+        "bench:HumanEval (0-shot, pass@1)": "c22",
+        "bench:MBPP+ (0-shot, pass@1)": "c24",
+        "bench:DROP (0-shot, F1)": "c25",
+        "bench:MGSM, native CoT (11 languages)": "c28",
+        "bench:MGSM, English CoT (11 languages)": "c31",
+        "bench:MMLU-ProX lite, 7 languages pooled (5-shot)": "c34"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Unquantized reference, measured in this card's session [L103-106]"]
+    },
+    {
+      "role": "cross",
+      "name": "FP8-dynamic",
+      "panel": "Accuracy",
+      "of": "RedHatAI/gemma-4-26B-A4B-it-FP8-dynamic",
+      "methodology": {
+        "reference": "Base BF16 google/gemma-4-26B-A4B-it (unquantized), same session",
+        "dataset": "full test sets: IFEval, MMLU-Pro, GPQA Diamond, BIG-Bench Hard, GSM8K Platinum, MATH, AIME 2025, HumanEval, MBPP+, DROP, MGSM, MMLU-ProX lite",
+        "ctx": "not stated",
+        "tool": "lm_eval 0.4.13 against vLLM 0.27.1, one H200 per checkpoint, greedy, seed 1234, enable_thinking=False",
+        "L": [103, 106, 107, 108, 109]
+      },
+      "metrics": {
+        "bench:IFEval (0-shot, prompt-level strict)": "c2",
+        "bench:IFEval (0-shot, inst-level strict)": "c5",
+        "bench:MMLU-Pro (5-shot CoT)": "c8",
+        "bench:GPQA Diamond (0-shot CoT)": "c11",
+        "bench:BIG-Bench Hard (3-shot CoT)": "c14",
+        "bench:GSM8K Platinum (0-shot CoT)": "c16",
+        "bench:MATH (4-shot CoT, answer-content scoring)": "c18",
+        "bench:AIME 2025 (0-shot, pass@1)": "c21",
+        "bench:DROP (0-shot, F1)": "c26",
+        "bench:MGSM, native CoT (11 languages)": "c29",
+        "bench:MGSM, English CoT (11 languages)": "c32",
+        "bench:MMLU-ProX lite, 7 languages pooled (5-shot)": "c35"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Thinking disabled [L108]"]
+    },
+    {
+      "role": "cross",
+      "name": "Base BF16",
+      "panel": "MMLU-ProX lite, per language (5-shot)",
+      "of": "google/gemma-4-26B-A4B-it",
+      "methodology": {
+        "reference": "Base BF16 google/gemma-4-26B-A4B-it (unquantized), same session",
+        "dataset": "MMLU-ProX lite, 7 languages, per-language rows (5-shot)",
+        "ctx": "not stated",
+        "tool": "lm_eval 0.4.13 against vLLM 0.27.1, one H200 per checkpoint, greedy, seed 1234, enable_thinking=False",
+        "L": [106, 107, 108, 133]
+      },
+      "metrics": {
+        "bench:German": "c37",
+        "bench:Spanish": "c40",
+        "bench:French": "c42",
+        "bench:Japanese": "c45",
+        "bench:Chinese": "c47",
+        "bench:Hindi": "c50",
+        "bench:Arabic": "c53"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": []
+    },
+    {
+      "role": "cross",
+      "name": "FP8-dynamic",
+      "panel": "MMLU-ProX lite, per language (5-shot)",
+      "of": "RedHatAI/gemma-4-26B-A4B-it-FP8-dynamic",
+      "methodology": {
+        "reference": "Base BF16 google/gemma-4-26B-A4B-it (unquantized), same session",
+        "dataset": "MMLU-ProX lite, 7 languages, per-language rows (5-shot)",
+        "ctx": "not stated",
+        "tool": "lm_eval 0.4.13 against vLLM 0.27.1, one H200 per checkpoint, greedy, seed 1234, enable_thinking=False",
+        "L": [106, 107, 108, 133]
+      },
+      "metrics": {
+        "bench:German": "c38",
+        "bench:French": "c43",
+        "bench:Japanese": "c46",
+        "bench:Chinese": "c48",
+        "bench:Hindi": "c51",
+        "bench:Arabic": "c54"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": []
+    },
+    {
+      "role": "own",
+      "name": "ExpertsINT4",
+      "panel": "MMLU-ProX lite, per language (5-shot)",
+      "methodology": {
+        "reference": "Base BF16 google/gemma-4-26B-A4B-it (unquantized), same session",
+        "dataset": "MMLU-ProX lite, 7 languages, per-language rows (5-shot)",
+        "ctx": "not stated",
+        "tool": "lm_eval 0.4.13 against vLLM 0.27.1, one H200 per checkpoint, greedy, seed 1234, enable_thinking=False",
+        "L": [106, 107, 108, 133]
+      },
+      "metrics": {
+        "bench:German": "c39",
+        "bench:Spanish": "c41",
+        "bench:French": "c44",
+        "bench:Chinese": "c49",
+        "bench:Hindi": "c52",
+        "bench:Arabic": "c55"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": []
+    },
+    {
+      "role": "own",
+      "name": "ExpertsINT4",
+      "panel": "Context retrieval robustness (RULER, 0-shot, 4K / 8K)",
+      "methodology": {
+        "reference": "FP8-dynamic RedHatAI checkpoint (same panel; no BF16 base in this panel)",
+        "dataset": "RULER ruler_cwe, ruler_fwe, ruler_qa_squad, 0-shot",
+        "ctx": "4096 and 8192 tokens",
+        "tool": "lm_eval 0.4.12 against vLLM 0.28.0, 1xH100, limit=200 per cell",
+        "L": [147, 148, 161]
+      },
+      "metrics": {
+        "bench:ruler_cwe@4096": "c57",
+        "bench:ruler_fwe@4096": "c61",
+        "bench:ruler_qa_squad@4096": "c65",
+        "bench:ruler_cwe@8192": "c69",
+        "bench:ruler_fwe@8192": "c73",
+        "bench:ruler_qa_squad@8192": "c77"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Scores printed as fractions 0-1 [L152-157]", "Delta column derived, not mapped [L150]", "Per-cell SE about +-0.035 [L160]"]
+    },
+    {
+      "role": "cross",
+      "name": "FP8-dynamic",
+      "panel": "Context retrieval robustness (RULER, 0-shot, 4K / 8K)",
+      "of": "RedHatAI/gemma-4-26B-A4B-it-FP8-dynamic",
+      "methodology": {
+        "reference": "FP8-dynamic RedHatAI checkpoint (same panel; no BF16 base in this panel)",
+        "dataset": "RULER ruler_cwe, ruler_fwe, ruler_qa_squad, 0-shot",
+        "ctx": "4096 and 8192 tokens",
+        "tool": "lm_eval 0.4.12 against vLLM 0.28.0, 1xH100, limit=200 per cell",
+        "L": [147, 148, 161]
+      },
+      "metrics": {
+        "bench:ruler_cwe@4096": "c58",
+        "bench:ruler_fwe@4096": "c62",
+        "bench:ruler_qa_squad@4096": "c66",
+        "bench:ruler_cwe@8192": "c70",
+        "bench:ruler_fwe@8192": "c74",
+        "bench:ruler_qa_squad@8192": "c78"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Scores printed as fractions 0-1 [L152-157]"]
+    },
+    {
+      "role": "cross",
+      "name": "Base BF16",
+      "panel": "Thinking mode",
+      "of": "google/gemma-4-26B-A4B-it",
+      "methodology": {
+        "reference": "Base BF16 google/gemma-4-26B-A4B-it (unquantized), same panel",
+        "dataset": "IFEval inst-level strict, MMLU-Pro, GPQA Diamond, BIG-Bench Hard, GSM8K Platinum, AIME 2025, HumanEval, MBPP+, MGSM native CoT, MMLU-ProX lite 7 languages pooled",
+        "ctx": "output budget 8k-30k tokens per task",
+        "tool": "not stated",
+        "L": [163, 165, 171]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Thinking enabled; accuracy over answered questions, no-answer share not mapped [L167-171]"]
+    },
+    {
+      "role": "cross",
+      "name": "FP8-dynamic",
+      "panel": "Thinking mode",
+      "of": "RedHatAI/gemma-4-26B-A4B-it-FP8-dynamic",
+      "methodology": {
+        "reference": "Base BF16 google/gemma-4-26B-A4B-it (unquantized), same panel",
+        "dataset": "IFEval inst-level strict, MMLU-Pro, GPQA Diamond, BIG-Bench Hard, GSM8K Platinum, AIME 2025, HumanEval, MBPP+, MGSM native CoT, MMLU-ProX lite 7 languages pooled",
+        "ctx": "output budget 8k-30k tokens per task",
+        "tool": "not stated",
+        "L": [163, 165, 171]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Thinking enabled; accuracy over answered questions, no-answer share not mapped [L167-171]"]
+    },
+    {
+      "role": "own",
+      "name": "ExpertsINT4",
+      "panel": "Thinking mode",
+      "methodology": {
+        "reference": "Base BF16 google/gemma-4-26B-A4B-it (unquantized), same panel",
+        "dataset": "IFEval inst-level strict, MMLU-Pro, GPQA Diamond, BIG-Bench Hard, GSM8K Platinum, AIME 2025, HumanEval, MBPP+, MGSM native CoT, MMLU-ProX lite 7 languages pooled",
+        "ctx": "output budget 8k-30k tokens per task",
+        "tool": "not stated",
+        "L": [163, 165, 171]
+      },
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Thinking enabled; accuracy over answered questions, no-answer share not mapped [L167-171]"]
+    }
+  ],
+  "prose": [
+    {"entry": "ExpertsINT4", "panel": "Accuracy", "key": "bench:BIG-Bench Hard (3-shot CoT)", "L": 117, "raw": "94.06"},
+    {"entry": "ExpertsINT4", "panel": "Accuracy", "key": "bench:GSM8K Platinum (0-shot CoT)", "L": 118, "raw": "90.65"},
+    {"entry": "ExpertsINT4", "panel": "Accuracy", "key": "bench:AIME 2025 (0-shot, pass@1)", "L": 120, "raw": "56.67"},
+    {"entry": "ExpertsINT4", "panel": "Accuracy", "key": "bench:MBPP+ (0-shot, pass@1)", "L": 122, "raw": "96.30"},
+    {"entry": "FP8-dynamic", "panel": "Accuracy", "key": "bench:HumanEval (0-shot, pass@1)", "L": 121, "raw": "98.17"},
+    {"entry": "FP8-dynamic", "panel": "Accuracy", "key": "bench:MBPP+ (0-shot, pass@1)", "L": 122, "raw": "96.30"},
+    {"entry": "FP8-dynamic", "panel": "MMLU-ProX lite, per language (5-shot)", "key": "bench:Spanish", "L": 138, "raw": "79.59"},
+    {"entry": "ExpertsINT4", "panel": "MMLU-ProX lite, per language (5-shot)", "key": "bench:Japanese", "L": 140, "raw": "75.51"},
+    {"entry": "Base BF16", "panel": "Thinking mode", "key": "bench:IFEval (0-shot, inst-level strict)", "L": 175, "raw": "96.93"},
+    {"entry": "FP8-dynamic", "panel": "Thinking mode", "key": "bench:IFEval (0-shot, inst-level strict)", "L": 175, "raw": "96.49"},
+    {"entry": "ExpertsINT4", "panel": "Thinking mode", "key": "bench:IFEval (0-shot, inst-level strict)", "L": 175, "raw": "96.29"},
+    {"entry": "Base BF16", "panel": "Thinking mode", "key": "bench:MMLU-Pro (5-shot CoT)", "L": 176, "raw": "92.61"},
+    {"entry": "FP8-dynamic", "panel": "Thinking mode", "key": "bench:MMLU-Pro (5-shot CoT)", "L": 176, "raw": "93.41"},
+    {"entry": "ExpertsINT4", "panel": "Thinking mode", "key": "bench:MMLU-Pro (5-shot CoT)", "L": 176, "raw": "92.11"},
+    {"entry": "Base BF16", "panel": "Thinking mode", "key": "bench:GPQA Diamond (0-shot CoT)", "L": 177, "raw": "88.66"},
+    {"entry": "FP8-dynamic", "panel": "Thinking mode", "key": "bench:GPQA Diamond (0-shot CoT)", "L": 177, "raw": "87.00"},
+    {"entry": "ExpertsINT4", "panel": "Thinking mode", "key": "bench:GPQA Diamond (0-shot CoT)", "L": 177, "raw": "86.24"},
+    {"entry": "Base BF16", "panel": "Thinking mode", "key": "bench:BIG-Bench Hard (3-shot CoT)", "L": 178, "raw": "96.38"},
+    {"entry": "FP8-dynamic", "panel": "Thinking mode", "key": "bench:BIG-Bench Hard (3-shot CoT)", "L": 178, "raw": "96.70"},
+    {"entry": "ExpertsINT4", "panel": "Thinking mode", "key": "bench:BIG-Bench Hard (3-shot CoT)", "L": 178, "raw": "96.22"},
+    {"entry": "Base BF16", "panel": "Thinking mode", "key": "bench:GSM8K Platinum (0-shot CoT)", "L": 179, "raw": "90.54"},
+    {"entry": "FP8-dynamic", "panel": "Thinking mode", "key": "bench:GSM8K Platinum (0-shot CoT)", "L": 179, "raw": "90.67"},
+    {"entry": "ExpertsINT4", "panel": "Thinking mode", "key": "bench:GSM8K Platinum (0-shot CoT)", "L": 179, "raw": "90.13"},
+    {"entry": "Base BF16", "panel": "Thinking mode", "key": "bench:AIME 2025 (0-shot, pass@1)", "L": 180, "raw": "100.00"},
+    {"entry": "FP8-dynamic", "panel": "Thinking mode", "key": "bench:AIME 2025 (0-shot, pass@1)", "L": 180, "raw": "100.00"},
+    {"entry": "ExpertsINT4", "panel": "Thinking mode", "key": "bench:AIME 2025 (0-shot, pass@1)", "L": 180, "raw": "100.00"},
+    {"entry": "Base BF16", "panel": "Thinking mode", "key": "bench:HumanEval (0-shot, pass@1)", "L": 181, "raw": "100.00"},
+    {"entry": "FP8-dynamic", "panel": "Thinking mode", "key": "bench:HumanEval (0-shot, pass@1)", "L": 181, "raw": "100.00"},
+    {"entry": "ExpertsINT4", "panel": "Thinking mode", "key": "bench:HumanEval (0-shot, pass@1)", "L": 181, "raw": "100.00"},
+    {"entry": "Base BF16", "panel": "Thinking mode", "key": "bench:MBPP+ (0-shot, pass@1)", "L": 182, "raw": "98.88"},
+    {"entry": "FP8-dynamic", "panel": "Thinking mode", "key": "bench:MBPP+ (0-shot, pass@1)", "L": 182, "raw": "99.16"},
+    {"entry": "ExpertsINT4", "panel": "Thinking mode", "key": "bench:MBPP+ (0-shot, pass@1)", "L": 182, "raw": "98.88"},
+    {"entry": "Base BF16", "panel": "Thinking mode", "key": "bench:MGSM, native CoT (11 languages)", "L": 183, "raw": "74.72"},
+    {"entry": "FP8-dynamic", "panel": "Thinking mode", "key": "bench:MGSM, native CoT (11 languages)", "L": 183, "raw": "75.01"},
+    {"entry": "ExpertsINT4", "panel": "Thinking mode", "key": "bench:MGSM, native CoT (11 languages)", "L": 183, "raw": "74.87"},
+    {"entry": "Base BF16", "panel": "Thinking mode", "key": "bench:MMLU-ProX lite, 7 languages pooled", "L": 184, "raw": "82.94"},
+    {"entry": "FP8-dynamic", "panel": "Thinking mode", "key": "bench:MMLU-ProX lite, 7 languages pooled", "L": 184, "raw": "83.48"},
+    {"entry": "ExpertsINT4", "panel": "Thinking mode", "key": "bench:MMLU-ProX lite, 7 languages pooled", "L": 184, "raw": "83.79"}
+  ]
+}

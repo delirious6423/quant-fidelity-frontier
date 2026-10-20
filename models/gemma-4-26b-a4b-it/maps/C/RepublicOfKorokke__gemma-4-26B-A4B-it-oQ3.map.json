@@ -1,0 +1,188 @@
+{
+  "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+  "source_sha256": "befaac755b0cc3b32287bcb08dd6cfbb7229f0351c8ffc63c4141ed4ab7a03fb",
+  "candidates_sha256": "d53434c9c7c770865cf4fb68bb08c7db28bbd4a9734bce6ab87eb73bc08a8bfe",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated",
+    "dataset": "MMLU, JMMLU, HELLASWAG, ARC_CHALLENGE, GSM8K; 300 items per benchmark in the Benchmark panel",
+    "ctx": "not stated",
+    "tool": "oQ quantization (oMLX v0.3.4); evaluation harness not named",
+    "L": [14, 25, 38]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "gemma-4-26B-A4B-it-oQ3",
+      "panel": "Benchmark",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "MMLU, JMMLU, HELLASWAG, ARC_CHALLENGE, GSM8K; 300 items per benchmark",
+        "ctx": "not stated",
+        "tool": "oQ quantization (oMLX v0.3.4); evaluation harness not named",
+        "L": [14, 25, 38]
+      },
+      "metrics": {
+        "bench:MMLU": "c2",
+        "bench:JMMLU": "c3",
+        "bench:HELLASWAG": "c4",
+        "bench:ARC_CHALLENGE": "c5",
+        "bench:GSM8K": "c6"
+      },
+      "size": "c1",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "File size column read as on-disk size [L25]",
+        "Bits 3 and group size 64 are stated in text, no candidate for bpw [L19-20]",
+        "Detail table repeats these rows (L43-47 duplicate L38-42); not mapped separately [L36-66]",
+        "gemma-4-e4b-it-4bit is a different model; its row is omitted [L31]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "gemma-4-26B-A4B-it-oQ3.5",
+      "panel": "Benchmark",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "MMLU, JMMLU, HELLASWAG, ARC_CHALLENGE, GSM8K; 300 items per benchmark",
+        "ctx": "not stated",
+        "tool": "oQ quantization (oMLX v0.3.4); evaluation harness not named",
+        "L": [14, 25, 38]
+      },
+      "metrics": {
+        "bench:MMLU": "c8",
+        "bench:JMMLU": "c9",
+        "bench:HELLASWAG": "c10",
+        "bench:ARC_CHALLENGE": "c11",
+        "bench:GSM8K": "c12"
+      },
+      "size": "c7",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["Same naming family as the own file; publisher not stated on the card [L28]"]
+    },
+    {
+      "role": "cross",
+      "name": "gemma-4-26b-a4b-it-oQ4",
+      "panel": "Benchmark",
+      "of": "jdkohler/gemma-4-26b-a4b-it-oQ4",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "MMLU, JMMLU, HELLASWAG, ARC_CHALLENGE, GSM8K; 300 items per benchmark",
+        "ctx": "not stated",
+        "tool": "oQ quantization (oMLX v0.3.4); evaluation harness not named",
+        "L": [14, 25, 38]
+      },
+      "metrics": {
+        "bench:MMLU": "c14",
+        "bench:JMMLU": "c15",
+        "bench:HELLASWAG": "c16",
+        "bench:ARC_CHALLENGE": "c17",
+        "bench:GSM8K": "c18"
+      },
+      "size": "c13",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["Repo taken from the link on the row label [L29]"]
+    },
+    {
+      "role": "cross",
+      "name": "gemma-4-26b-a4b-it-4bit",
+      "panel": "Benchmark",
+      "of": "not named on card",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "MMLU, JMMLU, HELLASWAG, ARC_CHALLENGE, GSM8K; 300 items per benchmark",
+        "ctx": "not stated",
+        "tool": "not stated for this row; evaluation harness not named",
+        "L": [14, 25, 38]
+      },
+      "metrics": {
+        "bench:MMLU": "c20",
+        "bench:JMMLU": "c21",
+        "bench:HELLASWAG": "c22",
+        "bench:ARC_CHALLENGE": "c23",
+        "bench:GSM8K": "c24"
+      },
+      "size": "c19",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["Row has no repo link on the card [L30]"]
+    },
+    {
+      "role": "own",
+      "name": "gemma-4-26B-A4B-it-oQ3",
+      "panel": "Update (2026-04-07) more sample",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "HELLASWAG 500 items, ARC_CHALLENGE 1172 items, GSM8K 1319 items (Total column)",
+        "ctx": "not stated",
+        "tool": "not stated",
+        "L": [68, 71, 73, 74, 75]
+      },
+      "metrics": {
+        "bench:HELLASWAG": "c151",
+        "bench:ARC_CHALLENGE": "c155",
+        "bench:GSM8K": "c159"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Larger sample than the Benchmark panel; MMLU and JMMLU not run here [L73-75]"]
+    },
+    {
+      "role": "ladder",
+      "name": "gemma-4-26B-A4B-it-oQ3.5",
+      "panel": "Update (2026-04-07) more sample",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "HELLASWAG 500 items, ARC_CHALLENGE 1172 items, GSM8K 1319 items (Total column)",
+        "ctx": "not stated",
+        "tool": "not stated",
+        "L": [68, 71, 76, 77, 78]
+      },
+      "metrics": {
+        "bench:HELLASWAG": "c163",
+        "bench:ARC_CHALLENGE": "c167",
+        "bench:GSM8K": "c171"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": []
+    },
+    {
+      "role": "cross",
+      "name": "gemma-4-26b-a4b-it-oQ4",
+      "panel": "Update (2026-04-07) more sample",
+      "of": "jdkohler/gemma-4-26b-a4b-it-oQ4",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "HELLASWAG 500 items, ARC_CHALLENGE 1172 items, GSM8K 1319 items (Total column)",
+        "ctx": "not stated",
+        "tool": "not stated",
+        "L": [68, 71, 79, 80, 81]
+      },
+      "metrics": {
+        "bench:HELLASWAG": "c175",
+        "bench:ARC_CHALLENGE": "c179",
+        "bench:GSM8K": "c183"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Label matches the linked oQ4 row in the Benchmark panel [L29]; this panel gives no link", "Qwen3.5-35B-A3B-oQ3e is a different model; its rows are omitted [L82-84]"]
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,36 @@
+{
+ "repo": "voves/gemma-4-26B-A4B-it-FP8",
+ "source_sha256": "c3f4b670fc11e2cc8031ecb0378c02b86890474d27544d8d8198c05851088749",
+ "candidates_sha256": "a93860c18f405b064fe4f7d4cf15da308a6dd4b73dc5698a943b5134a1a3a2c7",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 run with the same prompts and settings [L88-106]", "dataset": "cais/mmlu all/test 30; allenai/ai2_arc ARC-Challenge test 30; openai/gsm8k main test 30; EleutherAI/hendrycks_math 7 subjects test 30; openai/openai_humaneval test 30; google/IFEval train 30; curated set of 30 prompts [L64-73]", "ctx": "not stated", "tool": "greedy (temperature 0), seed 42, top_p 1.0; thinking toggled via chat_template_kwargs [L30-33]", "L": [30, 31, 32, 33, 62, 73, 88, 106]},
+ "entries": [
+  {"role": "own",
+   "name": "FP8",
+   "metrics": {"bench:MMLU (no-think)": "c28", "bench:MMLU (thinking)": "c38", "bench:GSM8K (thinking)": "c63", "bench:MATH (thinking)": "c74", "bench:Curated logical": "c101"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Small samples: n=30 per benchmark and n=2 to 5 per curated category [L90-105]", "IFEval uses an implemented rule subset only; unimplemented rules are skipped [L83]"]},
+  {"role": "cross",
+   "name": "BF16",
+   "of": "not named on card",
+   "metrics": {"bench:MMLU (no-think)": "c27", "bench:MMLU (thinking)": "c37", "bench:GSM8K (thinking)": "c62", "bench:MATH (thinking)": "c73", "bench:Curated logical": "c100", "bench:OVERALL (n=270)": "c149"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["The card body names no repo for the BF16 run; front matter lists base_model google/gemma-4-26B-A4B-it [L2-3]"]}
+ ],
+ "prose": [
+  {"entry": "FP8", "key": "bench:ARC-Challenge (no-think)", "L": 92, "raw": "93.3% (28/30)"},
+  {"entry": "FP8", "key": "bench:ARC-Challenge (thinking)", "L": 93, "raw": "100.0% (30/30)"},
+  {"entry": "FP8", "key": "bench:HumanEval", "L": 96, "raw": "96.7% (29/30)"},
+  {"entry": "FP8", "key": "bench:IFEval (subset)", "L": 97, "raw": "56.7% (17/30)"},
+  {"entry": "FP8", "key": "bench:Curated knowledge", "L": 99, "raw": "100.0% (5/5)"},
+  {"entry": "FP8", "key": "bench:Curated instr-follow", "L": 100, "raw": "100.0% (5/5)"},
+  {"entry": "FP8", "key": "bench:Curated creative", "L": 101, "raw": "100.0% (3/3)"},
+  {"entry": "FP8", "key": "bench:Curated translation", "L": 102, "raw": "75.0% (3/4)"},
+  {"entry": "FP8", "key": "bench:Curated code", "L": 103, "raw": "100.0% (3/3)"},
+  {"entry": "FP8", "key": "bench:Curated multi-reason", "L": 104, "raw": "100.0% (3/3)"},
+  {"entry": "FP8", "key": "bench:Curated safety", "L": 105, "raw": "100.0% (2/2)"},
+  {"entry": "FP8", "key": "bench:OVERALL (n=270)", "L": 106, "raw": "81.5% (220/270)"}
+ ]
+}

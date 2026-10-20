@@ -1,0 +1,29 @@
+{"repo": "baa-ai/Gemma-4-26B-A4B-it-RAM-14GB-MLX",
+ "source_sha256": "73bc0463d1625894a9597c7173158f951e9aee707db0e72e4baad8a00fe8250e",
+ "candidates_sha256": "760aa8d778ec28f9b78a42600a6a36cf95830927420e327660adcf961abc4491",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 row of the all-variants table [L50]", "dataset": "MMLU", "ctx": "not stated", "tool": "not stated", "L": [34, 46, 50]},
+ "entries": [
+  {"role": "own", "name": "RAM 14GB", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Size stated in the metrics table with no candidate id, not mapped [L32]", "MMLU vs BF16 and vs Uniform 4-bit deltas are derived, not mapped [L36,L38]"]},
+  {"role": "ladder", "name": "Uniform 4-bit", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Size stated in the all-variants table with no candidate id, not mapped [L52]"]},
+  {"role": "ladder", "name": "RAM 18GB", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Sibling build named in the all-variants table [L56]"]},
+  {"role": "ladder", "name": "RAM 20GB", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Sibling build named in the all-variants table [L58]"]},
+  {"role": "ladder", "name": "RAM 22GB", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Sibling build named in the all-variants table [L60]"]},
+  {"role": "cross", "of": "google/gemma-4-26B-A4B-it", "name": "BF16", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Reference row in the all-variants table, measured by the card's author [L50]"]}
+ ],
+ "prose": [
+  {"entry": "RAM 14GB", "key": "bench:MMLU", "L": 34, "raw": "78.27%"},
+  {"entry": "Uniform 4-bit", "key": "bench:MMLU", "L": 52, "raw": "77.88%"},
+  {"entry": "RAM 18GB", "key": "bench:MMLU", "L": 56, "raw": "80.02%"},
+  {"entry": "RAM 20GB", "key": "bench:MMLU", "L": 58, "raw": "80.70%"},
+  {"entry": "RAM 22GB", "key": "bench:MMLU", "L": 60, "raw": "80.41%"},
+  {"entry": "BF16", "key": "bench:MMLU", "L": 50, "raw": "80.80%"}
+ ]}

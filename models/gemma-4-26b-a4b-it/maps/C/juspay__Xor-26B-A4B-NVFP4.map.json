@@ -1,0 +1,60 @@
+{
+  "repo": "juspay/Xor-26B-A4B-NVFP4",
+  "source_sha256": "9903810760059b6db73d1121e8c2c37df5f9c6fa3289a8c51addd9a2a41db6d7",
+  "candidates_sha256": "d64b3b7ee6d2bda8d49e996d1e58903dfb9c5e6f1cb530fdf9b3c7426e7a3b60",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {"reference": "Xor 26B-A4B 1.1 BF16 build, run by this card's author [L24, L129, L145]", "dataset": "Decision Index 0.3, upstream runners and scorer unchanged [L129]", "ctx": "not stated", "tool": "upstream Decision Index runners and scorer [L129]", "L": [125, 129, 133, 145]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "Xor 26B-A4B NVFP4 1.1",
+      "panel": "Decision Index 0.3",
+      "methodology": {"reference": "Xor 26B-A4B 1.1 BF16 build [L133]", "dataset": "Decision Index 0.3, commit f8552a13, upstream runners and scorer unchanged; 140,178 scored after 442 official exclusions", "ctx": "not stated", "tool": "upstream Decision Index runners and scorer", "L": [129, 133, 137]},
+      "metrics": {
+        "bench:Decision Index": "c2",
+        "bench:Raw index": "c4",
+        "bench:Breadth score": "c6",
+        "bench:Knowledge & Reasoning skill": "c8",
+        "bench:Knowledge & Reasoning raw": "c9",
+        "bench:Language Understanding skill": "c11",
+        "bench:Language Understanding raw": "c12",
+        "bench:Retrieval & Classification skill": "c14",
+        "bench:Retrieval & Classification raw": "c15",
+        "bench:Tools & Automation skill": "c17",
+        "bench:Tools & Automation raw": "c18",
+        "bench:Arts & Human Taste skill": "c20",
+        "bench:Arts & Human Taste raw": "c21"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Post-trained from juspay/Xor-26B-A4B, itself a post-trained google/gemma-4-26B-A4B-it; routed experts quantized to NVFP4 [L22, L53]",
+        "Public self-run score, not the private Full score [L145]",
+        "Model files are 18.8 GB; the size is in prose, not in the score rows, so size is null [L24, L155]",
+        "Benchmark counts per area (11, 9, 6, 5, 6) are counts, not metrics; not mapped [L139-143]",
+        "BF16 reference ran on six B300 replicas at 24 concurrent requests, so the comparison does not isolate quantization [L145]",
+        "Public JEVBench self-run (199 to 201 of 231 vs 204) is a count with a range and no percentage; not mapped [L149-151]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Xor 26B-A4B 1.1 (BF16)",
+      "panel": "Decision Index 0.3",
+      "methodology": {"reference": "not stated", "dataset": "Decision Index 0.3, commit f8552a13, upstream runners and scorer unchanged", "ctx": "not stated", "tool": "upstream Decision Index runners and scorer", "L": [129, 133, 134, 135]},
+      "metrics": {"bench:Decision Index": "c1", "bench:Raw index": "c3", "bench:Breadth score": "c5"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "BF16 build from the same publisher (juspay/Xor-26B-A4B 1.1 per [L22]); the card's own comparison build",
+        "Run on six NVIDIA B300 replicas at 24 concurrent requests, not paired with the NVFP4 hardware [L145]"
+      ]
+    }
+  ],
+  "prose": []
+}

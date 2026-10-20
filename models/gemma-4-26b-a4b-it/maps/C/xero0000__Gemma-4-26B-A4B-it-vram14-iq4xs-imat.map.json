@@ -1,0 +1,71 @@
+{
+  "repo": "xero0000/Gemma-4-26B-A4B-it-vram14-iq4xs-imat",
+  "source_sha256": "3684ed72bc72fe62366ef73684dedd3471e2e90ef97e86b8c55ac15300f650d9",
+  "candidates_sha256": "3535779a6a999c9b4b57fa9d2b710b88e799ca9555d0b029ee1f08a799fcc852",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "Q8_0 source GGUF measured by this card's author [L41, L95-99]", "dataset": "holdout corpus, 24 chunks [L91]", "ctx": "n_ctx=512 [L91]", "tool": "not stated", "L": [41, 91, 95]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "vram14-iq4xs-imat (this file)",
+      "panel": "Quality (perplexity)",
+      "methodology": {"reference": "Q8_0 (auto-fit placement) [L97]", "dataset": "holdout corpus, 24 chunks", "ctx": "n_ctx=512", "tool": "not stated", "L": [91, 95, 99]},
+      "metrics": {"ppl": "c13"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c2",
+      "flags": [
+        "Single holdout corpus; card says Gemma PPL is not comparable to Qwen-family numbers, so only within-family deltas matter [L91-93]",
+        "Delta column (-2.4%) not mapped: labelled 'vs Q8 same-placement', but the numbers match the auto-fit Q8_0 row as baseline, so the label is ambiguous [L95-100]",
+        "File size 13.30 GiB is in the File table, not the perplexity row, so size is null [L39]",
+        "Card's verdict is quality-neutral to slightly better than Q8 on this holdout [L102-103]",
+        "Runtime table (prefill and decode tokens/s, VRAM ceilings) has no quality metric key; not mapped [L113-128]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "Q8_0 (auto-fit placement)",
+      "of": "not named on card",
+      "panel": "Quality (perplexity)",
+      "methodology": {"reference": "baseline row of the card's table [L97]", "dataset": "holdout corpus, 24 chunks", "ctx": "n_ctx=512", "tool": "not stated", "L": [91, 95, 97]},
+      "metrics": {"ppl": "c10"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Source GGUF is the official instruct Q8_0; repo not named on card [L41, L185]"]
+    },
+    {
+      "role": "cross",
+      "name": "Q8_0 (nc23 CPU-MoE offload)",
+      "of": "not named on card",
+      "panel": "Quality (perplexity)",
+      "methodology": {"reference": "Q8_0 with CPU-MoE offload [L98]", "dataset": "holdout corpus, 24 chunks", "ctx": "n_ctx=512", "tool": "not stated", "L": [91, 95, 98]},
+      "metrics": {"ppl": "c11"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Same Q8_0 source as the auto-fit row, measured with CPU-MoE offload; the card reports placement alone as about +1.8% [L98]"]
+    },
+    {
+      "role": "ladder",
+      "name": "Q4_K_M-imat (stock, discarded)",
+      "panel": "Quality (perplexity)",
+      "methodology": {"reference": "Q8_0 (auto-fit placement) [L97]", "dataset": "holdout corpus, 24 chunks", "ctx": "n_ctx=512", "tool": "not stated", "L": [91, 95, 100, 103, 104]},
+      "metrics": {"ppl": "c15"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Card says it was larger (15.6 GiB), needed CPU-MoE offload on this rig, and was deleted after the bench [L103-105]",
+        "Delta column (-6.6%) not mapped; same label ambiguity as the own row [L100]"
+      ]
+    }
+  ],
+  "prose": []
+}

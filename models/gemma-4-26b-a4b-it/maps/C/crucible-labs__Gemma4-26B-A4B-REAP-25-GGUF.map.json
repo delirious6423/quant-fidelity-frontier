@@ -1,0 +1,41 @@
+{
+ "repo": "crucible-labs/Gemma4-26B-A4B-REAP-25-GGUF",
+ "source_sha256": "7d0ece9dcc734ba5dba1fe9d778a72904295d38120c404ad5dd82268dabdfc48",
+ "candidates_sha256": "027aae014b1bc795a7783f3dfb1a87988f8f7a064c47d57159b6c8b1906c0fc7",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "Base · bf16 google/gemma-4-26B-A4B-it, measured with the same harness [L76-86]", "dataset": "HumanEval standard 164 problems (vanilla); MBPP vanilla 500-problem split; IFEval HuggingFaceH4/ifeval; MMLU-Pro 5-shot (base figure quoted from the Gemma 4 model card) [L85-86, L180-182]", "ctx": "not stated", "tool": "Crucible own-harness bench subcommand, temperature 0; code executed in a subprocess with a 30 s timeout [L177-181]", "L": [85, 86, 177, 179, 180, 181, 182]},
+ "entries": [
+  {"role": "own",
+   "name": "Gemma4-26B-A4B-REAP-25-Q3_K-mixed.gguf",
+   "metrics": {"bench:HumanEval": "c12", "bench:MBPP": "c14", "bench:IFEval (prompt)": "c15.0", "bench:IFEval (instr)": "c15.1", "bench:MMLU-Pro (5-shot)": "c17"},
+   "size": "c10", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["Routing-aware REAP pruning of 25% of routed experts, then mixed-precision quantization with imatrix [L57-58, L103-106]", "Card's own 37.5%-pruning run (75.0% HumanEval) is a different model and not mapped [L149-150]", "Default file in this repo [L65]"]},
+  {"role": "own",
+   "name": "Gemma4-26B-A4B-REAP-25-Q2_K-mixed.gguf",
+   "metrics": {"bench:HumanEval": "c5"},
+   "size": "c4", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["Second quantization in this repo; the card lists no MBPP value for it [L66]", "Routing-aware REAP pruning of 25% of routed experts [L57-58]"]},
+  {"role": "cross",
+   "name": "Base · bf16",
+   "of": "google/gemma-4-26B-A4B-it",
+   "metrics": {"bench:HumanEval": "c11", "bench:MBPP": "c13"},
+   "size": "c8", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["Measured by this card's author with the project harness [L86]", "File size is approximate on the card (~52 GB) [L79]"]},
+  {"role": "quoted",
+   "name": "Base · bf16 (Gemma 4 model card)",
+   "of": "google/gemma-4-26B-A4B-it",
+   "metrics": {},
+   "flags": ["MMLU-Pro base score is copied from the Gemma 4 published model card, not re-measured here [L85]"]},
+  {"role": "ladder",
+   "name": "REAP-25 · bf16",
+   "metrics": {},
+   "size": "c9", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["Unquantized pruned model, not hosted in this repo [L76-79]", "File size is approximate on the card (~40 GB) [L79]"]}
+ ],
+ "prose": [
+  {"entry": "Base · bf16 (Gemma 4 model card)", "key": "bench:MMLU-Pro (5-shot)", "L": 83, "raw": "82.6 %"},
+  {"entry": "REAP-25 · bf16", "key": "bench:HumanEval", "L": 80, "raw": "93.9 %"}
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "repo": "Capicua25x/gemma-4-26B-A4B-it-MXFP4-Quark-RDNA4",
+ "source_sha256": "e0e25600613f6287acfd9bd29d92296a8c889776ca20e315b72e66e3a880176e",
+ "candidates_sha256": "c96274d5fc27f03c2e7c7f2204fe8ee5c912f3bb4bf31ba861b3a3501a4b257a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "IFEval (80 prompts); tau2-bench telecom (114 tasks); WhatsApp order-agent eval (37 cases); SQL-analyst regression suite (156 tests) [L89-92]", "ctx": "not stated", "tool": "vLLM RDNA4 port 0.28.0-rdna4-rc13 on 2x Radeon AI PRO R9700, TP2 [L18, L65]; IFEval chat template without thinking; tau2 with thinking on [L89-90]", "L": [18, 65, 89, 90, 91, 92]},
+ "entries": [
+  {"role": "own",
+   "name": "MXFP4 (Quark) for RDNA4",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Card states every number was measured on this artifact on the hardware named [L18]", "Needle-in-haystack pass marks with cold-prefill times are pass/fail with latency, not a quality score, so not mapped [L100-101]", "Throughput table is speed only and not mapped [L80-83]", "Tau2 row names other models (Qwen3.8-27B-FP8, Muse-Glimmer) that are not measured on this artifact; those figures are not mapped [L90]"]}
+ ],
+ "prose": [
+  {"entry": "MXFP4 (Quark) for RDNA4", "key": "bench:IFEval (inst-strict)", "L": 89, "raw": "0.9297"},
+  {"entry": "MXFP4 (Quark) for RDNA4", "key": "bench:IFEval (prompt-strict)", "L": 89, "raw": "0.8875"},
+  {"entry": "MXFP4 (Quark) for RDNA4", "key": "bench:tau2-bench telecom (114 tasks, thinking on)", "L": 90, "raw": "0.4649"},
+  {"entry": "MXFP4 (Quark) for RDNA4", "key": "bench:WhatsApp order-agent eval (37 cases)", "L": 91, "raw": "36 / 37"},
+  {"entry": "MXFP4 (Quark) for RDNA4", "key": "bench:SQL-analyst regression suite (156 tests)", "L": 92, "raw": "155 / 156"}
+ ]
+}

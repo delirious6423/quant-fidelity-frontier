@@ -1,0 +1,23 @@
+{
+ "repo": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-uncensored-heretic-v2-GGUF",
+ "source_sha256": "2bc1a597ba302220307283ade8cd0514d1cc367410613232f1ea16a45792489a",
+ "candidates_sha256": "8b1931c266892b0c39452c94349e9f8086c0de657c1ff419aab51bf9df830705",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "google/gemma-4-26B-A4B-it-qat-q4_0-unquantized (Original model column)", "dataset": "not stated", "ctx": "not stated", "tool": "not stated; decensored with Heretic v2.0.0.dev0+custom [L14]", "L": [14, 38, 40]},
+ "entries": [
+  {"role": "own",
+   "name": "This model",
+   "metrics": {"bench:Refusals": "c13.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Refusals counted out of 100 prompts; the 100 is the denominator, not a second result [L40]", "KL divergence 0.0101 not mapped: statistic and token set not stated [L41]", "Google benchmark table [L157-182] not mapped: its values are Google's published figures for other models and were not measured on this file"]},
+  {"role": "cross",
+   "name": "Original model",
+   "of": "google/gemma-4-26B-A4B-it-qat-q4_0-unquantized",
+   "metrics": {"bench:Refusals": "c14.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Refusals counted out of 100 prompts; the 100 is the denominator [L40]", "KL 0 is by definition, not a measurement, so not mapped [L41]"]}
+ ],
+ "prose": []
+}

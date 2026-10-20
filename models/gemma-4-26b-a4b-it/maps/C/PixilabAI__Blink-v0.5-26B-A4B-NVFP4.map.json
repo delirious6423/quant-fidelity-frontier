@@ -1,0 +1,202 @@
+{
+  "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+  "source_sha256": "1254a0def247d231a8036b49c5211e86c594de673db5c0707e0ae8d29bc69626",
+  "candidates_sha256": "231f4b76f36f4d124ece017e7a3af029d39e984575fe97eaf9dabbeb004fbb99",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "not stated",
+    "dataset": "Decision Index 0.3 public part (140,178 scoreable rows); Vision board (public)",
+    "ctx": "not stated",
+    "tool": "own runs, served at T 1.4",
+    "L": [38, 40, 42, 44, 45, 47]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Blink v0.5 · 26B-A4B NVFP4",
+      "panel": "Decision Index 0.3 (current board edition)",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "Decision Index 0.3 public part (140,178 scoreable rows); Vision board (public)",
+        "ctx": "not stated",
+        "tool": "own runs, served at T 1.4",
+        "L": [38, 40, 42, 44, 45, 47]
+      },
+      "metrics": {
+        "bench:Decision Index 0.3 (public)": "c1",
+        "bench:Vision board (public)": "c3"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Current board edition, public part only [L40]", "Area scores and ECE are in prose, ECE not mapped [L47]", "Vision covers 10 of 11 public benchmarks [L47]"]
+    },
+    {
+      "role": "own",
+      "name": "Blink v0.5 · 26B-A4B NVFP4 + think when unsure",
+      "panel": "Decision Index 0.3 (current board edition)",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "Decision Index 0.3 public part (140,178 scoreable rows); Vision board (public)",
+        "ctx": "not stated",
+        "tool": "own runs, served at T 1.4; think-variant protocol described for the 0.2.1 suite [L124-131]",
+        "L": [38, 40, 42, 44, 45, 47]
+      },
+      "metrics": {
+        "bench:Decision Index 0.3 (public)": "c2",
+        "bench:Vision board (public)": "c4"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Current board edition, public part only [L40]"]
+    },
+    {
+      "role": "own",
+      "name": "Blink v0.5 · 26B-A4B NVFP4",
+      "panel": "Scores",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "Decision Index 0.2.1 suite (38 scored benchmarks, five areas), 150,759 requests per run",
+        "ctx": "not stated",
+        "tool": "own harness, not named",
+        "L": [51, 53, 57, 58]
+      },
+      "metrics": {
+        "bench:Decision Index 0.2.1": "c11",
+        "bench:Knowledge": "c12",
+        "bench:Language": "c13",
+        "bench:Retrieval": "c14",
+        "bench:Tools": "c15",
+        "bench:Arts": "c16"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Legacy 0.2.1 suite, not comparable with 0.3 [L49]", "Board rows (other models) omitted, different models [L59-72]", "Per-benchmark values in prose [L32, L74, L145, L147]"]
+    },
+    {
+      "role": "own",
+      "name": "Blink v0.5 · 26B-A4B NVFP4 + think when unsure",
+      "panel": "Scores",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "Decision Index 0.2.1 suite (38 scored benchmarks, five areas), 150,759 requests per run",
+        "ctx": "not stated",
+        "tool": "own harness, not named; think variant lost 5 requests to errors, counted as wrong [L53]",
+        "L": [51, 53, 57, 58]
+      },
+      "metrics": {
+        "bench:Decision Index 0.2.1": "c5",
+        "bench:Knowledge": "c6",
+        "bench:Language": "c7",
+        "bench:Retrieval": "c8",
+        "bench:Tools": "c9",
+        "bench:Arts": "c10"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Legacy 0.2.1 suite, not comparable with 0.3 [L49]", "Board rows (other models) omitted, different models [L59-72]"]
+    },
+    {
+      "role": "own",
+      "name": "Blink v0.5 · 26B-A4B NVFP4",
+      "panel": "Think when unsure",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "Decision Index 0.2.1 suite (333,394 questions for think gating)",
+        "ctx": "prompts up to 4,096 tokens may think",
+        "tool": "own harness; thought pass greedy at temperature 0, up to 1,024 tokens, stop at <channel|>",
+        "L": [122, 127, 128, 133, 135]
+      },
+      "metrics": {
+        "bench:Decision Index 0.2.1": "c101",
+        "bench:Knowledge": "c102",
+        "bench:Language": "c103",
+        "bench:Retrieval": "c104",
+        "bench:Tools": "c105",
+        "bench:Arts": "c106"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Legacy 0.2.1 suite, not comparable with 0.3 [L49]", "Repeats the one-pass row of Scores [L53-58]"]
+    },
+    {
+      "role": "own",
+      "name": "Blink v0.5 · 26B-A4B NVFP4 + think when unsure",
+      "panel": "Think when unsure",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "Decision Index 0.2.1 suite (333,394 questions for think gating)",
+        "ctx": "prompts up to 4,096 tokens may think",
+        "tool": "own harness; thought pass greedy at temperature 0, up to 1,024 tokens, stop at <channel|>",
+        "L": [122, 127, 128, 133, 135]
+      },
+      "metrics": {
+        "bench:Decision Index 0.2.1": "c107",
+        "bench:Knowledge": "c108",
+        "bench:Language": "c109",
+        "bench:Retrieval": "c110",
+        "bench:Tools": "c111",
+        "bench:Arts": "c112"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Legacy 0.2.1 suite, not comparable with 0.3 [L49]", "Think triggers on 5.9 % of questions [L133]", "Calibration figures not mapped [L140]"]
+    }
+  ],
+  "prose": [
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Decision Index 0.3 (current board edition)", "key": "bench:Knowledge", "L": 47, "raw": "knowledge 45.6"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Decision Index 0.3 (current board edition)", "key": "bench:Language", "L": 47, "raw": "language 64.1"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Decision Index 0.3 (current board edition)", "key": "bench:Retrieval", "L": 47, "raw": "retrieval 63.5"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Decision Index 0.3 (current board edition)", "key": "bench:Tools", "L": 47, "raw": "tools 76.1"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Decision Index 0.3 (current board edition)", "key": "bench:Arts", "L": 47, "raw": "arts 46.1"},
+
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Scores", "key": "bench:When2Call", "L": 32, "raw": "When2Call 84.8"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Scores", "key": "bench:BFCL", "L": 32, "raw": "BFCL 95.8"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Scores", "key": "bench:GPQA Diamond", "L": 32, "raw": "GPQA Diamond 27.9"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Scores", "key": "bench:CRUXEval", "L": 32, "raw": "CRUXEval 61.3"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Scores", "key": "bench:GSM8K", "L": 32, "raw": "GSM8K 75.7"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Scores", "key": "bench:Home appliance simulator", "L": 74, "raw": "Home appliance simulator 47.7"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Scores", "key": "bench:ForecastBench", "L": 74, "raw": "ForecastBench 29.2"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Scores", "key": "bench:BPoMP", "L": 74, "raw": "BPoMP 84.9"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Scores", "key": "bench:CLINC150", "L": 74, "raw": "CLINC150 83.3"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Scores", "key": "bench:POP909 chords", "L": 74, "raw": "POP909 chords 57.7"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Scores", "key": "bench:HoVer", "L": 74, "raw": "HoVer 55.1"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Scores", "key": "bench:SATA-Bench", "L": 145, "raw": "SATA-Bench 34.7"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Scores", "key": "bench:New Yorker captions", "L": 147, "raw": "New Yorker captions 69.2"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Scores", "key": "bench:Habermas Machine", "L": 147, "raw": "Habermas Machine 21.9"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Scores", "key": "bench:iSarcasmEval", "L": 147, "raw": "iSarcasmEval 57.7"},
+
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Think when unsure", "key": "bench:GPQA Diamond", "L": 140, "raw": "GPQA Diamond 27.9"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Think when unsure", "key": "bench:MMLU-Pro", "L": 140, "raw": "MMLU-Pro 62.2"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Think when unsure", "key": "bench:GSM8K", "L": 140, "raw": "GSM8K 75.7"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Think when unsure", "key": "bench:CRUXEval", "L": 140, "raw": "CRUXEval 61.3"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Think when unsure", "key": "bench:BBH", "L": 140, "raw": "BBH 73.6"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Think when unsure", "key": "bench:ANLI", "L": 140, "raw": "ANLI 56.8"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Think when unsure", "key": "bench:CLINC150", "L": 140, "raw": "CLINC150 83.3"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Think when unsure", "key": "bench:BRIGHT", "L": 140, "raw": "BRIGHT 41.0"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4", "panel": "Think when unsure", "key": "bench:FinEntity", "L": 140, "raw": "FinEntity 90.9"},
+
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4 + think when unsure", "panel": "Think when unsure", "key": "bench:GPQA Diamond", "L": 140, "raw": "→ 39.5"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4 + think when unsure", "panel": "Think when unsure", "key": "bench:MMLU-Pro", "L": 140, "raw": "→ 72.9"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4 + think when unsure", "panel": "Think when unsure", "key": "bench:GSM8K", "L": 140, "raw": "→ 85.1"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4 + think when unsure", "panel": "Think when unsure", "key": "bench:CRUXEval", "L": 140, "raw": "→ 69.9"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4 + think when unsure", "panel": "Think when unsure", "key": "bench:BBH", "L": 140, "raw": "→ 78.4"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4 + think when unsure", "panel": "Think when unsure", "key": "bench:ANLI", "L": 140, "raw": "→ 59.8"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4 + think when unsure", "panel": "Think when unsure", "key": "bench:CLINC150", "L": 140, "raw": "→ 86.7"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4 + think when unsure", "panel": "Think when unsure", "key": "bench:BRIGHT", "L": 140, "raw": "→ 39.6"},
+    {"entry": "Blink v0.5 · 26B-A4B NVFP4 + think when unsure", "panel": "Think when unsure", "key": "bench:FinEntity", "L": 140, "raw": "→ 89.8"}
+  ]
+}

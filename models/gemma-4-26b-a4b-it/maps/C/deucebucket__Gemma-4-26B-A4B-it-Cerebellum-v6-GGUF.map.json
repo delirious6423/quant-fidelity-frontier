@@ -1,0 +1,18 @@
+{"repo": "deucebucket/Gemma-4-26B-A4B-it-Cerebellum-v6-GGUF",
+ "source_sha256": "3f083d95606d94c629199b7d51981fb274705fd0002549aa8b6a7438ac44c0db",
+ "candidates_sha256": "f1e6625f293a1d8da54ff4dad3502f7f817b8e12d23ddf963626e49cfb66da9e",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Uniform Q3_K_M same-size build [L94,L95]", "dataset": "ARC-Challenge, HellaSwag, MMLU-Redux", "ctx": "not stated", "tool": "llama.cpp llama-server, temperature 0, project benchmark harness [L92,L93]", "L": [92, 93, 94, 95, 97]},
+ "entries": [
+  {"role": "own", "name": "Cerebellum v6",
+   "metrics": {"bench:ARC-Challenge": "c1", "bench:HellaSwag": "c3", "bench:MMLU-Redux": "c5"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Size stated in the column header, not mapped [L97]", "HumanEval for this build is not published; the legacy raw-completions row is not mapped [L102,L106,L107]"]},
+  {"role": "ladder", "name": "Uniform Q3_K_M",
+   "metrics": {"bench:ARC-Challenge": "c2", "bench:HellaSwag": "c4", "bench:MMLU-Redux": "c6"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Same-size uniform build measured by the card's author on the same harness [L94,L95]", "Uniform HumanEval figure is from the legacy raw-completions harness and is not mapped [L102]"]}
+ ],
+ "prose": []}

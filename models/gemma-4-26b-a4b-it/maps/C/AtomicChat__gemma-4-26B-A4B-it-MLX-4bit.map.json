@@ -1,0 +1,56 @@
+{
+  "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-4bit",
+  "source_sha256": "85d9d547661eb67b4039a0228e9a830e4bcae676b4e106c71b9d50eba0c2704b",
+  "candidates_sha256": "a46e0f8178c737ebfe42d7282509f0052f47df7a69cfca79e24eaf9e705a819e",
+  "no_quality_claims": true,
+  "no_claims_reason": "quality scores are Google's base-model figures, not measured on this quant [L88]; no number about the quant itself",
+  "weights_modified": false,
+  "method": {
+    "reference": "Google's published results for google/gemma-4-26B-A4B-it (base), not own measurements",
+    "dataset": "not stated",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [68, 88]
+  },
+  "entries": [
+    {
+      "role": "quoted",
+      "name": "google/gemma-4-26B-A4B-it",
+      "of": "google/gemma-4-26B-A4B-it",
+      "methodology": {
+        "reference": "Google's published results for google/gemma-4-26B-A4B-it (base), not own measurements",
+        "dataset": "not stated",
+        "ctx": "not stated",
+        "tool": "not stated",
+        "L": [68, 88]
+      },
+      "metrics": {
+        "bench:MMLU Pro": "c3",
+        "bench:AIME 2026 no tools": "c4",
+        "bench:LiveCodeBench v6": "c5",
+        "bench:Codeforces ELO": "c6",
+        "bench:GPQA Diamond": "c7",
+        "bench:Tau2 (average over 3)": "c8",
+        "bench:HLE no tools": "c9",
+        "bench:HLE with search": "c10",
+        "bench:BigBench Extra Hard": "c11",
+        "bench:MMMLU": "c12",
+        "bench:MMMU Pro": "c13",
+        "bench:OmniDocBench 1.5 (average edit distance, lower is better)": "c14",
+        "bench:MATH-Vision": "c15",
+        "bench:MedXPertQA MM": "c16",
+        "bench:MRCR v2 8 needle 128k (average)": "c17"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Base-model figures quoted from Google, not measured on this MLX 4-bit build [L88]",
+        "Quantization is said to preserve most of these scores, with no numbers given [L88]",
+        "No size is printed next to the scores; 25.2B parameters is not a file size [L58]"
+      ]
+    }
+  ],
+  "prose": []
+}

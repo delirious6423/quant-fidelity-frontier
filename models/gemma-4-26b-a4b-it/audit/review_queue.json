@@ -1,0 +1,3604 @@
+{
+ "quarantined": [
+  {
+   "repo": "hsng95/gemma-4-26b-a4b-mlx-imatrix3plus-awq",
+   "kind": "variants",
+   "entry": "Standard (this model)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "kind": "variants",
+   "entry": "gemma-4-26B-A4B-it-Q2_K",
+   "reason": "failed a gate"
+  }
+ ],
+ "disagreements": [
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-8bit",
+   "entry": "base",
+   "key": "bench:AIME-2026",
+   "raw": "88.3%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-8bit",
+   "entry": "base",
+   "key": "bench:Tau2",
+   "raw": "68.2%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-8bit",
+   "entry": "base",
+   "key": "bench:MRCR-v2-128k",
+   "raw": "44.1%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "Google published results, base model",
+   "key": "bench:OmniDocBench 1.5 (average edit distance, lower is better)",
+   "raw": "0.149"
+  },
+  {
+   "repo": "BCCard/gemma-4-26B-A4B-it-FP8-Dynamic",
+   "entry": "FP8 (BC Card distribution)",
+   "key": "bench:GSM8K-Platinum-flexible",
+   "raw": "0.9669"
+  },
+  {
+   "repo": "BCCard/gemma-4-26B-A4B-it-FP8-Dynamic",
+   "entry": "FP8 (BC Card distribution)",
+   "key": "bench:GSM8K-Platinum-strict",
+   "raw": "0.9669"
+  },
+  {
+   "repo": "BCCard/gemma-4-26B-A4B-it-FP8-Dynamic",
+   "entry": "Original",
+   "key": "bench:GSM8K-Platinum-flexible",
+   "raw": "0.9702"
+  },
+  {
+   "repo": "BCCard/gemma-4-26B-A4B-it-FP8-Dynamic",
+   "entry": "Original",
+   "key": "bench:GSM8K-Platinum-strict",
+   "raw": "0.9702"
+  },
+  {
+   "repo": "Capicua25x/gemma-4-26B-A4B-it-MXFP4-Quark-RDNA4",
+   "entry": "MXFP4 (Quark) for RDNA4",
+   "key": "bench:tau2-bench telecom",
+   "raw": "0.4649"
+  },
+  {
+   "repo": "Capicua25x/gemma-4-26B-A4B-it-MXFP4-Quark-RDNA4",
+   "entry": "MXFP4 (Quark) for RDNA4",
+   "key": "bench:WhatsApp order-agent eval",
+   "raw": "36 / 37"
+  },
+  {
+   "repo": "Capicua25x/gemma-4-26B-A4B-it-MXFP4-Quark-RDNA4",
+   "entry": "MXFP4 (Quark) for RDNA4",
+   "key": "bench:SQL-analyst regression suite",
+   "raw": "155 / 156"
+  },
+  {
+   "repo": "InfiniCloud/gemma-4-26B-A4B-it-GPTQ-INT4-G64",
+   "entry": "INT4 G64",
+   "key": "bench:JA-MGSM-strict",
+   "raw": "4.0% (10/250)"
+  },
+  {
+   "repo": "InfiniCloud/gemma-4-26B-A4B-it-GPTQ-INT4-G64",
+   "entry": "INT4 G64",
+   "key": "bench:JA-MGSM-flexible",
+   "raw": "81.2% (203/250)"
+  },
+  {
+   "repo": "InfiniCloud/gemma-4-26B-A4B-it-GPTQ-INT4-G64",
+   "entry": "BF16",
+   "key": "bench:JA-MGSM-strict",
+   "raw": "4.0% (10/250)"
+  },
+  {
+   "repo": "InfiniCloud/gemma-4-26B-A4B-it-GPTQ-INT4-G64",
+   "entry": "BF16",
+   "key": "bench:JA-MGSM-flexible",
+   "raw": "82.8% (207/250)"
+  },
+  {
+   "repo": "Krasnopjorovs/gemma-4-26b-a4b-it-Imatrix-IQ4_XS-GGUF",
+   "entry": "IQ4_XS",
+   "key": "bench:Lateral Thinking",
+   "raw": "100% accuracy"
+  },
+  {
+   "repo": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-heretic-ja-GGUF",
+   "entry": "This model",
+   "key": "mean_kld",
+   "raw": "0.0362"
+  },
+  {
+   "repo": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-uncensored-heretic-v2-GGUF",
+   "entry": "Gemma 4 26B A4B",
+   "key": "bench:MMLU-Pro",
+   "raw": "82.6%"
+  },
+  {
+   "repo": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-uncensored-heretic-v2-GGUF",
+   "entry": "Gemma 4 26B A4B",
+   "key": "bench:AIME-2026",
+   "raw": "88.3%"
+  },
+  {
+   "repo": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-uncensored-heretic-v2-GGUF",
+   "entry": "Gemma 4 26B A4B",
+   "key": "bench:LiveCodeBench-v6",
+   "raw": "77.1%"
+  },
+  {
+   "repo": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-uncensored-heretic-v2-GGUF",
+   "entry": "Gemma 4 26B A4B",
+   "key": "bench:Codeforces-ELO",
+   "raw": "1718"
+  },
+  {
+   "repo": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-uncensored-heretic-v2-GGUF",
+   "entry": "Gemma 4 26B A4B",
+   "key": "bench:GPQA-Diamond",
+   "raw": "82.3%"
+  },
+  {
+   "repo": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-uncensored-heretic-v2-GGUF",
+   "entry": "Gemma 4 26B A4B",
+   "key": "bench:Tau2",
+   "raw": "68.2%"
+  },
+  {
+   "repo": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-uncensored-heretic-v2-GGUF",
+   "entry": "Gemma 4 26B A4B",
+   "key": "bench:HLE-no-tools",
+   "raw": "8.7%"
+  },
+  {
+   "repo": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-uncensored-heretic-v2-GGUF",
+   "entry": "Gemma 4 26B A4B",
+   "key": "bench:HLE-with-search",
+   "raw": "17.2%"
+  },
+  {
+   "repo": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-uncensored-heretic-v2-GGUF",
+   "entry": "Gemma 4 26B A4B",
+   "key": "bench:BigBench-Extra-Hard",
+   "raw": "64.8%"
+  },
+  {
+   "repo": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-uncensored-heretic-v2-GGUF",
+   "entry": "Gemma 4 26B A4B",
+   "key": "bench:MMMLU",
+   "raw": "86.3%"
+  },
+  {
+   "repo": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-uncensored-heretic-v2-GGUF",
+   "entry": "Gemma 4 26B A4B",
+   "key": "bench:MMMU-Pro",
+   "raw": "73.8%"
+  },
+  {
+   "repo": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-uncensored-heretic-v2-GGUF",
+   "entry": "Gemma 4 26B A4B",
+   "key": "bench:OmniDocBench-1.5",
+   "raw": "0.149"
+  },
+  {
+   "repo": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-uncensored-heretic-v2-GGUF",
+   "entry": "Gemma 4 26B A4B",
+   "key": "bench:MATH-Vision",
+   "raw": "82.4%"
+  },
+  {
+   "repo": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-uncensored-heretic-v2-GGUF",
+   "entry": "Gemma 4 26B A4B",
+   "key": "bench:MedXPertQA-MM",
+   "raw": "58.1%"
+  },
+  {
+   "repo": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-uncensored-heretic-v2-GGUF",
+   "entry": "Gemma 4 26B A4B",
+   "key": "bench:MRCR-v2-128k",
+   "raw": "44.1%"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Blink v0.1 \u00b7 26B-A4B NVFP4",
+   "key": "bench:Decision Index",
+   "raw": "54.90"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Jev (hosted)",
+   "key": "bench:Decision Index",
+   "raw": "57.91"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Jev (hosted)",
+   "key": "bench:Knowledge",
+   "raw": "51.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Jev (hosted)",
+   "key": "bench:Language",
+   "raw": "62.0"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Jev (hosted)",
+   "key": "bench:Retrieval",
+   "raw": "55.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Jev (hosted)",
+   "key": "bench:Tools",
+   "raw": "75.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Jev (hosted)",
+   "key": "bench:Arts",
+   "raw": "37.7"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Surogate Rune 26B-A4B v3",
+   "key": "bench:Decision Index",
+   "raw": "57.44"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Surogate Rune 26B-A4B v3",
+   "key": "bench:Knowledge",
+   "raw": "43.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Surogate Rune 26B-A4B v3",
+   "key": "bench:Language",
+   "raw": "63.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Surogate Rune 26B-A4B v3",
+   "key": "bench:Retrieval",
+   "raw": "63.5"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Surogate Rune 26B-A4B v3",
+   "key": "bench:Tools",
+   "raw": "71.2"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Surogate Rune 26B-A4B v3",
+   "key": "bench:Arts",
+   "raw": "41.9"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Gemma-4-31B",
+   "key": "bench:Decision Index",
+   "raw": "57.33"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Gemma-4-31B",
+   "key": "bench:Knowledge",
+   "raw": "44.3"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Gemma-4-31B",
+   "key": "bench:Language",
+   "raw": "60.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Gemma-4-31B",
+   "key": "bench:Retrieval",
+   "raw": "63.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Gemma-4-31B",
+   "key": "bench:Tools",
+   "raw": "75.6"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Gemma-4-31B",
+   "key": "bench:Arts",
+   "raw": "38.3"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "AutoJev-27B",
+   "key": "bench:Decision Index",
+   "raw": "56.40"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "AutoJev-27B",
+   "key": "bench:Knowledge",
+   "raw": "40.9"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "AutoJev-27B",
+   "key": "bench:Language",
+   "raw": "63.5"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "AutoJev-27B",
+   "key": "bench:Retrieval",
+   "raw": "54.9"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "AutoJev-27B",
+   "key": "bench:Tools",
+   "raw": "79.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "AutoJev-27B",
+   "key": "bench:Arts",
+   "raw": "39.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "simple-jev \u00b7 Qwen3.8-27B",
+   "key": "bench:Decision Index",
+   "raw": "55.74"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "simple-jev \u00b7 Qwen3.8-27B",
+   "key": "bench:Knowledge",
+   "raw": "36.6"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "simple-jev \u00b7 Qwen3.8-27B",
+   "key": "bench:Language",
+   "raw": "62.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "simple-jev \u00b7 Qwen3.8-27B",
+   "key": "bench:Retrieval",
+   "raw": "63.3"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "simple-jev \u00b7 Qwen3.8-27B",
+   "key": "bench:Tools",
+   "raw": "76.2"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "simple-jev \u00b7 Qwen3.8-27B",
+   "key": "bench:Arts",
+   "raw": "36.5"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "frontier-infra Jebadiah 27B",
+   "key": "bench:Decision Index",
+   "raw": "54.67"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "frontier-infra Jebadiah 27B",
+   "key": "bench:Knowledge",
+   "raw": "38.8"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "frontier-infra Jebadiah 27B",
+   "key": "bench:Language",
+   "raw": "60.7"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "frontier-infra Jebadiah 27B",
+   "key": "bench:Retrieval",
+   "raw": "53.9"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "frontier-infra Jebadiah 27B",
+   "key": "bench:Tools",
+   "raw": "78.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "frontier-infra Jebadiah 27B",
+   "key": "bench:Arts",
+   "raw": "38.7"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Eikos-27B-FP8",
+   "key": "bench:Decision Index",
+   "raw": "53.13"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Eikos-27B-FP8",
+   "key": "bench:Knowledge",
+   "raw": "39.9"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Eikos-27B-FP8",
+   "key": "bench:Language",
+   "raw": "54.3"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Eikos-27B-FP8",
+   "key": "bench:Retrieval",
+   "raw": "55.9"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Eikos-27B-FP8",
+   "key": "bench:Tools",
+   "raw": "74.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Eikos-27B-FP8",
+   "key": "bench:Arts",
+   "raw": "39.8"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "reflex Qwen3.8-27B-FP8",
+   "key": "bench:Decision Index",
+   "raw": "52.16"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "reflex Qwen3.8-27B-FP8",
+   "key": "bench:Knowledge",
+   "raw": "35.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "reflex Qwen3.8-27B-FP8",
+   "key": "bench:Language",
+   "raw": "54.2"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "reflex Qwen3.8-27B-FP8",
+   "key": "bench:Retrieval",
+   "raw": "57.8"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "reflex Qwen3.8-27B-FP8",
+   "key": "bench:Tools",
+   "raw": "74.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "reflex Qwen3.8-27B-FP8",
+   "key": "bench:Arts",
+   "raw": "39.7"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Qwen3.6-27B",
+   "key": "bench:Decision Index",
+   "raw": "51.35"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Qwen3.6-27B",
+   "key": "bench:Knowledge",
+   "raw": "37.0"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Qwen3.6-27B",
+   "key": "bench:Language",
+   "raw": "57.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Qwen3.6-27B",
+   "key": "bench:Retrieval",
+   "raw": "52.2"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Qwen3.6-27B",
+   "key": "bench:Tools",
+   "raw": "71.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Qwen3.6-27B",
+   "key": "bench:Arts",
+   "raw": "35.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Decider 35B-A3B NVFP4",
+   "key": "bench:Decision Index",
+   "raw": "47.11"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Decider 35B-A3B NVFP4",
+   "key": "bench:Knowledge",
+   "raw": "31.8"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Decider 35B-A3B NVFP4",
+   "key": "bench:Language",
+   "raw": "55.5"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Decider 35B-A3B NVFP4",
+   "key": "bench:Retrieval",
+   "raw": "54.7"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Decider 35B-A3B NVFP4",
+   "key": "bench:Tools",
+   "raw": "56.5"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+   "entry": "Decider 35B-A3B NVFP4",
+   "key": "bench:Arts",
+   "raw": "32.6"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.3-26B-A4B-FP8",
+   "entry": "Blink v0.3 \u00b7 26B-A4B NVFP4",
+   "key": "bench:Index",
+   "raw": "57.48"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Blink v0.4 \u00b7 26B-A4B NVFP4",
+   "key": "bench:Index",
+   "raw": "57.73"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Blink v0.3 \u00b7 26B-A4B NVFP4",
+   "key": "bench:Index",
+   "raw": "57.48"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Blink v0.2 \u00b7 26B-A4B NVFP4",
+   "key": "bench:Index",
+   "raw": "55.97"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Blink v0.1 \u00b7 26B-A4B NVFP4",
+   "key": "bench:Index",
+   "raw": "54.90"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Jev (hosted)",
+   "key": "bench:Index",
+   "raw": "57.91"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Jev (hosted)",
+   "key": "bench:Knowledge",
+   "raw": "51.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Jev (hosted)",
+   "key": "bench:Language",
+   "raw": "62.0"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Jev (hosted)",
+   "key": "bench:Retrieval",
+   "raw": "55.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Jev (hosted)",
+   "key": "bench:Tools",
+   "raw": "75.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Jev (hosted)",
+   "key": "bench:Arts",
+   "raw": "37.7"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Surogate Rune 26B-A4B v3",
+   "key": "bench:Index",
+   "raw": "57.44"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Surogate Rune 26B-A4B v3",
+   "key": "bench:Knowledge",
+   "raw": "43.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Surogate Rune 26B-A4B v3",
+   "key": "bench:Language",
+   "raw": "63.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Surogate Rune 26B-A4B v3",
+   "key": "bench:Retrieval",
+   "raw": "63.5"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Surogate Rune 26B-A4B v3",
+   "key": "bench:Tools",
+   "raw": "71.2"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Surogate Rune 26B-A4B v3",
+   "key": "bench:Arts",
+   "raw": "41.9"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Gemma-4-31B",
+   "key": "bench:Index",
+   "raw": "57.33"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Gemma-4-31B",
+   "key": "bench:Knowledge",
+   "raw": "44.3"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Gemma-4-31B",
+   "key": "bench:Language",
+   "raw": "60.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Gemma-4-31B",
+   "key": "bench:Retrieval",
+   "raw": "63.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Gemma-4-31B",
+   "key": "bench:Tools",
+   "raw": "75.6"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Gemma-4-31B",
+   "key": "bench:Arts",
+   "raw": "38.3"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "AutoJev-27B",
+   "key": "bench:Index",
+   "raw": "56.40"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "AutoJev-27B",
+   "key": "bench:Knowledge",
+   "raw": "40.9"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "AutoJev-27B",
+   "key": "bench:Language",
+   "raw": "63.5"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "AutoJev-27B",
+   "key": "bench:Retrieval",
+   "raw": "54.9"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "AutoJev-27B",
+   "key": "bench:Tools",
+   "raw": "79.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "AutoJev-27B",
+   "key": "bench:Arts",
+   "raw": "39.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "simple-jev \u00b7 Qwen3.8-27B",
+   "key": "bench:Index",
+   "raw": "55.74"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "simple-jev \u00b7 Qwen3.8-27B",
+   "key": "bench:Knowledge",
+   "raw": "36.6"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "simple-jev \u00b7 Qwen3.8-27B",
+   "key": "bench:Language",
+   "raw": "62.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "simple-jev \u00b7 Qwen3.8-27B",
+   "key": "bench:Retrieval",
+   "raw": "63.3"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "simple-jev \u00b7 Qwen3.8-27B",
+   "key": "bench:Tools",
+   "raw": "76.2"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "simple-jev \u00b7 Qwen3.8-27B",
+   "key": "bench:Arts",
+   "raw": "36.5"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "frontier-infra Jebadiah 27B",
+   "key": "bench:Index",
+   "raw": "54.67"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "frontier-infra Jebadiah 27B",
+   "key": "bench:Knowledge",
+   "raw": "38.8"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "frontier-infra Jebadiah 27B",
+   "key": "bench:Language",
+   "raw": "60.7"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "frontier-infra Jebadiah 27B",
+   "key": "bench:Retrieval",
+   "raw": "53.9"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "frontier-infra Jebadiah 27B",
+   "key": "bench:Tools",
+   "raw": "78.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "frontier-infra Jebadiah 27B",
+   "key": "bench:Arts",
+   "raw": "38.7"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Eikos-27B-FP8",
+   "key": "bench:Index",
+   "raw": "53.13"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Eikos-27B-FP8",
+   "key": "bench:Knowledge",
+   "raw": "39.9"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Eikos-27B-FP8",
+   "key": "bench:Language",
+   "raw": "54.3"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Eikos-27B-FP8",
+   "key": "bench:Retrieval",
+   "raw": "55.9"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Eikos-27B-FP8",
+   "key": "bench:Tools",
+   "raw": "74.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Eikos-27B-FP8",
+   "key": "bench:Arts",
+   "raw": "39.8"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "reflex Qwen3.8-27B-FP8",
+   "key": "bench:Index",
+   "raw": "52.16"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "reflex Qwen3.8-27B-FP8",
+   "key": "bench:Knowledge",
+   "raw": "35.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "reflex Qwen3.8-27B-FP8",
+   "key": "bench:Language",
+   "raw": "54.2"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "reflex Qwen3.8-27B-FP8",
+   "key": "bench:Retrieval",
+   "raw": "57.8"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "reflex Qwen3.8-27B-FP8",
+   "key": "bench:Tools",
+   "raw": "74.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "reflex Qwen3.8-27B-FP8",
+   "key": "bench:Arts",
+   "raw": "39.7"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Qwen3.6-27B",
+   "key": "bench:Index",
+   "raw": "51.35"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Qwen3.6-27B",
+   "key": "bench:Knowledge",
+   "raw": "37.0"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Qwen3.6-27B",
+   "key": "bench:Language",
+   "raw": "57.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Qwen3.6-27B",
+   "key": "bench:Retrieval",
+   "raw": "52.2"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Qwen3.6-27B",
+   "key": "bench:Tools",
+   "raw": "71.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Qwen3.6-27B",
+   "key": "bench:Arts",
+   "raw": "35.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Decider 35B-A3B NVFP4",
+   "key": "bench:Index",
+   "raw": "47.11"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Decider 35B-A3B NVFP4",
+   "key": "bench:Knowledge",
+   "raw": "31.8"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Decider 35B-A3B NVFP4",
+   "key": "bench:Language",
+   "raw": "55.5"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Decider 35B-A3B NVFP4",
+   "key": "bench:Retrieval",
+   "raw": "54.7"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Decider 35B-A3B NVFP4",
+   "key": "bench:Tools",
+   "raw": "56.5"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.4-26B-A4B-NVFP4",
+   "entry": "Decider 35B-A3B NVFP4",
+   "key": "bench:Arts",
+   "raw": "32.6"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "one pass",
+   "key": "bench:Knowledge",
+   "raw": "45.6"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "one pass",
+   "key": "bench:Language",
+   "raw": "64.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "one pass",
+   "key": "bench:Retrieval",
+   "raw": "63.5"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "one pass",
+   "key": "bench:Tools",
+   "raw": "76.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "one pass",
+   "key": "bench:Arts",
+   "raw": "46.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Blink v0.5 \u00b7 26B-A4B NVFP4 + think when unsure",
+   "key": "bench:Index",
+   "raw": "60.39"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Blink v0.5 \u00b7 26B-A4B NVFP4",
+   "key": "bench:Index",
+   "raw": "58.67"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "one pass",
+   "key": "bench:Index",
+   "raw": "58.67"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "think when unsure",
+   "key": "bench:Index",
+   "raw": "60.39"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Blink v0.4 \u00b7 26B-A4B NVFP4",
+   "key": "bench:Index",
+   "raw": "57.73"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Blink v0.3 \u00b7 26B-A4B NVFP4",
+   "key": "bench:Index",
+   "raw": "57.48"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Blink v0.2 \u00b7 26B-A4B NVFP4",
+   "key": "bench:Index",
+   "raw": "55.97"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Blink v0.1 \u00b7 26B-A4B NVFP4",
+   "key": "bench:Index",
+   "raw": "54.90"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Jev (hosted)",
+   "key": "bench:Index",
+   "raw": "57.91"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Jev (hosted)",
+   "key": "bench:Knowledge",
+   "raw": "51.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Jev (hosted)",
+   "key": "bench:Language",
+   "raw": "62.0"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Jev (hosted)",
+   "key": "bench:Retrieval",
+   "raw": "55.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Jev (hosted)",
+   "key": "bench:Tools",
+   "raw": "75.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Jev (hosted)",
+   "key": "bench:Arts",
+   "raw": "37.7"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Surogate Rune 26B-A4B v3",
+   "key": "bench:Index",
+   "raw": "57.44"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Surogate Rune 26B-A4B v3",
+   "key": "bench:Knowledge",
+   "raw": "43.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Surogate Rune 26B-A4B v3",
+   "key": "bench:Language",
+   "raw": "63.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Surogate Rune 26B-A4B v3",
+   "key": "bench:Retrieval",
+   "raw": "63.5"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Surogate Rune 26B-A4B v3",
+   "key": "bench:Tools",
+   "raw": "71.2"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Surogate Rune 26B-A4B v3",
+   "key": "bench:Arts",
+   "raw": "41.9"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Gemma-4-31B",
+   "key": "bench:Index",
+   "raw": "57.33"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Gemma-4-31B",
+   "key": "bench:Knowledge",
+   "raw": "44.3"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Gemma-4-31B",
+   "key": "bench:Language",
+   "raw": "60.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Gemma-4-31B",
+   "key": "bench:Retrieval",
+   "raw": "63.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Gemma-4-31B",
+   "key": "bench:Tools",
+   "raw": "75.6"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Gemma-4-31B",
+   "key": "bench:Arts",
+   "raw": "38.3"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "AutoJev-27B",
+   "key": "bench:Index",
+   "raw": "56.40"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "AutoJev-27B",
+   "key": "bench:Knowledge",
+   "raw": "40.9"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "AutoJev-27B",
+   "key": "bench:Language",
+   "raw": "63.5"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "AutoJev-27B",
+   "key": "bench:Retrieval",
+   "raw": "54.9"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "AutoJev-27B",
+   "key": "bench:Tools",
+   "raw": "79.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "AutoJev-27B",
+   "key": "bench:Arts",
+   "raw": "39.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "simple-jev \u00b7 Qwen3.8-27B",
+   "key": "bench:Index",
+   "raw": "55.74"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "simple-jev \u00b7 Qwen3.8-27B",
+   "key": "bench:Knowledge",
+   "raw": "36.6"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "simple-jev \u00b7 Qwen3.8-27B",
+   "key": "bench:Language",
+   "raw": "62.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "simple-jev \u00b7 Qwen3.8-27B",
+   "key": "bench:Retrieval",
+   "raw": "63.3"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "simple-jev \u00b7 Qwen3.8-27B",
+   "key": "bench:Tools",
+   "raw": "76.2"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "simple-jev \u00b7 Qwen3.8-27B",
+   "key": "bench:Arts",
+   "raw": "36.5"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "frontier-infra Jebadiah 27B",
+   "key": "bench:Index",
+   "raw": "54.67"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "frontier-infra Jebadiah 27B",
+   "key": "bench:Knowledge",
+   "raw": "38.8"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "frontier-infra Jebadiah 27B",
+   "key": "bench:Language",
+   "raw": "60.7"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "frontier-infra Jebadiah 27B",
+   "key": "bench:Retrieval",
+   "raw": "53.9"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "frontier-infra Jebadiah 27B",
+   "key": "bench:Tools",
+   "raw": "78.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "frontier-infra Jebadiah 27B",
+   "key": "bench:Arts",
+   "raw": "38.7"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Eikos-27B-FP8",
+   "key": "bench:Index",
+   "raw": "53.13"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Eikos-27B-FP8",
+   "key": "bench:Knowledge",
+   "raw": "39.9"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Eikos-27B-FP8",
+   "key": "bench:Language",
+   "raw": "54.3"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Eikos-27B-FP8",
+   "key": "bench:Retrieval",
+   "raw": "55.9"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Eikos-27B-FP8",
+   "key": "bench:Tools",
+   "raw": "74.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Eikos-27B-FP8",
+   "key": "bench:Arts",
+   "raw": "39.8"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "reflex Qwen3.8-27B-FP8",
+   "key": "bench:Index",
+   "raw": "52.16"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "reflex Qwen3.8-27B-FP8",
+   "key": "bench:Knowledge",
+   "raw": "35.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "reflex Qwen3.8-27B-FP8",
+   "key": "bench:Language",
+   "raw": "54.2"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "reflex Qwen3.8-27B-FP8",
+   "key": "bench:Retrieval",
+   "raw": "57.8"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "reflex Qwen3.8-27B-FP8",
+   "key": "bench:Tools",
+   "raw": "74.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "reflex Qwen3.8-27B-FP8",
+   "key": "bench:Arts",
+   "raw": "39.7"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Qwen3.6-27B",
+   "key": "bench:Index",
+   "raw": "51.35"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Qwen3.6-27B",
+   "key": "bench:Knowledge",
+   "raw": "37.0"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Qwen3.6-27B",
+   "key": "bench:Language",
+   "raw": "57.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Qwen3.6-27B",
+   "key": "bench:Retrieval",
+   "raw": "52.2"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Qwen3.6-27B",
+   "key": "bench:Tools",
+   "raw": "71.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Decider chat \u00b7 Qwen3.6-27B",
+   "key": "bench:Arts",
+   "raw": "35.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Decider 35B-A3B NVFP4",
+   "key": "bench:Index",
+   "raw": "47.11"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Decider 35B-A3B NVFP4",
+   "key": "bench:Knowledge",
+   "raw": "31.8"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Decider 35B-A3B NVFP4",
+   "key": "bench:Language",
+   "raw": "55.5"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Decider 35B-A3B NVFP4",
+   "key": "bench:Retrieval",
+   "raw": "54.7"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Decider 35B-A3B NVFP4",
+   "key": "bench:Tools",
+   "raw": "56.5"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "Decider 35B-A3B NVFP4",
+   "key": "bench:Arts",
+   "raw": "32.6"
+  },
+  {
+   "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+   "entry": "gemma-4-26B-A4B-it-oQ3",
+   "key": "bench:MMLU",
+   "raw": "79.0%"
+  },
+  {
+   "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+   "entry": "gemma-4-26B-A4B-it-oQ3",
+   "key": "bench:JMMLU",
+   "raw": "75.7%"
+  },
+  {
+   "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+   "entry": "gemma-4-26B-A4B-it-oQ3",
+   "key": "bench:HELLASWAG",
+   "raw": "86.0%"
+  },
+  {
+   "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+   "entry": "gemma-4-26B-A4B-it-oQ3",
+   "key": "bench:ARC_CHALLENGE",
+   "raw": "95.0%"
+  },
+  {
+   "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+   "entry": "gemma-4-26B-A4B-it-oQ3",
+   "key": "bench:GSM8K",
+   "raw": "93.3%"
+  },
+  {
+   "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+   "entry": "gemma-4-26B-A4B-it-oQ3.5",
+   "key": "bench:MMLU",
+   "raw": "57.0%"
+  },
+  {
+   "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+   "entry": "gemma-4-26B-A4B-it-oQ3.5",
+   "key": "bench:JMMLU",
+   "raw": "68.7%"
+  },
+  {
+   "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+   "entry": "gemma-4-26B-A4B-it-oQ3.5",
+   "key": "bench:HELLASWAG",
+   "raw": "82.7%"
+  },
+  {
+   "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+   "entry": "gemma-4-26B-A4B-it-oQ3.5",
+   "key": "bench:ARC_CHALLENGE",
+   "raw": "90.3%"
+  },
+  {
+   "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+   "entry": "gemma-4-26B-A4B-it-oQ3.5",
+   "key": "bench:GSM8K",
+   "raw": "43.0%"
+  },
+  {
+   "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+   "entry": "gemma-4-26b-a4b-it-oQ4",
+   "key": "bench:MMLU",
+   "raw": "82.3%"
+  },
+  {
+   "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+   "entry": "gemma-4-26b-a4b-it-oQ4",
+   "key": "bench:JMMLU",
+   "raw": "74.7%"
+  },
+  {
+   "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+   "entry": "gemma-4-26b-a4b-it-oQ4",
+   "key": "bench:HELLASWAG",
+   "raw": "87.3%"
+  },
+  {
+   "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+   "entry": "gemma-4-26b-a4b-it-oQ4",
+   "key": "bench:ARC_CHALLENGE",
+   "raw": "95.7%"
+  },
+  {
+   "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+   "entry": "gemma-4-26b-a4b-it-oQ4",
+   "key": "bench:GSM8K",
+   "raw": "95.3%"
+  },
+  {
+   "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+   "entry": "gemma-4-26b-a4b-it-4bit",
+   "key": "bench:MMLU",
+   "raw": "82.3%"
+  },
+  {
+   "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+   "entry": "gemma-4-26b-a4b-it-4bit",
+   "key": "bench:JMMLU",
+   "raw": "75.0%"
+  },
+  {
+   "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+   "entry": "gemma-4-26b-a4b-it-4bit",
+   "key": "bench:HELLASWAG",
+   "raw": "88.0%"
+  },
+  {
+   "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+   "entry": "gemma-4-26b-a4b-it-4bit",
+   "key": "bench:ARC_CHALLENGE",
+   "raw": "96.0%"
+  },
+  {
+   "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+   "entry": "gemma-4-26b-a4b-it-4bit",
+   "key": "bench:GSM8K",
+   "raw": "95.3%"
+  },
+  {
+   "repo": "SevenOfNine/Gemma-4-26B-A4B-It-Abliterated-GGUF",
+   "entry": "Gemma-4-26B-A4B-It-Abliterated-BF16.gguf",
+   "key": "bench:Refusals",
+   "raw": "18"
+  },
+  {
+   "repo": "SevenOfNine/Gemma-4-26B-A4B-It-Abliterated-GGUF",
+   "entry": "Baseline refusals (original model)",
+   "key": "bench:Refusals",
+   "raw": "100"
+  },
+  {
+   "repo": "Xananthium/REDCELL-26B-A4B-OSINT-Cyber-Abliterated-Pilot-W6A8-Vision",
+   "entry": "Heretic W6A8, vLLM",
+   "key": "bench:Capability-questions",
+   "raw": "19/20"
+  },
+  {
+   "repo": "Xananthium/REDCELL-26B-A4B-OSINT-Cyber-Abliterated-Pilot-W6A8-Vision",
+   "entry": "Heretic edit, NF4",
+   "key": "bench:Capability-questions",
+   "raw": "19/20"
+  },
+  {
+   "repo": "Xananthium/REDCELL-26B-A4B-OSINT-Cyber-Abliterated-Pilot-W6A8-Vision",
+   "entry": "Original REDCELL, NF4",
+   "key": "bench:Capability-questions",
+   "raw": "19/20"
+  },
+  {
+   "repo": "Zek-Takai/gemma-4-26B-A4B-it-NVFP4-fp8global",
+   "entry": "NVFP4, quantized lm_head",
+   "key": "bench:ToolCalling",
+   "raw": "8/8"
+  },
+  {
+   "repo": "baa-ai/Gemma-4-26B-A4B-it-RAM-14GB-MLX",
+   "entry": "Uniform 4-bit",
+   "key": "bench:MMLU % of BF16",
+   "raw": "96.4%"
+  },
+  {
+   "repo": "baa-ai/Gemma-4-26B-A4B-it-RAM-14GB-MLX",
+   "entry": "RAM 18GB",
+   "key": "bench:MMLU % of BF16",
+   "raw": "99.0%"
+  },
+  {
+   "repo": "baa-ai/Gemma-4-26B-A4B-it-RAM-14GB-MLX",
+   "entry": "RAM 20GB \u2605",
+   "key": "bench:MMLU % of BF16",
+   "raw": "99.9%"
+  },
+  {
+   "repo": "baa-ai/Gemma-4-26B-A4B-it-RAM-14GB-MLX",
+   "entry": "RAM 22GB",
+   "key": "bench:MMLU % of BF16",
+   "raw": "99.5%"
+  },
+  {
+   "repo": "baa-ai/Gemma-4-26B-A4B-it-RAM-14GB-MLX",
+   "entry": "BF16",
+   "key": "bench:MMLU % of BF16",
+   "raw": "100%"
+  },
+  {
+   "repo": "baa-ai/Gemma-4-26B-A4B-it-RAM-18GB-MLX",
+   "entry": "18GB (MLX)",
+   "key": "bench:MMLU vs BF16",
+   "raw": "**99.0%** of BF16"
+  },
+  {
+   "repo": "baa-ai/Gemma-4-26B-A4B-it-RAM-18GB-MLX",
+   "entry": "RAM 18GB",
+   "key": "bench:MMLU vs BF16",
+   "raw": "99.0%"
+  },
+  {
+   "repo": "baa-ai/Gemma-4-26B-A4B-it-RAM-18GB-MLX",
+   "entry": "Uniform 4-bit",
+   "key": "bench:MMLU vs BF16",
+   "raw": "96.4%"
+  },
+  {
+   "repo": "baa-ai/Gemma-4-26B-A4B-it-RAM-18GB-MLX",
+   "entry": "RAM 14GB",
+   "key": "bench:MMLU vs BF16",
+   "raw": "96.9%"
+  },
+  {
+   "repo": "baa-ai/Gemma-4-26B-A4B-it-RAM-18GB-MLX",
+   "entry": "RAM 20GB \u2605",
+   "key": "bench:MMLU",
+   "raw": "**80.70%**"
+  },
+  {
+   "repo": "baa-ai/Gemma-4-26B-A4B-it-RAM-18GB-MLX",
+   "entry": "RAM 20GB \u2605",
+   "key": "bench:MMLU vs BF16",
+   "raw": "**99.9%**"
+  },
+  {
+   "repo": "baa-ai/Gemma-4-26B-A4B-it-RAM-18GB-MLX",
+   "entry": "RAM 22GB",
+   "key": "bench:MMLU vs BF16",
+   "raw": "99.5%"
+  },
+  {
+   "repo": "baa-ai/Gemma-4-26B-A4B-it-RAM-20GB-MLX",
+   "entry": "20GB (MLX)",
+   "key": "bench:MMLU-vs-BF16",
+   "raw": "**99.9%** of BF16"
+  },
+  {
+   "repo": "bogdan-radulescu/gemma-4-26B-A4B-it-asym-GGUF",
+   "entry": "asym (this model)",
+   "key": "bench:Polish-score",
+   "raw": "0.969"
+  },
+  {
+   "repo": "bogdan-radulescu/gemma-4-26B-A4B-it-asym-GGUF",
+   "entry": "asym (this model)",
+   "key": "bench:Coding-pass-rate",
+   "raw": "9/10"
+  },
+  {
+   "repo": "bogdan-radulescu/gemma-4-26B-A4B-it-asym-GGUF",
+   "entry": "QAT Q4_0 (uniform baseline)",
+   "key": "bench:Polish-score",
+   "raw": "0.981"
+  },
+  {
+   "repo": "bogdan-radulescu/gemma-4-26B-A4B-it-asym-GGUF",
+   "entry": "QAT Q4_0 (uniform baseline)",
+   "key": "bench:Coding-pass-rate",
+   "raw": "10/10"
+  },
+  {
+   "repo": "crucible-labs/Gemma4-26B-A4B-REAP-25-GGUF",
+   "entry": "Gemma4-26B-A4B-REAP-25-Q3_K-mixed.gguf",
+   "key": "bench:IFEval-inst",
+   "raw": "86.6"
+  },
+  {
+   "repo": "crucible-labs/Gemma4-26B-A4B-REAP-25-GGUF",
+   "entry": "Q4_K_M baseline",
+   "key": "bench:HumanEval",
+   "raw": "91.5 %"
+  },
+  {
+   "repo": "deucebucket/Gemma-4-26B-A4B-it-Cerebellum-v6-GGUF",
+   "entry": "Cerebellum v6 (11 GB)",
+   "key": "bench:ARC-Challenge (1172 q)",
+   "raw": "95.56%"
+  },
+  {
+   "repo": "deucebucket/Gemma-4-26B-A4B-it-Cerebellum-v6-GGUF",
+   "entry": "Cerebellum v6 (11 GB)",
+   "key": "bench:HellaSwag (10042 q)",
+   "raw": "84.55%"
+  },
+  {
+   "repo": "deucebucket/Gemma-4-26B-A4B-it-Cerebellum-v6-GGUF",
+   "entry": "Cerebellum v6 (11 GB)",
+   "key": "bench:MMLU-Redux (2400 q)",
+   "raw": "71.33%"
+  },
+  {
+   "repo": "deucebucket/Gemma-4-26B-A4B-it-Cerebellum-v6-GGUF",
+   "entry": "Uniform Q3_K_M (11 GB)",
+   "key": "bench:ARC-Challenge (1172 q)",
+   "raw": "95.22%"
+  },
+  {
+   "repo": "deucebucket/Gemma-4-26B-A4B-it-Cerebellum-v6-GGUF",
+   "entry": "Uniform Q3_K_M (11 GB)",
+   "key": "bench:HellaSwag (10042 q)",
+   "raw": "86.57%"
+  },
+  {
+   "repo": "deucebucket/Gemma-4-26B-A4B-it-Cerebellum-v6-GGUF",
+   "entry": "Uniform Q3_K_M (11 GB)",
+   "key": "bench:MMLU-Redux (2400 q)",
+   "raw": "73.67%"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q6_K",
+   "key": "bench:WinoGrande",
+   "raw": "54.4000 \u00b11.8199"
+  },
+  {
+   "repo": "farbodtavakkoli/OTel-2.0-Decision-26B-A4B-4bit",
+   "entry": "OTel-2.0-Decision-26B-A4B-4bit, AMD MI350P",
+   "key": "bench:JevBench public (231 tasks)",
+   "raw": "86.58\u201387.45% (200\u2013202/231)"
+  },
+  {
+   "repo": "farbodtavakkoli/OTel-2.0-Decision-26B-A4B-4bit",
+   "entry": "OTel-2.0-Decision-26B-A4B-4bit, AMD Ryzen AI MAX+ PRO 395 (Strix Halo)",
+   "key": "bench:JevBench public (231 tasks)",
+   "raw": "87.45% (202/231)"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Hi-Fi-GGUF",
+   "entry": "fraQtl Hi-Fi",
+   "key": "bench:GSM8K",
+   "raw": "59.5% (119/200)"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Hi-Fi-GGUF",
+   "entry": "bartowski Q4_K_M (pinned)",
+   "key": "bench:GSM8K",
+   "raw": "68.5% (137/200)"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Hi-Fi-GGUF",
+   "entry": "unsloth qat UD-Q4_K_XL",
+   "key": "kld:code-math",
+   "raw": "1.1830 (3-run)"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Hi-Fi-GGUF",
+   "entry": "unsloth qat UD-Q4_K_XL",
+   "key": "kld:general",
+   "raw": "1.2261 (3-run)"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Hi-Fi-GGUF",
+   "entry": "google QAT q4_0",
+   "key": "kld:code-math",
+   "raw": "1.2357 (3-run)"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Hi-Fi-GGUF",
+   "entry": "google QAT q4_0",
+   "key": "kld:general",
+   "raw": "1.2791 (3-run)"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Nano-GGUF",
+   "entry": "Nano 2-bit",
+   "key": "bench:GSM8K",
+   "raw": "86%"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Nano-GGUF",
+   "entry": "Nano 2-bit",
+   "key": "bench:MMLU-Pro",
+   "raw": "65%"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Nano-GGUF",
+   "entry": "Nano 2-bit",
+   "key": "kld:code + math",
+   "raw": "1.97"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Nano-GGUF",
+   "entry": "Nano 2-bit",
+   "key": "top1:code + math",
+   "raw": "60"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Nano-GGUF",
+   "entry": "Nano 2-bit",
+   "key": "kld:general",
+   "raw": "2.91"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Nano-GGUF",
+   "entry": "Nano 2-bit",
+   "key": "top1:general",
+   "raw": "44"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Nano-GGUF",
+   "entry": "Hi-Fi Q4 (for reference)",
+   "key": "kld:code + math",
+   "raw": "0.09"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Nano-GGUF",
+   "entry": "Hi-Fi Q4 (for reference)",
+   "key": "kld:general",
+   "raw": "0.13"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Nano-GGUF",
+   "entry": "Google base",
+   "key": "bench:MMLU-Pro",
+   "raw": "82.6%"
+  },
+  {
+   "repo": "hsng95/gemma-4-26b-a4b-mlx-imatrix3plus-awq",
+   "entry": "imatrix3plus-awq (this model)",
+   "key": "ppl:tulu-3-sft-mixture-seed7",
+   "raw": "51.87 \u00b1 1.20"
+  },
+  {
+   "repo": "hsng95/gemma-4-26b-a4b-mlx-imatrix3plus-awq",
+   "entry": "imatrix3plus-awq (this model)",
+   "key": "ppl:tulu-3-sft-mixture-seed42",
+   "raw": "61.05 \u00b1 1.41"
+  },
+  {
+   "repo": "hsng95/gemma-4-26b-a4b-mlx-imatrix3plus-awq",
+   "entry": "imatrix3plus-awq (this model)",
+   "key": "ppl:tulu-3-sft-mixture-seed123",
+   "raw": "91.01 \u00b1 2.10"
+  },
+  {
+   "repo": "hsng95/gemma-4-26b-a4b-mlx-imatrix3plus-awq",
+   "entry": "imatrix3plus (internal baseline)",
+   "key": "ppl:tulu-3-sft-mixture-seed7",
+   "raw": "58.01 \u00b1 1.33"
+  },
+  {
+   "repo": "hsng95/gemma-4-26b-a4b-mlx-imatrix3plus-awq",
+   "entry": "imatrix3plus (internal baseline)",
+   "key": "ppl:tulu-3-sft-mixture-seed42",
+   "raw": "76.90 \u00b1 1.78"
+  },
+  {
+   "repo": "hsng95/gemma-4-26b-a4b-mlx-imatrix3plus-awq",
+   "entry": "imatrix3plus (internal baseline)",
+   "key": "ppl:tulu-3-sft-mixture-seed123",
+   "raw": "117.67 \u00b1 2.74"
+  },
+  {
+   "repo": "juspay/Xor-26B-A4B-NVFP4",
+   "entry": "Xor 26B-A4B NVFP4 1.1",
+   "key": "bench:JEVBench",
+   "raw": "199 to 201 of 231"
+  },
+  {
+   "repo": "juspay/Xor-26B-A4B-NVFP4",
+   "entry": "Xor 26B-A4B 1.1 (BF16)",
+   "key": "bench:JEVBench",
+   "raw": "204"
+  },
+  {
+   "repo": "leonsarmiento/gemma-4-26B-A4B-it-6bit-XL-mlx",
+   "entry": "Gemma-4 26B 6bit-XL",
+   "key": "bench:MATHQA verified accuracy",
+   "raw": "30/30 (100%)"
+  },
+  {
+   "repo": "leonsarmiento/gemma-4-26B-A4B-it-6bit-XL-mlx",
+   "entry": "XL 6/8 (this)",
+   "key": "bench:MATHQA (custom)",
+   "raw": "66.7%"
+  },
+  {
+   "repo": "leonsarmiento/gemma-4-26B-A4B-it-6bit-XL-mlx",
+   "entry": "6-bit uniform",
+   "key": "bench:MATHQA (custom)",
+   "raw": "56.7%"
+  },
+  {
+   "repo": "leonsarmiento/gemma-4-26B-A4B-it-6bit-XL-mlx",
+   "entry": "8-bit uniform",
+   "key": "bench:MATHQA (custom)",
+   "raw": "60.0%"
+  },
+  {
+   "repo": "leonsarmiento/gemma-4-26B-A4B-it-8bit-XL-mlx",
+   "entry": "8-bit XL (this)",
+   "key": "bench:MATHQA",
+   "raw": "56.7% (17/30)"
+  },
+  {
+   "repo": "leonsarmiento/gemma-4-26B-A4B-it-8bit-XL-mlx",
+   "entry": "QAT 4-bit",
+   "key": "bench:MATHQA",
+   "raw": "**70.0%** (21/30)"
+  },
+  {
+   "repo": "leonsarmiento/gemma-4-26B-A4B-it-8bit-XL-mlx",
+   "entry": "8-bit uniform",
+   "key": "bench:MATHQA",
+   "raw": "60.0% (18/30)"
+  },
+  {
+   "repo": "leonsarmiento/gemma-4-26B-A4B-it-8bit-XL-mlx",
+   "entry": "6-bit XL",
+   "key": "bench:MATHQA",
+   "raw": "**66.7%** (20/30)"
+  },
+  {
+   "repo": "leonsarmiento/gemma-4-26B-A4B-it-8bit-XL-mlx",
+   "entry": "6-bit uniform",
+   "key": "bench:MATHQA",
+   "raw": "56.7% (17/30)"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "BF16 (repeat)",
+   "key": "bench:GSM8K",
+   "raw": "96.82<br>\u0394 +0.23 [\u22120.03, +0.48]"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "BF16 (repeat)",
+   "key": "bench:MMLU-Pro",
+   "raw": "81.43<br>\u0394 +0.14 [\u22121.42, +1.70]"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "BF16 (repeat)",
+   "key": "bench:IFEval",
+   "raw": "89.83<br>\u0394 +0.18 [\u22121.39, +1.76]"
+  },
+  {
+   "repo": "mlx-community/gemma-4-26B-A4B-it-OptiQ-4bit",
+   "entry": "OptiQ",
+   "key": "bench:MMLU",
+   "raw": "65.0%"
+  },
+  {
+   "repo": "mlx-community/gemma-4-26B-A4B-it-OptiQ-4bit",
+   "entry": "OptiQ",
+   "key": "bench:GSM8K",
+   "raw": "93.8%"
+  },
+  {
+   "repo": "mlx-community/gemma-4-26B-A4B-it-OptiQ-4bit",
+   "entry": "OptiQ",
+   "key": "bench:IFEval",
+   "raw": "73.0%"
+  },
+  {
+   "repo": "mlx-community/gemma-4-26B-A4B-it-OptiQ-4bit",
+   "entry": "OptiQ",
+   "key": "bench:BFCL-V3 simple",
+   "raw": "91.5%"
+  },
+  {
+   "repo": "mlx-community/gemma-4-26B-A4B-it-OptiQ-4bit",
+   "entry": "OptiQ",
+   "key": "bench:HumanEval",
+   "raw": "90.2%"
+  },
+  {
+   "repo": "mlx-community/gemma-4-26B-A4B-it-OptiQ-4bit",
+   "entry": "OptiQ",
+   "key": "bench:HashHop",
+   "raw": "41.0%"
+  },
+  {
+   "repo": "mlx-community/gemma-4-26B-A4B-it-OptiQ-4bit",
+   "entry": "OptiQ",
+   "key": "bench:Capability Score",
+   "raw": "75.76"
+  },
+  {
+   "repo": "mlx-community/gemma-4-26B-A4B-it-OptiQ-4bit",
+   "entry": "Uniform 4-bit",
+   "key": "bench:MMLU",
+   "raw": "61.1%"
+  },
+  {
+   "repo": "mlx-community/gemma-4-26B-A4B-it-OptiQ-4bit",
+   "entry": "Uniform 4-bit",
+   "key": "bench:GSM8K",
+   "raw": "91.7%"
+  },
+  {
+   "repo": "mlx-community/gemma-4-26B-A4B-it-OptiQ-4bit",
+   "entry": "Uniform 4-bit",
+   "key": "bench:IFEval",
+   "raw": "74.5%"
+  },
+  {
+   "repo": "mlx-community/gemma-4-26B-A4B-it-OptiQ-4bit",
+   "entry": "Uniform 4-bit",
+   "key": "bench:BFCL-V3 simple",
+   "raw": "92.0%"
+  },
+  {
+   "repo": "mlx-community/gemma-4-26B-A4B-it-OptiQ-4bit",
+   "entry": "Uniform 4-bit",
+   "key": "bench:HumanEval",
+   "raw": "88.4%"
+  },
+  {
+   "repo": "mlx-community/gemma-4-26B-A4B-it-OptiQ-4bit",
+   "entry": "Uniform 4-bit",
+   "key": "bench:HashHop",
+   "raw": "30.0%"
+  },
+  {
+   "repo": "mlx-community/gemma-4-26B-A4B-it-OptiQ-4bit",
+   "entry": "Uniform 4-bit",
+   "key": "bench:Capability Score",
+   "raw": "72.95"
+  },
+  {
+   "repo": "sjoe1244/gemma-4-26B-A4B-it-ultra-uncensored-heretic-exl3-4.00bpw-h6",
+   "entry": "This model",
+   "key": "bench:Refusals",
+   "raw": "3/100"
+  },
+  {
+   "repo": "sjoe1244/gemma-4-26B-A4B-it-ultra-uncensored-heretic-exl3-4.00bpw-h6",
+   "entry": "Original model",
+   "key": "bench:Refusals",
+   "raw": "100/100"
+  },
+  {
+   "repo": "sjoe1244/gemma-4-26B-A4B-it-ultra-uncensored-heretic-exl3-4.00bpw-h6",
+   "entry": "This model",
+   "key": "bench:PIQA",
+   "raw": "0.9129"
+  },
+  {
+   "repo": "sjoe1244/gemma-4-26B-A4B-it-ultra-uncensored-heretic-exl3-4.00bpw-h6",
+   "entry": "Original model",
+   "key": "bench:PIQA",
+   "raw": "0.9206"
+  },
+  {
+   "repo": "sjoe1244/gemma-4-26B-A4B-it-ultra-uncensored-heretic-exl3-4.00bpw-h6",
+   "entry": "This model",
+   "key": "bench:MMLU",
+   "raw": "0.7999"
+  },
+  {
+   "repo": "sjoe1244/gemma-4-26B-A4B-it-ultra-uncensored-heretic-exl3-4.00bpw-h6",
+   "entry": "Original model",
+   "key": "bench:MMLU",
+   "raw": "0.8248"
+  },
+  {
+   "repo": "spicyneuron/Gemma-4-26B-A4B-MLX-4.7bit-vision",
+   "entry": "4.7 bit (this model)",
+   "key": "ppl",
+   "raw": "133.539 \u00b1 0.827"
+  },
+  {
+   "repo": "spicyneuron/Gemma-4-26B-A4B-MLX-4.7bit-vision",
+   "entry": "4.7 bit (this model)",
+   "key": "bench:hellaswag",
+   "raw": "0.532 \u00b1 0.011"
+  },
+  {
+   "repo": "spicyneuron/Gemma-4-26B-A4B-MLX-4.7bit-vision",
+   "entry": "4.7 bit (this model)",
+   "key": "bench:piqa",
+   "raw": "0.719 \u00b1 0.01"
+  },
+  {
+   "repo": "spicyneuron/Gemma-4-26B-A4B-MLX-4.7bit-vision",
+   "entry": "4.7 bit (this model)",
+   "key": "bench:winogrande",
+   "raw": "0.639 \u00b1 0.014"
+  },
+  {
+   "repo": "spicyneuron/Gemma-4-26B-A4B-MLX-4.7bit-vision",
+   "entry": "mlx-community/gemma-4-26b-a4b-it-4bit",
+   "key": "ppl",
+   "raw": "146.663 \u00b1 0.921"
+  },
+  {
+   "repo": "spicyneuron/Gemma-4-26B-A4B-MLX-4.7bit-vision",
+   "entry": "mlx-community/gemma-4-26b-a4b-it-4bit",
+   "key": "bench:hellaswag",
+   "raw": "0.525 \u00b1 0.011"
+  },
+  {
+   "repo": "spicyneuron/Gemma-4-26B-A4B-MLX-4.7bit-vision",
+   "entry": "mlx-community/gemma-4-26b-a4b-it-4bit",
+   "key": "bench:piqa",
+   "raw": "0.72 \u00b1 0.01"
+  },
+  {
+   "repo": "spicyneuron/Gemma-4-26B-A4B-MLX-4.7bit-vision",
+   "entry": "mlx-community/gemma-4-26b-a4b-it-4bit",
+   "key": "bench:winogrande",
+   "raw": "winogrande | 0.635 \u00b1 0.014"
+  },
+  {
+   "repo": "spicyneuron/Gemma-4-26B-A4B-MLX-4.7bit-vision",
+   "entry": "unsloth/gemma-4-26b-a4b-it-UD-MLX-4bit",
+   "key": "ppl",
+   "raw": "211.070 \u00b1 1.378"
+  },
+  {
+   "repo": "spicyneuron/Gemma-4-26B-A4B-MLX-4.7bit-vision",
+   "entry": "unsloth/gemma-4-26b-a4b-it-UD-MLX-4bit",
+   "key": "bench:hellaswag",
+   "raw": "0.531 \u00b1 0.011"
+  },
+  {
+   "repo": "spicyneuron/Gemma-4-26B-A4B-MLX-4.7bit-vision",
+   "entry": "unsloth/gemma-4-26b-a4b-it-UD-MLX-4bit",
+   "key": "bench:piqa",
+   "raw": "0.712 \u00b1 0.011"
+  },
+  {
+   "repo": "spicyneuron/Gemma-4-26B-A4B-MLX-4.7bit-vision",
+   "entry": "unsloth/gemma-4-26b-a4b-it-UD-MLX-4bit",
+   "key": "bench:winogrande",
+   "raw": "0.635 \u00b1 0.014"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:IFEval-prompt",
+   "raw": "89.83"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:IFEval-inst",
+   "raw": "93.17"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:MMLU-Pro",
+   "raw": "81.30"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:GPQA-Diamond",
+   "raw": "66.67"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:BBH",
+   "raw": "94.06"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:GSM8K-Platinum",
+   "raw": "90.65"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:MATH",
+   "raw": "93.82"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:AIME-2025",
+   "raw": "56.67"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:HumanEval",
+   "raw": "95.73"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:MBPP-plus",
+   "raw": "96.30"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:DROP-F1",
+   "raw": "61.33"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:MGSM-native",
+   "raw": "72.11"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:MGSM-English",
+   "raw": "73.35"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:MMLU-ProX-lite-pooled",
+   "raw": "75.05"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:IFEval-inst",
+   "raw": "96.29 (26.1% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:MMLU-Pro",
+   "raw": "92.11 (39.1% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:GPQA-Diamond",
+   "raw": "86.24 (44.9% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:BBH",
+   "raw": "96.22 (30.9% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:GSM8K-Platinum",
+   "raw": "90.13 (1.9% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:AIME-2025",
+   "raw": "100.00 (46.7% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:HumanEval",
+   "raw": "100.00 (28.0% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:MBPP-plus",
+   "raw": "98.88 (5.3% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:MGSM-native",
+   "raw": "74.87 (2.5% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:MMLU-ProX-lite-pooled",
+   "raw": "83.79 (22.7% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:IFEval-prompt",
+   "raw": "88.91"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:IFEval-inst",
+   "raw": "92.57"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:MMLU-Pro",
+   "raw": "82.09"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:GPQA-Diamond",
+   "raw": "68.69"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:BBH",
+   "raw": "94.06"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:GSM8K-Platinum",
+   "raw": "90.65"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:MATH",
+   "raw": "94.28"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:AIME-2025",
+   "raw": "56.67"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:HumanEval",
+   "raw": "98.17"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:MBPP-plus",
+   "raw": "96.30"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:DROP-F1",
+   "raw": "61.66"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:MGSM-native",
+   "raw": "72.25"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:MGSM-English",
+   "raw": "72.55"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:MMLU-ProX-lite-pooled",
+   "raw": "76.04"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:IFEval-prompt",
+   "raw": "89.28"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:IFEval-inst",
+   "raw": "92.81"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:MMLU-Pro",
+   "raw": "82.06"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:GPQA-Diamond",
+   "raw": "72.22"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:BBH",
+   "raw": "94.21"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:GSM8K-Platinum",
+   "raw": "90.57"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:MATH",
+   "raw": "94.56"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:AIME-2025",
+   "raw": "50.00"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:HumanEval",
+   "raw": "98.17"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:MBPP-plus",
+   "raw": "96.30"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:DROP-F1",
+   "raw": "62.19"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:MGSM-native",
+   "raw": "72.22"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:MGSM-English",
+   "raw": "72.51"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:MMLU-ProX-lite-pooled",
+   "raw": "76.17"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:IFEval-inst",
+   "raw": "96.49 (28.1% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:MMLU-Pro",
+   "raw": "93.41 (44.5% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:GPQA-Diamond",
+   "raw": "87.00 (49.5% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:BBH",
+   "raw": "96.70 (34.3% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:GSM8K-Platinum",
+   "raw": "90.67 (1.6% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:AIME-2025",
+   "raw": "100.00 (40.0% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:HumanEval",
+   "raw": "100.00 (27.4% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:MBPP-plus",
+   "raw": "99.16 (5.8% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:MGSM-native",
+   "raw": "75.01 (2.5% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:MMLU-ProX-lite-pooled",
+   "raw": "83.48 (21.2% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:IFEval-inst",
+   "raw": "96.93 (23.7% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:MMLU-Pro",
+   "raw": "92.61 (41.9% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:GPQA-Diamond",
+   "raw": "88.66 (51.0% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:BBH",
+   "raw": "96.38 (31.3% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:GSM8K-Platinum",
+   "raw": "90.54 (1.2% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:AIME-2025",
+   "raw": "100.00 (30.0% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:HumanEval",
+   "raw": "100.00 (18.3% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:MBPP-plus",
+   "raw": "98.88 (5.6% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:MGSM-native",
+   "raw": "74.72 (2.3% none)"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "Base BF16",
+   "key": "bench:MMLU-ProX-lite-pooled",
+   "raw": "82.94 (19.8% none)"
+  },
+  {
+   "repo": "tenhkspark/gemma-4-26B-A4B-NVFP4-lmhead",
+   "entry": "v2",
+   "key": "bench:125-question benchmark (GEMMA4_MTP=2)",
+   "raw": "82.4%"
+  },
+  {
+   "repo": "tenhkspark/gemma-4-26B-A4B-NVFP4-lmhead",
+   "entry": "v1",
+   "key": "bench:125-question benchmark (GEMMA4_MTP=2)",
+   "raw": "82.4%"
+  },
+  {
+   "repo": "toryx-ai/Gemma-4-26B-A4B-Valaris-mlx-8bit",
+   "entry": "bf16 merged checkpoint (paper result)",
+   "key": "bench:MuSiQue Answer F1",
+   "raw": "49.2"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-FP8",
+   "entry": "FP8",
+   "key": "bench:OVERALL",
+   "raw": "81.5% (220/270)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-FP8",
+   "entry": "BF16",
+   "key": "bench:ARC-Challenge (no-think)",
+   "raw": "93.3% (28/30)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-FP8",
+   "entry": "BF16",
+   "key": "bench:ARC-Challenge (thinking)",
+   "raw": "100.0% (30/30)"
+  },
+  {
+   "repo": "xero0000/Gemma-4-26B-A4B-it-vram14-iq4xs-imat",
+   "entry": "Q4_K_M-imat (stock, discarded)",
+   "key": "ppl_delta_pct",
+   "raw": "\u22126.6% (larger / slower / not all-VRAM)"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-3bpw",
+   "entry": "this build, GLQ 3 bpw",
+   "key": "bench:AIME 2026 truncated at 32k",
+   "raw": "74"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-3bpw",
+   "entry": "this build, GLQ 3 bpw",
+   "key": "bench:AIME 2026 no answer",
+   "raw": "16"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-3bpw",
+   "entry": "this build, GLQ 3 bpw",
+   "key": "bench:AIME 2026 pass@8",
+   "raw": "27/30"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-3bpw",
+   "entry": "this build, GLQ 3 bpw",
+   "key": "bench:AIME 2026 solved on all 8 samples",
+   "raw": "18/30"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-3bpw",
+   "entry": "GLQ trellis 4 bpw",
+   "key": "bench:AIME 2026 truncated at 32k",
+   "raw": "29"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-3bpw",
+   "entry": "GLQ trellis 4 bpw",
+   "key": "bench:AIME 2026 no answer",
+   "raw": "5"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-3bpw",
+   "entry": "GLQ trellis 4 bpw",
+   "key": "bench:AIME 2026 pass@8",
+   "raw": "29/30"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-3bpw",
+   "entry": "GLQ trellis 4 bpw",
+   "key": "bench:AIME 2026 solved on all 8 samples",
+   "raw": "23/30"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-3bpw",
+   "entry": "NVFP4",
+   "key": "bench:AIME 2026 truncated at 32k",
+   "raw": "24"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-3bpw",
+   "entry": "NVFP4",
+   "key": "bench:AIME 2026 no answer",
+   "raw": "10"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-3bpw",
+   "entry": "NVFP4",
+   "key": "bench:AIME 2026 pass@8",
+   "raw": "28/30"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-3bpw",
+   "entry": "NVFP4",
+   "key": "bench:AIME 2026 solved on all 8 samples",
+   "raw": "21/30"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-4bpw",
+   "entry": "this checkpoint, GLQ 4 bpw",
+   "key": "bench:AIME 2026 truncated at 32k",
+   "raw": "29"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-4bpw",
+   "entry": "this checkpoint, GLQ 4 bpw",
+   "key": "bench:AIME 2026 no answer",
+   "raw": "5"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-4bpw",
+   "entry": "this checkpoint, GLQ 4 bpw",
+   "key": "bench:AIME 2026 pass@8",
+   "raw": "29/30"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-4bpw",
+   "entry": "this checkpoint, GLQ 4 bpw",
+   "key": "bench:AIME 2026 solved on all 8 samples",
+   "raw": "23/30"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-4bpw",
+   "entry": "this checkpoint, GLQ 4 bpw",
+   "key": "bench:Terminal-Bench 2 (5-task smoke run)",
+   "raw": "0/5"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-4bpw",
+   "entry": "NVFP4",
+   "key": "bench:AIME 2026 truncated at 32k",
+   "raw": "24"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-4bpw",
+   "entry": "NVFP4",
+   "key": "bench:AIME 2026 no answer",
+   "raw": "10"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-4bpw",
+   "entry": "NVFP4",
+   "key": "bench:AIME 2026 pass@8",
+   "raw": "28/30"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-4bpw",
+   "entry": "NVFP4",
+   "key": "bench:AIME 2026 solved on all 8 samples",
+   "raw": "21/30"
+  },
+  {
+   "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-4bpw",
+   "entry": "NVFP4",
+   "key": "bench:Terminal-Bench 2 (5-task smoke run)",
+   "raw": "0/5"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:ruler_cwe-4096",
+   "raw": "0.4395"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:ruler_fwe-4096",
+   "raw": "0.9017"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:ruler_qa_squad-4096",
+   "raw": "0.7750"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:ruler_cwe-8192",
+   "raw": "0.4410"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:ruler_fwe-8192",
+   "raw": "0.9200"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "FP8-dynamic",
+   "key": "bench:ruler_qa_squad-8192",
+   "raw": "0.7683"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "one pass",
+   "key": "bench:Knowledge",
+   "raw": "43.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "one pass",
+   "key": "bench:Language",
+   "raw": "64.6"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "one pass",
+   "key": "bench:Retrieval",
+   "raw": "62.7"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "one pass",
+   "key": "bench:Tools",
+   "raw": "75.8"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "one pass",
+   "key": "bench:Arts",
+   "raw": "43.6"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:ruler_cwe-4096",
+   "raw": "0.5085"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:ruler_fwe-4096",
+   "raw": "0.8867"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:ruler_qa_squad-4096",
+   "raw": "0.7600"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:ruler_cwe-8192",
+   "raw": "0.4770"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:ruler_fwe-8192",
+   "raw": "0.9467"
+  },
+  {
+   "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
+   "entry": "ExpertsINT4",
+   "key": "bench:ruler_qa_squad-8192",
+   "raw": "0.7850"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q3T (this repository)",
+   "key": "bench:GSM8K",
+   "raw": "96.66<br>\u0394 +0.08 [\u22120.46, +0.61]"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q3T (this repository)",
+   "key": "bench:MMLU-Pro",
+   "raw": "80.57<br>\u0394 \u22120.71 [\u22122.59, +1.16]"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q3T (this repository)",
+   "key": "bench:IFEval",
+   "raw": "88.54<br>\u0394 \u22121.11 [\u22122.88, +0.66]"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q3T (this repository)",
+   "key": "bench:GSM8K",
+   "raw": "96.66<br>\u0394 +0.08 [\u22120.46, +0.61]"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q3T (this repository)",
+   "key": "bench:MMLU-Pro",
+   "raw": "80.57<br>\u0394 \u22120.71 [\u22122.59, +1.16]"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q3T (this repository)",
+   "key": "bench:IFEval",
+   "raw": "88.54<br>\u0394 \u22121.11 [\u22122.88, +0.66]"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "think when unsure",
+   "key": "bench:Knowledge",
+   "raw": "48.2"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "think when unsure",
+   "key": "bench:Language",
+   "raw": "65.6"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "think when unsure",
+   "key": "bench:Retrieval",
+   "raw": "63.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "think when unsure",
+   "key": "bench:Tools",
+   "raw": "76.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "think when unsure",
+   "key": "bench:Arts",
+   "raw": "43.6"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q4T",
+   "key": "bench:GSM8K",
+   "raw": "96.66<br>\u0394 +0.08 [\u22120.42, +0.57]"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q4T",
+   "key": "bench:MMLU-Pro",
+   "raw": "81.43<br>\u0394 +0.14 [\u22121.61, +1.89]"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q4T",
+   "key": "bench:IFEval",
+   "raw": "89.09<br>\u0394 \u22120.55 [\u22122.37, +1.26]"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q4T",
+   "key": "bench:GSM8K",
+   "raw": "96.66<br>\u0394 +0.08 [\u22120.42, +0.57]"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q4T",
+   "key": "bench:MMLU-Pro",
+   "raw": "81.43<br>\u0394 +0.14 [\u22121.61, +1.89]"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q4T",
+   "key": "bench:IFEval",
+   "raw": "89.09<br>\u0394 \u22120.55 [\u22122.37, +1.26]"
+  }
+ ],
+ "resolved_disagreements": [],
+ "resolved_repos": 0,
+ "tiebroken": [
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-4bit",
+   "entry": "Google published results, base model",
+   "key": "bench:MMLU Pro",
+   "raw": "82.6%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-4bit",
+   "entry": "Google published results, base model",
+   "key": "bench:AIME 2026 no tools",
+   "raw": "88.3%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-4bit",
+   "entry": "Google published results, base model",
+   "key": "bench:LiveCodeBench v6",
+   "raw": "77.1%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-4bit",
+   "entry": "Google published results, base model",
+   "key": "bench:Codeforces ELO",
+   "raw": "1718"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-4bit",
+   "entry": "Google published results, base model",
+   "key": "bench:GPQA Diamond",
+   "raw": "82.3%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-4bit",
+   "entry": "Google published results, base model",
+   "key": "bench:Tau2 (average over 3)",
+   "raw": "68.2%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-4bit",
+   "entry": "Google published results, base model",
+   "key": "bench:HLE no tools",
+   "raw": "8.7%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-4bit",
+   "entry": "Google published results, base model",
+   "key": "bench:HLE with search",
+   "raw": "17.2%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-4bit",
+   "entry": "Google published results, base model",
+   "key": "bench:BigBench Extra Hard",
+   "raw": "64.8%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-4bit",
+   "entry": "Google published results, base model",
+   "key": "bench:MMMLU",
+   "raw": "86.3%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-4bit",
+   "entry": "Google published results, base model",
+   "key": "bench:MMMU Pro",
+   "raw": "73.8%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-4bit",
+   "entry": "Google published results, base model",
+   "key": "bench:OmniDocBench 1.5 (average edit distance, lower is better)",
+   "raw": "0.149"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-4bit",
+   "entry": "Google published results, base model",
+   "key": "bench:MATH-Vision",
+   "raw": "82.4%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-4bit",
+   "entry": "Google published results, base model",
+   "key": "bench:MedXPertQA MM",
+   "raw": "58.1%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-4bit",
+   "entry": "Google published results, base model",
+   "key": "bench:MRCR v2 8 needle 128k (average)",
+   "raw": "44.1%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-8bit",
+   "entry": "base",
+   "key": "bench:MMLU-Pro",
+   "raw": "82.6%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-8bit",
+   "entry": "base",
+   "key": "bench:LiveCodeBench-v6",
+   "raw": "77.1%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-8bit",
+   "entry": "base",
+   "key": "bench:Codeforces-ELO",
+   "raw": "1718"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-8bit",
+   "entry": "base",
+   "key": "bench:GPQA-Diamond",
+   "raw": "82.3%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-8bit",
+   "entry": "base",
+   "key": "bench:HLE-no-tools",
+   "raw": "8.7%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-8bit",
+   "entry": "base",
+   "key": "bench:HLE-with-search",
+   "raw": "17.2%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-8bit",
+   "entry": "base",
+   "key": "bench:BigBench-Extra-Hard",
+   "raw": "64.8%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-8bit",
+   "entry": "base",
+   "key": "bench:MMMLU",
+   "raw": "86.3%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-8bit",
+   "entry": "base",
+   "key": "bench:MMMU-Pro",
+   "raw": "73.8%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-8bit",
+   "entry": "base",
+   "key": "bench:OmniDocBench-1.5",
+   "raw": "0.149"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-8bit",
+   "entry": "base",
+   "key": "bench:MATH-Vision",
+   "raw": "82.4%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-8bit",
+   "entry": "base",
+   "key": "bench:MedXPertQA-MM",
+   "raw": "58.1%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "Google published results, base model",
+   "key": "bench:MMLU Pro",
+   "raw": "82.6%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "Google published results, base model",
+   "key": "bench:AIME 2026 no tools",
+   "raw": "88.3%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "Google published results, base model",
+   "key": "bench:LiveCodeBench v6",
+   "raw": "77.1%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "Google published results, base model",
+   "key": "bench:Codeforces ELO",
+   "raw": "1718"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "Google published results, base model",
+   "key": "bench:GPQA Diamond",
+   "raw": "82.3%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "Google published results, base model",
+   "key": "bench:Tau2 (average over 3)",
+   "raw": "68.2%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "Google published results, base model",
+   "key": "bench:HLE no tools",
+   "raw": "8.7%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "Google published results, base model",
+   "key": "bench:HLE with search",
+   "raw": "17.2%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "Google published results, base model",
+   "key": "bench:BigBench Extra Hard",
+   "raw": "64.8%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "Google published results, base model",
+   "key": "bench:MMMLU",
+   "raw": "86.3%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "Google published results, base model",
+   "key": "bench:MMMU Pro",
+   "raw": "73.8%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "Google published results, base model",
+   "key": "bench:MATH-Vision",
+   "raw": "82.4%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "Google published results, base model",
+   "key": "bench:MedXPertQA MM",
+   "raw": "58.1%"
+  },
+  {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "Google published results, base model",
+   "key": "bench:MRCR v2 8 needle 128k (average)",
+   "raw": "44.1%"
+  },
+  {
+   "repo": "Capicua25x/gemma-4-26B-A4B-it-MXFP4-Quark-RDNA4",
+   "entry": "MXFP4 (Quark) for RDNA4",
+   "key": "bench:IFEval (inst-strict)",
+   "raw": "0.9297"
+  },
+  {
+   "repo": "Capicua25x/gemma-4-26B-A4B-it-MXFP4-Quark-RDNA4",
+   "entry": "MXFP4 (Quark) for RDNA4",
+   "key": "bench:IFEval (prompt-strict)",
+   "raw": "0.8875"
+  },
+  {
+   "repo": "HivenetQuant/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "NVFP4",
+   "key": "bench:ifeval (ifeval_safe)",
+   "raw": "94.73"
+  },
+  {
+   "repo": "Jiunsong/supergemma4-26b-uncensored-mlx-4bit-v2",
+   "entry": "SuperGemma Fast",
+   "key": "bench:Quick bench overall",
+   "raw": "95.8"
+  },
+  {
+   "repo": "Jiunsong/supergemma4-26b-uncensored-mlx-4bit-v2",
+   "entry": "SuperGemma Fast",
+   "key": "bench:Code",
+   "raw": "`98.6`"
+  },
+  {
+   "repo": "Jiunsong/supergemma4-26b-uncensored-mlx-4bit-v2",
+   "entry": "SuperGemma Fast",
+   "key": "bench:Browser",
+   "raw": "`89.6`"
+  },
+  {
+   "repo": "Jiunsong/supergemma4-26b-uncensored-mlx-4bit-v2",
+   "entry": "SuperGemma Fast",
+   "key": "bench:Logic",
+   "raw": "`95.2`"
+  },
+  {
+   "repo": "Jiunsong/supergemma4-26b-uncensored-mlx-4bit-v2",
+   "entry": "SuperGemma Fast",
+   "key": "bench:System Design",
+   "raw": "`98.9`"
+  },
+  {
+   "repo": "Jiunsong/supergemma4-26b-uncensored-mlx-4bit-v2",
+   "entry": "SuperGemma Fast",
+   "key": "bench:Korean",
+   "raw": "`95.0`"
+  },
+  {
+   "repo": "Jiunsong/supergemma4-26b-uncensored-mlx-4bit-v2",
+   "entry": "Gemma 4 26B IT original 4bit",
+   "key": "bench:Quick bench overall",
+   "raw": "91.4"
+  },
+  {
+   "repo": "Jiunsong/supergemma4-26b-uncensored-mlx-4bit-v2",
+   "entry": "Gemma 4 26B IT original 4bit",
+   "key": "bench:Code",
+   "raw": "`92.3`"
+  },
+  {
+   "repo": "Jiunsong/supergemma4-26b-uncensored-mlx-4bit-v2",
+   "entry": "Gemma 4 26B IT original 4bit",
+   "key": "bench:Browser",
+   "raw": "`87.5`"
+  },
+  {
+   "repo": "Jiunsong/supergemma4-26b-uncensored-mlx-4bit-v2",
+   "entry": "Gemma 4 26B IT original 4bit",
+   "key": "bench:Logic",
+   "raw": "`86.9`"
+  },
+  {
+   "repo": "Jiunsong/supergemma4-26b-uncensored-mlx-4bit-v2",
+   "entry": "Gemma 4 26B IT original 4bit",
+   "key": "bench:System Design",
+   "raw": "`97.8`"
+  },
+  {
+   "repo": "Jiunsong/supergemma4-26b-uncensored-mlx-4bit-v2",
+   "entry": "Gemma 4 26B IT original 4bit",
+   "key": "bench:Korean",
+   "raw": "`90.7`"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.3-26B-A4B-FP8",
+   "entry": "Blink v0.3 \u00b7 26B-A4B NVFP4",
+   "key": "bench:Knowledge",
+   "raw": "42.8"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.3-26B-A4B-FP8",
+   "entry": "Blink v0.3 \u00b7 26B-A4B NVFP4",
+   "key": "bench:Language",
+   "raw": "64.3"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.3-26B-A4B-FP8",
+   "entry": "Blink v0.3 \u00b7 26B-A4B NVFP4",
+   "key": "bench:Tools",
+   "raw": "70.0"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.3-26B-A4B-FP8",
+   "entry": "Blink v0.3 \u00b7 26B-A4B NVFP4",
+   "key": "bench:Arts",
+   "raw": "43.8"
+  },
+  {
+   "repo": "SevenOfNine/Gemma-4-26B-A4B-It-Abliterated-GGUF",
+   "entry": "Gemma-4-26B-A4B-It-Abliterated-BF16.gguf",
+   "key": "mean_kld",
+   "raw": "0.0845"
+  },
+  {
+   "repo": "axteam/gemma-4-26B-A4B-it-AWQ-4bit",
+   "entry": "AWQ INT4 (W4A16)",
+   "key": "ppl",
+   "raw": "1.2161"
+  },
+  {
+   "repo": "axteam/gemma-4-26B-A4B-it-AWQ-4bit",
+   "entry": "AWQ INT4 (W4A16)",
+   "key": "top1_pct",
+   "raw": "93.0%"
+  },
+  {
+   "repo": "axteam/gemma-4-26B-A4B-it-AWQ-4bit",
+   "entry": "BF16 original (upper bound)",
+   "key": "top1_pct",
+   "raw": "98.7%"
+  },
+  {
+   "repo": "baa-ai/Gemma-4-26B-A4B-it-RAM-14GB-MLX",
+   "entry": "RAM 14GB",
+   "key": "bench:MMLU",
+   "raw": "78.27%"
+  },
+  {
+   "repo": "baa-ai/Gemma-4-26B-A4B-it-RAM-14GB-MLX",
+   "entry": "Uniform 4-bit",
+   "key": "bench:MMLU",
+   "raw": "77.88%"
+  },
+  {
+   "repo": "crucible-labs/Gemma4-26B-A4B-REAP-25-GGUF",
+   "entry": "Gemma4-26B-A4B-REAP-25-Q3_K-mixed.gguf",
+   "key": "bench:HumanEval",
+   "raw": "92.7 %"
+  },
+  {
+   "repo": "crucible-labs/Gemma4-26B-A4B-REAP-25-GGUF",
+   "entry": "Gemma4-26B-A4B-REAP-25-Q3_K-mixed.gguf",
+   "key": "bench:MBPP",
+   "raw": "70.4 %"
+  },
+  {
+   "repo": "crucible-labs/Gemma4-26B-A4B-REAP-25-GGUF",
+   "entry": "REAP-25 \u00b7 bf16",
+   "key": "bench:HumanEval",
+   "raw": "93.9 %"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Hi-Fi-GGUF",
+   "entry": "fraQtl Hi-Fi",
+   "key": "kld:code-math",
+   "raw": "0.5433"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Hi-Fi-GGUF",
+   "entry": "fraQtl Hi-Fi",
+   "key": "kld:general",
+   "raw": "0.8484"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Hi-Fi-GGUF",
+   "entry": "fraQtl Hi-Fi",
+   "key": "top1:code-math",
+   "raw": "0.803"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Hi-Fi-GGUF",
+   "entry": "fraQtl Hi-Fi",
+   "key": "top1:general",
+   "raw": "0.694"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Hi-Fi-GGUF",
+   "entry": "bartowski Q4_K_M (pinned)",
+   "key": "kld:code-math",
+   "raw": "0.5984"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Hi-Fi-GGUF",
+   "entry": "bartowski Q4_K_M (pinned)",
+   "key": "kld:general",
+   "raw": "0.9351"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Hi-Fi-GGUF",
+   "entry": "bartowski Q4_K_M (pinned)",
+   "key": "top1:code-math",
+   "raw": "0.791"
+  },
+  {
+   "repo": "fraQtl/Gemma-4-26B-A4B-it-Hi-Fi-GGUF",
+   "entry": "bartowski Q4_K_M (pinned)",
+   "key": "top1:general",
+   "raw": "0.682"
+  },
+  {
+   "repo": "leonsarmiento/gemma-4-26B-A4B-it-6bit-XL-mlx",
+   "entry": "QAT 4-bit",
+   "key": "bench:MMLU_PRO",
+   "raw": "72.0%"
+  },
+  {
+   "repo": "leonsarmiento/gemma-4-26B-A4B-it-6bit-XL-mlx",
+   "entry": "QAT 4-bit",
+   "key": "bench:MBPP",
+   "raw": "86.7%"
+  },
+  {
+   "repo": "leonsarmiento/gemma-4-26B-A4B-it-6bit-XL-mlx",
+   "entry": "QAT 4-bit",
+   "key": "bench:LIVECODEBENCH",
+   "raw": "43.3%"
+  },
+  {
+   "repo": "leonsarmiento/gemma-4-26B-A4B-it-6bit-XL-mlx",
+   "entry": "QAT 4-bit",
+   "key": "bench:MATHQA (custom)",
+   "raw": "70.0%"
+  },
+  {
+   "repo": "leonsarmiento/gemma-4-26B-A4B-it-6bit-XL-mlx",
+   "entry": "QAT 4-bit",
+   "key": "bench:MMLU",
+   "raw": "76.0%"
+  },
+  {
+   "repo": "leonsarmiento/gemma-4-26B-A4B-it-6bit-XL-mlx",
+   "entry": "QAT 4-bit",
+   "key": "bench:ARC_CHALLENGE",
+   "raw": "90.0%"
+  },
+  {
+   "repo": "leonsarmiento/gemma-4-26B-A4B-it-6bit-XL-mlx",
+   "entry": "QAT 4-bit",
+   "key": "bench:HUMANEVAL",
+   "raw": "96.7%"
+  },
+  {
+   "repo": "leonsarmiento/gemma-4-26B-A4B-it-8bit-XL-mlx",
+   "entry": "8-bit XL (this)",
+   "key": "bench:MMLU_PRO",
+   "raw": "82.0%"
+  },
+  {
+   "repo": "sjoe1244/gemma-4-26B-A4B-it-ultra-uncensored-heretic-exl3-4.00bpw-h6",
+   "entry": "This model",
+   "key": "mean_kld",
+   "raw": "0.1237"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-FP8",
+   "entry": "FP8",
+   "key": "bench:ARC-Challenge (no-think)",
+   "raw": "93.3% (28/30)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-FP8",
+   "entry": "FP8",
+   "key": "bench:ARC-Challenge (thinking)",
+   "raw": "100.0% (30/30)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-FP8",
+   "entry": "FP8",
+   "key": "bench:HumanEval",
+   "raw": "96.7% (29/30)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-FP8",
+   "entry": "FP8",
+   "key": "bench:IFEval (subset)",
+   "raw": "56.7% (17/30)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-FP8",
+   "entry": "FP8",
+   "key": "bench:Curated \u00b7 knowledge",
+   "raw": "100.0% (5/5)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-FP8",
+   "entry": "FP8",
+   "key": "bench:Curated \u00b7 instr-follow",
+   "raw": "100.0% (5/5)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-FP8",
+   "entry": "FP8",
+   "key": "bench:Curated \u00b7 creative",
+   "raw": "100.0% (3/3)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-FP8",
+   "entry": "FP8",
+   "key": "bench:Curated \u00b7 translation",
+   "raw": "75.0% (3/4)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-FP8",
+   "entry": "FP8",
+   "key": "bench:Curated \u00b7 code",
+   "raw": "100.0% (3/3)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-FP8",
+   "entry": "FP8",
+   "key": "bench:Curated \u00b7 multi-reason",
+   "raw": "100.0% (3/3)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-FP8",
+   "entry": "FP8",
+   "key": "bench:Curated \u00b7 safety",
+   "raw": "100.0% (2/2)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "NVFP4",
+   "key": "bench:ARC-Challenge (no-think)",
+   "raw": "93.3% (28/30)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "NVFP4",
+   "key": "bench:ARC-Challenge (thinking)",
+   "raw": "100.0% (30/30)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "NVFP4",
+   "key": "bench:MATH",
+   "raw": "46.7% (14/30)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "NVFP4",
+   "key": "bench:HumanEval",
+   "raw": "96.7% (29/30)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "NVFP4",
+   "key": "bench:IFEval (subset)",
+   "raw": "56.7% (17/30)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "NVFP4",
+   "key": "bench:Curated \u00b7 logical",
+   "raw": "80.0% (4/5)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "NVFP4",
+   "key": "bench:Curated \u00b7 knowledge",
+   "raw": "100.0% (5/5)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "NVFP4",
+   "key": "bench:Curated \u00b7 instr-follow",
+   "raw": "100.0% (5/5)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "NVFP4",
+   "key": "bench:Curated \u00b7 creative",
+   "raw": "100.0% (3/3)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "NVFP4",
+   "key": "bench:Curated \u00b7 code",
+   "raw": "100.0% (3/3)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "NVFP4",
+   "key": "bench:Curated \u00b7 multi-reason",
+   "raw": "100.0% (3/3)"
+  },
+  {
+   "repo": "voves/gemma-4-26B-A4B-it-NVFP4",
+   "entry": "NVFP4",
+   "key": "bench:Curated \u00b7 safety",
+   "raw": "100.0% (2/2)"
+  },
+  {
+   "repo": "xero0000/Gemma-4-26B-A4B-it-vram14-iq4xs-imat",
+   "entry": "Q4_K_M-imat (stock, discarded)",
+   "key": "ppl:holdout",
+   "raw": "24.834"
+  }
+ ]
+}
