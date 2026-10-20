@@ -1,0 +1,19 @@
+{"repo": "Zek-Takai/gemma-4-26B-A4B-it-NVFP4-fp8global",
+ "source_sha256": "5c60d5b4b3c3899e09681a1fd6aa4cf5bd3b3add91ee5a9a9861a841f9d940c0",
+ "candidates_sha256": "eb7bc768e7a18a894d09d817ded5648e8546827c860987c06a37ca71a0b70dcf",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16-head control [L79-80]", "dataset": "not stated", "ctx": "unbounded single-stream context ladder [L50]", "tool": "vLLM 0.26-series dev [L27]", "L": [27, 50, 79]},
+ "entries": [
+   {"role": "own",
+    "name": "NVFP4, quantized lm_head",
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["Tool calling accuracy stated in prose [L79]", "Throughput, TTFT and resident-context tables are speed only, not mapped [L36-69]", "Per-token weight reads 3.23 GB to 2.17 GB is a bandwidth figure, not a file size [L22]", "MTP acceptance 88% is a drafter statistic, not a quality metric [L83]"]}
+ ],
+ "prose": [{"entry": "NVFP4, quantized lm_head", "key": "bench:Tool calling", "L": 79, "raw": "8/8 correct decisions"}]
+}
