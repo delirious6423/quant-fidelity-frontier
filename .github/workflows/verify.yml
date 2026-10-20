@@ -29,6 +29,10 @@ jobs:
           python3 tests/test_source_pins.py
           python3 tests/test_mapping_provenance.py
           python3 tests/test_qa_release.py
+          python3 tests/test_runner_state.py
+          python3 tests/test_runner_fetch.py
+          python3 tests/test_runner_model.py
+          python3 tests/test_runner.py
       - name: Gates + build + UI tests, every live model (build.py refuses on any gate failure)
         run: |
           # on failure, the last lines also go out as annotations (readable from the API without the log archive)
