@@ -1,0 +1,17 @@
+{"repo": "Jakevin/LFM2.5-24B-A2B-abliterated-ternary-mlx",
+ "source_sha256": "75010885f60defea3d2d7aaf137b0a78bb3b2e1495b794d248edd3e32ae0bc35",
+ "candidates_sha256": "094840b14be15a37bc449958b57735dd9c4380488867b1caeb45b9a8b796c876",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "Official LiquidAI MLX 4-bit, same suite [L54]", "dataset": "harmful prompts (10, 8K cap) and general questions (4, 8K cap); small sample, no confidence intervals [L45-47, L53]", "ctx": "8K token cap [L47, L53]", "tool": "not stated", "L": [45, 47, 53]},
+ "entries": [
+  {"role": "own", "name": "This model", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["refusal-direction removal applied to layers 14-39 [L20-24]", "card itself reports known quality degradation, 2 of 10 unfinished at 8K [L13, L51]"]},
+  {"role": "cross", "of": "not named on card", "name": "Official LiquidAI MLX 4-bit", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["comparison build measured by this card's author [L50, L54]"]}
+ ],
+ "prose": [
+  {"entry": "This model", "key": "bench:harmful-prompts-refused", "L": 51, "raw": "0/10"},
+  {"entry": "Official LiquidAI MLX 4-bit", "key": "bench:harmful-prompts-refused", "L": 50, "raw": "10/10"}
+ ]}

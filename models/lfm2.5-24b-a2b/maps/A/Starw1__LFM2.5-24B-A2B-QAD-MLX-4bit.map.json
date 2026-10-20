@@ -1,0 +1,22 @@
+{
+ "repo": "Starw1/LFM2.5-24B-A2B-QAD-MLX-4bit",
+ "source_sha256": "c464ee3ac65ba4a1bd377a1e62a643e071bc3f4ab4940dac5c06ada6bf9646aa",
+ "candidates_sha256": "5684613aff662e8b6c4fc24a692a892a92fef1ae1c70a72bf1a7c9cfb3197019",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "source Q4_0 GGUF (llama.cpp) on the original file", "dataset": "test prompts (not named on card)", "ctx": "not stated", "tool": "llama.cpp", "L": [21]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "LFM2.5-24B-A2B-QAD-MLX-4bit",
+   "metrics": {},
+   "size": "c1",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": ["the 15.1 GB size is stated in prose, and the card gives the 13.6 GB GGUF size in the same sentence [L21]", "the card states 5 bits per weight in prose with no candidate id, so bpw is left empty [L21]", "the card's fidelity checks are a max weight difference of 0.0 and top-5 probabilities within about 0.003 against the GGUF; neither has a metric key, so they are not mapped [L21]", "the token embedding is Q6_K in the source and stored as MLX 8-bit here [L21]"]
+  }
+ ],
+ "prose": []
+}

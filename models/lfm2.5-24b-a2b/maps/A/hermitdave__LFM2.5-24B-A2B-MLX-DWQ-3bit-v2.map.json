@@ -1,0 +1,84 @@
+{
+ "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-3bit-v2",
+ "source_sha256": "444959c049abf9d851ce26a518dd65d13a4693e4122854a6e6fb3401cf4df522",
+ "candidates_sha256": "2ed7a5416152ccf014b1781e4b10dc1c7a8086db768fcbf96ce9bca09b251319",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "8-bit teacher (LiquidAI 8-bit MLX release)", "dataset": "32 held-out sequences of 1025 tokens from the TULU-3 sft mixture, held out from calibration", "ctx": "1025 tokens per sequence", "tool": "scripts/benchmark.py (perplexity, KL, top-1)", "L": [49, 50, 208]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "3-bit DWQ (this model)",
+   "panel": "Results",
+   "methodology": {"reference": "8-bit teacher (LiquidAI 8-bit MLX release)", "dataset": "32 held-out sequences of 1025 tokens from the TULU-3 sft mixture", "ctx": "1025 tokens per sequence", "tool": "scripts/benchmark.py (perplexity, KL, top-1)", "L": [49, 50, 208]},
+   "metrics": {"ppl": "c6", "mean_kld": "c7", "top1_pct": "c8"},
+   "size": "c9",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": ["effective 3.536 bits/weight is stated at [L131] but has no candidate id, so bpw is left empty", "size basis is not stated [L56]", "DWQ-over-RTN improvement percentages [L65] are derived deltas with no metric key, not mapped", "teacher-confidence buckets [L81] and softmax-vs-sigmoid routing table [L172] are not mapped: sub-population breakdown and a routing-implementation comparison", "the card calls 72.4% a lower bound on fidelity [L93]"]
+  },
+  {
+   "role": "cross",
+   "of": "LiquidAI/LFM2.5-24B-A2B-MLX-8bit",
+   "name": "8-bit teacher (reference)",
+   "panel": "Results",
+   "metrics": {"ppl": "c1"},
+   "size": "c2",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": ["8-bit MLX teacher is the comparison reference, not a BF16 reference [L54]", "KL and top-1 cells are dashes in the source row, not mapped [L54]"]
+  },
+  {
+   "role": "ladder",
+   "name": "3-bit RTN (baseline)",
+   "panel": "Results",
+   "methodology": {"reference": "8-bit teacher (LiquidAI 8-bit MLX release)", "dataset": "32 held-out sequences of 1025 tokens from the TULU-3 sft mixture", "ctx": "1025 tokens per sequence", "tool": "scripts/benchmark.py (perplexity, KL, top-1)", "L": [49, 50, 55]},
+   "metrics": {"ppl": "c3", "mean_kld": "c4", "top1_pct": "c5"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["round-to-nearest 3-bit baseline that DWQ is compared against [L55]", "size is a dash in this row [L55]"]
+  },
+  {
+   "role": "ladder",
+   "name": "4-bit",
+   "panel": "Sibling quants",
+   "methodology": {"reference": "not stated for this table", "dataset": "not stated for this table", "ctx": "not stated", "tool": "not stated", "L": [100, 102]},
+   "metrics": {"ppl": "c36", "mean_kld": "c37", "top1_pct": "c38"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c35",
+   "flags": ["sibling table row; the quantization method and measurement set are not stated for this table [L100]"]
+  },
+  {
+   "role": "own",
+   "name": "3-bit",
+   "panel": "Sibling quants",
+   "methodology": {"reference": "not stated for this table", "dataset": "not stated for this table", "ctx": "not stated", "tool": "not stated", "L": [100, 103]},
+   "metrics": {"ppl": "c40", "mean_kld": "c41", "top1_pct": "c42"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c39",
+   "flags": ["this table marks this row as this model, but its values (8.12, 0.1458, 70.7%) differ from the Results table for the same model (7.78, 0.1343, 72.4%) [L56]", "the quantization method and measurement set are not stated for this table [L100]"]
+  },
+  {
+   "role": "ladder",
+   "name": "2-bit (not published, see Limitations)",
+   "panel": "Sibling quants",
+   "methodology": {"reference": "not stated for this table", "dataset": "not stated for this table", "ctx": "not stated", "tool": "not stated", "L": [100, 104]},
+   "metrics": {"ppl": "c43", "mean_kld": "c44", "top1_pct": "c45"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["the card says this build is not published and not recommended [L104]", "the quantization method is not stated for this row; the Limitations prose quotes separate RTN figures that are not mapped [L224]"]
+  }
+ ],
+ "prose": []
+}

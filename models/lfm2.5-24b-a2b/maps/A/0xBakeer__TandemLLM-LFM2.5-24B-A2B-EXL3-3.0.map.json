@@ -1,0 +1,279 @@
+{
+ "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0",
+ "source_sha256": "2100b97f46daa8dc22babcc744a8e73cec84df66f4b264861f9916c73debc94a",
+ "candidates_sha256": "9a93346cadf9377c7450ab5d3928531938e27971995db5bceb80b0d85ca82fde",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "BF16 model [L19]",
+  "dataset": "wikitext-2 and chat (oasst1 validation split), 20 rows of 2,048 tokens each [L19]",
+  "ctx": "2,048-token rows [L19]",
+  "tool": "exllamav3 model_diff [L19]",
+  "L": [
+   19
+  ]
+ },
+ "entries": [
+  {
+   "role": "ladder",
+   "name": "2.5",
+   "panel": "Quality of every size",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "separate sibling repo of this publisher, same table [L21-28]",
+    "size column is in the table row but the table has no candidate ids, so size is not mapped",
+    "KL is labelled 'KL' without 'mean', read as mean over positions [L23-28]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "3.0",
+   "panel": "Quality of every size",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "this repo: 3.0 bits per weight, 9.68 GB [L13, L24]",
+    "size column is in the table row but the table has no candidate ids, so size is not mapped",
+    "KL is labelled 'KL' without 'mean', read as mean over positions [L23-28]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "3.5",
+   "panel": "Quality of every size",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "separate sibling repo of this publisher, same table [L21-28]",
+    "size column is in the table row but the table has no candidate ids, so size is not mapped",
+    "KL is labelled 'KL' without 'mean', read as mean over positions [L23-28]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "4.0",
+   "panel": "Quality of every size",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "separate sibling repo of this publisher, same table [L21-28]",
+    "size column is in the table row but the table has no candidate ids, so size is not mapped",
+    "KL is labelled 'KL' without 'mean', read as mean over positions [L23-28]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "4.5",
+   "panel": "Quality of every size",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "separate sibling repo of this publisher, same table [L21-28]",
+    "size column is in the table row but the table has no candidate ids, so size is not mapped",
+    "KL is labelled 'KL' without 'mean', read as mean over positions [L23-28]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "6.0",
+   "panel": "Quality of every size",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "separate sibling repo of this publisher, same table [L21-28]",
+    "size column is in the table row but the table has no candidate ids, so size is not mapped",
+    "KL is labelled 'KL' without 'mean', read as mean over positions [L23-28]"
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "2.5",
+   "panel": "Quality of every size",
+   "key": "kld:wikitext-2",
+   "L": 23,
+   "raw": "0.463"
+  },
+  {
+   "entry": "2.5",
+   "panel": "Quality of every size",
+   "key": "top1:wikitext-2",
+   "L": 23,
+   "raw": "70.4 %"
+  },
+  {
+   "entry": "2.5",
+   "panel": "Quality of every size",
+   "key": "kld:chat",
+   "L": 23,
+   "raw": "0.313"
+  },
+  {
+   "entry": "2.5",
+   "panel": "Quality of every size",
+   "key": "top1:chat",
+   "L": 23,
+   "raw": "78.9 %"
+  },
+  {
+   "entry": "3.0",
+   "panel": "Quality of every size",
+   "key": "kld:wikitext-2",
+   "L": 24,
+   "raw": "0.335"
+  },
+  {
+   "entry": "3.0",
+   "panel": "Quality of every size",
+   "key": "top1:wikitext-2",
+   "L": 24,
+   "raw": "75.2 %"
+  },
+  {
+   "entry": "3.0",
+   "panel": "Quality of every size",
+   "key": "kld:chat",
+   "L": 24,
+   "raw": "0.195"
+  },
+  {
+   "entry": "3.0",
+   "panel": "Quality of every size",
+   "key": "top1:chat",
+   "L": 24,
+   "raw": "83.6 %"
+  },
+  {
+   "entry": "3.5",
+   "panel": "Quality of every size",
+   "key": "kld:wikitext-2",
+   "L": 25,
+   "raw": "0.226"
+  },
+  {
+   "entry": "3.5",
+   "panel": "Quality of every size",
+   "key": "top1:wikitext-2",
+   "L": 25,
+   "raw": "79.0 %"
+  },
+  {
+   "entry": "3.5",
+   "panel": "Quality of every size",
+   "key": "kld:chat",
+   "L": 25,
+   "raw": "0.136"
+  },
+  {
+   "entry": "3.5",
+   "panel": "Quality of every size",
+   "key": "top1:chat",
+   "L": 25,
+   "raw": "86.7 %"
+  },
+  {
+   "entry": "4.0",
+   "panel": "Quality of every size",
+   "key": "kld:wikitext-2",
+   "L": 26,
+   "raw": "0.201"
+  },
+  {
+   "entry": "4.0",
+   "panel": "Quality of every size",
+   "key": "top1:wikitext-2",
+   "L": 26,
+   "raw": "80.7 %"
+  },
+  {
+   "entry": "4.0",
+   "panel": "Quality of every size",
+   "key": "kld:chat",
+   "L": 26,
+   "raw": "0.098"
+  },
+  {
+   "entry": "4.0",
+   "panel": "Quality of every size",
+   "key": "top1:chat",
+   "L": 26,
+   "raw": "88.5 %"
+  },
+  {
+   "entry": "4.5",
+   "panel": "Quality of every size",
+   "key": "kld:wikitext-2",
+   "L": 27,
+   "raw": "0.113"
+  },
+  {
+   "entry": "4.5",
+   "panel": "Quality of every size",
+   "key": "top1:wikitext-2",
+   "L": 27,
+   "raw": "85.4 %"
+  },
+  {
+   "entry": "4.5",
+   "panel": "Quality of every size",
+   "key": "kld:chat",
+   "L": 27,
+   "raw": "0.063"
+  },
+  {
+   "entry": "4.5",
+   "panel": "Quality of every size",
+   "key": "top1:chat",
+   "L": 27,
+   "raw": "91.2 %"
+  },
+  {
+   "entry": "6.0",
+   "panel": "Quality of every size",
+   "key": "kld:wikitext-2",
+   "L": 28,
+   "raw": "0.080"
+  },
+  {
+   "entry": "6.0",
+   "panel": "Quality of every size",
+   "key": "top1:wikitext-2",
+   "L": 28,
+   "raw": "88.2 %"
+  },
+  {
+   "entry": "6.0",
+   "panel": "Quality of every size",
+   "key": "kld:chat",
+   "L": 28,
+   "raw": "0.039"
+  },
+  {
+   "entry": "6.0",
+   "panel": "Quality of every size",
+   "key": "top1:chat",
+   "L": 28,
+   "raw": "93.4 %"
+  }
+ ]
+}

@@ -1,0 +1,31 @@
+{
+ "repo": "AtomicChat/LFM2.5-24B-A2B-GGUF",
+ "source_sha256": "158527c90a43dead0d77b0dcaf2ca3f8633fe21cec67c92e2294bfe81246eb1e",
+ "candidates_sha256": "8344eac65a7ecc3e75ec87c92ac39227cf7a275aca49b438c88b9b79294f335d",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 model's own logits [L68,L133]", "dataset": "93 chunks of 4,096 tokens, held-out neutral set in 30 languages [L133-134]", "ctx": "4,096-token chunks [L133]", "tool": "llama.cpp 980aef8c on 1x H100 PCIe [L135-136]", "L": [68, 133, 134, 135, 136]},
+ "entries": [
+  {"role": "own", "name": "AD-Q8_0", "panel": "The builds", "size": "c4", "unit": "GB", "basis": "disk", "bpw": null,
+   "metrics": {"mean_kld": "c5", "top1_pct": "c6"},
+   "flags": ["BF16 reference row has no numbers, only a size of 48.0 GB [L54]"]},
+  {"role": "own", "name": "AD-Q6_K", "panel": "The builds", "size": "c8", "unit": "GB", "basis": "disk", "bpw": null,
+   "metrics": {"mean_kld": "c9", "top1_pct": "c10"}, "flags": []},
+  {"role": "own", "name": "AD-Q5_K_M", "panel": "The builds", "size": "c12", "unit": "GB", "basis": "disk", "bpw": null,
+   "metrics": {"mean_kld": "c13", "top1_pct": "c14"}, "flags": []},
+  {"role": "own", "name": "AD-Q4_K_M", "panel": "The builds", "size": "c16", "unit": "GB", "basis": "disk", "bpw": null,
+   "metrics": {"mean_kld": "c17", "top1_pct": "c18"}, "flags": ["card's recommended build for 24 GB machines [L63]"]},
+  {"role": "own", "name": "AD-IQ4_XS", "panel": "The builds", "size": "c20", "unit": "GB", "basis": "disk", "bpw": null,
+   "metrics": {"mean_kld": "c21", "top1_pct": "c22"}, "flags": []},
+  {"role": "own", "name": "AD-IQ3_M", "panel": "The builds", "size": "c24", "unit": "GB", "basis": "disk", "bpw": null,
+   "metrics": {"mean_kld": "c25", "top1_pct": "c26"}, "flags": []},
+  {"role": "own", "name": "AD-IQ3_XXS", "panel": "The builds", "size": "c27", "unit": "GB", "basis": "disk", "bpw": null,
+   "metrics": {"mean_kld": "c28", "top1_pct": "c29"}, "flags": []},
+  {"role": "own", "name": "AD-Q8_0", "panel": "Why the numbers look high",
+   "methodology": {"reference": "llama.cpp BF16 (preview first revision c715ae25) [L75-77,L85]", "dataset": "the tokens and positions of the reference above [L74-75]", "ctx": "not stated", "tool": "llama.cpp [L81-85]", "L": [74, 75, 76, 77, 85]},
+   "metrics": {"mean_kld": "c41", "top1_pct": "c43"},
+   "flags": ["legacy first-revision panel, not the current builds table [L75-77]", "median KLD (c42) not mapped: no matching key", "control rows (llama.cpp BF16 same-GPU, CPU vs GPU, vs fp32; Liquid's PyTorch bf16) are BF16 runtime comparisons, not builds in this repo: omitted [L81-84]"]}
+ ],
+ "prose": []
+}

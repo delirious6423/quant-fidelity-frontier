@@ -1,0 +1,22 @@
+{
+ "repo": "mlx-community/LFM2.5-24B-A2B-OptiQ-4bit",
+ "source_sha256": "692f75ed279270c431c6fa7f3c6c96e9dcb7066f3bba45de87008a13866b5c4c",
+ "candidates_sha256": "589164c109090e22e0e7266f447fd978a391e95269414a5d87643adb2ee3449a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "uniform 4-bit quant of the same model, scored the same way", "dataset": "six-metric standard OptiQ eval: MMLU (generative), GSM8K, IFEval (strict), BFCL-V3 simple (200 calls), HumanEval (164 problems, pass@1), HashHop", "ctx": "reasoning mode, 16k reasoning budget", "tool": "standard OptiQ eval", "L": [43, 45, 53, 55]},
+ "entries": [
+  {"role": "own", "name": "OptiQ",
+   "metrics": {"bench:MMLU (generative)": "c3", "bench:GSM8K": "c5", "bench:IFEval (strict)": "c7", "bench:BFCL-V3 simple (200 calls)": "c9",
+               "bench:HumanEval (164 problems, pass@1)": "c11", "bench:HashHop (long-context retrieval)": "c13", "bench:Capability Score (mean of 6)": "c15"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L36] disk size is in the properties table, not the capability table, so it is not attached", "[L55] HashHop and HumanEval failures are counted when a reply never finishes"]},
+  {"role": "ladder", "name": "Uniform 4-bit",
+   "metrics": {"bench:MMLU (generative)": "c4", "bench:GSM8K": "c6", "bench:IFEval (strict)": "c8", "bench:BFCL-V3 simple (200 calls)": "c10",
+               "bench:HumanEval (164 problems, pass@1)": "c12", "bench:HashHop (long-context retrieval)": "c14", "bench:Capability Score (mean of 6)": "c16"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L43] baseline is a uniform 4-bit quant of the same model"]}
+ ],
+ "prose": []
+}

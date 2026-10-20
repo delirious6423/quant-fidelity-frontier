@@ -1,0 +1,14 @@
+{
+ "repo": "CoolJohn-AI/LFM2.5-24B-A2B-NVFP4-AutoRound",
+ "source_sha256": "6be787313f1c492024e16437512b9487dada6fb018312018de83c297b25a2f8a",
+ "candidates_sha256": "c487b53011b83a6943f2b7bddd2e208cb701801be7832fcb17c0d104ae8dac03",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated; retrieval checks have no reference model [L57-61]", "dataset": "synthetic retrieval fixtures: single-record lookup, three-record collection, two-hop lookup [L59]", "ctx": "96,384-token profile: 80,000 input + 16,384 output [L57]", "tool": "vLLM 0.31.0 [L65]", "L": [57, 59, 61, 65]},
+ "entries": [
+  {"role": "own", "name": "NVFP4 AutoRound build (96K profile)", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["retrieval pass counts at 80,000 input tokens (36/36 across four seeds; 2/2 on a separate fixture) [L59] are not mapped: no matching metric key and no reference fidelity figure", "125.9 tokens/sec is a serving speed, not mapped [L47]", "weights are 14.75 GB / 13.73 GiB of weights [L45], not mapped: no metric row"]}
+ ],
+ "prose": []
+}

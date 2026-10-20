@@ -1,0 +1,37 @@
+{
+ "repo": "sapidlabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+ "source_sha256": "c0ec8ed90a378a0e0c67ce4f68034335eb83438070afa636ca77d14a4643b4c8",
+ "candidates_sha256": "5bce681350f9fbcc952c812e0bdb9f7d2fbd0c4089d16a83374a7eec70c07660",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 original (LiquidAI/LFM2.5-24B-A2B), same test settings", "dataset": "GSM8K first 200 test questions; tool-call and JSON-extraction tests", "ctx": "not stated", "tool": "not stated", "L": [65, 66, 69, 71]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "LFM2.5-24B-A2B-NVFP4-W4A16",
+   "panel": "Quality",
+   "methodology": {"reference": "BF16 original, same test settings", "dataset": "GSM8K, first 200 test questions", "ctx": "not stated", "tool": "not stated", "L": [65, 69, 73]},
+   "metrics": {"bench:GSM8K": "c16"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["the tool-call (20/20) and JSON-extraction (14/15) results are counts with no percentage and no bench key that fits, so they are not mapped [L70]", "the speed table is not a fidelity metric and is not mapped [L53]", "temperature 0, thinking on, 8 requests at a time [L65]"]
+  },
+  {
+   "role": "cross",
+   "of": "LiquidAI/LFM2.5-24B-A2B",
+   "name": "BF16 original",
+   "panel": "Quality",
+   "methodology": {"reference": "BF16 original, same test settings", "dataset": "GSM8K, first 200 test questions", "ctx": "not stated", "tool": "not stated", "L": [65, 69, 73]},
+   "metrics": {"bench:GSM8K": "c17"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["the BF16 runs had a 6,000-token output limit for GSM8K, against 12,000 for the NVFP4 runs [L73]", "the BF16 tool-call and JSON-extraction results are counts and are not mapped [L71]"]
+  }
+ ],
+ "prose": []
+}

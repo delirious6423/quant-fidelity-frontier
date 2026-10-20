@@ -1,0 +1,588 @@
+{
+ "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+ "source_sha256": "b06008e9ae47e4962eb44284b316e3b51f34468187ce8a0e2a92c2e68e8ab975",
+ "candidates_sha256": "cf46f086e49a30171e746233f1553e7bf252f024d91df787175f0c797f5c4737",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "BF16 model (LiquidAI/LFM2.5-24B-A2B) via exllamav3 model_diff [L19]",
+  "dataset": "20 rows of 2,048 tokens: wikitext-2, and chat (oasst1 validation, human answers, model chat template) [L19]",
+  "ctx": "2,048-token rows [L19]",
+  "tool": "exllamav3 model_diff; speed in TandemLLM on one DGX Spark [L19,L34]",
+  "L": [
+   19,
+   34
+  ]
+ },
+ "entries": [
+  {
+   "role": "ladder",
+   "name": "2.5",
+   "panel": "Quality of every size",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "KL definition (full-vocabulary or top-k) is not stated [L19]",
+    "GB column of the row is not mapped: no candidate id [L21-28]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "3.0",
+   "panel": "Quality of every size",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "KL definition (full-vocabulary or top-k) is not stated [L19]",
+    "GB column of the row is not mapped: no candidate id [L21-28]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "3.5",
+   "panel": "Quality of every size",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "KL definition (full-vocabulary or top-k) is not stated [L19]",
+    "GB column of the row is not mapped: no candidate id [L21-28]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "4.0",
+   "panel": "Quality of every size",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "KL definition (full-vocabulary or top-k) is not stated [L19]",
+    "GB column of the row is not mapped: no candidate id [L21-28]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "4.5",
+   "panel": "Quality of every size",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "KL definition (full-vocabulary or top-k) is not stated [L19]",
+    "GB column of the row is not mapped: no candidate id [L21-28]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "6.0",
+   "panel": "Quality of every size",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "KL definition (full-vocabulary or top-k) is not stated [L19]",
+    "GB column of the row is not mapped: no candidate id [L21-28]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "BF16",
+   "panel": "Quality of every size",
+   "of": "LiquidAI/LFM2.5-24B-A2B",
+   "metrics": {
+    "ppl:wikitext": "c5"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "BF16 row is the base model [L13]",
+    "chat perplexity 7.43 mapped as prose [L19]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "2.5",
+   "panel": "Speed",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "one request, 512 greedy tokens; chat is plain decoding, edit and copy use the lookup drafter [L34]",
+    "ctx": "not stated",
+    "tool": "TandemLLM on one DGX Spark [L34]",
+    "L": [
+     34
+    ]
+   },
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "3.0",
+   "panel": "Speed",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "one request, 512 greedy tokens; chat is plain decoding, edit and copy use the lookup drafter [L34]",
+    "ctx": "not stated",
+    "tool": "TandemLLM on one DGX Spark [L34]",
+    "L": [
+     34
+    ]
+   },
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "3.5",
+   "panel": "Speed",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "one request, 512 greedy tokens; chat is plain decoding, edit and copy use the lookup drafter [L34]",
+    "ctx": "not stated",
+    "tool": "TandemLLM on one DGX Spark [L34]",
+    "L": [
+     34
+    ]
+   },
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "4.0",
+   "panel": "Speed",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "one request, 512 greedy tokens; chat is plain decoding, edit and copy use the lookup drafter [L34]",
+    "ctx": "not stated",
+    "tool": "TandemLLM on one DGX Spark [L34]",
+    "L": [
+     34
+    ]
+   },
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "4.5",
+   "panel": "Speed",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "one request, 512 greedy tokens; chat is plain decoding, edit and copy use the lookup drafter [L34]",
+    "ctx": "not stated",
+    "tool": "TandemLLM on one DGX Spark [L34]",
+    "L": [
+     34
+    ]
+   },
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "6.0",
+   "panel": "Speed",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "one request, 512 greedy tokens; chat is plain decoding, edit and copy use the lookup drafter [L34]",
+    "ctx": "not stated",
+    "tool": "TandemLLM on one DGX Spark [L34]",
+    "L": [
+     34
+    ]
+   },
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "cross",
+   "name": "BF16",
+   "panel": "Speed",
+   "of": "LiquidAI/LFM2.5-24B-A2B",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "one request, 512 greedy tokens; chat is plain decoding, edit and copy use the lookup drafter [L34]",
+    "ctx": "not stated",
+    "tool": "TandemLLM on one DGX Spark [L34]",
+    "L": [
+     34
+    ]
+   },
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "BF16 row is the base model [L13]"
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "L": 23,
+   "raw": "0.463",
+   "entry": "2.5",
+   "panel": "Quality of every size",
+   "key": "kld:wikitext"
+  },
+  {
+   "L": 23,
+   "raw": "70.4 %",
+   "entry": "2.5",
+   "panel": "Quality of every size",
+   "key": "top1:wikitext"
+  },
+  {
+   "L": 23,
+   "raw": "0.313",
+   "entry": "2.5",
+   "panel": "Quality of every size",
+   "key": "kld:chat"
+  },
+  {
+   "L": 23,
+   "raw": "78.9 %",
+   "entry": "2.5",
+   "panel": "Quality of every size",
+   "key": "top1:chat"
+  },
+  {
+   "L": 24,
+   "raw": "0.335",
+   "entry": "3.0",
+   "panel": "Quality of every size",
+   "key": "kld:wikitext"
+  },
+  {
+   "L": 24,
+   "raw": "75.2 %",
+   "entry": "3.0",
+   "panel": "Quality of every size",
+   "key": "top1:wikitext"
+  },
+  {
+   "L": 24,
+   "raw": "0.195",
+   "entry": "3.0",
+   "panel": "Quality of every size",
+   "key": "kld:chat"
+  },
+  {
+   "L": 24,
+   "raw": "83.6 %",
+   "entry": "3.0",
+   "panel": "Quality of every size",
+   "key": "top1:chat"
+  },
+  {
+   "L": 25,
+   "raw": "0.226",
+   "entry": "3.5",
+   "panel": "Quality of every size",
+   "key": "kld:wikitext"
+  },
+  {
+   "L": 25,
+   "raw": "79.0 %",
+   "entry": "3.5",
+   "panel": "Quality of every size",
+   "key": "top1:wikitext"
+  },
+  {
+   "L": 25,
+   "raw": "0.136",
+   "entry": "3.5",
+   "panel": "Quality of every size",
+   "key": "kld:chat"
+  },
+  {
+   "L": 25,
+   "raw": "86.7 %",
+   "entry": "3.5",
+   "panel": "Quality of every size",
+   "key": "top1:chat"
+  },
+  {
+   "L": 26,
+   "raw": "0.201",
+   "entry": "4.0",
+   "panel": "Quality of every size",
+   "key": "kld:wikitext"
+  },
+  {
+   "L": 26,
+   "raw": "80.7 %",
+   "entry": "4.0",
+   "panel": "Quality of every size",
+   "key": "top1:wikitext"
+  },
+  {
+   "L": 26,
+   "raw": "0.098",
+   "entry": "4.0",
+   "panel": "Quality of every size",
+   "key": "kld:chat"
+  },
+  {
+   "L": 26,
+   "raw": "88.5 %",
+   "entry": "4.0",
+   "panel": "Quality of every size",
+   "key": "top1:chat"
+  },
+  {
+   "L": 27,
+   "raw": "0.113",
+   "entry": "4.5",
+   "panel": "Quality of every size",
+   "key": "kld:wikitext"
+  },
+  {
+   "L": 27,
+   "raw": "85.4 %",
+   "entry": "4.5",
+   "panel": "Quality of every size",
+   "key": "top1:wikitext"
+  },
+  {
+   "L": 27,
+   "raw": "0.063",
+   "entry": "4.5",
+   "panel": "Quality of every size",
+   "key": "kld:chat"
+  },
+  {
+   "L": 27,
+   "raw": "91.2 %",
+   "entry": "4.5",
+   "panel": "Quality of every size",
+   "key": "top1:chat"
+  },
+  {
+   "L": 28,
+   "raw": "0.080",
+   "entry": "6.0",
+   "panel": "Quality of every size",
+   "key": "kld:wikitext"
+  },
+  {
+   "L": 28,
+   "raw": "88.2 %",
+   "entry": "6.0",
+   "panel": "Quality of every size",
+   "key": "top1:wikitext"
+  },
+  {
+   "L": 28,
+   "raw": "0.039",
+   "entry": "6.0",
+   "panel": "Quality of every size",
+   "key": "kld:chat"
+  },
+  {
+   "L": 28,
+   "raw": "93.4 %",
+   "entry": "6.0",
+   "panel": "Quality of every size",
+   "key": "top1:chat"
+  },
+  {
+   "L": 19,
+   "raw": "7.43",
+   "entry": "BF16",
+   "panel": "Quality of every size",
+   "key": "ppl:chat"
+  },
+  {
+   "L": 38,
+   "raw": "185",
+   "entry": "2.5",
+   "panel": "Speed",
+   "key": "bench:chat tok/s"
+  },
+  {
+   "L": 38,
+   "raw": "351",
+   "entry": "2.5",
+   "panel": "Speed",
+   "key": "bench:edit tok/s"
+  },
+  {
+   "L": 38,
+   "raw": "271",
+   "entry": "2.5",
+   "panel": "Speed",
+   "key": "bench:copy tok/s"
+  },
+  {
+   "L": 39,
+   "raw": "171",
+   "entry": "3.0",
+   "panel": "Speed",
+   "key": "bench:chat tok/s"
+  },
+  {
+   "L": 39,
+   "raw": "328",
+   "entry": "3.0",
+   "panel": "Speed",
+   "key": "bench:edit tok/s"
+  },
+  {
+   "L": 39,
+   "raw": "414",
+   "entry": "3.0",
+   "panel": "Speed",
+   "key": "bench:copy tok/s"
+  },
+  {
+   "L": 40,
+   "raw": "151",
+   "entry": "3.5",
+   "panel": "Speed",
+   "key": "bench:chat tok/s"
+  },
+  {
+   "L": 40,
+   "raw": "269",
+   "entry": "3.5",
+   "panel": "Speed",
+   "key": "bench:edit tok/s"
+  },
+  {
+   "L": 40,
+   "raw": "287",
+   "entry": "3.5",
+   "panel": "Speed",
+   "key": "bench:copy tok/s"
+  },
+  {
+   "L": 41,
+   "raw": "144",
+   "entry": "4.0",
+   "panel": "Speed",
+   "key": "bench:chat tok/s"
+  },
+  {
+   "L": 41,
+   "raw": "291",
+   "entry": "4.0",
+   "panel": "Speed",
+   "key": "bench:edit tok/s"
+  },
+  {
+   "L": 41,
+   "raw": "326",
+   "entry": "4.0",
+   "panel": "Speed",
+   "key": "bench:copy tok/s"
+  },
+  {
+   "L": 42,
+   "raw": "128",
+   "entry": "4.5",
+   "panel": "Speed",
+   "key": "bench:chat tok/s"
+  },
+  {
+   "L": 42,
+   "raw": "281",
+   "entry": "4.5",
+   "panel": "Speed",
+   "key": "bench:edit tok/s"
+  },
+  {
+   "L": 42,
+   "raw": "339",
+   "entry": "4.5",
+   "panel": "Speed",
+   "key": "bench:copy tok/s"
+  },
+  {
+   "L": 43,
+   "raw": "105",
+   "entry": "6.0",
+   "panel": "Speed",
+   "key": "bench:chat tok/s"
+  },
+  {
+   "L": 43,
+   "raw": "210",
+   "entry": "6.0",
+   "panel": "Speed",
+   "key": "bench:edit tok/s"
+  },
+  {
+   "L": 43,
+   "raw": "280",
+   "entry": "6.0",
+   "panel": "Speed",
+   "key": "bench:copy tok/s"
+  },
+  {
+   "L": 44,
+   "raw": "45",
+   "entry": "BF16",
+   "panel": "Speed",
+   "key": "bench:chat tok/s"
+  },
+  {
+   "L": 44,
+   "raw": "154",
+   "entry": "BF16",
+   "panel": "Speed",
+   "key": "bench:edit tok/s"
+  },
+  {
+   "L": 44,
+   "raw": "158",
+   "entry": "BF16",
+   "panel": "Speed",
+   "key": "bench:copy tok/s"
+  }
+ ]
+}

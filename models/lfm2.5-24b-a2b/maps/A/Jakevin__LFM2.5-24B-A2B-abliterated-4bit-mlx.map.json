@@ -1,0 +1,11 @@
+{
+ "repo": "Jakevin/LFM2.5-24B-A2B-abliterated-4bit-mlx",
+ "source_sha256": "016589eb86775808def7bdc8dffd51d632b8769474917dbec62adc839f7cd273",
+ "candidates_sha256": "ccb3cfbc879f572b9add4a774a1373c48ab902191e2b44043336ba5573edfc0d",
+ "no_quality_claims": true,
+ "no_claims_reason": "behaviour counts only (refusals, unfinished think, token counts) on 24 prompts, no fidelity or accuracy score [L64-102]",
+ "weights_modified": true,
+ "method": {"reference": "official LiquidAI MLX 4-bit, paired run [L64,L84,L93]", "dataset": "10 harmful, 10 harmless and 4 general prompts [L62,L82,L91]", "ctx": "max_tokens 1800 (harmful), 600 (harmless), 1000 (general) [L64,L84,L93]", "tool": "mlx-lm [L41]", "L": [41, 60, 64, 84, 93]},
+ "entries": [],
+ "prose": []
+}

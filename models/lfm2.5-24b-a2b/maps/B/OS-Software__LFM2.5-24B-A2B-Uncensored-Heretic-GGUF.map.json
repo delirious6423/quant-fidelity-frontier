@@ -1,0 +1,32 @@
+{
+ "repo": "OS-Software/LFM2.5-24B-A2B-Uncensored-Heretic-GGUF",
+ "source_sha256": "5b0d26991f074929ff65bd386152e958be3e1a2c990921014da54ec49c33befd",
+ "candidates_sha256": "9c43fd5f954cc45de9491db417a6ccbaf33f770fcf8e9b7bb9ef9877445724fa",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "official file of the same type, with llama.cpp", "dataset": "100 Japanese harmful prompts (refusals); harmless_alpaca_ja test[:100] (KL); MMLU; HumanEval", "ctx": "not stated", "tool": "llama.cpp; keyword matching for refusals; first-token KL", "L": [69, 80]},
+ "entries": [
+  {"role": "own", "name": "QAD Q4_0",
+   "metrics": {"bench:Refusals": "c17.2", "kld:japanese-prompts": "c18", "bench:MMLU vs original": "c19", "bench:MMLU": "c37", "bench:HumanEval pass@1": "c39"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L80] KL is first-token KL on 100 prompts", "[L69] refusal count is out of 100 prompts", "[L80] MMLU on all 14,042 questions; the other files use a 3,510-question spread, so MMLU deltas are not comparable across files", "[L67-73] no size column in this table; sizes are in the file table at [L33-37]"]},
+  {"role": "own", "name": "Q4_K_M",
+   "metrics": {"bench:Refusals": "c21.2", "kld:japanese-prompts": "c22", "bench:MMLU vs original": "c23"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L80] KL is first-token KL on 100 prompts", "[L70] refusal count is out of 100 prompts", "[L70] MMLU on a 3,510-question spread, not the full set", "[L67-73] no size column in this table; sizes are in the file table at [L33-37]"]},
+  {"role": "own", "name": "Q5_K_M",
+   "metrics": {"bench:Refusals": "c25.2", "kld:japanese-prompts": "c26", "bench:MMLU vs original": "c27"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L80] KL is first-token KL on 100 prompts", "[L71] refusal count is out of 100 prompts", "[L71] MMLU on a 3,510-question spread, not the full set", "[L67-73] no size column in this table; sizes are in the file table at [L33-37]"]},
+  {"role": "own", "name": "Q6_K",
+   "metrics": {"bench:Refusals": "c29.2", "kld:japanese-prompts": "c30", "bench:MMLU vs original": "c31"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L80] KL is first-token KL on 100 prompts", "[L72] refusal count is out of 100 prompts", "[L72] MMLU on a 3,510-question spread, not the full set", "[L67-73] no size column in this table; sizes are in the file table at [L33-37]"]},
+  {"role": "own", "name": "Q8_0",
+   "metrics": {"bench:Refusals": "c33.2", "kld:japanese-prompts": "c34", "bench:MMLU vs original": "c35"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L80] KL is first-token KL on 100 prompts", "[L73] refusal count is out of 100 prompts", "[L73] MMLU on a 3,510-question spread, not the full set", "[L67-73] no size column in this table; sizes are in the file table at [L33-37]"]}
+ ],
+ "prose": []
+}

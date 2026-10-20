@@ -1,0 +1,35 @@
+{
+ "repo": "kaushikvira/LFM2.5-24B-A2B-nvfp4-gguf",
+ "source_sha256": "849cb23c5edd3ec5549cf4f19d6cd24c1409c4423c5da1a2c949b4dacf5e41cf",
+ "candidates_sha256": "9b5821697efe2a178c7d7e74402505443725b925764388ae5f59dba6ecc79823",
+ "no_quality_claims": true,
+ "no_claims_reason": "quality gate is a pass/fail probe table with no numeric quality metric [L58-L66]",
+ "weights_modified": true,
+ "method": {"reference": "Q4_K_M (Liquid official GGUF) on identical probes", "dataset": "small probe set: needle at 8k and 32k, instruction-following, math, tool call [L58-L66]", "ctx": "not stated", "tool": "not stated", "L": [56, 66]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "NVFP4 (this repo)",
+   "panel": "Comparison with Q4_K_M (when to pick which)",
+   "metrics": {},
+   "size": "c8",
+   "unit": "GiB",
+   "basis": null,
+   "bpw": "c10",
+   "flags": ["the card states 4.55 BPW and 12.70 GiB [L73] [L98]", "the llama-bench speed table and the serving profile are not fidelity metrics and are not mapped [L43]", "the card says 'format conversion + quantization only, no weight modification' [L24], while its license section calls the weights modified by NVFP4/Q8_0 requantization [L106]; weights_modified follows the license wording"]
+  },
+  {
+   "role": "cross",
+   "of": "LiquidAI/LFM2.5-24B-A2B-GGUF",
+   "name": "Q4_K_M (Liquid)",
+   "panel": "Comparison with Q4_K_M (when to pick which)",
+   "metrics": {},
+   "size": "c9",
+   "unit": "GiB",
+   "basis": null,
+   "bpw": null,
+   "flags": ["Liquid's official Q4_K_M GGUF, measured by this card's author for size and speed [L44]"]
+  }
+ ],
+ "prose": []
+}

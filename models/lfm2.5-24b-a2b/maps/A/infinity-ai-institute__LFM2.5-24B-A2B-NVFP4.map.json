@@ -1,0 +1,49 @@
+{
+ "repo": "infinity-ai-institute/LFM2.5-24B-A2B-NVFP4",
+ "source_sha256": "fcd31d003112b18877c6f62bd52b64d4a78e0b6ab6af5cdbea940d6c8ca9a01e",
+ "candidates_sha256": "120d0258842328fe988f619fad74f92cbb0cfdb69b1d69b59f848f935a655c6a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "BF16 base, paired per item against BF16, 95% bootstrap intervals [L37-38]", "dataset": "BFCL-style tool calling, 800 items; tau2-style tasks, 60 x 2 trials (own airline, retail and telecom); GSM8K strict match [L42-46]", "ctx": "not stated", "tool": "vLLM 0.29.1rc1 on one NVIDIA B300; internal benchmark harness for tool and agent numbers [L37,L51]", "L": [37, 38, 42, 43, 46, 51]},
+ "entries": [
+  {"role": "cross", "name": "BF16", "panel": "Quality and speed", "of": "LiquidAI/LFM2.5-24B-A2B",
+   "metrics": {
+     "bench:BFCL-style tool calling, 800 items": "c1",
+     "bench:tau2-style agent tasks, 60 tasks x 2 trials, pass": "c4",
+     "bench:tau2-style, database end state correct": "c7",
+     "bench:tau2-style, required information communicated": "c10",
+     "bench:GSM8K (strict match)": "c13",
+     "bench:Time per output token": "c16",
+     "bench:Time to first token": "c18"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["BF16 row is the base model LiquidAI/LFM2.5-24B-A2B [L20]", "paired deltas and the 1.57x throughput ratio are derived comparisons, not mapped [L42-49]"]},
+  {"role": "own", "name": "NVFP4 (this)", "panel": "Quality and speed",
+   "metrics": {
+     "bench:BFCL-style tool calling, 800 items": "c2",
+     "bench:tau2-style agent tasks, 60 tasks x 2 trials, pass": "c5",
+     "bench:tau2-style, database end state correct": "c8",
+     "bench:tau2-style, required information communicated": "c11",
+     "bench:GSM8K (strict match)": "c14",
+     "bench:Time per output token": "c17",
+     "bench:Time to first token": "c19"
+   },
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["none of the paired deltas is distinguishable from zero [L53]", "tool and agent tasks are the card's own harness and tasks, not the upstream tau2-bench set [L51-52]"]},
+  {"role": "ladder", "name": "ModelOpt max calibration (default)", "panel": "Quality and speed",
+   "methodology": {"reference": "BF16's own greedy continuations, full-vocabulary KL [L56-58]", "dataset": "29,646 tokens of BF16 greedy continuations of 64 held-out agentic contexts (SWE-agent, OpenHands, tool-use traces) [L56-57]", "ctx": "12K to 30K tokens of context each [L57]", "tool": "not stated", "L": [56, 57, 58]},
+   "metrics": {"mean_kld": "c22", "top1_pct": "c23"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["recipe comparison row, not the checkpoint in this repo [L63-64]"]},
+  {"role": "own", "name": "ModelOpt MSE weight-scale search, FP8 scale sweep (this checkpoint)", "panel": "Quality and speed",
+   "methodology": {"reference": "BF16's own greedy continuations, full-vocabulary KL [L56-58]", "dataset": "29,646 tokens of BF16 greedy continuations of 64 held-out agentic contexts (SWE-agent, OpenHands, tool-use traces) [L56-57]", "ctx": "12K to 30K tokens of context each [L57]", "tool": "not stated", "L": [56, 57, 58]},
+   "metrics": {"mean_kld": "c24", "top1_pct": "c25"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["noise-floor row (BF16 on a different kernel path) is a control, not a build: omitted [L62]", "size 14 GB is in prose, not in this table [L23]"]}
+ ],
+ "prose": [
+  {"entry": "BF16", "panel": "Quality and speed", "key": "bench:Output throughput, 16 concurrent, 1024 in / 512 out", "L": 47, "raw": "2959 tok/s"},
+  {"entry": "NVFP4 (this)", "panel": "Quality and speed", "key": "bench:Output throughput, 16 concurrent, 1024 in / 512 out", "L": 47, "raw": "4655 tok/s"}
+ ]
+}

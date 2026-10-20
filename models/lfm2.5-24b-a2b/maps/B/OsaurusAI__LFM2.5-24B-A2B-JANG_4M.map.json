@@ -1,0 +1,21 @@
+{"repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_4M",
+ "source_sha256": "ab3a9193aa177c124672fe65e8e5df6f17df84ac1af53e7c73f9c8a008c497ba",
+ "candidates_sha256": "868f51414aada879a5cecf578bcbf6fb5a50aab0c0047bb4c2a33c877831d248",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 model, scored against its own outputs [L53-54]", "dataset": "232,094 teacher-forced positions on held-out sequences the bf16 model generated itself [L54]; prompt-family breakdown [L63-91]", "ctx": "not stated", "tool": "not stated", "L": [53, 54, 63]},
+ "entries": [
+  {"role": "own", "name": "JANG_4M",
+   "metrics": {"mean_kld": "c8", "top1_pct": "c9",
+     "top1:multi-step-tool-agent": "c12", "top1:tool-use-single-turn": "c14", "top1:code-cpp": "c16", "top1:code-go": "c18",
+     "top1:code-javascript": "c20", "top1:code-python": "c22", "top1:code-rust": "c24", "top1:code-shell": "c26",
+     "top1:code-swift": "c28", "top1:code-typescript": "c30", "top1:creative-writing": "c32", "top1:cybersecurity": "c34",
+     "top1:finance": "c36", "top1:general-multilingual-structured-output": "c38", "top1:coding-agent-native-tools": "c40",
+     "top1:coding-agent-next-turn": "c42", "top1:long-documents": "c44", "top1:math": "c46", "top1:networking": "c48",
+     "top1:office-tasks": "c50", "top1:pytorch-code": "c52", "top1:science": "c54", "top1:swe-agent": "c56",
+     "top1:terminal-agent-shell": "c58", "top1:turn-after-tool-result": "c60"},
+   "size": "c6", "unit": "GiB", "basis": "disk", "bpw": null,
+   "flags": ["KL is top-128 KL, not full-vocabulary [L54]", "KL median (overall and per family) and dNLL have no metric key, not mapped [L58-91]", "bf16 floor row with 1-ULP embedding perturbation not mapped, not a quant [L56, L60]", "top1 per family taken from the prompt-family table [L63-91]"]}
+ ],
+ "prose": []}

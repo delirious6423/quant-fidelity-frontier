@@ -1,0 +1,26 @@
+{"repo": "notfakerv/LFM2.5-24B-A2B-MLX-Q4_K_S",
+ "source_sha256": "df7bc10380457ace4d4e37463cb7751b61fad866b81acccb92cf68ad938fa15d",
+ "candidates_sha256": "31c9678030b8cdd68bd1ef02e4f619f26cb96e528ff52b9d2b0eb5c1f9761793",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "independent fp32 NumPy forward pass of the source GGUF, Lfm2Moe semantics [L72-73]", "dataset": "31-token chat prompt [L73]; 8,191 tokens of English technical text for perplexity [L77]", "ctx": "not stated", "tool": "gguf-py dequantization [L66]; fp32 NumPy forward pass [L72]", "L": [66, 72, 73, 77]},
+ "entries": [
+   {"role": "own",
+    "name": "MLX (Q4_K_S weights, repacked)",
+    "panel": "Fidelity checks",
+    "metrics": {"mean_kld": "c16", "top1:prompt positions": "c17.1"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["mean KL is against the fp32 forward pass of the source GGUF, not the bf16 model [L72-73]", "perplexity with bf16 activations [L77]", "top-1 over prompt positions is the card's 84 % figure [L73]", "rms residuals (4.4 %, 28 %, 34 %) and the bit-for-bit repack check are not mapped: no metric key [L69-71]", "softmax-routing KL 1.14 nats not mapped: a routing-bug variant, not a quant [L98]"]},
+   {"role": "own",
+    "name": "fp32 activations",
+    "panel": "Fidelity checks",
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["same weights run with fp32 activations [L77]"]}
+ ],
+ "prose": [
+   {"entry": "MLX (Q4_K_S weights, repacked)", "panel": "Fidelity checks", "key": "top1:decode positions", "L": 73, "raw": "100 %"},
+   {"entry": "MLX (Q4_K_S weights, repacked)", "panel": "Fidelity checks", "key": "ppl:English technical text (8,191 tokens)", "L": 77, "raw": "5.956"},
+   {"entry": "fp32 activations", "panel": "Fidelity checks", "key": "ppl:English technical text (8,191 tokens)", "L": 77, "raw": "5.990"}
+ ]}

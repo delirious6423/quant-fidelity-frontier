@@ -1,0 +1,121 @@
+{
+ "repo": "CanadaApollo6/LFM2.5-24B-A2B-M3TiS-3090",
+ "source_sha256": "af98861df8d3241d1e32074c0651c65cb16979bebe7cc0b8a10f4c7d376c697b",
+ "candidates_sha256": "b51bbea4ff713db525a877a9f9d4f4411ef2da31bf3521ff13547f2a9cca048a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "Liquid's Q8_0 GGUF on llama.cpp for agent tasks [L123, L127]; original bf16 model for KL [L109]",
+  "dataset": "19 Terminal-Bench 2 tasks, 3 attempts each [L121-122]; KL on 443 positions of a code answer [L110]",
+  "ctx": "up to 60 turns and 60 minutes per task [L122]",
+  "tool": "pi coding agent as the harness [L122]",
+  "L": [
+   109,
+   110,
+   114,
+   121,
+   122,
+   123
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "These files on this server",
+   "panel": "Agent tasks: within noise of Liquid's 8-bit build.",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "tokens/s, memory and first-token figures are speed and size, not mapped [L66-87]",
+    "tokens per solved task 1.40x (95 % CI 0.98-1.86) not mapped: ratio with no key [L128]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Liquid's Q8_0, llama.cpp",
+   "of": "not named on card",
+   "panel": "Agent tasks: within noise of Liquid's 8-bit build.",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "reference build run by this card's author [L123, L127]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Liquid's MLX 4-bit as published (6-bit embedding table), reference maths",
+   "of": "not named on card",
+   "panel": "The quantization is the lossy part.",
+   "metrics": {
+    "mean_kld": "c1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "KL read as mean over the 443 positions, full vocabulary [L109-114]",
+    "reference build run by this card's author [L114]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Same, 4-bit embedding table (these files), reference maths",
+   "panel": "The quantization is the lossy part.",
+   "metrics": {
+    "mean_kld": "c2"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "KL read as mean over the 443 positions, full vocabulary [L109-115]",
+    "reference maths row [L115]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "These files on this server",
+   "panel": "The quantization is the lossy part.",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "server-side result, 0.137-0.145 across the speed work [L116]"
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "These files on this server",
+   "panel": "Agent tasks: within noise of Liquid's 8-bit build.",
+   "key": "bench:Terminal-Bench 2 (mean solved, of 19)",
+   "L": 128,
+   "raw": "5.0 (26%)"
+  },
+  {
+   "entry": "Liquid's Q8_0, llama.cpp",
+   "panel": "Agent tasks: within noise of Liquid's 8-bit build.",
+   "key": "bench:Terminal-Bench 2 (mean solved, of 19)",
+   "L": 127,
+   "raw": "5.7 (30%)"
+  },
+  {
+   "entry": "These files on this server",
+   "panel": "The quantization is the lossy part.",
+   "key": "mean_kld",
+   "L": 116,
+   "raw": "**0.14**"
+  }
+ ]
+}

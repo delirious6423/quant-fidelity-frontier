@@ -1,0 +1,84 @@
+{
+ "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit-v2",
+ "source_sha256": "000df3bc63763dc57a36ceff1c856596edd62269afc1f26e8f8cc974f9ae509c",
+ "candidates_sha256": "f9eb1fcf2cc9ea13a5733cb9c92b2e5394f1d72e5bc15f83fba3055947f32141",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "8-bit MLX quant of the same model (Liquid AI teacher)", "dataset": "32 held-out sequences of 1025 tokens from the TULU-3 sft mixture", "ctx": "1025 tokens per sequence", "tool": "scripts/benchmark.py (perplexity, KL, top-1)", "L": [56, 57, 203]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "v2 — this model",
+   "panel": "Results",
+   "methodology": {"reference": "8-bit MLX quant of the same model (Liquid AI teacher)", "dataset": "32 held-out sequences of 1025 tokens from the TULU-3 sft mixture", "ctx": "1025 tokens per sequence", "tool": "scripts/benchmark.py (perplexity, KL, top-1)", "L": [56, 57, 203]},
+   "metrics": {"ppl": "c3", "mean_kld": "c4", "top1_pct": "c5"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c2",
+   "flags": ["the bit allocation and integer weights are Liquid AI's; DWQ refines only the per-group scales and biases [L39]", "the Results table has Bits/weight but no size column, so size is empty [L59]", "the card calls the gain over v1 marginal [L82]"]
+  },
+  {
+   "role": "ladder",
+   "name": "v1 — uniform-4-bit DWQ",
+   "panel": "Results",
+   "methodology": {"reference": "8-bit MLX quant of the same model (Liquid AI teacher)", "dataset": "32 held-out sequences of 1025 tokens from the TULU-3 sft mixture", "ctx": "1025 tokens per sequence", "tool": "scripts/benchmark.py (perplexity, KL, top-1)", "L": [56, 57, 203]},
+   "metrics": {"ppl": "c7", "mean_kld": "c8", "top1_pct": "c9"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c6",
+   "flags": ["separate published build; the card names it as the self-contained alternative [L46]"]
+  },
+  {
+   "role": "cross",
+   "of": "LiquidAI/LFM2.5-24B-A2B-MLX-4bit",
+   "name": "Liquid AI 4-bit, undigested",
+   "panel": "Results",
+   "metrics": {"ppl": "c11", "mean_kld": "c12", "top1_pct": "c13"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c10",
+   "flags": ["the stock 4-bit allocation this model's integer weights come from, before DWQ [L122]"]
+  },
+  {
+   "role": "cross",
+   "of": "not named on card",
+   "name": "8-bit teacher (reference)",
+   "panel": "Results",
+   "metrics": {"ppl": "c1"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["the card gives the teacher only as Liquid AI's 8-bit MLX quant, with no repo named [L125]", "KL and top-1 cells are dashes in the source row, not mapped [L61]"]
+  },
+  {
+   "role": "ladder",
+   "name": "v1 — uniform-4-bit DWQ",
+   "panel": "What the gain actually is",
+   "methodology": {"reference": "8-bit MLX quant of the same model (Liquid AI teacher)", "dataset": "32 held-out sequences of 1025 tokens from the TULU-3 sft mixture", "ctx": "1025 tokens per sequence", "tool": "scripts/benchmark.py (perplexity, KL, top-1)", "L": [56, 57, 71]},
+   "metrics": {"ppl": "c14", "mean_kld": "c17", "top1_pct": "c20"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["full-precision values from the gain table; the Results table gives the same build rounded [L73]"]
+  },
+  {
+   "role": "own",
+   "name": "v2 — this model",
+   "panel": "What the gain actually is",
+   "methodology": {"reference": "8-bit MLX quant of the same model (Liquid AI teacher)", "dataset": "32 held-out sequences of 1025 tokens from the TULU-3 sft mixture", "ctx": "1025 tokens per sequence", "tool": "scripts/benchmark.py (perplexity, KL, top-1)", "L": [56, 57, 71]},
+   "metrics": {"ppl": "c15", "mean_kld": "c18", "top1_pct": "c21"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["full-precision values from the gain table; the Results table gives the same build rounded [L73]", "the relative delta cells (c16, c19, c22) have no metric key and are not mapped [L73]", "the card describes DWQ as refining only the grid, with the integer weights unchanged [L117]"]
+  }
+ ],
+ "prose": []
+}

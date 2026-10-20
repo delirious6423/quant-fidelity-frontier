@@ -1,0 +1,19 @@
+{"repo": "sapidlabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+ "source_sha256": "c0ec8ed90a378a0e0c67ce4f68034335eb83438070afa636ca77d14a4643b4c8",
+ "candidates_sha256": "5bce681350f9fbcc952c812e0bdb9f7d2fbd0c4089d16a83374a7eec70c07660",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 original [L71]", "dataset": "GSM8K first 200 test questions; JSON extraction without constrained decoding [L69, L71]", "ctx": "not stated", "tool": "not stated", "L": [65, 69, 70, 71, 73]},
+ "entries": [
+  {"role": "own", "name": "This model", "metrics": {"bench:GSM8K": "c16"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["temperature 0, thinking on, 8 requests at a time [L65]", "output limits differ: NVFP4 12,000 and 8,000 tokens vs BF16 6,000 and 1,500 [L73]", "tool-call 20/20 cells not mapped, both columns identical [L70]"]},
+  {"role": "cross", "of": "LiquidAI/LFM2.5-24B-A2B", "name": "BF16 original", "metrics": {"bench:GSM8K": "c17"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["BF16 original measured by this card's author [L69]", "output limits differ: BF16 6,000 and 1,500 tokens [L73]", "tool-call 20/20 cells not mapped, both columns identical [L70]"]}
+ ],
+ "prose": [
+  {"entry": "This model", "key": "bench:JSON extraction", "L": 71, "raw": "14/15"},
+  {"entry": "BF16 original", "key": "bench:JSON extraction", "L": 71, "raw": "13/15"}
+ ]}

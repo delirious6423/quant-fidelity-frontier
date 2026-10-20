@@ -1,0 +1,97 @@
+{
+ "repo": "Lottolabs/LFM2.5-24B-A2B-TT-Mixed-BFP4-BFP8-P150",
+ "source_sha256": "7a3881e8596d1ff7052fba57ec6cb8bfd73576104f113fcba31cdc446fb42ceb",
+ "candidates_sha256": "63d0dd9772a7a1a68ebedbbb29e40d6d2fbe41b71af9cc3f6067487e42a6d3c5",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "original BF16 model run on CPU (Transformers 5.12.1, eager attention, FP32 logits)", "dataset": "38 records: chat (UltraChat test), instruct (code/multilingual), code (Python files), book (Opticks); 57,876 scored tokens", "ctx": "not stated", "tool": "Transformers 5.12.1", "L": [71, 72, 73, 483]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "this checkpoint on the P150",
+   "panel": "TT P150 vs CPU BF16",
+   "methodology": {"reference": "original BF16 model run on CPU (Transformers 5.12.1, eager attention, FP32 logits)", "dataset": "chat (UltraChat test), instruct (code/multilingual), code (Python files), book (Opticks) records; 38 records, 57,876 scored tokens", "ctx": "not stated", "tool": "TT P150 device, m8 runtime", "L": [71, 72, 73, 483]},
+   "metrics": {"ppl:chat": "c4.1", "ppl:instruct": "c10.1", "ppl:code": "c16.1", "ppl:book": "c22.1", "ppl": "c28.1", "ppl_delta_pct": "c29", "top1:chat": "c6", "top1:instruct": "c12", "top1:code": "c18", "top1:book": "c24", "top1_pct": "c30", "kld:chat": "c7", "kld:instruct": "c13", "kld:code": "c19", "kld:book": "c25", "mean_kld": "c31", "kld_99": "c32"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["Instruct has 1,216 tokens; its ΔPPL is within noise [L89]", "per-corpus ΔPPL and per-corpus KL p99 not mapped: no corpus key exists for them [L83]", "top1_pct value is printed as a fraction (0.9149), not a percent [L87]", "GSM8K panel and speed/speculation tables not mapped: counts out of 50 and speed figures, not fidelity metrics [L107]"]
+  },
+  {
+   "role": "cross",
+   "of": "LiquidAI/LFM2.5-24B-A2B",
+   "name": "BF16",
+   "panel": "TT P150 vs CPU BF16",
+   "metrics": {"ppl:chat": "c4.0", "ppl:instruct": "c10.0", "ppl:code": "c16.0", "ppl:book": "c22.0", "ppl": "c28.0"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["BF16 reference the card's author measured on CPU for the device table [L77]"]
+  },
+  {
+   "role": "own",
+   "name": "this checkpoint (GPTQ-BFP4 experts + BFP8), fake-quant",
+   "panel": "Noise floor and quantization ablations (CPU, same harness)",
+   "methodology": {"reference": "original BF16 model run on CPU, same harness", "dataset": "chat, instruct, code, book records; 38 records, 57,876 scored tokens", "ctx": "not stated", "tool": "lfmq fake-quant on CPU", "L": [71, 72, 93]},
+   "metrics": {"ppl_delta_pct": "c39", "top1_pct": "c40", "mean_kld": "c41"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["fake-quant on CPU, not the P150 device path [L93]", "top1_pct value is printed as a fraction (0.915), not a percent [L100]"]
+  },
+  {
+   "role": "own",
+   "name": "this checkpoint on the P150 (table above)",
+   "panel": "Noise floor and quantization ablations (CPU, same harness)",
+   "methodology": {"reference": "original BF16 model run on CPU", "dataset": "chat, instruct, code, book records; 38 records, 57,876 scored tokens", "ctx": "not stated", "tool": "TT P150 device, m8 runtime", "L": [71, 72, 73, 102]},
+   "metrics": {"ppl_delta_pct": "c45", "top1_pct": "c46", "mean_kld": "c47"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["restates the TT P150 table within this panel [L102]", "top1_pct value is printed as a fraction (0.915), not a percent [L102]"]
+  },
+  {
+   "role": "ladder",
+   "name": "RTN-BFP4 experts + BFP8 (no GPTQ)",
+   "panel": "Noise floor and quantization ablations (CPU, same harness)",
+   "methodology": {"reference": "original BF16 model run on CPU, same harness", "dataset": "chat, instruct, code, book records; 38 records, 57,876 scored tokens", "ctx": "not stated", "tool": "lfmq fake-quant on CPU", "L": [71, 72, 93]},
+   "metrics": {"ppl_delta_pct": "c42", "top1_pct": "c43", "mean_kld": "c44"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["fake-quant on CPU; round-to-nearest BFP4 experts, no GPTQ [L101]", "top1_pct value is printed as a fraction (0.906), not a percent [L101]"]
+  },
+  {
+   "role": "ladder",
+   "name": "BF16 experts, BFP8 dense/head only",
+   "panel": "Noise floor and quantization ablations (CPU, same harness)",
+   "methodology": {"reference": "original BF16 model run on CPU, same harness", "dataset": "chat, instruct, code, book records; 38 records, 57,876 scored tokens", "ctx": "not stated", "tool": "lfmq fake-quant on CPU", "L": [71, 72, 93]},
+   "metrics": {"ppl_delta_pct": "c36", "top1_pct": "c37", "mean_kld": "c38"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["fake-quant on CPU; BF16 experts with BFP8 dense and head only [L99]", "top1_pct value is printed as a fraction (0.959), not a percent [L99]"]
+  },
+  {
+   "role": "cross",
+   "of": "LiquidAI/LFM2.5-24B-A2B",
+   "name": "BF16 noise floor (chunked vs whole)",
+   "panel": "Noise floor and quantization ablations (CPU, same harness)",
+   "methodology": {"reference": "BF16 model run with 512-token chunked prefill, compared with one whole-sequence pass", "dataset": "chat, instruct, code, book records; 38 records, 57,876 scored tokens", "ctx": "512-token chunked prefill", "tool": "Transformers 5.12.1", "L": [71, 93, 94]},
+   "metrics": {"ppl_delta_pct": "c33", "top1_pct": "c34", "mean_kld": "c35"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["the BF16 model itself, not a quantized build [L93]", "top1_pct value is printed as a fraction (0.975), not a percent [L98]"]
+  }
+ ],
+ "prose": []
+}

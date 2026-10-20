@@ -1,0 +1,109 @@
+{
+ "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0",
+ "source_sha256": "d76dedabe5dcb160a2367635db232b72f5ba598fb46fb5c06a9cc7b9b7da148d",
+ "candidates_sha256": "587031bd91230dfddbbb7db4fe064c11f2d2a01a2c0db9e7b59ebdf500489f71",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 model (LiquidAI/LFM2.5-24B-A2B)", "dataset": "20 rows of 2,048 tokens: wikitext-2, and chat (oasst1 validation split, in the model's chat template)", "ctx": "2,048 tokens per row", "tool": "exllamav3 model_diff (exllamav3 1.6.0)", "L": [13, 19]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "6.0",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["the quality table cells for this row have no candidate ids in this candidate list, so they are mapped as prose [L28]", "the 18.63 GB size is in the same row but has no candidate id, so size is empty [L28]", "bits per weight (6.0) is stated in the title but has no candidate id [L11]", "the speed table is not a fidelity metric and is not mapped [L43]"]
+  },
+  {
+   "role": "ladder",
+   "name": "2.5",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["this publisher's sibling size, linked from the table [L23]", "the 8.20 GB size is in the row but has no candidate id, so size is empty [L23]"]
+  },
+  {
+   "role": "ladder",
+   "name": "3.0",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["this publisher's sibling size, linked from the table [L24]", "the 9.68 GB size is in the row but has no candidate id, so size is empty [L24]"]
+  },
+  {
+   "role": "ladder",
+   "name": "3.5",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["this publisher's sibling size, linked from the table [L25]", "the 11.16 GB size is in the row but has no candidate id, so size is empty [L25]"]
+  },
+  {
+   "role": "ladder",
+   "name": "4.0",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["this publisher's sibling size, linked from the table [L26]", "the 12.64 GB size is in the row but has no candidate id, so size is empty [L26]"]
+  },
+  {
+   "role": "ladder",
+   "name": "4.5",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["this publisher's sibling size, linked from the table [L27]", "the 14.12 GB size is in the row but has no candidate id, so size is empty [L27]"]
+  },
+  {
+   "role": "cross",
+   "of": "LiquidAI/LFM2.5-24B-A2B",
+   "name": "BF16",
+   "metrics": {"ppl:wikitext": "c5"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["the BF16 reference the card measures every size against [L19]", "chat perplexity is mapped as prose because it has no candidate id [L19]"]
+  }
+ ],
+ "prose": [
+  {"entry": "6.0", "key": "kld:wikitext", "L": 28, "raw": "0.080"},
+  {"entry": "6.0", "key": "top1:wikitext", "L": 28, "raw": "88.2 %"},
+  {"entry": "6.0", "key": "kld:chat", "L": 28, "raw": "0.039"},
+  {"entry": "6.0", "key": "top1:chat", "L": 28, "raw": "93.4 %"},
+  {"entry": "2.5", "key": "kld:wikitext", "L": 23, "raw": "0.463"},
+  {"entry": "2.5", "key": "top1:wikitext", "L": 23, "raw": "70.4 %"},
+  {"entry": "2.5", "key": "kld:chat", "L": 23, "raw": "0.313"},
+  {"entry": "2.5", "key": "top1:chat", "L": 23, "raw": "78.9 %"},
+  {"entry": "3.0", "key": "kld:wikitext", "L": 24, "raw": "0.335"},
+  {"entry": "3.0", "key": "top1:wikitext", "L": 24, "raw": "75.2 %"},
+  {"entry": "3.0", "key": "kld:chat", "L": 24, "raw": "0.195"},
+  {"entry": "3.0", "key": "top1:chat", "L": 24, "raw": "83.6 %"},
+  {"entry": "3.5", "key": "kld:wikitext", "L": 25, "raw": "0.226"},
+  {"entry": "3.5", "key": "top1:wikitext", "L": 25, "raw": "79.0 %"},
+  {"entry": "3.5", "key": "kld:chat", "L": 25, "raw": "0.136"},
+  {"entry": "3.5", "key": "top1:chat", "L": 25, "raw": "86.7 %"},
+  {"entry": "4.0", "key": "kld:wikitext", "L": 26, "raw": "0.201"},
+  {"entry": "4.0", "key": "top1:wikitext", "L": 26, "raw": "80.7 %"},
+  {"entry": "4.0", "key": "kld:chat", "L": 26, "raw": "0.098"},
+  {"entry": "4.0", "key": "top1:chat", "L": 26, "raw": "88.5 %"},
+  {"entry": "4.5", "key": "kld:wikitext", "L": 27, "raw": "0.113"},
+  {"entry": "4.5", "key": "top1:wikitext", "L": 27, "raw": "85.4 %"},
+  {"entry": "4.5", "key": "kld:chat", "L": 27, "raw": "0.063"},
+  {"entry": "4.5", "key": "top1:chat", "L": 27, "raw": "91.2 %"},
+  {"entry": "BF16", "key": "ppl:chat", "L": 19, "raw": "7.43"}
+ ]
+}

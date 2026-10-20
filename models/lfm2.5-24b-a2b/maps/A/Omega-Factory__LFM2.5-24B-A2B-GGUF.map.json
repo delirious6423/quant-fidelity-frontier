@@ -1,0 +1,28 @@
+{
+ "repo": "Omega-Factory/LFM2.5-24B-A2B-GGUF",
+ "source_sha256": "cb862fce497b3fb8ab89bccc37f79ae1269a270441b6aa5ba4c0288cabc4b52d",
+ "candidates_sha256": "7fb511088f407339a8f3d37e91935e312460a48a866905b1378c556a625204aa",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "LiquidAI/LFM2.5-24B-A2B as the unquantized base; BF16 GGUF Baseline row [L44,L50]", "dataset": "ARC-MC, GSM8K and MATH-500, 200 items each (e.g. 176/200, 157/200, 117/200) [L50-53]", "ctx": "not stated; greedy decoding temperature 0.0, top_k 1, seed 42 [L93-96]", "tool": "not stated", "L": [44, 50, 53, 93, 94, 95, 96]},
+ "entries": [
+  {"role": "cross", "name": "BF16 GGUF Baseline", "panel": "Precision & Accuracy Matrix vs. BF16 GGUF Baseline", "of": "not named on card",
+   "metrics": {"bench:ARC-MC": "c14", "bench:GSM8K": "c15", "bench:MATH-500": "c16", "bench:Babble Rate": "c17"},
+   "size": "c13", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["base model is LiquidAI/LFM2.5-24B-A2B [L44]; the card does not name the repo of this BF16 GGUF file [L50]", "McNemar flip counts and per-category net deltas [L61-69] not mapped: no metric key", "card says experts were pruned before re-quantising [L242], not reconciled with the base-model reference [L44]", "artifact size is disk usage, not measured VRAM [L73]"]},
+  {"role": "own", "name": "Q8_0", "panel": "Precision & Accuracy Matrix vs. BF16 GGUF Baseline",
+   "metrics": {"bench:ARC-MC": "c20", "bench:GSM8K": "c21", "bench:MATH-500": "c22", "bench:Babble Rate": "c23"},
+   "size": "c19", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["SCREEN verdict, 1 seed, not a certification [L34,L38]", "deployment not recommended per card [L87]", "card says experts were pruned before re-quantising [L242]"]},
+  {"role": "own", "name": "Q4_K_M", "panel": "Precision & Accuracy Matrix vs. BF16 GGUF Baseline",
+   "metrics": {"bench:ARC-MC": "c26", "bench:GSM8K": "c27", "bench:MATH-500": "c28", "bench:Babble Rate": "c29"},
+   "size": "c25", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["DEGRADED verdict, 1 seed [L35,L30]", "card says experts were pruned before re-quantising [L242]"]},
+  {"role": "own", "name": "Q2_K", "panel": "Precision & Accuracy Matrix vs. BF16 GGUF Baseline",
+   "metrics": {"bench:ARC-MC": "c32", "bench:GSM8K": "c33", "bench:MATH-500": "c34", "bench:Babble Rate": "c35"},
+   "size": "c31", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["DEGRADED verdict, 1 seed [L36,L30]", "card says experts were pruned before re-quantising [L242]"]}
+ ],
+ "prose": []
+}

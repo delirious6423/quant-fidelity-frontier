@@ -1,0 +1,22 @@
+{
+ "repo": "Jakevin/LFM2.5-24B-A2B-abliterated-ternary-mlx",
+ "source_sha256": "75010885f60defea3d2d7aaf137b0a78bb3b2e1495b794d248edd3e32ae0bc35",
+ "candidates_sha256": "094840b14be15a37bc449958b57735dd9c4380488867b1caeb45b9a8b796c876",
+ "no_quality_claims": true,
+ "no_claims_reason": "behaviour counts on 10 harmful and 4 general prompts only; no fidelity or quality metric [L44-L61]",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "10 harmful prompts and 4 general questions, each with an 8K token cap", "ctx": "8K token cap", "tool": "not stated", "L": [44, 47, 53]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "LFM2.5-24B-A2B-abliterated-ternary-mlx",
+   "metrics": {},
+   "size": "c1",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": ["the 10.3 GB size is from the Quantization heading [L25]", "the card's evaluation is refusal and finish counts with no fidelity metric, so no metrics are mapped [L47] [L53]", "the weights are abliterated: the refusal direction is subtracted from the layer weights [L21] [L22]", "the card says the build has known quality degradation but gives no quality number [L13]"]
+  }
+ ],
+ "prose": []
+}

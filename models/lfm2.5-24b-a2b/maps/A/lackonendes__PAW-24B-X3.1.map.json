@@ -1,0 +1,98 @@
+{
+ "repo": "lackonendes/PAW-24B-X3.1",
+ "source_sha256": "e78445d685849c189d00a1f48928141f4dada8a696d41c6e492ffd9cd58e72d0",
+ "candidates_sha256": "b0c0402440cdfb400b9195970297c4fcabf88f51c9f2ccbe38131f06ed5394e7",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 model run in transformers with fp32 math", "dataset": "32 held-out chunks of 1,024 tokens of code, scoring the second half of each chunk (16,352 tokens)", "ctx": "1,024 tokens per chunk", "tool": "transformers (BF16 reference); llama.cpp for the official files", "L": [37, 38, 39]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "X3.1 K3.5 (TRUSS)",
+   "panel": "Quality: KL divergence against the BF16 model",
+   "methodology": {"reference": "BF16 model run in transformers with fp32 math", "dataset": "32 held-out chunks of 1,024 tokens of code, second half scored (16,352 tokens)", "ctx": "1,024 tokens per chunk", "tool": "not stated", "L": [37, 38, 39]},
+   "metrics": {"mean_kld": "c30", "top1_pct": "c31", "ppl": "c32"},
+   "size": "c29",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": ["the 3.5 bit figure in the summary table [L25] is the routed-expert rate, not a file bits-per-weight, so bpw is left empty", "the card says its routing is tie-heavy, so even Q8_0 shows a KL of 0.033 [L55]", "the speed table is not a fidelity metric and is not mapped [L63]"]
+  },
+  {
+   "role": "own",
+   "name": "X3.1 K3 (TRUSS)",
+   "panel": "Quality: KL divergence against the BF16 model",
+   "methodology": {"reference": "BF16 model run in transformers with fp32 math", "dataset": "32 held-out chunks of 1,024 tokens of code, second half scored (16,352 tokens)", "ctx": "1,024 tokens per chunk", "tool": "not stated", "L": [37, 38, 39]},
+   "metrics": {"mean_kld": "c34", "top1_pct": "c35", "ppl": "c36"},
+   "size": "c33",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": ["the 3 bit figure in the summary table [L26] is the routed-expert rate, not a file bits-per-weight, so bpw is left empty"]
+  },
+  {
+   "role": "own",
+   "name": "X3.1 K2.5 (TRUSS)",
+   "panel": "Quality: KL divergence against the BF16 model",
+   "methodology": {"reference": "BF16 model run in transformers with fp32 math", "dataset": "32 held-out chunks of 1,024 tokens of code, second half scored (16,352 tokens)", "ctx": "1,024 tokens per chunk", "tool": "not stated", "L": [37, 38, 39]},
+   "metrics": {"mean_kld": "c38", "top1_pct": "c39", "ppl": "c40"},
+   "size": "c37",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": ["the 2.5 bit figure in the summary table [L27] is the routed-expert rate, not a file bits-per-weight, so bpw is left empty"]
+  },
+  {
+   "role": "own",
+   "name": "X3.1 K2 (TRUSS)",
+   "panel": "Quality: KL divergence against the BF16 model",
+   "methodology": {"reference": "BF16 model run in transformers with fp32 math", "dataset": "32 held-out chunks of 1,024 tokens of code, second half scored (16,352 tokens)", "ctx": "1,024 tokens per chunk", "tool": "not stated", "L": [37, 38, 39]},
+   "metrics": {"mean_kld": "c42", "top1_pct": "c43", "ppl": "c44"},
+   "size": "c41",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": ["the 2 bit figure in the summary table [L28] is the routed-expert rate, not a file bits-per-weight, so bpw is left empty"]
+  },
+  {
+   "role": "ladder",
+   "name": "Q8_0 (llama.cpp)",
+   "panel": "Quality: KL divergence against the BF16 model",
+   "methodology": {"reference": "BF16 model run in transformers with fp32 math", "dataset": "32 held-out chunks of 1,024 tokens of code, second half scored (16,352 tokens)", "ctx": "1,024 tokens per chunk", "tool": "llama.cpp", "L": [37, 38, 39, 43]},
+   "metrics": {"mean_kld": "c18", "top1_pct": "c19", "ppl": "c20"},
+   "size": "c17",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": ["not labelled official, and the card does not say how this file was built [L43]", "the card's Q8_0 is the reference point for routing ties [L55]"]
+  },
+  {
+   "role": "cross",
+   "of": "not named on card",
+   "name": "official Q4_K_M (llama.cpp)",
+   "panel": "Quality: KL divergence against the BF16 model",
+   "methodology": {"reference": "BF16 model run in transformers with fp32 math", "dataset": "32 held-out chunks of 1,024 tokens of code, second half scored (16,352 tokens)", "ctx": "1,024 tokens per chunk", "tool": "llama.cpp", "L": [37, 38, 39, 44]},
+   "metrics": {"mean_kld": "c22", "top1_pct": "c23", "ppl": "c24"},
+   "size": "c21",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": ["the card calls these LiquidAI's own GGUFs but names no repo [L39]"]
+  },
+  {
+   "role": "cross",
+   "of": "not named on card",
+   "name": "official QAD-Q4_0 (llama.cpp)",
+   "panel": "Quality: KL divergence against the BF16 model",
+   "methodology": {"reference": "BF16 model run in transformers with fp32 math", "dataset": "32 held-out chunks of 1,024 tokens of code, second half scored (16,352 tokens)", "ctx": "1,024 tokens per chunk", "tool": "llama.cpp", "L": [37, 38, 39, 45]},
+   "metrics": {"mean_kld": "c26", "top1_pct": "c27", "ppl": "c28"},
+   "size": "c25",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": ["quantization-aware distilled, not a rounding of BF16, so its perplexity lands below BF16's; the card says compare it by KL [L51]", "the card calls these LiquidAI's own GGUFs but names no repo [L39]"]
+  }
+ ],
+ "prose": []
+}

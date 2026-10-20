@@ -1,0 +1,109 @@
+{
+ "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit",
+ "source_sha256": "ab0f42c056e5a3c6d958177c93c5cb61dfb05c02a2a39f2eba95ed17869583eb",
+ "candidates_sha256": "6172ac78d511e5354e9239fb6c4f02912fc23fc7fc29a61b5da728d304afd5aa",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "8-bit teacher (LiquidAI 8-bit MLX release)", "dataset": "32 held-out sequences of 1025 tokens from the TULU-3 sft mixture", "ctx": "1025 tokens per sequence", "tool": "scripts/benchmark.py (perplexity, KL, top-1)", "L": [49, 50, 262]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "4-bit DWQ (this model)",
+   "panel": "Results",
+   "methodology": {"reference": "8-bit teacher (LiquidAI 8-bit MLX release)", "dataset": "32 held-out sequences of 1025 tokens from the TULU-3 sft mixture", "ctx": "1025 tokens per sequence", "tool": "scripts/benchmark.py (perplexity, KL, top-1)", "L": [49, 50, 262]},
+   "metrics": {"ppl": "c6", "mean_kld": "c7", "top1_pct": "c8"},
+   "size": "c9",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": ["the card calls the perplexity (6.97) marginally below the teacher's and not better than it [L61]", "DWQ-over-RTN improvement percentages are derived deltas with no metric key and are not mapped [L67]", "the separate v2 build is referenced at [L104] and is mapped from its own card, not here", "the teacher-confidence buckets [L81] are not mapped: sub-population breakdown"]
+  },
+  {
+   "role": "ladder",
+   "name": "4-bit RTN (baseline)",
+   "panel": "Results",
+   "methodology": {"reference": "8-bit teacher (LiquidAI 8-bit MLX release)", "dataset": "32 held-out sequences of 1025 tokens from the TULU-3 sft mixture", "ctx": "1025 tokens per sequence", "tool": "scripts/benchmark.py (perplexity, KL, top-1)", "L": [49, 50, 55]},
+   "metrics": {"ppl": "c3", "mean_kld": "c4", "top1_pct": "c5"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["round-to-nearest 4-bit baseline from the bf16 base [L171]", "size is a dash in this row [L55]"]
+  },
+  {
+   "role": "cross",
+   "of": "LiquidAI/LFM2.5-24B-A2B-MLX-8bit",
+   "name": "8-bit teacher (reference)",
+   "panel": "Results",
+   "metrics": {"ppl": "c1"},
+   "size": "c2",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": ["the 8-bit MLX teacher is the comparison reference, not a BF16 reference [L54]", "KL and top-1 cells are dashes in the source row, not mapped [L54]"]
+  },
+  {
+   "role": "own",
+   "name": "4-bit DWQ (this model)",
+   "panel": "Compared with Liquid AI's own MLX 4-bit",
+   "methodology": {"reference": "not stated for this table", "dataset": "same held-out windows as the Results table", "ctx": "not stated", "tool": "not stated", "L": [116, 117]},
+   "metrics": {"ppl": "c39", "mean_kld": "c41", "top1_pct": "c43"},
+   "size": "c37",
+   "unit": "GB",
+   "basis": null,
+   "bpw": "c35",
+   "flags": ["the card says both models were evaluated with the corrected LFM2 routing (mlx-lm 0.32.0 or newer) [L147]", "the Results table gives the same build's size rounded as 13.5 GB [L56]"]
+  },
+  {
+   "role": "cross",
+   "of": "LiquidAI/LFM2.5-24B-A2B-MLX-4bit",
+   "name": "LFM2.5-24B-A2B-MLX-4bit",
+   "panel": "Compared with Liquid AI's own MLX 4-bit",
+   "methodology": {"reference": "8-bit teacher (LiquidAI 8-bit MLX release)", "dataset": "same held-out windows as the Results table", "ctx": "not stated", "tool": "not stated", "L": [116, 117]},
+   "metrics": {"ppl": "c40", "mean_kld": "c42", "top1_pct": "c44"},
+   "size": "c38",
+   "unit": "GB",
+   "basis": null,
+   "bpw": "c36",
+   "flags": ["Liquid AI's own 4-bit MLX quant, measured by this card's author on the same windows [L116]", "the card notes the vendor card does not mention the mlx-lm 0.32.0 requirement [L149]"]
+  },
+  {
+   "role": "own",
+   "name": "4-bit",
+   "panel": "Sibling quants",
+   "methodology": {"reference": "not stated for this table", "dataset": "not stated for this table", "ctx": "not stated", "tool": "not stated", "L": [155, 157]},
+   "metrics": {"ppl": "c49", "mean_kld": "c50", "top1_pct": "c51"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c48",
+   "flags": ["this table marks this row as this model; its values match the Results table [L157]", "the quantization method and measurement set are not stated for this table [L155]"]
+  },
+  {
+   "role": "ladder",
+   "name": "3-bit",
+   "panel": "Sibling quants",
+   "methodology": {"reference": "not stated for this table", "dataset": "not stated for this table", "ctx": "not stated", "tool": "not stated", "L": [155, 158]},
+   "metrics": {"ppl": "c53", "mean_kld": "c54", "top1_pct": "c55"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c52",
+   "flags": ["sibling build named in the table [L158]", "the quantization method and measurement set are not stated for this table [L155]"]
+  },
+  {
+   "role": "ladder",
+   "name": "2-bit (not published, see Limitations)",
+   "panel": "Sibling quants",
+   "methodology": {"reference": "not stated for this table", "dataset": "not stated for this table", "ctx": "not stated", "tool": "not stated", "L": [155, 159]},
+   "metrics": {"ppl": "c56", "mean_kld": "c57", "top1_pct": "c58"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["the card says this build is not published and not recommended [L159] [L277]", "the quantization method is not stated for this row; the Limitations prose quotes separate RTN figures that are not mapped [L278]"]
+  }
+ ],
+ "prose": []
+}

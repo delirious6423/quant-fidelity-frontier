@@ -1,0 +1,108 @@
+{
+ "repo": "0xzknw/LFM2.5-24B-A2B-EXL3-4bpw",
+ "source_sha256": "72283dc69fa68ee781c5b3760630a7eb2a6a042a2a2d73516c4d2e55a886d1ee",
+ "candidates_sha256": "ca39370f158adfa6ac64178f98f741747f497577ddc2eba6b4e9d373effa0ae3",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "BF16 teacher (LiquidAI/LFM2.5-24B-A2B)", "dataset": "WikiText test, French technical text, Python source (five scored protocols)", "ctx": "windows of 256 to 1024 tokens, per protocol", "tool": "MLXL3 engine 1.4.4", "L": [29, 56, 58]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "EXL3 4 bpw, v2",
+   "panel": "Quality: same engine, tokens and BF16 teachers",
+   "methodology": {"reference": "BF16 teacher (LiquidAI/LFM2.5-24B-A2B), KL direction BF16 reference to quantized model", "dataset": "WikiText test, French technical text, Python source (five scored protocols)", "ctx": "windows of 256 to 1024 tokens, per protocol", "tool": "MLXL3 engine 1.4.4", "L": [29, 56, 58]},
+   "metrics": {
+    "ppl:WikiText test,8×1024,no BOS,all positions": "c3",
+    "ppl:French technical text,2×512,no BOS": "c8",
+    "ppl:Python source,2×512,no BOS": "c13",
+    "ppl:WikiText test,8×256,no BOS": "c18",
+    "ppl:WikiText test,BOS/8×1024,positions512–1022": "c23",
+    "kld:WikiText test,8×1024,no BOS,all positions": "c5",
+    "kld:French technical text,2×512,no BOS": "c10",
+    "kld:Python source,2×512,no BOS": "c15",
+    "kld:WikiText test,8×256,no BOS": "c20",
+    "kld:WikiText test,BOS/8×1024,positions512–1022": "c25"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["the effective 4.209716 bits per parameter [L23] has only truncated candidate values, so bpw is left empty", "the 12.61 GB size [L23] is in prose and not in the quality table, so size is empty", "one primary window regresses in KL (v1 about 0.2734 to v2 about 0.5265) [L68]", "the card's CUDA and F16-source control numbers are measured on another backend or model and are not mapped [L68]", "derived percentage deltas (8.88%, 41.83%, 2.40%) have no metric key [L66] [L81]", "the card says the PPL below BF16 on a small sample does not establish superior quality [L66]"]
+  },
+  {
+   "role": "ladder",
+   "name": "v1",
+   "panel": "Quality: same engine, tokens and BF16 teachers",
+   "methodology": {"reference": "BF16 teacher (LiquidAI/LFM2.5-24B-A2B), KL direction BF16 reference to quantized model", "dataset": "WikiText test, French technical text, Python source (five scored protocols)", "ctx": "windows of 256 to 1024 tokens, per protocol", "tool": "MLXL3 engine 1.4.4", "L": [25, 56, 58]},
+   "metrics": {
+    "ppl:WikiText test,8×1024,no BOS,all positions": "c2",
+    "ppl:French technical text,2×512,no BOS": "c7",
+    "ppl:Python source,2×512,no BOS": "c12",
+    "ppl:WikiText test,8×256,no BOS": "c17",
+    "ppl:WikiText test,BOS/8×1024,positions512–1022": "c22",
+    "kld:WikiText test,8×1024,no BOS,all positions": "c4",
+    "kld:French technical text,2×512,no BOS": "c9",
+    "kld:Python source,2×512,no BOS": "c14",
+    "kld:WikiText test,8×256,no BOS": "c19",
+    "kld:WikiText test,BOS/8×1024,positions512–1022": "c24"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["the frozen earlier revision of this repo, rerun on the same engine as v2 [L25] [L56]", "the per-window v1 value of about 0.2734 is not mapped [L68]"]
+  },
+  {
+   "role": "cross",
+   "of": "LiquidAI/LFM2.5-24B-A2B",
+   "name": "BF16 teacher",
+   "panel": "Quality: same engine, tokens and BF16 teachers",
+   "metrics": {
+    "ppl:WikiText test,8×1024,no BOS,all positions": "c54",
+    "ppl:WikiText test,BOS/8×1024,positions512–1022": "c55.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["the BF16 teacher perplexity the card measures every protocol against [L66]", "the paired BOS teacher perplexity is mapped to the BOS protocol [L66]"]
+  },
+  {
+   "role": "cross",
+   "of": "not named on card",
+   "name": "UD-Q4_K_XL",
+   "panel": "Comparison with the user's Unsloth GGUF",
+   "methodology": {"reference": "BF16 teachers, same as the quality panel", "dataset": "matched protocols: WikiText test with no BOS and 8192 labels; WikiText test with BOS and 4088 labels", "ctx": "not stated", "tool": "official llama.cpp b11620/21a19cd3b, unclamped F32 logits", "L": [74, 76]},
+   "metrics": {
+    "ppl:WikiText test,8×1024,no BOS,all positions": "c26",
+    "kld:WikiText test,8×1024,no BOS,all positions": "c28",
+    "ppl:WikiText test,BOS/8×1024,positions512–1022": "c30",
+    "kld:WikiText test,BOS/8×1024,positions512–1022": "c32"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c60.1",
+   "flags": ["the file is UD-Q4_K_XL, measured by this card's author, not Q4_K_M [L74]", "the card names Unsloth as the publisher but gives no repo [L72]", "the 14.8769 GB size [L74] is in prose and not in the table, so size is empty"]
+  },
+  {
+   "role": "own",
+   "name": "EXL3 4 bpw, v2",
+   "panel": "Comparison with the user's Unsloth GGUF",
+   "methodology": {"reference": "BF16 teachers, same as the quality panel", "dataset": "matched protocols: WikiText test with no BOS and 8192 labels; WikiText test with BOS and 4088 labels", "ctx": "not stated", "tool": "MLXL3 engine 1.4.4", "L": [76, 79]},
+   "metrics": {
+    "ppl:WikiText test,8×1024,no BOS,all positions": "c27",
+    "kld:WikiText test,8×1024,no BOS,all positions": "c29",
+    "ppl:WikiText test,BOS/8×1024,positions512–1022": "c31",
+    "kld:WikiText test,BOS/8×1024,positions512–1022": "c33"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["the matched-protocol table gives the same v2 numbers at full precision [L78] [L79]", "the card says V2 loses KL in the no-BOS case against the GGUF [L81]"]
+  }
+ ],
+ "prose": []
+}

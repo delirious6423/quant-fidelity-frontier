@@ -1,0 +1,40 @@
+{
+ "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-3bit",
+ "source_sha256": "0a739322afc5930efab45f71645f54523cc3533edec9c51f05ebc1ecb42a6ac1",
+ "candidates_sha256": "3acd9ad9f2ce266e30048c61233aa409b4337246a13360af435e7959c48ca4c0",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "8-bit teacher (Liquid AI MLX 8-bit)", "dataset": "held-out TULU-3 sft mixture, 32 sequences of 1025 tokens", "ctx": "1025-token sequences", "tool": "scripts/benchmark.py (perplexity, KL and top-1)", "L": [49, 50, 220]},
+ "entries": [
+  {"role": "own", "name": "3-bit DWQ (this model)", "panel": "Results",
+   "metrics": {"ppl": "c6", "mean_kld": "c7", "top1_pct": "c8"},
+   "size": "c9", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["[L143] effective 3.501 bits/weight is stated in prose and is not mapped", "[L81-86] per-confidence-bucket agreement is not mapped"]},
+  {"role": "ladder", "name": "3-bit RTN (baseline)", "panel": "Results",
+   "metrics": {"ppl": "c3", "mean_kld": "c4", "top1_pct": "c5"},
+   "size": null, "unit": null, "basis": null, "bpw": null, "flags": []},
+  {"role": "cross", "name": "8-bit teacher (reference)", "panel": "Results", "of": "LiquidAI/LFM2.5-24B-A2B-MLX-8bit",
+   "metrics": {"ppl": "c1"},
+   "size": "c2", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+  {"role": "ladder", "name": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-3bit-v2", "panel": "A better variant exists",
+   "metrics": {"mean_kld": "c52.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L107] error counts per 10,000 positions are not mapped"]},
+  {"role": "ladder", "name": "4-bit", "panel": "Sibling quants",
+   "metrics": {"ppl": "c36", "mean_kld": "c37", "top1_pct": "c38"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L115] sibling 4-bit build listed in the card's sibling table"]},
+  {"role": "ladder", "name": "2-bit", "panel": "Sibling quants",
+   "metrics": {"ppl": "c43", "mean_kld": "c44", "top1_pct": "c45"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L117] card marks this row as not published"]},
+  {"role": "ladder", "name": "2-bit RTN", "panel": "Limitations",
+   "metrics": {"ppl": "c63.0", "top1_pct": "c63.2"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L236] RTN at 2-bit, as the card's Limitations section states it"]}
+ ],
+ "prose": [
+  {"entry": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-3bit-v2", "panel": "A better variant exists", "key": "top1_pct", "L": 105, "raw": "72.4%"}
+ ]
+}

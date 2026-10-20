@@ -1,0 +1,20 @@
+{"repo": "mlx-community/LFM2.5-24B-A2B-OptiQ-4bit",
+ "source_sha256": "692f75ed279270c431c6fa7f3c6c96e9dcb7066f3bba45de87008a13866b5c4c",
+ "candidates_sha256": "589164c109090e22e0e7266f447fd978a391e95269414a5d87643adb2ee3449a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "uniform 4-bit quant of the same model, scored the same way [L43]", "dataset": "six-metric standard OptiQ eval [L43]; datasets not named", "ctx": "reasoning mode, 16k reasoning budget [L43, L55]", "tool": "not stated", "L": [43, 55]},
+ "entries": [
+   {"role": "own",
+    "name": "OptiQ",
+    "metrics": {"bench:MMLU (generative)": "c3", "bench:GSM8K": "c5", "bench:IFEval (strict)": "c7", "bench:BFCL-V3 simple (200 calls)": "c9", "bench:HumanEval (164 problems, pass@1)": "c11", "bench:HashHop (long-context retrieval)": "c13", "bench:Capability Score (mean of 6)": "c15"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["reasoning mode [L43]", "on-disk size 16.7 GB is in a different table, not mapped [L36]"]},
+   {"role": "ladder",
+    "name": "Uniform 4-bit",
+    "metrics": {"bench:MMLU (generative)": "c4", "bench:GSM8K": "c6", "bench:IFEval (strict)": "c8", "bench:BFCL-V3 simple (200 calls)": "c10", "bench:HumanEval (164 problems, pass@1)": "c12", "bench:HashHop (long-context retrieval)": "c14", "bench:Capability Score (mean of 6)": "c16"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["baseline uniform 4-bit quant of the same model, scored the same way [L43]", "reasoning mode [L43]"]}
+ ],
+ "prose": []}

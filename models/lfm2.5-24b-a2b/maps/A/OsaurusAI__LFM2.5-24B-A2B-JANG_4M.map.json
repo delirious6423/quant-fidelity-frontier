@@ -1,0 +1,49 @@
+{
+ "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_4M",
+ "source_sha256": "ab3a9193aa177c124672fe65e8e5df6f17df84ac1af53e7c73f9c8a008c497ba",
+ "candidates_sha256": "868f51414aada879a5cecf578bcbf6fb5a50aab0c0047bb4c2a33c877831d248",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 model LiquidAI/LFM2.5-24B-A2B, revision 1769516ac588; positions scored against it [L54,L104]", "dataset": "232,094 teacher-forced positions on held-out sequences the bf16 model generated itself, by prompt family [L54,L63]", "ctx": "not stated", "tool": "not stated", "L": [51, 54, 56, 58, 61, 63, 104]},
+ "entries": [
+  {"role": "own", "name": "JANG_4M", "panel": "Fidelity vs the bf16 model", "size": "c6", "unit": "GiB", "basis": null, "bpw": null,
+   "metrics": {
+     "top1_pct": "c9",
+     "top1:multi-step tool agent": "c12",
+     "top1:tool use (single turn)": "c14",
+     "top1:code cpp": "c16",
+     "top1:code go": "c18",
+     "top1:code javascript": "c20",
+     "top1:code python": "c22",
+     "top1:code rust": "c24",
+     "top1:code shell": "c26",
+     "top1:code swift": "c28",
+     "top1:code typescript": "c30",
+     "top1:creative writing": "c32",
+     "top1:cybersecurity": "c34",
+     "top1:finance": "c36",
+     "top1:general multilingual structured output": "c38",
+     "top1:coding agent native tools": "c40",
+     "top1:coding agent next turn": "c42",
+     "top1:long documents": "c44",
+     "top1:math": "c46",
+     "top1:networking": "c48",
+     "top1:office tasks": "c50",
+     "top1:PyTorch code": "c52",
+     "top1:science": "c54",
+     "top1:SWE-agent": "c56",
+     "top1:terminal agent shell": "c58",
+     "top1:turn after a tool result": "c60"
+   },
+   "flags": [
+     "top-128 KL (a top-k measure, not full-vocabulary) and the KL median values are not mapped: no matching key [L54,L58-61,L63-91]",
+     "dNLL (+0.0077) is not mapped: no matching metric key [L58-61]",
+     "floor row (bf16 with 1-ULP embedding perturbation, 44.7 GiB) is a control, not a build: omitted [L56,L60]",
+     "per-family top-1 values come from the same 232,094-position run [L54,L63]",
+     "decision counts (99/99, 23/24) are not mapped [L93]",
+     "size basis not stated; card gives 14.8 GiB for the bundle [L40,L61]"
+   ]}
+ ],
+ "prose": []
+}

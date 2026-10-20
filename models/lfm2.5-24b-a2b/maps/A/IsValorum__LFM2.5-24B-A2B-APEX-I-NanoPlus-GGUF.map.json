@@ -1,0 +1,46 @@
+{
+ "repo": "IsValorum/LFM2.5-24B-A2B-APEX-I-NanoPlus-GGUF",
+ "source_sha256": "fe0e0ae93f028e0af1826aaf2543031b79ab99d0adda2e94047c52a9c559fb5e",
+ "candidates_sha256": "ad07c7e6b1fb451931bbb94ca15cbcb4d62b91aea582fbb585c6e30168cc0393",
+ "no_quality_claims": true,
+ "no_claims_reason": "size, memory and tensor-format tables only; the 'Quality Comparison' section has no quality number [L75-L83] [L155]",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": []},
+ "entries": [
+  {
+   "role": "own",
+   "name": "LFM2.5-24B-A2B.APEX-I-NanoPlus.gguf",
+   "panel": "Model Files & Specifications",
+   "metrics": {},
+   "size": "c28",
+   "unit": "GB",
+   "basis": null,
+   "bpw": "c29",
+   "flags": ["the whole-file bits per weight is approximate, as the card states it [L155]", "the quality comparison heading in the card has no quality numbers [L75]"]
+  },
+  {
+   "role": "ladder",
+   "name": "APEX-I-MiniPlus V2.1",
+   "panel": "Size & Quality Metrics",
+   "metrics": {},
+   "size": "c4",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": ["sibling edition by the same publisher, size only [L82]"]
+  },
+  {
+   "role": "cross",
+   "of": "LiquidAI/LFM2.5-24B-A2B",
+   "name": "BF16 Base (Liquid AI)",
+   "panel": "Size & Quality Metrics",
+   "metrics": {},
+   "size": "c1",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": ["the unquantized base row, size only [L81]"]
+  }
+ ],
+ "prose": []
+}

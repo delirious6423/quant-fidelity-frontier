@@ -1,0 +1,14 @@
+{"repo": "CoolJohn-AI/LFM2.5-24B-A2B-NVFP4-AutoRound",
+ "source_sha256": "6be787313f1c492024e16437512b9487dada6fb018312018de83c297b25a2f8a",
+ "candidates_sha256": "c487b53011b83a6943f2b7bddd2e208cb701801be7832fcb17c0d104ae8dac03",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "retrieval screens with single-record lookup, three-record collection and two-hop lookup [L59-61]", "ctx": "input budgets from 80,000 to 100,000+ tokens, 16,384 output reserve [L57-59]", "tool": "vLLM 0.31.0 on two RTX 5060 Ti 16GB [L65]", "L": [57, 59, 61, 65]},
+ "entries": [
+  {"role": "own", "name": "AutoRound NVFP4", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["retrieval pass counts are context-length tests, not a fidelity measure against BF16 [L59]", "85,000 input tokens failed confirmation [L61]"]}
+ ],
+ "prose": [
+  {"entry": "AutoRound NVFP4", "key": "bench:retrieval-80k-input", "L": 59, "raw": "36/36"}
+ ]}

@@ -1,0 +1,50 @@
+{
+ "repo": "marchfederico/LFM2.5-24B-A2B-4bit-GPTQ-GGUF",
+ "source_sha256": "da9032acc88b49c807c5accc7d96e82508264837d993f9bb840d1a78dbd9cc31",
+ "candidates_sha256": "410388e609b287f7150ca45983258859298de5b13e6126ba61b458726a82bc88",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "bf16 model", "dataset": "6 windows of 2,048 tokens per held-out text (wiki, code, multilingual)", "ctx": "2,048 tokens per window", "tool": "not stated", "L": [51, 52]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "LFM2.5-24B-A2B-GPTQ-Q4_K.gguf",
+   "panel": "Fidelity",
+   "methodology": {"reference": "bf16 model", "dataset": "6 windows of 2,048 tokens per held-out text (wiki, code, multilingual)", "ctx": "2,048 tokens per window", "tool": "not stated", "L": [51, 52]},
+   "metrics": {"kld:wiki": "c1.0", "top1:wiki": "c1.1", "kld:code": "c2.0", "top1:code": "c2.1", "kld:multilingual": "c3.0", "top1:multilingual": "c3.1"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["the table row is labelled 'this file' [L56]", "the 14,188 MiB size is in the row label with no candidate id, so size is empty [L56]", "the card says no task benchmarks were run and the KL suite is a fidelity ranking, not a capability score [L60]", "the card says this MoE is more sensitive to quantization than dense models of similar size [L60]"]
+  },
+  {
+   "role": "cross",
+   "of": "not named on card",
+   "name": "unsloth UD-Q4_K_XL",
+   "panel": "Fidelity",
+   "methodology": {"reference": "bf16 model", "dataset": "6 windows of 2,048 tokens per held-out text (wiki, code, multilingual)", "ctx": "2,048 tokens per window", "tool": "not stated", "L": [51, 52]},
+   "metrics": {"kld:wiki": "c4.0", "top1:wiki": "c4.1", "kld:code": "c5.0", "top1:code": "c5.1", "kld:multilingual": "c6.0", "top1:multilingual": "c6.1"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["measured by this card's author on the same harness [L51]", "the 14,188 MiB size is in the row label with no candidate id, so size is empty [L57]"]
+  },
+  {
+   "role": "cross",
+   "of": "not named on card",
+   "name": "LiquidAI Q4_K_M",
+   "panel": "Fidelity",
+   "methodology": {"reference": "bf16 model", "dataset": "6 windows of 2,048 tokens per held-out text (wiki, code, multilingual)", "ctx": "2,048 tokens per window", "tool": "not stated", "L": [51, 52]},
+   "metrics": {"kld:wiki": "c7.0", "top1:wiki": "c7.1", "kld:code": "c8.0", "top1:code": "c8.1", "kld:multilingual": "c9.0", "top1:multilingual": "c9.1"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["measured by this card's author on the same harness [L51]", "the 13,853 MiB size is in the row label with no candidate id, so size is empty [L58]"]
+  }
+ ],
+ "prose": []
+}
