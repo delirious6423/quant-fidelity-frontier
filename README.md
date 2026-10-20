@@ -12,7 +12,7 @@ with a link to the line it came from.
 | [Qwen/Qwen3.8-Flash-Next](https://delirious6423.github.io/quant-fidelity-frontier/qwen3.8-flash-next/) | 463 | 2,950 |
 | [Qwen/Qwen3.8-27B](https://delirious6423.github.io/quant-fidelity-frontier/qwen3.8-27b/) | 1,230 | 4,716 |
 | [deepseek-ai/DeepSeek-V4.1-Flash](https://delirious6423.github.io/quant-fidelity-frontier/deepseek-v4.1-flash/) | 134 | 1,081 |
-| [zai-org/GLM-5.3-Flash](https://delirious6423.github.io/quant-fidelity-frontier/glm-5.3-flash/) | 175 | 543 |
+| [zai-org/GLM-5.3-Flash](https://delirious6423.github.io/quant-fidelity-frontier/glm-5.3-flash/) | 175 | 545 |
 | [deepseek-ai/DeepSeek-V4-Flash-0731](https://delirious6423.github.io/quant-fidelity-frontier/deepseek-v4-flash-0731/) | 189 | 386 |
 <!-- qff:models:end -->
 The table is generated from the published data (`pipeline/readme_sync.py`) each time the site is published.
