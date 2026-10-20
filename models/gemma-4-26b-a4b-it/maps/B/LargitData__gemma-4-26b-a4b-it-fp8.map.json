@@ -1,0 +1,25 @@
+{"repo": "LargitData/gemma-4-26b-a4b-it-fp8",
+ "source_sha256": "0977f853aa3c871ed86ee28211a81c8417fec1d8c8771b85bf024f5f5570b9ea",
+ "candidates_sha256": "3e27a193165570499c1131ad28448c866d74848748cafa9fc789757a70833b29",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "26B BF16 baseline on the same harness and prompt template [L114, L118]", "dataset": "MMLU-Pro full set, all categories [L114]", "ctx": "not stated", "tool": "same harness and prompt template as the BF16 baseline [L114]", "L": [114, 116, 118, 119, 122]},
+ "entries": [
+  {"role": "own", "name": "26B FP8 Dynamic Norouter (this)",
+   "metrics": {"bench:MMLU-Pro": "c7"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["31B rows omitted: different model [L124-131]", "Serving capacity, latency and throughput tables not mapped: no metric key [L86-106]", "Delta row not mapped: derived difference [L120]"]},
+  {"role": "cross", "name": "26B BF16 (baseline)", "of": "google/gemma-4-26B-A4B-it",
+   "metrics": {"bench:MMLU-Pro": "c5"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["BF16 baseline measured by this card's author on the same harness [L114]"]},
+  {"role": "quoted", "name": "26B A4B (Google reported)", "of": "google/gemma-4-26b-a4b-it",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Google-reported figure stated in prose only [L122]"]}
+ ],
+ "prose": [
+  {"entry": "26B A4B (Google reported)", "key": "bench:MMLU-Pro", "L": 122, "raw": "82.6%"}
+ ]
+}

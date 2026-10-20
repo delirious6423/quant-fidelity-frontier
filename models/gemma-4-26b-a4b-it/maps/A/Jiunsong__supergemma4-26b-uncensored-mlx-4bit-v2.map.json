@@ -1,0 +1,59 @@
+{
+ "repo": "Jiunsong/supergemma4-26b-uncensored-mlx-4bit-v2",
+ "source_sha256": "5b678d189615aacfe231da08641858e529bc8c2fd718cf6246a9bd5e7714449c",
+ "candidates_sha256": "2f60ab5ad38eb299fba676f2a113e2d2322d02504113aef087fe6a9b39786069",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+   "reference": "stock Gemma 4 26B IT 4-bit baseline, run on the same machine",
+   "dataset": "author's quick bench with code, browser, logic, system design and Korean categories",
+   "ctx": "not stated",
+   "tool": "mlx_lm",
+   "L": [43, 47, 52]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "SuperGemma Fast",
+     "metrics": {
+       "bench:Quick bench overall": "c2"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "Card describes the release as tuned for agent workloads and uncensored; the training method is not stated [L24, L41]",
+       "Size is stated in the prose, not in a table [L74]",
+       "Speed and delta figures have no matching metric key and are not mapped [L47-L50]",
+       "Quick bench is the author's own internal benchmark [L43-L49]"
+     ]
+   },
+   {
+     "role": "cross",
+     "name": "Gemma 4 26B IT original 4bit",
+     "of": "not named on card",
+     "metrics": {
+       "bench:Quick bench overall": "c1"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Baseline was run by the card author on the same machine [L31, L47]"]
+   }
+ ],
+ "prose": [
+   {"entry": "SuperGemma Fast", "key": "bench:Code", "L": 56, "raw": "`98.6`"},
+   {"entry": "SuperGemma Fast", "key": "bench:Browser", "L": 57, "raw": "`89.6`"},
+   {"entry": "SuperGemma Fast", "key": "bench:Logic", "L": 58, "raw": "`95.2`"},
+   {"entry": "SuperGemma Fast", "key": "bench:System Design", "L": 59, "raw": "`98.9`"},
+   {"entry": "SuperGemma Fast", "key": "bench:Korean", "L": 60, "raw": "`95.0`"},
+   {"entry": "Gemma 4 26B IT original 4bit", "key": "bench:Code", "L": 56, "raw": "`92.3`"},
+   {"entry": "Gemma 4 26B IT original 4bit", "key": "bench:Browser", "L": 57, "raw": "`87.5`"},
+   {"entry": "Gemma 4 26B IT original 4bit", "key": "bench:Logic", "L": 58, "raw": "`86.9`"},
+   {"entry": "Gemma 4 26B IT original 4bit", "key": "bench:System Design", "L": 59, "raw": "`97.8`"},
+   {"entry": "Gemma 4 26B IT original 4bit", "key": "bench:Korean", "L": 60, "raw": "`90.7`"}
+ ]
+}

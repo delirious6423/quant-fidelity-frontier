@@ -1,0 +1,18 @@
+{"repo": "farbodtavakkoli/OTel-2.0-Decision-26B-A4B-4bit",
+ "source_sha256": "c76a3705e58b8295292e22b327fc2c0c983a7f83d7db0a6d1c84f8593ea3fc86",
+ "candidates_sha256": "c86fe0d49cdaa10b5758ca7e77d3d74bcdc2737459ff173929b2d9d12410a069",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "JevBench public, 231 tasks [L46]", "ctx": "not stated", "tool": "typed-decision readout, level=L0, no prior, adaptive Yes/No ordering with margin 4.0 [L42]", "L": [42, 46, 48]},
+ "entries": [
+   {"role": "own", "name": "OTel-2.0-Decision-26B-A4B-4bit, AMD MI350P",
+    "methodology": {"reference": "not stated", "dataset": "JevBench public, 231 tasks [L46]", "ctx": "not stated", "tool": "typed-decision readout, level=L0 [L42]", "L": [42, 46]},
+    "metrics": {"bench:JevBench public (231 tasks)": "c1"}, "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["[L46] the cell is a range across runs (200–202 of 231)", "[L32] the card says training details will be added; no weight modification is stated", "[L48] per-tier JevBench figures are not mapped (no tier keys)"]},
+   {"role": "own", "name": "OTel-2.0-Decision-26B-A4B-4bit, AMD Ryzen AI MAX+ PRO 395 (Strix Halo)",
+    "methodology": {"reference": "not stated", "dataset": "JevBench public, 231 tasks [L46]", "ctx": "not stated", "tool": "typed-decision readout, level=L0 [L42]; vLLM 0.26.0 on ROCm 7.13 [L48]", "L": [42, 46, 48]},
+    "metrics": {"bench:JevBench public (231 tasks)": "c2"}, "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["[L30] the card says the weights may be updated; the revision is not pinned"]}
+ ],
+ "prose": []}

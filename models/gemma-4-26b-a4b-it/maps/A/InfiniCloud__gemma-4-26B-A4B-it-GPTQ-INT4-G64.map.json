@@ -1,0 +1,21 @@
+{"repo": "InfiniCloud/gemma-4-26B-A4B-it-GPTQ-INT4-G64",
+ "source_sha256": "55aabdd723342e9232a01a2cdf706234216aabd11a4b705e8af6ebc2033b9ada",
+ "candidates_sha256": "8f7b59bdff60a30573907eb2f5f7ae87aa589f32f34bb6af871e63f8fec3ce74",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 source model", "dataset": "GSM8K; Japanese MGSM (native CoT, 5-shot)", "ctx": "context 8192", "tool": "lm-eval", "L": [93, 104]},
+ "entries": [
+   {"role": "own",
+    "name": "INT4 G64",
+    "metrics": {"bench:GSM8K-strict": "c21", "bench:GSM8K-flexible": "c24", "bench:JA-MGSM-strict": "c26", "bench:JA-MGSM-flexible": "c29"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["INT4 strict MGSM cell has the same text as the BF16 cell, so it shares candidate c26 [L99]", "Difference rows not mapped [L97-100]", "VRAM and KV-cache diagnostics not mapped; not quality metrics [L51-66]"]},
+   {"role": "cross",
+    "name": "BF16",
+    "of": "google/gemma-4-26B-A4B-it",
+    "metrics": {"bench:GSM8K-strict": "c20", "bench:GSM8K-flexible": "c23", "bench:JA-MGSM-strict": "c26", "bench:JA-MGSM-flexible": "c28"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["Source model measured on the same tasks by this card's author [L97-100]"]}
+ ],
+ "prose": []}

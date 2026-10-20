@@ -1,0 +1,209 @@
+{
+  "repo": "leonsarmiento/gemma-4-26B-A4B-it-6bit-XL-mlx",
+  "source_sha256": "1a7e396f59634e5e0423fe8e8efabaeb76a8f2dcfcc87db7c5cf99903490b21c",
+  "candidates_sha256": "c579c871abfe3a63e6cfbb9f50264247a3a38f6055b575734c48af2494b197f3",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated",
+    "dataset": "MMLU, MMLU_PRO, ARC_CHALLENGE, HUMANEVAL, MBPP, LIVECODEBENCH and a custom MATHQA set, across several panels [L55, L109, L123]",
+    "ctx": "not stated",
+    "tool": "LM Studio evaluation harness for the standard runs; mlx_vlm for quantization [L125, L96]",
+    "L": [28, 49, 55, 96, 107, 109, 111, 123, 125, 136]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Gemma-4 26B 6bit-XL",
+      "panel": "Thinking-Mode MATHQA: Gemma vs Qwen3.6 Token Efficiency",
+      "methodology": {"reference": "not stated", "dataset": "custom MATHQA, n=30, thinking mode, 8192-token budget [L30]", "ctx": "not stated", "tool": "not stated", "L": [28, 30]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:MATHQA verified accuracy": "c1"
+      },
+      "flags": [
+        "The Qwen3.6-35B row is a different model and is omitted [L37]",
+        "Reasoning characters per correct answer is an efficiency measure, not mapped [L36]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "Gemma-4 26B 6bit-XL",
+      "panel": "Local SOTA for 48GB Macs — Intelligence Benchmark Comparison",
+      "methodology": {"reference": "not stated", "dataset": "instruct mode, n=50 samples per benchmark [L51]", "ctx": "not stated", "tool": "not stated", "L": [51, 55, 57, 62]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:MMLU": "c7",
+        "bench:MMLU_PRO": "c13",
+        "bench:HUMANEVAL": "c24",
+        "bench:MBPP": "c31",
+        "bench:Average": "c37"
+      },
+      "flags": [
+        "Other rows in this table are different models and are omitted [L55, L57-L62]",
+        "The ARC_CHALLENGE value for this model matches another row in the same line, so it is taken from prose [L59]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "XL 6/8 (this)",
+      "panel": "Intelligence Benchmarks",
+      "methodology": {"reference": "not stated", "dataset": "n=50 for MMLU, MMLU_PRO and ARC_CHALLENGE; n=30 for HUMANEVAL, MBPP, LIVECODEBENCH and MATHQA (custom) [L111-L117]", "ctx": "not stated", "tool": "not stated", "L": [107, 109, 111, 117]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:MMLU": "c58",
+        "bench:MMLU_PRO": "c60",
+        "bench:ARC_CHALLENGE": "c65",
+        "bench:HUMANEVAL": "c67",
+        "bench:MBPP": "c69",
+        "bench:LIVECODEBENCH": "c73",
+        "bench:MATHQA (custom)": "c78"
+      },
+      "flags": [
+        "MATHQA is a custom relaxed test; the card omits standard MATHQA and GSM8K results [L119]",
+        "Bits per weight is stated in the quantization details, not in the result rows [L93]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "XL 6/8 (this)",
+      "panel": "Detailed Results",
+      "methodology": {"reference": "not stated", "dataset": "custom MATHQA, n=30, 8192-token budget [L130, L133]", "ctx": "not stated", "tool": "not stated", "L": [130, 133, 136]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {},
+      "flags": [
+        "Average time and response length in the same table are not mapped [L138]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "6-bit uniform",
+      "panel": "Intelligence Benchmarks",
+      "methodology": {"reference": "not stated", "dataset": "n=50 for MMLU, MMLU_PRO and ARC_CHALLENGE; n=30 for the rest [L111-L117]", "ctx": "not stated", "tool": "not stated", "L": [109, 111, 117]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:MMLU_PRO": "c61",
+        "bench:MBPP": "c70",
+        "bench:LIVECODEBENCH": "c74",
+        "bench:MATHQA (custom)": "c79"
+      },
+      "flags": [
+        "Uniform comparison build from the same publisher [L109]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "6-bit uniform",
+      "panel": "Detailed Results",
+      "methodology": {"reference": "not stated", "dataset": "custom MATHQA, n=30 [L130, L133]", "ctx": "not stated", "tool": "not stated", "L": [130, 136]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {},
+      "flags": [
+        "Uniform comparison build from the same publisher [L143]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "8-bit uniform",
+      "panel": "Intelligence Benchmarks",
+      "methodology": {"reference": "not stated", "dataset": "n=50 for MMLU, MMLU_PRO and ARC_CHALLENGE; n=30 for the rest [L111-L117]", "ctx": "not stated", "tool": "not stated", "L": [109, 111, 117]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:MMLU_PRO": "c62",
+        "bench:LIVECODEBENCH": "c75",
+        "bench:MATHQA (custom)": "c80"
+      },
+      "flags": [
+        "Uniform comparison build from the same publisher [L109]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "8-bit uniform",
+      "panel": "Detailed Results",
+      "methodology": {"reference": "not stated", "dataset": "custom MATHQA, n=30 [L130, L133]", "ctx": "not stated", "tool": "not stated", "L": [130, 136]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {},
+      "flags": [
+        "Uniform comparison build from the same publisher [L142]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "QAT 4-bit",
+      "of": "not named on card",
+      "panel": "Intelligence Benchmarks",
+      "methodology": {"reference": "not stated", "dataset": "n=50 for MMLU, MMLU_PRO and ARC_CHALLENGE; n=30 for the rest [L111-L117]", "ctx": "not stated", "tool": "not stated", "L": [109, 111, 117]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:MMLU_PRO": "c63",
+        "bench:MBPP": "c71",
+        "bench:LIVECODEBENCH": "c76",
+        "bench:MATHQA (custom)": "c81"
+      },
+      "flags": [
+        "QAT 4-bit build measured by the card author; its source is not named on the card [L109]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "QAT 4-bit",
+      "of": "not named on card",
+      "panel": "Detailed Results",
+      "methodology": {"reference": "not stated", "dataset": "custom MATHQA, n=30 [L130, L133]", "ctx": "not stated", "tool": "not stated", "L": [130, 136]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {},
+      "flags": [
+        "QAT 4-bit build measured by the card author; its source is not named on the card [L140]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "Gemma-4 26B 6bit-XL", "panel": "Local SOTA for 48GB Macs — Intelligence Benchmark Comparison", "key": "bench:ARC_CHALLENGE", "L": 59, "raw": "90%"},
+    {"entry": "XL 6/8 (this)", "panel": "Detailed Results", "key": "bench:MATHQA (custom)", "L": 141, "raw": "66.7%"},
+    {"entry": "6-bit uniform", "panel": "Intelligence Benchmarks", "key": "bench:MMLU", "L": 111, "raw": "76.0%"},
+    {"entry": "6-bit uniform", "panel": "Intelligence Benchmarks", "key": "bench:ARC_CHALLENGE", "L": 113, "raw": "90.0%"},
+    {"entry": "6-bit uniform", "panel": "Intelligence Benchmarks", "key": "bench:HUMANEVAL", "L": 114, "raw": "96.7%"},
+    {"entry": "6-bit uniform", "panel": "Detailed Results", "key": "bench:MATHQA (custom)", "L": 143, "raw": "56.7%"},
+    {"entry": "8-bit uniform", "panel": "Intelligence Benchmarks", "key": "bench:MMLU", "L": 111, "raw": "76.0%"},
+    {"entry": "8-bit uniform", "panel": "Intelligence Benchmarks", "key": "bench:ARC_CHALLENGE", "L": 113, "raw": "90.0%"},
+    {"entry": "8-bit uniform", "panel": "Intelligence Benchmarks", "key": "bench:HUMANEVAL", "L": 114, "raw": "96.7%"},
+    {"entry": "8-bit uniform", "panel": "Intelligence Benchmarks", "key": "bench:MBPP", "L": 115, "raw": "80.0%"},
+    {"entry": "8-bit uniform", "panel": "Detailed Results", "key": "bench:MATHQA (custom)", "L": 142, "raw": "60.0%"},
+    {"entry": "QAT 4-bit", "panel": "Intelligence Benchmarks", "key": "bench:MMLU", "L": 111, "raw": "76.0%"},
+    {"entry": "QAT 4-bit", "panel": "Intelligence Benchmarks", "key": "bench:ARC_CHALLENGE", "L": 113, "raw": "90.0%"},
+    {"entry": "QAT 4-bit", "panel": "Intelligence Benchmarks", "key": "bench:HUMANEVAL", "L": 114, "raw": "96.7%"},
+    {"entry": "QAT 4-bit", "panel": "Detailed Results", "key": "bench:MATHQA (custom)", "L": 140, "raw": "70.0%"}
+  ]
+}

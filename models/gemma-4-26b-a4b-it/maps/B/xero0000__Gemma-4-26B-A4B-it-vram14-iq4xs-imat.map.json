@@ -1,0 +1,28 @@
+{"repo": "xero0000/Gemma-4-26B-A4B-it-vram14-iq4xs-imat",
+ "source_sha256": "3684ed72bc72fe62366ef73684dedd3471e2e90ef97e86b8c55ac15300f650d9",
+ "candidates_sha256": "3535779a6a999c9b4b57fa9d2b710b88e799ca9555d0b029ee1f08a799fcc852",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Q8_0 same-placement (source Q8_0 GGUF) [L95-99]", "dataset": "holdout corpus (unnamed), chunking as stated [L91-92]", "ctx": "context length as stated [L91]", "tool": "not stated (llama.cpp fork per L110; perplexity tool not named)", "L": [91, 95, 110]},
+ "entries": [
+  {"role": "own",
+   "name": "gemma-4-26B-A4B-it-vram14-iq4xs-imat.gguf",
+   "metrics": {"ppl": "c13", "ppl_delta_pct": "c14"},
+   "size": "c1", "unit": "GiB", "basis": "disk", "bpw": "c2",
+   "flags": ["ppl_delta_pct is vs Q8_0 (auto-fit placement) [L97-99]", "Q4_K_M-imat (stock, discarded) row not mapped: not a file in this repo [L100]"]},
+  {"role": "cross",
+   "name": "Q8_0 (auto-fit placement)",
+   "of": "not named on card",
+   "metrics": {"ppl": "c10"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Source Q8_0 GGUF, the baseline for the same-placement delta [L41, L97]"]},
+  {"role": "cross",
+   "name": "Q8_0 (nc23 CPU-MoE offload)",
+   "of": "not named on card",
+   "metrics": {"ppl": "c11", "ppl_delta_pct": "c12"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["ppl_delta_pct cell is a placement-only delta vs Q8_0 (auto-fit placement) [L98]"]}
+ ],
+ "prose": []
+}

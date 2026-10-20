@@ -1,0 +1,74 @@
+{
+ "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-4bpw",
+ "source_sha256": "7eaae78b5a6f1d4e691e30e81909863e7f08f330dee59d2d9459eea6b411fa1d",
+ "candidates_sha256": "6f1002354dab1c07b3d1988fd5451a3736e686939935094d323bb469915ee1f2",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "bf16 published figure; GLQ and NVFP4 run in the same session on the same GPU with identical settings",
+   "dataset": "AIME 2026, 30 problems, 8 samples each (avg@8)",
+   "ctx": "32k thinking budget, the model's own sampling defaults",
+   "tool": "vLLM 0.27.1",
+   "L": [36, 42, 43, 48]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "this checkpoint, GLQ 4 bpw",
+     "panel": "Quality",
+     "metrics": {
+       "bench:AIME 2026 (avg@8)": "c7",
+       "bench:AIME 2026 truncated at 32k": "c13",
+       "bench:AIME 2026 no answer": "c15"
+     },
+     "size": "c6",
+     "unit": "GiB",
+     "basis": "vram",
+     "bpw": "c35",
+     "flags": [
+       "Card reads the GLQ and NVFP4 results as a tie within the noise band [L56-L57]",
+       "The bf16 row is a published figure from a different harness, not a paired arm [L57-L59]",
+       "Speed and footprint figures are not quality metrics and are not mapped [L64-L78]"
+     ]
+   },
+   {
+     "role": "cross",
+     "name": "NVFP4",
+     "panel": "Quality",
+     "of": "nvidia/Gemma-4-26B-A4B-NVFP4",
+     "metrics": {
+       "bench:AIME 2026 (avg@8)": "c5",
+       "bench:AIME 2026 truncated at 32k": "c14",
+       "bench:AIME 2026 no answer": "c16"
+     },
+     "size": "c4",
+     "unit": "GiB",
+     "basis": "vram",
+     "bpw": null,
+     "flags": ["Measured by the card author in the same session as the GLQ build [L42-L43]"]
+   },
+   {
+     "role": "quoted",
+     "name": "bf16",
+     "panel": "Quality",
+     "of": "not named on card",
+     "metrics": {
+       "bench:AIME 2026 (avg@8)": "c3"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Published figure from a different harness, not a paired arm [L58]"]
+   }
+ ],
+ "prose": [
+   {"entry": "this checkpoint, GLQ 4 bpw", "panel": "Quality", "key": "bench:AIME 2026 pass@8", "L": 51, "raw": "29/30"},
+   {"entry": "this checkpoint, GLQ 4 bpw", "panel": "Quality", "key": "bench:AIME 2026 solved on all 8 samples", "L": 52, "raw": "23/30"},
+   {"entry": "this checkpoint, GLQ 4 bpw", "panel": "Quality", "key": "bench:Terminal-Bench 2 (5-task smoke run)", "L": 62, "raw": "0/5"},
+   {"entry": "NVFP4", "panel": "Quality", "key": "bench:AIME 2026 pass@8", "L": 51, "raw": "28/30"},
+   {"entry": "NVFP4", "panel": "Quality", "key": "bench:AIME 2026 solved on all 8 samples", "L": 52, "raw": "21/30"},
+   {"entry": "NVFP4", "panel": "Quality", "key": "bench:Terminal-Bench 2 (5-task smoke run)", "L": 62, "raw": "0/5"}
+ ]
+}

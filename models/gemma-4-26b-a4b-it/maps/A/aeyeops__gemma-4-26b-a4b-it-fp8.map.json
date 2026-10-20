@@ -1,0 +1,14 @@
+{"repo": "aeyeops/gemma-4-26b-a4b-it-fp8",
+ "source_sha256": "bd279c3f29bd6abc279082ade382401fae6b487577666ee89de806d6b096087c",
+ "candidates_sha256": "a4129979070274c95c9a08356e7d65f9615396abb69bfae5e2872f43fd516ae9",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 reference [L185]", "dataset": "not stated", "ctx": "max_new_tokens=128 [L195]", "tool": "transformers, do_sample=False, TurboQuantCache(bits=4) [L195-L196]", "L": [181, 185, 195, 196, 199, 200]},
+ "entries": [
+   {"role": "own", "name": "FP8 (this checkpoint)", "panel": "Token-level quality",
+    "methodology": {"reference": "bf16 reference [L195]", "dataset": "not stated", "ctx": "max_new_tokens=128 [L196]", "tool": "transformers, do_sample=False, TurboQuantCache(bits=4) [L195-L196]", "L": [195, 196, 199, 200]},
+    "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["[L199-L200] 99.2% greedy match over one prompt and 128 tokens is not mapped: it was measured with a 4-bit TurboQuantCache, so it is not a weights-only figure", "[L187-L190] load, memory and speed rows are not quality metrics"]}
+ ],
+ "prose": []}

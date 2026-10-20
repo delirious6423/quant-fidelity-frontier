@@ -1,0 +1,35 @@
+{
+ "repo": "axteam/gemma-4-26B-A4B-it-AWQ-8bit",
+ "source_sha256": "20554d70e79e5c068ca699d37cefd699057b5187752176888a6f414ed2a6657d",
+ "candidates_sha256": "de8ea3275dbef015d00ac2cdbb886e4ae1fcbbe7de2ca26b86364bb4e6a03f5a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "BF16 original, measured on the same set",
+   "dataset": "internal mixed English/Korean set",
+   "ctx": "not stated",
+   "tool": "not stated",
+   "L": [52, 54, 112]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "AWQ INT8 (W8A16)",
+     "metrics": {
+       "ppl": "c2",
+       "top1_pct": "c4"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "Perplexity change against the BF16 original is printed in the reference cell and is not mapped as a delta [L56]",
+       "Size on disk is stated in a separate details table, not in the results table [L29]",
+       "Evaluation set is internal and not published; its size is not stated [L52]"
+     ]
+   }
+ ],
+ "prose": []
+}

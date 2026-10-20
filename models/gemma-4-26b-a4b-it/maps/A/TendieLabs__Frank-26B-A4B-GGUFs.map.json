@@ -1,0 +1,17 @@
+{
+  "repo": "TendieLabs/Frank-26B-A4B-GGUFs",
+  "source_sha256": "01fca0d607c145b5a4195470c6aca1378ab0d92f1242c4c325551cddbf210cc2",
+  "candidates_sha256": "cabcf930feddca7ed4669b3431b82f46868f0237177bbdcb317e8e6ba284185e",
+  "no_quality_claims": true,
+  "no_claims_reason": "the quality evals are run on the unquantized fine-tune at FP16 and no GGUF quant is evaluated; the quant table gives only bits per weight and size [L65, L67-L71, L92-L95, L131-L137]",
+  "weights_modified": true,
+  "method": {
+    "reference": "base Gemma 4 26B-A4B, run in the same eval at FP16 [L69]",
+    "dataset": "five VBA-to-Python report conversions scored on a 9-point rubric [L63]",
+    "ctx": "max_tokens 65536 [L65]",
+    "tool": "NVIDIA A100 80GB at FP16, temp 1.0, top-p 0.95, top-k 65 [L65]",
+    "L": [63, 65, 67, 69, 70, 74, 92, 131, 137]
+  },
+  "entries": [],
+  "prose": []
+}

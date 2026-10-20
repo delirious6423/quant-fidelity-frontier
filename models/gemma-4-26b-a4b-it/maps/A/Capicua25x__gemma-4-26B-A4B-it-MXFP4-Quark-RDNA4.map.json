@@ -1,0 +1,38 @@
+{
+ "repo": "Capicua25x/gemma-4-26B-A4B-it-MXFP4-Quark-RDNA4",
+ "source_sha256": "e0e25600613f6287acfd9bd29d92296a8c889776ca20e315b72e66e3a880176e",
+ "candidates_sha256": "c96274d5fc27f03c2e7c7f2204fe8ee5c912f3bb4bf31ba861b3a3501a4b257a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "not stated; results are for this artifact on this hardware, with no baseline",
+   "dataset": "IFEval (80 prompts), tau2-bench telecom (114 tasks), WhatsApp order-agent eval (37 cases), SQL-analyst regression suite (156 tests)",
+   "ctx": "chat template; thinking on for the telecom task and off for IFEval",
+   "tool": "vLLM on ROCm",
+   "L": [85, 89]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "MXFP4 (Quark) for RDNA4",
+     "metrics": {},
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "Comparison scores for other models run on the same image are results on a different model and are not mapped [L90]",
+       "Throughput and long-context timing are not quality metrics and are not mapped [L78-L101]",
+       "Bits per weight is not stated as a figure [L37-L39]"
+     ]
+   }
+ ],
+ "prose": [
+   {"entry": "MXFP4 (Quark) for RDNA4", "key": "bench:IFEval (inst-strict)", "L": 89, "raw": "0.9297"},
+   {"entry": "MXFP4 (Quark) for RDNA4", "key": "bench:IFEval (prompt-strict)", "L": 89, "raw": "0.8875"},
+   {"entry": "MXFP4 (Quark) for RDNA4", "key": "bench:tau2-bench telecom", "L": 90, "raw": "0.4649"},
+   {"entry": "MXFP4 (Quark) for RDNA4", "key": "bench:WhatsApp order-agent eval", "L": 91, "raw": "36 / 37"},
+   {"entry": "MXFP4 (Quark) for RDNA4", "key": "bench:SQL-analyst regression suite", "L": 92, "raw": "155 / 156"}
+ ]
+}

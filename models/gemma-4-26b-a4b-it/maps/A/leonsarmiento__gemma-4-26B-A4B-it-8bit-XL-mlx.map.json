@@ -1,0 +1,179 @@
+{
+ "repo": "leonsarmiento/gemma-4-26B-A4B-it-8bit-XL-mlx",
+ "source_sha256": "ddb4ac054305a6273adeaedf3a4b6abdbff154b822c8fb5902bbac35ec421b2f",
+ "candidates_sha256": "84e06ed22fa4857d70010bdc54d75f5327370340215248f4f16042813d0d6b75",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "same hardware and identical conditions across all builds",
+   "dataset": "instruct benchmark samples (Sample column); failure-enriched MATHQA set for the thinking panel",
+   "ctx": "instruct panel without thinking; MATHQA panel with thinking and a relaxed token budget",
+   "tool": "not stated",
+   "L": [36, 40, 49, 51]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "8-bit XL (this)",
+     "panel": "Instruct-mode benchmarks (no thinking)",
+     "metrics": {
+       "bench:MMLU": "c3",
+       "bench:MMLU_PRO": "c7",
+       "bench:ARC_CHALLENGE": "c11",
+       "bench:HUMANEVAL": "c14",
+       "bench:MBPP": "c18",
+       "bench:LIVECODEBENCH": "c23"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "MMLU_PRO value matches the 8-bit uniform cell in the same row [L43]",
+       "MBPP value matches the 8-bit uniform cell in the same row [L46]",
+       "LIVECODEBENCH value matches the 6-bit XL cell in the same row [L47]",
+       "Total size is stated in the details list, not in this table [L94]",
+       "Bits per weight is stated in the details list, not in this table [L93]"
+     ]
+   },
+   {
+     "role": "own",
+     "name": "8-bit XL (this)",
+     "panel": "Custom MATHQA (thinking mode, relaxed 8192-token budget)",
+     "methodology": {"reference": "same hardware and identical conditions across all builds", "dataset": "failure-enriched MATHQA test set, before corrections", "ctx": "thinking enabled, relaxed token budget", "tool": "not stated", "L": [49, 51, 61]},
+     "metrics": {},
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "Card states this variant trails the 6-bit XL on this panel [L21]",
+       "Scored on the test set before the stated corrections; card carries a caveat [L61]"
+     ]
+   },
+   {
+     "role": "ladder",
+     "name": "QAT 4-bit",
+     "panel": "Instruct-mode benchmarks (no thinking)",
+     "metrics": {
+       "bench:MMLU": "c2",
+       "bench:MMLU_PRO": "c5",
+       "bench:ARC_CHALLENGE": "c10",
+       "bench:HUMANEVAL": "c13",
+       "bench:MBPP": "c16",
+       "bench:LIVECODEBENCH": "c20"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["MMLU, ARC and HUMANEVAL values are shared with other builds in the same rows [L42-L45]"]
+   },
+   {
+     "role": "ladder",
+     "name": "QAT 4-bit",
+     "panel": "Custom MATHQA (thinking mode, relaxed 8192-token budget)",
+     "metrics": {},
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": []
+   },
+   {
+     "role": "ladder",
+     "name": "6-bit (6/8 mixed)",
+     "panel": "Instruct-mode benchmarks (no thinking)",
+     "metrics": {
+       "bench:MMLU": "c2",
+       "bench:MMLU_PRO": "c6",
+       "bench:ARC_CHALLENGE": "c10",
+       "bench:HUMANEVAL": "c13",
+       "bench:MBPP": "c17",
+       "bench:LIVECODEBENCH": "c21"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["MMLU, ARC and HUMANEVAL values match the first build in the same rows [L42-L45]"]
+   },
+   {
+     "role": "ladder",
+     "name": "8-bit uniform",
+     "panel": "Instruct-mode benchmarks (no thinking)",
+     "metrics": {
+       "bench:MMLU": "c2",
+       "bench:MMLU_PRO": "c7",
+       "bench:ARC_CHALLENGE": "c10",
+       "bench:HUMANEVAL": "c13",
+       "bench:MBPP": "c18",
+       "bench:LIVECODEBENCH": "c22"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["MMLU, ARC and HUMANEVAL values match the first build in the same rows [L42-L45]"]
+   },
+   {
+     "role": "ladder",
+     "name": "8-bit uniform",
+     "panel": "Custom MATHQA (thinking mode, relaxed 8192-token budget)",
+     "metrics": {},
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": []
+   },
+   {
+     "role": "ladder",
+     "name": "6-bit XL",
+     "panel": "Instruct-mode benchmarks (no thinking)",
+     "metrics": {
+       "bench:MMLU": "c2",
+       "bench:MMLU_PRO": "c8",
+       "bench:ARC_CHALLENGE": "c10",
+       "bench:HUMANEVAL": "c13",
+       "bench:MBPP": "c18",
+       "bench:LIVECODEBENCH": "c23"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["MMLU, ARC and HUMANEVAL values match the first build in the same rows [L42-L45]", "MBPP value matches the 8-bit uniform cell in the same row [L46]"]
+   },
+   {
+     "role": "ladder",
+     "name": "6-bit XL",
+     "panel": "Custom MATHQA (thinking mode, relaxed 8192-token budget)",
+     "metrics": {},
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": []
+   },
+   {
+     "role": "ladder",
+     "name": "6-bit uniform",
+     "panel": "Custom MATHQA (thinking mode, relaxed 8192-token budget)",
+     "metrics": {},
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["This MATHQA row links to the same repo as the 6-bit (6/8 mixed) column [L58]"]
+   }
+ ],
+ "prose": [
+   {"entry": "8-bit XL (this)", "panel": "Custom MATHQA (thinking mode, relaxed 8192-token budget)", "key": "bench:MATHQA", "L": 59, "raw": "56.7% (17/30)"},
+   {"entry": "QAT 4-bit", "panel": "Custom MATHQA (thinking mode, relaxed 8192-token budget)", "key": "bench:MATHQA", "L": 55, "raw": "**70.0%** (21/30)"},
+   {"entry": "8-bit uniform", "panel": "Custom MATHQA (thinking mode, relaxed 8192-token budget)", "key": "bench:MATHQA", "L": 57, "raw": "60.0% (18/30)"},
+   {"entry": "6-bit XL", "panel": "Custom MATHQA (thinking mode, relaxed 8192-token budget)", "key": "bench:MATHQA", "L": 56, "raw": "**66.7%** (20/30)"},
+   {"entry": "6-bit uniform", "panel": "Custom MATHQA (thinking mode, relaxed 8192-token budget)", "key": "bench:MATHQA", "L": 58, "raw": "56.7% (17/30)"}
+ ]
+}

@@ -1,0 +1,21 @@
+{"repo": "BCCard/gemma-4-26B-A4B-it-FP8-Dynamic",
+ "source_sha256": "ca4c6921aa5df90ad769310e62ea1d28366a0be5afd3ed3ee53fa823389afc31",
+ "candidates_sha256": "73b80508258f8cbb85283bc017bfb5509454033c7fca91a465cdde82c48e4c61",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Original (unquantized google/gemma-4-26B-A4B-it)", "dataset": "gsm8k_platinum_cot_llama, 5-shot", "ctx": "max_length 96000", "tool": "lm_eval against vLLM on a single B200", "L": [27, 35]},
+ "entries": [
+   {"role": "own",
+    "name": "FP8 (BC Card distribution)",
+    "metrics": {"bench:GSM8K-Platinum-flexible": "c10", "bench:GSM8K-Platinum-strict": "c13"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["Card states this is a preliminary version subject to change [L16-17]", "Standard errors are in the table but not mapped [L58-59]"]},
+   {"role": "cross",
+    "name": "Original",
+    "of": "google/gemma-4-26B-A4B-it",
+    "metrics": {"bench:GSM8K-Platinum-flexible": "c3", "bench:GSM8K-Platinum-strict": "c6"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["Unquantized reference run with the same lm_eval command [L44-50]"]}
+ ],
+ "prose": []}

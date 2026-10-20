@@ -1,0 +1,44 @@
+{
+ "repo": "webbrain-one/gemma4-turkish-26b-a4b-pruned-gguf",
+ "source_sha256": "6c5fa881a4c534aa14a094e847a6a3c9c520f44566882dd9d11e746cdd1298b6",
+ "candidates_sha256": "383cfc0788f3439632a7a0e1f2a5d2f0c1f6d3fe639b7fed3a3de4e3bdcdbc91",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+   "reference": "bf16 version of the same model",
+   "dataset": "not stated",
+   "ctx": "not stated",
+   "tool": "llama.cpp",
+   "L": [77, 109]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "merged.Q4_K_M.gguf",
+     "metrics": {},
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "The perplexity figure is a range stated for the 4-bit quant against bf16 [L109]",
+       "The model is pruned and LoRA-healed before quantization [L86, L101-L103]",
+       "File size is stated in the variants list, not beside a measured value [L94]"
+     ]
+   },
+   {
+     "role": "own",
+     "name": "merged.Q5_K_M.gguf",
+     "metrics": {},
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Card describes this file as higher quality, with no measured figure [L95]"]
+   }
+ ],
+ "prose": [
+   {"entry": "merged.Q4_K_M.gguf", "key": "ppl_delta_pct", "L": 109, "raw": "~1-2% perplexity increase"}
+ ]
+}

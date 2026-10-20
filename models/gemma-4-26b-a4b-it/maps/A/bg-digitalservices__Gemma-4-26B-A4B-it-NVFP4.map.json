@@ -1,0 +1,62 @@
+{
+  "repo": "bg-digitalservices/Gemma-4-26B-A4B-it-NVFP4",
+  "source_sha256": "4d1d5387c2491360cc73d5079ea44196005c5aedc16eefa83dcfd103213e1694",
+  "candidates_sha256": "d8b093ebe481059c955c0934bff4547426469764dc76ed1784542bc468c9bcca",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "BF16 original, served on the same vLLM setup and measured in the same A/B run [L45]",
+    "dataset": "lm-evaluation-harness GSM8K (flexible and strict match) and IFEval (prompt and instruction, strict and loose) [L51, L52, L53, L54, L55, L56]",
+    "ctx": "not stated",
+    "tool": "lm-evaluation-harness with --apply_chat_template, vLLM on DGX Spark GB10 [L45]",
+    "L": [45, 47, 51, 52, 53, 54, 55, 56, 57]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "NVFP4 (this)",
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:GSM8K (flexible-extract)": "c7",
+        "bench:GSM8K (strict-match)": "c10",
+        "bench:IFEval prompt-strict": "c13",
+        "bench:IFEval inst-strict": "c16",
+        "bench:IFEval prompt-loose": "c19",
+        "bench:IFEval inst-loose": "c22",
+        "bench:Average": "c25"
+      },
+      "flags": [
+        "Quality measured with lm-evaluation-harness and the chat template [L45]",
+        "Size on disk is given in the key specs table, not in the quality table [L34]",
+        "W4A4 quantization, FP4 weights and activations [L41]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "BF16 (reference)",
+      "of": "google/gemma-4-26B-A4B-it",
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:GSM8K (flexible-extract)": "c6",
+        "bench:GSM8K (strict-match)": "c9",
+        "bench:IFEval prompt-strict": "c12",
+        "bench:IFEval inst-strict": "c15",
+        "bench:IFEval prompt-loose": "c18",
+        "bench:IFEval inst-loose": "c21",
+        "bench:Average": "c24"
+      },
+      "flags": [
+        "BF16 original measured by the card author in the same run [L45]",
+        "Repo is taken from the link in the key specs and title, shown as the original model [L26]"
+      ]
+    }
+  ],
+  "prose": []
+}

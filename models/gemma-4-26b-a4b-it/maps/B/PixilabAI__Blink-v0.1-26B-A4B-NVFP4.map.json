@@ -1,0 +1,16 @@
+{"repo": "PixilabAI/Blink-v0.1-26B-A4B-NVFP4",
+ "source_sha256": "9be9abc3e05f23ff1de556aded743d2f5338c7b98030b6003d745c5d08fca0c8",
+ "candidates_sha256": "5a3e69efb653f2d3af9f344c026b412cc3e13a7d813e2055fed4596161182843",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "other rows in the table are other models, not mapped [L37-L49]", "dataset": "Decision Index 0.2.1 suite, 38 scored benchmarks in five areas, 150,759 requests [L28, L35]", "ctx": "32k context [L31]", "tool": "vLLM, thinking off [L55-L59]", "L": [28, 31, 35, 55, 59]},
+ "entries": [
+  {"role": "own",
+   "name": "Blink v0.1 · 26B-A4B NVFP4",
+   "methodology": {"reference": "not stated", "dataset": "Decision Index 0.2.1 suite, 38 scored benchmarks in five areas, 150,759 requests [L28, L35]", "ctx": "32k context, thinking off [L31, L96]", "tool": "vLLM; shipped temperature 0.95 [L30, L59]", "L": [28, 30, 31, 35, 44, 96]},
+   "metrics": {"bench:Index (0.2.1)": "c31", "bench:Knowledge": "c32", "bench:Language": "c33", "bench:Retrieval": "c34", "bench:Tools": "c35", "bench:Arts": "c36"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Our own run of the public suite, not a board submission [L103]", "Other rows (other models) and the Decider 35B-A3B reproduction check are omitted [L35, L37-L49]", "Training method not stated; base named only in metadata [L3]", "Calibration error 0.026 over 216,942 decisions is stated with no matching metric key; not mapped [L30]"]}
+ ],
+ "prose": []}

@@ -1,0 +1,53 @@
+{
+  "repo": "deucebucket/Gemma-4-26B-A4B-it-Cerebellum-v6-GGUF",
+  "source_sha256": "3f083d95606d94c629199b7d51981fb274705fd0002549aa8b6a7438ac44c0db",
+  "candidates_sha256": "f1e6625f293a1d8da54ff4dad3502f7f817b8e12d23ddf963626e49cfb66da9e",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "uniform same-size Q3_K_M build, measured on the same harness [L94, L95]",
+    "dataset": "ARC-Challenge (1172 questions), HellaSwag (10042), MMLU-Redux (2400) [L99, L100, L101]",
+    "ctx": "not stated",
+    "tool": "llama.cpp llama-server on one RTX 3090, temperature 0, project benchmark harness [L38, L92, L93]",
+    "L": [38, 77, 78, 92, 93, 94, 95, 99, 100, 101, 102, 104, 106, 107]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Cerebellum v6 (11 GB)",
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:ARC-Challenge (1172 q)": "c1",
+        "bench:HellaSwag (10042 q)": "c3",
+        "bench:MMLU-Redux (2400 q)": "c5"
+      },
+      "flags": [
+        "Sensitivity-guided mixed-precision Q3_K_M base with the v6 tensor allocation [L77, L78]",
+        "File size is stated in the files table, not in the results table [L87]",
+        "HumanEval for v6 is pending re-audit and no number is published [L102, L104, L106, L107]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Uniform Q3_K_M (11 GB)",
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:ARC-Challenge (1172 q)": "c2",
+        "bench:HellaSwag (10042 q)": "c4",
+        "bench:MMLU-Redux (2400 q)": "c6"
+      },
+      "flags": [
+        "Same-size uniform Q3_K_M build from this publisher, measured on the same harness [L94, L95]",
+        "The HumanEval figure in this column uses the legacy raw-completions harness; left out as ambiguous [L102]"
+      ]
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,17 @@
+{
+  "repo": "wyattearp/Gemma-4-26B-A4B-text-base-fp8",
+  "source_sha256": "52b6d5ab7ff3ae775e21fe32149fc59db1bec21d0be8b6eff7f090399b9f0941",
+  "candidates_sha256": "1e3fc4885c619867d1212859099196b052abe18f935e2daef4a80e5d3da0334b",
+  "no_quality_claims": true,
+  "no_claims_reason": "memory, footprint and calibration notes only; no quality number for the FP8 checkpoint [L26-L36, L43]",
+  "weights_modified": true,
+  "method": {
+    "reference": "base Gemma-4-26B-A4B-it with the vision tower and projector removed (modality-stripped), used for size comparisons [L26, L32]",
+    "dataset": "calibration across 64 domain prompts [L43]",
+    "ctx": "not stated",
+    "tool": "NVIDIA ModelOpt post-training FP8 quantization; vLLM serving [L26, L60]",
+    "L": [24, 26, 32, 34, 36, 43, 60]
+  },
+  "entries": [],
+  "prose": []
+}

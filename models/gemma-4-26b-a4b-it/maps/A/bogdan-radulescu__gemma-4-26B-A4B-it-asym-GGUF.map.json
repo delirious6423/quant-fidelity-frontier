@@ -1,0 +1,24 @@
+{"repo": "bogdan-radulescu/gemma-4-26B-A4B-it-asym-GGUF",
+ "source_sha256": "c8a6b7113c07502b2f62224ea7541a709e20e400f67d9cdc9ef132eca538fb2e",
+ "candidates_sha256": "bcdb3e6ac45fe61b13375312fada875f99bb983d0c767275edd9537f147d2ca7",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "QAT Q4_0 uniform baseline", "dataset": "10 objective coding tasks; instruction-formatting polish score", "ctx": "not stated", "tool": "not stated", "L": [83, 84]},
+ "entries": [
+   {"role": "own",
+    "name": "asym (this model)",
+    "metrics": {"bench:Polish-score": "c10"},
+    "size": "c8", "unit": "GB", "basis": "disk", "bpw": null,
+    "flags": ["Coding pass count (9 of 10) is mapped as prose [L91]", "Cold-bytes and decode speeds are not mapped [L91]", "Quality wording ('essentially intact') is qualitative [L94]"]},
+   {"role": "cross",
+    "name": "QAT Q4_0 (uniform baseline)",
+    "of": "not named on card",
+    "metrics": {"bench:Polish-score": "c4"},
+    "size": "c2", "unit": "GB", "basis": "disk", "bpw": null,
+    "flags": ["Baseline repository is not named on the card; measured by this card's author [L90]", "Coding pass count (10 of 10) is mapped as prose [L90]"]}
+ ],
+ "prose": [
+   {"entry": "asym (this model)", "key": "bench:Coding-pass-rate", "L": 91, "raw": "9/10"},
+   {"entry": "QAT Q4_0 (uniform baseline)", "key": "bench:Coding-pass-rate", "L": 90, "raw": "10/10"}
+ ]}

@@ -1,0 +1,17 @@
+{"repo": "SevenOfNine/Gemma-4-26B-A4B-It-Abliterated-GGUF",
+ "source_sha256": "9baff593e4e53c29747a0f183ad9e1a1bf8a63fe33d1c9a365a94e09b8d8f179",
+ "candidates_sha256": "0d7705977f0115fd8c8f515a4d545e4af0b55dd7baa5ea368d579c1d3a287f55",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "original google/gemma-4-26B-A4B-it [L20, L35]", "dataset": "refusal benchmark, 100 prompts, extreme harmful prompts [L35, L39]", "ctx": "not stated", "tool": "Heretic TPE trials, 200 trials, bf16 [L39, L65]", "L": [20, 35, 36, 37, 39, 65]},
+ "entries": [
+   {"role": "own", "name": "Gemma-4-26B-A4B-It-Abliterated-BF16.gguf", "panel": "Abliteration result",
+    "methodology": {"reference": "original google/gemma-4-26B-A4B-it [L20, L37]", "dataset": "refusal benchmark, 100 prompts [L35, L39]", "ctx": "not stated", "tool": "Heretic selected Trial 98 [L36, L65]", "L": [35, 36, 37, 39]},
+    "metrics": {"bench:Refusals": "c12.0", "mean_kld": "c13"}, "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["[L20, L35-L37] values are for the bf16 abliterated source model; the BF16 GGUF is its conversion and the Q5_K_M and Q6_K files were not measured", "[L37] KL aggregation and corpus are not stated"]},
+   {"role": "cross", "name": "Baseline refusals (original model)", "panel": "Abliteration result", "of": "google/gemma-4-26B-A4B-it",
+    "methodology": {"reference": "not stated", "dataset": "refusal benchmark, 100 prompts [L35, L39]", "ctx": "not stated", "tool": "not stated", "L": [35, 39]},
+    "metrics": {"bench:Refusals": "c11.0"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": []}
+ ],
+ "prose": []}

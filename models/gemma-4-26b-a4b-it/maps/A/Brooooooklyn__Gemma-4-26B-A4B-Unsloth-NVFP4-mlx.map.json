@@ -1,0 +1,17 @@
+{
+  "repo": "Brooooooklyn/Gemma-4-26B-A4B-Unsloth-NVFP4-mlx",
+  "source_sha256": "86f1988cb03708544abf085382e4711bad0aaf5cb8194404ecdba51a8de3fea2",
+  "candidates_sha256": "8f6a88f57e68d0b8a2363420f0fea03ff532c3deac79d0913d08a4db0ff67cbd",
+  "no_quality_claims": true,
+  "no_claims_reason": "the only numbers are block-annihilation percentages from the conversion, a defect count rather than a quality measure; no benchmark, KLD or perplexity is given [L35, L89-L97]",
+  "weights_modified": false,
+  "method": {
+    "reference": "base google/gemma-4-26B-A4B-it at a stated revision [L47]",
+    "dataset": "data-free; no imatrix or calibration dataset [L53]",
+    "ctx": "not stated",
+    "tool": "current mlx-node converter with Gemma fixed-map support [L51]",
+    "L": [35, 47, 51, 53, 92, 96]
+  },
+  "entries": [],
+  "prose": []
+}

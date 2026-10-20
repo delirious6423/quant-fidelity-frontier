@@ -1,0 +1,22 @@
+{"repo": "voves/gemma-4-26B-A4B-it-FP8",
+ "source_sha256": "c3f4b670fc11e2cc8031ecb0378c02b86890474d27544d8d8198c05851088749",
+ "candidates_sha256": "a93860c18f405b064fe4f7d4cf15da308a6dd4b73dc5698a943b5134a1a3a2c7",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16", "dataset": "HF datasets, 30 samples per dataset, seed 42, plus curated prompts", "ctx": "max_tokens 512 to 8,192 per category", "tool": "custom evaluators", "L": [26, 39, 62, 75]},
+ "entries": [
+  {"role": "own", "name": "FP8",
+   "methodology": {"reference": "BF16", "dataset": "HF datasets, 30 samples per dataset, seed 42, plus curated prompts", "ctx": "max_tokens 512 to 8,192 per category", "tool": "custom evaluators", "L": [39, 62, 75, 90]},
+   "metrics": {"bench:MMLU_nothink": "c28", "bench:MMLU_thinking": "c38", "bench:GSM8K": "c63", "bench:MATH": "c74", "bench:curated_logical": "c101"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["n=30 per standard category and n=270 overall [L90-106]", "FP8 values for ARC, HumanEval, IFEval and the other curated categories are not printed as cells (only deltas), so not mapped [L92-105]", "delta cells and token counts are not mapped [L90-106, L112-129]"]},
+  {"role": "cross", "name": "BF16", "of": "google/gemma-4-26B-A4B-it",
+   "methodology": {"reference": "BF16", "dataset": "HF datasets, 30 samples per dataset, seed 42, plus curated prompts", "ctx": "max_tokens 512 to 8,192 per category", "tool": "custom evaluators", "L": [39, 62, 75, 90]},
+   "metrics": {"bench:MMLU_nothink": "c27", "bench:MMLU_thinking": "c37", "bench:ARC_nothink": "c48", "bench:ARC_thinking": "c56", "bench:GSM8K": "c62", "bench:MATH": "c73", "bench:HumanEval": "c84", "bench:IFEval_subset": "c92", "bench:curated_logical": "c100", "bench:curated_knowledge": "c109", "bench:curated_instr_follow": "c114", "bench:curated_creative": "c120", "bench:curated_translation": "c126", "bench:curated_code": "c134", "bench:curated_multi_reason": "c139", "bench:curated_safety": "c145", "bench:OVERALL": "c149"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["the card names this reference only as BF16; the repo is taken from the card base_model field"]}
+ ],
+ "prose": [
+  {"entry": "FP8", "key": "bench:OVERALL", "L": 18, "raw": "FP8 **81.5%**"}
+ ]}

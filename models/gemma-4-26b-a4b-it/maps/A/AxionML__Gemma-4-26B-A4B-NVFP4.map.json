@@ -1,0 +1,59 @@
+{
+  "repo": "AxionML/Gemma-4-26B-A4B-NVFP4",
+  "source_sha256": "afa28036105f54fa58c4d5bb9228971d38a597f86cc3d88047f80d8419105d98",
+  "candidates_sha256": "414db3d0f8b4d7c390400ee57e1c07d2422242927a12503bbbc8eb7d23754e05",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "BF16 google/gemma-4-26B-A4B-it baseline, as NVIDIA reports it [L55]",
+    "dataset": "GPQA Diamond, AIME 2025, MMLU Pro, LiveCodeBench (pass@1), IFBench and IFEval [L46-L53]",
+    "ctx": "max_new_tokens 131072 [L55]",
+    "tool": "not stated for evaluation; NVIDIA Model Optimizer v0.43.0 for quantization [L55, L62]",
+    "L": [42, 46, 55, 62]
+  },
+  "entries": [
+    {
+      "role": "quoted",
+      "name": "NVFP4",
+      "of": "not named on card",
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:GPQA Diamond": "c6",
+        "bench:AIME 2025": "c8",
+        "bench:MMLU Pro": "c10",
+        "bench:LiveCodeBench (pass@1)": "c12",
+        "bench:IFBench": "c14",
+        "bench:IFEval": "c16"
+      },
+      "flags": [
+        "The card says these scores were reported by NVIDIA for this checkpoint [L55]",
+        "Checkpoint size is in the model summary table, not in the results table [L42]"
+      ]
+    },
+    {
+      "role": "quoted",
+      "name": "BF16",
+      "of": "google/gemma-4-26B-A4B-it",
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:GPQA Diamond": "c5",
+        "bench:AIME 2025": "c7",
+        "bench:MMLU Pro": "c9",
+        "bench:LiveCodeBench (pass@1)": "c11",
+        "bench:IFBench": "c13",
+        "bench:IFEval": "c15"
+      },
+      "flags": [
+        "The baseline is the original model, linked on the card [L55]"
+      ]
+    }
+  ],
+  "prose": []
+}

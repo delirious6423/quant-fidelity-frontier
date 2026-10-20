@@ -1,0 +1,100 @@
+{
+ "repo": "baa-ai/Gemma-4-26B-A4B-it-RAM-18GB-MLX",
+ "source_sha256": "38a2be4fb2dae69456dc7fe06a79354d20b0d1faf9497ed161d28d425ae1192a",
+ "candidates_sha256": "50230c7646508b86fb51c006141bfa73138bf5eda6fec18ce499953f67a49569",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "BF16 base model, measured by the publisher",
+   "dataset": "MMLU (sample size not stated)",
+   "ctx": "not stated",
+   "tool": "not stated",
+   "L": [24, 42]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "18GB (MLX)",
+     "panel": "Metrics",
+     "metrics": {},
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "Size is stated in this table without a candidate id [L32]",
+       "Comparison with the uniform 4-bit build is given as a point difference and is not mapped [L38]"
+     ]
+   },
+   {
+     "role": "own",
+     "name": "RAM 18GB",
+     "panel": "All RAM Variants (all beat Uniform 4-bit)",
+     "metrics": {},
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Row size is stated in the table without a candidate id [L56]"]
+   },
+   {
+     "role": "ladder",
+     "name": "Uniform 4-bit",
+     "panel": "All RAM Variants (all beat Uniform 4-bit)",
+     "metrics": {},
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": []
+   },
+   {
+     "role": "ladder",
+     "name": "RAM 14GB",
+     "panel": "All RAM Variants (all beat Uniform 4-bit)",
+     "metrics": {},
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": []
+   },
+   {
+     "role": "ladder",
+     "name": "RAM 20GB ★",
+     "panel": "All RAM Variants (all beat Uniform 4-bit)",
+     "metrics": {},
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": []
+   },
+   {
+     "role": "ladder",
+     "name": "RAM 22GB",
+     "panel": "All RAM Variants (all beat Uniform 4-bit)",
+     "metrics": {},
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": []
+   }
+ ],
+ "prose": [
+   {"entry": "18GB (MLX)", "panel": "Metrics", "key": "bench:MMLU", "L": 34, "raw": "80.02%"},
+   {"entry": "18GB (MLX)", "panel": "Metrics", "key": "bench:MMLU vs BF16", "L": 36, "raw": "**99.0%** of BF16"},
+   {"entry": "RAM 18GB", "panel": "All RAM Variants (all beat Uniform 4-bit)", "key": "bench:MMLU", "L": 56, "raw": "80.02%"},
+   {"entry": "RAM 18GB", "panel": "All RAM Variants (all beat Uniform 4-bit)", "key": "bench:MMLU vs BF16", "L": 56, "raw": "99.0%"},
+   {"entry": "Uniform 4-bit", "panel": "All RAM Variants (all beat Uniform 4-bit)", "key": "bench:MMLU", "L": 52, "raw": "77.88%"},
+   {"entry": "Uniform 4-bit", "panel": "All RAM Variants (all beat Uniform 4-bit)", "key": "bench:MMLU vs BF16", "L": 52, "raw": "96.4%"},
+   {"entry": "RAM 14GB", "panel": "All RAM Variants (all beat Uniform 4-bit)", "key": "bench:MMLU", "L": 54, "raw": "78.27%"},
+   {"entry": "RAM 14GB", "panel": "All RAM Variants (all beat Uniform 4-bit)", "key": "bench:MMLU vs BF16", "L": 54, "raw": "96.9%"},
+   {"entry": "RAM 20GB ★", "panel": "All RAM Variants (all beat Uniform 4-bit)", "key": "bench:MMLU", "L": 58, "raw": "**80.70%**"},
+   {"entry": "RAM 20GB ★", "panel": "All RAM Variants (all beat Uniform 4-bit)", "key": "bench:MMLU vs BF16", "L": 58, "raw": "**99.9%**"},
+   {"entry": "RAM 22GB", "panel": "All RAM Variants (all beat Uniform 4-bit)", "key": "bench:MMLU", "L": 60, "raw": "80.41%"},
+   {"entry": "RAM 22GB", "panel": "All RAM Variants (all beat Uniform 4-bit)", "key": "bench:MMLU vs BF16", "L": 60, "raw": "99.5%"}
+ ]
+}

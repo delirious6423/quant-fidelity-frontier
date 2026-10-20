@@ -1,0 +1,21 @@
+{"repo": "axteam/gemma-4-26B-A4B-it-FP8-dynamic",
+ "source_sha256": "0ef7935f1dd4b16a3f8aa40d8dd2b9d612e903d805a3432d8f89f3eb99ab46c6",
+ "candidates_sha256": "36ff6dcf06b2a6af912fe5655594bdfa67ec7f082fe47af9ff8d82a73cfe5763",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 original", "dataset": "internal mixed English/Korean set", "ctx": "not stated", "tool": "not stated", "L": [51]},
+ "entries": [
+   {"role": "own",
+    "name": "FP8 dynamic",
+    "metrics": {"ppl:internal-en-ko": "c2", "top1:internal-en-ko": "c4"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["Fidelity to the base model, not absolute task scores [L58]"]},
+   {"role": "cross",
+    "name": "BF16 original",
+    "of": "google/gemma-4-26B-A4B-it",
+    "metrics": {"ppl:internal-en-ko": "c3", "top1:internal-en-ko": "c5"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["Cell also shows the FP8 model's +2.2% delta, which is not mapped separately [L55]"]}
+ ],
+ "prose": []}

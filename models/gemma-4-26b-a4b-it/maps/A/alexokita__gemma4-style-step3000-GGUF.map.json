@@ -1,0 +1,17 @@
+{
+  "repo": "alexokita/gemma4-style-step3000-GGUF",
+  "source_sha256": "d3bb3e0a049ccff1fb0af8f3f99f76d78519cfff3f993dd82f86505923874a00",
+  "candidates_sha256": "7de555b59758b821167750ec1d6a3e670c2216463910ed4b903d01f1426326ba",
+  "no_quality_claims": true,
+  "no_claims_reason": "only the LoRA training eval loss is given, not a quality measure of any quant; no benchmark or quant comparison on the card [L54]",
+  "weights_modified": true,
+  "method": {
+    "reference": "not stated",
+    "dataset": "style instruction pairs from labeled fiction [L55]",
+    "ctx": "not stated",
+    "tool": "Unsloth and TRL for LoRA SFT; llama.cpp convert and quantize for GGUF [L53, L56]",
+    "L": [21, 52, 53, 54, 55, 56]
+  },
+  "entries": [],
+  "prose": []
+}

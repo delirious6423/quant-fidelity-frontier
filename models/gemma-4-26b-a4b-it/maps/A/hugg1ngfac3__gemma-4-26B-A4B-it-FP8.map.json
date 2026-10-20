@@ -1,0 +1,17 @@
+{
+  "repo": "hugg1ngfac3/gemma-4-26B-A4B-it-FP8",
+  "source_sha256": "95e8a44852a5e26867719cb210bfa44b873dc2078dbc9d08e369b1b58624a55a",
+  "candidates_sha256": "34fd8c293a4e6556ad1b340ea0367a09916373d404ab66ee7d9042caafbdc136",
+  "no_quality_claims": true,
+  "no_claims_reason": "memory footprint and quantization recipe only; no quality number for the FP8 checkpoint [L14-L15, L27-L39, L57-L65]",
+  "weights_modified": false,
+  "method": {
+    "reference": "BF16 original, used for the memory comparison only [L14, L15]",
+    "dataset": "not stated",
+    "ctx": "not stated",
+    "tool": "transformers FineGrainedFP8Config [L14]",
+    "L": [14, 15, 27, 63]
+  },
+  "entries": [],
+  "prose": []
+}

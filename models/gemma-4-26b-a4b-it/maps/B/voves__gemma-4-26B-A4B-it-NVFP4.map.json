@@ -1,0 +1,20 @@
+{"repo": "voves/gemma-4-26B-A4B-it-NVFP4",
+ "source_sha256": "9223d0d0743aff71a2834f657ff7222f2cce1a57f16c3453f3515cf03a05c83e",
+ "candidates_sha256": "5f6a9a09f43213429069a5705f8d71b299c1d2a5ec1720a7a8a830af7588cbb2",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16", "dataset": "HF datasets, 30 samples per dataset, seed 42, plus curated prompts", "ctx": "max_tokens 512 to 8,192 per category", "tool": "custom evaluators", "L": [63, 76, 87]},
+ "entries": [
+  {"role": "own", "name": "NVFP4",
+   "methodology": {"reference": "BF16", "dataset": "HF datasets, 30 samples per dataset, seed 42, plus curated prompts", "ctx": "max_tokens 512 to 8,192 per category", "tool": "custom evaluators", "L": [63, 76, 87]},
+   "metrics": {"bench:MMLU_nothink": "c28", "bench:MMLU_thinking": "c39", "bench:GSM8K": "c64", "bench:curated_translation": "c126", "bench:OVERALL": "c151"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["n=30 per standard category and n=270 overall [L91-107]", "NVFP4 cells for ARC, MATH, HumanEval, IFEval and the other curated categories are not printed (only BF16 cells and deltas), so not mapped [L93-106]", "delta and token-count cells are not mapped [L91-107, L113-130]"]},
+  {"role": "cross", "name": "BF16", "of": "google/gemma-4-26B-A4B-it",
+   "methodology": {"reference": "BF16", "dataset": "HF datasets, 30 samples per dataset, seed 42, plus curated prompts", "ctx": "max_tokens 512 to 8,192 per category", "tool": "custom evaluators", "L": [63, 76, 87]},
+   "metrics": {"bench:MMLU_nothink": "c27", "bench:MMLU_thinking": "c38", "bench:ARC_nothink": "c49", "bench:ARC_thinking": "c57", "bench:GSM8K": "c63", "bench:MATH": "c74", "bench:HumanEval": "c84", "bench:IFEval_subset": "c92", "bench:curated_logical": "c100", "bench:curated_knowledge": "c108", "bench:curated_instr_follow": "c113", "bench:curated_creative": "c119", "bench:curated_translation": "c125", "bench:curated_code": "c134", "bench:curated_multi_reason": "c140", "bench:curated_safety": "c146", "bench:OVERALL": "c150"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["the card names this reference only as BF16; the repo is taken from the card base_model field"]}
+ ],
+ "prose": []}

@@ -1,0 +1,73 @@
+{
+  "repo": "OnlyTextLLMs/gemma-4-26B-A4B-it-OnlyText-GGUF",
+  "source_sha256": "e9d48c0dd9d9099509f82a5b1011de04253cea7c20ed40ec6161b611dafdc621",
+  "candidates_sha256": "9dacdb6bf86fc5d442d5afdf25529b8d623895c9e279b18dc360d2b8190fc0a2",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "the F16 master's logits [L32]",
+    "dataset": "llama-perplexity KL divergence, 40 windows and 20440 scored tokens [L32]",
+    "ctx": "1024 [L32]",
+    "tool": "llama-perplexity --kl-divergence [L32]",
+    "L": [32, 33, 37, 39, 40, 41, 43, 44]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Q4_K_M",
+      "panel": "Quantization damage (vs the F16 master)",
+      "methodology": {"reference": "F16 master logits [L32]", "dataset": "llama-perplexity KL divergence, 40 windows, 20440 scored tokens [L32]", "ctx": "1024 [L32]", "tool": "llama-perplexity --kl-divergence [L32]", "L": [32, 37, 39]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "mean_kld": "c5",
+        "top1_pct": "c7"
+      },
+      "flags": [
+        "Median and max KLD are not mapped; no metric key covers them [L39]",
+        "Accuracy-against-source section is not mapped: it names no quant and uses a different reference [L107, L111, L118]",
+        "File size is in the separate file table, not in this table [L26]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "Q6_K",
+      "panel": "Quantization damage (vs the F16 master)",
+      "methodology": {"reference": "F16 master logits [L32]", "dataset": "llama-perplexity KL divergence, 40 windows, 20440 scored tokens [L32]", "ctx": "1024 [L32]", "tool": "llama-perplexity --kl-divergence [L32]", "L": [32, 37, 40]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "mean_kld": "c10",
+        "top1_pct": "c12"
+      },
+      "flags": [
+        "Median and max KLD are not mapped; no metric key covers them [L40]",
+        "File size is in the separate file table, not in this table [L27]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "Q8_0",
+      "panel": "Quantization damage (vs the F16 master)",
+      "methodology": {"reference": "F16 master logits [L32]", "dataset": "llama-perplexity KL divergence, 40 windows, 20440 scored tokens [L32]", "ctx": "1024 [L32]", "tool": "llama-perplexity --kl-divergence [L32]", "L": [32, 37, 41]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "mean_kld": "c15",
+        "top1_pct": "c17"
+      },
+      "flags": [
+        "Median and max KLD are not mapped; no metric key covers them [L41]",
+        "File size is in the separate file table, not in this table [L28]"
+      ]
+    }
+  ],
+  "prose": []
+}

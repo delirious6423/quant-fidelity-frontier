@@ -1,0 +1,19 @@
+{"repo": "bg-digitalservices/Gemma-4-26B-A4B-it-NVFP4",
+ "source_sha256": "4d1d5387c2491360cc73d5079ea44196005c5aedc16eefa83dcfd103213e1694",
+ "candidates_sha256": "d8b093ebe481059c955c0934bff4547426469764dc76ed1784542bc468c9bcca",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 original, measured side by side [L45, L49]", "dataset": "GSM8K and IFEval subsets as named in table [L49-57]", "ctx": "not stated", "tool": "lm-evaluation-harness with chat template, served via vLLM [L45]", "L": [45, 47, 49]},
+ "entries": [
+  {"role": "own", "name": "NVFP4 (this)",
+   "metrics": {"bench:GSM8K (flexible-extract)": "c7", "bench:GSM8K (strict-match)": "c10", "bench:IFEval prompt-strict": "c13", "bench:IFEval inst-strict": "c16", "bench:IFEval prompt-loose": "c19", "bench:IFEval inst-loose": "c22", "bench:Average": "c25"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Retained column is a derived ratio, not mapped [L49-57]", "Speed and size table not mapped: no speed metric key [L63-67]"]},
+  {"role": "cross", "name": "BF16 (reference)", "of": "google/gemma-4-26B-A4B-it",
+   "metrics": {"bench:GSM8K (flexible-extract)": "c6", "bench:GSM8K (strict-match)": "c9", "bench:IFEval prompt-strict": "c12", "bench:IFEval inst-strict": "c15", "bench:IFEval prompt-loose": "c18", "bench:IFEval inst-loose": "c21", "bench:Average": "c24"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Reference run measured by this card's author in the same A/B setup [L45]"]}
+ ],
+ "prose": []
+}

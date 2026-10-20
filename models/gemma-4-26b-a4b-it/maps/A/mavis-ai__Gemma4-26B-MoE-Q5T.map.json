@@ -1,0 +1,95 @@
+{
+ "repo": "mavis-ai/Gemma4-26B-MoE-Q5T",
+ "source_sha256": "1b3506b4d69ef473c08aba5ab170f43279d449736e45547ec1dbf01a98422ea4",
+ "candidates_sha256": "9c05e37d2f9e45164e8e7934c5dec96e2d19ab85e45755a313a7f8af70203f7d",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "BF16 source weights of the same model",
+   "dataset": "KLD: 48 documents, 18,040 scored positions (WikiText-2, technical documents, model responses); accuracy: GSM8K 1,319 items, MMLU-Pro 700 items, IFEval 541 prompts",
+   "ctx": "KLD teacher-forced with KV cache emulated at 8 bits; accuracy with greedy decoding, no output-length cap",
+   "tool": "not stated",
+   "L": [89, 91, 101, 103]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "Q5T (this repository)",
+     "panel": "Next-token distribution distance (KLD vs BF16)",
+     "methodology": {"reference": "BF16 distribution", "dataset": "48 documents, 18,040 scored positions in three strata", "ctx": "teacher-forced, KV cache emulated at 8 bits, full vocabulary", "tool": "not stated", "L": [91]},
+     "metrics": {
+       "mean_kld": "c13"
+     },
+     "size": "c15",
+     "unit": "GB",
+     "basis": "disk",
+     "bpw": null,
+     "flags": [
+       "Top-1 agreement is printed as a fraction, not a percent, so it is not mapped to the percent key [L95]",
+       "Task accuracy was not run for this build [L111]"
+     ]
+   },
+   {
+     "role": "ladder",
+     "name": "Q4T",
+     "panel": "Next-token distribution distance (KLD vs BF16)",
+     "methodology": {"reference": "BF16 distribution", "dataset": "48 documents, 18,040 scored positions in three strata", "ctx": "teacher-forced, KV cache emulated at 8 bits, full vocabulary", "tool": "not stated", "L": [91]},
+     "metrics": {
+       "mean_kld": "c17"
+     },
+     "size": "c19",
+     "unit": "GB",
+     "basis": "disk",
+     "bpw": null,
+     "flags": ["Top-1 agreement is printed as a fraction, not a percent, so it is not mapped [L96]"]
+   },
+   {
+     "role": "ladder",
+     "name": "Q3T",
+     "panel": "Next-token distribution distance (KLD vs BF16)",
+     "methodology": {"reference": "BF16 distribution", "dataset": "48 documents, 18,040 scored positions in three strata", "ctx": "teacher-forced, KV cache emulated at 8 bits, full vocabulary", "tool": "not stated", "L": [91]},
+     "metrics": {
+       "mean_kld": "c21"
+     },
+     "size": "c23",
+     "unit": "GB",
+     "basis": "disk",
+     "bpw": null,
+     "flags": ["Top-1 agreement is printed as a fraction, not a percent, so it is not mapped [L97]"]
+   },
+   {
+     "role": "ladder",
+     "name": "Q4T",
+     "panel": "Task accuracy",
+     "methodology": {"reference": "BF16 weights, run twice", "dataset": "GSM8K 1,319 items, MMLU-Pro 700 items, IFEval 541 prompts", "ctx": "non-thinking chat, greedy decoding, no system prompt, no output-length cap", "tool": "not stated", "L": [101, 103]},
+     "metrics": {
+       "bench:GSM8K": "c26",
+       "bench:MMLU-Pro": "c30",
+       "bench:IFEval": "c34"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Each cell is the accuracy followed by the paired difference from BF16 and its interval, printed in the same cell [L105-L107]", "Card states no difference from BF16 is significant [L109]"]
+   },
+   {
+     "role": "ladder",
+     "name": "Q3T",
+     "panel": "Task accuracy",
+     "methodology": {"reference": "BF16 weights, run twice", "dataset": "GSM8K 1,319 items, MMLU-Pro 700 items, IFEval 541 prompts", "ctx": "non-thinking chat, greedy decoding, no system prompt, no output-length cap", "tool": "not stated", "L": [101, 103]},
+     "metrics": {
+       "bench:GSM8K": "c27",
+       "bench:MMLU-Pro": "c31",
+       "bench:IFEval": "c35"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Each cell is the accuracy followed by the paired difference from BF16 and its interval, printed in the same cell [L105-L107]", "Card states no difference from BF16 is significant [L109]"]
+   }
+ ],
+ "prose": []
+}

@@ -1,0 +1,61 @@
+{
+  "repo": "leonsarmiento/gemma-4-26B-A4B-it-3bit-XL-mlx",
+  "source_sha256": "a2947986cb1b18413b603f7f9b32e528e078940c2ce40809cdf54565771f49d1",
+  "candidates_sha256": "361910ffbbbb7ec360ef9acbf2d7020c669ee6e6d0e31a5664428f865b1ed709",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated",
+    "dataset": "instruct-mode samples: MMLU 100 of 14042, MMLU_PRO 100 of 12032, HUMANEVAL 50 of 164, MBPP 50 of 500 [L105]",
+    "ctx": "not stated",
+    "tool": "mlx_vlm custom quant_predicate; instruct mode with thinking off [L59, L105]",
+    "L": [59, 93, 95, 97, 98, 105, 107]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Gemma-4 26B 3bit-XL",
+      "panel": "Instruct Benchmarks",
+      "methodology": {"reference": "not stated", "dataset": "instruct mode, thinking off; sampled sizes in the table note [L105]", "ctx": "not stated", "tool": "not stated", "L": [93, 95, 98, 105]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:MMLU": "c20",
+        "bench:MMLU_PRO": "c21",
+        "bench:HUMANEVAL": "c22",
+        "bench:MBPP": "c23",
+        "bench:Avg": "c24"
+      },
+      "flags": [
+        "Size of about 13 GB is in the quantization details, not in the benchmark row [L57]",
+        "Bits per weight is stated in the quantization details, not in the benchmark row [L56]",
+        "Qwen3.8-27B and Qwen3.6-35B rows are different models and are omitted [L99, L100, L101]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "Huihui-Gemma-4 26B 3bit-XL",
+      "of": "not named on card",
+      "panel": "Instruct Benchmarks",
+      "methodology": {"reference": "not stated", "dataset": "instruct mode, thinking off; sampled sizes in the table note [L105]", "ctx": "not stated", "tool": "not stated", "L": [93, 95, 97, 105]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:MMLU": "c15",
+        "bench:MMLU_PRO": "c16",
+        "bench:HUMANEVAL": "c17",
+        "bench:MBPP": "c18",
+        "bench:Avg": "c19"
+      },
+      "flags": [
+        "Described on the card as the abliterated twin of the own model; its publisher is not named [L107]"
+      ]
+    }
+  ],
+  "prose": []
+}

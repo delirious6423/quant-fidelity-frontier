@@ -1,0 +1,9 @@
+{"repo": "SevenOfNine/Gemma-4-26B-A4B-It-Abliterated-GGUF",
+ "source_sha256": "9baff593e4e53c29747a0f183ad9e1a1bf8a63fe33d1c9a365a94e09b8d8f179",
+ "candidates_sha256": "0d7705977f0115fd8c8f515a4d545e4af0b55dd7baa5ea368d579c1d3a287f55",
+ "no_quality_claims": true,
+ "no_claims_reason": "refusal counts and KL are for the abliterated bf16 source, not any GGUF quant; speed otherwise [L35-L39, L49]",
+ "weights_modified": true,
+ "method": {"reference": "original google/gemma-4-26B-A4B-it [L20, L39]", "dataset": "Heretic refusal benchmark, 100 prompts [L35-L36]", "ctx": "not stated", "tool": "Heretic TPE trials on A100 80 GB, bf16 [L65]", "L": [20, 35, 36, 37, 39, 65]},
+ "entries": [],
+ "prose": []}

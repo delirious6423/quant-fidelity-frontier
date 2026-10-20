@@ -1,0 +1,25 @@
+{"repo": "tenhkspark/gemma-4-26B-A4B-NVFP4-lmhead",
+ "source_sha256": "e3c0a6b7364a5da59d8ff64e5a15dfa26d859b4f4f89947ef000cbb991075a22",
+ "candidates_sha256": "c35886a5593c358a753d94a34c6274a5a9555e57adf7bb44831ee70e84957253",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "v1 of this checkpoint (baseline) [L20-L23, L83]", "dataset": "125-question benchmark [L83]", "ctx": "not stated", "tool": "GEMMA4_MTP=2 balanced profile [L83]", "L": [18, 83]},
+ "entries": [
+  {"role": "own",
+   "name": "v2",
+   "methodology": {"reference": "v1 of this checkpoint (baseline)", "dataset": "125-question benchmark [L83]", "ctx": "not stated", "tool": "balanced profile, GEMMA4_MTP=2 [L83]", "L": [83]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Benchmark at parity with v1 in the balanced profile [L83]", "MTP=8 pair (83.2% against 84.0%) not mapped: the card does not state which arm is which [L83]", "Speed and time-to-first-token figures are not quality metrics [L25-L31]"]},
+  {"role": "ladder",
+   "name": "v1",
+   "methodology": {"reference": "v1 of this checkpoint (baseline)", "dataset": "125-question benchmark [L83]", "ctx": "not stated", "tool": "balanced profile, GEMMA4_MTP=2 [L83]", "L": [83]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Earlier build of this checkpoint, the baseline in the comparison [L22, L32]"]}
+ ],
+ "prose": [
+  {"entry": "v2", "key": "bench:125-question benchmark", "L": 83, "raw": "82.4%"},
+  {"entry": "v1", "key": "bench:125-question benchmark", "L": 83, "raw": "82.4%"}
+ ]}

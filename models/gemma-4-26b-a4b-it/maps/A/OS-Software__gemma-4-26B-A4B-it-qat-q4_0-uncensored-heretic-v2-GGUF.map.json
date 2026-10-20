@@ -1,0 +1,23 @@
+{"repo": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-uncensored-heretic-v2-GGUF",
+ "source_sha256": "2bc1a597ba302220307283ade8cd0514d1cc367410613232f1ea16a45792489a",
+ "candidates_sha256": "8b1931c266892b0c39452c94349e9f8086c0de657c1ff419aab51bf9df830705",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "original model (unquantized QAT checkpoint)", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [38, 40, 41]},
+ "entries": [
+   {"role": "own",
+    "name": "This model",
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["KL divergence (vs the original) is not mapped: the card does not state whether it is mean or top-k, so the metric is ambiguous [L41]", "Refusal counts are an abliteration behaviour check, not a quant quality metric [L40]"]},
+   {"role": "quoted",
+    "name": "Gemma 4 26B A4B",
+    "panel": "Benchmark Results",
+    "of": "google/gemma-4-26B-A4B-it",
+    "methodology": {"reference": "Google published results", "dataset": "published benchmark table", "ctx": "not stated", "tool": "not stated", "L": [159]},
+    "metrics": {"bench:MMLU-Pro": "c33", "bench:AIME-2026": "c39", "bench:LiveCodeBench-v6": "c45", "bench:Codeforces-ELO": "c51", "bench:GPQA-Diamond": "c57", "bench:Tau2": "c63", "bench:HLE-no-tools": "c69", "bench:HLE-with-search": "c72", "bench:BigBench-Extra-Hard": "c74", "bench:MMMLU": "c80", "bench:MMMU-Pro": "c86", "bench:OmniDocBench-1.5": "c92", "bench:MATH-Vision": "c98", "bench:MedXPertQA-MM": "c104", "bench:MRCR-v2-128k": "c113"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["Figures copied from the Gemma 4 benchmark table for the base model, not measured on this checkpoint [L161-182]", "Rows for other Gemma sizes are other models and are not mapped [L161-182]"]}
+ ],
+ "prose": []}

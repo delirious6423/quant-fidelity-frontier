@@ -1,0 +1,17 @@
+{
+ "repo": "arunprasath/gemma4-cpu-moe-gguf",
+ "source_sha256": "b7dd6035e39021a6cb68d34f95bfa292e5a6f4d90f283c4fc7e1c603b7d323c4",
+ "candidates_sha256": "d0b516911a63f6d9e1a8e0a2707a12ddd76b449a265a9c8a7433d3f1ae3a7cd6",
+ "no_quality_claims": true,
+ "no_claims_reason": "speed and file-size figures; the one perplexity figure is for the three-expert approximation and the card says it is not a quality signal [L79]",
+ "weights_modified": false,
+ "method": {
+   "reference": "plain Q4_0 build, for speed comparison",
+   "dataset": "not stated",
+   "ctx": "single-stream decode and batched generation on CPU",
+   "tool": "llama-batched-bench",
+   "L": [24, 63, 79]
+ },
+ "entries": [],
+ "prose": []
+}

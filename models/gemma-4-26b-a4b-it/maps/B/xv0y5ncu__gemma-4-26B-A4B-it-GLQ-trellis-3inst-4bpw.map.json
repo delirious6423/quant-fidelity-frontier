@@ -1,0 +1,33 @@
+{"repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-4bpw",
+ "source_sha256": "7eaae78b5a6f1d4e691e30e81909863e7f08f330dee59d2d9459eea6b411fa1d",
+ "candidates_sha256": "6f1002354dab1c07b3d1988fd5451a3736e686939935094d323bb469915ee1f2",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 published figure (Google) and NVFP4 measured in the same session [L38-L40]", "dataset": "AIME 2026, 30 problems, avg@8 [L36, L43]", "ctx": "32k thinking budget [L43]", "tool": "vLLM 0.27.1 on RTX PRO 6000 Blackwell [L44]", "L": [43, 44]},
+ "entries": [
+  {"role": "own",
+   "name": "this checkpoint, GLQ 4 bpw",
+   "methodology": {"reference": "NVFP4 measured in the same session [L42]", "dataset": "AIME 2026, 30 problems, avg@8 [L43]", "ctx": "32k thinking budget, temp 1.0, top_p 0.95, top_k 64 [L43-L44]", "tool": "vLLM 0.27.1, RTX PRO 6000 Blackwell [L44]", "L": [42, 43, 44]},
+   "metrics": {"bench:AIME 2026 (avg@8)": "c7"},
+   "size": "c6", "unit": "GiB", "basis": null, "bpw": "c35",
+   "flags": ["Read as a tie with NVFP4 at n=30, standard error 5.4 pt [L56-L57]", "Terminal-Bench 2 smoke is too small to rank [L61-L62]", "Speed and load figures are not quality metrics [L69-L78]"]},
+  {"role": "cross",
+   "name": "NVFP4 (`nvidia/Gemma-4-26B-A4B-NVFP4`)",
+   "of": "nvidia/Gemma-4-26B-A4B-NVFP4",
+   "methodology": {"reference": "NVFP4 measured in the same session as the GLQ build [L42]", "dataset": "AIME 2026, 30 problems, avg@8 [L43]", "ctx": "32k thinking budget, temp 1.0, top_p 0.95, top_k 64 [L43-L44]", "tool": "vLLM 0.27.1, RTX PRO 6000 Blackwell [L44]", "L": [42, 43, 44]},
+   "metrics": {"bench:AIME 2026 (avg@8)": "c5"},
+   "size": "c4", "unit": "GiB", "basis": null, "bpw": null,
+   "flags": ["Measured by this card's author in the same session [L39, L42]"]},
+  {"role": "quoted",
+   "name": "bf16",
+   "of": "not named on card",
+   "methodology": {"reference": "Google's published figure, different harness [L38, L58]", "dataset": "AIME 2026 avg@8 [L38]", "ctx": "not stated", "tool": "not stated", "L": [38, 58]},
+   "metrics": {"bench:AIME 2026 (avg@8)": "c3"},
+   "size": "c2", "unit": "GB", "basis": null, "bpw": null,
+   "flags": ["Published figure, not a paired run here [L58]"]}
+ ],
+ "prose": [
+  {"entry": "this checkpoint, GLQ 4 bpw", "key": "bench:Terminal-Bench 2 (5-task smoke)", "L": 62, "raw": "0/5"},
+  {"entry": "NVFP4 (`nvidia/Gemma-4-26B-A4B-NVFP4`)", "key": "bench:Terminal-Bench 2 (5-task smoke)", "L": 62, "raw": "0/5"}
+ ]}

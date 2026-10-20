@@ -1,0 +1,67 @@
+{
+  "repo": "axteam/gemma-4-26B-A4B-it-AWQ-4bit",
+  "source_sha256": "56c6ddb92d4feffbddd3db8564a41b37a740b68564a8c98aa49d94c42fb11b01",
+  "candidates_sha256": "86f1387c0280d98a9b1c3864d92601bb9b892b6af92f0a74a9defddcf33f02ff",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "BF16 original google/gemma-4-26B-A4B-it, measured on the same harness [L20, L63, L67]",
+    "dataset": "internal mixed English/Korean evaluation set [L52]",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [20, 35, 52, 56, 57, 63, 65, 67, 71]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "AWQ INT4 (W4A16)",
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "ppl": "c2",
+        "top1_pct": "c4"
+      },
+      "flags": [
+        "Measured against the BF16 original on an internal mixed English/Korean set [L52]",
+        "Quantization variant is AWQ attention with per-expert quantization [L52]",
+        "On-disk size is stated in the quant details section, not in the evaluation table [L29]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "BF16 original (upper bound)",
+      "of": "google/gemma-4-26B-A4B-it",
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "ppl": "c6",
+        "top1_pct": "c7"
+      },
+      "flags": [
+        "Upper-bound reference measured on the same harness as the other rows [L63, L67]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "cyankiwi/gemma-4-26B-A4B-it-AWQ-4bit",
+      "of": "cyankiwi/gemma-4-26B-A4B-it-AWQ-4bit",
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "ppl": "c10",
+        "top1_pct": "c11"
+      },
+      "flags": [
+        "Public quantization measured by the card author on the same eval set and harness [L63, L71]"
+      ]
+    }
+  ],
+  "prose": []
+}

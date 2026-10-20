@@ -1,0 +1,401 @@
+{
+ "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+ "source_sha256": "1254a0def247d231a8036b49c5211e86c594de673db5c0707e0ae8d29bc69626",
+ "candidates_sha256": "231f4b76f36f4d124ece017e7a3af029d39e984575fe97eaf9dabbeb004fbb99",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+   "reference": "public board numbers on the Decision Index 0.2.1 suite, plus the author's own runs of the same suite and of the 0.3 public suite",
+   "dataset": "Decision Index 0.2.1 suite (scored benchmarks in five areas) and the 0.3 public suite",
+   "ctx": "one question per prompt with thinking off by default; the think-when-unsure variant adds a short thought on a subset of questions",
+   "tool": "not stated",
+   "L": [44, 47, 53, 57, 137]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "one pass",
+     "panel": "Decision Index 0.3 (current board edition)",
+     "metrics": {
+       "bench:Decision Index 0.3 (public)": "c1",
+       "bench:Vision board (public)": "c3"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "Figures are the author's own runs on the 0.3 suite, which the card says are not comparable with the 0.2.1 figures [L38-L49]"
+     ]
+   },
+   {
+     "role": "own",
+     "name": "think when unsure",
+     "panel": "Decision Index 0.3 (current board edition)",
+     "metrics": {
+       "bench:Decision Index 0.3 (public)": "c2",
+       "bench:Vision board (public)": "c4"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": []
+   },
+   {
+     "role": "own",
+     "name": "Blink v0.5 · 26B-A4B NVFP4 + think when unsure",
+     "panel": "Scores",
+     "metrics": {
+       "bench:Index": "c5",
+       "bench:Knowledge": "c6",
+       "bench:Language": "c7",
+       "bench:Retrieval": "c8",
+       "bench:Tools": "c9",
+       "bench:Arts": "c10"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "The think-when-unsure run counts five errors as wrong [L53]",
+       "Decision Index is the author's own run of the public suite, not a board submission [L120-L134]"
+     ]
+   },
+   {
+     "role": "own",
+     "name": "Blink v0.5 · 26B-A4B NVFP4",
+     "panel": "Scores",
+     "metrics": {
+       "bench:Index": "c11",
+       "bench:Knowledge": "c12",
+       "bench:Language": "c13",
+       "bench:Retrieval": "c14",
+       "bench:Tools": "c15",
+       "bench:Arts": "c16"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": []
+   },
+   {
+     "role": "ladder",
+     "name": "Blink v0.4 · 26B-A4B NVFP4",
+     "panel": "Scores",
+     "metrics": {
+       "bench:Index": "c23",
+       "bench:Knowledge": "c24",
+       "bench:Language": "c25",
+       "bench:Retrieval": "c26",
+       "bench:Tools": "c27",
+       "bench:Arts": "c28"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Publisher's earlier build, run on the same suite by the author [L60]"]
+   },
+   {
+     "role": "ladder",
+     "name": "Blink v0.3 · 26B-A4B NVFP4",
+     "panel": "Scores",
+     "metrics": {
+       "bench:Index": "c29",
+       "bench:Knowledge": "c30",
+       "bench:Language": "c31",
+       "bench:Retrieval": "c32",
+       "bench:Tools": "c33",
+       "bench:Arts": "c34"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Publisher's earlier build, run on the same suite by the author [L61]"]
+   },
+   {
+     "role": "ladder",
+     "name": "Blink v0.2 · 26B-A4B NVFP4",
+     "panel": "Scores",
+     "metrics": {
+       "bench:Index": "c53",
+       "bench:Knowledge": "c54",
+       "bench:Language": "c55",
+       "bench:Retrieval": "c56",
+       "bench:Tools": "c57",
+       "bench:Arts": "c58"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Publisher's earlier build, run on the same suite by the author [L65]"]
+   },
+   {
+     "role": "ladder",
+     "name": "Blink v0.1 · 26B-A4B NVFP4",
+     "panel": "Scores",
+     "metrics": {
+       "bench:Index": "c65",
+       "bench:Knowledge": "c66",
+       "bench:Language": "c67",
+       "bench:Retrieval": "c68",
+       "bench:Tools": "c69",
+       "bench:Arts": "c70"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Publisher's earlier build, run on the same suite by the author [L67]"]
+   },
+   {
+     "role": "quoted",
+     "name": "Jev (hosted)",
+     "panel": "Scores",
+     "of": "not named on card",
+     "methodology": {"reference": "public board, Decision Index 0.2.1 suite", "dataset": "Decision Index 0.2.1 suite", "ctx": "not stated", "tool": "not stated", "L": [53]},
+     "metrics": {
+       "bench:Index": "c17",
+       "bench:Knowledge": "c18",
+       "bench:Language": "c19",
+       "bench:Retrieval": "c20",
+       "bench:Tools": "c21",
+       "bench:Arts": "c22"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Hosted model, not a file; figures copied from the public board [L59]"]
+   },
+   {
+     "role": "quoted",
+     "name": "Surogate Rune 26B-A4B v3",
+     "panel": "Scores",
+     "of": "not named on card",
+     "methodology": {"reference": "public board, Decision Index 0.2.1 suite", "dataset": "Decision Index 0.2.1 suite", "ctx": "not stated", "tool": "not stated", "L": [53]},
+     "metrics": {
+       "bench:Index": "c35",
+       "bench:Knowledge": "c36",
+       "bench:Language": "c37",
+       "bench:Retrieval": "c38",
+       "bench:Tools": "c39",
+       "bench:Arts": "c40"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Figures copied from the public board [L62]"]
+   },
+   {
+     "role": "quoted",
+     "name": "Decider chat · Gemma-4-31B",
+     "panel": "Scores",
+     "of": "not named on card",
+     "methodology": {"reference": "public board, Decision Index 0.2.1 suite", "dataset": "Decision Index 0.2.1 suite", "ctx": "not stated", "tool": "not stated", "L": [53]},
+     "metrics": {
+       "bench:Index": "c41",
+       "bench:Knowledge": "c42",
+       "bench:Language": "c43",
+       "bench:Retrieval": "c44",
+       "bench:Tools": "c45",
+       "bench:Arts": "c46"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Figures copied from the public board [L63]"]
+   },
+   {
+     "role": "quoted",
+     "name": "AutoJev-27B",
+     "panel": "Scores",
+     "of": "not named on card",
+     "methodology": {"reference": "public board, Decision Index 0.2.1 suite", "dataset": "Decision Index 0.2.1 suite", "ctx": "not stated", "tool": "not stated", "L": [53]},
+     "metrics": {
+       "bench:Index": "c47",
+       "bench:Knowledge": "c48",
+       "bench:Language": "c49",
+       "bench:Retrieval": "c50",
+       "bench:Tools": "c51",
+       "bench:Arts": "c52"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Figures copied from the public board [L64]"]
+   },
+   {
+     "role": "quoted",
+     "name": "simple-jev · Qwen3.8-27B",
+     "panel": "Scores",
+     "of": "not named on card",
+     "methodology": {"reference": "public board, Decision Index 0.2.1 suite", "dataset": "Decision Index 0.2.1 suite", "ctx": "not stated", "tool": "not stated", "L": [53]},
+     "metrics": {
+       "bench:Index": "c59",
+       "bench:Knowledge": "c60",
+       "bench:Language": "c61",
+       "bench:Retrieval": "c62",
+       "bench:Tools": "c63",
+       "bench:Arts": "c64"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Figures copied from the public board [L66]"]
+   },
+   {
+     "role": "quoted",
+     "name": "frontier-infra Jebadiah 27B",
+     "panel": "Scores",
+     "of": "not named on card",
+     "methodology": {"reference": "public board, Decision Index 0.2.1 suite", "dataset": "Decision Index 0.2.1 suite", "ctx": "not stated", "tool": "not stated", "L": [53]},
+     "metrics": {
+       "bench:Index": "c71",
+       "bench:Knowledge": "c72",
+       "bench:Language": "c73",
+       "bench:Retrieval": "c74",
+       "bench:Tools": "c75",
+       "bench:Arts": "c76"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Figures copied from the public board [L68]"]
+   },
+   {
+     "role": "quoted",
+     "name": "Eikos-27B-FP8",
+     "panel": "Scores",
+     "of": "not named on card",
+     "methodology": {"reference": "public board, Decision Index 0.2.1 suite", "dataset": "Decision Index 0.2.1 suite", "ctx": "not stated", "tool": "not stated", "L": [53]},
+     "metrics": {
+       "bench:Index": "c77",
+       "bench:Knowledge": "c78",
+       "bench:Language": "c79",
+       "bench:Retrieval": "c80",
+       "bench:Tools": "c81",
+       "bench:Arts": "c82"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Figures copied from the public board [L69]"]
+   },
+   {
+     "role": "quoted",
+     "name": "reflex Qwen3.8-27B-FP8",
+     "panel": "Scores",
+     "of": "not named on card",
+     "methodology": {"reference": "public board, Decision Index 0.2.1 suite", "dataset": "Decision Index 0.2.1 suite", "ctx": "not stated", "tool": "not stated", "L": [53]},
+     "metrics": {
+       "bench:Index": "c83",
+       "bench:Knowledge": "c84",
+       "bench:Language": "c85",
+       "bench:Retrieval": "c86",
+       "bench:Tools": "c87",
+       "bench:Arts": "c88"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Figures copied from the public board [L70]"]
+   },
+   {
+     "role": "quoted",
+     "name": "Decider chat · Qwen3.6-27B",
+     "panel": "Scores",
+     "of": "not named on card",
+     "methodology": {"reference": "public board, Decision Index 0.2.1 suite", "dataset": "Decision Index 0.2.1 suite", "ctx": "not stated", "tool": "not stated", "L": [53]},
+     "metrics": {
+       "bench:Index": "c89",
+       "bench:Knowledge": "c90",
+       "bench:Language": "c91",
+       "bench:Retrieval": "c92",
+       "bench:Tools": "c93",
+       "bench:Arts": "c94"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Figures copied from the public board [L71]"]
+   },
+   {
+     "role": "quoted",
+     "name": "Decider 35B-A3B NVFP4",
+     "panel": "Scores",
+     "of": "not named on card",
+     "methodology": {"reference": "public board, Decision Index 0.2.1 suite", "dataset": "Decision Index 0.2.1 suite", "ctx": "not stated", "tool": "not stated", "L": [53]},
+     "metrics": {
+       "bench:Index": "c95",
+       "bench:Knowledge": "c96",
+       "bench:Language": "c97",
+       "bench:Retrieval": "c98",
+       "bench:Tools": "c99",
+       "bench:Arts": "c100"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Figures copied from the public board [L72]; the author's own rerun of this entry is not mapped"]
+   },
+   {
+     "role": "own",
+     "name": "one pass",
+     "panel": "Think when unsure",
+     "metrics": {
+       "bench:Index": "c101",
+       "bench:Knowledge": "c102",
+       "bench:Language": "c103",
+       "bench:Retrieval": "c104",
+       "bench:Tools": "c105",
+       "bench:Arts": "c106"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Same 0.2.1 figures as the Scores table, repeated for the one-pass row [L137]"]
+   },
+   {
+     "role": "own",
+     "name": "think when unsure",
+     "panel": "Think when unsure",
+     "metrics": {
+       "bench:Index": "c107",
+       "bench:Knowledge": "c108",
+       "bench:Language": "c109",
+       "bench:Retrieval": "c110",
+       "bench:Tools": "c111",
+       "bench:Arts": "c112"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Same 0.2.1 figures as the Scores table, repeated for the think-when-unsure row [L138]"]
+   }
+ ],
+ "prose": [
+   {"entry": "one pass", "panel": "Decision Index 0.3 (current board edition)", "key": "bench:Knowledge", "L": 47, "raw": "45.6"},
+   {"entry": "one pass", "panel": "Decision Index 0.3 (current board edition)", "key": "bench:Language", "L": 47, "raw": "64.1"},
+   {"entry": "one pass", "panel": "Decision Index 0.3 (current board edition)", "key": "bench:Retrieval", "L": 47, "raw": "63.5"},
+   {"entry": "one pass", "panel": "Decision Index 0.3 (current board edition)", "key": "bench:Tools", "L": 47, "raw": "76.1"},
+   {"entry": "one pass", "panel": "Decision Index 0.3 (current board edition)", "key": "bench:Arts", "L": 47, "raw": "46.1"}
+ ]
+}

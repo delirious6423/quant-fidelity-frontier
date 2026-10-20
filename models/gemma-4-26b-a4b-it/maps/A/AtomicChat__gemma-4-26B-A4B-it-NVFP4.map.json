@@ -1,0 +1,15 @@
+{"repo": "AtomicChat/gemma-4-26B-A4B-it-NVFP4",
+ "source_sha256": "eb41fd3a6c5e55fd914b6522cb4a711a70e82956eef081fe1b41536581c3eb29",
+ "candidates_sha256": "64eac77127733cd7f2710339a73f0865d7fbd09433d11312dc5bf9c192cbb38d",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "google/gemma-4-26B-A4B-it base, Google's published results [L89]", "dataset": "MMLU Pro, AIME 2026, LiveCodeBench v6, Codeforces, GPQA Diamond, and others [L71-L87]", "ctx": "not stated", "tool": "not stated", "L": [71, 89]},
+ "entries": [
+   {"role": "quoted", "name": "Google published results, base model", "of": "google/gemma-4-26B-A4B-it",
+    "methodology": {"reference": "google/gemma-4-26B-A4B-it base [L89]", "dataset": "MMLU Pro, AIME 2026, LiveCodeBench v6, Codeforces, GPQA Diamond, and others [L71-L87]", "ctx": "not stated", "tool": "Google's published results [L89]", "L": [71, 89]},
+    "metrics": {"bench:MMLU Pro": "c3", "bench:AIME 2026 no tools": "c4", "bench:LiveCodeBench v6": "c5", "bench:Codeforces ELO": "c6", "bench:GPQA Diamond": "c7", "bench:Tau2 (average over 3)": "c8", "bench:HLE no tools": "c9", "bench:HLE with search": "c10", "bench:BigBench Extra Hard": "c11", "bench:MMMLU": "c12", "bench:MMMU Pro": "c13", "bench:OmniDocBench 1.5 (average edit distance, lower is better)": "c14", "bench:MATH-Vision": "c15", "bench:MedXPertQA MM": "c16", "bench:MRCR v2 8 needle 128k (average)": "c17"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["[L89] the card says these are Google's figures for the base model, not measurements of this quant; the quant remark [L89] is qualitative"]}
+ ],
+ "prose": []}

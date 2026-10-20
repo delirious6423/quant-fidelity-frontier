@@ -1,0 +1,17 @@
+{
+ "repo": "wangzhang/gemma-4-26B-A4B-it-abliterix",
+ "source_sha256": "128b4f3c3065d8ee5dbbb3ccf66606599a36e067620d842564b8e51be5935104",
+ "candidates_sha256": "1bef35e3bccd3868e42d00c76e9b0e59311a364140188b843d0ae1dcdb33abc6",
+ "no_quality_claims": true,
+ "no_claims_reason": "refusal and KL figures for an abliterated, unquantized model; no quantized build is measured [L37-L41]",
+ "weights_modified": true,
+ "method": {
+   "reference": "original unmodified model, same evaluation pipeline",
+   "dataset": "private evaluation set of 100 prompts, English and Chinese",
+   "ctx": "200-token generation before judging",
+   "tool": "keyword matching plus LLM judge",
+   "L": [35, 57, 58, 59]
+ },
+ "entries": [],
+ "prose": []
+}

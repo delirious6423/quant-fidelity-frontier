@@ -1,0 +1,18 @@
+{"repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-8bit",
+ "source_sha256": "e32de65f9baae165ae79c41dce78b6c4dbab4a1d0a1d2b05131b8eec03f8a6cd",
+ "candidates_sha256": "a46e0f8178c737ebfe42d7282509f0052f47df7a69cfca79e24eaf9e705a819e",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Google published base results", "dataset": "published benchmark table", "ctx": "not stated", "tool": "not stated", "L": [88]},
+ "entries": [
+   {"role": "quoted",
+    "name": "base",
+    "panel": "Benchmarks",
+    "of": "google/gemma-4-26B-A4B-it",
+    "methodology": {"reference": "Google published results", "dataset": "published benchmark table", "ctx": "not stated", "tool": "not stated", "L": [88]},
+    "metrics": {"bench:MMLU-Pro": "c3", "bench:AIME-2026": "c4", "bench:LiveCodeBench-v6": "c5", "bench:Codeforces-ELO": "c6", "bench:GPQA-Diamond": "c7", "bench:Tau2": "c8", "bench:HLE-no-tools": "c9", "bench:HLE-with-search": "c10", "bench:BigBench-Extra-Hard": "c11", "bench:MMMLU": "c12", "bench:MMMU-Pro": "c13", "bench:OmniDocBench-1.5": "c14", "bench:MATH-Vision": "c15", "bench:MedXPertQA-MM": "c16", "bench:MRCR-v2-128k": "c17"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["Google's published results for the base model, not measured on this quantized build [L88]", "Quant wording is qualitative only [L88]"]}
+ ],
+ "prose": []}

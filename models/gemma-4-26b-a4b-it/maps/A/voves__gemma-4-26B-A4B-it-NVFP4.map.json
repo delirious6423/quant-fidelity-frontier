@@ -1,0 +1,55 @@
+{
+ "repo": "voves/gemma-4-26B-A4B-it-NVFP4",
+ "source_sha256": "9223d0d0743aff71a2834f657ff7222f2cce1a57f16c3453f3515cf03a05c83e",
+ "candidates_sha256": "5f6a9a09f43213429069a5705f8d71b299c1d2a5ec1720a7a8a830af7588cbb2",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "BF16 run of the same model, greedy decoding",
+   "dataset": "30 samples per standard dataset with a fixed seed, plus 30 curated prompts",
+   "ctx": "per-category max_tokens, thinking on or off by category",
+   "tool": "sglang",
+   "L": [29, 36, 63, 78, 91]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "NVFP4",
+     "metrics": {
+       "bench:MMLU (no-think)": "c28",
+       "bench:MMLU (thinking)": "c39",
+       "bench:ARC-Challenge (no-think)": "c49",
+       "bench:ARC-Challenge (thinking)": "c57",
+       "bench:GSM8K": "c64",
+       "bench:MATH": "c74",
+       "bench:HumanEval": "c84",
+       "bench:IFEval (subset)": "c92",
+       "bench:Curated · logical": "c100",
+       "bench:Curated · knowledge": "c108",
+       "bench:Curated · instr-follow": "c113",
+       "bench:Curated · creative": "c119",
+       "bench:Curated · translation": "c126",
+       "bench:Curated · code": "c134",
+       "bench:Curated · multi-reason": "c140",
+       "bench:Curated · safety": "c146",
+       "bench:OVERALL": "c151"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "NVFP4 cell equals the BF16 cell in the same row, so the shared value is used [L93]",
+       "NVFP4 cell equals the BF16 cell in the same row, so the shared value is used [L94]",
+       "NVFP4 cell equals the BF16 cell in the same row, so the shared value is used [L96]",
+       "NVFP4 cell equals the BF16 cell in the same row, so the shared value is used [L97]",
+       "NVFP4 cell equals the BF16 cell in the same row, so the shared value is used [L98]",
+       "Only token-count and delta columns given for rows where the accuracy cells match [L99-L106]",
+       "Card reports NVFP4 repetition loops that exhaust the token cap on math and GSM8K [L134-L162]",
+       "IFEval evaluator implements a subset of rule verifiers; some tasks skipped [L84]"
+     ]
+   }
+ ],
+ "prose": []
+}

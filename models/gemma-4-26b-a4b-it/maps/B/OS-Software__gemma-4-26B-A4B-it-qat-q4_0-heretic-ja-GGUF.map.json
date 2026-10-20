@@ -1,0 +1,15 @@
+{"repo": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-heretic-ja-GGUF",
+ "source_sha256": "a446a0e9c3e7f3a2a9b9ff54a51583075c969175b64200493634b160d9cab049",
+ "candidates_sha256": "eeacff4619a005b8c4b18d8bbccc497f5c5cc5a0d6c86df0fa7d250338711922",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "original model, per the performance table [L30-36]", "dataset": "benchmark suites as named in the comparison table [L155-176]", "ctx": "not stated", "tool": "not stated", "L": [30, 153, 155]},
+ "entries": [
+  {"role": "quoted", "name": "Gemma 4 26B A4B", "of": "not named on card",
+   "metrics": {"bench:MMLU Pro": "c27", "bench:AIME 2026 no tools": "c33", "bench:LiveCodeBench v6": "c39", "bench:Codeforces ELO": "c45", "bench:GPQA Diamond": "c51", "bench:Tau2 (average over 3)": "c57", "bench:HLE no tools": "c63", "bench:HLE with search": "c66", "bench:BigBench Extra Hard": "c68", "bench:MMMLU": "c74", "bench:MMMU Pro": "c80", "bench:OmniDocBench 1.5": "c86", "bench:MATH-Vision": "c92", "bench:MedXPertQA MM": "c98", "bench:MRCR v2 8 needle 128k (average)": "c107"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Benchmark column copied from the Gemma 4 comparison table [L153-176]", "Columns for other Gemma sizes and Gemma 3 are different models and are omitted [L155-176]", "Own KL divergence row [L33] not mapped: aggregation not stated", "Keywords row [L32] not mapped: no metric key"]}
+ ],
+ "prose": []
+}

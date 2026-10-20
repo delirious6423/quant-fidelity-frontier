@@ -1,0 +1,37 @@
+{"repo": "steampunque/gemma-4-26B-A4B-it-MP-GGUF",
+ "source_sha256": "17298b2b2179c3a842f866d5fffd0f74368b963f5eab546e8d22e830caa64e20",
+ "candidates_sha256": "e521838a287aa674f115306199c1c86c7ee77c4b02274173aebeb72f337b7e51",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated; perplexity chunks from a text source, corpus not named [L196-199]", "ctx": "not stated", "tool": "modified llama.cpp server perplexity with a forced generation prefix [L186-202]", "L": [75, 186, 192, 201]},
+ "entries": [
+  {"role": "own", "name": "Q4_E_H",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Perplexity is the modified procedure described on the card [L186-193]", "Size in the comparison table has no candidate id; not mapped [L78]"]},
+  {"role": "own", "name": "Q4_P_H",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Perplexity is the modified procedure described on the card [L186-193]", "Size in the comparison table has no candidate id; not mapped [L79]"]},
+  {"role": "own", "name": "Q6_K_H",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Perplexity is the modified procedure described on the card [L186-193]", "Size in the comparison table has no candidate id; not mapped [L81]"]},
+  {"role": "ladder", "name": "Q4_K_M",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Perplexity is the modified procedure described on the card [L186-193]", "Size in the comparison table has no candidate id; not mapped [L77]"]},
+  {"role": "ladder", "name": "Q6_K",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Perplexity is the modified procedure described on the card [L186-193]", "Size in the comparison table has no candidate id; not mapped [L80]"]}
+ ],
+ "prose": [
+  {"entry": "Q4_E_H", "key": "ppl", "L": 78, "raw": "14.5"},
+  {"entry": "Q4_P_H", "key": "ppl", "L": 79, "raw": "14.5"},
+  {"entry": "Q6_K_H", "key": "ppl", "L": 81, "raw": "14.2"},
+  {"entry": "Q4_K_M", "key": "ppl", "L": 77, "raw": "15.1"},
+  {"entry": "Q6_K", "key": "ppl", "L": 80, "raw": "13.7"}
+ ]
+}

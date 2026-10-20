@@ -1,0 +1,17 @@
+{
+  "repo": "rj1013/gemma-4-26B-A4B-it_q8",
+  "source_sha256": "8c54796b8362190c7b463963cf5f2b72775822a3e2d17865f9dd0f2e0a1d019c",
+  "candidates_sha256": "20d45130a32355ccf018d1198d70d6e7a644d394149149cd99b89ce0d86cb6bf",
+  "no_quality_claims": true,
+  "no_claims_reason": "no quality number; only qualitative notes (coherent code, weaker Traditional Chinese instruction following) plus speed, memory and size figures [L113-L119]",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated",
+    "dataset": "32 coding-oriented calibration samples, sequence length 2,048 [L29]",
+    "ctx": "8,192 tested [L41]",
+    "tool": "vLLM 0.21.0 on one A100 PCIe 40GB [L39, L40]",
+    "L": [29, 39, 40, 41, 113, 119]
+  },
+  "entries": [],
+  "prose": []
+}

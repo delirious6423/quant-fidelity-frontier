@@ -1,0 +1,19 @@
+{"repo": "cjrytj/Gemma-4-26B-A4B-NVFP4",
+ "source_sha256": "c029c88cbe29f701ce653bb9ab8fece7f5a66da5660b6cc25a506768f4d457d2",
+ "candidates_sha256": "781d1da2d929c72ca52e722dbbff98ffb854bb33ee5cb1e836fc878e5b5f04a7",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "google/gemma-4-26B-A4B-it bf16 baseline column [L149]", "dataset": "MMLU Pro, LiveCodeBench, IFEval, IFBench, GPQA Diamond, AIME 2025 [L113, L141-L148]", "ctx": "max_new_tokens 131072 [L150]", "tool": "not stated; temperature 1.0, top_p 0.95 [L150]", "L": [40, 113, 141, 149, 150]},
+ "entries": [
+   {"role": "quoted", "name": "NVFP4", "of": "nvidia/Gemma-4-26B-A4B-NVFP4",
+    "methodology": {"reference": "google/gemma-4-26B-A4B-it bf16 baseline column [L149]", "dataset": "MMLU Pro, LiveCodeBench, IFEval, IFBench, GPQA Diamond, AIME 2025 [L113, L141-L148]", "ctx": "max_new_tokens 131072 [L150]", "tool": "temperature 1.0, top_p 0.95 [L150]", "L": [113, 141, 149, 150]},
+    "metrics": {"bench:GPQA Diamond": "c7", "bench:AIME 2025": "c9", "bench:MMLU Pro": "c11", "bench:LiveCodeBench (pass@1)": "c13", "bench:IFBench": "c15", "bench:IFEval": "c17"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["[L40, L141-L150] the table is NVIDIA's card text for nvidia/Gemma-4-26B-A4B-NVFP4, not a measurement of this repo's files"]},
+   {"role": "quoted", "name": "Baseline (Full Precision)", "of": "google/gemma-4-26B-A4B-it",
+    "methodology": {"reference": "google/gemma-4-26B-A4B-it bf16 [L149]", "dataset": "MMLU Pro, LiveCodeBench, IFEval, IFBench, GPQA Diamond, AIME 2025 [L113, L141-L148]", "ctx": "max_new_tokens 131072 [L150]", "tool": "temperature 1.0, top_p 0.95 [L150]", "L": [113, 141, 149, 150]},
+    "metrics": {"bench:GPQA Diamond": "c6", "bench:AIME 2025": "c8", "bench:MMLU Pro": "c10", "bench:LiveCodeBench (pass@1)": "c12", "bench:IFBench": "c14", "bench:IFEval": "c16"},
+    "size": null, "unit": null, "basis": null, "bpw": null, "flags": []}
+ ],
+ "prose": []}

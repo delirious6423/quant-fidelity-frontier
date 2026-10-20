@@ -1,0 +1,20 @@
+{"repo": "farbodtavakkoli/OTel-2.0-Decision-26B-A4B-4bit",
+ "source_sha256": "c76a3705e58b8295292e22b327fc2c0c983a7f83d7db0a6d1c84f8593ea3fc86",
+ "candidates_sha256": "c86fe0d49cdaa10b5758ca7e77d3d74bcdc2737459ff173929b2d9d12410a069",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "JevBench public (231 tasks)", "ctx": "typed-decision readout (level=L0, no prior), answer_mass 1.00", "tool": "vLLM", "L": [42, 46]},
+ "entries": [
+  {"role": "own", "name": "AMD MI350P", "panel": "Evaluation",
+   "methodology": {"reference": "not stated", "dataset": "JevBench public (231 tasks)", "ctx": "typed-decision readout (level=L0, no prior), answer_mass 1.00", "tool": "vLLM 0.30.0", "L": [42, 46, 54]},
+   "metrics": {"bench:JevBench_public": "c1"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["the printed value is a range across runs, copied as printed; the card says the MoE kernel is not bit-deterministic [L48]", "tier breakdowns are not mapped [L48]"]},
+  {"role": "own", "name": "AMD Ryzen AI MAX+ PRO 395 (Strix Halo)", "panel": "Evaluation",
+   "methodology": {"reference": "not stated", "dataset": "JevBench public (231 tasks)", "ctx": "typed-decision readout (level=L0, no prior), answer_mass 1.00", "tool": "vLLM 0.26.0 on ROCm 7.13", "L": [42, 46, 48]},
+   "metrics": {"bench:JevBench_public": "c2"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["same repo as the MI350P column, a second hardware column [L46]", "run counts by tier are not mapped [L48]"]}
+ ],
+ "prose": []}

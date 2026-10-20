@@ -1,0 +1,25 @@
+{"repo": "InfiniCloud/gemma-4-26B-A4B-it-GPTQ-INT4-G64",
+ "source_sha256": "55aabdd723342e9232a01a2cdf706234216aabd11a4b705e8af6ebc2033b9ada",
+ "candidates_sha256": "8f7b59bdff60a30573907eb2f5f7ae87aa589f32f34bb6af871e63f8fec3ce74",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 original, same run", "dataset": "GSM8K 1,319 questions; Japanese MGSM 250 questions [L95-L100]", "ctx": "8192 [L93]", "tool": "lm-eval, native CoT, 5-shot, thinking disabled, temperature 0 [L93, L104]", "L": [93, 95, 104]},
+ "entries": [
+  {"role": "own",
+   "name": "INT4 G64",
+   "methodology": {"reference": "BF16 original, same run", "dataset": "GSM8K 1,319 questions; Japanese MGSM 250 questions", "ctx": "8192, output limit 2048 [L93]", "tool": "lm-eval, native CoT, 5-shot, thinking disabled, temperature 0 [L93, L104]", "L": [93, 95, 104]},
+   "metrics": {"bench:GSM8K (strict)": "c21", "bench:GSM8K (flexible)": "c24", "bench:Japanese MGSM (flexible)": "c29"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Japanese MGSM strict value 4.0% is not a candidate; mapped as prose [L99]", "Scores measure extracted answers, not JSON compliance [L102]", "No significance test was performed [L104]", "Measured on RTX PRO 6000 Blackwell; L4 not measured [L86]"]},
+  {"role": "cross",
+   "name": "BF16",
+   "of": "not named on card",
+   "methodology": {"reference": "BF16 original, same run", "dataset": "GSM8K 1,319 questions; Japanese MGSM 250 questions", "ctx": "8192, output limit 2048 [L93]", "tool": "lm-eval, native CoT, 5-shot, thinking disabled, temperature 0 [L93, L104]", "L": [93, 95, 104]},
+   "metrics": {"bench:GSM8K (strict)": "c20", "bench:GSM8K (flexible)": "c23", "bench:Japanese MGSM (strict)": "c26", "bench:Japanese MGSM (flexible)": "c28"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Unquantized reference, the source the card quantizes [L18, L95]"]}
+ ],
+ "prose": [
+  {"entry": "INT4 G64", "key": "bench:Japanese MGSM (strict)", "L": 99, "raw": "4.0%"}
+ ]}

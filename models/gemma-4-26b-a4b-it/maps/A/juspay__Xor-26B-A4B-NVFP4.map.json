@@ -1,0 +1,62 @@
+{
+  "repo": "juspay/Xor-26B-A4B-NVFP4",
+  "source_sha256": "9903810760059b6db73d1121e8c2c37df5f9c6fa3289a8c51addd9a2a41db6d7",
+  "candidates_sha256": "d64b3b7ee6d2bda8d49e996d1e58903dfb9c5e6f1cb530fdf9b3c7426e7a3b60",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "Xor 26B-A4B 1.1 (BF16) build of the same model [L129, L145]",
+    "dataset": "Decision Index 0.3 public self-run; public JEVBench tiers [L129, L151]",
+    "ctx": "Context is 131,072 tokens [L68]",
+    "tool": "Decision Index 0.3 upstream runners and scorer, unchanged [L129]",
+    "L": [68, 129, 133, 145, 151]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Xor 26B-A4B NVFP4 1.1",
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:Decision Index": "c2",
+        "bench:Raw index": "c4",
+        "bench:Breadth score": "c6",
+        "bench:Knowledge & Reasoning (raw)": "c9",
+        "bench:Language Understanding (raw)": "c12",
+        "bench:Retrieval & Classification (raw)": "c15",
+        "bench:Tools & Automation (raw)": "c18",
+        "bench:Arts & Human Taste (raw)": "c21"
+      },
+      "flags": [
+        "Public self-run score, not the private Full score [L145]",
+        "BF16 reference ran on different hardware and batching, so the quantization effect is not isolated [L145]",
+        "Area Skill scores and benchmark counts omitted; Raw values kept [L139, L143]",
+        "Model files 18.8 GB vs 51.6 GB for BF16, stated in prose [L24]",
+        "Weights are a post-trained, quantized model: routed experts 4-bit, other parts BF16 [L22]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Xor 26B-A4B 1.1 (BF16)",
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:Decision Index": "c1",
+        "bench:Raw index": "c3",
+        "bench:Breadth score": "c5"
+      },
+      "flags": [
+        "Ran on six B300 replicas at 24 concurrent requests, not hardware-matched to the NVFP4 run [L145]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "Xor 26B-A4B NVFP4 1.1", "key": "bench:JEVBench", "L": 151, "raw": "199 to 201 of 231"},
+    {"entry": "Xor 26B-A4B 1.1 (BF16)", "key": "bench:JEVBench", "L": 151, "raw": "204"}
+  ]
+}

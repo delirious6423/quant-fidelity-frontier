@@ -1,0 +1,86 @@
+{
+ "repo": "xv0y5ncu/gemma-4-26B-A4B-it-GLQ-trellis-3inst-3bpw",
+ "source_sha256": "32c541eab4b8186d7603c524994c98c0802c8de13eb6feec0204b60a52db53d1",
+ "candidates_sha256": "9e41d4af89fc8f23288dff383af55ffaa51da9c67b94deb2b62e32622e533672",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "bf16 published figure; the other measured arms ran on the same GPU with identical settings",
+   "dataset": "AIME 2026, 30 problems, 8 samples each",
+   "ctx": "32k thinking budget, the model's own sampling defaults",
+   "tool": "vLLM 0.27.1",
+   "L": [42, 44, 56]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "this build, GLQ 3 bpw",
+     "metrics": {
+       "bench:AIME 2026 (avg@8)": "c16",
+       "bench:AIME 2026 truncated at 32k": "c28",
+       "bench:AIME 2026 no answer": "c31"
+     },
+     "size": "c15",
+     "unit": "GiB",
+     "basis": "vram",
+     "bpw": "c37",
+     "flags": [
+       "Card describes the gap to the 4 bpw build as inside the noise band [L65-L66]",
+       "Card says the score probably understates this build because of the 32k budget ceiling [L68-L72]",
+       "Weight SQNR figures are not a listed metric key and are not mapped [L38]",
+       "Speed figures come from a different harness and are not mapped [L77-L90]"
+     ]
+   },
+   {
+     "role": "ladder",
+     "name": "GLQ trellis 4 bpw",
+     "metrics": {
+       "bench:AIME 2026 (avg@8)": "c14",
+       "bench:AIME 2026 truncated at 32k": "c29",
+       "bench:AIME 2026 no answer": "c32"
+     },
+     "size": "c13",
+     "unit": "GiB",
+     "basis": "vram",
+     "bpw": "c36",
+     "flags": ["Repo for this checkpoint is not named on the card [L48]"]
+   },
+   {
+     "role": "cross",
+     "name": "NVFP4",
+     "of": "nvidia/Gemma-4-26B-A4B-NVFP4",
+     "metrics": {
+       "bench:AIME 2026 (avg@8)": "c12",
+       "bench:AIME 2026 truncated at 32k": "c30",
+       "bench:AIME 2026 no answer": "c33"
+     },
+     "size": "c11",
+     "unit": "GiB",
+     "basis": "vram",
+     "bpw": null,
+     "flags": ["Measured by the card author on the same GPU, as a paired arm [L47]"]
+   },
+   {
+     "role": "quoted",
+     "name": "bf16",
+     "of": "not named on card",
+     "metrics": {
+       "bench:AIME 2026 (avg@8)": "c10"
+     },
+     "size": "c9",
+     "unit": "GiB",
+     "basis": "vram",
+     "bpw": null,
+     "flags": ["Published figure from a different harness, not a paired arm [L46, L53-L54]"]
+   }
+ ],
+ "prose": [
+   {"entry": "this build, GLQ 3 bpw", "key": "bench:AIME 2026 pass@8", "L": 59, "raw": "27/30"},
+   {"entry": "this build, GLQ 3 bpw", "key": "bench:AIME 2026 solved on all 8 samples", "L": 60, "raw": "18/30"},
+   {"entry": "GLQ trellis 4 bpw", "key": "bench:AIME 2026 pass@8", "L": 59, "raw": "29/30"},
+   {"entry": "GLQ trellis 4 bpw", "key": "bench:AIME 2026 solved on all 8 samples", "L": 60, "raw": "23/30"},
+   {"entry": "NVFP4", "key": "bench:AIME 2026 pass@8", "L": 59, "raw": "28/30"},
+   {"entry": "NVFP4", "key": "bench:AIME 2026 solved on all 8 samples", "L": 60, "raw": "21/30"}
+ ]
+}

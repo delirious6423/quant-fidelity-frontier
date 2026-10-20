@@ -1,0 +1,18 @@
+{"repo": "glenic/gemma-4-26B-A4B-it-W8A8-INT8",
+ "source_sha256": "23f8e12aa8857daf90b119bdbd3ed69186f37ba46a55d0da9d7ecddc6b224d10",
+ "candidates_sha256": "49a852f091fe10b6089bfc1b5a2abf18ed8a15655686b4b77a83ee03e23dcc6d",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 baseline, google/gemma-4-26B-A4B-it [L27, L45]", "dataset": "GSM8K accuracy, n=15 [L27]", "ctx": "not stated", "tool": "accuracy gate; fastserve bench [L23, L45]", "L": [23, 27, 29, 45]},
+ "entries": [
+   {"role": "own", "name": "this AWQ checkpoint", "panel": "Validation (accuracy gate — this is why you can trust it)",
+    "methodology": {"reference": "bf16 baseline [L27]", "dataset": "GSM8K accuracy, n=15 items [L27]", "ctx": "not stated", "tool": "accuracy gate [L23]", "L": [23, 27]},
+    "metrics": {"bench:GSM8K": "c2"}, "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["[L9] the title says AWQ 4-bit while the method and repo name say W8A8 INT8 [L20]", "[L27] n=15 items, a very small sample"]},
+   {"role": "cross", "name": "bf16 baseline", "panel": "Validation (accuracy gate — this is why you can trust it)", "of": "google/gemma-4-26B-A4B-it",
+    "methodology": {"reference": "bf16 baseline [L27]", "dataset": "GSM8K accuracy, n=15 items [L27]", "ctx": "not stated", "tool": "accuracy gate [L23]", "L": [23, 27]},
+    "metrics": {"bench:GSM8K": "c1"}, "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["[L27] n=15 items, a very small sample"]}
+ ],
+ "prose": []}

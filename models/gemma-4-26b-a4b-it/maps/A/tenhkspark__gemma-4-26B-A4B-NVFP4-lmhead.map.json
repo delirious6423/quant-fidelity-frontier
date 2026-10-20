@@ -1,0 +1,45 @@
+{
+ "repo": "tenhkspark/gemma-4-26B-A4B-NVFP4-lmhead",
+ "source_sha256": "e3c0a6b7364a5da59d8ff64e5a15dfa26d859b4f4f89947ef000cbb991075a22",
+ "candidates_sha256": "c35886a5593c358a753d94a34c6274a5a9555e57adf7bb44831ee70e84957253",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "v1 release of the same checkpoint",
+   "dataset": "125-question benchmark, plus real-use checks in sample and greedy modes",
+   "ctx": "balanced serving profile with GEMMA4_MTP=2",
+   "tool": "not stated",
+   "L": [81, 83]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "v2",
+     "metrics": {},
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "Weights size is stated in the introduction, not in a table [L18]",
+       "The MTP 8 benchmark figures are given with an unclear comparison order and are not mapped [L83]",
+       "Speed figures are not quality metrics and are not mapped [L24-L31]"
+     ]
+   },
+   {
+     "role": "ladder",
+     "name": "v1",
+     "metrics": {},
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Earlier release of the same weights; quality is recorded as the baseline [L22-L33]"]
+   }
+ ],
+ "prose": [
+   {"entry": "v2", "key": "bench:125-question benchmark (GEMMA4_MTP=2)", "L": 83, "raw": "82.4%"},
+   {"entry": "v1", "key": "bench:125-question benchmark (GEMMA4_MTP=2)", "L": 83, "raw": "82.4%"}
+ ]
+}

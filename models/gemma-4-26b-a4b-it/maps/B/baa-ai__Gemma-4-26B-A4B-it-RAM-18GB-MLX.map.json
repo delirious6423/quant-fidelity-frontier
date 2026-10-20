@@ -1,0 +1,38 @@
+{"repo": "baa-ai/Gemma-4-26B-A4B-it-RAM-18GB-MLX",
+ "source_sha256": "38a2be4fb2dae69456dc7fe06a79354d20b0d1faf9497ed161d28d425ae1192a",
+ "candidates_sha256": "50230c7646508b86fb51c006141bfa73138bf5eda6fec18ce499953f67a49569",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 original [L50]", "dataset": "MMLU [L34, L46]", "ctx": "not stated", "tool": "not stated", "L": [34, 46, 50]},
+ "entries": [
+  {"role": "own", "name": "RAM 18GB",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Size cell (~18 GB) not mapped: table cells have no candidate ids [L56]", "Derived MMLU retention figures not mapped [L36-38]"]},
+  {"role": "cross", "name": "BF16", "of": "google/gemma-4-26B-A4B-it",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Reference row measured by this card's author [L50]"]},
+  {"role": "ladder", "name": "Uniform 4-bit",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null, "flags": []},
+  {"role": "ladder", "name": "RAM 14GB",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null, "flags": []},
+  {"role": "ladder", "name": "RAM 20GB",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null, "flags": []},
+  {"role": "ladder", "name": "RAM 22GB",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null, "flags": []}
+ ],
+ "prose": [
+  {"entry": "RAM 18GB", "key": "bench:MMLU", "L": 56, "raw": "80.02%"},
+  {"entry": "BF16", "key": "bench:MMLU", "L": 50, "raw": "80.80%"},
+  {"entry": "Uniform 4-bit", "key": "bench:MMLU", "L": 52, "raw": "77.88%"},
+  {"entry": "RAM 14GB", "key": "bench:MMLU", "L": 54, "raw": "78.27%"},
+  {"entry": "RAM 20GB", "key": "bench:MMLU", "L": 58, "raw": "80.70%"},
+  {"entry": "RAM 22GB", "key": "bench:MMLU", "L": 60, "raw": "80.41%"}
+ ]
+}

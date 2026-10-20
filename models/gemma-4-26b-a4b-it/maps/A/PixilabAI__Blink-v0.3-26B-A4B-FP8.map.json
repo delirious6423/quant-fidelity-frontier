@@ -1,0 +1,288 @@
+{
+ "repo": "PixilabAI/Blink-v0.3-26B-A4B-FP8",
+ "source_sha256": "8209b5b0a90aef51fa02783fc9aef708b226afaad415fe2390d592abda3e2657",
+ "candidates_sha256": "d60678ad0df0dbfd0c786d0f7e848543c75fb330373d5894b6d034d21240a90e",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+   "reference": "public board numbers on the Decision Index 0.2.1 suite, plus the author's own runs of the NVFP4 build; the FP8 build was checked against the unquantized weights",
+   "dataset": "Decision Index 0.2.1 suite, scored benchmarks in five areas",
+   "ctx": "one question per prompt, thinking off, softmax over option letters at the first generated position",
+   "tool": "not stated",
+   "L": [38, 40, 54, 58]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "Blink v0.3 · 26B-A4B · FP8",
+     "panel": "Scores",
+     "metrics": {},
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "No score table row is given for this FP8 build; the Blink v0.3 row is the NVFP4 build [L38, L43]",
+       "The FP8 build was checked against the unquantized weights on a small sample of decisions, with identical answers and a probability difference reported [L38]",
+       "On-disk size is stated in the prose, not in the score table [L32]",
+       "Card calls the author's own run of the public suite not a board submission [L110]"
+     ]
+   },
+   {
+     "role": "ladder",
+     "name": "Blink v0.3 · 26B-A4B NVFP4",
+     "panel": "Scores",
+     "metrics": {
+       "bench:Index": "c7",
+       "bench:Knowledge": "c8",
+       "bench:Language": "c9",
+       "bench:Retrieval": "c10",
+       "bench:Tools": "c11",
+       "bench:Arts": "c12"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Measured on the NVFP4 build, not on this FP8 repository [L38]"]
+   },
+   {
+     "role": "ladder",
+     "name": "Blink v0.2 · 26B-A4B NVFP4",
+     "panel": "Scores",
+     "metrics": {
+       "bench:Index": "c31",
+       "bench:Knowledge": "c32",
+       "bench:Language": "c33",
+       "bench:Retrieval": "c34",
+       "bench:Tools": "c35",
+       "bench:Arts": "c36"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Publisher's earlier build, run on the same suite by the author [L47]"]
+   },
+   {
+     "role": "ladder",
+     "name": "Blink v0.1 · 26B-A4B NVFP4",
+     "panel": "Scores",
+     "metrics": {
+       "bench:Index": "c43",
+       "bench:Knowledge": "c44",
+       "bench:Language": "c45",
+       "bench:Retrieval": "c46",
+       "bench:Tools": "c47",
+       "bench:Arts": "c48"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Publisher's earlier build, run on the same suite by the author [L49]"]
+   },
+   {
+     "role": "quoted",
+     "name": "Jev (hosted)",
+     "panel": "Scores",
+     "of": "not named on card",
+     "methodology": {"reference": "public board, Decision Index 0.2.1 suite", "dataset": "Decision Index 0.2.1 suite", "ctx": "not stated", "tool": "not stated", "L": [40]},
+     "metrics": {
+       "bench:Index": "c1",
+       "bench:Knowledge": "c2",
+       "bench:Language": "c3",
+       "bench:Retrieval": "c4",
+       "bench:Tools": "c5",
+       "bench:Arts": "c6"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Hosted model, not a file; figures copied from the public board [L42]"]
+   },
+   {
+     "role": "quoted",
+     "name": "Surogate Rune 26B-A4B v3",
+     "panel": "Scores",
+     "of": "not named on card",
+     "methodology": {"reference": "public board, Decision Index 0.2.1 suite", "dataset": "Decision Index 0.2.1 suite", "ctx": "not stated", "tool": "not stated", "L": [40]},
+     "metrics": {
+       "bench:Index": "c13",
+       "bench:Knowledge": "c14",
+       "bench:Language": "c15",
+       "bench:Retrieval": "c16",
+       "bench:Tools": "c17",
+       "bench:Arts": "c18"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Figures copied from the public board [L44]"]
+   },
+   {
+     "role": "quoted",
+     "name": "Decider chat · Gemma-4-31B",
+     "panel": "Scores",
+     "of": "not named on card",
+     "methodology": {"reference": "public board, Decision Index 0.2.1 suite", "dataset": "Decision Index 0.2.1 suite", "ctx": "not stated", "tool": "not stated", "L": [40]},
+     "metrics": {
+       "bench:Index": "c19",
+       "bench:Knowledge": "c20",
+       "bench:Language": "c21",
+       "bench:Retrieval": "c22",
+       "bench:Tools": "c23",
+       "bench:Arts": "c24"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Figures copied from the public board [L45]"]
+   },
+   {
+     "role": "quoted",
+     "name": "AutoJev-27B",
+     "panel": "Scores",
+     "of": "not named on card",
+     "methodology": {"reference": "public board, Decision Index 0.2.1 suite", "dataset": "Decision Index 0.2.1 suite", "ctx": "not stated", "tool": "not stated", "L": [40]},
+     "metrics": {
+       "bench:Index": "c25",
+       "bench:Knowledge": "c26",
+       "bench:Language": "c27",
+       "bench:Retrieval": "c28",
+       "bench:Tools": "c29",
+       "bench:Arts": "c30"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Figures copied from the public board [L46]"]
+   },
+   {
+     "role": "quoted",
+     "name": "simple-jev · Qwen3.8-27B",
+     "panel": "Scores",
+     "of": "not named on card",
+     "methodology": {"reference": "public board, Decision Index 0.2.1 suite", "dataset": "Decision Index 0.2.1 suite", "ctx": "not stated", "tool": "not stated", "L": [40]},
+     "metrics": {
+       "bench:Index": "c37",
+       "bench:Knowledge": "c38",
+       "bench:Language": "c39",
+       "bench:Retrieval": "c40",
+       "bench:Tools": "c41",
+       "bench:Arts": "c42"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Figures copied from the public board [L48]"]
+   },
+   {
+     "role": "quoted",
+     "name": "frontier-infra Jebadiah 27B",
+     "panel": "Scores",
+     "of": "not named on card",
+     "methodology": {"reference": "public board, Decision Index 0.2.1 suite", "dataset": "Decision Index 0.2.1 suite", "ctx": "not stated", "tool": "not stated", "L": [40]},
+     "metrics": {
+       "bench:Index": "c49",
+       "bench:Knowledge": "c50",
+       "bench:Language": "c51",
+       "bench:Retrieval": "c52",
+       "bench:Tools": "c53",
+       "bench:Arts": "c54"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Figures copied from the public board [L50]"]
+   },
+   {
+     "role": "quoted",
+     "name": "Eikos-27B-FP8",
+     "panel": "Scores",
+     "of": "not named on card",
+     "methodology": {"reference": "public board, Decision Index 0.2.1 suite", "dataset": "Decision Index 0.2.1 suite", "ctx": "not stated", "tool": "not stated", "L": [40]},
+     "metrics": {
+       "bench:Index": "c55",
+       "bench:Knowledge": "c56",
+       "bench:Language": "c57",
+       "bench:Retrieval": "c58",
+       "bench:Tools": "c59",
+       "bench:Arts": "c60"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Figures copied from the public board [L51]"]
+   },
+   {
+     "role": "quoted",
+     "name": "reflex Qwen3.8-27B-FP8",
+     "panel": "Scores",
+     "of": "not named on card",
+     "methodology": {"reference": "public board, Decision Index 0.2.1 suite", "dataset": "Decision Index 0.2.1 suite", "ctx": "not stated", "tool": "not stated", "L": [40]},
+     "metrics": {
+       "bench:Index": "c61",
+       "bench:Knowledge": "c62",
+       "bench:Language": "c63",
+       "bench:Retrieval": "c64",
+       "bench:Tools": "c65",
+       "bench:Arts": "c66"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Figures copied from the public board [L52]"]
+   },
+   {
+     "role": "quoted",
+     "name": "Decider chat · Qwen3.6-27B",
+     "panel": "Scores",
+     "of": "not named on card",
+     "methodology": {"reference": "public board, Decision Index 0.2.1 suite", "dataset": "Decision Index 0.2.1 suite", "ctx": "not stated", "tool": "not stated", "L": [40]},
+     "metrics": {
+       "bench:Index": "c67",
+       "bench:Knowledge": "c68",
+       "bench:Language": "c69",
+       "bench:Retrieval": "c70",
+       "bench:Tools": "c71",
+       "bench:Arts": "c72"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Figures copied from the public board [L53]"]
+   },
+   {
+     "role": "quoted",
+     "name": "Decider 35B-A3B NVFP4",
+     "panel": "Scores",
+     "of": "not named on card",
+     "methodology": {"reference": "public board, Decision Index 0.2.1 suite", "dataset": "Decision Index 0.2.1 suite", "ctx": "not stated", "tool": "not stated", "L": [40]},
+     "metrics": {
+       "bench:Index": "c73",
+       "bench:Knowledge": "c74",
+       "bench:Language": "c75",
+       "bench:Retrieval": "c76",
+       "bench:Tools": "c77",
+       "bench:Arts": "c78"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": ["Figures copied from the public board [L54]; the author's own rerun of this entry is stated in the methods text and not mapped [L38]"]
+   }
+ ],
+ "prose": []
+}

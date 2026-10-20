@@ -1,0 +1,85 @@
+{
+  "repo": "voves/gemma-4-26B-A4B-it-FP8",
+  "source_sha256": "c3f4b670fc11e2cc8031ecb0378c02b86890474d27544d8d8198c05851088749",
+  "candidates_sha256": "a93860c18f405b064fe4f7d4cf15da308a6dd4b73dc5698a943b5134a1a3a2c7",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "BF16 of the same model, measured in the same suite [L18]",
+    "dataset": "Standard HF datasets, 30 samples each (seed 42), plus an author-curated 30-prompt RU+EN set [L62, L73]",
+    "ctx": "max_tokens per category 512 to 8192 [L39, L56]",
+    "tool": "not stated",
+    "L": [18, 30, 31, 39, 56, 62, 73]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "FP8",
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:MMLU (no-think)": "c28",
+        "bench:MMLU (thinking)": "c38",
+        "bench:GSM8K": "c63",
+        "bench:MATH": "c74",
+        "bench:Curated · logical": "c101"
+      },
+      "flags": [
+        "n=30 per standard benchmark, n=270 overall [L62, L106]",
+        "Curated subsets are n=2 to 5 and author-made, not a public benchmark [L73, L98]",
+        "Card attributes GSM8K and MATH gaps to max_tokens reasoning loops [L20, L160]",
+        "IFEval rules only partly implemented; 9 tasks skipped [L19, L83]",
+        "Greedy decoding, temperature 0, seed 42 [L30, L31]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "BF16",
+      "of": "google/gemma-4-26B-A4B-it",
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:MMLU (no-think)": "c27",
+        "bench:MMLU (thinking)": "c37",
+        "bench:ARC-Challenge (no-think)": "c48",
+        "bench:ARC-Challenge (thinking)": "c56",
+        "bench:GSM8K": "c62",
+        "bench:MATH": "c73",
+        "bench:HumanEval": "c84",
+        "bench:IFEval (subset)": "c92",
+        "bench:Curated · logical": "c100",
+        "bench:Curated · knowledge": "c109",
+        "bench:Curated · instr-follow": "c114",
+        "bench:Curated · creative": "c120",
+        "bench:Curated · translation": "c126",
+        "bench:Curated · code": "c134",
+        "bench:Curated · multi-reason": "c139",
+        "bench:Curated · safety": "c145",
+        "bench:OVERALL": "c149"
+      },
+      "flags": [
+        "BF16 reference measured in the same run [L18, L90]",
+        "Repo taken from base_model frontmatter; the body names only BF16 [L3, L4]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "FP8", "key": "bench:ARC-Challenge (no-think)", "L": 92, "raw": "93.3% (28/30)"},
+    {"entry": "FP8", "key": "bench:ARC-Challenge (thinking)", "L": 93, "raw": "100.0% (30/30)"},
+    {"entry": "FP8", "key": "bench:HumanEval", "L": 96, "raw": "96.7% (29/30)"},
+    {"entry": "FP8", "key": "bench:IFEval (subset)", "L": 97, "raw": "56.7% (17/30)"},
+    {"entry": "FP8", "key": "bench:Curated · knowledge", "L": 99, "raw": "100.0% (5/5)"},
+    {"entry": "FP8", "key": "bench:Curated · instr-follow", "L": 100, "raw": "100.0% (5/5)"},
+    {"entry": "FP8", "key": "bench:Curated · creative", "L": 101, "raw": "100.0% (3/3)"},
+    {"entry": "FP8", "key": "bench:Curated · translation", "L": 102, "raw": "75.0% (3/4)"},
+    {"entry": "FP8", "key": "bench:Curated · code", "L": 103, "raw": "100.0% (3/3)"},
+    {"entry": "FP8", "key": "bench:Curated · multi-reason", "L": 104, "raw": "100.0% (3/3)"},
+    {"entry": "FP8", "key": "bench:Curated · safety", "L": 105, "raw": "100.0% (2/2)"},
+    {"entry": "FP8", "key": "bench:OVERALL", "L": 106, "raw": "81.5% (220/270)"}
+  ]
+}

@@ -1,0 +1,19 @@
+{"repo": "mlx-community/gemma-4-26B-A4B-it-OptiQ-4bit",
+ "source_sha256": "e68736ee30bcb916ca74fdc995093072fe9b9f650cf1718c0e54a891c2cb9239",
+ "candidates_sha256": "30912551c5cbcc301adba67fedc00007bdc57062f8abec80b9dde09135296fc1",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "uniform 4-bit MLX build [L82]", "dataset": "MMLU, GSM8K, IFEval, BFCL-V3 simple, HumanEval, HashHop [L82-L89]", "ctx": "not stated", "tool": "mlx-optiq eval framework [L94]", "L": [80, 82, 84, 85, 86, 87, 88, 89, 90, 94]},
+ "entries": [
+   {"role": "own", "name": "OptiQ",
+    "methodology": {"reference": "uniform 4-bit MLX build [L82]", "dataset": "MMLU 5-shot 1000 samples; GSM8K 1000 samples 3-shot CoT; IFEval full set strict; BFCL-V3 simple 200 calls; HumanEval 164 pass@1; HashHop long-context [L84-L89]", "ctx": "not stated", "tool": "mlx-optiq eval framework [L94]", "L": [80, 84, 85, 86, 87, 88, 89, 90, 94]},
+    "metrics": {"bench:MMLU": "c6", "bench:GSM8K": "c9", "bench:IFEval": "c12", "bench:BFCL-V3 simple": "c15", "bench:HumanEval": "c18", "bench:HashHop": "c21", "bench:Capability Score": "c24"},
+    "size": "c28", "unit": "GB", "basis": "disk", "bpw": null,
+    "flags": ["[L84-L90] Δ columns are derived and not mapped", "[L91] KL against the uniform 4-bit reference is not mapped: that reference is not the base model and the p95 value has no key"]},
+   {"role": "ladder", "name": "Uniform 4-bit",
+    "methodology": {"reference": "uniform 4-bit MLX build [L82]", "dataset": "MMLU 5-shot 1000 samples; GSM8K 1000 samples 3-shot CoT; IFEval full set strict; BFCL-V3 simple 200 calls; HumanEval 164 pass@1; HashHop long-context [L84-L89]", "ctx": "not stated", "tool": "mlx-optiq eval framework [L94]", "L": [80, 84, 85, 86, 87, 88, 89, 90, 94]},
+    "metrics": {"bench:MMLU": "c7", "bench:GSM8K": "c10", "bench:IFEval": "c13", "bench:BFCL-V3 simple": "c16", "bench:HumanEval": "c19", "bench:HashHop": "c22", "bench:Capability Score": "c25"},
+    "size": "c29", "unit": "GB", "basis": "disk", "bpw": null, "flags": []}
+ ],
+ "prose": []}

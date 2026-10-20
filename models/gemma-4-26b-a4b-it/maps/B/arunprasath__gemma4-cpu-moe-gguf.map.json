@@ -1,0 +1,9 @@
+{"repo": "arunprasath/gemma4-cpu-moe-gguf",
+ "source_sha256": "b7dd6035e39021a6cb68d34f95bfa292e5a6f4d90f283c4fc7e1c603b7d323c4",
+ "candidates_sha256": "d0b516911a63f6d9e1a8e0a2707a12ddd76b449a265a9c8a7433d3f1ae3a7cd6",
+ "no_quality_claims": true,
+ "no_claims_reason": "speed and bandwidth only; the one perplexity figure (1.6x) is for top-3 expert routing and the card says it is not a quality signal [L24, L74-L79]",
+ "weights_modified": false,
+ "method": {"reference": "top-8 experts, same model [L79]", "dataset": "real prompts: a word problem, code, a factual question [L79]", "ctx": "not stated", "tool": "atomic-llama and ik_llama.cpp forks, pinned commits [L44]", "L": [44, 79]},
+ "entries": [],
+ "prose": []}

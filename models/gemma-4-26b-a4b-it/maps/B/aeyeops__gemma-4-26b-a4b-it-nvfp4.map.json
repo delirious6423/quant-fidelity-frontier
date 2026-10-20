@@ -1,0 +1,9 @@
+{"repo": "aeyeops/gemma-4-26b-a4b-it-nvfp4",
+ "source_sha256": "d5090959dcd72c9563366e56d54e14aeccab288ef5c926282748355c6792d08b",
+ "candidates_sha256": "621673fcd447d4428cfb435291e5d870304f2a649056d685910d9c8e85737bcc",
+ "no_quality_claims": true,
+ "no_claims_reason": "no fidelity metric vs BF16; token parity is only vs its own NVFP4 baseline, speed, load and size otherwise [L231-L249]",
+ "weights_modified": false,
+ "method": {"reference": "pinned NVFP4 parity baseline (self-consistency, not BF16)", "dataset": "one parity prompt, not named", "ctx": "50 and 300 generated tokens, greedy (do_sample=False) [L244-L249]", "tool": "transformers 5.5.3 with TurboQuant 3-bit KV cache [L226, L245]", "L": [226, 244, 245, 248, 249]},
+ "entries": [],
+ "prose": []}

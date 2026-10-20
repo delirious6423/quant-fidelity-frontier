@@ -1,0 +1,34 @@
+{
+ "repo": "Zek-Takai/gemma-4-26B-A4B-it-NVFP4-fp8global",
+ "source_sha256": "5c60d5b4b3c3899e09681a1fd6aa4cf5bd3b3add91ee5a9a9861a841f9d940c0",
+ "candidates_sha256": "eb7bc768e7a18a894d09d817ded5648e8546827c860987c06a37ca71a0b70dcf",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "BF16-head control",
+   "dataset": "not stated",
+   "ctx": "not stated",
+   "tool": "vLLM 0.26-series dev",
+   "L": [27, 79]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "NVFP4, quantized lm_head",
+     "metrics": {},
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "Tool-calling result is a count of decisions compared with a BF16-head control [L79]",
+       "Side-by-side probes are described only qualitatively, with no number [L81]",
+       "Speed, context and acceptance figures are not quality metrics and are not mapped [L36-L70]"
+     ]
+   }
+ ],
+ "prose": [
+   {"entry": "NVFP4, quantized lm_head", "key": "bench:ToolCalling", "L": 79, "raw": "8/8"}
+ ]
+}

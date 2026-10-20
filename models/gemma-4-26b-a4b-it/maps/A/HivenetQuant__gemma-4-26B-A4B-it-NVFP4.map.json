@@ -1,0 +1,43 @@
+{
+ "repo": "HivenetQuant/gemma-4-26B-A4B-it-NVFP4",
+ "source_sha256": "2755bc293739b76a316ffc5bfce9dbdb11a059728c3f5a3bdf4fdff8d5eba36b",
+ "candidates_sha256": "d2251c7857b6bcc466a4c46977f1d4c1488f7529dcb5d7bd1fbc7eb7ec141473",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "FP16 original weights, paired comparison with identical prompts, harness and decoding",
+   "dataset": "mmlu_pro, gpqa diamond, aime25, ifeval, mmmu_pro, ai2d, livecodebench v6, bfcl, niah",
+   "ctx": "FP8 KV cache, 128k context",
+   "tool": "vLLM serve; llm-compressor quantization",
+   "L": [26, 40, 51, 57]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "NVFP4",
+     "metrics": {
+       "bench:mmlu_pro": "c2",
+       "bench:gpqa_diamond_cot_zeroshot": "c5",
+       "bench:aime25": "c8",
+       "bench:ifeval (ifeval_safe)": "c10",
+       "bench:mmmu_pro_standard_cot": "c13",
+       "bench:ai2d_no_mask": "c16",
+       "bench:livecodebench (codegen v6)": "c19",
+       "bench:bfcl (tool-calling)": "c22",
+       "bench:niah": "c25"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "NVFP4 value for the IFEval row is the same as the FP16 cell in that row [L64]",
+       "FP16 baseline values are the reference, not mapped as entries [L59-L69]",
+       "Vision rows are included; the vision encoder is kept in BF16 [L22]",
+       "Speed table has no matching metric key and is not mapped [L75-L81]"
+     ]
+   }
+ ],
+ "prose": []
+}

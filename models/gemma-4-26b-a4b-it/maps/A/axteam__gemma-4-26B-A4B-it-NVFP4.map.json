@@ -1,0 +1,36 @@
+{
+ "repo": "axteam/gemma-4-26B-A4B-it-NVFP4",
+ "source_sha256": "8dcc2d449e4dd1069fd51d87c4630c940b802357613a1c97592ee8e211a7bbfd",
+ "candidates_sha256": "33075e37e0313c095e2abac9dad55b5e1575bb75fd53d3e0fbb105eb336fb34f",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "BF16 original, measured on the same set",
+   "dataset": "internal mixed English/Korean set",
+   "ctx": "not stated",
+   "tool": "not stated",
+   "L": [52, 54, 112]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "NVFP4 (W4A4)",
+     "metrics": {
+       "ppl": "c2",
+       "top1_pct": "c4"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "Perplexity change against the BF16 original is printed in the reference cell and is not mapped as a delta [L56]",
+       "Size on disk is stated in a separate details table, not in the results table [L29]",
+       "Evaluation set is internal and not published; its size is not stated [L52]",
+       "Activations are also quantized to FP4 in this build [L35]"
+     ]
+   }
+ ],
+ "prose": []
+}

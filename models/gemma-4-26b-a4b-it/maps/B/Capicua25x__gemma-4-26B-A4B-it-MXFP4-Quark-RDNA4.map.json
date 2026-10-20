@@ -1,0 +1,21 @@
+{"repo": "Capicua25x/gemma-4-26B-A4B-it-MXFP4-Quark-RDNA4",
+ "source_sha256": "e0e25600613f6287acfd9bd29d92296a8c889776ca20e315b72e66e3a880176e",
+ "candidates_sha256": "c96274d5fc27f03c2e7c7f2204fe8ee5c912f3bb4bf31ba861b3a3501a4b257a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "IFEval (80 prompts), tau2-bench telecom (114 tasks), WhatsApp order-agent (37 cases), SQL analyst regression (156 tests)", "ctx": "chat template; thinking on for tau2-bench", "tool": "not stated", "L": [85]},
+ "entries": [
+  {"role": "own", "name": "gemma-4-26B-A4B-it-MXFP4-Quark-RDNA4", "panel": "Quality (this artifact, this hardware)",
+   "methodology": {"reference": "not stated", "dataset": "IFEval (80 prompts), tau2-bench telecom (114 tasks), WhatsApp order-agent (37 cases), SQL analyst regression (156 tests)", "ctx": "chat template; thinking on for tau2-bench", "tool": "not stated", "L": [85, 89, 90, 91, 92]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["comparisons with Qwen3.8-27B-FP8 and Muse-Glimmer are other models and are omitted [L90]", "needle-in-a-haystack pass marks with times are not quality scores and are not mapped [L98-103]"]}
+ ],
+ "prose": [
+  {"entry": "gemma-4-26B-A4B-it-MXFP4-Quark-RDNA4", "panel": "Quality (this artifact, this hardware)", "key": "bench:IFEval_inst_strict", "L": 89, "raw": "**0.9297**"},
+  {"entry": "gemma-4-26B-A4B-it-MXFP4-Quark-RDNA4", "panel": "Quality (this artifact, this hardware)", "key": "bench:IFEval_prompt_strict", "L": 89, "raw": "**0.8875**"},
+  {"entry": "gemma-4-26B-A4B-it-MXFP4-Quark-RDNA4", "panel": "Quality (this artifact, this hardware)", "key": "bench:tau2_telecom", "L": 90, "raw": "**0.4649**"},
+  {"entry": "gemma-4-26B-A4B-it-MXFP4-Quark-RDNA4", "panel": "Quality (this artifact, this hardware)", "key": "bench:WhatsApp_order_agent", "L": 91, "raw": "**36 / 37**"},
+  {"entry": "gemma-4-26B-A4B-it-MXFP4-Quark-RDNA4", "panel": "Quality (this artifact, this hardware)", "key": "bench:SQL_analyst_regression", "L": 92, "raw": "**155 / 156**"}
+ ]}

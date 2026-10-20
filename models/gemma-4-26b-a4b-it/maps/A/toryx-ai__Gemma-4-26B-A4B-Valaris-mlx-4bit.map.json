@@ -1,0 +1,17 @@
+{
+  "repo": "toryx-ai/Gemma-4-26B-A4B-Valaris-mlx-4bit",
+  "source_sha256": "31f1de49dca4d2c0b0a7d4f16140dfecfae2e19fcd324775d1824c148cd883b9",
+  "candidates_sha256": "3bdb69c2bcd840a40e2956943733785794a945602edc4bc432f441444ae620c2",
+  "no_quality_claims": true,
+  "no_claims_reason": "the one F1 score is measured on the bf16 merged checkpoint, and the card says the quantized builds were not evaluated [L78]",
+  "weights_modified": true,
+  "method": {
+    "reference": "bf16 merged checkpoint, the source of this 4-bit build [L78]",
+    "dataset": "MuSiQue multi-hop benchmark, N=500, identical retrieved top-5 context across readers [L78]",
+    "ctx": "not stated",
+    "tool": "mlx_vlm.convert, 4-bit, group size 64 [L33]",
+    "L": [20, 24, 25, 33, 37, 78]
+  },
+  "entries": [],
+  "prose": []
+}

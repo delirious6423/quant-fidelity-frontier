@@ -1,0 +1,35 @@
+{
+  "repo": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-heretic-ja-GGUF",
+  "source_sha256": "a446a0e9c3e7f3a2a9b9ff54a51583075c969175b64200493634b160d9cab049",
+  "candidates_sha256": "eeacff4619a005b8c4b18d8bbccc497f5c5cc5a0d6c86df0fa7d250338711922",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "Original model google/gemma-4-26B-A4B-it-qat-q4_0-unquantized [L30]",
+    "dataset": "Japanese prompts: harmless_alpaca_ja and harmful_behaviors_ja [L35]",
+    "ctx": "not stated",
+    "tool": "Heretic v1.4.0 with Arbitrary-Rank Ablation [L15]",
+    "L": [15, 17, 30, 32, 33, 35]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "This model",
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "mean_kld": "c9"
+      },
+      "flags": [
+        "Abliterated (weights modified) from the QAT unquantized base [L15]",
+        "KL figure is measured against the original model in the card's performance table [L30, L33]",
+        "Keywords row is a refusal-keyword count on Japanese prompts; no quality key fits it, so not mapped [L32, L35]",
+        "The benchmark table copies figures for the base model family measured on other weights; omitted [L153, L155-L177]"
+      ]
+    }
+  ],
+  "prose": []
+}

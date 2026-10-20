@@ -1,0 +1,22 @@
+{"repo": "deucebucket/Gemma-4-26B-A4B-it-Cerebellum-v6-GGUF",
+ "source_sha256": "3f083d95606d94c629199b7d51981fb274705fd0002549aa8b6a7438ac44c0db",
+ "candidates_sha256": "f1e6625f293a1d8da54ff4dad3502f7f817b8e12d23ddf963626e49cfb66da9e",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "uniform Q3_K_M of the same size, same harness [L94-L95]", "dataset": "ARC-Challenge (1172), HellaSwag (10042), MMLU-Redux (2400) [L99-L101]", "ctx": "not stated", "tool": "llama.cpp llama-server on RTX 3090, temperature 0, project benchmark harness [L92-L93]", "L": [92, 93, 95, 99, 100, 101]},
+ "entries": [
+  {"role": "own",
+   "name": "Cerebellum v6 (11 GB)",
+   "methodology": {"reference": "uniform Q3_K_M of the same size [L94-L95]", "dataset": "ARC-Challenge (1172 q), HellaSwag (10042 q), MMLU-Redux (2400 q) [L99-L101]", "ctx": "not stated", "tool": "llama.cpp llama-server on RTX 3090, temperature 0 [L92-L93]", "L": [92, 93, 99, 100, 101]},
+   "metrics": {"bench:ARC-Challenge": "c1", "bench:HellaSwag": "c3", "bench:MMLU-Redux": "c5"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Metadata-only v6.1 over v6, same weights [L93-L94]", "No v6 HumanEval number is published; retained artifacts are flagged for re-audit [L102-L108]"]},
+  {"role": "ladder",
+   "name": "Uniform Q3_K_M (11 GB)",
+   "methodology": {"reference": "uniform Q3_K_M of the same size [L94-L95]", "dataset": "ARC-Challenge (1172 q), HellaSwag (10042 q), MMLU-Redux (2400 q) [L99-L101]", "ctx": "not stated", "tool": "llama.cpp llama-server on RTX 3090, temperature 0 [L92-L93]", "L": [92, 93, 99, 100, 101]},
+   "metrics": {"bench:ARC-Challenge": "c2", "bench:HellaSwag": "c4", "bench:MMLU-Redux": "c6"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Same-size uniform comparison build measured by this publisher [L94-L95]", "Its HumanEval 62.2% (raw-completions, legacy harness) is not mapped; the card says that harness is not the valid one for Gemma 4 [L102-L108]"]}
+ ],
+ "prose": []}

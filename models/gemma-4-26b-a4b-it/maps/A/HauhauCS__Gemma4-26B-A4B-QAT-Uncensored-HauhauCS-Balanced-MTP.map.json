@@ -1,0 +1,17 @@
+{
+  "repo": "HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP",
+  "source_sha256": "8e7935f4281df9de304bf8fff94f0075e4b08b5d02ec295579f1956ce728b6ba",
+  "candidates_sha256": "37dab29ea79eb0fdba76df869644e63054631a379fb1c95b1aa5caccd03dc167",
+  "no_quality_claims": true,
+  "no_claims_reason": "no quality number for any quant; the headline is a refusal count (behaviour, not quality), and the other claims are qualitative or about speed [L26, L30, L38, L58]",
+  "weights_modified": true,
+  "method": {
+    "reference": "official Gemma 4 QAT weights, then uncensored; the uncensoring method is not described [L30]",
+    "dataset": "not stated",
+    "ctx": "256K (262144) [L82]",
+    "tool": "llama.cpp llama-server [L64]",
+    "L": [26, 30, 38, 58, 64, 82]
+  },
+  "entries": [],
+  "prose": []
+}

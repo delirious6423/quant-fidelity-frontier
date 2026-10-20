@@ -1,0 +1,21 @@
+{"repo": "FINAL-Bench/POCKET-26B-GGUF",
+ "source_sha256": "f1741ee556799e08e2facdbdb0477eb9d4dd2368f1cb5d7ee7853a7f7a743eb3",
+ "candidates_sha256": "8f4d28f7374245033aa2981012def14617e98b6f62872af2880476a0ee6c835e",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Gemma4-26B-A4B base, same harness [L61]", "dataset": "GPQA-Diamond, 198 questions [L57]", "ctx": "not stated", "tool": "own harness, greedy single pass [L57, L65]", "L": [57, 61, 65]},
+ "entries": [
+   {"role": "own", "name": "POCKET-26B Q4_K_M",
+    "methodology": {"reference": "Gemma4-26B-A4B base [L61]", "dataset": "GPQA-Diamond, 198 questions [L57]", "ctx": "not stated", "tool": "own harness, greedy single pass [L57, L65]", "L": [57, 65]},
+    "metrics": {"bench:GPQA-Diamond": "c2"}, "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": []},
+   {"role": "own", "name": "POCKET-26B Q2_K (mixed)",
+    "methodology": {"reference": "Gemma4-26B-A4B base [L61]", "dataset": "GPQA-Diamond, 198 questions [L57]", "ctx": "not stated", "tool": "own harness, greedy single pass [L57, L65]", "L": [57, 65]},
+    "metrics": {"bench:GPQA-Diamond": "c3"}, "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["[L63] −0.5pp delta vs base not mapped (no delta key for benchmark scores)", "[L74] the ~44% plain uniform Q2 figure is not mapped (not a file in this repo)"]},
+   {"role": "cross", "name": "Gemma4-26B-A4B (base)", "of": "google/gemma-4-26B-A4B-it",
+    "methodology": {"reference": "Gemma4-26B-A4B base [L61]", "dataset": "GPQA-Diamond, 198 questions [L57]", "ctx": "not stated", "tool": "own harness, greedy single pass [L57, L65]", "L": [57, 65]},
+    "metrics": {"bench:GPQA-Diamond": "c1"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": []}
+ ],
+ "prose": []}

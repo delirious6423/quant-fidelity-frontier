@@ -1,0 +1,17 @@
+{
+  "repo": "rdubwiley/agenda-parser-medium",
+  "source_sha256": "09ce4af461032188b28bb6de100a149fee5635078c23a480128ada36ffcf0a57",
+  "candidates_sha256": "d6894e1e8649c574a7940551daf71d8819446ad8fec6a47160c6eecb54bfa2f8",
+  "no_quality_claims": true,
+  "no_claims_reason": "training hyperparameters and an in-training token accuracy only; the A/B evaluation is described but no results are reported, and no quant is measured [L53-L62, L82]",
+  "weights_modified": true,
+  "method": {
+    "reference": "not stated",
+    "dataset": "agenda-parser-tool-traces, filtered config; held-out packet excluded from training [L28, L51, L82]",
+    "ctx": "max sequence length 4096 [L60]",
+    "tool": "LoRA SFT, merge, then Q4_K_M GGUF for llama.cpp; bf16 on H100 for training [L29, L61]",
+    "L": [28, 29, 51, 60, 61, 62, 82]
+  },
+  "entries": [],
+  "prose": []
+}

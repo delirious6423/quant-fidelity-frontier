@@ -1,0 +1,71 @@
+{
+  "repo": "fraQtl/Gemma-4-26B-A4B-it-Nano-GGUF",
+  "source_sha256": "0c112aa23af18f43383a0802c2f060eb21020ef3901a631f94ebbec4b0ffc508",
+  "candidates_sha256": "a2ebdfcac8dd4a42c716523b607165a013f86d77fac2c9fbd0f9e69d9482ab5d",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "fp16 base for KLD [L60]; Google published MMLU-Pro figure for the benchmark row [L56]",
+    "dataset": "GSM8K 0-shot, 100 questions; MMLU-Pro full 1000 with reasoning on; KLD on two slices [L55, L56, L63, L64]",
+    "ctx": "not stated",
+    "tool": "llama.cpp GGUF runtime; evaluation tool not named [L92]",
+    "L": [37, 55, 56, 58, 60, 63, 64, 92]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Nano 2-bit",
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:GSM8K": "c12",
+        "bench:MMLU-Pro": "c14",
+        "kld:code + math": "c17.0",
+        "top1:code + math": "c17.1",
+        "kld:general": "c19.0",
+        "top1:general": "c19.1"
+      },
+      "flags": [
+        "Size on disk is in a separate size table, not in the metrics table [L47]",
+        "Bits per weight are stated in the size table source column [L47]",
+        "GSM8K has no reference value in the table [L55]",
+        "MMLU-Pro run with reasoning enabled; direct-answer scores not reported [L58]",
+        "Generic imatrix calibration only; the card calls these numbers a floor [L68, L69]",
+        "Card describes its token-distribution fidelity as loose and disclosed [L66]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Hi-Fi Q4 (for reference)",
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {},
+      "flags": [
+        "Sibling tier of this publisher, shown for reference in the fidelity table; only the KLD values are mapped [L61, L63, L64]"
+      ]
+    },
+    {
+      "role": "quoted",
+      "name": "Google base",
+      "of": "google/gemma-4-26B-A4B-it",
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {},
+      "flags": [
+        "Published Google figure copied into the reference column; the card also gives a relative figure, not mapped [L56]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "Hi-Fi Q4 (for reference)", "key": "kld:code + math", "L": 63, "raw": "0.09"},
+    {"entry": "Hi-Fi Q4 (for reference)", "key": "kld:general", "L": 64, "raw": "0.13"},
+    {"entry": "Google base", "key": "bench:MMLU-Pro", "L": 56, "raw": "82.6%"}
+  ]
+}

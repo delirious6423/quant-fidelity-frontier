@@ -1,0 +1,20 @@
+{"repo": "leonsarmiento/gemma-4-26B-A4B-it-3bit-XL-mlx",
+ "source_sha256": "a2947986cb1b18413b603f7f9b32e528e078940c2ce40809cdf54565771f49d1",
+ "candidates_sha256": "361910ffbbbb7ec360ef9acbf2d7020c669ee6e6d0e31a5664428f865b1ed709",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "MMLU 100/14042, MMLU_PRO 100/12032, HUMANEVAL 50/164, MBPP 50/500 (sampled)", "ctx": "instruct mode, thinking off", "tool": "not stated", "L": [105]},
+ "entries": [
+  {"role": "own", "name": "Gemma-4 26B 3bit-XL", "panel": "Instruct Benchmarks",
+   "methodology": {"reference": "not stated", "dataset": "MMLU 100/14042, MMLU_PRO 100/12032, HUMANEVAL 50/164, MBPP 50/500 (sampled)", "ctx": "instruct mode, thinking off", "tool": "not stated", "L": [105]},
+   "metrics": {"bench:MMLU": "c20", "bench:MMLU_PRO": "c21", "bench:HUMANEVAL": "c22", "bench:MBPP": "c23", "bench:Avg": "c24"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["sampled subsets, not full benchmarks [L105]", "Qwen rows are other models and are omitted [L99-101]"]},
+  {"role": "cross", "name": "Huihui-Gemma-4 26B 3bit-XL", "of": "not named on card", "panel": "Instruct Benchmarks",
+   "methodology": {"reference": "not stated", "dataset": "MMLU 100/14042, MMLU_PRO 100/12032, HUMANEVAL 50/164, MBPP 50/500 (sampled)", "ctx": "instruct mode, thinking off", "tool": "not stated", "L": [105]},
+   "metrics": {"bench:MMLU": "c15", "bench:MMLU_PRO": "c16", "bench:HUMANEVAL": "c17", "bench:MBPP": "c18", "bench:Avg": "c19"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["the card calls this the abliterated twin, measured by this card's author; publisher not named [L107]"]}
+ ],
+ "prose": []}

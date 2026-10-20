@@ -1,0 +1,60 @@
+{
+  "repo": "DaehanKim/korjev-26b4a-v1",
+  "source_sha256": "27d7cda96926494a7db2e8a311991a8894a54e7ad6500f42b1d342970cd1e30a",
+  "candidates_sha256": "157d353f41fef0648e87e0fc6f7c5bd77593de58da6fa0690de9ef6f1407e470",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "the same-base Gemma 4 26B-A4B FP8 row, measured by the card author in the same comparison [L30, L40]",
+    "dataset": "Korean decision items and English MMLU-Pro items, zero-shot direct decisions without reasoning [L44]",
+    "ctx": "not stated",
+    "tool": "SGLang 0.5.21 container for the serving example [L61]",
+    "L": [18, 20, 40, 42, 44, 46, 57, 61, 79]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "korjev-26b4a-v1",
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:Korean accuracy": "c77",
+        "bench:English accuracy": "c78",
+        "bench:Order KO": "c79",
+        "bench:Order EN": "c80",
+        "bench:Order macro": "c81"
+      },
+      "flags": [
+        "Merged FP8 W8A8 weights of a LoRA fine-tune [L20]",
+        "English accuracy is on MMLU-Pro items, zero-shot without reasoning [L44]",
+        "Order metrics measure agreement between original and reversed choice order, which can include consistently wrong answers [L44]",
+        "Checkpoints were selected on private validation data before public evaluation [L57]",
+        "Rows for other models (different base models, including Gemma 4 31B and 12B, Qwen models, and hosted or vendor systems) are omitted [L28-L29, L31-L35, L37-L38]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "Gemma 4 26B-A4B †",
+      "of": "not named on card",
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:Korean accuracy": "c23",
+        "bench:English accuracy": "c24",
+        "bench:Order KO": "c25",
+        "bench:Order EN": "c26",
+        "bench:Order macro": "c27"
+      },
+      "flags": [
+        "Same base model without the LoRA, served in FP8; the base model is linked in the frontmatter [L18]",
+        "The dagger marks a shared serving mean for throughput only; accuracy values are individual [L40]"
+      ]
+    }
+  ],
+  "prose": []
+}

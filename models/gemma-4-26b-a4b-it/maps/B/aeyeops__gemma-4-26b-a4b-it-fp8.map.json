@@ -1,0 +1,18 @@
+{"repo": "aeyeops/gemma-4-26b-a4b-it-fp8",
+ "source_sha256": "bd279c3f29bd6abc279082ade382401fae6b487577666ee89de806d6b096087c",
+ "candidates_sha256": "a4129979070274c95c9a08356e7d65f9615396abb69bfae5e2872f43fd516ae9",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 reference, same prompt [L195, L200]", "dataset": "one prompt, greedy decoding over 128 tokens", "ctx": "max_new_tokens 128, do_sample=False [L195]", "tool": "TurboQuantCache(bits=4), transformers 5.5.3 [L183, L195]", "L": [183, 195, 199, 200]},
+ "entries": [
+  {"role": "own",
+   "name": "FP8 (this checkpoint)",
+   "methodology": {"reference": "bf16 reference, same prompt [L200]", "dataset": "one prompt, greedy decoding over 128 tokens [L195]", "ctx": "max_new_tokens 128, do_sample=False [L195]", "tool": "TurboQuantCache(bits=4), transformers 5.5.3 [L183, L195]", "L": [183, 195, 199, 200]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Token match is one prompt with a single divergence, not a benchmark [L199-L200]", "Speed and load figures are not quality metrics [L187-L190]"]}
+ ],
+ "prose": [
+  {"entry": "FP8 (this checkpoint)", "key": "bench:Token match rate vs bf16 (128 tokens)", "L": 200, "raw": "99.2%"}
+ ]}

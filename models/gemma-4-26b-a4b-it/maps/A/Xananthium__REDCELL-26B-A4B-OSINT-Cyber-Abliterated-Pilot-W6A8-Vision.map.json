@@ -1,0 +1,29 @@
+{"repo": "Xananthium/REDCELL-26B-A4B-OSINT-Cyber-Abliterated-Pilot-W6A8-Vision",
+ "source_sha256": "1df9f0e02e97d94f62f81487e2a80de374ddfc3a6417c6d3a0fcf0b98eddd39d",
+ "candidates_sha256": "369a43c330e630e9d9cc9dfcd9a506b8e6a20d8182cc79b7db7b3df7581803d0",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "Original REDCELL, NF4", "dataset": "capability probe (CyberMetric and reasoning, formatting, evidence and recovery questions)", "ctx": "not stated", "tool": "not stated", "L": [151, 152]},
+ "entries": [
+   {"role": "own",
+    "name": "Heretic W6A8, vLLM",
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["Refusal-marker counts are an abliteration check, not a quality metric, so not mapped [L147]", "First-token KL divergence is an optimization-trial figure, not mapped [L163]", "Checkpoint size is in prose, not in the measurement row [L117]"]},
+   {"role": "ladder",
+    "name": "Heretic edit, NF4",
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["Refusal-marker counts not mapped [L147]"]},
+   {"role": "ladder",
+    "name": "Original REDCELL, NF4",
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["Upstream model is terrorswift's REDCELL fine-tune [L4]; origin of the NF4 build is not stated", "Refusal-marker counts not mapped [L147]"]}
+ ],
+ "prose": [
+   {"entry": "Heretic W6A8, vLLM", "key": "bench:Capability-questions", "L": 146, "raw": "19/20"},
+   {"entry": "Heretic edit, NF4", "key": "bench:Capability-questions", "L": 146, "raw": "19/20"},
+   {"entry": "Original REDCELL, NF4", "key": "bench:Capability-questions", "L": 146, "raw": "19/20"}
+ ]}

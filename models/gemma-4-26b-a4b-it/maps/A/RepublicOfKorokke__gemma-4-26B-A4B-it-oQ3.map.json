@@ -1,0 +1,239 @@
+{
+  "repo": "RepublicOfKorokke/gemma-4-26B-A4B-it-oQ3",
+  "source_sha256": "befaac755b0cc3b32287bcb08dd6cfbb7229f0351c8ffc63c4141ed4ab7a03fb",
+  "candidates_sha256": "d53434c9c7c770865cf4fb68bb08c7db28bbd4a9734bce6ab87eb73bc08a8bfe",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated",
+    "dataset": "MMLU, JMMLU, HELLASWAG, ARC_CHALLENGE and GSM8K, in three panels [L25, L36, L71]",
+    "ctx": "not stated",
+    "tool": "oQ (oMLX v0.3.4) mixed-precision quantization to MLX format [L14, L21]",
+    "L": [14, 19, 20, 21, 25, 36, 68, 71]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "gemma-4-26B-A4B-it-oQ3",
+      "panel": "Benchmark",
+      "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [23, 25]},
+      "size": "c1",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "metrics": {
+        "bench:MMLU": "c2",
+        "bench:JMMLU": "c3",
+        "bench:HELLASWAG": "c4",
+        "bench:ARC_CHALLENGE": "c5",
+        "bench:GSM8K": "c6"
+      },
+      "flags": [
+        "File size is in the same row as the scores [L27]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "gemma-4-26B-A4B-it-oQ3",
+      "panel": "Detail",
+      "methodology": {"reference": "not stated", "dataset": "MMLU, JMMLU, HELLASWAG, ARC_CHALLENGE and GSM8K, 300 items each [L36, L38]", "ctx": "not stated", "tool": "not stated", "L": [33, 36, 38]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:MMLU": "c31",
+        "bench:JMMLU": "c35",
+        "bench:HELLASWAG": "c39",
+        "bench:ARC_CHALLENGE": "c43",
+        "bench:GSM8K": "c47"
+      },
+      "flags": [
+        "The oQ3 rows appear twice with identical values; the first block is used [L38, L43]",
+        "Rows for the 4-bit E4B model are a different model and are omitted [L31, L63, L66]",
+        "Line 62 runs the E4B rows into the 4-bit GSM8K row, so the 4-bit GSM8K value is taken from its own candidate on that line [L62]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "gemma-4-26B-A4B-it-oQ3",
+      "panel": "Update (2026-04-07) more sample",
+      "methodology": {"reference": "not stated", "dataset": "HELLASWAG 500 items, ARC_CHALLENGE 1172 items, GSM8K 1319 items [L73, L74, L75]", "ctx": "not stated", "tool": "not stated", "L": [68, 71, 73, 74, 75]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:HELLASWAG": "c151",
+        "bench:ARC_CHALLENGE": "c155",
+        "bench:GSM8K": "c159"
+      },
+      "flags": [
+        "Update panel covers only three benchmarks; the Qwen3.5 rows are a different model and are omitted [L82, L83, L84]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "gemma-4-26B-A4B-it-oQ3.5",
+      "panel": "Benchmark",
+      "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [23, 25]},
+      "size": "c7",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "metrics": {
+        "bench:MMLU": "c8",
+        "bench:JMMLU": "c9",
+        "bench:HELLASWAG": "c10",
+        "bench:ARC_CHALLENGE": "c11",
+        "bench:GSM8K": "c12"
+      },
+      "flags": [
+        "Sibling build from the same publisher [L28]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "gemma-4-26B-A4B-it-oQ3.5",
+      "panel": "Detail",
+      "methodology": {"reference": "not stated", "dataset": "MMLU, JMMLU, HELLASWAG, ARC_CHALLENGE and GSM8K, 300 items each [L36, L48]", "ctx": "not stated", "tool": "not stated", "L": [33, 36, 48]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:MMLU": "c71",
+        "bench:JMMLU": "c75",
+        "bench:HELLASWAG": "c79",
+        "bench:ARC_CHALLENGE": "c83",
+        "bench:GSM8K": "c87"
+      },
+      "flags": [
+        "Sibling build from the same publisher [L48]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "gemma-4-26B-A4B-it-oQ3.5",
+      "panel": "Update (2026-04-07) more sample",
+      "methodology": {"reference": "not stated", "dataset": "HELLASWAG 500 items, ARC_CHALLENGE 1172 items, GSM8K 1319 items [L76, L77, L78]", "ctx": "not stated", "tool": "not stated", "L": [68, 71, 76, 77, 78]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:HELLASWAG": "c163",
+        "bench:ARC_CHALLENGE": "c167",
+        "bench:GSM8K": "c171"
+      },
+      "flags": [
+        "Sibling build from the same publisher [L76]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "gemma-4-26b-a4b-it-oQ4",
+      "of": "jdkohler/gemma-4-26b-a4b-it-oQ4",
+      "panel": "Benchmark",
+      "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [23, 25]},
+      "size": "c13",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "metrics": {
+        "bench:MMLU": "c14",
+        "bench:JMMLU": "c15",
+        "bench:HELLASWAG": "c16",
+        "bench:ARC_CHALLENGE": "c17",
+        "bench:GSM8K": "c18"
+      },
+      "flags": [
+        "Build from another publisher, linked in the table, measured by the card author [L29]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "gemma-4-26b-a4b-it-oQ4",
+      "of": "jdkohler/gemma-4-26b-a4b-it-oQ4",
+      "panel": "Detail",
+      "methodology": {"reference": "not stated", "dataset": "MMLU, JMMLU, HELLASWAG, ARC_CHALLENGE and GSM8K, 300 items each [L36, L53]", "ctx": "not stated", "tool": "not stated", "L": [33, 36, 53]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:MMLU": "c91",
+        "bench:JMMLU": "c95",
+        "bench:HELLASWAG": "c99",
+        "bench:ARC_CHALLENGE": "c103",
+        "bench:GSM8K": "c107"
+      },
+      "flags": [
+        "Build from another publisher, measured by the card author [L53]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "gemma-4-26b-a4b-it-oQ4",
+      "of": "jdkohler/gemma-4-26b-a4b-it-oQ4",
+      "panel": "Update (2026-04-07) more sample",
+      "methodology": {"reference": "not stated", "dataset": "HELLASWAG 500 items, ARC_CHALLENGE 1172 items, GSM8K 1319 items [L79, L80, L81]", "ctx": "not stated", "tool": "not stated", "L": [68, 71, 79, 80, 81]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:HELLASWAG": "c175",
+        "bench:ARC_CHALLENGE": "c179",
+        "bench:GSM8K": "c183"
+      },
+      "flags": [
+        "Build from another publisher, measured by the card author [L79]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "gemma-4-26b-a4b-it-4bit",
+      "of": "not named on card",
+      "panel": "Benchmark",
+      "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [23, 25]},
+      "size": "c19",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "metrics": {
+        "bench:MMLU": "c20",
+        "bench:JMMLU": "c21",
+        "bench:HELLASWAG": "c22",
+        "bench:ARC_CHALLENGE": "c23",
+        "bench:GSM8K": "c24"
+      },
+      "flags": [
+        "Source publisher is not named on the card [L30]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "gemma-4-26b-a4b-it-4bit",
+      "of": "not named on card",
+      "panel": "Detail",
+      "methodology": {"reference": "not stated", "dataset": "MMLU, JMMLU, HELLASWAG, ARC_CHALLENGE and GSM8K, 300 items each [L36, L58]", "ctx": "not stated", "tool": "not stated", "L": [33, 36, 58]},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "metrics": {
+        "bench:MMLU": "c111",
+        "bench:JMMLU": "c115",
+        "bench:HELLASWAG": "c119",
+        "bench:ARC_CHALLENGE": "c123",
+        "bench:GSM8K": "c127"
+      },
+      "flags": [
+        "Source publisher is not named on the card; the GSM8K value sits on the line that also carries the E4B rows [L62]"
+      ]
+    }
+  ],
+  "prose": []
+}

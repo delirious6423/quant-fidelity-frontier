@@ -1,0 +1,17 @@
+{
+  "repo": "rdubwiley/agenda-parser-high",
+  "source_sha256": "2edbf0968abcf5d658461741fa0226a7104b312aef02e9fd590696744bd6dc1a",
+  "candidates_sha256": "dca58d6d8955e3f61ecb6767427c0df27586dc8c333906421177bb8c851b676e",
+  "no_quality_claims": true,
+  "no_claims_reason": "training hyperparameters and an in-training token accuracy only; the A/B evaluation is described but no results are reported [L53-L62, L104]",
+  "weights_modified": true,
+  "method": {
+    "reference": "not stated",
+    "dataset": "agenda-parser-tool-traces, filtered config; held-out packet excluded from training [L30, L51, L104]",
+    "ctx": "max sequence length 4096 [L60]",
+    "tool": "LoRA SFT then GRPO; bf16 on H100 for training; Q8_0 GGUF for llama.cpp [L22, L29, L61]",
+    "L": [22, 29, 51, 60, 61, 62, 104]
+  },
+  "entries": [],
+  "prose": []
+}

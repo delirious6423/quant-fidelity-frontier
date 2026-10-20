@@ -1,0 +1,109 @@
+{
+ "repo": "LargitData/gemma-4-26b-a4b-it-fp8",
+ "source_sha256": "0977f853aa3c871ed86ee28211a81c8417fec1d8c8771b85bf024f5f5570b9ea",
+ "candidates_sha256": "3e27a193165570499c1131ad28448c866d74848748cafa9fc789757a70833b29",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "26B BF16 baseline, same harness and prompt template [L114]",
+  "dataset": "MMLU-Pro, full set, 14 categories [L114]",
+  "ctx": "not stated",
+  "tool": "own harness; vllm/vllm-openai:gemma4 runtime [L64, L114]",
+  "L": [
+   64,
+   114,
+   116,
+   118,
+   119,
+   120,
+   122
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "26B FP8 Dynamic Norouter (this)",
+   "panel": "Accuracy Evaluation — MMLU-Pro",
+   "methodology": {
+    "reference": "26B BF16 baseline [L114]",
+    "dataset": "MMLU-Pro, full set, 14 categories [L114]",
+    "ctx": "not stated",
+    "tool": "own harness, same prompt template [L114]",
+    "L": [
+     114,
+     116,
+     119
+    ]
+   },
+   "metrics": {
+    "bench:MMLU-Pro": "c7"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L120] Δ −0.26 pp is derived and not mapped (no delta key)",
+    "[L126-L131] 31B figures are a different model and not mapped"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "26B BF16 (baseline)",
+   "panel": "Accuracy Evaluation — MMLU-Pro",
+   "of": "google/gemma-4-26B-A4B-it",
+   "methodology": {
+    "reference": "26B BF16 baseline [L114]",
+    "dataset": "MMLU-Pro, full set, 14 categories [L114]",
+    "ctx": "not stated",
+    "tool": "own harness, same prompt template [L114]",
+    "L": [
+     114,
+     116,
+     118
+    ]
+   },
+   "metrics": {
+    "bench:MMLU-Pro": "c5"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "quoted",
+   "name": "Google reported 26B BF16",
+   "of": "google/gemma-4-26B-A4B-it",
+   "panel": "Accuracy Evaluation — MMLU-Pro",
+   "methodology": {
+    "reference": "google/gemma-4-26B-A4B-it [L122]",
+    "dataset": "MMLU-Pro [L122]",
+    "ctx": "not stated",
+    "tool": "Google's reported figure [L122]",
+    "L": [
+     122
+    ]
+   },
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L122] Google's figure is quoted for context only, not a measurement of this checkpoint"
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "Google reported 26B BF16",
+   "panel": "Accuracy Evaluation — MMLU-Pro",
+   "key": "bench:MMLU-Pro",
+   "L": 122,
+   "raw": "82.6%"
+  }
+ ]
+}

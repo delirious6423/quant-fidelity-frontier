@@ -1,0 +1,18 @@
+{"repo": "webbrain-one/gemma4-turkish-26b-a4b-pruned-gguf",
+ "source_sha256": "6c5fa881a4c534aa14a094e847a6a3c9c520f44566882dd9d11e746cdd1298b6",
+ "candidates_sha256": "383cfc0788f3439632a7a0e1f2a5d2f0c1f6d3fe639b7fed3a3de4e3bdcdbc91",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [109]},
+ "entries": [
+   {"role": "own",
+    "name": "merged.Q4_K_M.gguf",
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["perplexity increase given as a range for the 4-bit quant, file not named on that line [L109]", "same range stated in Turkish [L77]", "expert-pruned and LoRA-healed weights [L20-22]", "the perplexity cell candidates were matched to the words bf16 and 4-bit, not to the range; range taken from prose"]}
+ ],
+ "prose": [{"entry": "merged.Q4_K_M.gguf", "key": "ppl_delta_pct", "L": 109, "raw": "~1-2% perplexity increase"}]}

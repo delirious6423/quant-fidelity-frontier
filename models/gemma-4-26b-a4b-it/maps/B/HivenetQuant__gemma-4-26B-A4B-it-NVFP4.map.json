@@ -1,0 +1,22 @@
+{"repo": "HivenetQuant/gemma-4-26B-A4B-it-NVFP4",
+ "source_sha256": "2755bc293739b76a316ffc5bfce9dbdb11a059728c3f5a3bdf4fdff8d5eba36b",
+ "candidates_sha256": "d2251c7857b6bcc466a4c46977f1d4c1488f7529dcb5d7bd1fbc7eb7ec141473",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "FP16 (original full-precision weights) [L47]", "dataset": "representative sample per task; sample sizes in REPRODUCIBILITY.md, not on card; suites as named in table [L53, L59-69]", "ctx": "serve config (context length and KV cache as stated) [L40]", "tool": "not stated (vLLM serve config used for all numbers [L40]; eval harness not named on card)", "L": [40, 47, 51, 53]},
+ "entries": [
+  {"role": "own",
+   "name": "NVFP4",
+   "metrics": {"bench:mmlu_pro": "c2", "bench:gpqa_diamond_cot_zeroshot": "c5", "bench:aime25": "c8", "bench:mmmu_pro_standard_cot": "c13", "bench:ai2d_no_mask": "c16", "bench:livecodebench (codegen v6)": "c19", "bench:bfcl (tool-calling)": "c22", "bench:niah": "c25"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Paired FP16 vs NVFP4 comparison, identical prompts and harness [L51]", "ifeval NVFP4 value has no candidate id; given as prose [L64]", "Delta column not mapped (no delta key) [L59-69]", "Speed table [L75-81] not mapped: no speed metric key"]},
+  {"role": "cross",
+   "name": "FP16",
+   "of": "google/gemma-4-26B-A4B-it",
+   "metrics": {"bench:mmlu_pro": "c1", "bench:gpqa_diamond_cot_zeroshot": "c4", "bench:aime25": "c7", "bench:ifeval (ifeval_safe)": "c10", "bench:mmmu_pro_standard_cot": "c12", "bench:ai2d_no_mask": "c15", "bench:livecodebench (codegen v6)": "c18", "bench:bfcl (tool-calling)": "c21", "bench:niah": "c24"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Original full-precision baseline measured by this card's author [L47]"]}
+ ],
+ "prose": [{"entry": "NVFP4", "key": "bench:ifeval (ifeval_safe)", "L": 64, "raw": "| 94.73 | +0.00 |"}]
+}

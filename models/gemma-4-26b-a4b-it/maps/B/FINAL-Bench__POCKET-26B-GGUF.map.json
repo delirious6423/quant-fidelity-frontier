@@ -1,0 +1,23 @@
+{"repo": "FINAL-Bench/POCKET-26B-GGUF",
+ "source_sha256": "f1741ee556799e08e2facdbdb0477eb9d4dd2368f1cb5d7ee7853a7f7a743eb3",
+ "candidates_sha256": "8f4d28f7374245033aa2981012def14617e98b6f62872af2880476a0ee6c835e",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Gemma4-26B-A4B base row [L61]", "dataset": "GPQA-Diamond, question count as stated [L57]", "ctx": "not stated", "tool": "own harness, single greedy pass [L57, L65]", "L": [57, 61, 65]},
+ "entries": [
+  {"role": "own", "name": "POCKET-26B Q4_K_M",
+   "metrics": {"bench:GPQA-Diamond": "c2"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Delta vs base not mapped: derived difference [L62]", "File sizes are in a separate table, not mapped [L71]"]},
+  {"role": "own", "name": "POCKET-26B Q2_K (mixed)",
+   "metrics": {"bench:GPQA-Diamond": "c3"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Delta vs base not mapped: derived difference [L63]", "File sizes are in a separate table, not mapped [L72]", "Plain uniform Q2 figure in prose is a different build, not mapped [L74]"]},
+  {"role": "cross", "name": "Gemma4-26B-A4B (base)", "of": "google/gemma-4-26B-A4B-it",
+   "metrics": {"bench:GPQA-Diamond": "c1"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Base row measured by this card's author in the same harness [L61]"]}
+ ],
+ "prose": []
+}
