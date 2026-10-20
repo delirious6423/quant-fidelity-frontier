@@ -1,0 +1,22 @@
+{
+ "repo": "axuhongbo/ALM-V1.0",
+ "source_sha256": "ba0682f5a956d16af2f2a5811653435109d36573cf8fdee04d545fc980497b0c",
+ "candidates_sha256": "10f4756063682c7d65c9844548f4d176aeb4a38e366e901fa262d11225c0c761",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "official original Qwen3.8:27B, zero-shot", "dataset": "ludas-test, 5 APT scenarios (8.876 million logs)", "ctx": "not stated", "tool": "not stated; blind test in a macOS sandbox-exec sandbox", "L": [96, 109, 121, 123]},
+ "entries": [
+  {"role": "own", "name": "未知APT威胁发现大模型 (ALM-V1.0)", "panel": "2. 全局核心分项指标（精准率 / 召回率 / F1）横向对比总表",
+   "methodology": {"reference": "official original Qwen3.8:27B, zero-shot", "dataset": "ludas-test, 5 APT scenarios", "ctx": "not stated", "tool": "not stated; blind test in a macOS sandbox-exec sandbox", "L": [96, 121, 123, 127]},
+   "metrics": {"bench:physical_precision": "c1", "bench:physical_recall": "c2", "bench:physical_f1": "c3", "bench:false_positives": "c4", "bench:ta_precision": "c5", "bench:ta_recall": "c6", "bench:ta_f1": "c7", "bench:attack_step_score": "c8", "bench:composite_score": "c9"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["card metadata calls this a quantized derivative of Qwen3.8-27B [L6-7], while the body describes fine-tuning [L59, L289]", "scores are task benchmarks for the fine-tuned model; no comparison with unquantized weights is given [L94-131]", "the '+315%' label in the TA F1 cell is the card's own derived claim [L127]", "rows for MiniMax and the 1013 SFT model are other models and are omitted [L129-130]"]},
+  {"role": "cross", "of": "Qwen/Qwen3.8-27B", "name": "官方原版 Qwen3.8:27B", "panel": "2. 全局核心分项指标（精准率 / 召回率 / F1）横向对比总表",
+   "methodology": {"reference": "official original Qwen3.8:27B, zero-shot", "dataset": "ludas-test, 5 APT scenarios", "ctx": "not stated", "tool": "not stated; blind test in a macOS sandbox-exec sandbox", "L": [96, 121, 123, 131]},
+   "metrics": {"bench:physical_precision": "c37", "bench:physical_recall": "c38", "bench:physical_f1": "c39", "bench:false_positives": "c40", "bench:ta_precision": "c41", "bench:ta_recall": "c42", "bench:ta_f1": "c43", "bench:attack_step_score": "c44", "bench:composite_score": "c45"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["zero-shot official base row measured by this card's author [L131]"]}
+ ],
+ "prose": []
+}

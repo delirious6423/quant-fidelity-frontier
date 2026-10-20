@@ -1,0 +1,27 @@
+{
+  "repo": "perplexity-ai/pplx-computer-qwen-3-8-27b-mlx-20260824",
+  "source_sha256": "a2ea9a77f579f4e1e925745b4080693ad4181828575764679484e444dc372278",
+  "candidates_sha256": "bce030f808fb15af2b92b56ece5c8ed18cbc52e423556a383083cde2ee19fcf8",
+  "no_quality_claims": true,
+  "no_claims_reason": "speed and peak-memory table only, no quality number [L48-53]",
+  "weights_modified": false,
+  "method": {"reference": "original bf16 checkpoint (conversion source)", "dataset": "not stated", "ctx": "not stated", "tool": "mlx-vlm 0.7.6", "L": [21]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "pplx-computer-qwen-3-8-27b-mlx-20260824",
+      "metrics": {},
+      "size": "c4",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "Size printed as approximate (~15 GB) [L22]",
+        "4.695 bits/weight is stated in prose with no candidate id, so bpw is left null [L22]",
+        "Peak memory values belong to the speed table and no memory key applies, not mapped [L52-53]",
+        "Identical output with or without the MTP drafter is a drafter statement, not a quant quality number [L24]"
+      ]
+    }
+  ],
+  "prose": []
+}

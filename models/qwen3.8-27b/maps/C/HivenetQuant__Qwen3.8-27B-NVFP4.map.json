@@ -1,0 +1,16 @@
+{
+ "repo": "HivenetQuant/Qwen3.8-27B-NVFP4",
+ "source_sha256": "e487ac05709245dbafe477f14120e56c3f49081d3341454c46acf9b1f5cb5907",
+ "candidates_sha256": "997a1c3ee5e7aa87e2ed593747676935c8962d334aedeffbd0db55199fbbe132",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "FP16 original full-precision weights", "dataset": "representative per-task sample of the listed benchmarks (sizes not on card)", "ctx": "256k context (max-model-len 262144), FP8 KV cache", "tool": "vLLM serve; harness not named on card", "L": [29, 48, 55, 59, 61]},
+ "entries": [
+  {"role": "own", "name": "NVFP4",
+   "metrics": {"bench:mmlu_pro": "c2", "bench:gpqa_diamond_cot_zeroshot": "c5", "bench:aime25": "c8", "bench:ifeval_safe": "c11", "bench:mmmu_pro_standard_cot": "c14", "bench:ai2d_no_mask": "c17", "bench:livecodebench_codegen_v6": "c20", "bench:bfcl_tool_calling": "c23", "bench:mtp": "c28"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["FP16 baseline values are not mapped as entries [L67-78]", "mtp row is the MTP accept rate, not a task score [L78, L94]", "niah NVFP4 value is not in the candidate list, given as prose [L77]", "speed table omitted: no quality metric [L84-90]"]}
+ ],
+ "prose": [{"entry": "NVFP4", "key": "bench:niah", "L": 77, "raw": "| `niah` | 100.00 | 100.00 | +0.00 |"}]
+}

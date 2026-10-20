@@ -1,0 +1,205 @@
+{
+ "repo": "TelperionAI/Qwen3.8-27B-EXL3-4.0bpw-v2",
+ "source_sha256": "b69da3c3d7dc87d3d234371f47c2ed68cb23031cc5582bde65bad38e2ec40010",
+ "candidates_sha256": "940c5514fbd6cd503a795525975bc2f30203bc730e1837fa1f365e2b5c986242",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "BF16 base",
+  "dataset": "not stated (231 documents, 142,727 scored positions)",
+  "ctx": "not stated",
+  "tool": "not stated",
+  "L": [
+   14,
+   35,
+   36,
+   37,
+   54
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "TelperionAI EXL3 4.0bpw-v2",
+   "metrics": {
+    "top1_pct": "c2",
+    "bench:near-tie": "c3",
+    "bench:moderate": "c4",
+    "bench:confident": "c5",
+    "bench:certain": "c6",
+    "bench:divmed": "c7"
+   },
+   "size": "c1",
+   "unit": "GB",
+   "basis": null,
+   "bpw": "c71",
+   "flags": [
+    "pre-registered decider is the confident bucket [L37]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "TelperionAI FP8-block-AWQ",
+   "metrics": {
+    "top1_pct": "c9",
+    "bench:near-tie": "c10",
+    "bench:moderate": "c11",
+    "bench:confident": "c12",
+    "bench:certain": "c13",
+    "bench:divmed": "c14"
+   },
+   "size": "c8",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "TelperionAI INT4-AWQ-GPTQ",
+   "metrics": {
+    "top1_pct": "c16",
+    "bench:near-tie": "c17",
+    "bench:moderate": "c18",
+    "bench:confident": "c19",
+    "bench:certain": "c20",
+    "bench:divmed": "c21"
+   },
+   "size": "c15",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "TelperionAI EXL3 5.5bpw-v2",
+   "metrics": {
+    "top1_pct": "c23",
+    "bench:near-tie": "c24",
+    "bench:moderate": "c25",
+    "bench:confident": "c26",
+    "bench:certain": "c27",
+    "bench:divmed": "c28"
+   },
+   "size": "c22",
+   "unit": "GB",
+   "basis": null,
+   "bpw": "c72",
+   "flags": []
+  },
+  {
+   "role": "cross",
+   "name": "Qwen3.8-27B-FP8 (official)",
+   "metrics": {
+    "top1_pct": "c30",
+    "bench:near-tie": "c31",
+    "bench:moderate": "c32",
+    "bench:confident": "c33",
+    "bench:certain": "c34",
+    "bench:divmed": "c35"
+   },
+   "size": "c29",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "native FP8 checkpoint, measured against the BF16 base [L35]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "ladder",
+   "name": "TelperionAI EXL3 4.0bpw (v1)",
+   "metrics": {
+    "top1_pct": "c37",
+    "bench:near-tie": "c38",
+    "bench:moderate": "c39",
+    "bench:confident": "c40",
+    "bench:certain": "c41",
+    "bench:divmed": "c42"
+   },
+   "size": "c36",
+   "unit": "GB",
+   "basis": null,
+   "bpw": "c73",
+   "flags": [
+    "v1 build, predecessor of v2 [L14]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "TelperionAI EXL3 5.5bpw (v1)",
+   "metrics": {
+    "top1_pct": "c44",
+    "bench:near-tie": "c45",
+    "bench:moderate": "c46",
+    "bench:confident": "c47",
+    "bench:certain": "c48",
+    "bench:divmed": "c49"
+   },
+   "size": "c43",
+   "unit": "GB",
+   "basis": null,
+   "bpw": "c74",
+   "flags": [
+    "v1 build, predecessor of v2 [L14]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "TelperionAI EXL3 6.5bpw (v1)",
+   "metrics": {
+    "top1_pct": "c51",
+    "bench:near-tie": "c52",
+    "bench:moderate": "c53",
+    "bench:confident": "c54",
+    "bench:certain": "c55",
+    "bench:divmed": "c56"
+   },
+   "size": "c50",
+   "unit": "GB",
+   "basis": null,
+   "bpw": "c75",
+   "flags": [
+    "v1 build, predecessor of v2 [L14]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "TelperionAI NVFP4 (mixed)",
+   "metrics": {
+    "top1_pct": "c58",
+    "bench:near-tie": "c59",
+    "bench:moderate": "c60",
+    "bench:confident": "c61",
+    "bench:certain": "c62",
+    "bench:divmed": "c63"
+   },
+   "size": "c57",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "TelperionAI NVFP4 (full)",
+   "metrics": {
+    "top1_pct": "c65",
+    "bench:near-tie": "c66",
+    "bench:moderate": "c67",
+    "bench:confident": "c68",
+    "bench:certain": "c69",
+    "bench:divmed": "c70"
+   },
+   "size": "c64",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  }
+ ],
+ "prose": []
+}

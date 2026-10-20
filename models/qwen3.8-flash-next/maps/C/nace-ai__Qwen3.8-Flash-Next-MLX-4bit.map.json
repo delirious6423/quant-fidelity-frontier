@@ -1,0 +1,24 @@
+{
+ "repo": "nace-ai/Qwen3.8-Flash-Next-MLX-4bit",
+ "source_sha256": "555481cbf0f9bdf4d2c8d4913c2a544aec6182c672d7ee6aabc3854d78c60d86",
+ "candidates_sha256": "b415475f729cd9c67e74fef8a1279532972770e725c0181d3750b2c53bd21cc6",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 model run in fp32", "dataset": "4 x 1,024 tokens of C++, Python, English prose and agent chat with tool calls", "ctx": "4 x 1,024 tokens", "tool": "mlx-vlm 0.7.8 (loaded to produce reference outputs)", "L": [64, 65, 86]},
+ "entries": [
+  {"role": "own", "name": "This version", "size": null, "unit": null, "basis": null, "bpw": null,
+   "metrics": {"mean_kld": "c5", "top1_pct": "c6", "ppl": "c7"},
+   "flags": ["MLX mixed precision, 106 GB on disk [L32]", "decode bytes/token column not mapped [L70]"]},
+  {"role": "ladder", "name": "Uniform 4-bit, group 32, round-to-nearest", "size": null, "unit": null, "basis": null, "bpw": null,
+   "metrics": {"mean_kld": "c9", "top1_pct": "c10", "ppl": "c11"},
+   "flags": ["decode bytes/token column not mapped [L71]"]},
+  {"role": "ladder", "name": "Uniform 4-bit, group 64, round-to-nearest", "size": null, "unit": null, "basis": null, "bpw": null,
+   "metrics": {"mean_kld": "c13", "top1_pct": "c14", "ppl": "c15"},
+   "flags": ["decode bytes/token column not mapped [L72]"]},
+  {"role": "ladder", "name": "bf16 weights, bf16 activations (noise floor)", "size": null, "unit": null, "basis": null, "bpw": null,
+   "metrics": {"mean_kld": "c1", "top1_pct": "c2"},
+   "flags": ["noise-floor row; its perplexity 4.021 differs from the header's bf16 4.054, so left out [L67, L69]"]}
+ ],
+ "prose": []
+}

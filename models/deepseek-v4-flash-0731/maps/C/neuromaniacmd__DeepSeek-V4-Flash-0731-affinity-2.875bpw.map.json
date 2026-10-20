@@ -1,0 +1,16 @@
+{"repo": "neuromaniacmd/DeepSeek-V4-Flash-0731-affinity-2.875bpw",
+ "source_sha256": "41fcfc45f58fa313a1feda112ab706974992766ee1603e6f5b869e844fc17c2e",
+ "candidates_sha256": "d3fe7bbf8b0e2de7686b9130cd6489e4b1de39c9c3b89e146d1c840b43d71caf",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "internal pharmacovigilance benchmark (47 items); planted-fact needle; agentic tool-use checks", "ctx": "4K / 16K / 64K context", "tool": "not stated", "L": [85, 86, 87]},
+ "entries": [
+   {"role": "own",
+    "name": "DeepSeek-V4-Flash-0731 affinity container (2.875 bpw experts)",
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["quality results stated only as internal or needle checks, not mapped (fraction cells split into several candidates) [L85-86]", "only routed experts quantised; dense weights kept in checkpoint FP8 [L50-51]", "requires affinity engine; not loadable in transformers or vLLM [L20-22]"]}
+ ],
+ "prose": []
+}

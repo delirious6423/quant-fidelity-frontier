@@ -1,0 +1,32 @@
+{
+ "repo": "TelperionAI/Qwen3.8-27B-NVFP4-AWQ-AutoRound-allfp4",
+ "source_sha256": "b58f7eb44e36c82be669c44b34b7b55c14520b1c886a435e535b4ebb62834e0f",
+ "candidates_sha256": "162872a2c92ec47c9d5af48f7bea8a715a0b85a46f6860edafb5ba33466fe3e6",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 base model", "dataset": "142,727 tokens of self-distilled thinking-mode output plus 200 free greedy generations (single corpus)", "ctx": "not stated", "tool": "vLLM 0.27.1, TP=2, 2x B300", "L": [51, 52, 148]},
+ "entries": [
+  {"role": "own", "name": "this model (all-FP4)",
+   "metrics": {"top1_pct": "c10", "bench:near_tie": "c11", "bench:moderate": "c12", "bench:confident": "c13", "bench:certain": "c14", "bench:divmed": "c15"},
+   "size": "c9", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["size is on-disk tensor bytes and includes the ~0.85 GB BF16 MTP head [L64]", "bucket columns are disagreement rates; confident and certain are the damage buckets [L67-72]", "second table 'What the algorithm contributes' repeats these rows and is not mapped as a separate panel [L97-101]", "tok/s speed column omitted: no quality metric [L54]"]},
+  {"role": "ladder", "name": "sibling with FP8 MLP 56–63",
+   "metrics": {"top1_pct": "c18", "bench:near_tie": "c19", "bench:moderate": "c20", "bench:confident": "c21", "bench:certain": "c22", "bench:divmed": "c23"},
+   "size": "c17", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["sibling repo not named on card; treated as this publisher's comparison build [L58, L81-85]", "includes ~0.85 GB BF16 MTP head [L64]"]},
+  {"role": "cross", "of": "Qwen/Qwen3.8-27B-FP8", "name": "Qwen/Qwen3.8-27B-FP8",
+   "metrics": {"top1_pct": "c2", "bench:near_tie": "c3", "bench:moderate": "c4", "bench:confident": "c5", "bench:certain": "c6", "bench:divmed": "c7"},
+   "size": "c1", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["8-bit reference row measured in this card's table [L56]"]},
+  {"role": "cross", "of": "RadixArk/Qwen3.8-27B-NVFP4-BF16-LMHead", "name": "RadixArk/…-NVFP4-BF16-LMHead",
+   "metrics": {"top1_pct": "c26", "bench:near_tie": "c27", "bench:moderate": "c28", "bench:confident": "c29", "bench:certain": "c30", "bench:divmed": "c31"},
+   "size": "c25", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["round-to-nearest build with identical precision map, measured in this card's table [L59, L93-95]", "card's perplexity figure for this build not mapped: baseline not stated and card excludes perplexity [L74-77]"]},
+  {"role": "cross", "of": "unsloth/Qwen3.8-27B-NVFP4", "name": "unsloth/Qwen3.8-27B-NVFP4",
+   "metrics": {"top1_pct": "c34", "bench:near_tie": "c35", "bench:moderate": "c36", "bench:confident": "c37", "bench:certain": "c38", "bench:divmed": "c39"},
+   "size": "c33", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["measured in this card's table [L60]"]}
+ ],
+ "prose": []
+}

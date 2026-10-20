@@ -72,6 +72,8 @@ public suite. The 27B is second of 145 entrants; the 9B and 4B lead every entran
 - The public suite is 20% of the board's headline Full score. The private 80% is run by the maintainers on submitted models
   and is pending for this family.
 
+On-device builds (4-bit GGUF for llama.cpp, Q4_0 body with Q8_0 head, quantisation-aware trained): [`cerno-9b-GGUF`](https://huggingface.co/apertixai/cerno-9b-GGUF) (57.96 on the public index through llama.cpp), [`cerno-4b-GGUF`](https://huggingface.co/apertixai/cerno-4b-GGUF) (57.23).
+
 ## Results
 
 | Metric | Cerno 27B | Jev 1.13 (TypeSafe) |

@@ -1,1 +1,31 @@
-{"repo":"yeasah/Qwen3.8-27B-exl3","no_quality_claims":false,"no_claims_reason":"","method":{"reference":"unquantized Qwen3.8-27B","dataset":"agentic and coding eval slices (WildChat, Open-SWE-Traces, documents in user turn, documents as tool results, multilingual documents, tool-use loops, model's own voice)","ctx":"not stated","tool":"excess KLD (KLD minus unquantized model's rounding noise) and change in perplexity on the same text","L":[27,40,41,65]},"entries":[{"role":"own","name":"EXL3 2.00 bpw","metrics":{"ppl_delta_pct":"c5"},"size":"c1","unit":"GiB","basis":"disk","bpw":"c27","flags":["Excess KLD reported but not a plain mean KLD, left out [L29,L40]","VRAM 7.32 GiB exllamav3 / 7.13 GiB vLLM listed [L29]"]},{"role":"own","name":"EXL3 3.00 bpw","metrics":{"ppl_delta_pct":"c10"},"size":"c6","unit":"GiB","basis":"disk","bpw":"c32","flags":["Excess KLD reported but not a plain mean KLD, left out [L30]"]},{"role":"own","name":"EXL3 4.00 bpw","metrics":{"ppl_delta_pct":"c15"},"size":"c11","unit":"GiB","basis":"disk","bpw":"c37","flags":["Excess KLD reported but not a plain mean KLD, left out [L31]"]},{"role":"own","name":"EXL3 5.00 bpw","metrics":{"ppl_delta_pct":"c20"},"size":"c16","unit":"GiB","basis":"disk","bpw":"c42","flags":["Excess KLD reported but not a plain mean KLD, left out [L32]"]},{"role":"own","name":"EXL3 6.00 bpw","metrics":{"ppl_delta_pct":"c25"},"size":"c21","unit":"GiB","basis":"disk","bpw":"c47","flags":["Excess KLD reported but not a plain mean KLD, left out [L33]"]},{"role":"ladder","name":"base (unquantized)","metrics":{},"size":"c26","unit":"GiB","basis":"disk","bpw":null,"flags":["unquantized size 51.75 GiB [L34]"]}],"prose":[]}
+{"repo": "yeasah/Qwen3.8-27B-exl3",
+ "source_sha256": "d5daa5d13812369077b7f7927896b6c3c1c259d0cb395a0fbf00da46722ac33e",
+ "candidates_sha256": "604c26cea85c999e7af3e7f85c62836867fb633f99d24793f1b61d748d181bc6",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "unquantized Qwen/Qwen3.8-27B", "dataset": "eval slices incl. WildChat, Open-SWE-Traces, documents, multilingual, tool-use loops, model's own voice", "ctx": "not stated", "tool": "not stated", "L": [11, 44, 57, 69]},
+ "entries": [
+   {"role": "own", "name": "2.00",
+    "metrics": {"ppl_delta_pct": "c5"},
+    "size": "c1", "unit": "GiB", "basis": "disk", "bpw": "c27",
+    "flags": ["Excess KLD is noise-corrected, not a plain mean_kld; not mapped [L44]", "composite and worst-slice ratios vs turboderp sets not mapped [L62-69]"]},
+   {"role": "own", "name": "3.00",
+    "metrics": {"ppl_delta_pct": "c10"},
+    "size": "c6", "unit": "GiB", "basis": "disk", "bpw": "c32",
+    "flags": ["Excess KLD is noise-corrected, not a plain mean_kld; not mapped [L44]", "composite and worst-slice ratios vs turboderp sets not mapped [L62-69]"]},
+   {"role": "own", "name": "4.00",
+    "metrics": {"ppl_delta_pct": "c15"},
+    "size": "c11", "unit": "GiB", "basis": "disk", "bpw": "c37",
+    "flags": ["Excess KLD is noise-corrected, not a plain mean_kld; not mapped [L44]", "composite and worst-slice ratios vs turboderp sets not mapped [L62-69]"]},
+   {"role": "own", "name": "5.00",
+    "metrics": {"ppl_delta_pct": "c20"},
+    "size": "c16", "unit": "GiB", "basis": "disk", "bpw": "c42",
+    "flags": ["Excess KLD is noise-corrected, not a plain mean_kld; not mapped [L44]", "composite and worst-slice ratios vs turboderp sets not mapped [L62-69]"]},
+   {"role": "own", "name": "6.00",
+    "metrics": {"ppl_delta_pct": "c25"},
+    "size": "c21", "unit": "GiB", "basis": "disk", "bpw": "c47",
+    "flags": ["Excess KLD is noise-corrected, not a plain mean_kld; not mapped [L44]", "composite and worst-slice ratios vs turboderp sets not mapped [L62-69]"]}
+ ],
+ "prose": []
+}

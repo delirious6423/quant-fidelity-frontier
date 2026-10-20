@@ -1,0 +1,18 @@
+{
+ "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF",
+ "source_sha256": "97653fa9359d0d177c94b58434dc2ffcfa43a2936fb12d18438718492b67ebac",
+ "candidates_sha256": "b95e633392cc3bbb1ff9edc0b9d40faa97d5b9af61e1e5b166f5c6a7cb1bb597",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "BF16 base (354 GB)", "dataset": "SWE-bench Verified; LiveCodeBench v6", "ctx": "xhigh reasoning effort", "tool": "not stated", "L": [58, 62]},
+ "entries": [
+  {"role": "own", "name": "GSQ-RCO Coder (58.4 GB)", "size": null, "unit": null, "basis": null, "bpw": "c8.2",
+   "metrics": {"bench:swe_bench_verified": "c3", "bench:livecodebench_v6": "c4", "bench:swe_bench_verified_retained": "c5", "bench:livecodebench_v6_retained": "c6"},
+   "flags": ["50% of routed experts removed, remaining weights 3.5 bpw [L48, L52]", "1.89 is an effective rate over the original transformer, not a per-weight rate [L52]", "total 58.4 GB and 29.6 GB must be resident in the files table [L112]", "scores from the earlier build in the update note are left out [L40]"]},
+  {"role": "ladder", "name": "BF16 base (354 GB)", "size": null, "unit": null, "basis": null, "bpw": null,
+   "metrics": {"bench:swe_bench_verified": "c1", "bench:livecodebench_v6": "c2"},
+   "flags": ["unpruned BF16 base, 354 GB [L58]"]}
+ ],
+ "prose": []
+}

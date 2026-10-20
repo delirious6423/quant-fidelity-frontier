@@ -1,0 +1,27 @@
+{"repo": "Calandracas/Qwen3.8-27B-heretic-ara-exl3-SC-4.90bpw",
+ "source_sha256": "3ce3a43cc00370ca269156f90398ab1ccd39b868622936dd31f2a8b1dae1bc7a",
+ "candidates_sha256": "dfae2d206bdd2ab287f8be915c56a080efc89d69abd5a2c05de2e3449583e3fe",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "bf16 source", "dataset": "6 x 1024-token in-domain trace rows (self-sampled, about 726K tokens)", "ctx": "1024", "tool": "not stated", "L": [22, 23, 26]},
+ "entries": [
+   {"role": "ladder", "name": "uniform EXL3 4.5bpw (ends-first)", "panel": "Quality (KLD vs bf16 source, 6×1024-token in-domain trace rows)",
+    "metrics": {"mean_kld": "c38"},
+    "size": null, "unit": null, "basis": null, "bpw": "c51",
+    "flags": ["earlier uniform-bit revision by the same publisher [L30]"]},
+   {"role": "ladder", "name": "SC 4.50bpw (before K=5→6 promotion)", "panel": "Quality (KLD vs bf16 source, 6×1024-token in-domain trace rows)",
+    "metrics": {"mean_kld": "c39"},
+    "size": null, "unit": null, "basis": null, "bpw": "c52",
+    "flags": ["intermediate build before tensor promotion [L31]"]},
+   {"role": "own", "name": "SC 4.90bpw (this repo)", "panel": "Quality (KLD vs bf16 source, 6×1024-token in-domain trace rows)",
+    "metrics": {"mean_kld": "c40"},
+    "size": null, "unit": null, "basis": null, "bpw": "c53",
+    "flags": ["mean_kld as the card's 'mean KLD' column [L28-32]"]},
+   {"role": "own", "name": "SC 4.90bpw (this repo)", "panel": "Performance",
+    "metrics": {"bench:Refusals": "c49.0"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["refusal count is out of 100 [L61]", "KL 0.0535 to the original model measures the abliteration divergence, not quant error; not mapped [L60]", "original-model refusal row (99/100) is a different model and is omitted [L61]"]}
+ ],
+ "prose": []
+}

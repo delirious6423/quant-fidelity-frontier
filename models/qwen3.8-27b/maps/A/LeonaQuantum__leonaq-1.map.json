@@ -1,6 +1,30 @@
-{"repo":"LeonaQuantum/leonaq-1","no_quality_claims":false,"no_claims_reason":"",
-"method":{"reference":"not stated","dataset":"SST-2 (872-example report partition)","ctx":"not stated","tool":"not stated","L":[76,80,81]},
-"entries":[
-{"role":"own","name":"LeonaQ-1","metrics":{"bench:SST-2 Pauli circuit sentiment":"c1","bench:SST-2 MPS sentiment":"c3"},"size":"c5","unit":"GB","basis":"disk","bpw":null,"flags":["accuracy of auxiliary sentiment heads, not of the quantized LM [L66,L80-81]","no KLD/PPL stated"]}
-],
-"prose":[]}
+{
+  "repo": "LeonaQuantum/leonaq-1",
+  "source_sha256": "a28ebbe3db8b5e7109906d7780cc7490a108e963702606600cf2bde12459a72a",
+  "candidates_sha256": "a36d8718cdb750a9eb8134d1c603bba92533bd7f5909075048705eff058817eb",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {"reference": "not stated", "dataset": "SST-2 872-example report partition (project's reused)", "ctx": "not stated", "tool": "not stated", "L": [84]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "LeonaQ-1",
+      "panel": "Measured results",
+      "methodology": {"reference": "not stated", "dataset": "SST-2 872-example report partition (project's reused)", "ctx": "not stated", "tool": "not stated", "L": [84, 88, 89]},
+      "metrics": {
+        "bench:SST-2 Pauli circuit sentiment accuracy": "c1",
+        "bench:SST-2 MPS sentiment accuracy": "c3"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Both figures are accuracies of the auxiliary sentiment heads, not the generative model; no bf16 baseline is reported [L84-89]",
+        "GGUF parity with the packed model is stated as not established, with no numbers given [L32]"
+      ]
+    }
+  ],
+  "prose": []
+}

@@ -1,0 +1,36 @@
+{
+ "repo": "XpressAI/Qwen3.8-27B-RYS-GGUF",
+ "source_sha256": "609dd657d64e57971c16e3471b7e9e8ef27de164d674952d2b2a908192a768c5",
+ "candidates_sha256": "a6af8fc1aaa5e0bec4c47f8a0cc6dd8e50cb8aa2db6cfd0573bf29462a8a0dcd",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Base: unmodified source quant (unsloth/Qwen3.8-27B-GGUF), matched settings", "dataset": "reasoning probe (17 prompts), EQ-140 (139 scored), fixed 1,006-case BFCL v4 single-turn manifest (13 categories), math probe (diagnostic)", "ctx": "max_tokens 2048 (BFCL section)", "tool": "llama.cpp OpenAI-compatible chat-completions endpoint; Berkeley Function-Call Leaderboard harness", "L": [23, 25, 30, 41, 60, 83, 85, 96, 180]},
+ "entries": [
+  {"role": "own", "name": "RYS 16–19", "panel": "TL;DR",
+   "methodology": {"reference": "Base (source quant), matched settings", "dataset": "reasoning probe (17 prompts), EQ-140 (139 scored), BFCL micro and macro, math probe (diagnostic)", "ctx": "not stated", "tool": "not stated", "L": [30, 41]},
+   "metrics": {"bench:reasoning_probe": "c2", "bench:eq_140": "c5", "bench:bfcl_micro": "c8", "bench:bfcl_macro": "c11", "bench:math_probe": "c14"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["layers 16–19 duplicated in the forward pass; card states no weight changes [L19-21, L55-56]", "BFCL gain not statistically decisive, two-sided McNemar p = 0.539 [L33-34]", "math probe recorded as diagnostic only [L37-39, L47]", "file size 18.9 GB [L53] not mapped: no metric in that row"]},
+  {"role": "cross", "of": "unsloth/Qwen3.8-27B-GGUF", "name": "Base", "panel": "TL;DR",
+   "methodology": {"reference": "Base (source quant), matched settings", "dataset": "reasoning probe (17 prompts), EQ-140 (139 scored), BFCL micro and macro, math probe (diagnostic)", "ctx": "not stated", "tool": "not stated", "L": [30, 41]},
+   "metrics": {"bench:reasoning_probe": "c1", "bench:eq_140": "c4", "bench:bfcl_micro": "c7", "bench:bfcl_macro": "c10", "bench:math_probe": "c13"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["unmodified source quant, measured by this card's author [L23-25]", "exact base file quant not named beyond the source quant [L23-25]"]},
+  {"role": "own", "name": "RYS 16–19", "panel": "BFCL results",
+   "methodology": {"reference": "Base (source quant), matched settings", "dataset": "fixed 1,006-case BFCL v4 single-turn manifest, 13 categories", "ctx": "max_tokens 2048", "tool": "llama.cpp OpenAI-compatible chat-completions endpoint; Berkeley Function-Call Leaderboard harness", "L": [60, 61, 62, 63, 83, 85, 96, 180]},
+   "metrics": {"bench:bfcl_irrelevance": "c21", "bench:bfcl_multiple": "c25", "bench:bfcl_parallel": "c29", "bench:bfcl_parallel_multiple": "c33", "bench:bfcl_simple_java": "c37", "bench:bfcl_simple_javascript": "c41", "bench:bfcl_live_irrelevance": "c48", "bench:bfcl_live_multiple": "c52", "bench:bfcl_live_parallel_multiple": "c59", "bench:bfcl_live_relevance": "c63", "bench:bfcl_micro": "c70", "bench:bfcl_macro": "c73"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["per-category RYS values for simple_python, live_parallel and live_simple are given as prose [L73, L76, L79]"]},
+  {"role": "cross", "of": "unsloth/Qwen3.8-27B-GGUF", "name": "Base", "panel": "BFCL results",
+   "methodology": {"reference": "Base (source quant), matched settings", "dataset": "fixed 1,006-case BFCL v4 single-turn manifest, 13 categories", "ctx": "max_tokens 2048", "tool": "llama.cpp OpenAI-compatible chat-completions endpoint; Berkeley Function-Call Leaderboard harness", "L": [60, 61, 62, 63, 83, 85, 96, 180]},
+   "metrics": {"bench:bfcl_irrelevance": "c20", "bench:bfcl_multiple": "c24", "bench:bfcl_parallel": "c28", "bench:bfcl_parallel_multiple": "c32", "bench:bfcl_simple_java": "c36", "bench:bfcl_simple_javascript": "c40", "bench:bfcl_simple_python": "c44", "bench:bfcl_live_irrelevance": "c47", "bench:bfcl_live_multiple": "c51", "bench:bfcl_live_parallel": "c55", "bench:bfcl_live_parallel_multiple": "c58", "bench:bfcl_live_relevance": "c62", "bench:bfcl_live_simple": "c66", "bench:bfcl_micro": "c69", "bench:bfcl_macro": "c72"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["unmodified source quant, measured by this card's author [L23-25, L85]"]}
+ ],
+ "prose": [
+  {"entry": "RYS 16–19", "panel": "BFCL results", "key": "bench:bfcl_simple_python", "L": 73, "raw": "| simple_python | 100 | 94.00% | 94.00% | 0.00 |"},
+  {"entry": "RYS 16–19", "panel": "BFCL results", "key": "bench:bfcl_live_parallel", "L": 76, "raw": "| live_parallel | 16 | 87.50% | 87.50% | 0.00 |"},
+  {"entry": "RYS 16–19", "panel": "BFCL results", "key": "bench:bfcl_live_simple", "L": 79, "raw": "| live_simple | 100 | 84.00% | 84.00% | 0.00 |"}
+ ]
+}

@@ -51,6 +51,30 @@
   {
    "repo": "anoane/DeepSeek-V4-Flash-0731-exl3-hybrid-2.72bpw",
    "kind": "variants",
+   "entry": "2.72 bpw hybrid, --fp4-prefill",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "anoane/DeepSeek-V4-Flash-0731-exl3-hybrid-2.72bpw",
+   "kind": "variants",
+   "entry": "2.72 bpw hybrid, --fp4-prefill --fp4-dense",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP25",
+   "kind": "variants",
+   "entry": "REAP25",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP25",
+   "kind": "ladder",
+   "entry": "6bit",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "anoane/DeepSeek-V4-Flash-0731-exl3-hybrid-2.72bpw",
+   "kind": "variants",
    "entry": "2.72 bpw hybrid",
    "reason": "failed a gate"
   },
@@ -61,39 +85,15 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP25",
-   "kind": "ladder",
-   "entry": "6bit",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP25",
-   "kind": "variants",
-   "entry": "REAP25",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "anoane/DeepSeek-V4-Flash-0731-exl3-hybrid-2.72bpw",
-   "kind": "variants",
-   "entry": "2.72 bpw hybrid, --fp4-prefill --fp4-dense",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP37",
-   "kind": "ladder",
-   "entry": "6bit",
-   "reason": "failed a gate"
-  },
-  {
    "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP50",
    "kind": "variants",
    "entry": "REAP50",
    "reason": "failed a gate"
   },
   {
-   "repo": "anoane/DeepSeek-V4-Flash-0731-exl3-hybrid-2.72bpw",
-   "kind": "variants",
-   "entry": "2.72 bpw hybrid, --fp4-prefill",
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP37",
+   "kind": "ladder",
+   "entry": "6bit",
    "reason": "failed a gate"
   },
   {
@@ -104,6 +104,30 @@
   }
  ],
  "disagreements": [
+  {
+   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
+   "entry": "SUC1 tcq",
+   "key": "bench:ARC-C",
+   "raw": "| 16 | 19"
+  },
+  {
+   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
+   "entry": "SUC1 tcq",
+   "key": "bench:BBH",
+   "raw": "| 19 | 19 |"
+  },
+  {
+   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
+   "entry": "GGUF IQ2_XXS mix (ds4)",
+   "key": "bench:ARC-C",
+   "raw": "| 16 | 18"
+  },
+  {
+   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
+   "entry": "GGUF IQ2_XXS mix (ds4)",
+   "key": "bench:BBH",
+   "raw": "| 18 | 18 |"
+  },
   {
    "repo": "AxionML/DeepSeek-V4-Flash-0731-NVFP4",
    "entry": "NVFP4",
@@ -489,12 +513,6 @@
    "raw": "0 strict, 1 soft (3.1%)"
   },
   {
-   "repo": "ox-ox/DeepSeek-V4-Flash-0731-gguf-ds4",
-   "entry": "plain (no imatrix)",
-   "key": "ppl",
-   "raw": "4.848056"
-  },
-  {
    "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-4bit",
    "entry": "6bit",
    "key": "ppl_delta_pct",
@@ -574,15 +592,15 @@
   },
   {
    "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
-   "entry": "REAP25",
+   "entry": "REAP50",
    "key": "ppl:wikitext-2",
-   "raw": "6.4025"
+   "raw": "7.7520"
   },
   {
    "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
-   "entry": "REAP25",
+   "entry": "REAP50",
    "key": "ppl_delta_pct",
-   "raw": "+4.5%"
+   "raw": "+26.5%"
   },
   {
    "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
@@ -597,22 +615,100 @@
    "raw": "+13.7%"
   },
   {
+   "repo": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "entry": "deepseek-ai/DeepSeek-V4-Flash-0731 (Base)",
+   "key": "bench:GPQA Platinum",
+   "raw": "84.34%"
+  },
+  {
+   "repo": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "entry": "deepseek-ai/DeepSeek-V4-Flash-0731 (Base)",
+   "key": "bench:Terminal-Bench 2.1",
+   "raw": "0.798"
+  },
+  {
+   "repo": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "entry": "deepseek-ai/DeepSeek-V4-Flash-0731 (Base)",
+   "key": "bench:DeepSWE 1.1",
+   "raw": "0.469"
+  },
+  {
+   "repo": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "entry": "deepseek-ai/DeepSeek-V4-Flash-0731 (Base)",
+   "key": "bench:SWE-bench Verified",
+   "raw": "0.738"
+  },
+  {
+   "repo": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "entry": "deepseek-ai/DeepSeek-V4-Flash-0731 (Base)",
+   "key": "bench:Average",
+   "raw": "0.6683"
+  },
+  {
    "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP50",
    "entry": "6bit",
    "key": "ppl_delta_pct",
    "raw": "+0.6"
   },
   {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
-   "entry": "REAP50",
-   "key": "ppl:wikitext-2",
-   "raw": "7.7520"
+   "repo": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "entry": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "key": "bench:Terminal-Bench 2.1",
+   "raw": "0.764"
+  },
+  {
+   "repo": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "entry": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "key": "bench:DeepSWE 1.1",
+   "raw": "0.513"
+  },
+  {
+   "repo": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "entry": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "key": "bench:SWE-bench Verified",
+   "raw": "0.716"
+  },
+  {
+   "repo": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "entry": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "key": "bench:Average",
+   "raw": "0.6643"
+  },
+  {
+   "repo": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "entry": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "key": "bench:Terminal-Bench 2.1",
+   "raw": "0.764"
+  },
+  {
+   "repo": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "entry": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "key": "bench:DeepSWE 1.1",
+   "raw": "0.513"
+  },
+  {
+   "repo": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "entry": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "key": "bench:SWE-bench Verified",
+   "raw": "0.716"
+  },
+  {
+   "repo": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "entry": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
+   "key": "bench:Average",
+   "raw": "0.6643"
   },
   {
    "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
-   "entry": "REAP50",
+   "entry": "REAP25",
+   "key": "ppl:wikitext-2",
+   "raw": "6.4025"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
+   "entry": "REAP25",
    "key": "ppl_delta_pct",
-   "raw": "+26.5%"
+   "raw": "+4.5%"
   },
   {
    "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
@@ -626,27 +722,15 @@
  "tiebroken": [
   {
    "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:GSM8K",
-   "raw": "19"
+   "entry": "This model",
+   "key": "top1_pct",
+   "raw": "0.826"
   },
   {
    "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:MATH",
-   "raw": "12"
-  },
-  {
-   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:MMLU-Pro",
-   "raw": "16"
-  },
-  {
-   "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:Long_context",
-   "raw": "18"
+   "entry": "GGUF IQ2_XXS mix (ds4)",
+   "key": "bench:Total",
+   "raw": "106"
   },
   {
    "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
@@ -669,7 +753,7 @@
   {
    "repo": "Ar3ntiz/DeepSeek_V4_Flash_tcq",
    "entry": "GGUF IQ2_XXS mix (ds4)",
-   "key": "bench:Long_context",
+   "key": "bench:Long context",
    "raw": "19"
   },
   {
@@ -869,6 +953,12 @@
    "entry": "v1 (synthetic)",
    "key": "bench:cases_won_of_100",
    "raw": "38"
+  },
+  {
+   "repo": "ox-ox/DeepSeek-V4-Flash-0731-gguf-ds4",
+   "entry": "plain (no imatrix)",
+   "key": "ppl",
+   "raw": "4.848056"
   },
   {
    "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",

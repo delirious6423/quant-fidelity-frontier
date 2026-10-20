@@ -1,0 +1,260 @@
+{
+ "repo": "zlaabsi/Qwen3.8-27B-OTQ-GGUF",
+ "source_sha256": "d31ef7f9838391f453bfd70531106e4cb8ddf1f360b37b30ea98dfa4a045898c",
+ "candidates_sha256": "15a55e94113eddbac1a80aaecb0c5cbe3e98127a90820db2ce257743747cb254",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "BF16",
+  "dataset": "232 frozen prompts across 13 benchmark subsets",
+  "ctx": "not stated",
+  "tool": "llama.cpp; deterministic qwen3-no-think policy",
+  "L": [
+   110,
+   114,
+   172
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "Q4_K_M",
+   "panel": "Choose the language trunk",
+   "methodology": {
+    "reference": "BF16",
+    "dataset": "232 frozen prompts (paired set)",
+    "ctx": "not stated",
+    "tool": "deterministic qwen3-no-think policy",
+    "L": [
+     40,
+     110,
+     114
+    ]
+   },
+   "metrics": {
+    "bench:paired-pass-count": "c2.0",
+    "bench:paired-delta-pp": "c2.2"
+   },
+   "size": "c1",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "recommended default [L42]",
+    "measured CUDA column not mapped [L42]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Q5_K_M",
+   "panel": "Choose the language trunk",
+   "methodology": {
+    "reference": "BF16",
+    "dataset": "232 frozen prompts (paired set)",
+    "ctx": "not stated",
+    "tool": "deterministic qwen3-no-think policy",
+    "L": [
+     40,
+     110,
+     114
+    ]
+   },
+   "metrics": {
+    "bench:paired-pass-count": "c5.0",
+    "bench:paired-delta-pp": "c5.2"
+   },
+   "size": "c4",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "more precision variant [L43]",
+    "measured CUDA column not mapped [L43]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Q4_K_M",
+   "panel": "Paired BF16 quality",
+   "methodology": {
+    "reference": "BF16",
+    "dataset": "232 frozen prompts across 13 benchmark subsets",
+    "ctx": "not stated",
+    "tool": "deterministic qwen3-no-think policy",
+    "L": [
+     110,
+     114,
+     116
+    ]
+   },
+   "metrics": {
+    "bench:bf16-pass-count": "c28.0",
+    "bench:gguf-pass-count": "c28.1",
+    "bench:paired-delta-ci95": "c29"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "release gate passed [L118]",
+    "Q3 variant not published, not mapped [L45]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Q5_K_M",
+   "panel": "Paired BF16 quality",
+   "methodology": {
+    "reference": "BF16",
+    "dataset": "232 frozen prompts across 13 benchmark subsets",
+    "ctx": "not stated",
+    "tool": "deterministic qwen3-no-think policy",
+    "L": [
+     110,
+     114,
+     116
+    ]
+   },
+   "metrics": {
+    "bench:bf16-pass-count": "c32.0",
+    "bench:gguf-pass-count": "c32.1",
+    "bench:paired-delta-ci95": "c33"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "release gate passed [L119]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Q4_K_M",
+   "panel": "Exact per-benchmark counts",
+   "methodology": {
+    "reference": "BF16",
+    "dataset": "232 frozen prompts across 13 benchmark subsets",
+    "ctx": "not stated",
+    "tool": "deterministic qwen3-no-think policy",
+    "L": [
+     114,
+     122,
+     124
+    ]
+   },
+   "metrics": {
+    "bench:mmlu": "c36.0",
+    "bench:mmlu_pro": "c39.0",
+    "bench:arc": "c42.0",
+    "bench:hellaswag": "c44.0",
+    "bench:gsm8k": "c47.0",
+    "bench:math": "c50.0",
+    "bench:bbh": "c52.0",
+    "bench:gpqa": "c55.0",
+    "bench:truthfulqa": "c57.0",
+    "bench:winogrande": "c59.0",
+    "bench:drop": "c61.0",
+    "bench:piqa": "c63.0",
+    "bench:commonsenseqa": "c65.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "per-benchmark subset counts [L126-140]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Q5_K_M",
+   "panel": "Exact per-benchmark counts",
+   "methodology": {
+    "reference": "BF16",
+    "dataset": "232 frozen prompts across 13 benchmark subsets",
+    "ctx": "not stated",
+    "tool": "deterministic qwen3-no-think policy",
+    "L": [
+     114,
+     122,
+     124
+    ]
+   },
+   "metrics": {
+    "bench:mmlu": "c37.0",
+    "bench:mmlu_pro": "c40.0",
+    "bench:hellaswag": "c45.0",
+    "bench:gsm8k": "c48.0",
+    "bench:bbh": "c53.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "per-benchmark subset counts [L126-140]",
+    "Q5 cell matches the Q4 cell text for arc, math, gpqa, truthfulqa, winogrande, drop, piqa, commonsenseqa, not listed separately [L130-140]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Q4_K_M",
+   "panel": "MTP fast inference",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "not stated",
+    "ctx": "not stated",
+    "tool": "frozen A100 MTP search, exact greedy parity required",
+    "L": [
+     89,
+     91,
+     93
+    ]
+   },
+   "metrics": {
+    "bench:ordinary-decode-tok-s": "c16",
+    "bench:mtp-decode-tok-s": "c17",
+    "bench:mtp-speedup-pct": "c18.0",
+    "bench:mtp-acceptance-pct": "c18.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "exact parity output gate passed [L93]",
+    "acceptance rate in same cell as speedup [L93]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Q5_K_M",
+   "panel": "MTP fast inference",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "not stated",
+    "ctx": "not stated",
+    "tool": "frozen A100 MTP search, exact greedy parity required",
+    "L": [
+     89,
+     91,
+     93
+    ]
+   },
+   "metrics": {
+    "bench:ordinary-decode-tok-s": "c20"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "no MTP configuration published for this trunk [L94]"
+   ]
+  }
+ ],
+ "prose": []
+}

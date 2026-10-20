@@ -1,0 +1,22 @@
+{
+ "repo": "penkia/TernaryQuench-Qwen3.8-27B-MLX",
+ "source_sha256": "324b201ba1cf54a4092e03455d97520d35126b5b6b16d7e6d780b076f76bf801",
+ "candidates_sha256": "8d2dd181d0f5eb4fe8a0e69a15bb6c9ce1d10f037746a2180ad3dfc24ee11e8a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "WikiText-2 test sample (first 20,480 tokens in 40 independent chunks)", "ctx": "512-token chunks; second half = last 256 tokens of each chunk", "tool": "MLX", "L": [54, 62, 63]},
+ "entries": [
+  {"role": "own", "name": "TernaryQuench 27B", "panel": "Language-model quality",
+   "methodology": {"reference": "not stated", "dataset": "WikiText-2 test sample (first 20,480 tokens in 40 chunks of 512)", "ctx": "512-token chunks; second half = last 256 tokens", "tool": "MLX", "L": [54, 62, 63]},
+   "metrics": {"ppl:wikitext2": "c3", "bench:wikitext2_second_half_ppl": "c4"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["file size 10.53 GB [L42] and tensor total [L110] not mapped: no metric in those rows", "five-task table omitted: recorded results for the full-ternary training checkpoint, not this artifact [L68-70]", "Ternary-Bonsai-27B row omitted: different base model (Qwen3.6) [L60, L64]", "internal tool-use results not mapped: internal harness, not candidates [L86-95]", "ternary weights were trained from Qwen3.8-27B by reconstruction, described as compression [L115-119]"]},
+  {"role": "cross", "of": "not named on card", "name": "Qwen3.8-27B 4-bit", "panel": "Language-model quality",
+   "methodology": {"reference": "not stated", "dataset": "WikiText-2 test sample (first 20,480 tokens in 40 chunks of 512)", "ctx": "512-token chunks; second half = last 256 tokens", "tool": "MLX", "L": [54, 62, 63]},
+   "metrics": {"ppl:wikitext2": "c1", "bench:wikitext2_second_half_ppl": "c2"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["4-bit build of the base model, measured in this card's table; its repo is not named [L58]"]}
+ ],
+ "prose": []
+}

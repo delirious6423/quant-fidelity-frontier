@@ -1,12 +1,6 @@
 {
  "quarantined": [
   {
-   "repo": "leoncca/Qwen3.8-Flash-Next-AWQ-g32",
-   "kind": "ladder",
-   "entry": "previous release",
-   "reason": "failed a gate"
-  },
-  {
    "repo": "spectator2026/Qwen3.8-Flash-Next-W6-INT8-HQQ-g32",
    "kind": "ladder",
    "entry": "previous release (int6 experts, BF16 dense)",
@@ -25,27 +19,33 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
-   "kind": "variants",
-   "entry": "INT3 (this repository)",
-   "reason": "failed a gate"
-  },
-  {
    "repo": "leoncca/Qwen3.8-Flash-Next-AWQ-g32",
    "kind": "variants",
    "entry": "this release (AWQ g32, 2026-10-17)",
    "reason": "failed a gate"
   },
   {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
-   "kind": "variants",
-   "entry": "this release (4-bit)",
+   "repo": "SiliconSpecies/Qwen3.8-Flash-Next-EXL3-Ijah",
+   "kind": "cross",
+   "entry": "oMLX, Jundot oQ4e (4.72 bpw mixed)",
    "reason": "failed a gate"
   },
   {
    "repo": "Vemloir/Qwen3.8-Flash-Next-sc-exl3",
    "kind": "variants",
    "entry": "2026-10-16",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "leoncca/Qwen3.8-Flash-Next-AWQ-g32",
+   "kind": "ladder",
+   "entry": "previous release",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "SiliconSpecies/Qwen3.8-Flash-Next-EXL3-Ijah",
+   "kind": "variants",
+   "entry": "this pack (Ijah T6)",
    "reason": "failed a gate"
   }
  ],
@@ -73,18 +73,6 @@
    "entry": "table fully deleted (0/16)",
    "key": "ppl:wikitext",
    "raw": "4.80"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
-   "entry": "bf16 (two correct implementations against each other)",
-   "key": "mean_kld",
-   "raw": "0.0077"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
-   "entry": "bf16 (two correct implementations against each other)",
-   "key": "top1_pct",
-   "raw": "96.77 %"
   },
   {
    "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
@@ -117,28 +105,1048 @@
    "raw": "96.77 %"
   },
   {
+   "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF",
+   "entry": "BF16 base (354 GB)",
+   "key": "bench:SWE-bench_Verified",
+   "raw": "82.80"
+  },
+  {
+   "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF",
+   "entry": "BF16 base (354 GB)",
+   "key": "bench:LiveCodeBench_v6",
+   "raw": "87.43"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "temperature 1.0 (vendor)",
+   "key": "bench:everyday_correct",
+   "raw": "93.3 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "temperature 1.0 (vendor)",
+   "key": "bench:tail_correct",
+   "raw": "81.0 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "temperature 1.0 (vendor)",
+   "key": "bench:token_loops_of_72",
+   "raw": "0"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "temperature 0.6",
+   "key": "bench:everyday_correct",
+   "raw": "93.3 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "temperature 0.6",
+   "key": "bench:tail_correct",
+   "raw": "81.0 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "temperature 0.6",
+   "key": "bench:token_loops_of_72",
+   "raw": "0"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "temperature 0.45",
+   "key": "bench:everyday_correct",
+   "raw": "93.3 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "temperature 0.45",
+   "key": "bench:tail_correct",
+   "raw": "85.7 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "temperature 0.45",
+   "key": "bench:token_loops_of_72",
+   "raw": "0"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "temperature 0.3",
+   "key": "bench:everyday_correct",
+   "raw": "100 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "temperature 0.3",
+   "key": "bench:tail_correct",
+   "raw": "81.0 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "temperature 0.3",
+   "key": "bench:token_loops_of_72",
+   "raw": "2"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "bench:MTP_proposal_next_token",
+   "raw": "69.8 %"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:primary_strict_16",
+   "raw": "8"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:repeats_strict_4",
+   "raw": "1"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:repeats_lenient_4",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:F3_judged",
+   "raw": "All four scored 3/5 and failed the combined gate"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "bench:functional_5",
+   "raw": "5"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Balanced-PLE5",
+   "key": "bench:functional_5",
+   "raw": "5"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:functional_5",
+   "raw": "5"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:primary_strict_16",
+   "raw": "8"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:repeats_strict_4",
+   "raw": "1"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:repeats_lenient_4",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:primary_lenient_f1_16",
+   "raw": "9"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:F3_judged",
+   "raw": "All four scored 3/5 and failed the combined gate"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:primary_strict_16",
+   "raw": "7"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:repeats_strict_4",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:repeats_lenient_4",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:primary_lenient_f1_16",
+   "raw": "8"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:F3_judged",
+   "raw": "All four scored 3/5 and failed the combined gate"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:primary_strict_16",
+   "raw": "7"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:repeats_strict_4",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:repeats_lenient_4",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:primary_lenient_f1_16",
+   "raw": "8"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:F3_judged",
+   "raw": "All four scored 3/5 and failed the combined gate"
+  },
+  {
    "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
    "entry": "Balanced-PLE8",
-   "key": "kld_99",
-   "raw": "0.522"
+   "key": "bench:primary_strict_16",
+   "raw": "8"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:repeats_strict_4",
+   "raw": "1"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:repeats_lenient_4",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:F3_judged",
+   "raw": "all four scored 3/5"
   },
   {
    "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
    "entry": "Balanced-PLE4",
-   "key": "kld_99",
-   "raw": "0.594"
+   "key": "bench:functional_5",
+   "raw": "5"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:functional_5",
+   "raw": "5"
   },
   {
    "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
    "entry": "Quality-PLE4",
-   "key": "kld_99",
-   "raw": "0.600"
+   "key": "bench:functional_5",
+   "raw": "5"
   },
   {
    "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
-   "entry": "UD-Q4_K_XL (unsloth)",
-   "key": "kld_99",
-   "raw": "0.833"
+   "entry": "Quality-PLE8",
+   "key": "bench:primary_strict_16",
+   "raw": "8"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:repeats_strict_4",
+   "raw": "1"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:repeats_lenient_4",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:primary_lenient_f1_16",
+   "raw": "9"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:F3_judged",
+   "raw": "all four scored 3/5"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:primary_strict_16",
+   "raw": "7"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:repeats_strict_4",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:repeats_lenient_4",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:primary_lenient_f1_16",
+   "raw": "8"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:F3_judged",
+   "raw": "all four scored 3/5"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:primary_strict_16",
+   "raw": "7"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:repeats_strict_4",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:repeats_lenient_4",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:primary_lenient_f1_16",
+   "raw": "8"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:F3_judged",
+   "raw": "all four scored 3/5"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Balanced-PLE5",
+   "key": "bench:functional_5",
+   "raw": "5"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Max-PLE5",
+   "key": "bench:functional_5",
+   "raw": "5"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:functional_5",
+   "raw": "5"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Quality-PLE5",
+   "key": "bench:functional_5",
+   "raw": "5"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:functional_5",
+   "raw": "5"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "UD-Q4_K_XL-PLE8",
+   "key": "bench:functional_5",
+   "raw": "5"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:AgentSweep_Primary16_strict",
+   "raw": "7"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:AgentSweep_Primary16_lenient_F1",
+   "raw": "8"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:AgentSweep_Repeats4_strict",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:AgentSweep_Repeats4_lenient",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:BlindSVG_mean_of_5",
+   "raw": "3.62"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:AgentSweep_Primary16_strict",
+   "raw": "8"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:AgentSweep_Primary16_lenient_F1",
+   "raw": "9"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:AgentSweep_Repeats4_strict",
+   "raw": "1"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:AgentSweep_Repeats4_lenient",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:AgentSweep_Primary16_strict",
+   "raw": "8"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:AgentSweep_Repeats4_strict",
+   "raw": "1"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:AgentSweep_Repeats4_lenient",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:AgentSweep_Primary16_strict",
+   "raw": "7"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:AgentSweep_Primary16_lenient_F1",
+   "raw": "8"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:AgentSweep_Repeats4_strict",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:AgentSweep_Repeats4_lenient",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:BlindSVG_mean_of_5",
+   "raw": "3.67"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:Coding_of_320",
+   "raw": "278.35"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:BlindSVG_mean_of_5",
+   "raw": "3.49"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "UD-Q4_K_XL (original IQ4_NL table)",
+   "key": "bench:BlindSVG_mean_of_5",
+   "raw": "3.60"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "UD-Q4_K_XL (original IQ4_NL table)",
+   "key": "bench:Coding_of_320",
+   "raw": "278.68"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "mean_kld",
+   "raw": "0.013270"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "ppl_ratio",
+   "raw": "1.001775"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Balanced-PLE5",
+   "key": "mean_kld",
+   "raw": "0.013727"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Balanced-PLE5",
+   "key": "ppl_ratio",
+   "raw": "1.001645"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "mean_kld",
+   "raw": "0.014940"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "ppl_ratio",
+   "raw": "1.000898"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Max-PLE8",
+   "key": "mean_kld",
+   "raw": "0.012537"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Max-PLE8",
+   "key": "ppl_ratio",
+   "raw": "1.001522"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Max-PLE5",
+   "key": "mean_kld",
+   "raw": "0.012848"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Max-PLE5",
+   "key": "ppl_ratio",
+   "raw": "1.000912"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "mean_kld",
+   "raw": "0.021037"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "ppl_ratio",
+   "raw": "1.004707"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "top1_pct",
+   "raw": "95.844"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Balanced-PLE5",
+   "key": "top1_pct",
+   "raw": "95.754"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "top1_pct",
+   "raw": "95.609"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Max-PLE8",
+   "key": "top1_pct",
+   "raw": "95.918"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Max-PLE5",
+   "key": "top1_pct",
+   "raw": "95.863"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "UD-Q4_K_XL-PLE8",
+   "key": "top1_pct",
+   "raw": "94.807"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:AgentSweep_Primary16_strict",
+   "raw": "8"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:AgentSweep_Primary16_lenient_F1",
+   "raw": "9"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:AgentSweep_Repeats4_strict",
+   "raw": "1"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:AgentSweep_Repeats4_lenient",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:AgentSweep_Primary16_strict",
+   "raw": "8"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:AgentSweep_Repeats4_strict",
+   "raw": "1"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:AgentSweep_Repeats4_lenient",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:AgentSweep_Primary16_strict",
+   "raw": "7"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:AgentSweep_Primary16_lenient_F1",
+   "raw": "8"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:AgentSweep_Repeats4_strict",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:AgentSweep_Repeats4_lenient",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:AgentSweep_Primary16_strict",
+   "raw": "7"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:AgentSweep_Primary16_lenient_F1",
+   "raw": "8"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:AgentSweep_Repeats4_strict",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:AgentSweep_Repeats4_lenient",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:BlindSVG_mean_of_5",
+   "raw": "3.67"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:Coding_of_320",
+   "raw": "278.35"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:BlindSVG_mean_of_5",
+   "raw": "3.49"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:BlindSVG_mean_of_5",
+   "raw": "3.62"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "UD-Q4_K_XL (original IQ4_NL table)",
+   "key": "bench:BlindSVG_mean_of_5",
+   "raw": "3.60"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "UD-Q4_K_XL (original IQ4_NL table)",
+   "key": "bench:Coding_of_320",
+   "raw": "278.68"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "mean_kld",
+   "raw": "0.012613"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "ppl_ratio",
+   "raw": "1.000487"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Quality-PLE5",
+   "key": "mean_kld",
+   "raw": "0.013128"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Quality-PLE5",
+   "key": "ppl_ratio",
+   "raw": "1.001136"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Quality-PLE5",
+   "key": "top1_pct",
+   "raw": "95.850"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "mean_kld",
+   "raw": "0.014330"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "ppl_ratio",
+   "raw": "1.000863"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "mean_kld",
+   "raw": "0.013270"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "ppl_ratio",
+   "raw": "1.001775"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Balanced-PLE5",
+   "key": "mean_kld",
+   "raw": "0.013727"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Balanced-PLE5",
+   "key": "ppl_ratio",
+   "raw": "1.001645"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Balanced-PLE5",
+   "key": "top1_pct",
+   "raw": "95.754"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "mean_kld",
+   "raw": "0.014940"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "ppl_ratio",
+   "raw": "1.000898"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Max-PLE8",
+   "key": "mean_kld",
+   "raw": "0.012537"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Max-PLE8",
+   "key": "ppl_ratio",
+   "raw": "1.001522"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Max-PLE5",
+   "key": "mean_kld",
+   "raw": "0.012848"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Max-PLE5",
+   "key": "ppl_ratio",
+   "raw": "1.000912"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Max-PLE5",
+   "key": "top1_pct",
+   "raw": "95.863"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "top1_pct",
+   "raw": "95.928"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Quality-PLE5",
+   "key": "top1_pct",
+   "raw": "95.850"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "top1_pct",
+   "raw": "95.844"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Balanced-PLE5",
+   "key": "top1_pct",
+   "raw": "95.754"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "top1_pct",
+   "raw": "95.609"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Max-PLE8",
+   "key": "top1_pct",
+   "raw": "95.918"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Max-PLE5",
+   "key": "top1_pct",
+   "raw": "95.863"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:primary_strict_16",
+   "raw": "8"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:repeats_strict_4",
+   "raw": "1"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:primary_lenient_f1_16",
+   "raw": "9"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:repeats_lenient_4",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:F3_judged",
+   "raw": "All four scored 3/5 and failed the combined gate"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:primary_strict_16",
+   "raw": "8"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:repeats_strict_4",
+   "raw": "1"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:repeats_lenient_4",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:F3_judged",
+   "raw": "All four scored 3/5 and failed the combined gate"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:primary_strict_16",
+   "raw": "7"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:repeats_strict_4",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:primary_lenient_f1_16",
+   "raw": "8"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:repeats_lenient_4",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:F3_judged",
+   "raw": "All four scored 3/5 and failed the combined gate"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:primary_strict_16",
+   "raw": "7"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:repeats_strict_4",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:primary_lenient_f1_16",
+   "raw": "8"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:repeats_lenient_4",
+   "raw": "2"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "bench:F3_judged",
+   "raw": "All four scored 3/5 and failed the combined gate"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "UD-Q4_K_XL-PLE8",
+   "key": "bench:functional_5",
+   "raw": "5"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Original UD-Q4_K_XL, IQ4_NL table",
+   "key": "bench:coding",
+   "raw": "278.68/320"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-UD-Q4_K_XL-PLE8-GGUF",
+   "entry": "Original UD-Q4_K_XL, IQ4_NL table",
+   "key": "bench:blind_svg",
+   "raw": "blind SVG 3.60/5"
   },
   {
    "repo": "Vemloir/Qwen3.8-Flash-Next-sc-exl3",
@@ -151,6 +1159,84 @@
    "entry": "4.05bpw_sc_h8_ng8",
    "key": "kld:multilingual",
    "raw": "0.00543"
+  },
+  {
+   "repo": "alesha-pro/Qwen3.8-Flash-Next-S-abliterated-Strata-GGUF",
+   "entry": "S, vector",
+   "key": "bench:advbench_refusals",
+   "raw": "1"
+  },
+  {
+   "repo": "alesha-pro/Qwen3.8-Flash-Next-S-abliterated-Strata-GGUF",
+   "entry": "S, vector",
+   "key": "bench:jailbreakbench_refusals",
+   "raw": "1"
+  },
+  {
+   "repo": "alesha-pro/Qwen3.8-Flash-Next-S-abliterated-Strata-GGUF",
+   "entry": "S, vector",
+   "key": "bench:alpaca_harmless_refusals",
+   "raw": "0"
+  },
+  {
+   "repo": "alesha-pro/Qwen3.8-Flash-Next-S-abliterated-Strata-GGUF",
+   "entry": "S, stock",
+   "key": "bench:advbench_refusals",
+   "raw": "64"
+  },
+  {
+   "repo": "alesha-pro/Qwen3.8-Flash-Next-S-abliterated-Strata-GGUF",
+   "entry": "S, stock",
+   "key": "bench:jailbreakbench_refusals",
+   "raw": "77"
+  },
+  {
+   "repo": "alesha-pro/Qwen3.8-Flash-Next-S-abliterated-Strata-GGUF",
+   "entry": "S, stock",
+   "key": "bench:alpaca_harmless_refusals",
+   "raw": "1"
+  },
+  {
+   "repo": "alesha-pro/Qwen3.8-Flash-Next-S-abliterated-Strata-GGUF",
+   "entry": "S-small, stock",
+   "key": "bench:advbench_refusals",
+   "raw": "63"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "fast/",
+   "key": "kld:wikitext-2",
+   "raw": "bf16 0.39 on wikitext-2"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "precise/",
+   "key": "bench:GSM8K_correct_of_150",
+   "raw": "148"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "precise/",
+   "key": "bench:MMLU-Pro_correct_of_150",
+   "raw": "126"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "best/",
+   "key": "bench:GSM8K_correct_of_150",
+   "raw": "149"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "best/",
+   "key": "bench:MMLU-Pro_correct_of_150",
+   "raw": "128"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "fast/",
+   "key": "bench:MMLU-Pro_correct_of_150",
+   "raw": "121"
   },
   {
    "repo": "infosave/Qwen3.8-Flash-Next-cmf",
@@ -173,18 +1259,6 @@
   {
    "repo": "nace-ai/Qwen3.8-Flash-Next-MLX-4bit",
    "entry": "bf16 weights, bf16 activations (noise floor)",
-   "key": "mean_kld",
-   "raw": "0.024"
-  },
-  {
-   "repo": "nace-ai/Qwen3.8-Flash-Next-MLX-4bit",
-   "entry": "bf16 weights, bf16 activations (noise floor)",
-   "key": "top1_pct",
-   "raw": "94.6%"
-  },
-  {
-   "repo": "nace-ai/Qwen3.8-Flash-Next-MLX-4bit",
-   "entry": "bf16 weights, bf16 activations (noise floor)",
    "key": "ppl",
    "raw": "4.021"
   },
@@ -199,9 +1273,730 @@
    "entry": "xv0y5ncu/Qwen3.8-Flash-Next-GLQ-trellis-3inst-3bpw-ple4",
    "key": "bench:AIME-2026",
    "raw": "AIME-2026 avg@8 = 99.58%"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "top1_pct",
+   "raw": "95.844"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:blind_svg",
+   "raw": "3.49"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "top1_pct",
+   "raw": "95.844"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Max-PLE8",
+   "key": "top1_pct",
+   "raw": "95.918"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:blind_svg",
+   "raw": "3.62"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Max-PLE8",
+   "key": "top1_pct",
+   "raw": "95.918"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "top1_pct",
+   "raw": "95.609"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "top1_pct",
+   "raw": "95.609"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:general",
+   "raw": "0.309"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:general",
+   "raw": "86.60 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:reasoning_traces",
+   "raw": "0.159"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:reasoning_traces",
+   "raw": "89.71 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:tool_conversations",
+   "raw": "0.653"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:tool_conversations",
+   "raw": "80.95 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:office_finance_math",
+   "raw": "0.132"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:office_finance_math",
+   "raw": "91.02 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:model_written_traces",
+   "raw": "0.197"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:model_written_traces",
+   "raw": "87.97 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:agent_sessions",
+   "raw": "0.813"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:agent_sessions",
+   "raw": "71.52 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:general",
+   "raw": "0.309"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:general",
+   "raw": "86.60 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:reasoning_traces",
+   "raw": "0.159"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:reasoning_traces",
+   "raw": "89.71 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:tool_conversations",
+   "raw": "0.653"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:tool_conversations",
+   "raw": "80.95 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:office_finance_math",
+   "raw": "0.132"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:office_finance_math",
+   "raw": "91.02 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:model_written_traces",
+   "raw": "0.197"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:model_written_traces",
+   "raw": "87.97 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:agent_sessions",
+   "raw": "0.813"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:agent_sessions",
+   "raw": "71.52 %"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Max-PLE8",
+   "key": "top1_pct",
+   "raw": "95.918"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Max-PLE8",
+   "key": "top1_pct",
+   "raw": "95.918"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
+  },
+  {
+   "repo": "Ar3ntiz/qwen3.8_flash_next_side8",
+   "entry": "GGUF Q4 (ds4)",
+   "key": "mean_kld",
+   "raw": "0.061"
+  },
+  {
+   "repo": "Ar3ntiz/qwen3.8_flash_next_side8",
+   "entry": "GGUF Q4 (ds4)",
+   "key": "bench:total",
+   "raw": "99"
+  },
+  {
+   "repo": "Ar3ntiz/qwen3.8_flash_next_side8",
+   "entry": "GGUF Q4 (ds4)",
+   "key": "bench:gsm8k",
+   "raw": "18"
+  },
+  {
+   "repo": "Ar3ntiz/qwen3.8_flash_next_side8",
+   "entry": "GGUF Q4 (ds4)",
+   "key": "bench:math",
+   "raw": "16"
+  },
+  {
+   "repo": "Ar3ntiz/qwen3.8_flash_next_side8",
+   "entry": "GGUF Q4 (ds4)",
+   "key": "bench:mmlu_pro",
+   "raw": "7"
+  },
+  {
+   "repo": "Ar3ntiz/qwen3.8_flash_next_side8",
+   "entry": "GGUF Q4 (ds4)",
+   "key": "bench:arc_c",
+   "raw": "19"
+  },
+  {
+   "repo": "Ar3ntiz/qwen3.8_flash_next_side8",
+   "entry": "GGUF Q4 (ds4)",
+   "key": "bench:long_context",
+   "raw": "20"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "top1_pct",
+   "raw": "95.928"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "top1_pct",
+   "raw": "95.928"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "top1_pct",
+   "raw": "95.844"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "top1_pct",
+   "raw": "95.844"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
+   "entry": "INT3 (this repository)",
+   "key": "kld:long-v1",
+   "raw": "0.0561"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
+   "entry": "INT3 (this repository)",
+   "key": "top1:long-v1",
+   "raw": "90.39"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
+   "entry": "INT3 (this repository)",
+   "key": "kld:long-v1",
+   "raw": "0.0561"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
+   "entry": "INT3 (this repository)",
+   "key": "top1:long-v1",
+   "raw": "90.39"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "top1_pct",
+   "raw": "95.609"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "top1_pct",
+   "raw": "95.609"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "mean_kld",
+   "raw": "0.012613"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "ppl_ratio",
+   "raw": "1.000487"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "top1_pct",
+   "raw": "95.928"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "mean_kld",
+   "raw": "0.0306"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "top1_pct",
+   "raw": "93.36 %"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "kld:long-v1",
+   "raw": "0.0307"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "top1:long-v1",
+   "raw": "92.75"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "mean_kld",
+   "raw": "0.0306"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "top1_pct",
+   "raw": "93.36 %"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "kld:long-v1",
+   "raw": "0.0307"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "top1:long-v1",
+   "raw": "92.75"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "top1_pct",
+   "raw": "95.844"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "top1_pct",
+   "raw": "95.844"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "top1_pct",
+   "raw": "95.928"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "top1_pct",
+   "raw": "95.928"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "top1_pct",
+   "raw": "95.609"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "top1_pct",
+   "raw": "95.609"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Max-PLE8",
+   "key": "mean_kld",
+   "raw": "0.012537"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Max-PLE8",
+   "key": "ppl_ratio",
+   "raw": "1.001522"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Max-PLE8",
+   "key": "top1_pct",
+   "raw": "95.918"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "top1_pct",
+   "raw": "95.928"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:coding",
+   "raw": "278.35"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "top1_pct",
+   "raw": "95.928"
   }
  ],
  "resolved_disagreements": [],
  "resolved_repos": 0,
- "tiebroken": []
+ "tiebroken": [
+  {
+   "repo": "Ar3ntiz/qwen3.8_flash_next_side8",
+   "entry": "SUC1 side8 (this model)",
+   "key": "mean_kld",
+   "raw": "0.060"
+  },
+  {
+   "repo": "Ar3ntiz/qwen3.8_flash_next_side8",
+   "entry": "SUC1 side8 (chunk 64)",
+   "key": "bench:total",
+   "raw": "100"
+  },
+  {
+   "repo": "Ar3ntiz/qwen3.8_flash_next_side8",
+   "entry": "SUC1 side8 (chunk 64)",
+   "key": "bench:gsm8k",
+   "raw": "17"
+  },
+  {
+   "repo": "Ar3ntiz/qwen3.8_flash_next_side8",
+   "entry": "SUC1 side8 (chunk 64)",
+   "key": "bench:math",
+   "raw": "15"
+  },
+  {
+   "repo": "Ar3ntiz/qwen3.8_flash_next_side8",
+   "entry": "SUC1 side8 (chunk 64)",
+   "key": "bench:mmlu_pro",
+   "raw": "8"
+  },
+  {
+   "repo": "Ar3ntiz/qwen3.8_flash_next_side8",
+   "entry": "SUC1 side8 (chunk 64)",
+   "key": "bench:arc_c",
+   "raw": "20"
+  },
+  {
+   "repo": "Ar3ntiz/qwen3.8_flash_next_side8",
+   "entry": "MLX affine 4-bit",
+   "key": "mean_kld",
+   "raw": "0.202"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
+   "entry": "bf16 (two correct implementations against each other)",
+   "key": "mean_kld",
+   "raw": "0.0077"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
+   "entry": "bf16 (two correct implementations against each other)",
+   "key": "top1_pct",
+   "raw": "96.77 %"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Balanced-PLE5",
+   "key": "top1_pct",
+   "raw": "95.754"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Quality-PLE5",
+   "key": "top1_pct",
+   "raw": "95.850"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Max-PLE5",
+   "key": "top1_pct",
+   "raw": "95.863"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "top1_pct",
+   "raw": "94.807"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "UD-Q4_K_XL (original IQ4_NL table)",
+   "key": "bench:blind_svg",
+   "raw": "3.60"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "UD-Q4_K_XL (original IQ4_NL table)",
+   "key": "bench:coding",
+   "raw": "278.68"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Quality-PLE5",
+   "key": "mean_kld",
+   "raw": "0.013128"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Quality-PLE5",
+   "key": "ppl_ratio",
+   "raw": "1.001136"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Quality-PLE5",
+   "key": "top1_pct",
+   "raw": "95.850"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Balanced-PLE5",
+   "key": "mean_kld",
+   "raw": "0.013727"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Balanced-PLE5",
+   "key": "ppl_ratio",
+   "raw": "1.001645"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Balanced-PLE5",
+   "key": "top1_pct",
+   "raw": "95.754"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Max-PLE5",
+   "key": "mean_kld",
+   "raw": "0.012848"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Max-PLE5",
+   "key": "ppl_ratio",
+   "raw": "1.000912"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Max-PLE5",
+   "key": "top1_pct",
+   "raw": "95.863"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "mean_kld",
+   "raw": "0.021037"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "ppl_ratio",
+   "raw": "1.004707"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "key": "top1_pct",
+   "raw": "94.807"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "UD-Q4_K_XL-PLE8",
+   "key": "top1_pct",
+   "raw": "94.807"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Max-PLE5",
+   "key": "top1_pct",
+   "raw": "95.863"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Quality-PLE5",
+   "key": "top1_pct",
+   "raw": "95.850"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Balanced-PLE5",
+   "key": "top1_pct",
+   "raw": "95.754"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Quality-PLE5",
+   "key": "top1_pct",
+   "raw": "95.850"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-Flash-Next-Gyro-GGUF",
+   "entry": "Gyro-S",
+   "key": "kld:code",
+   "raw": "0.109 (code)"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-Flash-Next-Gyro-GGUF",
+   "entry": "Gyro-M",
+   "key": "kld:code",
+   "raw": "0.066 (code)"
+  },
+  {
+   "repo": "agentionai/Qwen3.8-Flash-Next-Gyro-GGUF",
+   "entry": "Gyro-L",
+   "key": "kld:code",
+   "raw": "0.027 (code)"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "best/",
+   "key": "kld:wikitext-2",
+   "raw": "0.165"
+  },
+  {
+   "repo": "nace-ai/Qwen3.8-Flash-Next-MLX-4bit",
+   "entry": "bf16 weights, bf16 activations (noise floor)",
+   "key": "mean_kld",
+   "raw": "0.024"
+  },
+  {
+   "repo": "nace-ai/Qwen3.8-Flash-Next-MLX-4bit",
+   "entry": "bf16 weights, bf16 activations (noise floor)",
+   "key": "top1_pct",
+   "raw": "94.6%"
+  }
+ ]
 }

@@ -1,0 +1,21 @@
+{"repo": "ox-ox/DeepSeek-V4-Flash-0731-gguf-ds4",
+ "source_sha256": "5f3d65570bacda0ef01027bfa001250fe4b4c333ec543cd9e323e93aa054ecdf",
+ "candidates_sha256": "2165c5ab9f7fbc80782c34bee30bf031d3f7f16d16d101f57223a15d640895a7",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "plain build (no imatrix) as the comparison", "dataset": "wikitext-2 raw test split, first 300 KB", "ctx": "single context window per run, teacher-forced", "tool": "ds4 --perplexity-file", "L": [298, 315, 318]},
+ "entries": [
+   {"role": "own",
+    "name": "DeepSeek-V4-Flash-0731-Layers37-42Q4KExperts-OtherExpertLayersIQ2XXSGateUp-Q2KDown-AProjQ8-SExpQ8-OutQ8-chat-v2.gguf",
+    "metrics": {"ppl:wikitext2-ctx512": "c7", "ppl:wikitext2-ctx8192": "c13", "ppl:wikitext2-ctx32768": "c19"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["plain build without imatrix, the intermediate the imatrix was collected on [L95-100]", "file size in Files table, not in the perplexity rows [L91]", "perplexity is not comparable to published wikitext perplexities [L329-332]"]},
+   {"role": "own",
+    "name": "DeepSeek-V4-Flash-0731-Layers37-42Q4KExperts-OtherExpertLayersIQ2XXSGateUp-Q2KDown-AProjQ8-SExpQ8-OutQ8-chat-v2-imatrix.gguf",
+    "metrics": {"ppl:wikitext2-ctx512": "c8", "ppl:wikitext2-ctx8192": "c14", "ppl:wikitext2-ctx32768": "c20", "ppl_delta_pct:wikitext2-ctx512": "c9", "ppl_delta_pct:wikitext2-ctx8192": "c15", "ppl_delta_pct:wikitext2-ctx32768": "c21"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["delta is imatrix build against plain build [L298-302]", "significance values not mapped [L300-302]", "file size in Files table, not in the perplexity rows [L92]", "speed and memory figures not mapped [L428-442]"]}
+ ],
+ "prose": []
+}

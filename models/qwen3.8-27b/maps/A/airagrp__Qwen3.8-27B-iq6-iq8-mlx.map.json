@@ -1,0 +1,107 @@
+{
+  "repo": "airagrp/Qwen3.8-27B-iq6-iq8-mlx",
+  "source_sha256": "193bb69af4226dc31ba787a6d4e7be806ef6f73229c494d704f3f3c987ad74fa",
+  "candidates_sha256": "168d169dda14bd1edd8fdb32637ccfe0bae0a2b705768a7ea94e6308e2af6386",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "bf16", "dataset": "wikitext2-test, 145×2048 windows", "ctx": "2048 tokens per window", "tool": "not stated", "L": [54]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "this (M)",
+      "panel": "Quality (wikitext2-test, 145×2048 windows)",
+      "methodology": {"reference": "bf16", "dataset": "wikitext2-test, 145×2048 windows", "ctx": "2048 tokens per window", "tool": "not stated", "L": [54]},
+      "metrics": {"ppl:wikitext2": "c11", "ppl_delta_pct": "c12"},
+      "size": "c15",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "KLD in bits/token (0.0050) not mapped: unit is not in the key set [L59]",
+        "wSSE vs stock quant not mapped: no matching key [L59]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Qwen3.8-27B-iq4-iq6-mlx (S)",
+      "panel": "Quality (wikitext2-test, 145×2048 windows)",
+      "methodology": {"reference": "bf16", "dataset": "wikitext2-test, 145×2048 windows", "ctx": "2048 tokens per window", "tool": "not stated", "L": [54]},
+      "metrics": {"ppl:wikitext2": "c16", "ppl_delta_pct": "c17"},
+      "size": "c20",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["KLD in bits/token and wSSE vs stock quant not mapped: unit or key not in the key set [L60]"]
+    },
+    {
+      "role": "cross",
+      "name": "bf16 reference",
+      "panel": "Quality (wikitext2-test, 145×2048 windows)",
+      "methodology": {"reference": "bf16", "dataset": "wikitext2-test, 145×2048 windows", "ctx": "2048 tokens per window", "tool": "not stated", "L": [54]},
+      "of": "Qwen/Qwen3.8-27B",
+      "metrics": {"ppl:wikitext2": "c9"},
+      "size": "c10",
+      "unit": "GiB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": []
+    },
+    {
+      "role": "own",
+      "name": "this (M)",
+      "panel": "Intelligence benchmark",
+      "methodology": {"reference": "not stated", "dataset": "MMLU 200, ARC-Challenge 200, GSM8K 100 (stratified, frozen seed 731)", "ctx": "not stated", "tool": "oMLX, 8-way concurrent client, temp 0, reasoning_effort xhigh, strict FINAL: extraction, DFlash2 drafter block 7", "L": [64, 65, 66, 67]},
+      "metrics": {
+        "bench:MMLU": "c21",
+        "bench:ARC-Challenge": "c22",
+        "bench:GSM8K": "c23",
+        "bench:total (500-item aggregate)": "c24"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Derived 98.6% of bf16 accuracy retained (prose) not mapped: no matching key [L26]",
+        "Generation tok/s and median wall time not mapped: no matching key [L71]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "Qwen3.8-27B-iq4-iq6-mlx (S)",
+      "panel": "Intelligence benchmark",
+      "methodology": {"reference": "not stated", "dataset": "MMLU 200, ARC-Challenge 200, GSM8K 100 (stratified, frozen seed 731)", "ctx": "not stated", "tool": "oMLX, 8-way concurrent client, temp 0, reasoning_effort xhigh, strict FINAL: extraction, DFlash2 drafter block 7", "L": [64, 65, 66, 67]},
+      "metrics": {
+        "bench:MMLU": "c27",
+        "bench:ARC-Challenge": "c28",
+        "bench:GSM8K": "c29",
+        "bench:total (500-item aggregate)": "c30"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Generation tok/s and median wall time not mapped: no matching key [L72]"]
+    },
+    {
+      "role": "cross",
+      "name": "bf16",
+      "panel": "Intelligence benchmark",
+      "methodology": {"reference": "not stated", "dataset": "MMLU 200, ARC-Challenge 200, GSM8K 100 (stratified, frozen seed 731)", "ctx": "not stated", "tool": "oMLX, 8-way concurrent client, temp 0, reasoning_effort xhigh, strict FINAL: extraction, DFlash2 drafter block 7", "L": [64, 65, 66, 67]},
+      "of": "Qwen/Qwen3.8-27B",
+      "metrics": {
+        "bench:MMLU": "c34",
+        "bench:ARC-Challenge": "c35",
+        "bench:GSM8K": "c36",
+        "bench:total (500-item aggregate)": "c37"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Generation tok/s and median wall time not mapped: no matching key [L73]"]
+    }
+  ],
+  "prose": []
+}

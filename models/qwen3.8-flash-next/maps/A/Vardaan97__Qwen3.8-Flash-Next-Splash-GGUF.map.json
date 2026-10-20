@@ -1,16 +1,842 @@
 {
  "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+ "source_sha256": "7398a7dc044ba57576a23074a613d2fbc780e14a75769f47e16d516bc1262291",
+ "candidates_sha256": "88f629ee0e726bb033faf51a0cc4778e01f0cb9c12aed2df54f81314b2c7a2a9",
  "no_quality_claims": false,
  "no_claims_reason": "",
  "weights_modified": false,
- "method": {"reference": "AtomicChat BF16 reference logits", "dataset": "AtomicChat held-out multilingual prose text", "ctx": "fixed-length chunks", "tool": "GGUF reference perplexity/KL-divergence tool, Metal backend", "L": [117, 118, 119, 121, 122]},
+ "method": {
+  "reference": "BF16 reference, neutral text (KLD); not stated for the agent sweep",
+  "dataset": "87 x 4096-token neutral chunks (KLD); 16 deterministic agent tasks (sweep)",
+  "ctx": "4096 (KLD); 131072 working context (sweep)",
+  "tool": "Splash agent harness (sweep); Splash bench #468 (E2E)",
+  "L": [
+   127,
+   153,
+   191
+  ]
+ },
  "entries": [
-  {"role": "own", "name": "Balanced-PLE8", "metrics": {"mean_kld": "c5", "top1_pct": "c6", "kld_99": "c7", "ppl_ratio": "c105.0"}, "size": "c2", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["download of all parts [L42]", "99.9 % KLD column [L42]", "perplexity ratio [L134]"]},
-  {"role": "own", "name": "Balanced-PLE4", "metrics": {"mean_kld": "c13", "top1_pct": "c14", "kld_99": "c15"}, "size": "c10", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["download of all parts [L43]", "99.9 % KLD column [L43]"]},
-  {"role": "own", "name": "Quality-PLE4", "metrics": {"mean_kld": "c21", "top1_pct": "c22", "kld_99": "c23"}, "size": "c18", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["download of all parts [L44]", "99.9 % KLD column [L44]", "speed not timed with the card protocol [L44]"]},
-  {"role": "cross", "of": "not named on card", "name": "UD-Q4_K_XL (unsloth)", "metrics": {"mean_kld": "c29", "top1_pct": "c30", "kld_99": "c31"}, "size": "c26", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["for reference, measured the same way [L33]", "99.9 % KLD column [L45]"]}
+  {
+   "role": "ladder",
+   "name": "Quality-PLE8",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference, same for all rows",
+    "dataset": "neutral text, 87 x 4096-token chunks, 178089 scored tokens",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     153
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c54",
+    "ppl_ratio": "c56"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "Quality-PLE5",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference, same for all rows",
+    "dataset": "neutral text, 87 x 4096-token chunks, 178089 scored tokens",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     153
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c57",
+    "ppl_ratio": "c59",
+    "top1_pct": "c60.4"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "top-1 taken from the Status cell [L158-165]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Quality-PLE4",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference, same for all rows",
+    "dataset": "neutral text, 87 x 4096-token chunks, 178089 scored tokens",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     153
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c61",
+    "ppl_ratio": "c63"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE8",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference, same for all rows",
+    "dataset": "neutral text, 87 x 4096-token chunks, 178089 scored tokens",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     153
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c64",
+    "ppl_ratio": "c66"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "Balanced-PLE5",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference, same for all rows",
+    "dataset": "neutral text, 87 x 4096-token chunks, 178089 scored tokens",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     153
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c67",
+    "ppl_ratio": "c69",
+    "top1_pct": "c70.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "top-1 taken from the Status cell [L158-165]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE4",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference, same for all rows",
+    "dataset": "neutral text, 87 x 4096-token chunks, 178089 scored tokens",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     153
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c71",
+    "ppl_ratio": "c73"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "Max-PLE8",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference, same for all rows",
+    "dataset": "neutral text, 87 x 4096-token chunks, 178089 scored tokens",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     153
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c74",
+    "ppl_ratio": "c76"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "Max-PLE5",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference, same for all rows",
+    "dataset": "neutral text, 87 x 4096-token chunks, 178089 scored tokens",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     153
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c77",
+    "ppl_ratio": "c79",
+    "top1_pct": "c80.4"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "top-1 taken from the Status cell [L158-165]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "UD-Q4_K_XL + Q8 table",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference, same for all rows",
+    "dataset": "neutral text, 87 x 4096-token chunks, 178089 scored tokens",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     153
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c81",
+    "ppl_ratio": "c83",
+    "top1_pct": "c84.4"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "top-1 taken from the Status cell [L158-165]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Original UD-Q4_K_XL, IQ4_NL table",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference, same for all rows",
+    "dataset": "neutral text, 87 x 4096-token chunks, 178089 scored tokens",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     153
+    ]
+   },
+   "of": "not named on card",
+   "metrics": {
+    "mean_kld": "c85",
+    "ppl_ratio": "c87"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "unsloth's original body with its IQ4_NL table, measured with the same scorer [L166]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Quality-PLE8",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference, same neutral protocol",
+    "dataset": "neutral text, 87 x 4096-token chunks",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     153,
+     213
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c148"
+   },
+   "size": "c143",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target download GB; excludes the separate MTP head, projector and importance matrix [L195]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Quality-PLE5",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference, same neutral protocol",
+    "dataset": "neutral text, 87 x 4096-token chunks",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     153,
+     213
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c155"
+   },
+   "size": "c150",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target download GB; excludes the separate MTP head, projector and importance matrix [L195]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Quality-PLE4",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference, same neutral protocol",
+    "dataset": "neutral text, 87 x 4096-token chunks",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     153,
+     213
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c162"
+   },
+   "size": "c157",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target download GB; excludes the separate MTP head, projector and importance matrix [L195]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE8",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference, same neutral protocol",
+    "dataset": "neutral text, 87 x 4096-token chunks",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     153,
+     213
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c169"
+   },
+   "size": "c164",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target download GB; excludes the separate MTP head, projector and importance matrix [L195]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Balanced-PLE5",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference, same neutral protocol",
+    "dataset": "neutral text, 87 x 4096-token chunks",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     153,
+     213
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c176"
+   },
+   "size": "c171",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target download GB; excludes the separate MTP head, projector and importance matrix [L195]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE4",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference, same neutral protocol",
+    "dataset": "neutral text, 87 x 4096-token chunks",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     153,
+     213
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c183"
+   },
+   "size": "c178",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target download GB; excludes the separate MTP head, projector and importance matrix [L195]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Max-PLE8",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference, same neutral protocol",
+    "dataset": "neutral text, 87 x 4096-token chunks",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     153,
+     213
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c190"
+   },
+   "size": "c185",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target download GB; excludes the separate MTP head, projector and importance matrix [L195]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Max-PLE5",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference, same neutral protocol",
+    "dataset": "neutral text, 87 x 4096-token chunks",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     153,
+     213
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c197"
+   },
+   "size": "c192",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target download GB; excludes the separate MTP head, projector and importance matrix [L195]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "UD-Q4_K_XL-PLE8",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference, same neutral protocol",
+    "dataset": "neutral text, 87 x 4096-token chunks",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     153,
+     213
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c204"
+   },
+   "size": "c199",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target download GB; excludes the separate MTP head, projector and importance matrix [L195]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Quality-PLE8",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "16 deterministically graded tasks from public benchmarks, one trial each",
+    "ctx": "131072-token working context",
+    "tool": "sandboxed agent harness on Splash 0beba3b2",
+    "L": [
+     127,
+     145
+    ]
+   },
+   "metrics": {
+    "bench:primary_strict_16": "c27",
+    "bench:repeats_strict_4": "c29.0",
+    "bench:repeats_lenient_4": "c29.1",
+    "bench:primary_lenient_f1_16": "c28"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE8",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "16 deterministically graded tasks from public benchmarks, one trial each",
+    "ctx": "131072-token working context",
+    "tool": "sandboxed agent harness on Splash 0beba3b2",
+    "L": [
+     127,
+     145
+    ]
+   },
+   "metrics": {
+    "bench:primary_strict_16": "c34",
+    "bench:repeats_strict_4": "c35.0",
+    "bench:repeats_lenient_4": "c35.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "lenient F1 cell (8) is printed on the card but has no candidate id, so it is left out [L132]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Max-PLE8",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "16 deterministically graded tasks from public benchmarks, one trial each",
+    "ctx": "131072-token working context",
+    "tool": "sandboxed agent harness on Splash 0beba3b2",
+    "L": [
+     127,
+     145
+    ]
+   },
+   "metrics": {
+    "bench:primary_strict_16": "c40",
+    "bench:repeats_strict_4": "c42.0",
+    "bench:repeats_lenient_4": "c42.1",
+    "bench:primary_lenient_f1_16": "c41"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "UD-Q4_K_XL + Q8 table",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "16 deterministically graded tasks from public benchmarks, one trial each",
+    "ctx": "131072-token working context",
+    "tool": "sandboxed agent harness on Splash 0beba3b2",
+    "L": [
+     127,
+     145
+    ]
+   },
+   "metrics": {
+    "bench:primary_strict_16": "c47",
+    "bench:repeats_strict_4": "c49.0",
+    "bench:repeats_lenient_4": "c49.1",
+    "bench:primary_lenient_f1_16": "c48"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE4",
+   "panel": "E2E_RESULTS",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "six-prompt smoke battery",
+    "ctx": "not stated",
+    "tool": "Splash bench #468 (0beba3b2)",
+    "L": [
+     191
+    ]
+   },
+   "metrics": {
+    "bench:functional_5": "c91.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "single six-prompt smoke battery, not the scored sweep [L191]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Balanced-PLE5",
+   "panel": "E2E_RESULTS",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "six-prompt smoke battery",
+    "ctx": "not stated",
+    "tool": "Splash bench #468 (0beba3b2)",
+    "L": [
+     191
+    ]
+   },
+   "metrics": {
+    "bench:functional_5": "c97.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "single six-prompt smoke battery, not the scored sweep [L191]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE8",
+   "panel": "E2E_RESULTS",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "six-prompt smoke battery",
+    "ctx": "not stated",
+    "tool": "Splash bench #468 (0beba3b2)",
+    "L": [
+     191
+    ]
+   },
+   "metrics": {
+    "bench:functional_5": "c103.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "single six-prompt smoke battery, not the scored sweep [L191]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Max-PLE5",
+   "panel": "E2E_RESULTS",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "six-prompt smoke battery",
+    "ctx": "not stated",
+    "tool": "Splash bench #468 (0beba3b2)",
+    "L": [
+     191
+    ]
+   },
+   "metrics": {
+    "bench:functional_5": "c109.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "single six-prompt smoke battery, not the scored sweep [L191]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Max-PLE8",
+   "panel": "E2E_RESULTS",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "six-prompt smoke battery",
+    "ctx": "not stated",
+    "tool": "Splash bench #468 (0beba3b2)",
+    "L": [
+     191
+    ]
+   },
+   "metrics": {
+    "bench:functional_5": "c115.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "single six-prompt smoke battery, not the scored sweep [L191]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Quality-PLE4",
+   "panel": "E2E_RESULTS",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "six-prompt smoke battery",
+    "ctx": "not stated",
+    "tool": "Splash bench #468 (0beba3b2)",
+    "L": [
+     191
+    ]
+   },
+   "metrics": {
+    "bench:functional_5": "c121.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "single six-prompt smoke battery, not the scored sweep [L191]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Quality-PLE5",
+   "panel": "E2E_RESULTS",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "six-prompt smoke battery",
+    "ctx": "not stated",
+    "tool": "Splash bench #468 (0beba3b2)",
+    "L": [
+     191
+    ]
+   },
+   "metrics": {
+    "bench:functional_5": "c127.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "single six-prompt smoke battery, not the scored sweep [L191]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Quality-PLE8",
+   "panel": "E2E_RESULTS",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "six-prompt smoke battery",
+    "ctx": "not stated",
+    "tool": "Splash bench #468 (0beba3b2)",
+    "L": [
+     191
+    ]
+   },
+   "metrics": {
+    "bench:functional_5": "c133.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "single six-prompt smoke battery, not the scored sweep [L191]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "UD-Q4_K_XL-PLE8",
+   "panel": "E2E_RESULTS",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "six-prompt smoke battery",
+    "ctx": "not stated",
+    "tool": "Splash bench #468 (0beba3b2)",
+    "L": [
+     191
+    ]
+   },
+   "metrics": {
+    "bench:functional_5": "c139.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "single six-prompt smoke battery, not the scored sweep [L191]"
+   ]
+  }
  ],
  "prose": [
-  {"entry": "Balanced-PLE4", "key": "ppl_ratio", "L": 134, "raw": "1.0009"}
+  {
+   "entry": "Quality-PLE8",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "key": "bench:F3_judged",
+   "L": 149,
+   "raw": "all four scored 3/5"
+  },
+  {
+   "entry": "Balanced-PLE8",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "key": "bench:F3_judged",
+   "L": 149,
+   "raw": "all four scored 3/5"
+  },
+  {
+   "entry": "Max-PLE8",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "key": "bench:F3_judged",
+   "L": 149,
+   "raw": "all four scored 3/5"
+  },
+  {
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "key": "bench:F3_judged",
+   "L": 149,
+   "raw": "all four scored 3/5"
+  }
  ]
 }

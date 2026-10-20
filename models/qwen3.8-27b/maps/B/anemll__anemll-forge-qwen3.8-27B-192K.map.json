@@ -1,0 +1,18 @@
+{"repo": "anemll/anemll-forge-qwen3.8-27B-192K",
+ "source_sha256": "02146aecc9fe66efb559d13076ff2289e1396273a486de35be47f1671dfe3c72",
+ "candidates_sha256": "cc8d0532c7f4b2d41b44162c60a5752dadcced4c44faf284de9e3deb3a88e6e8",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "V8 cache (FP16 keys, INT8 values; release 0.2)", "dataset": "KL-512, 64 sequences", "ctx": "not stated", "tool": "not stated", "L": [111, 116, 119]},
+ "entries": [
+   {"role": "own", "name": "kv8: INT8 keys and values (release 0.2.1)",
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["KL and top-1 agreement were measured on release 0.2 weights, not the 0.2.1 target [L119]", "KL is given in nats, not millinats [L119]", "mean basis of the KL not stated [L119]", "recall check (six codes, depths 0-185K) is pass/fail and not mapped [L171]"]}
+ ],
+ "prose": [
+   {"entry": "kv8: INT8 keys and values (release 0.2.1)", "key": "mean_kld", "L": 119, "raw": "KL of 6.6e-5 nats"},
+   {"entry": "kv8: INT8 keys and values (release 0.2.1)", "key": "top1_pct", "L": 119, "raw": "same top token at 99.75% of positions"}
+ ]
+}

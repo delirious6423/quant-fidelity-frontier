@@ -1,0 +1,790 @@
+{
+ "repo": "EschaLabs/Qwen3.8-27B-Escha-W2",
+ "source_sha256": "3e8057f24bfaa4a5f96faca89a19de8adc8df043dc338517dda092c8f432634b",
+ "candidates_sha256": "381a90a8cb8387d5644e2b3412ce17f8331c6641f9c4cd3f0f03369bb8fee40b",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+  "reference": "FP8 reference (same base model served as FP8 on the same SGLang fork)",
+  "dataset": "Commonsense-6 full sets; GPQA-Diamond n=198; LiveCodeBench v6 n=182",
+  "ctx": "28,672-token thinking budget for the reasoning panel",
+  "tool": "SGLang runtime (escha-runtime-qwen3dense)",
+  "L": [
+   417,
+   424,
+   430,
+   464,
+   469,
+   472
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "Escha-W2",
+   "panel": "Commonsense-6 — full sets, no subsampling, thinking off",
+   "methodology": {
+    "reference": "FP8 reference (same base model served as FP8 on the same SGLang fork)",
+    "dataset": "Commonsense-6 full sets",
+    "ctx": "not stated",
+    "tool": "SGLang runtime, thinking off; arc_easy on raw acc, others on acc_norm",
+    "L": [
+     417,
+     418,
+     428,
+     430,
+     432,
+     433,
+     468
+    ]
+   },
+   "metrics": {
+    "bench:arc_c": "c80",
+    "bench:arc_e": "c81",
+    "bench:boolq": "c82",
+    "bench:hellaswag": "c83",
+    "bench:piqa": "c84",
+    "bench:winogrande": "c85",
+    "bench:Commonsense-6-avg": "c86"
+   },
+   "size": "c79",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "weights 10.15 GB, 2.469 bits per weight [L43, L403]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "FP8 reference",
+   "panel": "Commonsense-6 — full sets, no subsampling, thinking off",
+   "methodology": {
+    "reference": "FP8 reference (same base model served as FP8 on the same SGLang fork)",
+    "dataset": "Commonsense-6 full sets",
+    "ctx": "not stated",
+    "tool": "SGLang runtime, thinking off; arc_easy on raw acc, others on acc_norm",
+    "L": [
+     417,
+     418,
+     428,
+     430,
+     432,
+     433,
+     468
+    ]
+   },
+   "metrics": {
+    "bench:arc_c": "c72",
+    "bench:arc_e": "c73",
+    "bench:boolq": "c74",
+    "bench:hellaswag": "c75",
+    "bench:piqa": "c76",
+    "bench:winogrande": "c77",
+    "bench:Commonsense-6-avg": "c78"
+   },
+   "size": "c71",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "same base served as FP8 on the same runtime [L424-426]",
+    "evaluated on an L40 [L482-483]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "own",
+   "name": "Escha-W2",
+   "panel": "Reasoning and code — thinking on, 28k-token budget",
+   "methodology": {
+    "reference": "FP8 reference (same base model served as FP8 on the same SGLang fork)",
+    "dataset": "GPQA-Diamond (n=198); LiveCodeBench v6, 2025 cut (n=182)",
+    "ctx": "28,672-token thinking budget inside a 32,768 cap",
+    "tool": "SGLang runtime; temperature 1.0, top_p 0.95, top_k 20, reasoning_effort xhigh",
+    "L": [
+     441,
+     442,
+     469,
+     470,
+     472,
+     476
+    ]
+   },
+   "metrics": {
+    "bench:GPQA-Diamond-n198": "c88",
+    "bench:LiveCodeBench-v6-n182": "c91"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Commonsense row repeats the thinking-off values, not mapped [L443]",
+    "scored with thinking on, not with MTP enabled [L298-300]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "FP8 reference",
+   "panel": "Reasoning and code — thinking on, 28k-token budget",
+   "methodology": {
+    "reference": "FP8 reference (same base model served as FP8 on the same SGLang fork)",
+    "dataset": "GPQA-Diamond (n=198); LiveCodeBench v6, 2025 cut (n=182)",
+    "ctx": "28,672-token thinking budget inside a 32,768 cap",
+    "tool": "SGLang runtime; temperature 1.0, top_p 0.95, top_k 20, reasoning_effort xhigh",
+    "L": [
+     441,
+     442,
+     469,
+     470,
+     472,
+     476
+    ]
+   },
+   "metrics": {
+    "bench:GPQA-Diamond-n198": "c87",
+    "bench:LiveCodeBench-v6-n182": "c90"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "cross-box caveat: GPQA and LiveCodeBench ran on a different card [L482-485]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "own",
+   "name": "RTX 5090",
+   "panel": "Performance across GPUs",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "single-user and concurrency runs, ISL/OSL shapes",
+    "ctx": "not stated",
+    "tool": "SGLang runtime, CUDA graphs on, prefix caching off",
+    "L": [
+     489,
+     493,
+     494,
+     495,
+     498,
+     499
+    ]
+   },
+   "metrics": {
+    "bench:1-user-decode-tok-s": "c98",
+    "bench:TTFT-2k-prompt": "c99",
+    "bench:peak-throughput": "c101.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "measured by independent evaluators [L494-495]",
+    "prefill reported as a range, not mapped [L500]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "RTX 4090",
+   "panel": "Performance across GPUs",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "single-user and concurrency runs, ISL/OSL shapes",
+    "ctx": "not stated",
+    "tool": "SGLang runtime, CUDA graphs on, prefix caching off",
+    "L": [
+     489,
+     493,
+     494,
+     495,
+     498,
+     499
+    ]
+   },
+   "metrics": {
+    "bench:1-user-decode-tok-s": "c104",
+    "bench:TTFT-2k-prompt": "c105",
+    "bench:peak-throughput": "c107.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "measured by the author [L493]",
+    "prefill reported as a range, not mapped [L501]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "RTX 3090",
+   "panel": "Performance across GPUs",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "single-user and concurrency runs, ISL/OSL shapes",
+    "ctx": "not stated",
+    "tool": "SGLang runtime, CUDA graphs on, prefix caching off",
+    "L": [
+     489,
+     493,
+     494,
+     495,
+     498,
+     499
+    ]
+   },
+   "metrics": {
+    "bench:1-user-decode-tok-s": "c110",
+    "bench:TTFT-2k-prompt": "c111",
+    "bench:peak-throughput": "c113.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Ampere route footnote applies [L505-507]",
+    "measured by independent evaluators [L494-495]",
+    "prefill reported as a range, not mapped [L502]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "RTX 5060 Ti",
+   "panel": "Performance across GPUs",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "single-user and concurrency runs, ISL/OSL shapes",
+    "ctx": "not stated",
+    "tool": "SGLang runtime, CUDA graphs on, prefix caching off",
+    "L": [
+     489,
+     493,
+     494,
+     495,
+     498,
+     499
+    ]
+   },
+   "metrics": {
+    "bench:1-user-decode-tok-s": "c116",
+    "bench:peak-throughput": "c118.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "measured by an independent evaluator in a passed-through VM [L512-516]",
+    "approximate decode value [L503]",
+    "TTFT not measured [L516]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "5090 32 GB",
+   "panel": "Serving — NVIDIA ISL/OSL grid, three GPUs",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "NVIDIA ISL/OSL grid, single-stream decode",
+    "ctx": "not stated",
+    "tool": "SGLang runtime, CUDA graphs on, prefix caching off",
+    "L": [
+     551,
+     553,
+     556,
+     575,
+     643,
+     644,
+     645
+    ]
+   },
+   "metrics": {
+    "bench:decode-ISL-OSL-128-128": "c120",
+    "bench:decode-ISL-OSL-128-2048": "c126",
+    "bench:decode-ISL-OSL-500-2000": "c132",
+    "bench:decode-ISL-OSL-1024-1024": "c140",
+    "bench:decode-ISL-OSL-2048-128": "c145",
+    "bench:decode-ISL-OSL-2048-2048": "c149",
+    "bench:decode-ISL-OSL-5000-500": "c155"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "single-stream decode tok/s by ISL/OSL shape [L556-571]",
+    "not every shape was run on this card [L553]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "4090 24 GB",
+   "panel": "Serving — NVIDIA ISL/OSL grid, three GPUs",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "NVIDIA ISL/OSL grid, single-stream decode",
+    "ctx": "not stated",
+    "tool": "SGLang runtime, CUDA graphs on, prefix caching off",
+    "L": [
+     551,
+     553,
+     556,
+     575,
+     643,
+     644,
+     645
+    ]
+   },
+   "metrics": {
+    "bench:decode-ISL-OSL-128-128": "c121",
+    "bench:decode-ISL-OSL-128-1024": "c124",
+    "bench:decode-ISL-OSL-128-2048": "c127",
+    "bench:decode-ISL-OSL-128-4096": "c130",
+    "bench:decode-ISL-OSL-500-2000": "c133",
+    "bench:decode-ISL-OSL-1000-1000": "c136",
+    "bench:decode-ISL-OSL-1000-2000": "c138",
+    "bench:decode-ISL-OSL-1024-2048": "c143",
+    "bench:decode-ISL-OSL-2048-128": "c146",
+    "bench:decode-ISL-OSL-2048-2048": "c150",
+    "bench:decode-ISL-OSL-4096-1024": "c153",
+    "bench:decode-ISL-OSL-5000-500": "c156",
+    "bench:decode-ISL-OSL-20000-2000": "c159"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "single-stream decode tok/s by ISL/OSL shape [L556-571]",
+    "not every shape was run on this card [L553]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "3090 24 GB",
+   "panel": "Serving — NVIDIA ISL/OSL grid, three GPUs",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "NVIDIA ISL/OSL grid, single-stream decode",
+    "ctx": "not stated",
+    "tool": "SGLang runtime, CUDA graphs on, prefix caching off",
+    "L": [
+     551,
+     553,
+     556,
+     575,
+     643,
+     644,
+     645
+    ]
+   },
+   "metrics": {
+    "bench:decode-ISL-OSL-128-128": "c122",
+    "bench:decode-ISL-OSL-128-2048": "c128",
+    "bench:decode-ISL-OSL-500-2000": "c134",
+    "bench:decode-ISL-OSL-1024-1024": "c141",
+    "bench:decode-ISL-OSL-2048-128": "c147",
+    "bench:decode-ISL-OSL-2048-2048": "c151",
+    "bench:decode-ISL-OSL-5000-500": "c157"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Ampere route footnote applies [L505-507]",
+    "not every shape was run on this card [L553]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "RTX 4090",
+   "panel": "Speculative decoding (MTP)",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "single-user decode, fixed 256-token output on the 4090 [L283-285]",
+    "ctx": "not stated",
+    "tool": "SGLang runtime with the model's own MTP head, runtime 1.2.1+",
+    "L": [
+     247,
+     248,
+     264,
+     266,
+     268,
+     298,
+     299,
+     300
+    ]
+   },
+   "metrics": {
+    "bench:1-user-decode-no-spec-tok-s": "c17",
+    "bench:1-user-decode-MTP-tok-s": "c18",
+    "bench:MTP-speedup": "c19"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "task-level scores under speculation not published [L298-300]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "RTX 5080",
+   "panel": "Speculative decoding (MTP)",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "single-user decode, fixed 256-token output on the 4090 [L283-285]",
+    "ctx": "not stated",
+    "tool": "SGLang runtime with the model's own MTP head, runtime 1.2.1+",
+    "L": [
+     247,
+     248,
+     264,
+     266,
+     268,
+     298,
+     299,
+     300
+    ]
+   },
+   "metrics": {
+    "bench:1-user-decode-no-spec-tok-s": "c22",
+    "bench:1-user-decode-MTP-tok-s": "c23",
+    "bench:MTP-speedup": "c24"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "task-level scores under speculation not published [L298-300]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "RTX 4080",
+   "panel": "Speculative decoding (MTP)",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "single-user decode, fixed 256-token output on the 4090 [L283-285]",
+    "ctx": "not stated",
+    "tool": "SGLang runtime with the model's own MTP head, runtime 1.2.1+",
+    "L": [
+     247,
+     248,
+     264,
+     266,
+     268,
+     298,
+     299,
+     300
+    ]
+   },
+   "metrics": {
+    "bench:1-user-decode-no-spec-tok-s": "c27",
+    "bench:1-user-decode-MTP-tok-s": "c28",
+    "bench:MTP-speedup": "c29"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "task-level scores under speculation not published [L298-300]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "MEM 0.72 (shipped default)",
+   "panel": "Long context",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "not stated",
+    "ctx": "pool sized by CTXLEN",
+    "tool": "SGLang serve.sh on RTX 4090, GRAPHS=1 INT8=on",
+    "L": [
+     304,
+     305,
+     313,
+     315
+    ]
+   },
+   "metrics": {
+    "bench:pool-max-total-tokens": "c31",
+    "bench:headroom-tokens": "c32",
+    "bench:peak-VRAM-24GB-card": "c33"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "MEM 0.80",
+   "panel": "Long context",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "not stated",
+    "ctx": "pool sized by CTXLEN",
+    "tool": "SGLang serve.sh on RTX 4090, GRAPHS=1 INT8=on",
+    "L": [
+     304,
+     305,
+     313,
+     315
+    ]
+   },
+   "metrics": {
+    "bench:pool-max-total-tokens": "c36",
+    "bench:headroom-tokens": "c37",
+    "bench:peak-VRAM-24GB-card": "c38"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "MEM 0.84",
+   "panel": "Long context",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "not stated",
+    "ctx": "pool sized by CTXLEN",
+    "tool": "SGLang serve.sh on RTX 4090, GRAPHS=1 INT8=on",
+    "L": [
+     304,
+     305,
+     313,
+     315
+    ]
+   },
+   "metrics": {
+    "bench:pool-max-total-tokens": "c41",
+    "bench:headroom-tokens": "c42",
+    "bench:peak-VRAM-24GB-card": "c43"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "pool smaller than its own context, too small [L319]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "MEM 0.88",
+   "panel": "Long context",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "not stated",
+    "ctx": "pool sized by CTXLEN",
+    "tool": "SGLang serve.sh on RTX 4090, GRAPHS=1 INT8=on",
+    "L": [
+     304,
+     305,
+     313,
+     315
+    ]
+   },
+   "metrics": {
+    "bench:pool-max-total-tokens": "c46",
+    "bench:headroom-tokens": "c47",
+    "bench:peak-VRAM-24GB-card": "c48"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "MEM 0.92",
+   "panel": "Long context",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "not stated",
+    "ctx": "pool sized by CTXLEN",
+    "tool": "SGLang serve.sh on RTX 4090, GRAPHS=1 INT8=on",
+    "L": [
+     304,
+     305,
+     313,
+     315
+    ]
+   },
+   "metrics": {
+    "bench:pool-max-total-tokens": "c51",
+    "bench:headroom-tokens": "c52",
+    "bench:peak-VRAM-24GB-card": "c53"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "MEM 0.94",
+   "panel": "Long context",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "not stated",
+    "ctx": "pool sized by CTXLEN",
+    "tool": "SGLang serve.sh on RTX 4090, GRAPHS=1 INT8=on",
+    "L": [
+     304,
+     305,
+     313,
+     315
+    ]
+   },
+   "metrics": {
+    "bench:pool-max-total-tokens": "c56",
+    "bench:headroom-tokens": "c57",
+    "bench:peak-VRAM-24GB-card": "c58"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "pool smaller than its own context, too small [L322]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "fresh 120k prompt",
+   "panel": "Prefix caching does not help a growing conversation.",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "120k-token prompt and related prefix tests",
+    "ctx": "120k tokens",
+    "tool": "SGLang runtime with RADIX=1 on RTX 4090",
+    "L": [
+     353,
+     354,
+     357,
+     358,
+     359,
+     360
+    ]
+   },
+   "metrics": {
+    "bench:re-prefilled-tokens": "c59",
+    "bench:cached-tokens": "c60",
+    "bench:wall-time": "c61"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "prefix cache enabled for these rows [L353]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "the identical prompt again",
+   "panel": "Prefix caching does not help a growing conversation.",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "120k-token prompt and related prefix tests",
+    "ctx": "120k tokens",
+    "tool": "SGLang runtime with RADIX=1 on RTX 4090",
+    "L": [
+     353,
+     354,
+     357,
+     358,
+     359,
+     360
+    ]
+   },
+   "metrics": {
+    "bench:re-prefilled-tokens": "c62",
+    "bench:cached-tokens": "c63",
+    "bench:wall-time": "c64"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "116k shared prefix + 4k new",
+   "panel": "Prefix caching does not help a growing conversation.",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "120k-token prompt and related prefix tests",
+    "ctx": "120k tokens",
+    "tool": "SGLang runtime with RADIX=1 on RTX 4090",
+    "L": [
+     353,
+     354,
+     357,
+     358,
+     359,
+     360
+    ]
+   },
+   "metrics": {
+    "bench:re-prefilled-tokens": "c65",
+    "bench:cached-tokens": "c66",
+    "bench:wall-time": "c67"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "full 60k prefix + 4k appended",
+   "panel": "Prefix caching does not help a growing conversation.",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "120k-token prompt and related prefix tests",
+    "ctx": "120k tokens",
+    "tool": "SGLang runtime with RADIX=1 on RTX 4090",
+    "L": [
+     353,
+     354,
+     357,
+     358,
+     359,
+     360
+    ]
+   },
+   "metrics": {
+    "bench:re-prefilled-tokens": "c68",
+    "bench:cached-tokens": "c69",
+    "bench:wall-time": "c70"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  }
+ ],
+ "prose": []
+}

@@ -1,0 +1,180 @@
+{
+ "repo": "agentionai/Qwen3.8-Flash-Next-Gyro-GGUF",
+ "source_sha256": "3b9b256393fa2635d9e56b9d6a1191fec894d416bf31aa203079be27a6845b7c",
+ "candidates_sha256": "9990b05a46494c8243a4f797f520ec98883616b457a538650b7a0b9e7534e488",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "not stated",
+  "dataset": "held-out text for the KLD column (per changelog); 70-question MMLU-Pro sample; 30-problem LiveCodeBench subset",
+  "ctx": "not stated",
+  "tool": "not stated",
+  "L": [
+   57,
+   71,
+   72,
+   153
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "Gyro-S",
+   "metrics": {
+    "kld:held_out": "c5",
+    "top1_pct": "c6"
+   },
+   "size": "c4",
+   "unit": "GiB",
+   "basis": "vram",
+   "bpw": null,
+   "flags": [
+    "updated 2026-10-10 file; first-release figures are not mapped [L59, L162]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Gyro-M",
+   "metrics": {
+    "kld:held_out": "c8",
+    "top1_pct": "c9"
+   },
+   "size": "c7",
+   "unit": "GiB",
+   "basis": "vram",
+   "bpw": null,
+   "flags": [
+    "updated 2026-10-11 file; first-release figures are not mapped [L60, L159]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Gyro-L",
+   "metrics": {
+    "kld:held_out": "c11",
+    "top1_pct": "c12"
+   },
+   "size": "c10",
+   "unit": "GiB",
+   "basis": "vram",
+   "bpw": null,
+   "flags": [
+    "KLD 0.146 matches the 2026-10-13 updated file in the changelog [L61, L153]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Agention AP-Q4_K_XL (reference)",
+   "metrics": {
+    "kld:held_out": "c29",
+    "top1_pct": "c30"
+   },
+   "size": "c28",
+   "unit": "GiB",
+   "basis": "vram",
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "cross",
+   "name": "ISTA-DASLab GSQ-RCO IQ2_XS",
+   "metrics": {
+    "kld:held_out": "c14",
+    "top1_pct": "c15"
+   },
+   "size": "c13",
+   "unit": "GiB",
+   "basis": "vram",
+   "bpw": null,
+   "flags": [
+    "row sits in the quality table with no measurement attribution [L57-67]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "ISTA-DASLab GSQ-RCO IQ3_XXS",
+   "metrics": {
+    "kld:held_out": "c17",
+    "top1_pct": "c18"
+   },
+   "size": "c16",
+   "unit": "GiB",
+   "basis": "vram",
+   "bpw": null,
+   "flags": [
+    "row sits in the quality table with no measurement attribution [L57-67]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "unsloth UD-Q2_K_XL",
+   "metrics": {
+    "kld:held_out": "c20",
+    "top1_pct": "c21"
+   },
+   "size": "c19",
+   "unit": "GiB",
+   "basis": "vram",
+   "bpw": null,
+   "flags": [
+    "row sits in the quality table with no measurement attribution [L57-67]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "AtomicChat AD-4.27bpw Q4_K_M",
+   "metrics": {
+    "kld:held_out": "c23",
+    "top1_pct": "c24"
+   },
+   "size": "c22",
+   "unit": "GiB",
+   "basis": "vram",
+   "bpw": "c40",
+   "flags": [
+    "row sits in the quality table with no measurement attribution [L57-67]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "ggml-org IQ4_NL",
+   "metrics": {
+    "kld:held_out": "c26",
+    "top1_pct": "c27"
+   },
+   "size": "c25",
+   "unit": "GiB",
+   "basis": "vram",
+   "bpw": null,
+   "flags": [
+    "row sits in the quality table with no measurement attribution [L57-67]"
+   ],
+   "of": "not named on card"
+  }
+ ],
+ "prose": [
+  {
+   "entry": "Gyro-S",
+   "key": "kld:code",
+   "L": 162,
+   "raw": "0.109 (code)"
+  },
+  {
+   "entry": "Gyro-M",
+   "key": "kld:code",
+   "L": 159,
+   "raw": "0.066 (code)"
+  },
+  {
+   "entry": "Gyro-L",
+   "key": "kld:code",
+   "L": 153,
+   "raw": "0.027 (code)"
+  }
+ ]
+}

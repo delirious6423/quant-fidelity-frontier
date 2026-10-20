@@ -1,19 +1,28 @@
-{"repo": "sfxnz/DeepSeek-V4.1-Flash-1017-EXL3",
- "source_sha256": "28a104cf1ca86706cfce6a12428a34988fbc7853648aa7e1ea99926eafa5875d",
- "candidates_sha256": "44b564bdc903be037aa9bc8ee7630fd81bf0de273d240ead0e4c83d23d6a7388",
+{
+ "repo": "sfxnz/DeepSeek-V4.1-Flash-1017-EXL3",
+ "source_sha256": "d43c0bd5962ae678cb16d8b77d1a1503642b1f7c6f8a09bdc3d6749f3fe78778",
+ "candidates_sha256": "977f1ad3e1ec49fb1d74eb725744b741f193bc0eddb0f0d8ce72f8291e5f2862",
  "no_quality_claims": false,
  "no_claims_reason": "",
  "weights_modified": false,
- "method": {"reference": "native unquantized 1017 model", "dataset": "served-output rows of the card's KL check, plus GSM8K, MMLU, tool-call, needle and soak checks", "ctx": "not stated", "tool": "served on 2x DGX Spark at recipe defaults; KL against the native unquantized model", "L": [33, 41, 42, 44, 45, 46, 47, 48, 70, 72]},
+ "method": {"reference": "not stated", "dataset": "MMLU 4x57; GSM8K; needle-in-haystack tests", "ctx": "not stated", "tool": "2x DGX Spark recipe at its perf2 defaults", "L": [33, 43, 44, 46, 47]},
  "entries": [
-   {"role": "own", "name": "EXL3 2.7 bpw MCG (mixed K)",
-    "metrics": {},
-    "size": null, "unit": null, "basis": null, "bpw": "c7",
-    "flags": ["served KL row: estimator not stated, covers 72 rows of served output [L47]", "encyclopedic worst-corpus figures are mapped as per-corpus values [L47]", "GSM8K, MMLU, tool-call, needle and soak results are fraction counts with no percent cell, so not mapped [L42-46][L48]", "KL_eq validation figures are allocation-validation proxies, not a served-KL metric: not mapped [L72]", "teacher-forced NLL is not a perplexity figure: not mapped [L41]", "size on disk is not in the same row as a metric [L63]"]}
+  {"role": "own",
+   "name": "EXL3 2.7 bpw MCG (mixed K)",
+   "panel": "perf2 defaults (FINAL)",
+   "methodology": {"reference": "not stated", "dataset": "MMLU 4x57", "ctx": "not stated", "tool": "2x DGX Spark recipe, perf2 defaults, boot FINAL", "L": [33, 44]},
+   "metrics": {"bench:MMLU-4x57": "c3"},
+   "size": null, "unit": null, "basis": null,
+   "bpw": "c10",
+   "flags": ["GSM8K and needle results are correct counts over sample sizes, not single values, so they are not mapped [L43, L46-47]", "Long-needle results are counts over sample sizes and are not mapped [L47]"]},
+  {"role": "own",
+   "name": "EXL3 2.7 bpw MCG (mixed K)",
+   "panel": "release defaults (D1, history)",
+   "methodology": {"reference": "not stated", "dataset": "MMLU 4x57", "ctx": "not stated", "tool": "2x DGX Spark recipe, release defaults, boot D1", "L": [33, 44]},
+   "metrics": {"bench:MMLU-4x57": "c4"},
+   "size": null, "unit": null, "basis": null,
+   "bpw": "c10",
+   "flags": ["Kept as history in the card; separate from the current perf2 defaults [L33]"]}
  ],
- "prose": [
-   {"entry": "EXL3 2.7 bpw MCG (mixed K)", "key": "mean_kld", "L": 47, "raw": "0.025 nats/token"},
-   {"entry": "EXL3 2.7 bpw MCG (mixed K)", "key": "top1_pct", "L": 47, "raw": "95.3%"},
-   {"entry": "EXL3 2.7 bpw MCG (mixed K)", "key": "kld:encyclopedic", "L": 47, "raw": "0.114"},
-   {"entry": "EXL3 2.7 bpw MCG (mixed K)", "key": "top1:encyclopedic", "L": 47, "raw": "88.1%"}
- ]}
+ "prose": []
+}

@@ -1,0 +1,21 @@
+{
+ "repo": "agentionai/Qwen3.8-Flash-Next-Gyro-GGUF",
+ "source_sha256": "3b9b256393fa2635d9e56b9d6a1191fec894d416bf31aa203079be27a6845b7c",
+ "candidates_sha256": "9990b05a46494c8243a4f797f520ec98883616b457a538650b7a0b9e7534e488",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "KLD held-out and code sets (not named on card)", "ctx": "not stated", "tool": "not stated", "L": [57, 159]},
+ "entries": [
+  {"role": "own", "name": "Gyro-S", "metrics": {"kld:held-out": "c5", "top1_pct": "c6"}, "size": "c4", "unit": "GiB", "basis": "vram", "bpw": null, "flags": ["updated 2026-10-10 revision [L59, L161]", "MMLU-Pro and LiveCodeBench figures are first-release builds, not mapped [L71-73]"]},
+  {"role": "own", "name": "Gyro-M", "metrics": {"kld:held-out": "c8", "top1_pct": "c9"}, "size": "c7", "unit": "GiB", "basis": "vram", "bpw": null, "flags": ["updated 2026-10-11 revision [L60, L158]", "MMLU-Pro and LiveCodeBench figures are first-release builds, not mapped [L71-73]"]},
+  {"role": "own", "name": "Gyro-L", "metrics": {"kld:held-out": "c11", "top1_pct": "c12"}, "size": "c10", "unit": "GiB", "basis": "vram", "bpw": null, "flags": ["new 2026-10-12 [L61]", "KLD value matches the 2026-10-13 file update [L153]"]},
+  {"role": "ladder", "name": "Agention AP-Q4_K_XL (reference)", "metrics": {"mean_kld": "c29", "top1_pct": "c30"}, "size": "c28", "unit": "GiB", "basis": "vram", "bpw": null, "flags": ["KLD corpus not stated on card [L67]"]},
+  {"role": "cross", "name": "ISTA-DASLab GSQ-RCO IQ2_XS", "of": "not named on card", "metrics": {"mean_kld": "c14", "top1_pct": "c15"}, "size": "c13", "unit": "GiB", "basis": "vram", "bpw": null, "flags": ["KLD corpus and measurement source not stated [L62]"]},
+  {"role": "cross", "name": "ISTA-DASLab GSQ-RCO IQ3_XXS", "of": "not named on card", "metrics": {"mean_kld": "c17", "top1_pct": "c18"}, "size": "c16", "unit": "GiB", "basis": "vram", "bpw": null, "flags": ["KLD corpus and measurement source not stated [L63]"]},
+  {"role": "cross", "name": "unsloth UD-Q2_K_XL", "of": "not named on card", "metrics": {"mean_kld": "c20", "top1_pct": "c21"}, "size": "c19", "unit": "GiB", "basis": "vram", "bpw": null, "flags": ["KLD corpus and measurement source not stated [L64]"]},
+  {"role": "cross", "name": "AtomicChat AD-4.27bpw Q4_K_M", "of": "not named on card", "metrics": {"mean_kld": "c23", "top1_pct": "c24"}, "size": "c22", "unit": "GiB", "basis": "vram", "bpw": "c40", "flags": ["KLD corpus and measurement source not stated [L65]"]},
+  {"role": "cross", "name": "ggml-org IQ4_NL", "of": "not named on card", "metrics": {"mean_kld": "c26", "top1_pct": "c27"}, "size": "c25", "unit": "GiB", "basis": "vram", "bpw": null, "flags": ["KLD corpus and measurement source not stated [L66]"]}
+ ],
+ "prose": []
+}

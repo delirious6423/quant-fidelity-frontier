@@ -1,0 +1,14 @@
+{
+ "repo": "SiliconSpecies/Qwen3.8-Flash-Next-EXL3-Ijah",
+ "source_sha256": "2cadde47623b8eb9fd430afe78a3944a73320abd58ffbbd7a528c1e911850420",
+ "candidates_sha256": "b0b586e2ab30edfb2075e17607082b685e689d92ae73ad5eab7a7def82a11e93",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 model's next-token distribution (bf16 teacher)", "dataset": "A: wikitext-2, 16 windows of 512 tokens; B: 16 reasoning traces of 2,048 tokens; C: 4 windows of 32,768 tokens (2 code, 2 prose)", "ctx": "512 / 2,048 / 32,768 tokens by set", "tool": "full-vocabulary, teacher-forced KL (Ijah: f32 rounding, bf16 KV, QSA attention)", "L": [36, 40, 41, 43, 44, 67, 68]},
+ "entries": [
+  {"role": "own", "name": "this pack (Ijah T6)", "metrics": {"kld:A wikitext": "c1", "kld:B reasoning": "c2", "kld:C 32K": "c3", "top1:A wikitext": "c4.0", "top1:B reasoning": "c4.1", "top1:C 32K": "c4.2"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["weights size given in prose only: 81 GB [L19, L84]"]},
+  {"role": "cross", "name": "oMLX, Jundot oQ4e (4.72 bpw mixed)", "of": "not named on card", "metrics": {"kld:A wikitext": "c5", "kld:B reasoning": "c6", "kld:C 32K": "c7", "top1:A wikitext": "c8.0", "top1:B reasoning": "c8.1", "top1:C 32K": "c8.2"}, "size": null, "unit": null, "basis": null, "bpw": "c17", "flags": ["engine oMLX 0.7.1.dev1, same teacher and text as the own row [L41, L59, L67]", "base model only; no Swift oQ4e exists [L44]"]}
+ ],
+ "prose": []
+}

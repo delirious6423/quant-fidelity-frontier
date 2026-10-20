@@ -1,0 +1,33 @@
+{
+ "repo": "xv0y5ncu/Qwen3.8-Flash-Next-GLQ-trellis-3inst-3bpw-ple4",
+ "source_sha256": "1b229d682abafba1c55b5aff59eddd227d87e85af9b6b3f6a94ea7ded601977a",
+ "candidates_sha256": "431919e90312c2ad3862919e5a87c574430fcf5fbae0595073a4baf8d610330b",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated (no bf16 baseline on this card)", "dataset": "wikitext-2, 128 chunks x 2048, 262,016 tokens scored", "ctx": "32768 max-model-len", "tool": "wikitext2_ppl_vllm, vLLM 0.29.0", "L": [197, 198, 216]},
+ "entries": [
+  {"role": "own", "panel": "Fit it on a smaller card — weight offload (vLLM ≥ 0.30.0)", "name": "--cpu-offload-gb 24", "size": "c1", "unit": "GiB", "basis": "vram", "bpw": null,
+   "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "vLLM 0.30.0, glq 0.8.23, one L40S (45 GiB, PCIe 4 x16), B=1", "L": [126, 128]},
+   "metrics": {"bench:decode": "c3"}, "flags": ["KV cache column not mapped [L130]"]},
+  {"role": "own", "panel": "Fit it on a smaller card — weight offload (vLLM ≥ 0.30.0)", "name": "--cpu-offload-gb 36", "size": "c4", "unit": "GiB", "basis": "vram", "bpw": null,
+   "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "vLLM 0.30.0, glq 0.8.23, one L40S (45 GiB, PCIe 4 x16), B=1", "L": [126, 128]},
+   "metrics": {"bench:decode": "c6"}, "flags": ["KV cache column not mapped [L131]"]},
+  {"role": "own", "panel": "Measured", "name": "RTX PRO 6000 Blackwell (96 GB), vLLM 0.29.0", "size": null, "unit": null, "basis": null, "bpw": null,
+   "methodology": {"reference": "not stated", "dataset": "wikitext-2, 128 chunks x 2048, 262,016 tokens scored", "ctx": "--max-model-len 32768", "tool": "wikitext2_ppl_vllm, vLLM 0.29.0, transformers 5.17.0, bf16 activations", "L": [197, 198, 216]},
+   "metrics": {"ppl:wikitext2": "c36.0", "bench:load_time": "c8"},
+   "flags": ["weight memory after load (73.29 GiB) is in a separate row from the load time, not mapped as a size [L202, L204]", "no bf16 baseline on this card, so no cost of quantization is stated [L219-L221]", "27B comparison table is a different model and is left out [L223-L230]"]},
+  {"role": "own", "panel": "Measured", "name": "RTX PRO 6000 Blackwell (96 GB), vLLM 0.29.0 serving run", "size": null, "unit": null, "basis": null, "bpw": null,
+   "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "--max-model-len 32768", "tool": "vLLM 0.29.0, transformers 5.17.0, bf16 activations", "L": [197, 198, 206, 207]},
+   "metrics": {}, "flags": ["KV capacity row not mapped [L205]"]},
+  {"role": "own", "panel": "Measured", "name": "RTX PRO 6000 Blackwell (96 GB), vLLM 0.30.0, AIME-2026", "size": null, "unit": null, "basis": null, "bpw": null,
+   "methodology": {"reference": "not stated", "dataset": "AIME-2026, n=30, avg@8, thinking mode", "ctx": "262,144-token budget", "tool": "glq-bench aime_2026, vLLM 0.30.0, glq 0.8.23", "L": [236, 237, 238, 239]},
+   "metrics": {}, "flags": ["no bf16 baseline for this eval [L246]"]}
+ ],
+ "prose": [
+  {"entry": "RTX PRO 6000 Blackwell (96 GB), vLLM 0.29.0 serving run", "panel": "Measured", "key": "bench:decode_batch1", "L": 206, "raw": "31.8"},
+  {"entry": "RTX PRO 6000 Blackwell (96 GB), vLLM 0.29.0 serving run", "panel": "Measured", "key": "bench:aggregate_batch32", "L": 206, "raw": "417.9"},
+  {"entry": "RTX PRO 6000 Blackwell (96 GB), vLLM 0.29.0 serving run", "panel": "Measured", "key": "bench:ttft_batch1", "L": 207, "raw": "238 ms"},
+  {"entry": "RTX PRO 6000 Blackwell (96 GB), vLLM 0.30.0, AIME-2026", "panel": "Measured", "key": "bench:aime_2026_avg8", "L": 236, "raw": "99.58%"}
+ ]
+}

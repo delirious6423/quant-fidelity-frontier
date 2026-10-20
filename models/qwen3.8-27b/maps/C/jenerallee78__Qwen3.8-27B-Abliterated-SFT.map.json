@@ -1,0 +1,402 @@
+{
+ "repo": "jenerallee78/Qwen3.8-27B-Abliterated-SFT",
+ "source_sha256": "d1c2bc700dc001312ec13a4f196f57e71844ef9b78c401a29209c333bf344ed5",
+ "candidates_sha256": "fde4c3c9f60e12a3482c86c992f77d349be1e889b0076924691f369a9ed5d6e7",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+  "reference": "vanilla base",
+  "dataset": "HarmBench-400 held-out; 100-prompt development panel; MMLU-1k, ARC-C, Winogrande",
+  "ctx": "1024-token cap",
+  "tool": "OBLITERATUS harness, greedy, thinking disabled",
+  "L": [
+   127,
+   158,
+   161,
+   230
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "this model (e2)",
+   "panel": "Headline numbers (held-out HarmBench-400, thinking disabled, greedy, 1024-token cap)",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "HarmBench-400, held-out, full set (n=400)",
+    "ctx": "not stated",
+    "tool": "OBLITERATUS semantic judge; HarmBench official classifier",
+    "L": [
+     126,
+     127,
+     130,
+     131,
+     132,
+     133,
+     134
+    ]
+   },
+   "metrics": {
+    "bench:HarmBench-400-OBLITERATUS-judge": "c1",
+    "bench:HarmBench-400-official-classifier": "c2"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "valid fulfillment, full held-out HarmBench-400 set [L131]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "this model (e2)",
+   "panel": "Paired three-instrument subset (n=90)",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "paired subset of the first 100 panel items (n=90)",
+    "ctx": "not stated",
+    "tool": "OBLITERATUS semantic judge; HarmBench official classifier; Zen gpt-5.4-mini",
+    "L": [
+     136,
+     137,
+     138,
+     139,
+     141,
+     142
+    ]
+   },
+   "metrics": {
+    "bench:OBLITERATUS-semantic-judge-n90": "c3",
+    "bench:HarmBench-official-classifier-n90": "c4",
+    "bench:Zen-gpt-5.4-mini-n90": "c5"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "subset is concentrated by category, not a random sample [L137-139]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "PocketAiHub (norm-preserved edit, 80 tensors)",
+   "panel": "Competitor board — all re-measured under this pipeline",
+   "methodology": {
+    "reference": "vanilla base",
+    "dataset": "100-prompt development panel, paired per item",
+    "ctx": "not stated",
+    "tool": "OBLITERATUS harness, 1024-token cap, greedy, thinking disabled",
+    "L": [
+     21,
+     22,
+     161,
+     163,
+     164,
+     165,
+     166
+    ]
+   },
+   "metrics": {
+    "bench:KL-final-token": "c6",
+    "bench:refusal-delta": "c7",
+    "bench:material-fulfill-delta": "c8",
+    "bench:actionable-delta": "c9",
+    "bench:invalid-delta": "c10"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "deltas are paired against the vanilla base [L163-165]",
+    "KL is canonical full-vocabulary final-token KL [L158]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "huihui-ai (mean-diff PoC)",
+   "panel": "Competitor board — all re-measured under this pipeline",
+   "methodology": {
+    "reference": "vanilla base",
+    "dataset": "100-prompt development panel, paired per item",
+    "ctx": "not stated",
+    "tool": "OBLITERATUS harness, 1024-token cap, greedy, thinking disabled",
+    "L": [
+     21,
+     22,
+     161,
+     163,
+     164,
+     165,
+     166
+    ]
+   },
+   "metrics": {
+    "bench:KL-final-token": "c11",
+    "bench:refusal-delta": "c12",
+    "bench:material-fulfill-delta": "c13",
+    "bench:actionable-delta": "c14",
+    "bench:invalid-delta": "c15"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "deltas are paired against the vanilla base [L163-165]",
+    "KL is canonical full-vocabulary final-token KL [L158]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "orcarouter FP8 (weight edit)",
+   "panel": "Competitor board — all re-measured under this pipeline",
+   "methodology": {
+    "reference": "vanilla base",
+    "dataset": "100-prompt development panel, paired per item",
+    "ctx": "not stated",
+    "tool": "OBLITERATUS harness, 1024-token cap, greedy, thinking disabled",
+    "L": [
+     21,
+     22,
+     161,
+     163,
+     164,
+     165,
+     166
+    ]
+   },
+   "metrics": {
+    "bench:KL-final-token": "c16",
+    "bench:refusal-delta": "c17",
+    "bench:material-fulfill-delta": "c18",
+    "bench:actionable-delta": "c19",
+    "bench:invalid-delta": "c20"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "deltas are paired against the vanilla base [L163-165]",
+    "KL is canonical full-vocabulary final-token KL [L158]",
+    "published FP8 build needed a config patch to measure [L293-297]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "msuiche cvec (rank-1 projective LoRA)",
+   "panel": "Competitor board — all re-measured under this pipeline",
+   "methodology": {
+    "reference": "vanilla base",
+    "dataset": "100-prompt development panel, paired per item",
+    "ctx": "not stated",
+    "tool": "OBLITERATUS harness, 1024-token cap, greedy, thinking disabled",
+    "L": [
+     21,
+     22,
+     161,
+     163,
+     164,
+     165,
+     166
+    ]
+   },
+   "metrics": {
+    "bench:KL-final-token": "c21",
+    "bench:refusal-delta": "c22",
+    "bench:material-fulfill-delta": "c23",
+    "bench:actionable-delta": "c24",
+    "bench:invalid-delta": "c25"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "deltas are paired against the vanilla base [L163-165]",
+    "KL is canonical full-vocabulary final-token KL [L158]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "JonathanColetti (Heretic, 200 tensors)",
+   "panel": "Competitor board — all re-measured under this pipeline",
+   "methodology": {
+    "reference": "vanilla base",
+    "dataset": "100-prompt development panel, paired per item",
+    "ctx": "not stated",
+    "tool": "OBLITERATUS harness, 1024-token cap, greedy, thinking disabled",
+    "L": [
+     21,
+     22,
+     161,
+     163,
+     164,
+     165,
+     166
+    ]
+   },
+   "metrics": {
+    "bench:KL-final-token": "c26",
+    "bench:refusal-delta": "c27",
+    "bench:material-fulfill-delta": "c28",
+    "bench:actionable-delta": "c29",
+    "bench:invalid-delta": "c30"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "deltas are paired against the vanilla base [L163-165]",
+    "KL is canonical full-vocabulary final-token KL [L158]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "ladder",
+   "name": "this model (e1, lower-KL sibling)",
+   "panel": "Competitor board — all re-measured under this pipeline",
+   "methodology": {
+    "reference": "vanilla base",
+    "dataset": "100-prompt development panel, paired per item",
+    "ctx": "not stated",
+    "tool": "OBLITERATUS harness, 1024-token cap, greedy, thinking disabled",
+    "L": [
+     21,
+     22,
+     161,
+     163,
+     164,
+     165,
+     166
+    ]
+   },
+   "metrics": {
+    "bench:KL-final-token": "c31",
+    "bench:refusal-delta": "c32",
+    "bench:material-fulfill-delta": "c33",
+    "bench:actionable-delta": "c34",
+    "bench:invalid-delta": "c35"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "deltas are paired against the vanilla base [L163-165]",
+    "KL is canonical full-vocabulary final-token KL [L158]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "this model (e2)",
+   "panel": "Competitor board — all re-measured under this pipeline",
+   "methodology": {
+    "reference": "vanilla base",
+    "dataset": "100-prompt development panel, paired per item",
+    "ctx": "not stated",
+    "tool": "OBLITERATUS harness, 1024-token cap, greedy, thinking disabled",
+    "L": [
+     21,
+     22,
+     161,
+     163,
+     164,
+     165,
+     166
+    ]
+   },
+   "metrics": {
+    "bench:KL-final-token": "c36",
+    "bench:refusal-delta": "c37",
+    "bench:material-fulfill-delta": "c38",
+    "bench:actionable-delta": "c39",
+    "bench:invalid-delta": "c40"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "deltas are paired against the vanilla base [L163-165]",
+    "KL is canonical full-vocabulary final-token KL [L158]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "vanilla base",
+   "panel": "Operator substitution (utility battery, all models re-measured)",
+   "methodology": {
+    "reference": "vanilla base",
+    "dataset": "MMLU-1k, ARC-C, Winogrande, tool calls, benign prompts",
+    "ctx": "1024-token cap",
+    "tool": "OBLITERATUS harness, greedy, thinking disabled",
+    "L": [
+     232,
+     234,
+     235,
+     238,
+     239
+    ]
+   },
+   "of": "Qwen/Qwen3.8-27B",
+   "metrics": {
+    "bench:MMLU-1k": "c41",
+    "bench:ARC-C": "c42",
+    "bench:Winogrande": "c43",
+    "bench:tool-calls-passed": "c44.0",
+    "bench:benign-clean-stop": "c45"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "tool calls shown as passes of 24 cases [L234]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "this model (e2)",
+   "panel": "Operator substitution (utility battery, all models re-measured)",
+   "methodology": {
+    "reference": "vanilla base",
+    "dataset": "MMLU-1k, ARC-C, Winogrande, tool calls, benign prompts",
+    "ctx": "1024-token cap",
+    "tool": "OBLITERATUS harness, greedy, thinking disabled",
+    "L": [
+     232,
+     234,
+     235,
+     238,
+     239
+    ]
+   },
+   "metrics": {
+    "bench:MMLU-1k": "c46",
+    "bench:ARC-C": "c47",
+    "bench:Winogrande": "c48",
+    "bench:tool-calls-passed": "c49.0",
+    "bench:benign-clean-stop": "c50"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "five competitors reported as ranges, not mapped [L236]",
+    "tool calls shown as passes of 24 cases [L235]"
+   ]
+  }
+ ],
+ "prose": []
+}

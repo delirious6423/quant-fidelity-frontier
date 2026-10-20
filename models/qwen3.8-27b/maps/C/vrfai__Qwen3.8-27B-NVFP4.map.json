@@ -1,0 +1,32 @@
+{
+ "repo": "vrfai/Qwen3.8-27B-NVFP4",
+ "source_sha256": "83d96d39e83035dceb897b1a115f5dafe38ae6b4abd07e83b5fa19114ec1d1c5",
+ "candidates_sha256": "5c7dbc157b8213727176aa25c9eb8cabbd775f5685517fc4baf54c602454f80b",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 weights measured by this card's author under the same pipeline", "dataset": "MathVision (testmini, n=304) and ERQA (n=400) for absolute scores; 10 deterministic-scored tasks, 13,046 documents for drift", "ctx": "thinking enabled at default reasoning_effort for absolute scores; short-answer regime for drift", "tool": "lmms-eval, greedy decoding, vLLM 0.27.1, 1x H100", "L": [27, 29, 75, 84, 100, 101, 124, 130, 131, 132, 133]},
+ "entries": [
+  {"role": "own", "name": "This model", "panel": "Performance",
+   "methodology": {"reference": "bf16 weights under the same harness", "dataset": "MathVision (testmini, n=304), ERQA (n=400)", "ctx": "thinking enabled at default reasoning_effort, greedy", "tool": "lmms-eval, vLLM 0.27.1, 1x H100", "L": [75, 76, 79, 84, 130, 131, 132, 133]},
+   "metrics": {"bench:mathvision_testmini": "c40", "bench:erqa": "c44"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["scores measured on H100 via the Marlin weight-only path, effectively W4A16, not W4A4 [L27-29]", "verbatim base-card tables (other models, or the Qwen team's bf16 runs) omitted [L161-165]", "quantized weight size 18.4 GB [L24, L130] not mapped: no metric in that row"]},
+  {"role": "cross", "of": "Qwen/Qwen3.8-27B", "name": "bf16", "panel": "Performance",
+   "methodology": {"reference": "bf16 weights under the same harness", "dataset": "MathVision (testmini, n=304), ERQA (n=400)", "ctx": "thinking enabled at default reasoning_effort, greedy", "tool": "lmms-eval, vLLM 0.27.1, 1x H100", "L": [75, 84, 85, 86, 133]},
+   "metrics": {"bench:mathvision_testmini": "c41", "bench:erqa": "c45"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["original weights measured by this card's author [L84-86]"]},
+  {"role": "quoted", "of": "Qwen/Qwen3.8-27B", "name": "Qwen card", "panel": "Performance",
+   "methodology": {"reference": "Qwen team measurement on bf16 weights", "dataset": "MathVision (testmini), ERQA", "ctx": "sampled at temperature 1.0, top_p 0.95, top_k 20 per card", "tool": "not stated", "L": [86, 87, 88]},
+   "metrics": {"bench:mathvision_testmini": "c42", "bench:erqa": "c46"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["figure copied from the base model card [L79-82, L161-165]", "protocol differs from this card's greedy runs [L87-88]"]},
+  {"role": "own", "name": "this model", "panel": "How far this checkpoint drifts from bf16",
+   "methodology": {"reference": "bf16 weights under the same pipeline", "dataset": "10 deterministic-scored tasks, 13,046 documents", "ctx": "short-answer regime, greedy", "tool": "lmms-eval, vLLM 0.27.1, 1x H100", "L": [100, 101, 102, 118, 124, 132, 133]},
+   "metrics": {"bench:ai2d_delta": "c49", "bench:chartqa_delta": "c52", "bench:scienceqa_img_delta": "c55", "bench:mmstar_delta": "c58", "bench:ocrbench_delta": "c61", "bench:countbenchqa_delta": "c64", "bench:realworldqa_delta": "c67", "bench:omnidocbench_delta": "c70", "bench:mathvision_testmini_delta": "c73", "bench:erqa_delta": "c76"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["delta is drift versus bf16, not a score [L102-103]", "floor values and verdict column not mapped: floor is bf16 run-to-run spread [L105-119]", "H100 Marlin weight-only caveat applies [L27-29]"]}
+ ],
+ "prose": []
+}

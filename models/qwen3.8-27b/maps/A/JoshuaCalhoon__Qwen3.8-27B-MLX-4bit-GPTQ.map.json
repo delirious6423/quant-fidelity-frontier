@@ -1,0 +1,40 @@
+{
+  "repo": "JoshuaCalhoon/Qwen3.8-27B-MLX-4bit-GPTQ",
+  "source_sha256": "df0deabbe24c338ff85b291d7513efd32ce49a2eb5f7fadd0a703ec99d05b80e",
+  "candidates_sha256": "625079111b0681484630984bf9d2cd098654eafc301cff3e932c21f7c88ecc76",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "bf16 base", "dataset": "96 held-out sequences / 37.8K tokens from projects outside the calibration set", "ctx": "not stated", "tool": "not stated", "L": [34, 35]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "this quant",
+      "metrics": {},
+      "size": "c5",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "KL vs bf16 (0.0747) is computed over bf16 top-64 tokens plus a tail bucket; no top-k KL key, not mapped [L35, L39]",
+        "Top-1 agreement (0.925) is printed as a fraction, not a percent, so not mapped to top1_pct [L40]",
+        "Image-reading and agentic benchmark results are stated without numbers in the card, not mapped [L44-46]"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "mlx-community/Qwen3.8-27B-4bit",
+      "of": "mlx-community/Qwen3.8-27B-4bit",
+      "metrics": {},
+      "size": "c6",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "KL vs bf16 (0.1175) is computed over bf16 top-64 tokens plus a tail bucket; no top-k KL key, not mapped [L35, L39]",
+        "Top-1 agreement (0.881) is printed as a fraction, not a percent, so not mapped to top1_pct [L40]"
+      ]
+    }
+  ],
+  "prose": []
+}

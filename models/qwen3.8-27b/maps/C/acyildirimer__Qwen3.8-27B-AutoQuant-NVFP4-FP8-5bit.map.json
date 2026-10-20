@@ -1,0 +1,315 @@
+{
+ "repo": "acyildirimer/Qwen3.8-27B-AutoQuant-NVFP4-FP8-5bit",
+ "source_sha256": "328f6af621a373a429167513fa2b7e269931aaf16a0a3740db6f6dabefaed57f",
+ "candidates_sha256": "c91322ae83e5810a1951b187178dfbf0f16b5531782c7cb876a4cd9691837315",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "not stated",
+  "dataset": "MMLU, ARC-C, HellaSwag, GSM8K, HumanEval",
+  "ctx": "not stated",
+  "tool": "vLLM",
+  "L": [
+   66,
+   72,
+   73,
+   74,
+   102,
+   104
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "acyildirimer/Qwen3.8-27B-AutoQuant-NVFP4-FP8-5bit",
+   "panel": "Quality Benchmarks",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "MMLU, ARC-C, HellaSwag, GSM8K, HumanEval",
+    "ctx": "not stated",
+    "tool": "vLLM chat completions, thinking disabled, temperature 0",
+    "L": [
+     72,
+     73,
+     74,
+     92,
+     93
+    ]
+   },
+   "metrics": {
+    "bench:MMLU": "c12",
+    "bench:ARC-C": "c13",
+    "bench:HellaSwag": "c14",
+    "bench:GSM8K": "c15",
+    "bench:HumanEval": "c16",
+    "bench:4-task-mean": "c17"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "author-reported results for this checkpoint [L68]",
+    "repository size stated in prose only [L48]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "acyildirimer/Qwen3.8-27B-NVFP4",
+   "of": "acyildirimer/Qwen3.8-27B-NVFP4",
+   "panel": "Quality Benchmarks",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "witcheer/rtx-5090-benchmarks (public)",
+    "ctx": "not stated",
+    "tool": "vLLM",
+    "L": [
+     96,
+     97,
+     98,
+     99
+    ]
+   },
+   "metrics": {
+    "bench:MMLU": "c18",
+    "bench:ARC-C": "c19",
+    "bench:HellaSwag": "c20",
+    "bench:GSM8K": "c21",
+    "bench:HumanEval": "c22",
+    "bench:4-task-mean": "c23"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "figure from a public benchmark dataset, serving stacks differ [L96-99]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "Qwen/Qwen3.8-27B",
+   "of": "Qwen/Qwen3.8-27B",
+   "panel": "Quality Benchmarks",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "witcheer/rtx-5090-benchmarks (public)",
+    "ctx": "not stated",
+    "tool": "llama.cpp (partial offload)",
+    "L": [
+     96,
+     97,
+     98,
+     99
+    ]
+   },
+   "metrics": {
+    "bench:MMLU": "c25",
+    "bench:ARC-C": "c26",
+    "bench:HellaSwag": "c27",
+    "bench:GSM8K": "c28",
+    "bench:HumanEval": "c29",
+    "bench:4-task-mean": "c30"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "figure from a public benchmark dataset, serving stacks differ [L96-99]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "unsloth/Qwen3.8-27B-NVFP4",
+   "of": "unsloth/Qwen3.8-27B-NVFP4",
+   "panel": "Quality Benchmarks",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "witcheer/rtx-5090-benchmarks (public)",
+    "ctx": "not stated",
+    "tool": "vLLM",
+    "L": [
+     96,
+     97,
+     98,
+     99
+    ]
+   },
+   "metrics": {
+    "bench:MMLU": "c31",
+    "bench:ARC-C": "c32",
+    "bench:HellaSwag": "c33",
+    "bench:GSM8K": "c34",
+    "bench:HumanEval": "c35",
+    "bench:4-task-mean": "c36"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "figure from a public benchmark dataset, serving stacks differ [L96-99]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "Q8_0",
+   "of": "unsloth/Qwen3.8-27B-GGUF",
+   "panel": "Quality Benchmarks",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "witcheer/rtx-5090-benchmarks (public)",
+    "ctx": "not stated",
+    "tool": "llama.cpp",
+    "L": [
+     96,
+     97,
+     98,
+     99
+    ]
+   },
+   "metrics": {
+    "bench:MMLU": "c38",
+    "bench:ARC-C": "c39",
+    "bench:HellaSwag": "c40",
+    "bench:GSM8K": "c41",
+    "bench:HumanEval": "c42",
+    "bench:4-task-mean": "c43"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "figure from a public benchmark dataset, serving stacks differ [L96-99]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "Q6_K",
+   "of": "unsloth/Qwen3.8-27B-GGUF",
+   "panel": "Quality Benchmarks",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "witcheer/rtx-5090-benchmarks (public)",
+    "ctx": "not stated",
+    "tool": "llama.cpp",
+    "L": [
+     96,
+     97,
+     98,
+     99
+    ]
+   },
+   "metrics": {
+    "bench:MMLU": "c45",
+    "bench:ARC-C": "c46",
+    "bench:HellaSwag": "c47",
+    "bench:GSM8K": "c48",
+    "bench:HumanEval": "c49",
+    "bench:4-task-mean": "c50"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "figure from a public benchmark dataset, serving stacks differ [L96-99]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "UD-Q4_K_XL",
+   "of": "unsloth/Qwen3.8-27B-GGUF",
+   "panel": "Quality Benchmarks",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "witcheer/rtx-5090-benchmarks (public)",
+    "ctx": "not stated",
+    "tool": "llama.cpp",
+    "L": [
+     96,
+     97,
+     98,
+     99
+    ]
+   },
+   "metrics": {
+    "bench:MMLU": "c52",
+    "bench:ARC-C": "c53",
+    "bench:HellaSwag": "c54",
+    "bench:GSM8K": "c55",
+    "bench:HumanEval": "c56",
+    "bench:4-task-mean": "c57"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "figure from a public benchmark dataset, serving stacks differ [L96-99]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "Q4_K_M",
+   "of": "unsloth/Qwen3.8-27B-GGUF",
+   "panel": "Quality Benchmarks",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "witcheer/rtx-5090-benchmarks (public)",
+    "ctx": "not stated",
+    "tool": "llama.cpp",
+    "L": [
+     96,
+     97,
+     98,
+     99
+    ]
+   },
+   "metrics": {
+    "bench:MMLU": "c59",
+    "bench:ARC-C": "c60",
+    "bench:HellaSwag": "c61",
+    "bench:GSM8K": "c62",
+    "bench:HumanEval": "c63",
+    "bench:4-task-mean": "c64"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "figure from a public benchmark dataset, serving stacks differ [L96-99]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "acyildirimer/Qwen3.8-27B-AutoQuant-NVFP4-FP8-5bit",
+   "panel": "Tool-Calling Evaluation",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "tool-eval-bench, 69 scenarios",
+    "ctx": "not stated",
+    "tool": "tool-eval-bench v2.2.0 through vLLM, temperature 0, seed 42",
+    "L": [
+     104,
+     105
+    ]
+   },
+   "metrics": {
+    "bench:tool-eval-normalized": "c66.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "points and outcome counts not mapped [L109]"
+   ]
+  }
+ ],
+ "prose": []
+}

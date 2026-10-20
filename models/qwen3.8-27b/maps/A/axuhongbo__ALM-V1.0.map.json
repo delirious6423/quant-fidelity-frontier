@@ -1,0 +1,82 @@
+{
+  "repo": "axuhongbo/ALM-V1.0",
+  "source_sha256": "ba0682f5a956d16af2f2a5811653435109d36573cf8fdee04d545fc980497b0c",
+  "candidates_sha256": "10f4756063682c7d65c9844548f4d176aeb4a38e366e901fa262d11225c0c761",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {"reference": "not stated", "dataset": "5 attack scenarios (author's exercise set)", "ctx": "not stated", "tool": "not stated", "L": [101, 109]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "ALM-V1.0",
+      "panel": "2. 全局核心分项指标（精准率 / 召回率 / F1）横向对比总表",
+      "methodology": {"reference": "not stated", "dataset": "5 attack scenarios (author's exercise set)", "ctx": "not stated", "tool": "not stated", "L": [121, 123]},
+      "metrics": {
+        "bench:Physical P": "c1",
+        "bench:Physical R": "c2",
+        "bench:Physical F1": "c3",
+        "bench:False Positives": "c4",
+        "bench:TA Precision": "c5",
+        "bench:TA Recall": "c6",
+        "bench:Step Score": "c8",
+        "bench:Composite Score": "c9"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "TA F1 cell '0.672 (+315%)' not mapped: the +315% is a derived gain in the same cell [L127]",
+        "Precision of the evaluated artifact is not stated; the card recommends a GGUF Q4_K_M file [L194]",
+        "MiniMax-M3.1-Flash rows are other models, omitted [L129-130]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "1013 SFT 基准模型",
+      "panel": "2. 全局核心分项指标（精准率 / 召回率 / F1）横向对比总表",
+      "methodology": {"reference": "not stated", "dataset": "5 attack scenarios (author's exercise set)", "ctx": "not stated", "tool": "not stated", "L": [121, 123]},
+      "metrics": {
+        "bench:Physical P": "c10",
+        "bench:Physical R": "c11",
+        "bench:Physical F1": "c12",
+        "bench:False Positives": "c13",
+        "bench:TA Precision": "c14",
+        "bench:TA Recall": "c15",
+        "bench:TA F1": "c16",
+        "bench:Step Score": "c17",
+        "bench:Composite Score": "c18"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": []
+    },
+    {
+      "role": "cross",
+      "name": "官方原版 Qwen3.8:27B",
+      "panel": "2. 全局核心分项指标（精准率 / 召回率 / F1）横向对比总表",
+      "methodology": {"reference": "not stated", "dataset": "5 attack scenarios (author's exercise set)", "ctx": "not stated", "tool": "zero-shot run, as labeled on the card", "L": [109, 131]},
+      "of": "Qwen/Qwen3.8-27B",
+      "metrics": {
+        "bench:Physical P": "c37",
+        "bench:Physical R": "c38",
+        "bench:Physical F1": "c39",
+        "bench:False Positives": "c40",
+        "bench:TA Precision": "c41",
+        "bench:TA Recall": "c42",
+        "bench:TA F1": "c43",
+        "bench:Step Score": "c44",
+        "bench:Composite Score": "c45"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Zero-shot base model run as labeled by the card [L109]"]
+    }
+  ],
+  "prose": []
+}

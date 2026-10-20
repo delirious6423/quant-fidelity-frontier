@@ -1,0 +1,28 @@
+{
+  "repo": "SiliconSpecies/Qwen3.8-Flash-Next-EXL3-Ijah",
+  "source_sha256": "2cadde47623b8eb9fd430afe78a3944a73320abd58ffbbd7a528c1e911850420",
+  "candidates_sha256": "b0b586e2ab30edfb2075e17607082b685e689d92ae73ad5eab7a7def82a11e93",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "bf16 model next-token distribution (teacher)",
+    "dataset": "wikitext-2, reasoning traces, code and prose windows",
+    "ctx": "16 windows of 512 tokens; 16 traces of 2,048 tokens; 4 windows of 32,768 tokens",
+    "tool": "KL divergence, full vocabulary, teacher-forced",
+    "L": [43, 67]
+  },
+  "entries": [
+    {"role": "own", "name": "this pack (Ijah T6)", "panel": "Closeness to bf16 (whole model, KLD vs the bf16 teacher; lower is closer)",
+     "methodology": {"reference": "bf16 model next-token distribution (teacher)", "dataset": "wikitext-2, reasoning traces, code and prose windows", "ctx": "16 windows of 512 tokens; 16 traces of 2,048 tokens; 4 windows of 32,768 tokens", "tool": "KL divergence, full vocabulary, teacher-forced", "L": [43, 67]},
+     "metrics": {"kld:wikitext": "c1", "kld:reasoning": "c2", "kld:32K": "c3", "top1:wikitext": "c4.0", "top1:reasoning": "c4.1", "top1:32K": "c4.2"},
+     "size": null, "unit": null, "basis": null, "bpw": null,
+     "flags": ["same teacher and text for both rows [L43]", "set C has only 4 windows, so its intervals are wide [L76]", "size stated in prose only (disk 82.5 GB for this repo) and not mapped [L86]"]},
+    {"role": "cross", "of": "Jundot/Qwen3.8-Flash-Next-oQ4e", "name": "oMLX, Jundot oQ4e (4.72 bpw mixed)", "panel": "Closeness to bf16 (whole model, KLD vs the bf16 teacher; lower is closer)",
+     "methodology": {"reference": "bf16 model next-token distribution (teacher)", "dataset": "wikitext-2, reasoning traces, code and prose windows", "ctx": "16 windows of 512 tokens; 16 traces of 2,048 tokens; 4 windows of 32,768 tokens", "tool": "KL divergence, full vocabulary, teacher-forced", "L": [43, 67]},
+     "metrics": {"kld:wikitext": "c5", "kld:reasoning": "c6", "kld:32K": "c7", "top1:wikitext": "c8.0", "top1:reasoning": "c8.1", "top1:32K": "c8.2"},
+     "size": null, "unit": null, "basis": null, "bpw": "c17",
+     "flags": ["oQ4e is run in the card author's own harness with tuned oMLX settings [L58-L60]"]}
+  ],
+  "prose": []
+}

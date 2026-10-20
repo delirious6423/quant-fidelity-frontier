@@ -1,0 +1,27 @@
+{"repo": "tattrongvu/GLM-5.3-Flash-NVFP4",
+ "source_sha256": "c1b8e996d0f8824793809bac740350346a556d956ece1f171bdbecc04318f0c0",
+ "candidates_sha256": "738b8b153f44ced1d08f0707919ab1a0109fd6dc8f276b2a44884f3a52d574e4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "eval-gate medium tier (bfcl_v4, hle, aa_lcr, aime26)", "ctx": "max_tokens 32768, reasoning_effort max", "tool": "SGLang TP4 on 4xB200", "L": [50, 63]},
+ "entries": [
+  {"role": "own",
+   "name": "GLM-5.3-Flash-NVFP4",
+   "panel": "Evaluation",
+   "methodology": {"reference": "not stated", "dataset": "eval-gate medium tier: bfcl_v4 (limit 300 per subset), hle (limit 200 per subset), aa_lcr, aime26 (30 problems, repeats 4)", "ctx": "max_tokens 32768, reasoning_effort max", "tool": "SGLang TP4 on 4xB200", "L": [50, 59, 60, 63]},
+   "metrics": {"bench:bfcl_v4": "c1", "bench:hle": "c4", "bench:aa_lcr": "c8", "bench:aime26": "c11", "bench:hle (completed only)": "c7", "bench:aime26 (completed only)": "c14"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["bfcl_v4 and hle are bounded runs, bounds not full scores [L59-L60]", "score column is kept as printed; it blends accuracy with max_tokens truncation (hle 29.3% [L55], aime26 30.0% [L57])", "completed-only columns [L55, L57] are separate bench names; the card gives them as its honest reading [L63-L68]", "weight reconstruction error 0.0918 [L44-L45] is not a listed metric and is not mapped", "accepted-token and draft-acceptance rows [L147-L148] are speculative-decoding stats and are not mapped"]},
+  {"role": "quoted",
+   "name": "RadixArk NVFP4 conversion",
+   "of": "not named on card",
+   "panel": "Evaluation",
+   "methodology": {"reference": "not stated", "dataset": "AIME 2026", "ctx": "max_tokens=131072", "tool": "not stated", "L": [70, 71]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["figure is copied from the SGLang vendor's conversion and is not this card's measurement [L70]"]}
+ ],
+ "prose": [
+  {"entry": "RadixArk NVFP4 conversion", "panel": "Evaluation", "key": "bench:aime26", "L": 70, "raw": "at 92.45 %"}
+ ]}

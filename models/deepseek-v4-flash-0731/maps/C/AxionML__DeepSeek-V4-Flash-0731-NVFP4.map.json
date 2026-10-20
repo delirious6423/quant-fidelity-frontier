@@ -1,0 +1,22 @@
+{"repo": "AxionML/DeepSeek-V4-Flash-0731-NVFP4",
+ "source_sha256": "3f298aacb9f0d747559865c440016694c1b1ed98f0d39ad4be322705b91cd84f",
+ "candidates_sha256": "4ae73cb8aafbcfdf4befa88ab7049de74598580837eff0ce396aab8087d8674e",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "deepseek-ai/DeepSeek-V4-Flash-0731 (baseline)", "dataset": "not stated", "ctx": "temperature=1.0, top_p=1.0, max reasoning effort", "tool": "not stated", "L": [55]},
+ "entries": [
+   {"role": "own",
+    "name": "NVFP4",
+    "metrics": {"bench:AA-LCR": "c6", "bench:τ²-Bench Telecom": "c8", "bench:SciCode": "c10", "bench:IFBench": "c12", "bench:Terminal-Bench v2.1": "c14", "bench:GDPval (rubric)": "c16"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["no NVFP4 GPQA Diamond value in table [L47]", "scores stated as reported by NVIDIA [L55]"]},
+   {"role": "cross",
+    "name": "MXFP4 (source)",
+    "of": "deepseek-ai/DeepSeek-V4-Flash-0731",
+    "metrics": {"bench:GPQA Diamond": "c4", "bench:AA-LCR": "c5", "bench:τ²-Bench Telecom": "c7", "bench:SciCode": "c9", "bench:IFBench": "c11", "bench:Terminal-Bench v2.1": "c13", "bench:GDPval (rubric)": "c15"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["source MXFP4 column of the same evaluation table [L45-53]"]}
+ ],
+ "prose": []
+}

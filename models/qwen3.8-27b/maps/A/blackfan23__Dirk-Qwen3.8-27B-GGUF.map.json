@@ -1,0 +1,27 @@
+{
+  "repo": "blackfan23/Dirk-Qwen3.8-27B-GGUF",
+  "source_sha256": "3d1edcfdc68e365415e0bb22c9a73951ebdd72c4fd1b95b63dc4859cceecfd83",
+  "candidates_sha256": "9c4fe1d476fee690a5db94c44b004111289f99d512fcaf3116a623919fec5df8",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "not stated", "dataset": "MMLU-Pro", "ctx": "not stated", "tool": "not stated", "L": [35]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "Dirk (medium)",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Quant tier and budget behind the 85.3% MMLU-Pro accuracy are not stated [L35]",
+        "Claw-Eval and MMLU-Pro token comparisons were run on the Dagger base (ThinkingCap-27B), not this repo, omitted [L70-82]"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "Dirk (medium)", "key": "bench:MMLU-Pro", "L": 35, "raw": "Dirk tops accuracy at 85.3%"}
+  ]
+}

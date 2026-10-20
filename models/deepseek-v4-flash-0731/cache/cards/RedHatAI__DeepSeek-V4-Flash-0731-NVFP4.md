@@ -70,9 +70,17 @@ Routed MoE experts use NVFP4 weight and activation quantization, while selected 
 
 ## Evaluations
 
-| Model                                               |       GPQA |
-| --------------------------------------------------- | ---------: |
-| deepseek-ai/DeepSeek-V4-Flash-0731                  |     84.34% |
-| **RedHatAI/DeepSeek-V4-Flash-0731-NVFP4-FP8-BLOCK** | **86.15%** |
+### General Knowledge ###
 
-Note that GPQA is a non-deterministic eval on its own and quantization can sometimes act as a regularizer for individual evals.
+| Benchmark          | deepseek-ai/DeepSeek-V4-Flash-0731 (Base) | RedHatAI/DeepSeek-V4-Flash-0731-NVFP4 | Recovery |
+| ------------------ | ----------------------------------------- | ------------------------------------- | -------- |
+| GPQA Platinum      | 84.34%                                    | 86.15%                                | 102.15%  |
+
+### Agentic Coding ###
+
+| Benchmark          | deepseek-ai/DeepSeek-V4-Flash-0731 (Base) | RedHatAI/DeepSeek-V4-Flash-0731-NVFP4 | Recovery |
+| ------------------ | ----------------------------------------- | ------------------------------------- | -------- |
+| Terminal-Bench 2.1 | 0.798                                     | 0.764                                 | 95.74%   |
+| DeepSWE 1.1        | 0.469                                     | 0.513                                 | 109.38%  |
+| SWE-bench Verified | 0.738                                     | 0.716                                 | 97.02%   |
+| Average            | 0.6683                                    | 0.6643                                | 99.40%   |

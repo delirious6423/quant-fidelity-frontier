@@ -1,0 +1,14 @@
+{
+ "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF",
+ "source_sha256": "97653fa9359d0d177c94b58434dc2ffcfa43a2936fb12d18438718492b67ebac",
+ "candidates_sha256": "b95e633392cc3bbb1ff9edc0b9d40faa97d5b9af61e1e5b166f5c6a7cb1bb597",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "BF16 base (table row L58)", "dataset": "SWE-bench Verified, LiveCodeBench v6", "ctx": "not stated (xhigh reasoning effort)", "tool": "not stated", "L": [56, 58, 59, 60, 62]},
+ "entries": [
+  {"role": "own", "name": "GSQ-RCO Coder (58.4 GB)", "metrics": {"bench:SWE-bench Verified": "c3", "bench:LiveCodeBench v6": "c4"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["size 58.4 GB appears only in the row label [L59]", "pruned: half of routed experts removed [L48]", "earlier-build scores in update note [L40] not mapped"]},
+  {"role": "ladder", "name": "BF16 base (354 GB)", "metrics": {"bench:SWE-bench Verified": "c1", "bench:LiveCodeBench v6": "c2"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["unpruned BF16 reference row [L58]"]}
+ ],
+ "prose": []
+}

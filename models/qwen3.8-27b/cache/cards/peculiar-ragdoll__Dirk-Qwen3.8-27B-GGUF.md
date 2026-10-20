@@ -92,19 +92,20 @@ answers terse, instead of being pushed to the ceiling on every request. Set `rea
 
 | file | size | notes |
 |---|--:|---|
-| `Dirk-Qwen3.8-27B-GSQ-RCO-IQ2_XS.gguf` | 8.8 GB | smallest tier — the **12 GB** card pick, with room for real context |
-| `Dirk-Qwen3.8-27B-UD-Q2_K_XL.gguf` | 9.8 GB | 2-bit UD; kept for continuity — prefer GSQ-RCO-IQ2_S just below it, which is smaller *and* better |
-| `Dirk-Qwen3.8-27B-GSQ-RCO-IQ2_S.gguf` | 9.6 GB | **the 12 GB pick** — 2-bit that still tracks the base model closely |
-| `Dirk-Qwen3.8-27B-GSQ-RCO-IQ3_XXS.gguf` | 10.4 GB | fits **16 GB** with room to spare, and a **12 GB** card at shorter context |
-| `Dirk-Qwen3.8-27B-GSQ-RCO-IQ3_S.gguf` | 12.1 GB | 3-bit at near-base quality; the value pick if **16 GB** is your ceiling |
-| `Dirk-Qwen3.8-27B-UD-Q3_K_XL.gguf` | 13.1 GB | 3-bit with headroom to spare on **16 GB**; prefer IQ4_XS below unless you need the extra ~1 GB for context |
-| `Dirk-Qwen3.8-27B-UD-IQ4_XS.gguf` | 14.3 GB | **the 16 GB pick** — 4-bit quality with room for real context, where Q4_K_S leaves almost none |
-| `Dirk-Qwen3.8-27B-UD-Q4_K_S.gguf` | 15.4 GB | tight 4-bit; useful when Q4_K_XL will not fit alongside your context |
-| `Dirk-Qwen3.8-27B-UD-Q4_K_XL.gguf` | 17.6 GB | **start here** — the 24 GB-card default; best size/quality balance |
-| `Dirk-Qwen3.8-27B-UD-Q5_K_XL.gguf` | 20.9 GB | **the recommended 24 GB pick** — dynamic + imatrix-calibrated, and small enough to leave real room for context |
-| `Dirk-Qwen3.8-27B-UD-Q6_K.gguf` | 22.0 GB | 6-bit — the largest that still fits **24 GB**, with tighter headroom than UD-Q5_K_XL |
+| `Dirk-Qwen3.8-27B-GSQ-RCO-IQ2_XS.gguf` | 8.8 GB | smallest tier; fits **12 GB** with context room |
+| `Dirk-Qwen3.8-27B-GSQ-RCO-IQ2_S.gguf` | 9.6 GB | **the 12 GB pick** — 2-bit that still tracks the base closely |
+| `Dirk-Qwen3.8-27B-UD-Q2_K_XL.gguf` | 9.8 GB | 2-bit; kept for continuity — prefer GSQ-RCO-IQ2_S, smaller *and* better |
+| `Dirk-Qwen3.8-27B-GSQ-RCO-IQ3_XXS.gguf` | 10.4 GB | fits **16 GB** easily, or **12 GB** at shorter context |
+| `Dirk-Qwen3.8-27B-GSQ-RCO-IQ3_S.gguf` | 12.1 GB | 3-bit near base quality; value pick if **16 GB** is your ceiling |
+| `Dirk-Qwen3.8-27B-UD-Q3_K_XL.gguf` | 13.1 GB | 3-bit with **16 GB** headroom; prefer IQ4_XS unless you need the ~1 GB |
+| `Dirk-Qwen3.8-27B-UD-IQ4_XS.gguf` | 14.3 GB | **the 16 GB pick** — 4-bit with real context room |
+| `Dirk-Qwen3.8-27B-UD-Q4_K_S.gguf` | 15.4 GB | tight 4-bit; for when Q4_K_XL won't fit with your context |
+| `Dirk-Qwen3.8-27B-UD-Q4_K_M.gguf` | 16.5 GB | conventional 4-bit; what a bare `-hf` resolves to — prefer Q4_K_XL if it fits |
+| `Dirk-Qwen3.8-27B-UD-Q4_K_XL.gguf` | 17.6 GB | **start here** — the 24 GB default; best size/quality balance |
+| `Dirk-Qwen3.8-27B-UD-Q5_K_XL.gguf` | 20.9 GB | **the 24 GB quality pick** — leaves real room for context |
+| `Dirk-Qwen3.8-27B-UD-Q6_K.gguf` | 22.0 GB | 6-bit; largest that still fits **24 GB**, tighter than Q5_K_XL |
 | `Dirk-Qwen3.8-27B-UD-Q6_K_XL.gguf` | 25.3 GB | near-max quality; wants ~32 GB |
-| `Dirk-Qwen3.8-27B-UD-Q8_K_L.gguf` | 28.0 GB | 8-bit, near-lossless — fits **48 GB** with room for **256k** context; a touch leaner than Q8_K_XL |
+| `Dirk-Qwen3.8-27B-UD-Q8_K_L.gguf` | 28.0 GB | 8-bit near-lossless; fits **48 GB** with 256k context |
 | `Dirk-Qwen3.8-27B-UD-Q8_K_XL.gguf` | 31.5 GB | 8-bit, effectively lossless |
 
 Every file carries the Sharp template and the MTP (`nextn`) head, and all share `mmproj-F16.gguf`
@@ -123,8 +124,9 @@ ladder switches over at 3 bpw and stays on UD above it. **Those are ISTA's measu
 we have re-templated their files, not re-benchmarked them.
 
 **Let llama.cpp fetch it** — pass a `:quant` tag from the table (`:Q4_K_XL`, `:IQ4_XS`, `:Q6_K_XL`, …).
-The tag is **required**: this repo has no `Q4_K_M`, so a bare `-hf` with no tag falls back to the wrong
-file. The `mmproj` rides along in the manifest, so **vision works from the same tag** — no second download.
+A tag is **recommended** so you get exactly the tier you want; a bare `-hf` with no tag now resolves to
+`UD-Q4_K_M`, a sensible 4-bit default, rather than failing to find one. The `mmproj` rides along in the
+manifest, so **vision works from the same tag** — no second download.
 
 ```bash
 # text — auto-downloads to llama.cpp's own cache (24 GB-card default shown)

@@ -1,1 +1,22 @@
-{"repo":"apertixai/cerno-27b","no_quality_claims":false,"no_claims_reason":"","method":{"reference":"bf16 weights of the same fine-tuned model","dataset":"Decision Index 0.3 public suite (37 benchmarks, 140,178 requests)","ctx":"not stated","tool":"Decision Index maintainers' kit at commit 9eb2dbe via vLLM","L":[68,69,94,183]},"entries":[{"role":"own","name":"Cerno 27B (FP8, W8A8)","metrics":{"bench:Decision-Index-public":"c2"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["fine-tuned decision model, not a plain quant of Qwen3.8-27B; scores are task-suite results [L18, L47-L51]","other rows (Cerno 9B/4B, Jev 1.13) are different models and omitted [L65-L66, L77-L85]","run-to-run noise about 0.1-0.2 points [L95]"]},{"role":"ladder","name":"Cerno 27B bf16 weights","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["bf16 weights score on the same suite stated in prose [L94]"]}],"prose":[{"entry":"Cerno 27B bf16 weights","key":"bench:Decision-Index-public","L":94,"raw":"65.12"},{"entry":"Cerno 27B (FP8, W8A8)","key":"bench:answer_agreement_vs_bf16","L":183,"raw":"99.6% of answers identical to the bf16 weights"}]}
+{"repo": "apertixai/cerno-27b",
+ "source_sha256": "8131a6f5f5d7bac7233af83ed28000df596ac6cc95262cd832403cbbac5da068",
+ "candidates_sha256": "622220252ca541bf11a99c812bcb7fac383d7cb4e64fcf5941f3eae82a942300",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "bf16 Cerno 27B weights on the same suite", "dataset": "Decision Index 0.3 public suite (37 benchmarks, 140,178 requests)", "ctx": "not stated", "tool": "Decision Index kit at commit 9eb2dbe, vLLM engine", "L": [18, 68, 96, 111, 186, 191]},
+ "entries": [
+   {"role": "own", "name": "Cerno 27B",
+    "metrics": {"bench:Decision Index 0.3 public index": "c13", "bench:Same-subset (HLE dropped)": "c15.0", "bench:Strict-OOD": "c17", "bench:Train-split-OOD": "c19", "bench:TypeSafe agreement set": "c21", "bench:Golden set accuracy": "c23.0"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["Jev 1.13 (TypeSafe) column is another model, omitted [L81-87]", "Cerno 9B and 4B rows are other models, omitted [L64-66]", "board-style ECE 5.7 pts and golden-set ECE 0.022 not mapped to a listed key [L85, L87]", "99.6% answer identity read as top1_pct against the bf16 weights [L186]", "FP8 weights, fine-tuned from Qwen3.8-27B [L191]"]},
+   {"role": "ladder", "name": "bf16 weights",
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["bf16 score is a prose value, not a table cell [L96]"]}
+ ],
+ "prose": [
+   {"entry": "Cerno 27B", "key": "top1_pct", "L": 186, "raw": "99.6% of answers identical to the bf16 weights on the sample"},
+   {"entry": "bf16 weights", "key": "bench:Decision Index 0.3 public index", "L": 96, "raw": "The bf16 weights score 65.12 on the same suite"}
+ ]
+}

@@ -1,0 +1,162 @@
+{
+ "repo": "alesha-pro/Qwen3.8-Flash-Next-S-abliterated-Strata-GGUF",
+ "source_sha256": "fca89ce06d50879d2ba717f2fa71040d4bc1e125330c3948044c17d1a93e1502",
+ "candidates_sha256": "c349c842aa0190305914993fb868a548f38f8eafdb4942f9ee2e412db467bb0b",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "bf16 model for the quoted quality rows; refusal counts for the vector rows",
+  "dataset": "37,620 positions (quoted); AdvBench, JailbreakBench and Alpaca prompt sets (refusal counts)",
+  "ctx": "not stated",
+  "tool": "Strata 0.1.43 with Mirai's patch (refusal counts)",
+  "L": [
+   41,
+   47,
+   97,
+   103
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "S, vector",
+   "panel": "The vector",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "AdvBench validation 64 prompts; JailbreakBench held-out 82 prompts; Alpaca validation (harmless) 64 prompts",
+    "ctx": "not stated",
+    "tool": "Strata 0.1.43 with Mirai's patch",
+    "L": [
+     97,
+     101,
+     102,
+     103
+    ]
+   },
+   "metrics": {
+    "bench:advbench_refusals": "c9",
+    "bench:jailbreakbench_refusals": "c12",
+    "bench:alpaca_harmless_refusals": "c14"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "refusal counts for the vector run, out of the prompt count per set [L97-103]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "S, stock",
+   "panel": "The vector",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "AdvBench validation 64 prompts; JailbreakBench held-out 82 prompts; Alpaca validation (harmless) 64 prompts",
+    "ctx": "not stated",
+    "tool": "Strata 0.1.43 with Mirai's patch",
+    "L": [
+     97,
+     101,
+     102,
+     103
+    ]
+   },
+   "metrics": {
+    "bench:advbench_refusals": "c10",
+    "bench:jailbreakbench_refusals": "c13",
+    "bench:alpaca_harmless_refusals": "c15"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "same files with the vector switched off [L99-103]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "S-small, stock",
+   "panel": "The vector",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "AdvBench validation 64 prompts; JailbreakBench held-out 82 prompts; Alpaca validation (harmless) 64 prompts",
+    "ctx": "not stated",
+    "tool": "Strata 0.1.43 with Mirai's patch",
+    "L": [
+     97,
+     101,
+     102,
+     103
+    ]
+   },
+   "metrics": {
+    "bench:advbench_refusals": "c11"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "only the AdvBench row is printed for this build [L101]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "S",
+   "panel": "The two sizes",
+   "methodology": {
+    "reference": "bf16 model (ROMA KL and top-1, measured by Mirai)",
+    "dataset": "37,620 positions against the bf16 model",
+    "ctx": "not stated",
+    "tool": "measured outside Strata (Mirai)",
+    "L": [
+     41,
+     47
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c4.1"
+   },
+   "size": "c1.0",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "of": "trymirai/Qwen3.8-Flash-Next-S-strata-experimental",
+   "flags": [
+    "ROMA KL column left out: the card does not define the metric [L41]",
+    "size is the 42.3 GB expert file; the 2.1 GB dense file is listed beside it, so the total is not a single candidate [L43]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "S-small",
+   "panel": "The two sizes",
+   "methodology": {
+    "reference": "bf16 model (ROMA KL and top-1, measured by Mirai)",
+    "dataset": "37,620 positions against the bf16 model",
+    "ctx": "not stated",
+    "tool": "measured outside Strata (Mirai)",
+    "L": [
+     41,
+     47
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c8.2"
+   },
+   "size": "c5.0",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "of": "trymirai/Qwen3.8-Flash-Next-S-small-experimental",
+   "flags": [
+    "ROMA KL shown as a range (0.069-0.074) and left out [L44]",
+    "size is the 34.4 GB expert file; the 2.1 GB dense file is listed beside it [L44]"
+   ]
+  }
+ ],
+ "prose": []
+}

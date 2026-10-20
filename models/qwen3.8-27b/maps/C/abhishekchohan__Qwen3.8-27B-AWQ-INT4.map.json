@@ -1,0 +1,22 @@
+{
+ "repo": "abhishekchohan/Qwen3.8-27B-AWQ-INT4",
+ "source_sha256": "528ae852e0c7db665f5c9ab51e67df7a8e5b18ef35bd48148a12bfc58974abce",
+ "candidates_sha256": "58c4fa8d9d770562b37eacc5c325df6d76acc687d80f6377c6ea951bbff96d09",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Base BF16 (Qwen3.8-27B) under an identical harness", "dataset": "GSM8K, GPQA Diamond, Minerva Math500, RealWorldQA, MathVision, ARC-Easy, ARC-Challenge, HellaSwag, Winogrande, TruthfulQA MC1", "ctx": "max_gen_toks=8192 for generative tasks; loglikelihood tasks untemplated", "tool": "lm-evaluation-harness with vLLM 0.27.1, one RTX PRO 6000, greedy, seed 1234", "L": [60, 62, 63, 64, 65]},
+ "entries": [
+  {"role": "own", "name": "This model", "panel": "Evaluation",
+   "methodology": {"reference": "Base BF16 under the identical harness", "dataset": "10 benchmarks (see table)", "ctx": "max_gen_toks=8192; thinking enabled for generative tasks", "tool": "lm-evaluation-harness, vLLM 0.27.1, RTX PRO 6000, greedy, seed 1234", "L": [60, 62, 63, 64, 67]},
+   "metrics": {"bench:gsm8k": "c9", "bench:gpqa_diamond": "c13", "bench:minerva_math500": "c17", "bench:realworldqa": "c21", "bench:mathvision": "c25", "bench:arc_easy": "c29", "bench:arc_challenge": "c33", "bench:hellaswag": "c37", "bench:winogrande": "c41", "bench:truthfulqa_mc1": "c45", "bench:average": "c49"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Minerva Math500 +6.8 and MathVision -3.0 are discussed as outliers [L98-101]", "9/9 needle-in-a-haystack results are symbols, not candidate values, and are not mapped [L84-94]", "VRAM and disk sizes [L41-55] not mapped: no metric in those rows", "agentic and tool-calling behavior not evaluated [L103]", "MTP acceptance not measured [L104-106]"]},
+  {"role": "cross", "of": "Qwen/Qwen3.8-27B", "name": "Base BF16", "panel": "Evaluation",
+   "methodology": {"reference": "Base BF16 under the identical harness", "dataset": "10 benchmarks (see table)", "ctx": "max_gen_toks=8192; thinking enabled for generative tasks", "tool": "lm-evaluation-harness, vLLM 0.27.1, RTX PRO 6000, greedy, seed 1234", "L": [60, 62, 63, 64, 67]},
+   "metrics": {"bench:gsm8k": "c8", "bench:gpqa_diamond": "c12", "bench:minerva_math500": "c16", "bench:realworldqa": "c20", "bench:mathvision": "c24", "bench:arc_easy": "c28", "bench:arc_challenge": "c32", "bench:hellaswag": "c36", "bench:winogrande": "c40", "bench:truthfulqa_mc1": "c44", "bench:average": "c48"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["base reference measured on the same machine in this card [L67, L107-109]"]}
+ ],
+ "prose": []
+}

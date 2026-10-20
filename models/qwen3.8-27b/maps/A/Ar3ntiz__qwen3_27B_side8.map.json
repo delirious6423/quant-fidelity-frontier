@@ -1,12 +1,140 @@
-{"repo":"Ar3ntiz/qwen3_27B_side8","no_quality_claims":false,"no_claims_reason":"",
-"method":{"reference":"original Qwen3.8-27B (BF16)","dataset":"16 x 512 held-out positions (KL/top-1); WikiText-2 test (PPL); 120 graded questions (20 per subset) for answer-level eval","ctx":"512-token positions","tool":"SUC runtime (KL/top-1 vs original); greedy answer eval","L":[45,60]},
-"entries":[
-{"role":"own","name":"SUC1 side8 (this model)","metrics":{"mean_kld":"c3","top1_pct":"c4","ppl":"c5.1","bench:Total/120":"c14.0","bench:GSM8K":"c15","bench:MATH":"c16","bench:MMLU-Pro":"c17","bench:ARC-C":"c18"},"size":"c6","unit":"GB","basis":"disk","bpw":null,"flags":["top-1 given as fraction 0.95 [L49]","answer-level scores are counts correct out of 20 per subset [L60-64]","BBH and Long context columns not in candidates for this row [L64]","bpw 4.87 stated in prose only [L19]"]},
-{"role":"ladder","name":"SUC1 base (4.22 bpp)","metrics":{"mean_kld":"c9"},"size":"c8","unit":"GB","basis":"disk","bpw":null,"flags":["4.22 bpp from row label, no candidate id [L56]"]},
-{"role":"cross","name":"MLX affine 4-bit","of":"not named on card","metrics":{"mean_kld":"c11"},"size":"c10","unit":"GB","basis":"disk","bpw":null,"flags":["size approximate (about 15.2) [L57]"]},
-{"role":"cross","name":"MLX affine 8-bit","of":"not named on card","metrics":{"mean_kld":"c13"},"size":"c12","unit":"GB","basis":"disk","bpw":null,"flags":["size approximate (about 28.6) [L58]"]},
-{"role":"cross","name":"GGUF Q8_0 (llama.cpp)","of":"not named on card","metrics":{"bench:Total/120":"c19.0","bench:GSM8K":"c20","bench:MATH":"c21","bench:MMLU-Pro":"c22","bench:BBH":"c23","bench:Long context":"c24"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["column alignment of row L65 uncertain (BBH/Long context labels) [L62,L65]"]},
-{"role":"cross","name":"MLX 8-bit (LM Studio)","of":"not named on card","metrics":{"bench:Total/120":"c25.0","bench:GSM8K":"c26","bench:MATH":"c27","bench:MMLU-Pro":"c28","bench:ARC-C":"c29","bench:Long context":"c30"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["column alignment of row L66 uncertain [L62,L66]"]},
-{"role":"cross","name":"original Qwen3.8-27B (BF16)","of":"Qwen/Qwen3.8-27B","metrics":{"ppl":"c5.0"},"size":"c2","unit":"GB","basis":"disk","bpw":null,"flags":["PPL from 'original -> SUC1' column [L49]; repo not named on card"]}
-],
-"prose":[{"entry":"SUC1 side8 (this model)","key":"bpw","L":19,"raw":"4.87 bits per parameter"}]}
+{
+  "repo": "Ar3ntiz/qwen3_27B_side8",
+  "source_sha256": "e55fb6ab0eadeef7df8d07411150ebe2697665ed23c35ecfa6d6b960e5be7e8a",
+  "candidates_sha256": "8403411899f4b975201e04c9c0d459bb5f256aad32efc2351b176a01ffb2a775",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "original BF16 model", "dataset": "16 × 512 held-out tokens (8176 scored positions); WikiText-2 test for PPL", "ctx": "512-token rows", "tool": "SUC C++ runtime", "L": [45]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "SUC1 side8 (this model)",
+      "panel": "Quality",
+      "methodology": {"reference": "original BF16 model", "dataset": "16 × 512 held-out tokens (8176 scored positions); WikiText-2 test for PPL", "ctx": "512-token rows", "tool": "SUC C++ runtime", "L": [45]},
+      "metrics": {"mean_kld": "c3", "ppl:wikitext2": "c5.1"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Top-1 agreement 0.949 is printed as a fraction, not a percent, so not mapped to top1_pct [L49]",
+        "4.87 bpp is stated in prose with no candidate id, so bpw is left null [L19]"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "SUC1 side8 (this model)",
+      "panel": "Other formats (historical reconstructed-weight evaluation)",
+      "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "historical reconstructed-weight evaluation", "L": [51]},
+      "metrics": {"mean_kld": "c7"},
+      "size": "c6",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": []
+    },
+    {
+      "role": "ladder",
+      "name": "SUC1 base (4.22 bpp)",
+      "panel": "Other formats (historical reconstructed-weight evaluation)",
+      "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "historical reconstructed-weight evaluation", "L": [51]},
+      "metrics": {"mean_kld": "c9"},
+      "size": "c8",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["4.22 bpp is in the row label with no candidate id, so bpw is left null [L56]"]
+    },
+    {
+      "role": "cross",
+      "name": "MLX affine 4-bit",
+      "panel": "Other formats (historical reconstructed-weight evaluation)",
+      "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "historical reconstructed-weight evaluation", "L": [51]},
+      "of": "not named on card",
+      "metrics": {"mean_kld": "c11"},
+      "size": "c10",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["Size printed as approximate (≈ 15.2 GB) [L57]"]
+    },
+    {
+      "role": "cross",
+      "name": "MLX affine 8-bit",
+      "panel": "Other formats (historical reconstructed-weight evaluation)",
+      "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "historical reconstructed-weight evaluation", "L": [51]},
+      "of": "not named on card",
+      "metrics": {"mean_kld": "c13"},
+      "size": "c12",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["Size printed as approximate (≈ 28.6 GB) [L58]"]
+    },
+    {
+      "role": "own",
+      "name": "SUC1 side8 (this model)",
+      "panel": "Answer-level evaluation, 120 graded questions (20 per subset), greedy, same prompts for every system",
+      "methodology": {"reference": "not stated", "dataset": "120 graded questions (20 per subset)", "ctx": "not stated", "tool": "greedy decoding, same prompts for every system", "L": [60]},
+      "metrics": {
+        "bench:Total (correct of 120)": "c14.0",
+        "bench:GSM8K (correct of 20)": "c15",
+        "bench:MATH (correct of 20)": "c16",
+        "bench:MMLU-Pro (correct of 20)": "c17",
+        "bench:ARC-C (correct of 20)": "c18"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Core suite of 30 smoke-test questions (30/30) has no candidate id, not mapped [L68]"]
+    },
+    {
+      "role": "cross",
+      "name": "GGUF Q8_0 (llama.cpp)",
+      "panel": "Answer-level evaluation, 120 graded questions (20 per subset), greedy, same prompts for every system",
+      "methodology": {"reference": "not stated", "dataset": "120 graded questions (20 per subset)", "ctx": "not stated", "tool": "greedy decoding, same prompts for every system", "L": [60]},
+      "of": "not named on card",
+      "metrics": {
+        "bench:Total (correct of 120)": "c19.0",
+        "bench:GSM8K (correct of 20)": "c20",
+        "bench:MATH (correct of 20)": "c21",
+        "bench:MMLU-Pro (correct of 20)": "c22",
+        "bench:BBH (correct of 20)": "c23",
+        "bench:Long context (correct of 20)": "c24"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": []
+    },
+    {
+      "role": "cross",
+      "name": "MLX 8-bit (LM Studio)",
+      "panel": "Answer-level evaluation, 120 graded questions (20 per subset), greedy, same prompts for every system",
+      "methodology": {"reference": "not stated", "dataset": "120 graded questions (20 per subset)", "ctx": "not stated", "tool": "greedy decoding, same prompts for every system", "L": [60]},
+      "of": "not named on card",
+      "metrics": {
+        "bench:Total (correct of 120)": "c25.0",
+        "bench:GSM8K (correct of 20)": "c26",
+        "bench:MATH (correct of 20)": "c27",
+        "bench:MMLU-Pro (correct of 20)": "c28",
+        "bench:ARC-C (correct of 20)": "c29",
+        "bench:Long context (correct of 20)": "c30"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": []
+    }
+  ],
+  "prose": [
+    {"entry": "SUC1 side8 (this model)", "panel": "Answer-level evaluation, 120 graded questions (20 per subset), greedy, same prompts for every system", "key": "bench:BBH (correct of 20)", "L": 64, "raw": "19 | 17 | 19"},
+    {"entry": "SUC1 side8 (this model)", "panel": "Answer-level evaluation, 120 graded questions (20 per subset), greedy, same prompts for every system", "key": "bench:Long context (correct of 20)", "L": 64, "raw": "17 | 19 |"},
+    {"entry": "GGUF Q8_0 (llama.cpp)", "panel": "Answer-level evaluation, 120 graded questions (20 per subset), greedy, same prompts for every system", "key": "bench:ARC-C (correct of 20)", "L": 65, "raw": "6 | 18 | 17"},
+    {"entry": "MLX 8-bit (LM Studio)", "panel": "Answer-level evaluation, 120 graded questions (20 per subset), greedy, same prompts for every system", "key": "bench:BBH (correct of 20)", "L": 66, "raw": "18 | 17 | 20"}
+  ]
+}

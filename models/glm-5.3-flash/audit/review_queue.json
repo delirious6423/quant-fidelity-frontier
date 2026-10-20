@@ -31,33 +31,9 @@
    "reason": "review hold: QA review 2026-10-19: bench:Single-stream decode tok/s: The [L105] row is the mtp-nvfp4 draft at 2 tokens, a speculative-decoding setting, not a quant row; its 265 tok/s value is correct for that setting."
   },
   {
-   "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
-   "kind": "variants",
-   "entry": "GLM-5.3-Flash-TQ3_4S",
-   "reason": "failed a gate"
-  },
-  {
    "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
    "kind": "ladder",
    "entry": "8bit",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "kind": "ladder",
-   "entry": "6bit",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "kind": "ladder",
-   "entry": "mixed-4_8bit",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
-   "kind": "variants",
-   "entry": "this build",
    "reason": "failed a gate"
   },
   {
@@ -67,9 +43,33 @@
    "reason": "failed a gate"
   },
   {
+   "repo": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
+   "kind": "variants",
+   "entry": "this build",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
+   "kind": "variants",
+   "entry": "GLM-5.3-Flash-TQ3_4S",
+   "reason": "failed a gate"
+  },
+  {
    "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
    "kind": "cross",
    "entry": "original release, after routed-expert VQ",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "kind": "ladder",
+   "entry": "mixed-4_8bit",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "kind": "ladder",
+   "entry": "6bit",
    "reason": "failed a gate"
   }
  ],
@@ -82,105 +82,27 @@
   },
   {
    "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:Total (of 120)",
-   "raw": "99"
+   "entry": "SUC1 tcq",
+   "key": "mean_kld",
+   "raw": "0.304"
   },
   {
    "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:GSM8K (of 20)",
-   "raw": "19"
+   "entry": "SUC1 tcq",
+   "key": "ppl:WikiText-2",
+   "raw": "4.27"
   },
   {
    "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:MATH (of 20)",
-   "raw": "16"
-  },
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:MMLU-Pro (of 20)",
-   "raw": "11"
-  },
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:ARC-C (of 20)",
-   "raw": "18"
-  },
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:BBH (of 20)",
-   "raw": "17"
-  },
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:Decode tok/s, batch 1",
-   "raw": "22.2"
-  },
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:Prefill tok/s, 2k tokens",
-   "raw": "116"
-  },
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:TTFT, 2k tokens (s)",
-   "raw": "17.7"
-  },
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:Prefill tok/s, 32k tokens",
-   "raw": "94"
-  },
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:TTFT, 32k tokens (s)",
-   "raw": "349"
+   "entry": "SUC1 tcq",
+   "key": "bench:Long context",
+   "raw": "| 17 | 18 |"
   },
   {
    "repo": "Ar3ntiz/glm5-3_flash_tcq",
    "entry": "GGUF Q2 (ds4)",
-   "key": "bench:Total (of 120)",
-   "raw": "93"
-  },
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "GGUF Q2 (ds4)",
-   "key": "bench:GSM8K (of 20)",
-   "raw": "19"
-  },
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "GGUF Q2 (ds4)",
-   "key": "bench:MATH (of 20)",
-   "raw": "14"
-  },
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "GGUF Q2 (ds4)",
-   "key": "bench:MMLU-Pro (of 20)",
-   "raw": "8"
-  },
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "GGUF Q2 (ds4)",
-   "key": "bench:ARC-C (of 20)",
-   "raw": "17"
-  },
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "GGUF Q2 (ds4)",
-   "key": "bench:BBH (of 20)",
-   "raw": "18"
+   "key": "bench:Long context",
+   "raw": "| 18 | 17 |"
   },
   {
    "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
@@ -2007,36 +1929,6 @@
    "raw": "81.3 %"
   },
   {
-   "repo": "OsaurusAI/GLM-5.3-Flash-JANGHT2.4",
-   "entry": "GLM-5.3-Flash-JANGHT2.4",
-   "key": "top1:assistant text",
-   "raw": "83.8%"
-  },
-  {
-   "repo": "OsaurusAI/GLM-5.3-Flash-JANGHT2.4",
-   "entry": "GLM-5.3-Flash-JANGHT2.4",
-   "key": "top1:assistant text",
-   "raw": "83.8%"
-  },
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "top1_pct",
-   "raw": "0.793"
-  },
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:Prefill tok/s, short prompt",
-   "raw": "35"
-  },
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "SUC1 tcq (this model)",
-   "key": "bench:TTFT, short prompt (s)",
-   "raw": "0.41"
-  },
-  {
    "repo": "autotrust/GLM5.3-Flash-E224-DGX-Spark",
    "entry": "This model",
    "key": "bench:BFCL_v4_non_live_overall",
@@ -2053,17 +1945,23 @@
    "entry": "quickstart line settings",
    "key": "bench:capped, no answer",
    "raw": "0"
+  },
+  {
+   "repo": "OsaurusAI/GLM-5.3-Flash-JANGHT2.4",
+   "entry": "GLM-5.3-Flash-JANGHT2.4",
+   "key": "top1:assistant text",
+   "raw": "83.8%"
+  },
+  {
+   "repo": "OsaurusAI/GLM-5.3-Flash-JANGHT2.4",
+   "entry": "GLM-5.3-Flash-JANGHT2.4",
+   "key": "top1:assistant text",
+   "raw": "83.8%"
   }
  ],
  "resolved_disagreements": [],
  "resolved_repos": 0,
  "tiebroken": [
-  {
-   "repo": "Ar3ntiz/glm5-3_flash_tcq",
-   "entry": "original GLM-5.3-Flash",
-   "key": "ppl",
-   "raw": "3.27"
-  },
   {
    "repo": "AxonZeta/GLM-5.3-Flash-AZ-Focus-EXL3",
    "entry": "AZ-Focus (earlier build, \u2020)",

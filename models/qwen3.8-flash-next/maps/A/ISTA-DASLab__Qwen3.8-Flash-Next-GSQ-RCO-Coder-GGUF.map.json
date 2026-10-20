@@ -1,0 +1,28 @@
+{
+  "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-Coder-GGUF",
+  "source_sha256": "97653fa9359d0d177c94b58434dc2ffcfa43a2936fb12d18438718492b67ebac",
+  "candidates_sha256": "b95e633392cc3bbb1ff9edc0b9d40faa97d5b9af61e1e5b166f5c6a7cb1bb597",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "not stated",
+    "dataset": "SWE-bench Verified; LiveCodeBench v6",
+    "ctx": "not stated",
+    "tool": "measured at xhigh reasoning effort",
+    "L": [56, 62]
+  },
+  "entries": [
+    {"role": "own", "name": "GSQ-RCO Coder", "panel": "Overview",
+     "methodology": {"reference": "not stated", "dataset": "SWE-bench Verified; LiveCodeBench v6", "ctx": "not stated", "tool": "measured at xhigh reasoning effort", "L": [56, 62]},
+     "metrics": {"bench:SWE-bench_Verified": "c3", "bench:LiveCodeBench_v6": "c4"},
+     "size": null, "unit": null, "basis": null, "bpw": "c8.2",
+     "flags": ["50% of routed experts removed (pruned), remaining weights at 3.5 bpw [L48]", "bpw is the effective rate over the transformer, taken from the shard-1 note [L110]", "size in the row label (58.4 GB) is not a table cell and is not mapped [L59]", "scores from the earlier build in the update note are superseded and not mapped [L40]"]},
+    {"role": "cross", "of": "not named on card", "name": "BF16 base (354 GB)", "panel": "Overview",
+     "methodology": {"reference": "not stated", "dataset": "SWE-bench Verified; LiveCodeBench v6", "ctx": "not stated", "tool": "measured at xhigh reasoning effort", "L": [56, 62]},
+     "metrics": {"bench:SWE-bench_Verified": "c1", "bench:LiveCodeBench_v6": "c2"},
+     "size": null, "unit": null, "basis": null, "bpw": null,
+     "flags": ["unpruned base model, not a file in this repo [L58]"]}
+  ],
+  "prose": []
+}

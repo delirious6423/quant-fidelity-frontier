@@ -1,0 +1,184 @@
+{
+ "repo": "Ar3ntiz/qwen3.8_flash_next_side8",
+ "source_sha256": "75954e922caf0ca5a8867d68a91d6299946d20e5502e373c0f2bbcfdb359c052",
+ "candidates_sha256": "b9540086885c66ba145734ebadeaac7a705a0fc67805957ba10047da9f81d78e",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "original BF16 reference (C++ runtime KL and top-1; WikiText-2 PPL)",
+  "dataset": "16 x 512 held-out tokens (8176 scored positions); WikiText-2 test; 120 graded questions (20 per subset)",
+  "ctx": "512 tokens per KL chunk",
+  "tool": "SUC C++ runtime",
+  "L": [
+   45,
+   59,
+   61
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "This model",
+   "panel": "Quality",
+   "methodology": {
+    "reference": "original BF16 reference",
+    "dataset": "16 x 512 held-out tokens (8176 scored positions)",
+    "ctx": "512 tokens per chunk",
+    "tool": "SUC C++ runtime",
+    "L": [
+     45
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c3",
+    "ppl": "c5.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "top-1 is printed as a fraction (0.915), left out because the top1_pct key expects a percent [L49]",
+    "original-model PPL (4.695) has no key and is not mapped [L49]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "SUC1 side8 (this model)",
+   "panel": "Other formats (historical reconstructed-weight evaluation)",
+   "methodology": {
+    "reference": "historical reconstructed-weight evaluation",
+    "dataset": "not stated",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     51
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c6"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "size 96.32 GB (73.8 in memory) is in the row label and has no candidate id [L55]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "GGUF Q4 (ds4)",
+   "panel": "Other formats (historical reconstructed-weight evaluation)",
+   "methodology": {
+    "reference": "historical reconstructed-weight evaluation",
+    "dataset": "not stated",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     51
+    ]
+   },
+   "of": "not named on card",
+   "metrics": {
+    "mean_kld": "c7"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "size 177.28 GB (74.8 in memory) is in the row label and has no candidate id [L56]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "MLX affine 4-bit",
+   "panel": "Other formats (historical reconstructed-weight evaluation)",
+   "methodology": {
+    "reference": "historical reconstructed-weight evaluation",
+    "dataset": "not stated",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     51
+    ]
+   },
+   "of": "not named on card",
+   "metrics": {
+    "mean_kld": "c8"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "no size printed for this row [L57]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "SUC1 side8 (chunk 64)",
+   "panel": "Answer-level evaluation",
+   "methodology": {
+    "reference": "same prompts for every system; SUC1 at chunk 64, GGUF row from its historical run",
+    "dataset": "120 graded questions (20 per subset): GSM8K, MATH, MMLU-Pro, ARC-C, BBH, long context",
+    "ctx": "not stated",
+    "tool": "SUC C++ runtime (SUC1); not stated (GGUF)",
+    "L": [
+     59,
+     61
+    ]
+   },
+   "metrics": {
+    "bench:total": "c9.0",
+    "bench:gsm8k": "c10",
+    "bench:math": "c11",
+    "bench:mmlu_pro": "c12",
+    "bench:arc_c": "c13"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "BBH and long-context values for this row have no candidate id and are left out [L63]",
+    "core-suite line 30/30 [L66] does not name the model and is not mapped"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "GGUF Q4 (ds4)",
+   "panel": "Answer-level evaluation",
+   "methodology": {
+    "reference": "same prompts for every system; SUC1 at chunk 64, GGUF row from its historical run",
+    "dataset": "120 graded questions (20 per subset): GSM8K, MATH, MMLU-Pro, ARC-C, BBH, long context",
+    "ctx": "not stated",
+    "tool": "SUC C++ runtime (SUC1); not stated (GGUF)",
+    "L": [
+     59,
+     61
+    ]
+   },
+   "of": "not named on card",
+   "metrics": {
+    "bench:total": "c14.0",
+    "bench:gsm8k": "c15",
+    "bench:math": "c16",
+    "bench:mmlu_pro": "c17",
+    "bench:arc_c": "c18",
+    "bench:long_context": "c19"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "historical run retained by the card [L59]",
+    "BBH value for this row has no candidate id and is left out [L64]"
+   ]
+  }
+ ],
+ "prose": []
+}

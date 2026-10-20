@@ -1,0 +1,19 @@
+{"repo": "axuhongbo/ALM-V1.0",
+ "source_sha256": "ba0682f5a956d16af2f2a5811653435109d36573cf8fdee04d545fc980497b0c",
+ "candidates_sha256": "10f4756063682c7d65c9844548f4d176aeb4a38e366e901fa262d11225c0c761",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "5 in-house APT attack scenarios", "ctx": "not stated", "tool": "not stated", "L": [101, 121, 137]},
+ "entries": [
+   {"role": "own", "name": "ALM-V1.0", "panel": "2. 全局核心分项指标（精准率 / 召回率 / F1）横向对比总表",
+    "metrics": {"bench:Physical P": "c1", "bench:Physical R": "c2", "bench:Physical F1": "c3", "bench:False Positives": "c4", "bench:TA Precision": "c5", "bench:TA Recall": "c6", "bench:TA F1": "c7", "bench:Step Score": "c8", "bench:composite mean": "c9"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["fine-tuned model against a zero-shot base row [L121-131]", "file quantization is not stated in the table; the card recommends GGUF Q4_K_M [L194]", "in-house scenario benchmark; not a quant-fidelity metric [L101]"]},
+   {"role": "ladder", "name": "1013 SFT 基准模型", "panel": "2. 全局核心分项指标（精准率 / 召回率 / F1）横向对比总表",
+    "metrics": {"bench:Physical P": "c10", "bench:Physical R": "c11", "bench:Physical F1": "c12", "bench:False Positives": "c13", "bench:TA Precision": "c14", "bench:TA Recall": "c15", "bench:TA F1": "c16", "bench:Step Score": "c17", "bench:composite mean": "c18"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["publisher's SFT baseline row [L128]"]}
+ ],
+ "prose": []
+}

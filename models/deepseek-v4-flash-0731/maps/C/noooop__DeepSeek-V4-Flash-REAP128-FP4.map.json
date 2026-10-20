@@ -1,0 +1,34 @@
+{"repo": "noooop/DeepSeek-V4-Flash-REAP128-FP4",
+ "source_sha256": "d1961737ead057366cfd5c71e0fa84fad3e2423de5ca1a53ffce2103af9fb5cb",
+ "candidates_sha256": "1205c8a11505b1f9cd924a3f8e68c6e805bd2be8645bcd5d442eedabb6548e6a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "205-question generative MMLU sample", "ctx": "not stated", "tool": "not stated", "L": [98, 99, 106]},
+ "entries": [
+   {"role": "own",
+    "name": "this build (REAP128)",
+    "methodology": {"reference": "not stated", "dataset": "205-question generative MMLU sample", "ctx": "not stated", "tool": "not stated", "L": [98, 99]},
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["expert-pruned build: 128 of 256 routed experts kept [L34-36, L93]", "quality loss vs unpruned control stated by the card [L24-26, L104-106]", "MMLU value is in prose, not a candidate cell [L99]"]},
+   {"role": "ladder",
+    "name": "REAP152-FP4",
+    "methodology": {"reference": "not stated", "dataset": "205-question generative MMLU sample", "ctx": "not stated", "tool": "not stated", "L": [98, 99]},
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["sibling build from the same calibration, 152 experts kept [L94-98]"]},
+   {"role": "cross",
+    "name": "DeepSeek-V4-Flash-UD-IQ2_M",
+    "of": "not named on card",
+    "methodology": {"reference": "not stated", "dataset": "205-question generative MMLU sample", "ctx": "not stated", "tool": "not stated", "L": [104, 105, 106]},
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["unpruned 256-expert 2-bit build used as the same-base control [L104-106]", "size stated in the same sentence, not in a table row [L106]"]}
+ ],
+ "prose": [
+   {"entry": "this build (REAP128)", "key": "bench:MMLU", "L": 99, "raw": "51.22%"},
+   {"entry": "REAP152-FP4", "key": "bench:MMLU", "L": 99, "raw": "58.05%"},
+   {"entry": "DeepSeek-V4-Flash-UD-IQ2_M", "key": "bench:MMLU", "L": 106, "raw": "84.39%"}
+ ]
+}

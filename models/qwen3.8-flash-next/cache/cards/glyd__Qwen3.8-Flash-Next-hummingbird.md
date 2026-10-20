@@ -20,7 +20,7 @@ tags:
 **[Qwen3.8-Flash-Next](https://huggingface.co/Qwen/Qwen3.8-Flash-Next) (180B parameters) compressed to run on one 16 GB NVIDIA graphics
 card with 64 GB of RAM**, with [Glyd](https://getglyd.com)'s own engine. Hummingbird is Glyd's most compact level.
 
-**Run it:** [github.com/surya-koritala/glyd-condor](https://github.com/surya-koritala/glyd-condor)
+**Run it:** [github.com/surya-koritala/condor](https://github.com/surya-koritala/condor)
 
 ![Star Drift, a space shooter the model wrote in one prompt](assets/star-drift.gif)
 
@@ -38,7 +38,7 @@ Linux or Windows on x86-64, an NVIDIA RTX 30, 40 or 50 series card (or newer) wi
 newer, 32 GB of RAM or more (64 GB for precise and best), about 90 GB of free disk. On Windows, run `setup.ps1` in PowerShell instead:
 
 ```sh
-git clone https://github.com/surya-koritala/glyd-condor && cd glyd-condor
+git clone https://github.com/surya-koritala/condor && cd condor
 ./setup.sh
 ```
 
@@ -55,16 +55,17 @@ resumes if it stops), and opens a chat app at `http://127.0.0.1:8080`. Apps and 
 | `model/` | Qwen's tokenizer, chat template and configs, and the weights outside the experts (attention, embeddings, n-gram table) | 37 GB |
 | `precise/` | the experts for **precise mode** (the default; calibrated since v0.2) | 45 GB |
 | `best/` | the experts for **best mode** (v0.2.1) | 52 GB |
-| `pack/` | the experts for **fast mode** | 31 GB |
+| `fast/` | the experts for **fast mode** (v0.2.2 on; `pack/` is the same mode for engines before v0.2.2) | 29 GB |
 
-You need `model/` and one of the three expert folders: **82 GB for precise mode, 89 GB for best, 68 GB for fast.**
+You need `model/` and one of the three expert folders: **82 GB for precise mode, 89 GB for best, 66 GB for fast.**
 
 - **Precise** keeps more detail in the experts (about 3 bits per weight, calibrated against the original's activations) and its other
   weights at 6 bits, so its answers stay closer to the original model: KL divergence vs bf16 0.22 on wikitext-2 (0.40 in v0.1). It is
   the better choice for code.
 - **Best** keeps about 30% of the experts at 4 bits and the rest at 3, calibrated the same way: KL 0.165 vs bf16, the closest of the
   three. About 10% slower than precise on short prompts, about the same on long ones.
-- **Fast** stores every expert at about 2.1 bits per weight. It writes 15-20% faster, with less accuracy.
+- **Fast** stores every expert at 2 bits per weight; since v0.2.2 those bits are packed to stay closer to the original: KL divergence vs
+  bf16 0.39 on wikitext-2 (0.53 before). It writes 15-20% faster than precise, with less accuracy.
 
 The experts (120.8B of the parameters) are compressed according to use: the experts the model routes to most keep the most detail. The
 GPU holds the busiest experts, RAM holds all of them, and the CPU computes the rest while the GPU works.
@@ -77,9 +78,9 @@ On one RTX 4080 SUPER (16 GB), a Ryzen 9 7950X3D and 64 GB of RAM:
 
 | | Precise | Best | Fast |
 |---|--:|--:|--:|
-| Writing, short / 4K / 30K prompt (greedy) | 118 / 110 / 96 tokens/s | 104 / 92 / 97 tokens/s | 145 / 137 / 156 tokens/s |
-| Writing, top speed (a short prompt, greedy) | about 130 tokens/s | about 105 tokens/s | about 160 tokens/s |
-| Reading a 30,000-token prompt | 7.5 s | 7.5 s | 7.3 s |
+| Writing, short / 4K / 30K prompt (greedy) | 118 / 110 / 96 tokens/s | 104 / 92 / 97 tokens/s | 124 / 116 / 125 tokens/s |
+| Writing, top speed (a short prompt, greedy) | about 130 tokens/s | about 105 tokens/s | about 169 tokens/s |
+| Reading a 30,000-token prompt | 7.5 s | 7.5 s | 7.4 s |
 | Reading a 261,577-token prompt | | | 66 s |
 
 Contexts up to 262,144 tokens (the model's native length). Follow-up messages reuse the conversation, so they start in under a second.
@@ -90,9 +91,9 @@ Contexts up to 262,144 tokens (the model's native length). Follow-up messages re
 
 | | Precise | Best | Fast |
 |---|--:|--:|--:|
-| GSM8K | 148 / 150 | 149 / 150 | 150 / 150 |
-| MMLU-Pro | 126 / 150 | 128 / 150 | 118 / 150 |
-| A full game in one prompt ([Star Drift](https://github.com/surya-koritala/glyd-condor/tree/main/examples/star-drift)) | 3 of 6 playable (v0.1) | not run | 1 of 6 (v0.1) |
+| GSM8K | 148 / 150 | 149 / 150 | 149 / 150 |
+| MMLU-Pro | 126 / 150 | 128 / 150 | 121 / 150 |
+| A full game in one prompt ([Star Drift](https://github.com/surya-koritala/condor/tree/main/examples/star-drift)) | 3 of 6 playable (v0.1) | not run | 1 of 6 (v0.1) |
 
 The logs and the scripts that produced them are in the GitHub repository (`results/`, `bench/`).
 

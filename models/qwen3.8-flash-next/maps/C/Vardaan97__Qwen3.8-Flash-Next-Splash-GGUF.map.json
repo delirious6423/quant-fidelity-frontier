@@ -1,0 +1,601 @@
+{
+ "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+ "source_sha256": "7398a7dc044ba57576a23074a613d2fbc780e14a75769f47e16d516bc1262291",
+ "candidates_sha256": "88f629ee0e726bb033faf51a0cc4778e01f0cb9c12aed2df54f81314b2c7a2a9",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "BF16 reference",
+  "dataset": "neutral text",
+  "ctx": "4096-token chunks",
+  "tool": "not stated",
+  "L": [
+   153
+  ]
+ },
+ "entries": [
+  {
+   "role": "ladder",
+   "name": "Quality-PLE8",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference",
+    "dataset": "neutral text",
+    "ctx": "4096-token chunks",
+    "tool": "not stated",
+    "L": [
+     153
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c54",
+    "ppl_ratio": "c56"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "Quality-PLE5",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference",
+    "dataset": "neutral text",
+    "ctx": "4096-token chunks",
+    "tool": "not stated",
+    "L": [
+     153
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c57",
+    "ppl_ratio": "c59",
+    "top1_pct": "c60.4"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Quality-PLE4",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference",
+    "dataset": "neutral text",
+    "ctx": "4096-token chunks",
+    "tool": "not stated",
+    "L": [
+     153
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c61",
+    "ppl_ratio": "c63"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE8",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference",
+    "dataset": "neutral text",
+    "ctx": "4096-token chunks",
+    "tool": "not stated",
+    "L": [
+     153
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c64",
+    "ppl_ratio": "c66"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "Balanced-PLE5",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference",
+    "dataset": "neutral text",
+    "ctx": "4096-token chunks",
+    "tool": "not stated",
+    "L": [
+     153
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c67",
+    "ppl_ratio": "c69",
+    "top1_pct": "c70.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE4",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference",
+    "dataset": "neutral text",
+    "ctx": "4096-token chunks",
+    "tool": "not stated",
+    "L": [
+     153
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c71",
+    "ppl_ratio": "c73"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "Max-PLE8",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference",
+    "dataset": "neutral text",
+    "ctx": "4096-token chunks",
+    "tool": "not stated",
+    "L": [
+     153
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c74",
+    "ppl_ratio": "c76"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "Max-PLE5",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference",
+    "dataset": "neutral text",
+    "ctx": "4096-token chunks",
+    "tool": "not stated",
+    "L": [
+     153
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c77",
+    "ppl_ratio": "c79",
+    "top1_pct": "c80.4"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "UD-Q4_K_XL + Q8 table",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference",
+    "dataset": "neutral text",
+    "ctx": "4096-token chunks",
+    "tool": "not stated",
+    "L": [
+     153
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c81",
+    "ppl_ratio": "c83",
+    "top1_pct": "c84.4"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "cross",
+   "name": "Original UD-Q4_K_XL, IQ4_NL table",
+   "panel": "Neutral KLD and perplexity",
+   "of": "not named on card",
+   "methodology": {
+    "reference": "BF16 reference",
+    "dataset": "neutral text",
+    "ctx": "4096-token chunks",
+    "tool": "not stated",
+    "L": [
+     153
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c85",
+    "ppl_ratio": "c87"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "original unsloth UD body with its stock IQ4_NL table [L166]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Quality-PLE8",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "16 deterministically graded tasks from public benchmarks, one trial each",
+    "ctx": "131,072-token working context",
+    "tool": "sandboxed agent harness",
+    "L": [
+     127,
+     147
+    ]
+   },
+   "metrics": {
+    "bench:Primary16_strict": "c27",
+    "bench:Primary16_lenient_F1": "c28",
+    "bench:Repeats4_strict": "c29.0",
+    "bench:Repeats4_lenient": "c29.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "n=16 single-trial tasks; one-task differences within noise [L147]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE8",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "16 deterministically graded tasks from public benchmarks, one trial each",
+    "ctx": "131,072-token working context",
+    "tool": "sandboxed agent harness",
+    "L": [
+     127,
+     147
+    ]
+   },
+   "metrics": {
+    "bench:Primary16_strict": "c34",
+    "bench:Repeats4_strict": "c35.0",
+    "bench:Repeats4_lenient": "c35.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "n=16 single-trial tasks; one-task differences within noise [L147]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Max-PLE8",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "16 deterministically graded tasks from public benchmarks, one trial each",
+    "ctx": "131,072-token working context",
+    "tool": "sandboxed agent harness",
+    "L": [
+     127,
+     147
+    ]
+   },
+   "metrics": {
+    "bench:Primary16_strict": "c40",
+    "bench:Primary16_lenient_F1": "c41",
+    "bench:Repeats4_strict": "c42.0",
+    "bench:Repeats4_lenient": "c42.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "n=16 single-trial tasks; one-task differences within noise [L147]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "UD-Q4_K_XL + Q8 table",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "16 deterministically graded tasks from public benchmarks, one trial each",
+    "ctx": "131,072-token working context",
+    "tool": "sandboxed agent harness",
+    "L": [
+     127,
+     147
+    ]
+   },
+   "metrics": {
+    "bench:Primary16_strict": "c47",
+    "bench:Primary16_lenient_F1": "c48",
+    "bench:Repeats4_strict": "c49.0",
+    "bench:Repeats4_lenient": "c49.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "n=16 single-trial tasks; one-task differences within noise [L147]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Quality-PLE8",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference",
+    "dataset": "neutral text",
+    "ctx": "4096-token chunks",
+    "tool": "not stated",
+    "L": [
+     153,
+     197
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c148"
+   },
+   "size": "c143",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target shards only; excludes MTP head and projector [L195]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Quality-PLE5",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference",
+    "dataset": "neutral text",
+    "ctx": "4096-token chunks",
+    "tool": "not stated",
+    "L": [
+     153,
+     197
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c155"
+   },
+   "size": "c150",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target shards only; excludes MTP head and projector [L195]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Quality-PLE4",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference",
+    "dataset": "neutral text",
+    "ctx": "4096-token chunks",
+    "tool": "not stated",
+    "L": [
+     153,
+     197
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c162"
+   },
+   "size": "c157",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target shards only; excludes MTP head and projector [L195]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE8",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference",
+    "dataset": "neutral text",
+    "ctx": "4096-token chunks",
+    "tool": "not stated",
+    "L": [
+     153,
+     197
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c169"
+   },
+   "size": "c164",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target shards only; excludes MTP head and projector [L195]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Balanced-PLE5",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference",
+    "dataset": "neutral text",
+    "ctx": "4096-token chunks",
+    "tool": "not stated",
+    "L": [
+     153,
+     197
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c176"
+   },
+   "size": "c171",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target shards only; excludes MTP head and projector [L195]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE4",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference",
+    "dataset": "neutral text",
+    "ctx": "4096-token chunks",
+    "tool": "not stated",
+    "L": [
+     153,
+     197
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c183"
+   },
+   "size": "c178",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target shards only; excludes MTP head and projector [L195]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Max-PLE8",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference",
+    "dataset": "neutral text",
+    "ctx": "4096-token chunks",
+    "tool": "not stated",
+    "L": [
+     153,
+     197
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c190"
+   },
+   "size": "c185",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target shards only; excludes MTP head and projector [L195]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Max-PLE5",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference",
+    "dataset": "neutral text",
+    "ctx": "4096-token chunks",
+    "tool": "not stated",
+    "L": [
+     153,
+     197
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c197"
+   },
+   "size": "c192",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target shards only; excludes MTP head and projector [L195]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "UD-Q4_K_XL-PLE8",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference",
+    "dataset": "neutral text",
+    "ctx": "4096-token chunks",
+    "tool": "not stated",
+    "L": [
+     153,
+     197
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c204"
+   },
+   "size": "c199",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target shards only; excludes MTP head and projector [L195]"
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "Balanced-PLE8",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "key": "bench:Primary16_lenient_F1",
+   "L": 132,
+   "raw": "| Balanced-PLE8 | 8 | 8 |"
+  }
+ ]
+}

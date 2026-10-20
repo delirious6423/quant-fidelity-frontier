@@ -1,0 +1,254 @@
+{
+ "repo": "intel-ai/Qwen3.8-27B-MXFP8-MXFP8MTP-CT-AutoRound",
+ "source_sha256": "5f2e54b78477ebca9654586c2e44dd7dbbbac600f9fb05371d603883d16127ad",
+ "candidates_sha256": "69371bf3c8f3913877d2a6533bfdd159600afc7e97a3c09ac6f845bd5daf555f",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "BF16 Qwen/Qwen3.8-27B (upstream-reported)",
+  "dataset": "gsm8k, piqa, mmlu, hellaswag (lm-eval); 8-prompt reasoning set for MTP",
+  "ctx": "max_model_len 8192",
+  "tool": "lm-eval and vLLM 0.22.1 on B200",
+  "L": [
+   83,
+   107,
+   120,
+   247
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "This checkpoint",
+   "panel": "1. Model summary",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "not stated",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     41,
+     48
+    ]
+   },
+   "metrics": {
+    "bench:compression-ratio": "c4"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "size on disk stated in prose, not in table [L47]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "MXFP8 + MTP-MXFP8 (this checkpoint)",
+   "panel": "3. Evaluation results",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "gsm8k, piqa, mmlu, hellaswag (lm-eval)",
+    "ctx": "max_model_len 8192",
+    "tool": "lm-eval with vLLM 0.22.1, seed 42, language_model_only",
+    "L": [
+     83,
+     84,
+     89,
+     92,
+     103,
+     104,
+     105
+    ]
+   },
+   "metrics": {
+    "bench:gsm8k-5shot-exact-match": "c5",
+    "bench:piqa-acc": "c8",
+    "bench:piqa-acc_norm": "c11",
+    "bench:mmlu-0shot-acc": "c14",
+    "bench:hellaswag-acc": "c17",
+    "bench:hellaswag-acc_norm": "c20"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "text tower only, MTP head not exercised [L103-105]",
+    "stderr and sample counts not mapped [L94-99]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "BF16 Qwen/Qwen3.8-27B",
+   "panel": "3.1 Comparison: MTP-quantized vs full-MXFP8 (MTP BF16) vs BF16 baseline",
+   "methodology": {
+    "reference": "BF16 Qwen/Qwen3.8-27B (upstream-reported)",
+    "dataset": "gsm8k (strict), mmlu, piqa (acc), hellaswag (acc)",
+    "ctx": "not stated",
+    "tool": "lm-eval, same four tasks and metric variants",
+    "L": [
+     107,
+     109,
+     113,
+     114,
+     115,
+     117,
+     247
+    ]
+   },
+   "metrics": {
+    "bench:gsm8k-strict": "c23",
+    "bench:mmlu": "c24",
+    "bench:piqa-acc": "c25",
+    "bench:hellaswag-acc": "c26",
+    "bench:AVG": "c27"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "upstream-reported baseline, not re-run here [L247]"
+   ],
+   "of": "Qwen/Qwen3.8-27B"
+  },
+  {
+   "role": "quoted",
+   "name": "full-MXFP8 (MTP BF16)",
+   "panel": "3.1 Comparison: MTP-quantized vs full-MXFP8 (MTP BF16) vs BF16 baseline",
+   "methodology": {
+    "reference": "BF16 Qwen/Qwen3.8-27B (upstream-reported)",
+    "dataset": "gsm8k (strict), mmlu, piqa (acc), hellaswag (acc)",
+    "ctx": "not stated",
+    "tool": "lm-eval, same four tasks and metric variants",
+    "L": [
+     107,
+     109,
+     113,
+     114,
+     115,
+     117,
+     247
+    ]
+   },
+   "metrics": {
+    "bench:gsm8k-strict": "c28",
+    "bench:mmlu": "c29",
+    "bench:piqa-acc": "c30",
+    "bench:hellaswag-acc": "c31",
+    "bench:AVG": "c32"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "sibling card figures, cross-linked [L37, L114]"
+   ],
+   "of": "intel-ai/Qwen3.8-27B-MXFP8-CT-AutoRound"
+  },
+  {
+   "role": "own",
+   "name": "MXFP8 + MTP-MXFP8 (this checkpoint)",
+   "panel": "3.1 Comparison: MTP-quantized vs full-MXFP8 (MTP BF16) vs BF16 baseline",
+   "methodology": {
+    "reference": "BF16 Qwen/Qwen3.8-27B (upstream-reported)",
+    "dataset": "gsm8k (strict), mmlu, piqa (acc), hellaswag (acc)",
+    "ctx": "not stated",
+    "tool": "lm-eval, same four tasks and metric variants",
+    "L": [
+     107,
+     109,
+     113,
+     114,
+     115,
+     117,
+     247
+    ]
+   },
+   "metrics": {
+    "bench:gsm8k-strict": "c33",
+    "bench:mmlu": "c34",
+    "bench:piqa-acc": "c35",
+    "bench:hellaswag-acc": "c36",
+    "bench:AVG": "c37"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "text tower only, MTP head not exercised [L103-105]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "MXFP8 (this checkpoint)",
+   "panel": "4. MTP speculative decoding — does quantizing the draft head hurt?",
+   "methodology": {
+    "reference": "BF16 MTP block control checkpoint",
+    "dataset": "8-prompt reasoning set",
+    "ctx": "max_tokens 256",
+    "tool": "vLLM 0.22.1, greedy, one speculative token per step, B200",
+    "L": [
+     122,
+     123,
+     127,
+     128,
+     130,
+     135,
+     137
+    ]
+   },
+   "metrics": {
+    "bench:draft-acceptance-rate": "c38",
+    "bench:mean-accept-len": "c39",
+    "bench:decode-spec-off-tok-s": "c40.0",
+    "bench:decode-spec-on-tok-s": "c40.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "8-prompt micro-benchmark, speedup gap is run noise [L137-138]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "BF16 (control)",
+   "panel": "4. MTP speculative decoding — does quantizing the draft head hurt?",
+   "methodology": {
+    "reference": "BF16 MTP block control checkpoint",
+    "dataset": "8-prompt reasoning set",
+    "ctx": "max_tokens 256",
+    "tool": "vLLM 0.22.1, greedy, one speculative token per step, B200",
+    "L": [
+     122,
+     123,
+     127,
+     128,
+     130,
+     135,
+     137
+    ]
+   },
+   "metrics": {
+    "bench:draft-acceptance-rate": "c41",
+    "bench:mean-accept-len": "c42",
+    "bench:decode-spec-off-tok-s": "c43.0",
+    "bench:decode-spec-on-tok-s": "c43.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "control quantized identically with the whole MTP block in BF16 [L128]"
+   ]
+  }
+ ],
+ "prose": []
+}

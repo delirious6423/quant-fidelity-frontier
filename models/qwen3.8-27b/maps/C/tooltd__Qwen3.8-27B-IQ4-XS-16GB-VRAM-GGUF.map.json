@@ -1,0 +1,1266 @@
+{
+ "repo": "tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF",
+ "source_sha256": "df9c9252798143e323ddeac94fc22289b0bd65c6541eec6d8ede629f11b93053",
+ "candidates_sha256": "3a0c02a415362c286fbc531b4f80b1d0fac8245821f620ed56f1d1b33611b61f",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "BF16 baseline",
+  "dataset": "wiki.test.raw; EvalPlus HumanEval and MBPP",
+  "ctx": "not stated",
+  "tool": "llama-perplexity; EvalPlus",
+  "L": [
+   29,
+   54,
+   56
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "ZB4.00-MIN-v5.1-IQ4_XS",
+   "panel": "EvalPlus Benchmark Results",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "EvalPlus HumanEval (164 tasks) and MBPP (378 tasks)",
+    "ctx": "not stated",
+    "tool": "EvalPlus pass@1, no-thinking mode, KV cache q4_0",
+    "L": [
+     29,
+     30,
+     31,
+     32
+    ]
+   },
+   "metrics": {
+    "bench:HumanEval": "c1",
+    "bench:HumanEval+": "c2",
+    "bench:MBPP": "c3",
+    "bench:MBPP+": "c4"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "cross",
+   "name": "Qwen3.8-27B-IQ4_NL",
+   "panel": "EvalPlus Benchmark Results",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "EvalPlus HumanEval (164 tasks) and MBPP (378 tasks)",
+    "ctx": "not stated",
+    "tool": "EvalPlus pass@1, no-thinking mode, KV cache q4_0",
+    "L": [
+     29,
+     30,
+     31,
+     32
+    ]
+   },
+   "metrics": {
+    "bench:HumanEval": "c5",
+    "bench:HumanEval+": "c6",
+    "bench:MBPP": "c7",
+    "bench:MBPP+": "c8"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "provider bartowski per Note column [L38]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "own",
+   "name": "ZB3.88-MIN-v5-IQ3_M_XL",
+   "panel": "EvalPlus Benchmark Results",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "EvalPlus HumanEval (164 tasks) and MBPP (378 tasks)",
+    "ctx": "not stated",
+    "tool": "EvalPlus pass@1, no-thinking mode, KV cache q4_0",
+    "L": [
+     29,
+     30,
+     31,
+     32
+    ]
+   },
+   "metrics": {
+    "bench:HumanEval": "c9",
+    "bench:HumanEval+": "c10",
+    "bench:MBPP": "c11",
+    "bench:MBPP+": "c12"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "ZB4.00-MIN-v5-IQ4_XS",
+   "panel": "EvalPlus Benchmark Results",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "EvalPlus HumanEval (164 tasks) and MBPP (378 tasks)",
+    "ctx": "not stated",
+    "tool": "EvalPlus pass@1, no-thinking mode, KV cache q4_0",
+    "L": [
+     29,
+     30,
+     31,
+     32
+    ]
+   },
+   "metrics": {
+    "bench:HumanEval": "c13",
+    "bench:HumanEval+": "c14"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "struck through in card, marked oldver [L40]",
+    "MBPP and MBPP+ not provided [L40]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "GSQ-RCO-BuffedMod",
+   "panel": "EvalPlus Benchmark Results",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "EvalPlus HumanEval (164 tasks) and MBPP (378 tasks)",
+    "ctx": "not stated",
+    "tool": "EvalPlus pass@1, no-thinking mode, KV cache q4_0",
+    "L": [
+     29,
+     30,
+     31,
+     32
+    ]
+   },
+   "metrics": {
+    "bench:HumanEval": "c15",
+    "bench:HumanEval+": "c16",
+    "bench:MBPP": "c17",
+    "bench:MBPP+": "c18"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "ISTA+Mod per Note column [L41]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Qwen3.8-27B-Ridge-3.7bpw",
+   "panel": "EvalPlus Benchmark Results",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "EvalPlus HumanEval (164 tasks) and MBPP (378 tasks)",
+    "ctx": "not stated",
+    "tool": "EvalPlus pass@1, no-thinking mode, KV cache q4_0",
+    "L": [
+     29,
+     30,
+     31,
+     32
+    ]
+   },
+   "metrics": {
+    "bench:HumanEval": "c19",
+    "bench:HumanEval+": "c20",
+    "bench:MBPP": "c21",
+    "bench:MBPP+": "c22"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c197",
+   "flags": [
+    "provider empero-ai per Note column [L42]"
+   ],
+   "of": "empero-ai/Qwen3.8-27B-Ridge"
+  },
+  {
+   "role": "own",
+   "name": "ZB3.73-MIN-v5.1-IQ3_M_L",
+   "panel": "EvalPlus Benchmark Results",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "EvalPlus HumanEval (164 tasks) and MBPP (378 tasks)",
+    "ctx": "not stated",
+    "tool": "EvalPlus pass@1, no-thinking mode, KV cache q4_0",
+    "L": [
+     29,
+     30,
+     31,
+     32
+    ]
+   },
+   "metrics": {
+    "bench:HumanEval": "c23",
+    "bench:HumanEval+": "c24",
+    "bench:MBPP": "c25",
+    "bench:MBPP+": "c26"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "ZB3.70-MIN-v4-IQ3_M_L",
+   "panel": "EvalPlus Benchmark Results",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "EvalPlus HumanEval (164 tasks) and MBPP (378 tasks)",
+    "ctx": "not stated",
+    "tool": "EvalPlus pass@1, no-thinking mode, KV cache q4_0",
+    "L": [
+     29,
+     30,
+     31,
+     32
+    ]
+   },
+   "metrics": {
+    "bench:HumanEval": "c27",
+    "bench:HumanEval+": "c28",
+    "bench:MBPP": "c29",
+    "bench:MBPP+": "c30"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "struck through in card, marked oldver [L44]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "ZB3.00bpw-IQ3_XXS",
+   "panel": "EvalPlus Benchmark Results",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "EvalPlus HumanEval (164 tasks) and MBPP (378 tasks)",
+    "ctx": "not stated",
+    "tool": "EvalPlus pass@1, no-thinking mode, KV cache q4_0",
+    "L": [
+     29,
+     30,
+     31,
+     32
+    ]
+   },
+   "metrics": {
+    "bench:HumanEval": "c31",
+    "bench:HumanEval+": "c32",
+    "bench:MBPP": "c33",
+    "bench:MBPP+": "c34"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c198",
+   "flags": []
+  },
+  {
+   "role": "cross",
+   "name": "UD3-IQ4_XS",
+   "panel": "EvalPlus Benchmark Results",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "EvalPlus HumanEval (164 tasks) and MBPP (378 tasks)",
+    "ctx": "not stated",
+    "tool": "EvalPlus pass@1, no-thinking mode, KV cache q4_0",
+    "L": [
+     29,
+     30,
+     31,
+     32
+    ]
+   },
+   "metrics": {
+    "bench:HumanEval": "c36",
+    "bench:HumanEval+": "c37",
+    "bench:MBPP": "c38",
+    "bench:MBPP+": "c39"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "unsloth per Note column [L46]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "UD3-Q3_K_XL",
+   "panel": "EvalPlus Benchmark Results",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "EvalPlus HumanEval (164 tasks) and MBPP (378 tasks)",
+    "ctx": "not stated",
+    "tool": "EvalPlus pass@1, no-thinking mode, KV cache q4_0",
+    "L": [
+     29,
+     30,
+     31,
+     32
+    ]
+   },
+   "metrics": {
+    "bench:HumanEval": "c41",
+    "bench:HumanEval+": "c42",
+    "bench:MBPP": "c43",
+    "bench:MBPP+": "c44"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "unsloth per Note column [L47]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "UD-Q8_K_XL",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c47",
+    "top1_pct": "c48",
+    "ppl": "c49"
+   },
+   "size": "c46",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "provider unsloth per table [L60]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "UD-Q6_K_XL",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c52",
+    "top1_pct": "c53",
+    "ppl": "c54"
+   },
+   "size": "c51",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "provider unsloth per table [L61]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "Q6_K",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c57",
+    "top1_pct": "c58",
+    "ppl": "c59"
+   },
+   "size": "c56",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "provider unsloth per table [L62]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "Q5_K_M",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c62",
+    "top1_pct": "c63",
+    "ppl": "c64"
+   },
+   "size": "c61",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "provider unsloth per table [L63]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "UD-Q4_K_XL",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c67",
+    "top1_pct": "c68",
+    "ppl": "c69"
+   },
+   "size": "c66",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "provider unsloth per table [L64]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "ladder",
+   "name": "ZB4.97-GOD-IQ4_XS",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c71",
+    "top1_pct": "c72",
+    "ppl": "c73"
+   },
+   "size": "c70",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "cross",
+   "name": "UD3-Q4_K_S",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c77",
+    "top1_pct": "c78",
+    "ppl": "c79"
+   },
+   "size": "c76",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "provider unsloth UD3 per table [L66]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "Autoround-Q4_K_M",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c81",
+    "top1_pct": "c82",
+    "ppl": "c83"
+   },
+   "size": "c80",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "provider Autoround per table [L67]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "ladder",
+   "name": "ZB4.65-PRO-IQ4_XS",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c85",
+    "top1_pct": "c86",
+    "ppl": "c87"
+   },
+   "size": "c84",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "cross",
+   "name": "Q4_K_M",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c90",
+    "top1_pct": "c91",
+    "ppl": "c92"
+   },
+   "size": "c89",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "provider unsloth per table [L69]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "ladder",
+   "name": "ZB4.60-PRO-IQ4_XS",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c94",
+    "top1_pct": "c95",
+    "ppl": "c96"
+   },
+   "size": "c93",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "ZB4.55-PRO-IQ4_XS",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c98",
+    "top1_pct": "c99",
+    "ppl": "c100"
+   },
+   "size": "c97",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "cross",
+   "name": "IQ4_NL",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c103",
+    "top1_pct": "c104",
+    "ppl": "c105"
+   },
+   "size": "c102",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "provider bartowski per table [L72]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "IQ4_XS",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c108",
+    "top1_pct": "c109",
+    "ppl": "c110"
+   },
+   "size": "c107",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "provider unsloth per table [L73]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "UD3-IQ4_XS",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c114",
+    "top1_pct": "c115",
+    "ppl": "c116"
+   },
+   "size": "c113",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "provider unsloth UD3 per table [L74]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "ladder",
+   "name": "ZB4.48-STD-IQ4_XS",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c118",
+    "top1_pct": "c119",
+    "ppl": "c120"
+   },
+   "size": "c117",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "cross",
+   "name": "Q4_K_S",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c123",
+    "top1_pct": "c124",
+    "ppl": "c125"
+   },
+   "size": "c122",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "provider unsloth per table [L76]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "IQ4_XS-i1",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c128",
+    "top1_pct": "c129",
+    "ppl": "c130"
+   },
+   "size": "c127",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "provider mradermacher per table [L77]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "Q4_K_S-i1",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c133",
+    "top1_pct": "c134",
+    "ppl": "c135"
+   },
+   "size": "c132",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "provider mradermacher per table [L78]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "ladder",
+   "name": "ZB4.36-STD-IQ4_XS",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c137",
+    "top1_pct": "c138",
+    "ppl": "c139"
+   },
+   "size": "c136",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "ZB4.36-STD-v4-IQ4_XS",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c141",
+    "top1_pct": "c142",
+    "ppl": "c143"
+   },
+   "size": "c140",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "cross",
+   "name": "Q4_0-AutoRound-Code",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c145",
+    "top1_pct": "c146",
+    "ppl": "c147"
+   },
+   "size": "c144",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "provider webhie per table [L81]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "ladder",
+   "name": "ZB4.14-MIN-IQ4_XS",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c149",
+    "top1_pct": "c150",
+    "ppl": "c151"
+   },
+   "size": "c148",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "ZB4.00-MIN-v5.1-IQ4_XS",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c153",
+    "top1_pct": "c154",
+    "ppl": "c155"
+   },
+   "size": "c152",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "starred in comparison table [L83]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "ZB4.00-MIN-v5-IQ4_XS",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c157",
+    "top1_pct": "c158",
+    "ppl": "c159"
+   },
+   "size": "c156",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "struck through in card [L84]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "ZB3.88-MIN-v5-IQ3_M_XL",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c161",
+    "top1_pct": "c162",
+    "ppl": "c163"
+   },
+   "size": "c160",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "starred in comparison table [L85]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "IQ4_XS-3.84bpw",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c166",
+    "top1_pct": "c167",
+    "ppl": "c168"
+   },
+   "size": "c165",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c199",
+   "flags": [
+    "provider byteshape per table [L86]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "own",
+   "name": "ZB3.73-MIN-v5.1-IQ3_M_L",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c170",
+    "top1_pct": "c171",
+    "ppl": "c172"
+   },
+   "size": "c169",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "starred in comparison table [L87]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "GSQ-RCO-BuffedMod",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c174",
+    "top1_pct": "c175",
+    "ppl": "c176"
+   },
+   "size": "c173",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "ISTA+Mod per table [L88]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "GSQ-RCO-IQ3_S",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c178",
+    "top1_pct": "c179",
+    "ppl": "c180"
+   },
+   "size": "c177",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "provider ISTA per table [L89]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "ladder",
+   "name": "ZB3.70-MIN-v4-IQ3_M_L",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c182",
+    "top1_pct": "c183",
+    "ppl": "c184"
+   },
+   "size": "c181",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "struck through in card [L90]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "IQ4_XS-Smaller_3.96",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c186",
+    "top1_pct": "c187",
+    "ppl": "c188"
+   },
+   "size": "c185",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "provider jrell per table [L91]"
+   ],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "Ridge-3.7bpw",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c190",
+    "top1_pct": "c191",
+    "ppl": "c192"
+   },
+   "size": "c189",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c200",
+   "flags": [
+    "provider empero-ai per table [L92]"
+   ],
+   "of": "empero-ai/Qwen3.8-27B-Ridge"
+  },
+  {
+   "role": "own",
+   "name": "ZB3.0BPW-IQ3_XXS",
+   "panel": "Comprehensive Comparison Table",
+   "methodology": {
+    "reference": "BF16 baseline",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama-perplexity --kl-divergence",
+    "L": [
+     54,
+     56
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c194",
+    "top1_pct": "c195",
+    "ppl": "c196"
+   },
+   "size": "c193",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c201",
+   "flags": []
+  }
+ ],
+ "prose": []
+}

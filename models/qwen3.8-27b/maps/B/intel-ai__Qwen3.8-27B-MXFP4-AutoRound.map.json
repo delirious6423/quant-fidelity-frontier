@@ -1,0 +1,19 @@
+{"repo": "intel-ai/Qwen3.8-27B-MXFP4-AutoRound",
+ "source_sha256": "e153bc7d92d6a153c38eb3eae7c8ba28146be37e93021da7020df545e74e826f",
+ "candidates_sha256": "c707a8ab2be411012793eb11b56852506c25a44aaa081fe61487ec940ac9f18c",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "lm_head=BF16 sibling checkpoint (identical recipe)", "dataset": "piqa, mmlu, hellaswag, gsm8k (lm-eval tasks)", "ctx": "8192 max model length", "tool": "lm-eval 0.4.13 with vllm backend", "L": [39, 40, 107, 121, 126, 184, 186]},
+ "entries": [
+   {"role": "own", "name": "lm_head=MXFP4 (this)", "panel": "3. Evaluation results",
+    "metrics": {"bench:mmlu 0-shot acc": "c8", "bench:hellaswag 0-shot acc": "c11", "bench:hellaswag 0-shot acc_norm": "c14", "bench:piqa 0-shot acc": "c17", "bench:piqa 0-shot acc_norm": "c20", "bench:gsm8k 5-shot": "c23", "bench:gsm8k 5-shot exact_match (strict)": "c26"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["delta columns are derived and not mapped [L121-127]", "card states every delta is within task standard error [L129]"]},
+   {"role": "ladder", "name": "lm_head=BF16", "panel": "3. Evaluation results",
+    "metrics": {"bench:mmlu 0-shot acc": "c7", "bench:hellaswag 0-shot acc": "c10", "bench:hellaswag 0-shot acc_norm": "c13", "bench:piqa 0-shot acc": "c16", "bench:piqa 0-shot acc_norm": "c19", "bench:gsm8k 5-shot": "c22", "bench:gsm8k 5-shot exact_match (strict)": "c25"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["sibling checkpoint with lm_head left in BF16, the card's controlled baseline [L116-117]"]}
+ ],
+ "prose": []
+}

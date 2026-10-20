@@ -1,0 +1,19 @@
+{"repo": "JoshuaCalhoon/Qwen3.8-27B-MLX-4bit-GPTQ",
+ "source_sha256": "df0deabbe24c338ff85b291d7513efd32ce49a2eb5f7fadd0a703ec99d05b80e",
+ "candidates_sha256": "625079111b0681484630984bf9d2cd098654eafc301cff3e932c21f7c88ecc76",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 base", "dataset": "96 sequences / 37.8K tokens from projects not in the calibration set", "ctx": "not stated", "tool": "not stated", "L": [34, 35, 37]},
+ "entries": [
+   {"role": "own", "name": "this quant", "panel": "Results",
+    "metrics": {"top1:heldout-projects": "c3"},
+    "size": "c5", "unit": "GB", "basis": "disk", "bpw": null,
+    "flags": ["KL is over bf16 top-64 tokens plus a tail bucket, so it is not mapped to full-vocabulary mean_kld [L35]", "size is in the table's separate size row [L41]", "image and agentic-suite results are qualitative counts and are not mapped [L44-47]"]},
+   {"role": "cross", "name": "mlx-community/Qwen3.8-27B-4bit", "of": "mlx-community/Qwen3.8-27B-4bit", "panel": "Results",
+    "metrics": {"top1:heldout-projects": "c4"},
+    "size": "c6", "unit": "GB", "basis": "disk", "bpw": null,
+    "flags": ["top-64 KL omitted as above [L35]", "size is in the table's separate size row [L41]"]}
+ ],
+ "prose": []
+}

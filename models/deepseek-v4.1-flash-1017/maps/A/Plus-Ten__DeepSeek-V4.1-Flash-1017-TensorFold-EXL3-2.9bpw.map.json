@@ -1,630 +1,73 @@
 {
  "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
- "source_sha256": "2c3a43289b069c520dd9f00804ba9cc3d961fe626de6252ee4ae9c9e366a9aec",
- "candidates_sha256": "290f018381399154486df0c7ae1201105c447a0aefd26ed65c73777204114b81",
+ "source_sha256": "bac460d7f9131d4fb8c86ff1adf29135e4cd90d411395fbcf798b3851f74a060",
+ "candidates_sha256": "d66a42eef818bf5e45e7124d150ae20796d2cd9e6684cf693440cb3710fc1869",
  "no_quality_claims": false,
  "no_claims_reason": "",
  "weights_modified": false,
- "method": {
-  "reference": "original 1017 model for KL; original 1017 via API for MMLU-Pro",
-  "dataset": "sudoingX public evaluation panel; all MMLU-Pro test questions",
-  "ctx": "MMLU-Pro replies capped at 64 tokens",
-  "tool": "KL harness from dgx-spark-deepseek-v41; greedy letter-only MMLU-Pro",
-  "L": [
-   77,
-   78,
-   83,
-   99,
-   101,
-   108,
-   110
-  ]
- },
+ "method": {"reference": "original 1017 model (forward pass of inference/model.py) for KL; original model via API for MMLU-Pro", "dataset": "sudoingX public DeepSeek-V4.1 evaluation panel (254,846 scored positions) for KL; MMLU-Pro test set (12,032 questions) for accuracy", "ctx": "not stated", "tool": "sudoingX dgx-spark-deepseek-v41 KL harness (commit cc59c360)", "L": [83, 84, 110]},
  "entries": [
-  {
-   "role": "own",
-   "name": "This pack",
+  {"role": "own",
+   "name": "DeepSeek-V4.1-Flash-1017 EXL3 2.9 bpw",
    "panel": "KL divergence",
-   "methodology": {
-    "reference": "original 1017 model, forward pass of inference/model.py",
-    "dataset": "sudoingX public DeepSeek-V4.1 evaluation panel, scored positions",
-    "ctx": "not stated",
-    "tool": "dgx-spark-deepseek-v41 KL harness at a fixed commit",
-    "L": [
-     77,
-     78,
-     83,
-     88
-    ]
-   },
+   "methodology": {"reference": "original 1017 model forward pass (inference/model.py)", "dataset": "sudoingX public DeepSeek-V4.1 evaluation panel, 254,846 scored positions", "ctx": "not stated", "tool": "sudoingX dgx-spark-deepseek-v41 KL harness, commit cc59c360", "L": [83, 88]},
    "metrics": {
-    "mean_kld": "c2",
-    "kld_99": "c3",
-    "top1_pct": "c4",
-    "ppl": "c5",
-    "kld:code": "c10.0",
-    "top1:code": "c10.1",
-    "kld:math": "c12.0",
-    "top1:math": "c12.1",
-    "kld:agentic": "c14.0",
-    "top1:agentic": "c14.1",
-    "kld:long": "c16.0",
-    "top1:long": "c16.1",
-    "kld:knowledge": "c18.0",
-    "top1:knowledge": "c18.1",
-    "kld:multilingual": "c20.0",
-    "top1:multilingual": "c20.1",
-    "kld:chat": "c22.0",
-    "top1:chat": "c22.1",
-    "kld:writing": "c24.0",
-    "top1:writing": "c24.1"
-   },
-   "size": null,
-   "unit": null,
-   "basis": null,
-   "bpw": null,
-   "flags": [
-    "the card's 2.9 bpw is stated in the title; the bit table row gives only attention and other projections at this width [L31]",
-    "the harness keeps router, norms and embeddings from the original model; the MTP block is not in the forward pass [L79-81]"
-   ]
-  },
-  {
-   "role": "cross",
-   "name": "Mia EAQ v1",
-   "panel": "KL divergence",
+     "mean_kld": "c2", "kld_99": "c3", "top1_pct": "c4", "ppl": "c5",
+     "kld:code": "c10.0", "top1:code": "c10.1",
+     "kld:math": "c12.0", "top1:math": "c12.1",
+     "kld:agentic": "c14.0", "top1:agentic": "c14.1",
+     "kld:long": "c16.0", "top1:long": "c16.1",
+     "kld:knowledge": "c18.0", "top1:knowledge": "c18.1",
+     "kld:multilingual": "c20.0", "top1:multilingual": "c20.1",
+     "kld:chat": "c22.0", "top1:chat": "c22.1",
+     "kld:writing": "c24.0", "top1:writing": "c24.1"},
+   "size": null, "unit": null, "basis": null,
+   "bpw": "c40",
+   "flags": ["Both rows use the original F32 router gate.bias (v1.1 conditions); v1 as served used the fp16-rounded bias [L86-88]"]},
+  {"role": "cross",
+   "name": "Mia-AiLab EAQ v1 2.9 bpw",
    "of": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
-   "methodology": {
-    "reference": "original 1017 model, forward pass of inference/model.py",
-    "dataset": "sudoingX public DeepSeek-V4.1 evaluation panel, scored positions",
-    "ctx": "not stated",
-    "tool": "dgx-spark-deepseek-v41 KL harness at a fixed commit",
-    "L": [
-     77,
-     78,
-     83,
-     88
-    ]
-   },
+   "panel": "KL divergence",
+   "methodology": {"reference": "original 1017 model forward pass (inference/model.py)", "dataset": "sudoingX public DeepSeek-V4.1 evaluation panel, 254,846 scored positions", "ctx": "not stated", "tool": "sudoingX dgx-spark-deepseek-v41 KL harness, commit cc59c360", "L": [83, 88]},
    "metrics": {
-    "mean_kld": "c6",
-    "kld_99": "c7",
-    "top1_pct": "c8",
-    "ppl": "c9",
-    "kld:code": "c11.0",
-    "top1:code": "c11.1",
-    "kld:math": "c13.0",
-    "top1:math": "c13.1",
-    "kld:agentic": "c15.0",
-    "top1:agentic": "c15.1",
-    "kld:long": "c17.0",
-    "top1:long": "c17.1",
-    "kld:knowledge": "c19.0",
-    "top1:knowledge": "c19.1",
-    "kld:multilingual": "c21.0",
-    "top1:multilingual": "c21.1",
-    "kld:chat": "c23.0",
-    "top1:chat": "c23.1",
-    "kld:writing": "c25.0",
-    "top1:writing": "c25.1"
-   },
-   "size": null,
-   "unit": null,
-   "basis": null,
+     "mean_kld": "c6", "kld_99": "c7", "top1_pct": "c8", "ppl": "c9",
+     "kld:code": "c11.0", "top1:code": "c11.1",
+     "kld:math": "c13.0", "top1:math": "c13.1",
+     "kld:agentic": "c15.0", "top1:agentic": "c15.1",
+     "kld:long": "c17.0", "top1:long": "c17.1",
+     "kld:knowledge": "c19.0", "top1:knowledge": "c19.1",
+     "kld:multilingual": "c21.0", "top1:multilingual": "c21.1",
+     "kld:chat": "c23.0", "top1:chat": "c23.1",
+     "kld:writing": "c25.0", "top1:writing": "c25.1"},
+   "size": null, "unit": null, "basis": null,
    "bpw": "c41",
-   "flags": [
-    "same harness and panel as this pack [L79-86]"
-   ]
-  },
-  {
-   "role": "cross",
-   "name": "Original (API)",
+   "flags": ["Same harness and panel as this pack, rows measured under v1.1 conditions [L86-93]"]},
+  {"role": "own",
+   "name": "DeepSeek-V4.1-Flash-1017 EXL3 2.9 bpw",
    "panel": "MMLU-Pro, thinking off",
-   "of": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
-   "methodology": {
-    "reference": "original 1017 served via API",
-    "dataset": "all MMLU-Pro test questions, letter-only prompt, thinking off",
-    "ctx": "replies capped at 64 tokens",
-    "tool": "greedy decoding; no-answer counted wrong",
-    "L": [
-     101,
-     102,
-     103,
-     105,
-     108
-    ]
-   },
-   "metrics": {
-    "bench:MMLU-Pro": "c26"
-   },
-   "size": null,
-   "unit": null,
-   "basis": null,
+   "methodology": {"reference": "original model via API (same questions and settings)", "dataset": "MMLU-Pro test set, 12,032 questions, thinking off, answer letter only", "ctx": "at most 64 generated tokens", "tool": "greedy decoding, same runtime and settings for all packs", "L": [110, 112]},
+   "metrics": {"bench:MMLU-Pro": "c28"},
+   "size": null, "unit": null, "basis": null,
    "bpw": null,
-   "flags": [
-    "official model measured via API as the reference row [L110]"
-   ]
-  },
-  {
-   "role": "own",
-   "name": "This pack",
-   "panel": "MMLU-Pro, thinking off",
-   "methodology": {
-    "reference": "original 1017 served via API",
-    "dataset": "all MMLU-Pro test questions, letter-only prompt, thinking off",
-    "ctx": "replies capped at 64 tokens",
-    "tool": "greedy decoding; no-answer counted wrong",
-    "L": [
-     101,
-     102,
-     103,
-     105,
-     108
-    ]
-   },
-   "metrics": {
-    "bench:MMLU-Pro": "c28"
-   },
-   "size": null,
-   "unit": null,
-   "basis": null,
-   "bpw": null,
-   "flags": [
-    "no-answer counts, same-answer rates and differences from the original are not keyed, so not mapped [L111]",
-    "answer-letter-only format; the card says it is not comparable to published chain-of-thought MMLU-Pro scores [L105-106]",
-    "per-category values are in prose from the category table [L120-136]"
-   ]
-  },
-  {
-   "role": "cross",
-   "name": "Mia EAQ v1",
-   "panel": "MMLU-Pro, thinking off",
+   "flags": ["Accuracy is the answer-letter-only setting, not comparable to published chain-of-thought MMLU-Pro scores [L112]"]},
+  {"role": "cross",
+   "name": "Mia-AiLab EAQ v1 2.9 bpw",
    "of": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
-   "methodology": {
-    "reference": "original 1017 served via API",
-    "dataset": "all MMLU-Pro test questions, letter-only prompt, thinking off",
-    "ctx": "replies capped at 64 tokens",
-    "tool": "greedy decoding; no-answer counted wrong",
-    "L": [
-     101,
-     102,
-     103,
-     105,
-     108
-    ]
-   },
-   "metrics": {
-    "bench:MMLU-Pro": "c32"
-   },
-   "size": null,
-   "unit": null,
-   "basis": null,
-   "bpw": "c42",
-   "flags": [
-    "same runtime and settings as this pack [L105]"
-   ]
-  },
-  {
-   "role": "cross",
+   "panel": "MMLU-Pro, thinking off",
+   "methodology": {"reference": "original model via API (same questions and settings)", "dataset": "MMLU-Pro test set, 12,032 questions, thinking off, answer letter only", "ctx": "at most 64 generated tokens", "tool": "greedy decoding, same runtime and settings for all packs", "L": [110, 112]},
+   "metrics": {"bench:MMLU-Pro": "c32"},
+   "size": null, "unit": null, "basis": null,
+   "bpw": null,
+   "flags": ["Paired McNemar comparison against this pack is reported in the card [L122-123]"]},
+  {"role": "cross",
    "name": "LibertAIDAI 2.9 bpw",
-   "panel": "MMLU-Pro, thinking off",
    "of": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
-   "methodology": {
-    "reference": "original 1017 served via API",
-    "dataset": "all MMLU-Pro test questions, letter-only prompt, thinking off",
-    "ctx": "replies capped at 64 tokens",
-    "tool": "greedy decoding; no-answer counted wrong",
-    "L": [
-     101,
-     102,
-     103,
-     105,
-     108
-    ]
-   },
-   "metrics": {
-    "bench:MMLU-Pro": "c36"
-   },
-   "size": null,
-   "unit": null,
-   "basis": null,
+   "panel": "MMLU-Pro, thinking off",
+   "methodology": {"reference": "original model via API (same questions and settings)", "dataset": "MMLU-Pro test set, 12,032 questions, thinking off, answer letter only", "ctx": "at most 64 generated tokens", "tool": "greedy decoding, same runtime and settings for all packs", "L": [110, 112]},
+   "metrics": {"bench:MMLU-Pro": "c36"},
+   "size": null, "unit": null, "basis": null,
    "bpw": "c43",
-   "flags": [
-    "same runtime and settings as this pack [L105]"
-   ]
-  }
+   "flags": ["Measured in the same setting as this pack [L120]"]}
  ],
- "prose": [
-  {
-   "entry": "Original (API)",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Math",
-   "L": 122,
-   "raw": "60.0"
-  },
-  {
-   "entry": "Original (API)",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Physics",
-   "L": 123,
-   "raw": "58.2"
-  },
-  {
-   "entry": "Original (API)",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Chemistry",
-   "L": 124,
-   "raw": "52.6"
-  },
-  {
-   "entry": "Original (API)",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Law",
-   "L": 125,
-   "raw": "66.5"
-  },
-  {
-   "entry": "Original (API)",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Engineering",
-   "L": 126,
-   "raw": "56.0"
-  },
-  {
-   "entry": "Original (API)",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Other",
-   "L": 127,
-   "raw": "73.3"
-  },
-  {
-   "entry": "Original (API)",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Economics",
-   "L": 128,
-   "raw": "83.1"
-  },
-  {
-   "entry": "Original (API)",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Health",
-   "L": 129,
-   "raw": "78.1"
-  },
-  {
-   "entry": "Original (API)",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Psychology",
-   "L": 130,
-   "raw": "83.5"
-  },
-  {
-   "entry": "Original (API)",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Business",
-   "L": 131,
-   "raw": "58.7"
-  },
-  {
-   "entry": "Original (API)",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Biology",
-   "L": 132,
-   "raw": "89.5"
-  },
-  {
-   "entry": "Original (API)",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Philosophy",
-   "L": 133,
-   "raw": "75.4"
-  },
-  {
-   "entry": "Original (API)",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Computer Science",
-   "L": 134,
-   "raw": "72.0"
-  },
-  {
-   "entry": "Original (API)",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro History",
-   "L": 135,
-   "raw": "74.3"
-  },
-  {
-   "entry": "This pack",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Math",
-   "L": 122,
-   "raw": "58.8"
-  },
-  {
-   "entry": "This pack",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Physics",
-   "L": 123,
-   "raw": "54.4"
-  },
-  {
-   "entry": "This pack",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Chemistry",
-   "L": 124,
-   "raw": "51.3"
-  },
-  {
-   "entry": "This pack",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Law",
-   "L": 125,
-   "raw": "65.2"
-  },
-  {
-   "entry": "This pack",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Engineering",
-   "L": 126,
-   "raw": "51.6"
-  },
-  {
-   "entry": "This pack",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Other",
-   "L": 127,
-   "raw": "73.2"
-  },
-  {
-   "entry": "This pack",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Economics",
-   "L": 128,
-   "raw": "82.5"
-  },
-  {
-   "entry": "This pack",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Health",
-   "L": 129,
-   "raw": "78.5"
-  },
-  {
-   "entry": "This pack",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Psychology",
-   "L": 130,
-   "raw": "83.5"
-  },
-  {
-   "entry": "This pack",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Business",
-   "L": 131,
-   "raw": "57.7"
-  },
-  {
-   "entry": "This pack",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Biology",
-   "L": 132,
-   "raw": "88.8"
-  },
-  {
-   "entry": "This pack",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Philosophy",
-   "L": 133,
-   "raw": "75.2"
-  },
-  {
-   "entry": "This pack",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Computer Science",
-   "L": 134,
-   "raw": "72.2"
-  },
-  {
-   "entry": "This pack",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro History",
-   "L": 135,
-   "raw": "74.5"
-  },
-  {
-   "entry": "Mia EAQ v1",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Math",
-   "L": 122,
-   "raw": "57.6"
-  },
-  {
-   "entry": "Mia EAQ v1",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Physics",
-   "L": 123,
-   "raw": "55.6"
-  },
-  {
-   "entry": "Mia EAQ v1",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Chemistry",
-   "L": 124,
-   "raw": "49.5"
-  },
-  {
-   "entry": "Mia EAQ v1",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Law",
-   "L": 125,
-   "raw": "66.3"
-  },
-  {
-   "entry": "Mia EAQ v1",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Engineering",
-   "L": 126,
-   "raw": "49.3"
-  },
-  {
-   "entry": "Mia EAQ v1",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Other",
-   "L": 127,
-   "raw": "73.1"
-  },
-  {
-   "entry": "Mia EAQ v1",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Economics",
-   "L": 128,
-   "raw": "80.6"
-  },
-  {
-   "entry": "Mia EAQ v1",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Health",
-   "L": 129,
-   "raw": "77.6"
-  },
-  {
-   "entry": "Mia EAQ v1",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Psychology",
-   "L": 130,
-   "raw": "82.8"
-  },
-  {
-   "entry": "Mia EAQ v1",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Business",
-   "L": 131,
-   "raw": "56.9"
-  },
-  {
-   "entry": "Mia EAQ v1",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Biology",
-   "L": 132,
-   "raw": "88.8"
-  },
-  {
-   "entry": "Mia EAQ v1",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Philosophy",
-   "L": 133,
-   "raw": "76.4"
-  },
-  {
-   "entry": "Mia EAQ v1",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Computer Science",
-   "L": 134,
-   "raw": "72.4"
-  },
-  {
-   "entry": "Mia EAQ v1",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro History",
-   "L": 135,
-   "raw": "73.2"
-  },
-  {
-   "entry": "LibertAIDAI 2.9 bpw",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Math",
-   "L": 122,
-   "raw": "54.8"
-  },
-  {
-   "entry": "LibertAIDAI 2.9 bpw",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Physics",
-   "L": 123,
-   "raw": "52.7"
-  },
-  {
-   "entry": "LibertAIDAI 2.9 bpw",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Chemistry",
-   "L": 124,
-   "raw": "45.1"
-  },
-  {
-   "entry": "LibertAIDAI 2.9 bpw",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Law",
-   "L": 125,
-   "raw": "65.0"
-  },
-  {
-   "entry": "LibertAIDAI 2.9 bpw",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Engineering",
-   "L": 126,
-   "raw": "49.3"
-  },
-  {
-   "entry": "LibertAIDAI 2.9 bpw",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Other",
-   "L": 127,
-   "raw": "71.4"
-  },
-  {
-   "entry": "LibertAIDAI 2.9 bpw",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Economics",
-   "L": 128,
-   "raw": "80.0"
-  },
-  {
-   "entry": "LibertAIDAI 2.9 bpw",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Health",
-   "L": 129,
-   "raw": "78.0"
-  },
-  {
-   "entry": "LibertAIDAI 2.9 bpw",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Psychology",
-   "L": 130,
-   "raw": "84.2"
-  },
-  {
-   "entry": "LibertAIDAI 2.9 bpw",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Business",
-   "L": 131,
-   "raw": "50.8"
-  },
-  {
-   "entry": "LibertAIDAI 2.9 bpw",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Biology",
-   "L": 132,
-   "raw": "88.0"
-  },
-  {
-   "entry": "LibertAIDAI 2.9 bpw",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Philosophy",
-   "L": 133,
-   "raw": "74.7"
-  },
-  {
-   "entry": "LibertAIDAI 2.9 bpw",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro Computer Science",
-   "L": 134,
-   "raw": "70.5"
-  },
-  {
-   "entry": "LibertAIDAI 2.9 bpw",
-   "panel": "MMLU-Pro, thinking off",
-   "key": "bench:MMLU-Pro History",
-   "L": 135,
-   "raw": "75.1"
-  }
- ]
+ "prose": []
 }

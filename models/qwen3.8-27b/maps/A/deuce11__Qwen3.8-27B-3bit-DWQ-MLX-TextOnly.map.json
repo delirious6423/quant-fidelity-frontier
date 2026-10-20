@@ -1,0 +1,53 @@
+{
+  "repo": "deuce11/Qwen3.8-27B-3bit-DWQ-MLX-TextOnly",
+  "source_sha256": "ff1ddda9616135f9a3917bdd515e215174de303f4dcb0c34754cfd4881ea186c",
+  "candidates_sha256": "5a2337b20f541be3a637bc2710237cb4b602dde3bd2a6603e7d8dee74ff6a88c",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "official BF16 (token-weighted KL)", "dataset": "16 held-out sequences from allenai/tulu-3-sft-mixture, train[2000:2016]", "ctx": "max length 512", "tool": "not stated", "L": [39]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "this model",
+      "panel": "Evaluation",
+      "methodology": {"reference": "official BF16 (token-weighted KL)", "dataset": "16 held-out sequences from allenai/tulu-3-sft-mixture, train[2000:2016]", "ctx": "max length 512", "tool": "not stated", "L": [39]},
+      "metrics": {"mean_kld": "c4", "ppl:tulu-3-sft-mixture": "c6"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Top-1 agreement 0.834 is printed as a fraction, not a percent, so not mapped to top1_pct [L43]",
+        "Size 11.77 GB is in the intro prose, not in the metrics row, so not attached [L19]",
+        "Same tokens against the 8-bit teacher move KL by less than 0.006, a bound with no candidate id [L47]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "round-to-nearest 3-bit from the 8-bit teacher",
+      "panel": "Evaluation",
+      "methodology": {"reference": "official BF16 (token-weighted KL)", "dataset": "16 held-out sequences from allenai/tulu-3-sft-mixture, train[2000:2016]", "ctx": "max length 512", "tool": "not stated", "L": [39]},
+      "metrics": {"mean_kld": "c7", "ppl:tulu-3-sft-mixture": "c9"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Top-1 agreement 0.771 is printed as a fraction, not a percent, so not mapped [L44]"]
+    },
+    {
+      "role": "cross",
+      "name": "lukaskremla/Qwen3.8-27B-3bit-MLX-TextOnly",
+      "panel": "Evaluation",
+      "methodology": {"reference": "official BF16 (token-weighted KL)", "dataset": "16 held-out sequences from allenai/tulu-3-sft-mixture, train[2000:2016]", "ctx": "max length 512", "tool": "not stated", "L": [39]},
+      "of": "lukaskremla/Qwen3.8-27B-3bit-MLX-TextOnly",
+      "metrics": {"mean_kld": "c10", "ppl:tulu-3-sft-mixture": "c12"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Top-1 agreement 0.762 is printed as a fraction, not a percent, so not mapped [L45]"]
+    }
+  ],
+  "prose": []
+}

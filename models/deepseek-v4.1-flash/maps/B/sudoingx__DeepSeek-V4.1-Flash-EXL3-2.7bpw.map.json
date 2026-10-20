@@ -1,254 +1,36 @@
-{
- "repo": "sudoingx/DeepSeek-V4.1-Flash-EXL3-2.7bpw",
+{"repo": "sudoingx/DeepSeek-V4.1-Flash-EXL3-2.7bpw",
+ "source_sha256": "cca5d116a167128386167a2f08d4ce4e093ee261d9f606f5b1a9a2e8821457cf",
+ "candidates_sha256": "b10dd7cac5cb62abfd82415655e2a925dfd5b304e07704286a828a8f0307a189",
  "no_quality_claims": false,
+ "no_claims_reason": "",
  "weights_modified": false,
- "method": {
-  "reference": "native DeepSeek-V4.1-Flash weights using DeepSeek's own inference/model.py",
-  "dataset": "199 native conversations; 254,846 scored assistant positions; prompts disjoint from calibration; mean KL over scored positions",
-  "ctx": "not stated for quality panel",
-  "tool": "DeepSeek inference/model.py streamed layer by layer on a Spark; benchmark suites evalplus and IFEval",
-  "L": [
-   91,
-   92,
-   93,
-   94
-  ]
- },
+ "method": {"reference": "DeepSeek inference/model.py, streamed layer by layer on a Spark [L94]", "dataset": "199 native conversations, 316,944 tokens, 254,846 scored positions [L93]", "ctx": "not stated", "tool": "evalplus (HumanEval+, MBPP+); IFEval; greedy, thinking off, 2,048 max tokens [L96]", "L": [93, 94, 95, 96]},
  "entries": [
-  {
-   "role": "own",
-   "name": "this build",
-   "metrics": {
-    "mean_kld": "c1",
-    "top1_pct": "c2",
-    "ppl": "c3",
-    "bench:HumanEval base": "c5.0",
-    "bench:HumanEval+": "c5.1",
-    "bench:MBPP base": "c7.0",
-    "bench:MBPP+": "c7.1",
-    "bench:IFEval prompt strict": "c9.0",
-    "bench:IFEval instruction strict": "c9.1"
-   },
-   "size": "c21",
-   "basis": "excl_engram",
-   "unit": "GB",
-   "panel": "Results",
-   "methodology": {
-    "reference": "native DeepSeek-V4.1-Flash weights using DeepSeek's own inference/model.py",
-    "dataset": "199 native conversations; 254,846 scored assistant positions; prompts disjoint from calibration; mean KL over scored positions",
-    "ctx": "not stated for quality panel",
-    "tool": "DeepSeek inference/model.py streamed layer by layer on a Spark; benchmark suites evalplus and IFEval",
-    "L": [
-     91,
-     92,
-     93,
-     94
-    ]
-   },
-   "flags": [
-    "KLD cell gives position-weighted mean followed by the equally weighted domain mean in parentheses [L31,93].",
-    "Download excludes two official Engram shards that must be obtained separately [L21,61]."
-   ]
-  },
-  {
-   "role": "cross",
-   "name": "native (reference)",
-   "metrics": {
-    "ppl": "c4",
-    "bench:HumanEval base": "c6.0",
-    "bench:HumanEval+": "c6.1",
-    "bench:MBPP base": "c8.0",
-    "bench:MBPP+": "c8.1",
-    "bench:IFEval prompt strict": "c10.0",
-    "bench:IFEval instruction strict": "c10.1"
-   },
-   "size": null,
-   "basis": null,
-   "unit": null,
-   "of": "deepseek-ai/DeepSeek-V4.1-Flash",
-   "panel": "Results",
-   "methodology": {
-    "reference": "native DeepSeek-V4.1-Flash weights using DeepSeek's own inference/model.py",
-    "dataset": "199 native conversations; 254,846 scored assistant positions; prompts disjoint from calibration; mean KL over scored positions",
-    "ctx": "not stated for quality panel",
-    "tool": "DeepSeek inference/model.py streamed layer by layer on a Spark; benchmark suites evalplus and IFEval",
-    "L": [
-     91,
-     92,
-     93,
-     94
-    ]
-   }
-  },
-  {
-   "role": "cross",
-   "name": "0xSero's J268 build",
-   "metrics": {
-    "top1_pct": "c17.1",
-    "ppl": "c17.2"
-   },
-   "size": null,
-   "basis": null,
-   "unit": null,
-   "of": "not named on card",
-   "panel": "Results",
-   "methodology": {
-    "reference": "native DeepSeek-V4.1-Flash weights using DeepSeek's own inference/model.py",
-    "dataset": "199 native conversations; 254,846 scored assistant positions; prompts disjoint from calibration; mean KL over scored positions",
-    "ctx": "not stated for quality panel",
-    "tool": "DeepSeek inference/model.py streamed layer by layer on a Spark; benchmark suites evalplus and IFEval",
-    "L": [
-     91,
-     92,
-     93,
-     94
-    ]
-   },
-   "flags": [
-    "Card author measured this comparison on the same panel/reference implementation; repository not named [L43,110]."
-   ]
-  },
-  {
-   "role": "cross",
-   "name": "Mia-AiLab's 2.9 bpw pack",
-   "metrics": {
-    "top1_pct": "c18.1",
-    "ppl": "c18.2"
-   },
-   "size": null,
-   "basis": null,
-   "unit": null,
-   "of": "not named on card",
-   "panel": "Results",
-   "methodology": {
-    "reference": "native DeepSeek-V4.1-Flash weights using DeepSeek's own inference/model.py",
-    "dataset": "199 native conversations; 254,846 scored assistant positions; prompts disjoint from calibration; mean KL over scored positions",
-    "ctx": "not stated for quality panel",
-    "tool": "DeepSeek inference/model.py streamed layer by layer on a Spark; benchmark suites evalplus and IFEval",
-    "L": [
-     91,
-     92,
-     93,
-     94
-    ]
-   },
-   "flags": [
-    "Card author measured this comparison on the same panel/reference implementation; repository not named [L43,110]."
-   ]
-  },
-  {
-   "role": "own",
-   "name": "this build (domains weighted equally)",
-   "metrics": {},
-   "size": "c21",
-   "basis": "excl_engram",
-   "unit": "GB",
-   "panel": "Results",
-   "methodology": {
-    "reference": "native DeepSeek-V4.1-Flash weights using DeepSeek's own inference/model.py",
-    "dataset": "199 native conversations; eight domains weighted equally; disjoint from calibration",
-    "ctx": "not stated for quality panel",
-    "tool": "DeepSeek inference/model.py streamed layer by layer on a Spark; benchmark suites evalplus and IFEval",
-    "L": [
-     91,
-     92,
-     93,
-     94
-    ],
-    "aggregation": "8 domains weighted equally"
-   },
-   "flags": [
-    "Same file as the position-weighted row; this measurement weights the eight domains equally [L31,43]."
-   ]
-  },
-  {
-   "role": "cross",
-   "name": "0xSero's J268 build (domains weighted equally)",
-   "metrics": {},
-   "size": null,
-   "basis": null,
-   "unit": null,
-   "panel": "Results",
-   "methodology": {
-    "reference": "native DeepSeek-V4.1-Flash weights using DeepSeek's own inference/model.py",
-    "dataset": "199 native conversations; eight domains weighted equally; disjoint from calibration",
-    "ctx": "not stated for quality panel",
-    "tool": "DeepSeek inference/model.py streamed layer by layer on a Spark; benchmark suites evalplus and IFEval",
-    "L": [
-     91,
-     92,
-     93,
-     94
-    ],
-    "aggregation": "8 domains weighted equally"
-   },
-   "flags": [
-    "Same file as the position-weighted row; this measurement weights the eight domains equally [L31,43]."
-   ],
-   "of": "not named on card"
-  },
-  {
-   "role": "cross",
-   "name": "Mia-AiLab's 2.9 bpw pack (domains weighted equally)",
-   "metrics": {},
-   "size": null,
-   "basis": null,
-   "unit": null,
-   "panel": "Results",
-   "methodology": {
-    "reference": "native DeepSeek-V4.1-Flash weights using DeepSeek's own inference/model.py",
-    "dataset": "199 native conversations; eight domains weighted equally; disjoint from calibration",
-    "ctx": "not stated for quality panel",
-    "tool": "DeepSeek inference/model.py streamed layer by layer on a Spark; benchmark suites evalplus and IFEval",
-    "L": [
-     91,
-     92,
-     93,
-     94
-    ],
-    "aggregation": "8 domains weighted equally"
-   },
-   "flags": [
-    "Same file as the position-weighted row; this measurement weights the eight domains equally [L31,43]."
-   ],
-   "of": "not named on card"
-  }
+   {"role": "own",
+    "name": "this build",
+    "metrics": {"ppl": "c3", "top1_pct": "c2", "bench:HumanEval+ base": "c5.0", "bench:HumanEval+ plus": "c5.1", "bench:MBPP+ base": "c7.0", "bench:MBPP+ plus": "c7.1", "bench:IFEval prompt strict": "c9.0", "bench:IFEval instruction strict": "c9.1"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["KLD cell 0.0243 (0.0398) left out: row label says domains weighted equally, but the prose comparison [L45] labels the parenthetical as domain-equal [L33, L45]", "2.70 bpw in memory is stated in prose, not a table cell [L19]", "download size 196 GB is in the Files section, not the results table [L63]"]},
+   {"role": "cross",
+    "name": "0xSero's J268 build",
+    "of": "not named on card",
+    "metrics": {"mean_kld": "c15", "top1_pct": "c17.1", "ppl": "c17.2"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["measured by card author on the same panel and reference [L45]", "domain-equal KLD in parentheses not mapped; 2.43 bpw in memory stated in prose [L45]"]},
+   {"role": "cross",
+    "name": "Mia-AiLab's 2.9 bpw pack",
+    "of": "not named on card",
+    "metrics": {"mean_kld": "c16", "top1_pct": "c18.1", "ppl": "c18.2"},
+    "size": null,
+    "unit": null,
+    "bpw": "c19.1",
+    "basis": null,
+    "flags": ["measured by card author on the same panel and reference [L45]", "domain-equal KLD in parentheses not mapped [L45]"]}
  ],
- "prose": [
-  {
-   "entry": "this build (domains weighted equally)",
-   "key": "mean_kld",
-   "L": 31,
-   "raw": "0.0398",
-   "panel": "Results"
-  },
-  {
-   "entry": "0xSero's J268 build",
-   "key": "mean_kld",
-   "L": 43,
-   "raw": "0.0327",
-   "panel": "Results"
-  },
-  {
-   "entry": "0xSero's J268 build (domains weighted equally)",
-   "key": "mean_kld",
-   "L": 43,
-   "raw": "0.0516",
-   "panel": "Results"
-  },
-  {
-   "entry": "Mia-AiLab's 2.9 bpw pack",
-   "key": "mean_kld",
-   "L": 43,
-   "raw": "0.0295",
-   "panel": "Results"
-  },
-  {
-   "entry": "Mia-AiLab's 2.9 bpw pack (domains weighted equally)",
-   "key": "mean_kld",
-   "L": 43,
-   "raw": "0.0443",
-   "panel": "Results"
-  }
- ]
-}
+ "prose": []}

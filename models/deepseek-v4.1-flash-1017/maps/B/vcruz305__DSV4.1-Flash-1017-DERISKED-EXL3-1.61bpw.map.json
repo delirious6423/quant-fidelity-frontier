@@ -1,0 +1,30 @@
+{"repo": "vcruz305/DSV4.1-Flash-1017-DERISKED-EXL3-1.61bpw",
+ "source_sha256": "39263dd677078928b87e2e3aa51146c608f3b0c95ccee4496b9e0cfe3cabbac8",
+ "candidates_sha256": "b23ca5438b4377705c820518d4b56c07e3b2d1406f749c5ca1b252ac6d7881b1",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "DeepSeek official mixed FP8/FP4 release (deepseek-ai/DeepSeek-V4.1-Flash-1017)", "dataset": "held-out sequences", "ctx": "not stated", "tool": "not stated", "L": [31]},
+ "entries": [
+   {"role": "own",
+    "name": "DERISKED EXL3 1.61 bpw (SAGE mixed-K)",
+    "methodology": {"reference": "DeepSeek official mixed FP8/FP4 release (deepseek-ai/DeepSeek-V4.1-Flash-1017)", "dataset": "held-out sequences", "ctx": "not stated", "tool": "not stated", "L": [31]},
+    "metrics": {
+      "top1_pct": "c1",
+      "mean_kld": "c2",
+      "top1:code": "c7",
+      "top1:reasoning": "c8",
+      "top1:math": "c9",
+      "top1:general": "c10",
+      "kld:code": "c19",
+      "kld:reasoning": "c20",
+      "kld:math": "c21",
+      "kld:general": "c22"
+    },
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": "c25",
+    "flags": ["metrics are the Assistant turn slice [L35, L43]", "mean KLD 0.1929 is repeated for every slice [L35-37]", "per-category Mean KLD row has no slice label [L46]", "non-header and all-tokens slices not mapped [L36-37, L44-45]", "resident footprint 112.9 GiB is not a quality value [L27, L54]"]}
+ ],
+ "prose": []}

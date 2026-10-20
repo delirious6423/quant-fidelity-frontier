@@ -5,7 +5,7 @@ tags:
   - qwen3.8
   - rocmfp4
   - rocmfpx
-  - llama.cpp-rocm
+  - strix.cpp
   - gguf
   - mtp
 library_name: gguf
@@ -17,11 +17,11 @@ library_name: gguf
 
 ## ⚡ Quick Start
 
-Requires [llama.cpp-rocm](https://github.com/ArtomYuan/llama.cpp-rocm) (this fork supports ROCmFPX; **upstream llama.cpp cannot load these files** — format note at the end).
+Requires [strix.cpp](https://github.com/ArtomYuan/strix.cpp) (this fork supports ROCmFPX; **upstream llama.cpp cannot load these files** — format note at the end).
 
 ```bash
 # Text only (smallest tier: Q4_FAST ~13.6 GiB)
-llama-server -m Qwen3.8-27B_Q4_0_ROCMFP4_FAST.gguf -ngl 99 -fa on --port 8080
+strix-server -m Qwen3.8-27B_Q4_0_ROCMFP4_FAST.gguf -ngl 99 -fa on --port 8080
 
 # Vision: add --mmproj mmproj-Qwen3.8-27B_BF16.gguf
 # All tiers fit on a single 128 GB machine (largest: 26.7 GiB)
@@ -39,7 +39,7 @@ llama-server -m Qwen3.8-27B_Q4_0_ROCMFP4_FAST.gguf -ngl 99 -fa on --port 8080
 
 - **Base model**: Qwen3.8-27B (dense, official weights by Alibaba)
 - **Quantization**: BF16 -> ROCmFP4 / ROCmFPx, 7 variants
-- **MTP**: GGUFs carry an MTP head — enable with `llama-server --spec-type draft-mtp` (speculative decoding)
+- **MTP**: GGUFs carry an MTP head — enable with `strix-server --spec-type draft-mtp` (speculative decoding)
 - **Vision**: multimodal — pair with the bundled mmproj (see Usage)
 
 ## Files
@@ -59,7 +59,7 @@ SHA-256 checksums for all files: see `sha256.txt`.
 
 ## Quantization Tiers — what's here & how to choose
 
-All files are builds of the same official weights through `llama-quantize` (llama.cpp-rocm fork); upstream llama.cpp cannot load them (see Format Note). Quick guide:
+All files are builds of the same official weights through `llama-quantize` (strix.cpp fork); upstream llama.cpp cannot load them (see Format Note). Quick guide:
 
 - **Q4_0_ROCMFP4_FAST** — smallest & fastest baseline (4.25 bpw). Bulk weights in single-scale FP4.
 - **Q4_0_ROCMFP4_FAST_COHERENT** — FAST + Q6_K token embeddings (better coherence, +0.2 bpw).
@@ -67,11 +67,11 @@ All files are builds of the same official weights through `llama-quantize` (llam
 - **Q6_0_ROCMFPX / Q8_0_ROCMFPX** — higher-bit reference layouts (6.50 / 8.25 bpw). Decode is slower than the Q4 family on this dense model (Q6's unpack overhead is the heaviest).
 - **Q6_0_ROCMFPX_AGENT / Q8_0_ROCMFPX_AGENT** — agent / tool-call oriented routing variants (attention & FFN boosts on sensitive layers).
 
-The full type ladder lives in the llama.cpp-rocm repo (`llama-quantize --help`).
+The full type ladder lives in the strix.cpp repo (`llama-quantize --help`).
 
 ## Benchmarks (llama-bench)
 
-Measured on AMD Strix Halo (gfx1151), `llama-bench -ngl 99 -p 256,2048 -n 256 -r 5`, llama.cpp-rocm build 11107. (Dense 27B — all parameters active, so tg is inherently lower than MoE models. Each figure is the mean of the last 4 of 5 reps — the first rep carries one-time warm-up cost and is excluded.)
+Measured on AMD Strix Halo (gfx1151), `llama-bench -ngl 99 -p 256,2048 -n 256 -r 5`, strix.cpp build 11107. (Dense 27B — all parameters active, so tg is inherently lower than MoE models. Each figure is the mean of the last 4 of 5 reps — the first rep carries one-time warm-up cost and is excluded.)
 
 | Variant | tg256 (t/s) | pp256 (t/s) | pp2048 (t/s) | Size | bpw |
 |:--|--:|--:|--:|--:|--:|
@@ -87,19 +87,19 @@ Measured on AMD Strix Halo (gfx1151), `llama-bench -ngl 99 -p 256,2048 -n 256 -r
 
 ```bash
 # Text only:
-llama-server -m Qwen3.8-27B_Q4_0_ROCMFP4_FAST.gguf -ngl 99 -fa on --port 8080
+strix-server -m Qwen3.8-27B_Q4_0_ROCMFP4_FAST.gguf -ngl 99 -fa on --port 8080
 
 # Vision (multimodal; --mmproj enables image input):
-llama-server -m Qwen3.8-27B_Q4_0_ROCMFP4_FAST.gguf --mmproj mmproj-Qwen3.8-27B_BF16.gguf -ngl 99 -fa on --port 8080
+strix-server -m Qwen3.8-27B_Q4_0_ROCMFP4_FAST.gguf --mmproj mmproj-Qwen3.8-27B_BF16.gguf -ngl 99 -fa on --port 8080
 ```
 
 - Swap `-m` to any other variant file to run that variant (see Files).
 - OpenAI-compatible API served at `http://127.0.0.1:8080/v1`.
-- MTP head: load with `llama-server --spec-type draft-mtp` for speculative MTP acceleration.
+- MTP head: load with `strix-server --spec-type draft-mtp` for speculative MTP acceleration.
 
 ## Format Note (ROCmFPX)
 
-**ROCmFPX is a quantization format family (llama.cpp-rocm extension: GGML types 100–107 / FTYPE 100–119) — upstream llama.cpp cannot load these files. Load them with [llama.cpp-rocm](https://github.com/ArtomYuan/llama.cpp-rocm), a llama.cpp fork that supports all upstream GGUF formats plus ROCmFP4/ROCmFPx natively.**
+**ROCmFPX is a quantization format family (strix.cpp extension: GGML types 100–107 / FTYPE 100–119) — upstream llama.cpp cannot load these files. Load them with [strix.cpp](https://github.com/ArtomYuan/strix.cpp), a llama.cpp fork that supports all upstream GGUF formats plus ROCmFP4/ROCmFPx natively.**
 
 ## License & Disclaimer
 

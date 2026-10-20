@@ -1,0 +1,71 @@
+{
+  "repo": "Calandracas/Qwen3.8-27B-heretic-ara-exl3-SC-4.90bpw",
+  "source_sha256": "3ce3a43cc00370ca269156f90398ab1ccd39b868622936dd31f2a8b1dae1bc7a",
+  "candidates_sha256": "dfae2d206bdd2ab287f8be915c56a080efc89d69abd5a2c05de2e3449583e3fe",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {"reference": "bf16 source", "dataset": "6×1024-token in-domain trace rows", "ctx": "1024 tokens per row", "tool": "not stated", "L": [26]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "SC 4.90bpw (this repo)",
+      "panel": "Quality (KLD vs bf16 source, 6×1024-token in-domain trace rows)",
+      "metrics": {"mean_kld": "c40"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c53",
+      "flags": [
+        "Performance table KL divergence 0.0535 and refusal counts not mapped: no matching metric key [L60-61]",
+        "VL Performance columns for Qwen3.6-27B, Qwen3.7-Plus, Muse Glimmer-30B and Opus4.6 Max are results on other models, omitted [L254-267]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "SC 4.50bpw (before K=5→6 promotion)",
+      "panel": "Quality (KLD vs bf16 source, 6×1024-token in-domain trace rows)",
+      "metrics": {"mean_kld": "c39"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c52",
+      "flags": []
+    },
+    {
+      "role": "ladder",
+      "name": "uniform EXL3 4.5bpw (ends-first)",
+      "panel": "Quality (KLD vs bf16 source, 6×1024-token in-domain trace rows)",
+      "metrics": {"mean_kld": "c38"},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": "c51",
+      "flags": []
+    },
+    {
+      "role": "quoted",
+      "name": "Qwen3.8-27B",
+      "panel": "VL Performance",
+      "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "per-benchmark notes (WebArena-Verified: official grader under OSWorld scaffold; SWE-MM and Vision2Web: Claude Code harness)", "L": [274, 277, 278]},
+      "of": "Qwen/Qwen3.8-27B",
+      "metrics": {
+        "bench:OSWorld-Verified": "c1",
+        "bench:WebArena-Verified": "c6",
+        "bench:AndroidWorld": "c9",
+        "bench:RecreationBench": "c13",
+        "bench:SWE-MM": "c16",
+        "bench:Vision2Web": "c20",
+        "bench:OmniDocBench 1.5": "c25",
+        "bench:RealWorldQA": "c30",
+        "bench:ERQA": "c34"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": ["Source model results copied from the Qwen card, not measured on this quant [L254-267]"]
+    }
+  ],
+  "prose": []
+}

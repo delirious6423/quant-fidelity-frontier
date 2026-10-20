@@ -1,0 +1,26 @@
+{
+  "repo": "anemll/anemll-forge-qwen3.8-27B-192K",
+  "source_sha256": "02146aecc9fe66efb559d13076ff2289e1396273a486de35be47f1671dfe3c72",
+  "candidates_sha256": "cc8d0532c7f4b2d41b44162c60a5752dadcced4c44faf284de9e3deb3a88e6e8",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {"reference": "V8 KV cache (FP16 keys)", "dataset": "KL-512, 64 sequences", "ctx": "not stated", "tool": "not stated", "L": [119]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "ANEMLL Forge Qwen3.8-27B 192K (release 0.2.1)",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Direct KL of 6.6e-5 nats (kv8 vs V8 KV cache, release 0.2 weights) is not mapped: reported in nats, no nats key, and the 6.6 candidate is only the mantissa [L119]",
+        "Long-context recall (six codes to 185K) is stated without a metric key [L171]",
+        "Speed and memory tables carry no quality metric keys and are not mapped [L87, L145, L175]"
+      ]
+    }
+  ],
+  "prose": []
+}

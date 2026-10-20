@@ -31,9 +31,6 @@ model-index:
           - type: accuracy
             value: 77.00
             name: Prompt-level strict (0-shot, rule)
-        source:
-          url: https://github.com/Neroued/tachyon/tree/master/eval
-          name: Tachyon EvalScope 1.9.0
       - task:
           type: text-generation
           name: Text Generation
@@ -44,9 +41,6 @@ model-index:
           - type: accuracy
             value: 96.67
             name: Accuracy (0-shot, rule)
-        source:
-          url: https://github.com/Neroued/tachyon/tree/master/eval
-          name: Tachyon EvalScope 1.9.0
       - task:
           type: text-generation
           name: Text Generation
@@ -57,9 +51,6 @@ model-index:
           - type: accuracy
             value: 96.67
             name: Accuracy (0-shot, rule)
-        source:
-          url: https://github.com/Neroued/tachyon/tree/master/eval
-          name: Tachyon EvalScope 1.9.0
       - task:
           type: text-generation
           name: Text Generation
@@ -70,9 +61,6 @@ model-index:
           - type: accuracy
             value: 90.40
             name: Accuracy (0-shot, rule)
-        source:
-          url: https://github.com/Neroued/tachyon/tree/master/eval
-          name: Tachyon EvalScope 1.9.0
       - task:
           type: image-text-to-text
           name: Image Text to Text
@@ -83,9 +71,6 @@ model-index:
           - type: accuracy
             value: 66.25
             name: Accuracy (0-shot, rule)
-        source:
-          url: https://github.com/Neroued/tachyon/tree/master/eval
-          name: Tachyon EvalScope 1.9.0
       - task:
           type: image-text-to-text
           name: Image Text to Text
@@ -96,9 +81,6 @@ model-index:
           - type: accuracy
             value: 83.53
             name: Accuracy (0-shot, rule)
-        source:
-          url: https://github.com/Neroued/tachyon/tree/master/eval
-          name: Tachyon EvalScope 1.9.0
 ---
 
 # Qwen3.8-27B NVFP4 for Tachyon
@@ -110,7 +92,7 @@ The repository contains a mixed NVFP4/FP8 representation of
 [Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B). It combines the official BF16 checkpoint
 with the fixed packed Text weights from
 [unsloth/Qwen3.8-27B-NVFP4](https://huggingface.co/unsloth/Qwen3.8-27B-NVFP4) in the native
-[Tachyon](https://github.com/Neroued/tachyon) `.tachyon` artifact format. The artifact is intended
+Tachyon `.tachyon` artifact format. The artifact is intended
 only for Tachyon; it is not a Transformers checkpoint, Safetensors distribution, or GGUF file.
 
 The artifact uses the Qwen3.5 Dense architecture. All 64 Text layers use NVFP4 MLP weights
@@ -155,7 +137,7 @@ Engine package `tachyon-serve-gb10-88251e38.tar.gz` supersedes `7fca766a`:
 | Container version | 3 |
 | Architecture | `Qwen3_5ForCausalLM` |
 | Public model name | `qwen3.8-27b` |
-| Chat template | [qwen3_8.jinja](https://github.com/Neroued/tachyon/blob/7fca766aac205252b4e86fe0d84372107ed0fe61/tools/chat_templates/qwen3_8.jinja); override with `--chat-template FILE` |
+| Chat template | `qwen3_8.jinja`; override with `--chat-template FILE` |
 | Template defaults | thinking off by default (`--thinking` to opt in); effort `xhigh` when enabled |
 | Stored objects | 1,078 (1,072 tensors and 6 resources) |
 | NVFP4 row tensors | 129 (all 64 Text-layer MLP parents and the output head) |
@@ -183,10 +165,8 @@ retain their stated MTP configurations and revisions.
 
 ## Requirements
 
-- the current [shared Tachyon checkout](https://github.com/h3c-hexin/pinvou-tachyon), built from
-  source; its artifact/component support must include upstream revision
-  [`88251e3`](https://github.com/Neroued/tachyon/commit/88251e3850f59a3b12bd76ac0192162cc80c44c2)
-  or later;
+- a current Tachyon checkout, built from source; its artifact/component support must include
+  revision `88251e3` or later;
 - 64-bit Linux;
 - a GPU supported by the selected Tachyon build: GB10 / DGX Spark (`sm_121a`, current
   project target) or RTX 5090 (`sm_120a`, explicit build selection);
@@ -194,14 +174,13 @@ retain their stated MTP configurations and revisions.
 
 The published artifact measurements below used RTX 5090 and CUDA 13.1. Engine support does not
 establish GB10 validation for every component, context length, or weight profile in this card.
-Use the [GB10 run records](https://github.com/h3c-hexin/pinvou-tachyon/blob/master/docs/performance.md#gb10-experiment-records)
-for their measured scope, and the selected checkout's build guide for toolchain requirements.
+Use the GB10 run records (`docs/performance.md` in the selected checkout) for their measured
+scope, and its build guide for toolchain requirements.
 
-Already have the official v2 file? [Upgrade it locally](https://github.com/h3c-hexin/pinvou-tachyon/blob/master/docs/weight-conversion.md#upgrade-an-existing-v2-artifact)
+Already have the official v2 file? Upgrade it locally (see `docs/weight-conversion.md`)
 without downloading the weights again.
 
-Tachyon does not provide an install target or packaged binary. See the
-[repository README](https://github.com/h3c-hexin/pinvou-tachyon#quick-start) for source-build dependencies.
+Tachyon does not provide an install target or packaged binary. See the repository README for source-build dependencies.
 
 ## Download and run a CLI example
 
@@ -220,8 +199,7 @@ hf download pinvou/Qwen3.8-27B-NVFP4-Tachyon \
   --no-thinking
 ```
 
-For images, videos, and structured chat history, see the
-[CLI guide](https://github.com/h3c-hexin/pinvou-tachyon/blob/master/docs/cli.md).
+For images, videos, and structured chat history, see the CLI guide (`docs/cli.md`).
 
 ## Start a local server
 
@@ -255,9 +233,9 @@ State slots, and 8 GiB of pinned Host KV retain reusable continuations under res
 Single-stream decode speed is identical to a smaller `--max-concurrency` setting; the wider
 admission only adds concurrent capacity.
 
-See the [HTTP serving guide](https://github.com/h3c-hexin/pinvou-tachyon/blob/master/docs/serving.md) for the
-API surface and the [resource scheduling reference](https://github.com/h3c-hexin/pinvou-tachyon/blob/master/docs/maintainer/resource-scheduling-and-context-cache.md)
-for cache and admission semantics.
+See the HTTP serving guide (`docs/serving.md`) for the API surface and the resource scheduling
+reference (`docs/maintainer/resource-scheduling-and-context-cache.md`) for cache and admission
+semantics.
 
 ## Supported use
 
@@ -279,9 +257,7 @@ The artifact supports:
 
 ### GB10 / MegaCube serving (October 2026, DFlash2 K=7)
 
-Measured on one GB10 (MegaCube) with Tachyon revision
-[`7fca766`](https://github.com/Neroued/tachyon/commit/7fca766aac205252b4e86fe0d84372107ed0fe61),
-CUDA 13.0, FP8 KV, thinking disabled, and the exact serve command above. Sampling matches the
+Measured on one GB10 (MegaCube) with Tachyon revision `7fca766`, CUDA 13.0, FP8 KV, thinking disabled, and the exact serve command above. Sampling matches the
 public SGLang NEXTN baseline on the same hardware (temperature 1.0, top-p 0.95, top-k 20).
 
 Single-request decode by content class (stochastic; greedy where higher):
@@ -310,9 +286,8 @@ greedy output differs from non-speculative decode only in near-tie floating-poin
 The tables below are historical RTX 5090 measurements retained for reference.
 
 The MTP0 measurements below were collected at Tachyon revision
-[`f08597d`](https://github.com/Neroued/tachyon/commit/f08597d6eaafce5b875934aaa85854fcd5426df8),
-and the MTP3 measurements at revision
-[`32c9881`](https://github.com/Neroued/tachyon/commit/32c9881b6783949df4999422a764b3dcaa111b13).
+`f08597d`, and the MTP3 measurements at revision
+`32c9881`.
 Both campaigns used one NVIDIA GeForce RTX 5090, CUDA 13.1 compile/runtime, CUDA driver API 13.3,
 stochastic sampling, INT8 group-64 KV, CUDA Graphs, a 1,024-token prefill chunk, and prefix reuse
 disabled. MTP0 used no speculative backend and a 262,144-token context limit; MTP3 used a
@@ -372,9 +347,8 @@ Each category contains three fixtures and five seeds per fixture, for 15 samples
 | Translation | 192.3 ± 11.9 | 75.0% ± 6.5% | 3.25 ± 0.19 |
 | Structured output | 219.8 ± 8.6 | 90.8% ± 5.1% | 3.72 ± 0.15 |
 
-See the
-[full methodology and results](https://github.com/h3c-hexin/pinvou-tachyon/blob/master/docs/performance/qwen3.8-27b.md)
-for metric definitions and the exact reproduction command.
+See `docs/performance/qwen3.8-27b.md` in the Tachyon checkout for metric definitions and the
+exact reproduction command.
 
 ## Evaluation
 
@@ -423,14 +397,13 @@ AIME results.
 | Quantized source revision | `60e813d4dbbdc5d64cf3f5a8caf2897bedf03679` |
 | Conversion recipe | `qwen3_8_27b_nvfp4` |
 | Embedding encoder | `fp8_row_maxabs` |
-| Converter repository | `https://github.com/Neroued/tachyon` |
 | Minimum runtime revision | `7fca766aac205252b4e86fe0d84372107ed0fe61` |
 | Ranking input SHA-256 | `c692dc76388132c910547589b4fb4a0503fbd6ad50aaac6a509bbcb192a8afa5` |
 
 The artifact identity, summarized object inventory, and conversion provenance are published in
 [`artifact-manifest.json`](https://huggingface.co/pinvou/Qwen3.8-27B-NVFP4-Tachyon/blob/main/artifact-manifest.json).
-The exact storage contract is maintained in the
-[v3 container reference](https://github.com/h3c-hexin/pinvou-tachyon/blob/master/docs/maintainer/artifact-container.md).
+The exact storage contract is maintained in the Tachyon v3 container reference
+(`docs/maintainer/artifact-container.md`).
 
 ## License
 

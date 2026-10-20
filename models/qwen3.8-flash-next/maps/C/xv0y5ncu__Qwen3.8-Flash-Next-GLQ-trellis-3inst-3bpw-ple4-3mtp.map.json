@@ -1,0 +1,43 @@
+{
+ "repo": "xv0y5ncu/Qwen3.8-Flash-Next-GLQ-trellis-3inst-3bpw-ple4-3mtp",
+ "source_sha256": "afc44bc0dab88da717e9b5aaee37e46d26a2242dd8f4b5455937de649971027b",
+ "candidates_sha256": "81ca040664094d14989c463a7f2b40457c4abff65638cd2ae1e81783484a8174",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "262,144-token window (speculation table)", "tool": "vLLM 0.31.0, glq from main", "L": [163, 164]},
+ "entries": [
+  {"role": "own", "panel": "Fit it on a smaller card — weight offload (vLLM ≥ 0.30.0)", "name": "--cpu-offload-gb 24", "size": "c1", "unit": "GiB", "basis": "vram", "bpw": null,
+   "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "vLLM 0.30.0, glq 0.8.23, one L40S (45 GiB, PCIe 4 x16), B=1", "L": [121, 123]},
+   "metrics": {"bench:decode": "c3"},
+   "flags": ["KV cache column not mapped [L125]", "checkpoint not named for this table; the sibling note applies only to the Measured section [L269-L273]"]},
+  {"role": "own", "panel": "Fit it on a smaller card — weight offload (vLLM ≥ 0.30.0)", "name": "--cpu-offload-gb 36", "size": "c4", "unit": "GiB", "basis": "vram", "bpw": null,
+   "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "vLLM 0.30.0, glq 0.8.23, one L40S (45 GiB, PCIe 4 x16), B=1", "L": [121, 123]},
+   "metrics": {"bench:decode": "c6"},
+   "flags": ["KV cache column not mapped [L126]", "checkpoint not named for this table; the sibling note applies only to the Measured section [L269-L273]"]},
+  {"role": "own", "panel": "Measured", "name": "--mtp 0", "size": "c11", "unit": "GiB", "basis": "vram", "bpw": null,
+   "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "262,144-token window, B=1, 3 repeats per row", "tool": "vLLM 0.31.0, glq from main, one RTX PRO 4500 Blackwell (32 GiB)", "L": [163, 164, 165]},
+   "metrics": {"bench:decode": "c8", "bench:decode_range_low": "c9.0", "bench:decode_range_high": "c9.1"},
+   "flags": ["speculation off [L169]", "KV pool column not mapped [L169]"]},
+  {"role": "own", "panel": "Measured", "name": "--mtp 1", "size": "c18", "unit": "GiB", "basis": "vram", "bpw": null,
+   "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "262,144-token window, B=1, 3 repeats per row", "tool": "vLLM 0.31.0, glq from main, one RTX PRO 4500 Blackwell (32 GiB)", "L": [163, 164, 165]},
+   "metrics": {"bench:decode": "c13", "bench:decode_range_low": "c14.0", "bench:decode_range_high": "c14.1"},
+   "flags": ["acceptance rate and mean accepted length not mapped [L170]", "KV pool column not mapped [L170]"]},
+  {"role": "own", "panel": "Measured", "name": "--mtp 3", "size": "c25", "unit": "GiB", "basis": "vram", "bpw": null,
+   "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "262,144-token window, B=1, 3 repeats per row", "tool": "vLLM 0.31.0, glq from main, one RTX PRO 4500 Blackwell (32 GiB)", "L": [163, 164, 165]},
+   "metrics": {"bench:decode": "c20", "bench:decode_range_low": "c21.0", "bench:decode_range_high": "c21.1"},
+   "flags": ["acceptance rate and mean accepted length not mapped [L171]", "KV pool column not mapped [L171]", "the Measured section at L267 reports figures on the sibling checkpoint, not this build, so they are left out [L269-L273]", "27B comparison arms and sibling quality figures left out [L294-L314]"]},
+  {"role": "own", "panel": "Measured", "name": "L4 (22.49 GiB, sm_89, PCIe 4), num_spec=1", "size": null, "unit": null, "basis": null, "bpw": null,
+   "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "L4 (22.49 GiB, sm_89, PCIe 4)", "L": [178]},
+   "metrics": {}, "flags": ["ranking reverses on this card: num_spec=1 is faster [L178]"]},
+  {"role": "own", "panel": "Measured", "name": "L4 (22.49 GiB, sm_89, PCIe 4), num_spec=3", "size": null, "unit": null, "basis": null, "bpw": null,
+   "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "L4 (22.49 GiB, sm_89, PCIe 4)", "L": [178]},
+   "metrics": {}, "flags": ["ranking reverses on this card: num_spec=3 is slower [L178]"]}
+ ],
+ "prose": [
+  {"entry": "--mtp 1", "panel": "Measured", "key": "bench:speedup_vs_mtp_off", "L": 173, "raw": "1.29x"},
+  {"entry": "--mtp 3", "panel": "Measured", "key": "bench:speedup_vs_mtp_off", "L": 173, "raw": "1.34x"},
+  {"entry": "L4 (22.49 GiB, sm_89, PCIe 4), num_spec=1", "panel": "Measured", "key": "bench:decode", "L": 178, "raw": "19.692"},
+  {"entry": "L4 (22.49 GiB, sm_89, PCIe 4), num_spec=3", "panel": "Measured", "key": "bench:decode", "L": 178, "raw": "18.569"}
+ ]
+}

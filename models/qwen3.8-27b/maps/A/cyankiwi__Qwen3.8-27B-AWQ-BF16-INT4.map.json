@@ -1,1 +1,48 @@
-{"repo":"cyankiwi/Qwen3.8-27B-AWQ-BF16-INT4","no_quality_claims":true,"no_claims_reason":"benchmark tables [L98-221, L229-259] are the upstream Qwen3.8-27B base model results, not measurements of this quant; only model size stated [L33]","method":{"reference":"not stated","dataset":"not stated","ctx":"not stated","tool":"not stated","L":[]},"entries":[{"role":"own","name":"Qwen3.8-27B-AWQ-BF16-INT4","metrics":{},"size":"c38","unit":"GB","basis":null,"bpw":null,"flags":["Model Size 28.85 GB from header table [L33]; basis not stated","Benchmark tables are for the original Qwen3.8-27B (not this quant) and omitted [L234-247]"]}],"prose":[]}
+{
+  "repo": "cyankiwi/Qwen3.8-27B-AWQ-BF16-INT4",
+  "source_sha256": "e7759ee9bcc97ee3352bb39e4a85da54ac60da58a32a7564bb228f4dbb530111",
+  "candidates_sha256": "00928a29bda720fc54b3ada66d5697c4f5d82c56ca30eadc9a3e3c3e31967f0b",
+  "no_quality_claims": true,
+  "no_claims_reason": "only Qwen base-model benchmarks copied from the Qwen card and the model size; no quant measurement [L48, L243-262]",
+  "weights_modified": false,
+  "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": []},
+  "entries": [
+    {
+      "role": "own",
+      "name": "Qwen3.8-27B-AWQ-BF16-INT4",
+      "metrics": {},
+      "size": "c38",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": ["Model size row only; no quant-specific quality numbers in the card [L48]"]
+    },
+    {
+      "role": "quoted",
+      "name": "Qwen3.8-27B",
+      "panel": "VL Performance",
+      "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "per-benchmark notes (WebArena-Verified: official grader under OSWorld scaffold; SWE-MM and Vision2Web: Claude Code harness)", "L": [269, 272, 273]},
+      "of": "Qwen/Qwen3.8-27B",
+      "metrics": {
+        "bench:OSWorld-Verified": "c1",
+        "bench:WebArena-Verified": "c6",
+        "bench:AndroidWorld": "c9",
+        "bench:RecreationBench": "c13",
+        "bench:SWE-MM": "c16",
+        "bench:Vision2Web": "c20",
+        "bench:OmniDocBench 1.5": "c25",
+        "bench:RealWorldQA": "c30",
+        "bench:ERQA": "c34"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Base model results copied from the Qwen card, not measured on this quant [L243-262]",
+        "Columns for Qwen3.6-27B, Qwen3.7-Plus, Muse Glimmer-30B and Opus4.6 Max are results on other models, omitted [L249-262]"
+      ]
+    }
+  ],
+  "prose": []
+}

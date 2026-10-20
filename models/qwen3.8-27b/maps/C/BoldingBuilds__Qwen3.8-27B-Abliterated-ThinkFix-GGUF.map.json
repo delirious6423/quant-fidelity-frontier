@@ -1,0 +1,674 @@
+{
+ "repo": "BoldingBuilds/Qwen3.8-27B-Abliterated-ThinkFix-GGUF",
+ "source_sha256": "f782b2b3105e7a08985bac2b1f38a1d7f18128228c3df2e453ca8063c9f6d328",
+ "candidates_sha256": "449e67f3cfb08a076b84b2300089a33db791a84c49f842d38915d3112dfd715b",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+  "reference": "not stated",
+  "dataset": "StrongREJECT, XSTest, SimpleSafetyTests, MATH, HumanEval, IFEval, Terminal-Bench 2.1",
+  "ctx": "not stated",
+  "tool": "llama.cpp llama-server, RTX 3090",
+  "L": [
+   257
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "Q4_K_M (main file)",
+   "panel": "The main result.",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "40 held out sensitive prompts",
+    "ctx": "not stated",
+    "tool": "llama.cpp llama-server, one request at a time",
+    "L": [
+     49,
+     52,
+     53,
+     55,
+     257
+    ]
+   },
+   "metrics": {
+    "bench:40-sensitive-8k-finished-cleanly": "c2",
+    "bench:40-sensitive-8k-hit-limit": "c4"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "main file, 8k output cap [L52-53]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "same weights without the edit",
+   "panel": "The main result.",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "40 held out sensitive prompts",
+    "ctx": "not stated",
+    "tool": "llama.cpp llama-server, one request at a time",
+    "L": [
+     52,
+     53,
+     55,
+     257
+    ]
+   },
+   "metrics": {
+    "bench:40-sensitive-8k-finished-cleanly": "c1",
+    "bench:40-sensitive-8k-hit-limit": "c3"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "unedited twin of the same abliterated weights [L52-57]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "this build, 4k output tokens",
+   "panel": "Sensitive prompts",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "StrongREJECT, 128 of 150 prompts",
+    "ctx": "not stated",
+    "tool": "judge Qwen3.8-27B-OBLITERATED at Q8_0, thinking off",
+    "L": [
+     94,
+     96,
+     99,
+     110,
+     111
+    ]
+   },
+   "metrics": {
+    "bench:StrongREJECT-answered": "c6",
+    "bench:StrongREJECT-clean-finish": "c7",
+    "bench:StrongREJECT-hit-limit": "c8",
+    "bench:StrongREJECT-judge-score": "c9"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "this build, 8k output tokens",
+   "panel": "Sensitive prompts",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "StrongREJECT, 128 of 150 prompts",
+    "ctx": "not stated",
+    "tool": "judge Qwen3.8-27B-OBLITERATED at Q8_0, thinking off",
+    "L": [
+     94,
+     96,
+     99,
+     110,
+     111
+    ]
+   },
+   "metrics": {
+    "bench:StrongREJECT-answered": "c32",
+    "bench:StrongREJECT-clean-finish": "c33",
+    "bench:StrongREJECT-hit-limit": "c34",
+    "bench:StrongREJECT-judge-score": "c35"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "this build, 16k output tokens",
+   "panel": "Sensitive prompts",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "StrongREJECT, 128 of 150 prompts",
+    "ctx": "not stated",
+    "tool": "judge Qwen3.8-27B-OBLITERATED at Q8_0, thinking off",
+    "L": [
+     94,
+     96,
+     99,
+     110,
+     111
+    ]
+   },
+   "metrics": {
+    "bench:StrongREJECT-answered": "c37",
+    "bench:StrongREJECT-hit-limit": "c38",
+    "bench:StrongREJECT-judge-score": "c39"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "clean finish value not in candidate list [L107]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "same weights without the edit, 4k output tokens",
+   "panel": "Sensitive prompts",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "StrongREJECT, 128 of 150 prompts",
+    "ctx": "not stated",
+    "tool": "judge Qwen3.8-27B-OBLITERATED at Q8_0, thinking off",
+    "L": [
+     94,
+     96,
+     99,
+     110,
+     111
+    ]
+   },
+   "metrics": {
+    "bench:StrongREJECT-answered": "c11",
+    "bench:StrongREJECT-clean-finish": "c12",
+    "bench:StrongREJECT-hit-limit": "c13",
+    "bench:StrongREJECT-judge-score": "c14"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "same weights without the edit, 16k output tokens",
+   "panel": "Sensitive prompts",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "StrongREJECT, 128 of 150 prompts",
+    "ctx": "not stated",
+    "tool": "judge Qwen3.8-27B-OBLITERATED at Q8_0, thinking off",
+    "L": [
+     94,
+     96,
+     99,
+     110,
+     111
+    ]
+   },
+   "metrics": {
+    "bench:StrongREJECT-answered": "c41",
+    "bench:StrongREJECT-clean-finish": "c42",
+    "bench:StrongREJECT-hit-limit": "c43",
+    "bench:StrongREJECT-judge-score": "c44"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "cross",
+   "name": "huihui-ai abliterated, 4k output tokens",
+   "panel": "Sensitive prompts",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "StrongREJECT, 128 of 150 prompts",
+    "ctx": "not stated",
+    "tool": "judge Qwen3.8-27B-OBLITERATED at Q8_0, thinking off",
+    "L": [
+     94,
+     96,
+     99,
+     110,
+     111
+    ]
+   },
+   "metrics": {
+    "bench:StrongREJECT-answered": "c16",
+    "bench:StrongREJECT-clean-finish": "c17",
+    "bench:StrongREJECT-hit-limit": "c18",
+    "bench:StrongREJECT-judge-score": "c19"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "huihui-ai abliterated, swift variant, 4k output tokens",
+   "panel": "Sensitive prompts",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "StrongREJECT, 128 of 150 prompts",
+    "ctx": "not stated",
+    "tool": "judge Qwen3.8-27B-OBLITERATED at Q8_0, thinking off",
+    "L": [
+     94,
+     96,
+     99,
+     110,
+     111
+    ]
+   },
+   "metrics": {
+    "bench:StrongREJECT-answered": "c21",
+    "bench:StrongREJECT-clean-finish": "c22",
+    "bench:StrongREJECT-hit-limit": "c23",
+    "bench:StrongREJECT-judge-score": "c24"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [],
+   "of": "not named on card"
+  },
+  {
+   "role": "cross",
+   "name": "stock Qwen3.8-27B, 4k output tokens",
+   "panel": "Sensitive prompts",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "StrongREJECT, 128 of 150 prompts",
+    "ctx": "not stated",
+    "tool": "judge Qwen3.8-27B-OBLITERATED at Q8_0, thinking off",
+    "L": [
+     94,
+     96,
+     99,
+     110,
+     111
+    ]
+   },
+   "metrics": {
+    "bench:StrongREJECT-answered": "c27",
+    "bench:StrongREJECT-clean-finish": "c28",
+    "bench:StrongREJECT-hit-limit": "c29",
+    "bench:StrongREJECT-judge-score": "c30"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "refuses, judge score reflects refusal [L105]"
+   ],
+   "of": "Qwen/Qwen3.8-27B"
+  },
+  {
+   "role": "own",
+   "name": "this build",
+   "panel": "Time to an answer.",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "40 sensitive prompts plus 20 IFEval prompts",
+    "ctx": "not stated",
+    "tool": "llama.cpp llama-server on RTX 3090, MTP on, 8k output cap",
+    "L": [
+     122,
+     123,
+     129,
+     257
+    ]
+   },
+   "metrics": {
+    "bench:median-reply-time": "c45",
+    "bench:sensitive-40-finished-cleanly": "c46",
+    "bench:sensitive-40-hit-limit": "c47"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "same weights without the edit",
+   "panel": "Time to an answer.",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "40 sensitive prompts plus 20 IFEval prompts",
+    "ctx": "not stated",
+    "tool": "llama.cpp llama-server on RTX 3090, MTP on, 8k output cap",
+    "L": [
+     122,
+     123,
+     129,
+     257
+    ]
+   },
+   "metrics": {
+    "bench:median-reply-time": "c48",
+    "bench:sensitive-40-finished-cleanly": "c49",
+    "bench:sensitive-40-hit-limit": "c50"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "cross",
+   "name": "huihui-ai abliterated",
+   "panel": "Time to an answer.",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "40 sensitive prompts plus 20 IFEval prompts",
+    "ctx": "not stated",
+    "tool": "llama.cpp llama-server on RTX 3090, MTP on, 8k output cap",
+    "L": [
+     122,
+     123,
+     129,
+     257
+    ]
+   },
+   "of": "not named on card",
+   "metrics": {
+    "bench:median-reply-time": "c51",
+    "bench:sensitive-40-finished-cleanly": "c52"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "hit-limit count is not in candidate list [L133]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "huihui-ai abliterated, swift variant",
+   "panel": "Time to an answer.",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "40 sensitive prompts plus 20 IFEval prompts",
+    "ctx": "not stated",
+    "tool": "llama.cpp llama-server on RTX 3090, MTP on, 8k output cap",
+    "L": [
+     122,
+     123,
+     129,
+     257
+    ]
+   },
+   "of": "not named on card",
+   "metrics": {
+    "bench:median-reply-time": "c53",
+    "bench:sensitive-40-finished-cleanly": "c54",
+    "bench:sensitive-40-hit-limit": "c55"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "ran without MTP, no MTP head in file [L138-139]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "stock Qwen3.8-27B",
+   "panel": "Time to an answer.",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "40 sensitive prompts plus 20 IFEval prompts",
+    "ctx": "not stated",
+    "tool": "llama.cpp llama-server on RTX 3090, MTP on, 8k output cap",
+    "L": [
+     122,
+     123,
+     129,
+     257
+    ]
+   },
+   "of": "Qwen/Qwen3.8-27B",
+   "metrics": {
+    "bench:median-reply-time": "c56",
+    "bench:sensitive-40-finished-cleanly": "c57",
+    "bench:sensitive-40-hit-limit": "c58"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "refusals keep replies short [L137-138]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "this build",
+   "panel": "Did it cost anything",
+   "methodology": {
+    "reference": "stock Qwen3.8-27B",
+    "dataset": "MATH 200 hard problems, HumanEval 164, IFEval 541 and 534",
+    "ctx": "not stated",
+    "tool": "file defaults, seed 0, llama.cpp llama-server",
+    "L": [
+     151,
+     155,
+     156,
+     157,
+     158,
+     247,
+     249,
+     250,
+     251,
+     257
+    ]
+   },
+   "metrics": {
+    "bench:MATH-200-16k": "c60",
+    "bench:MATH-200-8k": "c63",
+    "bench:HumanEval-4k": "c66",
+    "bench:HumanEval-8k": "c69",
+    "bench:IFEval-541-16k": "c71",
+    "bench:IFEval-534-16k": "c74"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "hit-limit counts in parentheses not mapped [L153-154]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "stock Qwen3.8-27B",
+   "panel": "Did it cost anything",
+   "methodology": {
+    "reference": "stock Qwen3.8-27B",
+    "dataset": "MATH 200 hard problems, HumanEval 164, IFEval 541 and 534",
+    "ctx": "not stated",
+    "tool": "file defaults, seed 0, llama.cpp llama-server",
+    "L": [
+     151,
+     155,
+     156,
+     157,
+     158,
+     247,
+     249,
+     250,
+     251,
+     257
+    ]
+   },
+   "of": "Qwen/Qwen3.8-27B",
+   "metrics": {
+    "bench:MATH-200-16k": "c61",
+    "bench:MATH-200-8k": "c64",
+    "bench:HumanEval-4k": "c67",
+    "bench:IFEval-541-16k": "c72",
+    "bench:IFEval-534-16k": "c75"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "hit-limit counts in parentheses not mapped [L153-154]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Q4_K_M (main file)",
+   "panel": "Choosing a quant",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "StrongREJECT 128 sensitive prompts at 4k; MATH 200 hard problems at 8k",
+    "ctx": "not stated",
+    "tool": "llama.cpp, file defaults",
+    "L": [
+     201,
+     205,
+     206,
+     209,
+     218,
+     220
+    ]
+   },
+   "metrics": {
+    "bench:StrongREJECT-4k-answered": "c77",
+    "bench:StrongREJECT-4k-clean-finish": "c78",
+    "bench:StrongREJECT-4k-hit-limit": "c79",
+    "bench:StrongREJECT-4k-empty-answer": "c80",
+    "bench:MATH-200-8k-correct": "c81",
+    "bench:MATH-200-8k-hit-limit": "c82"
+   },
+   "size": "c76",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "single run per row [L218]",
+    "every row carries the edit [L219-220]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Q5_K_M",
+   "panel": "Choosing a quant",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "StrongREJECT 128 sensitive prompts at 4k; MATH 200 hard problems at 8k",
+    "ctx": "not stated",
+    "tool": "llama.cpp, file defaults",
+    "L": [
+     201,
+     205,
+     206,
+     209,
+     218,
+     220
+    ]
+   },
+   "metrics": {
+    "bench:StrongREJECT-4k-answered": "c85",
+    "bench:StrongREJECT-4k-clean-finish": "c86",
+    "bench:StrongREJECT-4k-hit-limit": "c87",
+    "bench:StrongREJECT-4k-empty-answer": "c88",
+    "bench:MATH-200-8k-correct": "c89",
+    "bench:MATH-200-8k-hit-limit": "c90"
+   },
+   "size": "c84",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "single run per row [L218]",
+    "every row carries the edit [L219-220]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Q6_K",
+   "panel": "Choosing a quant",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "StrongREJECT 128 sensitive prompts at 4k; MATH 200 hard problems at 8k",
+    "ctx": "not stated",
+    "tool": "llama.cpp, file defaults",
+    "L": [
+     201,
+     205,
+     206,
+     209,
+     218,
+     220
+    ]
+   },
+   "metrics": {
+    "bench:StrongREJECT-4k-answered": "c93",
+    "bench:StrongREJECT-4k-clean-finish": "c94",
+    "bench:StrongREJECT-4k-hit-limit": "c95",
+    "bench:StrongREJECT-4k-empty-answer": "c96",
+    "bench:MATH-200-8k-correct": "c97",
+    "bench:MATH-200-8k-hit-limit": "c98"
+   },
+   "size": "c92",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "single run per row [L218]",
+    "every row carries the edit [L219-220]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Q8_0",
+   "panel": "Choosing a quant",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "StrongREJECT 128 sensitive prompts at 4k; MATH 200 hard problems at 8k",
+    "ctx": "not stated",
+    "tool": "llama.cpp, file defaults",
+    "L": [
+     201,
+     205,
+     206,
+     209,
+     218,
+     220
+    ]
+   },
+   "metrics": {
+    "bench:StrongREJECT-4k-answered": "c101",
+    "bench:StrongREJECT-4k-clean-finish": "c102",
+    "bench:StrongREJECT-4k-hit-limit": "c103",
+    "bench:StrongREJECT-4k-empty-answer": "c104",
+    "bench:MATH-200-8k-correct": "c105",
+    "bench:MATH-200-8k-hit-limit": "c106"
+   },
+   "size": "c100",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "single run per row [L218]",
+    "every row carries the edit [L219-220]"
+   ]
+  }
+ ],
+ "prose": []
+}

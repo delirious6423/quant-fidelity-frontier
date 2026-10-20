@@ -1,0 +1,16 @@
+{
+ "repo": "spiritfather/cyberneurova-Qwen3.8-Flash-Next-i1-GGUF",
+ "source_sha256": "5bcf1c93d54f05fbf23b5f219992411aeb4e5eee10c4e9c513be92662bcbf8b8",
+ "candidates_sha256": "2e70c633ad752e5140d9b9df478b89030e4b24274694514344118097146bc5a6",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "Q8_0 of the same model (baseline PPL 4.8366 +/- 0.030)", "dataset": "wikitext-2 for PPL; KLD corpus not stated", "ctx": "512", "tool": "not stated", "L": [46, 48, 53]},
+ "entries": [
+  {"role": "own", "name": "IQ2_M", "metrics": {"ppl:wikitext-2": "c4", "ppl_delta_pct": "c5", "mean_kld": "c6"}, "size": "c1", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["PLE mixed-precision rung, trunk Q8_0 [L36, L48]", "KLD corpus not stated [L46]"]},
+  {"role": "own", "name": "IQ3_XXS", "metrics": {"ppl:wikitext-2": "c10", "ppl_delta_pct": "c11", "mean_kld": "c12"}, "size": "c7", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["PLE mixed-precision rung, trunk Q8_0 [L36, L49]", "KLD corpus not stated [L46]"]},
+  {"role": "own", "name": "IQ3_M", "metrics": {"ppl:wikitext-2": "c16", "ppl_delta_pct": "c17", "mean_kld": "c18"}, "size": "c13", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["PLE mixed-precision rung, trunk Q8_0 [L36, L50]", "KLD corpus not stated [L46]"]},
+  {"role": "own", "name": "IQ4_XS", "metrics": {"ppl:wikitext-2": "c22", "ppl_delta_pct": "c23", "mean_kld": "c24"}, "size": "c19", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["PLE mixed-precision rung, trunk Q8_0 [L36, L51]", "KLD corpus not stated [L46]"]}
+ ],
+ "prose": []
+}

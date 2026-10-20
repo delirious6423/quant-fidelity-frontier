@@ -12,6 +12,12 @@ tags:
 
 # DeepSeek-V4.1-Flash-1017 EXL3 2.9 bpw
 
+> **v1.1 (2026-10-20):** in v1 the 43 router `ffn.gate.bias` vectors (40 layers + 3 MTP) were stored rounded to fp16.
+> v1.1 adds `zz-gate-bias-f32-1017.safetensors` with the original 1017 F32 values, and `model.safetensors.index.json`
+> now points these 43 keys to it. The 39 model shards are unchanged; their F16 copies are superseded. Loaders that read
+> the shards in name order and let a later file override an earlier key also use the F32 values. To update from v1,
+> download these two files.
+
 An [EXL3](https://github.com/turboderp-org/exllamav3) quantization of
 [deepseek-ai/DeepSeek-V4.1-Flash-1017](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017)
 (revision `1bae0e1088993b9b82de08f59de5be5a34e42170`) at an average of 2.9 bits per weight.
@@ -42,8 +48,8 @@ checkpoint with a calibration set rendered in the 1017 prompt format.
   [`extras/gate_bias_vl.safetensors`](extras/gate_bias_vl.safetensors), byte-for-byte equal to the original
   1017 tensors, for runtimes that load them from a separate file.
 
-Plain (non-quantized) tensors use the dtypes of the Mia layout; for example the router `gate.bias` and
-`gate.weight` are stored as F16 (F32 and BF16 in the original).
+Plain (non-quantized) tensors use the dtypes of the Mia layout; for example the router `gate.weight` is stored as
+F16 (BF16 in the original). The router `gate.bias` was F16 in v1 and is F32, as in the original, since v1.1.
 
 ## Chat template
 
@@ -78,7 +84,8 @@ KL divergence of the next-token distribution against the original 1017 model (fo
 `inference/model.py`) on sudoingX's public DeepSeek-V4.1 evaluation panel (254,846 scored positions), using the KL
 harness from sudoingX's `dgx-spark-deepseek-v41` (commit `cc59c360`). In this harness the plain tensors (router,
 norms, embeddings) come from the original model, so the numbers measure the quantized modules; the MTP block is not
-part of the forward pass.
+part of the forward pass. Both rows therefore use the original F32 router `gate.bias`, i.e. they were measured
+under v1.1 conditions; v1 as served used the fp16-rounded bias.
 
 | | KL mean | KL p99 | Top-1 agreement | PPL (original 1.6005) |
 |---|---|---|---|---|

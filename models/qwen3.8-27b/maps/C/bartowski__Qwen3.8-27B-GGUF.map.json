@@ -1,0 +1,1684 @@
+{
+ "repo": "bartowski/Qwen3.8-27B-GGUF",
+ "source_sha256": "ac489c4ba017d75f9210ec90a5ce5d28b92f7a719dd953571758b3b5b2a45db7",
+ "candidates_sha256": "2f0d3d7352cc5a27b5b8c322d55a773006791756fceea5a1e318be64e2f57591",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "bf16",
+  "dataset": "wiki.test.raw",
+  "ctx": "not stated",
+  "tool": "llama.cpp b10896",
+  "L": [
+   12,
+   229,
+   234,
+   235,
+   236,
+   237,
+   238
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "Q8_0",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c4",
+    "mean_kld": "c5",
+    "top1_pct": "c6"
+   },
+   "size": "c2",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c3",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q6_K_L",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c10",
+    "mean_kld": "c11",
+    "top1_pct": "c12"
+   },
+   "size": "c8",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c9",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q6_K",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c16",
+    "mean_kld": "c17",
+    "top1_pct": "c18"
+   },
+   "size": "c14",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c15",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q6_K_S",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c22",
+    "mean_kld": "c23",
+    "top1_pct": "c24"
+   },
+   "size": "c20",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c21",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q5_K_M",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c28",
+    "mean_kld": "c29",
+    "top1_pct": "c30"
+   },
+   "size": "c26",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c27",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q5_K_S",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c34",
+    "mean_kld": "c35",
+    "top1_pct": "c36"
+   },
+   "size": "c32",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c33",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q4_K_L",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c40",
+    "mean_kld": "c41",
+    "top1_pct": "c42"
+   },
+   "size": "c38",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c39",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q4_1",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c46",
+    "mean_kld": "c47",
+    "top1_pct": "c48"
+   },
+   "size": "c44",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c45",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q4_K_M",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c52",
+    "mean_kld": "c53",
+    "top1_pct": "c54"
+   },
+   "size": "c50",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c51",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "IQ4_NL",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c58",
+    "mean_kld": "c59",
+    "top1_pct": "c60"
+   },
+   "size": "c56",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c57",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q4_K_S",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c64",
+    "mean_kld": "c65",
+    "top1_pct": "c66"
+   },
+   "size": "c62",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c63",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q4_0",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c70",
+    "mean_kld": "c71",
+    "top1_pct": "c72"
+   },
+   "size": "c68",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c69",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "IQ4_XS",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c76",
+    "mean_kld": "c77",
+    "top1_pct": "c78"
+   },
+   "size": "c74",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c75",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "IQ3_M",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c82",
+    "mean_kld": "c83",
+    "top1_pct": "c84"
+   },
+   "size": "c80",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c81",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q3_K_L",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c88",
+    "mean_kld": "c89",
+    "top1_pct": "c90"
+   },
+   "size": "c86",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c87",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q3_K_M",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c94",
+    "mean_kld": "c95",
+    "top1_pct": "c96"
+   },
+   "size": "c92",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c93",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "IQ3_XS",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c100",
+    "mean_kld": "c101",
+    "top1_pct": "c102"
+   },
+   "size": "c98",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c99",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q3_K_S",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c106",
+    "mean_kld": "c107",
+    "top1_pct": "c108"
+   },
+   "size": "c104",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c105",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "IQ3_XXS",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c111",
+    "mean_kld": "c112",
+    "top1_pct": "c113"
+   },
+   "size": "c109",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c110",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q2_K",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c117",
+    "mean_kld": "c118",
+    "top1_pct": "c119"
+   },
+   "size": "c115",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c116",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "IQ2_M",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c123",
+    "mean_kld": "c124",
+    "top1_pct": "c125"
+   },
+   "size": "c121",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c122",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "IQ2_S",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c129",
+    "mean_kld": "c130",
+    "top1_pct": "c131"
+   },
+   "size": "c127",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c128",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "IQ2_XS",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c135",
+    "mean_kld": "c136",
+    "top1_pct": "c137"
+   },
+   "size": "c133",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c134",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "IQ2_XXS",
+   "panel": "Available files:",
+   "metrics": {
+    "ppl": "c140",
+    "mean_kld": "c141",
+    "top1_pct": "c142"
+   },
+   "size": "c138",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c139",
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q8_0",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c440",
+    "ppl_ratio": "c441",
+    "mean_kld": "c443",
+    "top1_pct": "c446",
+    "kld_99": "c632"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q6_K_L",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c448",
+    "ppl_ratio": "c449",
+    "mean_kld": "c451",
+    "top1_pct": "c454",
+    "kld_99": "c644"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q6_K",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c456",
+    "ppl_ratio": "c457",
+    "mean_kld": "c459",
+    "top1_pct": "c462",
+    "kld_99": "c656"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q6_K_S",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c464",
+    "ppl_ratio": "c465",
+    "mean_kld": "c467",
+    "top1_pct": "c470",
+    "kld_99": "c668"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q5_K_M",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c472",
+    "ppl_ratio": "c473",
+    "mean_kld": "c475",
+    "top1_pct": "c478",
+    "kld_99": "c680"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q5_K_S",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c480",
+    "ppl_ratio": "c481",
+    "mean_kld": "c483",
+    "top1_pct": "c486",
+    "kld_99": "c692"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q4_K_L",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c488",
+    "ppl_ratio": "c489",
+    "mean_kld": "c491",
+    "top1_pct": "c494",
+    "kld_99": "c704"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q4_1",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c496",
+    "ppl_ratio": "c497",
+    "mean_kld": "c499",
+    "top1_pct": "c502",
+    "kld_99": "c716"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q4_K_M",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c504",
+    "ppl_ratio": "c505",
+    "mean_kld": "c507",
+    "top1_pct": "c510",
+    "kld_99": "c728"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "IQ4_NL",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c512",
+    "ppl_ratio": "c513",
+    "mean_kld": "c515",
+    "top1_pct": "c518",
+    "kld_99": "c740"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q4_K_S",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c520",
+    "ppl_ratio": "c521",
+    "mean_kld": "c523",
+    "top1_pct": "c526",
+    "kld_99": "c752"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q4_0",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c528",
+    "ppl_ratio": "c529",
+    "mean_kld": "c531",
+    "top1_pct": "c534",
+    "kld_99": "c764"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "IQ4_XS",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c536",
+    "ppl_ratio": "c537",
+    "mean_kld": "c539",
+    "top1_pct": "c542",
+    "kld_99": "c776"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "IQ3_M",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c544",
+    "ppl_ratio": "c545",
+    "mean_kld": "c547",
+    "top1_pct": "c550",
+    "kld_99": "c788"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q3_K_L",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c552",
+    "ppl_ratio": "c553",
+    "mean_kld": "c555",
+    "top1_pct": "c558",
+    "kld_99": "c800"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q3_K_M",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c560",
+    "ppl_ratio": "c561",
+    "mean_kld": "c563",
+    "top1_pct": "c566",
+    "kld_99": "c812"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "IQ3_XS",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c568",
+    "ppl_ratio": "c569",
+    "mean_kld": "c571",
+    "top1_pct": "c574",
+    "kld_99": "c824"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q3_K_S",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c576",
+    "ppl_ratio": "c577",
+    "mean_kld": "c579",
+    "top1_pct": "c582",
+    "kld_99": "c836"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "IQ3_XXS",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c583",
+    "ppl_ratio": "c584",
+    "mean_kld": "c586",
+    "top1_pct": "c589",
+    "kld_99": "c847"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Q2_K",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c591",
+    "ppl_ratio": "c592",
+    "mean_kld": "c594",
+    "top1_pct": "c597",
+    "kld_99": "c859"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "IQ2_M",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c599",
+    "ppl_ratio": "c600",
+    "mean_kld": "c602",
+    "top1_pct": "c605",
+    "kld_99": "c871"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "IQ2_S",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c607",
+    "ppl_ratio": "c608",
+    "mean_kld": "c610",
+    "top1_pct": "c613",
+    "kld_99": "c883"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "IQ2_XS",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c615",
+    "ppl_ratio": "c616",
+    "mean_kld": "c618",
+    "top1_pct": "c621",
+    "kld_99": "c895"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "IQ2_XXS",
+   "panel": "Perplexity",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "llama.cpp b10896",
+    "L": [
+     234,
+     235,
+     236,
+     237,
+     238
+    ]
+   },
+   "metrics": {
+    "ppl": "c622",
+    "ppl_ratio": "c623",
+    "mean_kld": "c625",
+    "top1_pct": "c628",
+    "kld_99": "c906"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "Q6_K_L",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c269",
+    "top1_pct": "c271"
+   },
+   "size": "c266",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Q6_K",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c277",
+    "top1_pct": "c279"
+   },
+   "size": "c274",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Q5_K_L",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c287",
+    "top1_pct": "c288"
+   },
+   "size": "c286",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]",
+    "no counterpart in current release [L52]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Q5_K_M",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c293",
+    "top1_pct": "c295"
+   },
+   "size": "c290",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Q5_K_S",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c301",
+    "top1_pct": "c303"
+   },
+   "size": "c298",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Q4_K_L",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c309",
+    "top1_pct": "c311"
+   },
+   "size": "c306",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Q4_K_M",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c317",
+    "top1_pct": "c319"
+   },
+   "size": "c314",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "IQ4_NL",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c325",
+    "top1_pct": "c327"
+   },
+   "size": "c322",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Q3_K_XL",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c331",
+    "top1_pct": "c332"
+   },
+   "size": "c330",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]",
+    "no counterpart in current release [L52]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Q4_K_S",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c337",
+    "top1_pct": "c339"
+   },
+   "size": "c334",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "IQ4_XS",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c345",
+    "top1_pct": "c347"
+   },
+   "size": "c342",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "IQ3_M",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c353",
+    "top1_pct": "c355"
+   },
+   "size": "c350",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Q3_K_L",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c361",
+    "top1_pct": "c363"
+   },
+   "size": "c358",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Q3_K_M",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c369",
+    "top1_pct": "c371"
+   },
+   "size": "c366",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Q2_K_L",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c375",
+    "top1_pct": "c376"
+   },
+   "size": "c374",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]",
+    "no counterpart in current release [L52]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "IQ3_XS",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c381",
+    "top1_pct": "c383"
+   },
+   "size": "c378",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Q3_K_S",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c389",
+    "top1_pct": "c391"
+   },
+   "size": "c386",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "IQ3_XXS",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c396",
+    "top1_pct": "c398"
+   },
+   "size": "c393",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Q2_K",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c404",
+    "top1_pct": "c406"
+   },
+   "size": "c401",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "IQ2_M",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c412",
+    "top1_pct": "c414"
+   },
+   "size": "c409",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "IQ2_S",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c420",
+    "top1_pct": "c422"
+   },
+   "size": "c417",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "IQ2_XS",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c428",
+    "top1_pct": "c430"
+   },
+   "size": "c425",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "IQ2_XXS",
+   "panel": "Compared with the previous release",
+   "methodology": {
+    "reference": "bf16",
+    "dataset": "wiki.test.raw",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [
+     196
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c435",
+    "top1_pct": "c437"
+   },
+   "size": "c432",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "previous release, standard layout [L196]"
+   ]
+  }
+ ],
+ "prose": []
+}

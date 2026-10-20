@@ -1,9 +1,51 @@
-{"repo":"apertixai/cerno-27b","no_quality_claims":false,"no_claims_reason":"",
-"method":{"reference":"bf16 weights of the same model (65.12 on suite); Decision Index 0.3 public suite","dataset":"Decision Index 0.3 public suite, 37 benchmarks, 140,178 requests","ctx":"not stated","tool":"Decision Index kit commit 9eb2dbe, vLLM engine","L":[68,69,94,183]},
-"entries":[
-{"role":"own","name":"cerno-27b (FP8 W8A8)","metrics":{"bench:DecisionIndex":"c2","bench:DecisionIndex_goldenset_acc":"c23.0","bench:ECE_goldenset":"c23.1","bench:DecisionIndex_samesubset":"c15.0","bench:DecisionIndex_strictOOD":"c17","bench:TypeSafe_agreement":"c21"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["model is a fine-tuned decision model, benchmarks are task scores not quant fidelity [L64]","99.6% of answers identical to bf16 weights on a sample [L183]"]},
-{"role":"ladder","name":"cerno-27b bf16 weights","metrics":{},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["bf16 weights score 65.12 on the same suite [L94]"]},
-{"role":"quoted","name":"Jev 1.13 (TypeSafe)","of":"not named on card","metrics":{"bench:DecisionIndex":"c14","bench:DecisionIndex_samesubset":"c16.0","bench:DecisionIndex_strictOOD":"c18","bench:TypeSafe_agreement":"c22"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["other publisher's model; different model, not a quant of this one [L77]"]}
-],
-"prose":[{"entry":"cerno-27b bf16 weights","key":"bench:DecisionIndex","L":94,"raw":"The bf16 weights score 65.12 on the same suite"},
-{"entry":"cerno-27b (FP8 W8A8)","key":"top1_pct","L":183,"raw":"99.6% of answers identical to the bf16 weights"}]}
+{
+  "repo": "apertixai/cerno-27b",
+  "source_sha256": "8131a6f5f5d7bac7233af83ed28000df596ac6cc95262cd832403cbbac5da068",
+  "candidates_sha256": "622220252ca541bf11a99c812bcb7fac383d7cb4e64fcf5941f3eae82a942300",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {"reference": "bf16 weights (same suite)", "dataset": "Decision Index 0.3 public suite (37 benchmarks, 140,178 requests)", "ctx": "not stated", "tool": "maintainers' decision_index kit at commit 9eb2dbe", "L": [68, 69, 96]},
+  "entries": [
+    {
+      "role": "own",
+      "name": "Cerno 27B",
+      "panel": "Results",
+      "methodology": {"reference": "bf16 weights (prose, L96)", "dataset": "Decision Index 0.3 public suite (37 benchmarks, 140,178 requests)", "ctx": "not stated", "tool": "maintainers' decision_index kit at commit 9eb2dbe, public inference engine", "L": [68, 69, 81, 96]},
+      "metrics": {
+        "bench:Decision Index 0.3 public index, complete run": "c13",
+        "bench:Same-subset (HLE dropped for every entrant)": "c15.0",
+        "bench:Strict-OOD": "c17",
+        "bench:Train-split-OOD": "c19",
+        "bench:TypeSafe agreement set (373 published Jev decisions)": "c21",
+        "bench:Golden set (956 typed decisions) accuracy": "c23.0",
+        "bench:Golden set (956 typed decisions) ECE": "c23.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "Board-style ECE 5.7 pts is stated in the Results table with no candidate id, so it goes to prose [L85]",
+        "Answer agreement of 99.6% with bf16 on a sample is not top-1 token agreement, not mapped [L186]",
+        "Cerno 9B and 4B rows and the Jev 1.13 column are other models, omitted [L65-66, L81-87]"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "bf16 weights",
+      "panel": "Results",
+      "methodology": {"reference": "bf16 weights", "dataset": "Decision Index 0.3 public suite (37 benchmarks, 140,178 requests)", "ctx": "not stated", "tool": "maintainers' decision_index kit at commit 9eb2dbe", "L": [96]},
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": []
+    }
+  ],
+  "prose": [
+    {"entry": "bf16 weights", "panel": "Results", "key": "bench:Decision Index 0.3 public index, complete run", "L": 96, "raw": "The bf16 weights score 65.12"},
+    {"entry": "Cerno 27B", "panel": "Results", "key": "bench:Board-style ECE (pts)", "L": 85, "raw": "5.7 pts"}
+  ]
+}

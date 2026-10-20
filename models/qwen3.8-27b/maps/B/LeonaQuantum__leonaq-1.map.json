@@ -1,1 +1,10 @@
-{"repo":"LeonaQuantum/leonaq-1","no_quality_claims":true,"no_claims_reason":"only SST-2 sentiment-head accuracy of auxiliary heads, no quality number for the quantized LLM itself [L76-81]","method":{"reference":"not stated","dataset":"SST-2 (872-example partition)","ctx":"not stated","tool":"not stated","L":[76,80,81]},"entries":[{"role":"own","name":"LeonaQ-1 Pauli circuit sentiment head","metrics":{"bench:SST-2 Pauli sentiment accuracy":"c1"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["auxiliary sentiment classifier, not LLM quality [L80]; model payload 10.27 GB [L20]"]},{"role":"own","name":"LeonaQ-1 MPS sentiment head","metrics":{"bench:SST-2 MPS sentiment accuracy":"c3"},"size":null,"unit":null,"basis":null,"bpw":null,"flags":["auxiliary sentiment classifier [L81]"]}],"prose":[]}
+{"repo": "LeonaQuantum/leonaq-1",
+ "source_sha256": "a28ebbe3db8b5e7109906d7780cc7490a108e963702606600cf2bde12459a72a",
+ "candidates_sha256": "a36d8718cdb750a9eb8134d1c603bba92533bd7f5909075048705eff058817eb",
+ "no_quality_claims": true,
+ "no_claims_reason": "speed, size and auxiliary sentiment-head accuracy only [L28-30, L84-94]",
+ "weights_modified": true,
+ "method": {"reference": "Qwen3.8-27B revision 1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [100]},
+ "entries": [],
+ "prose": []
+}

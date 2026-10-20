@@ -1,0 +1,16 @@
+{
+ "repo": "Ar3ntiz/qwen3.8_flash_next_side8",
+ "source_sha256": "75954e922caf0ca5a8867d68a91d6299946d20e5502e373c0f2bbcfdb359c052",
+ "candidates_sha256": "b9540086885c66ba145734ebadeaac7a705a0fc67805957ba10047da9f81d78e",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "original BF16 reference", "dataset": "16 x 512 held-out tokens (8,176 scored positions); WikiText-2 test for PPL", "ctx": "512", "tool": "SUC C++ runtime", "L": [45, 49]},
+ "entries": [
+  {"role": "own", "name": "This model", "panel": "## Quality", "methodology": {"reference": "original BF16 reference", "dataset": "16 x 512 held-out tokens (8,176 scored positions)", "ctx": "512", "tool": "SUC C++ runtime", "L": [45, 49]}, "metrics": {"mean_kld": "c3", "top1_pct": "c4", "ppl:wikitext-2": "c5.1"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["original-model PPL 4.695 is the baseline, not mapped as an entry [L49]", "answer-level counts out of 20 per subset not mapped [L59-64]"]},
+  {"role": "own", "name": "SUC1 side8 (this model)", "panel": "## Quality", "methodology": {"reference": "historical reconstructed-weight evaluation", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [51, 55]}, "metrics": {"mean_kld": "c6"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["size 96.32 GB appears only in the row label [L55]", "historical table, separate from the C++ runtime quality table [L51]"]},
+  {"role": "cross", "name": "GGUF Q4 (ds4)", "of": "not named on card", "panel": "## Quality", "methodology": {"reference": "historical reconstructed-weight evaluation", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [51, 56]}, "metrics": {"mean_kld": "c7"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["size 177.28 GB appears only in the row label [L56]", "ds4 source not named on card [L56]"]},
+  {"role": "cross", "name": "MLX affine 4-bit", "of": "not named on card", "panel": "## Quality", "methodology": {"reference": "historical reconstructed-weight evaluation", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [51, 57]}, "metrics": {"mean_kld": "c8"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["size shown as an em dash [L57]"]}
+ ],
+ "prose": []
+}

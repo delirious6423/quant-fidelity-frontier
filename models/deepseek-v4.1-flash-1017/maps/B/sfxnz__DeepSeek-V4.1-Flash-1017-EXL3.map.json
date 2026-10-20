@@ -1,61 +1,52 @@
-{
- "repo": "sfxnz/DeepSeek-V4.1-Flash-1017-EXL3",
- "source_sha256": "28a104cf1ca86706cfce6a12428a34988fbc7853648aa7e1ea99926eafa5875d",
- "candidates_sha256": "44b564bdc903be037aa9bc8ee7630fd81bf0de273d240ead0e4c83d23d6a7388",
+{"repo": "sfxnz/DeepSeek-V4.1-Flash-1017-EXL3",
+ "source_sha256": "d43c0bd5962ae678cb16d8b77d1a1503642b1f7c6f8a09bdc3d6749f3fe78778",
+ "candidates_sha256": "977f1ad3e1ec49fb1d74eb725744b741f193bc0eddb0f0d8ce72f8291e5f2862",
  "no_quality_claims": false,
  "no_claims_reason": "",
  "weights_modified": false,
- "method": {
-  "reference": "native unquantized 1017 (official model)",
-  "dataset": "72 rows, 92,818 tokens",
-  "ctx": "not stated",
-  "tool": "not stated",
-  "L": [
-   47
-  ]
- },
+ "method": {"reference": "native unquantized DeepSeek-V4.1-Flash-1017 (KL row only)", "dataset": "not stated (KL row: 72 rows, 92,818 tokens)", "ctx": "500,000-token window, 2x DGX Spark, perf2 defaults", "tool": "not stated", "L": [33, 48]},
  "entries": [
-  {
-   "role": "own",
-   "name": "EXL3 2.7 bpw MCG (mixed K)",
-   "metrics": {},
-   "size": null,
-   "unit": null,
-   "basis": null,
-   "bpw": "c7",
-   "flags": [
-    "served KL row, values mapped from prose on the same line [L47]",
-    "encyclopedic is the stated worst domain [L47]",
-    "GSM8K, MMLU and tool-call pass counts not mapped: counts with mixed denominators [L42-44]",
-    "teacher-forced NLL 0.1445 and the dNLL +0.63% not mapped, no matching key [L41, L47]",
-    "KL_eq values from the allocation model are noise-based estimates, not mapped [L72]"
-   ]
-  }
+   {"role": "own",
+    "name": "EXL3 2.7 bpw MCG (mixed K)",
+    "methodology": {"reference": "native unquantized DeepSeek-V4.1-Flash-1017 (KL row only)", "dataset": "not stated (KL row: 72 rows, 92,818 tokens)", "ctx": "500,000-token window, perf2 defaults, boot FINAL", "tool": "not stated", "L": [33]},
+    "of": null,
+    "metrics": {
+      "bench:GSM8K-100 thinking off": "c1.0",
+      "bench:GSM8K-40 thinking on": "c1.2",
+      "bench:MMLU 4×57": "c3",
+      "bench:Needle 8k / 32k / 128k × 3 depths": "c5.0",
+      "bench:Long needles 256k": "c6.1",
+      "bench:Long needles 500k": "c6.4"
+    },
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": "c10",
+    "flags": ["GSM8K value is the correct count out of 100 [L43]", "GSM8K-40 value is the correct count out of 40 [L43]", "MMLU cell is 211/228 (92.5%); count mapped [L44]", "needle 9 of 9 [L46]", "long needle counts are 3 of 3 at each length [L47]", "mean_kld, top-1 and encyclopedic worst-domain values are prose [L48]", "delta NLL +0.58% not mapped (not a perplexity key) [L48]", "tool-call counts and teacher-forced NLL not mapped [L42, L45]"]},
+   {"role": "own",
+    "name": "EXL3 2.7 bpw MCG (mixed K), release defaults (D1, history)",
+    "methodology": {"reference": "native unquantized DeepSeek-V4.1-Flash-1017 (KL row only)", "dataset": "not stated (KL row: 72 rows, 92,818 tokens)", "ctx": "1,048,576-token window, 2026-10-18 release defaults (DSpark k=3, MAX_NUM_SEQS=2), boot D1", "tool": "not stated", "L": [33, 48]},
+    "of": null,
+    "metrics": {
+      "bench:GSM8K-100 thinking off": "c2.0",
+      "bench:GSM8K-40 thinking on": "c2.2",
+      "bench:MMLU 4×57": "c4",
+      "bench:Long needles 256k": "c7.1",
+      "bench:Long needles 1M": "c7.4"
+    },
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": "c10",
+    "flags": ["history column of the card, kept by the author; same pack", "GSM8K value is the correct count out of 100 [L43]", "GSM8K-40 value is the correct count out of 40 [L43]", "MMLU cell is 208/228 (91.2%); count mapped [L44]", "release needle 9/9 [L46] has no candidate id; left out", "long needle counts are 3 of 3 at each length [L47]", "mean_kld, top-1 and encyclopedic worst-domain values are prose [L48]", "delta NLL and tool-call counts not mapped [L42, L45, L48]"]}
  ],
  "prose": [
-  {
-   "entry": "EXL3 2.7 bpw MCG (mixed K)",
-   "key": "mean_kld",
-   "L": 47,
-   "raw": "0.025 nats/token"
-  },
-  {
-   "entry": "EXL3 2.7 bpw MCG (mixed K)",
-   "key": "top1_pct",
-   "L": 47,
-   "raw": "top-1 95.3%"
-  },
-  {
-   "entry": "EXL3 2.7 bpw MCG (mixed K)",
-   "key": "kld:encyclopedic",
-   "L": 47,
-   "raw": "encyclopedic worst: 0.114"
-  },
-  {
-   "entry": "EXL3 2.7 bpw MCG (mixed K)",
-   "key": "top1:encyclopedic",
-   "L": 47,
-   "raw": "88.1%"
-  }
- ]
-}
+   {"entry": "EXL3 2.7 bpw MCG (mixed K)", "key": "mean_kld", "L": 48, "raw": "0.0253 nats/token"},
+   {"entry": "EXL3 2.7 bpw MCG (mixed K)", "key": "top1_pct", "L": 48, "raw": "top-1 95.2%"},
+   {"entry": "EXL3 2.7 bpw MCG (mixed K)", "key": "kld:encyclopedic", "L": 48, "raw": "0.112"},
+   {"entry": "EXL3 2.7 bpw MCG (mixed K)", "key": "top1:encyclopedic", "L": 48, "raw": "87.5%"},
+   {"entry": "EXL3 2.7 bpw MCG (mixed K), release defaults (D1, history)", "key": "mean_kld", "L": 48, "raw": "0.025 nats/token"},
+   {"entry": "EXL3 2.7 bpw MCG (mixed K), release defaults (D1, history)", "key": "top1_pct", "L": 48, "raw": "top-1 95.3%"},
+   {"entry": "EXL3 2.7 bpw MCG (mixed K), release defaults (D1, history)", "key": "kld:encyclopedic", "L": 48, "raw": "0.114"},
+   {"entry": "EXL3 2.7 bpw MCG (mixed K), release defaults (D1, history)", "key": "top1:encyclopedic", "L": 48, "raw": "88.1%"}
+ ]}

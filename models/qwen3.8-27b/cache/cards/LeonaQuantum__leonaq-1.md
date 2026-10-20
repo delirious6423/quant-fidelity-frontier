@@ -23,6 +23,14 @@ The release integrates 11 quantum-inspired techniques across training, text gene
 
 [Run LeonaQ-1 on NVIDIA GPUs](USAGE.md) provides the CUDA installation commands and inference examples. [Run LeonaQ-1 on a Mac](MAC.md) describes the portable Metal and CPU text runtime.
 
+## October 20, 2026: circuit-preserving GGUF and faster Metal operations
+
+The [Q4_K_M GGUF](gguf/leonaq-1-mpo-circuit-Q4_K_M.gguf) (16.55 GB) retains the trained six-qubit circuit and merges the MPO corrections into the transformer weights. It requires our **dedicated llama.cpp extension**; stock llama.cpp, Ollama, LM Studio and vLLM are not supported for this custom GGUF. Follow the [build and download instructions](ENGINE_COMPATIBILITY.md).
+
+On one A100-SXM4-80GB, the patched engine measured **48.15 tokens/s** for 32-token decoding (three repetitions). Full-model Mac throughput has not been measured. The packed PyTorch runtime also includes fused Metal operations for packed weights and the full six-qubit circuit, a persistent interactive mode, streaming output, and separate loading, first-token and decode timing; see [MAC.md](MAC.md).
+
+The GGUF preserves the circuit computation, but MPO merging and Q8-to-Q4 requantization change numerical results. Broad quality parity with the original packed model has not been established. Original packed weights and adapter artifacts remain available. [Measurements and verification scope](ENGINE_RESULTS.json).
+
 ## Release at a glance
 
 | Property | Value |

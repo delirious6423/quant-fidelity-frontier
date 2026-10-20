@@ -1,0 +1,47 @@
+{
+ "repo": "Rulith/Qwen3.8-Flash-Next-Rulith-EXL3-GGUF",
+ "source_sha256": "6a699b695b6b01d9ccabebc953335172a6a4fc8da5629ed41dda9c753e3db162",
+ "candidates_sha256": "af5c0918f020913faf7aca8a19786211329ff24368bbcbc4604dba6b61c02998",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "BF16 model",
+  "dataset": "mixed corpus (Rulith evaluation set)",
+  "ctx": "1024",
+  "tool": "Rulith evaluation set",
+  "L": [
+   42
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "EXL3 4.05 bpw",
+   "methodology": {
+    "reference": "BF16 model",
+    "dataset": "mixed corpus (Rulith evaluation set)",
+    "ctx": "1024",
+    "tool": "Rulith evaluation set",
+    "L": [
+     42
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c4",
+    "kld_99": "c5",
+    "top1_pct": "c6"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c1.0",
+   "flags": [
+    "size (~104 GB, shards) is in the folder table, not the quality row [L28]",
+    "experts 4 bits, dense 6, head 6 [L28]",
+    "EXL3 quantization by turboderp, only re-packed here [L21-22]"
+   ]
+  }
+ ],
+ "prose": []
+}

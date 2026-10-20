@@ -1,0 +1,23 @@
+{"repo": "deuce11/Qwen3.8-27B-3bit-DWQ-MLX-TextOnly",
+ "source_sha256": "ff1ddda9616135f9a3917bdd515e215174de303f4dcb0c34754cfd4881ea186c",
+ "candidates_sha256": "5a2337b20f541be3a637bc2710237cb4b602dde3bd2a6603e7d8dee74ff6a88c",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "official BF16", "dataset": "allenai/tulu-3-sft-mixture train[2000:2016], 16 sequences", "ctx": "max length 512", "tool": "not stated", "L": [23, 39, 43]},
+ "entries": [
+   {"role": "own", "name": "Qwen3.8-27B 3-bit DWQ, text only",
+    "metrics": {"mean_kld": "c4", "top1:tulu-3-sft-mixture": "c5", "ppl:tulu-3-sft-mixture": "c6"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["table row labelled 'this model' [L43]", "size of 11.77 GB is in prose, not in the metric row [L19]", "KL moved by less than 0.006 when scored against the 8-bit teacher is not mapped [L47]"]},
+   {"role": "ladder", "name": "round-to-nearest 3-bit from the 8-bit teacher",
+    "metrics": {"mean_kld": "c7", "top1:tulu-3-sft-mixture": "c8", "ppl:tulu-3-sft-mixture": "c9"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["same publisher's round-to-nearest comparison build [L44]"]},
+   {"role": "cross", "name": "lukaskremla/Qwen3.8-27B-3bit-MLX-TextOnly", "of": "lukaskremla/Qwen3.8-27B-3bit-MLX-TextOnly",
+    "metrics": {"mean_kld": "c10", "top1:tulu-3-sft-mixture": "c11", "ppl:tulu-3-sft-mixture": "c12"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["row in the card's evaluation table [L45]"]}
+ ],
+ "prose": []
+}

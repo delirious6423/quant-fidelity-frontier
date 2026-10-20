@@ -1,0 +1,38 @@
+{"repo": "hotdogs/Ternary-Bonsai-2-27B-Uncensored-Heretic-swift_unc",
+ "source_sha256": "2e950ae6cd95df4b5bace0584e894ef1e52b0c83658bec8b15a7a51a8c67ad56",
+ "candidates_sha256": "ec0bf1dad3ca8890dc7a10df483bfe99cb8e1d6f3095b652f4a750b499f4251c",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "original (pre-abliteration) model, per [L89]", "dataset": "WikiText-2 test; harmless_alpaca_ja test; Heretic refusal eval", "ctx": "512-token context [L701]", "tool": "not stated", "L": [89, 700, 701, 702, 703]},
+ "entries": [
+   {"role": "quoted", "name": "Ternary-Bonsai-2-27B-Uncensored-Heretic (base)", "of": "OS-Software/Ternary-Bonsai-2-27B-Uncensored-Heretic-GGUF",
+    "metrics": {"mean_kld": "c67.0"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["base figures from the OS-Software card; card says they do not describe this merged build [L739]", "KL 0.0135 averaging basis not stated [L700]", "base reasoning-effort scores (L562-566) are not fidelity metrics and are not mapped [L562-566]"]},
+   {"role": "quoted", "name": "base PQ2_0", "of": "OS-Software/Ternary-Bonsai-2-27B-Uncensored-Heretic-GGUF",
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["PQ2_0 packing of the base, quoted from the base card [L701-702]"]},
+   {"role": "quoted", "name": "base PTQ1_0", "of": "OS-Software/Ternary-Bonsai-2-27B-Uncensored-Heretic-GGUF",
+    "metrics": {},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["PTQ1_0 packing of the base, quoted from the base card [L701-702]"]},
+   {"role": "own", "name": "Ternary-Bonsai-2-27B-Uncensored-Heretic-swift_unc-PQ2_0.gguf",
+    "metrics": {},
+    "size": "c1", "unit": "bytes", "basis": "disk", "bpw": null,
+    "flags": ["merged LoRA build; card claims no benchmark numbers for it [L739]", "LoRA scale is 0.7 at [L30, L89, L558, L739] but 0.25 at [L81, L721, L737] in the same card", "Swift adapter refusal (98/100 to 23/100) and KL 0.0884 are measured on the adapter, a different model, and are omitted [L715-716]"]},
+   {"role": "own", "name": "Ternary-Bonsai-2-27B-Uncensored-Heretic-swift_unc-PTQ1_0.gguf",
+    "metrics": {},
+    "size": "c2", "unit": "bytes", "basis": "disk", "bpw": null,
+    "flags": ["merged LoRA build; card claims no benchmark numbers for it [L739]", "LoRA scale given as both 0.7 and 0.25 in the same card [L30, L721]"]}
+ ],
+ "prose": [
+   {"entry": "Ternary-Bonsai-2-27B-Uncensored-Heretic (base)", "key": "bench:Refusal removal", "L": 700, "raw": "0/100 refusals (was 95/100 in the original)"},
+   {"entry": "Ternary-Bonsai-2-27B-Uncensored-Heretic (base)", "key": "bench:short functional checks", "L": 703, "raw": "16/16 short functional checks passed"},
+   {"entry": "base PQ2_0", "key": "ppl:wikitext", "L": 701, "raw": "PQ2_0 = 10.1460"},
+   {"entry": "base PQ2_0", "key": "ppl:harmless_alpaca_ja", "L": 702, "raw": "PQ2_0 = 16.7833"},
+   {"entry": "base PTQ1_0", "key": "ppl:wikitext", "L": 701, "raw": "PTQ1_0 = 10.1435"},
+   {"entry": "base PTQ1_0", "key": "ppl:harmless_alpaca_ja", "L": 702, "raw": "PTQ1_0 = 16.7744"}
+ ]
+}

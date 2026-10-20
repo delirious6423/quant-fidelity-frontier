@@ -1,6 +1,24 @@
 {
  "quarantined": [
   {
+   "repo": "sfxnz/DeepSeek-V4.1-Flash-EXL3",
+   "kind": "variants",
+   "entry": "Viterbi + scale refit",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "kind": "variants",
+   "entry": "final, Lucebox profile + DSpark",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "kind": "variants",
+   "entry": "final, exact",
+   "reason": "failed a gate"
+  },
+  {
    "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
    "kind": "cross",
    "entry": "antirez Q2",
@@ -8,20 +26,8 @@
   },
   {
    "repo": "sfxnz/DeepSeek-V4.1-Flash-EXL3",
-   "kind": "variants",
-   "entry": "2.0bpw-mcg-viterbi-lmhead-mxfp8",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "sfxnz/DeepSeek-V4.1-Flash-EXL3",
    "kind": "ladder",
    "entry": "prior MCG encoder",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "sfxnz/DeepSeek-V4.1-Flash-EXL3",
-   "kind": "variants",
-   "entry": "Viterbi + scale refit",
    "reason": "failed a gate"
   },
   {
@@ -33,7 +39,7 @@
   {
    "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
    "kind": "variants",
-   "entry": "final, Lucebox profile + DSpark",
+   "entry": "minus10gib, exact",
    "reason": "failed a gate"
   },
   {
@@ -43,15 +49,9 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
+   "repo": "sfxnz/DeepSeek-V4.1-Flash-EXL3",
    "kind": "variants",
-   "entry": "minus10gib, exact",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Lucebox/DeepSeek-V4.1-Flash-ROCMFP23-GGUF",
-   "kind": "variants",
-   "entry": "final, exact",
+   "entry": "2.0bpw-mcg-viterbi-lmhead-mxfp8",
    "reason": "failed a gate"
   }
  ],
@@ -4547,76 +4547,6 @@
    }
   },
   {
-   "repo": "sudoingx/DeepSeek-V4.1-Flash-EXL3-2.7bpw",
-   "entry": "this build \u2014 position-weighted",
-   "key": "mean_kld",
-   "raw": "0.0243",
-   "resolver": {
-    "source_sha256": "69e62ef00588b2507ebf8b4147250bb52282957c8dff7cf2ed3d637401896905",
-    "mapping_sha256": "de07c04f7ce3cc36102de5d22872dcf13faed2368bf619fa8f4e30e8a1d35758",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "3aad5f0adfb46e2d003163ad20371a12623a1d973e071583d4ce2f41e0d27549",
-    "mapping_file": "maps/resolved/sudoingx__DeepSeek-V4.1-Flash-EXL3-2.7bpw.map.json"
-   }
-  },
-  {
-   "repo": "sudoingx/DeepSeek-V4.1-Flash-EXL3-2.7bpw",
-   "entry": "this build \u2014 suites",
-   "key": "bench:HumanEval-plus",
-   "raw": "90.9",
-   "resolver": {
-    "source_sha256": "69e62ef00588b2507ebf8b4147250bb52282957c8dff7cf2ed3d637401896905",
-    "mapping_sha256": "de07c04f7ce3cc36102de5d22872dcf13faed2368bf619fa8f4e30e8a1d35758",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "3aad5f0adfb46e2d003163ad20371a12623a1d973e071583d4ce2f41e0d27549",
-    "mapping_file": "maps/resolved/sudoingx__DeepSeek-V4.1-Flash-EXL3-2.7bpw.map.json"
-   }
-  },
-  {
-   "repo": "sudoingx/DeepSeek-V4.1-Flash-EXL3-2.7bpw",
-   "entry": "this build \u2014 suites",
-   "key": "bench:MBPP-plus",
-   "raw": "78.6",
-   "resolver": {
-    "source_sha256": "69e62ef00588b2507ebf8b4147250bb52282957c8dff7cf2ed3d637401896905",
-    "mapping_sha256": "de07c04f7ce3cc36102de5d22872dcf13faed2368bf619fa8f4e30e8a1d35758",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "3aad5f0adfb46e2d003163ad20371a12623a1d973e071583d4ce2f41e0d27549",
-    "mapping_file": "maps/resolved/sudoingx__DeepSeek-V4.1-Flash-EXL3-2.7bpw.map.json"
-   }
-  },
-  {
-   "repo": "sudoingx/DeepSeek-V4.1-Flash-EXL3-2.7bpw",
-   "entry": "native",
-   "key": "bench:HumanEval-plus",
-   "raw": "92.1",
-   "resolver": {
-    "source_sha256": "69e62ef00588b2507ebf8b4147250bb52282957c8dff7cf2ed3d637401896905",
-    "mapping_sha256": "de07c04f7ce3cc36102de5d22872dcf13faed2368bf619fa8f4e30e8a1d35758",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "3aad5f0adfb46e2d003163ad20371a12623a1d973e071583d4ce2f41e0d27549",
-    "mapping_file": "maps/resolved/sudoingx__DeepSeek-V4.1-Flash-EXL3-2.7bpw.map.json"
-   }
-  },
-  {
-   "repo": "sudoingx/DeepSeek-V4.1-Flash-EXL3-2.7bpw",
-   "entry": "native",
-   "key": "bench:MBPP-plus",
-   "raw": "77.5",
-   "resolver": {
-    "source_sha256": "69e62ef00588b2507ebf8b4147250bb52282957c8dff7cf2ed3d637401896905",
-    "mapping_sha256": "de07c04f7ce3cc36102de5d22872dcf13faed2368bf619fa8f4e30e8a1d35758",
-    "resolved_by": "independent resolver review",
-    "reason": "Pinned-card adjudication; see audit/resolution_core.md, resolution_other.md and resolution_wave0.md through resolution_wave5.md",
-    "candidates_sha256": "3aad5f0adfb46e2d003163ad20371a12623a1d973e071583d4ce2f41e0d27549",
-    "mapping_file": "maps/resolved/sudoingx__DeepSeek-V4.1-Flash-EXL3-2.7bpw.map.json"
-   }
-  },
-  {
    "repo": "vcruz305/DSV4.1-Flash-SAGE-EXL3-1.59bpw",
    "entry": "this pack, 1.59 bpw",
    "key": "top5_pct",
@@ -4743,6 +4673,6 @@
    }
   }
  ],
- "resolved_repos": 41,
+ "resolved_repos": 40,
  "tiebroken": []
 }

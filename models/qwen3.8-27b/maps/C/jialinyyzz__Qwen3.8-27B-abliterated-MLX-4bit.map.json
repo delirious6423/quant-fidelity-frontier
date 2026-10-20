@@ -1,0 +1,238 @@
+{
+ "repo": "jialinyyzz/Qwen3.8-27B-abliterated-MLX-4bit",
+ "source_sha256": "fd5e2502766398335dea2beb56d1ce8417a0f3c12ddc935cf944cbfc5f829fe5",
+ "candidates_sha256": "de774e368157f1acbc7a5eae2871004f3bb2f7c65a8929903883c8d6ac57c1ce",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+  "reference": "original Qwen/Qwen3.8-27B (where compared)",
+  "dataset": "mlabonne/harmful_behaviors test[:100]; ARC-Challenge, HellaSwag, Winogrande, OpenBookQA, GSM8K",
+  "ctx": "not stated",
+  "tool": "Heretic, lm-eval-harness, mlx-dspark",
+  "L": [
+   52,
+   65,
+   83
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "this model (w177)",
+   "panel": "Abliteration recipe (`wide-177`)",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "not stated",
+    "ctx": "not stated",
+    "tool": "Heretic MPOA projected abliteration, 300-trial Optuna search",
+    "L": [
+     30,
+     31,
+     40,
+     45
+    ]
+   },
+   "metrics": {
+    "bench:KL-orig-vs-abliterated": "c1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "KL between original and abliterated model [L45]",
+    "4-bit MLX file, ~15 GB on disk stated in prose [L32]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "this model (w177)",
+   "panel": "Refusal reduction",
+   "methodology": {
+    "reference": "base model",
+    "dataset": "mlabonne/harmful_behaviors test[:100]",
+    "ctx": "not stated",
+    "tool": "Heretic keyword-refusal scorer",
+    "L": [
+     52,
+     54,
+     59,
+     60,
+     61
+    ]
+   },
+   "metrics": {
+    "bench:refusals-per-100": "c3"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "keyword metric with known false positives and negatives [L59-61]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "base model",
+   "panel": "Refusal reduction",
+   "methodology": {
+    "reference": "base model",
+    "dataset": "mlabonne/harmful_behaviors test[:100]",
+    "ctx": "not stated",
+    "tool": "Heretic keyword-refusal scorer",
+    "L": [
+     52,
+     54,
+     59,
+     60,
+     61
+    ]
+   },
+   "metrics": {
+    "bench:refusals-per-100": "c2"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "keyword metric with known false positives and negatives [L59-61]"
+   ],
+   "of": "Qwen/Qwen3.8-27B"
+  },
+  {
+   "role": "cross",
+   "name": "original",
+   "panel": "Capability evaluation",
+   "methodology": {
+    "reference": "original Qwen/Qwen3.8-27B",
+    "dataset": "ARC-Challenge, HellaSwag, Winogrande, OpenBookQA, GSM8K (CoT)",
+    "ctx": "not stated",
+    "tool": "lm-eval-harness loglikelihood; GSM8K generative CoT; bf16 master",
+    "L": [
+     65,
+     66,
+     68,
+     74,
+     76,
+     77
+    ]
+   },
+   "metrics": {
+    "bench:ARC-Challenge": "c4",
+    "bench:HellaSwag": "c7",
+    "bench:Winogrande": "c9",
+    "bench:OpenBookQA": "c12",
+    "bench:GSM8K-CoT": "c15"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "original base measured by the author [L68]"
+   ],
+   "of": "Qwen/Qwen3.8-27B"
+  },
+  {
+   "role": "ladder",
+   "name": "w177 (bf16)",
+   "panel": "Capability evaluation",
+   "methodology": {
+    "reference": "original Qwen/Qwen3.8-27B",
+    "dataset": "ARC-Challenge, HellaSwag, Winogrande, OpenBookQA, GSM8K (CoT)",
+    "ctx": "not stated",
+    "tool": "lm-eval-harness loglikelihood; GSM8K generative CoT; bf16 master",
+    "L": [
+     65,
+     66,
+     68,
+     74,
+     76,
+     77
+    ]
+   },
+   "metrics": {
+    "bench:ARC-Challenge": "c5",
+    "bench:HellaSwag": "c7",
+    "bench:Winogrande": "c10",
+    "bench:OpenBookQA": "c13",
+    "bench:GSM8K-CoT": "c16",
+    "bench:ARC-Challenge-delta": "c6",
+    "bench:HellaSwag-delta": "c8",
+    "bench:Winogrande-delta": "c11",
+    "bench:OpenBookQA-delta": "c14",
+    "bench:GSM8K-CoT-delta": "c17"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "measured on the bf16 master, not the 4-bit file [L65-66]",
+    "HellaSwag w177 cell equals the original cell, shares its candidate id [L71]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "baseline",
+   "panel": "Performance (Apple M5 Max, 128 GB)",
+   "methodology": {
+    "reference": "baseline decoding without DSpark",
+    "dataset": "chat, code and math prompts",
+    "ctx": "not stated",
+    "tool": "mlx-dspark benchmark, median of 3 trials",
+    "L": [
+     83,
+     85,
+     88,
+     90,
+     91
+    ]
+   },
+   "metrics": {
+    "bench:decode-tok-s": "c18"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "4-bit MLX file on Apple M5 Max [L83]",
+    "~19 GB peak RAM stated in prose [L83]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "DSpark (`--caps auto`)",
+   "panel": "Performance (Apple M5 Max, 128 GB)",
+   "methodology": {
+    "reference": "baseline decoding without DSpark",
+    "dataset": "chat, code and math prompts",
+    "ctx": "not stated",
+    "tool": "mlx-dspark benchmark, median of 3 trials",
+    "L": [
+     83,
+     85,
+     88,
+     90,
+     91
+    ]
+   },
+   "metrics": {
+    "bench:decode-tok-s": "c19",
+    "bench:speedup": "c20"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "gain is modest on code and math, slightly slower on chat [L90-91]"
+   ]
+  }
+ ],
+ "prose": []
+}

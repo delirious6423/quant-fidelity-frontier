@@ -1,0 +1,804 @@
+{
+ "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+ "source_sha256": "6ee5b2589ce0aa1178db8933c7a0954a7218ab665e3019f73648a020da501a81",
+ "candidates_sha256": "ceffb071189e9e9b9d651d55f518aa3576c9a7fff990b9d09d1eb5505902d56d",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "BF16 reference, neutral text (KLD); not stated for the agent sweep",
+  "dataset": "87 x 4096-token neutral chunks (KLD); 16 deterministic agent tasks (sweep)",
+  "ctx": "4096 (KLD); 131072 working context (sweep)",
+  "tool": "Splash agent harness (sweep); scorer not named",
+  "L": [
+   132,
+   158,
+   190
+  ]
+ },
+ "entries": [
+  {
+   "role": "ladder",
+   "name": "Quality-PLE8",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference, same for all rows",
+    "dataset": "neutral text, 87 x 4096-token chunks, 178089 scored tokens",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     158
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c45",
+    "ppl_ratio": "c47"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "Quality-PLE5",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference, same for all rows",
+    "dataset": "neutral text, 87 x 4096-token chunks, 178089 scored tokens",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     158
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c48",
+    "ppl_ratio": "c50",
+    "top1_pct": "c51.4"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "top-1 taken from the Status cell [L163]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Quality-PLE4",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference, same for all rows",
+    "dataset": "neutral text, 87 x 4096-token chunks, 178089 scored tokens",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     158
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c52",
+    "ppl_ratio": "c54"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE8",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference, same for all rows",
+    "dataset": "neutral text, 87 x 4096-token chunks, 178089 scored tokens",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     158
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c55",
+    "ppl_ratio": "c57"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE5",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference, same for all rows",
+    "dataset": "neutral text, 87 x 4096-token chunks, 178089 scored tokens",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     158
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c58",
+    "ppl_ratio": "c60",
+    "top1_pct": "c61.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "top-1 taken from the Status cell [L166]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE4",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference, same for all rows",
+    "dataset": "neutral text, 87 x 4096-token chunks, 178089 scored tokens",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     158
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c62",
+    "ppl_ratio": "c64"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "Max-PLE8",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference, same for all rows",
+    "dataset": "neutral text, 87 x 4096-token chunks, 178089 scored tokens",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     158
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c65",
+    "ppl_ratio": "c67"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "Max-PLE5",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference, same for all rows",
+    "dataset": "neutral text, 87 x 4096-token chunks, 178089 scored tokens",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     158
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c68",
+    "ppl_ratio": "c70",
+    "top1_pct": "c71.4"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "top-1 taken from the Status cell [L169]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "UD-Q4_K_XL + Q8 table",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference, same for all rows",
+    "dataset": "neutral text, 87 x 4096-token chunks, 178089 scored tokens",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     158
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c72",
+    "ppl_ratio": "c74",
+    "top1_pct": "c75.4"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "publisher's UD-body Q8-table build, Status cell [L170]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "Original UD-Q4_K_XL, IQ4_NL table",
+   "panel": "Neutral KLD and perplexity",
+   "methodology": {
+    "reference": "BF16 reference, same for all rows",
+    "dataset": "neutral text, 87 x 4096-token chunks, 178089 scored tokens",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     158
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c76",
+    "ppl_ratio": "c78"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "unsloth's original file with its IQ4_NL table, measured by this card's author [L171]"
+   ],
+   "of": "unsloth/Qwen3.8-Flash-Next-GGUF"
+  },
+  {
+   "role": "ladder",
+   "name": "Quality-PLE8",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference, same neutral protocol",
+    "dataset": "neutral text, 87 x 4096-token chunks",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     158,
+     212
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c103"
+   },
+   "size": "c98",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target download GB; excludes the separate MTP head, projector and importance matrix [L194]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Quality-PLE5",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference, same neutral protocol",
+    "dataset": "neutral text, 87 x 4096-token chunks",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     158,
+     212
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c110"
+   },
+   "size": "c105",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target download GB; excludes the separate MTP head, projector and importance matrix [L194]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Quality-PLE4",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference, same neutral protocol",
+    "dataset": "neutral text, 87 x 4096-token chunks",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     158,
+     212
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c117"
+   },
+   "size": "c112",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target download GB; excludes the separate MTP head, projector and importance matrix [L194]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE8",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference, same neutral protocol",
+    "dataset": "neutral text, 87 x 4096-token chunks",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     158,
+     212
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c124"
+   },
+   "size": "c119",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target download GB; excludes the separate MTP head, projector and importance matrix [L194]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE5",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference, same neutral protocol",
+    "dataset": "neutral text, 87 x 4096-token chunks",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     158,
+     212
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c131"
+   },
+   "size": "c126",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target download GB; excludes the separate MTP head, projector and importance matrix [L194]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE4",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference, same neutral protocol",
+    "dataset": "neutral text, 87 x 4096-token chunks",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     158,
+     212
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c138"
+   },
+   "size": "c133",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target download GB; excludes the separate MTP head, projector and importance matrix [L194]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Max-PLE8",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference, same neutral protocol",
+    "dataset": "neutral text, 87 x 4096-token chunks",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     158,
+     212
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c145"
+   },
+   "size": "c140",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target download GB; excludes the separate MTP head, projector and importance matrix [L194]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Max-PLE5",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference, same neutral protocol",
+    "dataset": "neutral text, 87 x 4096-token chunks",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     158,
+     212
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c152"
+   },
+   "size": "c147",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target download GB; excludes the separate MTP head, projector and importance matrix [L194]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "UD-Q4_K_XL-PLE8",
+   "panel": "Variants",
+   "methodology": {
+    "reference": "BF16 reference, same neutral protocol",
+    "dataset": "neutral text, 87 x 4096-token chunks",
+    "ctx": "4096",
+    "tool": "not stated",
+    "L": [
+     158,
+     212
+    ]
+   },
+   "metrics": {
+    "top1_pct": "c159"
+   },
+   "size": "c154",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "target download GB; excludes the separate MTP head, projector and importance matrix [L194]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Quality-PLE8",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "16 deterministically graded tasks from public benchmarks, one trial each",
+    "ctx": "131072-token working context",
+    "tool": "sandboxed agent harness on Splash 0beba3b2",
+    "L": [
+     132,
+     150
+    ]
+   },
+   "metrics": {
+    "bench:primary_strict_16": "c18",
+    "bench:repeats_strict_4": "c20.0",
+    "bench:repeats_lenient_4": "c20.1",
+    "bench:primary_lenient_f1_16": "c19"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE8",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "16 deterministically graded tasks from public benchmarks, one trial each",
+    "ctx": "131072-token working context",
+    "tool": "sandboxed agent harness on Splash 0beba3b2",
+    "L": [
+     132,
+     150
+    ]
+   },
+   "metrics": {
+    "bench:primary_strict_16": "c25",
+    "bench:repeats_strict_4": "c26.0",
+    "bench:repeats_lenient_4": "c26.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "lenient F1 cell (8) is printed on the card but has no candidate id, so it is left out [L137]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Max-PLE8",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "16 deterministically graded tasks from public benchmarks, one trial each",
+    "ctx": "131072-token working context",
+    "tool": "sandboxed agent harness on Splash 0beba3b2",
+    "L": [
+     132,
+     150
+    ]
+   },
+   "metrics": {
+    "bench:primary_strict_16": "c31",
+    "bench:repeats_strict_4": "c33.0",
+    "bench:repeats_lenient_4": "c33.1",
+    "bench:primary_lenient_f1_16": "c32"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "UD-Q4_K_XL + Q8 table",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "16 deterministically graded tasks from public benchmarks, one trial each",
+    "ctx": "131072-token working context",
+    "tool": "sandboxed agent harness on Splash 0beba3b2",
+    "L": [
+     132,
+     150
+    ]
+   },
+   "metrics": {
+    "bench:primary_strict_16": "c38",
+    "bench:repeats_strict_4": "c40.0",
+    "bench:repeats_lenient_4": "c40.1",
+    "bench:primary_lenient_f1_16": "c39"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE4",
+   "panel": "E2E_RESULTS",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "six-prompt smoke battery",
+    "ctx": "not stated",
+    "tool": "Splash bench #468 (0beba3b2)",
+    "L": [
+     190
+    ]
+   },
+   "metrics": {
+    "bench:functional_5": "c82.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "single six-prompt smoke battery, not the scored sweep [L190]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE5",
+   "panel": "E2E_RESULTS",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "six-prompt smoke battery",
+    "ctx": "not stated",
+    "tool": "Splash bench #468 (0beba3b2)",
+    "L": [
+     190
+    ]
+   },
+   "metrics": {
+    "bench:functional_5": "c88.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "single six-prompt smoke battery, not the scored sweep [L190]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE8",
+   "panel": "E2E_RESULTS",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "six-prompt smoke battery",
+    "ctx": "not stated",
+    "tool": "Splash bench #468 (0beba3b2)",
+    "L": [
+     190
+    ]
+   },
+   "metrics": {
+    "bench:functional_5": "c94.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "single six-prompt smoke battery, not the scored sweep [L190]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Quality-PLE8",
+   "panel": "How quality was measured",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "3 SVG prompts x seeds 17/42/123 (blind rater); 13 coding tasks / 320 points",
+    "ctx": "24,000-token SVG output cap",
+    "tool": "one blind Sonnet 5.5 rater (SVG); model-harness-bench on OpenCode (coding)",
+    "L": [
+     340,
+     342,
+     343
+    ]
+   },
+   "metrics": {
+    "bench:coding": "c266"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "blind SVG cell carries two values (earlier and re-score), so SVG is left out [L333]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "Balanced-PLE8",
+   "panel": "How quality was measured",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "3 SVG prompts x seeds 17/42/123 (blind rater); 13 coding tasks / 320 points",
+    "ctx": "24,000-token SVG output cap",
+    "tool": "one blind Sonnet 5.5 rater (SVG); model-harness-bench on OpenCode (coding)",
+    "L": [
+     340,
+     342,
+     343
+    ]
+   },
+   "metrics": {
+    "bench:blind_svg": "c268"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "no coding run for this build [L343]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Max-PLE8",
+   "panel": "How quality was measured",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "3 SVG prompts x seeds 17/42/123 (blind rater); 13 coding tasks / 320 points",
+    "ctx": "24,000-token SVG output cap",
+    "tool": "one blind Sonnet 5.5 rater (SVG); model-harness-bench on OpenCode (coding)",
+    "L": [
+     340,
+     342,
+     343
+    ]
+   },
+   "metrics": {
+    "bench:blind_svg": "c271"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "no coding run for this build [L343]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "UD-Q4_K_XL (original IQ4_NL table)",
+   "panel": "How quality was measured",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "3 SVG prompts x seeds 17/42/123 (blind rater); 13 coding tasks / 320 points",
+    "ctx": "24,000-token SVG output cap",
+    "tool": "one blind Sonnet 5.5 rater (SVG); model-harness-bench on OpenCode (coding)",
+    "L": [
+     340,
+     342,
+     343
+    ]
+   },
+   "metrics": {
+    "bench:blind_svg": "c276",
+    "bench:coding": "c278"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "earlier STACK build on unsloth's original body, not this assembly [L338]"
+   ],
+   "of": "unsloth/Qwen3.8-Flash-Next-GGUF"
+  }
+ ],
+ "prose": [
+  {
+   "entry": "Quality-PLE8",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "key": "bench:F3_judged",
+   "L": 154,
+   "raw": "All four scored 3/5 and failed the combined gate"
+  },
+  {
+   "entry": "Balanced-PLE8",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "key": "bench:F3_judged",
+   "L": 154,
+   "raw": "All four scored 3/5 and failed the combined gate"
+  },
+  {
+   "entry": "Max-PLE8",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "key": "bench:F3_judged",
+   "L": 154,
+   "raw": "All four scored 3/5 and failed the combined gate"
+  },
+  {
+   "entry": "UD-Q4_K_XL + Q8 table",
+   "panel": "Scored agent sweep, 2026-10-18/19",
+   "key": "bench:F3_judged",
+   "L": 154,
+   "raw": "All four scored 3/5 and failed the combined gate"
+  }
+ ]
+}

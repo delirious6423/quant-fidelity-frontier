@@ -1,0 +1,587 @@
+{
+ "repo": "RukaRat/Qwen3.8-27B-W4A16-imatrix-heretic-int8head-MTP",
+ "source_sha256": "c2592c76bf5a57c0b59b31d24b1027515e64488783372bccd71f3e0001b4068f",
+ "candidates_sha256": "4918b7808a92ddc7ac91dc853ea475567d0846f50bf70b29b6a8bc458dd7d9c9",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+  "reference": "plain abliterated build (same weights, no lm_head/MTP requantization)",
+  "dataset": "five-task battery; OR-Bench-Hard-1K; harmful prompts",
+  "ctx": "YaRN 1.5x where the target exceeds 262,144",
+  "tool": "vLLM 0.22 on 2x RTX 3090",
+  "L": [
+   52,
+   124,
+   125,
+   167,
+   211
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "W4A16 + int8 head, abliterated (this one)",
+   "panel": "Quality and refusal rate: identical to the plain build",
+   "methodology": {
+    "reference": "plain abliterated build (same weights, no lm_head/MTP requantization)",
+    "dataset": "200-item five-task battery; correctness scored on 160 items; OR-Bench-Hard-1K and harmful prompts",
+    "ctx": "not stated",
+    "tool": "vLLM, measured on the served checkpoint",
+    "L": [
+     52,
+     54,
+     55,
+     56,
+     60,
+     61,
+     64,
+     65,
+     66,
+     67,
+     68,
+     69,
+     74
+    ]
+   },
+   "metrics": {
+    "bench:identical-output-to-plain": "c2.0",
+    "bench:MTP-acceptance": "c3",
+    "bench:vision-probes-passed": "c5.0",
+    "bench:harmful-thinking-off-refusals": "c6.0",
+    "bench:harmful-thinking-on-refusals": "c7",
+    "bench:benign-refused-thinking-off": "c8.0",
+    "bench:benign-refused-thinking-on": "c9.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "identical-output count is out of 200 [L61]",
+    "refusal rows equal the plain build's cells, shared values not repeated [L66-69]",
+    "correctness not scored for this model [L60]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "plain abliterated build",
+   "panel": "Quality and refusal rate: identical to the plain build",
+   "methodology": {
+    "reference": "plain abliterated build (same weights, no lm_head/MTP requantization)",
+    "dataset": "200-item five-task battery; correctness scored on 160 items; OR-Bench-Hard-1K and harmful prompts",
+    "ctx": "not stated",
+    "tool": "vLLM, measured on the served checkpoint",
+    "L": [
+     52,
+     54,
+     55,
+     56,
+     60,
+     61,
+     64,
+     65,
+     66,
+     67,
+     68,
+     69,
+     74
+    ]
+   },
+   "metrics": {
+    "bench:correct-ground-truth": "c1.0",
+    "bench:MTP-acceptance": "c4"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "correctness out of 160 items [L60]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "INT8 W8A8",
+   "panel": "Context",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "not stated",
+    "ctx": "max context under YaRN 1.5x where needed",
+    "tool": "vLLM 0.22 and SGLang on 2x RTX 3090, one concurrent request, fp8 KV cache, MTP on",
+    "L": [
+     165,
+     167,
+     168,
+     170,
+     173,
+     187,
+     188
+    ]
+   },
+   "metrics": {
+    "bench:max-context-vLLM-2GPU": "c11",
+    "bench:max-context-SGLang-2GPU": "c12"
+   },
+   "size": "c10",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "vLLM 1 GPU and SGLang 1 GPU not fit [L175]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "INT8 W8A8, abliterated",
+   "panel": "Context",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "not stated",
+    "ctx": "max context under YaRN 1.5x where needed",
+    "tool": "vLLM 0.22 and SGLang on 2x RTX 3090, one concurrent request, fp8 KV cache, MTP on",
+    "L": [
+     165,
+     167,
+     168,
+     170,
+     173,
+     187,
+     188
+    ]
+   },
+   "metrics": {
+    "bench:max-context-vLLM-2GPU": "c14"
+   },
+   "size": "c13",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "value carries a footnote [L176]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "W4A16 + int8 head",
+   "panel": "Context",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "not stated",
+    "ctx": "max context under YaRN 1.5x where needed",
+    "tool": "vLLM 0.22 and SGLang on 2x RTX 3090, one concurrent request, fp8 KV cache, MTP on",
+    "L": [
+     165,
+     167,
+     168,
+     170,
+     173,
+     187,
+     188
+    ]
+   },
+   "metrics": {
+    "bench:max-context-vLLM-1GPU": "c16",
+    "bench:max-context-vLLM-2GPU": "c17"
+   },
+   "size": "c15",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "SGLang columns broken, mixed bit-width head [L178-192]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "W4A16 + int8 head, abliterated (this one)",
+   "panel": "Context",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "not stated",
+    "ctx": "max context under YaRN 1.5x where needed",
+    "tool": "vLLM 0.22 and SGLang on 2x RTX 3090, one concurrent request, fp8 KV cache, MTP on",
+    "L": [
+     165,
+     167,
+     168,
+     170,
+     173,
+     187,
+     188
+    ]
+   },
+   "metrics": {
+    "bench:max-context-vLLM-1GPU": "c19",
+    "bench:max-context-vLLM-2GPU": "c20"
+   },
+   "size": "c18",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "SGLang columns broken, mixed bit-width head [L178-192]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "W4A16 plain, abliterated",
+   "panel": "Context",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "not stated",
+    "ctx": "max context under YaRN 1.5x where needed",
+    "tool": "vLLM 0.22 and SGLang on 2x RTX 3090, one concurrent request, fp8 KV cache, MTP on",
+    "L": [
+     165,
+     167,
+     168,
+     170,
+     173,
+     187,
+     188
+    ]
+   },
+   "metrics": {
+    "bench:max-context-vLLM-1GPU": "c22",
+    "bench:max-context-vLLM-2GPU": "c23",
+    "bench:max-context-SGLang-2GPU": "c24"
+   },
+   "size": "c21",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "SGLang 1 GPU does not start [L181]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "INT8 W8A8",
+   "panel": "Speed",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "code and 6k-token thinking tasks",
+    "ctx": "not stated",
+    "tool": "vLLM on the stated number of GPUs",
+    "L": [
+     124,
+     125,
+     127,
+     200,
+     208
+    ]
+   },
+   "metrics": {
+    "bench:code-tok-s": "c25",
+    "bench:think-6k-tok-s": "c26"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "benched on 2 GPU [L202]",
+    "W8A8 needs two cards, not matched hardware [L208-209]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "INT8 W8A8, abliterated",
+   "panel": "Speed",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "code and 6k-token thinking tasks",
+    "ctx": "not stated",
+    "tool": "vLLM on the stated number of GPUs",
+    "L": [
+     124,
+     125,
+     127,
+     200,
+     208
+    ]
+   },
+   "metrics": {
+    "bench:code-tok-s": "c28",
+    "bench:think-6k-tok-s": "c29"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "benched on 2 GPU [L203]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "W4A16 + int8 head",
+   "panel": "Speed",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "code and 6k-token thinking tasks",
+    "ctx": "not stated",
+    "tool": "vLLM on the stated number of GPUs",
+    "L": [
+     124,
+     125,
+     127,
+     200,
+     208
+    ]
+   },
+   "metrics": {
+    "bench:code-tok-s": "c31",
+    "bench:think-6k-tok-s": "c32"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "benched on 1 GPU [L204]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "W4A16 + int8 head, abliterated (this one)",
+   "panel": "Speed",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "code and 6k-token thinking tasks",
+    "ctx": "not stated",
+    "tool": "vLLM on the stated number of GPUs",
+    "L": [
+     124,
+     125,
+     127,
+     200,
+     208
+    ]
+   },
+   "metrics": {
+    "bench:code-tok-s": "c34",
+    "bench:think-6k-tok-s": "c35"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "benched on 1 GPU [L205]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "W4A16 plain, abliterated",
+   "panel": "Speed",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "code and 6k-token thinking tasks",
+    "ctx": "not stated",
+    "tool": "vLLM on the stated number of GPUs",
+    "L": [
+     124,
+     125,
+     127,
+     200,
+     208
+    ]
+   },
+   "metrics": {
+    "bench:code-tok-s": "c37",
+    "bench:think-6k-tok-s": "c38"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "benched on 1 GPU [L206]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "INT8 W8A8",
+   "panel": "Quality",
+   "methodology": {
+    "reference": "ground truth",
+    "dataset": "200-item five-task battery; correct counted out of 160",
+    "ctx": "not stated",
+    "tool": "vLLM, MTP on",
+    "L": [
+     211,
+     213,
+     215,
+     222,
+     224,
+     226
+    ]
+   },
+   "metrics": {
+    "bench:correct-of-160": "c40",
+    "bench:MTP-accept-code": "c41.0",
+    "bench:MTP-accept-think": "c41.1",
+    "bench:vision-probes-passed": "c42.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "INT8 W8A8, abliterated",
+   "panel": "Quality",
+   "methodology": {
+    "reference": "ground truth",
+    "dataset": "200-item five-task battery; correct counted out of 160",
+    "ctx": "not stated",
+    "tool": "vLLM, MTP on",
+    "L": [
+     211,
+     213,
+     215,
+     222,
+     224,
+     226
+    ]
+   },
+   "metrics": {
+    "bench:correct-of-160": "c43",
+    "bench:MTP-accept-code": "c44.0",
+    "bench:MTP-accept-think": "c44.1",
+    "bench:vision-probes-passed": "c45.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "W4A16 + int8 head",
+   "panel": "Quality",
+   "methodology": {
+    "reference": "ground truth",
+    "dataset": "200-item five-task battery; correct counted out of 160",
+    "ctx": "not stated",
+    "tool": "vLLM, MTP on",
+    "L": [
+     211,
+     213,
+     215,
+     222,
+     224,
+     226
+    ]
+   },
+   "metrics": {
+    "bench:correct-of-160": "c46",
+    "bench:MTP-accept-code": "c47.0",
+    "bench:MTP-accept-think": "c47.1",
+    "bench:vision-probes-passed": "c48.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "own",
+   "name": "W4A16 + int8 head, abliterated (this one)",
+   "panel": "Quality",
+   "methodology": {
+    "reference": "ground truth",
+    "dataset": "200-item five-task battery; correct counted out of 160",
+    "ctx": "not stated",
+    "tool": "vLLM, MTP on",
+    "L": [
+     211,
+     213,
+     215,
+     222,
+     224,
+     226
+    ]
+   },
+   "metrics": {
+    "bench:correct-of-160": "c49",
+    "bench:MTP-accept-code": "c50.0",
+    "bench:MTP-accept-think": "c50.1",
+    "bench:vision-probes-passed": "c51.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "W4A16 plain, abliterated",
+   "panel": "Quality",
+   "methodology": {
+    "reference": "ground truth",
+    "dataset": "200-item five-task battery; correct counted out of 160",
+    "ctx": "not stated",
+    "tool": "vLLM, MTP on",
+    "L": [
+     211,
+     213,
+     215,
+     222,
+     224,
+     226
+    ]
+   },
+   "metrics": {
+    "bench:correct-of-160": "c52",
+    "bench:MTP-accept-code": "c53.0",
+    "bench:MTP-accept-think": "c53.1",
+    "bench:vision-probes-passed": "c54.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "W4A16 plain",
+   "panel": "Quality",
+   "methodology": {
+    "reference": "ground truth",
+    "dataset": "200-item five-task battery; correct counted out of 160",
+    "ctx": "not stated",
+    "tool": "vLLM, MTP on",
+    "L": [
+     211,
+     213,
+     215,
+     222,
+     224,
+     226
+    ]
+   },
+   "metrics": {
+    "bench:correct-of-160": "c55",
+    "bench:MTP-accept-code-think": "c56",
+    "bench:vision-probes-passed": "c57.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "think value not applicable in the card [L220]"
+   ]
+  }
+ ],
+ "prose": []
+}

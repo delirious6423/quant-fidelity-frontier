@@ -1,0 +1,19 @@
+{
+ "repo": "mrfakename/DeepSeek-V4.1-Flash-1017-abliterated",
+ "source_sha256": "7dccfdd4e09c8b4d7192f3e7274e5913d5b8efa0f58ed9f05bbf4aab6c18a722",
+ "candidates_sha256": "6de953edb84b77d6ec35ad97123a3cc4328e26b04676e783b0d2cc4ac936ee8e",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "original DeepSeek-V4.1-Flash-1017 on the same prompts", "dataset": "100 held-out harmful requests", "ctx": "384 generated tokens per prompt", "tool": "Q8_0 GGUF, greedy decoding", "L": [30, 37]},
+ "entries": [
+  {"role": "own",
+   "name": "abliterated",
+   "methodology": {"reference": "original model on the same prompts", "dataset": "100 held-out harmful requests", "ctx": "384 generated tokens per prompt", "tool": "Q8_0 GGUF, greedy decoding", "L": [30, 37]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null,
+   "bpw": null,
+   "flags": ["Measured on the Q8_0 GGUF of the abliterated weights; this is a weight edit, not a quantization of the original [L30, L27]", "KL to the original on the harmless first token is not mapped: it is a first-token-only figure and its metric is ambiguous [L35]", "Refusal and think-mode counts out of 100 are behaviour outcomes, not quality metrics, so they are not mapped [L32-35]"]}
+ ],
+ "prose": []
+}

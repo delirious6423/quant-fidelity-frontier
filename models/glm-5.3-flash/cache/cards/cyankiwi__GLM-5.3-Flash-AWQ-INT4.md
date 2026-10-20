@@ -1,5 +1,6 @@
 ---
 base_model: zai-org/GLM-5.3-Flash
+base_model_relation: quantized
 language:
 - en
 - zh
@@ -8,61 +9,55 @@ license: mit
 pipeline_tag: image-text-to-text
 ---
 
-<div align="center">
-  <img src="https://huggingface.co/buckets/cyankiwi/activation-aware-2.0/resolve/banner/cyankiwi-banner-awq-0.png">
+<div align="left">
+  <a href="https://cyan.kiwi" target="_blank"><img src="https://storage.googleapis.com/cyankiwi-assets/model-card/model-card-banners-cyankiwi.png" width="800" alt="cyankiwi, the LLM inference agent for open models"></a>
 </div>
 
 <div align="left">
-  <table align="center" style="border-collapse:collapse; border:none;">
+  <table style="border-collapse:collapse; border:none;">
     <tr style="border:none;">
-      <td align="right" style="border:none; padding:4px 12px 4px 0;"><b>Version</b></td>
-      <td align="left" style="border:none; padding:4px 0;">26.05.01</td>
+      <td align="left" style="border:none; padding:4px 24px 4px 0;"><b>Website</b></td>
+      <td align="left" style="border:none; padding:4px 0;"><a href="https://cyan.kiwi/" target="_blank">cyan.kiwi</a></td>
     </tr>
     <tr style="border:none;">
-      <td align="right" style="border:none; padding:4px 12px 4px 0;"><b>Calibration</b></td>
-      <td align="left" style="border:none; padding:4px 0;">
-      <a href="https://huggingface.co/datasets/cyankiwi/calibration" target="_blank">STEM and Agentic</a>
-      </td>
+      <td align="left" style="border:none; padding:4px 24px 4px 0;"><b>Models</b></td>
+      <td align="left" style="border:none; padding:4px 0;"><a href="https://huggingface.co/cyankiwi" target="_blank">Hugging Face</a> · <a href="https://www.modelscope.ai/organization/cyankiwi" target="_blank">ModelScope</a></td>
     </tr>
     <tr style="border:none;">
-      <td align="right" style="border:none; padding:4px 12px 4px 0;"><b>Languages</b></td>
-      <td align="left" style="border:none; padding:4px 0;">
-        <code>EN</code> <code>ZH</code> <code>HI</code> <code>AR</code> <code>RU</code>
-        <code>JA</code> <code>KO</code> <code>NL</code> <code>FR</code> <code>ES</code>
-      </td>
-    </tr>
-    <tr style="border:none;">
-      <td align="right" style="border:none; padding:4px 12px 4px 0;"><b>Model Size</b></td>
-      <td align="left" style="border:none; padding:4px 0;">197.19 GB</td>
-    </tr>
-    <tr style="border:none;">
-      <td align="right" style="border:none; padding:4px 12px 4px 0;"><b>Contact</b></td>
-      <td align="left" style="border:none; padding:4px 0;">
-        <a href="mailto:ton@cyan.kiwi">Email</a>
-      </td>
+      <td align="left" style="border:none; padding:4px 24px 4px 0;"><b>Connect</b></td>
+      <td align="left" style="border:none; padding:4px 0;"><a href="https://x.com/cyankiwi_ai" target="_blank">X</a> · <a href="https://www.reddit.com/r/cyankiwi/" target="_blank">Reddit</a> · <a href="mailto:ton@cyan.kiwi">Email</a></td>
     </tr>
   </table>
 </div>
 
-## Serve with vLLM
+<br>
 
-This checkpoint mixes compressed-tensors INT4, FP8-block, and BF16 schemes per
-module. Stock vLLM cannot load it. Install the fork:
+<div align="left">
+  <img src="https://storage.googleapis.com/cyankiwi-assets/model-card/model-card-banners-awq.png" width="800" alt="cyankiwi Activation-aware Weight Quantization">
+</div>
 
-```bash
-git clone -b glm53-flash-ct https://github.com/cyankiwi/vllm.git
-cd vllm
-pip install "cmake>=3.26.1" "setuptools-scm>=8.0" "setuptools-rust>=1.9.0"
-VLLM_USE_PRECOMPILED=1 \
-VLLM_PRECOMPILED_WHEEL_COMMIT=d2906091bfc579cebefe3d8e8fb9077397ce9882 \
-  pip install -e . --no-build-isolation
-```
+<div align="left">
+  <table style="border-collapse:collapse; border:none;">
+    <tr style="border:none;">
+      <td align="left" style="border:none; padding:4px 24px 4px 0;"><b>Version</b></td>
+      <td align="left" style="border:none; padding:4px 0;">cyankiwi 26.05.01</td>
+    </tr>
+    <tr style="border:none;">
+      <td align="left" style="border:none; padding:4px 24px 4px 0;"><b>Calibration</b></td>
+      <td align="left" style="border:none; padding:4px 0;"><a href="https://huggingface.co/datasets/cyankiwi/calibration" target="_blank">STEM and Agentic</a></td>
+    </tr>
+    <tr style="border:none;">
+      <td align="left" style="border:none; padding:4px 24px 4px 0;"><b>Model Size</b></td>
+      <td align="left" style="border:none; padding:4px 0;">197.19 GB</td>
+    </tr>
+  </table>
+</div>
 
-Serve:
+<br>
 
-```bash
-vllm serve cyankiwi/GLM-5.3-Flash-AWQ-INT4
-```
+<p align="left">
+  <a href="https://cyan.kiwi/workspace?prompt=Deploy%20cyankiwi/GLM-5.3-Flash-AWQ-INT4" target="_blank"><img src="https://storage.googleapis.com/cyankiwi-assets/model-card/model-card-button-deploy.png" width="333" alt="Deploy on cyan.kiwi private endpoints"></a>
+</p>
 
 ---
 
