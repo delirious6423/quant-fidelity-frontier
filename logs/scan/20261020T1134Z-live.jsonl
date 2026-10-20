@@ -1,0 +1,40 @@
+{"at": "2026-10-20T11:05:23Z", "cmd": "lock", "exit": 0, "locked": false}
+{"at": "2026-10-20T11:05:23Z", "cmd": "plan", "exit": 0, "delta": ["qwen3.8-flash-next", "qwen3.8-27b", "deepseek-v4.1-flash", "glm-5.3-flash", "deepseek-v4-flash-0731"], "ingest": "ornith-1.5-35b-a3b", "resume": false}
+{"at": "2026-10-20T11:05:23Z", "cmd": "search-ops qwen3.8-flash-next", "exit": 0, "slug": "qwen3.8-flash-next", "calls": 1}
+{"at": "2026-10-20T11:05:23Z", "cmd": "search-ops qwen3.8-27b", "exit": 0, "slug": "qwen3.8-27b", "calls": 1}
+{"at": "2026-10-20T11:05:23Z", "cmd": "search-ops deepseek-v4.1-flash", "exit": 0, "slug": "deepseek-v4.1-flash", "calls": 1}
+{"at": "2026-10-20T11:05:23Z", "cmd": "search-ops glm-5.3-flash", "exit": 0, "slug": "glm-5.3-flash", "calls": 1}
+{"at": "2026-10-20T11:05:23Z", "cmd": "search-ops deepseek-v4-flash-0731", "exit": 0, "slug": "deepseek-v4-flash-0731", "calls": 1}
+{"at": "2026-10-20T11:05:40Z", "cmd": "catalogue qwen3.8-flash-next", "exit": 0, "search_entries": 80, "catalogue": 106, "in_index": 463, "delta": 25, "gated": 4, "shards": ["2026102011a"]}
+{"at": "2026-10-20T11:05:40Z", "cmd": "catalogue qwen3.8-27b", "exit": 0, "search_entries": 80, "catalogue": 1262, "in_index": 1230, "delta": 30, "gated": 14, "shards": ["2026102011a"]}
+{"at": "2026-10-20T11:05:41Z", "cmd": "catalogue deepseek-v4.1-flash", "exit": 0, "search_entries": 80, "catalogue": 86, "in_index": 134, "delta": 6, "gated": 2, "shards": ["2026102011a"]}
+{"at": "2026-10-20T11:05:41Z", "cmd": "catalogue glm-5.3-flash", "exit": 0, "search_entries": 80, "catalogue": 186, "in_index": 175, "delta": 4, "gated": 9, "shards": ["2026102011a"]}
+{"at": "2026-10-20T11:05:41Z", "cmd": "catalogue deepseek-v4-flash-0731", "exit": 0, "search_entries": 80, "catalogue": 195, "in_index": 189, "delta": 3, "gated": 6, "shards": ["2026102011a"]}
+{"at": "2026-10-20T11:08:09Z", "cmd": "fetched qwen3.8-flash-next", "exit": 0, "slug": "qwen3.8-flash-next"}
+{"at": "2026-10-20T11:08:09Z", "cmd": "prepare qwen3.8-flash-next", "exit": 0, "todo": 17, "cards": 16, "queues": 10}
+{"at": "2026-10-20T11:08:11Z", "cmd": "fetched qwen3.8-27b", "exit": 0, "slug": "qwen3.8-27b"}
+{"at": "2026-10-20T11:08:11Z", "cmd": "prepare qwen3.8-27b", "exit": 0, "todo": 17, "cards": 17, "queues": 6}
+{"at": "2026-10-20T11:08:15Z", "cmd": "fetched deepseek-v4.1-flash", "exit": 0, "slug": "deepseek-v4.1-flash"}
+{"at": "2026-10-20T11:08:15Z", "cmd": "prepare deepseek-v4.1-flash", "exit": 0, "todo": 3, "cards": 3, "queues": 2}
+{"at": "2026-10-20T11:08:15Z", "cmd": "fetched glm-5.3-flash", "exit": 0, "slug": "glm-5.3-flash"}
+{"at": "2026-10-20T11:08:15Z", "cmd": "prepare glm-5.3-flash", "exit": 0, "todo": 1, "cards": 1, "queues": 2}
+{"at": "2026-10-20T11:08:16Z", "cmd": "fetched deepseek-v4-flash-0731", "exit": 0, "slug": "deepseek-v4-flash-0731"}
+{"at": "2026-10-20T11:08:16Z", "cmd": "prepare deepseek-v4-flash-0731", "exit": 0, "todo": 3, "cards": 2, "queues": 2}
+{"at": "2026-10-20T11:17:48Z", "cmd": "finish qwen3.8-flash-next", "exit": 3, "merge": "merged 35 repos, 332 values; resolved 0 repos; tie-broken 0 values; quarantined 10 entries; held 268 disagreements; 4.9s"}
+{"at": "2026-10-20T11:17:54Z", "cmd": "finish qwen3.8-27b", "exit": 3, "merge": "merged 612 repos, 3828 values; resolved 0 repos; tie-broken 0 values; quarantined 139 entries; held 1688 disagreements; 9.1s"}
+{"at": "2026-10-20T11:18:04Z", "cmd": "finish deepseek-v4.1-flash", "exit": 3, "merge": "merged 83 repos, 982 values; resolved 40 repos; tie-broken 0 values; quarantined 9 entries; held 36 disagreements; 11.5s"}
+{"at": "2026-10-20T11:18:16Z", "cmd": "finish glm-5.3-flash", "exit": 1, "error": "queues still pending; start more workers", "pending": ["A00.txt", "B00.txt"]}
+{"at": "2026-10-20T11:18:16Z", "cmd": "finish deepseek-v4-flash-0731", "exit": 1, "error": "queues still pending; start more workers", "pending": ["A00.txt", "B00.txt"]}
+{"at": "2026-10-20T11:20:46Z", "cmd": "finish qwen3.8-flash-next", "exit": 3, "merge": "merged 35 repos, 332 values; resolved 0 repos; tie-broken 0 values; quarantined 10 entries; held 268 disagreements; 5.0s"}
+{"at": "2026-10-20T11:20:52Z", "cmd": "finish qwen3.8-27b", "exit": 3, "merge": "merged 612 repos, 3828 values; resolved 0 repos; tie-broken 0 values; quarantined 139 entries; held 1688 disagreements; 9.9s"}
+{"at": "2026-10-20T11:21:03Z", "cmd": "finish deepseek-v4.1-flash", "exit": 3, "merge": "merged 83 repos, 982 values; resolved 40 repos; tie-broken 0 values; quarantined 9 entries; held 36 disagreements; 11.8s"}
+{"at": "2026-10-20T11:21:15Z", "cmd": "finish glm-5.3-flash", "exit": 3, "merge": "merged 112 repos, 510 values; resolved 0 repos; tie-broken 31 values; quarantined 12 entries; held 324 disagreements; 1.6s"}
+{"at": "2026-10-20T11:21:17Z", "cmd": "finish deepseek-v4-flash-0731", "exit": 3, "merge": "merged 136 repos, 328 values; resolved 0 repos; tie-broken 65 values; quarantined 17 entries; held 86 disagreements; 0.9s"}
+{"at": "2026-10-20T11:21:18Z", "cmd": "elapsed 999", "exit": 0, "minutes": 15.9}
+{"at": "2026-10-20T11:34:03Z", "cmd": "finish qwen3.8-flash-next", "exit": 0, "merge": "merged 35 repos, 337 values; resolved 0 repos; tie-broken 39 values; quarantined 9 entries; held 317 disagreements; 8.6s"}
+{"at": "2026-10-20T11:34:12Z", "cmd": "finish qwen3.8-27b", "exit": 0, "merge": "merged 612 repos, 4051 values; resolved 0 repos; tie-broken 229 values; quarantined 141 entries; held 1459 disagreements; 13.2s"}
+{"at": "2026-10-20T11:34:26Z", "cmd": "finish deepseek-v4.1-flash", "exit": 0, "merge": "merged 83 repos, 985 values; resolved 40 repos; tie-broken 3 values; quarantined 9 entries; held 33 disagreements; 11.7s"}
+{"at": "2026-10-20T11:34:38Z", "cmd": "finish glm-5.3-flash", "exit": 0, "merge": "merged 112 repos, 511 values; resolved 0 repos; tie-broken 32 values; quarantined 12 entries; held 323 disagreements; 1.7s"}
+{"at": "2026-10-20T11:34:40Z", "cmd": "finish deepseek-v4-flash-0731", "exit": 0, "merge": "merged 136 repos, 328 values; resolved 0 repos; tie-broken 65 values; quarantined 17 entries; held 86 disagreements; 0.8s"}
+{"at": "2026-10-20T11:34:41Z", "cmd": "stage qwen3.8-flash-next", "exit": 1, "error": "python3 build.py", "rc": 1, "tail": "highlight lookup failed: unsloth/Qwen3.8-Flash-Next-GGUF by agentionai/Qwen3.8-Flash-Next-Gyro-GGUF ~ 'UD-Q2_K_XL' -> 0 matches\n"}
+{"at": "2026-10-20T11:34:42Z", "cmd": "elapsed 999", "exit": 0, "minutes": 29.3}
