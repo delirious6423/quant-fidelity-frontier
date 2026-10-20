@@ -30,6 +30,9 @@
     $('bm-context').textContent = multiple ? selected.length + ' evaluation sources · test settings may differ' : 'Evaluation source: ' + D.sources[selected[0].source].label;
     var sourceLegend = $('bm-sources'); sourceLegend.replaceChildren(); sourceLegend.hidden = !multiple;
     $('bm-source-notes').replaceChildren();
+    var bases = [], anyNgram = false;   // what the size axis is for the selected source(s)
+    selected.forEach(function (e) { var s = D.sources[e.source]; if (bases.indexOf(s.size_basis) < 0) bases.push(s.size_basis); anyNgram = anyNgram || !!s.includes_ngram; });
+    $('bm-size-basis').textContent = 'Size axis: ' + bases.join('; ') + '.' + (anyNgram ? ' This size includes an n-gram (Engram) table that is not loaded into GPU memory as weights.' : '') + ' It is not resident (in-memory) size: these cards do not publish one for these results.';
     selected.forEach(function (e) {
       var s = D.sources[e.source];
       if (multiple) {

@@ -143,3 +143,8 @@ Integrated main `d92a580` to retain benchmark tabs and collapsed quant controls.
 - `pipeline/qcl_discover.py` (weekly): candidates from lab listings, 5-sort quant counts, admission rules, re-rank, `docs/QUEUE.md`. Verified offline against a local bare remote with synthetic search results (lock, rounds, push, unlock); first real run pending. `tests/test_rank.py` added to CI.
 - 2026-10-20 12:03 UTC hourly scan: deepseek-v4-flash-0731 189 repos, 386 values; deepseek-v4.1-flash-1017 64 repos, 370 values; deepseek-v4.1-flash 134 repos, 1081 values; glm-5.3-flash 175 repos, 545 values; lfm2.5-24b-a2b 75 repos, 522 values; qwen3.8-27b 1230 repos, 4716 values; qwen3.8-flash-next 463 repos, 2950 values
 - 2026-10-20 12:15 UTC hourly scan: deepseek-v4-flash-0731 189 repos, 386 values; deepseek-v4.1-flash-1017 64 repos, 370 values; deepseek-v4.1-flash 134 repos, 1081 values; glm-5.3-flash 175 repos, 545 values; lfm2.5-24b-a2b 75 repos, 522 values; qwen3.8-27b 1230 repos, 4716 values; qwen3.8-flash-next 463 repos, 2950 values
+
+## 2026-10-20 Benchmark selector counts, size labels, size types
+- Benchmark selector shows the result count per benchmark.
+- Benchmark size axis is labelled with what each card's size is (file/download; n-gram included where the card says so). No benchmark card publishes resident memory, so none is plotted as resident; per-source basis is reviewed vocabulary in `benchmarks.py` (`size_basis`).
+- `size_types.py`: per-model summary of scanner-tagged size bases (resident, GPU weights, download, Engram), shown on each model page (Read this first) and as homepage pills; n-gram flagged from excl_engram/engram_only tags or the size note.

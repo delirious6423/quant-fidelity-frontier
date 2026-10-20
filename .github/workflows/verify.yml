@@ -64,6 +64,7 @@ jobs:
           python3 tests/test_column_caption.py
           python3 tests/test_readme.py
           python3 tests/test_rank.py
+          python3 tests/test_size_types.py
       - name: Assembled site is static only
         run: python3 assemble.py _site
       - name: Shared benchmark data and cross-model chart interactions

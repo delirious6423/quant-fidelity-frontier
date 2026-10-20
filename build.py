@@ -6,6 +6,7 @@ import json, glob, os, re, html, math, datetime, collections
 CODE = os.path.dirname(os.path.abspath(__file__))
 import sys; sys.path[:0] = [CODE, os.path.join(CODE, "pipeline"), os.path.join(CODE, "gates")]
 import qcl_fmt as FMT
+import size_types
 from benchmarks import build_benchmarks, render_benchmarks
 from protocol_metadata import attach_protocols, classify_sets
 from verified_protocol_sets import add_verified_cross_publisher_sets
@@ -531,6 +532,7 @@ def _others():
     return [{k: v for k, v in o.items() if k != "_k"} for o in sorted(out, key=lambda o: (o["_k"], o["name"]))]
 OTHERS = _others()
 def render(rows, repos, stats, verify_counts, highlights, exdata=''):
+    SIZE_TYPES = size_types.summarize(rows, SIZE_NOTE)
     # model switcher: one compact menu grouped by publisher org, so the header stays one line however many models we add
     _org = MODEL.split("/")[0] if "/" in MODEL else ""
     _all = [{"name": MNAME, "org": _org, "href": None}] + OTHERS
@@ -669,6 +671,7 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
     <li><strong>These are claims, not our measurements.</strong> Quant publishers and measurement publishers can differ. Compare numerical fidelity only when source evidence establishes the same protocol; publisher names alone do not decide compatibility.</li>
     <li><strong>Methods rarely match.</strong> Publishers use different reference models (BF16, their own Q8_0, someone else's Q8_0), different text, context lengths and tools. Each row shows its reference; the cards below give the rest.</li>
     <li><strong>Sizes mean different things.</strong> {E(SIZE_NOTE)}</li>
+    <li><strong>Size types and n-gram.</strong> {E(size_types.line(SIZE_TYPES))}{' ' + E(size_types.NGRAM_LINE) if SIZE_TYPES['ngram'] else ''}</li>
   </ol>
 </section>
 <section id="head-to-head"><h2>When one publisher measured several</h2>
@@ -787,9 +790,10 @@ def main():
     assert len({s_["id"] for s_ in sets}) == len(sets), "duplicate protocol set ids"
     classify_sets(sets)
     exdata = json.dumps(chart_payload(sets, metrics), separators=(',', ':')).replace('</', '<\\/')
+    SIZE_TYPES = size_types.summarize(rows, SIZE_NOTE)
     body = render(rows, repos, stats, vc, hl, exdata)
     os.makedirs(f"{OUT}", exist_ok=True)
-    json.dump({"model": MODEL, "captured_at": IDX["captured_at"], "repos": repos, "rows": rows, "sets": sets, "benchmarks": build_benchmarks(ROOT, CFG)},
+    json.dump({"model": MODEL, "captured_at": IDX["captured_at"], "repos": repos, "rows": rows, "sets": sets, "benchmarks": build_benchmarks(ROOT, CFG), "size_types": SIZE_TYPES},
               open(f"{OUT}/data.json", "w"), separators=(",", ":"))
     title = f"{MNAME} QFF"
     desc = (f"Every Hugging Face quant of {MNAME} (GGUF, NVFP4, FP8, MXFP4, AWQ, AutoRound, EXL3, MLX) compared by each publisher's own "

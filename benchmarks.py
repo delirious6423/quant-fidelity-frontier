@@ -19,6 +19,8 @@ from comparison import classify_group
 # In particular, an acc/acc_norm pair is two different metrics in one cell.
 _SOURCE_BINDINGS = {
     'intel-ai/DeepSeek-V4-Flash-0731-MXFP4-Mixed-CT-AutoRound': {
+        # What the size column is, from the card (reviewed vocabulary, not a number); none of these cards publishes resident memory.
+        'size_basis': ('full checkpoint size on disk (all layers and the MTP module)', False),
         'unit': 'fraction',
         'metrics': {
             'GSM8K strict (5-shot)': ('GSM8K (strict)', None),
@@ -35,6 +37,8 @@ _SOURCE_BINDINGS = {
         },
     },
     'intel-ai/DeepSeek-V4.1-Flash-MXFP4-Mixed-CT-AutoRound': {
+        # What the size column is, from the card (reviewed vocabulary, not a number); none of these cards publishes resident memory.
+        'size_basis': ('complete checkpoint size on disk, including the Engram (n-gram) table and MTP', True),
         'unit': 'fraction',
         'metrics': {
             'GSM8K strict (5-shot)': ('GSM8K (5-shot, strict / flexible)', 0),
@@ -53,6 +57,8 @@ _SOURCE_BINDINGS = {
         },
     },
     'mlx-community/DeepSeek-V4-Flash-0731-2.4bit-mixed': {
+        # What the size column is, from the card (reviewed vocabulary, not a number); none of these cards publishes resident memory.
+        'size_basis': ("file size of the repository checkpoint (the card's Size column)", False),
         'unit': 'fraction',
         'metrics': {'MMLU-Pro (600-question sample)': ('mmlu_pro (n=600)', None)},
         'rows': {
@@ -61,6 +67,8 @@ _SOURCE_BINDINGS = {
         },
     },
     'mbehr90/GLM-5.3-Flash-nvfp4': {
+        # What the size column is, from the card (reviewed vocabulary, not a number); none of these cards publishes resident memory.
+        'size_basis': ('file size on disk (publisher-reported GiB, converted to GB)', False),
         'unit': 'as published',
         'metrics': {name: (name, None) for name in ('GSM8K chat', 'GSM8K lm-eval', 'ARC-C', 'AI2D vision')},
         'rows': {
@@ -69,6 +77,8 @@ _SOURCE_BINDINGS = {
         },
     },
     'eaddario/Qwen3.8-27B-GGUF': {
+        # What the size column is, from the card (reviewed vocabulary, not a number); none of these cards publishes resident memory.
+        'size_basis': ("GGUF file size (the card's Size (GB) column)", False),
         'unit': 'as published',
         'metrics': {
             **{name: (name, None) for name in ('HellaSwag', 'ARC Challenge', 'GPQA-Diamond', 'Truthful QA', 'WinoGrande')},
@@ -78,10 +88,14 @@ _SOURCE_BINDINGS = {
         },
     },
     'tooltd/Qwen3.8-27B-IQ4-XS-16GB-VRAM-GGUF': {
+        # What the size column is, from the card (reviewed vocabulary, not a number); none of these cards publishes resident memory.
+        'size_basis': ("GGUF file size (the card's Size (GB) column)", False),
         'unit': 'fraction',
         'metrics': {name: (name, None) for name in ('HumanEval', 'HumanEval+', 'MBPP', 'MBPP+')},
     },
     'ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF': {
+        # What the size column is, from the card (reviewed vocabulary, not a number); none of these cards publishes resident memory.
+        'size_basis': ('full text-model download, including the weight and n-gram shards', True),
         'unit': 'as published',
         'metrics': {
             'AIME25': ('AIME25↑', None),
@@ -250,6 +264,16 @@ def group_benchmarks(sources):
     return list(groups.values())
 
 
+def size_basis_text(sources):
+    """Say what the size axis is. Resident (in-memory) size is plotted only where a card publishes it; none does for these results."""
+    kinds = sorted({x['size_basis'] for x in sources})
+    resident = any(x.get('size_basis_kind') == 'resident' for x in sources)
+    head = 'Size axis: ' + ('; '.join(kinds) if kinds else 'file size as published') + '.'
+    ngram = ' This size includes an n-gram (Engram) table that is not loaded into GPU memory as weights.' if any(x.get('includes_ngram') for x in sources) else ''
+    note = '' if resident else ' It is not resident (in-memory) size: these cards do not publish one for these results.'
+    return html.escape(head + ngram + note)
+
+
 def build_benchmarks(root, cfg):
     root = Path(root)
     manifest = root / 'benchmarks.json'
@@ -294,7 +318,9 @@ def build_benchmarks(root, cfg):
                     metrics.append(dict(name=metric['name'], unit=metric['unit'], points=points,
                                         comparison=classify_group(points, metric='bench:' + metric['name'])))
             if metrics:
+                sb = _SOURCE_BINDINGS.get(repo, {}).get('size_basis')
                 sources.append(dict(repo=repo, label=source['label'], context=source['context'], notes=source.get('notes', []),
+                                    size_basis=sb[0] if sb else 'file size as published', size_basis_kind='disk', includes_ngram=bool(sb and sb[1]),
                                     metrics=metrics, revision=meta['sha'], card_sha256=source['card_sha256']))
         except (KeyError, ValueError, OSError, TypeError) as exc:
             withheld.append(dict(repo=repo, reason=str(exc)))
@@ -351,6 +377,7 @@ def render_benchmarks(payload):
     return '''<section id="benchmarks" class="bm-pilot" aria-labelledby="bm-title">
 <h2 id="bm-title">Benchmark score vs file size</h2>
 <p id="bm-classification" class="dim">''' + classification + '''</p>
+<p id="bm-size-basis" class="dim">''' + size_basis_text(payload['sources']) + '''</p>
 
 <div class="bm-controls" id="bm-controls" hidden>
 <label for="bm-metric">Benchmark<select id="bm-metric"></select></label>

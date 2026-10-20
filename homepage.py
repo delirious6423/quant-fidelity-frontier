@@ -49,6 +49,13 @@ def build_homepage(out, models, base, analytics, support):
         pills = ''.join(f'<span class="pill">{esc(f)}</span>' for f in formats[:4])
         if len(formats) > 4:
             pills += f'<span class="pill">+{len(formats)-4} more</span>'
+        st = data.get('size_types') or {}
+        if st.get('resident'):
+            pills += f'<span class="pill" title="Quants whose card states a resident (in-memory) size">{st["resident"]:,} with resident size</span>'
+        else:
+            pills += '<span class="pill" title="No card states a resident (in-memory) size; sizes are downloads, GPU weights or unstated">no resident sizes</span>'
+        if st.get('ngram'):
+            pills += '<span class="pill" title="Carries an n-gram (Engram) table that files may keep on disk instead of loading fully">n-gram table</span>'
         target = model['slug'] + '/'
         if sets:
             target += '?' + urlencode({'set': sets[0]['id'], 'm': sets[0]['metric']}) + '#chart'
