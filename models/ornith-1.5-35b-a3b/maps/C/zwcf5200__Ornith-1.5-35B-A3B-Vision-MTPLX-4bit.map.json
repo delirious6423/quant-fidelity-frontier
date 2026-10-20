@@ -1,0 +1,34 @@
+{
+ "repo": "zwcf5200/Ornith-1.5-35B-A3B-Vision-MTPLX-4bit",
+ "source_sha256": "6141d879feab299828b57d45b58454806dbab5a3e2721e98504a2382a697cfe4",
+ "candidates_sha256": "24af4e563440dfc8bb4f157aa076ebc6f619ca6abc955fef76a583f9a7139f7e",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "sampled windows: MMLU 100/14042, CMMLU 100/11582, TruthfulQA 100/817, HumanEval 100/164, MBPP 100/500, LiveCodeBench 100/1055", "ctx": "not stated", "tool": "not stated", "L": [168, 171, 172]},
+ "entries": [
+  {"role": "own", "name": "Ornith-1.5-35B-A3B-Vision-MTPLX-4bit", "panel": "Model intelligence benchmarks",
+   "methodology": {"reference": "not stated", "dataset": "sampled windows: MMLU 100/14042, CMMLU 100/11582, TruthfulQA 100/817, HumanEval 100/164, MBPP 100/500, LiveCodeBench 100/1055", "ctx": "not stated", "tool": "not stated", "L": [168, 171, 172]},
+   "metrics": {"bench:MMLU": "c161", "bench:CMMLU": "c163", "bench:TruthfulQA": "c165", "bench:HumanEval": "c167", "bench:MBPP": "c169", "bench:LiveCodeBench": "c171"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Think reasoning enabled throughout [L168-169]", "sampled windows, not full benchmarks [L171-172]", "speed, latency and memory tables omitted: no matching key [L66-127]", "Time(s) column omitted: no matching key [L190-197]", "Ornith-1.0 and Qwen3.8-27B rows omitted: different models [L179-181, L186]"]},
+  {"role": "cross", "name": "Ornith-1.5-35B-A3B-MLX-4bit", "of": "not named on card", "panel": "Model intelligence benchmarks",
+   "methodology": {"reference": "not stated", "dataset": "30-sample run per card note [L221-223]", "ctx": "not stated", "tool": "not stated", "L": [168, 183, 221]},
+   "metrics": {"bench:MMLU": "c138", "bench:CMMLU": "c139", "bench:TruthfulQA": "c140", "bench:HumanEval": "c141", "bench:MBPP": "c142", "bench:LiveCodeBench": "c143"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["row from the cross-model comparison table [L183]"]},
+  {"role": "cross", "name": "Ornith-1.5-35B-A3B-MLX-6bit", "of": "not named on card", "panel": "Model intelligence benchmarks",
+   "methodology": {"reference": "not stated", "dataset": "30-sample run per card note [L221-223]", "ctx": "not stated", "tool": "not stated", "L": [168, 184, 221]},
+   "metrics": {"bench:MMLU": "c144", "bench:CMMLU": "c145", "bench:TruthfulQA": "c146", "bench:MBPP": "c147", "bench:LiveCodeBench": "c148"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["row from the cross-model comparison table [L184]", "HumanEval given as prose [L184]"]},
+  {"role": "cross", "name": "ornith-1.5-35b-a3b-abliterated-attention8-bf16recurrence-vision-mtplx", "of": "not named on card", "panel": "Model intelligence benchmarks",
+   "methodology": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [168, 182]},
+   "metrics": {"bench:MMLU": "c132", "bench:CMMLU": "c133", "bench:TruthfulQA": "c134", "bench:HumanEval": "c135", "bench:MBPP": "c136", "bench:LiveCodeBench": "c137"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["row from the cross-model comparison table [L182]", "sample window for this row not stated [L171-172]"]}
+ ],
+ "prose": [
+  {"entry": "Ornith-1.5-35B-A3B-MLX-6bit", "panel": "Model intelligence benchmarks", "key": "bench:HumanEval", "L": 184, "raw": "87 | 78 | 30.0"}
+ ]
+}

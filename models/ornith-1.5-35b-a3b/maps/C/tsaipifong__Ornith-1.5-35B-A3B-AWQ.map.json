@@ -1,0 +1,62 @@
+{"repo": "tsaipifong/Ornith-1.5-35B-A3B-AWQ",
+ "source_sha256": "f0a83eb08824fce7cc81e3dd0a6d0a9650a2e610f500c4f965b4ef4bb1052fcf",
+ "candidates_sha256": "72f84e8a34e902f841e78203dceb5fdc893c1186821a1b01cf8351aaac5e74c8",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 original", "dataset": "24 held-out chat samples from five sources (not used for calibration)", "ctx": "each ≤2048 tokens", "tool": "transformers", "L": [85, 86, 88, 89]},
+ "entries": [
+  {"role": "own",
+   "name": "AWQ (this repo)",
+   "metrics": {"ppl:assistant-only": "c7", "ppl:full-sequence": "c20", "top1:assistant-only": "c14", "top1:full-sequence": "c17"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Measured with transformers on AMD by dequantizing this checkpoint, not on vLLM, which the card says is untested [L25-28, L83-89]",
+    "The +1.9% delta shares a cell with the PPL value and is not mapped separately [L93]",
+    "Median per-sample NLL change (+0.003) and 17 / 24 sample count have no metric key, not mapped [L94-95]",
+    "Size of 22.0 GB on disk is in the base table, not in the metrics row, not mapped [L38]",
+    "The card calls the 24-sample check a sanity check, not a benchmark [L107]"
+   ]},
+  {"role": "ladder",
+   "name": "RTN baseline",
+   "metrics": {"ppl:assistant-only": "c8", "ppl:full-sequence": "c21", "top1:assistant-only": "c15", "top1:full-sequence": "c18"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Data-free round-to-nearest W4A16 g128 baseline with the same ignore list [L89]",
+    "Median per-sample NLL change (+0.026) has no metric key, not mapped [L94]"
+   ]},
+  {"role": "cross",
+   "name": "BF16 original",
+   "of": "ornith-ai/Ornith-1.5-35B-A3B",
+   "metrics": {"ppl:assistant-only": "c6", "ppl:full-sequence": "c19", "top1:assistant-only": "c13", "top1:full-sequence": "c16"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Reference build; its top-1 agreement is 100% by construction [L96-97]"
+   ]}
+ ],
+ "prose": [
+  {"entry": "BF16 original", "key": "ppl:english-chat", "L": 100, "raw": "3.274"},
+  {"entry": "AWQ (this repo)", "key": "ppl:english-chat", "L": 100, "raw": "3.394"},
+  {"entry": "RTN baseline", "key": "ppl:english-chat", "L": 100, "raw": "3.398"},
+  {"entry": "BF16 original", "key": "ppl:chinese-coding", "L": 100, "raw": "2.745"},
+  {"entry": "AWQ (this repo)", "key": "ppl:chinese-coding", "L": 100, "raw": "2.820"},
+  {"entry": "RTN baseline", "key": "ppl:chinese-coding", "L": 100, "raw": "2.907"},
+  {"entry": "BF16 original", "key": "ppl:chinese-general", "L": 101, "raw": "3.379"},
+  {"entry": "AWQ (this repo)", "key": "ppl:chinese-general", "L": 101, "raw": "3.462"},
+  {"entry": "RTN baseline", "key": "ppl:chinese-general", "L": 101, "raw": "3.610"},
+  {"entry": "BF16 original", "key": "ppl:english-code", "L": 101, "raw": "1.972"},
+  {"entry": "AWQ (this repo)", "key": "ppl:english-code", "L": 101, "raw": "1.964"},
+  {"entry": "RTN baseline", "key": "ppl:english-code", "L": 101, "raw": "2.004"},
+  {"entry": "BF16 original", "key": "ppl:tool-calling", "L": 101, "raw": "2.744"},
+  {"entry": "AWQ (this repo)", "key": "ppl:tool-calling", "L": 101, "raw": "2.454"},
+  {"entry": "RTN baseline", "key": "ppl:tool-calling", "L": 101, "raw": "2.475"}
+ ]}

@@ -1,0 +1,27 @@
+{
+ "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_2L",
+ "source_sha256": "8cb8aa04d16fb7442fee9c3142d56504586199e94bcb069da02ba557bd4ab12b",
+ "candidates_sha256": "135ba46a8894476fa194c4296b1e31f0086e086a2f5d27ce594f2f43c9fde265",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "base bundle at the same quantization (MMLU); uncracked MXFP8 (KL, not mapped)", "dataset": "MMLU 57-subject in logit mode; HarmBench (coherence-gated, copyright-reproduction behaviors excluded); neutral held-out text (KL)", "ctx": "not stated", "tool": "not stated", "L": [62, 63, 64, 65, 74, 84]},
+ "entries": [
+  {"role": "own", "name": "JANG_2L", "panel": "Results",
+   "methodology": {"reference": "not stated", "dataset": "HarmBench, coherence-gated, copyright-reproduction behaviors excluded", "ctx": "not stated", "tool": "not stated", "L": [62, 63, 70, 72]},
+   "metrics": {"bench:HarmBench-compliance": "c1"},
+   "size": "c2", "unit": "GB", "basis": null, "bpw": null,
+   "flags": ["HarmBench compliance is coherence-gated and excludes copyright-reproduction behaviors [L62-63]", "KL vs uncracked MXFP8 omitted: estimator and aggregation not stated [L64-65, L71]", "size stated as ~16 GB, basis not stated [L72]", "MMLU overall reported under the category panel [L69, L82]", "weights modified by refusal removal [L56-57]"]},
+  {"role": "own", "name": "JANG_2L", "panel": "MMLU by category — base vs uncensored",
+   "methodology": {"reference": "base bundle at the same quantization", "dataset": "MMLU 57-subject, logit mode", "ctx": "not stated", "tool": "not stated", "L": [62, 76, 82]},
+   "metrics": {"bench:MMLU-STEM": "c4", "bench:MMLU-Humanities": "c7", "bench:MMLU-Social-Sciences": "c10", "bench:MMLU-Other": "c13", "bench:MMLU-overall": "c16"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["logit-mode MMLU, 57 subjects [L62]", "Δ column omitted: difference, not a level [L78-82]"]},
+  {"role": "ladder", "name": "Base", "panel": "MMLU by category — base vs uncensored",
+   "methodology": {"reference": "not stated", "dataset": "MMLU 57-subject, logit mode", "ctx": "not stated", "tool": "not stated", "L": [62, 76, 82]},
+   "metrics": {"bench:MMLU-STEM": "c3", "bench:MMLU-Humanities": "c6", "bench:MMLU-Social-Sciences": "c9", "bench:MMLU-Other": "c12", "bench:MMLU-overall": "c15"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["base bundle at the same quantization, per card text [L84-85]", "Δ column omitted: difference, not a level [L78-82]"]}
+ ],
+ "prose": []
+}

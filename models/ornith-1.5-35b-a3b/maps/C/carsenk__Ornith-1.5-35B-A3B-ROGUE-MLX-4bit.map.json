@@ -1,0 +1,23 @@
+{"repo": "carsenk/Ornith-1.5-35B-A3B-ROGUE-MLX-4bit",
+ "source_sha256": "ade34830c3c76477ec09e6d2363c7fe6becd3ab2641c89ef9364009e6da61bdc",
+ "candidates_sha256": "0acfd7150641b0aa25d8825c865812fdcc7a2fbfd7aee743bbbc324fe936d2e5",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "Base MLX 4-bit [L63]", "dataset": "ROGUE Pareto v2 deterministic smoke suite, 40 prompts [L61]", "ctx": "not stated", "tool": "MLX backend; phrase-marker refusal classification [L61, L72]", "L": [61, 63, 72]},
+ "entries": [
+  {"role": "own", "name": "This model", "panel": "Evaluation",
+   "methodology": {"reference": "Base MLX 4-bit [L63]", "dataset": "ROGUE Pareto v2 deterministic smoke suite, 40 prompts [L61]", "ctx": "not stated", "tool": "MLX backend; phrase-marker refusal classification [L61, L72]", "L": [61, 63, 72]},
+   "metrics": {"bench:refusal_marker_rate": "c2", "bench:retain_score": "c4"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["weights changed directly by the surgery [L36]", "download size is in the model details, not in this row [L44]", "this model's over-refusal value is not a candidate [L67]"]},
+  {"role": "ladder", "name": "Base MLX 4-bit", "panel": "Evaluation",
+   "methodology": {"reference": "Base MLX 4-bit [L63]", "dataset": "ROGUE Pareto v2 deterministic smoke suite, 40 prompts [L61]", "ctx": "not stated", "tool": "MLX backend; phrase-marker refusal classification [L61, L72]", "L": [61, 63, 72]},
+   "metrics": {"bench:refusal_marker_rate": "c1", "bench:retain_score": "c3", "bench:over_refusal_rate": "c5"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["pre-ROGUE build measured in the same suite [L63]"]}
+ ],
+ "prose": [
+  {"entry": "This model", "panel": "Evaluation", "key": "bench:uncensor_gain", "L": 70, "raw": "Uncensor gain was `0.50`"},
+  {"entry": "This model", "panel": "Evaluation", "key": "bench:retain_delta", "L": 70, "raw": "retain delta was `-0.0417`"}
+ ]}

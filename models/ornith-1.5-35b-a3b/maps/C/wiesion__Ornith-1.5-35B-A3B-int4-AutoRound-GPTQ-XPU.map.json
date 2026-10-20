@@ -1,0 +1,99 @@
+{
+  "repo": "wiesion/Ornith-1.5-35B-A3B-int4-AutoRound-GPTQ-XPU",
+  "source_sha256": "cea8aa3629db9d360528a874bae60cc12e5a2d5ab4bb5080e2a26a5238c24e4a",
+  "candidates_sha256": "51d25f290d6f271ae7d013c1149656225b6cec326c8d03c1a8574a331ce001d0",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "official FP8 checkpoint served on the same stack (2x B70, TP=2)",
+    "dataset": "fixed 108,911-token corpus (wikitext-2, Python source, UltraChat conversations) for KL and perplexity; GSM8K, IFEval and MMLU-Pro for the benchmark rows",
+    "ctx": "not stated",
+    "tool": "intel/llm-scaler-vllm:0.26.0-b2; chat endpoint, thinking off, greedy, 4 concurrent requests",
+    "L": [30, 153, 154, 159]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "int4 (this repo)",
+      "panel": "Quality vs official FP8 (same llm-scaler stack)",
+      "methodology": {
+        "reference": "official FP8 checkpoint served on the same stack (2x B70, TP=2)",
+        "dataset": "fixed 108,911-token corpus (wikitext-2, Python source, UltraChat conversations) for KL and perplexity; GSM8K, IFEval and MMLU-Pro for the benchmark rows",
+        "ctx": "not stated",
+        "tool": "intel/llm-scaler-vllm:0.26.0-b2; chat endpoint, thinking off, greedy, 4 concurrent requests",
+        "L": [110, 112, 114, 121, 123, 153, 154, 155, 159]
+      },
+      "metrics": {
+        "kld:all": "c22",
+        "top1:all": "c23",
+        "ppl:all": "c25",
+        "ppl_ratio": "c26",
+        "kld:prose": "c28",
+        "top1:prose": "c29",
+        "ppl:prose": "c31",
+        "kld:code": "c34",
+        "top1:code": "c35",
+        "ppl:code": "c37",
+        "kld:chat": "c40",
+        "top1:chat": "c41",
+        "ppl:chat": "c43",
+        "bench:GSM8K_5shot_flexible": "c46",
+        "bench:GSM8K_5shot_strict": "c49",
+        "bench:IFEval_prompt_strict": "c52",
+        "bench:IFEval_instruction_strict": "c55",
+        "bench:MMLU-Pro_CoT_5shot": "c58"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L154] KL is over the reference's top-20 next-token distribution (top-k), not full vocabulary; mapped under the corpus form",
+        "[L153] recovery is relative to the official FP8 checkpoint on the same stack; the card says FP8 is not identical to bf16",
+        "[L114-117] ppl_ratio is mapped only for the 'all' row (plain key); the prose, code and chat ratios have no corpus key form and are omitted",
+        "[L119] run-to-run noise floor (KL 0.0008, top-1 99.6 %) is not tied to a file; not mapped",
+        "[L123-127] recovery percentages are derived values with no metric key; not mapped",
+        "[L131-137] RULER table cells have no candidate ids and no column mapping; not mapped",
+        "[L141-150] BFCL table cells have no candidate ids; not mapped",
+        "[L240] needle recall (9/9 at 16k / 32k / 65k) has no per-length candidate ids; not mapped",
+        "[L274] calibration-ablation KL 0.0926 is a build that is not shipped; not mapped",
+        "[L155] GSM8K, IFEval and MMLU-Pro are read by the card as relative (int4 vs FP8), not absolute capability"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "FP8 (TP=2)",
+      "panel": "Quality vs official FP8 (same llm-scaler stack)",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "fixed 108,911-token corpus (wikitext-2, Python source, UltraChat conversations) for perplexity; GSM8K, IFEval and MMLU-Pro for the benchmark rows",
+        "ctx": "not stated",
+        "tool": "intel/llm-scaler-vllm:0.26.0-b2 with TP=2; chat endpoint, thinking off, greedy, 4 concurrent requests",
+        "L": [110, 112, 114, 121, 123, 153, 154, 159]
+      },
+      "of": "not named on card",
+      "metrics": {
+        "ppl:all": "c24",
+        "ppl:prose": "c30",
+        "ppl:code": "c36",
+        "ppl:chat": "c42",
+        "bench:GSM8K_5shot_flexible": "c45",
+        "bench:GSM8K_5shot_strict": "c48",
+        "bench:IFEval_prompt_strict": "c51",
+        "bench:IFEval_instruction_strict": "c54",
+        "bench:MMLU-Pro_CoT_5shot": "c57"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L153] the card names the official FP8 checkpoint only by description; no repo is named",
+        "[L153] FP8 is the reference for the int4 recovery figures",
+        "[L112] the KL and top-1 columns do not apply to the FP8 reference; only its perplexity and benchmark values are mapped"
+      ]
+    }
+  ],
+  "prose": []
+}

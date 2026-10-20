@@ -1,0 +1,27 @@
+{"repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+ "source_sha256": "64786ddc25f21cf1287b7967a12dd9c95b676f3f5ceb7c7080f044b1d9881205",
+ "candidates_sha256": "3c5de6863d574cf681ad3935a9f30ab1817d357719d4d136bcdb74fb4b30a5c3",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "uncracked MXFP8 reference [L64]", "dataset": "MMLU 57-subject; HarmBench behaviors excluding copyright; neutral held-out text for KL", "ctx": "not stated", "tool": "logit-mode MMLU; coherence-gated HarmBench [L62-63]", "L": [62, 63, 64]},
+ "entries": [
+  {"role": "own", "name": "JANG_4M", "panel": "Results",
+   "methodology": {"reference": "uncracked MXFP8 reference [L64]", "dataset": "MMLU 57-subject; HarmBench behaviors excluding copyright; neutral held-out text for KL", "ctx": "not stated", "tool": "logit-mode MMLU; coherence-gated HarmBench [L62-63]", "L": [62, 63, 64, 65]},
+   "metrics": {"bench:HarmBench_compliance": "c1"},
+   "size": "c2", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["refusal removal applied at the weight level [L56]", "size is approximate [L72]"]},
+  {"role": "own", "name": "JANG_4M", "panel": "MMLU by category — base vs uncensored",
+   "methodology": {"reference": "base bundle at the same quantization [L84]", "dataset": "MMLU 57-subject", "ctx": "not stated", "tool": "logit-mode MMLU [L62]", "L": [62, 84]},
+   "metrics": {"bench:MMLU_STEM": "c4", "bench:MMLU_Humanities": "c7", "bench:MMLU_Social_Sciences": "c10", "bench:MMLU_Other": "c13", "bench:MMLU_overall": "c16", "bench:MMLU_delta_STEM": "c5", "bench:MMLU_delta_Humanities": "c8", "bench:MMLU_delta_Social_Sciences": "c11", "bench:MMLU_delta_Other": "c14", "bench:MMLU_delta_overall": "c17"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["uncensored bundle compared with base at the same quantization [L84]"]},
+  {"role": "ladder", "name": "Base", "panel": "MMLU by category — base vs uncensored",
+   "methodology": {"reference": "base bundle at the same quantization [L84]", "dataset": "MMLU 57-subject", "ctx": "not stated", "tool": "logit-mode MMLU [L62]", "L": [62, 84]},
+   "metrics": {"bench:MMLU_STEM": "c3", "bench:MMLU_Humanities": "c6", "bench:MMLU_Social_Sciences": "c9", "bench:MMLU_Other": "c12", "bench:MMLU_overall": "c15"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["base bundle as labelled on card [L76]"]}
+ ],
+ "prose": [
+  {"entry": "JANG_4M", "panel": "Results", "key": "mean_kld", "L": 71, "raw": "0.1504 nats"}
+ ]}

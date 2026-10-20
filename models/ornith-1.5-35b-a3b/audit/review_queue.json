@@ -1,0 +1,1258 @@
+{
+ "quarantined": [
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-agentic-NVFP4-FP8",
+   "kind": "cross",
+   "entry": "ornith-ai NVFP4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "TSalpha/Ornith-1.5-Reap50-12Gcard_mixQuant",
+   "kind": "ladder",
+   "entry": "Q3_K",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-agentic-NVFP4-FP8",
+   "kind": "variants",
+   "entry": "this repo (tool-calling build)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-agentic-NVFP4-FP8",
+   "kind": "cross",
+   "entry": "ornith-ai FP8",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "IsValorum/Ornith-1.5-35B-A3B-APEX-I-MiniPlus-V2.1-GGUF",
+   "kind": "variants",
+   "entry": "APEX-I-MiniPlus V2.1 (IsValorum)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-agentic-NVFP4-FP8",
+   "kind": "ladder",
+   "entry": "our general build",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "IsValorum/Tiel-Coder-35B-A3B-APEX-I-MiniPlus-V2.1-GGUF",
+   "kind": "ladder",
+   "entry": "APEX-I-NanoPlus",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "IsValorum/Tiel-Coder-35B-A3B-APEX-I-MiniPlus-V2.1-GGUF",
+   "kind": "variants",
+   "entry": "APEX-I-MiniPlus V2.1 (IsValorum)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-agentic-NVFP4-FP8",
+   "kind": "cross",
+   "entry": "BF16 reference",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "TSalpha/Ornith-1.5-Reap50-12Gcard_mixQuant",
+   "kind": "ladder",
+   "entry": "24IQ2+16IQ4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "kind": "cross",
+   "entry": "ornith-ai NVFP4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "kind": "variants",
+   "entry": "this repo",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "kind": "cross",
+   "entry": "BF16 reference",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "kind": "cross",
+   "entry": "ornith-ai FP8",
+   "reason": "failed a gate"
+  }
+ ],
+ "disagreements": [
+  {
+   "repo": "0xSero/Ornith-1.5-35B-A3B-EXL3-3.5bpw",
+   "entry": "EXL3 3.5 bpw",
+   "key": "kld:wikitext",
+   "raw": "0.0540"
+  },
+  {
+   "repo": "0xSero/Ornith-1.5-35B-A3B-EXL3-3.5bpw",
+   "entry": "EXL3 3.5 bpw",
+   "key": "top1:wikitext",
+   "raw": "90.5%"
+  },
+  {
+   "repo": "CanadaApollo6/Ornith-1.5-35B-A3B-M3TiS-3090",
+   "entry": "This build (R1s)",
+   "key": "bench:Terminal-Bench-2",
+   "raw": "solved **10.0 of 19** on average"
+  },
+  {
+   "repo": "CanadaApollo6/Ornith-1.5-35B-A3B-M3TiS-3090",
+   "entry": "Ornith's official Q8_0",
+   "key": "bench:Terminal-Bench-2",
+   "raw": "against **10.3** for Ornith's official Q8_0"
+  },
+  {
+   "repo": "Capicua25x/Ornith-1.5-35B-A3B-MXFP4-Quark-RDNA4",
+   "entry": "this quant (conc)",
+   "key": "bench:tau2-telecom-reward",
+   "raw": "0.965 (110/114)"
+  },
+  {
+   "repo": "IsValorum/Ornith-1.5-35B-A3B-APEX-I-MiniPlus-V2.1-GGUF",
+   "entry": "APEX-I-NanoPlus",
+   "key": "ppl:wikitext",
+   "raw": "8.0913 \u00b1 0.22535"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "EXL3 4.00 bpw (main)",
+   "key": "bench:Needle",
+   "raw": "8"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "EXL3 4.00 bpw (main)",
+   "key": "bench:Reasoning_xhigh",
+   "raw": "48"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "EXL3 4.50 bpw (4.50bpw)",
+   "key": "bench:Needle",
+   "raw": "8"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "EXL3 4.50 bpw (4.50bpw)",
+   "key": "bench:Reasoning_xhigh",
+   "raw": "48"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "EXL3 5.00 bpw (5.00bpw)",
+   "key": "bench:Needle",
+   "raw": "8"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "EXL3 5.00 bpw (5.00bpw)",
+   "key": "bench:Reasoning_xhigh",
+   "raw": "48"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "main",
+   "key": "bench:Needle",
+   "raw": "8"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "main",
+   "key": "bench:Tools_A",
+   "raw": "30"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "main",
+   "key": "bench:Tools_B",
+   "raw": "30"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "main",
+   "key": "bench:Tools_C",
+   "raw": "30"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "main",
+   "key": "bench:Agent_tasks_4x2",
+   "raw": "6/8"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "main",
+   "key": "bench:Reasoning_xhigh",
+   "raw": "47/48"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "4.50bpw",
+   "key": "bench:Needle",
+   "raw": "8"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "4.50bpw",
+   "key": "bench:Tools_A",
+   "raw": "30"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "4.50bpw",
+   "key": "bench:Tools_B",
+   "raw": "30"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "4.50bpw",
+   "key": "bench:Tools_C",
+   "raw": "29"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "4.50bpw",
+   "key": "bench:Reasoning_xhigh",
+   "raw": "45/48"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "5.00bpw",
+   "key": "bench:Needle",
+   "raw": "8"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "5.00bpw",
+   "key": "bench:Tools_A",
+   "raw": "30"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "5.00bpw",
+   "key": "bench:Tools_B",
+   "raw": "30"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "5.00bpw",
+   "key": "bench:Tools_C",
+   "raw": "30"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "5.00bpw",
+   "key": "bench:Reasoning_xhigh",
+   "raw": "48/48"
+  },
+  {
+   "repo": "LookUpMark/Ornith-1.5-35B-A3B-oQ4e-mtp",
+   "entry": "oQ4e (4-bit)",
+   "key": "bench:NeedleRecall",
+   "raw": "4/4"
+  },
+  {
+   "repo": "LookUpMark/Ornith-1.5-35B-A3B-oQ4e-mtp",
+   "entry": "oQ4e (4-bit)",
+   "key": "bench:AgenticChecks",
+   "raw": "6/6"
+  },
+  {
+   "repo": "LookUpMark/Ornith-1.5-35B-A3B-oQ6e-mtp",
+   "entry": "oQ6e",
+   "key": "bench:Needle",
+   "raw": "4/4"
+  },
+  {
+   "repo": "LookUpMark/Ornith-1.5-35B-A3B-oQ6e-mtp",
+   "entry": "oQ4e",
+   "key": "bench:Needle",
+   "raw": "4/4"
+  },
+  {
+   "repo": "LookUpMark/Ornith-1.5-35B-A3B-oQ6e-mtp",
+   "entry": "oQ8e",
+   "key": "bench:Needle",
+   "raw": "4/4"
+  },
+  {
+   "repo": "LookUpMark/Ornith-1.5-35B-A3B-oQ8e-mtp",
+   "entry": "oQ8e (8-bit)",
+   "key": "bench:NeedleRecall",
+   "raw": "4/4"
+  },
+  {
+   "repo": "LookUpMark/Ornith-1.5-35B-A3B-oQ8e-mtp",
+   "entry": "oQ8e (8-bit)",
+   "key": "bench:AgenticChecks",
+   "raw": "6/6"
+  },
+  {
+   "repo": "Ninnix96/Ornith-1.5-35B-A3B-gguf",
+   "entry": "Ornith-1.5-35B-A3B-Q2-IQ2_XXS-Q2_K.gguf",
+   "key": "bench:HardSmoke",
+   "raw": "9/12 PASS"
+  },
+  {
+   "repo": "Shiftedx/ornith-1.5-35b-a3b-attention8-bf16recurrence-vision-mtplx",
+   "entry": "MLX Vision + Native MTP",
+   "key": "bench:ExecutablePythonTasks",
+   "raw": "8"
+  },
+  {
+   "repo": "TSalpha/Ornith-1.5-Reap50-12Gcard_mixQuant",
+   "entry": "f16",
+   "key": "ppl",
+   "raw": "2.3849"
+  },
+  {
+   "repo": "arcitech-psp/Tiel-Coder-35B-A3B-W4A16-GPTQ-XPU-MTP",
+   "entry": "Tiel-Coder XPU fixed-K3 + draft INT4",
+   "key": "bench:InternalEval224",
+   "raw": "**217.7**"
+  },
+  {
+   "repo": "arcitech-psp/Tiel-Coder-35B-A3B-W4A16-GPTQ-XPU-MTP",
+   "entry": "Tiel-Coder XPU fixed-K3 + draft INT4",
+   "key": "bench:InternalEvalCode",
+   "raw": "**180.3**"
+  },
+  {
+   "repo": "arcitech-psp/Tiel-Coder-35B-A3B-W4A16-GPTQ-XPU-MTP",
+   "entry": "Tiel-Coder XPU fixed-K3 + draft INT4",
+   "key": "bench:InternalEvalTool",
+   "raw": "**17.7**"
+  },
+  {
+   "repo": "arcitech-psp/Tiel-Coder-35B-A3B-W4A16-GPTQ-XPU-MTP",
+   "entry": "Tiel-Coder XPU fixed-K3 + draft INT4",
+   "key": "bench:InternalEvalEdit",
+   "raw": "**19.7**"
+  },
+  {
+   "repo": "arcitech-psp/Tiel-Coder-35B-A3B-W4A16-GPTQ-XPU-MTP",
+   "entry": "Tiel-Coder XPU fixed-K3 + draft INT4",
+   "key": "bench:InternalEval224",
+   "raw": "**217.7 mean**"
+  },
+  {
+   "repo": "arcitech-psp/Tiel-Coder-35B-A3B-W4A16-GPTQ-XPU-MTP",
+   "entry": "Same-night published-build baseline",
+   "key": "bench:InternalEval224",
+   "raw": "217.2"
+  },
+  {
+   "repo": "arcitech-psp/Tiel-Coder-35B-A3B-W4A16-GPTQ-XPU-MTP",
+   "entry": "Same-night published-build baseline",
+   "key": "bench:InternalEvalCode",
+   "raw": "180.2"
+  },
+  {
+   "repo": "arcitech-psp/Tiel-Coder-35B-A3B-W4A16-GPTQ-XPU-MTP",
+   "entry": "Same-night published-build baseline",
+   "key": "bench:InternalEvalTool",
+   "raw": "17.1"
+  },
+  {
+   "repo": "arcitech-psp/Tiel-Coder-35B-A3B-W4A16-GPTQ-XPU-MTP",
+   "entry": "Same-night published-build baseline",
+   "key": "bench:InternalEvalEdit",
+   "raw": "19.9"
+  },
+  {
+   "repo": "carsenk/Ornith-1.5-35B-A3B-ROGUE-MLX-4bit",
+   "entry": "Base MLX 4-bit",
+   "key": "bench:refusal_marker_rate",
+   "raw": "50.0%"
+  },
+  {
+   "repo": "carsenk/Ornith-1.5-35B-A3B-ROGUE-MLX-4bit",
+   "entry": "Base MLX 4-bit",
+   "key": "bench:retain_score",
+   "raw": "95.8%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-GGUF",
+   "entry": "base Q8_0",
+   "key": "bench:MMLU",
+   "raw": "79.0%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-GGUF",
+   "entry": "base Q6_K",
+   "key": "bench:MMLU",
+   "raw": "78.6%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-GGUF",
+   "entry": "base Q5_K_M",
+   "key": "bench:MMLU",
+   "raw": "80.7%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-GGUF",
+   "entry": "base Q4_K_M",
+   "key": "bench:MMLU",
+   "raw": "80.0%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-GGUF",
+   "entry": "base Q3_K_M",
+   "key": "bench:MMLU",
+   "raw": "76.0%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-GGUF",
+   "entry": "base Q2_K",
+   "key": "bench:MMLU",
+   "raw": "77.9%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_2L",
+   "entry": "JANG_2L",
+   "key": "mean_kld",
+   "raw": "0.2222"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "JANG_4M",
+   "key": "bench:MMLU",
+   "raw": "78.4% (base 81.1%, -2.72)"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "JANG_4M",
+   "key": "bench:MMLU",
+   "raw": "78.4%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "Base",
+   "key": "bench:MMLU",
+   "raw": "81.1%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_6M",
+   "entry": "JANG_6M",
+   "key": "mean_kld",
+   "raw": "0.1377"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_6M",
+   "entry": "base (uncracked MXFP8)",
+   "key": "bench:MMLU_overall",
+   "raw": "81.8%"
+  },
+  {
+   "repo": "dotnfc/Tiel-Coder-35B-A3B-GGUF-MTP",
+   "entry": "Tiel-Coder-35B-A3B-MTP-UD-Q4_K_XL.gguf",
+   "key": "bench:SWE-bench-Live",
+   "raw": "Tiel fixes 12"
+  },
+  {
+   "repo": "dotnfc/Tiel-Coder-35B-A3B-GGUF-MTP",
+   "entry": "Tiel-Coder-35B-A3B-MTP-UD-Q4_K_XL.gguf",
+   "key": "bench:Claw-Eval",
+   "raw": "Tiel scores 67.2"
+  },
+  {
+   "repo": "dotnfc/Tiel-Coder-35B-A3B-GGUF-MTP",
+   "entry": "Tiel-Coder-35B-A3B-MTP-UD-Q4_K_XL.gguf",
+   "key": "bench:MMLU-Pro",
+   "raw": "73.7 on MMLU-Pro"
+  },
+  {
+   "repo": "ezoushen/ornith-1.5-35b-a3b-splash",
+   "entry": "This package",
+   "key": "bench:GSM8K",
+   "raw": "30"
+  },
+  {
+   "repo": "ezoushen/ornith-1.5-35b-a3b-splash",
+   "entry": "This package",
+   "key": "bench:JevBench",
+   "raw": "83.1%"
+  },
+  {
+   "repo": "ezoushen/ornith-1.5-35b-a3b-splash",
+   "entry": "MLX production lane",
+   "key": "bench:GSM8K",
+   "raw": "28"
+  },
+  {
+   "repo": "jcbtc/Ornith1.5-Ciru-Halo-Agent-vllm-strix-halo",
+   "entry": "HF",
+   "key": "kld:32k_panel",
+   "raw": "0.222280"
+  },
+  {
+   "repo": "jcbtc/Ornith1.5-Ciru-Halo-Agent-vllm-strix-halo",
+   "entry": "HF",
+   "key": "kld:64k_panel",
+   "raw": "0.116232"
+  },
+  {
+   "repo": "npario/Tiel-Coder-35B-A3B-GGUF",
+   "entry": "Tiel-Coder-35B-A3B-UD-Q4_K_XL.gguf",
+   "key": "bench:SWE-bench-Live",
+   "raw": "Tiel fixes 12"
+  },
+  {
+   "repo": "npario/Tiel-Coder-35B-A3B-GGUF",
+   "entry": "Tiel-Coder-35B-A3B-UD-Q4_K_XL.gguf",
+   "key": "bench:Claw-Eval",
+   "raw": "Tiel scores 67.2"
+  },
+  {
+   "repo": "npario/Tiel-Coder-35B-A3B-GGUF",
+   "entry": "Tiel-Coder-35B-A3B-UD-Q4_K_XL.gguf",
+   "key": "bench:MMLU-Pro",
+   "raw": "73.7 on MMLU-Pro"
+  },
+  {
+   "repo": "pottokao/Ornith-1.5-35B-A3B-abliterated-NVFP4-DFlash",
+   "entry": "Ornith-1.5-35B-A3B-abliterated-NVFP4 (1st pass, temp 0.6)",
+   "key": "bench:AIME2026",
+   "raw": "27"
+  },
+  {
+   "repo": "pottokao/Ornith-1.5-35B-A3B-abliterated-NVFP4-DFlash",
+   "entry": "Ornith-1.5-35B-A3B-abliterated-NVFP4 (after retries, temp 0.6 \u2192 0.9)",
+   "key": "bench:AIME2026",
+   "raw": "29"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "entry": "this repo",
+   "key": "bench:pooled",
+   "raw": "88.7"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "entry": "BF16 reference",
+   "key": "bench:pooled",
+   "raw": "89.5"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "entry": "ornith-ai FP8",
+   "key": "bench:pooled",
+   "raw": "88.8"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "entry": "ornith-ai NVFP4",
+   "key": "bench:pooled",
+   "raw": "88.3"
+  },
+  {
+   "repo": "protoLabsAI/Ornith-1.5-35B-A3B-NVFP4",
+   "entry": "upstream ModelOpt build",
+   "key": "bench:livecodebench",
+   "raw": "scored **0.192**"
+  },
+  {
+   "repo": "r0b0tlab/Ornith-1.5-35B-A3B-NVFP4-W4A16",
+   "entry": "This model + MTP",
+   "key": "bench:GSM8K",
+   "raw": "78.75% (63/80)"
+  },
+  {
+   "repo": "r0b0tlab/Ornith-1.5-35B-A3B-NVFP4-W4A16",
+   "entry": "This model + MTP",
+   "key": "bench:HumanEval",
+   "raw": "95.00% (38/40)"
+  },
+  {
+   "repo": "rdtand/Ornith-1.5-35B-A3B-PrismaQuant-AQUA-25GB-vllm",
+   "entry": "BF16 source",
+   "key": "ppl:wikitext-2",
+   "raw": "11.4181"
+  },
+  {
+   "repo": "sigmanih/ornith-ai-Ornith-1.5-35B-A3B-GGUF-Q8_0",
+   "entry": "ornith-ai-Ornith-1.5-35B-A3B-GGUF-Q8_0",
+   "key": "bench:No_thinking_mode",
+   "raw": "70.2%"
+  },
+  {
+   "repo": "sigmanih/ornith-ai-Ornith-1.5-35B-A3B-GGUF-Q8_0",
+   "entry": "ornith-ai-Ornith-1.5-35B-A3B-GGUF-Q8_0",
+   "key": "bench:Deep_thinking_mode",
+   "raw": "69.8%"
+  },
+  {
+   "repo": "singulared/Ornith-1.5-35B-ROCmFPX-GGUF",
+   "entry": "Ornith-1.5-35B-HYBRID-fp6.gguf",
+   "key": "ppl_delta_pct",
+   "raw": "4.8%"
+  },
+  {
+   "repo": "sleepyeldrazi/Ornith-1.5-REAP-20B-A3B-GGUF",
+   "entry": "q5k_ud",
+   "key": "ppl",
+   "raw": "4.2730"
+  },
+  {
+   "repo": "sleepyeldrazi/Ornith-1.5-REAP-20B-A3B-GGUF",
+   "entry": "REAP-20B, recovered (F16)",
+   "key": "ppl",
+   "raw": "4.3411"
+  },
+  {
+   "repo": "sleepyeldrazi/Ornith-1.5-REAP-20B-A3B-GGUF",
+   "entry": "REAP-20B, pre-recovery (F16)",
+   "key": "ppl",
+   "raw": "4.3411"
+  },
+  {
+   "repo": "tnculp/Ornith-1.5-35B-A3B-hone",
+   "entry": "groupwise-int-compact",
+   "key": "ppl_delta_pct",
+   "raw": "costs about 2.5 % perplexity"
+  },
+  {
+   "repo": "tnculp/Ornith-1.5-35B-A3B-hone",
+   "entry": "groupwise-int-compact",
+   "key": "ppl_delta_pct:code",
+   "raw": "+0.5 % on code"
+  },
+  {
+   "repo": "tsaipifong/Ornith-1.5-35B-A3B-AWQ",
+   "entry": "AWQ (this repo)",
+   "key": "ppl:ultrachat",
+   "raw": "English chat (UltraChat) 3.274 \u2192 3.394 / 3.398"
+  },
+  {
+   "repo": "tsaipifong/Ornith-1.5-35B-A3B-AWQ",
+   "entry": "AWQ (this repo)",
+   "key": "ppl:chinese_coding",
+   "raw": "Chinese coding 2.745 \u2192 **2.820** / 2.907"
+  },
+  {
+   "repo": "tsaipifong/Ornith-1.5-35B-A3B-MXFP4-GGUF",
+   "entry": "first release",
+   "key": "mean_kld",
+   "raw": "0.1618 \u00b1 0.0023"
+  },
+  {
+   "repo": "tsaipifong/Ornith-1.5-35B-A3B-MXFP4-GGUF",
+   "entry": "first release",
+   "key": "kld_99",
+   "raw": "1.449"
+  },
+  {
+   "repo": "tsaipifong/Ornith-1.5-35B-A3B-MXFP4-GGUF",
+   "entry": "first release",
+   "key": "top1_pct",
+   "raw": "84.61%"
+  },
+  {
+   "repo": "tsaipifong/Ornith-1.5-35B-A3B-MXFP4-GGUF",
+   "entry": "first release",
+   "key": "ppl",
+   "raw": "6.6594"
+  },
+  {
+   "repo": "tsaipifong/Ornith-1.5-35B-A3B-MXFP4-GGUF",
+   "entry": "first release",
+   "key": "ppl_ratio",
+   "raw": "1.0657 \u00b1 0.0053"
+  },
+  {
+   "repo": "zwcf5200/Ornith-1.5-35B-A3B-Vision-MTPLX-4bit",
+   "entry": "ornith-1.5-35b-a3b-abliterated-attention8-bf16recurrence-vision-mtplx",
+   "key": "bench:MMLU",
+   "raw": "47"
+  },
+  {
+   "repo": "zwcf5200/Ornith-1.5-35B-A3B-Vision-MTPLX-4bit",
+   "entry": "ornith-1.5-35b-a3b-abliterated-attention8-bf16recurrence-vision-mtplx",
+   "key": "bench:TruthfulQA",
+   "raw": "69"
+  },
+  {
+   "repo": "zwcf5200/Ornith-1.5-35B-A3B-Vision-MTPLX-4bit",
+   "entry": "ornith-1.5-35b-a3b-abliterated-attention8-bf16recurrence-vision-mtplx",
+   "key": "bench:MBPP",
+   "raw": "67"
+  },
+  {
+   "repo": "zwcf5200/Ornith-1.5-35B-A3B-Vision-MTPLX-4bit",
+   "entry": "ornith-1.5-35b-a3b-abliterated-attention8-bf16recurrence-vision-mtplx",
+   "key": "bench:LiveCodeBench",
+   "raw": "16.7"
+  },
+  {
+   "repo": "rdtand/Ornith-1.5-35B-A3B-PrismaQuant-AQUA-25GB-vllm",
+   "entry": "PrismaQuant allocation",
+   "key": "kld:held_out_calibration",
+   "raw": "0.0721"
+  },
+  {
+   "repo": "rdtand/Ornith-1.5-35B-A3B-PrismaQuant-AQUA-25GB-vllm",
+   "entry": "PrismaQuant allocation (shipped)",
+   "key": "kld:held_out_calibration",
+   "raw": "0.0554"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "entry": "BF16 reference",
+   "key": "bench:call",
+   "raw": "78.6"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "entry": "BF16 reference",
+   "key": "bench:abstain",
+   "raw": "61.3"
+  },
+  {
+   "repo": "IsValorum/Ornith-1.5-35B-A3B-APEX-I-NanoPlus-GGUF",
+   "entry": "APEX-I-MiniPlus V2.1",
+   "key": "ppl:wikitext",
+   "raw": "7.6370"
+  },
+  {
+   "repo": "IsValorum/Ornith-1.5-35B-A3B-APEX-I-NanoPlus-GGUF",
+   "entry": "APEX-I-MiniPlus V2.1",
+   "key": "ppl_delta_pct",
+   "raw": "+0.75%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "JANG_4M",
+   "key": "kld:neutral_held_out",
+   "raw": "0.1504 nats"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "JANG_4M",
+   "key": "bench:MMLU-STEM",
+   "raw": "74.2%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "JANG_4M",
+   "key": "bench:MMLU-Humanities",
+   "raw": "80.8%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "JANG_4M",
+   "key": "bench:MMLU-Social-Sciences",
+   "raw": "85.8%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "JANG_4M",
+   "key": "bench:MMLU-Other",
+   "raw": "75.4%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "JANG_4M",
+   "key": "bench:MMLU-STEM",
+   "raw": "74.2%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "JANG_4M",
+   "key": "bench:MMLU-Humanities",
+   "raw": "80.8%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "JANG_4M",
+   "key": "bench:MMLU-Social-Sciences",
+   "raw": "85.8%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "JANG_4M",
+   "key": "bench:MMLU-Other",
+   "raw": "75.4%"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "entry": "ornith-ai NVFP4",
+   "key": "bench:call",
+   "raw": "76.1"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "entry": "ornith-ai NVFP4",
+   "key": "bench:abstain",
+   "raw": "61.3"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "entry": "ornith-ai FP8",
+   "key": "bench:call",
+   "raw": "79.1"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "entry": "ornith-ai FP8",
+   "key": "bench:abstain",
+   "raw": "58.1"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "entry": "this repo",
+   "key": "bench:call",
+   "raw": "74.4"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "entry": "this repo",
+   "key": "bench:abstain",
+   "raw": "60.0"
+  },
+  {
+   "repo": "IsValorum/Tiel-Coder-35B-A3B-APEX-I-NanoPlus-GGUF",
+   "entry": "APEX-I-MiniPlus V2.1",
+   "key": "ppl:wikitext",
+   "raw": "7.5117"
+  },
+  {
+   "repo": "IsValorum/Tiel-Coder-35B-A3B-APEX-I-NanoPlus-GGUF",
+   "entry": "APEX-I-MiniPlus V2.1",
+   "key": "ppl_delta_pct",
+   "raw": "+0.69%"
+  },
+  {
+   "repo": "IsValorum/Tiel-Coder-35B-A3B-APEX-I-NanoPlus-GGUF",
+   "entry": "APEX-I-MiniPlus V2.1",
+   "key": "ppl",
+   "raw": "6.2432"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_2L",
+   "entry": "JANG_2L",
+   "key": "bench:MMLU_STEM",
+   "raw": "72.1%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_2L",
+   "entry": "JANG_2L",
+   "key": "bench:MMLU_Humanities",
+   "raw": "78.1%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_2L",
+   "entry": "JANG_2L",
+   "key": "bench:MMLU_Social_Sciences",
+   "raw": "87.9%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_2L",
+   "entry": "JANG_2L",
+   "key": "bench:MMLU_Other",
+   "raw": "79.6%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_2L",
+   "entry": "JANG_2L",
+   "key": "bench:MMLU_STEM",
+   "raw": "72.1%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_2L",
+   "entry": "JANG_2L",
+   "key": "bench:MMLU_Humanities",
+   "raw": "78.1%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_2L",
+   "entry": "JANG_2L",
+   "key": "bench:MMLU_Social_Sciences",
+   "raw": "87.9%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_2L",
+   "entry": "JANG_2L",
+   "key": "bench:MMLU_Other",
+   "raw": "79.6%"
+  }
+ ],
+ "resolved_disagreements": [],
+ "resolved_repos": 0,
+ "tiebroken": [
+  {
+   "repo": "IsValorum/Ornith-1.5-35B-A3B-APEX-I-NanoPlus-GGUF",
+   "entry": "APEX-I-NanoPlus (CURRENT)",
+   "key": "ppl:wikitext",
+   "raw": "8.0913"
+  },
+  {
+   "repo": "IsValorum/Ornith-1.5-35B-A3B-APEX-I-NanoPlus-GGUF",
+   "entry": "APEX-I-NanoPlus (CURRENT)",
+   "key": "ppl_delta_pct",
+   "raw": "+6.75%"
+  },
+  {
+   "repo": "IsValorum/Tiel-Coder-35B-A3B-APEX-I-NanoPlus-GGUF",
+   "entry": "APEX-I-NanoPlus (CURRENT)",
+   "key": "ppl:wikitext",
+   "raw": "8.2842"
+  },
+  {
+   "repo": "IsValorum/Tiel-Coder-35B-A3B-APEX-I-NanoPlus-GGUF",
+   "entry": "APEX-I-NanoPlus (CURRENT)",
+   "key": "ppl_delta_pct",
+   "raw": "+11.05%"
+  },
+  {
+   "repo": "IsValorum/Tiel-Coder-35B-A3B-APEX-I-NanoPlus-GGUF",
+   "entry": "APEX-I-NanoPlus (IsValorum)",
+   "key": "ppl",
+   "raw": "6.4015"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "EXL3 4.00 bpw (main)",
+   "key": "bench:Tools_opencode",
+   "raw": "60"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "EXL3 4.00 bpw (main)",
+   "key": "bench:Agent_tasks",
+   "raw": "24"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "EXL3 4.00 bpw (main)",
+   "key": "bench:Vision",
+   "raw": "14"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "EXL3 4.50 bpw (4.50bpw)",
+   "key": "bench:Tools_opencode",
+   "raw": "60"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "EXL3 4.50 bpw (4.50bpw)",
+   "key": "bench:Agent_tasks",
+   "raw": "25"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "EXL3 4.50 bpw (4.50bpw)",
+   "key": "bench:Vision",
+   "raw": "15"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "EXL3 5.00 bpw (5.00bpw)",
+   "key": "bench:Tools_opencode",
+   "raw": "59"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "EXL3 5.00 bpw (5.00bpw)",
+   "key": "bench:Agent_tasks",
+   "raw": "24"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "main",
+   "key": "kld:internal",
+   "raw": "0.0163"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "main",
+   "key": "kld:public",
+   "raw": "0.0168"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "main",
+   "key": "bench:Vision",
+   "raw": "15"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "4.50bpw",
+   "key": "kld:internal",
+   "raw": "0.0126"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "4.50bpw",
+   "key": "kld:public",
+   "raw": "0.0128"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "4.50bpw",
+   "key": "bench:Vision",
+   "raw": "15"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "5.00bpw",
+   "key": "kld:internal",
+   "raw": "0.0095"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "5.00bpw",
+   "key": "kld:public",
+   "raw": "0.0095"
+  },
+  {
+   "repo": "JRamirez-UAB/Ornith-1.5-35B-A3B-EXL3-4.00bpw-24GB",
+   "entry": "5.00bpw",
+   "key": "bench:Vision",
+   "raw": "14"
+  },
+  {
+   "repo": "Ninnix96/Ornith-1.5-35B-A3B-gguf",
+   "entry": "Ornith-1.5-35B-A3B-Q2-IQ2_XXS-Q2_K.gguf",
+   "key": "mean_kld",
+   "raw": "avg 0.238"
+  },
+  {
+   "repo": "PocketAiHub/Ornith-1.5-35B-A3B-Abliterated-MLX-8bit",
+   "entry": "8-bit recommended path (vs regular BF16)",
+   "key": "mean_kld",
+   "raw": "`0.549199`"
+  },
+  {
+   "repo": "PocketAiHub/Ornith-1.5-35B-A3B-Abliterated-MLX-8bit",
+   "entry": "8-bit recommended path (vs regular BF16)",
+   "key": "top1_pct",
+   "raw": "`77.55%`"
+  },
+  {
+   "repo": "Shiftedx/ornith-1.5-35b-a3b-affine4-router8-bf16recurrence-vision-mtplx",
+   "entry": "ornith-1.5-35b-a3b-affine4-router8-bf16recurrence-vision-mtplx",
+   "key": "bench:Quality",
+   "raw": "60.0%"
+  },
+  {
+   "repo": "Shiftedx/ornith-1.5-35b-a3b-affine4-router8-bf16recurrence-vision-mtplx",
+   "entry": "ornith-1.5-35b-a3b-affine4-router8-bf16recurrence-vision-mtplx",
+   "key": "bench:Long_context",
+   "raw": "73.3%"
+  },
+  {
+   "repo": "Shiftedx/ornith-1.5-35b-a3b-affine4-router8-bf16recurrence-vision-mtplx",
+   "entry": "ornith-1.5-35b-a3b-affine4-router8-bf16recurrence-vision-mtplx",
+   "key": "bench:Tool_calling",
+   "raw": "100.0%"
+  },
+  {
+   "repo": "Shiftedx/ornith-1.5-35b-a3b-affine4-router8-bf16recurrence-vision-mtplx",
+   "entry": "ornith-1.5-35b-a3b-affine4-router8-bf16recurrence-vision-mtplx",
+   "key": "bench:Agentic",
+   "raw": "50.0%"
+  },
+  {
+   "repo": "Shiftedx/ornith-1.5-35b-a3b-affine4-router8-bf16recurrence-vision-mtplx",
+   "entry": "ornith-1.5-35b-a3b-affine4-router8-bf16recurrence-vision-mtplx",
+   "key": "bench:Vision",
+   "raw": "50.0%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-GGUF",
+   "entry": "Ornith-1.5-35B-A3B-CRACK-Q8_0.gguf",
+   "key": "bench:MMLU",
+   "raw": "80.7%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-GGUF",
+   "entry": "Ornith-1.5-35B-A3B-CRACK-Q6_K.gguf",
+   "key": "bench:MMLU",
+   "raw": "79.0%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-GGUF",
+   "entry": "Ornith-1.5-35B-A3B-CRACK-Q5_K_M.gguf",
+   "key": "bench:MMLU",
+   "raw": "80.1%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-GGUF",
+   "entry": "Ornith-1.5-35B-A3B-CRACK-Q4_K_M.gguf",
+   "key": "bench:MMLU",
+   "raw": "77.8%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-GGUF",
+   "entry": "Ornith-1.5-35B-A3B-CRACK-Q3_K_M.gguf",
+   "key": "bench:MMLU",
+   "raw": "78.4%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-GGUF",
+   "entry": "Ornith-1.5-35B-A3B-CRACK-Q2_K.gguf",
+   "key": "bench:MMLU",
+   "raw": "69.8%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "Base",
+   "key": "bench:MMLU-STEM",
+   "raw": "75.3%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "Base",
+   "key": "bench:MMLU-Humanities",
+   "raw": "83.1%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "Base",
+   "key": "bench:MMLU-Social-Sciences",
+   "raw": "88.8%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "Base",
+   "key": "bench:MMLU-Other",
+   "raw": "80.8%"
+  },
+  {
+   "repo": "jcbtc/Ornith1.5-Ciru-Halo-Agent-vllm-strix-halo",
+   "entry": "HF",
+   "key": "top1:32k_panel",
+   "raw": "80.9570"
+  },
+  {
+   "repo": "jcbtc/Ornith1.5-Ciru-Halo-Agent-vllm-strix-halo",
+   "entry": "HF",
+   "key": "top1:64k_panel",
+   "raw": "88.2813"
+  },
+  {
+   "repo": "pottokao/Ornith-1.5-35B-A3B-abliterated-NVFP4-DFlash",
+   "entry": "Ornith-1.5-35B-A3B-abliterated-NVFP4 (1st pass, temp 0.6)",
+   "key": "bench:AIME2026-I",
+   "raw": "14"
+  },
+  {
+   "repo": "pottokao/Ornith-1.5-35B-A3B-abliterated-NVFP4-DFlash",
+   "entry": "Ornith-1.5-35B-A3B-abliterated-NVFP4 (1st pass, temp 0.6)",
+   "key": "bench:AIME2026-II",
+   "raw": "13"
+  },
+  {
+   "repo": "pottokao/Ornith-1.5-35B-A3B-abliterated-NVFP4-DFlash",
+   "entry": "Ornith-1.5-35B-A3B-abliterated-NVFP4 (after retries, temp 0.6 \u2192 0.9)",
+   "key": "bench:AIME2026-I",
+   "raw": "14"
+  },
+  {
+   "repo": "pottokao/Ornith-1.5-35B-A3B-abliterated-NVFP4-DFlash",
+   "entry": "Ornith-1.5-35B-A3B-abliterated-NVFP4 (after retries, temp 0.6 \u2192 0.9)",
+   "key": "bench:AIME2026-II",
+   "raw": "15"
+  },
+  {
+   "repo": "sigmanih/ornith-ai-Ornith-1.5-35B-A3B-GGUF-Q8_0",
+   "entry": "ornith-ai-Ornith-1.5-35B-A3B-GGUF-Q8_0",
+   "key": "bench:Overall",
+   "raw": "70.0%"
+  },
+  {
+   "repo": "singulared/Ornith-1.5-35B-ROCmFPX-GGUF",
+   "entry": "Ornith-1.5-35B-ROCMFP4-FAST.gguf",
+   "key": "ppl:wikitext",
+   "raw": "7.7749 \u00b10.0539"
+  },
+  {
+   "repo": "vonvonhero/Ornith-1.5-35B-A3B-Uncensored-GGUF",
+   "entry": "Ornith-1.5-35B-A3B-Uncensored-Q8_0.gguf",
+   "key": "bench:JailbreakBench-ASR",
+   "raw": "93/100 (93.0%)"
+  },
+  {
+   "repo": "vonvonhero/Ornith-1.5-35B-A3B-Uncensored-GGUF",
+   "entry": "Ornith-1.5-35B-A3B-Uncensored-Q8_0.gguf",
+   "key": "bench:HarmBench-ASR",
+   "raw": "154/159 (96.9%)"
+  },
+  {
+   "repo": "vonvonhero/Ornith-1.5-35B-A3B-Uncensored-GGUF",
+   "entry": "Ornith-1.5-35B-A3B-Uncensored-Q6_K.gguf",
+   "key": "bench:JailbreakBench-ASR",
+   "raw": "93/100 (93.0%)"
+  },
+  {
+   "repo": "vonvonhero/Ornith-1.5-35B-A3B-Uncensored-GGUF",
+   "entry": "Ornith-1.5-35B-A3B-Uncensored-Q6_K.gguf",
+   "key": "bench:HarmBench-ASR",
+   "raw": "153/159 (96.2%)"
+  },
+  {
+   "repo": "vonvonhero/Ornith-1.5-35B-A3B-Uncensored-GGUF",
+   "entry": "Ornith-1.5-35B-A3B-Uncensored-Q5_K_M.gguf",
+   "key": "bench:JailbreakBench-ASR",
+   "raw": "92/100 (92.0%)"
+  },
+  {
+   "repo": "vonvonhero/Ornith-1.5-35B-A3B-Uncensored-GGUF",
+   "entry": "Ornith-1.5-35B-A3B-Uncensored-Q5_K_M.gguf",
+   "key": "bench:HarmBench-ASR",
+   "raw": "154/159 (96.9%)"
+  },
+  {
+   "repo": "vonvonhero/Ornith-1.5-35B-A3B-Uncensored-GGUF",
+   "entry": "Ornith-1.5-35B-A3B-Uncensored-Q4_K_M.gguf",
+   "key": "bench:JailbreakBench-ASR",
+   "raw": "96/100 (96.0%)"
+  },
+  {
+   "repo": "vonvonhero/Ornith-1.5-35B-A3B-Uncensored-GGUF",
+   "entry": "Ornith-1.5-35B-A3B-Uncensored-Q4_K_M.gguf",
+   "key": "bench:HarmBench-ASR",
+   "raw": "150/159 (94.3%)"
+  },
+  {
+   "repo": "wiesion/Ornith-1.5-35B-A3B-int4-AutoRound-GPTQ-XPU",
+   "entry": "int4 (this repo)",
+   "key": "bench:GSM8K_5shot_flexible",
+   "raw": "0.918"
+  },
+  {
+   "repo": "wiesion/Ornith-1.5-35B-A3B-int4-AutoRound-GPTQ-XPU",
+   "entry": "int4 (this repo)",
+   "key": "bench:GSM8K_5shot_strict",
+   "raw": "0.900"
+  },
+  {
+   "repo": "wiesion/Ornith-1.5-35B-A3B-int4-AutoRound-GPTQ-XPU",
+   "entry": "int4 (this repo)",
+   "key": "bench:IFEval_prompt_strict",
+   "raw": "0.760"
+  },
+  {
+   "repo": "wiesion/Ornith-1.5-35B-A3B-int4-AutoRound-GPTQ-XPU",
+   "entry": "int4 (this repo)",
+   "key": "bench:IFEval_instruction_strict",
+   "raw": "0.835"
+  },
+  {
+   "repo": "wiesion/Ornith-1.5-35B-A3B-int4-AutoRound-GPTQ-XPU",
+   "entry": "int4 (this repo)",
+   "key": "bench:MMLU-Pro_CoT_5shot",
+   "raw": "0.731"
+  }
+ ]
+}

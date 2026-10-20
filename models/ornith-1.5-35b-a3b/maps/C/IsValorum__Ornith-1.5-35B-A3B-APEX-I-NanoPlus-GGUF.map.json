@@ -1,0 +1,108 @@
+{
+  "repo": "IsValorum/Ornith-1.5-35B-A3B-APEX-I-NanoPlus-GGUF",
+  "source_sha256": "478979cb6a4f3c0f72a0a3aed253f6f1e2804dd9c3c7cd40fc2fde683378b8cd",
+  "candidates_sha256": "5ece4eec574a01c9fb9849f4de651a0311eda9d6472f8ede5d9cee8fb67381e6",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "Unquantized BF16 Base",
+    "dataset": "WikiText-2",
+    "ctx": "not stated",
+    "tool": "not stated",
+    "L": [86, 88, 96]
+  },
+  "entries": [
+    {
+      "role": "quoted",
+      "name": "Unquantized BF16 Base",
+      "panel": "🏆 BUILD & VERIFIED REFERENCE COMPARISON",
+      "methodology": {"reference": "Unquantized BF16 Base", "dataset": "WikiText-2", "ctx": "not stated", "tool": "not stated", "L": [86, 88]},
+      "of": "not named on card",
+      "metrics": {},
+      "size": "c123",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c126.1",
+      "flags": [
+        "[L88] reference row; source of the BF16 figures is not stated on the card",
+        "[L88] delta column 0.000 is an absolute delta with no metric key; omitted"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "APEX-I-MiniPlus V2.1",
+      "panel": "🏆 BUILD & VERIFIED REFERENCE COMPARISON",
+      "methodology": {"reference": "Unquantized BF16 Base", "dataset": "WikiText-2", "ctx": "not stated", "tool": "not stated", "L": [86, 89]},
+      "metrics": {},
+      "size": "c129.0",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": "c133.1",
+      "flags": [
+        "[L89] absolute delta +0.0570 has no metric key; omitted",
+        "[L89] +/- 0.21010 spread not mapped"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "APEX-I-NanoPlus (CURRENT)",
+      "panel": "🏆 BUILD & VERIFIED REFERENCE COMPARISON",
+      "methodology": {"reference": "Unquantized BF16 Base", "dataset": "WikiText-2", "ctx": "not stated", "tool": "not stated", "L": [86, 90, 96]},
+      "metrics": {},
+      "size": "c137.0",
+      "unit": "GB",
+      "basis": "disk",
+      "bpw": null,
+      "flags": [
+        "[L90] approx. 2.93 BPW is not a candidate and the bpw field takes candidates only; not mapped",
+        "[L90] absolute delta +0.5113 has no metric key; omitted",
+        "[L90] +/- 0.22535 spread not mapped",
+        "[L81] the release omits the MTP companion, so tensors are removed from the base (weights_modified true)",
+        "[L98] ARC-Challenge figure sits in this release's benchmark block; the line does not repeat the file name"
+      ]
+    },
+    {
+      "role": "ladder",
+      "name": "APEX-I-MiniPlus V2.1",
+      "panel": "Quality Spectrum: APEX-I-NanoPlus vs. Standard Flat Quantizations",
+      "methodology": {"reference": "FP16 / BF16 (Uncompressed) baseline", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [139, 146]},
+      "metrics": {},
+      "size": "c33",
+      "unit": "GB",
+      "basis": null,
+      "bpw": "c32",
+      "flags": [
+        "[L146] absolute delta +0.0632 has no metric key; omitted",
+        "[L146] footprint column is 'Disk / VRAM'; basis left null"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "APEX-I-NanoPlus (IsValorum)",
+      "panel": "Quality Spectrum: APEX-I-NanoPlus vs. Standard Flat Quantizations",
+      "methodology": {"reference": "FP16 / BF16 (Uncompressed) baseline", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [139, 147]},
+      "metrics": {},
+      "size": "c37",
+      "unit": "GB",
+      "basis": null,
+      "bpw": "c36",
+      "flags": [
+        "[L147] absolute delta +0.2215 has no metric key; omitted",
+        "[L147] +/- 0.1412 spread not mapped",
+        "[L143-150] the standard-quant rows give only absolute deltas or ranges with no metric key; no entries created",
+        "[L141] the table does not name the measured dataset"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "Unquantized BF16 Base", "panel": "🏆 BUILD & VERIFIED REFERENCE COMPARISON", "key": "ppl:wikitext", "L": 88, "raw": "approx. 7.58"},
+    {"entry": "APEX-I-MiniPlus V2.1", "panel": "🏆 BUILD & VERIFIED REFERENCE COMPARISON", "key": "ppl:wikitext", "L": 89, "raw": "7.6370"},
+    {"entry": "APEX-I-MiniPlus V2.1", "panel": "🏆 BUILD & VERIFIED REFERENCE COMPARISON", "key": "ppl_delta_pct", "L": 89, "raw": "+0.75%"},
+    {"entry": "APEX-I-NanoPlus (CURRENT)", "panel": "🏆 BUILD & VERIFIED REFERENCE COMPARISON", "key": "ppl:wikitext", "L": 90, "raw": "8.0913"},
+    {"entry": "APEX-I-NanoPlus (CURRENT)", "panel": "🏆 BUILD & VERIFIED REFERENCE COMPARISON", "key": "ppl_delta_pct", "L": 90, "raw": "+6.75%"},
+    {"entry": "APEX-I-NanoPlus (CURRENT)", "panel": "🏆 BUILD & VERIFIED REFERENCE COMPARISON", "key": "bench:ARC-Challenge", "L": 98, "raw": "approx. 95.71%"},
+    {"entry": "APEX-I-MiniPlus V2.1", "panel": "Quality Spectrum: APEX-I-NanoPlus vs. Standard Flat Quantizations", "key": "ppl", "L": 146, "raw": "6.2432"},
+    {"entry": "APEX-I-NanoPlus (IsValorum)", "panel": "Quality Spectrum: APEX-I-NanoPlus vs. Standard Flat Quantizations", "key": "ppl", "L": 147, "raw": "6.4015"}
+  ]
+}

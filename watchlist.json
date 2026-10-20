@@ -1,7 +1,7 @@
 {
  "about": "Models the hourly scan keeps current. status: live = on the site, deltas every hour; queued = ingested one after another (no wait between models; min_hours_between_ingests), in this order. Queue is maintained by the weekly discovery job (pipeline/qcl_discover.py).",
  "min_hours_between_ingests": 0,
- "last_ingest_at": "2026-10-20T10:55:53.894462+00:00",
+ "last_ingest_at": "2026-10-20T13:06:46.551927+00:00",
  "models": [
   {
    "model": "Qwen/Qwen3.8-Flash-Next",
@@ -54,7 +54,7 @@
   {
    "model": "ornith-ai/Ornith-1.5-35B-A3B",
    "slug": "ornith-1.5-35b-a3b",
-   "status": "ingesting",
+   "status": "review",
    "released": "2026-08-23",
    "quants": 80,
    "quants_1k": 29,

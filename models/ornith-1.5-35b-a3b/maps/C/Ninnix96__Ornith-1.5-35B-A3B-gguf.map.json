@@ -1,0 +1,17 @@
+{"repo": "Ninnix96/Ornith-1.5-35B-A3B-gguf",
+ "source_sha256": "7a887bd8ab72f639b69906424f9c0bbc99d85175f5539f8436d1bf83390bbd15",
+ "candidates_sha256": "617eb95d1098cceeabe13ce2699b97d8405d6e9adbb363d67509828cad08e8fb",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "official ornith-ai Q8_0 [L56]", "dataset": "ds4 short prompts [L56]", "ctx": "ctx 60 [L56]", "tool": "llama.cpp, --kl-divergence [L30]", "L": [30, 50, 56]},
+ "entries": [
+  {"role": "own", "name": "Ornith-1.5-35B-A3B-Q2-IQ2_XXS-Q2_K.gguf",
+   "metrics": {"top1:ds4_short_chunk1": "c8.1", "top1:ds4_short_chunk2": "c8.2"},
+   "size": null, "unit": null, "basis": null, "bpw": "c5.1",
+   "flags": ["file size is in bytes in the Files table [L36] and approximate in the notes [L50]", "BPW stated in the notes [L50]", "per-chunk KL values are not candidates; their average is in prose [L56]"]}
+ ],
+ "prose": [
+  {"entry": "Ornith-1.5-35B-A3B-Q2-IQ2_XXS-Q2_K.gguf", "key": "kld:ds4_short_prompts", "L": 56, "raw": "avg 0.238"},
+  {"entry": "Ornith-1.5-35B-A3B-Q2-IQ2_XXS-Q2_K.gguf", "key": "bench:hard_smoke_eval", "L": 54, "raw": "9/12 PASS"}
+ ]}

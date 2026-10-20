@@ -1,0 +1,104 @@
+{
+  "repo": "tsaipifong/Ornith-1.5-35B-A3B-MXFP4-GGUF",
+  "source_sha256": "c0756e46286dd90cc5f5aa7e9dd306077a7bfadb97d6255d08594978fb1c0d5f",
+  "candidates_sha256": "859161625bff55df5dc2794d11c5c178d6c4f99491fa93184ce339a1586b410e",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "BF16 model (unquantized Ornith-1.5-35B-A3B converted to a BF16 GGUF)",
+    "dataset": "mixed text: C++/HIP source file with Chinese comments (70,000 characters) plus Chinese technical prose (40,000 characters)",
+    "ctx": "-c 512; 80 chunks of 512 tokens",
+    "tool": "llama.cpp b11719 llama-perplexity (CPU)",
+    "L": [207, 211, 212]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "this rebuild",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "BF16 model (unquantized Ornith-1.5-35B-A3B converted to a BF16 GGUF)",
+        "dataset": "mixed text: C++/HIP source file with Chinese comments plus Chinese technical prose",
+        "ctx": "-c 512; 80 chunks of 512 tokens",
+        "tool": "llama.cpp b11719 llama-perplexity (CPU)",
+        "L": [207, 211]
+      },
+      "metrics": {
+        "mean_kld": "c7",
+        "kld_99": "c8",
+        "top1_pct": "c9",
+        "ppl": "c10",
+        "ppl_ratio": "c11"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L207] one text and one tokenizer; the card says this is not a downstream task evaluation",
+        "[L211] card does not say whether the KL is top-k or full-vocabulary",
+        "[L42] 4.46 bits per weight is stated in prose, not as a table cell; bpw left null",
+        "[L214] the card says KLD is 19% lower than the first release; that relative change has no metric key and is not mapped",
+        "[L214] the perplexity gap to BF16 for this rebuild is 4.3%; mapped as ppl_delta_pct in prose",
+        "[L36-41] the file table gives sizes in bytes in a separate table; no size is mapped because it is not in the quality table"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "first release",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "BF16 model (unquantized Ornith-1.5-35B-A3B converted to a BF16 GGUF)",
+        "dataset": "mixed text: C++/HIP source file with Chinese comments plus Chinese technical prose",
+        "ctx": "-c 512; 80 chunks of 512 tokens",
+        "tool": "llama.cpp b11719 llama-perplexity (CPU)",
+        "L": [207, 212, 216]
+      },
+      "metrics": {
+        "mean_kld": "c12",
+        "kld_99": "c13",
+        "top1_pct": "c14",
+        "ppl": "c15",
+        "ppl_ratio": "c16",
+        "ppl_delta_pct": "c30.1"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L207] first release is the 2026-10-03 file; its row was measured 2026-10-20 on the same BF16 text (per the card)",
+        "[L216] the earlier perplexity table against another 4-bit format was replaced by this BF16 comparison; not mapped",
+        "[L214] the perplexity gap to BF16 for the first release is 6.6%; mapped as ppl_delta_pct",
+        "[L42] 4.46 bits per weight applies to the file; same tensor types in both files, so bpw left null"
+      ]
+    },
+    {
+      "role": "cross",
+      "name": "BF16 reference (converted GGUF)",
+      "panel": "Quality",
+      "methodology": {
+        "reference": "not applicable (reference model)",
+        "dataset": "mixed text: C++/HIP source file with Chinese comments plus Chinese technical prose",
+        "ctx": "-c 512; 80 chunks of 512 tokens",
+        "tool": "llama.cpp b11719 llama-perplexity (CPU)",
+        "L": [89, 207]
+      },
+      "of": "ornith-ai/Ornith-1.5-35B-A3B",
+      "metrics": {},
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L207] the BF16 GGUF was converted by the card author from the upstream checkpoint [L89]; no published BF16 GGUF is named",
+        "[L207] BF16 perplexity on this text stated in prose; mapped as ppl in prose"
+      ]
+    }
+  ],
+  "prose": [
+    {"entry": "BF16 reference (converted GGUF)", "panel": "Quality", "key": "ppl", "L": 207, "raw": "6.2537"},
+    {"entry": "this rebuild", "panel": "Quality", "key": "ppl_delta_pct", "L": 214, "raw": "4.3%"}
+  ]
+}

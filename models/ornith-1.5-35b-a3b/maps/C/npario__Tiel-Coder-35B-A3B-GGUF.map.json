@@ -1,0 +1,43 @@
+{
+ "repo": "npario/Tiel-Coder-35B-A3B-GGUF",
+ "source_sha256": "bbe43f4f00aa36507b7eb454e783ad105bb2faddec4c2bbba5f99c4ce6f395bf",
+ "candidates_sha256": "bd8c3b7a6727eba525bf18f01658f2e675e73057fa32e1f1d108636510b171e3",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "SWE-bench-Live (25 problems, one run per problem); Claw-Eval multi-turn (114 scored conversations each); MMLU-Pro (three seeds)", "ctx": "not stated", "tool": "not stated", "L": [53, 59, 65, 177]},
+ "entries": [
+  {"role": "own", "name": "Tiel-Coder-35B-A3B-UD-Q4_K_XL.gguf", "panel": "Where it sits against the other local builds",
+   "methodology": {"reference": "not stated", "dataset": "SWE-bench-Live, 25 problems, one run per problem", "ctx": "not stated", "tool": "not stated", "L": [53, 177]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["benchmarked tier identified as the 4-bit 22 GB tier, file not named in the panel [L32, L86]", "count out of 25 problems, not a percent [L53]", "Ornith-1.5 SWE count not stated, only as 'four more' [L54]", "Opus 4.6 and Sonnet 5 results omitted: different models [L53-55]", "timing and speed figures omitted: no matching key [L55-57, L75]"]},
+  {"role": "own", "name": "Tiel-Coder-35B-A3B-UD-Q4_K_XL.gguf", "panel": "Multi-turn conversation",
+   "methodology": {"reference": "not stated", "dataset": "Claw-Eval multi-turn, 114 scored conversations", "ctx": "not stated", "tool": "not stated", "L": [59, 60]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["benchmarked tier identified as the 4-bit 22 GB tier, file not named in the panel [L32, L86]", "Nail and stock Qwen results omitted: different models [L59-61, L72-73]"]},
+  {"role": "own", "name": "Tiel-Coder-35B-A3B-UD-Q4_K_XL.gguf", "panel": "Reasoning and knowledge",
+   "methodology": {"reference": "not stated", "dataset": "MMLU-Pro, three seeds", "ctx": "not stated", "tool": "not stated", "L": [65, 177]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["benchmarked tier identified as the 4-bit 22 GB tier, file not named in the panel [L32, L86]", "Nail, stock Qwen3.6 and Qwen3.8 results omitted: different models [L65-66, L72-75]", "three seeds, treat small differences as noise [L177]"]},
+  {"role": "cross", "name": "Ornith-1.5-35B-A3B", "of": "ornith-ai/Ornith-1.5-35B-A3B", "panel": "Multi-turn conversation",
+   "methodology": {"reference": "not stated", "dataset": "Claw-Eval multi-turn, 114 scored conversations", "ctx": "not stated", "tool": "not stated", "L": [60]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["base precision not stated [L60]"]},
+  {"role": "cross", "name": "Ornith-1.5-35B-A3B", "of": "ornith-ai/Ornith-1.5-35B-A3B", "panel": "Reasoning and knowledge",
+   "methodology": {"reference": "not stated", "dataset": "MMLU-Pro, three seeds", "ctx": "not stated", "tool": "Ornith's own chat template", "L": [66, 67, 177]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["base precision not stated [L66-67]"]}
+ ],
+ "prose": [
+  {"entry": "Tiel-Coder-35B-A3B-UD-Q4_K_XL.gguf", "panel": "Where it sits against the other local builds", "key": "bench:SWE-bench-Live", "L": 53, "raw": "Tiel fixes 12"},
+  {"entry": "Tiel-Coder-35B-A3B-UD-Q4_K_XL.gguf", "panel": "Multi-turn conversation", "key": "bench:Claw-Eval-multi-turn", "L": 59, "raw": "Tiel scores 67.2"},
+  {"entry": "Tiel-Coder-35B-A3B-UD-Q4_K_XL.gguf", "panel": "Reasoning and knowledge", "key": "bench:MMLU-Pro", "L": 65, "raw": "73.7 on MMLU-Pro"},
+  {"entry": "Ornith-1.5-35B-A3B", "panel": "Multi-turn conversation", "key": "bench:Claw-Eval-multi-turn", "L": 60, "raw": "base's 65.3"},
+  {"entry": "Ornith-1.5-35B-A3B", "panel": "Reasoning and knowledge", "key": "bench:MMLU-Pro", "L": 66, "raw": "Ornith-1.5 scores 78.0"}
+ ]
+}

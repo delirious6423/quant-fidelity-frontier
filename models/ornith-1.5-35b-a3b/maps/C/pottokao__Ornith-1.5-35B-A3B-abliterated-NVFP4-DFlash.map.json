@@ -1,0 +1,59 @@
+{
+  "repo": "pottokao/Ornith-1.5-35B-A3B-abliterated-NVFP4-DFlash",
+  "source_sha256": "1de0a8a505a821976a23c2e01bc4afa6e118c52c2548fab8d0ff251359979c2f",
+  "candidates_sha256": "c5b5d493f6bcd9c2af1fedf9bc52c66fc78bce3ed569553368be70d93d419354",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": true,
+  "method": {
+    "reference": "not stated",
+    "dataset": "AIME 2026 (30 questions)",
+    "ctx": "max_tokens=96000",
+    "tool": "not stated",
+    "L": [172, 176, 181, 184]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "Ornith-1.5-35B-A3B-abliterated-NVFP4 (1st pass)",
+      "panel": "5. AIME 2026 — sanity check only",
+      "methodology": {"reference": "not stated", "dataset": "AIME 2026 (30 questions)", "ctx": "max_tokens=96000", "tool": "not stated", "L": [181, 184, 186]},
+      "metrics": {
+        "bench:AIME2026_I": "c56.0",
+        "bench:AIME2026_II": "c57.0",
+        "bench:AIME2026_total": "c58.0"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L186] 1st pass at temp 0.6: values are correct-answer counts, AIME I 14 of 15 (c56.1), AIME II 13 of 15 (c57.1), total 27 of 30 (c58.1); the ratio is not carried by the metric key",
+        "[L181] thinking enabled, top_p 0.95, top_k 20, answer parsed from boxed N",
+        "[L176-178] card states AIME is a sanity check only, with no external baseline",
+        "[L144-164] speed, ITL and acceptance tables are not quality metrics; not mapped"
+      ]
+    },
+    {
+      "role": "own",
+      "name": "Ornith-1.5-35B-A3B-abliterated-NVFP4 (after retries)",
+      "panel": "5. AIME 2026 — sanity check only",
+      "methodology": {"reference": "not stated", "dataset": "AIME 2026 (30 questions)", "ctx": "max_tokens=96000", "tool": "not stated", "L": [181, 182, 187]},
+      "metrics": {
+        "bench:AIME2026_I": "c59.0",
+        "bench:AIME2026_II": "c60.0",
+        "bench:AIME2026_total": "c61.0"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L187] after retries, temperature moved from 0.6 to 0.9: values are correct-answer counts, AIME I 14 of 15 (c59.1), AIME II 15 of 15 (c60.1), total 29 of 30 (c61.1); the ratio is not carried by the metric key",
+        "[L182] a question was retried when wrong or when it hit the token limit",
+        "[L176-178] card states AIME is a sanity check only, with no external baseline"
+      ]
+    }
+  ],
+  "prose": []
+}

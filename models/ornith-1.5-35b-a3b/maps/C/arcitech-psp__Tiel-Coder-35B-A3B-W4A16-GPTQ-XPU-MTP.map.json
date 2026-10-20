@@ -1,0 +1,26 @@
+{"repo": "arcitech-psp/Tiel-Coder-35B-A3B-W4A16-GPTQ-XPU-MTP",
+ "source_sha256": "7afb021b094fe0dbaadf8d12d5ebe4bb954b314e01d0f70d3338d782a371d95c",
+ "candidates_sha256": "45a6a0c4eb0852a0fa0ca0011abbae5611e7f6a230559dea009b2912533e365e",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 ornith-ai/Ornith-1.5-35B-A3B [L210]", "dataset": "internal eval of 224 items [L60]", "ctx": "not stated", "tool": "vllm-xpu-arc runtime [L57]", "L": [57, 60, 210]},
+ "entries": [
+  {"role": "own", "name": "This release (fixed-K3 GPTQ-A + draft INT4)", "panel": "What we did to improve it",
+   "methodology": {"reference": "BF16 ornith-ai/Ornith-1.5-35B-A3B [L210]", "dataset": "internal eval of 224 items [L60]", "ctx": "not stated", "tool": "vllm-xpu-arc runtime [L57]", "L": [57, 60, 62]},
+   "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["headline mean is a prose value, not a candidate cell [L62]"]},
+  {"role": "cross", "of": "peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF", "name": "Community Tiel GGUF on vLLM", "panel": "What we did to improve it",
+   "methodology": {"reference": "BF16 ornith-ai/Ornith-1.5-35B-A3B [L210]", "dataset": "internal eval of 224 items [L60]", "ctx": "not stated", "tool": "vllm-xpu-arc runtime [L57]", "L": [57, 60, 63]},
+   "metrics": {"bench:internal_eval_lo": "c2.0", "bench:internal_eval_hi": "c2.1"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["internal eval given as a range [L63]"]},
+  {"role": "cross", "of": "biMEMO/Ornith-1.5-35B-A3B-int4-AutoRound-MTP", "name": "Community AutoRound int4 + MTP (biMEMO)", "panel": "What we did to improve it",
+   "methodology": {"reference": "BF16 ornith-ai/Ornith-1.5-35B-A3B [L210]", "dataset": "internal eval of 224 items [L60]", "ctx": "not stated", "tool": "vllm-xpu-arc runtime [L57]", "L": [57, 60, 64]},
+   "metrics": {"bench:internal_eval_lo": "c5.0", "bench:internal_eval_hi": "c5.1"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["internal eval given as a range [L64]"]}
+ ],
+ "prose": [
+  {"entry": "This release (fixed-K3 GPTQ-A + draft INT4)", "panel": "What we did to improve it", "key": "bench:internal_eval_of_224", "L": 62, "raw": "217.7 mean"}
+ ]}

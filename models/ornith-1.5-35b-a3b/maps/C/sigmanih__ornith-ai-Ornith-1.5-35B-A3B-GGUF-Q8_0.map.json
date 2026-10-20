@@ -1,0 +1,50 @@
+{"repo": "sigmanih/ornith-ai-Ornith-1.5-35B-A3B-GGUF-Q8_0",
+ "source_sha256": "9f76fb8bbb5bb4e9aa951dc929e9189aea5b5f6e7e03f4c14970edb190f039da",
+ "candidates_sha256": "ad472f2236c19297e4019e0d8b494464ce59559d75fa521b93605c7e99b7d349",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "official benchmark suites, slice of each dataset", "ctx": "not stated", "tool": "Sigma Studio Training Lab", "L": [46, 92, 94]},
+ "entries": [
+  {"role": "own",
+   "name": "ornith-ai-Ornith-1.5-35B-A3B-GGUF-Q8_0",
+   "panel": "🏆 Official Benchmark Performance",
+   "metrics": {"bench:Overall": "c3"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Measured on a slice of the dataset, not the full suite [L94]",
+    "Disk footprint listed as 0.0 GB is a placeholder, not mapped as a size [L40]",
+    "Italian section repeats the same tables, not mapped [L141-186]"
+   ]},
+  {"role": "own",
+   "name": "ornith-ai-Ornith-1.5-35B-A3B-GGUF-Q8_0",
+   "panel": "🧠 Reasoning Mode Comparison: No-Thinking vs Thinking",
+   "methodology": {"reference": "not stated", "dataset": "mode slices, not the full suite", "ctx": "not stated", "tool": "Sigma Studio Training Lab", "L": [72, 73, 94]},
+   "metrics": {"bench:No-Thinking (Direct Response)": "c6", "bench:Deep Thinking (CoT Reasoning)": "c8"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "The two modes are scored on different question slices (57 and 43 questions), not the full suite [L72-73, L94]",
+    "Deep-thinking delta stated as -0.4% is not mapped [L58, L73]"
+   ]},
+  {"role": "own",
+   "name": "ornith-ai-Ornith-1.5-35B-A3B-GGUF-Q8_0",
+   "panel": "📋 Per-Dataset Evaluation Breakdown",
+   "methodology": {"reference": "not stated", "dataset": "per-benchmark slices, not the full suite", "ctx": "not stated", "tool": "Sigma Studio Training Lab", "L": [77, 79, 90, 92, 94]},
+   "metrics": {"bench:ARC-Challenge": "c12", "bench:BIG-Bench Hard": "c14", "bench:GPQA": "c16", "bench:GSM8K": "c18", "bench:HellaSwag": "c20", "bench:HumanEval": "c22", "bench:MATH": "c24", "bench:MBPP": "c26", "bench:MMLU": "c28", "bench:MMLU-Pro": "c30", "bench:TruthfulQA": "c32"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Measured on a slice of each dataset, not the full suite [L94]",
+    "Correct/Total counts have no metric key, not mapped [L79-89]",
+    "Overall row restates the summary table, not mapped [L90]"
+   ]}
+ ],
+ "prose": []}

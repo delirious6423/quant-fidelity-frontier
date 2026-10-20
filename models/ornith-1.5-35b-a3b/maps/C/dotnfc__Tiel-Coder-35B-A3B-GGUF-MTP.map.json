@@ -1,0 +1,43 @@
+{
+ "repo": "dotnfc/Tiel-Coder-35B-A3B-GGUF-MTP",
+ "source_sha256": "9d29d5924c62a9aeff9f55fbba12e7f202dda9a3c3199311793a5363f9f4f1fe",
+ "candidates_sha256": "4458bd28c8ce5bbae60f20ed1dfcc7574a814daab9140de3e90f1008d9d06762",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "SWE-bench-Live (25 problems, one run per problem); Claw-Eval multi-turn (114 scored conversations each); MMLU-Pro (three seeds)", "ctx": "not stated", "tool": "not stated", "L": [56, 62, 68, 204, 205]},
+ "entries": [
+  {"role": "own", "name": "Tiel-Coder-35B-A3B-MTP-UD-Q4_K_XL.gguf", "panel": "Where it sits against the other local builds",
+   "methodology": {"reference": "not stated", "dataset": "SWE-bench-Live, 25 problems, one run per problem", "ctx": "not stated", "tool": "not stated", "L": [56, 204]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["benchmarked tier identified as the 4-bit 23 GB tier, file not named in the panel [L34, L93]", "count out of 25 problems, not a percent [L56]", "Ornith-1.5 SWE count not stated, only as 'four more' [L57]", "Opus 4.6, Sonnet 5 and KAT-Coder results omitted: different models [L56-58]", "speculative-decoding speed table omitted: no speed key [L139-147]"]},
+  {"role": "own", "name": "Tiel-Coder-35B-A3B-MTP-UD-Q4_K_XL.gguf", "panel": "Multi-turn conversation",
+   "methodology": {"reference": "not stated", "dataset": "Claw-Eval multi-turn, 114 scored conversations", "ctx": "not stated", "tool": "not stated", "L": [62, 63]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["benchmarked tier identified as the 4-bit 23 GB tier, file not named in the panel [L34, L93]", "Nail and stock Qwen results omitted: different models [L62-63, L76-77]"]},
+  {"role": "own", "name": "Tiel-Coder-35B-A3B-MTP-UD-Q4_K_XL.gguf", "panel": "Reasoning and knowledge",
+   "methodology": {"reference": "not stated", "dataset": "MMLU-Pro, three seeds", "ctx": "not stated", "tool": "not stated", "L": [68, 205]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["benchmarked tier identified as the 4-bit 23 GB tier, file not named in the panel [L34, L93]", "Nail, stock Qwen3.6 and Qwen3.8 results omitted: different models [L68-69, L75-78]", "tier size 23.3 GB [L93] not attached: quality figures are not in that row"]},
+  {"role": "cross", "name": "Ornith-1.5-35B-A3B", "of": "ornith-ai/Ornith-1.5-35B-A3B", "panel": "Multi-turn conversation",
+   "methodology": {"reference": "not stated", "dataset": "Claw-Eval multi-turn, 114 scored conversations", "ctx": "not stated", "tool": "not stated", "L": [63]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["base precision not stated [L63, L70]"]},
+  {"role": "cross", "name": "Ornith-1.5-35B-A3B", "of": "ornith-ai/Ornith-1.5-35B-A3B", "panel": "Reasoning and knowledge",
+   "methodology": {"reference": "not stated", "dataset": "MMLU-Pro, three seeds", "ctx": "not stated", "tool": "Ornith's own chat template", "L": [69, 70, 205]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["base precision not stated [L69-70]"]}
+ ],
+ "prose": [
+  {"entry": "Tiel-Coder-35B-A3B-MTP-UD-Q4_K_XL.gguf", "panel": "Where it sits against the other local builds", "key": "bench:SWE-bench-Live", "L": 56, "raw": "Tiel fixes 12"},
+  {"entry": "Tiel-Coder-35B-A3B-MTP-UD-Q4_K_XL.gguf", "panel": "Multi-turn conversation", "key": "bench:Claw-Eval-multi-turn", "L": 62, "raw": "Tiel scores 67.2"},
+  {"entry": "Tiel-Coder-35B-A3B-MTP-UD-Q4_K_XL.gguf", "panel": "Reasoning and knowledge", "key": "bench:MMLU-Pro", "L": 68, "raw": "73.7 on MMLU-Pro"},
+  {"entry": "Ornith-1.5-35B-A3B", "panel": "Multi-turn conversation", "key": "bench:Claw-Eval-multi-turn", "L": 63, "raw": "base's 65.3"},
+  {"entry": "Ornith-1.5-35B-A3B", "panel": "Reasoning and knowledge", "key": "bench:MMLU-Pro", "L": 69, "raw": "Ornith-1.5 scores 78.0"}
+ ]
+}

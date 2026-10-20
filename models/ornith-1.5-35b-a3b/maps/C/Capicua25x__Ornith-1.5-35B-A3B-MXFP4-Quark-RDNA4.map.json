@@ -1,0 +1,52 @@
+{"repo": "Capicua25x/Ornith-1.5-35B-A3B-MXFP4-Quark-RDNA4",
+ "source_sha256": "6864180fca82934d3ea3e75964cfd4dfcee833e14627c72bd68bdd2c9fcd20ea",
+ "candidates_sha256": "39f509d0f7a5e47a4e9d19c47bd92d64820fdb0a894be0b8cbb2b6c87754f139",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "official FP8", "dataset": "GSM8K, IFEval and τ²-bench telecom suites", "ctx": "not stated", "tool": "lm-eval", "L": [81, 82, 83]},
+ "entries": [
+  {"role": "own",
+   "name": "this quant (conc)",
+   "panel": "Quality — AA vs the official FP8",
+   "methodology": {"reference": "official FP8 (ornith-ai/Ornith-1.5-35B-A3B-FP8)", "dataset": "GSM8K, IFEval and τ²-bench telecom suites", "ctx": "not stated", "tool": "lm-eval", "L": [81, 82, 83]},
+   "metrics": {"bench:GSM8K flexible": "c23", "bench:GSM8K strict": "c26", "bench:IFEval inst-strict": "c29", "bench:IFEval prompt-strict": "c32", "bench:τ²-bench telecom reward": "c35"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Bracketed seed ranges are not mapped as separate values [L88-91]",
+    "Quant cells are 5-seed medians; no seed range is stated for the tau2 value [L81-82, L92]",
+    "Size of 21.4 GB is stated in the intro, not in the quality table, not mapped [L18]",
+    "Speed tables have no metric key, not mapped [L61-76]"
+   ]},
+  {"role": "own",
+   "name": "this quant (DFlash serve)",
+   "panel": "Quality — AA vs the official FP8",
+   "methodology": {"reference": "official FP8 (ornith-ai/Ornith-1.5-35B-A3B-FP8)", "dataset": "GSM8K, IFEval and τ²-bench telecom suites", "ctx": "not stated", "tool": "lm-eval", "L": [81, 82, 83]},
+   "metrics": {"bench:GSM8K flexible": "c24", "bench:GSM8K strict": "c27", "bench:IFEval inst-strict": "c30", "bench:IFEval prompt-strict": "c33"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "The tau2 cell for this profile says same distribution, with no value, not mapped [L92]",
+    "Bracketed seed ranges are not mapped as separate values [L88-91]"
+   ]},
+  {"role": "cross",
+   "name": "official FP8",
+   "of": "ornith-ai/Ornith-1.5-35B-A3B-FP8",
+   "panel": "Quality — AA vs the official FP8",
+   "methodology": {"reference": "official FP8 (ornith-ai/Ornith-1.5-35B-A3B-FP8)", "dataset": "GSM8K, IFEval and τ²-bench telecom suites", "ctx": "not stated", "tool": "lm-eval", "L": [81, 82, 83]},
+   "metrics": {"bench:GSM8K flexible": "c25", "bench:GSM8K strict": "c28", "bench:IFEval inst-strict": "c31", "bench:IFEval prompt-strict": "c34"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Reference cells are single-seed (seed 1234) [L82]",
+    "The card records tau2 for the reference as not measured [L92]"
+   ]}
+ ],
+ "prose": []}

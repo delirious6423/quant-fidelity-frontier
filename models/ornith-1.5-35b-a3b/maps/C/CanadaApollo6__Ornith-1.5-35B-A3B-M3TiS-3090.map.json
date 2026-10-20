@@ -1,0 +1,43 @@
+{"repo": "CanadaApollo6/Ornith-1.5-35B-A3B-M3TiS-3090",
+ "source_sha256": "108fda20d64c19c26224836e1eb10dfd0dfc32722909915c5f5aab3c44edeabd",
+ "candidates_sha256": "ca6b6360e6dbf65ab28875e263ca1d8201fb4285861c5706678e59c661833b97",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 (original)", "dataset": "positions the model wrote itself in recorded agent conversations", "ctx": "full vocabulary", "tool": "not stated", "L": [81, 82, 84]},
+ "entries": [
+  {"role": "own",
+   "name": "This build (R1s)",
+   "metrics": {"mean_kld": "c2"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Card gives KL over the full vocabulary but does not say mean; key mean_kld is assumed [L81-82]",
+    "Bits are given per part with no single bits-per-weight figure [L117-121]",
+    "Size of 15 GB is stated in prose, not in the KL table, not mapped [L26]",
+    "Noise floor of about 0.04 from a kernel swap on bf16 itself is not mapped as an entry [L86]",
+    "Agent-task results are counts over tasks and attempts with no metric key, not mapped [L93-97]"
+   ]},
+  {"role": "cross",
+   "name": "Ornith's MLX 4-bit",
+   "of": "ornith-ai/Ornith-1.5-35B-A3B-MLX-4bit",
+   "metrics": {"mean_kld": "c4"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Value is approximate and comes from a smaller sample of 6 conversations [L89]"
+   ]},
+  {"role": "ladder",
+   "name": "Same experts with the always-on parts plainly rounded at 4-bit",
+   "metrics": {"mean_kld": "c3"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []}
+ ],
+ "prose": []}

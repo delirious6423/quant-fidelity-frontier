@@ -1,0 +1,29 @@
+{
+ "repo": "protoLabsAI/Ornith-1.5-35B-A3B-NVFP4",
+ "source_sha256": "4e61ce0da08b23c66e0914a1078266b4ebc0227b006e47b3ddddb678ceed07e6",
+ "candidates_sha256": "0099fb322b28ec5416770df5425d81da5ec62a8e3337ea74165af22015d719dd",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "scorecard battery: claw (10 tasks, independent cloud judge), reasoning_hard (solver-verified), function_call (schema-checked), livecodebench (hard-only, 30 problems, thinking off)", "ctx": "not stated", "tool": "scorecard harness; independent cloud judge for claw", "L": [95, 96, 97, 98, 108, 109]},
+ "entries": [
+  {"role": "own", "name": "NVFP4 (this build)", "panel": "Scorecard",
+   "methodology": {"reference": "not stated", "dataset": "scorecard battery: claw (10 tasks, independent cloud judge), reasoning_hard (solver-verified), function_call (schema-checked), livecodebench (hard-only, 30 problems, thinking off)", "ctx": "not stated", "tool": "scorecard harness", "L": [95, 96, 97, 98]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["size 25.0 GB [L33] not attached: not in the scorecard rows", "LiveCodeBench is partial credit; zero of 30 hard problems fully passed [L103-104]", "verification pass/fail and count checks not mapped: health checks [L80-86]", "deployment flags and MTP statements omitted: no matching key [L52-76]"]},
+  {"role": "cross", "name": "upstream ModelOpt build", "of": "ornith-ai/Ornith-1.5-35B-A3B-NVFP4", "panel": "Scorecard",
+   "methodology": {"reference": "not stated", "dataset": "identical harness as this build (livecodebench, function_call)", "ctx": "not stated", "tool": "identical harness", "L": [108, 109, 116, 117]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["size 23.4 GB [L33] not attached: not in the scorecard rows", "run through the identical harness per card [L108-109]"]}
+ ],
+ "prose": [
+  {"entry": "NVFP4 (this build)", "panel": "Scorecard", "key": "bench:claw", "L": 95, "raw": "0.719"},
+  {"entry": "NVFP4 (this build)", "panel": "Scorecard", "key": "bench:reasoning_hard", "L": 96, "raw": "0.861"},
+  {"entry": "NVFP4 (this build)", "panel": "Scorecard", "key": "bench:function_call", "L": 97, "raw": "0.889"},
+  {"entry": "NVFP4 (this build)", "panel": "Scorecard", "key": "bench:livecodebench", "L": 98, "raw": "0.205"},
+  {"entry": "upstream ModelOpt build", "panel": "Scorecard", "key": "bench:livecodebench", "L": 109, "raw": "**0.192**"},
+  {"entry": "upstream ModelOpt build", "panel": "Scorecard", "key": "bench:function_call", "L": 117, "raw": "upstream build's 0.870"}
+ ]
+}

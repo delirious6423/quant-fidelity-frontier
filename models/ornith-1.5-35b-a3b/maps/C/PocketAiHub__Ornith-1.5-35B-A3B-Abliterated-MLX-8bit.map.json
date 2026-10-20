@@ -1,0 +1,33 @@
+{"repo": "PocketAiHub/Ornith-1.5-35B-A3B-Abliterated-MLX-8bit",
+ "source_sha256": "cba1cfd5cc52a102c61f819b000ad351ce3d52ce96bb67ffc0f5642a1b0e6528",
+ "candidates_sha256": "ac14a66a664f776808e4605f3cc5c90b10326779639c9c0caac35525c46b61fc",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "regular BF16 teacher [L94]", "dataset": "36 prompts: capability, harmful and benign; 481 shared teacher positions [L83-84]", "ctx": "exact KL over all logits [L84]", "tool": "exact KL, top-1 agreement, residual cosine [L84-86]", "L": [83, 84, 86, 94, 99]},
+ "entries": [
+  {"role": "ladder", "name": "abliterated BF16 candidate", "panel": "Behavioral screen",
+   "methodology": {"reference": "regular BF16 parent [L67]", "dataset": "phrase-marker gate prompts, harmful and benign [L73-74]", "ctx": "128-token ceiling [L76]", "tool": "phrase-based scorer [L76]", "L": [67, 68, 76]},
+   "metrics": {"bench:refusal_flags_harmful": "c1.0", "bench:final_answer_harmful": "c2.0", "bench:refusal_flags_benign": "c3.0", "bench:final_answer_benign": "c4.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["table does not name the model; the text names the abliterated BF16 candidate [L68]", "numerators only; denominators are on the same rows [L73-74]"]},
+  {"role": "ladder", "name": "Pure BF16 ablation", "panel": "Matched-teacher drift",
+   "methodology": {"reference": "regular BF16 teacher [L94]", "dataset": "36 prompts: capability, harmful and benign [L83]", "ctx": "exact KL over all logits [L84]", "tool": "exact KL, top-1 agreement, residual cosine [L84-86]", "L": [83, 84, 86, 88, 94]},
+   "metrics": {"kld:capability": "c5", "top1:capability": "c6", "bench:residual_cosine_capability": "c7", "kld:benign": "c8", "top1:benign": "c9", "bench:residual_cosine_benign": "c10", "kld:harmful": "c11", "top1:harmful": "c12", "bench:residual_cosine_harmful": "c13"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["pure BF16 ablation, not the 8-bit file in this repo [L88]"]},
+  {"role": "own", "name": "8-bit recommended", "panel": "Matched-teacher drift",
+   "methodology": {"reference": "abliterated BF16 master [L99]", "dataset": "36 prompts: capability, harmful and benign [L83]", "ctx": "exact KL over all logits [L84]", "tool": "exact KL, top-1 agreement, residual cosine [L84-86]", "L": [83, 84, 86, 99, 101]},
+   "metrics": {"kld:abliterated_master": "c19.0", "top1:abliterated_master": "c19.2"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["format is MLX affine 8-bit [L36]", "size is stated in the format bullets, not in this row [L37]"]}
+ ],
+ "prose": [
+  {"entry": "Pure BF16 ablation", "panel": "Matched-teacher drift", "key": "kld:all_positions", "L": 95, "raw": "`0.545185`"},
+  {"entry": "Pure BF16 ablation", "panel": "Matched-teacher drift", "key": "top1:all_positions", "L": 96, "raw": "`78.17%`"},
+  {"entry": "Pure BF16 ablation", "panel": "Matched-teacher drift", "key": "bench:residual_cosine_all_positions", "L": 97, "raw": "`0.952090`"},
+  {"entry": "8-bit recommended", "panel": "Matched-teacher drift", "key": "bench:residual_cosine_abliterated_master", "L": 99, "raw": "residual cosine `0.994969`"},
+  {"entry": "8-bit recommended", "panel": "Matched-teacher drift", "key": "kld:regular_bf16_all_positions", "L": 102, "raw": "`0.549199`"},
+  {"entry": "8-bit recommended", "panel": "Matched-teacher drift", "key": "top1:regular_bf16_all_positions", "L": 103, "raw": "`77.55%`"},
+  {"entry": "8-bit recommended", "panel": "Matched-teacher drift", "key": "bench:residual_cosine_regular_bf16_all_positions", "L": 104, "raw": "`0.949564`"}
+ ]}

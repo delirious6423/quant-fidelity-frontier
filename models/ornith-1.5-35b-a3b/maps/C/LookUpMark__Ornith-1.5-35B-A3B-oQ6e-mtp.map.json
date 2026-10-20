@@ -1,0 +1,31 @@
+{
+ "repo": "LookUpMark/Ornith-1.5-35B-A3B-oQ6e-mtp",
+ "source_sha256": "6074298432a49dc3b35cd78d748d31abb454e840d7d98d1f030c67f6cdaacba8",
+ "candidates_sha256": "f95cc3aa78cf58cf995d29a419669107f04dde40f940d5dada69cf9c6c8c3a32",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "needle-in-a-haystack probe (fixed codes); factual, math and Italian checks; agentic bug-fix and multi-file tasks", "ctx": "~23k (needle probe)", "tool": "oMLX server; pi agent (headless) for agentic runs", "L": [27, 39, 40]},
+ "entries": [
+  {"role": "own", "name": "oQ6e (6-bit)",
+   "methodology": {"reference": "not stated", "dataset": "needle-in-a-haystack probe (fixed codes); factual, math and Italian checks; agentic bug-fix and multi-file tasks", "ctx": "~23k (needle probe)", "tool": "oMLX server; pi agent (headless) for agentic runs", "L": [27, 39, 40]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["needle probe is 4 items at ~23k context [L39]", "factual, math and Italian checks stated without counts [L39]", "agentic 6/6 not attributed per variant, omitted [L40]", "decode speed and agent wall-time tables omitted: no speed key [L29-36, L40]"]},
+  {"role": "ladder", "name": "oQ4e (4-bit)",
+   "methodology": {"reference": "not stated", "dataset": "needle-in-a-haystack probe (fixed codes); factual, math and Italian checks; agentic bug-fix and multi-file tasks", "ctx": "~23k (needle probe)", "tool": "oMLX server; pi agent (headless) for agentic runs", "L": [27, 39, 40]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["needle probe 4/4 stated for all three variants [L39]", "agentic 6/6 not attributed per variant, omitted [L40]", "decode speed tables omitted: no speed key [L29-36]"]},
+  {"role": "ladder", "name": "oQ8e (8-bit)",
+   "methodology": {"reference": "not stated", "dataset": "needle-in-a-haystack probe (fixed codes); factual, math and Italian checks; agentic bug-fix and multi-file tasks", "ctx": "~23k (needle probe)", "tool": "oMLX server; pi agent (headless) for agentic runs", "L": [27, 39, 40]},
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["needle probe 4/4 stated for all three variants [L39]", "agentic 6/6 not attributed per variant, omitted [L40]", "decode speed tables omitted: no speed key [L29-36]"]}
+ ],
+ "prose": [
+  {"entry": "oQ6e (6-bit)", "key": "bench:needle-in-a-haystack", "L": 39, "raw": "recall 4/4"},
+  {"entry": "oQ4e (4-bit)", "key": "bench:needle-in-a-haystack", "L": 39, "raw": "recall 4/4"},
+  {"entry": "oQ8e (8-bit)", "key": "bench:needle-in-a-haystack", "L": 39, "raw": "recall 4/4"}
+ ]
+}

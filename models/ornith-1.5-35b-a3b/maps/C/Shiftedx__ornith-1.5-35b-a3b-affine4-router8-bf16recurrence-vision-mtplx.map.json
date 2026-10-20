@@ -1,0 +1,47 @@
+{
+  "repo": "Shiftedx/ornith-1.5-35b-a3b-affine4-router8-bf16recurrence-vision-mtplx",
+  "source_sha256": "e53524afe3b99025a9435479606b3e9dd67b76ded97cdff72d962b929b1fb9ee",
+  "candidates_sha256": "622d99513fa336762b9665d5ffc9526ca435572d95cabfc3d906232a458076eb",
+  "no_quality_claims": false,
+  "no_claims_reason": "",
+  "weights_modified": false,
+  "method": {
+    "reference": "not stated",
+    "dataset": "Shiftedx Bench v0.3.0 (lanes: Quality, Long context, Tool calling, Agentic, Vision)",
+    "ctx": "effective tested context 131,072 tokens (prompt lengths 4,096 to 131,072) [L80]",
+    "tool": "MTPLX 2.7.1; MLX 0.32.0; mlx-lm 0.31.3 [L81]",
+    "L": [79, 80, 81]
+  },
+  "entries": [
+    {
+      "role": "own",
+      "name": "ornith-1.5-35b-a3b-affine4-router8-bf16recurrence-vision-mtplx",
+      "methodology": {
+        "reference": "not stated",
+        "dataset": "Shiftedx Bench v0.3.0",
+        "ctx": "effective tested context 131,072 tokens [L80]",
+        "tool": "MTPLX 2.7.1; MLX 0.32.0; mlx-lm 0.31.3; D1; turbo; thinking on; reasoning effort medium; KV cache off; MTP depth 1 [L81]",
+        "L": [70, 72, 73, 74, 75, 76, 79, 80, 81]
+      },
+      "metrics": {
+        "bench:Quality": "c2",
+        "bench:LongContext": "c7",
+        "bench:ToolCalling": "c12",
+        "bench:Agentic": "c17",
+        "bench:Vision": "c20"
+      },
+      "size": null,
+      "unit": null,
+      "basis": null,
+      "bpw": null,
+      "flags": [
+        "[L72-76] the five lane accuracies are mapped; the Passed counts (c1, c6, c11, c16, c19) are their numerators and are not separate metrics",
+        "[L68] categories are reported separately and the card gives no composite score",
+        "[L72-76] mean wall time, mean decode and peak memory columns are not quality metrics; not mapped",
+        "[L60-61] card calls this an experimental control quant and says full BF16 parent parity was not run",
+        "[L86] scores are tied to the linked model revision, benchmark revision, runtime contract and host"
+      ]
+    }
+  ],
+  "prose": []
+}

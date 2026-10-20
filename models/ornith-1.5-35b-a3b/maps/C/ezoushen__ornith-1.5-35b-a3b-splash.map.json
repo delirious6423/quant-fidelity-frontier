@@ -1,0 +1,29 @@
+{
+ "repo": "ezoushen/ornith-1.5-35b-a3b-splash",
+ "source_sha256": "fec1402d8f36e9e9e11f7919ba85450077c19f6ae36aa263de42cc1d6c9306fe",
+ "candidates_sha256": "432e7b8486ce9ee7f8f6725c73a65b270c2f24586c274f4d441eb894709a496a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Ornith on MLX production lane (identical-output counts)", "dataset": "GSM8K 32-item subset; JevBench public decisions (231); 200 greedy prompts across code, vision, long context, math and chat", "ctx": "not stated", "tool": "not stated", "L": [48, 56, 57, 58, 74]},
+ "entries": [
+  {"role": "own", "name": "4-bit Splash package with vision", "panel": "At a glance",
+   "methodology": {"reference": "Ornith on MLX production lane (identical-output counts)", "dataset": "GSM8K 32-item subset; JevBench public decisions (231); 200 greedy prompts across code, vision, long context, math and chat", "ctx": "not stated", "tool": "not stated", "L": [56, 57, 58]},
+   "metrics": {"bench:GSM8K-subset32": "c1.0", "bench:JevBench-public-decisions": "c3"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["GSM8K value is a count out of 32; 93.75% stated in prose [L77]", "32-item subset, not a quality verdict [L77]", "identical-output counts are against Ornith on MLX, not a quality score [L56, L74]", "speed, speedup and draft acceptance omitted: no matching key [L53-54, L65-66, L104-113]", "Inco Qwen3.6 package comparison omitted: different model [L55, L65]"]},
+  {"role": "cross", "name": "MLX production lane", "of": "not named on card", "panel": "At a glance",
+   "methodology": {"reference": "not stated", "dataset": "GSM8K 32-item subset", "ctx": "not stated", "tool": "not stated", "L": [57]},
+   "metrics": {"bench:GSM8K-subset32": "c2.0"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["count out of 32 [L57]", "MLX 4-bit repo referenced without a link [L52]"]}
+ ],
+ "prose": [
+  {"entry": "4-bit Splash package with vision", "panel": "At a glance", "key": "bench:identical-greedy-overall", "L": 56, "raw": "136 of 200 prompts"},
+  {"entry": "4-bit Splash package with vision", "panel": "At a glance", "key": "bench:identical-greedy-code", "L": 56, "raw": "code 40/40"},
+  {"entry": "4-bit Splash package with vision", "panel": "At a glance", "key": "bench:identical-greedy-vision", "L": 56, "raw": "vision 40/40"},
+  {"entry": "4-bit Splash package with vision", "panel": "At a glance", "key": "bench:identical-greedy-long-context", "L": 56, "raw": "long context 35/40"},
+  {"entry": "4-bit Splash package with vision", "panel": "At a glance", "key": "bench:identical-greedy-math", "L": 56, "raw": "math 21/40"},
+  {"entry": "4-bit Splash package with vision", "panel": "At a glance", "key": "bench:identical-greedy-chat", "L": 56, "raw": "chat 0/40"}
+ ]
+}

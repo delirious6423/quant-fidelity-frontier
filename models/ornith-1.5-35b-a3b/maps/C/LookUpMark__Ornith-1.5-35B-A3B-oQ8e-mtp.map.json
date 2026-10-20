@@ -1,0 +1,23 @@
+{"repo": "LookUpMark/Ornith-1.5-35B-A3B-oQ8e-mtp",
+ "source_sha256": "08c5229f9baf496b88ad6475fbcc9da05f9be0b18d25eada29119e646411f101",
+ "candidates_sha256": "798c7e1837f09036054e17ca4d40efc2b8047dc0df9a95a43db133bca638ec3a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "needle-in-a-haystack probe and agentic checks", "ctx": "~23k context [L43]", "tool": "oMLX server [L31]; pi agent for agentic checks [L44]", "L": [31, 43, 44]},
+ "entries": [
+  {"role": "own", "name": "oQ8e", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["size is stated in the quantization bullets, not in a metrics row [L26]", "quality probes are prose, not table cells [L43-44]"]},
+  {"role": "ladder", "name": "oQ6e", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["sibling variant measured in the same probes [L43-44]"]},
+  {"role": "ladder", "name": "oQ4e", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["sibling variant measured in the same probes [L43-44]"]}
+ ],
+ "prose": [
+  {"entry": "oQ8e", "key": "bench:needle_recall", "L": 43, "raw": "needle-in-a-haystack recall 4/4"},
+  {"entry": "oQ8e", "key": "bench:agentic_checks", "L": 44, "raw": "6/6 completed"},
+  {"entry": "oQ6e", "key": "bench:needle_recall", "L": 43, "raw": "needle-in-a-haystack recall 4/4"},
+  {"entry": "oQ6e", "key": "bench:agentic_checks", "L": 44, "raw": "6/6 completed"},
+  {"entry": "oQ4e", "key": "bench:needle_recall", "L": 43, "raw": "needle-in-a-haystack recall 4/4"},
+  {"entry": "oQ4e", "key": "bench:agentic_checks", "L": 44, "raw": "6/6 completed"}
+ ]}

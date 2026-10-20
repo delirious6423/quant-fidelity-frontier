@@ -1,0 +1,65 @@
+{"repo": "IsValorum/Ornith-1.5-35B-A3B-APEX-I-MiniPlus-V2.1-GGUF",
+ "source_sha256": "28a3d8ed39f07f1d2a4aaab52ed528bca2af2a6018f008cb017208f00f9adb24",
+ "candidates_sha256": "a81dd5e990dc94353be6a2e4613ddddc0e10d2f24ca7ee0d6912172ca27adfcd",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 baseline", "dataset": "WikiText-2", "ctx": "not stated", "tool": "not stated", "L": [110, 113]},
+ "entries": [
+  {"role": "own",
+   "name": "APEX-I-MiniPlus V2.1 (CURRENT)",
+   "panel": "THE DEFINITIVE SPECIFICATION IN THE 14–15 GB CEILING",
+   "metrics": {},
+   "size": "c142.0",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c146.1",
+   "flags": [
+    "Occamy V2 benchmark is on a different model (Occamy-1.0 MiniPlus V2), omitted [L164-178]"
+   ]},
+  {"role": "ladder",
+   "name": "APEX-I-NanoPlus",
+   "panel": "THE DEFINITIVE SPECIFICATION IN THE 14–15 GB CEILING",
+   "metrics": {},
+   "size": "c150.0",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "Sibling build of the same family, a separate repo from this card's file [L114]",
+    "Approximate bpw (approx. 2.93) is stated in prose and not mapped to the bpw field [L114]"
+   ]},
+  {"role": "cross",
+   "name": "Unquantized BF16 Base",
+   "of": "ornith-ai/Ornith-1.5-35B-A3B",
+   "panel": "THE DEFINITIVE SPECIFICATION IN THE 14–15 GB CEILING",
+   "metrics": {},
+   "size": "c134.0",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": "c139.1",
+   "flags": [
+    "The PPL value is approximate (approx. 7.58) [L112]"
+   ]},
+  {"role": "own",
+   "name": "APEX-I-MiniPlus V2.1 (IsValorum)",
+   "panel": "Quality Spectrum: APEX-I-MiniPlus V2.1 vs. Standard Flat Quantizations",
+   "methodology": {"reference": "FP16 Baseline", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [194, 196]},
+   "metrics": {"ppl:wikitext": "c26"},
+   "size": "c24",
+   "unit": "GB",
+   "basis": null,
+   "bpw": "c23",
+   "flags": [
+    "Same measurement as the top table row for this file [L113]",
+    "Column is labelled Disk / VRAM, so basis is not set [L196]",
+    "Flat-quant rows give approximate or ranged deltas with no metric key, not mapped [L198-205]"
+   ]}
+ ],
+ "prose": [
+  {"entry": "APEX-I-MiniPlus V2.1 (CURRENT)", "panel": "THE DEFINITIVE SPECIFICATION IN THE 14–15 GB CEILING", "key": "ppl:wikitext", "L": 113, "raw": "7.6370"},
+  {"entry": "APEX-I-MiniPlus V2.1 (CURRENT)", "panel": "THE DEFINITIVE SPECIFICATION IN THE 14–15 GB CEILING", "key": "ppl_delta_pct", "L": 113, "raw": "+0.75%"},
+  {"entry": "APEX-I-NanoPlus", "panel": "THE DEFINITIVE SPECIFICATION IN THE 14–15 GB CEILING", "key": "ppl:wikitext", "L": 114, "raw": "8.0913"},
+  {"entry": "APEX-I-NanoPlus", "panel": "THE DEFINITIVE SPECIFICATION IN THE 14–15 GB CEILING", "key": "ppl_delta_pct", "L": 114, "raw": "+6.75%"},
+  {"entry": "Unquantized BF16 Base", "panel": "THE DEFINITIVE SPECIFICATION IN THE 14–15 GB CEILING", "key": "ppl:wikitext", "L": 112, "raw": "7.58"}
+ ]}
