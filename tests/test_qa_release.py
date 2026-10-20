@@ -50,8 +50,17 @@ class ReviewGate(unittest.TestCase):
                 self.assertFalse(result['ready'])
                 self.assertIn('q1', result['unresolved'])
 
-    def test_uncertain_invalid_or_unexplained_review_blocks(self):
-        for change in ({'verdict': 'unsure'}, {'verdict': 'approved'}, {'reason': ''}, {'reason': None}):
+    def test_unsure_review_holds_that_value_without_blocking(self):
+        reports = copy.deepcopy(self.verdicts)
+        reports[1].update(verdict='unsure', reason='Ambiguous header [L9].')
+        result = self.assess([reports])
+        self.assertTrue(result['ready'])
+        self.assertEqual([i['id'] for i, _ in result['held']], ['q1'])
+        self.assertTrue(result['held'][0][1].startswith('reviewer unsure'))
+        self.assertEqual(result['counts']['unsure'], 1)
+
+    def test_invalid_or_unexplained_review_blocks(self):
+        for change in ({'verdict': 'approved'}, {'reason': ''}, {'reason': None}):
             reports = copy.deepcopy(self.verdicts)
             reports[1].update(change)
             result = self.assess([reports])

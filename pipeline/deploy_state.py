@@ -60,7 +60,8 @@ def write_json(path, value):
 
 
 def assess_reviews(items, expected_count, batches):
-    """Every sampled item needs exactly one decisive, explained verdict."""
+    """Every sampled item needs exactly one explained verdict. wrong and unsure verdicts hold that value; a missing, duplicate or
+    malformed verdict blocks the release (the review itself failed)."""
     counts = dict(ok=0, wrong=0, unsure=0, missing=0)
     issues, held, by = [], [], {}
     if not isinstance(items, list):
@@ -99,14 +100,17 @@ def assess_reviews(items, expected_count, batches):
             continue
         report = reports[0]
         verdict, reason = report.get('verdict'), report.get('reason')
-        if verdict not in ('ok', 'wrong', 'unsure') or not isinstance(reason, str) or not reason.strip():
+        valid = verdict in ('ok', 'wrong', 'unsure') and isinstance(reason, str) and bool(reason.strip())
+        if not valid:
             issues.append(f'{id_}: verdict or source explanation is invalid.')
             verdict = 'unsure'
         counts[verdict] += 1
-        if verdict == 'wrong':
-            held.append((item, reason.strip()[:300]))
-        elif verdict == 'unsure':
+        if not valid:
             unresolved.append(id_)
+        elif verdict == 'wrong':
+            held.append((item, reason.strip()[:300]))
+        elif verdict == 'unsure':   # a decisive "I cannot tell" keeps the value off the site (held like a wrong one); it never blocks the rest
+            held.append((item, 'reviewer unsure: ' + reason.strip()[:280]))
     return dict(ready=not issues and not unresolved, counts=counts,
                 held=held, unresolved=unresolved, issues=issues)
 

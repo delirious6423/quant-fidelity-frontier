@@ -233,9 +233,8 @@ def main(args=None):
         verdicts, held = reviewed["counts"], reviewed["held"]
         s["verdicts"] = verdicts; s["held"] = len(held)
         if not reviewed["ready"]:
-            save(s)  # Keep the reviewed step resumable; no holds, promotion or publish.
-            say({"do": "stop", "report": {"blocked": "Every sampled value needs one decisive source-backed verdict before publishing.",
-                                           "verdicts": verdicts, "unresolved": reviewed["unresolved"], "issues": reviewed["issues"]}, "resume": NEXT})
+            # The session (and this state) ends with the run, so there is nothing to resume: release the lock; the next run re-reviews.
+            stop(s, f"blocked, nothing published: every sampled value needs one explained verdict (unresolved {reviewed['unresolved']}, issues {reviewed['issues']})")
         touched = set()
         for it, why in held:   # hold the entry; the number itself is never edited
             hp = f"{CODE}/models/{it['slug']}/audit/holds.json"
@@ -249,8 +248,7 @@ def main(args=None):
             for action in ("pipeline/qcl_watch.py merge", "pipeline/gen_auto.py"):
                 applied = sh(f"QCL_ROOT={shlex.quote('models/' + slug)} python3 {action}")
                 if applied.returncode != 0:
-                    save(s)
-                    say({"do": "stop", "report": {"blocked": "A wrong entry could not be quarantined; no release attempted.", "model": slug, "error": applied.stderr[-300:]}, "resume": NEXT})
+                    stop(s, f"blocked, nothing published: a held entry could not be quarantined in {slug}: {applied.stderr[-300:]}")
         # promote finished new models, then run every test; a failure publishes nothing
         w = wl(); promoted = [m["slug"] for m in w["models"] if m["status"] == "review"]
         for m in w["models"]:
