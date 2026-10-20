@@ -1,0 +1,33 @@
+{"at": "2026-10-20T16:05:06Z", "cmd": "lock", "exit": 0, "locked": false}
+{"at": "2026-10-20T16:05:06Z", "cmd": "plan", "exit": 0, "delta": ["qwen3.8-flash-next", "qwen3.8-27b", "deepseek-v4.1-flash", "glm-5.3-flash", "deepseek-v4-flash-0731", "lfm2.5-24b-a2b", "deepseek-v4.1-flash-1017", "ornith-1.5-35b-a3b"], "ingest": "gemma-4-26b-a4b-it", "resume": true}
+{"at": "2026-10-20T16:05:06Z", "cmd": "search-ops qwen3.8-flash-next", "exit": 0, "slug": "qwen3.8-flash-next", "calls": 1}
+{"at": "2026-10-20T16:05:06Z", "cmd": "search-ops qwen3.8-27b", "exit": 0, "slug": "qwen3.8-27b", "calls": 1}
+{"at": "2026-10-20T16:05:06Z", "cmd": "search-ops deepseek-v4.1-flash", "exit": 0, "slug": "deepseek-v4.1-flash", "calls": 1}
+{"at": "2026-10-20T16:05:06Z", "cmd": "search-ops glm-5.3-flash", "exit": 0, "slug": "glm-5.3-flash", "calls": 1}
+{"at": "2026-10-20T16:05:06Z", "cmd": "search-ops deepseek-v4-flash-0731", "exit": 0, "slug": "deepseek-v4-flash-0731", "calls": 1}
+{"at": "2026-10-20T16:05:07Z", "cmd": "search-ops lfm2.5-24b-a2b", "exit": 0, "slug": "lfm2.5-24b-a2b", "calls": 1}
+{"at": "2026-10-20T16:05:07Z", "cmd": "search-ops deepseek-v4.1-flash-1017", "exit": 0, "slug": "deepseek-v4.1-flash-1017", "calls": 1}
+{"at": "2026-10-20T16:05:07Z", "cmd": "search-ops ornith-1.5-35b-a3b", "exit": 0, "slug": "ornith-1.5-35b-a3b", "calls": 1}
+{"at": "2026-10-20T16:05:30Z", "cmd": "catalogue qwen3.8-flash-next", "exit": 0, "search_entries": 80, "catalogue": 109, "in_index": 477, "delta": 5, "gated": 4, "shards": ["2026102016a"]}
+{"at": "2026-10-20T16:05:30Z", "cmd": "catalogue qwen3.8-27b", "exit": 0, "search_entries": 80, "catalogue": 1267, "in_index": 1251, "delta": 4, "gated": 14, "shards": ["2026102016a"]}
+{"at": "2026-10-20T16:05:30Z", "cmd": "catalogue deepseek-v4.1-flash", "exit": 2, "search_entries": 80, "catalogue": 86, "in_index": 138, "delta": 0, "gated": 2, "shards": []}
+{"at": "2026-10-20T16:05:30Z", "cmd": "catalogue glm-5.3-flash", "exit": 2, "search_entries": 80, "catalogue": 186, "in_index": 177, "delta": 0, "gated": 9, "shards": []}
+{"at": "2026-10-20T16:05:30Z", "cmd": "catalogue deepseek-v4-flash-0731", "exit": 2, "search_entries": 80, "catalogue": 195, "in_index": 189, "delta": 0, "gated": 6, "shards": []}
+{"at": "2026-10-20T16:05:30Z", "cmd": "catalogue lfm2.5-24b-a2b", "exit": 2, "search_entries": 75, "catalogue": 75, "in_index": 75, "delta": 0, "gated": 0, "shards": []}
+{"at": "2026-10-20T16:05:30Z", "cmd": "catalogue deepseek-v4.1-flash-1017", "exit": 0, "search_entries": 79, "catalogue": 79, "in_index": 75, "delta": 6, "gated": 2, "shards": ["2026102016a"]}
+{"at": "2026-10-20T16:05:30Z", "cmd": "catalogue ornith-1.5-35b-a3b", "exit": 2, "search_entries": 80, "catalogue": 190, "in_index": 186, "delta": 0, "gated": 4, "shards": []}
+{"at": "2026-10-20T16:06:28Z", "cmd": "fetched qwen3.8-flash-next", "exit": 0, "slug": "qwen3.8-flash-next"}
+{"at": "2026-10-20T16:06:28Z", "cmd": "prepare qwen3.8-flash-next", "exit": 0, "todo": 4, "cards": 4, "queues": 2}
+{"at": "2026-10-20T16:06:31Z", "cmd": "fetched qwen3.8-27b", "exit": 0, "slug": "qwen3.8-27b"}
+{"at": "2026-10-20T16:06:31Z", "cmd": "prepare qwen3.8-27b", "exit": 0, "todo": 3, "cards": 3, "queues": 2}
+{"at": "2026-10-20T16:06:37Z", "cmd": "fetched deepseek-v4.1-flash-1017", "exit": 0, "slug": "deepseek-v4.1-flash-1017"}
+{"at": "2026-10-20T16:06:37Z", "cmd": "prepare deepseek-v4.1-flash-1017", "exit": 0, "todo": 3, "cards": 3, "queues": 2}
+{"at": "2026-10-20T16:11:10Z", "cmd": "finish qwen3.8-flash-next", "exit": 3, "merge": "merged 37 repos, 282 values; resolved 0 repos; tie-broken 38 values; quarantined 12 entries; held 288 disagreements; 9.8s"}
+{"at": "2026-10-20T16:11:20Z", "cmd": "finish qwen3.8-27b", "exit": 3, "merge": "merged 615 repos, 3961 values; resolved 0 repos; tie-broken 125 values; quarantined 142 entries; held 1653 disagreements; 23.8s"}
+{"at": "2026-10-20T16:11:45Z", "cmd": "finish deepseek-v4.1-flash-1017", "exit": 3, "merge": "merged 67 repos, 400 values; resolved 0 repos; tie-broken 30 values; quarantined 15 entries; held 141 disagreements; 2.0s"}
+{"at": "2026-10-20T16:11:48Z", "cmd": "elapsed 999", "exit": 0, "minutes": 6.7}
+{"at": "2026-10-20T16:20:45Z", "cmd": "finish qwen3.8-flash-next", "exit": 0, "merge": "merged 37 repos, 284 values; resolved 0 repos; tie-broken 40 values; quarantined 12 entries; held 286 disagreements; 12.4s"}
+{"at": "2026-10-20T16:20:58Z", "cmd": "finish qwen3.8-27b", "exit": 0, "merge": "merged 615 repos, 4024 values; resolved 0 repos; tie-broken 198 values; quarantined 144 entries; held 1596 disagreements; 24.1s"}
+{"at": "2026-10-20T16:21:23Z", "cmd": "finish deepseek-v4.1-flash-1017", "exit": 0, "merge": "merged 67 repos, 422 values; resolved 0 repos; tie-broken 32 values; quarantined 14 entries; held 155 disagreements; 2.1s"}
+{"at": "2026-10-20T16:21:26Z", "cmd": "stage qwen3.8-flash-next", "exit": 0}
+{"at": "2026-10-20T16:21:34Z", "cmd": "elapsed 999", "exit": 0, "minutes": 16.5}
