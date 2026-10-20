@@ -171,11 +171,14 @@ def build_failing(entries):
         except Exception: continue
         if not (isinstance(t, tuple) and len(t) >= 2): continue
         rp, nm = str(t[0]), str(t[1]); raw = str(t[3]) if len(t) >= 4 else None
-        for k in ("variants", "ladder", "cross"):
-            for e in entries.get(rp, {}).get(k, []):
-                en = str(e.get("name") or e.get("variant"))
-                # by name, or by the offending raw string (the build may show a row under a different variant label)
-                if en == nm or (raw and raw in [str(v) for v in (e.get("m") or {}).values()]): bad.add((rp, k, en))
+        # the build may label a ladder row with the repo it compares against ("not named on card"), not the repo that owns
+        # the entry; then search every repo, matching by entry name
+        for ork in ([rp] if rp in entries else list(entries)):
+            for k in ("variants", "ladder", "cross"):
+                for e in entries.get(ork, {}).get(k, []):
+                    en = str(e.get("name") or e.get("variant"))
+                    # by name, or by the offending raw string (the build may show a row under a different variant label)
+                    if en == nm or (rp in entries and raw and raw in [str(v) for v in (e.get("m") or {}).values()]): bad.add((ork, k, en))
     return bad
 
 def failing(entries):
