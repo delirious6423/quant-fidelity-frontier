@@ -2,9 +2,11 @@
 import html
 import json
 import math
+import re
 from pathlib import Path
-from urllib.parse import urlencode
+from urllib.parse import urlencode, urlsplit
 import xml.etree.ElementTree as ET
+from bench_tasks import canonical
 
 COLORS = ('#087880', '#ad65bd', '#bf7428', '#4078b8', '#b45977', '#548537')
 
@@ -37,6 +39,115 @@ def collect_shared(out, models):
     return dict(views=views, models=[dict(slug=m['slug'], name=m['model'].split('/')[-1], model=m['model']) for m in models])
 
 
+BASIS = {"text_weights": "text weights", "disk": "download", "hf_listing_total": "download (HF listing)", "vram": "GPU weights", "resident": "resident",
+         "ram_in_use": "RAM in use", "trunk_only": "trunk only", "hf_branch_total": "download (HF branch listing)", "excl_engram": "download (excl. Engram)",
+         "decoder_only": "decoder only", "engram_only": "Engram only", "routed_experts": "routed experts only"}
+
+
+def _card_repo(src, fallback):
+    """owner/name of the card a score is read from (the measuring card, which may differ from the tested repo)."""
+    parts = urlsplit(src or '').path.strip('/').split('/')
+    return '/'.join(parts[:2]) if len(parts) >= 4 and parts[2] == 'blob' else fallback
+
+
+_CARDS = {}
+
+
+def _card_lines(slug, repo):
+    """Lines of the captured card for a repo of a live model (cached); [] when unavailable."""
+    key = (slug, repo)
+    if key not in _CARDS:
+        lines = []
+        try:
+            root = Path(__file__).parent / 'models' / slug
+            meta = json.loads((root / 'snapshots/index.json').read_text())['repos'][repo]
+            lines = (root / meta['file']).read_text(encoding='utf-8', errors='replace').splitlines()
+        except (OSError, KeyError, ValueError):
+            pass
+        _CARDS[key] = lines
+    return _CARDS[key]
+
+
+def _score_line(lines, raw, near, name=''):
+    """The card line (1-based) on which the score is printed, nearest to the ledger row's line; None if it is not found."""
+    import re
+    nums = re.findall(r"\d*\.?\d+", str(raw).replace(',', ''))
+    if not nums:
+        return None
+    rx = re.compile(r"(?<![\d.])" + re.escape(nums[0]) + r"(?!\d)")
+    hits = [i + 1 for i, line in enumerate(lines) if rx.search(line.replace(',', ''))]
+    # a printed score such as "6/8" or "96.28%" is matched whole before falling back to its first number
+    whole = str(raw).strip()
+    exact = [i + 1 for i, line in enumerate(lines) if whole and (
+        re.search(r"(?<![\w./])" + re.escape(whole) + r"(?![\w./]|\.\d)", line))]
+    pool = exact or hits
+    # several lines can print the same figure: prefer one that also names the benchmark, then the one nearest the ledger row
+    key = re.sub(r"[^a-z0-9]", "", str(name).lower().split(" (")[0].split("/")[0])
+    named = [n for n in pool if key and key in re.sub(r"[^a-z0-9]", "", lines[n - 1].lower())]
+    pool = named or pool
+    return min(pool, key=lambda n: (abs(n - near), n)) if pool else None
+
+
+def collect_extracted(out, models):
+    """Every task score a card reports, grouped by canonical task. Values come from the gate-checked ledger rows (copied
+    verbatim from card text); the raw benchmark name, publisher and exact card line stay on each entry. Not individually
+    reviewed for comparable protocols, sizes or score scales, so there is no chart or ranking here."""
+    tasks = {}
+    for model in models:
+        data = json.loads((Path(out) / model['data']).read_text())
+        for r in data.get('rows', []):
+            if r.get('measured') is False or r.get('kind') == 'quoted':
+                continue
+            for key, m in r.get('metrics', {}).items():
+                if not key.startswith('bench:') or m.get('v') is None:
+                    continue
+                task = canonical(key[6:])
+                if task in (None, 'unclassified'):
+                    continue
+                card = _card_repo(r.get('src'), r['repo'])
+                src = r.get('src') or ''
+                near = r.get('L') or 1
+                found = _score_line(_card_lines(model['slug'], card), m.get('raw'), near, key[6:]) if src else None
+                if found:
+                    src = src.split('#')[0] + f'#L{found}'
+                    # a bare count (e.g. 8 correct of 20) in a table that also prints n/m totals is not a percentage score
+                    line_text = _card_lines(model['slug'], card)[found - 1]
+                    if re.fullmatch(r'\d+', str(m.get('raw')).strip()) and re.search(r'\b\d+\s*/\s*\d+\b', line_text):
+                        continue
+                tasks.setdefault(task, []).append(dict(
+                    model=model['model'].split('/')[-1], slug=model['slug'], repo=r['repo'], card=card, build=str(r.get('variant')),
+                    measured_by=r.get('measured_by'), metric=key[6:], raw=str(m.get('raw')), size=r.get('size_raw'), basis=BASIS.get(r.get('basis'), r.get('basis') or ''),
+                    modified=bool(r.get('weights_modified')), src=src, kind=r.get('kind')))
+    order = sorted(tasks, key=lambda t: (-len({e['slug'] for e in tasks[t]}), -len(tasks[t]), t))
+    return [dict(task=t, models=sorted({e['model'] for e in tasks[t]}), count=len(tasks[t]),
+                 entries=sorted(tasks[t], key=lambda e: (e['model'].casefold(), e['metric'].casefold(), e['repo'].casefold(), e['build'].casefold()))) for t in order]
+
+
+def render_extracted(groups):
+    esc = lambda s: html.escape(str(s), quote=True)
+    if not groups:
+        return ''
+    total = sum(g['count'] for g in groups)
+    rows_html = []
+    for g in groups:
+        body = ''.join(
+            f'<tr><td>{esc(e["model"])}</td><td>{esc(e["build"])}{" <em>(modified weights)</em>" if e["modified"] else ""}</td><td>{esc(e["card"])}</td>'
+            f'<td>{esc(e["metric"])}</td><td class="n">{esc(e["raw"])}</td><td>{esc(e["size"] or "—")}{" · " + esc(e["basis"]) if e["size"] and e["basis"] else ""}</td>'
+            f'<td><a href="{esc(e["src"])}">card line</a></td></tr>' for e in g['entries'])
+        rows_html.append(f'<details class="task" data-task="{esc(g["task"]).lower()}"><summary><b>{esc(g["task"])}</b> · {len(g["models"])} model{"s" if len(g["models"]) != 1 else ""} · {g["count"]} score{"s" if g["count"] != 1 else ""}</summary>'
+                         f'<p class="dim">Models: {esc(", ".join(g["models"]))}</p><div class="tablebox"><table><thead><tr><th>Model</th><th>Build</th><th>Reported on card</th><th>Benchmark, as published</th><th>Score, as published</th><th>Size, as published</th><th>Source</th></tr></thead><tbody>{body}</tbody></table></div></details>')
+    return (f'<section id="all-reported" aria-labelledby="all-reported-title"><h2 id="all-reported-title">Every reported task score</h2>'
+            f'<p class="scope">{len(groups)} benchmarks, {total} scores read from {len({e["slug"] for g in groups for e in g["entries"]})} models&#8217; cards. Unlike the chart above, these are not individually reviewed: '
+            'the benchmark name, score and size are shown exactly as the card publishes them, grouped by task name, and the settings (sample size, shots, thinking, score scale) may differ between rows. '
+            'No ranking or averaging is made. Each row links to its card line.</p>'
+            '<label class="ex-find">Find a benchmark <input id="all-find" type="search" placeholder="e.g. AIME, LiveCodeBench, GPQA" autocomplete="off"></label><p id="all-find-status" class="dim" role="status"></p>'
+            + ''.join(rows_html) +
+            '<script>(function(){var q=document.getElementById("all-find"),st=document.getElementById("all-find-status"),d=[].slice.call(document.querySelectorAll("#all-reported details.task"));'
+            'function go(){var v=q.value.trim().toLowerCase(),n=0;d.forEach(function(x){var m=!v||x.getAttribute("data-task").indexOf(v)>=0;x.hidden=!m;if(m)n++;if(v&&m&&n<=3)x.open=true;else if(!v)x.open=false});'
+            'st.textContent=v?n+" benchmark"+(n===1?"":"s")+" match":"";}q.addEventListener("input",go);'
+            'if(location.hash){var t=decodeURIComponent(location.hash.slice(1)).toLowerCase();d.forEach(function(x){if(x.getAttribute("data-task")===t){x.open=true;x.scrollIntoView()}})}})();</script></section>')
+
+
 def static_plot(view, palette):
     if not view:
         return '<p>No benchmark currently has reviewed results with file sizes for two models.</p>'
@@ -65,6 +176,7 @@ def build_benchmark_view(out, models, base, analytics='', support=''):
     out = Path(out)
     target = out/'benchmarks'; target.mkdir(parents=True, exist_ok=True)
     payload = collect_shared(out, models)
+    extracted = collect_extracted(out, models)
     esc = lambda s: html.escape(str(s), quote=True)
     palette = {m['slug']: COLORS[i % len(COLORS)] for i, m in enumerate(sorted(payload['models'], key=lambda m:m['name']))}
     payload['colors'] = palette
@@ -92,7 +204,9 @@ def build_benchmark_view(out, models, base, analytics='', support=''):
 <details id="shared-notes"><summary>Evaluation details &amp; coverage</summary><p>Only exact benchmark variants with the same declared score units and reviewed file sizes enter a shared view. Each source report remains a separate point. Missing results are unknown. File size is not total VRAM usage.</p><p>QFF transcribes publisher claims; it does not independently reproduce these evaluations. Common benchmark names do not verify identical prompting, sample selection or scoring settings. No cross-source ranking or averaged score is inferred. Source links may point to mutable cards; captured hashes are retained in the data.</p><div id="shared-contexts"></div></details>
 <details open id="shared-evidence"><summary>Source-linked results</summary><div class="tablebox"><table><thead><tr><th>Benchmark</th><th>Model</th><th>Build</th><th>File GB</th><th>Published score</th><th>Source</th></tr></thead><tbody>{table}</tbody></table></div></details></section>
 <footer><span><a href="../">QFF</a> · Publisher claims, linked to their sources.</span><span><a href="data.json">Chart data</a>{support}</span></footer></main></div><script id="shared-data" type="application/json">{encoded}</script><script>{script}</script></body></html>'''
+    page = page.replace('<footer>', render_extracted(extracted) + '<footer>', 1)
     (target/'index.html').write_text(page)
+    payload['extracted'] = [dict(task=g['task'], models=g['models'], count=g['count'], entries=g['entries']) for g in extracted]   # data file only; not inlined in the page
     (target/'data.json').write_text(json.dumps(payload, separators=(',', ':')))
     ns = 'http://www.sitemaps.org/schemas/sitemap/0.9'
     tree = ET.parse(out/'sitemap.xml')
