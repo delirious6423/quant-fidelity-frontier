@@ -77,9 +77,11 @@ async def check_model(browser, base, model):
     publisher = first['title'].split(' · ')[0]
     await page.fill('#exsetsearch', publisher)
     assert await page.input_value('#exset') == 'all'
-    visible = await page.locator('#exset option').evaluate_all('(nodes) => nodes.filter(n => !n.hidden).map(n => ({id:n.value,label:n.textContent}))')
+    visible = await page.locator('#exset option').evaluate_all('(nodes) => nodes.filter(n => !n.hidden).map(n => ({id:n.value,label:n.textContent,search:n.dataset.search || ""}))')
     assert 1 < len(visible) < len(sets), (model['slug'], publisher)
-    assert all(o['id'] == 'all' or publisher.lower() in o['label'].lower() for o in visible)
+    # Search covers each set's data, so a set that cross-references the publisher's files also matches; its own sets always do.
+    assert all(o['id'] == 'all' or publisher.lower() in o['search'] for o in visible)
+    assert any(o['id'] == first['id'] and publisher.lower() in o['label'].lower() for o in visible)
     await page.fill('#exsetsearch', '')
     assert await page.locator('#exset option').evaluate_all('(nodes) => nodes.every(n => !n.hidden)')
 
