@@ -1,41 +1,41 @@
 # Claims published only as chart images. Values are transcribed from the printed point labels; bpw is digitized
 # from marker positions. verify_images.py re-digitizes both images and checks every transcribed label against its
-# marker position (must agree within 3% for KLD, 0.0015 for PPL). Images are pinned in snapshots/images/ and are
-# referenced on the card at the commit below.
+# marker position (must agree within 3% for KLD, 0.0015 for PPL). Images are pinned in snapshots/images/ (copies supplied by the site owner;
+# not byte-compared with the card's CDN files) and are referenced on the card revision pinned below by source_sha256.
 R = []
 def repo(**k): R.append(k); return k
-
-IMG_KLD = "https://cdn-uploads.huggingface.co/production/uploads/6383dc174c48969dcf1b4fce/Dj8Y9utw9eRXBzHhgLdfE.png"
-IMG_PPL = "https://cdn-uploads.huggingface.co/production/uploads/6383dc174c48969dcf1b4fce/QB6YgtVCOde709tTvg3h9.png"
-
-def pt(name, bpw, kld, ppl, px, ky, py, branch=None, gb=None):
-    return dict(name=name, bpw=bpw, **({'size': gb, 'unit': 'GB', 'basis': 'hf_branch_total', 'branch': branch} if branch else {}), bpw_note="digitized from chart (bpw excl. embeddings and output head)",
-                m={"mean_kld": kld, "ppl": ppl}, src="chart_image", img=[IMG_KLD, IMG_PPL], px=dict(x=px, kld_y=ky, ppl_y=py), L=27, L_extra=[28])
-
-repo(repo="turboderp/Qwen3.8-Flash-Next-exl3", sha="c1def4275dc6573c69b5acba1e70c1ce3faf17f8", fmt="EXL3",
-  runtime="ExLlamaV3 v1.4.5+", weights_modified=False,
-  method="EXL3 plain quants (not self-calibrated); five branches 2.05–6.05 bpw",
-  methodology=dict(reference="full-precision model (D_KL(p_FP ‖ p_quant))", dataset="self-generated in-domain trace, 14,496 input + 45,588 output tokens",
-                   ctx=None, tool="not stated (repo ships qbench_prompts files)", noise_floor="mean KLD 0.00249 (printed on chart)", bf16_ppl="1.38423 (HF BF16, printed on chart)", L=[27, 28]),
+IMG_KLD = "https://cdn-uploads.huggingface.co/production/uploads/6383dc174c48969dcf1b4fce/MjAd3cIT-9k_YM8sXfM9U.png"
+IMG_PPL = "https://cdn-uploads.huggingface.co/production/uploads/6383dc174c48969dcf1b4fce/nrFMOWur_qrsqvFve4g1Q.png"
+repo(repo='turboderp/Qwen3.8-Flash-Next-exl3', sha='main', source_sha256='15e34a6b6c7c265e11acc3f85183036c5d671485c4fa83ba1921cf17895404eb', fmt='EXL3',
+  runtime='ExLlamaV3 v1.4.5+', weights_modified=False,
+  method='EXL3 quants, five plain branches 2.05–6.05 bpw and five self-calibrated branches 2.18–4.18 bpw (H6, NG8)',
+  methodology=dict(reference='full-precision model (D_KL(p_FP ‖ p_quant))', dataset='self-generated in-domain trace, 14,496 input + 45,588 output tokens', ctx=None, tool='not stated (repo ships qbench_prompts files)', noise_floor='mean KLD 0.00262 (printed on chart)', bf16_ppl='1.38474 (HF BF16, printed on chart)', L=[33, 34]),
   variants=[
-    pt("2.05 bpw H4 NG4", 2.09, "0.0684", "1.4879", 315, 345.2, 457.2, branch="2.05bpw_h4_ng4", gb=62.82),
-    pt("3.05 bpw H5 NG5", 3.09, "0.0177", "1.4075", 740, 762.2, 1067.2, branch="3.05bpw_h5_ng5", gb=85.14),
-    pt("4.05 bpw H6 NG6", 4.09, "0.0067", "1.3900", 1165, 1061.2, 1201.2, branch="4.05bpw_h6_ng6", gb=107.46),
-    pt("5.05 bpw H6 NG6", 5.09, "0.0040", "1.3848", 1590, 1221.2, 1240.2, branch="5.05bpw_h6_ng6", gb=123.25),
-    pt("6.05 bpw H6 NG6", 6.09, "0.0031", "1.3825", 2014, 1299.2, 1257.2, branch="6.05bpw_h6_ng6", gb=139.04),
+    {'name': '2.05 bpw H4 NG4', 'bpw': 2.09, 'bpw_note': 'digitized from chart (bpw excl. embeddings and output head)', 'm': {'mean_kld': '0.0681', 'ppl': '1.4871'}, 'src': 'chart_image', 'img': [IMG_KLD, IMG_PPL], 'px': {'x': 315.0, 'kld_y': 348.2, 'ppl_y': 457.2}, 'L': 33, 'L_extra': [34], 'size': 62.82, 'unit': 'GB', 'basis': 'hf_branch_total', 'branch': '2.05bpw_h4_ng4'},
+    {'name': '3.05 bpw H5 NG5', 'bpw': 3.09, 'bpw_note': 'digitized from chart (bpw excl. embeddings and output head)', 'm': {'mean_kld': '0.0174', 'ppl': '1.4074'}, 'src': 'chart_image', 'img': [IMG_KLD, IMG_PPL], 'px': {'x': 740.0, 'kld_y': 769.8, 'ppl_y': 1054.2}, 'L': 33, 'L_extra': [34], 'size': 85.14, 'unit': 'GB', 'basis': 'hf_branch_total', 'branch': '3.05bpw_h5_ng5'},
+    {'name': '4.05 bpw H6 NG6', 'bpw': 4.09, 'bpw_note': 'digitized from chart (bpw excl. embeddings and output head)', 'm': {'mean_kld': '0.0066', 'ppl': '1.3897'}, 'src': 'chart_image', 'img': [IMG_KLD, IMG_PPL], 'px': {'x': 1165.0, 'kld_y': 1075.2, 'ppl_y': 1185.2}, 'L': 33, 'L_extra': [34], 'size': 107.46, 'unit': 'GB', 'basis': 'hf_branch_total', 'branch': '4.05bpw_h6_ng6'},
+    {'name': '5.05 bpw H6 NG6', 'bpw': 5.09, 'bpw_note': 'digitized from chart (bpw excl. embeddings and output head)', 'm': {'mean_kld': '0.0040', 'ppl': '1.3848'}, 'src': 'chart_image', 'img': [IMG_KLD, IMG_PPL], 'px': {'x': 1590.0, 'kld_y': 1231.2, 'ppl_y': 1222.2}, 'L': 33, 'L_extra': [34], 'size': 123.25, 'unit': 'GB', 'basis': 'hf_branch_total', 'branch': '5.05bpw_h6_ng6'},
+    {'name': '6.05 bpw H6 NG6', 'bpw': 6.08, 'bpw_note': 'digitized from chart (bpw excl. embeddings and output head)', 'm': {'mean_kld': '0.0031', 'ppl': '1.3823'}, 'src': 'chart_image', 'img': [IMG_KLD, IMG_PPL], 'px': {'x': 2014.0, 'kld_y': 1310.2, 'ppl_y': 1241.2}, 'L': 33, 'L_extra': [34], 'size': 139.04, 'unit': 'GB', 'basis': 'hf_branch_total', 'branch': '6.05bpw_h6_ng6'},
+    {'name': '2.18 bpw H6 NG8 (self-calibrated)', 'bpw': 2.22, 'bpw_note': 'digitized from chart (bpw excl. embeddings and output head)', 'm': {'mean_kld': '0.0497', 'ppl': '1.4602'}, 'src': 'chart_image', 'img': [IMG_KLD, IMG_PPL], 'px': {'x': 370.0, 'kld_y': 446.4, 'ppl_y': 658.4}, 'L': 33, 'L_extra': [34], 'size': 90.7, 'unit': 'GB', 'basis': 'hf_branch_total', 'branch': '2.18bpw_h6_ng8'},
+    {'name': '2.68 bpw H6 NG8 (self-calibrated)', 'bpw': 2.71, 'bpw_note': 'digitized from chart (bpw excl. embeddings and output head)', 'm': {'mean_kld': '0.0249', 'ppl': '1.4165'}, 'src': 'chart_image', 'img': [IMG_KLD, IMG_PPL], 'px': {'x': 577.0, 'kld_y': 662.4, 'ppl_y': 985.4}, 'L': 33, 'L_extra': [34], 'size': 98.4, 'unit': 'GB', 'basis': 'hf_branch_total', 'branch': '2.68bpw_h6_ng8'},
+    {'name': '3.18 bpw H6 NG8 (self-calibrated)', 'bpw': 3.22, 'bpw_note': 'digitized from chart (bpw excl. embeddings and output head)', 'm': {'mean_kld': '0.0138', 'ppl': '1.4023'}, 'src': 'chart_image', 'img': [IMG_KLD, IMG_PPL], 'px': {'x': 795.0, 'kld_y': 845.4, 'ppl_y': 1092.4}, 'L': 33, 'L_extra': [34], 'size': 106.49, 'unit': 'GB', 'basis': 'hf_branch_total', 'branch': '3.18bpw_h6_ng8'},
+    {'name': '3.68 bpw H6 NG8 (self-calibrated)', 'bpw': 3.7, 'bpw_note': 'digitized from chart (bpw excl. embeddings and output head)', 'm': {'mean_kld': '0.0087', 'ppl': '1.3944'}, 'src': 'chart_image', 'img': [IMG_KLD, IMG_PPL], 'px': {'x': 1002.0, 'kld_y': 989.4, 'ppl_y': 1151.4}, 'L': 33, 'L_extra': [34], 'size': 114.19, 'unit': 'GB', 'basis': 'hf_branch_total', 'branch': '3.68bpw_h6_ng8'},
+    {'name': '4.18 bpw H6 NG8 (self-calibrated)', 'bpw': 4.2, 'bpw_note': 'digitized from chart (bpw excl. embeddings and output head)', 'm': {'mean_kld': '0.0061', 'ppl': '1.3901'}, 'src': 'chart_image', 'img': [IMG_KLD, IMG_PPL], 'px': {'x': 1211.0, 'kld_y': 1099.4, 'ppl_y': 1183.4}, 'L': 33, 'L_extra': [34], 'size': 121.96, 'unit': 'GB', 'basis': 'hf_branch_total', 'branch': '4.18bpw_h6_ng8'},
   ],
   cross=[
-    dict(of="unsloth/Qwen3.8-Flash-Next-GGUF", **pt("UD-IQ1_M", 2.85, "0.0804", "1.5031", 638, 296, 343)),
-    dict(of="unsloth/Qwen3.8-Flash-Next-GGUF", **pt("UD-Q2_K_XL", 3.12, "0.0533", "1.4619", 754, 423, 655)),
-    dict(of="unsloth/Qwen3.8-Flash-Next-GGUF", **pt("UD-IQ3_XXS", 3.31, "0.0349", "1.4342", 833, 553, 866)),
-    dict(of="unsloth/Qwen3.8-Flash-Next-GGUF", **pt("UD-IQ4_XS", 4.05, "0.0165", "1.4017", 1150, 784, 1112)),
-    dict(of="unsloth/Qwen3.8-Flash-Next-GGUF", **pt("UD-Q4_K_XL", 5.18, "0.0084", "1.3926", 1631, 991, 1181)),
-    dict(of="NVFP4 (checkpoint not named)", **pt("NVFP4 W4A16", 4.78, "0.0100", "1.3970", 1457, 938, 1148)),
-    dict(of="NVFP4 (checkpoint not named)", **pt("NVFP4 W4A4", 4.78, "0.0241", "1.4199", 1457, 667, 974)),
+    {'of': 'unsloth/Qwen3.8-Flash-Next-GGUF', 'name': 'UD-IQ1_M', 'bpw': 2.85, 'bpw_note': 'digitized from chart (bpw excl. embeddings and output head)', 'm': {'mean_kld': '0.0803', 'ppl': '1.5026'}, 'src': 'chart_image', 'img': [IMG_KLD, IMG_PPL], 'px': {'x': 638.0, 'kld_y': 298.0, 'ppl_y': 342.0}, 'L': 33, 'L_extra': [34]},
+    {'of': 'unsloth/Qwen3.8-Flash-Next-GGUF', 'name': 'UD-Q2_K_XL', 'bpw': 3.12, 'bpw_note': 'digitized from chart (bpw excl. embeddings and output head)', 'm': {'mean_kld': '0.0533', 'ppl': '1.4623'}, 'src': 'chart_image', 'img': [IMG_KLD, IMG_PPL], 'px': {'x': 754.0, 'kld_y': 425.0, 'ppl_y': 644.0}, 'L': 33, 'L_extra': [34]},
+    {'of': 'unsloth/Qwen3.8-Flash-Next-GGUF', 'name': 'UD-IQ3_XXS', 'bpw': 3.31, 'bpw_note': 'digitized from chart (bpw excl. embeddings and output head)', 'm': {'mean_kld': '0.0349', 'ppl': '1.4339'}, 'src': 'chart_image', 'img': [IMG_KLD, IMG_PPL], 'px': {'x': 833.0, 'kld_y': 558.0, 'ppl_y': 856.0}, 'L': 33, 'L_extra': [34]},
+    {'of': 'unsloth/Qwen3.8-Flash-Next-GGUF', 'name': 'UD-IQ4_XS', 'bpw': 4.05, 'bpw_note': 'digitized from chart (bpw excl. embeddings and output head)', 'm': {'mean_kld': '0.0162', 'ppl': '1.4021'}, 'src': 'chart_image', 'img': [IMG_KLD, IMG_PPL], 'px': {'x': 1150.0, 'kld_y': 797.0, 'ppl_y': 1092.9}, 'L': 33, 'L_extra': [34]},
+    {'of': 'unsloth/Qwen3.8-Flash-Next-GGUF', 'name': 'UD-Q4_K_XL', 'bpw': 5.18, 'bpw_note': 'digitized from chart (bpw excl. embeddings and output head)', 'm': {'mean_kld': '0.0084', 'ppl': '1.3929'}, 'src': 'chart_image', 'img': [IMG_KLD, IMG_PPL], 'px': {'x': 1631.0, 'kld_y': 1003.0, 'ppl_y': 1163.0}, 'L': 33, 'L_extra': [34]},
+    {'of': 'NVFP4 (checkpoint not named)', 'name': 'NVFP4 W4A16', 'bpw': 4.77, 'bpw_note': 'digitized from chart (bpw excl. embeddings and output head)', 'm': {'mean_kld': '0.0102', 'ppl': '1.3964'}, 'src': 'chart_image', 'img': [IMG_KLD, IMG_PPL], 'px': {'x': 1457.0, 'kld_y': 941.0, 'ppl_y': 1136.9}, 'L': 33, 'L_extra': [34]},
+    {'of': 'NVFP4 (checkpoint not named)', 'name': 'NVFP4 W4A4', 'bpw': 4.77, 'bpw_note': 'digitized from chart (bpw excl. embeddings and output head)', 'm': {'mean_kld': '0.0244', 'ppl': '1.4201'}, 'src': 'chart_image', 'img': [IMG_KLD, IMG_PPL], 'px': {'x': 1457.0, 'kld_y': 669.0, 'ppl_y': 959.0}, 'L': 33, 'L_extra': [34]},
   ],
-  baseline={"ppl": "1.38423", "src": "chart_image", "L": 28},
-  flags=["Results exist only as chart images; values here are transcribed from the printed labels and checked against marker positions [L27-28]",
-         "Eval text is a self-generated in-domain trace, so absolute KLD is much lower than on held-out corpora; e.g. unsloth UD-Q4_K_XL is 0.0084 here vs 0.046893 on unsloth's own table",
-         "The NVFP4 checkpoint measured is not named; W4A16 and W4A4 are two execution modes of the same weights",
-         "Chart prints a measured noise floor (mean KLD 0.00249): differences near it are not meaningful",
-         "The GGUF series are unsloth's UD quants (names match unsloth's files); file sizes are not given, only bpw excluding embeddings and output head"])
+  baseline={'ppl': '1.38474', 'src': 'chart_image', 'L': 34},
+  flags=['Results exist only as chart images; values here are transcribed from the printed labels and checked against marker positions [L33-34]',
+         'Chart images were supplied by the site owner and could not be byte-compared with the card CDN files',
+         'Eval text is a self-generated in-domain trace, so absolute KLD is much lower than on held-out corpora; e.g. unsloth UD-Q4_K_XL is 0.0084 here vs 0.046893 on unsloth\'s own table',
+         'The NVFP4 checkpoint measured is not named; W4A16 and W4A4 are two execution modes of the same weights',
+         'Chart prints a measured noise floor (mean KLD 0.00262): differences near it are not meaningful',
+         'The GGUF series are unsloth\'s UD quants (names match unsloth\'s files); file sizes are not given, only bpw excluding embeddings and output head',
+         'Self-calibrated (SC) quants are turboderp\'s own calibrated builds; the card lists them separately from the plain quants'])

@@ -36,6 +36,16 @@ class GateIntegrity(unittest.TestCase):
         return json.loads((self.root / "snapshots/index.json").read_text())
 
     def test_identical_source_is_current_when_mutable_revision_becomes_a_commit(self):
+        # The live data pins image claims directly (source_sha256). Rebuild the legacy shape in the throwaway copy:
+        # an entry without source_sha256, pinned through the review registry by its full fingerprint.
+        part = self.root / "verified/part3_images.py"
+        namespace = {}; exec(part.read_text(), namespace)
+        raw_entry = namespace["R"][0]
+        source_pin = raw_entry.pop("source_sha256")
+        part.write_text(part.read_text().replace(f"source_sha256='{source_pin}', ", "", 1))
+        pins = json.loads((self.root / "audit/review_pins.json").read_text())
+        pins["entries"][current.entry_fingerprint(raw_entry)] = {"repo": raw_entry["repo"], "source_sha256": source_pin}
+        (self.root / "audit/review_pins.json").write_text(json.dumps(pins))
         entry = next(r for r in current.load(self.root) if r.get("_review_source_sha256") and r.get("variants"))
         index = self.index()
         index["repos"][entry["repo"]]["sha"] = "1234567890abcdef1234567890abcdef12345678"
@@ -147,6 +157,7 @@ class GateIntegrity(unittest.TestCase):
     def test_withdrawn_image_claims_do_not_require_unused_images(self):
         index = self.index()
         index["repos"]["turboderp/Qwen3.8-Flash-Next-exl3"]["sha"] = "new-source-revision"
+        index["repos"]["turboderp/Qwen3.8-Flash-Next-exl3"]["sha256"] = "0" * 64   # the card changed: its pinned claims are withdrawn
         (self.root / "snapshots/index.json").write_text(json.dumps(index))
         shutil.rmtree(self.root / "snapshots/images")
         result = self.run_gate("verify_images.py")
@@ -156,7 +167,7 @@ class GateIntegrity(unittest.TestCase):
     def test_valid_current_image_claims_still_verify(self):
         result = self.run_gate("verify_images.py")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn("image claims checked: 14, failures: 0", result.stdout)
+        self.assertIn("image claims checked: 19, failures: 0", result.stdout)
 
     def test_hf_branch_size_unit_cannot_change_without_converting_value(self):
         file = self.root / "verified/part3_images.py"
@@ -208,10 +219,10 @@ class GateIntegrity(unittest.TestCase):
                 result = self.run_gate("verify_images.py")
                 self.assertNotEqual(result.returncode, 0)
                 if "float(" in value:
-                    # Canonical source fingerprints reject NaN/Infinity before
-                    # the image coordinate gate can inspect the active entry.
-                    self.assertIn("FAIL invalid image claim source", result.stdout)
-                    self.assertIn("not JSON compliant", result.stdout)
+                    # Directly pinned entries are not fingerprinted, so the image coordinate gate itself rejects
+                    # NaN/Infinity (legacy registry-pinned entries are rejected earlier by their canonical fingerprint).
+                    self.assertTrue("FAIL invalid image claim source" in result.stdout
+                                    or "coordinates must be finite and inside" in result.stdout, result.stdout)
                 else:
                     self.assertIn("coordinates must be finite and inside", result.stdout)
 

@@ -34,6 +34,11 @@ E = html.escape
 def load():
     sys.path.insert(0, os.path.join(CODE, "gates")); import current as CUR   # entries whose card changed since review are withdrawn
     R = CUR.load(ROOT)
+    # A machine-mapped entry that found no claims (card text has no numbers) must not clash with a hand-reviewed entry for
+    # the same repo, e.g. results published only as chart images (verified/part3_images.py): the reviewed entry wins.
+    no_claims = lambda r: r.get("_part") == "part8_machine.py" and not (r.get("variants") or r.get("ladder") or r.get("cross"))
+    held_by_review = {r["repo"] for r in R if not r.get("auto") and r.get("_part") != "part8_machine.py"}
+    R = [r for r in R if not (no_claims(r) and r["repo"] in held_by_review)]
     reviewed = {}
     for r in R:
         if r.get("auto"): continue

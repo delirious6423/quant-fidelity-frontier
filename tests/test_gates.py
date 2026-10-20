@@ -45,7 +45,7 @@ def t_swapped_columns_caught():
 
 def t_image_baseline_checked():
     p = fresh()
-    edit(f"{p}/{FN}/verified/part3_images.py", 'baseline={"ppl": "1.38423"', 'baseline={"ppl": "999.999"')
+    edit(f"{p}/{FN}/verified/part3_images.py", "baseline={'ppl': '1.38474'", "baseline={'ppl': '999.999'")
     rc, out = run(p, "python3 gates/verify_images.py"); assert rc != 0, "changing the image-sourced BF16 baseline still passed"
 
 def t_unicode_minus_sign():
