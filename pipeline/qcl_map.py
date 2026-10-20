@@ -105,6 +105,30 @@ def exact_in(raw, line):
     return False
 APPROX = re.compile(r"(?:~|≈|∼|\babout|\baround|\bapprox|\broughly|\bup to|(?:^|[\s(])(?:<|>|≤|≥))\s*\d|\d\s*(?:[A-Za-z]{1,4}\s*)?(?:–|—|\bto\b)\s*~?\d|\d\s+-\s+\d", re.I)
 
+# Images on a card can carry the results (charts) or details (tables) that the text lacks. A model cannot read them in a
+# mapping run, so code flags the card instead of leaving the gap silent. Badges, logos and shields are ignored.
+IMAGE_RE = re.compile(r"!\[([^\]]*)\]\(\s*<?([^)\s>]+)[^)]*\)|<img\b[^>]*?\bsrc\s*=\s*[\"']([^\"']+)[\"'][^>]*>", re.I)
+IMAGE_SKIP = re.compile(r"shields\.io|badge|badgen|logo|avatar|emoji|star-history|visitor|favicon|icon|buymeacoffee|ko-fi|\.svg(\?|$)", re.I)
+
+def card_images(lines):
+    """[(line number, alt text, url)] for the content images on a card (badges and logos left out)."""
+    found = []
+    for n, line in enumerate(lines, 1):
+        for m in IMAGE_RE.finditer(line):
+            alt, url = (m.group(1), m.group(2)) if m.group(2) else ("", m.group(3))
+            if url and not IMAGE_SKIP.search(url) and not IMAGE_SKIP.search(alt or ""): found.append((n, (alt or "").strip(), url))
+    return found
+
+def image_flag(lines, has_claims):
+    """One flag line for a card whose images may hold quant results or details, or None."""
+    imgs = card_images(lines)
+    if not imgs: return None
+    where = ", ".join(f"L{n}" for n, _, _ in imgs[:6]) + (" …" if len(imgs) > 6 else "")
+    names = "; ".join(sorted({a for _, a, _ in imgs if a})[:4])
+    lead = "Card embeds" if has_claims else "No numbers in the card text, but it embeds"
+    return (f"{lead} {len(imgs)} image{'s' if len(imgs) != 1 else ''} [{where}]{(' (' + names + ')') if names else ''} that may show quant results or details; "
+            "image contents are not read by the mapper, so anything shown only in them is not on this site")
+
 def apply(mapping, cands, *, source_sha256=None):
     """-> repo(...) dict in the verified/ schema. Raw strings come from the candidate cells, never from the LLM."""
     ent = {"variants": [], "ladder": [], "cross": []}

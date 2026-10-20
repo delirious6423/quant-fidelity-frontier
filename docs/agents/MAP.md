@@ -19,3 +19,7 @@ Loop:
 
 Only write `M/maps/RUN/<NAME>.map.json` for names in queues you claimed. You may read the saved card the prompt points to (`M/cache/cards/<NAME>.md`) when its digest leaves out context; never open any map under `M/maps/` (the runs must stay independent: a C map made after reading an A or B map is not a tie-breaker), and no other files. Final message: the queue
 files you processed, nothing else.
+
+## Images on cards
+
+A mapping run cannot read images, and charts or tables inside them may hold the results. Code, not the worker, flags every card that embeds content images (badges, logos and shields are ignored): `qcl_map.image_flag`, written by `qcl_watch.py merge` into the entry's flags ("No numbers in the card text, but it embeds N images…" or "Card embeds N images…"). Do not guess values from image file names or alt text. Cards flagged this way are the candidates for the chart-image route (`verified/part3_images.py`, `gates/verify_images.py`), which needs the images supplied byte-for-byte or as owner-supplied copies.
