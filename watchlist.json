@@ -1,7 +1,7 @@
 {
  "about": "Models the hourly scan keeps current. status: live = on the site, deltas every hour; queued = ingested one after another (no wait between models; min_hours_between_ingests), in this order. Queue is maintained by the weekly discovery job (pipeline/qcl_discover.py).",
  "min_hours_between_ingests": 0,
- "last_ingest_at": "2026-10-20T13:06:46.551927+00:00",
+ "last_ingest_at": "2026-10-20T17:14:17.740557+00:00",
  "models": [
   {
    "model": "Qwen/Qwen3.8-Flash-Next",
@@ -63,7 +63,7 @@
   {
    "model": "google/gemma-4-26B-A4B-it",
    "slug": "gemma-4-26b-a4b-it",
-   "status": "ingesting",
+   "status": "review",
    "released": "2026-07-15",
    "quants": 80,
    "quants_1k": 36,
