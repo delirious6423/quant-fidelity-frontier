@@ -14,6 +14,7 @@ import subprocess
 import sys
 import tempfile
 import threading
+import time
 import unittest
 import urllib.parse
 
@@ -35,6 +36,7 @@ class FakeHub:
                       "test/two": b"| Quant | PPL |\n|---|---|\n| Q8 | 5.5 |\n", "test/three": b""}
         self.bases = {MODEL: ["test/one", "test/two", "test/three"]}   # base model -> its quant repos
         self.modified = {rid: "2026-10-20T10:00:00.000Z" for rid in self.sha}
+        self.downloads, self.likes = 10, 3
         self.limited, self.denied, self.requests = set(), set(), []
         hub = self
         class Handler(http.server.BaseHTTPRequestHandler):
@@ -55,7 +57,7 @@ class FakeHub:
 
     def catalogue(self, base):
         return [{"id": rid, "sha": self.sha[rid], "lastModified": self.modified[rid], "createdAt": "2026-10-01T00:00:00.000Z",
-                 "downloads": 10, "tags": ["gguf"]} for rid in self.bases[base]]
+                 "downloads": self.downloads, "likes": self.likes, "tags": ["gguf"]} for rid in self.bases[base]]
 
     def respond(self, path):
         if path in self.limited: return 429, b"slow down", {"Retry-After": "120"}
@@ -122,11 +124,42 @@ class CollectTests(unittest.TestCase):
         self.assertEqual((lines[0]["new"], lines[0]["changed"], lines[0]["unchanged"]), (0, 0, 3))
         self.assertFalse([p for p, _ in self.hub.requests if "/raw/" in p and "_base" not in p and f"/{MODEL}/" not in p], "no quant card was requested again")
 
+    def set_captured_at(self, hours_ago):
+        path = self.model / "cache/index.json"; index = json.loads(path.read_text())
+        index["captured_at"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(time.time() - hours_ago * 3600))
+        path.write_text(json.dumps(index, indent=1))
+
+    def test_metadata_only_churn_changes_no_file_until_a_day_has_passed(self):
+        self.run_collect()
+        self.assertEqual(self.snapshot()["repos"]["test/one"]["downloads"], 10)
+        before = tree_hashes(self.root)
+        self.hub.downloads, self.hub.likes = 11, 4   # the hourly Hub listing moves; no card or tree changed
+        code, lines, _ = self.run_collect()
+        self.assertEqual(code, 0)
+        self.assertEqual(tree_hashes(self.root), before, "downloads and likes alone must not change a file")
+        self.assertEqual((lines[0]["new"], lines[0]["changed"], lines[0]["unchanged"], lines[0]["metadata"]), (0, 0, 3, "deferred"))
+        self.set_captured_at(23); before = tree_hashes(self.root)
+        self.run_collect()
+        self.assertEqual(tree_hashes(self.root), before, "within a day the metadata is still deferred")
+        self.set_captured_at(25); before = tree_hashes(self.root)
+        code, lines, _ = self.run_collect()
+        self.assertEqual(code, 0); self.assertNotIn("metadata", lines[0])
+        self.assertEqual((lines[0]["new"], lines[0]["changed"], lines[0]["unchanged"]), (0, 0, 3))
+        after = tree_hashes(self.root)
+        self.assertEqual({p for p in after if before.get(p) != after[p]},
+                         {"models/testmodel/cache/index.json", "models/testmodel/cache/catalogue.json", "models/testmodel/snapshots/index.json"})
+        snap = self.snapshot()
+        self.assertEqual((snap["repos"]["test/one"]["downloads"], snap["repos"]["test/one"]["sha256"]), (11, hashlib.sha256(self.hub.cards["test/one"]).hexdigest()))
+        self.assertEqual(json.loads((self.model / "cache/catalogue.json").read_text())[0]["downloads"], 11)
+        before = tree_hashes(self.root)
+        self.run_collect()
+        self.assertEqual(tree_hashes(self.root), before, "the fresh capture is kept as is")
+
     def test_changed_card_is_refetched_and_index_updated(self):
         self.run_collect()
         before = tree_hashes(self.root)
         self.hub.sha["test/two"] = "4" * 40; self.hub.cards["test/two"] = b"| Quant | PPL |\n|---|---|\n| Q8 | 5.4 |\n"
-        self.hub.modified["test/two"] = "2026-10-21T10:00:00.000Z"
+        self.hub.modified["test/two"] = "2026-10-21T10:00:00.000Z"; self.hub.downloads = 12   # a real change on the same hour as metadata churn
         code, lines, _ = self.run_collect()
         self.assertEqual(code, 0)
         self.assertEqual((lines[0]["new"], lines[0]["changed"], lines[0]["unchanged"]), (0, 1, 2))
@@ -139,6 +172,7 @@ class CollectTests(unittest.TestCase):
         self.assertEqual(changed, {"models/testmodel/cache/index.json", "models/testmodel/cache/catalogue.json", "models/testmodel/snapshots/index.json",
                                    "models/testmodel/cache/cards/test__two@444444444444.md"})   # the tree is rewritten with the same bytes
         self.assertEqual(self.snapshot()["repos"]["test/one"]["sha256"], hashlib.sha256(self.hub.cards["test/one"]).hexdigest())
+        self.assertEqual(self.snapshot()["repos"]["test/one"]["downloads"], 12, "a real change takes the fresh metadata with it")
 
     def test_rate_limit_is_reported_and_the_run_goes_on(self):
         self.run_collect()

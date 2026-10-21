@@ -26,7 +26,9 @@ every hour at :01 (and on `workflow_dispatch`): for every live model it makes on
 resumable, pinned by commit sha and SHA-256), merges the cache into `snapshots/index.json` (`pipeline/qcl_newmodel.py`) and
 prints one JSON line per model (catalogue size, cards new / changed / unchanged, unresolved, seconds). The workflow commits
 `models/*/cache` and `models/*/snapshots/index.json` as `quant-claims-bot` only when a card changed (`Collect <UTC>: <summary>`);
-an unchanged model changes no file. `HF_TOKEN` (repository secret) raises the rate limit; a 429 is recorded in
+an unchanged model changes no file: when no card or tree changed, the ledger and catalogue keep their previous bytes and the
+merge is skipped, and the Hub's hourly metadata churn (downloads, likes) is taken over at most once a day (when the ledger's
+`captured_at` is more than 24 hours old). `HF_TOKEN` (repository secret) raises the rate limit; a 429 is recorded in
 `cache/rate_limit.json` for that model, the other models continue, and the next hour resumes. A direct record replaces an
 older connector card of the same repo only when the Hub changed after the connector capture.
 

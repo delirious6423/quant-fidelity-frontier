@@ -7,7 +7,8 @@
 For each model (default: every live model, as pipeline/qcl_live.py lists them; the model id comes from models/<slug>/model.json,
 else watchlist.json) it runs the fetch-once ledger of pipeline/qcl_fetch.py into models/<slug>/cache (one catalogue call, cards
 and file trees only for repos whose commit changed), then pipeline/qcl_newmodel.py, which merges the cache into
-snapshots/index.json. One JSON line per model on stdout: slug, catalogue, new, changed, unchanged, unresolved, seconds (plus
+snapshots/index.json. When no card or tree changed, the ledger and catalogue keep their previous bytes and the merge is
+skipped; Hub metadata that moved (downloads, likes) is taken over at most once a day. One JSON line per model on stdout: slug, catalogue, new, changed, unchanged, unresolved, seconds (plus
 rate_limited / failed / error when something did not complete). Safe to run every hour: a model with no change on the Hub
 leaves every file byte-identical. HF_TOKEN from the environment raises the rate limit; it is never printed or saved, and HTTP
 error bodies never reach stdout. A rate limit (cache/rate_limit.json) is reported for that model and the others continue.
@@ -59,13 +60,44 @@ def ledger_repos(index):
     return {rid: rec.get("sha256") for rid, rec in (index or {}).get("repos", {}).items()}
 
 
+def content(index):
+    """What the ledger pins: every repo's commit, card bytes, card file and tree file, and the base card. Downloads, likes
+    and lastModified are Hub metadata that moves every hour without any card changing."""
+    base = index.get("base") or {}
+    return ({rid: tuple(rec.get(k) for k in ("sha", "sha256", "file", "tree_file")) for rid, rec in index.get("repos", {}).items()},
+            tuple(base.get(k) for k in ("sha", "sha256", "file")))
+
+
+def strip(index):
+    return {k: v for k, v in index.items() if k != "captured_at"}   # the ledger's write time alone is never a change
+
+
+def hours_since(stamp):
+    try: return (time.time() - time.mktime(time.strptime(stamp, "%Y-%m-%dT%H:%M:%SZ")) + time.timezone) / 3600
+    except (TypeError, ValueError): return float("inf")
+
+
+METADATA_HOURS = 24   # metadata-only churn (downloads, likes) is let through at most once a day
+METADATA_KEYS = ("createdAt", "lastModified", "downloads", "likes", "tags")   # what fetch_repo copies from the listing
+
+
+def refresh_metadata(index, cat):
+    """Copy the listing's metadata onto the ledger records of the same repo (a record keeps the values of its own fetch)."""
+    for m in cat:
+        rec = index.get("repos", {}).get(m.get("id")) if isinstance(m, dict) else None
+        if rec is None: continue
+        for k in METADATA_KEYS:
+            if k in m or k in rec: rec[k] = m.get(k)
+
+
 def collect_one(root, slug, workers, base, token):
     """Fetch one model's ledger, then merge it into the snapshot. Returns the JSON record for that model."""
     t0 = time.time()
     out = f"models/{slug}/cache"   # relative to root: the ledger's card paths must contain no local path (public repo)
     rec = {"slug": slug, "catalogue": None, "new": 0, "changed": 0, "unchanged": 0, "unresolved": None, "seconds": None}
-    index_path = f"{out}/index.json"
+    index_path, cat_path = f"{out}/index.json", f"{out}/catalogue.json"
     before_bytes = open(index_path, "rb").read() if os.path.exists(index_path) else None
+    cat_bytes = open(cat_path, "rb").read() if os.path.exists(cat_path) else None
     before = ledger_repos(read_json(index_path))
     log = io.StringIO()
     try:
@@ -91,24 +123,40 @@ def collect_one(root, slug, workers, base, token):
         else: rec["error"] = msg
     except Exception as error:   # noqa: BLE001 - one model must never stop the others
         rec["error"] = f"{type(error).__name__}: {sanitize(error)}"
-    # Only the ledger's write time changed: keep the old bytes, so an unchanged model changes no file.
-    after_raw = read_json(index_path)
-    if before_bytes is not None and isinstance(after_raw, dict):
-        strip = lambda d: {k: v for k, v in d.items() if k != "captured_at"}
-        if strip(json.loads(before_bytes)) == strip(after_raw):
-            with open(index_path, "wb") as f: f.write(before_bytes)
+    # Stats come from the fresh ledger and catalogue, before any restore below.
+    after_raw, cat = read_json(index_path), read_json(cat_path, [])
     after = ledger_repos(after_raw)
-    cat = read_json(f"{out}/catalogue.json", [])
     rec["catalogue"] = len(cat)
     rec["new"] = sum(1 for rid in after if rid not in before)
     rec["changed"] = sum(1 for rid, h in after.items() if rid in before and before[rid] != h)
     rec["unchanged"] = sum(1 for rid, h in after.items() if rid in before and before[rid] == h)
     ledger = (after_raw or {}).get("repos", {})   # unresolved: catalogued repos whose pinned commit is not in the ledger (gated, failed, rate-limited)
     rec["unresolved"] = sum(1 for m in cat if isinstance(m, dict) and ledger.get(m.get("id"), {}).get("sha") != m.get("sha"))
+    # No card or tree changed: keep the previous bytes of the ledger and catalogue and skip the merge, so the model changes
+    # no file. Hub metadata (downloads, likes) moves every hour; it is taken over once the capture is older than METADATA_HOURS.
+    skip_merge = False
+    prev_raw = json.loads(before_bytes) if before_bytes is not None else None
+    if isinstance(prev_raw, dict) and isinstance(after_raw, dict) and content(prev_raw) == content(after_raw):
+        if hours_since(prev_raw.get("captured_at")) <= METADATA_HOURS:
+            same = strip(prev_raw) == strip(after_raw) and cat_bytes == open(cat_path, "rb").read()
+            rec["metadata"] = "unchanged" if same else "deferred"
+            skip_merge = True
+    if isinstance(after_raw, dict) and not skip_merge and isinstance(cat, list):
+        refresh_metadata(after_raw, cat)   # the ledger records carry the listing's metadata of their own fetch; take the fresh one
+        if isinstance(prev_raw, dict) and strip(prev_raw) == strip(after_raw) and cat_bytes == open(cat_path, "rb").read():
+            rec["metadata"] = "unchanged"; skip_merge = True   # nothing moved at all: not even captured_at changes
+        else:
+            fetch.write_json(index_path, after_raw)
+    if skip_merge:
+        with open(index_path, "wb") as f: f.write(before_bytes)
+        if cat_bytes is not None:
+            with open(cat_path, "wb") as f: f.write(cat_bytes)
     # Whatever was checkpointed is valid and pinned: merge it (a partial ledger after a 429 resumes next hour).
-    p = subprocess.run([sys.executable, os.path.join(CODE, "pipeline", "qcl_newmodel.py"), f"models/{slug}"],
-                       cwd=root, capture_output=True, text=True)
-    if p.returncode:
+    p = None if skip_merge else subprocess.run([sys.executable, os.path.join(CODE, "pipeline", "qcl_newmodel.py"), f"models/{slug}"],
+                                               cwd=root, capture_output=True, text=True)
+    if p is None:
+        pass
+    elif p.returncode:
         rec["error"] = "qcl_newmodel failed: " + sanitize((p.stdout + p.stderr)[-400:])
     else:
         try: rec["index"] = json.loads(p.stdout.strip().splitlines()[-1]).get("repos_in_index")
