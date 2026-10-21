@@ -23,6 +23,7 @@ Ingestion and scan scripts, indexed by stage. Each description is the first sent
 | Script | What it does | Entry command |
 |---|---|---|
 | `autoextract.py` | Deterministic first-pass extractor + evaluation against the hand/agent-verified claims. | `python3 pipeline/autoextract.py eval` |
+| `card_images.py` | The content images a card embeds: charts and tables that may hold results or details the card text lacks. | imported by `qcl_map.py` and `qcl_images.py` (no entry command) |
 | `qcl_map.py` | Map-don't-type extraction. | `python3 pipeline/qcl_map.py tasks OUT_DIR REPO...` |
 | `qcl_mapset.py` | Which cards still need an LLM mapping, after triage and copy detection. | `QCL_ROOT=models/<slug> python3 pipeline/qcl_mapset.py` |
 | `qcl_queue.py` | Prepare mapping work for the cards in audit/mapset.json "todo": task prompts, candidate files, and queues for two independent runs (A and B group the cards differently). | `QCL_ROOT=models/<slug> python3 pipeline/qcl_queue.py work/<slug> [KB_PER_QUEUE=120]` |

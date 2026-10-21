@@ -4,7 +4,7 @@
   python3 pipeline/qcl_images.py [--models SLUG ...] [--all-live] [--workers 8] [--strict] [--max-bytes 8000000] [--base URL] [--root DIR]
 
 For each model it reads every card that models/<slug>/snapshots/index.json pins, finds the content images with
-pipeline/qcl_map.py card_images (badges and logos are left out), resolves a relative URL against the card's Hub location
+pipeline/card_images.py (badges and logos are left out), resolves a relative URL against the card's Hub location
 (https://huggingface.co/<repo>/resolve/<sha or main>/<path>; an absolute URL is used as given; a data: URI is decoded
 in place) and fetches each URL once into models/<slug>/cache/images/<sha256>.<ext>, with the ledger
 models/<slug>/cache/images/index.json keyed by URL ({sha256, bytes, content_type, file, fetched_at, repos, L}).
@@ -22,7 +22,7 @@ import argparse, base64, binascii, concurrent.futures as cf, glob, hashlib, json
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(CODE, "pipeline"))
 import qcl_fetch as fetch
-import qcl_map
+import card_images
 
 HUB = "https://huggingface.co"
 TRIES = 3                      # attempts per URL inside qcl_fetch.get (5xx, timeouts, connection errors)
@@ -77,7 +77,7 @@ def card_references(model_dir, index, base):
             with open(path, "rb") as f: lines = f.read().decode("utf-8", errors="replace").split("\n")
         except OSError:
             continue
-        for n, alt, raw in qcl_map.card_images(lines):
+        for n, alt, raw in card_images.card_images(lines):
             refs.append({"url": resolve(base, repo, rec.get("sha"), raw), "repo": repo, "L": n, "alt": alt, "raw": raw})
     return refs
 
@@ -123,7 +123,7 @@ def pinned_images(model_dir, repo, meta, raw, prefix="", base=HUB):
     if not isinstance(images, dict): return []
     lines = raw.decode("utf-8", errors="replace").split("\n")
     out, seen = [], set()
-    for n, alt, ref in qcl_map.card_images(lines):
+    for n, alt, ref in card_images.card_images(lines):
         url = resolve(base, repo, meta.get("sha"), ref)
         rec = images.get(url)
         if not isinstance(rec, dict) or (url, n) in seen or pinned_file(model_dir, rec) is None: continue
