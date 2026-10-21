@@ -37,7 +37,7 @@ python3 pipeline/ci_local.py --only safety        # the unit and workflow suites
 python3 pipeline/ci_local.py --models glm-5.3-flash --only model
 python3 pipeline/ci_local.py --receipt ci.json    # a JSON receipt of the run (commit, steps, outcomes, seconds)
 ```
-Needs Python 3.11+, `pillow`, `numpy`; tests also need `playwright` (with Chromium) and `mcp`; `--pip` installs them as the workflow does.
+Needs Python 3.11+, `pillow`, `numpy`, `pyyaml`; tests also need `playwright` (with Chromium) and `mcp`; `--pip` installs them as the workflow does.
 
 ## Adding a model
 `python3 pipeline/qcl_newmodel.py models/<slug>` turns a fetched card cache into a data root; then follow

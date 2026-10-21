@@ -47,7 +47,7 @@ jobs:
           path: ~/.cache/pip
           key: pip-${{ runner.os }}-${{ hashFiles('.github/workflows/verify.yml') }}
           restore-keys: pip-${{ runner.os }}-
-      - run: pip install pillow numpy
+      - run: pip install pillow numpy pyyaml
       - name: Assembly and workflow safety regressions
         run: |
           python3 -m unittest discover -s tests -p 'test_assembly_safety.py'
