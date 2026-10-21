@@ -42,6 +42,9 @@ class CiLocalTests(unittest.TestCase):
         self.assertTrue(skipped, "pip install steps are skipped by default")
         with_pip = ci_local.run_steps("site", WF["jobs"]["site"], allow_pip=True)
         self.assertTrue(any("pip install" in s.get("script", "") for s in with_pip))
+        if not os.path.exists("/tmp/qff-mcp-v1/bin/python"):
+            venv = next(s for s in steps if s["name"].startswith("MCP 1.x transport compatibility"))
+            self.assertIn("skip", venv, "the venv-based check is skipped when the venv does not exist")
         restore = next(s for s in steps if s["name"].startswith("Restore every live model"))
         self.assertIn("artifact restore", restore["skip"])
 

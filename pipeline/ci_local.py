@@ -55,19 +55,19 @@ def run_steps(job_name, job, allow_pip=False):
         if job_name == "site" and name.startswith("Restore every live model"):
             out.append({"name": name, "skip": "artifact restore (the model jobs leave models/<slug>/site in place locally)"}); continue
         lines = script.splitlines()
-        kept = []
+        kept, venv_missing = [], False
         for line in lines:
             m = re.match(r"^(\s*)pip install [^&]+&&\s*(.*)$", line)   # `pip install X && CMD` keeps CMD
             if m and not allow_pip:
                 line = m.group(1) + m.group(2)
             elif INSTALL_RE.match(line) and not allow_pip:
                 continue
-            if line.strip().startswith(VENV_PY) and not os.path.exists(VENV_PY):
-                out.append({"name": name + " (MCP 1.x venv check)", "skip": f"{VENV_PY} not present; run with --pip to create it"})
+            if VENV_PY in line and not os.path.exists(VENV_PY):   # e.g. `QFF_DATA=_site /tmp/qff-mcp-v1/bin/python tests/...`
+                venv_missing = True
                 continue
             kept.append(line)
         if not any(l.strip() for l in kept):
-            out.append({"name": name, "skip": "package install (run with --pip to execute)"}); continue
+            out.append({"name": name, "skip": f"{VENV_PY} not present; run with --pip to create it" if venv_missing else "package install (run with --pip to execute)"}); continue
         out.append({"name": name, "script": "\n".join(kept) + "\n", "if": step.get("if")})
     return out
 

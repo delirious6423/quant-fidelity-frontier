@@ -17,7 +17,7 @@ QFF lines up every Hugging Face quant of a model by its publisher's own claims (
 | `pipeline/` | Ingestion and scan scripts: collection, mapping, merge and publish, scheduled-task state machines, scripted runner | `pipeline/README.md` (index by stage) |
 | `tests/` | Every regression suite. `.github/workflows/verify.yml` lists which ones CI runs and in what order | `.github/workflows/verify.yml` |
 | `qff_mcp/` | The read-only MCP server and its Hugging Face Space scaffold (`space/`) | `qff_mcp/README.md` |
-| `docs/runbooks/` | How to run things: `HOURLY.md` (the three scheduled tasks), `PORTABLE_SCAN.md` (the agent-agnostic loop), `SCRIPTED_RUNNER.md`, `FASTPATH.md`, `NEW_MODEL_PROMPT.md`, `FETCHING.md` | `HOURLY.md` |
+| `docs/runbooks/` | How to run things: `HOURLY.md` (the three scheduled tasks), `PORTABLE_SCAN.md` (the agent-agnostic loop), `SCRIPTED_RUNNER.md`, `FASTPATH.md`, `NEW_MODEL_PROMPT.md`, `FETCHING.md`, `HANDOFF.md` (the latest session handoff: state, open PRs, plan) | `HANDOFF.md`, then `HOURLY.md` |
 | `docs/runbooks/agents/` | Worker instructions: `FETCH.md`, `MAP.md`, `REVIEW.md`, `README_CHECK.md` | The file named in the prompt you were given |
 | `docs/reference/` | What things mean: `METHOD.md`, `DEVELOPING.md`, `EXTRACTION_SPEC.md`, `COMPARISON_CLASSIFICATIONS.md`, `COMPARISON_VALIDATION.md`, `BENCHMARKS.md`, `BENCHMARK_COVERAGE.md`, `CROSS_MODEL_BENCHMARKS.md`, `DISCOVERY.md`, `SPONSORS.md`, `CI.md` | `METHOD.md`, then `DEVELOPING.md` |
 | `docs/history/` | Past reviews and results: `PLAN.md`, `HOLISTIC_REVIEW.md`, `GLM_BENCHMARK_PILOT.md`, `review/`, `scripted-runner/`, `previews/`, `legacy-tools/` | Only when a task refers to it |
