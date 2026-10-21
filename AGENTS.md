@@ -46,7 +46,7 @@ QFF lines up every Hugging Face quant of a model by its publisher's own claims (
 ## Running the pipeline
 
 - The three scheduled tasks (live updates, new model, QA and publish): `docs/runbooks/HOURLY.md`. The entry points are `pipeline/qcl_next.py` and `pipeline/qcl_qa.py`; each prints what to do next, and the session does only that.
-- The agent-agnostic loop (no connector, no subagent tool, no credentials, nothing published): `docs/runbooks/PORTABLE_SCAN.md`. The entry point is `pipeline/qcl_portable.py`.
+- The agent-agnostic loop (no connector, no subagent tool, no credentials; nothing reaches the repository until its `publish` command commits the verified data like the scan does, and the QA task still deploys): `docs/runbooks/PORTABLE_SCAN.md`. The entry point is `pipeline/qcl_portable.py`.
 
 ## Where new files go
 

@@ -9,7 +9,7 @@ extend RULES. Sub-scores (a '/' in the name), error rates, speeds and counts are
 import collections, glob, json, os, re, subprocess, sys
 
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, CODE)
+sys.path.insert(0, os.path.join(CODE, "web"))   # bench_tasks.py lives with the site generators
 from bench_tasks import canonical
 
 def main():
@@ -37,7 +37,8 @@ def main():
                    f"{sum(v['sized'] for v in ms.values())} | {', '.join(sorted({n for v in ms.values() for n in v['names']})[:6])} |")
     out += ["", f"Unclassified names (extend RULES in the script to cover them): {len(unclassified)}", ""]
     out += [f"- {n} ({c})" for n, c in unclassified.most_common(60)]
-    open(os.path.join(CODE, "docs", "BENCHMARK_COVERAGE.md"), "w").write("\n".join(out) + "\n")
+    os.makedirs(os.path.join(CODE, "docs", "reference"), exist_ok=True)
+    open(os.path.join(CODE, "docs", "reference", "BENCHMARK_COVERAGE.md"), "w").write("\n".join(out) + "\n")
     print(json.dumps({"tasks": len(tasks), "multi_model": sum(1 for t in tasks if len(tasks[t]["models"]) >= 2), "unclassified": len(unclassified)}))
 
 if __name__ == "__main__": main()

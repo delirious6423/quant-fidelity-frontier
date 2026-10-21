@@ -60,7 +60,7 @@ Ingestion and scan scripts, indexed by stage. Each description is the first sent
 | Script | What it does | Entry command |
 |---|---|---|
 | `qcl_runner.py` | Scripted, local-only shadow pipeline. |  |
-| `qcl_portable.py` | The QFF scan for any agent: a loop of plain commands and JSON files, no connector, subagent tool or provider needed. | `python3 pipeline/qcl_portable.py start --workspace DIR --models SLUG [SLUG ...] [--remap]` |
+| `qcl_portable.py` | The QFF scan for any agent: a loop of plain commands and JSON files, no connector, subagent tool or provider needed; `publish` moves a verified workspace into the repository and commits it like the scan. | `python3 pipeline/qcl_portable.py start --workspace DIR --models SLUG [SLUG ...] [--remap]`; `... publish --workspace DIR [--push]` |
 | `runner_state.py` | Local durable task journal. |  |
 | `runner_workspace.py` | Confined local shadow workspace; no publication capability or remote exists here. |  |
 | `runner_model.py` | Pure, vendor-neutral request/response boundary for the shadow runner. |  |
