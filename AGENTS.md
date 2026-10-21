@@ -36,7 +36,7 @@ QFF lines up every Hugging Face quant of a model by its publisher's own claims (
   python3 pipeline/ci_local.py                 # plan, safety, every live model's build + UI tests, then the site suites; exit 1 on any failure
   python3 pipeline/ci_local.py --only safety   # or: --models SLUG ..., --only site --from "MCP", --receipt ci.json, --list
   ```
-  It needs `pillow`, `numpy`, `playwright` (with its Chromium) and `mcp` installed (`--pip` installs them the way the workflow does). The same battery runs on GitHub Actions for every pull request and push to `main` when Actions minutes are available; a green local run with its receipt is the evidence when they are not.
+  It needs `pyyaml`, `pillow`, `numpy`, `playwright` (with its Chromium) and `mcp` installed (`--pip` installs them the way the workflow does). The same battery runs on GitHub Actions for every pull request and push to `main` when Actions minutes are available; a green local run with its receipt is the evidence when they are not.
 - The repo is public: commit no secrets, tokens, personal data, local paths or scratch files.
 - Pages deploys (`deploy-pages` workflow) are approved by the owner. Publishing the Hugging Face MCP Space needs the owner's explicit go-ahead in chat.
 - Agent fan-out: at most 20 concurrent workers. Mapping workers claim queues only with `pipeline/qcl_claim.py` (atomic) and write only their claimed names.
