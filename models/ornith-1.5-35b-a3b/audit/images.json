@@ -4,7 +4,8 @@
  "references": 97,
  "referenced": 90,
  "pinned": 85,
- "unresolved": [
+ "unresolved": [],
+ "gone": [
   {
    "url": "https://huggingface.co/dopaemon/Tiel-Coder-35B-A3B-MLX-oQ4e/resolve/main/assets/card_tiel_local.png",
    "repo": "dopaemon/Tiel-Coder-35B-A3B-MLX-oQ4e",
@@ -40,7 +41,9 @@
    "status": 404,
    "attempts": 1,
    "reason": "HTTP 404"
-  },
+  }
+ ],
+ "refused": [
   {
    "url": "https://huggingface.co/spaces/IsValorum/MiniPlus-NanoPlus-Requests/resolve/main/assets/dance-gold-ship.gif",
    "repo": "IsValorum/Ornith-1.5-35B-A3B-APEX-I-MiniPlus-V2.1-GGUF",
@@ -48,7 +51,9 @@
    "references": 4,
    "status": 200,
    "attempts": 1,
-   "reason": "larger than --max-bytes: 10255419 > 8000000 bytes"
+   "reason": "larger than --max-bytes: 10255419 > 8000000 bytes",
+   "bytes": 10255419,
+   "content_type": "image/gif"
   }
  ]
 }
