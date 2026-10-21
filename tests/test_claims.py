@@ -5,7 +5,13 @@ import json, os, re, sys
 
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # repo root
 ROOT = os.environ.get("QCL_ROOT") or os.path.join(CODE, "models", "qwen3.8-flash-next")
-SITE = os.path.join(ROOT, "site") if len(sys.argv) < 2 else os.path.abspath(sys.argv[1])
+if len(sys.argv) >= 2: SITE = os.path.abspath(sys.argv[1])
+else:   # the reviewed Flash-Next data, re-pinned against hourly card drift, built into a throwaway copy (tests/frozen.py)
+    import subprocess; sys.path.insert(0, os.path.join(CODE, "tests")); import frozen
+    _copy = frozen.frozen_copy()
+    _b = subprocess.run([sys.executable, os.path.join(CODE, "web", "build.py")], env={**os.environ, "QCL_ROOT": str(_copy)}, capture_output=True, text=True)
+    if _b.returncode: sys.exit("frozen build failed: " + (_b.stdout + _b.stderr)[-800:])
+    SITE = os.path.join(_copy, "site")
 d = json.load(open(f"{SITE}/data.json")); html = open(f"{SITE}/index.html").read()
 rows, repos, sets = d["rows"], d["repos"], {s["id"]: s for s in d["sets"]}
 rep = {x["repo"]: x for x in repos}

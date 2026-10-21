@@ -2,6 +2,7 @@
 
 Mutations happen only in throwaway copies. No source claim is edited in place.
 """
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -19,6 +20,8 @@ import gatecache
 import current
 
 FLASH = REPO / "models/qwen3.8-flash-next"
+sys.path.insert(0, str(REPO / "tests"))
+import frozen
 
 
 class GateIntegrity(unittest.TestCase):
@@ -27,6 +30,7 @@ class GateIntegrity(unittest.TestCase):
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name) / "model"
         shutil.copytree(FLASH, self.root, ignore=shutil.ignore_patterns("site", "site_dev", ".gatecache.json", "__pycache__"))
+        frozen.freeze(self.root)
 
     def run_gate(self, gate):
         return subprocess.run([sys.executable, str(REPO / "gates" / gate)], cwd=REPO,
