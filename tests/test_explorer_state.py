@@ -261,7 +261,9 @@ async def sizeless_claims(page, base):
     await page.keyboard.press('Escape')
     await page.locator('#exsvg circle.mk').first.focus()   # dots can overlap, so open one from the keyboard
     await page.keyboard.press('Enter')
-    box = await page.locator('#exdetail .quant-close').bounding_box()
+    close = page.locator('#exdetail .quant-close')
+    await close.wait_for(state='visible')   # the panel opens after the chart redraws; measure it only once shown
+    box = await close.bounding_box()
     assert box and box['height'] <= 40 and box['width'] >= box['height'], 'close button keeps its label on one line'
     print(f'PASS size-less claims: {checked} beside the chart and in the table across 3 models, hidden under a size limit')
 
