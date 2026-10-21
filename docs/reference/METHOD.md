@@ -21,7 +21,7 @@ Audit records under `audit/` predate the rename and use the earlier name, Quant 
 `test_mcp.py` (MCP answers checked against the data). CI runs all of them (`.github/workflows/verify.yml`). Gates live in `gates/`, tests in `tests/`.
 
 ## How to read the site
-- **Overview (default):** existing claims remain on one chart, with mixed protocols made explicit.
+- **Overview (default):** every model page opens on it, on every visit; only a link with `?set=` or `#set-` opens another set. Existing claims remain on one chart, with mixed protocols made explicit. It holds every own KLD, top-1, perplexity and perplexity-change claim. A claim whose card publishes no file size has no position on the size axis: it is drawn in a "no size" column beside the chart, on the same metric scale, and listed in a table under it, and both are hidden while a size limit or size type is set. The default metric follows the claims with a size.
 - **Same Protocol — Comparable:** source evidence establishes compatibility for that metric; different quant or measurement publishers are allowed.
 - **Different or Unverified Protocol — Not Directly Comparable:** confirmed differences and unknowns remain distinct; ranking is unavailable.
 - **Different Base Model — Fidelity Not Directly Comparable:** KLD ordering cannot rank quality or fidelity across different base models/reference distributions.

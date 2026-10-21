@@ -14,6 +14,8 @@ def chart_payload(sets, metrics):
         item = {key: value for key, value in group.items() if key != 'comparison'}
         item['points'] = [{key: value for key, value in point.items() if key != 'protocol'}
                           for point in group['points']]
+        if 'unsized' in group:
+            item['unsized'] = [{key: value for key, value in point.items() if key != 'protocol'} for point in group['unsized']]
         item['comparisons'] = {
             metric: {key: value for key, value in comparison.items() if key != 'failure_examples'}
             for metric, comparison in group.get('comparisons', {}).items()

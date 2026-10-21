@@ -52,7 +52,7 @@ A copied or quoted claim can only pass the reusable classifier after verified or
 
 ## Website and MCP behavior
 
-The initial measurement set, saved/deep-link precedence, metric order and log/linear defaults are unchanged. A restrained status appears above the plot; methodology, differences, unknowns, reproduction limits and source links expand on demand. The overview retains all existing points and clearly states that its protocols are mixed. Verified-set links locate the exact measurement by `measurement_id`, including when quant and evaluator differ.
+The initial measurement set (always the overview unless a `?set=` or `#set-` link names another; a set chosen on an earlier visit is not reopened), deep-link precedence, metric order and log/linear defaults are unchanged. A restrained status appears above the plot; methodology, differences, unknowns, reproduction limits and source links expand on demand. The overview retains all existing points and clearly states that its protocols are mixed. Verified-set links locate the exact measurement by `measurement_id`, including when quant and evaluator differ.
 
 Classification and ranking eligibility are per metric. A set may support KLD comparison while its PPL claims remain unverified. The legacy aggregate `comparable` requires every reported metric to pass. No frontend ranking falls back to a legacy boolean.
 

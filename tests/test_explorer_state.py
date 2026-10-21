@@ -235,6 +235,37 @@ async def real_zero_claims(page, base):
     print(f'PASS real source claims: {checked} published zero KLD values remain visible on linear across 3 models')
 
 
+async def sizeless_claims(page, base):
+    checked = 0
+    for slug in ('qwen3.8-27b', 'deepseek-v4.1-flash', 'deepseek-v4-flash-0731'):
+        await page.goto(base + slug + '.html?set=all')
+        data = json.loads(await page.locator('#exdata').text_content())
+        overview = next(s for s in data['sets'] if s['id'] == 'all')
+        unsized = overview.get('unsized', [])
+        assert unsized, slug
+        k = overview['metrics'][0]
+        with_metric = [p for p in unsized if p['m'].get(k, {}).get('v') is not None and (not data['metrics'][k].get('log') or p['m'][k]['v'] > 0)]
+        assert await page.locator('#exsvg circle.umk').count() == len(with_metric), slug
+        assert await page.locator('#exunsized tbody tr').count() == len(unsized), slug
+        raws = await page.locator('#exunsized tbody td.n').all_text_contents()
+        assert all(p['m'][m]['raw'] in raws for p in unsized for m in p['m']), slug   # every value as published
+        await page.locator('.ex-options > summary').click()
+        await page.locator('#expresets button').first.click()   # a size limit: an unknown size cannot meet it
+        assert await page.locator('#exsvg circle.umk').count() == 0, slug
+        assert await page.locator('#exunsized tbody tr').count() == 0, slug
+        checked += len(unsized)
+    await page.goto(base + 'deepseek-v4.1-flash.html?set=all')   # no size limit
+    await page.locator('#exsvg circle.umk').first.click()   # a size-less dot pins its tip; the document click handler leaves it
+    assert await page.locator('#extip').is_visible(), 'size-less dot stays pinned'
+    assert 'not published' in await page.locator('#extip').text_content()
+    await page.keyboard.press('Escape')
+    await page.locator('#exsvg circle.mk').first.focus()   # dots can overlap, so open one from the keyboard
+    await page.keyboard.press('Enter')
+    box = await page.locator('#exdetail .quant-close').bounding_box()
+    assert box and box['height'] <= 40 and box['width'] >= box['height'], 'close button keeps its label on one line'
+    print(f'PASS size-less claims: {checked} beside the chart and in the table across 3 models, hidden under a size limit')
+
+
 async def negative_threshold(page, base):
     await page.goto(base + 'deepseek-v4.1-flash.html?set=a-atomicchat-nvfp4-nvidia&m=ppl_delta&ylim=-0.13')
     data=json.loads(await page.locator('#exdata').text_content())
@@ -275,6 +306,7 @@ async def main(base):
         page.on('pageerror', lambda error: errors.append(str(error)))
         try:
             await real_zero_claims(page, base)
+            await sizeless_claims(page, base)
             await negative_threshold(page, base)
         except Exception as error:
             traceback.print_exc()
