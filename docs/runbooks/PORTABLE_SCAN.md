@@ -58,6 +58,13 @@ you need is inside `request`, and nothing outside it may be used.
   its cited line, with at most a qualifier before it and a unit after it; never a sentence.
 - A card with no quality number for this quant gets `"no_quality_claims": true` and a short
   reason with line numbers. Sizes, speeds, memory and bits per weight are not quality numbers.
+- `request.images`, when present, lists pinned copies of the card's content images
+  (`{url, sha256, file, bytes, content_type, L, alt}`; `file` is relative to `DIR`, under
+  `DIR/models/<slug>/cache/images`). Look at them only to understand the card. A number shown
+  only in an image is never a candidate or a prose value: a card whose quality numbers exist
+  only in an image gets `"no_quality_claims": true` with a reason naming the image line
+  (`"... only in the chart at L12"`). Numbers from images reach the site only through the
+  separate pixel-pinned route (`verified/part3_images.py`, checked by `gates/verify_images.py`).
 - Runs A, B and C of the same card are independent. Never read another task's response, and
   never read anything under `DIR/models/*/maps`.
 

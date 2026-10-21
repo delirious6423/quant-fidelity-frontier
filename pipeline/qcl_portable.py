@@ -29,7 +29,10 @@ RUNNER = [sys.executable, str(CODE / 'pipeline/qcl_runner.py')]
 HOW = ("For each DIR/requests/<task>.json: read it in full. A request with request.kind == \"mapping\" asks for the JSON object described "
        "under \"## Output\" in request.prompt: answer with candidate ids (c1, c7.2), never with a number you typed; copy request.source.sha256 "
        "into source_sha256 and request.candidates_sha256 into candidates_sha256; a prose value is one number copied exactly from its cited "
-       "line. A request with request.kind == \"review\" asks for {\"id\": request.fingerprint, \"verdict\": \"ok\"|\"wrong\"|\"unsure\", "
+       "line. request.images, when present, lists pinned copies of the card's content images (workspace-relative files under "
+       "DIR/models/<slug>/cache/images): look at them only to understand the card; a number shown only in an image is never a "
+       "candidate or prose value, and a card whose quality numbers exist only in an image gets {\"no_quality_claims\": true, "
+       "\"no_claims_reason\": \"... only in the image at L<n>\"} naming the image line. A request with request.kind == \"review\" asks for {\"id\": request.fingerprint, \"verdict\": \"ok\"|\"wrong\"|\"unsure\", "
        "\"reason\": one sentence citing the line}. Write only that object to DIR/responses/<task>.json. Never read another task's "
        "response or any file under DIR/models/*/maps: runs A, B and C must stay independent.")
 

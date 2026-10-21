@@ -8,6 +8,7 @@ Ingestion and scan scripts, indexed by stage. Each description is the first sent
 |---|---|---|
 | `qcl_fetch.py` | Fetch-once source ledger for one base model, straight from the Hugging Face API (no browser). | `python3 pipeline/qcl_fetch.py ORG/MODEL [--out DIR] [--workers 8] [--base https://huggingface.co]` |
 | `qcl_collect.py` | Collect the model cards of every live model straight from the public Hugging Face API: no connector, no agent. | `python3 pipeline/qcl_collect.py [--models SLUG ...] [--all-live] [--workers 8] [--base URL] [--root DIR]` |
+| `qcl_images.py` | Fetch the content images of every pinned card once, byte-for-byte: the charts and tables that often hold a quant's benchmark numbers. | `python3 pipeline/qcl_images.py [--models SLUG ...] [--all-live] [--workers 8] [--strict] [--max-bytes 8000000] [--base URL] [--root DIR]` |
 | `qcl_catalogue.py` | Hub catalogue and delta for one model, from saved hf_fs search results (no model ever retypes them). | `python3 pipeline/qcl_catalogue.py models/<slug> RESULT_FILE...` |
 | `qcl_stats.py` | Card-size lookups through the connector, padded so results are saved to disk (no model transcribes anything). | `python3 pipeline/qcl_stats.py ops IDS.json` |
 | `qcl_plan.py` | Plan connector batches so every result is (a) within the connector's ~80 KB budget and (b) large enough (&gt;= 52 KB) to be saved to disk instead of returned inline. | `python3 pipeline/qcl_plan.py SIZES.json OUT_PLAN.json [IDS.json]` |

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Collect the model cards of every live model straight from the public Hugging Face API: no connector, no agent.
 
-  python3 pipeline/qcl_collect.py [--models SLUG ...] [--all-live] [--workers 8] [--base URL] [--root DIR]
+  python3 pipeline/qcl_collect.py [--models SLUG ...] [--all-live] [--workers 8] [--base URL] [--root DIR] [--strict-images] [--no-images]
   python3 pipeline/qcl_collect.py --summary LINES.jsonl      # one line for a commit message, from the JSON lines of a run
 
 For each model (default: every live model, as pipeline/qcl_live.py lists them; the model id comes from models/<slug>/model.json,
@@ -9,16 +9,21 @@ else watchlist.json) it runs the fetch-once ledger of pipeline/qcl_fetch.py into
 and file trees only for repos whose commit changed), then pipeline/qcl_newmodel.py, which merges the cache into
 snapshots/index.json. When no card or tree changed, the ledger and catalogue keep their previous bytes and the merge is
 skipped; Hub metadata that moved (downloads, likes) is taken over at most once a day. One JSON line per model on stdout: slug, catalogue, new, changed, unchanged, unresolved, seconds (plus
-rate_limited / failed / error when something did not complete). Safe to run every hour: a model with no change on the Hub
-leaves every file byte-identical. HF_TOKEN from the environment raises the rate limit; it is never printed or saved, and HTTP
+rate_limited / failed / error when something did not complete). After a model's cards are installed, pipeline/qcl_images.py
+pins the content images its cards embed (models/<slug>/cache/images, coverage in models/<slug>/audit/images.json); the
+record carries them under "images" (cards, referenced, pinned, new, unresolved, seconds) and --strict-images makes the run
+exit non-zero when any image is unresolved. Safe to run every hour: a model with no change on the Hub leaves every file
+byte-identical. HF_TOKEN from the environment raises the rate limit; it is never printed or saved, and HTTP
 error bodies never reach stdout. A rate limit (cache/rate_limit.json) is reported for that model and the others continue.
-.github/workflows/collect.yml runs this hourly and commits models/*/cache and models/*/snapshots/index.json."""
+.github/workflows/collect.yml runs this hourly and commits models/*/cache (cards, trees and images), models/*/snapshots/index.json
+and models/*/audit/images.json."""
 import argparse, contextlib, glob, io, json, os, re, subprocess, sys, time
 from types import SimpleNamespace
 
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(CODE, "pipeline"))
 import qcl_fetch as fetch
+import qcl_images as images
 
 
 def live_slugs(root):
@@ -166,8 +171,8 @@ def collect_one(root, slug, workers, base, token):
 
 
 def summary(records):
-    """One line for the commit message: only what changed, plus what did not complete."""
-    parts = []
+    """One line for the commit message: only what changed, plus what did not complete, plus the image coverage."""
+    parts, img = [], []
     for r in records:
         bits = []
         if r.get("new"): bits.append(f"+{r['new']}")
@@ -175,8 +180,17 @@ def summary(records):
         if r.get("rate_limited"): bits.append("rate-limited")
         if r.get("failed"): bits.append(f"{r['failed']} failed")
         if r.get("error"): bits.append("error")
+        i = r.get("images") if isinstance(r.get("images"), dict) else None
+        if i is not None:
+            img.append(i)
+            if i.get("new"): bits.append(f"img +{i['new']}")
+            if i.get("unresolved"): bits.append(f"{i['unresolved']} img unresolved")
+            if i.get("rate_limited"): bits.append("img rate-limited")
+            if i.get("error"): bits.append("img error")
         if bits: parts.append(f"{r['slug']} {' '.join(bits)}")
-    return "; ".join(parts) if parts else "no card changed"
+    text = "; ".join(parts) if parts else "no card changed"
+    if img: text += f"; images {sum(i.get('pinned') or 0 for i in img)}/{sum(i.get('referenced') or 0 for i in img)} pinned"
+    return text
 
 
 def main():
@@ -186,6 +200,9 @@ def main():
     ap.add_argument("--workers", type=int, default=8); ap.add_argument("--base", default="https://huggingface.co")
     ap.add_argument("--root", default=CODE, help="repository root holding models/ and watchlist.json (tests use a copy)")
     ap.add_argument("--summary", metavar="LINES", help="print one summary line from a file of this script's JSON lines, then exit")
+    ap.add_argument("--no-images", action="store_true", help="cards only: skip the image step (pipeline/qcl_images.py)")
+    ap.add_argument("--strict-images", action="store_true", help="exit 1 when any model has an unresolved image")
+    ap.add_argument("--max-bytes", type=int, default=images.DEFAULT_MAX_BYTES, help="largest image accepted (pipeline/qcl_images.py)")
     a = ap.parse_args()
     if a.summary:
         print(summary([json.loads(l) for l in open(a.summary) if l.strip()])); return 0
@@ -200,8 +217,12 @@ def main():
     records = []
     for slug in slugs:
         rec = collect_one(root, slug, a.workers, a.base, token)
+        if not a.no_images and os.path.exists(f"models/{slug}/snapshots/index.json"):   # the cards are installed: pin their images
+            rec["images"] = images.collect_images(root, slug, a.workers, a.base.rstrip("/"), token, a.max_bytes)
         records.append(rec); print(json.dumps(rec), flush=True)
-    return 1 if any("error" in r for r in records) else 0
+    failed = [r for r in records if "error" in r or "error" in (r.get("images") or {})]
+    if a.strict_images: failed += [r for r in records if (r.get("images") or {}).get("unresolved")]
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":

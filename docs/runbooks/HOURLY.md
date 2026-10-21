@@ -8,7 +8,7 @@ permission for a new production deployment.
 
 | Task | Schedule (UTC) | Entry point | Outcome |
 |---|---|---|---|
-| Collect cards | Hourly at :01 (GitHub Actions, `collect.yml`) | `qcl_collect.py --all-live` | Fetch every live model's changed cards over plain HTTPS; commit cache and index |
+| Collect cards | Hourly at :01 (GitHub Actions, `collect.yml`) | `qcl_collect.py --all-live --strict-images` | Fetch every live model's changed cards and their card images over plain HTTPS; commit cache, index and image coverage |
 | Live updates | Hourly at :03 | `qcl_next.py --part A --collected` | Map, merge and gate changed cards; commit staged data |
 | New model | Every 2 hours at :37 | `qcl_next.py --part B` | Resume the next ingest; checkpoint progress; hand completed models to QA as `review` |
 | QA and publish | Hourly at :55 | `qcl_qa.py` | Review new values, run all tests, request Pages verification; record deployment only after exact-commit success |
@@ -36,6 +36,32 @@ The live-updates task then runs `python3 pipeline/qcl_next.py --part A --collect
 step makes no `hf_fs` call and starts no FETCH worker; every live model counts as freshly collected, is prepared
 (`qcl_scan.py prepare`), gets mapping workers when it has queues, and is staged otherwise. Lock, unlock, commit and push
 are the same as before. Without the flag the connector path below is unchanged.
+
+## Card images
+
+516 of the 2,946 live cards embed 1,226 content images (charts and tables that often hold the quant's benchmark numbers;
+`pipeline/qcl_map.py card_images`, badges and logos left out). The collect run pins them right after a model's cards are
+installed: `python3 pipeline/qcl_images.py [--models SLUG ...] [--all-live] [--workers 8] [--strict] [--max-bytes 8000000]`
+(called by `qcl_collect.py`; `--no-images` skips it). For every card the snapshot index pins it resolves each image URL
+(a relative path against `https://huggingface.co/<repo>/resolve/<sha or main>/`, an absolute URL as written, a `data:`
+URI decoded in place) and fetches it once, exactly as received, into `models/<slug>/cache/images/<sha256>.<ext>`; the
+ledger `models/<slug>/cache/images/index.json` is keyed by URL (sha256, bytes, content type, file, fetched_at, the repos
+and lines that embed it). A URL whose file is present with the recorded SHA-256 is never requested again, and a URL no
+card references any more leaves the ledger and the cache. The HTTP helper is `qcl_fetch.get` (3 attempts with backoff on
+5xx, timeouts and connection errors; a 429 stops the batch and records Retry-After); `HF_TOKEN` goes to the Hub origin
+only. Anything that is not an image, or larger than `--max-bytes`, is refused and the reason recorded.
+
+The 100 % rule: every image a live card embeds is either pinned or listed as unresolved in `models/<slug>/audit/images.json`
+(`referenced`, `pinned`, `unresolved: [{url, repo, L, status, attempts, reason}]`), and the workflow runs
+`--strict-images`, so any unresolved image fails the collect step (the commit of what was pinned still happens). Unresolved
+means the image is not on this site's disk: an HTTP error (404 for a deleted file, 403 for a gated repo), the helper
+giving up after its attempts, a refused content type or size, or a batch stopped by a 429. A persistent failure keeps
+the same audit bytes from hour to hour, so it does not create commits; it stays red until the card or the host changes.
+The commit summary carries the counts (`img +N`, `N img unresolved`, `images P/R pinned`). The mapping request of a
+card lists its pinned images (`images: [{url, sha256, file, bytes, content_type, L, alt}]`) so a vision-capable
+interpreter can read the chart for context; a number shown only in an image is still never a candidate or a prose
+value (`docs/runbooks/PORTABLE_SCAN.md`). The image route for numbers stays `verified/part3_images.py`, whose pixel
+coordinates `gates/verify_images.py` re-digitizes.
 
 ## Start and follow the loop
 
