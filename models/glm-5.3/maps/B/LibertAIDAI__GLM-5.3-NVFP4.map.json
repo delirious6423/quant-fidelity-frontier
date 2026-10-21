@@ -1,0 +1,18 @@
+{"repo": "LibertAIDAI/GLM-5.3-NVFP4",
+ "source_sha256": "972cdb50f7016919b0d7c4790ad6829df1656542c24db7a4f00d6caee0dcee9c",
+ "candidates_sha256": "b342eab2b3b9c51478b0a17835b9f7aacc2c7ab938265664e99dc96b9af38a8d",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "source weights (dequantized back to BF16)", "dataset": "sampled expert tensors", "ctx": "not stated", "tool": "NVIDIA ModelOpt", "L": [139, 143]},
+ "entries": [
+   {"role": "own",
+    "name": "GLM-5.3 · NVFP4",
+    "metrics": {},
+    "size": "c12",
+    "unit": "GiB",
+    "basis": null,
+    "bpw": null,
+    "flags": ["only quality-type number is weight round-trip cosine 0.9961 vs source weights, not an output metric; not mapped [L31, L143]", "no KLD, perplexity, top-1 or benchmark figures on card", "size basis not stated [L31]"]}
+ ],
+ "prose": []}

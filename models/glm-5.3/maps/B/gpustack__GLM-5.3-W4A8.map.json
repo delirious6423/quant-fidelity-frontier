@@ -1,0 +1,16 @@
+{"repo": "gpustack/GLM-5.3-W4A8",
+ "source_sha256": "149d859661fae753a16e67c2649b7f692e94660c98001e763344966dd5cd3eef",
+ "candidates_sha256": "8b3084565beb63e8f863bf8a43901f86b6fd9b95a736c421e08f347d87647a3f",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "official FP8 GLM-5.3 (local run); PhalaCloud figures as reported on its card", "dataset": "GPQA-Diamond (198 x 4 samples); held-out text, 64 x 2048-token windows (NLL and perplexity)", "ctx": "2048 tokens per window", "tool": "vLLM on 8xH20, TP8, fp8_ds_mla KV, temperature 1.0, top_p 0.95", "L": [58, 60, 62, 64, 66, 67, 73]},
+ "entries": [
+   {"role": "own", "name": "GLM-5.3-W4A8 (local)", "metrics": {"bench:GPQA-Diamond": "c7", "ppl": "c14"}, "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["GPQA-Diamond pass@1 over 198 x 4 samples [L64]", "Teacher-forced NLL 0.8940 nats not mapped (no NLL key) [L66]", "majority@4 is stated as matching FP8 in prose only [L73]"]},
+   {"role": "cross", "name": "GLM-5.3 (FP8, local)", "of": "not named on card", "metrics": {"bench:GPQA-Diamond": "c6", "bench:GPQA-Diamond majority@4": "c9", "ppl": "c13"}, "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["Official FP8 run locally with identical prompts and sampling [L60]", "Teacher-forced NLL 0.8929 nats not mapped (no NLL key) [L66]"]},
+   {"role": "quoted", "name": "PhalaCloud W4AFP8 (reported)", "of": "PhalaCloud/GLM-5.3-W4AFP8", "metrics": {"bench:GPQA-Diamond": "c8", "bench:AA-LCR": "c15", "bench:BFCL (45-item live subset)": "c16", "bench:DeepSWE 1.1": "c18"}, "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["Different engine (SGLang) and protocol; the card says not a direct comparison [L75]", "NLL vs BF16 (+0.282 nats) and NIAH not mapped [L66, L70]"]}
+ ],
+ "prose": []}

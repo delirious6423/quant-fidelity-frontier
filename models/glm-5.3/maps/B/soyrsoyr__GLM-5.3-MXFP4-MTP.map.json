@@ -1,0 +1,11 @@
+{"repo": "soyrsoyr/GLM-5.3-MXFP4-MTP",
+ "source_sha256": "9de36c64dffed45a5858efad8edbb52dd119a128e45d0ffd3d32c4d029f5f892",
+ "candidates_sha256": "2492e956e996865ae49f8eb408f7bc223dec657665bbbac48bb045720b6235c8",
+ "no_quality_claims": true,
+ "no_claims_reason": "MTP acceptance smoke test only; card says it is not a quality evaluation [L35]",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "eight prompts, greedy generation", "ctx": "128-token output cap per prompt", "tool": "vLLM 0.28.0, Python LLM API (acceptance smoke test)", "L": [35]},
+ "entries": [
+   {"role": "own", "name": "GLM-5.3 MXFP4 with MTP", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["MTP acceptance 474 of 544 drafted tokens (87.13 %) [L35]: an acceptance rate, not a quality metric, so not mapped", "Weight files approximately 376 GiB [L29]: no metric row, so not mapped as size", "Every smoke-test output hit the 128-token cap while producing reasoning text [L36]"]}
+ ],
+ "prose": []}

@@ -1,0 +1,106 @@
+{
+ "repo": "pipenetwork/GLM-5.3-MLX-8bit",
+ "source_sha256": "c9f906daa7edeb0748dd373a96068a4d739d5011a0529e7c0b0bbd2235e0decf",
+ "candidates_sha256": "8b01185fe9e0135a2b0c7f1616c1d8f8acdbb3220b81eecdfe97e2f3f0aba7a6",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "not stated",
+   "dataset": "wikitext-2 (test), 288,627 tokens in 141 windows of 2048 [L79]",
+   "ctx": "2048-token windows [L79]",
+   "tool": "not stated",
+   "L": [79, 82]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "8bit",
+     "metrics": {},
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "No perplexity or benchmark for this build; only per-layer divergence, which has no metric key [L71]",
+       "Size line reads 0.0 GB on disk and this build has no size-table row; no size mapped [L49]"
+     ]
+   },
+   {
+     "role": "ladder",
+     "name": "4bit",
+     "metrics": {
+       "ppl:wikitext": "c34"
+     },
+     "size": "c33",
+     "unit": "GB",
+     "basis": "disk",
+     "bpw": null,
+     "flags": []
+   },
+   {
+     "role": "ladder",
+     "name": "mixed-4_8bit",
+     "metrics": {
+       "ppl:wikitext": "c36"
+     },
+     "size": "c35",
+     "unit": "GB",
+     "basis": "disk",
+     "bpw": null,
+     "flags": [
+       "Recommendation prose gives 427.7 GB; the table value 427.8 is used [L85, L91]",
+       "Paired 4.3% gain vs uniform 4-bit is a different reference than ppl_delta_pct; not mapped [L91]"
+     ]
+   },
+   {
+     "role": "ladder",
+     "name": "mixed-3_6bit",
+     "metrics": {
+       "ppl:wikitext": "c38"
+     },
+     "size": "c37",
+     "unit": "GB",
+     "basis": "disk",
+     "bpw": null,
+     "flags": []
+   },
+   {
+     "role": "ladder",
+     "name": "REAP25-4bit",
+     "metrics": {
+       "ppl:wikitext": "c40"
+     },
+     "size": "c39",
+     "unit": "GB",
+     "basis": "disk",
+     "bpw": null,
+     "flags": []
+   },
+   {
+     "role": "ladder",
+     "name": "REAP37-4bit",
+     "metrics": {
+       "ppl:wikitext": "c42"
+     },
+     "size": "c41",
+     "unit": "GB",
+     "basis": "disk",
+     "bpw": null,
+     "flags": []
+   },
+   {
+     "role": "ladder",
+     "name": "REAP50-4bit",
+     "metrics": {
+       "ppl:wikitext": "c44"
+     },
+     "size": "c43",
+     "unit": "GB",
+     "basis": "disk",
+     "bpw": null,
+     "flags": []
+   }
+ ],
+ "prose": []
+}

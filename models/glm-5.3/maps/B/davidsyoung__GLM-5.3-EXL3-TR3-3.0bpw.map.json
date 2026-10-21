@@ -1,0 +1,23 @@
+{"repo": "davidsyoung/GLM-5.3-EXL3-TR3-3.0bpw",
+ "source_sha256": "fd75fcf3e1e4ee208a5e5c9a01d86f14a0cb93a21670e899f31b1c330a544515",
+ "candidates_sha256": "22b26b415ff56c60546dc16ab6bc8ad97c9386cd737a80d1d36be15c394070e1",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 GLM-5.3 teacher logits (brandonmusic/GLM-5.3-BF16-full-logits, reference-full-panel confirmation lane)", "dataset": "4 held-out confirmation windows x 2,047 positions x 154,880 vocabulary", "ctx": "2,047 positions per window", "tool": "offline vllm.LLM, TP4, digest-pinned r17 serving image, one teacher-forced prefill per window; fp32 log-softmax both sides", "L": [72, 74, 75, 76, 116, 117, 118, 121]},
+ "entries": [
+   {"role": "own", "name": "3.0 bpw", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": "c30", "flags": ["KLD measurement to follow; this checkpoint has no measured value on the card [L24, L152]", "Expected ~0.04-0.05 and ~0.030 on the card are predictions, not measurements, so not mapped [L30-31, L152]"]},
+   {"role": "ladder", "name": "3.42 bpw / fp8 KV", "metrics": {"mean_kld": "c3"}, "size": null, "unit": null, "basis": null, "bpw": "c1", "flags": ["Sibling release measured by this publisher, KV mode fp8 [L81]", "Delta column not mapped [L81]"]},
+   {"role": "ladder", "name": "3.25 bpw / fp8 KV", "metrics": {"mean_kld": "c8"}, "size": null, "unit": null, "basis": null, "bpw": "c6", "flags": ["Sibling release measured by this publisher, KV mode fp8 [L82]"]},
+   {"role": "ladder", "name": "3.25 bpw / nvfp4 KV", "metrics": {"mean_kld": "c13"}, "size": null, "unit": null, "basis": null, "bpw": "c11", "flags": ["Sibling release measured by this publisher, KV mode nvfp4 [L83]"]},
+   {"role": "ladder", "name": "3.42 bpw / nvfp4 KV", "metrics": {"mean_kld": "c18"}, "size": null, "unit": null, "basis": null, "bpw": "c16", "flags": ["Sibling release measured by this publisher, KV mode nvfp4 [L84]"]},
+   {"role": "ladder", "name": "3.42 bpw / nvfp4+rope8 KV", "metrics": {"mean_kld": "c23"}, "size": null, "unit": null, "basis": null, "bpw": "c21", "flags": ["Sibling release measured by this publisher, KV mode nvfp4+rope8 [L85]"]},
+   {"role": "quoted", "name": "3.42 bpw / fp8 KV", "of": "davidsyoung/GLM-5.3-EXL3-TR3-3.42bpw", "metrics": {"mean_kld": "c4"}, "size": null, "unit": null, "basis": null, "bpw": "c1", "flags": ["CN3 (dareposte) independent reproduction [L81]"]},
+   {"role": "quoted", "name": "3.25 bpw / fp8 KV", "of": "not named on card", "metrics": {"mean_kld": "c9"}, "size": null, "unit": null, "basis": null, "bpw": "c6", "flags": ["CN3 (dareposte) independent reproduction [L82]"]},
+   {"role": "quoted", "name": "3.25 bpw / nvfp4 KV", "of": "not named on card", "metrics": {"mean_kld": "c14"}, "size": null, "unit": null, "basis": null, "bpw": "c11", "flags": ["CN3 (dareposte) independent reproduction [L83]"]},
+   {"role": "quoted", "name": "3.42 bpw / nvfp4 KV", "of": "davidsyoung/GLM-5.3-EXL3-TR3-3.42bpw", "metrics": {"mean_kld": "c19"}, "size": null, "unit": null, "basis": null, "bpw": "c16", "flags": ["CN3 (dareposte) independent reproduction [L84]"]},
+   {"role": "quoted", "name": "3.42 bpw / nvfp4+rope8 KV", "of": "davidsyoung/GLM-5.3-EXL3-TR3-3.42bpw", "metrics": {"mean_kld": "c24"}, "size": null, "unit": null, "basis": null, "bpw": "c21", "flags": ["CN3 (dareposte) independent reproduction [L85]"]},
+   {"role": "quoted", "name": "3.25 bpw / nvfp4+rope8 KV", "of": "not named on card", "metrics": {"mean_kld": "c28"}, "size": null, "unit": null, "basis": null, "bpw": "c26", "flags": ["CN3 (dareposte) only, no this-work value [L86]"]},
+   {"role": "quoted", "name": "calibrated uniform-K3 draft", "of": "brandonmusic/GLM-5.3-EXL3-TR3-uniform-K3-draft", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["Different checkpoint (uniform K3, no calibration of this card's file), scored by its own publisher; stated as the lineage's confirmation-window reference [L27-28]"]}
+ ],
+ "prose": [{"entry": "calibrated uniform-K3 draft", "key": "mean_kld", "L": 28, "raw": "scored **0.0375** (clean bf16 replay) on this lineage's exact confirmation"}]}

@@ -1,0 +1,17 @@
+{"repo": "pipenetwork/GLM-5.3-MLX-8bit",
+ "source_sha256": "c9f906daa7edeb0748dd373a96068a4d739d5011a0529e7c0b0bbd2235e0decf",
+ "candidates_sha256": "8b01185fe9e0135a2b0c7f1616c1d8f8acdbb3220b81eecdfe97e2f3f0aba7a6",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "wikitext-2 (test), 288,627 tokens in 141 windows", "ctx": "2048-token windows", "tool": "not stated; identical windows for all builds that fit the machine", "L": [79, 82, 84, 85, 86, 87, 88, 89]},
+ "entries": [
+   {"role": "own", "name": "8bit", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["No perplexity row for the 8-bit build in the card's perplexity table [L82-89]", "Only the per-layer divergence for 8-bit is given (relative L2 error, no metric key) [L71]: not mapped", "Size printed as 0.0 GB on disk [L49], which looks like a placeholder; not mapped as size"]},
+   {"role": "ladder", "name": "4bit", "metrics": {"ppl:wikitext": "c34"}, "size": "c33", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["Uniform 4-bit build [L84]"]},
+   {"role": "ladder", "name": "mixed-4_8bit", "metrics": {"ppl:wikitext": "c36"}, "size": "c35", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["Mixed 4/8-bit build [L85]"]},
+   {"role": "ladder", "name": "mixed-3_6bit", "metrics": {"ppl:wikitext": "c38"}, "size": "c37", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["Mixed 3/6-bit build [L86]"]},
+   {"role": "ladder", "name": "REAP25-4bit", "metrics": {"ppl:wikitext": "c40"}, "size": "c39", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["REAP variant; pruning not explained on this card [L87]"]},
+   {"role": "ladder", "name": "REAP37-4bit", "metrics": {"ppl:wikitext": "c42"}, "size": "c41", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["REAP variant; pruning not explained on this card [L88]"]},
+   {"role": "ladder", "name": "REAP50-4bit", "metrics": {"ppl:wikitext": "c44"}, "size": "c43", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["REAP variant; pruning not explained on this card [L89]"]}
+ ],
+ "prose": []}

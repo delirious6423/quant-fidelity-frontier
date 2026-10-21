@@ -1,0 +1,11 @@
+{"repo": "AxionML/GLM-5.3-NVFP4",
+ "source_sha256": "7caf31a62609f61c36963016f6227eae5c259fe7b96e0ac726feab3d5f71e9d2",
+ "candidates_sha256": "21290bcbb87a7e7dfa606b7f24b6590a585760f570fa014d82ab4acb3eae79ee",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 source under the same protocol (qualitative only; no BF16 numbers printed)", "dataset": "GSM8K full 1,319-example split; Terminal-Bench 2.1; DeepSWE", "ctx": "not stated", "tool": "terminus-2 harness (Terminal-Bench 2.1); mini-swe-agent harness (DeepSWE); not stated for GSM8K", "L": [46, 48, 49, 50, 53]},
+ "entries": [
+   {"role": "quoted", "name": "NVFP4", "of": "AxionML/GLM-5.3-NVFP4", "metrics": {"bench:GSM8K": "c4", "bench:Terminal-Bench 2.1": "c5", "bench:DeepSWE": "c6"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["Scores are attributed to RadixArk: 'Scores reported by RadixArk for this checkpoint' [L53]", "The card says GSM8K matched the BF16 source exactly and AIME 2026 was within run-to-run noise; no numbers printed, not mapped [L53]", "Checkpoint size about 465 GB vs about 1,507 GB BF16 [L42] has no metric row, so not mapped as size"]}
+ ],
+ "prose": []}

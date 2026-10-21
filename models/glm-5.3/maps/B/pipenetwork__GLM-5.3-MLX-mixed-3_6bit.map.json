@@ -1,0 +1,16 @@
+{"repo": "pipenetwork/GLM-5.3-MLX-mixed-3_6bit",
+ "source_sha256": "f69b6455792c9fe72ee5528b965e255d8f05eb685821f97b2ec8b92c94fca97f",
+ "candidates_sha256": "53203753aab9a5f7d77170faf997aefb2093c5136f9241c030f7a1156d9b8851",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "wikitext-2 (test), 288,627 tokens in 141 windows", "ctx": "2048-token windows", "tool": "not stated; identical windows for all builds that fit the machine", "L": [79, 82, 84, 85, 86, 87, 88, 89]},
+ "entries": [
+   {"role": "own", "name": "mixed-3_6bit", "metrics": {"ppl:wikitext": "c38"}, "size": "c37", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["Mixed 3/6-bit build: routed experts 3-bit, non-experts 6-bit [L53-54]", "Card says the 3-bit expert damage compounds over layers; per-layer divergence [L69-77] not mapped (no metric key)"]},
+   {"role": "ladder", "name": "4bit", "metrics": {"ppl:wikitext": "c34"}, "size": "c33", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["Uniform 4-bit build [L84]"]},
+   {"role": "ladder", "name": "mixed-4_8bit", "metrics": {"ppl:wikitext": "c36"}, "size": "c35", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["Mixed 4/8-bit build [L85]"]},
+   {"role": "ladder", "name": "REAP25-4bit", "metrics": {"ppl:wikitext": "c40"}, "size": "c39", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["REAP variant; pruning not explained on this card [L87]"]},
+   {"role": "ladder", "name": "REAP37-4bit", "metrics": {"ppl:wikitext": "c42"}, "size": "c41", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["REAP variant; pruning not explained on this card [L88]"]},
+   {"role": "ladder", "name": "REAP50-4bit", "metrics": {"ppl:wikitext": "c44"}, "size": "c43", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["REAP variant; pruning not explained on this card [L89]"]}
+ ],
+ "prose": []}

@@ -1,0 +1,12 @@
+{"repo": "bertholomus/GLM-5.3-EXL3-3.0bpw",
+ "source_sha256": "3e6f6c088f2ebb51d8f57043ba95571bfb7dcd9d0e30f9183a3ccf526396ebf9",
+ "candidates_sha256": "048f3111bb0ec4f95a86b437620f95c194bb7a64bf04beae4c7269ff919bcd28",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 GLM-5.3 (Z.AI BF16 weights)", "dataset": "wikitext-2 test split, 32 rows x 2,048 tokens", "ctx": "2,048 tokens per row", "tool": "exllamav3 eval/model_diff.py, BF16 activations", "L": [48, 50, 54, 55, 56, 57]},
+ "entries": [
+   {"role": "own", "name": "EXL3 3.0 bpw", "panel": "Quality (KL divergence vs BF16)", "methodology": {"reference": "BF16 GLM-5.3 (Z.AI BF16 weights)", "dataset": "wikitext-2 test split, 32 rows x 2,048 tokens", "ctx": "2,048 tokens per row", "tool": "exllamav3 eval/model_diff.py, BF16 activations", "L": [50, 54, 55, 56, 57]}, "metrics": {"kld:wikitext": "c5", "top1:wikitext": "c7", "ppl:wikitext": "c8.0"}, "size": null, "unit": null, "basis": null, "bpw": "c9", "flags": ["KL(P_BF16 || P_quant) row [L54] is the mapped KL; the reverse KL(P_quant || P_BF16) 0.123 [L55] has no metric key, not mapped", "Perplexity row [L57]: quant value mapped; the BF16 reference perplexity 2.750 is not a quant, not mapped", "Vocabulary coverage (full or top-k) for KL not stated [L50]", "Whole model 3.04 bpw [L46]"]},
+   {"role": "own", "name": "EXL3 3.0 bpw", "panel": "Longer panel (4 × 16,384 tokens, exercises DSA's top-2,048 selection)", "methodology": {"reference": "BF16 GLM-5.3 (Z.AI BF16 weights)", "dataset": "not stated (4 x 16,384 tokens)", "ctx": "16,384 tokens per sequence", "tool": "not stated", "L": [59]}, "metrics": {"mean_kld": "c11"}, "size": null, "unit": null, "basis": null, "bpw": "c9", "flags": ["Corpus for the longer panel not named on the card [L59]"]}
+ ],
+ "prose": []}

@@ -1,0 +1,12 @@
+{"repo": "Ianfr13/GLM-5.3-UNCENSORED-FP8",
+ "source_sha256": "63302538d1f2475764ba6102962a75b1fe9d47f07a948d09ca07e06c3c10cb19",
+ "candidates_sha256": "6c06b65633c7463292ea3be04b66e811425161d743c863c0ff0dcf4ba5fd56e0",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated (delta column is against the GLM-5.3-regular baseline, a different model)", "dataset": "1026-question stratified MMLU sample, 18 per subject", "ctx": "not stated", "tool": "MMLU-logit scoring", "L": [106, 108, 110, 111, 113]},
+ "entries": [
+   {"role": "own", "name": "v2", "metrics": {"bench:MMLU": "c1"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["Uncensored weight edit to the bf16 residual-writer tensors of JANGQ-AI/GLM-5.3-FP8, stated by the card [L55-61, L79-81]", "Delta vs base (+1.85 pp) is against the GLM-5.3-regular baseline (85.58 %), a different model, so not mapped [L113]", "HarmBench-320 compliance tables [L121-203] are behaviour rates, not a quality benchmark, and have no candidate ids; not mapped", "Gate of +/-5 pp [L108] is a pass/fail rule, not a metric; not mapped"]},
+   {"role": "ladder", "name": "v1", "metrics": {"bench:MMLU": "c3"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["Earlier release of this publisher, labelled 'v1 MMLU (reference)' [L111]", "Delta vs base (+2.14 pp) against a different model, not mapped [L111]"]}
+ ],
+ "prose": []}

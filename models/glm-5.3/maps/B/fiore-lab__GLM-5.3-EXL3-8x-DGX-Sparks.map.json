@@ -1,0 +1,20 @@
+{"repo": "fiore-lab/GLM-5.3-EXL3-8x-DGX-Sparks",
+ "source_sha256": "6d8c1984436f00551a20b198a06476a85589aca1a087a70e04e9103e993dd1ac",
+ "candidates_sha256": "ef47bd1c9eb2fe7b69bef22f16807d1f19132d3e91389dcfdb5254cfadaf9ad1",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "official BF16 weights run by the official implementation (transformers), computed in FP32", "dataset": "four 2,048-token texts (dialogue, legal, prose, reasoning), last 1,023 positions each, five runs", "ctx": "2,048 tokens", "tool": "transformers", "L": [50, 51, 52, 54, 55]},
+ "entries": [
+   {"role": "own",
+    "name": "EXL3 4 / 5 bits",
+    "metrics": {"top1_pct": "c18.1"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["routed experts 4 bits, other linear layers 5 bits [L41-44]", "KL 0.0133 is the mean over five runs (range 0.0128 to 0.0146) [L54]", "top-1 figure is approximate ('about 96%') [L55]", "measured with the recipe's FP8 KV cache [L52]", "8,192-token KL range 0.012 to 0.019 is a range, not mapped [L56]", "BF16-in-BF16 reference noise (0.007 to 0.010) is not a quant result; not mapped [L57]", "size 389.9 GB (363.1 GiB) [L34] sits outside a metric row; not attached"]}
+ ],
+ "prose": [
+   {"entry": "EXL3 4 / 5 bits", "key": "mean_kld", "L": 54, "raw": "0.0133"}
+ ]}

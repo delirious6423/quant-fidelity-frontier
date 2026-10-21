@@ -1,0 +1,21 @@
+{"repo": "davidsyoung/GLM-5.3-EXL3-TR3-3.42bpw",
+ "source_sha256": "75a46c1f18f58f4a11b68deeda69a31ebdf7063d9368325c8fdb9b1bce048fba",
+ "candidates_sha256": "ab2169634c821646f71c620083e975a07a5bb374cc8c593768b403307fd59559",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 GLM-5.3 teacher logits (brandonmusic/GLM-5.3-BF16-full-logits, reference-full-panel confirmation lane, held out from every calibration fit)", "dataset": "4 held-out confirmation windows x 2,047 positions x 154,880 vocabulary (brandonmusic/GLM-5.3-BF16-full-logits)", "ctx": "2,047 positions per window; context length not stated", "tool": "offline vllm.LLM, TP4, digest-pinned r17 serving image, one teacher-forced prefill per window; fp32 log-softmax both sides; full-vocabulary KL(teacher || student)", "L": [22, 23, 101, 102, 103, 143, 144, 145, 148]},
+ "entries": [
+   {"role": "own", "name": "3.42 bpw / fp8 KV", "metrics": {"mean_kld": "c3"}, "size": null, "unit": null, "basis": null, "bpw": "c1", "flags": ["KV mode fp8 [L108]", "Delta column not mapped [L108]", "Per-window means [L125-137] not mapped; window-to-register order inferred from header only [L123]"]},
+   {"role": "own", "name": "3.42 bpw / nvfp4 KV", "metrics": {"mean_kld": "c18"}, "size": null, "unit": null, "basis": null, "bpw": "c16", "flags": ["KV mode nvfp4 [L111]"]},
+   {"role": "own", "name": "3.42 bpw / nvfp4+rope8 KV", "metrics": {"mean_kld": "c23"}, "size": null, "unit": null, "basis": null, "bpw": "c21", "flags": ["KV mode nvfp4+rope8 [L112]"]},
+   {"role": "ladder", "name": "3.25 bpw / fp8 KV", "metrics": {"mean_kld": "c8"}, "size": null, "unit": null, "basis": null, "bpw": "c6", "flags": ["KV mode fp8 [L109]"]},
+   {"role": "ladder", "name": "3.25 bpw / nvfp4 KV", "metrics": {"mean_kld": "c13"}, "size": null, "unit": null, "basis": null, "bpw": "c11", "flags": ["KV mode nvfp4 [L110]"]},
+   {"role": "quoted", "name": "3.42 bpw / fp8 KV", "of": "davidsyoung/GLM-5.3-EXL3-TR3-3.42bpw", "metrics": {"mean_kld": "c4"}, "size": null, "unit": null, "basis": null, "bpw": "c1", "flags": ["CN3 (dareposte) independent reproduction [L108]"]},
+   {"role": "quoted", "name": "3.42 bpw / nvfp4 KV", "of": "davidsyoung/GLM-5.3-EXL3-TR3-3.42bpw", "metrics": {"mean_kld": "c19"}, "size": null, "unit": null, "basis": null, "bpw": "c16", "flags": ["CN3 (dareposte) independent reproduction [L111]"]},
+   {"role": "quoted", "name": "3.42 bpw / nvfp4+rope8 KV", "of": "davidsyoung/GLM-5.3-EXL3-TR3-3.42bpw", "metrics": {"mean_kld": "c24"}, "size": null, "unit": null, "basis": null, "bpw": "c21", "flags": ["CN3 (dareposte) independent reproduction [L112]"]},
+   {"role": "quoted", "name": "3.25 bpw / fp8 KV", "of": "not named on card", "metrics": {"mean_kld": "c9"}, "size": null, "unit": null, "basis": null, "bpw": "c6", "flags": ["CN3 (dareposte) independent reproduction [L109]"]},
+   {"role": "quoted", "name": "3.25 bpw / nvfp4 KV", "of": "not named on card", "metrics": {"mean_kld": "c14"}, "size": null, "unit": null, "basis": null, "bpw": "c11", "flags": ["CN3 (dareposte) independent reproduction [L110]"]},
+   {"role": "quoted", "name": "3.25 bpw / nvfp4+rope8 KV", "of": "not named on card", "metrics": {"mean_kld": "c28"}, "size": null, "unit": null, "basis": null, "bpw": "c26", "flags": ["CN3 (dareposte) only, no this-work value [L113]"]}
+ ],
+ "prose": []}

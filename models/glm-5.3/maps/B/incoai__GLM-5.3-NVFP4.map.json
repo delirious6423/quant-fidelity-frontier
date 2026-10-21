@@ -1,0 +1,12 @@
+{"repo": "incoai/GLM-5.3-NVFP4",
+ "source_sha256": "0dd7b19325c00c00f2bec3bfa1747c87df315bc4bdfe1d6254c4aa551392a94c",
+ "candidates_sha256": "f2cf1808cb8f726982e97787a03e0a977c68d4aef415544e6af72e9d47c22266",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Z.ai's original FP8 release (comparison row)", "dataset": "not stated (benchmarks: GPQA Diamond, AIME 2025, MATH-500, HLE, AA-LCR)", "ctx": "not stated", "tool": "not stated", "L": [78, 79, 81, 83, 84]},
+ "entries": [
+   {"role": "own", "name": "NVFP4", "metrics": {"bench:GPQA Diamond": "c7", "bench:AIME 2025": "c8", "bench:MATH-500": "c9", "bench:HLE": "c10", "bench:AA-LCR": "c11"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["Size 433 GiB stated in the header [L30], not in the accuracy row, so not mapped as size", "Card does not state the benchmark settings (sampling, repeats, reasoning mode) [L76-79]"]},
+   {"role": "cross", "name": "FP8", "of": "not named on card", "metrics": {"bench:GPQA Diamond": "c2", "bench:AIME 2025": "c3", "bench:MATH-500": "c4", "bench:HLE": "c5", "bench:AA-LCR": "c6"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["Described as Z.ai's original FP8 release; the card does not say whether this row was measured here or copied from elsewhere [L78, L83]"]}
+ ],
+ "prose": []}

@@ -1,0 +1,36 @@
+{
+ "repo": "Ianfr13/GLM-5.3-UNCENSORED-FP8",
+ "source_sha256": "63302538d1f2475764ba6102962a75b1fe9d47f07a948d09ca07e06c3c10cb19",
+ "candidates_sha256": "6c06b65633c7463292ea3be04b66e811425161d743c863c0ff0dcf4ba5fd56e0",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "MMLU, 1026-question stratified sample (18 per subject)", "ctx": "not stated", "tool": "MMLU-logit", "L": [104, 106]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "v2",
+   "panel": "Capability preservation — MMLU-logit vs base",
+   "methodology": {"reference": "not stated", "dataset": "MMLU, 1026-question stratified sample (18 per subject)", "ctx": "not stated", "tool": "MMLU-logit", "L": [104, 106]},
+   "metrics": {"bench:MMLU": "c1"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["delta vs base (+1.85 pp) not mapped: the base is GLM-5.3-regular, a different model [L113]", "HarmBench compliance and loop counts have no metric key, not mapped [L121-160]"]
+  },
+  {
+   "role": "ladder",
+   "name": "v1",
+   "panel": "Capability preservation — MMLU-logit vs base",
+   "methodology": {"reference": "not stated", "dataset": "MMLU, 1026-question stratified sample (18 per subject)", "ctx": "not stated", "tool": "MMLU-logit", "L": [104, 106, 111]},
+   "metrics": {"bench:MMLU": "c3"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["earlier v1 release named on the card; its repo id is not named [L69, L111]", "delta vs base (+2.14 pp) not mapped: the base is GLM-5.3-regular, a different model [L113]"]
+  }
+ ],
+ "prose": []
+}

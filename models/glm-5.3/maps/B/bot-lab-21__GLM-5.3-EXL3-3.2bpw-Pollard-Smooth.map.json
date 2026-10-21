@@ -1,0 +1,13 @@
+{"repo": "bot-lab-21/GLM-5.3-EXL3-3.2bpw-Pollard-Smooth",
+ "source_sha256": "da6584a0342f680d8cedb038ae7728dd85d05caeae2c80c6908579ee74b19de9",
+ "candidates_sha256": "98aad23a93f103aacc57bd77f83088ae7b668f1dd33e92df4f8feeb930608960",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated (perplexity); the drowzeys build is the stated baseline for one KL figure", "dataset": "6 fixed held-out texts, 4,079 tokens (perplexity); EvalPlus HumanEval / HumanEval+ and MBPP / MBPP+", "ctx": "not stated", "tool": "vLLM 0.28 with the cuda-exl3 plugin; EvalPlus greedy pass@1", "L": [36, 38, 40, 41, 42]},
+ "entries": [
+   {"role": "own", "name": "EXL3 3.2 bpw, Pollard method, SmoothQuant-folded", "metrics": {"ppl": "c3", "bench:HumanEval base": "c5.0", "bench:HumanEval plus": "c5.1", "bench:MBPP base": "c7.0", "bench:MBPP plus": "c7.1"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["Perplexity on 6 fixed held-out texts, corpus not named [L40]", "Average 3.21 bpw stated in the header [L17]; no table cell, so bpw not mapped", "Speed and memory rows [L49-55] have no metric key; the perplexity range and draft-acceptance range are not single values [L40, L53]"]},
+   {"role": "ladder", "name": "int4 TP8, 8 nodes", "metrics": {"bench:HumanEval base": "c6.0", "bench:HumanEval plus": "c6.1", "bench:MBPP base": "c8.0", "bench:MBPP plus": "c8.1"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["Production int4/int8 GPTQ build of the same model, measured on the same fleet and day [L36-38]", "Perplexity cell is the range 4.82 - 4.84 [L40], not mapped"]},
+   {"role": "quoted", "name": "keys-GLM-5.3-EXL3-Abliterated", "of": "drowzeys/keys-GLM-5.3-EXL3-Abliterated", "metrics": {"mean_kld": "c24.0"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["Figure is the KL vs bf16 the card gives for the baseline build; the protocol is not stated on this card [L111]", "Other details on that line (TP4 DCP1, 200K, about 15 tok/s) not mapped [L111]"]}
+ ],
+ "prose": []}

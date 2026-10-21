@@ -1,0 +1,14 @@
+{"repo": "SixVolts/GLM-5.3-ewaste-edition-GGUF",
+ "source_sha256": "8499adbe6652c0500e9636914bb64f100ffbc6648e7f23dfde1a1e6a67806abd",
+ "candidates_sha256": "5ab1e9fa653969b9884a2dba29f3409eed192636c6d84648e19cd4d68a00ab39",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "wikitext-2 test", "ctx": "100 chunks x 512 tokens", "tool": "not stated; f16 KV cache, -fa off, identical settings for all quants", "L": [96, 98, 100, 101, 102, 103]},
+ "entries": [
+   {"role": "own", "name": "GLM-5.3-Q4_K_XL", "metrics": {"ppl:wikitext": "c19"}, "size": "c18", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["5.2 counterpart column (q8_0 KV, previous GLM-5.2 README) omitted: different model [L105]"]},
+   {"role": "own", "name": "GLM-5.3-Q3_K_XL", "metrics": {"ppl:wikitext": "c22"}, "size": "c21", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["5.2 counterpart column (q8_0 KV, previous GLM-5.2 README) omitted: different model [L105]"]},
+   {"role": "own", "name": "GLM-5.3-Q3_K_M", "metrics": {"ppl:wikitext": "c25"}, "size": "c24", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["5.2 counterpart column (q8_0 KV, previous GLM-5.2 README) omitted: different model [L105]", "3.39 bpw stated in the composition section, not mapped [L70]"]},
+   {"role": "own", "name": "GLM-5.3-Q2_K_XL", "metrics": {"ppl:wikitext": "c28"}, "size": "c27", "unit": "GiB", "basis": "disk", "bpw": null, "flags": ["5.2 counterpart column (q8_0 KV, previous GLM-5.2 README) omitted: different model [L105]"]}
+ ],
+ "prose": []}

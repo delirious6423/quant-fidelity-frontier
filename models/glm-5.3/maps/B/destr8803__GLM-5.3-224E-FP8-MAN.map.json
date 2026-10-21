@@ -1,0 +1,18 @@
+{"repo": "destr8803/GLM-5.3-224E-FP8-MAN",
+ "source_sha256": "9d0a3612c848768de6e5876bf45b61bb0f969015d3b2d877bed91123f4e3723f",
+ "candidates_sha256": "2d83bc685fc1f920e0aaf02295368f7d260db595556c43608681885aaf27a6d0",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "OpenAI simple-evals GPQA Diamond CSV, one deterministic permutation per question (seed 0), 40-question subset", "ctx": "131,072-token context, maximum output 120,000 tokens", "tool": "not stated", "L": [87, 89, 90, 91]},
+ "entries": [
+   {"role": "own",
+    "name": "GLM-5.3 224E FP8 MAN",
+    "metrics": {"bench:GPQA Diamond (40-question subset)": "c14"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["pruned from 256 to 224 routed experts per sparse layer, FP8 checkpoint [L22-23, L47]", "40-question evaluation, not the full benchmark; clustered bootstrap 95% interval 92.5%-100% [L91-92]", "no unpruned baseline on this subset stated on card [L87-94]", "runtime and behavior checks [L85-86] are not quality metrics; not mapped", "indexed tensor payload 663,759,907,008 bytes [L83] sits in another row; not attached"]}
+ ],
+ "prose": []}

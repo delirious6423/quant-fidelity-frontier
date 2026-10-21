@@ -1,0 +1,13 @@
+{"repo": "bertholomus/GLM-5.3-EXL3-3.0bpw",
+ "source_sha256": "3e6f6c088f2ebb51d8f57043ba95571bfb7dcd9d0e30f9183a3ccf526396ebf9",
+ "candidates_sha256": "048f3111bb0ec4f95a86b437620f95c194bb7a64bf04beae4c7269ff919bcd28",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 activations (zai-org/GLM-5.3 BF16)", "dataset": "wikitext-2 test split, 32 rows x 2,048 tokens", "ctx": "2,048 tokens per row", "tool": "exllamav3 eval/model_diff.py", "L": [50, 52]},
+ "entries": [
+  {"role": "own", "name": "EXL3 3.0 bpw", "panel": "Quality (KL divergence vs BF16)",
+   "metrics": {"mean_kld": "c5", "top1_pct": "c7", "ppl": "c8.0"}, "size": null, "unit": null, "basis": null, "bpw": "c9",
+   "flags": ["whole-model size of 273 GiB is stated in the quantization table but has no candidate id, so it is not mapped [L46]", "KL(P_quant || P_BF16) of 0.123 is the reverse direction and is not mapped [L55]", "longer-panel KL of 0.119 is left out: the card does not state its direction [L59]", "perplexity is the quant value; the BF16 value of 2.750 is a reference and is not mapped [L57]"]}
+ ],
+ "prose": []}

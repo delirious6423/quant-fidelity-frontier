@@ -1,0 +1,37 @@
+{
+ "repo": "fiore-lab/GLM-5.3-EXL3-8x-DGX-Sparks",
+ "source_sha256": "6d8c1984436f00551a20b198a06476a85589aca1a087a70e04e9103e993dd1ac",
+ "candidates_sha256": "ef47bd1c9eb2fe7b69bef22f16807d1f19132d3e91389dcfdb5254cfadaf9ad1",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "official BF16 weights run in transformers, computed in FP32 [L50-51]",
+   "dataset": "four 2,048-token texts (dialogue, legal, prose, reasoning), last 1,023 positions each, five runs [L54]",
+   "ctx": "2,048 tokens; FP8 KV cache [L52, L54]",
+   "tool": "recipe's serving configuration [L52]",
+   "L": [50, 52, 54]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "EXL3 4 / 5 bits",
+     "metrics": {
+       "top1_pct": "c18.1"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "Top-1 agreement is stated as about 96% [L55]",
+       "Mean KL 0.0133 is a prose value, not a table cell [L54]",
+       "The 8,192-token range (0.012 to 0.019) is a range, not one value; not mapped [L56]",
+       "Size 389.9 GB (363.1 GiB) is stated in the file list, not on the accuracy row; no size mapped [L34]"
+     ]
+   }
+ ],
+ "prose": [
+   {"entry": "EXL3 4 / 5 bits", "key": "mean_kld", "L": 54, "raw": "mean 0.0133"}
+ ]
+}

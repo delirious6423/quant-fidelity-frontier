@@ -1,0 +1,18 @@
+{"repo": "Tech2wild/GLM-5.3-Int4-Int8Mix",
+ "source_sha256": "fe49a7393ab98d6a581f7963ec7322c2a25b8c08f070339c52768cf46cb78731",
+ "candidates_sha256": "2d487c0913cc5489630453c95496d7a4b256c1910d2f34fbbfb08c058969c4ba",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [75, 87]},
+ "entries": [
+   {"role": "own",
+    "name": "Int4-Int8Mix",
+    "metrics": {},
+    "size": "c4",
+    "unit": "GB",
+    "basis": null,
+    "bpw": null,
+    "flags": ["weight round-trip error (int8 about 0.70%, int4 about 12%) is weight-space, not an output metric; not mapped [L75]", "card states quality-vs-FP8 parity was not measured [L87]", "MoE experts W4A16, other linear layers W8A16, data-free [L43-47]", "size basis not stated [L39]"]}
+ ],
+ "prose": []}

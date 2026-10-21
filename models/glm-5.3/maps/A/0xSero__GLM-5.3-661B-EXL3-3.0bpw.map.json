@@ -1,0 +1,104 @@
+{
+ "repo": "0xSero/GLM-5.3-661B-EXL3-3.0bpw",
+ "source_sha256": "9a6a623b608c1f7a0166db8e3afa0f95591c06c99d6a6b00411b6348de7615db",
+ "candidates_sha256": "00a89808b406f3fe878b29eb8cce178e911831580edd5203d4eed7817245bb68",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+   "reference": "full BF16 model [L42]",
+   "dataset": "sealed 25-prompt panel, full 154k-token vocabulary [L42]",
+   "ctx": "not stated",
+   "tool": "not stated",
+   "L": [29, 42]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "661B (this)",
+     "metrics": {
+       "mean_kld": "c5"
+     },
+     "size": "c4",
+     "unit": "GB",
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "REAP keep 224 of 256 experts per layer [L32]",
+       "Size basis not stated on the card [L32]",
+       "KL is full-vocabulary, in nats [L42]"
+     ]
+   },
+   {
+     "role": "ladder",
+     "name": "base (unpruned)",
+     "metrics": {
+       "mean_kld": "c2"
+     },
+     "size": "c1",
+     "unit": "GB",
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "KL is full-vocabulary, in nats [L42]"
+     ]
+   },
+   {
+     "role": "ladder",
+     "name": "615B",
+     "metrics": {
+       "mean_kld": "c8"
+     },
+     "size": "c7",
+     "unit": "GB",
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "KL is full-vocabulary, in nats [L42]"
+     ]
+   },
+   {
+     "role": "ladder",
+     "name": "569B",
+     "metrics": {
+       "mean_kld": "c11"
+     },
+     "size": "c10",
+     "unit": "GB",
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "KL is full-vocabulary, in nats [L42]"
+     ]
+   },
+   {
+     "role": "ladder",
+     "name": "533B",
+     "metrics": {
+       "mean_kld": "c14"
+     },
+     "size": "c13",
+     "unit": "GB",
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "KL is full-vocabulary, in nats [L42]"
+     ]
+   },
+   {
+     "role": "ladder",
+     "name": "500B",
+     "metrics": {
+       "mean_kld": "c17"
+     },
+     "size": "c16",
+     "unit": "GB",
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "KL is full-vocabulary, in nats [L42]"
+     ]
+   }
+ ],
+ "prose": []
+}

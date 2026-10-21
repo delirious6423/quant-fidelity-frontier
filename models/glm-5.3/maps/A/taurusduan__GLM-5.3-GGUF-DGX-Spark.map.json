@@ -1,0 +1,24 @@
+{
+ "repo": "taurusduan/GLM-5.3-GGUF-DGX-Spark",
+ "source_sha256": "5045c40b5661e00dd4f8c954f5d4d00a5c7f056b4571439d8e1da3e8b37c26fd",
+ "candidates_sha256": "cb2fb8990042b9c5383c0e48be2ceb675b53c35f2149bc77827142f40f1d1716",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "held-out agent traces, SWE traces and code (sets not described)", "ctx": "not stated", "tool": "not stated", "L": [135]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "GLM-5.3-SLIM-E192-IQ2_XXS",
+   "panel": "Versus Flash",
+   "methodology": {"reference": "not stated", "dataset": "held-out agent traces, SWE traces and code (sets not described)", "ctx": "not stated", "tool": "not stated", "L": [135]},
+   "metrics": {"ppl:agent traces": "c53.0", "ppl:SWE traces": "c53.2"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["SWE-trace value 3.1 is this file; the paired Flash values are another build and are omitted [L135]", "ds4-eval Passed / Wrong / Out-of-budget counts are counts, not scores, and are not mapped [L125-131]", "SLIM-stage A/B and held-out PPL vs original are for the pruned FP8 base, a different checkpoint, and are omitted [L121]", "GLM-5.3-SLIM-E160 companion PPL (+3.6 %) is another build and is omitted [L137]"]
+  }
+ ],
+ "prose": [{"entry": "GLM-5.3-SLIM-E192-IQ2_XXS", "panel": "Versus Flash", "key": "ppl:code", "L": 135, "raw": "2.96"}]
+}

@@ -1,0 +1,34 @@
+{
+ "repo": "robertbschuette/GLM-5.3-CYBERSECURITY-FP8",
+ "source_sha256": "9a7527b3cfa3af73c0510094e72280cf3592fe32a99c220f168bbf22fa4090fe",
+ "candidates_sha256": "59503f04ecb8af019e9f6854c8b766643ba0c942b2ebb5224977a8284cf1b3a2",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+   "reference": "not stated",
+   "dataset": "MMLU overall, 1026 questions, logit-mode A/B/C/D scoring [L106, L110]",
+   "ctx": "not stated",
+   "tool": "logit-mode scoring, no generation [L106]",
+   "L": [106, 110, 112]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "CRACK Cybersecurity FP8",
+     "metrics": {
+       "bench:MMLU": "c2"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "Base column 85.58% is a prior GLM-5.3 bf16 baseline, not measured on this build; not mapped [L110, L112]",
+       "Delta +1.07 pp is computed against that base; not mapped [L110]",
+       "HarmBench compliance rates are behavior rates, not quality metrics; not mapped [L114-140]"
+     ]
+   }
+ ],
+ "prose": []
+}

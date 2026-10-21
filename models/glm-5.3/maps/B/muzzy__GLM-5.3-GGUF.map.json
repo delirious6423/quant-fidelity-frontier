@@ -1,0 +1,12 @@
+{"repo": "muzzy/GLM-5.3-GGUF",
+ "source_sha256": "54ba0a215e96a65a7e8dbadf80f7056e90e3eebe120461ef4db80bd5f0755e0f",
+ "candidates_sha256": "a767cdfbbfe3cfa9531600e176b7f5e34ea552416f6e0a6fdcbdbc89de8d26dd",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "wikitext-103 test split, 289,280 tokens / 565 chunks", "ctx": "512", "tool": "llama-perplexity (llama.cpp), -fa on, ubatch 512, seed 1337, CPU-only 112 threads", "L": [23, 25, 27, 28, 40]},
+ "entries": [
+   {"role": "own", "name": "IQ1_KT", "metrics": {"ppl:wikitext-103": "c2"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["+/- column (0.02803) is an uncertainty, no metric key, not mapped [L27]", "Rows IQ2_KL, IQ3_KS, IQ4_K, Q4_0_R8, Q4_K_R4, Q6_K_R4, Q8_K_R8 and Q8_0_R8 list a quant name with no PPL value [L29-36]", "Status line says perplexity for other quants is coming later [L17]"]},
+   {"role": "own", "name": "IQ2_KS", "metrics": {"ppl:wikitext-103": "c5"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["+/- column (0.02232) is an uncertainty, no metric key, not mapped [L28]"]}
+ ],
+ "prose": []}

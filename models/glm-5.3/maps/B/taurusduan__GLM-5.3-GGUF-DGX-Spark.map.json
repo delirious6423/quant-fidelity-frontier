@@ -1,0 +1,19 @@
+{"repo": "taurusduan/GLM-5.3-GGUF-DGX-Spark",
+ "source_sha256": "5045c40b5661e00dd4f8c954f5d4d00a5c7f056b4571439d8e1da3e8b37c26fd",
+ "candidates_sha256": "cb2fb8990042b9c5383c0e48be2ceb675b53c35f2149bc77827142f40f1d1716",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "original GLM-5.3 (author's A/B, for the SLIM-stage rows)", "dataset": "HumanEval, CyberMetric, BFCL live, BFCL multi-turn, AIME 2025, GPQA-Diamond, C-Eval (author's A/B); ds4-eval set for this 2-bit file", "ctx": "not stated", "tool": "vLLM (author's A/B, SLIM stage); DwarfStar ds4-eval harness, thinking on, 16,000-token budget, greedy (Q stage)", "L": [121, 123]},
+ "entries": [
+   {"role": "own", "name": "GLM-5.3-SLIM-E192-IQ2_XXS", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["Q-stage Passed / Wrong / Out of budget counts for this file [L125-134] are counts, not accuracy, so not mapped", "Held-out PPL comparisons (6.2 vs 12.4 agent traces, 3.1 vs 4.6 SWE traces, 2.96 vs 3.17 code) are against GLM-5.3-Flash, a different model, so omitted [L136]", "Companion GLM-5.3-SLIM-E160 held-out PPL +3.6 % is relative to this file, not a reference, so not mapped [L138]", "Speed table [L107-113] has no quality metric; not mapped", "Size 149.7 GiB stated [L27, L166] with no metric row, so not mapped as size"]},
+   {"role": "ladder", "name": "SLIM stage: pruned FP8 base", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["Pruned FP8 base, the stage before the 2-bit quantization, measured by the author under vLLM [L121]", "Original GLM-5.3 values on the same line are omitted: different model [L121]", "AIME delta (-2.5 pt) is a difference, not a score, so not mapped [L121]"]}
+ ],
+ "prose": [
+   {"entry": "SLIM stage: pruned FP8 base", "key": "bench:HumanEval", "L": 121, "raw": "HumanEval 95.1 → 95.1"},
+   {"entry": "SLIM stage: pruned FP8 base", "key": "bench:CyberMetric", "L": 121, "raw": "CyberMetric 88.0 → 87.7"},
+   {"entry": "SLIM stage: pruned FP8 base", "key": "bench:BFCL live", "L": 121, "raw": "BFCL live 69.6 → 69.4"},
+   {"entry": "SLIM stage: pruned FP8 base", "key": "bench:BFCL multi-turn", "L": 121, "raw": "BFCL multi-turn 73.0 → 72.5"},
+   {"entry": "SLIM stage: pruned FP8 base", "key": "bench:GPQA-Diamond", "L": 121, "raw": "GPQA-Diamond 86.9 → 83.3"},
+   {"entry": "SLIM stage: pruned FP8 base", "key": "bench:C-Eval", "L": 121, "raw": "C-Eval 92.0 → 84.7"}
+ ]}

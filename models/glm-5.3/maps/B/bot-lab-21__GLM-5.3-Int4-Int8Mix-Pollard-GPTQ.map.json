@@ -1,0 +1,12 @@
+{"repo": "bot-lab-21/GLM-5.3-Int4-Int8Mix-Pollard-GPTQ",
+ "source_sha256": "0acab132e2a536da382647de21d64c6f82fec930eeae02a07b444bac0de90d75",
+ "candidates_sha256": "f7c5c6f9eeaffe3ae7623815a47a88618f57441873dd37d2d6e404cc7a168bf4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "fixed held-out texts (corpus not named); HumanEval+ and MBPP+ pass@1 (base / plus)", "ctx": "not stated", "tool": "not stated; same battery on the same fleet (TP8 GB10 cluster) for all builds", "L": [38, 42, 43, 44]},
+ "entries": [
+   {"role": "own", "name": "v4-fast (this repo)", "metrics": {"ppl": "c2", "bench:HumanEval+ base": "c4.0", "bench:HumanEval+ plus": "c4.1", "bench:MBPP+ base": "c6.0", "bench:MBPP+ plus": "c6.1"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["Perplexity on fixed held-out texts, corpus not named [L42]", "Mixed-workload throughput row [L46] and speculative acceptance row [L47] not mapped: no metric key", "Needle-in-haystack row [L45] is not numeric"]},
+   {"role": "ladder", "name": "v2 (RTN, attention int8)", "metrics": {"ppl": "c1", "bench:HumanEval+ base": "c3.0", "bench:HumanEval+ plus": "c3.1", "bench:MBPP+ base": "c5.0", "bench:MBPP+ plus": "c5.1"}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["Previous production build of this publisher, same battery [L38]", "Throughput row [L46] and acceptance row [L47] not mapped: no metric key"]}
+ ],
+ "prose": []}

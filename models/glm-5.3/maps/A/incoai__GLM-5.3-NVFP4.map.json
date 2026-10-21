@@ -1,0 +1,55 @@
+{
+ "repo": "incoai/GLM-5.3-NVFP4",
+ "source_sha256": "0dd7b19325c00c00f2bec3bfa1747c87df315bc4bdfe1d6254c4aa551392a94c",
+ "candidates_sha256": "f2cf1808cb8f726982e97787a03e0a977c68d4aef415544e6af72e9d47c22266",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "Z.ai's original FP8 release [L78]",
+   "dataset": "not stated",
+   "ctx": "not stated",
+   "tool": "not stated",
+   "L": [76, 78, 81]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "NVFP4",
+     "metrics": {
+       "bench:GPQA-Diamond": "c7",
+       "bench:AIME 2025": "c8",
+       "bench:MATH-500": "c9",
+       "bench:HLE": "c10",
+       "bench:AA-LCR": "c11"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "Size 433 GiB is stated in the card header, not on the accuracy table [L30]"
+     ]
+   },
+   {
+     "role": "cross",
+     "name": "FP8",
+     "of": "not named on card",
+     "metrics": {
+       "bench:GPQA-Diamond": "c2",
+       "bench:AIME 2025": "c3",
+       "bench:MATH-500": "c4",
+       "bench:HLE": "c5",
+       "bench:AA-LCR": "c6"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "Z.ai's original FP8 release, row compared by this card; who measured it is not stated [L78]"
+     ]
+   }
+ ],
+ "prose": []
+}
