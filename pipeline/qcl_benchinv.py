@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Inventory of the task benchmarks that model cards report (machine-verified `bench:*` fields), grouped by canonical task.
 
-  python3 pipeline/qcl_benchinv.py            # writes docs/BENCHMARK_COVERAGE.md and prints a summary
+  python3 pipeline/qcl_benchinv.py            # writes docs/reference/BENCHMARK_COVERAGE.md and prints a summary
 
 Reads each live model's built site/data.json (values already copied verbatim from card text and gate-checked). Nothing is
 typed here: names are grouped by rules, and anything the rules do not recognise is listed as 'unclassified' so a reader can

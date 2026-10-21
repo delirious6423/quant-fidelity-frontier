@@ -137,7 +137,7 @@ class Workspace:
             raise ValueError('operation has no shadow capability: ' + script)
         root = self.model(slug)
         safe_tree(self.path)
-        source = CODE / script if script == 'build.py' else CODE / 'pipeline' / script
+        source = CODE / 'web' / script if script == 'build.py' else CODE / 'pipeline' / script
         env = {k: v for k, v in os.environ.items() if not k.startswith('QCL_')}
         env['QCL_ROOT'] = str(root)
         # No shell, caller-supplied executable, production state machine or git.

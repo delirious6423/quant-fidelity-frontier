@@ -3,7 +3,7 @@
 Every metric becomes {key, value, err, raw, unit}; `raw` is the exact published string for verbatim checks."""
 import json, glob, os, re
 
-ROOT = os.environ.get("QCL_ROOT") or os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "models", "qwen3.8-flash-next")
+ROOT = os.environ.get("QCL_ROOT") or os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))), "models", "qwen3.8-flash-next")
 NUM = r"[-+]?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?"
 
 def parse(x):

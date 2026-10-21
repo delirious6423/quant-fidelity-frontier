@@ -3,7 +3,7 @@
 to re-check the work offline. Output: dist/qff-review-pack.zip"""
 import json, os, subprocess, zipfile, datetime, collections, hashlib, sys
 
-CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # repo root
+CODE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))   # repo root (docs/history/legacy-tools/)
 sys.path[:0] = [os.path.join(CODE, "pipeline"), os.path.join(CODE, "gates")]   # sibling modules
 ROOT = os.environ.get("QCL_ROOT") or os.path.join(CODE, "models", "qwen3.8-flash-next")
 def run(cmd):

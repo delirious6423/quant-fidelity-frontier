@@ -162,7 +162,7 @@ def write(entries, base):
 def build_failing(entries):
     """build.py's own fail-closed checks (sign and plausibility of parsed values) name (repo, variant, ...) tuples."""
     import ast
-    out = subprocess.run(["python3", f"{CODE}/build.py"], capture_output=True, text=True, env={**os.environ, "QCL_ROOT": ROOT})
+    out = subprocess.run(["python3", f"{CODE}/web/build.py"], capture_output=True, text=True, env={**os.environ, "QCL_ROOT": ROOT})
     if out.returncode == 0: return set()
     bad = set()
     for l in (out.stdout + out.stderr).splitlines():

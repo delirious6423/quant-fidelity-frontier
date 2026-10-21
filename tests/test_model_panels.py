@@ -25,7 +25,7 @@ class ModelPanels(unittest.TestCase):
 
     def module(self, config=None):
         (self.root / "model.json").write_text(json.dumps(config or {}))
-        spec = importlib.util.spec_from_file_location("qff_build_panels", CODE / "build.py")
+        spec = importlib.util.spec_from_file_location("qff_build_panels", CODE / "web" / "build.py")
         module = importlib.util.module_from_spec(spec)
         with patch.dict(os.environ, {"QCL_ROOT": str(self.root)}):
             spec.loader.exec_module(module)

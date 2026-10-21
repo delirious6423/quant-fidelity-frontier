@@ -39,7 +39,7 @@ jobs:
           # on failure, the last lines also go out as annotations (readable from the API without the log archive)
           python3 pipeline/qcl_live.py > live-models.txt
           while IFS= read -r d; do
-            { QCL_ROOT="$d" python3 build.py && QCL_SITE="$d/site" python3 tests/test_ui.py; } > step.log 2>&1 && continue
+            { QCL_ROOT="$d" python3 web/build.py && QCL_SITE="$d/site" python3 tests/test_ui.py; } > step.log 2>&1 && continue
             cat step.log; grep -E "FAIL|Error|Traceback|MISMATCH" step.log | head -20 | sed "s|^|::error title=$d::|"; tail -5 step.log | sed "s|^|::error title=$d tail::|"; exit 1
           done < live-models.txt
       - name: Source-backed benchmarks and responsive interactions
@@ -73,7 +73,7 @@ jobs:
           python3 tests/test_highlights_soft.py
           python3 tests/test_image_flag.py
       - name: Assembled site is static only
-        run: python3 assemble.py _site
+        run: python3 web/assemble.py _site
       - name: Shared benchmark data and cross-model chart interactions
         run: |
           python3 tests/test_benchmark_view.py

@@ -3,7 +3,7 @@ import asyncio,json,copy,re,sys
 from pathlib import Path
 from playwright.async_api import async_playwright
 ROOT=Path(__file__).resolve().parents[1]
-sys.path.insert(0,str(ROOT))
+sys.path.insert(0,str(ROOT)); sys.path.insert(0, str(ROOT / 'web'))   # site generators live in web/
 from benchmarks import group_benchmarks
 
 

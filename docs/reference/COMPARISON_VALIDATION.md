@@ -48,7 +48,7 @@ Browser suites:
 | Benchmark tabs/pilot | 320/390/1366px passed |
 | Comparison-specific UI | 320/390/1366px passed |
 
-The comparison UI suite checks metric-specific eligibility, disabled unverified sorts/frontiers, distinct publishers, explicit unknown original evaluator, source details, all points retained, cross-view measurement focus despite differing quant IDs, and no horizontal overflow. Screenshots are [linked here](previews/comparisons/README.md).
+The comparison UI suite checks metric-specific eligibility, disabled unverified sorts/frontiers, distinct publishers, explicit unknown original evaluator, source details, all points retained, cross-view measurement focus despite differing quant IDs, and no horizontal overflow. Screenshots are [linked here](../history/previews/comparisons/README.md).
 
 The assembled deliverable remains 21 static files, approximately 27.4 MB, below GitHub Pages limits. No database or site-serving backend was introduced.
 

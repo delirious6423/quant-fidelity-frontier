@@ -18,10 +18,10 @@ CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SCAN = "python3 pipeline/qcl_scan.py"
 ST = os.path.join(CODE, "work", "next_state.json")
 NEXT = "python3 pipeline/qcl_next.py"
-FETCH_PROMPT = ("Follow docs/agents/FETCH.md in the repo at {code}, with S = `{shard}` and M = `models/{slug}`. "
+FETCH_PROMPT = ("Follow docs/runbooks/agents/FETCH.md in the repo at {code}, with S = `{shard}` and M = `models/{slug}`. "
                 "Use only Bash and the hf_fs tool. A result is saved to a file when the tool message says "
                 "'Output has been saved to <path>' or 'Full output saved to: <path>'; use that path.")
-MAP_PROMPT = "Follow docs/agents/MAP.md in the repo at {code}, with W = `work/{slug}`, RUN = `{run}`, M = `models/{slug}`."
+MAP_PROMPT = "Follow docs/runbooks/agents/MAP.md in the repo at {code}, with W = `work/{slug}`, RUN = `{run}`, M = `models/{slug}`."
 
 def sh(cmd, check=False):
     p = subprocess.run(cmd, cwd=CODE, shell=True, capture_output=True, text=True)

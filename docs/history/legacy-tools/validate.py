@@ -2,7 +2,7 @@
 """Gate 2: automated consistency checks on claims/*.json. Exit 1 on any ERROR."""
 import json, sys, glob, os
 
-ROOT = os.environ.get("QCL_ROOT") or os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "models", "qwen3.8-flash-next")
+ROOT = os.environ.get("QCL_ROOT") or os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))), "models", "qwen3.8-flash-next")
 FORMATS = {"GGUF","NVFP4","FP8","MXFP4","AWQ","GPTQ","AutoRound","EXL3","MLX","other"}
 LOWER_BETTER = ["mean_kld","kld_p99","kld_p99_9","ppl","delta_p_rms"]
 errors, warns = [], []

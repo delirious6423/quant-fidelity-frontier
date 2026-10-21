@@ -1,6 +1,6 @@
 """The 'Every reported task score' section of /benchmarks/: coverage, and every score must appear verbatim on the card line it links to.
 
-Run after assembling _site:  python3 assemble.py _site && python3 tests/test_benchmark_extracted.py"""
+Run after assembling _site:  python3 web/assemble.py _site && python3 tests/test_benchmark_extracted.py"""
 import json, os, re, sys
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.environ.get("QFF_DATA") or os.path.join(CODE, "_site")

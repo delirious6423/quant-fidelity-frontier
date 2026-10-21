@@ -6,16 +6,16 @@ prose around it. Work in the repo root.
 
 1. Mechanical check: build every live model, then run the README checks.
    ```bash
-   for d in $(python3 pipeline/qcl_live.py); do QCL_ROOT=$d python3 build.py >/dev/null || exit 1; done
+   for d in $(python3 pipeline/qcl_live.py); do QCL_ROOT=$d python3 web/build.py >/dev/null || exit 1; done
    python3 pipeline/readme_sync.py --check
    ```
    If it reports only stale counts, run `python3 pipeline/readme_sync.py` (code rewrites the table). Fix a dead link or
    path by pointing it at the file that now holds that content (`git log --diff-filter=R --name-status` shows renames);
    if nothing holds it any more, remove the link.
 2. Cross-check each statement in both READMEs against its source of truth, and note every one that is no longer true:
-   - what the site does and how values are collected: `docs/METHOD.md`, `docs/FASTPATH.md`, `docs/HOURLY.md`;
+   - what the site does and how values are collected: `docs/reference/METHOD.md`, `docs/runbooks/FASTPATH.md`, `docs/runbooks/HOURLY.md`;
    - the MCP install command and tools: `qff_mcp/qff_mcp.py` (environment variables, flags, tool names and arguments);
-   - licences, sponsor policy, discovery and dataset export: `LICENSE`, `docs/SPONSORS.md`, `docs/DISCOVERY.md`;
+   - licences, sponsor policy, discovery and dataset export: `LICENSE`, `docs/reference/SPONSORS.md`, `docs/reference/DISCOVERY.md`;
    - recent changes that the READMEs should mention or no longer claim: the newest entries in `PROGRESS.md`.
 3. Edit only the statements that are wrong or missing something a reader needs, in the README's existing voice and
    length. Never edit the generated block between `<!-- qff:models:start -->` and `<!-- qff:models:end -->`, never type a

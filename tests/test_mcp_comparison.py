@@ -13,7 +13,7 @@ import unittest
 from unittest.mock import patch
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT)); sys.path.insert(0, str(ROOT / 'web'))   # site generators live in web/
 spec = importlib.util.spec_from_file_location("qff_mcp_comparison_test_server", ROOT / "qff_mcp/qff_mcp.py")
 mcp = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(mcp)

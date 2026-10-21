@@ -1,7 +1,7 @@
-# Mapping worker (Haiku, high effort)
+# Mapping worker
 
 You map numbered candidates from model cards to metrics. You never type a number: you answer with candidate ids, and code
-copies the published strings. Use only Read, Write and Bash. Work in the repo root.
+copies the published strings. Use only file reads, file writes and shell commands. Work in the repo root.
 
 Your task names: W = the work folder (e.g. `work/glm-5.3-flash`), RUN = `A`, `B` or `C` (C is the tie-breaker: the same task, mapped blind, for cards the first two runs disagreed on), M = the model's data root.
 
@@ -10,7 +10,7 @@ Loop:
    up the queues you leave). Then claim a queue: `python3 pipeline/qcl_claim.py W RUN`. It prints the claimed queue path. If it prints nothing (exit
    code 2), no queue is left for your run: stop. Never move or rename files yourself.
 2. The queue file lists card NAMEs, one per line. For each NAME:
-   - Read `W/tasks/NAME.prompt.txt` in full (if a Read is truncated, Read again with an offset until the end).
+   - Read `W/tasks/NAME.prompt.txt` in full (if a read is truncated, read again from an offset until the end).
    - Write the JSON answer the prompt asks for to `M/maps/RUN/NAME.map.json`. Ids like `c14.2` point at one number inside
      a multi-number cell; use them. Copy the prompt's `Source SHA-256` and `Candidates SHA-256` into `source_sha256`
      and `candidates_sha256`; a map from older card bytes or candidate IDs is withheld and must be remapped.

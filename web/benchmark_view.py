@@ -59,7 +59,7 @@ def _card_lines(slug, repo):
     if key not in _CARDS:
         lines = []
         try:
-            root = Path(__file__).parent / 'models' / slug
+            root = Path(__file__).parent.parent / 'models' / slug
             meta = json.loads((root / 'snapshots/index.json').read_text())['repos'][repo]
             lines = (root / meta['file']).read_text(encoding='utf-8', errors='replace').splitlines()
         except (OSError, KeyError, ValueError):
@@ -191,8 +191,8 @@ def build_benchmark_view(out, models, base, analytics='', support=''):
     legend = ''.join(f'<span class="model-label" style="--model-color:{palette[slug]}">{esc(next(m["name"] for m in payload["models"] if m["slug"]==slug))}</span>' for slug in (first['models'] if first else []))
     ranges = '<div class="ex-range" id="shared-ranges" role="group" aria-label="Size and score limits" hidden><label class="rg" for="shared-size"><span>Max size</span><input id="shared-size" type="range" min="0" max="1000" step="1" value="1000"><output id="shared-size-output" for="shared-size">any</output></label><label class="rg" for="shared-score"><span>Min score</span><input id="shared-score" type="range" min="0" max="1000" step="1" value="0"><output id="shared-score-output" for="shared-score">any</output></label><button id="shared-reset" type="button" hidden>Clear limits</button></div>'
     encoded = json.dumps(payload, separators=(',', ':')).replace('<', '\\u003c')
-    styles = (Path(__file__).parent/'web/benchmark_view.css').read_text()
-    script = (Path(__file__).parent/'web/benchmark_view.js').read_text()
+    styles = (Path(__file__).parent/'assets/benchmark_view.css').read_text()
+    script = (Path(__file__).parent/'assets/benchmark_view.js').read_text()
     page = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Compare model benchmarks by file size · QFF</title><meta name="description" content="Explore shared benchmark scores across LLM models and quantized builds, with size in GB and publisher source citations."><link rel="canonical" href="{base}benchmarks/">{analytics}<style>{styles}</style></head><body>
 <a class="skip" href="#comparison">Skip to chart</a><div class="shell"><header><a class="brand" href="../"><b>QFF</b><span>Quant Fidelity Frontier</span></a><details class="page-picker"><summary>All-model benchmarks ▾</summary><div class="page-menu"><span aria-current="page">All-model benchmarks</span>{picker}</div></details><nav aria-label="Main"><a href="../#models">Models</a><a href="./" aria-current="page">Benchmarks</a><a href="../guides/">Guides</a></nav></header>
 <main><div class="page-heading"><h1>Model benchmarks</h1><p>Score vs. file size across models.</p></div>

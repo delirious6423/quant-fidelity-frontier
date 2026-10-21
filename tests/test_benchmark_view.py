@@ -14,7 +14,7 @@ from urllib.parse import parse_qs, urlparse
 from playwright.async_api import async_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT)); sys.path.insert(0, str(ROOT / 'web'))   # site generators live in web/
 from benchmark_view import collect_shared, static_plot
 SITE = ROOT/'_site'
 

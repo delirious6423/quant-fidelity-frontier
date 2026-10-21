@@ -31,8 +31,8 @@ from mcp.types import ToolAnnotations
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.environ.get("QFF_DATA") or os.path.join(HERE, "..", "_site")
-# The Space package copies comparison.py alongside this server; local checkout loads it from the repo root.
-sys.path.insert(0, os.path.dirname(HERE))
+# The Space package copies comparison.py alongside this server; a local checkout loads it from web/.
+sys.path.insert(0, os.path.join(os.path.dirname(HERE), "web"))
 try:
     from comparison import classify_pair, classify_group, summarize_comparisons
 except ImportError:

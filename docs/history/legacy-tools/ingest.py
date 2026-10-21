@@ -3,7 +3,7 @@
 Usage: ingest.py <saved-result-file>   (writes cache/catalogue.json or cache/cards/*.md and updates cache/manifest.json)"""
 import json, sys, base64, gzip, hashlib, os, re
 
-ROOT = os.environ.get("QCL_ROOT") or os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "models", "qwen3.8-flash-next")
+ROOT = os.environ.get("QCL_ROOT") or os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))), "models", "qwen3.8-flash-next")
 raw = json.load(open(sys.argv[1]))[0]["text"]
 m = re.search(r"GZB64:([A-Za-z0-9+/=]+):END", raw)
 if not m: sys.exit("no payload (maybe rate-limited): " + raw[:300])

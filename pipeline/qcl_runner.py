@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Scripted, local-only shadow pipeline. See docs/SCRIPTED_RUNNER.md.
+"""Scripted, local-only shadow pipeline. See docs/runbooks/SCRIPTED_RUNNER.md.
 
 No provider credentials are needed: requests are exported as complete JSON bundles,
 responses may be imported independently. No command can publish or update Git.

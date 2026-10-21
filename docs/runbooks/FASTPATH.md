@@ -18,13 +18,13 @@ The first build (Qwen3.8-Flash-Next) took about **11.5 h wall clock**, of which 
 | Stage | Before | Now | How measured |
 |---|---|---|---|
 | Fetch 453 cards at their pinned sha, plus file trees | ~2 h (browser, 429s, login) | **5.3 s** against a mock HF API with 40 ms latency and a 429 on every 7th request. All 453 cards byte-identical; a resume run takes 0.17 s | `qcl_fetch.py`; mock in scratchpad |
-| Deterministic extraction of every table cell, prose claim and bpw label | n/a | **1.3 s** for 453 cards. 92% of verified values land on a parsed line, and 83–86% of core metrics get the right metric family without any LLM | `python3 autoextract.py eval` |
+| Deterministic extraction of every table cell, prose claim and bpw label | n/a | **1.3 s** for 453 cards. 92% of verified values land on a parsed line, and 83–86% of core metrics get the right metric family without any LLM | `python3 pipeline/autoextract.py eval` |
 | Triage: cards that need no LLM | 0 | 64 of 453 skip the LLM; **0 cards with claims were wrongly skipped** | same |
-| LLM extraction | ~9 min per 51 cards per agent, typing values | **Map, don't type**: 24 cards in **41 s** wall clock (8 Sonnet agents × 3 cards, 22–55 s each). Code copies every value, so values are verbatim by construction | `qcl_map.py` |
+| LLM extraction | ~9 min per 51 cards per agent, typing values | **Map, don't type**: 24 cards in **41 s** wall clock (8 mapping agents on a mid-size model × 3 cards, 22–55 s each). Code copies every value, so values are verbatim by construction | `qcl_map.py` |
 | Accuracy against the 3,075 hand-verified values (24-card stratified sample, 218 core values) | — | One run: 83–92% recall. Two independent runs combined: **92%** recall. Both runs agreed on 213 values, 180 of them in the ground truth. A hand-check of 12 of the other 33 found **all 12 correct**: claims the ground truth omits, such as per-corpus KL columns and noise floors | `qcl_adjudicate.py` |
 | Gates, build and all test suites | ~50 s | ~50 s (of which UI tests take 27 s) | timed |
 
-Haiku was also tried as the mapper. It was 2–3× slower than Sonnet here (109–154 s per queue), and one Haiku agent overwrote its siblings' files. Use Sonnet.
+A smaller, faster model was also tried as the mapper. It was 2–3× slower than the mid-size model here (109–154 s per queue), and one of its agents overwrote its siblings' files. Use the mid-size model.
 
 ## Pipeline
 Each step is one command, and every step can be resumed.
@@ -33,11 +33,11 @@ Each step is one command, and every step can be resumed.
 2. **Extract.** `pipeline/autoextract.py` lists every table cell, prose claim and bpw label as a candidate, with its line number.
 3. **Map, as two independent runs in parallel.**
    - `qcl_map.py tasks` writes one compact task per card.
-   - Run N Sonnet agents with 3 cards each, twice, with different card orderings.
+   - Run N mapping agents with 3 cards each, twice, with different card orderings.
    - Agents answer with JSON mappings only.
 4. **Adjudicate.** Accept the values both runs agree on. Only the disagreements, about 35% of values, go to one resolver pass, which sees both mappings and the cited lines.
 5. **Apply.** `qcl_map.py apply` writes `verified/part*.py`. Every value is copied from its source cell, so the verbatim, sign, unit and column gates hold by construction.
-6. **Build and run the gates:** `build.py` (fails closed), `test_gates.py`, `test_claims.py`, `test_ui.py`, then `make_pack.py`.
+6. **Build and run the gates:** `web/build.py` (fails closed), `test_gates.py`, `test_claims.py`, `test_ui.py`, then `make_pack.py`.
 7. **Cold review by a different model.** Give it the pack plus the adjudication report, scoped to this model's data. The earlier review findings are already encoded as tests.
 
 ## Projected wall time for the next model (≈450 cards)
@@ -95,7 +95,7 @@ That target rules out any LLM on the request path. So the LLM, mapping and revie
    1. `qcl_fetch.py` resumes and fetches only new or changed cards (about 0.3 s per card).
    2. `qcl_watch.py delta` lists those cards.
    3. `autoextract.py` turns them into candidates (milliseconds).
-   4. Two independent mapping runs: one Sonnet agent per 3 cards, all in parallel, about 40 s.
+   4. Two independent mapping runs: one mapping agent per 3 cards, all in parallel, about 40 s.
    5. `qcl_watch.py merge` keeps the values both runs agree on, quarantines anything that fails a gate, and queues the disagreements (about 3 s).
    6. A resolver agent plus a cold review **of the delta only** (about 1 min).
    7. Build, gates and tests, then commit to the repo (a few seconds).

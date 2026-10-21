@@ -212,7 +212,7 @@ class Runner(unittest.TestCase):
         import ast
         import html
         import math
-        tree = ast.parse((CODE / 'build.py').read_text())
+        tree = ast.parse((CODE / 'web' / 'build.py').read_text())
         node = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'kld_chart')
         ns = {'math': math, 'owner': lambda r: r.split('/')[0], 'E': html.escape,
               'BASIS_LABEL': {}, 'REF_TXT': {'bf16': 'vs BF16'}}

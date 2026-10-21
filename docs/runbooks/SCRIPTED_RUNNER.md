@@ -176,7 +176,7 @@ one committed model into a new external workspace, forgets every mapping, and
 times `prepare`, a `run` fed with synthetic fixture responses, and an unchanged
 reconcile. It measures scheduling and bookkeeping only (no model calls, tokens
 or cost) and is the harness behind the scale table in
-[RESULTS.md](scripted-runner/RESULTS.md). Journal listings are filtered in SQL
+[RESULTS.md](../history/scripted-runner/RESULTS.md). Journal listings are filtered in SQL
 and decode a payload only when it is needed; completion and slot lookups are
 single-row queries; a reconcile reinstalls a map or re-exports a request only
 when its bytes would change. A full re-map of a 1,253-repository model therefore
@@ -191,12 +191,12 @@ units, qualifiers, panels and image flags; no semantic normalization is applied.
 The dispatch replay is separate from end-to-end extraction timing and actual
 model quality. No tokens/cost figures are inferred from queues or tool calls.
 
-Results: [baseline](scripted-runner/baseline.json),
-[replay](scripted-runner/replay-results.json),
-[existing regressions](scripted-runner/verification.md),
-[real pinned input](scripted-runner/real-input-check.json),
-[public HTTP smoke check](scripted-runner/public-check.json),
-[independent review](scripted-runner/review.md).
+Results: [baseline](../history/scripted-runner/baseline.json),
+[replay](../history/scripted-runner/replay-results.json),
+[existing regressions](../history/scripted-runner/verification.md),
+[real pinned input](../history/scripted-runner/real-input-check.json),
+[public HTTP smoke check](../history/scripted-runner/public-check.json),
+[independent review](../history/scripted-runner/review.md).
 
 Fault injection covers claim-process termination, result commit before lost
 acknowledgement, duplicate/conflicting delivery, source/version changes in flight,
@@ -292,11 +292,11 @@ runtime and a source-output digest. The full-model benchmark also saves complete
 semantic `output.json` (records, holds, review queue, source pins, maps and task
 results) for exact comparisons. These fixture responses do not evaluate model
 precision/recall or real upstream latency. See
-[PERFORMANCE_FOLLOWUP.md](scripted-runner/PERFORMANCE_FOLLOWUP.md) for measured
+[PERFORMANCE_FOLLOWUP.md](../history/scripted-runner/PERFORMANCE_FOLLOWUP.md) for measured
 results, independent review findings and scope limits.
 
 The independent three-repetition evidence is now complete and locally rechecked:
-[INDEPENDENT_VALIDATION.md](scripted-runner/INDEPENDENT_VALIDATION.md). Use its
+[INDEPENDENT_VALIDATION.md](../history/scripted-runner/INDEPENDENT_VALIDATION.md). Use its
 medians and ranges for performance claims; the earlier single-run measurements
 remain historical. The correction moves helper evidence export after both timed
 sides, and all three repetitions were rerun with fresh output directories.

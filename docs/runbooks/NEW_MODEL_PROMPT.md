@@ -1,13 +1,13 @@
 # Prompt: build a QFF (Quant Fidelity Frontier) site for another model
 
-Copy everything below the line into a new session. First fill in the three values in **Inputs**. Point the session at the public repo https://github.com/delirious6423/quant-fidelity-frontier as the template.
+Copy everything below the line into a new agent run, or hand it to a person. First fill in the three values in **Inputs**. Point the agent at the public repo https://github.com/delirious6423/quant-fidelity-frontier as the template.
 
 ---
 
 ## Inputs
 - **Base model (Hugging Face id):** `{ORG/MODEL}`, e.g. `meta-llama/Llama-5-70B`
 - **Site:** add the model to the existing GitHub Pages site (repo `delirious6423/quant-fidelity-frontier`) as `models/{model-slug}/`, served at `/{model-slug}/`. Keep one shared template and data schema for every model, plus a model index page. Never fork a separate site per model.
-- **Template:** the repo itself (every model under `models/<slug>/`, e.g. `models/qwen3.8-flash-next/`); see `docs/DEVELOPING.md`. Reuse its code: `build.py`, `verify*.py`, `detect_copies.py`, `gen_auto.py`, `sets.py`, `highlights.py`, `site_*`, `test_*.py`, `make_pack.py`, `.github/workflows/verify.yml`. Change only what this model needs, and keep the code model-agnostic, with model-specific values moved into a per-model config.
+- **Template:** the repo itself (every model under `models/<slug>/`, e.g. `models/qwen3.8-flash-next/`); see `docs/reference/DEVELOPING.md`. Reuse its code: `web/build.py`, `verify*.py`, `detect_copies.py`, `gen_auto.py`, `sets.py`, `highlights.py`, `site_*`, `test_*.py`, `make_pack.py`, `.github/workflows/verify.yml`. Change only what this model needs, and keep the code model-agnostic, with model-specific values moved into a per-model config.
 
 ## Goal
 Build a public, web-searchable site comparing **every Hugging Face quantization of `{ORG/MODEL}`**. Use only each publisher's **own claims**: model cards, plus docs pages a card links to as its results. Nothing is re-measured. A reader must be able to see:
@@ -28,16 +28,16 @@ The site must never imply a ranking the evidence does not support. Publishers' r
 
 ## How to work
 - Open with 1–2 lines on how you deepened the task, then execute without waiting for approval. Ask me only for decisions that are expensive to reverse, such as publishing or deleting.
-- Keep `PLAN.md` and `PROGRESS.md` in the repo so a fresh session can resume. Session usage limits will interrupt long runs, so checkpoint after every phase and every agent queue.
+- Keep `PLAN.md` and `PROGRESS.md` in the repo so a fresh run can resume. Usage limits will interrupt long runs, so checkpoint after every phase and every agent queue.
 - Run independent work as parallel agents, in queues of about 50 cards each, with explicit file ownership per agent. Check usage before a large fan-out.
 - Never grade your own work. Every "done" needs an outside check, and you must show its output.
 
-## Fast path (use this; measurements in `FASTPATH.md`)
+## Fast path (use this; measurements in `docs/runbooks/FASTPATH.md`)
 Run these stages in order; each one can be resumed:
 
 1. `pipeline/qcl_fetch.py` (or the `fetch.yml` GitHub Action).
 2. `pipeline/autoextract.py`.
-3. `qcl_map.py tasks`, then **two independent runs** of Sonnet mapping agents, 3 cards each, as many in parallel as limits allow. The agents return JSON mappings only and never type values.
+3. `qcl_map.py tasks`, then **two independent runs** of mapping agents, 3 cards each, as many in parallel as limits allow. The agents return JSON mappings only and never type values.
 4. `pipeline/qcl_adjudicate.py`: accept the values both runs agree on, and send only the disagreements to one resolver pass.
 5. `qcl_map.py apply` → `verified/`.
 6. Build, gates and tests.
@@ -81,7 +81,7 @@ Phases 1–4 below describe what these tools do and the rules they enforce. Fall
 - Run agents over queues. Give each one only the local snapshots and the schema, plus Phase 4's gates to run on its own repos before reporting. Keep an acceptance list of known-hard cards (big pivoted tables, image-only results, multi-card shared tables) and confirm each is extracted.
 
 ## Phase 4 — Gates (fail closed)
-`build.py` and `make_pack.py` must refuse to write anything if any gate fails. Required gates:
+`web/build.py` and `make_pack.py` must refuse to write anything if any gate fails. Required gates:
 1. **Verbatim:** every number token of every value appears on its cited line. Normalise markdown, thousands separators, space or thin-space grouping, and leading `.05`.
 2. **Sign:** a signed value has the same sign on the source line. Normalise U+2212, U+2013 and U+2012.
 3. **Unit:** the entry's unit sits next to the size number on the line, in the column header, or in a cited caption. Bytes and GiB are converted exactly; a size with no unit fails the build.
@@ -117,7 +117,7 @@ Phases 1–4 below describe what these tools do and the rules they enforce. Fall
 - **No cross-set estimates or equating.** Units convert exactly; methods do not. Say so on the page.
 
 ## Phase 7 — Site
-- Build static HTML from one template, which produces both the claude.ai preview artifact and the Pages build.
+- Build static HTML from one template, which produces both the preview page and the Pages build.
 - Server-render the full ledger table for crawlers. Add JSON-LD Dataset markup, a sitemap, robots.txt and a canonical URL.
 - Use vanilla JS and SVG; no CDN beyond Google Fonts. Support both themes through tokens, work at phone width (390 px) with no horizontal page scroll, meet basic accessibility, and add `[hidden]{display:none!important}` globally.
 - Page order:
@@ -157,7 +157,7 @@ Phases 1–4 below describe what these tools do and the rules they enforce. Fall
    - `test_ui.py`, Playwright at 1366 and 390 px. It covers every control, no horizontal scroll, no JS errors, unique DOM ids, and an independent Pareto computation compared against the UI. Test **visibility**, not attributes.
 3. **Screenshots:** take them in light, dark and phone views, and look at them yourself.
 4. **Review pack:** `make_pack.py` reruns everything and writes `REVIEW_PACK.md` (pipeline, gate outputs, sets, limitations, dispositions) and a zip. Send me the zip.
-5. **Cold adversarial review by a different model** (Fable, or another lab's model). Give it the pack and an adversarial brief:
+5. **Cold adversarial review by a different model** (preferably from another lab). Give it the pack and an adversarial brief:
    - sample at least 60 values against snapshots;
    - read at least 15 no-claims cards in full;
    - attack set construction, attribution, flags and gates;
@@ -169,7 +169,7 @@ Phases 1–4 below describe what these tools do and the rules they enforce. Fall
 
 ## Phase 9 — Publish (only on my explicit go-ahead)
 - Commit to `delirious6423/quant-fidelity-frontier` (public). CI (`.github/workflows/verify.yml`) runs every gate and test suite for every model.
-- Run the `deploy-pages` workflow (manual): it builds every model, runs the gates and deploys `_site/` from `assemble.py`.
+- Run the `deploy-pages` workflow (manual): it builds every model, runs the gates and deploys `_site/` from `web/assemble.py`.
 - Add the model's `others` links in each `model.json`, then send me the URL.
 
 ## Pitfalls from the first build (check for each one)
@@ -192,10 +192,10 @@ Phases 1–4 below describe what these tools do and the rules they enforce. Fall
 - A test that reuses a variable name can mask a failure. Read the test log, not just the exit code.
 
 **Process**
-- Agents hit session limits mid-task. Resume them with a message instead of restarting, and keep file ownership clear while they run.
+- Agents hit usage limits mid-task. Resume them with a message instead of restarting, and keep file ownership clear while they run.
 
 ## Deliverables
-1. The site, previewed as a claude.ai artifact and deployed to Pages after sign-off.
+1. The site, previewed as a shareable preview page and deployed to Pages after sign-off.
 2. `site/data.json`, the dataset.
 3. The review pack zip.
 4. `audit/` with every review and its dispositions.

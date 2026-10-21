@@ -13,7 +13,7 @@ import unittest
 from unittest.mock import patch
 from itertools import combinations
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))); sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'web'))   # site generators live in web/
 from comparison import CONDITIONS, classify_pair, classify_group, classify_by_metric, summarize_comparisons
 
 
