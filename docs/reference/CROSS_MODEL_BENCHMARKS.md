@@ -2,14 +2,18 @@
 
 `/benchmarks/` is a standalone scatter chart of published task scores against full model-file size in decimal GB. It is linked immediately after Models in the homepage navigation, from the homepage's compact comparison button, and above the provider groups in every model page selector.
 
-The assembler reads the reviewed `benchmarks.sources` already included in each live model's build output. A view requires at least two distinct model slugs with the exact same benchmark variant and declared unit category. Different scoring variants and unit categories are separate views. Unstated units remain unstated; scores are displayed as published. Every source report retains its own point, even when a build appears more than once. Model colors do not imply verified protocol compatibility, ranking, or independent reproduction by QFF.
+The assembler reads the reviewed `benchmarks.sources` already included in each live model's build output. Reports are grouped by canonical task (`bench_tasks.canonical`, the same rules as the list below), so naming variants such as `HellaSwag acc`, `HellaSwag acc_norm` and `HellaSwag (0-shot)` share one view; a name no rule places keeps a view of its own. A view requires at least two distinct model slugs with the same task and the same declared unit category: unit categories are never merged, so a 0–1 fraction and an unstated scale stay in separate views. Each point keeps the benchmark name exactly as its source publishes it (`metric` in `data.json`, shown in the detail panel, tooltip and evidence table), and a view lists every published name it holds (`metrics`); a view holding one published name is titled with it. Scoring variants that share a task (for example GSM8K strict and flexible matching) can therefore appear in one view, each labelled with its own name. The same holds for subsets and samples the rules place under one task (for example `MMLU-Pro (600-question sample)` with MMLU-Pro, or tau-bench domains): check a new name's published label before relying on a view. Links made before this grouping (`?benchmark=<published name>`) open the view that holds that name. Unstated units remain unstated; scores are displayed as published. Every source report retains its own point, even when a build appears more than once. Model colors do not imply verified protocol compatibility, ranking, or independent reproduction by QFF.
 
 Current reviewed coverage:
 
-| View | Models | Reports |
-| --- | --- | ---: |
-| GPQA-Diamond | Qwen3.8-27B, Qwen3.8-Flash-Next | 13 |
-| GSM8K strict (5-shot) | DeepSeek-V4-Flash-0731, DeepSeek-V4.1-Flash | 4 |
+| View | Unit | Models | Reports | Published names |
+| --- | --- | --- | ---: | --- |
+| GPQA-Diamond | as published | Qwen3.8-27B, Qwen3.8-Flash-Next | 13 | GPQA-Diamond |
+| ARC-Challenge | as published | GLM-5.3-Flash, Qwen3.8-27B | 9 | ARC Challenge, ARC-C |
+| GSM8K | fraction | DeepSeek-V4-Flash-0731, DeepSeek-V4.1-Flash | 6 | GSM8K flexible (5-shot), GSM8K strict (5-shot) |
+| HellaSwag | fraction | DeepSeek-V4-Flash-0731, DeepSeek-V4.1-Flash | 6 | HellaSwag (0-shot), HellaSwag acc, HellaSwag acc_norm |
+| MMLU | fraction | DeepSeek-V4-Flash-0731, DeepSeek-V4.1-Flash | 4 | MMLU, MMLU (0-shot) |
+| PIQA | fraction | DeepSeek-V4-Flash-0731, DeepSeek-V4.1-Flash | 6 | PIQA (0-shot), PIQA acc, PIQA acc_norm |
 
 The default is GPQA-Diamond where available, with all eligible models, source reports and reference builds shown. Reference builds use diamonds; quantized builds use circles. The chart reuses the model explorer's limit-control pattern inside a closed **Filters & chart options** disclosure: one **Max size** slider and one **Min score** slider, a current threshold (or “any”) beside each, and **Clear limits** when either is active. Scores are higher-is-better, so the score threshold keeps values at or above the selected minimum. The closed summary indicates active limits. Sliders use the same normalized 0–1000 positions and native touch/keyboard controls as the model page; no overlapping range handles or separate min/max numeric fields are required.
 
@@ -17,7 +21,7 @@ Limits filter source reports and rescale the plot. Both return to “any” when
 
 Changed source cards continue to be withdrawn by the existing reviewed-manifest validator. Shared views are derived afresh on each assembly: if fewer than two models remain eligible, the corresponding view disappears. The chart catalog is generated after `models.json` so its data file is never mistaken for an additional model by the manifest or MCP server. Existing model measurement sets and claim rows are unaffected.
 
-Validation: `python tests/test_benchmark_view.py` checks exact task/unit matching, all source values and citations, missing sizes, repeated reports, controls, sharing, keyboard access, no-JavaScript fallback, navigation, and 320/390/768/1366px layouts. The regular build, homepage, model-page, claim, discovery and MCP checks also apply.
+Validation: `python tests/test_benchmark_view.py` checks canonical task grouping with exact unit matching, published names on every point, all source values and citations, missing sizes, repeated reports, controls, sharing, keyboard access, no-JavaScript fallback, navigation, and 320/390/768/1366px layouts. The regular build, homepage, model-page, claim, discovery and MCP checks also apply.
 
 Limit state uses `max` for the size budget in GB and `score_min` for the minimum published score. Shared links retain exact numeric thresholds even though outputs are rounded for readability. Boundary matches retain every corresponding report. An active score floor overrides and disables the zero baseline until cleared. Empty regions keep axes and a readable message, including a zero size cap on a log axis. Invalid/non-finite thresholds are ignored. No measurements or source evidence are modified.
 

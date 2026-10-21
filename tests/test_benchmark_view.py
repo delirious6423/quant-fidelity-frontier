@@ -1,4 +1,4 @@
-"""Cross-model provenance, exact task matching, navigation and chart interactions."""
+"""Cross-model provenance, task grouping with exact units, navigation and chart interactions."""
 import asyncio
 import copy
 import json
@@ -15,7 +15,7 @@ from playwright.async_api import async_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT)); sys.path.insert(0, str(ROOT / 'web'))   # site generators live in web/
-from benchmark_view import collect_shared, static_plot
+from benchmark_view import collect_shared, shared_task, static_plot
 SITE = ROOT/'_site'
 
 
@@ -28,9 +28,9 @@ class SharedData(unittest.TestCase):
             original=json.loads((SITE/m['data']).read_text())
             for source in (original.get('benchmarks') or {}).get('sources',[]):
                 for metric in source['metrics']:
-                    expected.setdefault((metric['name'],metric['unit']),set()).add(m['slug'])
+                    expected.setdefault((shared_task(metric['name']),metric['unit']),set()).add(m['slug'])
         expected={k:v for k,v in expected.items() if len(v)>=2}
-        self.assertEqual({(v['name'],v['unit']):set(v['models']) for v in data['views']},expected)
+        self.assertEqual({(shared_task(v['metrics'][0]),v['unit']):set(v['models']) for v in data['views']},expected)
         self.assertEqual(len(data['models']),len(models))
         total=sum(len(v['points']) for v in data['views'])
         self.assertEqual(len({p['id'] for v in data['views'] for p in v['points']}),total)
@@ -41,7 +41,9 @@ class SharedData(unittest.TestCase):
                 _, si, mi, pi = p['id'].split(':')
                 source = original['sources'][int(si)]
                 metric = source['metrics'][int(mi)]
-                self.assertEqual((metric['name'],metric['unit']),(v['name'],v['unit']))
+                self.assertEqual((shared_task(metric['name']),metric['unit']),(shared_task(v['metrics'][0]),v['unit']))
+                self.assertEqual(p['metric'],metric['name'])
+                self.assertIn(metric['name'],v['metrics'])
                 self.assertTrue(all(p[k]==value for k,value in metric['points'][int(pi)].items()))
                 self.assertEqual(p['context'],source['context'])
                 self.assertEqual(p['card_sha256'],source['card_sha256'])
@@ -67,6 +69,28 @@ class SharedData(unittest.TestCase):
             target.write_text(json.dumps(changed));view=collect_shared(tmp,models)['views'][0]
             self.assertEqual(len(view['points']),3)  # same build, separate reports retained
         self.assertIn('No benchmark',static_plot(None,{}))
+
+    def test_naming_variants_share_a_chart_but_units_never_merge(self):
+        point = dict(size=10,score=.8,variant='build',raw='0.8',src='score',size_src='size')
+        def source(name,unit='fraction'):
+            return dict(label='source',context='setup',notes=[],card_sha256='hash',revision='revision',
+                        metrics=[dict(name=name,unit=unit,points=[copy.deepcopy(point)])])
+        models = [dict(slug=s,model=s+'/model',data=s+'/data.json') for s in ['a','b','c']]
+        with tempfile.TemporaryDirectory() as tmp:
+            def write(*names):
+                for model,(name,unit) in zip(models,names):
+                    target=Path(tmp)/model['data'];target.parent.mkdir(exist_ok=True)
+                    target.write_text(json.dumps(dict(benchmarks=dict(sources=[source(name,unit)]))))
+            write(('HellaSwag acc','fraction'),('HellaSwag (0-shot)','fraction'),('HellaSwag','as published'))
+            views=collect_shared(tmp,models)['views']
+            self.assertEqual([(v['name'],v['unit'],v['models']) for v in views],[('HellaSwag','fraction',['a','b'])])
+            self.assertEqual(views[0]['metrics'],['HellaSwag (0-shot)','HellaSwag acc'])
+            self.assertEqual(sorted(p['metric'] for p in views[0]['points']),['HellaSwag (0-shot)','HellaSwag acc'])
+            write(('GPQA-Diamond','fraction'),('GPQA-Diamond','fraction'),('GPQA','fraction'))
+            views=collect_shared(tmp,models)['views']   # one published name keeps it as the title; GPQA without Diamond stays apart
+            self.assertEqual([(v['name'],v['models']) for v in views],[('GPQA-Diamond',['a','b'])])
+            write(('AVG (four-task average)','fraction'),('AVG (four-task average)','fraction'),('MMLU','fraction'))
+            self.assertEqual([v['name'] for v in collect_shared(tmp,models)['views']],['AVG (four-task average)'])
 
 
 class Quiet(SimpleHTTPRequestHandler):

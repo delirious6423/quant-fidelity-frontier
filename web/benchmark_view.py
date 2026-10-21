@@ -11,21 +11,28 @@ from bench_tasks import canonical
 COLORS = ('#087880', '#ad65bd', '#bf7428', '#4078b8', '#b45977', '#548537')
 
 
+def shared_task(name):
+    """Chart group for a reviewed metric name: its canonical task (so 'HellaSwag acc' and 'HellaSwag (0-shot)' share a
+    chart), or the name itself when no rule places it. The published name stays on every point."""
+    task = canonical(name)
+    return name if task in (None, 'unclassified') else task
+
+
 def collect_shared(out, models):
-    """Keep exact task variants and score scales; never average source reports."""
+    """Group reviewed reports by canonical task and score scale; never average source reports or merge units."""
     groups = {}
     for model in models:
         data = json.loads((Path(out) / model['data']).read_text())
         for si, source in enumerate((data.get('benchmarks') or {}).get('sources', [])):
             for mi, metric in enumerate(source['metrics']):
-                key = (metric['name'], metric['unit'])
+                key = (shared_task(metric['name']), metric['unit'])
                 group = groups.setdefault(key, dict(name=key[0], unit=key[1], points=[]))
                 for pi, point in enumerate(metric['points']):
                     # Do not turn missing or invalid values into chart coordinates.
                     if not all(isinstance(point.get(k), (float, int)) and not isinstance(point[k], bool)
                                and math.isfinite(point[k]) for k in ('size', 'score')) or point['size'] <= 0:
                         continue
-                    group['points'].append(dict(point, id=f'{model["slug"]}:{si}:{mi}:{pi}',
+                    group['points'].append(dict(point, id=f'{model["slug"]}:{si}:{mi}:{pi}', metric=metric['name'],
                         model=model['model'], slug=model['slug'], model_name=model['model'].split('/')[-1],
                         source_label=source['label'], context=source['context'], notes=source['notes'],
                         card_sha256=source['card_sha256'], revision=source['revision'], captured_at=data.get('captured_at')))
@@ -34,8 +41,10 @@ def collect_shared(out, models):
         slugs = sorted({p['slug'] for p in group['points']})
         if len(slugs) < 2:
             continue
-        views.append(dict(group, models=slugs))
-    views.sort(key=lambda g: (g['name'] != 'GPQA-Diamond', g['name'].casefold(), g['unit']))
+        names = sorted({p['metric'] for p in group['points']})
+        # one published name keeps it as the chart title; several are listed under the canonical task
+        views.append(dict(group, name=names[0] if len(names) == 1 else group['name'], metrics=names, models=slugs))
+    views.sort(key=lambda g: (shared_task(g['name']) != 'GPQA Diamond', g['name'].casefold(), g['unit']))
     return dict(views=views, models=[dict(slug=m['slug'], name=m['model'].split('/')[-1], model=m['model']) for m in models])
 
 
@@ -164,7 +173,7 @@ def static_plot(view, palette):
         score = lo+(hi-lo)*i/4; size = xmax*i/4
         svg.append(f'<path class="gridline" d="M65 {y(score):.2f}H705"/><text x="57" y="{y(score)+4:.2f}" text-anchor="end">{score:.4g}</text><text x="{x(size):.2f}" y="332" text-anchor="middle">{size:.0f}</text>')
     for p in points:
-        title = f'{p["model_name"]} · {p["variant"]}: {p["raw"]} at {p["size"]:g} GB · {p["source_label"]}'
+        title = f'{p["model_name"]} · {p["variant"]} · {p["metric"]}: {p["raw"]} at {p["size"]:g} GB · {p["source_label"]}'
         xx, yy = x(p['size']), y(p['score'])
         shape = f'<path d="M{xx:.2f} {yy-6:.2f}l6 6l-6 6l-6 -6Z"' if p['reference'] else f'<circle cx="{xx:.2f}" cy="{yy:.2f}" r="5"'
         svg.append(f'<a href="{esc(p["src"], quote=True)}" aria-label="{esc(title, quote=True)}">{shape} class="shared-dot" style="fill:{palette[p["slug"]]}"><title>{esc(title)}</title></'+('path' if p['reference'] else 'circle')+'></a>')
@@ -181,7 +190,7 @@ def build_benchmark_view(out, models, base, analytics='', support=''):
     palette = {m['slug']: COLORS[i % len(COLORS)] for i, m in enumerate(sorted(payload['models'], key=lambda m:m['name']))}
     payload['colors'] = palette
     first = payload['views'][0] if payload['views'] else None
-    table = ''.join(f'<tr><td>{esc(v["name"])}</td><td>{esc(p["model_name"])}</td><td>{esc(p["variant"])}</td><td>{p["size"]:g}</td><td>{esc(p["raw"])} ({esc(v["unit"])})</td><td>{esc(p["source_label"])} · <a href="{esc(p["src"])}">Score</a> · <a href="{esc(p["size_src"])}">Size</a></td></tr>' for v in payload['views'] for p in v['points'])
+    table = ''.join(f'<tr><td>{esc(v["name"])}</td><td>{esc(p["model_name"])}</td><td>{esc(p["variant"])}</td><td>{esc(p["metric"])}</td><td>{p["size"]:g}</td><td>{esc(p["raw"])} ({esc(v["unit"])})</td><td>{esc(p["source_label"])} · <a href="{esc(p["src"])}">Score</a> · <a href="{esc(p["size_src"])}">Size</a></td></tr>' for v in payload['views'] for p in v['points'])
     providers = {'deepseek-ai': 'DeepSeek', 'Qwen': 'Qwen', 'zai-org': 'Z.ai'}
     groups = {}
     for m in sorted(models, key=lambda m:(providers.get(m['model'].split('/')[0],m['model'].split('/')[0]).casefold(),-m.get('repos',0),m['model'].casefold())):
@@ -201,8 +210,8 @@ def build_benchmark_view(out, models, base, analytics='', support=''):
 <details class="chart-options" id="shared-options" hidden><summary>Filters &amp; chart options</summary>{ranges}<div class="option-panel"><label><input type="checkbox" id="shared-log"> Log size axis</label><label><input type="checkbox" id="shared-zero"> Start score axis at zero</label><label><input type="checkbox" id="shared-refs" checked> Include reference builds</label><button id="shared-copy" type="button">Copy view link</button></div></details>
 <div id="shared-models" class="models" aria-label="Show or hide models">{legend}</div><p class="scope" id="shared-scope">Published evaluations may use different test settings.</p><div id="shared-plot" class="plot">{static_plot(first,palette)}</div><p class="shape-key">● Quantized build <span>◆ Reference build</span></p>
 <div id="shared-inspect" hidden><label>Inspect result<select id="shared-pick"></select></label><div id="shared-detail" class="point-detail" aria-live="polite"></div></div>
-<details id="shared-notes"><summary>Evaluation details &amp; coverage</summary><p>Only exact benchmark variants with the same declared score units and reviewed file sizes enter a shared view. Each source report remains a separate point. Missing results are unknown. File size is not total VRAM usage.</p><p>QFF transcribes publisher claims; it does not independently reproduce these evaluations. Common benchmark names do not verify identical prompting, sample selection or scoring settings. No cross-source ranking or averaged score is inferred. Source links may point to mutable cards; captured hashes are retained in the data.</p><div id="shared-contexts"></div></details>
-<details open id="shared-evidence"><summary>Source-linked results</summary><div class="tablebox"><table><thead><tr><th>Benchmark</th><th>Model</th><th>Build</th><th>File GB</th><th>Published score</th><th>Source</th></tr></thead><tbody>{table}</tbody></table></div></details></section>
+<details id="shared-notes"><summary>Evaluation details &amp; coverage</summary><p>Only reviewed results for the same task, with the same declared score units and reviewed file sizes, enter a shared view; each point keeps the benchmark name its source publishes. Each source report remains a separate point. Missing results are unknown. File size is not total VRAM usage.</p><p>QFF transcribes publisher claims; it does not independently reproduce these evaluations. Common benchmark names do not verify identical prompting, sample selection or scoring settings. No cross-source ranking or averaged score is inferred. Source links may point to mutable cards; captured hashes are retained in the data.</p><div id="shared-contexts"></div></details>
+<details open id="shared-evidence"><summary>Source-linked results</summary><div class="tablebox"><table><thead><tr><th>Benchmark</th><th>Model</th><th>Build</th><th>Benchmark, as published</th><th>File GB</th><th>Published score</th><th>Source</th></tr></thead><tbody>{table}</tbody></table></div></details></section>
 <footer><span><a href="../">QFF</a> · Publisher claims, linked to their sources.</span><span><a href="data.json">Chart data</a>{support}</span></footer></main></div><script id="shared-data" type="application/json">{encoded}</script><script>{script}</script></body></html>'''
     page = page.replace('<footer>', render_extracted(extracted) + '<footer>', 1)
     (target/'index.html').write_text(page)
