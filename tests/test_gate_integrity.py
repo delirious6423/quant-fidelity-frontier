@@ -2,6 +2,7 @@
 
 Mutations happen only in throwaway copies. No source claim is edited in place.
 """
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -19,6 +20,31 @@ import gatecache
 import current
 
 FLASH = REPO / "models/qwen3.8-flash-next"
+FIXTURE_CARDS = REPO / "tests/fixtures/qwen3.8-flash-next/cards"
+
+
+def freeze_image_sources(root):
+    """The live model drifts every hour. A Hub card that changed after an image claim was reviewed leaves that claim
+    stale, which is the gates' fail-closed behaviour and not a test subject. These tests need the reviewed bytes, so
+    each image-sourced repository is re-pinned, in the throwaway copy only, to the committed copy of the card it was
+    reviewed against (tests/fixtures/<slug>/cards/<name>@<sha256 prefix>.md). A missing fixture fails loudly."""
+    namespace = {}; exec((root / "verified/part3_images.py").read_text(), namespace)
+    index = json.loads((root / "snapshots/index.json").read_text())
+    fixtures = {hashlib.sha256(path.read_bytes()).hexdigest(): path for path in FIXTURE_CARDS.glob("*.md")}
+    changed = False
+    for entry in namespace["R"]:
+        pin, meta = entry.get("source_sha256"), index["repos"].get(entry["repo"])
+        if not pin or meta is None or meta.get("sha256") == pin:
+            continue
+        if pin not in fixtures:
+            raise AssertionError(f"{entry['repo']}: the card changed on the Hub and no fixture carries the reviewed bytes "
+                                 f"(sha256 {pin}); add the reviewed card to {FIXTURE_CARDS}")
+        target = root / "snapshots" / fixtures[pin].name
+        target.write_bytes(fixtures[pin].read_bytes())
+        meta.update({"file": str(target.relative_to(root)), "bytes": target.stat().st_size, "sha256": pin})
+        changed = True
+    if changed:
+        (root / "snapshots/index.json").write_text(json.dumps(index, indent=1))
 
 
 class GateIntegrity(unittest.TestCase):
@@ -27,6 +53,7 @@ class GateIntegrity(unittest.TestCase):
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name) / "model"
         shutil.copytree(FLASH, self.root, ignore=shutil.ignore_patterns("site", "site_dev", ".gatecache.json", "__pycache__"))
+        freeze_image_sources(self.root)
 
     def run_gate(self, gate):
         return subprocess.run([sys.executable, str(REPO / "gates" / gate)], cwd=REPO,
