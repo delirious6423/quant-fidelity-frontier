@@ -19,7 +19,7 @@ QFF lines up every Hugging Face quant of a model by its publisher's own claims (
 | `qff_mcp/` | The read-only MCP server and its Hugging Face Space scaffold (`space/`) | `qff_mcp/README.md` |
 | `docs/runbooks/` | How to run things: `HOURLY.md` (the three scheduled tasks), `PORTABLE_SCAN.md` (the agent-agnostic loop), `SCRIPTED_RUNNER.md`, `FASTPATH.md`, `NEW_MODEL_PROMPT.md`, `FETCHING.md` | `HOURLY.md` |
 | `docs/runbooks/agents/` | Worker instructions: `FETCH.md`, `MAP.md`, `REVIEW.md`, `README_CHECK.md` | The file named in the prompt you were given |
-| `docs/reference/` | What things mean: `METHOD.md`, `DEVELOPING.md`, `EXTRACTION_SPEC.md`, `COMPARISON_CLASSIFICATIONS.md`, `COMPARISON_VALIDATION.md`, `BENCHMARKS.md`, `BENCHMARK_COVERAGE.md`, `CROSS_MODEL_BENCHMARKS.md`, `DISCOVERY.md`, `SPONSORS.md` | `METHOD.md`, then `DEVELOPING.md` |
+| `docs/reference/` | What things mean: `METHOD.md`, `DEVELOPING.md`, `EXTRACTION_SPEC.md`, `COMPARISON_CLASSIFICATIONS.md`, `COMPARISON_VALIDATION.md`, `BENCHMARKS.md`, `BENCHMARK_COVERAGE.md`, `CROSS_MODEL_BENCHMARKS.md`, `DISCOVERY.md`, `SPONSORS.md`, `CI.md` | `METHOD.md`, then `DEVELOPING.md` |
 | `docs/history/` | Past reviews and results: `PLAN.md`, `HOLISTIC_REVIEW.md`, `GLM_BENCHMARK_PILOT.md`, `review/`, `scripted-runner/`, `previews/`, `legacy-tools/` | Only when a task refers to it |
 | `models/<slug>/` | One data root per model: `model.json`, `cache/cards/` or `snapshots/` (cards, SHA-256 pinned), `verified/` (claims), `maps/`, `audit/`, `site/` (build output, git-ignored) | `model.json` |
 | `logs/scan/` | Scheduled-task command logs | The newest file |
@@ -46,7 +46,7 @@ QFF lines up every Hugging Face quant of a model by its publisher's own claims (
 ## Running the pipeline
 
 - The three scheduled tasks (live updates, new model, QA and publish): `docs/runbooks/HOURLY.md`. The entry points are `pipeline/qcl_next.py` and `pipeline/qcl_qa.py`; each prints what to do next, and the session does only that.
-- The agent-agnostic loop (no connector, no subagent tool, no credentials, nothing published): `docs/runbooks/PORTABLE_SCAN.md`. The entry point is `pipeline/qcl_portable.py`.
+- The agent-agnostic loop (no connector, no subagent tool, no credentials; nothing reaches the repository until its `publish` command commits the verified data like the scan does, and the QA task still deploys): `docs/runbooks/PORTABLE_SCAN.md`. The entry point is `pipeline/qcl_portable.py`.
 
 ## Where new files go
 

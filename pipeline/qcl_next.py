@@ -4,6 +4,8 @@
   python3 pipeline/qcl_next.py                       # first call of a run, and after agents finish
   python3 pipeline/qcl_next.py --results P1 P2 ...   # after the hf_fs calls it asked for, saved paths in the same order
   python3 pipeline/qcl_next.py --abort               # the session has to stop early: checkpoint, unlock and push
+  python3 pipeline/qcl_next.py --part A --collected  # cards already collected by collect.yml (or QCL_COLLECTED=1): no hf_fs
+                                                     # calls and no FETCH workers; every live model is prepared and staged
 
 Every call prints one JSON object with "do":
   "hf_fs"   call the hf_fs tool once per entry of op_lists, exactly as given; then run `then` with the saved paths in order
@@ -79,10 +81,11 @@ def checkpoint(s):
 args = sys.argv[1:]
 results = [x for x in args[args.index("--results") + 1:] if not x.startswith("--")] if "--results" in args else []
 PART = args[args.index("--part") + 1] if "--part" in args else "AB"   # A = live updates task, B = new-model task, AB = both
+COLLECTED = "--collected" in args or os.environ.get("QCL_COLLECTED") == "1"   # the direct collector already saved every card
 LOCKF = "ingest.lock" if PART == "B" else "scan.lock"
 os.environ["QCL_LOCK"] = LOCKF; os.environ["QCL_PART"] = {"A": "-live", "B": "-ingest"}.get(PART, "")
 ST = os.path.join(CODE, "work", f"next_state{os.environ['QCL_PART']}.json")
-NEXT = f"python3 pipeline/qcl_next.py --part {PART}"
+NEXT = f"python3 pipeline/qcl_next.py --part {PART}" + (" --collected" if COLLECTED else "")
 def nonlive_excludes():
     w = json.load(open(os.path.join(CODE, "watchlist.json")))
     return " ".join(f"':!models/{m['slug']}'" for m in w["models"] if m["status"] != "live")
@@ -108,6 +111,14 @@ if s is None:   # start of a run
         if not s["ingest"]: sh(f"rm -f {LOCKF}"); s["step"] = "done"; save(s); say({"do": "stop", "report": {"skipped": "no new model due", "next_queued": p.get("next_queued")}})
         push("ingest lock", LOCKF); s["step"] = "b_start"; save(s)
     elif s["ingest"]: push("scan lock", LOCKF)   # an ingest is real work: let a parallel run see the lock now
+if s.get("step") == "start" and COLLECTED:
+    # .github/workflows/collect.yml fetched every live model's cards over plain HTTPS and committed cache + snapshots/index.json:
+    # no catalogue calls and no FETCH workers. Every live model counts as freshly collected and goes through prepare/stage.
+    s["a_shards"] = {slug: [] for slug in s["live"]}
+    for slug in s["live"]: s["part_a"].setdefault(slug, {})
+    s["collected"] = True
+    if not s["ingest"]: push("scan lock", LOCKF)   # preparing and mapping is real work: let a parallel run see the lock now
+    s["step"] = "a_fetched"; save(s)
 if s.get("step") == "start":
     ops = []
     for slug in s["live"]:

@@ -8,7 +8,8 @@ permission for a new production deployment.
 
 | Task | Schedule (UTC) | Entry point | Outcome |
 |---|---|---|---|
-| Live updates | Hourly at :03 | `qcl_next.py --part A` | Fetch, map, merge and gate changed cards; commit staged data |
+| Collect cards | Hourly at :01 (GitHub Actions, `collect.yml`) | `qcl_collect.py --all-live` | Fetch every live model's changed cards over plain HTTPS; commit cache and index |
+| Live updates | Hourly at :03 | `qcl_next.py --part A --collected` | Map, merge and gate changed cards; commit staged data |
 | New model | Every 2 hours at :37 | `qcl_next.py --part B` | Resume the next ingest; checkpoint progress; hand completed models to QA as `review` |
 | QA and publish | Hourly at :55 | `qcl_qa.py` | Review new values, run all tests, request Pages verification; record deployment only after exact-commit success |
 | README check | Daily at 00:58 | `docs/runbooks/agents/README_CHECK.md` | Check generated counts, links and prose; no site deployment |
@@ -16,6 +17,25 @@ permission for a new production deployment.
 QA runs at :55 so that a live-updates run (workers stop at 45 minutes) has finished before QA synchronizes to main; an earlier :15 slot made QA race the scan's push. Only QA requests a site deployment. A scan's successful build or commit is not a
 publication. Each task uses its own lock (`scan.lock`, `ingest.lock`, `qa.lock`) and
 records step logs under `logs/scan/`.
+
+## Collection without a connector
+
+This is now the default path. `.github/workflows/collect.yml` runs `python3 pipeline/qcl_collect.py --all-live --workers 8`
+every hour at :01 (and on `workflow_dispatch`): for every live model it makes one public catalogue call
+(`base_model:quantized:ORG/MODEL`), fetches only the cards and file trees whose commit changed (`pipeline/qcl_fetch.py`,
+resumable, pinned by commit sha and SHA-256), merges the cache into `snapshots/index.json` (`pipeline/qcl_newmodel.py`) and
+prints one JSON line per model (catalogue size, cards new / changed / unchanged, unresolved, seconds). The workflow commits
+`models/*/cache` and `models/*/snapshots/index.json` as `quant-claims-bot` only when a card changed (`Collect <UTC>: <summary>`);
+an unchanged model changes no file: when no card or tree changed, the ledger and catalogue keep their previous bytes and the
+merge is skipped, and the Hub's hourly metadata churn (downloads, likes) is taken over at most once a day (when the ledger's
+`captured_at` is more than 24 hours old). `HF_TOKEN` (repository secret) raises the rate limit; a 429 is recorded in
+`cache/rate_limit.json` for that model, the other models continue, and the next hour resumes. A direct record replaces an
+older connector card of the same repo only when the Hub changed after the connector capture.
+
+The live-updates task then runs `python3 pipeline/qcl_next.py --part A --collected` (or `QCL_COLLECTED=1`): the `start`
+step makes no `hf_fs` call and starts no FETCH worker; every live model counts as freshly collected, is prepared
+(`qcl_scan.py prepare`), gets mapping workers when it has queues, and is staged otherwise. Lock, unlock, commit and push
+are the same as before. Without the flag the connector path below is unchanged.
 
 ## Start and follow the loop
 
@@ -119,7 +139,9 @@ Include the failed step and its output when something blocks progress.
   only through `pipeline/qcl_claim.py` (an atomic rename of one file).
 
 ## Weekly discovery (queue maintenance)
-`QFF weekly discovery` runs `pipeline/qcl_discover.py` once a week (same step-by-step protocol as `qcl_next.py`: do only what it prints).
+`.github/workflows/discover.yml` runs `pipeline/qcl_discover.py --http --commit` every Sunday 02:11 UTC straight from the Hub API
+(no connector; `docs/reference/DISCOVERY.md`). The fallback, `QFF weekly discovery`, runs `pipeline/qcl_discover.py` in a session
+(same step-by-step protocol as `qcl_next.py`: do only what it prints).
 It lists each lab's newest repos (labs and current-family prefixes in `discovery.json`), counts quant repos per candidate
 (five search sorts, so counts pass the 80-per-search cap), admits models that pass the rules (>= 40 quant repos, released in the
 last 6 months, current family), refreshes the counts of queued models, re-ranks the queue with `pipeline/qcl_rank.py`, and

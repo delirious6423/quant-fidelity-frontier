@@ -7,13 +7,14 @@ Ingestion and scan scripts, indexed by stage. Each description is the first sent
 | Script | What it does | Entry command |
 |---|---|---|
 | `qcl_fetch.py` | Fetch-once source ledger for one base model, straight from the Hugging Face API (no browser). | `python3 pipeline/qcl_fetch.py ORG/MODEL [--out DIR] [--workers 8] [--base https://huggingface.co]` |
+| `qcl_collect.py` | Collect the model cards of every live model straight from the public Hugging Face API: no connector, no agent. | `python3 pipeline/qcl_collect.py [--models SLUG ...] [--all-live] [--workers 8] [--base URL] [--root DIR]` |
 | `qcl_catalogue.py` | Hub catalogue and delta for one model, from saved hf_fs search results (no model ever retypes them). | `python3 pipeline/qcl_catalogue.py models/<slug> RESULT_FILE...` |
 | `qcl_stats.py` | Card-size lookups through the connector, padded so results are saved to disk (no model transcribes anything). | `python3 pipeline/qcl_stats.py ops IDS.json` |
 | `qcl_plan.py` | Plan connector batches so every result is (a) within the connector's ~80 KB budget and (b) large enough (&gt;= 52 KB) to be saved to disk instead of returned inline. | `python3 pipeline/qcl_plan.py SIZES.json OUT_PLAN.json [IDS.json]` |
 | `qcl_mcpsave.py` | Save model cards from a persisted Hugging Face connector result (hf_fs batch) byte-for-byte. | `python3 pipeline/qcl_mcpsave.py OUT_DIR RESULT_FILE [RESULT_FILE ...]` |
 | `qcl_newmodel.py` | Turn a fetched card cache into a model data root the pipeline reads (QCL_ROOT=models/&lt;slug&gt;). | `python3 pipeline/qcl_newmodel.py models/<slug>` |
 | `runner_fetch.py` | Read-only HTTP collection into a portable ledger and isolated shadow model root. |  |
-| `qcl_discover.py` | Weekly discovery: find new base models, count their quants, admit the ones that pass the rules, re-rank the queue. | `python3 pipeline/qcl_discover.py` |
+| `qcl_discover.py` | Weekly discovery: find new base models, count their quants, admit the ones that pass the rules, re-rank the queue. `--http` searches the Hub API itself (`.github/workflows/discover.yml`, weekly, `--commit`); without it, the session makes the `hf_fs` calls it prints. | `python3 pipeline/qcl_discover.py --http` |
 | `qcl_rank.py` | Order the queued models in watchlist.json by a weighted score: how much there is to compare, and how new it is. | `python3 pipeline/qcl_rank.py` |
 
 ## Mapping
@@ -60,7 +61,7 @@ Ingestion and scan scripts, indexed by stage. Each description is the first sent
 | Script | What it does | Entry command |
 |---|---|---|
 | `qcl_runner.py` | Scripted, local-only shadow pipeline. |  |
-| `qcl_portable.py` | The QFF scan for any agent: a loop of plain commands and JSON files, no connector, subagent tool or provider needed. | `python3 pipeline/qcl_portable.py start --workspace DIR --models SLUG [SLUG ...] [--remap]` |
+| `qcl_portable.py` | The QFF scan for any agent: a loop of plain commands and JSON files, no connector, subagent tool or provider needed; `publish` moves a verified workspace into the repository and commits it like the scan. | `python3 pipeline/qcl_portable.py start --workspace DIR --models SLUG [SLUG ...] [--remap]`; `... publish --workspace DIR [--push]` |
 | `runner_state.py` | Local durable task journal. |  |
 | `runner_workspace.py` | Confined local shadow workspace; no publication capability or remote exists here. |  |
 | `runner_model.py` | Pure, vendor-neutral request/response boundary for the shadow runner. |  |

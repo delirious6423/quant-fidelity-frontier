@@ -44,6 +44,8 @@ Publishing invokes the reusable `verify.yml` workflow and deploys its exact test
 artifact. A failed test cannot be bypassed by rebuilding in a separate deployment
 job. Keep every `tests/test_*.py` suite in that workflow; a coverage check rejects
 omitted suites.
+The workflow's job graph (parallel per-model builds, one final `site` job that uploads
+the artifact), its caches and its measured times are in `docs/reference/CI.md`.
 
 Assembly requires every live model to have valid build output. Its destination
 must be new, empty, or an existing QFF assembly; source directories and unrelated
