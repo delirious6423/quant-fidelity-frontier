@@ -104,6 +104,36 @@ task. These are the durability contract, not bookkeeping. Timings are single
 local runs, not provider latency; results, holds and provenance are unchanged
 (`test_runner*.py`, 55 tests, and the old/new replay still agree).
 
+## Stage scripts (2026-10-21, second review)
+
+After the orchestration fixes, a Qwen reconcile is dominated by the stage
+subprocesses it wraps, above all `qcl_watch.py merge`, which production's hourly
+`finish` also runs for every model on every call. Two changes, both with
+byte-identical gate output on all nine live models and identical merged claims:
+
+- `gates/verify_columns.py` memoizes its pure label helpers (`_strip_md`,
+  `_ltoks`, `compact`, `_lab`, `_shape`): 2.4 million regex substitutions per
+  Qwen run became a dictionary lookup. Qwen3.8-27B 3.69 s -> 1.62 s,
+  Qwen3.8-Flash-Next 2.24 s -> 1.04 s.
+- `qcl_watch.py merge` runs its source/column check through `gates/gatecache.py`
+  (three gates in parallel, reused only for byte-identical inputs). Before,
+  every merge pass ran the gates serially and then `build.py` ran the same gates
+  again, cold, on the same claims file. Qwen3.8-27B merge 23.6 s -> 11.2 s
+  (three gate passes), with `verified/part8_machine.py` and `maps/mapped.json`
+  byte-identical and `audit/review_queue.json` equal as multisets.
+- The merge's quarantine order was the iteration order of a set of tuples, so
+  `review_queue.json` changed with `PYTHONHASHSEED` on every run (one source of
+  the 900-line audit diffs in every hourly commit). It is now sorted; a repeated
+  merge is byte-identical, and the runner's stage receipt no longer changes for
+  an unchanged input.
+
+`tests/benchmark_runner.py` does not show these gains: its synthetic responses
+map one value per card, so its merge passes have almost nothing to gate (Qwen
+prepare 26.1 s, response round 42.5 s + 2.5 s, unchanged reconcile 1.2 s on an
+idle machine, within noise of the previous head). The merge figures above come
+from the committed Qwen3.8-27B maps (616 real A/B maps, 4,020 values), which is
+what production's `finish` and a real shadow reconcile process.
+
 Remaining adoption work: configure and validate a real interpretation adapter,
 independent precision/recall including shared omissions, persistent storage,
 production deployed-baseline integration, and exact-commit/full-artifact release

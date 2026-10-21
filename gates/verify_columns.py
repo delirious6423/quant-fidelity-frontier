@@ -52,14 +52,15 @@ def _strip_md(s):
     s = re.sub(r"!?\[([^\]]*)\]\([^)]*\)", r"\1", s)          # keep link text, drop URL
     s = re.sub(r"https?://\S+", " ", s)
     return s.replace("*", "").replace("`", "").replace("\\_", "_")
-def ltoks(s, stop=True):
+def _ltoks(s, stop):
     out = []
     for t in re.split(r"[^a-z0-9_.+]+", _strip_md(s).lower()):
         t = t.strip("._+")
         if len(t) < 2: continue                                  # single characters / digits ('4' of '4-bit') carry no identity
         if stop and t in STOP: continue
         out.append(t)
-    return out
+    return tuple(out)
+def ltoks(s, stop=True): return list(_ltoks(s, stop))
 def compact(s): return re.sub(r"[^a-z0-9]", "", _strip_md(s).lower())
 def match_n(name_toks, label):
     lt = set(ltoks(label, stop=False)); lc = compact(label)
@@ -69,6 +70,14 @@ def row_labels(e):
     rl = e.get("row_label")
     return [rl] if isinstance(rl, str) else list(rl or [])
 def _shape(t): return re.sub(r"\d+(?:\.\d+)?", "#", t)
+def _memoize():
+    """The label helpers above are pure functions of their text. A table's header and row labels are scored against
+    every entry of the document, so the same strings are normalized tens of thousands of times per model; caching them
+    changes nothing but the run time (cached results are never mutated: ltoks returns a fresh list each call)."""
+    from functools import lru_cache
+    for name in ("_strip_md", "_ltoks", "compact", "_lab", "_shape"):
+        globals()[name] = lru_cache(maxsize=None)(globals()[name])
+_memoize()
 def score(e, text):
     """How strongly a label/header text names entry e, as (matched, contradicted). An explicit row_label (the card's
     own wording for the entry; str or list) is matched as a substring and wins outright. Otherwise matched =
