@@ -13,7 +13,7 @@ state machines, release receipts and deployment interfaces remain unchanged.
 
 Validation includes 51 focused offline/fault-injection tests, old/new frozen-input
 claim/provenance equality, unchanged/revision-only no-request checks, real pinned
-repository inputs, bounded public HTTP reads, all eight live builds and UI suites,
+repository inputs, bounded public HTTP reads, all nine current live builds and UI suites,
 and existing source/release/MCP/discovery regressions. A fresh independent reviewer
 challenged recovery and publication boundaries; identified blockers were fixed and
 regressed. Evidence and exact commands are in `docs/SCRIPTED_RUNNER.md`.
@@ -25,5 +25,7 @@ no token or cost savings are claimed.
 
 This is review-ready shadow infrastructure, not production adoption. Live provider
 execution/quality, deployed-baseline QA integration, persistent hosting and an
-authorized shadow trial remain outstanding. Opening this draft PR triggers the
-existing verification workflow and therefore requires explicit approval first.
+authorized shadow trial remain outstanding. The owner authorized draft PR #14 and its automatic verification on 2026-10-21.
+Current main (`77c157c`) was integrated into the review branch and required local
+checks were rerun successfully; its QA/data changes were preserved exactly.
+Merge to main, deployment and production cutover remain outside that approval.

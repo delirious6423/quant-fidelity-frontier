@@ -202,9 +202,11 @@ the existing release protections. There is deliberately no publish command.
 
 ## Migration and rollback
 
-1. Review this local branch and offline evidence. A draft PR currently triggers
-   `verify.yml` on `pull_request`; creating it requires approval for that Actions
-   run. No remote branch or PR was created.
+1. Review the branch and offline evidence in draft PR
+   [#14](https://github.com/delirious6423/quant-fidelity-frontier/pull/14).
+   The owner authorized pushing the branch and its automatic `pull_request`
+   verification on 2026-10-21. Merge, deployment and production cutover remain
+   separately authorized steps.
 2. Approve a bounded shadow trial with explicit storage, representative source
    inclusions and an independently configured model adapter. Compare full accepted
    claims, held/missing claims, source freshness and provenance against the old path.

@@ -1,6 +1,18 @@
 {
  "quarantined": [
   {
+   "repo": "AtomicChat/gemma-4-26B-A4B-it-MLX-4bit",
+   "kind": "cross",
+   "entry": "Google published results, base model",
+   "reason": "review hold: QA review 2026-10-20: bench:HLE no tools: [L78] shows HLE no tools 8.7%, but [L88] says these are Google's published results, not the author's measurements, so the role is quoted, not cross."
+  },
+  {
+   "repo": "hsng95/gemma-4-26b-a4b-mlx-imatrix3plus-awq",
+   "kind": "ladder",
+   "entry": "AFFINE 3-bit",
+   "reason": "review hold: QA review 2026-10-20: ppl:tulu-3-sft-mixture: [L113] is one row of the embed_tokens bit-width sweep ([L106-L113]), a tested setting rather than a published build, so it is not a ladder entry."
+  },
+  {
    "repo": "hsng95/gemma-4-26b-a4b-mlx-imatrix3plus-awq",
    "kind": "variants",
    "entry": "Standard (this model)",
@@ -2734,186 +2746,6 @@
   },
   {
    "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q8_0",
-   "key": "bench:ARC",
-   "raw": "42.0000 \u00b11.8034"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q8_0",
-   "key": "bench:HellaSwag",
-   "raw": "52.27"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q8_0",
-   "key": "bench:MMLU",
-   "raw": "52.8000 \u00b11.8241"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q8_0",
-   "key": "bench:Truthful QA",
-   "raw": "32.5333 \u00b11.7119"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q8_0",
-   "key": "bench:WinoGrande",
-   "raw": "56.6667 \u00b11.8106"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q8_0",
-   "key": "bench:Avg Score",
-   "raw": "47.25"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q8_0",
-   "key": "bench:ARC",
-   "raw": "42.0000 \u00b11.8034"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q8_0",
-   "key": "bench:HellaSwag",
-   "raw": "52.27"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q8_0",
-   "key": "bench:MMLU",
-   "raw": "52.8000 \u00b11.8241"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q8_0",
-   "key": "bench:Truthful QA",
-   "raw": "32.5333 \u00b11.7119"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q8_0",
-   "key": "bench:WinoGrande",
-   "raw": "56.6667 \u00b11.8106"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q8_0",
-   "key": "bench:Avg Score",
-   "raw": "47.25"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q4_K",
-   "key": "bench:ARC",
-   "raw": "42.0000 \u00b11.8034"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q4_K",
-   "key": "bench:HellaSwag",
-   "raw": "51.07"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q4_K",
-   "key": "bench:MMLU",
-   "raw": "49.6000 \u00b11.8269"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q4_K",
-   "key": "bench:Truthful QA",
-   "raw": "32.0000 \u00b11.7045"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q4_K",
-   "key": "bench:WinoGrande",
-   "raw": "56.0000 \u00b11.8138"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q4_K",
-   "key": "bench:Avg Score",
-   "raw": "46.13"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q4_K",
-   "key": "bench:ARC",
-   "raw": "42.0000 \u00b11.8034"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q4_K",
-   "key": "bench:HellaSwag",
-   "raw": "51.07"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q4_K",
-   "key": "bench:MMLU",
-   "raw": "49.6000 \u00b11.8269"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q4_K",
-   "key": "bench:Truthful QA",
-   "raw": "32.0000 \u00b11.7045"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q4_K",
-   "key": "bench:WinoGrande",
-   "raw": "56.0000 \u00b11.8138"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q4_K",
-   "key": "bench:Avg Score",
-   "raw": "46.13"
-  },
-  {
-   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
-   "entry": "Q4T",
-   "key": "bench:GSM8K",
-   "raw": "96.66<br>\u0394 +0.08 [\u22120.42, +0.57]"
-  },
-  {
-   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
-   "entry": "Q4T",
-   "key": "bench:MMLU-Pro",
-   "raw": "81.43<br>\u0394 +0.14 [\u22121.61, +1.89]"
-  },
-  {
-   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
-   "entry": "Q4T",
-   "key": "bench:IFEval",
-   "raw": "89.09<br>\u0394 \u22120.55 [\u22122.37, +1.26]"
-  },
-  {
-   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
-   "entry": "Q4T",
-   "key": "bench:GSM8K",
-   "raw": "96.66<br>\u0394 +0.08 [\u22120.42, +0.57]"
-  },
-  {
-   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
-   "entry": "Q4T",
-   "key": "bench:MMLU-Pro",
-   "raw": "81.43<br>\u0394 +0.14 [\u22121.61, +1.89]"
-  },
-  {
-   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
-   "entry": "Q4T",
-   "key": "bench:IFEval",
-   "raw": "89.09<br>\u0394 \u22120.55 [\u22122.37, +1.26]"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
    "entry": "gemma-4-26B-A4B-it-Q3_K",
    "key": "bench:ARC",
    "raw": "44.1333 \u00b11.8143"
@@ -2985,178 +2817,40 @@
    "raw": "46.43"
   },
   {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q7_K",
-   "key": "bench:ARC",
-   "raw": "41.3333 \u00b11.7993"
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q4T",
+   "key": "bench:GSM8K",
+   "raw": "96.66<br>\u0394 +0.08 [\u22120.42, +0.57]"
   },
   {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q7_K",
-   "key": "bench:HellaSwag",
-   "raw": "52.53"
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q4T",
+   "key": "bench:MMLU-Pro",
+   "raw": "81.43<br>\u0394 +0.14 [\u22121.61, +1.89]"
   },
   {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q7_K",
-   "key": "bench:MMLU",
-   "raw": "53.3333 \u00b11.8229"
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q4T",
+   "key": "bench:IFEval",
+   "raw": "89.09<br>\u0394 \u22120.55 [\u22122.37, +1.26]"
   },
   {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q7_K",
-   "key": "bench:Truthful QA",
-   "raw": "32.1333 \u00b11.7063"
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q4T",
+   "key": "bench:GSM8K",
+   "raw": "96.66<br>\u0394 +0.08 [\u22120.42, +0.57]"
   },
   {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q7_K",
-   "key": "bench:WinoGrande",
-   "raw": "55.8667 \u00b11.8143"
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q4T",
+   "key": "bench:MMLU-Pro",
+   "raw": "81.43<br>\u0394 +0.14 [\u22121.61, +1.89]"
   },
   {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q7_K",
-   "key": "bench:Avg Score",
-   "raw": "47.04"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q7_K",
-   "key": "bench:ARC",
-   "raw": "41.3333 \u00b11.7993"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q7_K",
-   "key": "bench:HellaSwag",
-   "raw": "52.53"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q7_K",
-   "key": "bench:MMLU",
-   "raw": "53.3333 \u00b11.8229"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q7_K",
-   "key": "bench:Truthful QA",
-   "raw": "32.1333 \u00b11.7063"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q7_K",
-   "key": "bench:WinoGrande",
-   "raw": "55.8667 \u00b11.8143"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q7_K",
-   "key": "bench:Avg Score",
-   "raw": "47.04"
-  },
-  {
-   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
-   "entry": "think when unsure",
-   "key": "bench:Knowledge",
-   "raw": "48.2"
-  },
-  {
-   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
-   "entry": "think when unsure",
-   "key": "bench:Language",
-   "raw": "65.6"
-  },
-  {
-   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
-   "entry": "think when unsure",
-   "key": "bench:Retrieval",
-   "raw": "63.4"
-  },
-  {
-   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
-   "entry": "think when unsure",
-   "key": "bench:Tools",
-   "raw": "76.1"
-  },
-  {
-   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
-   "entry": "think when unsure",
-   "key": "bench:Arts",
-   "raw": "43.6"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q2_K",
-   "key": "bench:ARC",
-   "raw": "35.4667 \u00b11.7481"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q2_K",
-   "key": "bench:HellaSwag",
-   "raw": "36.13"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q2_K",
-   "key": "bench:MMLU",
-   "raw": "26.0000 \u00b11.6027"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q2_K",
-   "key": "bench:Truthful QA",
-   "raw": "29.4667 \u00b11.6658"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q2_K",
-   "key": "bench:WinoGrande",
-   "raw": "48.9333 \u00b11.8265"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q2_K",
-   "key": "bench:Avg Score",
-   "raw": "35.20"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q2_K",
-   "key": "bench:ARC",
-   "raw": "35.4667 \u00b11.7481"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q2_K",
-   "key": "bench:HellaSwag",
-   "raw": "36.13"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q2_K",
-   "key": "bench:MMLU",
-   "raw": "26.0000 \u00b11.6027"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q2_K",
-   "key": "bench:Truthful QA",
-   "raw": "29.4667 \u00b11.6658"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q2_K",
-   "key": "bench:WinoGrande",
-   "raw": "48.9333 \u00b11.8265"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q2_K",
-   "key": "bench:Avg Score",
-   "raw": "35.20"
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q4T",
+   "key": "bench:IFEval",
+   "raw": "89.09<br>\u0394 \u22120.55 [\u22122.37, +1.26]"
   },
   {
    "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
@@ -3195,208 +2889,76 @@
    "raw": "0.7850"
   },
   {
-   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
-   "entry": "Q3T (this repository)",
-   "key": "bench:GSM8K",
-   "raw": "96.66<br>\u0394 +0.08 [\u22120.46, +0.61]"
-  },
-  {
-   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
-   "entry": "Q3T (this repository)",
-   "key": "bench:MMLU-Pro",
-   "raw": "80.57<br>\u0394 \u22120.71 [\u22122.59, +1.16]"
-  },
-  {
-   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
-   "entry": "Q3T (this repository)",
-   "key": "bench:IFEval",
-   "raw": "88.54<br>\u0394 \u22121.11 [\u22122.88, +0.66]"
-  },
-  {
-   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
-   "entry": "Q3T (this repository)",
-   "key": "bench:GSM8K",
-   "raw": "96.66<br>\u0394 +0.08 [\u22120.46, +0.61]"
-  },
-  {
-   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
-   "entry": "Q3T (this repository)",
-   "key": "bench:MMLU-Pro",
-   "raw": "80.57<br>\u0394 \u22120.71 [\u22122.59, +1.16]"
-  },
-  {
-   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
-   "entry": "Q3T (this repository)",
-   "key": "bench:IFEval",
-   "raw": "88.54<br>\u0394 \u22121.11 [\u22122.88, +0.66]"
-  },
-  {
-   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
-   "entry": "one pass",
-   "key": "bench:Knowledge",
-   "raw": "43.4"
-  },
-  {
-   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
-   "entry": "one pass",
-   "key": "bench:Language",
-   "raw": "64.6"
-  },
-  {
-   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
-   "entry": "one pass",
-   "key": "bench:Retrieval",
-   "raw": "62.7"
-  },
-  {
-   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
-   "entry": "one pass",
-   "key": "bench:Tools",
-   "raw": "75.8"
-  },
-  {
-   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
-   "entry": "one pass",
-   "key": "bench:Arts",
-   "raw": "43.6"
-  },
-  {
    "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "entry": "gemma-4-26B-A4B-it-Q7_K",
    "key": "bench:ARC",
-   "raw": "42.2667 \u00b11.8050"
+   "raw": "41.3333 \u00b11.7993"
   },
   {
    "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "entry": "gemma-4-26B-A4B-it-Q7_K",
    "key": "bench:HellaSwag",
-   "raw": "53.47"
+   "raw": "52.53"
   },
   {
    "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "entry": "gemma-4-26B-A4B-it-Q7_K",
    "key": "bench:MMLU",
-   "raw": "54.0000 \u00b11.8211"
+   "raw": "53.3333 \u00b11.8229"
   },
   {
    "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "entry": "gemma-4-26B-A4B-it-Q7_K",
    "key": "bench:Truthful QA",
-   "raw": "31.7333 \u00b11.7007"
+   "raw": "32.1333 \u00b11.7063"
   },
   {
    "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "entry": "gemma-4-26B-A4B-it-Q7_K",
    "key": "bench:WinoGrande",
-   "raw": "56.1333 \u00b11.8132"
+   "raw": "55.8667 \u00b11.8143"
   },
   {
    "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "entry": "gemma-4-26B-A4B-it-Q7_K",
    "key": "bench:Avg Score",
-   "raw": "47.52"
+   "raw": "47.04"
   },
   {
    "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "entry": "gemma-4-26B-A4B-it-Q7_K",
    "key": "bench:ARC",
-   "raw": "42.2667 \u00b11.8050"
+   "raw": "41.3333 \u00b11.7993"
   },
   {
    "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "entry": "gemma-4-26B-A4B-it-Q7_K",
    "key": "bench:HellaSwag",
-   "raw": "53.47"
+   "raw": "52.53"
   },
   {
    "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "entry": "gemma-4-26B-A4B-it-Q7_K",
    "key": "bench:MMLU",
-   "raw": "54.0000 \u00b11.8211"
+   "raw": "53.3333 \u00b11.8229"
   },
   {
    "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "entry": "gemma-4-26B-A4B-it-Q7_K",
    "key": "bench:Truthful QA",
-   "raw": "31.7333 \u00b11.7007"
+   "raw": "32.1333 \u00b11.7063"
   },
   {
    "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "entry": "gemma-4-26B-A4B-it-Q7_K",
    "key": "bench:WinoGrande",
-   "raw": "56.1333 \u00b11.8132"
+   "raw": "55.8667 \u00b11.8143"
   },
   {
    "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "entry": "gemma-4-26B-A4B-it-Q7_K",
    "key": "bench:Avg Score",
-   "raw": "47.52"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q6_K",
-   "key": "bench:ARC",
-   "raw": "41.6000 \u00b11.8010"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q6_K",
-   "key": "bench:HellaSwag",
-   "raw": "52.13"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q6_K",
-   "key": "bench:MMLU",
-   "raw": "54.4000 \u00b11.8199"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q6_K",
-   "key": "bench:Truthful QA",
-   "raw": "32.5333 \u00b11.7119"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q6_K",
-   "key": "bench:Avg Score",
-   "raw": "47.01"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q6_K",
-   "key": "bench:WinoGrande",
-   "raw": "54.4000 \u00b11.8199"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q6_K",
-   "key": "bench:ARC",
-   "raw": "41.6000 \u00b11.8010"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q6_K",
-   "key": "bench:HellaSwag",
-   "raw": "52.13"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q6_K",
-   "key": "bench:MMLU",
-   "raw": "54.4000 \u00b11.8199"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q6_K",
-   "key": "bench:Truthful QA",
-   "raw": "32.5333 \u00b11.7119"
-  },
-  {
-   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
-   "entry": "gemma-4-26B-A4B-it-Q6_K",
-   "key": "bench:Avg Score",
-   "raw": "47.01"
+   "raw": "47.04"
   },
   {
    "repo": "systalyze/gemma-4-26B-A4B-it-ExpertsINT4-FP8",
@@ -3433,6 +2995,456 @@
    "entry": "FP8-dynamic",
    "key": "bench:ruler_qa_squad-8192",
    "raw": "0.7683"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "think when unsure",
+   "key": "bench:Knowledge",
+   "raw": "48.2"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "think when unsure",
+   "key": "bench:Language",
+   "raw": "65.6"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "think when unsure",
+   "key": "bench:Retrieval",
+   "raw": "63.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "think when unsure",
+   "key": "bench:Tools",
+   "raw": "76.1"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "think when unsure",
+   "key": "bench:Arts",
+   "raw": "43.6"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "one pass",
+   "key": "bench:Knowledge",
+   "raw": "43.4"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "one pass",
+   "key": "bench:Language",
+   "raw": "64.6"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "one pass",
+   "key": "bench:Retrieval",
+   "raw": "62.7"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "one pass",
+   "key": "bench:Tools",
+   "raw": "75.8"
+  },
+  {
+   "repo": "PixilabAI/Blink-v0.5-26B-A4B-NVFP4",
+   "entry": "one pass",
+   "key": "bench:Arts",
+   "raw": "43.6"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q2_K",
+   "key": "bench:ARC",
+   "raw": "35.4667 \u00b11.7481"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q2_K",
+   "key": "bench:HellaSwag",
+   "raw": "36.13"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q2_K",
+   "key": "bench:MMLU",
+   "raw": "26.0000 \u00b11.6027"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q2_K",
+   "key": "bench:Truthful QA",
+   "raw": "29.4667 \u00b11.6658"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q2_K",
+   "key": "bench:WinoGrande",
+   "raw": "48.9333 \u00b11.8265"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q2_K",
+   "key": "bench:Avg Score",
+   "raw": "35.20"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q2_K",
+   "key": "bench:ARC",
+   "raw": "35.4667 \u00b11.7481"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q2_K",
+   "key": "bench:HellaSwag",
+   "raw": "36.13"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q2_K",
+   "key": "bench:MMLU",
+   "raw": "26.0000 \u00b11.6027"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q2_K",
+   "key": "bench:Truthful QA",
+   "raw": "29.4667 \u00b11.6658"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q2_K",
+   "key": "bench:WinoGrande",
+   "raw": "48.9333 \u00b11.8265"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q2_K",
+   "key": "bench:Avg Score",
+   "raw": "35.20"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q3T (this repository)",
+   "key": "bench:GSM8K",
+   "raw": "96.66<br>\u0394 +0.08 [\u22120.46, +0.61]"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q3T (this repository)",
+   "key": "bench:MMLU-Pro",
+   "raw": "80.57<br>\u0394 \u22120.71 [\u22122.59, +1.16]"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q3T (this repository)",
+   "key": "bench:IFEval",
+   "raw": "88.54<br>\u0394 \u22121.11 [\u22122.88, +0.66]"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q3T (this repository)",
+   "key": "bench:GSM8K",
+   "raw": "96.66<br>\u0394 +0.08 [\u22120.46, +0.61]"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q3T (this repository)",
+   "key": "bench:MMLU-Pro",
+   "raw": "80.57<br>\u0394 \u22120.71 [\u22122.59, +1.16]"
+  },
+  {
+   "repo": "mavis-ai/Gemma4-26B-MoE-Q3T",
+   "entry": "Q3T (this repository)",
+   "key": "bench:IFEval",
+   "raw": "88.54<br>\u0394 \u22121.11 [\u22122.88, +0.66]"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q8_0",
+   "key": "bench:ARC",
+   "raw": "42.0000 \u00b11.8034"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q8_0",
+   "key": "bench:HellaSwag",
+   "raw": "52.27"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q8_0",
+   "key": "bench:MMLU",
+   "raw": "52.8000 \u00b11.8241"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q8_0",
+   "key": "bench:Truthful QA",
+   "raw": "32.5333 \u00b11.7119"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q8_0",
+   "key": "bench:WinoGrande",
+   "raw": "56.6667 \u00b11.8106"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q8_0",
+   "key": "bench:Avg Score",
+   "raw": "47.25"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q8_0",
+   "key": "bench:ARC",
+   "raw": "42.0000 \u00b11.8034"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q8_0",
+   "key": "bench:HellaSwag",
+   "raw": "52.27"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q8_0",
+   "key": "bench:MMLU",
+   "raw": "52.8000 \u00b11.8241"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q8_0",
+   "key": "bench:Truthful QA",
+   "raw": "32.5333 \u00b11.7119"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q8_0",
+   "key": "bench:WinoGrande",
+   "raw": "56.6667 \u00b11.8106"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q8_0",
+   "key": "bench:Avg Score",
+   "raw": "47.25"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q6_K",
+   "key": "bench:ARC",
+   "raw": "41.6000 \u00b11.8010"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q6_K",
+   "key": "bench:HellaSwag",
+   "raw": "52.13"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q6_K",
+   "key": "bench:MMLU",
+   "raw": "54.4000 \u00b11.8199"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q6_K",
+   "key": "bench:Truthful QA",
+   "raw": "32.5333 \u00b11.7119"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q6_K",
+   "key": "bench:Avg Score",
+   "raw": "47.01"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q6_K",
+   "key": "bench:WinoGrande",
+   "raw": "54.4000 \u00b11.8199"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q6_K",
+   "key": "bench:ARC",
+   "raw": "41.6000 \u00b11.8010"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q6_K",
+   "key": "bench:HellaSwag",
+   "raw": "52.13"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q6_K",
+   "key": "bench:MMLU",
+   "raw": "54.4000 \u00b11.8199"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q6_K",
+   "key": "bench:Truthful QA",
+   "raw": "32.5333 \u00b11.7119"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q6_K",
+   "key": "bench:Avg Score",
+   "raw": "47.01"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "key": "bench:ARC",
+   "raw": "42.2667 \u00b11.8050"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "key": "bench:HellaSwag",
+   "raw": "53.47"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "key": "bench:MMLU",
+   "raw": "54.0000 \u00b11.8211"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "key": "bench:Truthful QA",
+   "raw": "31.7333 \u00b11.7007"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "key": "bench:WinoGrande",
+   "raw": "56.1333 \u00b11.8132"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "key": "bench:Avg Score",
+   "raw": "47.52"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "key": "bench:ARC",
+   "raw": "42.2667 \u00b11.8050"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "key": "bench:HellaSwag",
+   "raw": "53.47"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "key": "bench:MMLU",
+   "raw": "54.0000 \u00b11.8211"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "key": "bench:Truthful QA",
+   "raw": "31.7333 \u00b11.7007"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "key": "bench:WinoGrande",
+   "raw": "56.1333 \u00b11.8132"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q5_K",
+   "key": "bench:Avg Score",
+   "raw": "47.52"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q4_K",
+   "key": "bench:ARC",
+   "raw": "42.0000 \u00b11.8034"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q4_K",
+   "key": "bench:HellaSwag",
+   "raw": "51.07"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q4_K",
+   "key": "bench:MMLU",
+   "raw": "49.6000 \u00b11.8269"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q4_K",
+   "key": "bench:Truthful QA",
+   "raw": "32.0000 \u00b11.7045"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q4_K",
+   "key": "bench:WinoGrande",
+   "raw": "56.0000 \u00b11.8138"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q4_K",
+   "key": "bench:Avg Score",
+   "raw": "46.13"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q4_K",
+   "key": "bench:ARC",
+   "raw": "42.0000 \u00b11.8034"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q4_K",
+   "key": "bench:HellaSwag",
+   "raw": "51.07"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q4_K",
+   "key": "bench:MMLU",
+   "raw": "49.6000 \u00b11.8269"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q4_K",
+   "key": "bench:Truthful QA",
+   "raw": "32.0000 \u00b11.7045"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q4_K",
+   "key": "bench:WinoGrande",
+   "raw": "56.0000 \u00b11.8138"
+  },
+  {
+   "repo": "eaddario/gemma-4-26B-A4B-it-GGUF",
+   "entry": "gemma-4-26B-A4B-it-Q4_K",
+   "key": "bench:Avg Score",
+   "raw": "46.13"
   }
  ],
  "resolved_disagreements": [],
