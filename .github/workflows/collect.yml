@@ -27,13 +27,18 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           set -o pipefail
-          python3 pipeline/qcl_collect.py --all-live --workers 8 | tee "$RUNNER_TEMP/collect.jsonl"
+          python3 pipeline/qcl_collect.py --all-live --workers 8 --wait-429 900 | tee "$RUNNER_TEMP/collect.jsonl"
       - name: Commit the changed ledgers and snapshots
         if: ${{ !cancelled() && (steps.collect.outcome == 'success' || steps.collect.outcome == 'failure') }}
         run: |
           git config user.name "quant-claims-bot"
           git config user.email "quant-claims-bot@users.noreply.github.com"
-          git add -A -- 'models/*/cache' 'models/*/snapshots/index.json'
+          # A glob pathspec must match whole paths, so 'models/*/cache' names no file; expand it in the shell instead.
+          paths=()
+          for p in models/*/cache models/*/snapshots/index.json; do
+            if [ -e "$p" ]; then paths+=("$p"); fi
+          done
+          git add -A -- "${paths[@]}"
           if git diff --cached --quiet; then
             echo "nothing changed"
             exit 0

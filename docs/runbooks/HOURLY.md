@@ -8,7 +8,7 @@ permission for a new production deployment.
 
 | Task | Schedule (UTC) | Entry point | Outcome |
 |---|---|---|---|
-| Collect cards | Hourly at :01 (GitHub Actions, `collect.yml`) | `qcl_collect.py --all-live` | Fetch every live model's changed cards over plain HTTPS; commit cache and index |
+| Collect cards | Hourly at :01 (GitHub Actions, `collect.yml`) | `qcl_collect.py --all-live --wait-429 900` | Fetch every live model's changed cards over plain HTTPS; commit cache and index |
 | Live updates | Hourly at :03 | `qcl_next.py --part A --collected` | Map, merge and gate changed cards; commit staged data |
 | New model | Every 2 hours at :37 | `qcl_next.py --part B` | Resume the next ingest; checkpoint progress; hand completed models to QA as `review` |
 | QA and publish | Hourly at :55 | `qcl_qa.py` | Review new values, run all tests, request Pages verification; record deployment only after exact-commit success |
@@ -20,7 +20,7 @@ records step logs under `logs/scan/`.
 
 ## Collection without a connector
 
-This is now the default path. `.github/workflows/collect.yml` runs `python3 pipeline/qcl_collect.py --all-live --workers 8`
+This is now the default path. `.github/workflows/collect.yml` runs `python3 pipeline/qcl_collect.py --all-live --workers 8 --wait-429 900`
 every hour at :01 (and on `workflow_dispatch`): for every live model it makes one public catalogue call
 (`base_model:quantized:ORG/MODEL`), fetches only the cards and file trees whose commit changed (`pipeline/qcl_fetch.py`,
 resumable, pinned by commit sha and SHA-256), merges the cache into `snapshots/index.json` (`pipeline/qcl_newmodel.py`) and
