@@ -1,0 +1,190 @@
+---
+license: mit
+base_model: ornith-ai/Ornith-1.5-35B-A3B
+base_model_relation: quantized
+pipeline_tag: image-text-to-text
+library_name: mlx
+language:
+  - en
+  - zh
+tags:
+  - mlx
+  - omlx
+  - apple-silicon
+  - oq
+  - qwen35moe
+  - moe
+  - mtp
+  - speculative-decoding
+  - imatrix
+  - unsloth-dynamic
+  - agentic-coding
+  - token-efficient
+  - vision
+---
+
+<div align="center">
+  <img src="assets/tiel_banner_eyebrow.png" alt="TielCoder — Ornith-1.5 35B-A3B, sharpened, dynamically quantized" width="100%">
+</div>
+
+<div align="center">
+  <img src="assets/card_tiel_swe.png" alt="SWE-bench-Live: Tiel solves 12 of 25, level with Opus 4.6 and ahead of KAT-Coder, Nail, stock Qwen3.6-35B-A3B and Ornith" width="100%">
+</div>
+
+> **These numbers were measured on the GGUF build, not this one.** The plates on this page are the best
+> evidence we have about TielCoder, and we would rather show them than show nothing — but this file
+> uses a different quantizer (oMLX's oQ against llama.cpp's k-quants), and changing quantizer moves
+> results. On the same Nail weights we measured a 0.7-point MMLU-Pro gap and a 24% difference in
+> token counts between MLX and GGUF. Read them as evidence about the *model*, not as measurements of
+> *this* file. If you need numbers you can hold us to, use the
+> [GGUF build](https://huggingface.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF).
+
+> ### ⚠️ Do not run this build in LM Studio
+>
+> LM Studio's MLX engine mis-executes the MTP head: this file emits **pure garbage** there — random
+> multilingual tokens from the very first token, on every prompt. It is not a tool-calling or chat-template
+> problem, and no setting fixes it.
+>
+> We measured the full grid — both model families (TielCoder, CyberTiel) x both quants (oQ4e, oQ6e) x
+> MTP vs non-MTP, on oMLX and LM Studio. **Every `-MTP` MLX build garbles in LM Studio; every non-MTP
+> build is clean; oMLX runs all eight correctly.** The weights are fine — the runtime is not.
+>
+> - **oMLX** — fully supported, including the MTP head. Use this.
+> - **LM Studio** — use the [GGUF build](https://huggingface.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF-MTP) instead (llama.cpp handles the MTP head correctly), or the
+>   non-MTP MLX build [`Tiel-Coder-35B-A3B-MLX-oQ6e`](https://huggingface.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-MLX-oQ6e).
+
+# Straight to the point
+
+*Tiel* is the fast coder of the arsenal. At 6-bit quantization and 29.5 GB it fixes real codebase issues at the rate (and speed, with
+the right GPU) of Opus 4.6 medium, while holding the best multi-turn conversation of any local model we
+have measured. It is also cheerfully bad at trivia.
+
+Pick it for work. Pick something else for exams.
+
+> **This is [Ornith-1.5-35B-A3B](https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B) re-quantized
+> with oMLX's oQ6e quantizer and carrying the [Sharp chat template](https://huggingface.co/peculiar-ragdoll/Qwen-Sharp-Chat-Templates)**
+> inside the checkpoint — **plus Ornith-1.5's trained multi-token-prediction head** for runtimes that
+> can use it.
+> **The uncensored and improved CyberTiel is out now!** [Get it here](https://huggingface.co/peculiar-ragdoll/Cyber-Tiel-Coder-35B-A3B-MLX-oQ6e-MTP).
+
+## The numbers
+
+<div align="center">
+  Where it sits against the other local builds
+  <img src="assets/card_tiel_local.png" alt="SWE-bench-Live: Qwen3.8-27B solves 16 of 25 at 50.2 minutes per attempt, Dirk 15 at 20.1, TielCoder 12 at 8.6, stock Qwen3.6-35B-A3B 8 at 5.5" width="100%">
+  Multi-turn conversation
+  <img src="assets/card_tiel_claw.png" alt="Claw-Eval multi-turn: Tiel 67.2 overall against Ornith 65.3 and Nail 60.5, over 114 scored conversations each" width="100%">
+  Reasoning and knowledge
+  <img src="assets/card_tiel_mmlu.png" alt="MMLU-Pro: Tiel 73.7 against Nail 84.0, both at 4-bit, with the control arm isolating the template" width="100%">
+</div>
+
+**Where it stands.** On 25 SWE-bench-Live problems Tiel fixes 12 — the same as Opus 4.6 (medium),
+four more than Ornith-1.5 itself, three more than Nail, and four more than Sonnet 5 (medium). Among
+models of its own class it is first; the ones ahead are dense 27Bs and Opus 5. Its time per attempt
+is also steadier than Nail's: an 8.6 minute median against 7.2, but a 12.3 minute mean against 15.7,
+because it lacks Nail's tail of expensive attempts.
+
+**How it talks.** On Claw-Eval's multi-turn tasks Tiel scores 67.2 against Nail's 60.5 and its own
+base's 65.3, over 114 scored conversations each. It earns that by answering better rather than by
+asking more: against the base it is 3.8 points up on answer quality and 5.1 down on clarifying
+questions. The score weights answers four to one, so the trade pays — but if you want a model that
+interrogates a vague request before acting, the base does that better.
+
+**What it costs.** 73.7 on MMLU-Pro against Nail's 84.0, both at 4-bit. Most of that is inherited
+rather than built: Ornith-1.5 scores 78.0 where stock Qwen3.6-35B-A3B scores 85.3. Our quantization
+is not the cause — the same quant carrying Ornith's own template scores exactly what Ornith scores.
+The remaining 4.3 points are the Sharp template buying shorter answers, which is the trade this
+build exists to make.
+
+**Which one.** Agentic coding, or long conversations that have to stay useful → Tiel. Exam-style
+knowledge and hard reasoning → [Nail](https://huggingface.co/peculiar-ragdoll/Nail-Qwen3.6-35B-A3B-GGUF),
+which is 10.3 points better on MMLU-Pro and 6.7 worse in conversation.
+The most fixes per problem regardless of weight → [Dirk](https://huggingface.co/peculiar-ragdoll/Dirk-Qwen3.8-27B-GGUF),
+the dense 27B that solves 15 of the same 25 — one behind stock Qwen3.8-27B, at 2.5x its speed.
+
+## Run it
+
+One tier: **oQ6e**, 6-bit dynamic mixed precision with an imatrix pass. Vision is included in the
+same folder — no separate projector file.
+
+**LM Studio** — **not supported for this build.** Its MLX engine garbles MTP output; see the warning
+above. Use oMLX, or the [GGUF build](https://huggingface.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF-MTP) if you want to stay in LM Studio.
+
+**oMLX** — put the folder under `~/.omlx/models/peculiar-ragdoll/Tiel-Coder-35B-A3B-MLX-oQ6e-MTP`, or pull it from the oMLX
+admin dashboard.
+
+Sampling: `temperature 1.0`, `top_p 0.95`, `top_k 20`. For agentic coding we ran `temperature 0.6`.
+
+**Prefer to keep the files yourself?**
+
+```bash
+hf download peculiar-ragdoll/Tiel-Coder-35B-A3B-MLX-oQ6e-MTP --local-dir TielCoder-MLX
+python -m mlx_vlm.generate --model TielCoder-MLX --max-tokens 512 \
+  --prompt "Explain what this function does."                       # text
+python -m mlx_vlm.generate --model TielCoder-MLX --max-tokens 512 \
+  --prompt "What is in this screenshot?" --image photo.jpg          # vision
+```
+
+**Load it with `mlx-vlm`, not `mlx-lm`.** This is a vision-language checkpoint. `mlx_lm.load()`
+accepts it and then emits garbage tokens — a loader mismatch, not a bad quant, but it fails quietly.
+
+Both runtimes apply the embedded template automatically — nothing to pass.
+
+## The multi-token-prediction head
+
+This build carries Ornith-1.5's **trained** MTP (`nextn`) head. A supporting runtime (oMLX's native
+MTP / "Lightning MTP") can use it to **draft several tokens per step and verify them in one pass** —
+speculative decoding with no separate draft model. Whether that speeds up decode depends entirely on
+your hardware.
+
+**On our own Apple Silicon box, it did not.** The head drafts *well* — ~1.6–1.8 accepted tokens per
+verify cycle — but this is a **35B-A3B MoE with only ~3.4B active parameters**, so its decode is already
+cheap and not memory-bandwidth-bound, and the batched-verify cost roughly cancels the drafting benefit
+(we measured 0.82–0.93× at draft depths 1–3 on the 4-bit build — not re-measured at 6-bit — i.e. slightly *slower*). Speculative decoding pays off when
+decode is **memory-bound**, which depends on the chip, runtime, and batch size. Other setups have seen
+real gains on this exact model family — the sibling
+[`KaedeTai/Ornith-1.5-35B-A3B-BigBang-MTP-mlx-4bit`](https://huggingface.co/KaedeTai/Ornith-1.5-35B-A3B-BigBang-MTP-mlx-4bit)
+reports ~1.16× on an M5 Max, and our
+[GGUF-MTP build](https://huggingface.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF-MTP) gains on llama.cpp
+(whose C++ batched-MoE verify is more efficient).
+
+**We ship this so users whose hardware benefits can use it.** Enable your runtime's native MTP path
+(in oMLX: `mtp_enabled`), measure your own decode tok/s with MTP on vs off, and if it isn't faster on
+your box, leave it off — or just run the
+[plain oQ6e](https://huggingface.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-MLX-oQ6e), which is the same
+weights without the head.
+
+(The head is trained. Ornith's *original* GGUF conversion once shipped an untrained, randomly-initialized
+`nextn` block, which we measured and removed from the earlier ladder; Ornith later published a trained
+head, and that is the one grafted here.)
+
+## How the quantization was done
+
+oQ6e is oMLX's dynamic quantizer: 6-bit base with mixed precision by layer position and selective
+non-quantization, plus an imatrix pass — the "e" — that measures which weights carry the most
+signal before deciding what to keep at higher precision. It is the same idea as the GGUF ladder's
+Unsloth-Dynamic-plus-imatrix recipe, implemented for MLX, but it is *not* the same computation:
+oQ derives its own importance data rather than consuming the GGUF imatrix we baked.
+
+That is the reason for the caveat at the top. Two quantizers pursuing the same goal by different
+routes do not land in the same place, and only the GGUF route has been benchmarked.
+
+## Limitations
+
+- **Exam scores are its weak axis.** If you are picking on MMLU-Pro, Nail is 10.3 points better.
+- **It asks fewer clarifying questions than its base**, by 5.1 points. Terser is not always better;
+  a vague request gets answered rather than questioned.
+- Benchmarks are one run per problem on SWE-bench-Live and three seeds on MMLU-Pro. Treat small
+  differences as noise.
+- **MTP is not a guaranteed speed-up.** On a memory-bound box it can help; on ours it did not. Measure it.
+- Chinese and English only, inherited from the base.
+
+## Credits
+
+- [**ornith-ai**](https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B) — the Ornith-1.5-35B-A3B weights and the trained MTP head (MIT).
+- [**oMLX**](https://github.com/jundot/omlx) — the oQ quantizer this build uses.
+- [**froggeric**](https://huggingface.co/froggeric/Qwen-Fixed-Chat-Templates) — the template lineage Sharp builds on.
+- [**eaddario**](https://huggingface.co/datasets/eaddario/imatrix-calibration) — the calibration corpora the imatrix was measured on (MIT).
+- [**MLX**](https://github.com/ml-explore/mlx) and [**mlx-vlm**](https://github.com/Blaizzy/mlx-vlm) — the runtime.
+
+MIT, inheriting Ornith-1.5's license.

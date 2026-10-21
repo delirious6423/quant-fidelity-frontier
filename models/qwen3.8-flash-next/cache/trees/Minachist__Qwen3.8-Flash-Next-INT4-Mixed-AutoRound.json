@@ -1,0 +1,1388 @@
+[
+ {
+  "type": "directory",
+  "oid": "0d48da96c139e0139ffb4040f8644f34f26c64b9",
+  "size": 0,
+  "path": "exllamav3-patch"
+ },
+ {
+  "type": "directory",
+  "oid": "817cd6c53139ceaaf91dd09c1f53fdad1d62652e",
+  "size": 0,
+  "path": "images"
+ },
+ {
+  "type": "directory",
+  "oid": "f1f88214d7a85525d75c411f1ed056bef9a4668d",
+  "size": 0,
+  "path": "vllm-patch"
+ },
+ {
+  "type": "directory",
+  "oid": "128a779df6efc9af481f91c0c7a93c17f1aded13",
+  "size": 0,
+  "path": "vllm-patch/2x24GB"
+ },
+ {
+  "type": "directory",
+  "oid": "ca463610e8e721770f65453f802969ee4bdac3fb",
+  "size": 0,
+  "path": "vllm-patch/2x24GB/cold-experts"
+ },
+ {
+  "type": "directory",
+  "oid": "fbaa27db9137a4f4a6efffb4049a001c5ace9f32",
+  "size": 0,
+  "path": "vllm-patch/2x32GB"
+ },
+ {
+  "type": "directory",
+  "oid": "cbbda6ba5876c170678e32198b7a031d459c47bc",
+  "size": 0,
+  "path": "vllm-patch/2x32GB/cold-experts"
+ },
+ {
+  "type": "directory",
+  "oid": "04584446b08654ffa101ca583377d026e9fc42a5",
+  "size": 0,
+  "path": "vllm-patch/3x24GB+MTP"
+ },
+ {
+  "type": "directory",
+  "oid": "cb70c0016ead333609fb871cb4ae23e01ac5ec4c",
+  "size": 0,
+  "path": "vllm-patch/3x24GB"
+ },
+ {
+  "type": "directory",
+  "oid": "d6bdbbe8e153535dc70dd0ac112e18a5d75330e3",
+  "size": 0,
+  "path": "vllm-patch/4x24GB"
+ },
+ {
+  "type": "directory",
+  "oid": "c3474965286b574659d778c217bd298746fabb85",
+  "size": 0,
+  "path": "vllm-patch/4x24GB/4x3090"
+ },
+ {
+  "type": "directory",
+  "oid": "6f0a622a253ce663c750fe0d52ace08ca1e0b77d",
+  "size": 0,
+  "path": "vllm-patch/4x24GB/main"
+ },
+ {
+  "type": "file",
+  "oid": "80500bcd41177bb6c84db5b4b814f40518007fda",
+  "size": 1693,
+  "path": ".gitattributes"
+ },
+ {
+  "type": "file",
+  "oid": "9557a8961782792814714b7488346732c043793d",
+  "size": 3235,
+  "path": "LICENSE"
+ },
+ {
+  "type": "file",
+  "oid": "0be54f824a2bb60073bec448679688379e2c3693",
+  "size": 13550,
+  "path": "README.md"
+ },
+ {
+  "type": "file",
+  "oid": "c0c686f9c38d70d179fb7b5f5aa7530bc913dda3",
+  "size": 8952,
+  "path": "chat_template.jinja"
+ },
+ {
+  "type": "file",
+  "oid": "6943d66db73eecf79a1451cf2510e1d05c9950a2",
+  "size": 77175,
+  "path": "config.json"
+ },
+ {
+  "type": "file",
+  "oid": "afbdb0e1a09e1c5c342fedca3f22b09b7bc72c4f",
+  "size": 1053,
+  "path": "exllamav3-patch/LICENSE.MIT"
+ },
+ {
+  "type": "file",
+  "oid": "4972c607c1e00b087a45e5174734b660bdb1a3cc",
+  "size": 35600,
+  "path": "exllamav3-patch/qsa-kv-offload.patch"
+ },
+ {
+  "type": "file",
+  "oid": "023756cfadf88e5bf69eefeee3e172f38c448d64",
+  "size": 202,
+  "path": "generation_config.json"
+ },
+ {
+  "type": "file",
+  "oid": "5d69ff6b79a6f388eccb58709208015fa4536bcd",
+  "size": 157516,
+  "lfs": {
+   "oid": "583d686b64c431f0c4cd732b36cb7450578db8c2c2420eee5a968c5a051aa85b",
+   "size": 157516,
+   "pointerSize": 131
+  },
+  "xetHash": "210268002ec44ee4edc319f583a0c8e74df318ddd6c129098a1544f86f8b06bd",
+  "path": "images/qbench_kld.png"
+ },
+ {
+  "type": "file",
+  "oid": "a494e019ca1502219fd0128658b979e5f05ae8e8",
+  "size": 3353259,
+  "path": "merges.txt"
+ },
+ {
+  "type": "file",
+  "oid": "61069856cb62de23f17fd44a9894b758b8fe7049",
+  "size": 3749194248,
+  "lfs": {
+   "oid": "5606a3def183c6a912c6aa0f191e566a31ef18584e2884316c87447f54beedd0",
+   "size": 3749194248,
+   "pointerSize": 135
+  },
+  "xetHash": "6bdb37ef570837460a93d44ad271b82de4efa9461f5b63aa11a222ee7416755c",
+  "path": "model-00001-of-00014.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "01a14bee92cd771f318ae0ea5093897362cc2af9",
+  "size": 5002129272,
+  "lfs": {
+   "oid": "5b2aff671e264ffe55b1ddf55a1f05a1efa5a00294f1a4a57a595e6ab812f551",
+   "size": 5002129272,
+   "pointerSize": 135
+  },
+  "xetHash": "4d46abfdd8639da066b26a2e67aaa58f28504e5a3f91b55605c856781b33552f",
+  "path": "model-00002-of-00014.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "c4e5b21151401de4889cddc712d46c66fabad7db",
+  "size": 5001668344,
+  "lfs": {
+   "oid": "8902e8ebf3ed36f0bfcc540411e54661775fb06a90b4934ab59ee4992d88cfe1",
+   "size": 5001668344,
+   "pointerSize": 135
+  },
+  "xetHash": "e6aceb570495c776b575144b2a6ecc8bd386af795d38b9d1b3a7c41a691c2240",
+  "path": "model-00003-of-00014.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "f736897a708ec30f77fdffa01317929515a8c44d",
+  "size": 5001785072,
+  "lfs": {
+   "oid": "0ccfa2e32f91ddf9da162402e3027227ceab1150d2d17aa8b73c9b0d76559343",
+   "size": 5001785072,
+   "pointerSize": 135
+  },
+  "xetHash": "40557ac70fae630f902d21d9f56a3ea3de3c9dc744ec38b4edf469b819bf013c",
+  "path": "model-00004-of-00014.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "7b77d666ad343e86bfc411498c57be05f96f318d",
+  "size": 5001684824,
+  "lfs": {
+   "oid": "57dea4876e9c7c76ece8cf292cc0bf67df414aa1bd0a7e59d57b8f6fdf7b997f",
+   "size": 5001684824,
+   "pointerSize": 135
+  },
+  "xetHash": "ffb6d16d90ffd5bc3ddb440206f6b8f4114241fc7a5efc73dc55d605e4764027",
+  "path": "model-00005-of-00014.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "6ca0042002d147db85f835b3392586efca942e77",
+  "size": 5001685296,
+  "lfs": {
+   "oid": "8a8ac343ef84ccc69e307a460e9ad64214985af0a8dab0026780793f2645879e",
+   "size": 5001685296,
+   "pointerSize": 135
+  },
+  "xetHash": "1e006c67e3cdb732e3b23767b5601205b4e33dbd2f30c01e3971a5748f2dd966",
+  "path": "model-00006-of-00014.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "1578b30d8a712b8132417e8766a460eabe5f39a5",
+  "size": 5001780168,
+  "lfs": {
+   "oid": "11d108fc70326379e6aa93d889b7734aec4d1e355fc46b48cb5a45198f8d2437",
+   "size": 5001780168,
+   "pointerSize": 135
+  },
+  "xetHash": "f4694549e9ecb7eb6ac86bd0e6228458cbb9d7210d938cfa7787456117f63f7f",
+  "path": "model-00007-of-00014.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "d687bbc51489abf07c247a06c0efd622911f1977",
+  "size": 5001684904,
+  "lfs": {
+   "oid": "8df779650fcd6220d18c383d27ecfbe70532d579c6f36fb9d7fed88e686245ef",
+   "size": 5001684904,
+   "pointerSize": 135
+  },
+  "xetHash": "de1143a249749e86c71b5d6cd4cdca1ffe2898bedff9ef5c064381985a95ada2",
+  "path": "model-00008-of-00014.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "9627e19dfe287e2f0986f39bbc3acc2d30c2ae5f",
+  "size": 5001685184,
+  "lfs": {
+   "oid": "d63f3d515bcd685b511e1f9b766c5d0413bdea0f32e7a662e0dfa317e666939e",
+   "size": 5001685184,
+   "pointerSize": 135
+  },
+  "xetHash": "b337a90a3469c636540c375cd4a7d96d89e946d933850ab8ecf5344f6eb3f134",
+  "path": "model-00009-of-00014.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "2c6ecdcff4639be50936fcc033642459d2b02d0b",
+  "size": 5001778704,
+  "lfs": {
+   "oid": "a50a8a2de84cc46887080e797c61f9f6fed84b40684422ee6cee3d8559e067e4",
+   "size": 5001778704,
+   "pointerSize": 135
+  },
+  "xetHash": "61f29b95daf2ee63b4b5cf673a81054fab726ecc171de6339302082eeef6654e",
+  "path": "model-00010-of-00014.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "1a2df6ebf6f116b5096d7fbb474360e04cd47109",
+  "size": 5001684720,
+  "lfs": {
+   "oid": "86cb52613a6ca784f41bad45b0a193bd07dce1afb49b248e5f377dd15b4b6d21",
+   "size": 5001684720,
+   "pointerSize": 135
+  },
+  "xetHash": "c4a4752fc79ed5b8816f5fd7c90b4638762e02e8e0d146fbce046d07718ba54d",
+  "path": "model-00011-of-00014.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "6fa7e98e3a7f1a121b93c50c6e06ac88843eeade",
+  "size": 5001685112,
+  "lfs": {
+   "oid": "2be1d266e9d523eacf6e0e587b12d016fb1767f973266260dc05011ff5c5e7b5",
+   "size": 5001685112,
+   "pointerSize": 135
+  },
+  "xetHash": "2642be07c3a82985b983180ac497f703c077f360c249116ac72e19b0121af1f9",
+  "path": "model-00012-of-00014.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "b4eaaa9c2e276594eb33fd20dae87352506343aa",
+  "size": 5001789240,
+  "lfs": {
+   "oid": "7b1980956332f2986648de7b24cece6a5d11e0c10a87b3a9884e8d18ae0a18d5",
+   "size": 5001789240,
+   "pointerSize": 135
+  },
+  "xetHash": "414d23c7b7df2a0f1796981b8fcf36242e0d85131f69b5a7a54a1c712430b50d",
+  "path": "model-00013-of-00014.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "de2831123c3d4435b6ab1889823a16979b8323cb",
+  "size": 3875268008,
+  "lfs": {
+   "oid": "7c940833cc4a49d8de775eb0b602ffebfdf3d45e2fcb0331004062982bc9b1a3",
+   "size": 3875268008,
+   "pointerSize": 135
+  },
+  "xetHash": "7f3c3a430e98ab5295e52064c2bbc7e1f8241c750d7bc4149ec52742a165e553",
+  "path": "model-00014-of-00014.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "9de7bd6a49d1381886acd13f1805255a23768373",
+  "size": 1600008032,
+  "lfs": {
+   "oid": "6374ace335fd762617c8eaf79e4732f8434686d617dc74e6795052d2ad844f3c",
+   "size": 1600008032,
+   "pointerSize": 135
+  },
+  "xetHash": "57b6a89c483ad7422dda5ad7da2b17a5cdc7a20a6286ab2cc56a830dbc553b70",
+  "path": "model-extra-ngram-00001-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "0ba02967d3d2843b211c94dbf0c409561e85f0b5",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "8277a48e1fd7ab7ff7f0282befcc6eb4e09ab2e0780c00af6685e198faba233e",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "43f14e0acb1bd43bf049d664cf897e92cb6916e9c02c4b58f63e0a019f73eebe",
+  "path": "model-extra-ngram-00002-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "dfff1713bae43dee5807d3ae474e3a625771e6fa",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "0fba369354e45b43efbe2773d63b7cb20caedb56ff9ed80e076bbcdaf560666a",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "183553a2873ef2df6d4f25850023f5eeec03c2b2e4ffc9c792a8c935c6d9d94b",
+  "path": "model-extra-ngram-00003-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "82aec7479e269a90c1ff4bc17a706ff724cf394c",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "024f59b6f2cb27ab79a4267cff9603c398ef1a7ef9ba76009fd34a0a84a9455e",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "da1c9ccf2ffa6f0aa55576f17933f8d9aa12de0feb7d87bfee0ab76bd2962968",
+  "path": "model-extra-ngram-00004-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "b0e8e2c6d89cb0edb678c96e2339d56d7e1bd0c0",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "23fbef154f7f68e5b6f555492832c78822a827554757797daf91de48df06b496",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "f56d35e0841aa0598b24645467d45d653c542099a675385e32e35d9dcaa07082",
+  "path": "model-extra-ngram-00005-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "34fead4c0fe3072644f901059442c3ead942a357",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "b3a303529a190c6661870d5abebf0ac18d36922a1da8db737d19f55bd1031fe8",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "5e997d5eabbdae545012df1b02f57a47b35b430ed60a3076ed5b9999f3db1fd4",
+  "path": "model-extra-ngram-00006-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "359c7901aff6d247c0fa5078829a326fe1254701",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "d1215943b48481febb33a1129c96613dec5f364613a2cc3ba1e27c23be0ca78a",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "bcd686a9cef5b9eaaefb9d0197a87d03ccbea685f4077c1eab52ac3194335a15",
+  "path": "model-extra-ngram-00007-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "f1ab489e3d60fe3c3d48eeadbe44f18b52136f35",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "f63d649ea84867ec75884dace5ea4d8c723a6560463674a6ee0ce621b4b9dbc1",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "0c96d70fcd1dc766a17ca039ed48220d946ae9661e46be1ead8aa6d7e6fba60e",
+  "path": "model-extra-ngram-00008-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "67dab6c3b573686a371a70fcf40f3bf03489e3c0",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "5e0f0fb335f4c19a0158f60294e5b5c30bdfc344b003633c9c42e5e638a6808e",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "4fdf6ba5119fca2c55ad7122b1f1c79dd007f031637c955804fc272e2f44289b",
+  "path": "model-extra-ngram-00009-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "a40d0267f093d98277bef0a35b933178df9b0e12",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "5ee73bd21c73b2610d2a30924f7acd24e63b1ca29e0a1f1c87f0f6a9648e347a",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "5d45c8e4b786a4666de3ca3a25ec56c685d3cd439fe37133725c9d1192382a4e",
+  "path": "model-extra-ngram-00010-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "f99ea63a3eddda5335178015e94f8d8ee9cfc151",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "b35421bf21724db705a38ee9f779de07f9f1711be964049942960c5e3dddb1c2",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "e8c7ce3cf5c9a8bd9eec4e92def53679cf7615e87397c9f70739987c7a2f3629",
+  "path": "model-extra-ngram-00011-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "fbbee9f5c006124496cdcf0ec74968cd785cbd8c",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "73c4b1bd1f3752d70f0161ec8c8a7701f0538e1ae722daf16a905e04a666e69f",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "b7e4849a0fcebc2460ea4947d0b11641573da5e21d798bb9c12aa2c469a4a798",
+  "path": "model-extra-ngram-00012-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "a73330a4db3ccf3a80710b74ca10023f6e898eb5",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "ee60c1269974cc797bad8bfc9a0fac72437b323ceafcb225cef6980ecffce1b3",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "50787b3ec1612efba6c18aaf17fc06b1ad13aab9ed55137d219005e2a9d3aad1",
+  "path": "model-extra-ngram-00013-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "baf10d637e3f0bb2dcb50dc5bd590fbd626ed402",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "72cf3696aa1af4611b2da2b013868f3724082362899d9dce3e9fec908d441fc2",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "118ac2af5a5400cc03af503fc2677ce39dacbbefb3c6270482b1dfb7da10fede",
+  "path": "model-extra-ngram-00014-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "ede1c4adada2c0419597b4ad66c88ff108bf6adc",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "bdad649be407bd8033a4abd6a24bf434ed6a173807892d18cc1c9771031bfd0c",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "d0f451e4dc116e003f3a8ec3131c5dd89de698b5af44dfa6f8a506e15bef9681",
+  "path": "model-extra-ngram-00015-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "ddf8c38731c24500ede0c25dc5decf296b5e6415",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "2258dad55787922f1d4429aea528495511f58447baa9b4f1b7f92f58ba7110b0",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "99ce7560dd592436fa89a5f097a31ddaabb1f710c351d11c8bb4b54f3c698af0",
+  "path": "model-extra-ngram-00016-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "ce9930dfc459390e6f3c3a0c5a5e95ebeb87b878",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "775952ac572fa4ff7e5e316ecb60483d4dd96f4369d6a7a403fa31d7f9d1a6d0",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "f819cd229682ee45ee5de1cb806650816d008890bd66a35d1b9ece94c5109c9b",
+  "path": "model-extra-ngram-00017-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "6b1e503e0dfa9c39e507989395de21f4cf87cb18",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "7d205070bb898c59d23bc379652607911f39e219627028a29d82e8e8fecab7c0",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "4e88e62126ca3ebe94747864b8963c1a814c9ddae6e29f5a856df8319efa941a",
+  "path": "model-extra-ngram-00018-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "332dec2b00494cc93a270d8ed5daff52721af20c",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "598d4f772853233b88911fdb1a49f8865e3c732e93b17aea44b65f455e69e9dc",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "b001279f3f0cc6faa261ea7516d68d1da3cf4294a99397032cf8a768c0cd42f9",
+  "path": "model-extra-ngram-00019-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "75e2b912adad92550b96b7ef6f7eb8b83669e4e5",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "09e534942e7d4eb31803b347e14dd70090f16f85c89b0ad766bdace135806f12",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "8c6c3f6252e9f439ee5e1c64b7ae72e67a2f0b2d1ad9e1ab66028b558006e570",
+  "path": "model-extra-ngram-00020-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "2e0bc1e83fa32f2bd3ebca982200dab700914a26",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "482d18f0e515c23c6933593d0cce289770600c6fa539168bd304e2169cc8a2be",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "257d9aabb277be5e105a07ceed76ca72ad5c534a17dbd1f33dd897d84f11c92a",
+  "path": "model-extra-ngram-00021-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "cd9df3d8c754871967102ecd16bad2df29345b62",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "ac479fe29ed3e03b7c3523974371d68dace22b7744ff9236f9429cdbb9241da0",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "5c92589c171bcfabdfe6123a11b2342f97d02e64e726099e392c1e4b92fd4f5e",
+  "path": "model-extra-ngram-00022-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "5695d015911e32cdca50a81ba47bbebdbbb79ec2",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "4981d4e636723dbb063f04854e4362c1fe341d9ba80b5bb4231bb0d5ee8ab266",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "2eea651b4e6d4e2e93cdc5aa91709084b032e4c0a1e0c8da642e0d4d2a0565da",
+  "path": "model-extra-ngram-00023-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "29de47884f7fe2a2dc86be41510ae1a2c83b646a",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "1b45a957b1f3572d325b0795f549fb772c160bd5c5167f94a347b96e3c7b978d",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "fc78155fde6bc17c1087f1d5b9d7b820b07fdf6f22a5b74edabd831713d4ba19",
+  "path": "model-extra-ngram-00024-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "ae1f3981e4e0fc4b908bd7f514e635114e8b2ef6",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "40d2f2291ff4800373087cd00f1f95c3bd69331c32f39cfdd5d43516764b03ec",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "5a935dcf4c512a716089a82d3612b10616bb5a35d543fe6ddb6c8ee8362c4f1d",
+  "path": "model-extra-ngram-00025-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "e331e951ef38e29380478c11c690e7fccc56694f",
+  "size": 3200016032,
+  "lfs": {
+   "oid": "893a9b59e412a3242252274770efe0794ce8b216b2b3907b6854b7eaa6ddd334",
+   "size": 3200016032,
+   "pointerSize": 135
+  },
+  "xetHash": "75330410e813743008673278ad84ece3a11c8a02428f4d5742b84a6ecee7d4fe",
+  "path": "model-extra-ngram-00026-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "65822ca3b6fb60746cf036f6ee17eb54329747b6",
+  "size": 3200016040,
+  "lfs": {
+   "oid": "9b6bf01d60f21bed295b9b1d43501593b4ce7ece28aaf75618b4fb58039c0d04",
+   "size": 3200016040,
+   "pointerSize": 135
+  },
+  "xetHash": "f3d86dd1c2058f3eb895903546caad9c9b249773f95721288e8401244d455f9e",
+  "path": "model-extra-ngram-00027-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "2a41aa42e112802bff692971b4caddecf9f8a854",
+  "size": 3200016040,
+  "lfs": {
+   "oid": "7453fcb5872160888730439ac71a5279d348686d68c6ba2d62ff12461443dc69",
+   "size": 3200016040,
+   "pointerSize": 135
+  },
+  "xetHash": "d84dd81f278516b36e0ed8583f9655889ef0868e90e8c1a87adee087c6ae4afe",
+  "path": "model-extra-ngram-00028-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "eae315d10acc908e10935ed2160083a5fc08feac",
+  "size": 3200016040,
+  "lfs": {
+   "oid": "5b2f577ce40932031c4749f9177dab2119ff118f9f9b9df3d0d5e57c8e41d128",
+   "size": 3200016040,
+   "pointerSize": 135
+  },
+  "xetHash": "af4571ab2e2ca37f3112bc6ae36a72b166c0f0390b30d243444ac2d85475b3a1",
+  "path": "model-extra-ngram-00029-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "c209095979787c950b5bf4300c1ba3a6271cce3f",
+  "size": 3200016040,
+  "lfs": {
+   "oid": "35b5522668652e8cc7d8eacb0d45c59eb9ed9786e9102a9b71503f746f50da64",
+   "size": 3200016040,
+   "pointerSize": 135
+  },
+  "xetHash": "4a4e74fd8ed672a25d572d0d1ff4dd7a125f20124b65179400e025c1d6dcd42c",
+  "path": "model-extra-ngram-00030-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "550dcad79fd2513deae147d79f3d5ce3cb7ae87a",
+  "size": 3200016040,
+  "lfs": {
+   "oid": "4fe611218d36ff7c06e4c24f7252215fdddc879ac3de2b1d569727ed31f82db1",
+   "size": 3200016040,
+   "pointerSize": 135
+  },
+  "xetHash": "2f4c35f80689b01a995ba77643359a9c22d344b90773b312589dde7ede6ccc3f",
+  "path": "model-extra-ngram-00031-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "e8a6e156faf7cc674d29ba8c0eead097c7bdb8be",
+  "size": 3200016040,
+  "lfs": {
+   "oid": "237789c0cef556ef22c9f1ca99b7baf71b33a56b70c5828380e1008e02510649",
+   "size": 3200016040,
+   "pointerSize": 135
+  },
+  "xetHash": "e4b57d627b9e388b384ed389bd98c1cbcbd5b686d76330784684cddc73ad4476",
+  "path": "model-extra-ngram-00032-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "ca6b23c7cd36e984b3f870bf14051b6629fae371",
+  "size": 1600008032,
+  "lfs": {
+   "oid": "92babe9c5f5bbc83ffa3f034b417d10b863d9cd5ad0137b6c7f0e71949ca8933",
+   "size": 1600008032,
+   "pointerSize": 135
+  },
+  "xetHash": "dff5ec74232f0a0bcda974cc3d3a451e346ad1ca9a001e550ab68bbf6a4f2e0c",
+  "path": "model-extra-ngram-00033-of-00033.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "f4f15b8ceadfba532b7063380c159fc1486216fb",
+  "size": 25246676,
+  "lfs": {
+   "oid": "95683eb445fafde8bfaed573783f702c837eb5c008c6f2ffbbeadded057bd576",
+   "size": 25246676,
+   "pointerSize": 133
+  },
+  "xetHash": "2feb37fed70cef6c83b1e36725b80cfee8efa0bbf7137e15a20f7ea6136ebdea",
+  "path": "model.safetensors.index.json"
+ },
+ {
+  "type": "file",
+  "oid": "7d99f6e92b734b947d5f5b0fbc0f34fbe8ad0bb7",
+  "size": 5214492152,
+  "lfs": {
+   "oid": "e9e4786a8ef584c9cb112b0a2ce7063cb72db8e002694888d2a36d440edad83d",
+   "size": 5214492152,
+   "pointerSize": 135
+  },
+  "xetHash": "2003e6adb21b342ac5bd43a2eefda8f55621211b75b24f4693a298772a8f5bef",
+  "path": "model_extra_tensors.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "2ea84a437d448ff71b08df68fdd949d5cc4ebb64",
+  "size": 390,
+  "path": "preprocessor_config.json"
+ },
+ {
+  "type": "file",
+  "oid": "43c4343ec493f200e452f87a7c6649ecdfcce1ac",
+  "size": 1220,
+  "path": "processor_config.json"
+ },
+ {
+  "type": "file",
+  "oid": "225baf94cf38cb80915a2ee83749b2be3922fad7",
+  "size": 70628,
+  "path": "quantization_config.json"
+ },
+ {
+  "type": "file",
+  "oid": "5520bfd2dd834ce386c1312c410fa71af56db5ad",
+  "size": 19989325,
+  "lfs": {
+   "oid": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523",
+   "size": 19989325,
+   "pointerSize": 133
+  },
+  "xetHash": "777bcaa63794fa47b8f53680be9d6d176f1fcbd7ba03cdc6c3bae2b3d76b323f",
+  "path": "tokenizer.json"
+ },
+ {
+  "type": "file",
+  "oid": "1d134cd298be1e3be25db393d93a1cefe80e3214",
+  "size": 1165,
+  "path": "tokenizer_config.json"
+ },
+ {
+  "type": "file",
+  "oid": "3ba673a5ad7d4d13f54155ecd38b2a94a6dac8fe",
+  "size": 385,
+  "path": "video_preprocessor_config.json"
+ },
+ {
+  "type": "file",
+  "oid": "de22613e36469b393201cc37f701abd3105d35c7",
+  "size": 6291,
+  "path": "vllm-patch/2x24GB/Dockerfile"
+ },
+ {
+  "type": "file",
+  "oid": "3651049b0adb273c5166875f3e51d1cc6e7a5f17",
+  "size": 34030,
+  "path": "vllm-patch/2x24GB/cold-experts/10.5GiB-per-card.json"
+ },
+ {
+  "type": "file",
+  "oid": "974ab19098a9a0321acba874aa5846b25cb0b073",
+  "size": 38864,
+  "path": "vllm-patch/2x24GB/cold-experts/12GiB-per-card.json"
+ },
+ {
+  "type": "file",
+  "oid": "56176ebd14bcda1360533b2adb5aeaba64a49762",
+  "size": 42091,
+  "path": "vllm-patch/2x24GB/cold-experts/13GiB-per-card.json"
+ },
+ {
+  "type": "file",
+  "oid": "ea68e7fa14154d67302e9d26f000b38d603cedd2",
+  "size": 5616,
+  "path": "vllm-patch/2x24GB/compose.yaml"
+ },
+ {
+  "type": "file",
+  "oid": "daae2c6c5cb5219fbdfcfd673e0c9794b9b02a6f",
+  "size": 6981,
+  "path": "vllm-patch/2x24GB/flash-next-decode-01-ple-host-gather.patch"
+ },
+ {
+  "type": "file",
+  "oid": "e601df3301ed989e94a407f9f3fabc5ddbe3e05b",
+  "size": 3243,
+  "path": "vllm-patch/2x24GB/flash-next-decode-02-model-state-hook.patch"
+ },
+ {
+  "type": "file",
+  "oid": "a2ba5db13a1dd4d8922cebca345584ee02aa08ea",
+  "size": 4204,
+  "path": "vllm-patch/2x24GB/flash-next-decode-03-pp-deferred-recv.patch"
+ },
+ {
+  "type": "file",
+  "oid": "79dcb5c2368f0eafdb0d46ad63dd28fd6b2f4c9c",
+  "size": 17353,
+  "path": "vllm-patch/2x24GB/flash-next-decode-04-hc-fused-int8.patch"
+ },
+ {
+  "type": "file",
+  "oid": "a41697d63fddde3f70e1a934a910acc67ba09654",
+  "size": 31873,
+  "path": "vllm-patch/2x24GB/flash-next-decode-05-moe-fused.patch"
+ },
+ {
+  "type": "file",
+  "oid": "e4f90a92ef04ddfffda0e5202de8e727a3b86704",
+  "size": 3907,
+  "path": "vllm-patch/2x24GB/flash-next-decode-06-ple-gather-advise.patch"
+ },
+ {
+  "type": "file",
+  "oid": "bcd6ba14c29e5dbb83e304430140aaa06f12a16f",
+  "size": 25407,
+  "path": "vllm-patch/2x24GB/flash-next-decode-07-qsa-row-cache.patch"
+ },
+ {
+  "type": "file",
+  "oid": "559b6f6f6b7e64712561356ef63a1ebacf301364",
+  "size": 3070,
+  "path": "vllm-patch/2x24GB/flash-next-mem-01-pp-embed-head.patch"
+ },
+ {
+  "type": "file",
+  "oid": "fe249e1fc4d40994e112b6a1098f64eb127ac293",
+  "size": 4607,
+  "path": "vllm-patch/2x24GB/flash-next-offload-01-expert-host-layers.patch"
+ },
+ {
+  "type": "file",
+  "oid": "45238b1fedc3c28507ffb058d71ca162078224e3",
+  "size": 19406,
+  "path": "vllm-patch/2x24GB/flash-next-offload-02-cold-experts.patch"
+ },
+ {
+  "type": "file",
+  "oid": "7bdfda7e55f3febbac6c9f511965aa7a4813ddef",
+  "size": 22420,
+  "path": "vllm-patch/2x24GB/flash-next-offload-03-expert-one-table.patch"
+ },
+ {
+  "type": "file",
+  "oid": "4fa2dc6a2519ee0b0522e432c4e4732b8c94a51a",
+  "size": 15128,
+  "path": "vllm-patch/2x24GB/flash-next-ttft-01-ple-page-prefetch.patch"
+ },
+ {
+  "type": "file",
+  "oid": "2568ac5bfb81ceb0f9437e8a23695462e6f664a9",
+  "size": 14288,
+  "path": "vllm-patch/2x24GB/flash-next-upstream-01-mamba-align-req-slot.patch"
+ },
+ {
+  "type": "file",
+  "oid": "48a6a4ea27e6879d42531cc039e5b2eb88ad17cd",
+  "size": 7903,
+  "path": "vllm-patch/2x24GB/flash-next-vision-01-streamed-tower.patch"
+ },
+ {
+  "type": "file",
+  "oid": "782efeeae995fdf43c8674767eaa60ac1bbb3d84",
+  "size": 54887,
+  "path": "vllm-patch/2x24GB/flash-next-vllm.patch"
+ },
+ {
+  "type": "file",
+  "oid": "620fe788ff73891402ca233d809081f38252526a",
+  "size": 6298,
+  "path": "vllm-patch/2x32GB/Dockerfile"
+ },
+ {
+  "type": "file",
+  "oid": "ccfdf60558c3ac0daa79adb54e008e9f40a5cef7",
+  "size": 5101,
+  "path": "vllm-patch/2x32GB/cold-experts/1.5GiB-per-card.json"
+ },
+ {
+  "type": "file",
+  "oid": "3651049b0adb273c5166875f3e51d1cc6e7a5f17",
+  "size": 34030,
+  "path": "vllm-patch/2x32GB/cold-experts/10.5GiB-per-card.json"
+ },
+ {
+  "type": "file",
+  "oid": "974ab19098a9a0321acba874aa5846b25cb0b073",
+  "size": 38864,
+  "path": "vllm-patch/2x32GB/cold-experts/12GiB-per-card.json"
+ },
+ {
+  "type": "file",
+  "oid": "39c96dcad0d71c59393e73135489a96845bfc948",
+  "size": 8330,
+  "path": "vllm-patch/2x32GB/cold-experts/2.5GiB-per-card.json"
+ },
+ {
+  "type": "file",
+  "oid": "c8e7b7b659134bffa6ba36e2c5302f86e1ce06f5",
+  "size": 6732,
+  "path": "vllm-patch/2x32GB/cold-experts/2GiB-per-card.json"
+ },
+ {
+  "type": "file",
+  "oid": "01153084afdb5c14666dae87a743a11c53c0cc1d",
+  "size": 9930,
+  "path": "vllm-patch/2x32GB/cold-experts/3GiB-per-card.json"
+ },
+ {
+  "type": "file",
+  "oid": "43a5735068f11e61967afeeba66fafa6b6cb9964",
+  "size": 13121,
+  "path": "vllm-patch/2x32GB/cold-experts/4GiB-per-card.json"
+ },
+ {
+  "type": "file",
+  "oid": "2fdff9bf353fca31f3bbcfd6260ee186830adb78",
+  "size": 16340,
+  "path": "vllm-patch/2x32GB/cold-experts/5GiB-per-card.json"
+ },
+ {
+  "type": "file",
+  "oid": "7555202be45981c1cd721173d52f090bac09ee6f",
+  "size": 19537,
+  "path": "vllm-patch/2x32GB/cold-experts/6GiB-per-card.json"
+ },
+ {
+  "type": "file",
+  "oid": "17c46f4180a99e155497f22ee09047af6d8605b6",
+  "size": 25978,
+  "path": "vllm-patch/2x32GB/cold-experts/8GiB-per-card.json"
+ },
+ {
+  "type": "file",
+  "oid": "fa968483316ecfee9aa2b4de8b4129d1725f55a6",
+  "size": 6353,
+  "path": "vllm-patch/2x32GB/compose.yaml"
+ },
+ {
+  "type": "file",
+  "oid": "daae2c6c5cb5219fbdfcfd673e0c9794b9b02a6f",
+  "size": 6981,
+  "path": "vllm-patch/2x32GB/flash-next-decode-01-ple-host-gather.patch"
+ },
+ {
+  "type": "file",
+  "oid": "e601df3301ed989e94a407f9f3fabc5ddbe3e05b",
+  "size": 3243,
+  "path": "vllm-patch/2x32GB/flash-next-decode-02-model-state-hook.patch"
+ },
+ {
+  "type": "file",
+  "oid": "a2ba5db13a1dd4d8922cebca345584ee02aa08ea",
+  "size": 4204,
+  "path": "vllm-patch/2x32GB/flash-next-decode-03-pp-deferred-recv.patch"
+ },
+ {
+  "type": "file",
+  "oid": "79dcb5c2368f0eafdb0d46ad63dd28fd6b2f4c9c",
+  "size": 17353,
+  "path": "vllm-patch/2x32GB/flash-next-decode-04-hc-fused-int8.patch"
+ },
+ {
+  "type": "file",
+  "oid": "a41697d63fddde3f70e1a934a910acc67ba09654",
+  "size": 31873,
+  "path": "vllm-patch/2x32GB/flash-next-decode-05-moe-fused.patch"
+ },
+ {
+  "type": "file",
+  "oid": "e4f90a92ef04ddfffda0e5202de8e727a3b86704",
+  "size": 3907,
+  "path": "vllm-patch/2x32GB/flash-next-decode-06-ple-gather-advise.patch"
+ },
+ {
+  "type": "file",
+  "oid": "bcd6ba14c29e5dbb83e304430140aaa06f12a16f",
+  "size": 25407,
+  "path": "vllm-patch/2x32GB/flash-next-decode-07-qsa-row-cache.patch"
+ },
+ {
+  "type": "file",
+  "oid": "559b6f6f6b7e64712561356ef63a1ebacf301364",
+  "size": 3070,
+  "path": "vllm-patch/2x32GB/flash-next-mem-01-pp-embed-head.patch"
+ },
+ {
+  "type": "file",
+  "oid": "fe249e1fc4d40994e112b6a1098f64eb127ac293",
+  "size": 4607,
+  "path": "vllm-patch/2x32GB/flash-next-offload-01-expert-host-layers.patch"
+ },
+ {
+  "type": "file",
+  "oid": "45238b1fedc3c28507ffb058d71ca162078224e3",
+  "size": 19406,
+  "path": "vllm-patch/2x32GB/flash-next-offload-02-cold-experts.patch"
+ },
+ {
+  "type": "file",
+  "oid": "7bdfda7e55f3febbac6c9f511965aa7a4813ddef",
+  "size": 22420,
+  "path": "vllm-patch/2x32GB/flash-next-offload-03-expert-one-table.patch"
+ },
+ {
+  "type": "file",
+  "oid": "4fa2dc6a2519ee0b0522e432c4e4732b8c94a51a",
+  "size": 15128,
+  "path": "vllm-patch/2x32GB/flash-next-ttft-01-ple-page-prefetch.patch"
+ },
+ {
+  "type": "file",
+  "oid": "2568ac5bfb81ceb0f9437e8a23695462e6f664a9",
+  "size": 14288,
+  "path": "vllm-patch/2x32GB/flash-next-upstream-01-mamba-align-req-slot.patch"
+ },
+ {
+  "type": "file",
+  "oid": "48a6a4ea27e6879d42531cc039e5b2eb88ad17cd",
+  "size": 7903,
+  "path": "vllm-patch/2x32GB/flash-next-vision-01-streamed-tower.patch"
+ },
+ {
+  "type": "file",
+  "oid": "782efeeae995fdf43c8674767eaa60ac1bbb3d84",
+  "size": 54887,
+  "path": "vllm-patch/2x32GB/flash-next-vllm.patch"
+ },
+ {
+  "type": "file",
+  "oid": "7d3d9ac797475b9f703907729d89c8160aebedf8",
+  "size": 5559,
+  "path": "vllm-patch/3x24GB+MTP/Dockerfile"
+ },
+ {
+  "type": "file",
+  "oid": "7674d3d534b6da9ffa365095c5d71bb430677198",
+  "size": 5826,
+  "path": "vllm-patch/3x24GB+MTP/compose.yaml"
+ },
+ {
+  "type": "file",
+  "oid": "daae2c6c5cb5219fbdfcfd673e0c9794b9b02a6f",
+  "size": 6981,
+  "path": "vllm-patch/3x24GB+MTP/flash-next-decode-01-ple-host-gather.patch"
+ },
+ {
+  "type": "file",
+  "oid": "e601df3301ed989e94a407f9f3fabc5ddbe3e05b",
+  "size": 3243,
+  "path": "vllm-patch/3x24GB+MTP/flash-next-decode-02-model-state-hook.patch"
+ },
+ {
+  "type": "file",
+  "oid": "a2ba5db13a1dd4d8922cebca345584ee02aa08ea",
+  "size": 4204,
+  "path": "vllm-patch/3x24GB+MTP/flash-next-decode-03-pp-deferred-recv.patch"
+ },
+ {
+  "type": "file",
+  "oid": "79dcb5c2368f0eafdb0d46ad63dd28fd6b2f4c9c",
+  "size": 17353,
+  "path": "vllm-patch/3x24GB+MTP/flash-next-decode-04-hc-fused-int8.patch"
+ },
+ {
+  "type": "file",
+  "oid": "a41697d63fddde3f70e1a934a910acc67ba09654",
+  "size": 31873,
+  "path": "vllm-patch/3x24GB+MTP/flash-next-decode-05-moe-fused.patch"
+ },
+ {
+  "type": "file",
+  "oid": "e4f90a92ef04ddfffda0e5202de8e727a3b86704",
+  "size": 3907,
+  "path": "vllm-patch/3x24GB+MTP/flash-next-decode-06-ple-gather-advise.patch"
+ },
+ {
+  "type": "file",
+  "oid": "bcd6ba14c29e5dbb83e304430140aaa06f12a16f",
+  "size": 25407,
+  "path": "vllm-patch/3x24GB+MTP/flash-next-decode-07-qsa-row-cache.patch"
+ },
+ {
+  "type": "file",
+  "oid": "559b6f6f6b7e64712561356ef63a1ebacf301364",
+  "size": 3070,
+  "path": "vllm-patch/3x24GB+MTP/flash-next-mem-01-pp-embed-head.patch"
+ },
+ {
+  "type": "file",
+  "oid": "0dc4d901a54e914fd0bf41d78c7d04dd49370cdc",
+  "size": 6601,
+  "path": "vllm-patch/3x24GB+MTP/flash-next-mtp-01-enable.patch"
+ },
+ {
+  "type": "file",
+  "oid": "75db2054fd2d65ef41239f568ce938b6deca4114",
+  "size": 6385,
+  "path": "vllm-patch/3x24GB+MTP/flash-next-mtp-02-three-cards.patch"
+ },
+ {
+  "type": "file",
+  "oid": "84088c940ace55f34b42e99332665c06d94d0938",
+  "size": 4931,
+  "path": "vllm-patch/3x24GB+MTP/flash-next-mtp-03-structured-output-drafts.patch"
+ },
+ {
+  "type": "file",
+  "oid": "4fa2dc6a2519ee0b0522e432c4e4732b8c94a51a",
+  "size": 15128,
+  "path": "vllm-patch/3x24GB+MTP/flash-next-ttft-01-ple-page-prefetch.patch"
+ },
+ {
+  "type": "file",
+  "oid": "2568ac5bfb81ceb0f9437e8a23695462e6f664a9",
+  "size": 14288,
+  "path": "vllm-patch/3x24GB+MTP/flash-next-upstream-01-mamba-align-req-slot.patch"
+ },
+ {
+  "type": "file",
+  "oid": "48a6a4ea27e6879d42531cc039e5b2eb88ad17cd",
+  "size": 7903,
+  "path": "vllm-patch/3x24GB+MTP/flash-next-vision-01-streamed-tower.patch"
+ },
+ {
+  "type": "file",
+  "oid": "782efeeae995fdf43c8674767eaa60ac1bbb3d84",
+  "size": 54887,
+  "path": "vllm-patch/3x24GB+MTP/flash-next-vllm.patch"
+ },
+ {
+  "type": "file",
+  "oid": "15e9edcccc6b58463acd50691da292501ef68274",
+  "size": 7061,
+  "path": "vllm-patch/3x24GB+MTP/make_mtp_int4.py"
+ },
+ {
+  "type": "file",
+  "oid": "20a5045d1ea6516efb3ed1875b04b66441c512e5",
+  "size": 5160,
+  "path": "vllm-patch/3x24GB/Dockerfile"
+ },
+ {
+  "type": "file",
+  "oid": "dc1ed67769641790e0b7cbc1b3ae0bf08cd9c238",
+  "size": 4705,
+  "path": "vllm-patch/3x24GB/compose.yaml"
+ },
+ {
+  "type": "file",
+  "oid": "daae2c6c5cb5219fbdfcfd673e0c9794b9b02a6f",
+  "size": 6981,
+  "path": "vllm-patch/3x24GB/flash-next-decode-01-ple-host-gather.patch"
+ },
+ {
+  "type": "file",
+  "oid": "e601df3301ed989e94a407f9f3fabc5ddbe3e05b",
+  "size": 3243,
+  "path": "vllm-patch/3x24GB/flash-next-decode-02-model-state-hook.patch"
+ },
+ {
+  "type": "file",
+  "oid": "a2ba5db13a1dd4d8922cebca345584ee02aa08ea",
+  "size": 4204,
+  "path": "vllm-patch/3x24GB/flash-next-decode-03-pp-deferred-recv.patch"
+ },
+ {
+  "type": "file",
+  "oid": "79dcb5c2368f0eafdb0d46ad63dd28fd6b2f4c9c",
+  "size": 17353,
+  "path": "vllm-patch/3x24GB/flash-next-decode-04-hc-fused-int8.patch"
+ },
+ {
+  "type": "file",
+  "oid": "a41697d63fddde3f70e1a934a910acc67ba09654",
+  "size": 31873,
+  "path": "vllm-patch/3x24GB/flash-next-decode-05-moe-fused.patch"
+ },
+ {
+  "type": "file",
+  "oid": "e4f90a92ef04ddfffda0e5202de8e727a3b86704",
+  "size": 3907,
+  "path": "vllm-patch/3x24GB/flash-next-decode-06-ple-gather-advise.patch"
+ },
+ {
+  "type": "file",
+  "oid": "bcd6ba14c29e5dbb83e304430140aaa06f12a16f",
+  "size": 25407,
+  "path": "vllm-patch/3x24GB/flash-next-decode-07-qsa-row-cache.patch"
+ },
+ {
+  "type": "file",
+  "oid": "559b6f6f6b7e64712561356ef63a1ebacf301364",
+  "size": 3070,
+  "path": "vllm-patch/3x24GB/flash-next-mem-01-pp-embed-head.patch"
+ },
+ {
+  "type": "file",
+  "oid": "4fa2dc6a2519ee0b0522e432c4e4732b8c94a51a",
+  "size": 15128,
+  "path": "vllm-patch/3x24GB/flash-next-ttft-01-ple-page-prefetch.patch"
+ },
+ {
+  "type": "file",
+  "oid": "2568ac5bfb81ceb0f9437e8a23695462e6f664a9",
+  "size": 14288,
+  "path": "vllm-patch/3x24GB/flash-next-upstream-01-mamba-align-req-slot.patch"
+ },
+ {
+  "type": "file",
+  "oid": "48a6a4ea27e6879d42531cc039e5b2eb88ad17cd",
+  "size": 7903,
+  "path": "vllm-patch/3x24GB/flash-next-vision-01-streamed-tower.patch"
+ },
+ {
+  "type": "file",
+  "oid": "782efeeae995fdf43c8674767eaa60ac1bbb3d84",
+  "size": 54887,
+  "path": "vllm-patch/3x24GB/flash-next-vllm.patch"
+ },
+ {
+  "type": "file",
+  "oid": "fd2e593a6a1b8cdeca8303458123fd00950a1108",
+  "size": 7447,
+  "path": "vllm-patch/4x24GB/4x3090/compose.yaml"
+ },
+ {
+  "type": "file",
+  "oid": "e2c3f744362ff04f2eb812387deed856c39727f8",
+  "size": 7220,
+  "path": "vllm-patch/4x24GB/Dockerfile"
+ },
+ {
+  "type": "file",
+  "oid": "daae2c6c5cb5219fbdfcfd673e0c9794b9b02a6f",
+  "size": 6981,
+  "path": "vllm-patch/4x24GB/flash-next-decode-01-ple-host-gather.patch"
+ },
+ {
+  "type": "file",
+  "oid": "e601df3301ed989e94a407f9f3fabc5ddbe3e05b",
+  "size": 3243,
+  "path": "vllm-patch/4x24GB/flash-next-decode-02-model-state-hook.patch"
+ },
+ {
+  "type": "file",
+  "oid": "a2ba5db13a1dd4d8922cebca345584ee02aa08ea",
+  "size": 4204,
+  "path": "vllm-patch/4x24GB/flash-next-decode-03-pp-deferred-recv.patch"
+ },
+ {
+  "type": "file",
+  "oid": "79dcb5c2368f0eafdb0d46ad63dd28fd6b2f4c9c",
+  "size": 17353,
+  "path": "vllm-patch/4x24GB/flash-next-decode-04-hc-fused-int8.patch"
+ },
+ {
+  "type": "file",
+  "oid": "a41697d63fddde3f70e1a934a910acc67ba09654",
+  "size": 31873,
+  "path": "vllm-patch/4x24GB/flash-next-decode-05-moe-fused.patch"
+ },
+ {
+  "type": "file",
+  "oid": "e4f90a92ef04ddfffda0e5202de8e727a3b86704",
+  "size": 3907,
+  "path": "vllm-patch/4x24GB/flash-next-decode-06-ple-gather-advise.patch"
+ },
+ {
+  "type": "file",
+  "oid": "bcd6ba14c29e5dbb83e304430140aaa06f12a16f",
+  "size": 25407,
+  "path": "vllm-patch/4x24GB/flash-next-decode-07-qsa-row-cache.patch"
+ },
+ {
+  "type": "file",
+  "oid": "559b6f6f6b7e64712561356ef63a1ebacf301364",
+  "size": 3070,
+  "path": "vllm-patch/4x24GB/flash-next-mem-01-pp-embed-head.patch"
+ },
+ {
+  "type": "file",
+  "oid": "0dc4d901a54e914fd0bf41d78c7d04dd49370cdc",
+  "size": 6601,
+  "path": "vllm-patch/4x24GB/flash-next-mtp-01-enable.patch"
+ },
+ {
+  "type": "file",
+  "oid": "75db2054fd2d65ef41239f568ce938b6deca4114",
+  "size": 6385,
+  "path": "vllm-patch/4x24GB/flash-next-mtp-02-three-cards.patch"
+ },
+ {
+  "type": "file",
+  "oid": "84088c940ace55f34b42e99332665c06d94d0938",
+  "size": 4931,
+  "path": "vllm-patch/4x24GB/flash-next-mtp-03-structured-output-drafts.patch"
+ },
+ {
+  "type": "file",
+  "oid": "4fa2dc6a2519ee0b0522e432c4e4732b8c94a51a",
+  "size": 15128,
+  "path": "vllm-patch/4x24GB/flash-next-ttft-01-ple-page-prefetch.patch"
+ },
+ {
+  "type": "file",
+  "oid": "2568ac5bfb81ceb0f9437e8a23695462e6f664a9",
+  "size": 14288,
+  "path": "vllm-patch/4x24GB/flash-next-upstream-01-mamba-align-req-slot.patch"
+ },
+ {
+  "type": "file",
+  "oid": "48a6a4ea27e6879d42531cc039e5b2eb88ad17cd",
+  "size": 7903,
+  "path": "vllm-patch/4x24GB/flash-next-vision-01-streamed-tower.patch"
+ },
+ {
+  "type": "file",
+  "oid": "782efeeae995fdf43c8674767eaa60ac1bbb3d84",
+  "size": 54887,
+  "path": "vllm-patch/4x24GB/flash-next-vllm.patch"
+ },
+ {
+  "type": "file",
+  "oid": "885de6b60e6c6e8fa963c261a344a3ba631f3c39",
+  "size": 7569,
+  "path": "vllm-patch/4x24GB/main/compose.yaml"
+ },
+ {
+  "type": "file",
+  "oid": "15e9edcccc6b58463acd50691da292501ef68274",
+  "size": 7061,
+  "path": "vllm-patch/4x24GB/make_mtp_int4.py"
+ },
+ {
+  "type": "file",
+  "oid": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+  "size": 11357,
+  "path": "vllm-patch/LICENSE"
+ },
+ {
+  "type": "file",
+  "oid": "afbdb0e1a09e1c5c342fedca3f22b09b7bc72c4f",
+  "size": 1053,
+  "path": "vllm-patch/LICENSE.MIT"
+ },
+ {
+  "type": "file",
+  "oid": "483d1c34909f536a0fcad96b279323ea1289bb8d",
+  "size": 3641,
+  "path": "vllm-patch/NOTICE"
+ },
+ {
+  "type": "file",
+  "oid": "7500bf94424fd98a82a3f954b70e9abc134046d7",
+  "size": 20094,
+  "path": "vllm-patch/README.md"
+ },
+ {
+  "type": "file",
+  "oid": "0aa0ce0658d60ac4a5d609f4eadb0e8e43514176",
+  "size": 6722759,
+  "path": "vocab.json"
+ }
+]

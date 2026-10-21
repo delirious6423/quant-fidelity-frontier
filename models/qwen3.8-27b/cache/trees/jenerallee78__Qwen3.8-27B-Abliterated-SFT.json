@@ -1,0 +1,524 @@
+[
+ {
+  "type": "directory",
+  "oid": "2c41b8ec4b38bd0aad28616be7cbaa083529990d",
+  "size": 0,
+  "path": "adapter"
+ },
+ {
+  "type": "directory",
+  "oid": "ff2fedafe159c6b52a9af9999623dca86975d45c",
+  "size": 0,
+  "path": "docs"
+ },
+ {
+  "type": "directory",
+  "oid": "25967d5f94d3885ae9718e89d95bcff57149f766",
+  "size": 0,
+  "path": "gguf"
+ },
+ {
+  "type": "directory",
+  "oid": "3ff0bf0da76850dff114f698e328cb95e2ab90f0",
+  "size": 0,
+  "path": "harness"
+ },
+ {
+  "type": "file",
+  "oid": "33afaa364df3b5fc393dd0c6d6643ef220912518",
+  "size": 2101,
+  "path": ".gitattributes"
+ },
+ {
+  "type": "file",
+  "oid": "c2a85cd81b708b8116af8e76a6d95ea3a2bb5d52",
+  "size": 4689,
+  "path": "GGUFs.md"
+ },
+ {
+  "type": "file",
+  "oid": "4e5224ab1d0a05b9fa8282e0bef34340dd3ed67b",
+  "size": 18441,
+  "path": "README.md"
+ },
+ {
+  "type": "file",
+  "oid": "2161537ea54ea6cd565f44028a3289ed55d33cfb",
+  "size": 966,
+  "path": "adapter/adapter_config.json"
+ },
+ {
+  "type": "file",
+  "oid": "2cd521cf9a7816388e525ef9a03e56dd894af05c",
+  "size": 23086104,
+  "lfs": {
+   "oid": "983b51bc53d9df2008d5b852324ac04d645592ad007cd0f83524144d2b8fe94d",
+   "size": 23086104,
+   "pointerSize": 133
+  },
+  "xetHash": "38f2e96bc82d3f2cdfdd6de80f580b81e2547b383b7da6d10543137f02590a41",
+  "path": "adapter/adapter_model.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "59354600721d41900caa6d3d9ac204ccd8fcd0c2",
+  "size": 1859,
+  "path": "bake-manifest.json"
+ },
+ {
+  "type": "file",
+  "oid": "67a76691f655ce559bc17d00600543e28f4b6fb4",
+  "size": 8950,
+  "path": "chat_template.jinja"
+ },
+ {
+  "type": "file",
+  "oid": "da98e62126b6c03db4d0a3c2e3373f86d71a8272",
+  "size": 3631,
+  "path": "config.json"
+ },
+ {
+  "type": "file",
+  "oid": "4c9fed6262f866c60f0bacc71a6a182f786367fb",
+  "size": 2815,
+  "path": "docs/ANALYSIS-termination-pathway.md"
+ },
+ {
+  "type": "file",
+  "oid": "fde08a9416e6cb34ee6cf120a8225ceb603d3e84",
+  "size": 10336,
+  "path": "docs/ANALYSIS-termination-signature.md"
+ },
+ {
+  "type": "file",
+  "oid": "21140853c6885359daec9afaf2b9b67a12257c18",
+  "size": 7018,
+  "path": "docs/METHODS-abliteration-and-harness.md"
+ },
+ {
+  "type": "file",
+  "oid": "69ff585a990bc67dd0cafd6c5fc2838e3f4a7801",
+  "size": 6462,
+  "path": "docs/NOTE-base-prompt-sensitivity.md"
+ },
+ {
+  "type": "file",
+  "oid": "f0bcf42a5ffadda5ed56bdfc496dff7810f98baa",
+  "size": 453,
+  "path": "generation_config.json"
+ },
+ {
+  "type": "file",
+  "oid": "1d6ba94af57227988de48a063638875dc4db5adb",
+  "size": 219,
+  "path": "gguf/hf2q-q4_k_m-SHA256SUMS.txt"
+ },
+ {
+  "type": "file",
+  "oid": "a718bab1c57df7dabd82ae4c39c52d6868b88285",
+  "size": 1413,
+  "path": "gguf/hf2q-q4_k_m-manifest.json"
+ },
+ {
+  "type": "file",
+  "oid": "61b06c8c233ba674a134fc578fa22ecaf01ca585",
+  "size": 927607264,
+  "lfs": {
+   "oid": "670df5f82a97542c55e22448bac805e47dac1dc2482e8066a7c84fb9dea41ea9",
+   "size": 927607264,
+   "pointerSize": 134
+  },
+  "xetHash": "38fde4af7e71e6bda776312c8bcd1f6f9127d3db314f1fc15dd35eaddf5ada69",
+  "path": "gguf/mmproj-qwen38-f16.gguf"
+ },
+ {
+  "type": "file",
+  "oid": "f1b96ef9e47cee4dfdd2a47c3e7c1e3d0138d037",
+  "size": 54657734208,
+  "lfs": {
+   "oid": "f30d9a6ea40ca3c5265d0996a460ad1474173c40c8e7f04c0b03caf6084c2cee",
+   "size": 54657734208,
+   "pointerSize": 136
+  },
+  "xetHash": "067bf3e35f7280b8a3dc17fe6b802d2e96e731ba407f05d991f1f15944d91366",
+  "path": "gguf/qwen38-abliterated-sft-bf16.gguf"
+ },
+ {
+  "type": "file",
+  "oid": "231ff49bc40cf8caedf7c44f8e89c27e0bbea59f",
+  "size": 927606848,
+  "lfs": {
+   "oid": "463b264713f8e081f0fae753c80d8089308e01b1e2ac0948dd9966d0711d8f1b",
+   "size": 927606848,
+   "pointerSize": 134
+  },
+  "xetHash": "605ef7d8d62c8fb4d7f067c67e4aee52b789ee33581ee0b613570d011b5fe261",
+  "path": "gguf/qwen38-abliterated-sft-hf2q-q4_k_m-mmproj.gguf"
+ },
+ {
+  "type": "file",
+  "oid": "82a114cb49abf06827fdc757ee7f8e4c6cf6236b",
+  "size": 16810714944,
+  "lfs": {
+   "oid": "1ee55c653644d6f645c6b2f39fc56a3ce28093620fd34dd43678875f348f2e1a",
+   "size": 16810714944,
+   "pointerSize": 136
+  },
+  "xetHash": "b426840012caffe2926641323a3b1bc6b1b864da15f4a5fab919f2fc1a0e3044",
+  "path": "gguf/qwen38-abliterated-sft-hf2q-q4_k_m.gguf"
+ },
+ {
+  "type": "file",
+  "oid": "c90b29de5abe08d5358579da3c52c565ab2d559b",
+  "size": 19535701568,
+  "lfs": {
+   "oid": "4b19f41c391d962882e459be3315d4e3c54079892db2848f66b78815b185156e",
+   "size": 19535701568,
+   "pointerSize": 136
+  },
+  "xetHash": "fc5bebea157d15f58c9752cde3d836a7e2af9300731d7def7a8718689cb1a456",
+  "path": "gguf/qwen38-abliterated-sft-q5_k_m.gguf"
+ },
+ {
+  "type": "file",
+  "oid": "046e6cabf544485319bc1c1f0c53c280c6d4e7c8",
+  "size": 22431000128,
+  "lfs": {
+   "oid": "78f62a87ef851443d4e0c74c4e1eb1dfe73e3bf0ded3cf320ec80f763020ddb3",
+   "size": 22431000128,
+   "pointerSize": 136
+  },
+  "xetHash": "3ad3cd2c81573d4c0ddc5600e9e8e906dd6bf5ed96ceacd7ebcb7dbe5278ec7e",
+  "path": "gguf/qwen38-abliterated-sft-q6_k.gguf"
+ },
+ {
+  "type": "file",
+  "oid": "785891198d0f2666018f08f7719c2c40d551e6ef",
+  "size": 29047084608,
+  "lfs": {
+   "oid": "53c076e5117be1391e76a9746998fbe2040e6b69a73aa47d1c1b0ca97a8a2c99",
+   "size": 29047084608,
+   "pointerSize": 136
+  },
+  "xetHash": "cc113e391a69bcbf3ffc2f1d06c4ffff9f0b519d0d89489c152f0d85d62e7d1d",
+  "path": "gguf/qwen38-abliterated-sft-q8_0.gguf"
+ },
+ {
+  "type": "file",
+  "oid": "5702c367a741ba3c6b2a60abf110a8764a97183d",
+  "size": 625,
+  "path": "harness/README.md"
+ },
+ {
+  "type": "file",
+  "oid": "b97d859a08044e8e3cba38a5e4bc2caa234e01e2",
+  "size": 37600,
+  "path": "harness/harmbench-text-all.json"
+ },
+ {
+  "type": "file",
+  "oid": "2bf1aa7264c31ede6370ea43f1eebfd5d3d99481",
+  "size": 10914,
+  "path": "harness/qwen38_bake.py"
+ },
+ {
+  "type": "file",
+  "oid": "030321cceddc15d66a2f30a871b3d3a7486b2dfa",
+  "size": 16693,
+  "path": "harness/qwen38_external_eval.py"
+ },
+ {
+  "type": "file",
+  "oid": "b6554fc156ce87994938f595211f1d9e1b39e7ae",
+  "size": 5359,
+  "path": "harness/qwen38_external_report.py"
+ },
+ {
+  "type": "file",
+  "oid": "b2d77c7d047339c080947c5855c9c5d4006c7a5c",
+  "size": 4456,
+  "path": "harness/qwen38_harmbench_cls.py"
+ },
+ {
+  "type": "file",
+  "oid": "e238dc2c4742bccbebb44db75637e42d9a22767d",
+  "size": 6141,
+  "path": "harness/qwen38_panel_gen.py"
+ },
+ {
+  "type": "file",
+  "oid": "30a6e06a548d45a5b871724c29018b1e02c5a4cd",
+  "size": 6764,
+  "path": "harness/qwen38_phase3_confirm.py"
+ },
+ {
+  "type": "file",
+  "oid": "6bcab8b78ba84f00a6e06c0c70f1a30aeed249d9",
+  "size": 12690,
+  "path": "harness/qwen38_semantic_campaign.py"
+ },
+ {
+  "type": "file",
+  "oid": "fcce283bdd638f2d69be769e3670c7d6950d5194",
+  "size": 8583,
+  "path": "harness/qwen38_semantic_judge.py"
+ },
+ {
+  "type": "file",
+  "oid": "489415741eb009e4581b4834f809bfa5251e4047",
+  "size": 11156,
+  "path": "harness/qwen38_semantic_repair.py"
+ },
+ {
+  "type": "file",
+  "oid": "3cf33b2c8c14e28d951d88db3ae1cda188ee61e6",
+  "size": 15411,
+  "path": "harness/qwen38_semantic_report.py"
+ },
+ {
+  "type": "file",
+  "oid": "3582171eccf52d69dbba142d333f7f9c8d117daf",
+  "size": 9261,
+  "path": "harness/qwen38_sft_lora.py"
+ },
+ {
+  "type": "file",
+  "oid": "6c6bb19f7bebb3e1905ec430db9ea9b9e9e7173f",
+  "size": 3986,
+  "path": "harness/qwen38_sft_teacher_gen.py"
+ },
+ {
+  "type": "file",
+  "oid": "a5f898959115bbe61603a3d0c8da9fff5e3bc873",
+  "size": 11533,
+  "path": "harness/qwen38_termination_probe.py"
+ },
+ {
+  "type": "file",
+  "oid": "8da3681073ada32af09308f8282d35d478f7696f",
+  "size": 14847,
+  "path": "harness/qwen38_utility_battery.py"
+ },
+ {
+  "type": "file",
+  "oid": "88e3f2cbdf053023ea7b96c7d2a16418c478fa64",
+  "size": 6953,
+  "path": "harness/qwen38_verify_baked.py"
+ },
+ {
+  "type": "file",
+  "oid": "b90ee5bb8f0dd1ddf8800a60246f6a8a666e9ab3",
+  "size": 18188,
+  "path": "harness/semantic_refusal.py"
+ },
+ {
+  "type": "file",
+  "oid": "8a7b13137fad8bc802926bb04568324f1a2d2ab0",
+  "size": 2542796928,
+  "lfs": {
+   "oid": "54d83c1d36631de231876217a8e0c2483eccee8746369a482b79442bdfc5d958",
+   "size": 2542796928,
+   "pointerSize": 135
+  },
+  "xetHash": "4a8c494ff93bdcba95af387374af1c82bb96538ae699bc428a152ae160e654fc",
+  "path": "model-00001-of-00012.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "643c658e182cbde86952e697425d8d7a54cc263a",
+  "size": 4842451920,
+  "lfs": {
+   "oid": "8cd8305289ada6b5bd4e32664ac629069068ddd778f4504ed824f28ee22ff4b9",
+   "size": 4842451920,
+   "pointerSize": 135
+  },
+  "xetHash": "c75e5c867f0d6f0df40c7b5f5a711eb038db3d11bd8de9122223710896b6bbeb",
+  "path": "model-00002-of-00012.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "5c181efe0a845849e2a2b3f2be6136d6fa8cdcce",
+  "size": 4965227944,
+  "lfs": {
+   "oid": "35acacdc9ba1f93891c7dc9dd55715b904203a431e6eee7d7a5d90f3c97ad390",
+   "size": 4965227944,
+   "pointerSize": 135
+  },
+  "xetHash": "dde1e7fbd7f8df078692be21b9167268aef2e6ffc29aa3faef3620b12ae406af",
+  "path": "model-00003-of-00012.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "8e25dc29d77bde493d0306850e208d7e9937435b",
+  "size": 4912819264,
+  "lfs": {
+   "oid": "b0984f134891901f453e5258073b66c123ad2dba40380a6c5b65ba13e6bec11c",
+   "size": 4912819264,
+   "pointerSize": 135
+  },
+  "xetHash": "25339ff3d7755f2a5ffe01982c734ab7dbac75f397713187510b19057e07cecb",
+  "path": "model-00004-of-00012.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "735a7be7e06b8a1814871baa581a2f7e816a35e0",
+  "size": 4986198544,
+  "lfs": {
+   "oid": "475c3deac1ad9cff5f559a3fbf7e0d9324ef3f60503798d8550969003d8e25b3",
+   "size": 4986198544,
+   "pointerSize": 135
+  },
+  "xetHash": "ccd0481cc5b3b504c21b09be8d502c2016cb4dafe0b2d800acffd924eff7b46c",
+  "path": "model-00005-of-00012.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "5265d9fc4abe785dadf1dfa702f02bbe77cbf61b",
+  "size": 4912819320,
+  "lfs": {
+   "oid": "de83649174921836f02f93da46e83d0e75bfd909cdbcd759b54b36b99c65e38b",
+   "size": 4912819320,
+   "pointerSize": 135
+  },
+  "xetHash": "0a4e03f56541b93e994efef24f07e73b2334058f5a468b6a4b8dabd808c4f23d",
+  "path": "model-00006-of-00012.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "edfda3664e1158322cccebbfc4f659e23a9ea236",
+  "size": 4932703272,
+  "lfs": {
+   "oid": "dc81f5855c2a3162a7d4f933bd6a8fbf8a8859c99965ed4e1b72fd1ea112de57",
+   "size": 4932703272,
+   "pointerSize": 135
+  },
+  "xetHash": "cb8c3d13882b25756e60a274bb91a792ab939096f3951b92afd2780a55e89466",
+  "path": "model-00007-of-00012.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "6618bceb4ce063922b4d4ef45136827f2ffe455a",
+  "size": 4966314576,
+  "lfs": {
+   "oid": "7218918aa2534df750307293ed865a1f21c14079f76e00e488a1eaccb0dee9f4",
+   "size": 4966314576,
+   "pointerSize": 135
+  },
+  "xetHash": "dbb0be13c5e81b5883e86ec52478db6ab023e9405faf2da1b57ec145769a0255",
+  "path": "model-00008-of-00012.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "94f044f216be8880f20e604bd5529121fa91828e",
+  "size": 4964162248,
+  "lfs": {
+   "oid": "356ca468b4192882a4386b98a866c8a46ae288f591a9fa6cf25ccf2aefbad36c",
+   "size": 4964162248,
+   "pointerSize": 135
+  },
+  "xetHash": "10c19800003cbbabaa95f498bccc2255a20caf6eec7bc04b1165e31868f1decb",
+  "path": "model-00009-of-00012.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "34f6e1d71fe15e858282db519f315dd9bd4d50ce",
+  "size": 4933789824,
+  "lfs": {
+   "oid": "dcc0ac63cc3985175f3990b0087bca08edd146247980406bd4dfb9f0012849e9",
+   "size": 4933789824,
+   "pointerSize": 135
+  },
+  "xetHash": "6f8d0b4f89fd59df0ef74d08e6e1d32c503d6a531500a7935299facbeba258b4",
+  "path": "model-00010-of-00012.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "018e61590fdfe64eae55d9b87284b3e6b1b953e4",
+  "size": 4965228032,
+  "lfs": {
+   "oid": "1cddc2d80c93b89590371ee9f694e6dfc08679de31dea3fb664e57931037b184",
+   "size": 4965228032,
+   "pointerSize": 135
+  },
+  "xetHash": "ce3a7b5f46e2fbebb19ba58b79ca2c3a5e3cf02e54aa54cd2d0725ba160e2736",
+  "path": "model-00011-of-00012.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "84418328a1e8b7878d4156302dd2b0fde431d383",
+  "size": 1867596944,
+  "lfs": {
+   "oid": "56c9e4d29cdfdde9e3751fada8b5c1ed1d50fa660a00c4f0ee7f16610af033d4",
+   "size": 1867596944,
+   "pointerSize": 135
+  },
+  "xetHash": "7d21dd722ebed5ba401def7b11a51c0e6e531c5ab8ac8e6f9681c728eac0aa7d",
+  "path": "model-00012-of-00012.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "f845d595616bf497efa35face62b9faf01cec85b",
+  "size": 1770897648,
+  "lfs": {
+   "oid": "bf23280788e616231c29db327f7df25254673c0e8c33c717bf321e310ec5ef64",
+   "size": 1770897648,
+   "pointerSize": 135
+  },
+  "xetHash": "7b2a44779b23cbc63ba80d9d182b2a086403de3b2480798127fc426e7d186f0f",
+  "path": "model-graft.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "614906a6cda3aaa47c429000b736fc41d7f24a7e",
+  "size": 104300,
+  "path": "model.safetensors.index.json"
+ },
+ {
+  "type": "file",
+  "oid": "622c83c32533ea8ce194b59f7b69249acdc41776",
+  "size": 4554,
+  "path": "panel-sensitive-legit-v1.json"
+ },
+ {
+  "type": "file",
+  "oid": "2ea84a437d448ff71b08df68fdd949d5cc4ebb64",
+  "size": 390,
+  "path": "preprocessor_config.json"
+ },
+ {
+  "type": "file",
+  "oid": "a58a8ec25a35505a1648bc9a8ae022a1c95cbe74",
+  "size": 2961,
+  "path": "serve-l40.sh"
+ },
+ {
+  "type": "file",
+  "oid": "5520bfd2dd834ce386c1312c410fa71af56db5ad",
+  "size": 19989325,
+  "lfs": {
+   "oid": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523",
+   "size": 19989325,
+   "pointerSize": 133
+  },
+  "xetHash": "777bcaa63794fa47b8f53680be9d6d176f1fcbd7ba03cdc6c3bae2b3d76b323f",
+  "path": "tokenizer.json"
+ },
+ {
+  "type": "file",
+  "oid": "d1a20cc3a8838d08eca9de8a7b84d510d60a0524",
+  "size": 1124,
+  "path": "tokenizer_config.json"
+ },
+ {
+  "type": "file",
+  "oid": "d3711e13304ebc203fca7e72588448be045d8262",
+  "size": 1224,
+  "path": "verify-baked-e2.json"
+ },
+ {
+  "type": "file",
+  "oid": "4a1b70310d4ab343f996cb30c22223d694b698db",
+  "size": 712,
+  "path": "zen100-exclusions.json"
+ }
+]

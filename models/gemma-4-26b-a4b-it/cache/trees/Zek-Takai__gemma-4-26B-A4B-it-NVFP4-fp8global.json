@@ -1,0 +1,236 @@
+[
+ {
+  "type": "directory",
+  "oid": "f9a4b6ccdfa77127583d4940e814812e8f673b89",
+  "size": 0,
+  "path": "data"
+ },
+ {
+  "type": "directory",
+  "oid": "06ed1ac5e3d7068b28e4b3f0a24ea8832d056bd7",
+  "size": 0,
+  "path": "examples"
+ },
+ {
+  "type": "directory",
+  "oid": "6b875628843d82b01a2730fd0d93a2f5f3c9464a",
+  "size": 0,
+  "path": "patches"
+ },
+ {
+  "type": "directory",
+  "oid": "6e4470ab44b770db0f8246add7b26b9fee7d1ff5",
+  "size": 0,
+  "path": "patches/vllm_bos_dedupe"
+ },
+ {
+  "type": "directory",
+  "oid": "8921a2c173a62ad4f2c2d0d478b6722b2bad1605",
+  "size": 0,
+  "path": "patches/vllm_gemma4_mtp_embed_share"
+ },
+ {
+  "type": "directory",
+  "oid": "19f1b40491dc242f52dd546f77343d151b56ab07",
+  "size": 0,
+  "path": "recipe"
+ },
+ {
+  "type": "file",
+  "oid": "52373fe24473b1aa44333d318f578ae6bf04b49b",
+  "size": 1570,
+  "path": ".gitattributes"
+ },
+ {
+  "type": "file",
+  "oid": "47131c7dffb96ece92ddd1c1f823a4cbefa0476b",
+  "size": 7887,
+  "path": "README.md"
+ },
+ {
+  "type": "file",
+  "oid": "4741bf6e4132ba23a5537f9d6e74e9a6d613d7cd",
+  "size": 18683,
+  "path": "chat_template.jinja"
+ },
+ {
+  "type": "file",
+  "oid": "10342e36f97943216cba246705f3dcbc8c161949",
+  "size": 20796,
+  "path": "config.json"
+ },
+ {
+  "type": "file",
+  "oid": "f05c55fb2505b60236fa65a897497748c2c2fbac",
+  "size": 2331,
+  "path": "data/README.md"
+ },
+ {
+  "type": "file",
+  "oid": "16aa8ffa5123f1885e2e9ec841f3f8d3467ff346",
+  "size": 105,
+  "path": "data/context_ladder_unbounded.csv"
+ },
+ {
+  "type": "file",
+  "oid": "828a6b98ff04d9d8ef4802e957f7fc98d76f94f0",
+  "size": 209,
+  "path": "data/decode_ladder_head_ab.csv"
+ },
+ {
+  "type": "file",
+  "oid": "0420bf3d879da55ee1adfb689de76d0c7381370c",
+  "size": 265,
+  "path": "data/live_agent_session.csv"
+ },
+ {
+  "type": "file",
+  "oid": "a6d74019775f09631a2d37e5f88103155d91c591",
+  "size": 169,
+  "path": "data/mtp_context_ladder.csv"
+ },
+ {
+  "type": "file",
+  "oid": "c25485c26b51318ae2e119800567d15c6dc28032",
+  "size": 579,
+  "path": "examples/serve_vllm.sh"
+ },
+ {
+  "type": "file",
+  "oid": "e605bb4523b1462ea9d9a3810b9e3ecf7ab7b1f6",
+  "size": 208,
+  "path": "generation_config.json"
+ },
+ {
+  "type": "file",
+  "oid": "3cf83b218d70e8423559f2d62595e376f58e9f72",
+  "size": 4000661056,
+  "lfs": {
+   "oid": "6cf258dede798969c7e413a4c11e52ffeb08c7ffc2e791e03cfe2b1f6f707e1c",
+   "size": 4000661056,
+   "pointerSize": 135
+  },
+  "xetHash": "3a31b08f4936f3264188c745cc86e241283d6c4b3440e229cd4e9cc557afd834",
+  "path": "model-00001-of-00005.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "659bf457b005047cb5e674845329a557be7d1ac8",
+  "size": 4001092378,
+  "lfs": {
+   "oid": "6920e2eca4e02066114079b866fb67306f1b42c4c6ea5d659559e6e81ce5e67d",
+   "size": 4001092378,
+   "pointerSize": 135
+  },
+  "xetHash": "f5de6c3b28dd3efaa73f68ed90f9dde715051d8f4a875fbbd1000a4b71dbcb4e",
+  "path": "model-00002-of-00005.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "11c7127c77541a6901b0138671f54c2abc36aa08",
+  "size": 4001494304,
+  "lfs": {
+   "oid": "7360e76711fbcff0536377632e08c77869a37370ecf97afd953d706f915c3af8",
+   "size": 4001494304,
+   "pointerSize": 135
+  },
+  "xetHash": "b9b4886a3d4e4dd31d8d3e2fa6797489f983a201db204250cddf3d9d1cb477a0",
+  "path": "model-00003-of-00005.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "1812e818ab273583d3ea08aa460ed3c08a54b0f7",
+  "size": 4000209978,
+  "lfs": {
+   "oid": "280ae8a35912a8cecedcb2ee4a68e9b9e14ea4ab57b78d2954480590f52870d9",
+   "size": 4000209978,
+   "pointerSize": 135
+  },
+  "xetHash": "2e82db043cd99199bbdec6fac84aba59302b9b691cd88f80d96d37a53688a253",
+  "path": "model-00004-of-00005.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "cd7f15033049a28f2a1b754c3b410ff9d2015d9b",
+  "size": 942571760,
+  "lfs": {
+   "oid": "079eb95b7fe74aad0c9ebf8ec94786f07c9303eebd841c27ae1a18b7e27197d8",
+   "size": 942571760,
+   "pointerSize": 134
+  },
+  "xetHash": "907a1a7cfa6591b3b46b6feb07f4c1f903cd797be63b55b1dd4413dcf4b033b5",
+  "path": "model-00005-of-00005.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "fcbd2131d682c82406f282d549431c72367c35e6",
+  "size": 5259645,
+  "path": "model.safetensors.index.json"
+ },
+ {
+  "type": "file",
+  "oid": "0e176bfc49472d75f41e7c5cdbf977a32bdae6aa",
+  "size": 611,
+  "path": "patches/vllm_bos_dedupe/README.md"
+ },
+ {
+  "type": "file",
+  "oid": "29c771931b00a81caafc70699924318d8ccded2b",
+  "size": 1036,
+  "path": "patches/vllm_bos_dedupe/bos_dedupe.patch"
+ },
+ {
+  "type": "file",
+  "oid": "757b477a2d41ba239560e556aa58d11921625818",
+  "size": 1042,
+  "path": "patches/vllm_gemma4_mtp_embed_share/README.md"
+ },
+ {
+  "type": "file",
+  "oid": "ee0e0d333f308b9d061360c672246045f677f4ae",
+  "size": 2324,
+  "path": "patches/vllm_gemma4_mtp_embed_share/embed_share.patch"
+ },
+ {
+  "type": "file",
+  "oid": "5465974d23e1eca2c46c2809b26c997946ce0d90",
+  "size": 1689,
+  "path": "processor_config.json"
+ },
+ {
+  "type": "file",
+  "oid": "21da9a6635da8ceb44c7268351b00c0778253a7a",
+  "size": 438,
+  "path": "recipe.yaml"
+ },
+ {
+  "type": "file",
+  "oid": "1597d7559db197ffbef8b6f026b1363022ac108b",
+  "size": 3078,
+  "path": "recipe/README.md"
+ },
+ {
+  "type": "file",
+  "oid": "a6a3d8b000a8a11ccb758c4ed9ab600e4916c5aa",
+  "size": 8963,
+  "path": "recipe/quant_fp8global.py"
+ },
+ {
+  "type": "file",
+  "oid": "24a4460aec5806b6a782cadd218518b184c1eebc",
+  "size": 19439661,
+  "lfs": {
+   "oid": "6e54e80ae1f97fde380e807e92523416521b589e5715ab991397c56c9dc255fa",
+   "size": 19439661,
+   "pointerSize": 133
+  },
+  "xetHash": "6fb8bbbd49ef7458fa3632c849182871b0cff37be14d8fef0ce6b552b484d607",
+  "path": "tokenizer.json"
+ },
+ {
+  "type": "file",
+  "oid": "b22e2c5c05597a7e8c0cb1cebdb7d45570772005",
+  "size": 3728,
+  "path": "tokenizer_config.json"
+ }
+]

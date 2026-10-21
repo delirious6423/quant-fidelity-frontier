@@ -1,0 +1,133 @@
+---
+base_model: Qwen/Qwen3.8-27B
+base_model_relation: quantized
+pipeline_tag: image-text-to-text
+library_name: transformers
+license: apache-2.0
+language:
+  - en
+tags:
+  - int4
+  - w4a16
+  - gptq
+  - compressed-tensors
+  - auto-round
+  - vllm
+  - quantized
+  - qwen3
+---
+
+# Qwen3.8-27B-W4A16-AutoRound
+
+An int4 weight-only (W4A16) quantization of [Qwen/Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B), made
+with [Intel AutoRound](https://github.com/intel/auto-round) and packaged in
+[compressed-tensors](https://github.com/neuralmagic/compressed-tensors) for vLLM. The weights are int4 and the
+activations stay BF16, so it runs on any Ampere-or-newer NVIDIA GPU through the Marlin int4 kernel — no
+Blackwell needed. It's about 19.5 GB on disk, down from roughly 52 GB at BF16.
+
+This build is aimed at non-Blackwell GPUs. If you have a Blackwell card (RTX 50-series, B200, DGX Spark), the
+[NVFP4 (W4A4) sibling](https://huggingface.co/dbirks/Qwen3.8-27B-NVFP4-AutoRound) uses the FP4 tensor cores and
+will be faster. Accuracy notes are in the Evaluation section below.
+
+## Model overview
+- **Base model:** [`Qwen/Qwen3.8-27B`](https://huggingface.co/Qwen/Qwen3.8-27B) — a hybrid **GatedDeltaNet (linear-attention) + full-attention** multimodal decoder (64 layers: 48 linear-attn + 16 full-attn) with a vision tower; 262K context.
+- **Quantization:** int4 **W4A16** (weight-only, group size 128) on the language-decoder `Linear` layers, **except** the two tiny per-layer recurrence-control projections (`in_proj_a`, `in_proj_b`) which stay BF16.
+- **Kept BF16:** `linear_attn.in_proj_a` / `in_proj_b`, the entire `visual.*` vision tower, the `mtp` head, and `lm_head`.
+- **Format:** compressed-tensors (`pack-quantized`), auto-detected by vLLM (Marlin int4).
+- **Quantizer:** Intel AutoRound (arXiv:2309.05516), SignRound block reconstruction.
+
+## Quantization recipe
+- **Scheme:** `W4A16` — 4-bit weights, group size 128, symmetric; activations stay BF16.
+- **Quantized:** the 48 GatedDeltaNet layers' `in_proj_qkv` / `in_proj_z` / `out_proj` + all MLP `gate/up/down` + the 16 full-attention layers' `q/k/v/o` projections.
+- **Kept BF16:** `in_proj_a`, `in_proj_b`, `visual.*`, `mtp`, `lm_head`.
+- **Calibration:** `NeelNanda/pile-10k`, 128 samples, seqlen 2048, 200 tuning iters (screen recipe).
+- **Cost:** about 35 minutes on a single 96 GB Blackwell GPU; peak 24 GB VRAM, 26 GB host RAM.
+
+## Deployment (vLLM)
+vLLM auto-detects the int4 scheme from `config.json` — no quantization flag needed. Serves as `Qwen3_5ForConditionalGeneration`.
+```bash
+vllm serve dbirks/Qwen3.8-27B-W4A16-AutoRound --max-model-len 8192 --trust-remote-code
+```
+
+### Example `compose.yaml`
+```yaml
+services:
+  qwen38-w4a16:
+    image: vllm/vllm-openai:latest   # any recent vLLM with Qwen3.8 (qwen3_5) support; Marlin int4 runs on any Ampere+ GPU
+    ports:
+      - "8000:8000"
+    ipc: host
+    volumes:
+      - ~/.cache/huggingface:/root/.cache/huggingface
+    command:
+      - "--model=dbirks/Qwen3.8-27B-W4A16-AutoRound"
+      - "--served-model-name=qwen3.8-27b"
+      - "--max-model-len=8192"
+      - "--trust-remote-code"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+```
+
+## Evaluation
+
+Measured in the model's default thinking mode with its recommended sampling (temperature 1.0, top-p 0.95,
+top-k 20), using EleutherAI lm-evaluation-harness.
+
+| Task | BF16 base | This (int4 W4A16) |
+|---|---|---|
+| GSM8K (full 1319, thinking) | 0.911 ±0.015 | 0.917 ±0.015 |
+| HumanEval (pass@1, instruct) | 0.939 ±0.037 | 0.957 ±0.031 |
+| MMLU-Pro (100/subject, thinking) | 0.819 ±0.020 | 0.826 ±0.019 |
+
+Across all three tasks the quant matches the BF16 base within the confidence interval, so there's no
+measurable accuracy loss. (MMLU-Pro here is 100 questions per subject, so it's an internal reference against
+our own BF16 baseline, not directly comparable to a full-split MMLU-Pro number elsewhere.)
+
+## Hardware & format notes
+- Runs on **any Ampere-or-newer NVIDIA GPU** via the Marlin int4 kernel — no Blackwell required.
+- Weight-only (W4A16): activations stay BF16 → maximal accuracy + compatibility, but no activation-quant speedup. For Blackwell FP4 (W4A4) throughput, use the [NVFP4 sibling](https://huggingface.co/dbirks/Qwen3.8-27B-NVFP4-AutoRound).
+- Only the language decoder is quantized; the vision tower stays BF16 (intentional; vLLM requires it).
+
+## FAQ
+
+**Why is this W4A16 build (19.5 GB) smaller than the [NVFP4 (W4A4) sibling](https://huggingface.co/dbirks/Qwen3.8-27B-NVFP4-AutoRound) (20.6 GB), even though it keeps activations at 16-bit?**
+
+Activations are never stored in the file — they're intermediate values computed at runtime and then thrown away, so "A16 vs A4" has no effect on file size at all. Both files store only 4-bit weights. The size difference comes from scale metadata (group size):
+
+| | weight bits | scale | group size | effective bits/weight |
+|---|---|---|---|---|
+| NVFP4 (W4A4) | 4 | FP8 (1 byte) | 16 | about 4.5 |
+| this int4 (W4A16) | 4 | FP16 (2 bytes) | 128 | about 4.1 |
+
+NVFP4 stores a scale for every 16 weights (finer, which helps FP4 accuracy but adds metadata); int4 stores one for every 128 (coarser, less metadata). That difference of roughly 0.4 bits per weight, across about 24 billion quantized weights, works out to the 1 GB gap. So NVFP4 is a little bigger because of accuracy metadata, not because of anything to do with activations.
+
+**Hugging Face shows around 6 B parameters for this model — is it really a 6 B model?**
+
+No, it's the full 27.78 B model, same as [the base](https://huggingface.co/Qwen/Qwen3.8-27B). Quantization changes precision, never the number of parameters. Hugging Face's params widget sums the stored tensor elements, and int4 weights are packed 8 to an int32, so about 24 billion logical weights are stored as roughly 3 billion int32 elements, and it undercounts. The "by dtype" breakdown shows the real figure: 24.33 B in the 4-bit tensors plus 3.45 B in BF16, which is 27.78 B. This quirk shows up on every quantized model.
+
+**Which variant should I use — this W4A16 or the NVFP4 sibling?**
+
+- Blackwell GPU (RTX 50-series, B200/B300, DGX Spark): use the [NVFP4 (W4A4) sibling](https://huggingface.co/dbirks/Qwen3.8-27B-NVFP4-AutoRound), which runs on the FP4 tensor cores for faster compute.
+- Anything older (Ampere/Ada/Hopper — A100, L40S, RTX 40-series): use this W4A16. Int4 weights run through the Marlin kernel on any modern GPU, and those cards don't have FP4 cores. The 1 GB size difference is negligible; pick based on whether your GPU has FP4 tensor cores.
+
+## Reproducibility
+```python
+from auto_round import AutoRound
+# keep in_proj_a/b + visual + mtp in BF16 via a bits=16 layer_config (built from module names)
+ar = AutoRound("Qwen/Qwen3.8-27B", scheme="W4A16", dataset="NeelNanda/pile-10k",
+               nsamples=128, seqlen=2048, batch_size=4, iters=200,
+               device_map=0, trust_remote_code=True, quant_nontext_module=False, seed=42,
+               layer_config=BF16_FOR_IN_PROJ_AB_VISUAL_MTP)
+ar.quantize_and_save(output_dir="Qwen3.8-27B-W4A16-AutoRound", format="llm_compressor")
+```
+Toolchain: auto-round 0.15.0, transformers-from-source (qwen3_5 arch), compressed-tensors, torch 2.13+cu130.
+
+## Citation
+```bibtex
+@article{cheng2023optimize, title={Optimize Weight Rounding via Signed Gradient Descent for the Quantization of LLMs}, author={Cheng, Wenhua and others}, journal={arXiv:2309.05516}, year={2023}}
+```
