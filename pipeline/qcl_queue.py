@@ -17,15 +17,17 @@ if todo:
     subprocess.run([sys.executable, f"{CODE}/pipeline/qcl_map.py", "tasks", f"{W}/tasks", *todo], check=True, stdout=subprocess.DEVNULL)
 names = [r.replace("/", "__") for r in todo]
 for n in names: os.replace(f"{W}/tasks/{n}.cands.json", f"{R}/maps/cands/{n}.cands.json")
-# a card with no numbers at all (no table candidates, empty digest) has nothing to map: code writes its "no claims" map
-# for both runs instead of queueing it (a worker cannot answer an empty prompt and would leave the queue claimed)
+# a card with no numbers at all, or whose text never names a quality metric, has nothing for a worker to map: code writes
+# its "no claims" map for both runs instead of queueing it (qcl_map.skip_reason; a worker cannot answer an empty prompt)
+sys.path.insert(0, os.path.join(CODE, "pipeline")); import qcl_map as QM
+idx = json.load(open(f"{R}/snapshots/index.json"))["repos"]
 empty = []
 for rp, n in zip(todo, names):
     cands = json.load(open(f"{R}/maps/cands/{n}.cands.json"))
-    cl = cands.get("candidates", cands) if isinstance(cands, dict) else cands
-    if not cl:
-        m = {"repo": rp, "source_sha256": cands["source_sha256"], "candidates_sha256": cands["candidates_sha256"],
-             "no_quality_claims": True, "no_claims_reason": "the card has no numbers in tables or text (detected by code)", "entries": [], "prose": []}
+    text = open(os.path.join(R, idx[rp]["file"]), encoding="utf-8", errors="replace").read()
+    why = QM.skip_reason(cands.get("candidates") or {}, text)
+    if why:
+        m = QM.no_claims_map(rp, cands); m["no_claims_reason"] = why
         for run in ("A", "B"): json.dump(m, open(f"{R}/maps/{run}/{n}.map.json", "w"), indent=1)
         empty.append(n)
 names = [n for n in names if n not in empty]
