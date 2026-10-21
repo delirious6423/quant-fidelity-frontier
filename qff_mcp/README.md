@@ -84,7 +84,7 @@ Claude Desktop (`claude_desktop_config.json`):
 {"mcpServers": {"qff": {"command": "python3", "args": ["/path/to/qff_mcp/qff_mcp.py"],
   "env": {"QFF_DATA": "https://delirious6423.github.io/quant-fidelity-frontier/"}}}}
 ```
-`QFF_DATA` can also be a local folder built by `python3 assemble.py` (default: `../_site`).
+`QFF_DATA` can also be a local folder built by `python3 web/assemble.py` (default: `../_site`).
 
 The server checks for a new snapshot on the first request after five minutes and
 invalidates cached model data even when model counts are unchanged. If refreshing

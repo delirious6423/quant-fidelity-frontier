@@ -5,7 +5,7 @@ independent runs (A and B group the cards differently).
   QCL_ROOT=models/<slug> python3 pipeline/qcl_queue.py work/<slug> [KB_PER_QUEUE=120]
 
 Writes WORK/tasks/*.prompt.txt, MODEL/maps/cands/*.cands.json (kept with the model, needed to re-apply maps), and
-WORK/pending/A00.txt, B00.txt, ... Workers follow docs/agents/MAP.md."""
+WORK/pending/A00.txt, B00.txt, ... Workers follow docs/runbooks/agents/MAP.md."""
 import json, os, random, subprocess, sys
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 R = os.environ.get("QCL_ROOT") or os.path.join(CODE, "models", "qwen3.8-flash-next")

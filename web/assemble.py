@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Validate and assemble the complete static site, then replace the last good output.
 
-  python3 assemble.py [OUT_DIR]        # default _site/
+  python3 web/assemble.py [OUT_DIR]        # default _site/
 
 The output must be a new/empty directory or an existing QFF assembly. Model data,
 repository sources and their ancestors are never valid output destinations.
@@ -16,12 +16,12 @@ import sys
 import tempfile
 import xml.etree.ElementTree as ET
 
-CODE = Path(__file__).resolve().parent
+CODE = Path(__file__).resolve().parent.parent   # repo root; this file lives in web/
 BASE = "https://delirious6423.github.io/quant-fidelity-frontier/"
 SITE_NAME = "QFF (Quant Fidelity Frontier)"
 STATIC_SUFFIXES = {".html", ".json", ".txt", ".xml", ".css", ".js", ".svg", ".png", ".ico"}
 PROTECTED_DIRS = {".git", ".github", "models", "gates", "pipeline", "web", "tests", "docs",
-                  "protocol_evidence", "qff_mcp", "audit", "legacy", "logs"}
+                  "protocol_evidence", "qff_mcp", "audit", "logs"}
 RESERVED_SLUGS = {"benchmarks", "guides"}
 SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 
@@ -166,7 +166,7 @@ def render_site(out, models, code=CODE):
     analytics = settings.get("analytics") or {}
     script = (f'<script defer src="{html.escape(analytics.get("script") or "https://cloud.umami.is/script.js")}" data-website-id="{html.escape(analytics["website_id"])}" data-domains="delirious6423.github.io"></script>' if analytics.get("website_id") else "")
     support = (f' · <a href="{html.escape(settings["support_url"])}" rel="noopener" data-umami-event="support">{html.escape(settings.get("support_label") or "Support QFF")}</a>'
-               f' (<a href="https://github.com/delirious6423/quant-fidelity-frontier/blob/main/docs/SPONSORS.md">sponsor policy</a>)') if settings.get("support_url") else ""
+               f' (<a href="https://github.com/delirious6423/quant-fidelity-frontier/blob/main/docs/reference/SPONSORS.md">sponsor policy</a>)') if settings.get("support_url") else ""
     from homepage import build_homepage
     from benchmark_view import build_benchmark_view
     from discovery import build_discovery

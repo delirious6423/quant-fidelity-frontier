@@ -33,9 +33,9 @@ def t_absent_value_blocks_build():
     p = fresh()
     edit(f"{p}/{FN}/verified/part1.py", 'mean_kld="0.020218 ± 0.000145"', 'mean_kld="0.1234567 ± 0.000145"')
     rc, out = run(p, "python3 gates/verify.py"); assert rc != 0, "verify.py passed a value absent from its source line"
-    rc, out = run(p, "python3 build.py"); assert rc != 0 and "REFUSING TO BUILD" in out, "build.py wrote a site despite a failing verifier"
+    rc, out = run(p, "python3 web/build.py"); assert rc != 0 and "REFUSING TO BUILD" in out, "build.py wrote a site despite a failing verifier"
     assert not os.path.exists(f"{p}/{FN}/site/index.html"), "site/index.html was written"
-    rc, out = run(p, "python3 legacy/make_pack.py"); assert rc != 0 and "REFUSING TO PACK" in out, "make_pack.py produced a pack despite a failing gate"
+    rc, out = run(p, "python3 docs/history/legacy-tools/make_pack.py"); assert rc != 0 and "REFUSING TO PACK" in out, "make_pack.py produced a pack despite a failing gate"
 
 def t_swapped_columns_caught():
     p = fresh()
@@ -50,7 +50,7 @@ def t_image_baseline_checked():
 
 def t_unicode_minus_sign():
     p = fresh()
-    rc, out = run(p, "python3 build.py"); assert rc == 0, "clean build failed: " + out[-500:]
+    rc, out = run(p, "python3 web/build.py"); assert rc == 0, "clean build failed: " + out[-500:]
     d = json.load(open(f"{p}/{FN}/site/data.json"))
     bad = [(r["repo"], k, m["raw"], m["v"]) for r in d["rows"] for k, m in r["metrics"].items()
            if m.get("v") is not None and re.match(r"^\s*(\*\*)?[−\-]\s*\.?\d", str(m["raw"])) and m["v"] >= 0]
@@ -81,7 +81,7 @@ def t_auto_sets_single_basis_no_cross():
         assert not bad, f"auto set {s['id']} contains quoted/restated cross rows: {bad[:3]}"
 
 def t_unique_explorer_ids():
-    js = os.path.join(ROOT, "web", "site_explorer.js")
+    js = os.path.join(ROOT, "web", "assets", "site_explorer.js")
     assert "'pk-' + S.id + '-' + S.points.indexOf(p)" in open(js).read(), "checkbox ids are not unique per set/point"
 
 # ---- gate-gap mutations from the external review (audit/fable_review.md F11 + gate-gap table) ----
@@ -132,11 +132,11 @@ def t_size_without_unit():
 
 def t_gate_cache_never_masks():
     p = fresh()
-    rc, out = run(p, "python3 build.py"); assert rc == 0, "clean build failed: " + out[-300:]          # warms the cache
+    rc, out = run(p, "python3 web/build.py"); assert rc == 0, "clean build failed: " + out[-300:]          # warms the cache
     import json as _j
     idx = _j.load(open(f"{p}/{FN}/snapshots/index.json"))["repos"]; f = f"{p}/{FN}/" + idx["AesSedai/Qwen3.8-Flash-Next-GGUF"]["file"]
     s = open(f).read(); s2 = re.sub(r"(\d)\.(\d)", r"\1.9\2", s, count=40); assert s2 != s; open(f, "w").write(s2)   # edit card bytes only
-    rc, out = run(p, "python3 build.py"); assert rc != 0 and "REFUSING TO BUILD" in out, "a warm gate cache let an edited card through"
+    rc, out = run(p, "python3 web/build.py"); assert rc != 0 and "REFUSING TO BUILD" in out, "a warm gate cache let an edited card through"
 
 for name, fn in [("gate cache never masks an edited card", t_gate_cache_never_masks), ("absent value blocks build and pack", t_absent_value_blocks_build), ("swapped KLD/PPL columns caught", t_swapped_columns_caught),
                  ("image baseline checked", t_image_baseline_checked), ("unicode minus keeps sign", t_unicode_minus_sign),

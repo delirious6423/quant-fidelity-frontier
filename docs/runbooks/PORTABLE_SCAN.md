@@ -100,12 +100,12 @@ value that differs on the same key is worth reading on the card.
 
 The same runner can refresh a model's cards from the public Hugging Face API without a
 connector: `python3 pipeline/qcl_runner.py --workspace DIR collect lfm2.5-24b-a2b --workers 8`,
-or ingest a new model with `init-ingest` and `ingest`. See `docs/SCRIPTED_RUNNER.md`. After
+or ingest a new model with `init-ingest` and `ingest`. See `docs/runbooks/SCRIPTED_RUNNER.md`. After
 collection, `next` continues the loop with the fresh cards.
 
 ## A prompt for an agent
 
-> Clone https://github.com/delirious6423/quant-fidelity-frontier and read `docs/PORTABLE_SCAN.md`.
+> Clone https://github.com/delirious6423/quant-fidelity-frontier and read `docs/runbooks/PORTABLE_SCAN.md`.
 > Then run `python3 pipeline/qcl_portable.py start --workspace /tmp/qff --models lfm2.5-24b-a2b --remap`
 > and follow the loop exactly: answer every request file as the runbook says, run the `then`
 > command after each round, and when it says `stop`, reply with the `report` object and the

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deterministic steps of the hourly scan (docs/HOURLY.md). The session only makes connector calls and starts Haiku
+"""Deterministic steps of the hourly scan (docs/runbooks/HOURLY.md). The session only makes connector calls and starts Haiku
 agents between these commands; everything that decides, splits, merges, builds or tests is here.
 
   python3 pipeline/qcl_scan.py lock                  # take the run lock (exit 3 if another run holds a fresh one)
@@ -151,7 +151,7 @@ elif cmd == "catalogue":
     delta = json.load(open(f"{M(slug)}/cache/delta.json")); ts = now.strftime("%Y%m%d%H"); shards = []
     for i in range(0, len(delta), 100):
         s_ = f"{ts}{chr(97 + i // 100)}"; json.dump(delta[i:i + 100], open(f"{M(slug)}/cache/ids_{s_}.json", "w")); shards.append(s_)
-    out({**info, "truncated_results": len(trunc), "shards": shards, "next": "fetch each shard with a Haiku agent (docs/agents/FETCH.md)" if shards else "nothing changed"}, 0 if shards else 2)
+    out({**info, "truncated_results": len(trunc), "shards": shards, "next": "fetch each shard with a Haiku agent (docs/runbooks/agents/FETCH.md)" if shards else "nothing changed"}, 0 if shards else 2)
 elif cmd == "prepare":
     slug = sys.argv[2]; e = env(slug)
     run(f"python3 pipeline/qcl_newmodel.py {M(slug)}")
@@ -162,7 +162,7 @@ elif cmd == "prepare":
     if not q["queues"]:   # nothing to map, but fetched cards still change the index: re-merge (stale entries are re-pinned or quarantined) and relist unreviewed repos
         mg = run("python3 pipeline/qcl_watch.py merge", e).stdout.strip().splitlines()[-1]; run("python3 pipeline/gen_auto.py", e)
         out({**ms, **q, "merge": mg, "next": "no cards to map; merged and relisted, go to publish"}, 2)
-    out({**ms, **q, "work": os.path.relpath(W, CODE), "next": "start Haiku workers per docs/agents/MAP.md for RUN=A and RUN=B"}, 0)
+    out({**ms, **q, "work": os.path.relpath(W, CODE), "next": "start Haiku workers per docs/runbooks/agents/MAP.md for RUN=A and RUN=B"}, 0)
 elif cmd == "skip-pending":
     # after repeated failed mapping rounds, give up on the cards still queued: they are listed as not yet reviewed and
     # are not re-queued until their card changes (audit/skipped_maps.json pins each card's SHA-256)
@@ -199,7 +199,7 @@ elif cmd == "finish":
     run("python3 pipeline/gen_auto.py", e)
     if "--no-tiebreak" not in sys.argv:   # values the two runs disagree on: queue the blind third run C (2 of 3 must agree)
         tb = json.loads(run(f"python3 pipeline/qcl_tiebreak.py queue {W}", e).stdout.strip().splitlines()[-1])
-        if tb["queued"]: out({"merge": mg, "tiebreak": tb, "next": "start Haiku workers per docs/agents/MAP.md for RUN=C, then finish --no-tiebreak"}, 3)
+        if tb["queued"]: out({"merge": mg, "tiebreak": tb, "next": "start Haiku workers per docs/runbooks/agents/MAP.md for RUN=C, then finish --no-tiebreak"}, 3)
     out({"merge": mg})
 elif cmd == "stage":
     # the scans' check before they commit data (the QA worker runs the full tests and deploys): each model's build.py,
@@ -210,7 +210,7 @@ elif cmd == "stage":
     if rev and rev not in slugs: slugs.append(rev)
     stats = {}
     for slug in slugs:
-        p = run("python3 build.py", env(slug)); stats[slug] = json.loads(p.stdout.strip().splitlines()[-1].split(" | ")[0])
+        p = run("python3 web/build.py", env(slug)); stats[slug] = json.loads(p.stdout.strip().splitlines()[-1].split(" | ")[0])
     if rev:
         w = wl()
         for m in w["models"]:
@@ -220,7 +220,7 @@ elif cmd == "stage":
 elif cmd == "publish":
     ing = sys.argv[sys.argv.index("--ingested") + 1] if "--ingested" in sys.argv else None
     if ing:   # the new model must build and pass its UI tests before it goes live
-        run(f"python3 build.py", env(ing)); run(f"python3 tests/test_ui.py", {"QCL_SITE": f"models/{ing}/site"})
+        run(f"python3 web/build.py", env(ing)); run(f"python3 tests/test_ui.py", {"QCL_SITE": f"models/{ing}/site"})
         w = wl()
         for m in w["models"]:
             if m["slug"] == ing: m["status"] = "live"   # from queued, ingesting or review
@@ -229,8 +229,8 @@ elif cmd == "publish":
     for mj in sorted(glob.glob(f"{CODE}/models/*/model.json")):
         slug = json.load(open(mj))["slug"]
         if next((m["status"] for m in wl()["models"] if m["slug"] == slug), "live") != "live": continue
-        p = run("python3 build.py", env(slug)); stats[slug] = json.loads(p.stdout.strip().splitlines()[-1].split(" | ")[0])
-    run("python3 assemble.py")
+        p = run("python3 web/build.py", env(slug)); stats[slug] = json.loads(p.stdout.strip().splitlines()[-1].split(" | ")[0])
+    run("python3 web/assemble.py")
     run("python3 tests/test_gates.py"); run("python3 tests/test_claims.py"); run("python3 tests/test_mcp.py"); run("python3 tests/test_discovery.py")
     for t in ("test_model_panels", "test_mapping_panels", "test_combined_columns", "test_qualifiers", "test_current"): run(f"python3 tests/{t}.py")
     for slug in stats: run("python3 tests/test_ui.py", {"QCL_SITE": f"models/{slug}/site"})

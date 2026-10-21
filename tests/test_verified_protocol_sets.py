@@ -6,7 +6,7 @@ import os
 import sys
 import unittest
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))); sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'web'))   # site generators live in web/
 from comparison import classify_group
 from verified_protocol_sets import add_verified_cross_publisher_sets
 from test_comparison import measurement, assertion, SOURCE

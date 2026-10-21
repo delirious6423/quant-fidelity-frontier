@@ -6,7 +6,7 @@
 
 Run: sync to the newest main; take qa.lock; if nothing changed since the last approved commit (audit/deployed.json)
 and no model waits in "review", stop. Otherwise sample up to 20 of the values added since then (a new model's values
-count as added), ask Haiku reviewers to check them against their cards (docs/agents/REVIEW.md), hold every value judged
+count as added), ask Haiku reviewers to check them against their cards (docs/runbooks/agents/REVIEW.md), hold every value judged
 wrong (audit/holds.json, never edited), re-merge, promote models in "review" to "live", run every test, and only then
 commit, push and request deployment. The deployed receipt advances only after an
 exact-commit Pages workflow succeeds. Missing or uncertain reviews publish nothing."""
@@ -22,7 +22,7 @@ PENDING = os.path.join(CODE, "audit", "pending_release.json")
 REPOSITORY = "delirious6423/quant-fidelity-frontier"
 SAMPLE = 20; PER_AGENT = 10
 NEXT = "python3 pipeline/qcl_qa.py"
-REVIEW_PROMPT = "Follow docs/agents/REVIEW.md in the repo at {code}, with I = `work/qa/items_{k}.json` and V = `work/qa/verdict_{k}.json`."
+REVIEW_PROMPT = "Follow docs/runbooks/agents/REVIEW.md in the repo at {code}, with I = `work/qa/items_{k}.json` and V = `work/qa/verdict_{k}.json`."
 
 def sh(cmd): return subprocess.run(cmd, cwd=CODE, shell=True, capture_output=True, text=True)
 def command(args): return subprocess.run(args, cwd=CODE, capture_output=True, text=True)

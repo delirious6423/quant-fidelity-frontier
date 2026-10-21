@@ -11,7 +11,7 @@ from pathlib import Path
 
 from comparison import classify_group, summarize_comparisons
 
-CODE = Path(__file__).resolve().parent
+CODE = Path(__file__).resolve().parent.parent   # repo root; this file lives in web/
 
 
 def _digest(path):

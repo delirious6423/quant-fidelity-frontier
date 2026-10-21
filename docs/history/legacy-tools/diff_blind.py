@@ -3,7 +3,7 @@
 Compares sets of numeric tokens per repo. Reports numbers the auditor found that we lack (possible misses)
 and numbers we have that the auditor lacks (possible mis-extractions)."""
 import json, glob, re, os, collections
-ROOT = os.environ.get("QCL_ROOT") or os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "models", "qwen3.8-flash-next")
+ROOT = os.environ.get("QCL_ROOT") or os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))), "models", "qwen3.8-flash-next")
 
 def toks(s):
     out = set()

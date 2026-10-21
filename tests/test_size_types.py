@@ -1,7 +1,7 @@
 """Model-level size-type summary: counts come from scanner-tagged bases; resident is never inferred from a download size."""
 import json, os, sys
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, CODE)
+sys.path.insert(0, CODE); sys.path.insert(0, os.path.join(CODE, 'web'))   # site generators live in web/
 import size_types as S
 rows = [dict(repo="a", size_gb=5, basis="disk"), dict(repo="a", size_gb=6, basis="disk"), dict(repo="b", size_gb=4, basis="resident"),
         dict(repo="c", size_gb=3, basis="excl_engram"), dict(repo="d", size_gb=None, basis="resident"), dict(repo="e", size_gb=2, basis=None)]

@@ -23,7 +23,7 @@ The table is generated from the published data (`pipeline/readme_sync.py`) each 
 
 **Site:** https://delirious6423.github.io/quant-fidelity-frontier/
 
-Compare numbers directly only when the selected metric is classified **Same Protocol — Comparable**. The default overview keeps mixed protocols visible without ranking them. [Comparison rules and evidence](docs/COMPARISON_CLASSIFICATIONS.md).
+Compare numbers directly only when the selected metric is classified **Same Protocol — Comparable**. The default overview keeps mixed protocols visible without ranking them. [Comparison rules and evidence](docs/reference/COMPARISON_CLASSIFICATIONS.md).
 
 ## For agents
 A read-only MCP server lets agents search quantization claims and benchmark reports, inspect comparison evidence, get a set's efficiency frontier, or find the best quant under a size budget:
@@ -33,14 +33,14 @@ claude mcp add qff -e QFF_DATA=https://delirious6423.github.io/quant-fidelity-fr
 More in [`qff_mcp/README.md`](qff_mcp/README.md).
 
 ## Support
-QFF is free. If it saves you time, you can [tip on Ko-fi](https://ko-fi.com/delirious6423). Tips pay for upkeep and new models and never influence the data ([sponsor policy](docs/SPONSORS.md)).
+QFF is free. If it saves you time, you can [tip on Ko-fi](https://ko-fi.com/delirious6423). Tips pay for upkeep and new models and never influence the data ([sponsor policy](docs/reference/SPONSORS.md)).
 
 ## Discovery and dataset publishing
-See [the rollout guide](docs/DISCOVERY.md) for repository metadata, search verification, static explainers and the reproducible Hugging Face export.
+See [the rollout guide](docs/reference/DISCOVERY.md) for repository metadata, search verification, static explainers and the reproducible Hugging Face export.
 
 ## More
-- [Method: claim rules, gates, tests](docs/METHOD.md) · [How a model is ingested](docs/FASTPATH.md)
-- [Developing: layout, build, hosting](docs/DEVELOPING.md)
+- [Method: claim rules, gates, tests](docs/reference/METHOD.md) · [How a model is ingested](docs/runbooks/FASTPATH.md)
+- [Developing: layout, build, hosting](docs/reference/DEVELOPING.md)
 - Found a wrong value or a missing quant? Open an issue with the repo and the card line.
 
 Licence: code MIT ([LICENSE](LICENSE)); the compiled dataset CC BY 4.0. The claims belong to their publishers, and the cached model cards (`models/*/snapshots/`, `models/*/cache/cards/`) belong to their authors; they are kept only so every claim can be checked against its source.

@@ -116,4 +116,4 @@ def build_homepage(out, models, base, analytics, support):
 <footer><span>QFF · Publisher claims, linked to their sources.</span><span><a href="https://github.com/delirious6423/quant-fidelity-frontier">Source &amp; data</a>{support}</span></footer></main></div><script id="home-data" type="application/json">{payload}</script></body></html>'''
     (out / 'index.html').write_text(page)
     for name in ('home.css', 'home.js'):
-        (out / name).write_text((Path(__file__).parent / 'web' / name).read_text())
+        (out / name).write_text((Path(__file__).parent / 'assets' / name).read_text())

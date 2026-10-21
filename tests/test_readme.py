@@ -9,7 +9,7 @@ dead = ns["dead_links"]
 
 class Readme(unittest.TestCase):
     def test_existing_links_and_paths_pass(self):
-        self.assertEqual(dead("[m](docs/METHOD.md) and `pipeline/qcl_live.py`, cards in `models/*/cache/cards/`"), [])
+        self.assertEqual(dead("[m](docs/reference/METHOD.md) and `pipeline/qcl_live.py`, cards in `models/*/cache/cards/`"), [])
     def test_dead_link_and_renamed_path_are_caught(self):
         self.assertEqual(dead("[m](docs/NOPE.md) and `pipeline/gone.py`"), ["docs/NOPE.md", "pipeline/gone.py"])
     def test_urls_anchors_and_built_site_are_not_repo_paths(self):

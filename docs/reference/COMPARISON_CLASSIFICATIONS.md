@@ -62,4 +62,4 @@ GitHub Pages continues serving static HTML/CSS/JS/JSON. Python runs at build tim
 
 ## Validation and previews
 
-See [validation results](COMPARISON_VALIDATION.md) and [desktop/mobile before-and-after previews](previews/comparisons/README.md).
+See [validation results](COMPARISON_VALIDATION.md) and [desktop/mobile before-and-after previews](../history/previews/comparisons/README.md).

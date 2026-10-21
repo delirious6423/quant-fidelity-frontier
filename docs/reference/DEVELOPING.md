@@ -3,31 +3,37 @@
 ## Layout
 | Path | What it is |
 |---|---|
-| `build.py` | Gates + build for one model (`QCL_ROOT=models/<slug>`, default Flash-Next) into `models/<slug>/site/` |
-| `assemble.py` | Combines every model into one static site (`_site/`): landing page, one folder per model, `models.json`, one sitemap |
-| `models/<slug>/` | One data root per model: `model.json` (name, slug, notes, links), card snapshots (`snapshots/` or `cache/cards/`, SHA-256 pinned), `verified/` (claims), `sets.py`, `audit/` |
-| `gates/` | Fail-closed checks: `verify.py`, `verify_columns.py`, `verify_images.py`, and `gatecache.py` (parallel runs, content-hash cache) |
-| `pipeline/` | Ingestion: `qcl_fetch.py`, `qcl_stats.py` + `qcl_plan.py` + `qcl_mcpsave.py` (connector fetch), `qcl_newmodel.py`, `autoextract.py`, `qcl_map.py`, `qcl_watch.py` (merge), `detect_copies.py`, `gen_auto.py` |
-| `web/` | Site template: `site_style.css`, `site_script.js`, `site_explorer.js` |
-| `tests/` | `test_gates.py`, `test_claims.py`, `test_ui.py`, `test_mcp.py` |
-| `qff_mcp/` | Read-only MCP server for agents, plus a Hugging Face Space scaffold |
-| `legacy/` | One-off tools from the first (hand-verified) Flash-Next build, kept for the audit trail |
-| `docs/` | Method, this file, the fast path (`FASTPATH.md`), fetch policy, extraction spec, new-model prompt |
+| `web/` | Site generators: `build.py` (gates + build for one model, `QCL_ROOT=models/<slug>`, default Flash-Next, into `models/<slug>/site/`), `assemble.py` (every live model into one static site, `_site/`: landing page, one folder per model, `models.json`, one sitemap), and the modules they import (`homepage.py`, `comparison.py`, `benchmarks.py`, `bench_tasks.py`, `benchmark_view.py`, `protocol_metadata.py`, `size_types.py`, `verified_protocol_sets.py`, `web_payload.py`, `discovery.py`) |
+| `web/assets/` | CSS and JS shipped with the site: `site_style.css`, `site_script.js`, `site_explorer.js`, `site_benchmarks.css`, `site_benchmarks.js`, `benchmark_view.css`, `benchmark_view.js`, `home.css`, `home.js` |
+| `gates/` | Fail-closed checks: `verify.py`, `verify_columns.py`, `verify_images.py`, `current.py`, and `gatecache.py` (parallel runs, content-hash cache) |
+| `pipeline/` | Ingestion and scan scripts, indexed by stage in `pipeline/README.md`: collection (`qcl_fetch.py`, `qcl_catalogue.py`, `qcl_stats.py`, `qcl_plan.py`, `qcl_mcpsave.py`, `qcl_newmodel.py`), mapping (`autoextract.py`, `qcl_map.py`, `qcl_queue.py`, `qcl_claim.py`, `detect_copies.py`, `gen_auto.py`), merge and publish (`qcl_watch.py`, `qcl_live.py`, `readme_sync.py`), the scheduled-task state machines (`qcl_next.py`, `qcl_scan.py`, `qcl_qa.py`) and the scripted runner (`qcl_runner.py`, `qcl_portable.py`, `runner_*.py`) |
+| `tests/` | Every regression suite; `.github/workflows/verify.yml` lists which ones CI runs and in what order |
+| `qff_mcp/` | Read-only MCP server for agents, plus a Hugging Face Space scaffold (`space/`) |
+| `docs/runbooks/` | How to run things: `HOURLY.md` (the three scheduled tasks), `PORTABLE_SCAN.md` (the agent-agnostic loop), `SCRIPTED_RUNNER.md`, `FASTPATH.md`, `NEW_MODEL_PROMPT.md`, `FETCHING.md`; worker instructions in `agents/` (`FETCH.md`, `MAP.md`, `REVIEW.md`, `README_CHECK.md`) |
+| `docs/reference/` | What things mean: `METHOD.md`, this file, `EXTRACTION_SPEC.md`, `COMPARISON_CLASSIFICATIONS.md`, `COMPARISON_VALIDATION.md`, `BENCHMARKS.md`, `BENCHMARK_COVERAGE.md`, `CROSS_MODEL_BENCHMARKS.md`, `DISCOVERY.md`, `SPONSORS.md` |
+| `docs/history/` | Past reviews and results: `PLAN.md`, `HOLISTIC_REVIEW.md`, `GLM_BENCHMARK_PILOT.md`, `review/`, `scripted-runner/`, `previews/`, and `legacy-tools/` (one-off tools from the first, hand-verified Flash-Next build, kept for the audit trail) |
+| `models/<slug>/` | One data root per model: `model.json` (name, slug, notes, links), card snapshots (`snapshots/` or `cache/cards/`, SHA-256 pinned), `verified/` (claims), `maps/`, `sets.py`, `audit/`, `site/` (build output, git-ignored) |
+| `logs/scan/` | Scheduled-task command logs |
+| `audit/` | Deployment receipts (`deployed.json`, `pending_release.json`) |
+| `protocol_evidence/` | Protocol source bindings, one JSON file per model |
 
 In `verified/`, `part8_machine.py` is machine-mapped and `part9_auto.py` lists repos not yet reviewed; both are generated, never hand-edited.
 
 ## Build and test
 ```bash
-for d in $(python3 pipeline/qcl_live.py); do QCL_ROOT=$d python3 build.py; done   # every live model: gates + site
-python3 assemble.py                                            # _site/: the whole static site
-python3 tests/test_gates.py && python3 tests/test_claims.py && python3 tests/test_mcp.py
+for d in $(python3 pipeline/qcl_live.py); do QCL_ROOT=$d python3 web/build.py; done   # every live model: gates + site
+python3 web/assemble.py _site                                                          # the whole static site
+python3 pipeline/readme_sync.py --check                                                # README table, links
+python3 tests/test_gates.py && python3 tests/test_claims.py && python3 tests/test_discovery.py
 for d in $(python3 pipeline/qcl_live.py); do QCL_SITE=$d/site python3 tests/test_ui.py; done
+QFF_DATA=_site python3 tests/test_mcp.py
 ```
+`.github/workflows/verify.yml` lists every suite and the order CI runs them; the commands above are the minimum before a commit.
 Needs Python 3.11+, `pillow`, `numpy`; tests also need `playwright` and `mcp`.
 
 ## Adding a model
 `python3 pipeline/qcl_newmodel.py models/<slug>` turns a fetched card cache into a data root; then follow
-`docs/FASTPATH.md` (extract, map twice, merge, build). Add the model to each other model's `others` in `model.json`.
+`docs/runbooks/FASTPATH.md` (extract, map twice, merge, build). Add the model to each other model's `others` in `model.json`.
 
 ## Hosting
 GitHub Pages serves only static files, and that is all the site is (HTML, CSS, JS, JSON; data inlined in each page).

@@ -1,7 +1,7 @@
 """A highlight row that vanished (its card changed) must leave that table out, not stop the model's build."""
 import html, os, sys
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, CODE)
+sys.path.insert(0, CODE); sys.path.insert(0, os.path.join(CODE, 'web'))   # site generators live in web/
 src = open(os.path.join(CODE, "models", "qwen3.8-flash-next", "highlights.py")).read()
 ns = {"rows": [], "repos": [], "E": html.escape, "fmtv": str, "BASIS_LABEL": {}}
 exec(src, ns)

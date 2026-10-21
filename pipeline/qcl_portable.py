@@ -7,7 +7,7 @@
 
 Every call prints one JSON object with "do":
   "answer"  DIR/requests/<task>.json files wait for an interpretation. For each one, write DIR/responses/<task>.json
-            holding only the JSON object the request asks for (docs/PORTABLE_SCAN.md says exactly what). Then run `then`.
+            holding only the JSON object the request asks for (docs/runbooks/PORTABLE_SCAN.md says exactly what). Then run `then`.
   "fix"     some responses were rejected (the reason is given, fail closed). Write a corrected response, run the `retry`
             command printed for it, then run `then`.
   "stop"    nothing is left: the shadow data was merged, gated and built; `report` holds the numbers, including a

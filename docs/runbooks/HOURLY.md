@@ -1,7 +1,8 @@
 # Hourly scan runbook
 
 QFF uses separate collection and publication tasks. The scripts decide each step;
-a session performs the connector calls and starts the mapping/review workers they request.
+the coordinator (an agent or a person running the loop) performs the catalogue calls
+and starts the mapping/review workers they request.
 These are existing owner-approved schedules; running a script manually does not grant
 permission for a new production deployment.
 
@@ -10,7 +11,7 @@ permission for a new production deployment.
 | Live updates | Hourly at :03 | `qcl_next.py --part A` | Fetch, map, merge and gate changed cards; commit staged data |
 | New model | Every 2 hours at :37 | `qcl_next.py --part B` | Resume the next ingest; checkpoint progress; hand completed models to QA as `review` |
 | QA and publish | Hourly at :55 | `qcl_qa.py` | Review new values, run all tests, request Pages verification; record deployment only after exact-commit success |
-| README check | Daily at 00:58 | `docs/agents/README_CHECK.md` | Check generated counts, links and prose; no site deployment |
+| README check | Daily at 00:58 | `docs/runbooks/agents/README_CHECK.md` | Check generated counts, links and prose; no site deployment |
 
 QA runs at :55 so that a live-updates run (workers stop at 45 minutes) has finished before QA synchronizes to main; an earlier :15 slot made QA race the scan's push. Only QA requests a site deployment. A scan's successful build or commit is not a
 publication. Each task uses its own lock (`scan.lock`, `ingest.lock`, `qa.lock`) and
@@ -33,14 +34,20 @@ printed instruction, then invoke the same entry point again:
 
 - `hf_fs`: call each printed op list exactly. Pass the saved result paths to
   `qcl_next.py --results <path1> <path2> ...` in order. A preview is not source data.
+  The `hf_fs` connector tool is one way to make these catalogue calls. Without a
+  connector, the same step can be done with the public HTTP collector
+  (`python3 pipeline/qcl_runner.py --workspace DIR collect SLUG`, see
+  `docs/runbooks/SCRIPTED_RUNNER.md` and `docs/runbooks/PORTABLE_SCAN.md`).
 - `agents`: start workers with the printed prompts and concurrency limit. Mapping
-  workers follow `docs/agents/MAP.md`; QA workers follow `docs/agents/REVIEW.md`.
+  workers follow `docs/runbooks/agents/MAP.md`; QA workers follow `docs/runbooks/agents/REVIEW.md`.
+  The scheduled tasks currently use a small fast model for these workers; any
+  model or person can do the task.
 - `error`: address the named failure, retaining the source files and checkpoints.
 - `stop`: report the actual result. This can mean skipped, blocked, failed,
   dispatched, pending, or successfully reconciled; it never implies deployment by itself.
 
 Do not bypass the state machine with a manual deploy or a blanket checkout/clean.
-For an interrupted session use the matching entry point's `--abort`; QA retains
+For an interrupted run use the matching entry point's `--abort`; QA retains
 failed local work. Keep worker concurrency at most eight. Mapping workers claim
 queues only through `pipeline/qcl_claim.py`, never by moving folders themselves.
 
@@ -57,7 +64,7 @@ withdraws its prior claims until a fresh mapping passes; recording old map files
 must never stamp them with a new card hash. Resolver overlays additionally pin the
 mapping bytes. Values that remain disputed stay held, never guessed or edited.
 
-See `docs/FASTPATH.md` for individual ingestion commands and `docs/FETCHING.md` for
+See `docs/runbooks/FASTPATH.md` for individual ingestion commands and `docs/runbooks/FETCHING.md` for
 rate limits, checkpoint recovery and authenticated fetching.
 
 ## Review and publication receipts
@@ -87,7 +94,7 @@ deployment; publishing Pages does not publish the MCP server.
 
 | Symptom | Response |
 |---|---|
-| Connector output says it was saved to a path | Use that complete file, never the preview |
+| Tool output says it was saved to a path | Use that complete file, never the preview |
 | Gated repository / access denied | Preserve the status; do not invent an empty card |
 | HTTP 429 | Stop that fetch run; retain completed checkpoints and `cache/rate_limit.json` |
 | Missing or stale mapping | Queue a fresh mapping against the pinned source |
@@ -102,12 +109,12 @@ deployment; publishing Pages does not publish the MCP server.
 Report collection counts and held entries separately from publication status.
 Include the failed step and its output when something blocks progress.
 
-## Rehearsal results (18 Oct 2026, two real cards, Haiku at high effort)
+## Rehearsal results (18 Oct 2026, two real cards, small fast model at high effort)
 - **Fetch:** 2 of 2 cards saved in 31 s, byte-identical to the original capture, with no retries.
 - **Mapping:**
-  - The two Haiku runs agreed on 20 values, and all 20 were values the Sonnet runs had also found, so precision was good.
-  - Recall was lower: Haiku found 20 values on one card where Sonnet found 35. Values that are missed stay unpublished;
-    they are never guessed. Expect Haiku-mapped cards to show fewer values than Sonnet-mapped ones.
+  - The two small-model runs agreed on 20 values, and all 20 were values the larger-model runs had also found, so precision was good.
+  - Recall was lower: the small model found 20 values on one card where the larger model found 35. Values that are missed stay unpublished;
+    they are never guessed. Expect cards mapped by the small model to show fewer values than cards mapped by the larger one.
 - **Bug found and fixed:** a shell `mv` with an empty queue name moved the whole `pending` folder. Workers now claim
   only through `pipeline/qcl_claim.py` (an atomic rename of one file).
 

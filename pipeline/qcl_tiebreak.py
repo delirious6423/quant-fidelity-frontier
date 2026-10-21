@@ -6,7 +6,7 @@
 
 A card is queued when run A filed values that run B did not confirm (audit/review_queue.json "disagreements"), and no C
 map exists for the card's current bytes (maps/mapped_c.json pins the card SHA-256 each C map was made from). The C worker
-maps the card blind, exactly like A and B (docs/agents/MAP.md with RUN = C), from the same code-generated candidates, so
+maps the card blind, exactly like A and B (docs/runbooks/agents/MAP.md with RUN = C), from the same code-generated candidates, so
 it cannot type a number. qcl_watch.py merge then publishes a held A value only if C filed the same published string
 under the same role, metric family and panel (2 of 3 independent runs agree); every value then goes through the usual
 source and column gates. Cards whose candidates changed since A and B mapped them are not queued (re-mapped first)."""

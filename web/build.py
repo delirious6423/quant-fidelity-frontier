@@ -3,8 +3,8 @@
 Outputs: site/data.json, site/index.html (full doc for GitHub Pages), site/artifact.html (body-only for claude.ai)."""
 import json, glob, os, re, html, math, datetime, collections
 
-CODE = os.path.dirname(os.path.abspath(__file__))
-import sys; sys.path[:0] = [CODE, os.path.join(CODE, "pipeline"), os.path.join(CODE, "gates")]
+HERE = os.path.dirname(os.path.abspath(__file__)); CODE = os.path.dirname(HERE)   # web/ holds the site generators; CODE is the repo root
+import sys; sys.path[:0] = [HERE, os.path.join(CODE, "pipeline"), os.path.join(CODE, "gates")]
 import qcl_fmt as FMT
 import size_types
 from benchmarks import build_benchmarks, render_benchmarks
@@ -24,7 +24,7 @@ SITE_URL = "https://delirious6423.github.io/quant-fidelity-frontier/" + (SLUG + 
 REPO_URL = "https://github.com/delirious6423/quant-fidelity-frontier"
 _SITE = json.load(open(os.path.join(CODE, "site.json"))) if os.path.exists(os.path.join(CODE, "site.json")) else {}
 SUPPORT_HTML = (f' · <a href="{html.escape(_SITE["support_url"])}" rel="noopener" data-umami-event="support">{html.escape(_SITE.get("support_label") or "Support QFF")}</a>'
-                f' (<a href="{REPO_URL}/blob/main/docs/SPONSORS.md">sponsor policy</a>)') if _SITE.get("support_url") else ""
+                f' (<a href="{REPO_URL}/blob/main/docs/reference/SPONSORS.md">sponsor policy</a>)') if _SITE.get("support_url") else ""
 _AN = _SITE.get("analytics") or {}
 ANALYTICS = (f'<script defer src="{html.escape(_AN.get("script") or "https://cloud.umami.is/script.js")}" data-website-id="{html.escape(_AN["website_id"])}" data-domains="delirious6423.github.io"></script>\n'
              if _AN.get("website_id") else "")   # cookie-free; data-domains keeps local test runs out of the stats
@@ -725,12 +725,12 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
         body = body.replace('<section id="read-first"', render_benchmarks(build_benchmarks(ROOT, CFG)) + '<section id="read-first"')
     return body.replace("__EXDATA__", exdata)
 
-CSS = open(os.path.join(CODE, "web", "site_style.css")).read() if os.path.exists(os.path.join(CODE, "web", "site_style.css")) else ""
+CSS = open(os.path.join(HERE, "assets", "site_style.css")).read() if os.path.exists(os.path.join(HERE, "assets", "site_style.css")) else ""
 if os.path.exists(f"{ROOT}/benchmarks.json"):
-    CSS += "\n" + open(os.path.join(CODE, "web", "site_benchmarks.css")).read()
-JS = "\n".join(open(os.path.join(CODE, "web", f)).read() for f in ("site_script.js", "site_explorer.js"))
+    CSS += "\n" + open(os.path.join(HERE, "assets", "site_benchmarks.css")).read()
+JS = "\n".join(open(os.path.join(HERE, "assets", f)).read() for f in ("site_script.js", "site_explorer.js"))
 if os.path.exists(f"{ROOT}/benchmarks.json"):
-    JS += "\n" + open(os.path.join(CODE, "web", "site_benchmarks.js")).read()
+    JS += "\n" + open(os.path.join(HERE, "assets", "site_benchmarks.js")).read()
 
 def main():
     global RAW

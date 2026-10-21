@@ -8,7 +8,7 @@ import tempfile
 import unittest
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0,str(ROOT))
+sys.path.insert(0,str(ROOT)); sys.path.insert(0, str(ROOT / 'web'))   # site generators live in web/
 from benchmarks import build_benchmarks, render_benchmarks, _evidence, group_benchmarks
 EXPECTED = {'deepseek-v4-flash-0731': (2,11), 'deepseek-v4.1-flash': (1,14), 'glm-5.3-flash': (1,5), 'qwen3.8-27b': (2,68), 'qwen3.8-flash-next': (1,15)}
 class BenchmarkEvidence(unittest.TestCase):
