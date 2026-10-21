@@ -33,6 +33,7 @@ jobs:
           python3 tests/test_runner_fetch.py
           python3 tests/test_runner_model.py
           python3 tests/test_runner.py
+          python3 tests/test_dispatch.py
           python3 tests/test_portable.py
       - name: Gates + build + UI tests, every live model (build.py refuses on any gate failure)
         run: |
@@ -72,6 +73,7 @@ jobs:
           python3 tests/test_size_types.py
           python3 tests/test_highlights_soft.py
           python3 tests/test_image_flag.py
+          python3 tests/test_queue_skip.py
       - name: Assembled site is static only
         run: python3 assemble.py _site
       - name: Shared benchmark data and cross-model chart interactions
