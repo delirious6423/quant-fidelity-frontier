@@ -31,6 +31,19 @@ def scripts(text):
         yield textwrap.dedent("\n".join(block))
 
 
+def jobs(text):
+    """Split the top-level `jobs:` mapping into {job name: its indented body}, without YAML dependencies."""
+    result, name = {}, None
+    for line in text[text.index("\njobs:\n") + len("\njobs:\n"):].splitlines():
+        match = re.match(r"^  ([A-Za-z_][\w-]*):\s*$", line)
+        if match:
+            name = match[1]
+            result[name] = []
+        elif name is not None:
+            result[name].append(line)
+    return {name: "\n".join(lines) for name, lines in result.items()}
+
+
 class WorkflowSecurityTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -118,6 +131,55 @@ class WorkflowSecurityTests(unittest.TestCase):
         missing = sorted(path.name for path in (ROOT / 'tests').glob('test_*.py')
                          if path.name not in self.verify)
         self.assertEqual(missing, [], 'new regressions must run before publishing the verified artifact')
+
+    def test_verification_jobs_run_every_suite_in_exactly_one_job(self):
+        verify_jobs = jobs(self.verify)
+        self.assertEqual(set(verify_jobs), {"plan", "safety", "model", "site"})
+        for path in sorted((ROOT / "tests").glob("test_*.py")):
+            owners = [name for name, body in verify_jobs.items() if path.name in body]
+            self.assertEqual(len(owners), 1, f"{path.name} must run in exactly one job, found {owners}")
+        self.assertIn("tests/test_ui.py", verify_jobs["model"])
+        self.assertIn("test_workflow_security.py", verify_jobs["safety"])
+        self.assertIn("tests/test_mcp.py", verify_jobs["site"])
+
+    def test_pages_artifact_is_uploaded_only_by_the_final_job_after_every_other_job(self):
+        verify_jobs = jobs(self.verify)
+        uploaders = [name for name, body in verify_jobs.items() if "upload-pages-artifact" in body]
+        self.assertEqual(uploaders, ["site"], "only the final site job may upload the Pages artifact")
+        for name in ("plan", "safety", "model"):
+            self.assertNotIn("publish_pages_artifact", verify_jobs[name])
+        site = verify_jobs["site"]
+        self.assertRegex(site, r"(?m)^    needs: \[plan, safety, model\]$", "the site job must wait for every other job")
+        self.assertIn("if: ${{ inputs.publish_pages_artifact == true }}", site)
+        self.assertGreater(site.index("actions/upload-pages-artifact"), site.rindex("run:"),
+                           "the Pages artifact is uploaded after the last check of the final job")
+        self.assertNotIn("web/build.py", site, "the site job assembles the tested model sites; it never rebuilds one")
+
+    def test_model_matrix_comes_from_the_live_model_list_and_tested_sites_round_trip(self):
+        verify_jobs = jobs(self.verify)
+        self.assertIn("python3 pipeline/qcl_live.py > live-models.txt", verify_jobs["plan"])
+        self.assertIn("outputs:\n      matrix: ${{ steps.live.outputs.matrix }}", verify_jobs["plan"])
+        model = verify_jobs["model"]
+        self.assertRegex(model, r"(?m)^    needs: plan$")
+        self.assertIn("fail-fast: false", model)
+        self.assertIn("matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}", model)
+        self.assertLess(model.index("python3 web/build.py"), model.index("python3 tests/test_ui.py"))
+        self.assertLess(model.index("python3 tests/test_ui.py"), model.index("actions/upload-artifact"))
+        self.assertIn("name: site-${{ matrix.slug }}", model)
+        self.assertIn("path: ${{ matrix.dir }}/site", model)
+        self.assertIn("if-no-files-found: error", model)
+        site = verify_jobs["site"]
+        self.assertIn("pattern: site-*", site)
+        self.assertLess(site.index("actions/download-artifact"), site.index("python3 pipeline/qcl_live.py > live-models.txt"))
+        self.assertLess(site.index("no tested site artifact"), site.index("tests/test_"),
+                        "every live model's tested site is restored, or the job fails, before any suite runs")
+        self.assertLess(site.index("tests/test_disclosures_ui.py"), site.index("web/assemble.py _site"))
+        self.assertLess(site.index("web/assemble.py _site"), site.index("tests/test_mcp.py"))
+
+    def test_matrix_values_never_become_shell_source(self):
+        for script in scripts(self.verify):
+            self.assertNotIn("${{", script)
+        self.assertIn("MODEL_DIR: ${{ matrix.dir }}", self.verify)
 
 
 if __name__ == "__main__":
