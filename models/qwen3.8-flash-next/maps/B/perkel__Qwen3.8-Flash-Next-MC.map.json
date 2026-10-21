@@ -1,0 +1,23 @@
+{"repo": "perkel/Qwen3.8-Flash-Next-MC",
+ "source_sha256": "3004b0f7a5817b10450f78f7b6eb713da77d2b6beeb1fdf95679d0bb9067d535",
+ "candidates_sha256": "6c7b866935dab5ff6a0ea30a8b352d91852af1bb744ff7d36af2dd9c3922cf82",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Qwen BF16 weights, FP32 math", "dataset": "held-out set, chat and tool-call turns, agentic coding sessions", "ctx": "not stated", "tool": "MegaCapybara engine", "L": [62, 63]},
+ "entries": [
+   {"role": "own",
+    "name": "Tiny",
+    "methodology": {"reference": "Qwen BF16 weights, FP32 math", "dataset": "held-out set (81,880 tokens), chat and tool-call turns, agentic coding sessions", "ctx": "not stated", "tool": "MegaCapybara engine, KV cache 8/8, no YaRN", "L": [62, 63, 67, 68, 69]},
+    "metrics": {"kld:heldout": "c9", "top1:heldout": "c10", "kld:chat_tools": "c13", "top1:chat_tools": "c14", "kld:agentic_code": "c17", "top1:agentic_code": "c18"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["Routed experts at 2 bits [L31]", "Per-source held-out KL values not mapped: no candidate ids [L71-72]", "Relative KL changes at 32K by setting not mapped: relative, not absolute [L75-84]", "Absolute 32K KL figures not mapped: reference of the figure unclear [L86]"]},
+   {"role": "own",
+    "name": "Small",
+    "methodology": {"reference": "Qwen BF16 weights, FP32 math", "dataset": "held-out set (81,880 tokens), chat and tool-call turns, agentic coding sessions", "ctx": "not stated", "tool": "MegaCapybara engine, KV cache 8/8, no YaRN", "L": [62, 63, 67, 68, 69]},
+    "metrics": {"kld:heldout": "c11", "top1:heldout": "c12", "kld:chat_tools": "c15", "top1:chat_tools": "c16", "kld:agentic_code": "c19", "top1:agentic_code": "c20"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["Routed experts at 3 bits [L31-32]", "Per-source held-out KL values not mapped: no candidate ids [L71-72]", "Relative KL changes at 32K by setting not mapped: relative, not absolute [L75-84]", "Absolute 32K KL figures not mapped: reference of the figure unclear [L86]"]}
+ ],
+ "prose": []
+}

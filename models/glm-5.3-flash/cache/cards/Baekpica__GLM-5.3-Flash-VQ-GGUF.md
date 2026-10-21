@@ -13,6 +13,30 @@ pipeline_tag: image-text-to-text
 ---
 # GLM-5.3-Flash VQ GGUF (R13+8 experts, Q4_K nonexpert v3)
 
+> [!WARNING]
+> **Experimental low-bit release.** The routed experts, which hold most of the
+> weights, are stored at 1.625 or 2.625 bits per weight depending on the layer
+> (about 2.1 on average), far below common 4-bit GGUF quants. You may see
+> failures the source model rarely shows: reasoning that loops or never
+> reaches an answer, text that breaks mid-character (shown as `�`) or switches
+> language mid-word, and weaker answers in general. This is exploratory
+> quantization research, not a drop-in replacement for the source model.
+>
+> **The files can change.** This line of conversions is still being researched
+> (as of 2026-10-21, weighted Lloyd fitting of the codebooks is being tested),
+> so any file here may be replaced by a new revision. Replacements so far:
+> three since the first release on 2026-10-15. The non-expert weights were
+> requantized (Q4_K v3, 2026-10-16), then the 8-bit residual stage that
+> protects sensitive routed layers was added to layers 3–16 and widened to 19
+> layers (2026-10-18). The earlier files remain at the tags `vq-original`,
+> `q4k-v3` and `r13p8-l3-16`. To keep a fixed build, download a pinned commit:
+> `hf download Baekpica/GLM-5.3-Flash-VQ-GGUF --revision <commit>`.
+>
+> **Problems or odd output?** Feel free to post them in the
+> [Community tab](https://huggingface.co/Baekpica/GLM-5.3-Flash-VQ-GGUF/discussions),
+> even as rough notes. The prompt, sampling settings and runtime commit help
+> most.
+
 > **Status, 2026-10-18:** the files are the 19-layer R13+8 revision: the
 > residual stage now covers routed layers 3–17, 22, 27, 41 and 44 (before:
 > 3–16). Loading needs a ds4-dfm-rs build with GVQ1 container v2 support

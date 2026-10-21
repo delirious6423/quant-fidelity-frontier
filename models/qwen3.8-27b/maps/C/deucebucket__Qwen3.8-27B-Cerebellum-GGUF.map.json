@@ -1,0 +1,36 @@
+{"repo": "deucebucket/Qwen3.8-27B-Cerebellum-GGUF",
+ "source_sha256": "c54273c67e0f186b6c2abd47f56bebdccb477f91f5df999b7cd38e7676479e9e",
+ "candidates_sha256": "c90c46ad093298218568a8a02bd80a12e19622a32e6b5dbb4817fa380e54c244",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "self-reported by the publisher; not verified on the hub", "dataset": "ARC-Challenge, HellaSwag, MMLU-Redux, HumanEval and HumanEval+, and a perplexity run", "ctx": "server context stated in the evaluation configuration [L123]", "tool": "llama-server chat endpoint at temperature zero", "L": [108, 117, 123]},
+ "entries": [
+  {"role": "own",
+   "name": "Qwen3.8-27B Cerebellum Q2_K Mixed 12GB",
+   "panel": "Artifact",
+   "metrics": {},
+   "size": null, "unit": null, "basis": null, "bpw": "c16",
+   "flags": ["[L76-L83] the effective weight rate is a mixed allocation and not a uniform 2-bit file, per the card"]},
+  {"role": "own",
+   "name": "Qwen3.8-27B Cerebellum Q2_K Mixed 12GB",
+   "panel": "Quantization and memory fit",
+   "metrics": {},
+   "size": "c21", "unit": "GiB", "basis": "disk", "bpw": null,
+   "flags": ["[L96] the card says this is weight-file arithmetic and not measured peak VRAM"]},
+  {"role": "own",
+   "name": "Qwen3.8-27B Cerebellum Q2_K Mixed 12GB",
+   "panel": "Measured results",
+   "methodology": {"reference": "self-reported by the publisher", "dataset": "ARC-Challenge, HellaSwag, MMLU-Redux, HumanEval and HumanEval+, and a perplexity run", "ctx": "server context stated in the evaluation configuration [L123]", "tool": "llama-server chat endpoint at temperature zero", "L": [108, 112, 117, 123]},
+   "metrics": {"ppl": "c14"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L108] self-reported measurements, not verified on the hub", "[L117] the perplexity corpus is not named on the card", "[L125] audit counts of passes and failures are against a total and are not mapped", "[L112-L116] result values sit in the first column and are mapped as prose; the Evaluated column counts samples and is not mapped"]}
+ ],
+ "prose": [
+  {"entry": "Qwen3.8-27B Cerebellum Q2_K Mixed 12GB", "panel": "Measured results", "key": "bench:ARC-Challenge accuracy", "L": 112, "raw": "95.48%"},
+  {"entry": "Qwen3.8-27B Cerebellum Q2_K Mixed 12GB", "panel": "Measured results", "key": "bench:HellaSwag accuracy", "L": 113, "raw": "91.15%"},
+  {"entry": "Qwen3.8-27B Cerebellum Q2_K Mixed 12GB", "panel": "Measured results", "key": "bench:MMLU-Redux accuracy", "L": 114, "raw": "71.21%"},
+  {"entry": "Qwen3.8-27B Cerebellum Q2_K Mixed 12GB", "panel": "Measured results", "key": "bench:HumanEval base pass@1", "L": 115, "raw": "91.46%"},
+  {"entry": "Qwen3.8-27B Cerebellum Q2_K Mixed 12GB", "panel": "Measured results", "key": "bench:HumanEval+ pass@1", "L": 116, "raw": "87.80%"}
+ ]
+}

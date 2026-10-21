@@ -1,0 +1,37 @@
+{
+ "repo": "vultr/GLM-5.3-Flash-GGUF",
+ "source_sha256": "31db85fb3087ecfa3a213bbb5ab022a08061197d96d4db3c71d5a11fc018a7e5",
+ "candidates_sha256": "f294043c8e30a3c7de9043dc32601077568050234546714fc87ea374da88a3c7",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "original bf16 model", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [218, 220, 222]},
+ "entries": [
+  {"role": "own",
+   "name": "GLM-5.3-Flash-Q5_K_M-*.gguf (2 parts)",
+   "metrics": {},
+   "size": "c2", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["quantization table row [L152]"]},
+  {"role": "own",
+   "name": "GLM-5.3-Flash-Q4_K_M-*.gguf (2 parts)",
+   "metrics": {},
+   "size": "c7", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["quantization table row [L158]"]},
+  {"role": "own",
+   "name": "GLM-5.3-Flash-IQ3_M-*.gguf (2 parts)",
+   "metrics": {},
+   "size": "c12", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["quantization table row [L164]"]},
+  {"role": "own",
+   "name": "GLM-5.3-Flash-IQ3_S.gguf",
+   "metrics": {},
+   "size": "c17", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["quantization table row [L170]"]}
+ ],
+ "prose": [
+  {"entry": "GLM-5.3-Flash-Q5_K_M-*.gguf (2 parts)", "key": "mean_kld", "L": 154, "raw": "0.0265"},
+  {"entry": "GLM-5.3-Flash-Q4_K_M-*.gguf (2 parts)", "key": "mean_kld", "L": 160, "raw": "0.0468"},
+  {"entry": "GLM-5.3-Flash-IQ3_M-*.gguf (2 parts)", "key": "mean_kld", "L": 166, "raw": "0.1506"},
+  {"entry": "GLM-5.3-Flash-IQ3_S.gguf", "key": "mean_kld", "L": 172, "raw": "0.1611"}
+ ]
+}

@@ -1,0 +1,26 @@
+{"repo": "AtomicChat/Qwen3.8-Flash-Next-GGUF",
+ "source_sha256": "e382cefb05454683bba7e241e65cc4e0d60e075c6bfc2fd098e1b58087b90b53",
+ "candidates_sha256": "12c432158ad6e65d6506e527730dd2860b040ce69d7366c259bc8b4263e1917f",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 model's own logits", "dataset": "held-out neutral set", "ctx": "4096 context, 87 chunks", "tool": "not stated", "L": [95, 96, 97]},
+ "entries": [
+  {"role": "own",
+   "name": "AD-4.27bpw-Q4_K_M-M64",
+   "metrics": {"mean_kld": "c12", "top1_pct": "c13", "ppl_ratio": "c14"},
+   "size": "c11", "unit": "GB", "basis": "disk", "bpw": "c35",
+   "flags": ["Card names this build as the one to take [L87-88]", "In-memory and on-SSD splits share the Total column; the n-gram table stays on SSD [L92-93]"]},
+  {"role": "ladder",
+   "name": "AD-3.84bpw-IQ4_XS-M64",
+   "metrics": {"mean_kld": "c5", "top1_pct": "c6", "ppl_ratio": "c7"},
+   "size": "c4", "unit": "GB", "basis": "disk", "bpw": "c34",
+   "flags": ["Card keeps this build for machines where every gigabyte of RAM counts [L88-90]"]},
+  {"role": "ladder",
+   "name": "AD-5.00bpw-Q5_K_M-M64",
+   "metrics": {"mean_kld": "c19", "top1_pct": "c20", "ppl_ratio": "c21"},
+   "size": "c18", "unit": "GB", "basis": "disk", "bpw": "c36",
+   "flags": ["Card says the 4.27bpw build matches this build within measurement error [L87-88]"]}
+ ],
+ "prose": []
+}

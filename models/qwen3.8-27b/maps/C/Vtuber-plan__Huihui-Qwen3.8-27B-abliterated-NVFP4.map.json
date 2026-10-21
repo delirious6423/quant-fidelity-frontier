@@ -1,0 +1,26 @@
+{"repo": "Vtuber-plan/Huihui-Qwen3.8-27B-abliterated-NVFP4",
+ "source_sha256": "6ea552a963dc00c1e4ff5d80dd0b013c71aa6e5e20d6c959762cf9fbc238b636",
+ "candidates_sha256": "18bb6de1188a69bf322c1f36ee9c0f99691bf3a024e178d8e7140320ce454971",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "BF16 base of the same abliterated model, under the same protocol", "dataset": "GSM8K under three protocols; calibration sample table; nine-case thinking gate", "ctx": "token budgets stated per protocol [L34-L38]", "tool": "not stated", "L": [34, 36, 37, 38]},
+ "entries": [
+  {"role": "own",
+   "name": "Huihui-Qwen3.8-27B-abliterated-NVFP4",
+   "panel": "Read this first: template default and token budget dominate benchmark scores",
+   "methodology": {"reference": "BF16 base under the same protocol", "dataset": "GSM8K", "ctx": "token budget stated per protocol [L36-L38]", "tool": "not stated", "L": [34, 36, 38]},
+   "metrics": {"bench:GSM8K, raw few-shot completion, 256-token budget": "c2", "bench:GSM8K, chat, fixed template (defaults medium), 2048-token budget": "c5"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L37] the official-template row has no value for this build, so none is mapped", "[L45] the card says raw few-shot completion is not a supported use of this build", "[L118] the on-disk size is given as an approximate total, so it is not mapped", "[L76-L78] gate counts out of nine are not mapped", "[L65] the intermediate build's GSM8K value is a different build and is not mapped"]},
+  {"role": "cross",
+   "name": "BF16 base",
+   "panel": "Read this first: template default and token budget dominate benchmark scores",
+   "of": "huihui-ai/Huihui-Qwen3.8-27B-abliterated",
+   "methodology": {"reference": "not applicable", "dataset": "GSM8K", "ctx": "token budget stated per protocol [L36-L38]", "tool": "not stated", "L": [34, 36, 37, 38]},
+   "metrics": {"bench:GSM8K, raw few-shot completion, 256-token budget": "c1", "bench:GSM8K, chat, official template (defaults xhigh), 2048-token budget": "c3", "bench:GSM8K, chat, fixed template (defaults medium), 2048-token budget": "c4"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L37] the official-template row is the BF16 base only"]}
+ ],
+ "prose": []
+}

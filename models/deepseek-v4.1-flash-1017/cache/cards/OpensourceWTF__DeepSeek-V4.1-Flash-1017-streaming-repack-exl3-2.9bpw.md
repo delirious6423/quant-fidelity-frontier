@@ -79,8 +79,9 @@ they can be streamed from SSD:
 
 Compared with the earlier
 [DeepSeek-V4.1-Flash-streaming-repack-exl3-3.0bpw](https://huggingface.co/OpensourceWTF/DeepSeek-V4.1-Flash-streaming-repack-exl3-3.0bpw):
-the base weights are the 1017 refresh, the expert bank is 8.5 GB smaller, five layers are at 2 bits, and the older
-`expert-manifest.json` index is no longer shipped (the runtime reads `expert-manifest-v2.json`).
+the base weights are the 1017 refresh, the expert bank is 8.5 GB smaller, and five layers are at 2 bits. Both expert
+manifests ship: `expert-manifest-v2.json` (the pack format, K per layer) and `expert-manifest.json` (the runtime index
+mlx-serve's bank opener requires beside it).
 
 ## What it is for
 
@@ -90,30 +91,32 @@ experts the router picks stream from `experts.bin` into a bounded slot cache, an
 Engram rows are read from SSD by offset. A Mac with 128 GB of memory can therefore serve the model even though it
 cannot hold all the experts.
 
-**Runtime support, as of 2026-10-20:** the mlx-stream DeepSeek-V4.1 EXL3 kernels implement K = 3 only. The plugin's
-first-boot check refuses a bank whose K set is not {3}, so this pack does not load on mlx-stream main until K = 2
-kernels for layers 18–22 land. The pack format already carries K per layer, and every record was verified against
-the source, so no re-conversion is needed once the kernels exist. Other loaders, such as Transformers, vLLM or
+**Runtime support, as of 2026-10-20:** mlx-stream main implements K = 3 only and refuses this bank at first boot. The
+K = 2 kernels for layers 18–22 are on the plugin's `dsv41-exl3-k2` branch: every kernel passes its device self-check
+there, and this pack loads, serves and generates on that build. The branch is not yet merged, and the throughput and
+HumanEval numbers are still to be measured. Other loaders, such as Transformers, vLLM or
 ExLlamaV3, do not read this layout. For those, use the original release or the EXL3 quantization linked above.
 
-## How to run (once the K = 2 kernels land)
+## How to run (on the `dsv41-exl3-k2` build)
 
 Build mlx-serve with the mlx-stream plugin, following the plugin's README. Download this repo to a local directory,
 then start:
 
 ```sh
-mlx-serve --serve --model /path/to/DeepSeek-V4.1-Flash-1017-streaming-repack-exl3-2.9bpw --port 8080 \
-  --memory-ceiling-gb 120.259 --wired-margin-gib 2
+MLX_SERVE_GPU_CEILING_MB=114688 mlx-serve --serve --model /path/to/DeepSeek-V4.1-Flash-1017-streaming-repack-exl3-2.9bpw \
+  --port 8080 --ctx-size 17408 --wired-margin-gib 2
 ```
 
-`--memory-ceiling-gb 120.259` is 112 GiB, which leaves macOS 16 GiB of a 128 GiB Mac. The plugin admits its expert
+`MLX_SERVE_GPU_CEILING_MB=114688` is 112 GiB, which leaves macOS 16 GiB of a 128 GiB Mac. The plugin admits its expert
 rows against that ceiling. `--ctx-size` sets the largest prompt the server bills for at load. The download is about
 418 GB.
 
 ## Measured
 
-Nothing yet. This pack has not been served (see Runtime support above), so there are no throughput or HumanEval
-numbers for it. Mia-AiLab's model card for the EXL3 source reports teacher-forced next-token fidelity of the 2.9 bpw
+One served smoke on 2026-10-20 (a 128 GiB Mac, the `dsv41-exl3-k2` build, defaults, cold file cache): a short greedy
+request twice gave identical text, and a 1,664-token prompt ran at 231 prefill tok/s and 30.3 decode tok/s with 3.1
+draft tokens accepted per round. These are cold single requests, not the ladder; the prompt-size ladder, the 16K
+headline and HumanEval are still to run. Mia-AiLab's model card for the EXL3 source reports teacher-forced next-token fidelity of the 2.9 bpw
 EAQ v1 quantization against the 1017 release (KL 0.0137 nats, top-1 agreement 96.6% on their short-context set); that
 measures the expert quantization this repack copies, not this layout or any server.
 
@@ -129,6 +132,7 @@ tables are exact repacks, and the BF16/F32 tensors are verbatim.
 | :--- | ---: | :--- |
 | `experts.bin` | 196.0 GB | Routed experts: 15,360 EXL3 records (40 layers × 384); K = 3 records of 13,316,096 bytes, K = 2 records (layers 18–22) of 8,892,416 bytes |
 | `expert-manifest-v2.json` | 5.9 MB | Expert codec, per-layer K and segment layout, per-record offset and sha256 |
+| `expert-manifest.json` | 19.5 MB | Runtime index of the same records (absolute offsets, per-record sha256), which mlx-serve requires beside the v2 file |
 | `model-00001…00049.safetensors` | 18.7 GB | Non-expert weights (`mxfp8` / `mxfp4` exact repacks, BF16/F32 verbatim) |
 | `model.safetensors.index.json` | 0.25 MB | Tensor-to-shard index |
 | `engram/engram-L1.bin`, `engram/engram-L14.bin` | 101.4 GB each | Engram n-gram tables, 264-byte rows (E4M3 codes and UE8M0 scales, verbatim) |

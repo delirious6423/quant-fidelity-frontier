@@ -1,0 +1,23 @@
+{
+ "repo": "Bucoid/Qwen3.8-27B-Uncensored-IQ4-XS-MTP-16GB-VRAM-GGUF",
+ "source_sha256": "929f4dbcdc6b049a4fa40965db9d9ab9957ad4885542b7995c4e3d21e736ee08",
+ "candidates_sha256": "a1775dea4acc955d5f059c5909a8f45d841b65ad637436353e4b703cc047dbf6",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "base model (not named on card)", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [28, 33, 54]},
+ "entries": [
+  {"role": "own",
+   "name": "IQ4_XS (本模型)",
+   "metrics": {"ppl": "c5", "mean_kld": "c9", "top1_pct": "c16"},
+   "size": "c1", "unit": "GB", "basis": "disk", "bpw": "c3",
+   "flags": ["[L35] Max KLD (c11) not mapped: no matching metric key", "[L36] 99.9% KL quantile (c14) not mapped: no matching metric key", "[L33] PPL correlation with base not mapped: no matching metric key", "[L38-39] Mean and RMS Δp not mapped: no matching metric key", "[L22] base is the 'Qwen3.8-27B Uncensored' model per card; weights_modified set true on that basis"]},
+  {"role": "cross",
+   "name": "UD_IQ3_K_XL (对比)",
+   "of": "not named on card",
+   "metrics": {"ppl": "c6", "mean_kld": "c10", "top1_pct": "c17"},
+   "size": "c2", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["[L24] origin of the UD_IQ3_K_XL file is not named on card; role cross assumed for a file the card author measured", "[L31] bits per weight printed as '约 3‑bit?' (uncertain); bpw left out", "[L35] Max KLD (c12) not mapped: no matching metric key", "[L36] 99.9% KL quantile (c15) not mapped: no matching metric key", "[L33] PPL correlation with base not mapped: no matching metric key", "[L38-39] Mean and RMS Δp not mapped: no matching metric key"]}
+ ],
+ "prose": []
+}

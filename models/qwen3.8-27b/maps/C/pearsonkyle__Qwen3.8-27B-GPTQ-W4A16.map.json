@@ -1,0 +1,32 @@
+{
+ "repo": "pearsonkyle/Qwen3.8-27B-GPTQ-W4A16",
+ "source_sha256": "00d019b4dc3142fa133d1111b85d88ca18ea93f56ba42756a26c89f2d81153c2",
+ "candidates_sha256": "c95d45f185bf40405178ccebf076a970df4df9fca0590d61315a545866bb7401",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "bf16 served identically on vLLM [L94] [L95]", "dataset": "held-out tool-calling turns, parameter and schema checks [L98] [L100] [L101] [L102]", "ctx": "not stated", "tool": "vLLM [L94]", "L": [94, 95, 98, 100, 104, 109]},
+ "entries": [
+  {"role": "own",
+   "name": "Qwen3.8-27B-GPTQ-W4A16",
+   "metrics": {"bench:Tool-selection accuracy (174 held-out turns)": "c2", "bench:Parameter accuracy": "c4", "bench:Schema-valid rate": "c6", "bench:Malformed tool calls": "c8"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["Median KLD range over six distributions has no schema key, not mapped [L104]",
+             "Vision and long-context checks have no bf16 value and are not mapped [L105] [L106]",
+             "Download size and bits per weight are stated outside the quality table, not mapped [L42] [L60]",
+             "Embedding, lm_head, vision tower and MTP head kept in bf16 [L60] [L115] [L125]"]},
+  {"role": "cross",
+   "name": "bf16 (ref)",
+   "of": "Qwen/Qwen3.8-27B",
+   "metrics": {"bench:Tool-selection accuracy (174 held-out turns)": "c1", "bench:Parameter accuracy": "c3", "bench:Schema-valid rate": "c5", "bench:Malformed tool calls": "c7"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["Reference served on the same vLLM stack, the card notes llama.cpp scores differ [L94] [L95]"]}
+ ],
+ "prose": []
+}

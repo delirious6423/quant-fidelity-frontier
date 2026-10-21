@@ -77,6 +77,50 @@ With the addition of AI CONSTRUCTS (15) that "expresso" just gained a lot more s
 - When used in the AI model, this construct channels the full power of the AI model AND THE AI CONSTRUCT on your tasks.
 - You can talk to the construct normally, roleplay, use it for prompts - you name it, it adapts.
 
+<B>And Turbo Brilliance is fast: </B>
+
+100s to 1000s of tokens are sent directly INJECTED into to the model at the pre-thinking/reasoning/instruct stage in milliseconds, these instructions are ingested
+and the model is primed for action.
+
+<B>CHOICE, POWER, SPEED and SMARTS:</b>
+- Choose Instruct mode (instant answer) or reasoning IN YOUR PROMPT (from tiny to massive) (also API,VLLM etc etc too); no buttons to select, nothing to change.
+- Choose your instruct or reasoning mode => no reasoning? a little? a lot? => Just use what you need, when you need it.
+- Power -> Select the reasoning or instruct mode you need. Need Qwen 3.8 "xhigh" => Choose this OR even higher "xhigh"+"combined powered" reasoning: There are 8 of them.
+- Speed -> Save time, tokens and get more work done faster.
+- Smart -> Intelligent, deep reasoning that goes beyond the default "Qwen thinking/reasoning" modes AND instruct modes too.
+- The help system is always there to instantly advise you based on use case[s] and modes of reasoning/instruct, including multi-stage too [it is built in].
+
+<B>RESULTS:</b>
+- The model spends little to no time getting underway (focused on the task(s) VS figuring out the task(s) and best way to approach it) by the time it produces the first token.
+- The model is focused ("on the same page"), and spends less time "guessing" and more time "doing". IE: working on the task(s) at hand.
+- The output quality jumps, and one shot/two shot "Brilliance" is the standard, vs 5-10 regens to get a good to great output.
+
+<B>IMPORTANT FAQs:</B>
+- The systems only activate AT YOUR REQUEST (in current version), otherwise the model runs normally, with standard default reasoning/instruct modes set.
+- The core design and premise: Use specific reasoning method[s] to both get better, stronger and more consistent outputs (bypass the temp para issue) and reduce net token usage.
+- BASE OPERATION: option to switch instantly between reasoning / instruct modes AND/OR try your prompt in multiple modes quickly.
+- USE Case[s] help is always available to suggest best method[s], and in what order to get optimal results.
+- THis version is fully hardened, fully operational and works with tools/agents.
+- TURBO Brilliance system has been tested on multiple Qwen (sizes, and versions including sparse) models, Gemma, and a few others as of this writing.
+
+NOTES:
+- See reasoning/instruct modes and sample generations BELOW.
+- See Reasoning / instruct modes and examples below too ; which may answer a number of questions.
+
+LIMITS:
+- This model is limited in part to assess the next step(s) possible as there are some questions related to "AI apps", and how much they can handle.
+- I have limited the systems in some respects (IE "xmode"(s) are limited to certain modes).
+- The "core" model is very lightly tuned - it is not a heretic, nor is extensively tuned. (both are coming)
+- Certain "AI Constructs" are also limited in size/construction/intelligence specifically as to not overwhelm the model / "AI apps".
+- This system (as it is released at this repo) is "Tier 1". There are five tiers (each stronger/more complex, including automation) as of this writing.
+- Feedback will be used to refine all parts and systems as well as "AI constructs".
+- Although 15 "AI Constructs" are part of this release, there are a lot more "in the lab".
+- Generally speaking there is a lot more "gas in the tank" at every level here at the "lab level", "model level" and "Turbo Brilliance" level.
+
+<B>Additional Models using versions of Turbo Brilliance (as of this writing)</B>
+
+https://huggingface.co/collections/DavidAU/turbo-brilliance-ai-constructs-50x-reasoning-instruct
+
 <B>MODEL SPECS / SETTINGS:</B>
 - This is a MOE (Mixture of Experts model), sparse with 4 of 64 experts (2B of 24B) per token activated.
 - Context max: 128K, suggest min 32,000 when using Turbo Brilliance. 64k to 128k is better.

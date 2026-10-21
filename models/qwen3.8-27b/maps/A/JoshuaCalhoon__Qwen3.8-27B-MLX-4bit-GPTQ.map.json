@@ -1,38 +1,60 @@
 {
   "repo": "JoshuaCalhoon/Qwen3.8-27B-MLX-4bit-GPTQ",
-  "source_sha256": "df0deabbe24c338ff85b291d7513efd32ce49a2eb5f7fadd0a703ec99d05b80e",
+  "source_sha256": "7778dc796bbe36cbb4b70cd6804bcec89cdd2e43c6662dbfa1fe08bbdecc62e2",
   "candidates_sha256": "625079111b0681484630984bf9d2cd098654eafc301cff3e932c21f7c88ecc76",
   "no_quality_claims": false,
   "no_claims_reason": "",
   "weights_modified": false,
-  "method": {"reference": "bf16 base", "dataset": "96 held-out sequences / 37.8K tokens from projects outside the calibration set", "ctx": "not stated", "tool": "not stated", "L": [34, 35]},
+  "method": {
+    "reference": "bf16 base Qwen/Qwen3.8-27B",
+    "dataset": "96 held-out sequences / 37.8K tokens from projects not in the calibration set",
+    "ctx": "not stated",
+    "tool": "mlx_lm.load",
+    "L": [34, 35]
+  },
   "entries": [
     {
       "role": "own",
-      "name": "this quant",
-      "metrics": {},
+      "name": "MLX 4-bit GPTQ (g4p-v2)",
+      "methodology": {
+        "reference": "bf16 base Qwen/Qwen3.8-27B",
+        "dataset": "96 held-out sequences / 37.8K tokens from projects not in the calibration set",
+        "ctx": "not stated",
+        "tool": "mlx_lm.load",
+        "L": [34, 35]
+      },
+      "metrics": {"mean_kld": "c1", "top1_pct": "c3"},
       "size": "c5",
       "unit": "GB",
       "basis": "disk",
       "bpw": null,
       "flags": [
-        "KL vs bf16 (0.0747) is computed over bf16 top-64 tokens plus a tail bucket; no top-k KL key, not mapped [L35, L39]",
-        "Top-1 agreement (0.925) is printed as a fraction, not a percent, so not mapped to top1_pct [L40]",
-        "Image-reading and agentic benchmark results are stated without numbers in the card, not mapped [L44-46]"
+        "KL is over bf16 top-64 tokens plus a tail bucket, not full vocabulary [L35,L39]",
+        "Top-1 agreement is printed as a fraction (0.925), not a percent [L40]",
+        "Image probe (60/60 values) and agentic suite are described without a mapped number; card reads them as no regression [L44-46]",
+        "Decode and real-world speed tables not mapped [L42,L53-58]"
       ]
     },
     {
       "role": "cross",
       "name": "mlx-community/Qwen3.8-27B-4bit",
       "of": "mlx-community/Qwen3.8-27B-4bit",
-      "metrics": {},
+      "methodology": {
+        "reference": "bf16 base Qwen/Qwen3.8-27B",
+        "dataset": "96 held-out sequences / 37.8K tokens from projects not in the calibration set",
+        "ctx": "not stated",
+        "tool": "mlx_lm.load",
+        "L": [34, 35]
+      },
+      "metrics": {"mean_kld": "c2", "top1_pct": "c4"},
       "size": "c6",
       "unit": "GB",
       "basis": "disk",
       "bpw": null,
       "flags": [
-        "KL vs bf16 (0.1175) is computed over bf16 top-64 tokens plus a tail bucket; no top-k KL key, not mapped [L35, L39]",
-        "Top-1 agreement (0.881) is printed as a fraction, not a percent, so not mapped to top1_pct [L40]"
+        "Measured by the card author in the same comparison table as the own entry [L37-41]",
+        "KL is over bf16 top-64 tokens plus a tail bucket, not full vocabulary [L35,L39]",
+        "Top-1 agreement is printed as a fraction (0.881), not a percent [L40]"
       ]
     }
   ],

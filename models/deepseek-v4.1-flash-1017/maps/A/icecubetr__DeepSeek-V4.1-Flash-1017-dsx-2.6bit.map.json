@@ -1,50 +1,77 @@
 {
  "repo": "icecubetr/DeepSeek-V4.1-Flash-1017-dsx-2.6bit",
- "source_sha256": "188916c14f02f05e59fee1909cff5c721e3afa2f4f72981fb3de2e9aab0da51f",
- "candidates_sha256": "c9536dc38c560142a9cb24ae66af39dcbb6ca5162dd5f9a7159b419e6a8a54f2",
+ "source_sha256": "59cf5bf5da7ef0353c6a1991c00ab2c73aecc64887f0f37136f52136856100ab",
+ "candidates_sha256": "0106788922fc44832dc74cb467a563cd08a2ccffdd76d043523b376d90c0a312",
  "no_quality_claims": false,
  "no_claims_reason": "",
- "weights_modified": true,
+ "weights_modified": false,
  "method": {
-   "reference": "FP8/FP4 teacher, KL and top-1 against its top-256 log-probs [L41]",
-   "dataset": "Lucebox's 1017 eval set, 8 x 1024 held-out tokens [L40-L41]",
-   "ctx": "not stated",
-   "tool": "dsx eval [L40]",
-   "L": [40, 41, 44]
+   "reference": "FP8/FP4 teacher, top-256 log-probs",
+   "dataset": "Lucebox's 1017 eval set, 8 × 1024 held-out tokens",
+   "ctx": "8 × 1024 tokens",
+   "tool": "dsx eval",
+   "L": [40, 41, 42, 44, 45, 46, 47, 48, 49]
  },
  "entries": [
   {
    "role": "own",
-   "name": "This model",
+   "name": "dsx 2.6-bit",
+   "methodology": {
+     "reference": "FP8/FP4 teacher, top-256 log-probs",
+     "dataset": "Lucebox's 1017 eval set, 8 × 1024 held-out tokens",
+     "ctx": "8 × 1024 tokens",
+     "tool": "dsx eval; all experts resident",
+     "L": [40, 41, 42, 44, 49]
+   },
    "metrics": {
-     "mean_kld": "c14",
-     "top1_pct": "c15",
-     "ppl": "c16"
+     "mean_kld": "c16",
+     "top1_pct": "c17",
+     "ppl": "c18"
    },
    "size": null,
    "unit": null,
    "basis": null,
-   "bpw": "c13",
-   "flags": ["KL and top-1 are against the teacher's top-256 log-probs [L41]; size 187.6 GB is stated in prose, not in the quality table, not mapped [L22]"]
+   "bpw": "c15",
+   "flags": [
+     "all experts resident (0 left in the file) [L42]",
+     "FP8/FP4 teacher reference row not mapped: the reference, not a quant [L46]",
+     "NLL 2.236722 over 8,184 tokens [L51] not mapped: no matching metric key"
+   ]
   },
   {
    "role": "ladder",
-   "name": "Author's 2.03 bpw build",
+   "name": "dsx 2-bit",
+   "methodology": {
+     "reference": "FP8/FP4 teacher, top-256 log-probs",
+     "dataset": "Lucebox's 1017 eval set, 8 × 1024 held-out tokens",
+     "ctx": "8 × 1024 tokens",
+     "tool": "dsx eval; all experts resident",
+     "L": [40, 41, 42, 44, 48]
+   },
    "metrics": {
-     "mean_kld": "c10",
-     "top1_pct": "c11",
-     "ppl": "c12"
+     "mean_kld": "c11",
+     "top1_pct": "c12",
+     "ppl": "c13"
    },
    "size": null,
    "unit": null,
    "basis": null,
-   "bpw": "c9",
-   "flags": []
+   "bpw": "c10",
+   "flags": [
+     "this publisher's earlier 2-bit build [L48]"
+   ]
   },
   {
    "role": "cross",
-   "of": "Lucebox/DeepSeek-V4.1-Flash-1017-ROCMFP-GGUF",
+   "of": "not named on card",
    "name": "Lucebox ROCMFP",
+   "methodology": {
+     "reference": "FP8/FP4 teacher, top-256 log-probs",
+     "dataset": "Lucebox's 1017 eval set, 8 × 1024 held-out tokens",
+     "ctx": "8 × 1024 tokens",
+     "tool": "dsx eval",
+     "L": [40, 41, 42, 44, 47]
+   },
    "metrics": {
      "mean_kld": "c6",
      "top1_pct": "c7",
@@ -54,20 +81,10 @@
    "unit": null,
    "basis": null,
    "bpw": "c5",
-   "flags": ["repo taken from the eval-set link, the measured file is not named [L40, L47]"]
-  },
-  {
-   "role": "cross",
-   "of": "not named on card",
-   "name": "FP8 / FP4 teacher",
-   "metrics": {
-     "ppl": "c4"
-   },
-   "size": null,
-   "unit": null,
-   "basis": null,
-   "bpw": null,
-   "flags": ["reference row; its KL and top-1 are zero by construction and not mapped [L46]"]
+   "flags": [
+     "measured with dsx eval on Lucebox's eval set [L40-41]",
+     "eval-set link points to Lucebox's ROCMFP GGUF repo, which the card does not name as the measured file [L40]"
+   ]
   }
  ],
  "prose": []

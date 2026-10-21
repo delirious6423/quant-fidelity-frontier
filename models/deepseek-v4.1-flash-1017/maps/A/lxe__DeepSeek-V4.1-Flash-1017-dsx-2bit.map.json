@@ -1,43 +1,118 @@
 {
  "repo": "lxe/DeepSeek-V4.1-Flash-1017-dsx-2bit",
- "source_sha256": "f40c309e53cfdb073e71c3b21143c2b0a65fbeaec67f59acf946477dab1e3d81",
- "candidates_sha256": "13df4c97e877d985671ff28ef7b1c6e6233b6d6e66acb5c5e03dec2a04338366",
+ "source_sha256": "ee79f5d280aaf93848ee94c3225df4d122d2ccb54fdb96fc653b76f5881bb205",
+ "candidates_sha256": "4952471c894cbb1750d7d4976eb9ab97873acfebae229f653f8b9c3d9e1a866e",
  "no_quality_claims": false,
  "no_claims_reason": "",
  "weights_modified": false,
- "method": {"reference": "FP8 model top-256 log-probs", "dataset": "Lucebox 1017 eval set, 8 x 1024 tokens", "ctx": "1024 tokens per sequence", "tool": "lucebox-eval tool (lxe/dsx); Unsloth GGUFs measured in llama.cpp with the same token ids", "L": [40, 41, 51, 52]},
+ "method": {
+   "reference": "FP8 model, top-256 log-probs",
+   "dataset": "Lucebox's 1017 eval set, 8 × 1024 tokens",
+   "ctx": "8 × 1024 tokens",
+   "tool": "dsx eval; Unsloth GGUFs measured in llama.cpp with the same token ids and metric",
+   "L": [40, 41, 42, 44, 45, 46, 47, 48, 49, 51, 52]
+ },
  "entries": [
-  {"role": "own",
+  {
+   "role": "own",
    "name": "dsx 2-bit",
-   "methodology": {"reference": "FP8 model top-256 log-probs", "dataset": "Lucebox 1017 eval set, 8 x 1024 tokens", "ctx": "1024 tokens per sequence", "tool": "not stated", "L": [40, 41]},
-   "metrics": {"mean_kld": "c17", "top1_pct": "c18", "ppl": "c19"},
-   "size": "c16.1", "unit": "GB", "basis": null,
-   "bpw": "c20",
-   "flags": ["Engram tables are read from the official checkpoint and are not part of the 148 GB [L22, L110]", "The near-lossless MXFP4 build for AMD MI325X (KL 0.049) is a different model and is not mapped [L24-25]"]},
-  {"role": "cross",
-   "name": "Lucebox ROCMFP",
-   "of": "Lucebox/DeepSeek-V4.1-Flash-1017-ROCMFP-GGUF",
-   "methodology": {"reference": "FP8 model top-256 log-probs", "dataset": "Lucebox 1017 eval set, 8 x 1024 tokens", "ctx": "1024 tokens per sequence", "tool": "not stated", "L": [40, 41]},
-   "metrics": {"mean_kld": "c9", "top1_pct": "c10", "ppl": "c11"},
-   "size": null, "unit": null, "basis": null,
-   "bpw": "c8",
-   "flags": ["Row sits in the same Quality table as this build [L47]"]},
-  {"role": "cross",
+   "methodology": {
+     "reference": "FP8 model, top-256 log-probs",
+     "dataset": "Lucebox's 1017 eval set, 8 × 1024 tokens",
+     "ctx": "8 × 1024 tokens",
+     "tool": "dsx eval",
+     "L": [40, 41, 42, 49]
+   },
+   "metrics": {
+     "mean_kld": "c17",
+     "top1_pct": "c18",
+     "ppl": "c19"
+   },
+   "size": "c16.1",
+   "unit": "GB",
+   "basis": "excl_engram",
+   "bpw": "c16.0",
+   "flags": [
+     "148 GB is the 4 GGUF shards; the official Engram shards (203 GB) are separate [L29]",
+     "FP8/FP4 original reference row (perplexity 8.56) not mapped: the reference, not a quant [L45]",
+     "earlier builds v4, v3a, v2, v1 (KL 0.382, 0.397, 0.395, 0.462) in running text [L169] not mapped: not this file",
+     "near-lossless mxfp4 build (KL 0.049) in the intro [L24-25] not mapped: a different artifact"
+   ]
+  },
+  {
+   "role": "cross",
+   "of": "not named on card",
    "name": "Unsloth UD-Q2_K_XL",
-   "of": "not named on card",
-   "methodology": {"reference": "FP8 model top-256 log-probs", "dataset": "Lucebox 1017 eval set, 8 x 1024 tokens", "ctx": "1024 tokens per sequence", "tool": "llama.cpp, same token ids and metric", "L": [46, 52]},
-   "metrics": {"mean_kld": "c5", "top1_pct": "c6", "ppl": "c7"},
-   "size": null, "unit": null, "basis": null,
+   "methodology": {
+     "reference": "FP8 model, top-256 log-probs",
+     "dataset": "Lucebox's 1017 eval set, 8 × 1024 tokens",
+     "ctx": "8 × 1024 tokens",
+     "tool": "llama.cpp with the same token ids and metric",
+     "L": [40, 41, 46, 51, 52]
+   },
+   "metrics": {
+     "mean_kld": "c5",
+     "top1_pct": "c6",
+     "ppl": "c7"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
    "bpw": null,
-   "flags": ["Measured by the card author in llama.cpp with the same token ids and metric [L52]", "Size is given in the row label (~224 GB without Engram) and is not mapped [L46]"]},
-  {"role": "cross",
+   "flags": [
+     "measured by this card's author in llama.cpp [L51-52]",
+     "size ~224 GB without Engram sits in the row label [L46] and has no candidate id, not mapped"
+   ]
+  },
+  {
+   "role": "cross",
+   "of": "not named on card",
+   "name": "Lucebox ROCMFP",
+   "methodology": {
+     "reference": "FP8 model, top-256 log-probs",
+     "dataset": "Lucebox's 1017 eval set, 8 × 1024 tokens",
+     "ctx": "8 × 1024 tokens",
+     "tool": "not stated",
+     "L": [40, 41, 47]
+   },
+   "metrics": {
+     "mean_kld": "c9",
+     "top1_pct": "c10",
+     "ppl": "c11"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c8",
+   "flags": [
+     "row sits in the card's measured quality table [L40-47]; the card does not state how it was measured"
+   ]
+  },
+  {
+   "role": "cross",
+   "of": "not named on card",
    "name": "Unsloth UD-IQ1_S",
-   "of": "not named on card",
-   "methodology": {"reference": "FP8 model top-256 log-probs", "dataset": "Lucebox 1017 eval set, 8 x 1024 tokens", "ctx": "1024 tokens per sequence", "tool": "llama.cpp, same token ids and metric", "L": [48, 52]},
-   "metrics": {"mean_kld": "c12", "top1_pct": "c13", "ppl": "c14"},
-   "size": null, "unit": null, "basis": null,
+   "methodology": {
+     "reference": "FP8 model, top-256 log-probs",
+     "dataset": "Lucebox's 1017 eval set, 8 × 1024 tokens",
+     "ctx": "8 × 1024 tokens",
+     "tool": "llama.cpp with the same token ids and metric",
+     "L": [40, 41, 48, 51, 52]
+   },
+   "metrics": {
+     "mean_kld": "c12",
+     "top1_pct": "c13",
+     "ppl": "c14"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
    "bpw": null,
-   "flags": ["Measured by the card author in llama.cpp with the same token ids and metric [L52]", "Size is given in the row label (~122 GB without Engram) and is not mapped [L48]"]}
+   "flags": [
+     "measured by this card's author in llama.cpp [L51-52]",
+     "size ~122 GB without Engram sits in the row label [L48] and has no candidate id, not mapped"
+   ]
+  }
  ],
  "prose": []
 }

@@ -26,6 +26,27 @@ tags:
 
 # DeepSeek-V4.1-Flash-1017 VQ GGUF
 
+> [!WARNING]
+> **Experimental low-bit release.** The routed experts, which hold most of the
+> weights, are stored at about 1.6 bits per weight, far below common 4-bit
+> GGUF quants. You may see failures the source model rarely shows: reasoning
+> that loops or never reaches an answer, text that breaks mid-character (shown
+> as `�`) or switches language mid-word, and weaker answers in general. This
+> is exploratory quantization research, not a drop-in replacement for the
+> source model.
+>
+> **The files can change.** This line of conversions is still being researched
+> (as of 2026-10-21, weighted Lloyd fitting of the codebooks is being tested),
+> so any file here may be replaced by a new revision. Replacements so far:
+> none since the first release on 2026-10-17. To keep a fixed build, download
+> a pinned commit:
+> `hf download Baekpica/DeepSeek-V4.1-Flash-1017-VQ-GGUF --revision <commit>`.
+>
+> **Problems or odd output?** Feel free to post them in the
+> [Community tab](https://huggingface.co/Baekpica/DeepSeek-V4.1-Flash-1017-VQ-GGUF/discussions),
+> even as rough notes. The prompt, sampling settings and runtime commit help
+> most.
+
 **DeepSeek's October 17 update of V4.1 Flash, converted the day it shipped and sized for one 128 GB DGX Spark.**
 The 510 GB official checkpoint becomes a ~113.6 GB base GGUF that carries the
 model's own three-tower MTP drafter, plus a ~1 GB vision sidecar and the

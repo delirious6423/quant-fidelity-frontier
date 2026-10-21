@@ -103,15 +103,15 @@ a one-line script that does both downloads and checks free space and file sizes.
 ## Serving
 
 Needs the serving stack of the sudoingX recipe (v1.1 = `cc59c36`: vLLM pin `6e517b15` + patches 0001–0021 + the
-`vllm_exl3_moe` plugin) plus our patches 0030–0050 (list and measurements in the GitHub repo). All of it is in one
+`vllm_exl3_moe` plugin) plus our patches 0030–0061 (list and measurements in the GitHub repo). All of it is in one
 image; build the plugin's JIT kernels once before the first start (building them next to the loaded weights can run the
 node out of memory):
 
 ```bash
-docker pull ghcr.io/henryous/deepseek-v41-1017-dgx-spark:v5
+docker pull ghcr.io/henryous/deepseek-v41-1017-dgx-spark:v12
 mkdir -p ~/.cache/dsv41-serve && docker run --rm --gpus all -v $HOME/.cache/dsv41-serve:/root/.cache \
   -e TORCH_EXTENSIONS_DIR=/root/.cache/torch_extensions -e MAX_JOBS=4 -e EXL3_SMOE_FLAGS=-DSMOE_RUNFLAGS=1 \
-  --entrypoint python3 ghcr.io/henryous/deepseek-v41-1017-dgx-spark:v5 \
+  --entrypoint python3 ghcr.io/henryous/deepseek-v41-1017-dgx-spark:v12 \
   -c 'from vllm_exl3_moe import tf_experts as t, mrow, rdma, mhc, router, smoe, l2pf; t._ext(); mrow.ext(); rdma.ext(); mhc.ext(); router.ext(); smoe.ext(); l2pf.ext()'
 ```
 
@@ -120,7 +120,7 @@ Key settings (TP2 across two Sparks over RoCE; full launch example with the envi
 
 ```
 --tensor-parallel-size 2 --max-model-len 327680 --max-num-seqs 4 --max-num-batched-tokens 4096
---kv-cache-memory-bytes 4026531840        # 3.75 GiB per rank = 989,460 tokens
+--kv-cache-memory-bytes 4026531840        # 3.75 GiB per rank = 1,531,258 tokens with VLLM_DSV41_KV_PAIR=3 (0057 + 0060)
 --long-prefill-token-threshold 1024       # with our patch 0031c: caps background requests only
 --speculative-config '{"method":"dspark","num_speculative_tokens":5,"num_speculative_tokens_per_batch_size":[[1,2,5],[3,4,4]]}'
 --scheduling-policy priority --enable-prompt-tokens-details
@@ -142,7 +142,7 @@ bench runs):
 | prefill, cold 8K (same scripts) | 2,203 tok/s |
 | time to first token, cold 18.5K-token prompt ¹ | 8.4 s (~2,200 tok/s) |
 | time to first token, cold 314K-token prompt ¹ | 152 s (2,066 tok/s); 3 of 3 needles found (10/50/90 % depth, T = 0) |
-| KV pool at 3.75 GiB per rank | 989,460 tokens (3 full 320K requests at once) |
+| KV pool at 3.75 GiB per rank (image v12, patches 0057 + 0060) | 1,531,258 tokens (4.67 full 320K requests at once; v5: 989,460) |
 
 ¹ Measured with the earlier image v4i; the later changes are mainly in decode-time paths.
 

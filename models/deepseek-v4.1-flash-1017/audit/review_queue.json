@@ -1,21 +1,51 @@
 {
  "quarantined": [
   {
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "kind": "ladder",
+   "entry": "v0: greedy EXL3",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
+   "kind": "ladder",
+   "entry": "EXL3 3.5 bpw",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
+   "kind": "variants",
+   "entry": "EXL3 2.9 bpw (this repo)",
+   "reason": "failed a gate"
+  },
+  {
    "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
    "kind": "ladder",
    "entry": "EXL3 2.9 bpw",
    "reason": "failed a gate"
   },
   {
-   "repo": "jayleaton/DeepSeek-V4.1-Flash-1017-EXL3-2.8bpw",
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
    "kind": "variants",
-   "entry": "this pack",
+   "entry": "EXL3 3.5 bpw (this repo)",
    "reason": "failed a gate"
   },
   {
-   "repo": "HeNryous/DeepSeek-V4.1-Flash-1017-EXL3-2.75bpw-DGX-Spark",
+   "repo": "diffbot/DeepSeek-V4.1-Flash-EXL3-3bpw-2x-RTX-PRO-6000",
    "kind": "variants",
-   "entry": "this repo",
+   "entry": "This pack",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "diffbot/DeepSeek-V4.1-Flash-EXL3-3bpw-2x-RTX-PRO-6000",
+   "kind": "variants",
+   "entry": "This pack on the previous release's serving stack",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "kind": "cross",
+   "entry": "LibertAIDAI 2.9 bpw",
    "reason": "failed a gate"
   },
   {
@@ -25,9 +55,15 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "repo": "jayleaton/DeepSeek-V4.1-Flash-1017-EXL3-2.8bpw",
+   "kind": "ladder",
+   "entry": "q28-v2",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "jayleaton/DeepSeek-V4.1-Flash-1017-EXL3-2.8bpw",
    "kind": "variants",
-   "entry": "EXL3 3.5 bpw (this repo)",
+   "entry": "this pack",
    "reason": "failed a gate"
   },
   {
@@ -43,27 +79,9 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
-   "kind": "variants",
-   "entry": "EXL3 2.9 bpw (this repo)",
-   "reason": "failed a gate"
-  },
-  {
    "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
    "kind": "ladder",
-   "entry": "v0: greedy EXL3",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
-   "kind": "ladder",
-   "entry": "EXL3 3.5 bpw",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "jayleaton/DeepSeek-V4.1-Flash-1017-EXL3-2.8bpw",
-   "kind": "ladder",
-   "entry": "q28-v2",
+   "entry": "v1: Viterbi + refit",
    "reason": "failed a gate"
   },
   {
@@ -73,9 +91,27 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "repo": "HeNryous/DeepSeek-V4.1-Flash-1017-EXL3-2.75bpw-DGX-Spark",
+   "kind": "variants",
+   "entry": "this repo",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "diffbot/DeepSeek-V4.1-Flash-EXL3-3bpw-2x-RTX-PRO-6000",
+   "kind": "variants",
+   "entry": "This pack, as served",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
    "kind": "ladder",
-   "entry": "v1: Viterbi + refit",
+   "entry": "Our 2.9 bpw",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "kind": "variants",
+   "entry": "This quant (3.5 bpw)",
    "reason": "failed a gate"
   },
   {
@@ -109,6 +145,12 @@
    "entry": "v1: Viterbi + refit",
    "key": "bench:chinese_mixing_ja_text",
    "raw": "1.19%"
+  },
+  {
+   "repo": "HeNryous/DeepSeek-V4.1-Flash-1017-EXL3-2.75bpw-DGX-Spark",
+   "entry": "this repo",
+   "key": "ppl",
+   "raw": "1.6119 (this quant)"
   },
   {
    "repo": "IndrasMirror/DeepSeek-V4.1-Flash-1017-XQ-Uncensored",
@@ -543,10 +585,64 @@
    "raw": "92%"
   },
   {
-   "repo": "icecubetr/DeepSeek-V4.1-Flash-1017-dsx-2.6bit",
-   "entry": "FP8 / FP4 teacher",
-   "key": "ppl",
-   "raw": "8.56"
+   "repo": "cliecy/DeepSeek-V4.1-Flash-1017-UD-IQ2XS-GGUF",
+   "entry": "this file (fixed)",
+   "key": "ppl:wikitext",
+   "raw": "2.044 \u00b1 0.045"
+  },
+  {
+   "repo": "cliecy/DeepSeek-V4.1-Flash-1017-UD-IQ2XS-GGUF",
+   "entry": "first upload (2026-10-18)",
+   "key": "ppl:wikitext",
+   "raw": "16.54"
+  },
+  {
+   "repo": "cliecy/DeepSeek-V4.1-Flash-1017-UD-IQ2XS-GGUF",
+   "entry": "Q2_K 1017",
+   "key": "ppl:wikitext",
+   "raw": "4.749 \u00b1 0.137 (earlier run, see below)"
+  },
+  {
+   "repo": "diffbot/DeepSeek-V4.1-Flash-EXL3-3bpw-2x-RTX-PRO-6000",
+   "entry": "This pack on the previous release's serving stack",
+   "key": "kld:neutral",
+   "raw": "0.0518"
+  },
+  {
+   "repo": "diffbot/DeepSeek-V4.1-Flash-EXL3-3bpw-2x-RTX-PRO-6000",
+   "entry": "This pack on the previous release's serving stack",
+   "key": "kld:code",
+   "raw": "0.0309"
+  },
+  {
+   "repo": "diffbot/DeepSeek-V4.1-Flash-EXL3-3bpw-2x-RTX-PRO-6000",
+   "entry": "This pack on the previous release's serving stack",
+   "key": "kld:agentic",
+   "raw": "0.0109"
+  },
+  {
+   "repo": "diffbot/DeepSeek-V4.1-Flash-EXL3-3bpw-2x-RTX-PRO-6000",
+   "entry": "This pack on the previous release's serving stack",
+   "key": "top1:agentic",
+   "raw": "98.3"
+  },
+  {
+   "repo": "diffbot/DeepSeek-V4.1-Flash-EXL3-3bpw-2x-RTX-PRO-6000",
+   "entry": "This pack on the previous release's serving stack",
+   "key": "kld:short100",
+   "raw": "0.0336"
+  },
+  {
+   "repo": "diffbot/DeepSeek-V4.1-Flash-EXL3-3bpw-2x-RTX-PRO-6000",
+   "entry": "This pack on the previous release's serving stack",
+   "key": "top1:short100",
+   "raw": "95.5"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "Our 2.9 bpw",
+   "key": "bench:GSM8K thinking on",
+   "raw": "| GSM8K, thinking on | 98.0% | 98.0%"
   },
   {
    "repo": "lxe/DeepSeek-V4.1-Flash-1017-dsx-mxfp4",
@@ -571,6 +667,12 @@
    "entry": "LibertAIDAI 2.9 bpw",
    "key": "bench:MMLU_thinking_on",
    "raw": "92.5%"
+  },
+  {
+   "repo": "philbert440/DeepSeek-V4.1-Flash-1017-EXL3-franken-v100",
+   "entry": "23.0 GiB variant (plain decode only)",
+   "key": "mean_kld",
+   "raw": "KL (0.036)."
   },
   {
    "repo": "rapid-mlx/DeepSeek-V4.1-Flash-1017-MLX",
@@ -723,28 +825,100 @@
    "raw": "94.19%"
   },
   {
-   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
-   "entry": "This pack",
-   "key": "bench:MMLU-Pro",
-   "raw": "67.0%"
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "entry": "v1: Viterbi + refit",
+   "key": "bench:image_qa_ja",
+   "raw": "85.8"
   },
   {
-   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
-   "entry": "This pack",
-   "key": "bench:MMLU-Pro",
-   "raw": "67.0%"
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "entry": "v1: Viterbi + refit",
+   "key": "bench:image_qa_en",
+   "raw": "91.0"
   },
   {
-   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
-   "entry": "This repo with Engram switched off (sanity check)",
-   "key": "ppl:code",
-   "raw": "4.1548"
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "entry": "v1: Viterbi + refit",
+   "key": "bench:image_qa_ja",
+   "raw": "85.8"
   },
   {
-   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
-   "entry": "This repo with Engram switched off (sanity check)",
-   "key": "ppl:prose",
-   "raw": "8.9702"
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "entry": "v1: Viterbi + refit",
+   "key": "bench:image_qa_en",
+   "raw": "91.0"
+  },
+  {
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "entry": "this model (v1 + scale calibration)",
+   "key": "bench:image_qa_ja",
+   "raw": "85.5"
+  },
+  {
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "entry": "this model (v1 + scale calibration)",
+   "key": "bench:image_qa_en",
+   "raw": "91.7"
+  },
+  {
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "entry": "this model (v1 + scale calibration)",
+   "key": "bench:image_qa_ja",
+   "raw": "85.5"
+  },
+  {
+   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
+   "entry": "this model (v1 + scale calibration)",
+   "key": "bench:image_qa_en",
+   "raw": "91.7"
+  },
+  {
+   "repo": "HeNryous/DeepSeek-V4.1-Flash-1017-EXL3-2.75bpw-DGX-Spark",
+   "entry": "this repo",
+   "key": "kld:code",
+   "raw": "code 0.0125"
+  },
+  {
+   "repo": "HeNryous/DeepSeek-V4.1-Flash-1017-EXL3-2.75bpw-DGX-Spark",
+   "entry": "this repo",
+   "key": "kld:math",
+   "raw": "math 0.0152"
+  },
+  {
+   "repo": "HeNryous/DeepSeek-V4.1-Flash-1017-EXL3-2.75bpw-DGX-Spark",
+   "entry": "this repo",
+   "key": "kld:agentic",
+   "raw": "agentic 0.0183"
+  },
+  {
+   "repo": "HeNryous/DeepSeek-V4.1-Flash-1017-EXL3-2.75bpw-DGX-Spark",
+   "entry": "this repo",
+   "key": "kld:long",
+   "raw": "long 0.0258"
+  },
+  {
+   "repo": "HeNryous/DeepSeek-V4.1-Flash-1017-EXL3-2.75bpw-DGX-Spark",
+   "entry": "this repo",
+   "key": "kld:knowledge",
+   "raw": "knowledge 0.0382"
+  },
+  {
+   "repo": "HeNryous/DeepSeek-V4.1-Flash-1017-EXL3-2.75bpw-DGX-Spark",
+   "entry": "this repo",
+   "key": "kld:chat",
+   "raw": "chat 0.0482"
+  },
+  {
+   "repo": "HeNryous/DeepSeek-V4.1-Flash-1017-EXL3-2.75bpw-DGX-Spark",
+   "entry": "this repo",
+   "key": "kld:writing",
+   "raw": "writing 0.0514"
+  },
+  {
+   "repo": "HeNryous/DeepSeek-V4.1-Flash-1017-EXL3-2.75bpw-DGX-Spark",
+   "entry": "this repo",
+   "key": "kld:multilingual",
+   "raw": "multilingual 0.0601"
   },
   {
    "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
@@ -759,174 +933,6 @@
    "raw": "6.4277"
   },
   {
-   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
-   "entry": "This repo, 2.7 bpw",
-   "key": "bench:MMLU_thinking_off",
-   "raw": "85.0%"
-  },
-  {
-   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
-   "entry": "This repo, 2.7 bpw",
-   "key": "bench:MMLU_thinking_on",
-   "raw": "92.5%"
-  },
-  {
-   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
-   "entry": "This repo, 2.7 bpw",
-   "key": "bench:GSM8K_thinking_off",
-   "raw": "97.0%"
-  },
-  {
-   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
-   "entry": "This repo, 2.7 bpw",
-   "key": "bench:GSM8K_thinking_on",
-   "raw": "97.0%"
-  },
-  {
-   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
-   "entry": "This repo, 2.7 bpw",
-   "key": "bench:MMLU_thinking_off",
-   "raw": "85.0%"
-  },
-  {
-   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
-   "entry": "This repo, 2.7 bpw",
-   "key": "bench:MMLU_thinking_on",
-   "raw": "92.5%"
-  },
-  {
-   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
-   "entry": "This repo, 2.7 bpw",
-   "key": "bench:GSM8K_thinking_off",
-   "raw": "97.0%"
-  },
-  {
-   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
-   "entry": "This repo, 2.7 bpw",
-   "key": "bench:GSM8K_thinking_on",
-   "raw": "97.0%"
-  },
-  {
-   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
-   "entry": "EAQ v1 2.9 bpw",
-   "key": "kld:long_all_8k",
-   "raw": "0.0060"
-  },
-  {
-   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
-   "entry": "EAQ v1 2.9 bpw",
-   "key": "top1:long_all_8k",
-   "raw": "99.1%"
-  },
-  {
-   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
-   "entry": "EAQ v1 2.9 bpw",
-   "key": "kld:long_all_22k",
-   "raw": "0.0051"
-  },
-  {
-   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
-   "entry": "EAQ v1 2.9 bpw",
-   "key": "top1:long_all_22k",
-   "raw": "98.8%"
-  },
-  {
-   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
-   "entry": "EAQ v1 2.9 bpw",
-   "key": "kld:long_toolcall_22k",
-   "raw": "0.0015"
-  },
-  {
-   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
-   "entry": "EAQ v1 2.9 bpw",
-   "key": "top1:long_toolcall_22k",
-   "raw": "99.7%"
-  },
-  {
-   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
-   "entry": "EAQ v1 2.9 bpw",
-   "key": "kld:long_all_8k",
-   "raw": "0.0060"
-  },
-  {
-   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
-   "entry": "EAQ v1 2.9 bpw",
-   "key": "top1:long_all_8k",
-   "raw": "99.1%"
-  },
-  {
-   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
-   "entry": "EAQ v1 2.9 bpw",
-   "key": "kld:long_all_22k",
-   "raw": "0.0051"
-  },
-  {
-   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
-   "entry": "EAQ v1 2.9 bpw",
-   "key": "top1:long_all_22k",
-   "raw": "98.8%"
-  },
-  {
-   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
-   "entry": "EAQ v1 2.9 bpw",
-   "key": "kld:long_toolcall_22k",
-   "raw": "0.0015"
-  },
-  {
-   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
-   "entry": "EAQ v1 2.9 bpw",
-   "key": "top1:long_toolcall_22k",
-   "raw": "99.7%"
-  },
-  {
-   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
-   "entry": "this model (v1 + scale calibration)",
-   "key": "bench:image_qa_ja",
-   "raw": "85.5"
-  },
-  {
-   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
-   "entry": "this model (v1 + scale calibration)",
-   "key": "bench:image_qa_en",
-   "raw": "91.7"
-  },
-  {
-   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
-   "entry": "this model (v1 + scale calibration)",
-   "key": "bench:image_qa_ja",
-   "raw": "85.5"
-  },
-  {
-   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
-   "entry": "this model (v1 + scale calibration)",
-   "key": "bench:image_qa_en",
-   "raw": "91.7"
-  },
-  {
-   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
-   "entry": "LibertAIDAI 2.9 bpw",
-   "key": "bench:GSM8K_thinking_on",
-   "raw": "98.0%"
-  },
-  {
-   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
-   "entry": "LibertAIDAI 2.9 bpw",
-   "key": "bench:GSM8K_thinking_off",
-   "raw": "96.0%"
-  },
-  {
-   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
-   "entry": "LibertAIDAI 2.9 bpw",
-   "key": "bench:GSM8K_thinking_on",
-   "raw": "98.0%"
-  },
-  {
-   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
-   "entry": "LibertAIDAI 2.9 bpw",
-   "key": "bench:GSM8K_thinking_off",
-   "raw": "96.0%"
-  },
-  {
    "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
    "entry": "This repo with Engram switched off (sanity check)",
    "key": "ppl:code",
@@ -937,6 +943,330 @@
    "entry": "This repo with Engram switched off (sanity check)",
    "key": "ppl:prose",
    "raw": "9.0627"
+  },
+  {
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "Unquantized (base FP8 / MXFP4 weights, dequantized)",
+   "key": "ppl:code",
+   "raw": "1.8749"
+  },
+  {
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "Unquantized (base FP8 / MXFP4 weights, dequantized)",
+   "key": "ppl:prose",
+   "raw": "6.4277"
+  },
+  {
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "This repo with Engram switched off (sanity check)",
+   "key": "ppl:code",
+   "raw": "4.1548"
+  },
+  {
+   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "This repo with Engram switched off (sanity check)",
+   "key": "ppl:prose",
+   "raw": "8.9702"
+  },
+  {
+   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
+   "entry": "EAQ v1 2.9 bpw",
+   "key": "kld:long_all_8k",
+   "raw": "0.0060"
+  },
+  {
+   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
+   "entry": "EAQ v1 2.9 bpw",
+   "key": "top1:long_all_8k",
+   "raw": "99.1%"
+  },
+  {
+   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
+   "entry": "EAQ v1 2.9 bpw",
+   "key": "kld:long_all_22k",
+   "raw": "0.0051"
+  },
+  {
+   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
+   "entry": "EAQ v1 2.9 bpw",
+   "key": "top1:long_all_22k",
+   "raw": "98.8%"
+  },
+  {
+   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
+   "entry": "EAQ v1 2.9 bpw",
+   "key": "kld:long_toolcall_22k",
+   "raw": "0.0015"
+  },
+  {
+   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
+   "entry": "EAQ v1 2.9 bpw",
+   "key": "top1:long_toolcall_22k",
+   "raw": "99.7%"
+  },
+  {
+   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
+   "entry": "EAQ v1 2.9 bpw",
+   "key": "kld:long_all_8k",
+   "raw": "0.0060"
+  },
+  {
+   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
+   "entry": "EAQ v1 2.9 bpw",
+   "key": "top1:long_all_8k",
+   "raw": "99.1%"
+  },
+  {
+   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
+   "entry": "EAQ v1 2.9 bpw",
+   "key": "kld:long_all_22k",
+   "raw": "0.0051"
+  },
+  {
+   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
+   "entry": "EAQ v1 2.9 bpw",
+   "key": "top1:long_all_22k",
+   "raw": "98.8%"
+  },
+  {
+   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
+   "entry": "EAQ v1 2.9 bpw",
+   "key": "kld:long_toolcall_22k",
+   "raw": "0.0015"
+  },
+  {
+   "repo": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
+   "entry": "EAQ v1 2.9 bpw",
+   "key": "top1:long_toolcall_22k",
+   "raw": "99.7%"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
+   "key": "bench:MMLU-Pro",
+   "raw": "66.2%"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
+   "key": "bench:MMLU-Pro",
+   "raw": "66.2%"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "This pack",
+   "key": "bench:MMLU-Pro",
+   "raw": "67.0%"
+  },
+  {
+   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
+   "entry": "This pack",
+   "key": "bench:MMLU-Pro",
+   "raw": "67.0%"
+  },
+  {
+   "repo": "diffbot/DeepSeek-V4.1-Flash-EXL3-3bpw-2x-RTX-PRO-6000",
+   "entry": "This pack, as served",
+   "key": "kld:short100",
+   "raw": "0.0339"
+  },
+  {
+   "repo": "diffbot/DeepSeek-V4.1-Flash-EXL3-3bpw-2x-RTX-PRO-6000",
+   "entry": "This pack, as served",
+   "key": "top1:short100",
+   "raw": "95.2"
+  },
+  {
+   "repo": "diffbot/DeepSeek-V4.1-Flash-EXL3-3bpw-2x-RTX-PRO-6000",
+   "entry": "This pack, as served",
+   "key": "kld:short100",
+   "raw": "0.0339"
+  },
+  {
+   "repo": "diffbot/DeepSeek-V4.1-Flash-EXL3-3bpw-2x-RTX-PRO-6000",
+   "entry": "This pack, as served",
+   "key": "top1:short100",
+   "raw": "95.2"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "Our 2.9 bpw",
+   "key": "bench:GSM8K thinking off",
+   "raw": "97.19%"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "Our 2.9 bpw",
+   "key": "bench:MMLU thinking off",
+   "raw": "88.21%"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "Our 2.9 bpw",
+   "key": "bench:BFCL v3",
+   "raw": "81.28%"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "Our 2.9 bpw",
+   "key": "bench:MMLU thinking on",
+   "raw": "92.0%"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "Our 2.9 bpw",
+   "key": "bench:GSM8K thinking off",
+   "raw": "97.19%"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "Our 2.9 bpw",
+   "key": "bench:MMLU thinking off",
+   "raw": "88.21%"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "Our 2.9 bpw",
+   "key": "bench:BFCL v3",
+   "raw": "81.28%"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "Our 2.9 bpw",
+   "key": "bench:MMLU thinking on",
+   "raw": "92.0%"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "This quant (3.5 bpw)",
+   "key": "bench:GSM8K thinking off",
+   "raw": "97.04%"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "This quant (3.5 bpw)",
+   "key": "bench:MMLU thinking off",
+   "raw": "88.41%"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "This quant (3.5 bpw)",
+   "key": "bench:BFCL v3",
+   "raw": "81.46%"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "This quant (3.5 bpw)",
+   "key": "bench:GSM8K thinking on",
+   "raw": "98.0%"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "This quant (3.5 bpw)",
+   "key": "bench:MMLU thinking on",
+   "raw": "94.5%"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "This quant (3.5 bpw)",
+   "key": "bench:GSM8K thinking off",
+   "raw": "97.04%"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "This quant (3.5 bpw)",
+   "key": "bench:MMLU thinking off",
+   "raw": "88.41%"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "This quant (3.5 bpw)",
+   "key": "bench:BFCL v3",
+   "raw": "81.46%"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "This quant (3.5 bpw)",
+   "key": "bench:GSM8K thinking on",
+   "raw": "98.0%"
+  },
+  {
+   "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+   "entry": "This quant (3.5 bpw)",
+   "key": "bench:MMLU thinking on",
+   "raw": "94.5%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:GSM8K_thinking_on",
+   "raw": "98.0%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:GSM8K_thinking_off",
+   "raw": "96.0%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:GSM8K_thinking_on",
+   "raw": "98.0%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "LibertAIDAI 2.9 bpw",
+   "key": "bench:GSM8K_thinking_off",
+   "raw": "96.0%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "This repo, 2.7 bpw",
+   "key": "bench:MMLU_thinking_off",
+   "raw": "85.0%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "This repo, 2.7 bpw",
+   "key": "bench:MMLU_thinking_on",
+   "raw": "92.5%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "This repo, 2.7 bpw",
+   "key": "bench:GSM8K_thinking_off",
+   "raw": "97.0%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "This repo, 2.7 bpw",
+   "key": "bench:GSM8K_thinking_on",
+   "raw": "97.0%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "This repo, 2.7 bpw",
+   "key": "bench:MMLU_thinking_off",
+   "raw": "85.0%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "This repo, 2.7 bpw",
+   "key": "bench:MMLU_thinking_on",
+   "raw": "92.5%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "This repo, 2.7 bpw",
+   "key": "bench:GSM8K_thinking_off",
+   "raw": "97.0%"
+  },
+  {
+   "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",
+   "entry": "This repo, 2.7 bpw",
+   "key": "bench:GSM8K_thinking_on",
+   "raw": "97.0%"
   },
   {
    "repo": "rapid-mlx/DeepSeek-V4.1-Flash-1017-MLX",
@@ -967,54 +1297,6 @@
    "entry": "This build",
    "key": "bench:GPQA-Diamond",
    "raw": "11/15 (73%)"
-  },
-  {
-   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
-   "entry": "Unquantized (base FP8 / MXFP4 weights, dequantized)",
-   "key": "ppl:code",
-   "raw": "1.8749"
-  },
-  {
-   "repo": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
-   "entry": "Unquantized (base FP8 / MXFP4 weights, dequantized)",
-   "key": "ppl:prose",
-   "raw": "6.4277"
-  },
-  {
-   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
-   "entry": "v1: Viterbi + refit",
-   "key": "bench:image_qa_ja",
-   "raw": "85.8"
-  },
-  {
-   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
-   "entry": "v1: Viterbi + refit",
-   "key": "bench:image_qa_en",
-   "raw": "91.0"
-  },
-  {
-   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
-   "entry": "v1: Viterbi + refit",
-   "key": "bench:image_qa_ja",
-   "raw": "85.8"
-  },
-  {
-   "repo": "ChiTako/DeepSeek-V4.1-Flash-1017-EXL3-2.0bpw-ja-calibrated",
-   "entry": "v1: Viterbi + refit",
-   "key": "bench:image_qa_en",
-   "raw": "91.0"
-  },
-  {
-   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
-   "entry": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
-   "key": "bench:MMLU-Pro",
-   "raw": "66.2%"
-  },
-  {
-   "repo": "Plus-Ten/DeepSeek-V4.1-Flash-1017-TensorFold-EXL3-2.9bpw",
-   "entry": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
-   "key": "bench:MMLU-Pro",
-   "raw": "66.2%"
   }
  ],
  "resolved_disagreements": [],
@@ -1067,18 +1349,6 @@
    "entry": "teacher (fp4 checkpoint, 1017)",
    "key": "ppl",
    "raw": "8.56"
-  },
-  {
-   "repo": "OpensourceWTF/DeepSeek-V4.1-Flash-1017-streaming-repack-exl3-2.9bpw",
-   "entry": "EXL3 EAQ v1 2.9 bpw",
-   "key": "mean_kld",
-   "raw": "0.0137"
-  },
-  {
-   "repo": "OpensourceWTF/DeepSeek-V4.1-Flash-1017-streaming-repack-exl3-2.9bpw",
-   "entry": "EXL3 EAQ v1 2.9 bpw",
-   "key": "top1_pct",
-   "raw": "96.6"
   },
   {
    "repo": "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K2-Mix",
@@ -1193,6 +1463,18 @@
    "entry": "DeepSeek-V4.1-Flash-1017 TrellisMX K2",
    "key": "kld:legal",
    "raw": "legal 0.166"
+  },
+  {
+   "repo": "cliecy/DeepSeek-V4.1-Flash-1017-UD-IQ2XS-GGUF",
+   "entry": "this file (fixed)",
+   "key": "ppl:wikitext",
+   "raw": "1.62"
+  },
+  {
+   "repo": "cliecy/DeepSeek-V4.1-Flash-1017-UD-IQ2XS-GGUF",
+   "entry": "Q2_K 1017",
+   "key": "ppl:wikitext",
+   "raw": "4.69 (same build)"
   },
   {
    "repo": "object-oriented-architects/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw-TensorFold",

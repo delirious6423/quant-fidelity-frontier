@@ -1,11 +1,15 @@
-{
- "repo": "immiq/Qwen3.8-Flash-Next-Orinfer-E8P-Q2A8",
+{"repo": "immiq/Qwen3.8-Flash-Next-Orinfer-E8P-Q2A8",
+ "source_sha256": "0cf691b112866ebde7be975b8d07d46283419f3737ce525dd80ef1076d4d1ddc",
+ "candidates_sha256": "41a0248e3f912f8e98031ba14e697bd2c260c30884f2a1cbc8ed0384776f542e",
  "no_quality_claims": true,
- "no_claims_reason": "file size and validation notes only [L24, L51]",
+ "no_claims_reason": "speed table only [L50-L54]; quality results are external [L60-L62]",
  "weights_modified": false,
- "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "Orinfer v0.1.4", "L": [16]},
+ "method": {"reference": "not stated", "dataset": "fixed-length runs: 512 or 8192 input tokens with 257 output tokens (single request); 256 input and 65 output tokens per request (multi-request)", "ctx": "not stated", "tool": "Orinfer v0.2.0 on Jetson AGX Orin 64GB, CUDA SM87; median of three warm runs after one warmup; greedy, thinking off, prefix cache off", "L": [48, 54, 56]},
  "entries": [
-  {"role": "own", "name": "Qwen3.8-Flash-Next-Orinfer-E8P-Q2A8", "metrics": {}, "size": "c3", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["total stored safetensors size, decimal [L24]"]}
- ],
- "prose": []
+   {"role": "own",
+    "name": "Qwen3.8-Flash-Next · Orinfer E8P Q2A8",
+    "metrics": {"bench:prefill_512_tok_s": "c1", "bench:prefill_8k_tok_s": "c2", "bench:single_decode_mtp_tok_s": "c3", "bench:8_request_decode_tok_s": "c4", "bench:max_requests_decode_requests": "c5.0", "bench:max_requests_decode_tok_s": "c5.1", "bench:serve_to_api_s": "c6", "bench:serve_to_first_output_s": "c7"},
+    "size": null, "unit": null, "basis": null, "bpw": null,
+    "flags": ["Single-request decode uses adaptive MTP up to 3 drafts; multi-request runs have MTP off [L54]", "Serve times are startup seconds from three fresh processes [L56]", "Stored safetensors 52.94 GB [L22] is not in a table row; not used as size"]}
+ ]
 }

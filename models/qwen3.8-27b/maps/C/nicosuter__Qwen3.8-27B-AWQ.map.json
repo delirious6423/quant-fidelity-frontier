@@ -1,0 +1,32 @@
+{
+ "repo": "nicosuter/Qwen3.8-27B-AWQ",
+ "source_sha256": "2a09546ca01ab6ab1f1a5608d9c994f6219ac64a1d3b6ee305d2bcc424b5f558",
+ "candidates_sha256": "bb3d3dc52e17594529b3b3ecee72c3576adec2bf046b93ccb99e720f2c26c7a5",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "Qwen/Qwen3.8-27B-FP8 scored on the same items in the same order [L102] [L103]", "dataset": "BFCL, GPQA Diamond, LiveCodeBench v6, MMMU-Pro, multimodal and RULER suites [L112] [L113] [L114] [L115] [L116] [L118]", "ctx": "not stated", "tool": "not stated", "L": [96, 102, 103, 110, 129, 134]},
+ "entries": [
+  {"role": "own",
+   "name": "Qwen3.8-27B-AWQ",
+   "metrics": {"bench:BFCL": "c21", "bench:GPQA Diamond": "c26", "bench:LiveCodeBench v6": "c31", "bench:MMMU-Pro": "c36", "bench:Multimodal": "c41", "bench:macro (5 suites)": "c45", "bench:RULER (not counted)": "c50"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["Mixed precision: W4A16 AWQ, int8 weights-only on the Gated DeltaNet input projections, vision tower unquantized [L37] [L40] [L53] [L73]",
+             "Delta and recovery columns have no schema key, not mapped [L112] [L117]",
+             "Weights size stated in the usage section, not in the eval table, not mapped [L194]",
+             "Four other published AWQ quantizations are in a linked results folder, not in this card [L145] [L148]"]},
+  {"role": "cross",
+   "name": "Qwen3.8-27B-FP8",
+   "of": "Qwen/Qwen3.8-27B-FP8",
+   "metrics": {"bench:BFCL": "c20", "bench:GPQA Diamond": "c25", "bench:LiveCodeBench v6": "c30", "bench:MMMU-Pro": "c35", "bench:Multimodal": "c40", "bench:macro (5 suites)": "c44", "bench:RULER (not counted)": "c49"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["Baseline checkpoint scored by the card author on the same items [L102] [L103]"]}
+ ],
+ "prose": []
+}

@@ -1,0 +1,26 @@
+{"repo": "billmccartney/Qwen3.8-27B-exl3-8.00bpw",
+ "source_sha256": "67dedaf54611977edd6044d00fa272fc9eec96a2efcf96bf1b110ed98c3dc845",
+ "candidates_sha256": "87dcaca9570e7f18b16c40fa1d10178a3ff906080be44c0b99b46639fdab742b",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "cached BF16 upstream distributions", "dataset": "WikiText2 test rows", "ctx": "non-overlapping windows, no chat wrapper", "tool": "exllamav3 qbench (pinned)", "L": [183, 184, 191]},
+ "entries": [
+  {"role": "own",
+   "name": "Qwen3.8-27B EXL3 8.0bpw",
+   "panel": "Verification collateral",
+   "methodology": {"reference": "cached BF16 distributions", "dataset": "WikiText2 test rows, non-overlapping", "ctx": "non-overlapping windows, no chat wrapper", "tool": "exllamav3 qbench (pinned)", "L": [184, 191, 192, 194]},
+   "metrics": {"kld:wikitext": "c18", "ppl:wikitext": "c19"},
+   "size": "c20", "unit": "GiB", "basis": "disk", "bpw": "c2",
+   "flags": ["[L194] mean KL is unadjusted; the optional noise-floor pass was not run [L218]", "[L144] repetition ratios are not a quality metric key and are not mapped", "[L113-L114] speed figures are not quality metrics and are not mapped", "[L209-L210] correctness counts are small-suite counts against a comparison model and are not mapped"]},
+  {"role": "cross",
+   "name": "bf16",
+   "panel": "Verification collateral",
+   "of": "Qwen/Qwen3.8-27B",
+   "methodology": {"reference": "cached BF16 distributions", "dataset": "WikiText2 test rows, non-overlapping", "ctx": "non-overlapping windows, no chat wrapper", "tool": "exllamav3 qbench (pinned)", "L": [184, 189, 191]},
+   "metrics": {"kld:wikitext": "c22", "ppl:wikitext": "c23"},
+   "size": "c24", "unit": "GiB", "basis": "disk", "bpw": null,
+   "flags": ["[L189] the reference row's KL is zero by construction"]}
+ ],
+ "prose": []
+}

@@ -1,0 +1,27 @@
+{"repo": "Rulith/Qwen3.8-Flash-Next-Rulith-EXL3-GGUF",
+ "source_sha256": "82598859dbfc009617cb38767339ae0e9a71d385bee7f4b2fcded19a30586177",
+ "candidates_sha256": "4ffe56f72d3a76acafc23df335453beb365bca7d2f43906e670192904b053ed6",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 model", "dataset": "six kinds of text: wikitext, C4, multilingual, chat, code, math", "ctx": "context 1024", "tool": "Rulith Inference 0.6.0 at its defaults, Ryzen AI Max+ 395, 64 GB GPU setting", "L": [72, 73, 74, 83]},
+ "entries": [
+   {"role": "own", "name": "EXL3 4.05 bpw (this repository)",
+    "metrics": {"mean_kld": "c17", "kld_99": "c18", "top1_pct": "c19", "kld:wikitext": "c46.0", "kld:c4": "c46.2"},
+    "size": "c16", "unit": "GB", "basis": "disk", "bpw": "c35",
+    "flags": ["Per-domain KLD line follows the table and names no file [L83]", "Prompt reading and one-conversation speed not mapped [L79]"]},
+   {"role": "cross", "of": "unsloth/Qwen3.8-Flash-Next-GGUF", "name": "unsloth UD-Q4_K_XL",
+    "metrics": {"mean_kld": "c23", "kld_99": "c24", "top1_pct": "c25"},
+    "size": "c22", "unit": "GB", "basis": "disk", "bpw": null,
+    "flags": ["Measured on the same machine and evaluation set by this card [L72-73]"]},
+   {"role": "cross", "of": "unsloth/Qwen3.8-Flash-Next-GGUF", "name": "unsloth UD-IQ4_XS",
+    "metrics": {"mean_kld": "c29", "kld_99": "c30", "top1_pct": "c31"},
+    "size": "c28", "unit": "GB", "basis": "disk", "bpw": null,
+    "flags": ["Measured on the same machine and evaluation set by this card [L72-73]"]}
+ ],
+ "prose": [
+   {"entry": "EXL3 4.05 bpw (this repository)", "key": "kld:multilingual", "L": 83, "raw": "0.026"},
+   {"entry": "EXL3 4.05 bpw (this repository)", "key": "kld:chat", "L": 83, "raw": "0.011"},
+   {"entry": "EXL3 4.05 bpw (this repository)", "key": "kld:code", "L": 83, "raw": "0.004"},
+   {"entry": "EXL3 4.05 bpw (this repository)", "key": "kld:math", "L": 83, "raw": "0.024"}
+ ]}

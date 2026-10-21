@@ -1,0 +1,107 @@
+{
+ "repo": "mlasli/Qwen3.8-27B-Heretic-Abliterated-MLX-6bit",
+ "source_sha256": "349a96e9edc0b8518679c768dd4a9ea23e15e7f410b74776b61f8c940c78a3b8",
+ "candidates_sha256": "905a2f08f28132cd140d240201b42cfca1c8b7e8dc8a4bf28325bb9f13c2759e",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+  "reference": "not stated",
+  "dataset": "30 harmful / 15 benign prompts (smoke test)",
+  "ctx": "not stated",
+  "tool": "3-way direct / deflect / refuse / empty judge; thinking-OFF",
+  "L": [
+   31,
+   64,
+   66
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "6-bit",
+   "panel": "MLX 6-bit smoke test (this quant, thinking-OFF, 30 harmful / 15 benign)",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "30 harmful / 15 benign prompts",
+    "ctx": "not stated",
+    "tool": "3-way direct / deflect / refuse / empty judge; thinking-OFF",
+    "L": [
+     31,
+     64,
+     66,
+     67
+    ]
+   },
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L57-59] the 3-way table (92.0 % direct etc.) is for the BF16 v2.1.0 checkpoint, a different model from this quant; not entered",
+    "[L74-83] capability table compares base with BF16 v2.1.0; not entered",
+    "[L114-115] size-only rows with no quality metric; not entered",
+    "[L71-72] card attributes the directness loss to the group-wise 6-bit quant"
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "6-bit",
+   "panel": "MLX 6-bit smoke test (this quant, thinking-OFF, 30 harmful / 15 benign)",
+   "key": "bench:HarmfulDirect-smoke",
+   "L": 68,
+   "raw": "| 83.3% |"
+  },
+  {
+   "entry": "6-bit",
+   "panel": "MLX 6-bit smoke test (this quant, thinking-OFF, 30 harmful / 15 benign)",
+   "key": "bench:HarmfulDeflect-smoke",
+   "L": 68,
+   "raw": "| 13.3% |"
+  },
+  {
+   "entry": "6-bit",
+   "panel": "MLX 6-bit smoke test (this quant, thinking-OFF, 30 harmful / 15 benign)",
+   "key": "bench:HarmfulRefuse-smoke",
+   "L": 68,
+   "raw": "| 3.3% |"
+  },
+  {
+   "entry": "6-bit",
+   "panel": "MLX 6-bit smoke test (this quant, thinking-OFF, 30 harmful / 15 benign)",
+   "key": "bench:HarmfulEmpty-smoke",
+   "L": 68,
+   "raw": "| 0.0% |"
+  },
+  {
+   "entry": "6-bit",
+   "panel": "MLX 6-bit smoke test (this quant, thinking-OFF, 30 harmful / 15 benign)",
+   "key": "bench:BenignDirect-smoke",
+   "L": 69,
+   "raw": "| 86.7% |"
+  },
+  {
+   "entry": "6-bit",
+   "panel": "MLX 6-bit smoke test (this quant, thinking-OFF, 30 harmful / 15 benign)",
+   "key": "bench:BenignDeflect-smoke",
+   "L": 69,
+   "raw": "| 13.3% |"
+  },
+  {
+   "entry": "6-bit",
+   "panel": "MLX 6-bit smoke test (this quant, thinking-OFF, 30 harmful / 15 benign)",
+   "key": "bench:BenignRefuse-smoke",
+   "L": 69,
+   "raw": "| 0.0% | 0.0% |"
+  },
+  {
+   "entry": "6-bit",
+   "panel": "MLX 6-bit smoke test (this quant, thinking-OFF, 30 harmful / 15 benign)",
+   "key": "bench:BenignEmpty-smoke",
+   "L": 69,
+   "raw": "| 0.0% |"
+  }
+ ]
+}

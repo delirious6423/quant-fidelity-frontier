@@ -1,0 +1,27 @@
+{
+ "repo": "tooltd/Qwen3.8-27B-GSQ-RCO-BuffedMod-GGUF",
+ "source_sha256": "fd2b4ef0500656651478d7c7f13bc2cafa2288de27515ab3a2ce40a3350da851",
+ "candidates_sha256": "460a573222226d9fbe764201f0417b3687a6783f3a08cb6abe9b9f1fdacff77f",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 base model (q38f16baseline.kld)", "dataset": "wikitext-2-raw test (wiki.test.raw)", "ctx": "not stated", "tool": "llama-perplexity --kl-divergence", "L": [47, 50, 52, 53]},
+ "entries": [
+  {"role": "ladder",
+   "name": "Original (`IQ3_S-mtp`)",
+   "metrics": {"ppl:wikitext": "c20", "kld:wikitext": "c22", "top1:wikitext": "c24"},
+   "size": "c19", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["[L76] Median KLD (c23) and PPL diff vs base (c21) not mapped: no matching metric key"]},
+  {"role": "own",
+   "name": "BuffedMod (`IQ4XS MTP`)",
+   "metrics": {"ppl:wikitext": "c26", "kld:wikitext": "c28", "top1:wikitext": "c30"},
+   "size": "c25", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["[L77] Median KLD (c29) and PPL diff vs base (c27) not mapped: no matching metric key"]},
+  {"role": "own",
+   "name": "BuffedMod (`Q6_K MTP`)",
+   "metrics": {"ppl:wikitext": "c32", "kld:wikitext": "c34", "top1:wikitext": "c36"},
+   "size": "c31", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["[L78] Median KLD (c35) and PPL diff vs base (c33) not mapped: no matching metric key"]}
+ ],
+ "prose": []
+}

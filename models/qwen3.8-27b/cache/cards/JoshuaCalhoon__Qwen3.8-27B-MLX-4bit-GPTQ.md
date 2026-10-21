@@ -48,14 +48,20 @@ a proven win.
 
 ## Real-world performance as I use the model:
 
-| Observed Performance | 100K+ context |
-|---|---|
-| Prefill, 2 concurrent sessions | ~300 tok/s |
-| Decode, 2 concurrent sessions | ~47 tok/s |
+Current eyeballed numbers from sub-agent work on macOS Swift projects:
+
+| Observed Performance | 100K+ context | sub-100K context |
+|---|---|---|
+| Prefill, 2 concurrent sessions | ~300 tok/s | Not Measured |
+| Decode, 2 concurrent sessions | ~47 tok/s | Not Measured |
+| Prefill, single session | Not Measured | ~400-431 tok/s, ~600 peak |
+| Decode, single session | Not Measured | ~46-49 tok/s, ~68 peak |
+
+This is using the model card settings (temp 1.0, top-p 0.95, top-k 20) and low reasoning effort. I find anything higher usually results in an insane amount of reasoning token burn for the same result. 
 
 Coherency remains good and it's sharp and accurate before compaction (using OpenCode V2.X), though does trend toward incorrect theories when troubleshooting some Xcode build issues. It loses some finer details after compaction, so far it has caught it's own mistakes but be aware of that. Just avoid compaction overall, if possible, by keeping sessions finely scoped and providing specific code lines/keywords it can grep for, rather than ingesting massive files. 
 
-Overall, very good for this size class of model (as usual for Qwen3.8), and does very, very well if given explicit directions. Great as a sub-agent (this is how I use it). If memory serves it'll hit ~500+ tok/s prefill and ~50-75 tok/s decode on shorter requests. I'll jot down the numbers next session and see for sure. 
+Overall, very good for this size class of model (as usual for Qwen3.8), and does very, very well if given explicit directions. Great as a sub-agent (this is how I use it). 
 
 ## Usage
 

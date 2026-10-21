@@ -1,9 +1,17 @@
-{"repo": "Baekpica/DeepSeek-V4.1-Flash-1017-VQ-GGUF",
- "source_sha256": "b9f85bae000a8aa0e270555d17b1f9bd859a79bc3f5f2d7fde7eb00607cc990f",
- "candidates_sha256": "3fa9a2650abd5fdc82d59dd6595c6bb24d1e77182f22f523af76f68d212dc1fd",
+{
+ "repo": "Baekpica/DeepSeek-V4.1-Flash-1017-VQ-GGUF",
+ "source_sha256": "3ac750eec475a96568d3907565ab4e77ca88b43ef1c1ae1d24a40037d33e42c4",
+ "candidates_sha256": "284e7d5b8d75f702dc1da1b4ae2eaf1b2fb348da0c39af29bee488176f3659e0",
  "no_quality_claims": true,
- "no_claims_reason": "no 1017 quality measurement for this quant [L289]; the same-top-1 and KL table is for V4.1 Flash, a different model [L218-262]; DeepSeek scores describe the unquantized source [L271-273]",
+ "no_claims_reason": "every quality number is measured on V4.1 Flash, not 1017 [L239-243, L270-288]; card says 1017 fidelity is not yet measured [L288, L310]; 1017 benchmark scores are the source model's [L290-303]",
  "weights_modified": false,
- "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [218, 271, 289]},
+ "method": {
+   "reference": "not stated",
+   "dataset": "not stated",
+   "ctx": "not stated",
+   "tool": "not stated",
+   "L": []
+ },
  "entries": [],
- "prose": []}
+ "prose": []
+}

@@ -1,9 +1,16 @@
 {"repo": "richardyoung/LFM2.5-24B-A2B-GGUF",
- "source_sha256": "2b7f0cae0c9cf692780767bb52452a3813193daeac0c9b43486c8a4e8dad22dd",
- "candidates_sha256": "d0ad14745d5e54f5112a2e6ce33c620227f0b21c3c778ece2e7f041a7caf0e3a",
- "no_quality_claims": true,
- "no_claims_reason": "size table only; verification is a qualitative Ollama smoke test with no quality number [L49-54, L59]",
+ "source_sha256": "c04d4275289482228d870f2dd149b4c8fd4cb32853b8f1985947c0a98cad8c77",
+ "candidates_sha256": "1943429b0205e3cc1c78066cfcf3c46c1e2075ba8047a5727162265f840d1d26",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
  "weights_modified": false,
- "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "Ollama (qualitative smoke test)", "L": [59]},
- "entries": [],
+ "method": {"reference": "F16 model", "dataset": "wikitext-2 test set", "ctx": "40 × 512-token chunks", "tool": "llama-perplexity --kl-divergence", "L": [59]},
+ "entries": [
+   {"role": "own", "name": "IQ3_M", "metrics": {"mean_kld": "c9", "top1_pct": "c10", "ppl": "c11"}, "size": "c8", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+   {"role": "own", "name": "IQ4_XS", "metrics": {"mean_kld": "c14", "top1_pct": "c15", "ppl": "c16"}, "size": "c13", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+   {"role": "own", "name": "Q4_K_M", "metrics": {"mean_kld": "c19", "top1_pct": "c20", "ppl": "c21"}, "size": "c18", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+   {"role": "own", "name": "Q5_K_M", "metrics": {"mean_kld": "c24", "top1_pct": "c25", "ppl": "c26"}, "size": "c23", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+   {"role": "own", "name": "Q6_K", "metrics": {"mean_kld": "c29", "top1_pct": "c30", "ppl": "c31"}, "size": "c28", "unit": "GB", "basis": "disk", "bpw": null, "flags": []},
+   {"role": "own", "name": "Q8_0", "metrics": {"mean_kld": "c34", "top1_pct": "c35", "ppl": "c36"}, "size": "c33", "unit": "GB", "basis": "disk", "bpw": null, "flags": []}
+ ],
  "prose": []}

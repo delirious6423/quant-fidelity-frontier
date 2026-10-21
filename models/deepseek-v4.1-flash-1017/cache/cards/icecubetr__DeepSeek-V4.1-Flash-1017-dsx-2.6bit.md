@@ -45,8 +45,8 @@ Measured with `dsx eval` on [Lucebox's 1017 eval set](https://huggingface.co/Luc
 |---|---:|---:|---:|---:|
 | FP8 / FP4 teacher | FP4 | 0 | 100% | 8.56 |
 | Lucebox ROCMFP | 2.5 bpw | 0.253 | 78.7% | 9.78 |
-| Author's 2.03 bpw build | 2.03 bpw | 0.462 | 71.5% | 11.66 |
-| **This model** | **2.6127 bpw** | **0.1972** | **82.59%** | **9.3626** |
+| dsx 2-bit | 2.03 bpw | 0.373 | 74.4% | 10.68 |
+| **dsx 2.6-bit** | **2.6127 bpw** | **0.1972** | **82.59%** | **9.3626** |
 
 NLL: 2.236722 over 8,184 tokens.
 

@@ -1,31 +1,18 @@
-{
-  "repo": "OpensourceWTF/DeepSeek-V4.1-Flash-1017-streaming-repack-exl3-2.9bpw",
-  "source_sha256": "60214c76af681a25f6ca467ebc533ba6ae2ad0cf1f651259b28693df97def400",
-  "candidates_sha256": "9a08f387bfaed6dbd94c653a1d885d51aea11c70249a33ecf48431e904797477",
-  "no_quality_claims": false,
-  "no_claims_reason": "",
-  "weights_modified": false,
-  "method": {
-    "reference": "not stated",
-    "dataset": "not stated",
-    "ctx": "not stated",
-    "tool": "not stated",
-    "L": [115, 116, 117, 118]
-  },
-  "entries": [
-    {
-      "role": "own",
-      "name": "This repack",
-      "metrics": {},
-      "size": null,
-      "unit": null,
-      "basis": null,
-      "bpw": null,
-      "flags": [
-        "no measurements of this layout or any server; card says nothing served yet [L115-118]",
-        "KL and top-1 figures quoted from Mia-AiLab's card measure the expert source on another model, omitted [L116-117]"
-      ]
-    }
-  ],
-  "prose": []
+{"repo": "OpensourceWTF/DeepSeek-V4.1-Flash-1017-streaming-repack-exl3-2.9bpw",
+ "source_sha256": "de0840e90c355c2d87f82d6fbd9fbea9a5f5a67007a336124a41be526e2db8ed",
+ "candidates_sha256": "598e1b3a73f1f47d8c5f4e9989d30572323bb2ee3506dfef904f7fb3287316d8",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": []},
+ "entries": [
+  {"role": "quoted",
+   "name": "EXL3 EAQ v1 2.9 bpw expert quantization (Mia-AiLab source)",
+   "of": "Mia-AiLab/DeepSeek-V4.1-Flash-1017-EXL3-EAQ-v1-2.9-bpw",
+   "methodology": {"reference": "1017 release (teacher-forced next-token fidelity)", "dataset": "their short-context set", "ctx": "not stated", "tool": "not stated", "L": [119, 120]},
+   "metrics": {"kld:short-context": "c51.0", "top1:short-context": "c52.1"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["quoted from the Mia-AiLab model card, not measured by this card's author [L119-120]", "KL is given in nats with no stated averaging; corpus named only as their short-context set [L120]", "measures the expert quantization this repack copies, not this layout or any server [L121]"]}
+ ],
+ "prose": []
 }

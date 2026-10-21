@@ -31,15 +31,9 @@
    "reason": "review hold: QA review 2026-10-19: bench:Single-stream decode tok/s: The [L105] row is the mtp-nvfp4 draft at 2 tokens, a speculative-decoding setting, not a quant row; its 265 tok/s value is correct for that setting."
   },
   {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "kind": "ladder",
-   "entry": "8bit",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
-   "kind": "ladder",
-   "entry": "4bit",
+   "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
+   "kind": "variants",
+   "entry": "GLM-5.3-Flash-TQ3_4S",
    "reason": "failed a gate"
   },
   {
@@ -49,27 +43,27 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "YTan2000/GLM-5.3-Flash-TQ3_4S",
-   "kind": "variants",
-   "entry": "GLM-5.3-Flash-TQ3_4S",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
-   "kind": "cross",
-   "entry": "original release, after routed-expert VQ",
-   "reason": "failed a gate"
-  },
-  {
    "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
    "kind": "ladder",
-   "entry": "mixed-4_8bit",
+   "entry": "4bit",
    "reason": "failed a gate"
   },
   {
    "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
    "kind": "ladder",
    "entry": "6bit",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "kind": "ladder",
+   "entry": "8bit",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "pipenetwork/GLM-5.3-Flash-REAP37-MLX-mixed-4_8bit",
+   "kind": "ladder",
+   "entry": "mixed-4_8bit",
    "reason": "failed a gate"
   }
  ],
@@ -190,9 +184,63 @@
   },
   {
    "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
-   "entry": "original release, before routed-expert VQ",
-   "key": "ppl:held-out prose",
-   "raw": "4.8555"
+   "entry": "none (q4k-v3)",
+   "key": "ppl",
+   "raw": "4.858"
+  },
+  {
+   "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
+   "entry": "none (q4k-v3)",
+   "key": "mean_kld",
+   "raw": "0.607"
+  },
+  {
+   "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
+   "entry": "layers 3\u201316, released parts (joint stages, r13p8-l3-16)",
+   "key": "ppl",
+   "raw": "3.969"
+  },
+  {
+   "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
+   "entry": "layers 3\u201316, released parts (joint stages, r13p8-l3-16)",
+   "key": "mean_kld",
+   "raw": "0.342"
+  },
+  {
+   "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
+   "entry": "none (q4k-v3, earlier run)",
+   "key": "ppl",
+   "raw": "4.808"
+  },
+  {
+   "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
+   "entry": "none (q4k-v3, earlier run)",
+   "key": "mean_kld",
+   "raw": "0.605"
+  },
+  {
+   "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
+   "entry": "none (q4k-v3, earlier run)",
+   "key": "top1_pct",
+   "raw": "73.9%"
+  },
+  {
+   "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
+   "entry": "3\u201316 (r13p8-l3-16)",
+   "key": "ppl",
+   "raw": "3.936"
+  },
+  {
+   "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
+   "entry": "3\u201316 (r13p8-l3-16)",
+   "key": "mean_kld",
+   "raw": "0.343"
+  },
+  {
+   "repo": "Baekpica/GLM-5.3-Flash-VQ-GGUF",
+   "entry": "3\u201316 (r13p8-l3-16)",
+   "key": "top1_pct",
+   "raw": "80.1%"
   },
   {
    "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
@@ -1773,174 +1821,6 @@
    "raw": "253"
   },
   {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 simple (Python)",
-   "raw": "95.8 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 simple (Java)",
-   "raw": "59.0 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 simple (JavaScript)",
-   "raw": "74.0 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 multiple",
-   "raw": "95.0 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 parallel",
-   "raw": "93.5 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 parallel-multiple",
-   "raw": "86.0 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 irrelevance detection",
-   "raw": "69.2 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 live simple",
-   "raw": "88.4 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 live multiple",
-   "raw": "78.9 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 live parallel",
-   "raw": "75.0 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 live parallel-multiple",
-   "raw": "66.7 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 live irrelevance",
-   "raw": "71.6 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 live relevance",
-   "raw": "81.3 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 simple (Python)",
-   "raw": "95.8 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 simple (Java)",
-   "raw": "59.0 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 simple (JavaScript)",
-   "raw": "74.0 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 multiple",
-   "raw": "95.0 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 parallel",
-   "raw": "93.5 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 parallel-multiple",
-   "raw": "86.0 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 irrelevance detection",
-   "raw": "69.2 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 live simple",
-   "raw": "88.4 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 live multiple",
-   "raw": "78.9 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 live parallel",
-   "raw": "75.0 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 live parallel-multiple",
-   "raw": "66.7 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 live irrelevance",
-   "raw": "71.6 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
-   "entry": "This model (E256)",
-   "key": "bench:BFCL v4 live relevance",
-   "raw": "81.3 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E224-DGX-Spark",
-   "entry": "This model",
-   "key": "bench:BFCL_v4_non_live_overall",
-   "raw": "88.3 %"
-  },
-  {
-   "repo": "autotrust/GLM5.3-Flash-E224-DGX-Spark",
-   "entry": "This model",
-   "key": "bench:BFCL_v4_live_overall",
-   "raw": "80.3 %"
-  },
-  {
    "repo": "BoldingBuilds/GLM-5.3-Flash-Uncensored-GGUF",
    "entry": "quickstart line settings",
    "key": "bench:capped, no answer",
@@ -1957,6 +1837,174 @@
    "entry": "GLM-5.3-Flash-JANGHT2.4",
    "key": "top1:assistant text",
    "raw": "83.8%"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E224-DGX-Spark",
+   "entry": "This model",
+   "key": "bench:BFCL_v4_non_live_overall",
+   "raw": "88.3 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E224-DGX-Spark",
+   "entry": "This model",
+   "key": "bench:BFCL_v4_live_overall",
+   "raw": "80.3 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 simple (Python)",
+   "raw": "95.8 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 simple (Java)",
+   "raw": "59.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 simple (JavaScript)",
+   "raw": "74.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 multiple",
+   "raw": "95.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 parallel",
+   "raw": "93.5 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 parallel-multiple",
+   "raw": "86.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 irrelevance detection",
+   "raw": "69.2 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live simple",
+   "raw": "88.4 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live multiple",
+   "raw": "78.9 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live parallel",
+   "raw": "75.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live parallel-multiple",
+   "raw": "66.7 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live irrelevance",
+   "raw": "71.6 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live relevance",
+   "raw": "81.3 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 simple (Python)",
+   "raw": "95.8 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 simple (Java)",
+   "raw": "59.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 simple (JavaScript)",
+   "raw": "74.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 multiple",
+   "raw": "95.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 parallel",
+   "raw": "93.5 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 parallel-multiple",
+   "raw": "86.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 irrelevance detection",
+   "raw": "69.2 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live simple",
+   "raw": "88.4 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live multiple",
+   "raw": "78.9 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live parallel",
+   "raw": "75.0 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live parallel-multiple",
+   "raw": "66.7 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live irrelevance",
+   "raw": "71.6 %"
+  },
+  {
+   "repo": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
+   "entry": "This model (E256)",
+   "key": "bench:BFCL v4 live relevance",
+   "raw": "81.3 %"
   }
  ],
  "resolved_disagreements": [],

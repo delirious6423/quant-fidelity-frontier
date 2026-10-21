@@ -8,20 +8,32 @@
   },
   {
    "repo": "SiliconSpecies/Qwen3.8-Flash-Next-EXL3-Ijah",
-   "kind": "variants",
-   "entry": "this pack (Ijah T6)",
+   "kind": "cross",
+   "entry": "oMLX, Jundot oQ4e (4.72 bpw mixed)",
    "reason": "failed a gate"
   },
   {
-   "repo": "leoncca/Qwen3.8-Flash-Next-AWQ-g32",
-   "kind": "ladder",
-   "entry": "previous release",
+   "repo": "SiliconSpecies/Qwen3.8-Flash-Next-EXL3-Ijah",
+   "kind": "variants",
+   "entry": "this pack (Ijah T6)",
    "reason": "failed a gate"
   },
   {
    "repo": "Vemloir/Qwen3.8-Flash-Next-sc-exl3",
    "kind": "cross",
    "entry": "4.05bpw_h6_ng6",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "Vemloir/Qwen3.8-Flash-Next-sc-exl3",
+   "kind": "cross",
+   "entry": "SC 4.18 bpw (4.18bpw_h6_ng8)",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "leoncca/Qwen3.8-Flash-Next-AWQ-g32",
+   "kind": "ladder",
+   "entry": "previous release",
    "reason": "failed a gate"
   },
   {
@@ -37,9 +49,9 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "webmp3/Sakura-Qwen3.8-Flash-Next-Compact-43.9GiB-K352-CP2-v1-GGUF",
+   "repo": "spectator2026/Qwen3.8-Flash-Next-W6-INT8-HQQ-g32",
    "kind": "variants",
-   "entry": "Compact CP2 v1",
+   "entry": "this release (int6 experts + int8 dense)",
    "reason": "failed a gate"
   },
   {
@@ -49,21 +61,9 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "webmp3/Sakura-Qwen3.8-Flash-Next-Compact-47.6GiB-K512-CP2-v1-GGUF",
+   "repo": "webmp3/Sakura-Qwen3.8-Flash-Next-Compact-43.9GiB-K352-CP2-v1-GGUF",
    "kind": "variants",
-   "entry": "Compact CP2",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "spectator2026/Qwen3.8-Flash-Next-W6-INT8-HQQ-g32",
-   "kind": "variants",
-   "entry": "this release (int6 experts + int8 dense)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "Vemloir/Qwen3.8-Flash-Next-sc-exl3",
-   "kind": "cross",
-   "entry": "SC 4.18 bpw (4.18bpw_h6_ng8)",
+   "entry": "Compact CP2 v1",
    "reason": "failed a gate"
   },
   {
@@ -73,13 +73,43 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "SiliconSpecies/Qwen3.8-Flash-Next-EXL3-Ijah",
-   "kind": "cross",
-   "entry": "oMLX, Jundot oQ4e (4.72 bpw mixed)",
+   "repo": "webmp3/Sakura-Qwen3.8-Flash-Next-Compact-47.6GiB-K512-CP2-v1-GGUF",
+   "kind": "variants",
+   "entry": "Compact CP2",
    "reason": "failed a gate"
   }
  ],
  "disagreements": [
+  {
+   "repo": "AtomicChat/Qwen3.8-Flash-Next-GGUF",
+   "entry": "AD-3.84bpw-IQ4_XS-M64",
+   "key": "mean_kld",
+   "raw": "0.2277"
+  },
+  {
+   "repo": "AtomicChat/Qwen3.8-Flash-Next-GGUF",
+   "entry": "AD-3.84bpw-IQ4_XS-M64",
+   "key": "top1_pct",
+   "raw": "82.68%"
+  },
+  {
+   "repo": "AtomicChat/Qwen3.8-Flash-Next-GGUF",
+   "entry": "AD-3.84bpw-IQ4_XS-M64",
+   "key": "ppl_ratio",
+   "raw": "1.102"
+  },
+  {
+   "repo": "AtomicChat/Qwen3.8-Flash-Next-GGUF",
+   "entry": "AD-5.00bpw-Q5_K_M-M64",
+   "key": "mean_kld",
+   "raw": "0.0837"
+  },
+  {
+   "repo": "AtomicChat/Qwen3.8-Flash-Next-GGUF",
+   "entry": "AD-5.00bpw-Q5_K_M-M64",
+   "key": "top1_pct",
+   "raw": "89.55%"
+  },
   {
    "repo": "Cyronius/Qwen3.8-Flash-Next-131B-A6B-GGUF",
    "entry": "table fully deleted (0/16)",
@@ -223,6 +253,42 @@
    "entry": "Allosaurus v0.2 JANGHT1.8",
    "key": "bench:MTP_proposal_next_token",
    "raw": "69.8 %"
+  },
+  {
+   "repo": "Rulith/Qwen3.8-Flash-Next-Rulith-EXL3-GGUF",
+   "entry": "EXL3 4.05 bpw (this repository)",
+   "key": "bench:prompt_reading_tok_s",
+   "raw": "1,230 t/s"
+  },
+  {
+   "repo": "Rulith/Qwen3.8-Flash-Next-Rulith-EXL3-GGUF",
+   "entry": "EXL3 4.05 bpw (this repository)",
+   "key": "bench:one_conversation_tok_s",
+   "raw": "56 tok/s"
+  },
+  {
+   "repo": "Rulith/Qwen3.8-Flash-Next-Rulith-EXL3-GGUF",
+   "entry": "unsloth UD-Q4_K_XL",
+   "key": "bench:prompt_reading_tok_s",
+   "raw": "1,265 t/s"
+  },
+  {
+   "repo": "Rulith/Qwen3.8-Flash-Next-Rulith-EXL3-GGUF",
+   "entry": "unsloth UD-Q4_K_XL",
+   "key": "bench:one_conversation_tok_s",
+   "raw": "56 tok/s"
+  },
+  {
+   "repo": "Rulith/Qwen3.8-Flash-Next-Rulith-EXL3-GGUF",
+   "entry": "unsloth UD-IQ4_XS",
+   "key": "bench:prompt_reading_tok_s",
+   "raw": "1,335 t/s"
+  },
+  {
+   "repo": "Rulith/Qwen3.8-Flash-Next-Rulith-EXL3-GGUF",
+   "entry": "unsloth UD-IQ4_XS",
+   "key": "bench:one_conversation_tok_s",
+   "raw": "60 tok/s"
   },
   {
    "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
@@ -1245,10 +1311,634 @@
    "raw": "63"
   },
   {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "4bpw-sh",
+   "key": "bench:tool_calling_thinking_off",
+   "raw": "24"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "4bpw-sh",
+   "key": "bench:tool_calling_thinking_on",
+   "raw": "28"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "4bpw-sh",
+   "key": "bench:decode_short_tok_s",
+   "raw": "57.2"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "4bpw-sh",
+   "key": "bench:decode_64k_tok_s",
+   "raw": "53.9"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "4bpw-sh",
+   "key": "bench:decode_200k_tok_s",
+   "raw": "46.3"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "4bpw-sh",
+   "key": "bench:prefill_64k_cold_tok_s",
+   "raw": "688"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "4bpw-sh",
+   "key": "bench:peak_memory_gib",
+   "raw": "95.9 GiB"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "5bpw-sh",
+   "key": "bench:decode_short_tok_s",
+   "raw": "63.3"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "5bpw-sh",
+   "key": "bench:decode_64k_tok_s",
+   "raw": "55.8"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "5bpw-sh",
+   "key": "bench:decode_200k_tok_s",
+   "raw": "50.5"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "5bpw-sh",
+   "key": "bench:prefill_64k_cold_tok_s",
+   "raw": "684"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "5bpw-sh",
+   "key": "bench:peak_memory_gib",
+   "raw": "110.0 GiB"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "beamster Sushi-4bpw (KLD quoted from its card)",
+   "key": "mean_kld",
+   "raw": "0.0592"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "beamster Sushi-4bpw",
+   "key": "bench:tool_calling_thinking_off",
+   "raw": "28"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "beamster Sushi-4bpw",
+   "key": "bench:tool_calling_thinking_on",
+   "raw": "28"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "beamster Sushi-4bpw",
+   "key": "bench:needle_400k_passed",
+   "raw": "4"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "beamster Sushi-4bpw",
+   "key": "bench:needle_400k_total",
+   "raw": "4"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "beamster Sushi-4bpw",
+   "key": "bench:decode_short_tok_s",
+   "raw": "58.1"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "beamster Sushi-4bpw",
+   "key": "bench:decode_64k_tok_s",
+   "raw": "55.0"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "beamster Sushi-4bpw",
+   "key": "bench:decode_200k_tok_s",
+   "raw": "47.7"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "beamster Sushi-4bpw",
+   "key": "bench:prefill_64k_cold_tok_s",
+   "raw": "690"
+  },
+  {
+   "repo": "chatnerdie/Qwen3.8-Flash-Next-EXL3-Sushi",
+   "entry": "beamster Sushi-4bpw",
+   "key": "bench:peak_memory_gib",
+   "raw": "98.9 GiB"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, agentic coding sessions",
+   "key": "bench:agentic_decode_weighted_tok_s",
+   "raw": "63.5\u201364.0"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, agentic coding sessions",
+   "key": "bench:agentic_decode_median_tok_s",
+   "raw": "63.7\u201363.9"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, agentic coding sessions",
+   "key": "bench:agentic_ttft_median_s",
+   "raw": "0.74\u20130.76"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, agentic coding sessions",
+   "key": "bench:agentic_tokens_per_step",
+   "raw": "3.40\u20133.56"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "Stock launcher (image + NVIDIA's flags), agentic coding sessions",
+   "key": "bench:agentic_decode_weighted_tok_s",
+   "raw": "46.9"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, cold prefill",
+   "key": "bench:prefill_2k_tok_s",
+   "raw": "1,696"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, cold prefill",
+   "key": "bench:prefill_16k_tok_s",
+   "raw": "2,134\u20132,169"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, cold prefill",
+   "key": "bench:prefill_64k_tok_s",
+   "raw": "2,131"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo with A4_PREFILL=1, cold prefill",
+   "key": "bench:prefill_2k_tok_s",
+   "raw": "1,869"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo with A4_PREFILL=1, cold prefill",
+   "key": "bench:prefill_16k_tok_s",
+   "raw": "2,247"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo with A4_PREFILL=1, cold prefill",
+   "key": "bench:prefill_64k_tok_s",
+   "raw": "2,207"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, public 40-prompt harness, DRAFT_VOCAB=en (default)",
+   "key": "bench:harness_decode_low_tok_s",
+   "raw": "72.8"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, public 40-prompt harness, DRAFT_VOCAB=en (default)",
+   "key": "bench:harness_decode_high_tok_s",
+   "raw": "73.2"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, public 40-prompt harness, DRAFT_VOCAB=en (default)",
+   "key": "bench:harness_ttft_median_s",
+   "raw": "0.28"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, public 40-prompt harness, DRAFT_VOCAB=en (default)",
+   "key": "bench:harness_ms_per_step",
+   "raw": "53.5"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, public 40-prompt harness, DRAFT_VOCAB=cjk",
+   "key": "bench:harness_decode_tok_s",
+   "raw": "69.9 (\u22124%)"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, Chinese answers",
+   "key": "bench:decode_draft_en_vocab_tok_s",
+   "raw": "37.3"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, Chinese answers",
+   "key": "bench:decode_draft_cjk_vocab_tok_s",
+   "raw": "54.3 (+46%)"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, Chinese answers",
+   "key": "bench:draft_acceptance_pct_en_vocab",
+   "raw": "24.6"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, Chinese answers",
+   "key": "bench:draft_acceptance_pct_cjk_vocab",
+   "raw": "51.8"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, Japanese answers",
+   "key": "bench:decode_draft_en_vocab_tok_s",
+   "raw": "30.1"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, Japanese answers",
+   "key": "bench:decode_draft_cjk_vocab_tok_s",
+   "raw": "48.8 (+62%)"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, Japanese answers",
+   "key": "bench:draft_acceptance_pct_en_vocab",
+   "raw": "14.4"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, Japanese answers",
+   "key": "bench:draft_acceptance_pct_cjk_vocab",
+   "raw": "42.3"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, Korean answers",
+   "key": "bench:decode_draft_en_vocab_tok_s",
+   "raw": "34.7"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, Korean answers",
+   "key": "bench:decode_draft_cjk_vocab_tok_s",
+   "raw": "45.0 (+30%)"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, Korean answers",
+   "key": "bench:draft_acceptance_pct_en_vocab",
+   "raw": "19.7"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, Korean answers",
+   "key": "bench:draft_acceptance_pct_cjk_vocab",
+   "raw": "36.4"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, synthetic 2K prompt, 1 stream",
+   "key": "bench:synth_2k_1s_prefill_tok_s",
+   "raw": "1,850"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, synthetic 2K prompt, 1 stream",
+   "key": "bench:synth_2k_1s_ttft_s",
+   "raw": "1.1 s"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, synthetic 2K prompt, 1 stream",
+   "key": "bench:synth_2k_1s_decode_tok_s",
+   "raw": "51.7"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, synthetic 2K prompts, 4 streams",
+   "key": "bench:synth_2k_4s_ttft_s",
+   "raw": "4.1 s"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, synthetic 2K prompts, 4 streams",
+   "key": "bench:synth_2k_4s_decode_aggregate_tok_s",
+   "raw": "107.0 aggregate (26.7 per stream)"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, synthetic 2K prompts, 4 streams",
+   "key": "bench:synth_2k_4s_prefill_aggregate_tok_s",
+   "raw": "2,230"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, synthetic 46K prompt, 1 stream",
+   "key": "bench:synth_46k_1s_prefill_tok_s",
+   "raw": "2,259"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, synthetic 46K prompt, 1 stream",
+   "key": "bench:synth_46k_1s_ttft_s",
+   "raw": "20.3 s"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, synthetic 46K prompt, 1 stream",
+   "key": "bench:synth_46k_1s_decode_tok_s",
+   "raw": "45.8"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, synthetic 46K prompts, 4 streams",
+   "key": "bench:synth_46k_4s_ttft_s",
+   "raw": "84 s"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, synthetic 46K prompts, 4 streams",
+   "key": "bench:synth_46k_4s_decode_aggregate_tok_s",
+   "raw": "37.4 aggregate (9.4 per stream)"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo, synthetic 46K prompts, 4 streams",
+   "key": "bench:synth_46k_4s_prefill_aggregate_tok_s",
+   "raw": "~2,190"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "AtomicChat AD-4.27bpw-Q4_K_M",
+   "key": "mean_kld",
+   "raw": "0.0842"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "AtomicChat AD-4.27bpw-Q4_K_M",
+   "key": "top1_pct",
+   "raw": "89.5 %"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "AtomicChat AD-4.27bpw-Q4_K_M",
+   "key": "ppl_ratio",
+   "raw": "1.026"
+  },
+  {
    "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
-   "entry": "fast",
-   "key": "kld:wikitext-2",
-   "raw": "0.39"
+   "entry": "Precise",
+   "key": "bench:GSM8K_correct",
+   "raw": "148"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Precise",
+   "key": "bench:GSM8K_total",
+   "raw": "150"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Precise",
+   "key": "bench:MMLU-Pro_correct",
+   "raw": "127"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Precise",
+   "key": "bench:MMLU-Pro_total",
+   "raw": "150"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Precise",
+   "key": "bench:star_drift_playable_v0_1",
+   "raw": "3 of 6 playable"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Best",
+   "key": "bench:GSM8K_correct",
+   "raw": "147"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Best",
+   "key": "bench:GSM8K_total",
+   "raw": "150"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Best",
+   "key": "bench:MMLU-Pro_correct",
+   "raw": "131"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Best",
+   "key": "bench:MMLU-Pro_total",
+   "raw": "150"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Fast",
+   "key": "bench:GSM8K_correct",
+   "raw": "149"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Fast",
+   "key": "bench:GSM8K_total",
+   "raw": "150"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Fast",
+   "key": "bench:MMLU-Pro_correct",
+   "raw": "121"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Fast",
+   "key": "bench:MMLU-Pro_total",
+   "raw": "150"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Fast",
+   "key": "bench:star_drift_playable_v0_1",
+   "raw": "1 of 6 (v0.1)"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Precise",
+   "key": "bench:first_token_short_s",
+   "raw": "0.26"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Precise",
+   "key": "bench:first_token_4k_s",
+   "raw": "1.9"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Precise",
+   "key": "bench:first_token_30k_s",
+   "raw": "7.3"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Precise",
+   "key": "bench:writing_4k_tok_s",
+   "raw": "86"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Precise",
+   "key": "bench:writing_30k_tok_s",
+   "raw": "91 tokens/s"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Best",
+   "key": "bench:first_token_short_s",
+   "raw": "0.33"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Best",
+   "key": "bench:first_token_4k_s",
+   "raw": "2.1"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Best",
+   "key": "bench:first_token_30k_s",
+   "raw": "7.4"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Best",
+   "key": "bench:writing_short_tok_s",
+   "raw": "79"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Best",
+   "key": "bench:writing_4k_tok_s",
+   "raw": "71"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Best",
+   "key": "bench:writing_30k_tok_s",
+   "raw": "76"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Fast",
+   "key": "bench:first_token_short_s",
+   "raw": "0.16"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Fast",
+   "key": "bench:first_token_4k_s",
+   "raw": "1.3"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Fast",
+   "key": "bench:first_token_30k_s",
+   "raw": "7.5"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Fast",
+   "key": "bench:read_261k_prompt_s",
+   "raw": "66 s"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Fast",
+   "key": "bench:writing_short_tok_s",
+   "raw": "113"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Fast",
+   "key": "bench:writing_4k_tok_s",
+   "raw": "115"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Fast",
+   "key": "bench:writing_30k_tok_s",
+   "raw": "131"
+  },
+  {
+   "repo": "immiq/Qwen3.8-Flash-Next-Orinfer-E8P-Q2A8",
+   "entry": "Qwen3.8-Flash-Next \u00b7 Orinfer E8P Q2A8",
+   "key": "bench:prefill_512_tok_s",
+   "raw": "925.57"
+  },
+  {
+   "repo": "immiq/Qwen3.8-Flash-Next-Orinfer-E8P-Q2A8",
+   "entry": "Qwen3.8-Flash-Next \u00b7 Orinfer E8P Q2A8",
+   "key": "bench:prefill_8k_tok_s",
+   "raw": "858.11"
+  },
+  {
+   "repo": "immiq/Qwen3.8-Flash-Next-Orinfer-E8P-Q2A8",
+   "entry": "Qwen3.8-Flash-Next \u00b7 Orinfer E8P Q2A8",
+   "key": "bench:single_decode_mtp_tok_s",
+   "raw": "56.35"
+  },
+  {
+   "repo": "immiq/Qwen3.8-Flash-Next-Orinfer-E8P-Q2A8",
+   "entry": "Qwen3.8-Flash-Next \u00b7 Orinfer E8P Q2A8",
+   "key": "bench:8_request_decode_tok_s",
+   "raw": "157.25"
+  },
+  {
+   "repo": "immiq/Qwen3.8-Flash-Next-Orinfer-E8P-Q2A8",
+   "entry": "Qwen3.8-Flash-Next \u00b7 Orinfer E8P Q2A8",
+   "key": "bench:max_requests_decode_requests",
+   "raw": "32"
+  },
+  {
+   "repo": "immiq/Qwen3.8-Flash-Next-Orinfer-E8P-Q2A8",
+   "entry": "Qwen3.8-Flash-Next \u00b7 Orinfer E8P Q2A8",
+   "key": "bench:max_requests_decode_tok_s",
+   "raw": "282.87"
+  },
+  {
+   "repo": "immiq/Qwen3.8-Flash-Next-Orinfer-E8P-Q2A8",
+   "entry": "Qwen3.8-Flash-Next \u00b7 Orinfer E8P Q2A8",
+   "key": "bench:serve_to_api_s",
+   "raw": "15.79"
+  },
+  {
+   "repo": "immiq/Qwen3.8-Flash-Next-Orinfer-E8P-Q2A8",
+   "entry": "Qwen3.8-Flash-Next \u00b7 Orinfer E8P Q2A8",
+   "key": "bench:serve_to_first_output_s",
+   "raw": "15.96"
   },
   {
    "repo": "infosave/Qwen3.8-Flash-Next-cmf",
@@ -1275,6 +1965,294 @@
    "raw": "4.021"
   },
   {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, ~20,000 experts in VRAM",
+   "key": "bench:mtp_code_tok_s",
+   "raw": "460"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, ~20,000 experts in VRAM",
+   "key": "bench:mtp_prose_tok_s",
+   "raw": "313"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, ~20,000 experts in VRAM",
+   "key": "bench:mtp_4_conversations_tok_s",
+   "raw": "705"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, ~20,000 experts in VRAM",
+   "key": "bench:mtp_8_conversations_tok_s",
+   "raw": "852"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, ~20,000 experts in VRAM",
+   "key": "bench:nospec_code_tok_s",
+   "raw": "299"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, ~20,000 experts in VRAM",
+   "key": "bench:nospec_prose_tok_s",
+   "raw": "289"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, ~20,000 experts in VRAM",
+   "key": "bench:read_8k_prompt_tok_s",
+   "raw": "8,300"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, 9,863 experts in VRAM",
+   "key": "bench:mtp_code_tok_s",
+   "raw": "225"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, 9,863 experts in VRAM",
+   "key": "bench:mtp_prose_tok_s",
+   "raw": "200"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, 9,863 experts in VRAM",
+   "key": "bench:mtp_4_conversations_tok_s",
+   "raw": "236"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, 9,863 experts in VRAM",
+   "key": "bench:mtp_8_conversations_tok_s",
+   "raw": "249"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, 9,863 experts in VRAM",
+   "key": "bench:nospec_code_tok_s",
+   "raw": "176"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, 9,863 experts in VRAM",
+   "key": "bench:nospec_prose_tok_s",
+   "raw": "194"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, 9,863 experts in VRAM",
+   "key": "bench:read_8k_prompt_tok_s",
+   "raw": "8,100"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, 4,220 experts in VRAM",
+   "key": "bench:mtp_code_tok_s",
+   "raw": "128"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, 4,220 experts in VRAM",
+   "key": "bench:mtp_prose_tok_s",
+   "raw": "117"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, 4,220 experts in VRAM",
+   "key": "bench:mtp_4_conversations_tok_s",
+   "raw": "133"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, 4,220 experts in VRAM",
+   "key": "bench:mtp_8_conversations_tok_s",
+   "raw": "148"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, 4,220 experts in VRAM",
+   "key": "bench:nospec_code_tok_s",
+   "raw": "108"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, 4,220 experts in VRAM",
+   "key": "bench:nospec_prose_tok_s",
+   "raw": "115"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, 4,220 experts in VRAM",
+   "key": "bench:read_8k_prompt_tok_s",
+   "raw": "7,200"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Small, ~13,000 experts in VRAM",
+   "key": "bench:mtp_code_tok_s",
+   "raw": "221"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Small, ~13,000 experts in VRAM",
+   "key": "bench:mtp_prose_tok_s",
+   "raw": "191"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Small, ~13,000 experts in VRAM",
+   "key": "bench:mtp_4_conversations_tok_s",
+   "raw": "239"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Small, ~13,000 experts in VRAM",
+   "key": "bench:mtp_8_conversations_tok_s",
+   "raw": "186"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Small, ~13,000 experts in VRAM",
+   "key": "bench:nospec_code_tok_s",
+   "raw": "184"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Small, ~13,000 experts in VRAM",
+   "key": "bench:nospec_prose_tok_s",
+   "raw": "198"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Small, ~13,000 experts in VRAM",
+   "key": "bench:read_8k_prompt_tok_s",
+   "raw": "7,400"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Small, 10,513 experts in VRAM",
+   "key": "bench:mtp_code_tok_s",
+   "raw": "190"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Small, 10,513 experts in VRAM",
+   "key": "bench:mtp_prose_tok_s",
+   "raw": "177"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Small, 10,513 experts in VRAM",
+   "key": "bench:mtp_4_conversations_tok_s",
+   "raw": "220"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Small, 10,513 experts in VRAM",
+   "key": "bench:mtp_8_conversations_tok_s",
+   "raw": "181"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Small, 10,513 experts in VRAM",
+   "key": "bench:nospec_code_tok_s",
+   "raw": "154"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Small, 10,513 experts in VRAM",
+   "key": "bench:nospec_prose_tok_s",
+   "raw": "169"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Small, 10,513 experts in VRAM",
+   "key": "bench:read_8k_prompt_tok_s",
+   "raw": "7,200"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, ~20,000 experts in VRAM, DFlash2 drafter",
+   "key": "bench:dflash2_code_tok_s",
+   "raw": "498"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, ~20,000 experts in VRAM, DFlash2 drafter",
+   "key": "bench:dflash2_prose_tok_s",
+   "raw": "318"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, ~20,000 experts in VRAM, DFlash2 drafter",
+   "key": "bench:dflash2_4_conversations_tok_s",
+   "raw": "789"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, ~20,000 experts in VRAM, DFlash2 drafter",
+   "key": "bench:dflash2_8_conversations_tok_s",
+   "raw": "993"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, ~20,000 experts in VRAM, MTP layer (same session as DFlash2)",
+   "key": "bench:mtp_code_tok_s",
+   "raw": "440"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, ~20,000 experts in VRAM, MTP layer (same session as DFlash2)",
+   "key": "bench:mtp_prose_tok_s",
+   "raw": "300"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, ~20,000 experts in VRAM, MTP layer (same session as DFlash2)",
+   "key": "bench:mtp_4_conversations_tok_s",
+   "raw": "678"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny, ~20,000 experts in VRAM, MTP layer (same session as DFlash2)",
+   "key": "bench:mtp_8_conversations_tok_s",
+   "raw": "779"
+  },
+  {
+   "repo": "webmp3/Sakura-Qwen3.8-Flash-Next-Compact-47.6GiB-K512-CP2-v1-GGUF",
+   "entry": "Compact CP2, own speed tests",
+   "key": "bench:sustained_generation_tok_s",
+   "raw": "33\u201337"
+  },
+  {
+   "repo": "webmp3/Sakura-Qwen3.8-Flash-Next-Compact-47.6GiB-K512-CP2-v1-GGUF",
+   "entry": "Compact CP2, own speed tests",
+   "key": "bench:smoke_english_tok_s_1",
+   "raw": "38.92"
+  },
+  {
+   "repo": "webmp3/Sakura-Qwen3.8-Flash-Next-Compact-47.6GiB-K512-CP2-v1-GGUF",
+   "entry": "Compact CP2, own speed tests",
+   "key": "bench:smoke_english_tok_s_2",
+   "raw": "43.78"
+  },
+  {
+   "repo": "webmp3/Sakura-Qwen3.8-Flash-Next-Compact-47.6GiB-K512-CP2-v1-GGUF",
+   "entry": "Compact CP2, own speed tests",
+   "key": "bench:smoke_code_tok_s",
+   "raw": "41.79"
+  },
+  {
+   "repo": "webmp3/Sakura-Qwen3.8-Flash-Next-Compact-47.6GiB-K512-CP2-v1-GGUF",
+   "entry": "Compact CP2, own speed tests",
+   "key": "bench:mtp_acceptance_pct",
+   "raw": "64.8\u201369.5%"
+  },
+  {
    "repo": "xv0y5ncu/Qwen3.8-Flash-Next-GLQ-trellis-3inst-3bpw-ple4-3mtp",
    "entry": "xv0y5ncu/Qwen3.8-Flash-Next-GLQ-trellis-3inst-3bpw-ple4",
    "key": "bench:AIME-2026",
@@ -1285,156 +2263,6 @@
    "entry": "xv0y5ncu/Qwen3.8-Flash-Next-GLQ-trellis-3inst-3bpw-ple4",
    "key": "bench:AIME-2026",
    "raw": "AIME-2026 avg@8 = 99.58%"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
-   "entry": "Quality-PLE4",
-   "key": "top1_pct",
-   "raw": "95.663"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
-   "entry": "Quality-PLE4",
-   "key": "top1_pct",
-   "raw": "95.663"
-  },
-  {
-   "repo": "Vemloir/Qwen3.8-Flash-Next-sc-exl3",
-   "entry": "set 1 (revision 524a19ebbbd653cd8cf31b766a56e7183133d7a0)",
-   "key": "kld:nemotron",
-   "raw": "0.00788"
-  },
-  {
-   "repo": "Vemloir/Qwen3.8-Flash-Next-sc-exl3",
-   "entry": "set 1 (revision 524a19ebbbd653cd8cf31b766a56e7183133d7a0)",
-   "key": "kld:multilingual",
-   "raw": "0.00545"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
-   "entry": "Balanced-PLE8",
-   "key": "top1_pct",
-   "raw": "95.844"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
-   "entry": "Balanced-PLE8",
-   "key": "bench:blind_svg",
-   "raw": "3.49"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
-   "entry": "Balanced-PLE8",
-   "key": "top1_pct",
-   "raw": "95.844"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
-   "entry": "Balanced-PLE4",
-   "key": "top1_pct",
-   "raw": "95.609"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
-   "entry": "Balanced-PLE4",
-   "key": "top1_pct",
-   "raw": "95.609"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
-   "entry": "Max-PLE8",
-   "key": "top1_pct",
-   "raw": "95.918"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
-   "entry": "Max-PLE8",
-   "key": "top1_pct",
-   "raw": "95.918"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
-   "entry": "this release (4-bit)",
-   "key": "mean_kld",
-   "raw": "0.0306"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
-   "entry": "this release (4-bit)",
-   "key": "top1_pct",
-   "raw": "93.36 %"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
-   "entry": "this release (4-bit)",
-   "key": "kld:long-v1",
-   "raw": "0.0307"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
-   "entry": "this release (4-bit)",
-   "key": "top1:long-v1",
-   "raw": "92.75"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
-   "entry": "this release (4-bit)",
-   "key": "mean_kld",
-   "raw": "0.0306"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
-   "entry": "this release (4-bit)",
-   "key": "top1_pct",
-   "raw": "93.36 %"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
-   "entry": "this release (4-bit)",
-   "key": "kld:long-v1",
-   "raw": "0.0307"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
-   "entry": "this release (4-bit)",
-   "key": "top1:long-v1",
-   "raw": "92.75"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
-   "entry": "Quality-PLE8",
-   "key": "top1_pct",
-   "raw": "95.928"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
-   "entry": "Quality-PLE8",
-   "key": "bench:coding",
-   "raw": "278.35"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
-   "entry": "Quality-PLE8",
-   "key": "top1_pct",
-   "raw": "95.928"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
-   "entry": "Max-PLE8",
-   "key": "top1_pct",
-   "raw": "95.918"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
-   "entry": "Max-PLE8",
-   "key": "bench:blind_svg",
-   "raw": "3.62"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
-   "entry": "Max-PLE8",
-   "key": "top1_pct",
-   "raw": "95.918"
   },
   {
    "repo": "Ar3ntiz/qwen3.8_flash_next_side8",
@@ -1479,22 +2307,298 @@
    "raw": "20"
   },
   {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
-   "entry": "Quality-PLE8",
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
+   "entry": "INT3 (this repository)",
+   "key": "kld:long-v1",
+   "raw": "0.0561"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
+   "entry": "INT3 (this repository)",
+   "key": "top1:long-v1",
+   "raw": "90.39"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
+   "entry": "INT3 (this repository)",
+   "key": "kld:long-v1",
+   "raw": "0.0561"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
+   "entry": "INT3 (this repository)",
+   "key": "top1:long-v1",
+   "raw": "90.39"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
    "key": "mean_kld",
-   "raw": "0.012613"
+   "raw": "0.0306"
   },
   {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
-   "entry": "Quality-PLE8",
-   "key": "ppl_ratio",
-   "raw": "1.000487"
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "top1_pct",
+   "raw": "93.36 %"
   },
   {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "kld:long-v1",
+   "raw": "0.0307"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "top1:long-v1",
+   "raw": "92.75"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "mean_kld",
+   "raw": "0.0306"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "top1_pct",
+   "raw": "93.36 %"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "kld:long-v1",
+   "raw": "0.0307"
+  },
+  {
+   "repo": "EliovpAI/Qwen3.8-Flash-Next-W4A8-Paiton-RDNA4",
+   "entry": "this release (4-bit)",
+   "key": "top1:long-v1",
+   "raw": "92.75"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:general",
+   "raw": "0.309"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:general",
+   "raw": "86.60 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:reasoning_traces",
+   "raw": "0.159"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:reasoning_traces",
+   "raw": "89.71 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:tool_conversations",
+   "raw": "0.653"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:tool_conversations",
+   "raw": "80.95 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:office_finance_math",
+   "raw": "0.132"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:office_finance_math",
+   "raw": "91.02 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:model_written_traces",
+   "raw": "0.197"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:model_written_traces",
+   "raw": "87.97 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:agent_sessions",
+   "raw": "0.813"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:agent_sessions",
+   "raw": "71.52 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:general",
+   "raw": "0.309"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:general",
+   "raw": "86.60 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:reasoning_traces",
+   "raw": "0.159"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:reasoning_traces",
+   "raw": "89.71 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:tool_conversations",
+   "raw": "0.653"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:tool_conversations",
+   "raw": "80.95 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:office_finance_math",
+   "raw": "0.132"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:office_finance_math",
+   "raw": "91.02 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:model_written_traces",
+   "raw": "0.197"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:model_written_traces",
+   "raw": "87.97 %"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "kld:agent_sessions",
+   "raw": "0.813"
+  },
+  {
+   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
+   "entry": "Allosaurus v0.2 JANGHT1.8",
+   "key": "top1:agent_sessions",
+   "raw": "71.52 %"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Max-PLE8",
+   "key": "top1_pct",
+   "raw": "95.918"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Max-PLE8",
+   "key": "bench:blind_svg",
+   "raw": "3.62"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Max-PLE8",
+   "key": "top1_pct",
+   "raw": "95.918"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
    "entry": "Quality-PLE8",
    "key": "top1_pct",
    "raw": "95.928"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "bench:coding",
+   "raw": "278.35"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "top1_pct",
+   "raw": "95.928"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "top1_pct",
+   "raw": "95.609"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "top1_pct",
+   "raw": "95.609"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "top1_pct",
+   "raw": "95.844"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "bench:blind_svg",
+   "raw": "3.49"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "top1_pct",
+   "raw": "95.844"
   },
   {
    "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
@@ -1516,159 +2620,21 @@
   },
   {
    "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
-   "entry": "Balanced-PLE8",
-   "key": "top1_pct",
-   "raw": "95.844"
+   "entry": "Quality-PLE8",
+   "key": "mean_kld",
+   "raw": "0.012613"
   },
   {
    "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
-   "entry": "Balanced-PLE8",
-   "key": "top1_pct",
-   "raw": "95.844"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
-   "entry": "Balanced-PLE4",
-   "key": "top1_pct",
-   "raw": "95.609"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Balanced-GGUF",
-   "entry": "Balanced-PLE4",
-   "key": "top1_pct",
-   "raw": "95.609"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
-   "entry": "INT3 (this repository)",
-   "key": "kld:long-v1",
-   "raw": "0.0561"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
-   "entry": "INT3 (this repository)",
-   "key": "top1:long-v1",
-   "raw": "90.39"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
-   "entry": "INT3 (this repository)",
-   "key": "kld:long-v1",
-   "raw": "0.0561"
-  },
-  {
-   "repo": "EliovpAI/Qwen3.8-Flash-Next-W3A8-Paiton-RDNA4",
-   "entry": "INT3 (this repository)",
-   "key": "top1:long-v1",
-   "raw": "90.39"
+   "entry": "Quality-PLE8",
+   "key": "ppl_ratio",
+   "raw": "1.000487"
   },
   {
    "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
-   "entry": "Quality-PLE4",
-   "key": "top1_pct",
-   "raw": "95.663"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
-   "entry": "Quality-PLE4",
-   "key": "top1_pct",
-   "raw": "95.663"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
-   "entry": "Balanced-PLE8",
-   "key": "top1_pct",
-   "raw": "95.844"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
-   "entry": "Balanced-PLE8",
-   "key": "top1_pct",
-   "raw": "95.844"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
-   "entry": "Quality-PLE4",
-   "key": "top1_pct",
-   "raw": "95.663"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
-   "entry": "Quality-PLE4",
-   "key": "top1_pct",
-   "raw": "95.663"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
-   "entry": "Quality-PLE4",
-   "key": "top1_pct",
-   "raw": "95.663"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
-   "entry": "Quality-PLE4",
-   "key": "top1_pct",
-   "raw": "95.663"
-  },
-  {
-   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
-   "entry": "precise",
-   "key": "bench:GSM8K",
-   "raw": "148"
-  },
-  {
-   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
-   "entry": "precise",
-   "key": "bench:MMLU-Pro",
-   "raw": "126"
-  },
-  {
-   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
-   "entry": "precise",
-   "key": "bench:GSM8K",
-   "raw": "148"
-  },
-  {
-   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
-   "entry": "precise",
-   "key": "bench:MMLU-Pro",
-   "raw": "126"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
    "entry": "Quality-PLE8",
    "key": "top1_pct",
    "raw": "95.928"
-  },
-  {
-   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
-   "entry": "Quality-PLE8",
-   "key": "top1_pct",
-   "raw": "95.928"
-  },
-  {
-   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
-   "entry": "best",
-   "key": "bench:GSM8K",
-   "raw": "149"
-  },
-  {
-   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
-   "entry": "best",
-   "key": "bench:MMLU-Pro",
-   "raw": "128"
-  },
-  {
-   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
-   "entry": "best",
-   "key": "bench:GSM8K",
-   "raw": "149"
-  },
-  {
-   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
-   "entry": "best",
-   "key": "bench:MMLU-Pro",
-   "raw": "128"
   },
   {
    "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
@@ -1683,148 +2649,64 @@
    "raw": "95.609"
   },
   {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:general",
-   "raw": "0.309"
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "top1_pct",
+   "raw": "95.844"
   },
   {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:general",
-   "raw": "86.60 %"
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "top1_pct",
+   "raw": "95.844"
   },
   {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:reasoning_traces",
-   "raw": "0.159"
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
   },
   {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:reasoning_traces",
-   "raw": "89.71 %"
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
   },
   {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:tool_conversations",
-   "raw": "0.653"
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "top1_pct",
+   "raw": "95.609"
   },
   {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:tool_conversations",
-   "raw": "80.95 %"
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Balanced-PLE4",
+   "key": "top1_pct",
+   "raw": "95.609"
   },
   {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:office_finance_math",
-   "raw": "0.132"
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "top1_pct",
+   "raw": "95.844"
   },
   {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:office_finance_math",
-   "raw": "91.02 %"
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Balanced-PLE8",
+   "key": "top1_pct",
+   "raw": "95.844"
   },
   {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:model_written_traces",
-   "raw": "0.197"
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
   },
   {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:model_written_traces",
-   "raw": "87.97 %"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:agent_sessions",
-   "raw": "0.813"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:agent_sessions",
-   "raw": "71.52 %"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:general",
-   "raw": "0.309"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:general",
-   "raw": "86.60 %"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:reasoning_traces",
-   "raw": "0.159"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:reasoning_traces",
-   "raw": "89.71 %"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:tool_conversations",
-   "raw": "0.653"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:tool_conversations",
-   "raw": "80.95 %"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:office_finance_math",
-   "raw": "0.132"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:office_finance_math",
-   "raw": "91.02 %"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:model_written_traces",
-   "raw": "0.197"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:model_written_traces",
-   "raw": "87.97 %"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "kld:agent_sessions",
-   "raw": "0.813"
-  },
-  {
-   "repo": "OsaurusAI/Allosaurus-v0.2-125B-A6B-JANGHT1.8",
-   "entry": "Allosaurus v0.2 JANGHT1.8",
-   "key": "top1:agent_sessions",
-   "raw": "71.52 %"
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
   },
   {
    "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
@@ -1837,6 +2719,54 @@
    "entry": "Quality-PLE8",
    "key": "top1_pct",
    "raw": "95.928"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Max-PLE8",
+   "key": "top1_pct",
+   "raw": "95.918"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Max-GGUF",
+   "entry": "Max-PLE8",
+   "key": "top1_pct",
+   "raw": "95.918"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Quality-PLE4",
+   "key": "top1_pct",
+   "raw": "95.663"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "top1_pct",
+   "raw": "95.928"
+  },
+  {
+   "repo": "Vardaan97/Qwen3.8-Flash-Next-Splash-Quality-GGUF",
+   "entry": "Quality-PLE8",
+   "key": "top1_pct",
+   "raw": "95.928"
+  },
+  {
+   "repo": "Vemloir/Qwen3.8-Flash-Next-sc-exl3",
+   "entry": "set 1 (revision 524a19ebbbd653cd8cf31b766a56e7183133d7a0)",
+   "key": "kld:nemotron",
+   "raw": "0.00788"
+  },
+  {
+   "repo": "Vemloir/Qwen3.8-Flash-Next-sc-exl3",
+   "entry": "set 1 (revision 524a19ebbbd653cd8cf31b766a56e7183133d7a0)",
+   "key": "kld:multilingual",
+   "raw": "0.00545"
   }
  ],
  "resolved_disagreements": [],
@@ -2053,6 +2983,66 @@
    "raw": "0.027 (code)"
   },
   {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "Same checkpoint, vLLM default FP4 activations (W4A4)",
+   "key": "mean_kld",
+   "raw": "0.0665"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "Same checkpoint, vLLM default FP4 activations (W4A4)",
+   "key": "top1_pct",
+   "raw": "90.4 %"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo with A4_PREFILL=1",
+   "key": "mean_kld",
+   "raw": "0.0516"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo with A4_PREFILL=1",
+   "key": "top1_pct",
+   "raw": "91.6 %"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "This repo with A4_PREFILL=1",
+   "key": "ppl_ratio",
+   "raw": "1.012"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "Same, one FP4 plane (b12x's A4_PREFILL default)",
+   "key": "mean_kld",
+   "raw": "0.0665"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "Same, one FP4 plane (b12x's A4_PREFILL default)",
+   "key": "top1_pct",
+   "raw": "90.3 %"
+  },
+  {
+   "repo": "diffbot/Qwen3.8-Flash-Next-FP4-Local-DGX-Spark",
+   "entry": "Same, one FP4 plane (b12x's A4_PREFILL default)",
+   "key": "ppl_ratio",
+   "raw": "1.012"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Best",
+   "key": "kld:wikitext2",
+   "raw": "0.12"
+  },
+  {
+   "repo": "glyd/Qwen3.8-Flash-Next-hummingbird",
+   "entry": "Fast",
+   "key": "kld:wikitext2",
+   "raw": "0.39"
+  },
+  {
    "repo": "nace-ai/Qwen3.8-Flash-Next-MLX-4bit",
    "entry": "bf16 weights, bf16 activations (noise floor)",
    "key": "mean_kld",
@@ -2063,6 +3053,66 @@
    "entry": "bf16 weights, bf16 activations (noise floor)",
    "key": "top1_pct",
    "raw": "94.6%"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny",
+   "key": "kld:heldout_reasoning",
+   "raw": "0.098"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny",
+   "key": "kld:heldout_math",
+   "raw": "0.070"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny",
+   "key": "kld:heldout_code",
+   "raw": "0.086"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny",
+   "key": "kld:heldout_chat",
+   "raw": "0.310"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Tiny",
+   "key": "kld:heldout_wiki",
+   "raw": "0.163"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Small",
+   "key": "kld:heldout_reasoning",
+   "raw": "0.040"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Small",
+   "key": "kld:heldout_math",
+   "raw": "0.020"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Small",
+   "key": "kld:heldout_code",
+   "raw": "0.038"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Small",
+   "key": "kld:heldout_chat",
+   "raw": "0.143"
+  },
+  {
+   "repo": "perkel/Qwen3.8-Flash-Next-MC",
+   "entry": "Small",
+   "key": "kld:heldout_wiki",
+   "raw": "0.066"
   }
  ]
 }

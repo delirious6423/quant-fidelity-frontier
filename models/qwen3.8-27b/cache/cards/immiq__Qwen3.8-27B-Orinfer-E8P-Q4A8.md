@@ -9,43 +9,56 @@ tags: [orinfer, jetson, e8p, int8, mixed-precision, vision-language, safetensors
 
 # Qwen3.8-27B · Orinfer E8P Q4A8
 
-[中文](./README_zh.md) · [ModelScope](https://modelscope.cn/models/iammiq/Qwen3.8-27B-Orinfer-E8P-Q4A8)
+[中文](README_zh.md) · [Hugging Face](https://huggingface.co/immiq/Qwen3.8-27B-Orinfer-E8P-Q4A8) · [ModelScope](https://modelscope.cn/models/iammiq/Qwen3.8-27B-Orinfer-E8P-Q4A8)
 
-Official [Qwen/Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B/tree/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0) quantized for **Jetson AGX Orin 64GB / CUDA SM87**, using [Orinfer v0.1.4](https://github.com/iMMIQ/orinfer/releases/tag/v0.1.4).
+A quantized version of [Qwen/Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B/tree/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0) for **Jetson AGX Orin 64GB / CUDA SM87**, deployed with [Orinfer v0.2.0](https://github.com/iMMIQ/orinfer/releases/tag/v0.2.0). It supports text, images and multiple images, streaming Chat Completions, native MTP, prefix caching, continuous batching and resumable JSONL offline inference. Translation requests use `enable_thinking: false`; thinking follows the original model's chat template.
 
-Main projections use our two-stage residual E8P Q4 representation with coefficients [4, 1], signed-block128 rotation, beam-8 encoding and INT8 computation. Sensitive embedding/output/MTP and vision tensors retain the validated mixed-precision exceptions. The GPU weight payload is 16.52 GB, approximately 4.76 bits per parameter including metadata and high-precision exceptions.
+## Quantization and files
 
-Supports text, images/multiple images, thinking, native MTP, prefix caching and continuous batching. Context capacity is **262,144 tokens** including input and generated tokens. Persistent GDN state is FP32 and KV cache is INT8. Quantization seed: `20261002`.
+Two-stage residual E8P Q4 with coefficients [4, 1], signed-block128 rotation and beam-8 encoding over the original BF16 weights, paired with INT8 computation. Sensitive tensors retain the validated W8/FP16/BF16/FP32 mixed-precision policy.
 
-## Files and compatibility
+Deployed read-only GPU data, including scales, derived constants and precision exceptions: **16,518,393,824 bytes**, approximately **4.757 bits per recorded GPU weight parameter**. Stored safetensors: **16.57 GB** across **68 shards**. Context capacity: **262,144 tokens**; KV cache is INT8 and persistent GDN state is FP32. Quantization seed: `20261002`.
 
-- 68 GPU safetensors shards and 0 CPU table shards; total stored safetensors size **16.57 GB** (decimal).
-- `cache/weights/model.safetensors.index.json` maps GPU tensors; `cache/model.json` describes the native physical layouts and fixes the execution-package digest.
-- These are Orinfer-native quantized weights. They cannot be loaded directly by Transformers, vLLM, SGLang or llama.cpp.
-- This repository contains model data only. Install the matching `.so`/cubin execution package from GitHub Release; it is not included here.
-- Required execution-package digest: `17e754396399b16ba8a588d992b5e67bb19cf84af787b8a9ce1cff00c1a97fbb`.
+The repository contains HF configuration/tokenizer assets, the native chat template, standard safetensors containers and `cache/model.json`. The descriptor fixes physical tensor layouts and the execution-package digest. The matching Rust `.so`, cubins and their source are distributed through GitHub Release.
 
 ## Deploy
 
-Download the model from Hugging Face or [ModelScope](https://modelscope.cn/models/iammiq/Qwen3.8-27B-Orinfer-E8P-Q4A8). Get the CLI and execution archives from [v0.1.4](https://github.com/iMMIQ/orinfer/releases/tag/v0.1.4). Installation and inference use the Rust CLI; **Python, PyTorch, TileLang and a Rust compiler are not needed to deploy prebuilt packages**.
+Download this model repository into `./model`. Prebuilt deployment uses the aarch64 Rust CLI, NVIDIA CUDA Driver and the matching SM87 execution package.
+
+Execution-package digest: `1337e1d358bb035419df566fdebd8679bdd343cdf0d8e7450bd2b97bdbb62a52`.
 
 ```bash
-hf download immiq/Qwen3.8-27B-Orinfer-E8P-Q4A8 --local-dir ./model
-# Download the CLI archive, matching execution archive and SHA256SUMS from v0.1.4.
+curl -fLO https://github.com/iMMIQ/orinfer/releases/download/v0.2.0/orinfer-v0.2.0-linux-aarch64.tar.xz
+curl -fLO https://github.com/iMMIQ/orinfer/releases/download/v0.2.0/orinfer-exec-qwen35-27b-a8-sm87-v0.2.0.tar.xz
+curl -fLO https://github.com/iMMIQ/orinfer/releases/download/v0.2.0/SHA256SUMS
 sha256sum --ignore-missing -c SHA256SUMS
-tar -xf orinfer-v0.1.4-linux-aarch64.tar.xz
-./orinfer-v0.1.4-linux-aarch64/bin/orinfer package install \
-  ./orinfer-v0.1.4-qwen3_5-int8-quality-sm87-execution.tar.xz
-./orinfer-v0.1.4-linux-aarch64/bin/orinfer validate-model ./model
-./orinfer-v0.1.4-linux-aarch64/bin/orinfer serve ./model \
-  --model qwen3.8-27b --cuda-graph decode_only --mtp-drafts 3 \
-  --default-request-params '{"enable_thinking":true}'
+tar -xf orinfer-v0.2.0-linux-aarch64.tar.xz
+./orinfer-v0.2.0-linux-aarch64/bin/orinfer package install ./orinfer-exec-qwen35-27b-a8-sm87-v0.2.0.tar.xz
+./orinfer-v0.2.0-linux-aarch64/bin/orinfer validate-model ./model
+./orinfer-v0.2.0-linux-aarch64/bin/orinfer serve ./model \
+  --model qwen3.8-27b --cuda-graph decode_only --mtp-drafts 3
 ```
 
-The service listens on `0.0.0.0:8088`; the OpenAI-compatible endpoint is `/v1/chat/completions`. Explicit request fields override deployment defaults. Streaming is opt-in with `stream: true`; thinking uses `reasoning_content` and images use `image_url`.
+The listener is `[::]:8088`. OpenAI Chat Completions uses `/v1/chat/completions`; set `stream: true` for SSE. Images use `image_url`, and thinking output uses `reasoning_content`. The CLI also provides Ollama-compatible APIs and `orinfer batch` for JSONL jobs. See the [serving guide](https://github.com/iMMIQ/orinfer/blob/v0.2.0/docs/serving.md).
 
-## Validation and license
+## Measured performance
 
-The matching v0.1.4 packages passed complete model-file validation and real CLI/API regressions for both models, including MTP, prefix replay, all CUDA Graph modes, images/multiple images and two concurrent requests. Token choices need not be identical to BF16. Full LLM benchmarks and independent BF16 256K quality evaluation remain outside this acceptance scope. Dated results and limitations are in [performance documentation](https://github.com/iMMIQ/orinfer/blob/v0.1.4/docs/performance.md).
+Jetson AGX Orin 64GB, **2026-10-21**. Throughput is **tok/s**; startup is seconds.
 
-Weights retain [Apache-2.0](./LICENSE). Orinfer software and its separate execution package are LGPL-3.0-or-later; their third-party notices ship with the software release.
+| Prefill 512 | Prefill 8K | Single decode, MTP | 8-request decode | Max requests / decode | Serve → API (s) | Serve → first output (s) |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 658.87 | 598.46 | 33.64 | 67.56 | 64 / 135.89 | 6.68 | 7.05 |
+
+Single-request runs enable adaptive MTP up to 3 drafts, with 512/8192 input tokens and 257 fixed output tokens; the single-decode column uses 512-token input. Multi-request runs automatically switch the benchmark to MTP off, with 256 input and 65 output tokens per request. Decode timing starts after the first emitted step, and multi-request timing uses a first-output barrier. Each throughput value is a median of three warm runs after one warmup; fixed-length diagnostics ignore EOS. All use greedy, seed `20261002`, `decode_only`, thinking off and prefix cache off. MTP speed depends on the task and acceptance rate.
+
+Startup uses three fresh Rust `serve` processes and a 21-token translation request: process invocation to `/health` ready, then to the first nonempty SSE output. Existing file caches are preserved; SSE output can contain several tokens. The table reports medians, and file-cache effects plus individual large-model startup observations are in the [performance reference](https://github.com/iMMIQ/orinfer/blob/v0.2.0/docs/performance.md).
+
+## Quality scope
+
+Validation covers fixed-history probability diagnostics, request-state isolation, MTP/prefix recovery and text/image API requests. Dated BF16 comparisons and evaluated contexts are recorded in the performance reference.
+
+These are small-sample diagnostics covering text, inputs through 8K and controlled simple images. Broader task benchmarks, complex image translation and full-context quality remain evaluation areas. Quality and execution-regression scopes are recorded separately in the [performance reference](https://github.com/iMMIQ/orinfer/blob/v0.2.0/docs/performance.md).
+
+## License
+
+Model weights retain [Apache-2.0](LICENSE). Orinfer software and its separate execution package use LGPL-3.0-or-later; source and third-party notices ship with the release.
