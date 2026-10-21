@@ -18,6 +18,7 @@ import shutil
 from runner_state import State, digest
 from runner_workspace import Workspace, CODE, read, write, write_text, install, restore
 import runner_model as boundary
+import qcl_images
 
 VERSION_FILES = ('qcl_map.py', 'autoextract.py', 'mapping_provenance.py', 'qcl_watch.py',
                  'runner_model.py', 'qcl_fmt.py', 'qcl_mapset.py', 'qcl_tiebreak.py')
@@ -151,7 +152,8 @@ def enqueue_queues(w, state, slug, work, runs):
             task = read(cpath)
             task['prompt'] = (work / 'tasks' / (name + '.prompt.txt')).read_text()
             meta, raw = source(root, task['repo'])
-            bundle = boundary.prepare_mapping(model, meta, raw, task, run, v)
+            images = qcl_images.pinned_images(root, task['repo'], meta, raw, prefix=f'models/{slug}/')
+            bundle = boundary.prepare_mapping(model, meta, raw, task, run, v, images)
             slot = f'{slug}:map:{run}:{task["repo"]}'
             previous = state.current(slot)
             if previous and content_identity(previous['payload']) == content_identity(bundle):
