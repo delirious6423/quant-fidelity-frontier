@@ -24,8 +24,8 @@ ROOT = Path(__file__).resolve().parents[1]
 def production_script(source):
     return re.sub(
         r'<script>(.*?)</script>',
-        lambda m: '<script>' + (ROOT / 'web/site_script.js').read_text() + '\n' +
-        (ROOT / 'web/site_explorer.js').read_text() + '</script>' if 'var dataEl' in m[1] else m[0],
+        lambda m: '<script>' + (ROOT / 'web/assets/site_script.js').read_text() + '\n' +
+        (ROOT / 'web/assets/site_explorer.js').read_text() + '</script>' if 'var dataEl' in m[1] else m[0],
         source, flags=re.S)
 
 

@@ -68,10 +68,10 @@ def fixture():
         sets.append(item)
     D['sets'] = sets
     source = re.sub(r'(<script type="application/json" id="exdata">).*?(</script>)', lambda m: m[1] + json.dumps(D) + m[2], source, flags=re.S)
-    source = re.sub(r'<script>(.*?)</script>', lambda m: '<script>' + (ROOT / 'web/site_script.js').read_text() + '\n' + (ROOT / 'web/site_explorer.js').read_text() + '</script>' if 'var dataEl' in m[1] else m[0], source, flags=re.S)
+    source = re.sub(r'<script>(.*?)</script>', lambda m: '<script>' + (ROOT / 'web/assets/site_script.js').read_text() + '\n' + (ROOT / 'web/assets/site_explorer.js').read_text() + '</script>' if 'var dataEl' in m[1] else m[0], source, flags=re.S)
     source = source.replace('<p class="ex-meta" id="exmeta"></p>', '')
     if 'id="exmeta"' not in source: source = source.replace('<p class="ex-scope" id="exscope"></p>', '<p class="ex-scope" id="exscope"></p><div class="ex-meta" id="exmeta"></div>')
-    return source.replace('</head>', '<style>' + (ROOT / 'web/site_style.css').read_text() + '</style></head>')
+    return source.replace('</head>', '<style>' + (ROOT / 'web/assets/site_style.css').read_text() + '</style></head>')
 
 
 async def main():

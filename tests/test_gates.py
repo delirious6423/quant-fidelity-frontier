@@ -81,7 +81,7 @@ def t_auto_sets_single_basis_no_cross():
         assert not bad, f"auto set {s['id']} contains quoted/restated cross rows: {bad[:3]}"
 
 def t_unique_explorer_ids():
-    js = os.path.join(ROOT, "web", "site_explorer.js")
+    js = os.path.join(ROOT, "web", "assets", "site_explorer.js")
     assert "'pk-' + S.id + '-' + S.points.indexOf(p)" in open(js).read(), "checkbox ids are not unique per set/point"
 
 # ---- gate-gap mutations from the external review (audit/fable_review.md F11 + gate-gap table) ----
