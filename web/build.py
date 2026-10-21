@@ -329,6 +329,8 @@ def build_sets(rows, repos):
                         "kind": "baseline", "x": gb, "size_raw": bp.get("size_raw") or (f"{gb} GB (HF listing)" if gb else None), "bpw": None, "basis": "download",
                         "m": m, "src": hf_line(src_repo, sha, base.get("L")), "src_label": f"L{base.get('L')} @ {sha[:7]}", "measured_by": src_repo})
         avail = [k for k in st["metrics"] if sum(1 for p in pts if k in p["m"]) >= 2]
+        if not avail:   # every point of the set went stale (its card changed on the Hub) or never existed: nothing to compare, so no set
+            print(f"set skipped (no metric with two points): {st['id']}", file=sys.stderr); continue
         out.append({k: st[k] for k in ("id", "title", "reference", "data", "x", "note")} |
                    {"refs": {k: list(v) for k, v in st["refs"].items()}, "metrics": avail, "points": pts, "comparable": False})
     curated_by = {b for st in ns["SETS"] for b in st["by"]}
