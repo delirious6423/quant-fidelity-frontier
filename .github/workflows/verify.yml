@@ -63,6 +63,7 @@ jobs:
           python3 tests/test_runner.py
           python3 tests/test_dispatch.py
           python3 tests/test_portable.py
+          python3 tests/test_portable_publish.py
   model:
     needs: plan
     name: model ${{ matrix.slug }}
