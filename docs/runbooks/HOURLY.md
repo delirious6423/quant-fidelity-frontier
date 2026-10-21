@@ -119,7 +119,9 @@ Include the failed step and its output when something blocks progress.
   only through `pipeline/qcl_claim.py` (an atomic rename of one file).
 
 ## Weekly discovery (queue maintenance)
-`QFF weekly discovery` runs `pipeline/qcl_discover.py` once a week (same step-by-step protocol as `qcl_next.py`: do only what it prints).
+`.github/workflows/discover.yml` runs `pipeline/qcl_discover.py --http --commit` every Sunday 02:11 UTC straight from the Hub API
+(no connector; `docs/reference/DISCOVERY.md`). The fallback, `QFF weekly discovery`, runs `pipeline/qcl_discover.py` in a session
+(same step-by-step protocol as `qcl_next.py`: do only what it prints).
 It lists each lab's newest repos (labs and current-family prefixes in `discovery.json`), counts quant repos per candidate
 (five search sorts, so counts pass the 80-per-search cap), admits models that pass the rules (>= 40 quant repos, released in the
 last 6 months, current family), refreshes the counts of queued models, re-ranks the queue with `pipeline/qcl_rank.py`, and

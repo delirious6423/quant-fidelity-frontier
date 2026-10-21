@@ -1,0 +1,39 @@
+name: discover
+# Weekly discovery straight from the Hub API (no connector, no agent): find new base models, count their quants, admit the
+# ones that pass the rules in discovery.json, re-rank the queue, commit watchlist.json, audit/discovery.json and docs/QUEUE.md.
+# Trigger by hand:  gh workflow run discover.yml
+on:
+  schedule:
+    - cron: "11 2 * * 0"   # Sundays 02:11 UTC
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: discover
+  cancel-in-progress: false
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Git identity for the discovery commit
+        run: |
+          git config user.name "quant-claims-bot"
+          git config user.email "quant-claims-bot@users.noreply.github.com"
+          git config merge.wljson.driver "python3 pipeline/merge_watchlist.py %O %A %B"
+      - name: Discover, count, admit, re-rank and commit (no push here)
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: python3 pipeline/qcl_discover.py --http --commit
+      - name: Push (rebase on main, three tries)
+        run: |
+          if [ "$(git rev-list --count origin/main..HEAD)" = "0" ]; then echo "nothing to push"; exit 0; fi
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then exit 0; fi
+            echo "push $attempt failed; rebasing on main"
+            git pull --rebase origin main
+          done
+          exit 1

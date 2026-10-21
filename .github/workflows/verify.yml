@@ -198,7 +198,9 @@ jobs:
           python3 tests/test_explorer_state.py
           python3 tests/test_web_payload.py
       - name: Discovery pages and dataset export
-        run: python3 tests/test_discovery.py
+        run: |
+          python3 tests/test_discovery.py
+          python3 tests/test_discover_http.py
       - name: Protocol comparison engine, source bindings, and cross-publisher groups
         run: |
           python3 -m unittest discover -s tests -p 'test_comparison.py'

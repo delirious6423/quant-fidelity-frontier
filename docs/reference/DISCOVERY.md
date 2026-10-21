@@ -1,5 +1,31 @@
 # Discovery rollout
 
+## Model discovery job (queue maintenance)
+`pipeline/qcl_discover.py` finds new base models, counts their quant repos, admits the ones that pass the rules in
+`discovery.json` (current family of a listed lab, at least `admission.min_quants` quant repos, released within
+`admission.max_age_months`), refreshes the counts of queued models, re-ranks the queue with `pipeline/qcl_rank.py` and
+writes `watchlist.json`, `audit/discovery.json` (every input) and `docs/QUEUE.md`. The rules, counts, release estimate,
+ranking and output files are one set of functions (`found`, `finish`); only the source of the search results differs.
+
+- **Automatic (default): the Hub API.** `python3 pipeline/qcl_discover.py --http [--base URL] [--commit]` makes the
+  searches itself against `/api/models` (`author`, `filter`, `sort`, `limit`, `Link` pagination) with the same request
+  helper as `pipeline/qcl_fetch.py` and `pipeline/runner_fetch.py`: `HF_TOKEN`, if set, is sent only to the Hub origin and
+  never printed; a 429 is reported with its `Retry-After` and the run exits with code 2 before any file is written; 5xx
+  replies are retried with bounded waits. Quant counts come from the complete `base_model:quantized:<model>` listing
+  (paginated), so `searched_sorts` is 1 and the count is exact. The script never calls git unless `--commit` is given,
+  which commits the three output files (never pushes) with the same message as the connector path. A fresh
+  `discover.lock` (a connector-driven run in progress) makes it skip. `.github/workflows/discover.yml` runs it every
+  Sunday at 02:11 UTC and on `workflow_dispatch` with `HF_TOKEN` from the repository secrets, then pushes with
+  `git pull --rebase` and three tries (concurrency group `discover`, `contents: write`).
+- **Fallback: the `hf_fs` connector.** `python3 pipeline/qcl_discover.py` prints the padded `hf_fs` op lists; the session
+  makes the calls and passes the saved result files back with `--results P1 P2 ...` in op-list order, round by round
+  (lab listings and trending models, then one `downloads` search per candidate, then four more sorts for counts that hit
+  the connector's 80-per-search cap). This path takes `discover.lock`, commits and pushes as before; `--abort` ends early.
+  `docs/runbooks/HOURLY.md` has the scheduled-task wording.
+- Replays and tests: `--root DIR` (where `watchlist.json`, `discovery.json`, `audit/` and `docs/QUEUE.md` live),
+  `--now ISO-UTC` (the run's clock) and `--no-git` (connector path only). `tests/test_discover_http.py` runs both paths on
+  a local fake Hub and requires byte-identical outputs.
+
 ## Ready in this change
 - Search-focused page titles and visible interpretation guidance.
 - Three static explainers, linked from the landing page and model pages, included in the sitemap.

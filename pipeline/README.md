@@ -13,7 +13,7 @@ Ingestion and scan scripts, indexed by stage. Each description is the first sent
 | `qcl_mcpsave.py` | Save model cards from a persisted Hugging Face connector result (hf_fs batch) byte-for-byte. | `python3 pipeline/qcl_mcpsave.py OUT_DIR RESULT_FILE [RESULT_FILE ...]` |
 | `qcl_newmodel.py` | Turn a fetched card cache into a model data root the pipeline reads (QCL_ROOT=models/&lt;slug&gt;). | `python3 pipeline/qcl_newmodel.py models/<slug>` |
 | `runner_fetch.py` | Read-only HTTP collection into a portable ledger and isolated shadow model root. |  |
-| `qcl_discover.py` | Weekly discovery: find new base models, count their quants, admit the ones that pass the rules, re-rank the queue. | `python3 pipeline/qcl_discover.py` |
+| `qcl_discover.py` | Weekly discovery: find new base models, count their quants, admit the ones that pass the rules, re-rank the queue. `--http` searches the Hub API itself (`.github/workflows/discover.yml`, weekly, `--commit`); without it, the session makes the `hf_fs` calls it prints. | `python3 pipeline/qcl_discover.py --http` |
 | `qcl_rank.py` | Order the queued models in watchlist.json by a weighted score: how much there is to compare, and how new it is. | `python3 pipeline/qcl_rank.py` |
 
 ## Mapping
