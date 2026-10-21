@@ -16,7 +16,7 @@ async def main():
             for ident in ('ledger-details','publisher-details','no-claims-details'):
                 assert not await page.locator('#'+ident).evaluate('(e) => e.open')
             await page.locator('#ledger').scroll_into_view_if_needed()
-            out=ROOT/'docs/previews'; out.mkdir(exist_ok=True)
+            out=ROOT/'docs/history/previews'; out.mkdir(exist_ok=True)
             await page.screenshot(path=str(out/f'collapsed-evidence-{width}.png'))
             await page.locator('#ledger-details > summary').click()
             await page.fill('#q', 'mbehr90')
