@@ -16,7 +16,7 @@ import tempfile
 import shutil
 
 from runner_state import State, digest
-from runner_workspace import Workspace, CODE, read, write, restore
+from runner_workspace import Workspace, CODE, read, write, write_text, install, restore
 import runner_model as boundary
 
 VERSION_FILES = ('qcl_map.py', 'autoextract.py', 'mapping_provenance.py', 'qcl_watch.py',
@@ -27,8 +27,27 @@ def version():
     return digest({name: hashlib.sha256((CODE / 'pipeline' / name).read_bytes()).hexdigest() for name in VERSION_FILES})
 
 
+_INDEX = {}
+
+
+def index(root):
+    """snapshots/index.json, parsed again only when its bytes change.
+
+    Validation consults the index once per task and per claim. The file is
+    still read every time (so an atomic replacement by collection is seen at
+    once), but a byte-identical index is not parsed again. Timestamps are not
+    trusted: two rewrites inside one clock tick could share size and mtime.
+    """
+    path = root / 'snapshots/index.json'
+    raw = path.read_bytes()
+    cached = _INDEX.get(path)
+    if cached is None or cached[0] != raw:
+        cached = _INDEX[path] = (raw, json.loads(raw))
+    return cached[1]
+
+
 def source(root, repo):
-    meta = read(root / 'snapshots/index.json')['repos'][repo]
+    meta = index(root)['repos'][repo]
     path = (root / meta['file']).resolve()
     if not path.is_relative_to(root):
         raise ValueError('source path escapes shadow model')
@@ -90,17 +109,14 @@ def content_identity(bundle):
     records the newly observed revision; only that non-content field is omitted
     from reuse comparison, never qualifiers, interpretation, lines or provenance.
     """
-    copy = json.loads(json.dumps(bundle))
-    copy.pop('fingerprint', None)
-    copy['source'].pop('revision', None)
+    copy = {k: v for k, v in bundle.items() if k != 'fingerprint'}
+    copy['source'] = {k: v for k, v in bundle['source'].items() if k != 'revision'}
     return digest(copy)
 
 
 def materialize(w, state, slug):
     root = w.model(slug)
-    for task in state.tasks():
-        if task['model'] != slug or task['state'] != 'succeeded':
-            continue
+    for task in state.tasks(model=slug, states=('succeeded',)):
         valid_current(w, task)
         payload, result = task['payload'], task['result']
         if payload['kind'] == 'mapping':
@@ -108,8 +124,8 @@ def materialize(w, state, slug):
             name = mapping['repo'].replace('/', '__')
             out = root / 'maps' / payload['run']
             out.mkdir(parents=True, exist_ok=True)
-            write(out / (name + '.map.json'), mapping)
-            write(out / (name + '.cands.json'), {k: mapping[k] for k in ('repo', 'source_sha256', 'candidates_sha256')} | {'candidates': payload['candidates']})
+            install(out / (name + '.map.json'), mapping)
+            install(out / (name + '.cands.json'), {k: mapping[k] for k in ('repo', 'source_sha256', 'candidates_sha256')} | {'candidates': payload['candidates']})
         elif result['verdict'] == 'wrong':
             hp = root / 'audit/holds.json'
             holds = read(hp) if hp.exists() else []
@@ -133,7 +149,7 @@ def enqueue_queues(w, state, slug, work, runs):
             meta, raw = source(root, task['repo'])
             bundle = boundary.prepare_mapping(model, meta, raw, task, run, version())
             slot = f'{slug}:map:{run}:{task["repo"]}'
-            previous = next((t for t in state.tasks() if t['slot'] == slot), None)
+            previous = state.current(slot)
             if previous and content_identity(previous['payload']) == content_identity(bundle):
                 continue
             state.enqueue(slot, slug, 'map-' + run, meta['sha256'] + ':' + version(), bundle)
@@ -143,8 +159,8 @@ def model_signature(root, state, slug):
     files = {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest()
              for p in root.rglob('*') if p.is_file()
              and not any(x in ('site', 'site_dev', '__pycache__') or x.startswith('.gatecache') for x in p.relative_to(root).parts)}
-    tasks = [(t['id'], t['result']) for t in state.tasks() if t['model'] == slug and t['state'] == 'succeeded'
-             and (t['stage'].startswith('map-') or t['result'].get('verdict') == 'wrong')]
+    tasks = [(t['id'], t['result']) for t in state.tasks(model=slug, states=('succeeded',), with_payload=False)
+             if t['stage'].startswith('map-') or t['result'].get('verdict') == 'wrong']
     return digest([version(), files, tasks])
 
 
@@ -163,9 +179,7 @@ def reconcile(w, state):
             if not baseline.exists():
                 write(baseline, [content_identity(b) for b in review_bundles(root)])
             # Invalidate before installing, including results from a delayed worker.
-            for task in state.tasks():
-                if task['model'] != slug:
-                    continue
+            for task in state.tasks(model=slug):
                 try:
                     valid_current(w, task)
                 except (ValueError, KeyError, FileNotFoundError):
@@ -190,23 +204,23 @@ def reconcile(w, state):
             w.run(slug, 'detect_copies.py')
             w.run(slug, 'qcl_mapset.py', '--record')
             w.run(slug, 'qcl_queue.py', work)
-            enqueue_queues(w, state, slug, work, 'AB')
+            with state.transaction():
+                enqueue_queues(w, state, slug, work, 'AB')
             # Record deterministic empty-candidate maps too. Merge always withdraws stale sources.
             w.run(slug, 'qcl_mapset.py', '--record')
-            cmaps = {}
-            for task in state.tasks():
-                if task['model'] == slug and task['stage'] == 'map-C' and task['state'] == 'succeeded':
-                    cmaps[task['payload']['source']['repo']] = task['payload']['source']['sha256']
+            cmaps = {task['payload']['source']['repo']: task['payload']['source']['sha256']
+                     for task in state.tasks(model=slug, stage='map-C', states=('succeeded',))}
             cp = root / 'maps/mapped_c.json'
             write(cp, (read(cp) if cp.exists() else {}) | cmaps)
             w.run(slug, 'qcl_watch.py', 'merge')
             w.run(slug, 'gen_auto.py')
             # Existing historical skipped maps remain visible; never create new pinned skips.
-            w.run(slug, 'qcl_tiebreak.py', 'queue', work, len(read(root / 'snapshots/index.json')['repos']))
-            enqueue_queues(w, state, slug, work, 'C')
+            w.run(slug, 'qcl_tiebreak.py', 'queue', work, len(index(root)['repos']))
+            with state.transaction():
+                enqueue_queues(w, state, slug, work, 'C')
             write(receipt, {'signature': model_signature(root, state, slug)})
         fetch_blocked = any((w.model(slug) / 'audit/runner_fetch.json').exists() and read(w.model(slug) / 'audit/runner_fetch.json').get('status') != 'complete' for slug in w.config['models'])
-        mapping_left = [t for t in state.tasks() if t['stage'].startswith('map-') and t['state'] != 'succeeded']
+        mapping_left = [t for t in state.tasks(with_payload=False) if t['stage'].startswith('map-') and t['state'] != 'succeeded']
         if not mapping_left and not fetch_blocked:
             all_bundles, prior = [], []
             for slug in w.config['models']:
@@ -214,33 +228,34 @@ def reconcile(w, state):
                 prior.extend(read(w.path / ('baseline-' + slug + '.json')))
             # Freeze the same 20-item sample for an unchanged candidate, even across restarts.
             candidate = digest([version(), {slug: {
-                'sources': {repo: meta['sha256'] for repo, meta in read(w.model(slug) / 'snapshots/index.json')['repos'].items()},
+                'sources': {repo: meta['sha256'] for repo, meta in index(w.model(slug))['repos'].items()},
                 'model': read(w.model(slug) / 'model.json'),
                 'maps': {str(p.relative_to(w.model(slug))): hashlib.sha256(p.read_bytes()).hexdigest()
                          for p in (w.model(slug) / 'maps').rglob('*') if p.is_file()}}
                 for slug in w.config['models']}])
             sample_file = w.path / 'review-sample.json'
             sample = read(sample_file) if sample_file.exists() else None
-            completed = {content_identity(t['payload']): t for t in state.tasks()
-                         if t['stage'] == 'review' and t['state'] == 'succeeded'}
+            completed = {content_identity(t['payload']): t['id'] for t in state.tasks(stage='review', states=('succeeded',))}
             reusable = set(prior) | set(completed)
-            unchanged = [b['fingerprint'] for _, b in all_bundles if content_identity(b) in reusable]
+            identity = {b['fingerprint']: content_identity(b) for _, b in all_bundles}
+            unchanged = [b['fingerprint'] for _, b in all_bundles if identity[b['fingerprint']] in reusable]
             write(w.path / 'review-reuse.json', [
-                {'current_fingerprint': b['fingerprint'], 'reviewed_task': completed[content_identity(b)]['id'],
+                {'current_fingerprint': b['fingerprint'], 'reviewed_task': completed[identity[b['fingerprint']]],
                  'current_revision': b['source']['revision'], 'reason': 'identical complete evidence and interpretation'}
-                for _, b in all_bundles if content_identity(b) in completed])
+                for _, b in all_bundles if identity[b['fingerprint']] in completed])
             if not sample or sample['candidate'] != candidate or 'requests' not in sample:
                 pick = boundary.sample_reviews([b for _, b in all_bundles], unchanged, w.config['input_commit'])
                 sample = {'candidate': candidate, 'items': [b['fingerprint'] for b in pick],
                           'requests': [{'model': slug, 'bundle': b} for slug, b in all_bundles if b['fingerprint'] in {p['fingerprint'] for p in pick}]}
                 write(sample_file, sample)
-            for t in state.tasks():
-                if t['stage'] == 'review' and t['state'] != 'succeeded' and t['payload']['fingerprint'] not in sample['items']:
+            for t in state.tasks(stage='review', with_payload=False):
+                if t['state'] != 'succeeded' and t['generation'] not in sample['items']:
                     with state.connect() as db:
                         db.execute("UPDATE tasks SET active=0,state='blocked',token=NULL,reason='review sample invalidated' WHERE id=?", (t['id'],))
-            for request in sample['requests']:
-                slug, b = request['model'], request['bundle']
-                state.enqueue(f'{slug}:review:{b["fingerprint"]}', slug, 'review', b['fingerprint'], b)
+            with state.transaction():
+                for request in sample['requests']:
+                    slug, b = request['model'], request['bundle']
+                    state.enqueue(f'{slug}:review:{b["fingerprint"]}', slug, 'review', b['fingerprint'], b)
         export_requests(w, state)
     return status(w, state)
 
@@ -248,24 +263,25 @@ def reconcile(w, state):
 def export_requests(w, state):
     out = w.path / 'requests'
     out.mkdir(exist_ok=True)
-    active = {t['id']: t for t in state.tasks() if t['state'] != 'succeeded'}
+    active = {t['id'] for t in state.tasks(with_payload=False) if t['state'] != 'succeeded'}
     for p in out.glob('*.json'):
         if p.stem not in active:
             p.unlink()
-    for task_id, task in active.items():
-        write(out / (task_id + '.json'), {'task_id': task_id, 'request': task['payload']})
+    for task_id in active:
+        # A task id digests its slot, generation and payload: an existing file is already exact.
+        if not (out / (task_id + '.json')).exists():
+            # The journal already holds the canonical encoding; write it, do not re-encode the whole card.
+            write_text(out / (task_id + '.json'), '{"request":' + state.payload_text(task_id) + ',"task_id":"' + task_id + '"}\n')
 
 
 def status(w, state):
-    counts = {}
-    for task in state.tasks():
-        counts[task['state']] = counts.get(task['state'], 0) + 1
+    counts = state.counts()
     fetch_blockers = [slug for slug in w.config['models'] if (w.model(slug) / 'audit/runner_fetch.json').exists() and read(w.model(slug) / 'audit/runner_fetch.json').get('status') != 'complete']
     sample_blockers = []
     sample_file = w.path / 'review-sample.json'
     if sample_file.exists():
         sample = read(sample_file)
-        completed = {t['payload']['fingerprint'] for t in state.tasks() if t['stage'] == 'review' and t['state'] == 'succeeded'}
+        completed = {t['generation'] for t in state.tasks(stage='review', states=('succeeded',), with_payload=False)}
         items = sample.get('items', [])
         saved = [r['bundle']['fingerprint'] for r in sample.get('requests', [])]
         if len(items) > 20 or len(set(items)) != len(items) or set(items) != set(saved):
@@ -275,12 +291,14 @@ def status(w, state):
         sample_blockers.append('review sample not prepared')
     return {'mode': 'shadow', 'tasks': counts, 'fetch_blockers': fetch_blockers, 'sample_blockers': sample_blockers, 'publication': 'unavailable',
             'ready_for_release': False, 'review': 'requires exact-commit release verification separately',
-            'unresolved': [{'id': t['id'], 'stage': t['stage'], 'reason': t['reason']} for t in state.tasks() if t['state'] != 'succeeded']}
+            'unresolved': [{'id': t['id'], 'stage': t['stage'], 'reason': t['reason']} for t in state.tasks(with_payload=False) if t['state'] != 'succeeded']}
 
 
 def complete(w, state, claim, response):
     with w.lock():
-        task = next(t for t in state.tasks() if t['id'] == claim['id'])
+        task = state.get(claim['id'])
+        if task is None or not task['active']:
+            raise ValueError('unknown or inactive task')
         valid_current(w, task)
         validator = boundary.validate_mapping if task['payload']['kind'] == 'mapping' else boundary.validate_review
         result = validator(task['payload'], response)
@@ -291,7 +309,7 @@ def run_responses(w, state, responses, workers):
     """Offline/file adapter. Missing responses remain pending; no paid calls."""
     directory = Path(responses)
     # Claim only tasks with available files; no lease consumed merely by export.
-    ids = [t['id'] for t in state.tasks() if t['state'] in ('pending', 'failed', 'running') and (directory / (t['id'] + '.json')).exists()]
+    ids = [t['id'] for t in state.tasks(states=('pending', 'failed', 'running'), with_payload=False) if (directory / (t['id'] + '.json')).exists()]
     completed = 0
     # Concurrent file reads, serialized validated commits; no external job under lock.
     with ThreadPoolExecutor(max_workers=workers) as pool:

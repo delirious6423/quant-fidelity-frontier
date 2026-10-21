@@ -37,6 +37,51 @@ class Journal(unittest.TestCase):
         self.assertIsNone(restored.claim())
         self.assertEqual(sum(t['state'] == 'succeeded' for t in restored.tasks()), 25)
 
+    def test_filtered_queries_match_full_listing_without_payload_decoding(self):
+        ids = self.add(6)
+        self.s.enqueue('m0:B', 'm0', 'B', 'v1', {'i': 'b'})
+        c = self.s.claim(); self.s.complete(c['id'], c['token'], {'ok': 1})
+        full = self.s.tasks()
+        self.assertEqual([t['id'] for t in self.s.tasks(model='m0')], [t['id'] for t in full if t['model'] == 'm0'])
+        self.assertEqual([t['id'] for t in self.s.tasks(stage='B')], [t['id'] for t in full if t['stage'] == 'B'])
+        self.assertEqual([t['id'] for t in self.s.tasks(states=('succeeded',))], [t['id'] for t in full if t['state'] == 'succeeded'])
+        self.assertEqual(self.s.tasks(states=()), [])
+        light = self.s.tasks(with_payload=False)
+        self.assertEqual([t['id'] for t in light], [t['id'] for t in full])
+        self.assertTrue(all(t['payload'] is None for t in light))
+        self.assertEqual(light[0]['result'], {'ok': 1})
+        self.assertEqual(self.s.get(ids[3])['payload'], {'i': 3})
+        self.assertIsNone(self.s.get('missing'))
+        self.assertEqual(self.s.current('m0:B')['payload'], {'i': 'b'})
+        self.assertIsNone(self.s.current('m9:A'))
+        self.assertEqual(self.s.counts(), {'succeeded': 1, 'pending': 6})
+        # A superseded slot resolves to its active replacement only.
+        new = self.s.enqueue('m0:B', 'm0', 'B', 'v2', {'i': 'b2'})
+        self.assertEqual(self.s.current('m0:B')['id'], new)
+        self.assertEqual(len(self.s.tasks(active=False)), 8)
+
+    def test_enqueue_burst_is_one_durable_commit_or_nothing(self):
+        class Interrupted(Exception):
+            pass
+        with self.assertRaises(Interrupted):
+            with self.s.transaction():
+                self.add(5)
+                self.assertEqual(len(self.s.tasks()), 5)  # visible inside the burst
+                raise Interrupted
+        self.assertEqual(State(self.path).tasks(), [])  # nothing persisted from an interrupted burst
+        with self.s.transaction():
+            ids = self.add(5)
+            with self.s.transaction():  # nested bursts join the outer commit
+                self.s.enqueue('m0:A', 'm0', 'A', 'v2', {'i': 'new'})
+        fresh = State(self.path)
+        self.assertEqual(len(fresh.tasks()), 5)
+        self.assertEqual(fresh.counts(), {'pending': 5})
+        self.assertNotIn(ids[0], {t['id'] for t in fresh.tasks()})  # superseded inside the burst
+        self.assertEqual(json.loads(fresh.payload_text(fresh.current('m0:A')['id'])), {'i': 'new'})
+        self.assertIsNotNone(fresh.claim())
+        with self.assertRaises(KeyError):
+            fresh.payload_text('missing')
+
     def test_claim_crash_lease_backoff_stale_worker(self):
         self.add()
         c = self.s.claim(now=100, lease_seconds=1)
