@@ -171,7 +171,7 @@ class GateIntegrity(unittest.TestCase):
     def test_valid_current_image_claims_still_verify(self):
         result = self.run_gate("verify_images.py")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn("image claims checked: 19, failures: 0", result.stdout)
+        self.assertIn("image claims checked: 20, failures: 0", result.stdout)
 
     def test_hf_branch_size_unit_cannot_change_without_converting_value(self):
         file = self.root / "verified/part3_images.py"
@@ -232,7 +232,7 @@ class GateIntegrity(unittest.TestCase):
 
     def test_ppl_score_requires_its_own_marker(self):
         file = self.root / "verified/part3_images.py"
-        file.write_text(file.read_text() + "\nR[0]['variants'][0]['m']['ppl'] = '1.43'\nR[0]['variants'][0]['px']['ppl_y'] = 897.875\n")
+        file.write_text(file.read_text() + "\nR[0]['variants'][0]['m']['ppl'] = '1.43'\nR[0]['variants'][0]['px']['ppl_y'] = 1038.6\n")
         result = self.run_gate("verify_images.py")
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("no ppl marker", result.stdout)

@@ -42,7 +42,7 @@ for record, points in records:
     for point in points:
         if set(point.get("m") or {}) != {"mean_kld", "ppl"} or point.get("mem") is not None:
             print("FAIL unsupported image-sourced metric shape:", point.get("name") or point.get("variant")); sys.exit(1)
-        if set(point.get("px") or {}) != {"x", "kld_y", "ppl_y"} or point.get("bpw") is None:
+        if set(point.get("px") or {}) != {"x", "kld_y", "ppl_x", "ppl_y"} or point.get("bpw") is None:
             print("FAIL unsupported image-sourced coordinate shape:", point.get("name") or point.get("variant")); sys.exit(1)
         if point.get("size") is not None and point.get("basis") != "hf_branch_total":
             print("FAIL image-sourced size lacks a checked HF branch listing"); sys.exit(1)
@@ -68,15 +68,33 @@ try:
 except (OSError, ValueError, KeyError, TypeError) as error:
     print("FAIL", error); sys.exit(1)
 im = {k: np.asarray(Image.open(p).convert("RGB")).astype(float) for k, p in IMG.items()}
+def evenly_spaced(lines, count):
+    """The gridlines among the detected peaks: the one run of `count` lines with equal spacing (+-2 px). A dotted
+    reference line (BF16 PPL) also peaks in the profile and is not a gridline; anything else is no supported chart."""
+    runs = []
+    for i in range(len(lines)):
+        for j in range(i + 1, len(lines)):
+            step = lines[j] - lines[i]
+            if step < 100: continue
+            run = [lines[i]]
+            for k in range(1, count):
+                near = [v for v in lines if abs(v - (lines[i] + k * step)) <= 2]
+                if not near: break
+                run.append(near[0])
+            if len(run) == count: runs.append(run)
+    return runs[0] if len(runs) == 1 else None
+
 vx = gridlines(im["kld"], "x")                      # bpw 2..6
 ky = gridlines(im["kld"], "y")                      # 1e-1, 1e-2
-py = gridlines(im["ppl"], "y")                      # 1.52 .. 1.36 step 0.02
-if not (len(vx) == 5 and len(ky) == 2 and len(py) == 9):
-    print("FAIL unsupported chart grid calibration", vx, ky, py); sys.exit(1)
+px_grid = gridlines(im["ppl"], "x")                 # weight size 20..90 GiB (PPL chart x; checked via markers only)
+py = evenly_spaced(gridlines(im["ppl"], "y"), 6)    # 1.60 .. 1.35 step 0.05
+if not (len(vx) == 5 and len(ky) == 2 and len(px_grid) == 8 and py):
+    print("FAIL unsupported chart grid calibration", vx, ky, px_grid, py); sys.exit(1)
 bpw = lambda x: 2 + (x - vx[0]) / ((vx[-1] - vx[0]) / 4)
 kld = lambda y: 10 ** (-1 - (y - ky[0]) / (ky[1] - ky[0]))
-ppl = lambda y: 1.52 - (y - py[0]) / ((py[-1] - py[0]) / 8) * 0.02
+ppl = lambda y: 1.60 - (y - py[0]) / ((py[-1] - py[0]) / 5) * 0.05
 
+X = {"kld": "x", "ppl": "ppl_x"}                    # each chart has its own x axis: bpw (KLD chart), GiB (PPL chart)
 fails = n = 0
 for r, points in records:
     for e in points:
@@ -84,7 +102,7 @@ for r, points in records:
         valid_coordinates = all(isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
                                 for value in px.values())
         if valid_coordinates:
-            valid_coordinates = all(3 <= px["x"] < chart.shape[1] - 3 and 3 <= px[key + "_y"] < chart.shape[0] - 3
+            valid_coordinates = all(3 <= px[X[key]] < chart.shape[1] - 3 and 3 <= px[key + "_y"] < chart.shape[0] - 3
                                     for key, chart in im.items())
         if not valid_coordinates:
             fails += 1; print("FAIL image coordinates must be finite and inside the image:", e["name"]); continue
@@ -96,7 +114,7 @@ for r, points in records:
         # Each score needs its own marker. An empty or nonfinite sample never
         # establishes evidence (NaN comparisons otherwise accidentally pass).
         for key, chart in im.items():
-            x, y = int(px["x"]), int(px[key + "_y"])
+            x, y = int(px[X[key]]), int(px[key + "_y"])
             win = chart[y-3:y+4, x-3:x+4]
             saturation = float(win.std(axis=2).mean()) if win.shape == (7, 7, 3) else float("nan")
             if not math.isfinite(saturation) or saturation < 20:
@@ -111,7 +129,7 @@ def dotted_row(img, y_pred, win=6):
         if frac > 0.15 and flips > 80 and (best is None or flips > best[1]): best = (y, flips)
     return best
 for record, _ in records:
-    checks = [("ppl", float(record["baseline"]["ppl"]), lambda v: py[0] + (1.52 - v) / 0.02 * ((py[-1] - py[0]) / 8)),
+    checks = [("ppl", float(record["baseline"]["ppl"]), lambda v: py[0] + (1.60 - v) / 0.05 * ((py[-1] - py[0]) / 5)),
               ("kld", float(record["methodology"]["noise_floor"].split()[2]), lambda v: ky[0] + (-1 - math.log10(v)) * (ky[1] - ky[0]))]
     for img_key, val, ypos in checks:
         n += 1
