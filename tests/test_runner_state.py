@@ -82,6 +82,83 @@ class Journal(unittest.TestCase):
         with self.assertRaises(KeyError):
             fresh.payload_text('missing')
 
+    def test_install_preserves_json_types_and_repairs_malformed_values(self):
+        from runner_workspace import install, read
+        path = Path(self.tmp.name) / 'map.json'
+        write(path, {'weights_modified': 0})
+        self.assertTrue(install(path, {'weights_modified': False}))
+        self.assertIs(read(path)['weights_modified'], False)
+        self.assertFalse(install(path, {'weights_modified': False}))
+
+    def test_light_listing_does_not_read_payload_column(self):
+        import sqlite3
+        from unittest.mock import patch
+        self.add(2)
+        original = self.s._open
+        def open_checked():
+            db = original()
+            db.set_authorizer(lambda op, table, column, *_:
+                sqlite3.SQLITE_DENY if op == sqlite3.SQLITE_READ and table == 'tasks' and column == 'payload'
+                else sqlite3.SQLITE_OK)
+            return db
+        with patch.object(self.s, '_open', open_checked):
+            self.assertEqual(len(self.s.tasks(with_payload=False)), 2)
+
+    def test_claim_scope_large_eligibility_fairness_and_durable_commits(self):
+        import sqlite3
+        from unittest.mock import patch
+        with self.s.transaction():
+            ids = [self.s.enqueue(f'a:{i}', 'a', 'map-A', 'v1', {}) for i in range(30)]
+            other = self.s.enqueue('b', 'b', 'map-C', 'v1', {})
+            missing = self.s.enqueue('missing', 'c', 'review', 'v1', {})
+        original = self.s._open
+        def limited():
+            db = original()
+            if hasattr(db, 'setlimit'):  # Python 3.11+ can lower the build's limit for this test
+                db.setlimit(sqlite3.SQLITE_LIMIT_VARIABLE_NUMBER, 32)
+            return db
+        # Exceeds even the common 32766-variable build, with a deliberately low test limit.
+        eligible = ids + [other] + [f'absent-{i}' for i in range(33000)]
+        with patch.object(self.s, '_open', limited), self.s.claim_scope(eligible) as claim:
+            a = claim(limit=2)
+            b = claim(limit=2)
+            self.assertEqual(b['id'], other)
+            self.assertIsNone(claim(limit=2))
+            fresh = State(self.path)
+            self.assertEqual(fresh.get(a['id'])['state'], 'running')
+            fresh.complete(a['id'], a['token'], {})
+            fresh.complete(b['id'], b['token'], {})
+            count = 2
+            while c := claim(limit=2):
+                fresh.complete(c['id'], c['token'], {})
+                count += 1
+            self.assertEqual(count, 31)
+        self.assertEqual(self.s.get(missing)['attempts'], 0)
+        self.assertIsNone(self.s.claim(eligible_ids=[]))
+        self.assertEqual(self.s.claim(eligible_ids=[missing])['id'], missing)
+
+    def test_scoped_claim_contention_invalidation_and_lease_recovery(self):
+        ids = self.add(20)
+        def take(_):
+            worker = State(self.path)
+            with worker.claim_scope(ids) as claim:
+                return claim(limit=4, now=100, lease_seconds=1)
+        with concurrent.futures.ThreadPoolExecutor(8) as pool:
+            claims = [c for c in pool.map(take, range(8)) if c]
+        self.assertEqual(len({c['id'] for c in claims}), 4)
+        replaced = self.s.enqueue('m0:A', 'm0', 'A', 'v2', {})
+        with self.s.claim_scope(ids) as claim:
+            # Scope never makes an invalidated source eligible again.
+            got = []
+            while c := claim(now=200):
+                got.append(c['id'])
+                self.s.complete(c['id'], c['token'], {}, now=201)
+            self.assertNotIn(ids[0], got)
+            self.assertNotIn(replaced, got)
+            while c := claim(now=210):
+                self.s.complete(c['id'], c['token'], {}, now=211)
+        self.assertEqual(self.s.get(replaced)['state'], 'pending')
+
     def test_claim_crash_lease_backoff_stale_worker(self):
         self.add()
         c = self.s.claim(now=100, lease_seconds=1)

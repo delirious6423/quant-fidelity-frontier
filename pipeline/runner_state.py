@@ -37,6 +37,9 @@ class State:
             CREATE TABLE IF NOT EXISTS groups (name TEXT PRIMARY KEY, served INTEGER NOT NULL);
             CREATE TABLE IF NOT EXISTS events (seq INTEGER PRIMARY KEY AUTOINCREMENT,
               task TEXT, event TEXT, reason TEXT, at REAL);
+            CREATE INDEX IF NOT EXISTS tasks_created ON tasks(created);
+            CREATE INDEX IF NOT EXISTS tasks_dispatch ON tasks(model||':'||stage, created)
+              WHERE active=1 AND state IN ('pending','failed');
             CREATE INDEX IF NOT EXISTS tasks_slot ON tasks(slot, active);
             CREATE INDEX IF NOT EXISTS tasks_model ON tasks(model, active, state);
             CREATE INDEX IF NOT EXISTS tasks_ready ON tasks(active, state, available);
@@ -116,31 +119,62 @@ class State:
                     db.execute("UPDATE tasks SET state='blocked',active=0,token=NULL,reason='no longer eligible' WHERE id=?", (row['id'],))
                     self.event(db, row['id'], 'invalidated', 'no longer eligible')
 
-    def claim(self, *, lease_seconds=300, limit=8, max_attempts=3, now=None, eligible_ids=None):
+    @contextmanager
+    def claim_scope(self, eligible_ids):
+        """Load file-adapter eligibility once, without SQLite's IN-parameter limit.
+
+        The temporary table belongs to this connection, not durable task state.
+        Each yielded claim commits independently before returning. No transaction
+        remains open while a worker reads a response or performs external work.
+        Other processes still arbitrate leases and concurrency in the main DB.
+        """
+        db = self._open()
+        try:
+            with db:
+                db.execute('CREATE TEMP TABLE eligible (id TEXT PRIMARY KEY) WITHOUT ROWID')
+                db.executemany('INSERT OR IGNORE INTO eligible VALUES (?)', ((i,) for i in eligible_ids))
+            def claim(**kwargs):
+                with db:
+                    return self._claim(db, restricted=True, **kwargs)
+            yield claim
+        finally:
+            db.close()
+
+    def claim(self, *, eligible_ids=None, **kwargs):
+        if eligible_ids is not None:
+            with self.claim_scope(eligible_ids) as claim:
+                return claim(**kwargs)
+        with self.connect() as db:
+            return self._claim(db, **kwargs)
+
+    def _claim(self, db, *, lease_seconds=300, limit=8, max_attempts=3, now=None, restricted=False):
         if not 1 <= limit <= 32 or lease_seconds <= 0:
             raise ValueError('invalid concurrency or lease')
         now = time.time() if now is None else now
-        with self.connect() as db:
-            self.begin(db)
-            for row in db.execute("SELECT * FROM tasks WHERE active=1 AND state='running' AND lease<=?", (now,)).fetchall():
-                state = 'blocked' if row['attempts'] >= max_attempts else 'failed'
-                db.execute('UPDATE tasks SET state=?,available=?,token=NULL,reason=? WHERE id=?',
-                           (state, now + min(60, 2 ** row['attempts']), 'lease expired', row['id']))
-                self.event(db, row['id'], state, 'lease expired')
-            if db.execute("SELECT COUNT(*) FROM tasks WHERE active=1 AND state='running'").fetchone()[0] >= limit:
-                return None
-            extra = '' if eligible_ids is None else ' AND t.id IN (' + ','.join('?' for _ in eligible_ids) + ')'
-            row = db.execute('''SELECT t.* FROM tasks t JOIN groups g ON g.name=t.model||':'||t.stage
-                WHERE t.active=1 AND t.state IN ('pending','failed') AND t.available<=? AND t.attempts<?''' + extra + '''
-                ORDER BY g.served,t.created LIMIT 1''', (now, max_attempts, *(eligible_ids or []))).fetchone()
-            if row is None:
-                return None
-            token = uuid.uuid4().hex
-            db.execute("UPDATE tasks SET state='running',token=?,lease=?,attempts=attempts+1 WHERE id=?", (token, now + lease_seconds, row['id']))
-            clock = db.execute('SELECT COALESCE(MAX(served),0)+1 FROM groups').fetchone()[0]
-            db.execute('UPDATE groups SET served=? WHERE name=?', (clock, row['model'] + ':' + row['stage']))
-            self.event(db, row['id'], 'claimed')
-            return dict(id=row['id'], token=token, lease=now + lease_seconds, payload=json.loads(row['payload']), stage=row['stage'])
+        self.begin(db)
+        for row in db.execute("SELECT id,attempts FROM tasks WHERE active=1 AND state='running' AND lease<=?", (now,)).fetchall():
+            state = 'blocked' if row['attempts'] >= max_attempts else 'failed'
+            db.execute('UPDATE tasks SET state=?,available=?,token=NULL,reason=? WHERE id=?',
+                       (state, now + min(60, 2 ** row['attempts']), 'lease expired', row['id']))
+            self.event(db, row['id'], state, 'lease expired')
+        if db.execute("SELECT COUNT(*) FROM tasks WHERE active=1 AND state='running'").fetchone()[0] >= limit:
+            return None
+        extra = ' AND id IN (SELECT id FROM temp.eligible)' if restricted else ''
+        # One oldest eligible candidate per model/stage, then least-recently served.
+        # The partial index excludes finished work; full evidence is read only for
+        # the selected task, never for a catalogue-wide sort on every claim.
+        row = db.execute("""SELECT t.* FROM groups g JOIN tasks t ON t.id=(
+            SELECT id FROM tasks WHERE model||':'||stage=g.name AND active=1
+            AND state IN ('pending','failed') AND available<=? AND attempts<?""" + extra + """
+            ORDER BY created LIMIT 1) ORDER BY g.served,t.created LIMIT 1""", (now, max_attempts)).fetchone()
+        if row is None:
+            return None
+        token = uuid.uuid4().hex
+        db.execute("UPDATE tasks SET state='running',token=?,lease=?,attempts=attempts+1 WHERE id=?", (token, now + lease_seconds, row['id']))
+        clock = db.execute('SELECT COALESCE(MAX(served),0)+1 FROM groups').fetchone()[0]
+        db.execute('UPDATE groups SET served=? WHERE name=?', (clock, row['model'] + ':' + row['stage']))
+        self.event(db, row['id'], 'claimed')
+        return dict(id=row['id'], token=token, lease=now + lease_seconds, payload=json.loads(row['payload']), stage=row['stage'])
 
     def complete(self, task_id, token, result, *, now=None):
         now = time.time() if now is None else now
@@ -203,7 +237,8 @@ class State:
             if not states:
                 return []
             where.append('state IN (' + ','.join('?' for _ in states) + ')'); args.extend(states)
-        query = 'SELECT * FROM tasks' + (' WHERE ' + ' AND '.join(where) if where else '') + ' ORDER BY created'
+        columns = '*' if with_payload else 'id,slot,model,stage,generation,NULL AS payload,state,attempts,available,lease,token,result,reason,created,active'
+        query = 'SELECT ' + columns + ' FROM tasks' + (' WHERE ' + ' AND '.join(where) if where else '') + ' ORDER BY created'
         with self.connect() as db:
             return [self._row(r, with_payload) for r in db.execute(query, args)]
 

@@ -35,6 +35,21 @@ def runner(workspace, *args):
     return seconds, json.loads(result.stdout)
 
 
+def output_evidence(workspace, model):
+    """Complete semantic output for an exact old/new comparison, no value normalization."""
+    from qcl_runner import records
+    from runner_state import State
+    root = Path(workspace) / 'models' / model
+    def read(path, default):
+        return json.loads(path.read_text()) if path.exists() else default
+    return {'records': records(root), 'holds': read(root / 'audit/holds.json', []),
+            'review_queue': read(root / 'audit/review_queue.json', []),
+            'sources': read(root / 'snapshots/index.json', {}),
+            'maps': {str(p.relative_to(root)): read(p, None) for p in sorted((root / 'maps').rglob('*.json'))},
+            'tasks': [{k: t[k] for k in ('slot', 'stage', 'generation', 'state', 'result')}
+                      for t in State(Path(workspace) / 'state.sqlite').tasks(with_payload=False)]}
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--model', default='lfm2.5-24b-a2b')
@@ -77,6 +92,11 @@ def main():
                'run_rounds_seconds': [round(s, 2) for s in rounds], 'noop_reconcile_seconds': round(noop_s, 2),
                'status_seconds': round(status_s, 2), 'final_tasks': status['tasks'],
                'measurement': 'offline orchestration with synthetic fixture responses; no model calls, tokens or cost'}
+    from runner_state import digest
+    evidence = output_evidence(workspace, a.model)
+    (out / 'output.json').write_text(json.dumps(evidence, sort_keys=True) + '\n')
+    summary['output_sha256'] = digest(evidence)
+    summary['unresolved'] = status['unresolved']
     (out / 'results.json').write_text(json.dumps(summary, indent=1) + '\n')
     print(json.dumps(summary, indent=1))
 

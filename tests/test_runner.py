@@ -246,6 +246,40 @@ class Runner(unittest.TestCase):
         done = {t['id'] for t in self.s.tasks(states=('succeeded',), with_payload=False)}
         self.assertFalse(done & {p.stem for p in requests.glob('*.json')}, 'completed requests are withdrawn')
 
+    def test_model_identity_change_rejects_inflight_result(self):
+        self.prepare()
+        claim = self.s.claim()
+        config = self.w.model('fixture') / 'model.json'
+        model = read(config); model['model'] = 'Other/Identity'; write(config, model)
+        with self.assertRaisesRegex(ValueError, 'model identity'):
+            R.complete(self.w, self.s, claim, fake_response(claim['payload']))
+        self.assertEqual(self.s.get(claim['id'])['state'], 'running')
+        self.prepare()
+        self.assertFalse(self.s.get(claim['id'])['active'])
+        self.assertTrue(all(t['payload']['model'] == 'Other/Identity' for t in self.s.tasks()))
+
+    def test_review_preparation_snapshots_version_once_but_not_across_calls(self):
+        self.finish()
+        with patch.object(R, 'version', return_value='v1') as version:
+            old = R.review_bundles(self.w.model('fixture'))
+        self.assertTrue(old)
+        self.assertEqual(version.call_count, 1)
+        with patch.object(R, 'version', return_value='v2'):
+            new = R.review_bundles(self.w.model('fixture'))
+        self.assertEqual(len(old), len(new))
+        self.assertTrue(all(a['fingerprint'] != b['fingerprint'] for a, b in zip(old, new)))
+
+    def test_corrupt_export_is_repaired_from_durable_request(self):
+        self.prepare()
+        request = next((self.w.path / 'requests').glob('*.json'))
+        expected = request.read_bytes()
+        request.write_text('{"task_id":"wrong", "request":{"source":"altered"}}')
+        R.export_requests(self.w, self.s)
+        self.assertEqual(request.read_bytes(), expected)
+        before = request.stat().st_mtime_ns
+        R.export_requests(self.w, self.s)
+        self.assertEqual(request.stat().st_mtime_ns, before)
+
     def test_content_identity_matches_prior_definition_and_shares_evidence(self):
         import json
         self.prepare()

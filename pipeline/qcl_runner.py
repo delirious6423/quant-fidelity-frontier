@@ -69,6 +69,7 @@ def records(root):
 
 
 def review_bundles(root):
+    v = version()  # one code snapshot per bundle preparation, rechecked at completion
     model = read(root / 'model.json')['model']
     bundles = []
     for record in records(root):
@@ -87,13 +88,15 @@ def review_bundles(root):
                              'key': key, 'raw': str(raw_value), 'lines': [n for n in [entry.get('L'), *(entry.get('L_extra') or [])] if n],
                              'entry_evidence': entry, 'methodology': record.get('methodology'),
                              'weights_modified': record.get('weights_modified'), 'source_sha256': record.get('source_sha256')}
-                    bundles.append(boundary.prepare_review(model, meta, raw, claim, mapping_version=version(), extractor_version=version()))
+                    bundles.append(boundary.prepare_review(model, meta, raw, claim, mapping_version=v, extractor_version=v))
     return bundles
 
 
 def valid_current(w, task):
     payload = task['payload']
     root = w.model(task['model'])
+    if payload['model'] != read(root / 'model.json')['model']:
+        raise ValueError('result model identity is no longer current')
     meta, _ = source(root, payload['source']['repo'])
     if meta['sha256'] != payload['source']['sha256']:
         raise ValueError('result source is no longer current')
@@ -136,6 +139,7 @@ def materialize(w, state, slug):
 
 
 def enqueue_queues(w, state, slug, work, runs):
+    v = version()
     root = w.model(slug)
     model = read(root / 'model.json')['model']
     for queue in sorted((work / 'pending').glob('*.txt')):
@@ -147,12 +151,12 @@ def enqueue_queues(w, state, slug, work, runs):
             task = read(cpath)
             task['prompt'] = (work / 'tasks' / (name + '.prompt.txt')).read_text()
             meta, raw = source(root, task['repo'])
-            bundle = boundary.prepare_mapping(model, meta, raw, task, run, version())
+            bundle = boundary.prepare_mapping(model, meta, raw, task, run, v)
             slot = f'{slug}:map:{run}:{task["repo"]}'
             previous = state.current(slot)
             if previous and content_identity(previous['payload']) == content_identity(bundle):
                 continue
-            state.enqueue(slot, slug, 'map-' + run, meta['sha256'] + ':' + version(), bundle)
+            state.enqueue(slot, slug, 'map-' + run, meta['sha256'] + ':' + v, bundle)
 
 
 def model_signature(root, state, slug):
@@ -268,10 +272,12 @@ def export_requests(w, state):
         if p.stem not in active:
             p.unlink()
     for task_id in active:
-        # A task id digests its slot, generation and payload: an existing file is already exact.
-        if not (out / (task_id + '.json')).exists():
-            # The journal already holds the canonical encoding; write it, do not re-encode the whole card.
-            write_text(out / (task_id + '.json'), '{"request":' + state.payload_text(task_id) + ',"task_id":"' + task_id + '"}\n')
+        # A content-derived name does not prove the bytes survived transfer intact.
+        # Compare the journal's canonical text without decoding/re-encoding evidence.
+        path = out / (task_id + '.json')
+        text = '{"request":' + state.payload_text(task_id) + ',"task_id":"' + task_id + '"}\n'
+        if not path.exists() or path.read_bytes() != text.encode('utf-8'):
+            write_text(path, text)
 
 
 def status(w, state):
@@ -312,18 +318,16 @@ def run_responses(w, state, responses, workers):
     ids = [t['id'] for t in state.tasks(states=('pending', 'failed', 'running'), with_payload=False) if (directory / (t['id'] + '.json')).exists()]
     completed = 0
     # Concurrent file reads, serialized validated commits; no external job under lock.
-    with ThreadPoolExecutor(max_workers=workers) as pool:
-        while ids:
+    with state.claim_scope(ids) as next_claim, ThreadPoolExecutor(max_workers=workers) as pool:
+        while True:
             batch = []
             # Claim every ready file fairly; missing response files do not consume leases.
             for _ in range(workers):
-                claim = state.claim(limit=workers, eligible_ids=ids)
+                claim = next_claim(limit=workers)
                 if claim is None:
                     break
                 p = directory / (claim['id'] + '.json')
                 batch.append((claim, pool.submit(lambda path: boundary.parse_response(path.read_bytes()), p)))
-                if claim['id'] in ids:
-                    ids.remove(claim['id'])
             if not batch:
                 break
             for claim, result in batch:

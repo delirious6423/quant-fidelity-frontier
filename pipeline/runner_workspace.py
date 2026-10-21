@@ -30,7 +30,7 @@ def write_text(path, text):
     path.parent.mkdir(parents=True, exist_ok=True)
     fd, temporary = tempfile.mkstemp(prefix='.' + path.name + '.', dir=path.parent)
     try:
-        with os.fdopen(fd, 'w') as out:
+        with os.fdopen(fd, 'w', encoding='utf-8') as out:
             out.write(text)
             out.flush()
             os.fsync(out.fileno())
@@ -46,11 +46,12 @@ def install(path, value):
     Materialization re-installs every succeeded result on each reconcile; an
     unchanged map must not cost a rewrite and fsync per task per round.
     """
+    from runner_state import encoded
     path = Path(path)
     try:
-        if path.exists() and read(path) == value:
+        if path.exists() and encoded(read(path)) == encoded(value):
             return False
-    except (OSError, ValueError):
+    except (OSError, ValueError, TypeError):
         pass  # unreadable or partial: replace it
     write(path, value)
     return True
