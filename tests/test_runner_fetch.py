@@ -178,6 +178,67 @@ class RunnerFetchTests(unittest.TestCase):
         self.assertEqual(self.run_fetch()['repos'], 3)
         self.assertIn('test/extra', R.read(self.root / 'snapshots/index.json')['repos'])
 
+    def test_small_checkpoint_survives_process_death_and_workspace_transfer(self):
+        import subprocess
+        script = r"""
+import os, runpy, sys
+from pathlib import Path
+ns = runpy.run_path(sys.argv[1])
+t = ns['RunnerFetchTests'](); t.setUp()
+t.root, t.ledger = Path(sys.argv[2]), Path(sys.argv[3])
+original = t.get
+def get(url, token, **kwargs):
+    if '/test/one/tree/' in url:
+        os._exit(29)
+    return original(url, token, **kwargs)
+ns['R'].fetch.get = get
+t.run_fetch()
+"""
+        p = subprocess.run([sys.executable, '-c', script, __file__, str(self.root), str(self.ledger)])
+        self.assertEqual(p.returncode, 29)
+        self.assertFalse((self.ledger / 'index.json').exists())  # no compaction reached
+        saved = R.load_ledger(self.ledger, 'test/base')
+        self.assertTrue(R.valid_bytes(self.ledger, saved['repos']['test/one']))
+        moved = Path(self.tmp.name) / 'restored'
+        shutil.copytree(self.ledger, moved); shutil.rmtree(self.ledger); self.ledger = moved
+        self.assertEqual(self.run_fetch()['status'], 'complete')
+        self.assertEqual(self.calls[self.card_url('test/one')], 0)
+        self.assertEqual(list((self.ledger / 'checkpoints').glob('*.json')), [])
+
+    def test_compaction_interruption_replays_idempotently(self):
+        atomic = R.atomic
+        def interrupted(path, value):
+            atomic(path, value)
+            if Path(path) == self.ledger / 'index.json':
+                raise KeyboardInterrupt('after compact index installed, before records removed')
+        with patch.object(R, 'atomic', interrupted), self.assertRaises(KeyboardInterrupt):
+            self.run_fetch()
+        self.assertTrue(list((self.ledger / 'checkpoints').glob('*.json')))
+        self.assertEqual(R.read(self.root / 'audit/runner_fetch.json')['status'], 'blocked')
+        self.assertEqual(self.run_fetch()['status'], 'complete')
+        self.assertEqual(self.calls[self.card_url('test/one')], 1)
+        self.assertEqual(R.load_ledger(self.ledger, 'test/base'), R.read(self.ledger / 'index.json'))
+
+    def test_unchanged_collection_does_not_rewrite_durable_ledger(self):
+        self.run_fetch()
+        before = (self.ledger / 'index.json').stat().st_mtime_ns
+        with patch.object(R, 'atomic', wraps=R.atomic) as atomic:
+            self.run_fetch()
+        self.assertEqual((self.ledger / 'index.json').stat().st_mtime_ns, before)
+        self.assertFalse([c for c in atomic.call_args_list if Path(c.args[0]).parent == self.ledger / 'checkpoints'])
+
+    def test_invalid_checkpoint_fails_closed(self):
+        self.run_fetch()
+        self.calls.clear()
+        before = (self.root / 'snapshots/index.json').read_bytes()
+        path = self.ledger / 'checkpoints' / R.checkpoint_name('test/one', False)
+        R.atomic(path, {'model': 'wrong/base', 'official': False, 'record': {'repo': 'test/one'}})
+        with self.assertRaisesRegex(ValueError, 'checkpoint'):
+            self.run_fetch()
+        self.assertFalse(self.calls)
+        self.assertEqual((self.root / 'snapshots/index.json').read_bytes(), before)
+        self.assertEqual(R.read(self.root / 'audit/runner_fetch.json')['status'], 'blocked')
+
     def test_collector_contention_and_nested_symlinks_rejected(self):
         import fcntl
         self.ledger.mkdir()

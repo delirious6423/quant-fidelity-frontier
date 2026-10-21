@@ -33,9 +33,25 @@ def read(path, default=None):
     return json.loads(Path(path).read_text()) if Path(path).exists() else default
 
 
+def durable_mkdir(path):
+    """Persist newly created directory entries before acknowledging child writes."""
+    missing = []
+    path = Path(path)
+    while not path.exists():
+        missing.append(path)
+        path = path.parent
+    for path in reversed(missing):
+        path.mkdir(exist_ok=True)
+        fd = os.open(path.parent, os.O_RDONLY)
+        try:
+            os.fsync(fd)
+        finally:
+            os.close(fd)
+
+
 def atomic(path, value):
     path = Path(path)
-    path.parent.mkdir(parents=True, exist_ok=True)
+    durable_mkdir(path.parent)
     fd, name = tempfile.mkstemp(dir=path.parent)
     try:
         with os.fdopen(fd, 'wb') as out:
@@ -51,6 +67,53 @@ def atomic(path, value):
     finally:
         if os.path.exists(name):
             os.unlink(name)
+
+
+def load_ledger(directory, model_id):
+    """Replay durable per-repository checkpoints over the last compact index.
+
+    A small atomic record is synced after each card and tree, before subsequent
+    HTTP work. Compaction installs the full index before removing records, so
+    termination on either side of that rename is idempotent on restart.
+    """
+    directory = Path(directory)
+    idx = read(directory / 'index.json', {'model': model_id, 'repos': {}})
+    if not isinstance(idx, dict) or idx.get('model') != model_id or not isinstance(idx.get('repos'), dict):
+        raise ValueError('ledger identity mismatch')
+    for path in sorted((directory / 'checkpoints').glob('*.json')):
+        item = read(path)
+        if (not isinstance(item, dict) or item.get('model') != model_id
+                or type(item.get('official')) is not bool or not isinstance(item.get('record'), dict)):
+            raise ValueError('invalid ledger checkpoint')
+        rec, official = item['record'], item['official']
+        rid = rec.get('repo')
+        if not fetch.valid_model_id(rid) or (official and rid != model_id):
+            raise ValueError('checkpoint repository identity mismatch')
+        if path.name != checkpoint_name(rid, official):
+            raise ValueError('checkpoint filename identity mismatch')
+        if official:
+            idx['base'] = rec
+        else:
+            idx['repos'][rid] = rec
+    return idx
+
+
+def checkpoint_name(repo, official):
+    return hashlib.sha256(('base:' if official else 'repo:').encode() + repo.encode()).hexdigest() + '.json'
+
+
+def compact_ledger(directory, idx):
+    records = list((directory / 'checkpoints').glob('*.json'))
+    if records or not (directory / 'index.json').exists():
+        atomic(directory / 'index.json', idx)
+        for path in records:
+            path.unlink()
+        if records:
+            fd = os.open(directory / 'checkpoints', os.O_RDONLY)
+            try:
+                os.fsync(fd)
+            finally:
+                os.close(fd)
 
 
 def local(directory, name):
@@ -147,7 +210,7 @@ def collect(model_root, ledger_dir, model_id, include_repos=(), workers=8,
     config = read(root / 'model.json', {})
     if config.get('model') != model_id:
         raise ValueError('shadow model config identity mismatch')
-    directory.mkdir(parents=True, exist_ok=True)
+    durable_mkdir(directory)
     with open(directory / 'collector.lock', 'a') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         return _collect(root, directory, model_id, include_repos, workers, base, token, install_lock)
@@ -155,15 +218,17 @@ def collect(model_root, ledger_dir, model_id, include_repos=(), workers=8,
 
 def _collect(root, directory, model_id, include_repos, workers, base, token, install_lock):
     marker = root / 'audit/runner_fetch.json'
-    idx = read(directory / 'index.json', {'model': model_id, 'repos': {}})
+    with install_lock() if install_lock else nullcontext():
+        atomic(marker, {'status': 'blocked', 'reason': 'refresh_incomplete'})
+    for name in ('cards', 'trees', 'checkpoints'):
+        durable_mkdir(directory / name)  # establish directories before concurrent writers
+    idx = load_ledger(directory, model_id)
     if not isinstance(idx, dict) or idx.get('model') != model_id or not isinstance(idx.get('repos'), dict):
         raise ValueError('ledger identity mismatch')
     if idx.get('base', {}).get('repo', model_id) != model_id:
         raise ValueError('ledger base identity mismatch')
     if any(not isinstance(rec, dict) or rec.get('repo') != rid for rid, rec in idx['repos'].items()):
         raise ValueError('ledger repository identity mismatch')
-    with install_lock() if install_lock else nullcontext():
-        atomic(marker, {'status': 'blocked', 'reason': 'refresh_incomplete'})
     limited = read(directory / 'rate_limit.json')
     if limited:
         until = limited.get('resume_after', float('inf'))
@@ -176,8 +241,16 @@ def _collect(root, directory, model_id, include_repos, workers, base, token, ins
     if previous.get('model', model_id) != model_id:
         raise ValueError('snapshot model identity mismatch')
 
-    def checkpoint():
-        atomic(directory / 'index.json', idx)
+    def checkpoint(rec, official=False):
+        old = idx.get('base') if official else idx['repos'].get(rec['repo'])
+        if old == rec:
+            return  # already durable and freshly validated against its pinned bytes
+        path = directory / 'checkpoints' / checkpoint_name(rec['repo'], official)
+        atomic(path, {'model': model_id, 'official': official, 'record': rec})
+        if official:
+            idx['base'] = dict(rec)
+        else:
+            idx['repos'][rec['repo']] = dict(rec)
 
     def metadata(rid):
         status, body, _ = fetch.get(f'{base}/api/models/{rid}', token, stop=stop)
@@ -226,11 +299,7 @@ def _collect(root, directory, model_id, include_repos, workers, base, token, ins
                    'bytes': len(raw), 'readme_status': status}
         rec.update({k: meta.get(k) for k in ('createdAt', 'lastModified', 'downloads', 'tags', 'catalogue_source')})
         with guard:
-            if official:
-                idx['base'] = dict(rec)
-            else:
-                idx['repos'][rid] = dict(rec)
-            checkpoint()  # retain card even when its tree fetch fails or process dies
+            checkpoint(rec, official)  # durable before tree HTTP, including abrupt process death
         if official:
             return
         if not valid_tree(directory, rec):
@@ -243,8 +312,7 @@ def _collect(root, directory, model_id, include_repos, workers, base, token, ins
             rec.update(tree_file=rel, tree_sha256=hashlib.sha256(raw).hexdigest(), tree_complete=True,
                        tree_pages=pages, total_bytes_complete=complete, total_bytes=sum(sizes) if complete else None)
             with guard:
-                idx['repos'][rid] = rec
-                checkpoint()
+                checkpoint(rec)
 
     try:
         one(model_id, base_meta, official=True)
@@ -257,6 +325,7 @@ def _collect(root, directory, model_id, include_repos, workers, base, token, ins
                 future.result()
             except Exception as error:
                 remember_error(futures[future], error)
+    compact_ledger(directory, idx)
     if unresolved:
         atomic(marker, {'status': 'blocked', 'unresolved': unresolved})
         return {'status': 'blocked', 'changed': [], 'unresolved': unresolved}
