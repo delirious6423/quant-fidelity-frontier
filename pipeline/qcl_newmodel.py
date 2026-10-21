@@ -33,11 +33,20 @@ cached_base = None
 _prev = json.load(open(f"{R}/snapshots/index.json")) if os.path.exists(f"{R}/snapshots/index.json") else {}
 repos.update(_prev.get("repos", {}))   # keep what is already pinned; cache entries add or replace
 _fetched = {}                                     # newest fetch of each repo across every shard's index file
+def _newer(m, have):
+    """Does record m supersede the record already chosen for the same repo? Connector shards carry fetched_at; a direct
+    (qcl_fetch) record carries no fetched_at but pins the Hub commit and its lastModified, so it is newer than a connector
+    card captured before that change (otherwise an hourly direct collect could never replace an older connector card)."""
+    direct_m, direct_h = "readme_status" in m, "readme_status" in have
+    if direct_m == direct_h: return (m.get("fetched_at") or "") >= (have.get("fetched_at") or "")
+    direct, connector = (m, have) if direct_m else (have, m)
+    direct_wins = (direct.get("lastModified") or "")[:19] > (connector.get("fetched_at") or "")[:19]
+    return direct_wins if direct_m else not direct_wins
 for f in sorted(glob.glob(f"{R}/cache/index*.json")):
     cached = json.load(open(f))
     if cached.get("base"): cached_base = cached["base"]
     for rid, m in cached.get("repos", {}).items():
-        if rid not in _fetched or (m.get("fetched_at") or "") >= (_fetched[rid].get("fetched_at") or ""): _fetched[rid] = m
+        if rid not in _fetched or _newer(m, _fetched[rid]): _fetched[rid] = m
 for rid, m in _fetched.items():
     c, old = cat.get(rid, {}), repos.get(rid, {})
     path = _card_path(m["file"]) if m.get("file") else None
@@ -79,7 +88,8 @@ _out = {k: v for k, v in _prev.items() if k not in ("repos", "base")}           
 _out.update({"captured_at": _prev.get("captured_at") or time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),   # first capture; stays fixed
              "updated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "model": model, "repos": repos, **({"base": base} if base else {})})
 if "source" not in _out: _out.setdefault("pinning", "sha256 of card bytes; commit sha when available")   # commit-pinned roots keep "source"
-json.dump(_out, open(f"{R}/snapshots/index.json", "w"), indent=1)
+if not (_prev and {k: v for k, v in _out.items() if k != "updated_at"} == {k: v for k, v in _prev.items() if k != "updated_at"}):
+    json.dump(_out, open(f"{R}/snapshots/index.json", "w"), indent=1)   # unchanged: the file stays byte-identical (hourly collects commit nothing)
 for stub in ("hf_sizes_summary.json", "hf_branch_sizes.json"):
     if not os.path.exists(f"{R}/snapshots/{stub}"): json.dump({}, open(f"{R}/snapshots/{stub}", "w"))
 if not os.path.exists(f"{R}/sets.py"):
