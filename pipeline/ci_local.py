@@ -62,7 +62,7 @@ def run_steps(job_name, job, allow_pip=False):
                 line = m.group(1) + m.group(2)
             elif INSTALL_RE.match(line) and not allow_pip:
                 continue
-            if line.strip().startswith(VENV_PY) and not os.path.exists(VENV_PY):
+            if VENV_PY in line and not os.path.exists(VENV_PY):   # e.g. `QFF_DATA=_site /tmp/qff-mcp-v1/bin/python tests/...`
                 out.append({"name": name + " (MCP 1.x venv check)", "skip": f"{VENV_PY} not present; run with --pip to create it"})
                 continue
             kept.append(line)
