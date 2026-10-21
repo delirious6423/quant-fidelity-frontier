@@ -197,7 +197,8 @@ class ImageTests(unittest.TestCase):
         for p in (self.model / "cache/images").glob("*"): p.unlink()
         line = self.run_images("--strict", code=0)
         self.assertEqual((line["pinned"], line["gone"], line["unresolved"]), (1, 2, 0))
-        self.assertEqual([(g["status"], g["reason"]) for g in self.audit()["gone"]], [(403, "HTTP 403"), (404, "HTTP 404")])
+        # the audit sorts entries by URL, and the loopback port in the URL differs per run: compare as a set
+        self.assertEqual(sorted((g["status"], g["reason"]) for g in self.audit()["gone"]), [(403, "HTTP 403"), (404, "HTTP 404")])
 
     def test_503_on_every_attempt_is_unresolved_and_strict_fails_loudly(self):
         self.cdn.routes["/chart.jpg"] = (503, b"down", {})
