@@ -42,6 +42,7 @@ Ingestion and scan scripts, indexed by stage. Each description is the first sent
 | Script | What it does | Entry command |
 |---|---|---|
 | `qcl_watch.py` | Incremental ingestion: the work happens before anyone asks for the site. | `python3 pipeline/qcl_watch.py delta INDEX_NEW.json` |
+| `ci_local.py` | Run the CI battery of .github/workflows/verify.yml on this machine, step for step, without GitHub Actions. | `python3 pipeline/ci_local.py [--jobs 4] [--only plan\|safety\|model\|site ...] [--models SLUG ...] [--from TEXT] [--pip] [--log-dir DIR] [--receipt FILE] [--list] [--keep-going]` |
 | `qcl_live.py` | Print the data root of every model that is published (status "live" in watchlist.json; a model folder that is not in the watch list counts as live). | `for d in $(python3 pipeline/qcl_live.py); do QCL_ROOT=$d python3 web/build.py; done` |
 | `readme_sync.py` | Keep README.md's facts generated, not typed. | `python3 pipeline/readme_sync.py` |
 | `export_hf_dataset.py` | Export assembled public data to a reviewable HF dataset directory; never upload. |  |

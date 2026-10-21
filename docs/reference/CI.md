@@ -27,6 +27,17 @@ Guarantees kept from the single-job version, each asserted by `tests/test_workfl
 - no `${{ }}` expression is interpolated into a shell script (matrix values travel through the `MODEL_DIR` env variable);
 - the checkout has no `ref:`, so a caller's immutable SHA is what gets built.
 
+## Running the same battery locally
+
+`python3 pipeline/ci_local.py` runs this workflow on the machine it is started on: it parses `verify.yml`, runs
+every `run:` step of `plan`, `safety`, each `model` job (one per live model, side by side) and `site` with `bash -e`
+and the same environment (`MODEL_DIR`, `GITHUB_OUTPUT`), and skips only what exists for hosted runners: `uses:`
+steps (checkout, Python, caches, artifacts), the artifact restore (the model jobs leave `models/<slug>/site` in
+place), and package installs unless `--pip` is given. `tests/test_ci_local.py` checks that every suite the workflow
+names is one the runner executes, so the two cannot drift. `--list` shows the plan, `--only`, `--models` and
+`--from` narrow it, `--receipt FILE` writes a JSON record (commit, steps, outcomes, seconds) to attach to a pull
+request when Actions minutes are not available. Per-step logs go to a temporary directory named at the start.
+
 ## Caching
 
 Every job that installs Python packages restores `~/.cache/pip` with `actions/cache@v4`, keyed on the workflow file's

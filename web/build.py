@@ -770,6 +770,8 @@ def main():
     import subprocess
     vout = GATE_OUT["verify.py"][1] if "verify.py" in GATE_OUT else subprocess.run(["python3", f"{CODE}/gates/verify.py"], capture_output=True, text=True).stdout
     vc = {"values": int(re.search(r"verified verbatim: (\d+)", vout).group(1)), "fails": int(re.search(r"failures: (\d+)", vout).group(1))}
+    pending = re.search(r"PENDING MAPPING: (\d+)", vout)
+    if pending: vc["pending_mapping"] = int(pending.group(1))   # collected, not yet mapped: not on the site until the next cycle
     if not DEV: os.makedirs(f"{ROOT}/audit", exist_ok=True); json.dump(vc, open(f"{ROOT}/audit/verify_counts.json", "w"))
     hl = []
     if os.path.exists(f"{ROOT}/highlights.py"):

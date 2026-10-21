@@ -29,7 +29,15 @@ for d in $(python3 pipeline/qcl_live.py); do QCL_SITE=$d/site python3 tests/test
 QFF_DATA=_site python3 tests/test_mcp.py
 ```
 `.github/workflows/verify.yml` lists every suite and the order CI runs them; the commands above are the minimum before a commit.
-Needs Python 3.11+, `pillow`, `numpy`; tests also need `playwright` and `mcp`.
+The whole battery, exactly as the workflow runs it, is one command on any machine (it parses the workflow file, runs
+every `run:` step with `bash -e`, the per-model jobs side by side, and skips only hosted-runner plumbing):
+```bash
+python3 pipeline/ci_local.py                      # everything; logs per step, exit 1 on any failure
+python3 pipeline/ci_local.py --only safety        # the unit and workflow suites only
+python3 pipeline/ci_local.py --models glm-5.3-flash --only model
+python3 pipeline/ci_local.py --receipt ci.json    # a JSON receipt of the run (commit, steps, outcomes, seconds)
+```
+Needs Python 3.11+, `pillow`, `numpy`, `pyyaml`; tests also need `playwright` (with Chromium) and `mcp`; `--pip` installs them as the workflow does.
 
 ## Adding a model
 `python3 pipeline/qcl_newmodel.py models/<slug>` turns a fetched card cache into a data root; then follow
