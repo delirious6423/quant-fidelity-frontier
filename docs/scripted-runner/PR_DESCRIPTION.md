@@ -30,11 +30,15 @@ Current main (`77c157c`) was integrated into the review branch and required loca
 checks were rerun successfully; its QA/data changes were preserved exactly.
 Merge to main, deployment and production cutover remain outside that approval.
 
-Follow-up review removes remaining catalogue-scale scheduling and checkpoint I/O
-costs while preserving per-result and per-card durability. On a sequential offline
-1,253-repo fixture, initial collection took 31.45 -> 5.86 seconds and unchanged
-collection 49.89 -> 3.53 seconds, with unchanged HTTP request counts and source
-records. Full-model records, holds, maps and task outcomes compare exactly.
-Independent review findings on freshness, typed-map repair and delayed model
-identity were fixed and regressed. These are local single-run measurements;
-independent-machine repetitions and real-provider validation remain outstanding.
+Follow-up review reduces catalogue-scale scheduling and checkpoint I/O costs while
+preserving per-result and per-card durability. Independent testing used three
+sequential repetitions with alternating side order and unchanged frozen inputs.
+Median Qwen measured-stage time was 60.53 -> 45.56 seconds (1.33x); initial
+collection was 19.72 -> 9.01 seconds (2.19x), unchanged collection 15.03 -> 5.88
+seconds (2.56x). All six full-model pairs preserved exact claims/provenance and
+task results. The 66 candidate runner tests and nine workflow-security tests
+passed independently. Archive hashes, all 93 candidate code files, 3,790 input
+files, output comparisons and median calculations were rechecked locally.
+Freshness, typed-map repair and delayed model-identity findings were fixed and
+regressed. Real-provider validation remains outstanding; the 100x runtime target
+was not met. These are offline timings, not production latency or cost savings.

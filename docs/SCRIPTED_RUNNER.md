@@ -294,3 +294,9 @@ results) for exact comparisons. These fixture responses do not evaluate model
 precision/recall or real upstream latency. See
 [PERFORMANCE_FOLLOWUP.md](scripted-runner/PERFORMANCE_FOLLOWUP.md) for measured
 results, independent review findings and scope limits.
+
+The independent three-repetition evidence is now complete and locally rechecked:
+[INDEPENDENT_VALIDATION.md](scripted-runner/INDEPENDENT_VALIDATION.md). Use its
+medians and ranges for performance claims; the earlier single-run measurements
+remain historical. The correction moves helper evidence export after both timed
+sides, and all three repetitions were rerun with fresh output directories.

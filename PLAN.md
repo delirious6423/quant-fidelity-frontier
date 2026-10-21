@@ -54,3 +54,12 @@ review branch until opening a PR and its Actions run are explicitly authorized.
 - [x] Record measurements, review findings and remaining provider/cutover limits.
 
 Runtime stretch target remains 100× on identical frozen inputs, recorded before this round of optimization. Report actual improvements; do not trade away source validation, independent requests, review coverage or per-result durability. Production state machines, schedules and publication remain unchanged. The previous integration push was blocked by automatic review; this turn performs local review/testing and improvements.
+
+## Independent measurement evidence (2026-10-21)
+- [x] Retrieve supplied Drive archive and verify archive/compact file hashes.
+- [x] Match patch, 93 candidate code files and 3,790 frozen input files to this branch.
+- [x] Recompute medians from all 18 corrected runs; verify six exact output/task pairs and retained IO clock differences.
+- [x] Update primary results and local PR description, preserving superseded/earlier measurements and scope limits.
+
+Documentation/evidence-only update. Existing complete local regression results
+remain applicable to the identical implementation; no production or remote action.

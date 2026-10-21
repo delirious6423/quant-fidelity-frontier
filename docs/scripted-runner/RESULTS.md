@@ -1,5 +1,10 @@
 # Measured results and limits
 
+Latest follow-up: [independent three-repetition validation](INDEPENDENT_VALIDATION.md)
+confirms 1.33x median Qwen measured-stage improvement over reviewed PR commit
+`4ad4b57`, with exact output preservation. Earlier measurements below retain their
+original baselines and should not be conflated with that comparison.
+
 Starting default commit: `670acdfb0c84e4ebf609d656ac06912dfaba8f2a`.
 No production entry point, model API or remote write was used for baseline replay.
 The 100× runtime stretch target was recorded before implementation. It was **not

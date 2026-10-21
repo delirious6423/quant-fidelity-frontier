@@ -1,5 +1,9 @@
 # PR #14 follow-up: review and measurements
 
+The independent three-repetition results in [INDEPENDENT_VALIDATION.md](INDEPENDENT_VALIDATION.md)
+are now the primary performance evidence. The single-run observations below are
+retained as historical measurements, including their timing variability.
+
 Reviewed upstream commit: `4ad4b570a636b62bc9c3d267a21a319ae2f4734e`.
 Integrated locally with current main (`77c157c`) and the prior review branch.
 The remote review contains one substantive owner review and no inline comments.
@@ -116,7 +120,8 @@ frozen input commit, three sequential alternating repetitions, full output
 comparison requirements and prohibitions on remote writes/provider calls. This
 session cannot provision another machine: it has no cloud-provisioning API or
 cloud identity, and no Incus/QEMU/KVM. Local correctness suites run in two isolated
-processes; independent-machine measurements remain pending the separate session.
+processes. The independent session subsequently completed all repetitions; see
+[INDEPENDENT_VALIDATION.md](INDEPENDENT_VALIDATION.md).
 
 ## Final local verification
 
@@ -133,5 +138,5 @@ exactly. Only isolated synthetic outputs were changed by the performance runs.
 No remote branch, PR comment, Actions run, production schedule or deployment was
 changed in this follow-up. The earlier automatic-review rejection of a push that
 would trigger PR Actions remains unresolved; no attempt was made to bypass it.
-Independent-machine repetitions, live-provider quality/idempotency and persistent
-hosting remain outstanding. Production cutover still needs separate authorization.
+Independent-machine repetitions are complete. Live-provider quality/idempotency
+and persistent hosting remain outstanding. Production cutover still needs separate authorization.
