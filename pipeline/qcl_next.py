@@ -150,7 +150,9 @@ if step == "a_fetched":
         for slug, q in queues.items():
             n = max(1, min(2, math.ceil(q / 6)))
             pr += [MAP_PROMPT.format(code=CODE, slug=slug, run=r) for r in "AB" for _ in range(n)]
-        agents(pr[:8], s, "a_mapped")
+        # Every prompt is dispatched; max_parallel bounds how many run at once. Slicing the list to eight here
+        # left whole models without a worker and forced a second coordinator round (6.5 min in the 2026-10-20 14:12 run).
+        agents(pr, s, "a_mapped")
 
 if step == "a_mapped":
     retry, tb = [], []
@@ -164,7 +166,7 @@ if step == "a_mapped":
         agents([MAP_PROMPT.format(code=CODE, slug=slug, run=r) for slug in retry for r in "AB"], s, "a_mapped")
     if tb and minutes() < 40:   # one tie-breaker round per run: blind run C on cards whose A and B values disagree
         s["a_tb"] = tb
-        agents([MAP_PROMPT.format(code=CODE, slug=slug, run="C") for slug in tb for _ in range(max(1, min(3, s["part_a"][slug]["tiebreak"]["queues"])))][:8], s, "a_tiebroken")
+        agents([MAP_PROMPT.format(code=CODE, slug=slug, run="C") for slug in tb for _ in range(max(1, min(3, s["part_a"][slug]["tiebreak"]["queues"])))], s, "a_tiebroken")
     step = "a_stage"
 
 if step == "a_tiebroken":
