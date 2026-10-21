@@ -49,15 +49,27 @@ ledger `models/<slug>/cache/images/index.json` is keyed by URL (sha256, bytes, c
 and lines that embed it). A URL whose file is present with the recorded SHA-256 is never requested again, and a URL no
 card references any more leaves the ledger and the cache. The HTTP helper is `qcl_fetch.get` (3 attempts with backoff on
 5xx, timeouts and connection errors; a 429 stops the batch and records Retry-After); `HF_TOKEN` goes to the Hub origin
-only. Anything that is not an image, or larger than `--max-bytes`, is refused and the reason recorded.
+only.
 
-The 100 % rule: every image a live card embeds is either pinned or listed as unresolved in `models/<slug>/audit/images.json`
-(`referenced`, `pinned`, `unresolved: [{url, repo, L, status, attempts, reason}]`), and the workflow runs
-`--strict-images`, so any unresolved image fails the collect step (the commit of what was pinned still happens). Unresolved
-means the image is not on this site's disk: an HTTP error (404 for a deleted file, 403 for a gated repo), the helper
-giving up after its attempts, a refused content type or size, or a batch stopped by a 429. A persistent failure keeps
-the same audit bytes from hour to hour, so it does not create commits; it stays red until the card or the host changes.
-The commit summary carries the counts (`img +N`, `N img unresolved`, `images P/R pinned`). The mapping request of a
+The 100 % rule: every image a live card embeds is either pinned or classified, with evidence, in exactly one of three
+lists of `models/<slug>/audit/images.json` (beside `referenced` and `pinned`; each entry `{url, repo, L, references,
+status, attempts, reason}`, sorted by URL, no timestamp, so an unchanged situation writes identical bytes hour to hour):
+
+- `unresolved`: a retryable failure. The helper gave up (5xx, timeout or connection error on every attempt), a 429
+  stopped the batch (that URL and the ones not requested after it), any other HTTP answer, or an unexpected exception.
+- `gone`: a definitive HTTP 401, 403, 404 or 410: the file is not available to anyone with this access (a deleted file,
+  a gated repository). Nothing this site can do fetches it; it is evidence, not a failure.
+- `refused`: by this repository's policy. Not an image content type, or larger than `--max-bytes` (the entry records the
+  response's `bytes` and `content_type`; the body is never stored), a URL with credentials or a non-HTTP(S) scheme, a
+  redirect the helper refuses, or a `data:` URI that does not decode.
+
+The workflow runs `--strict-images`, which fails the collect step only when a model has an `unresolved` image (the commit
+of what was pinned still happens): the step is red for what a later run may still fetch, never for a file nobody can
+fetch, so a real regression is not hidden behind a permanent one. A gone or refused image is still not on this site's
+disk; the lists say why, with the status, the attempts and the reason. The first real runs (2026-10-21) pinned 814 of 836
+URLs: 10 refused by size (animated decorative GIFs and gitbook images, none a benchmark chart), 10 gone with 404, 2 gone
+with 403 (gated repositories), 0 unresolved. The commit summary carries the counts (`img +N`, `N img unresolved`,
+`N img gone`, `N img refused`, `images P/R pinned`). The mapping request of a
 card lists its pinned images (`images: [{url, sha256, file, bytes, content_type, L, alt}]`) so a vision-capable
 interpreter can read the chart for context; a number shown only in an image is still never a candidate or a prose
 value (`docs/runbooks/PORTABLE_SCAN.md`). The image route for numbers stays `verified/part3_images.py`, whose pixel

@@ -159,7 +159,9 @@ class ImageTests(unittest.TestCase):
         self.assertEqual(ledger["images"][self.url("test/one", ONE, "ppl.png")]["L"], {"test/one": [6]})
         self.assertEqual(ledger["images"][f"{self.cdn.base}/chart.jpg"]["content_type"], "image/jpeg")
         audit = self.audit()
-        self.assertEqual((audit["cards"], audit["references"], audit["referenced"], audit["pinned"], audit["unresolved"]), (2, 3, 3, 3, []))
+        self.assertEqual((audit["cards"], audit["references"], audit["referenced"], audit["pinned"]), (2, 3, 3, 3))
+        self.assertEqual((audit["unresolved"], audit["gone"], audit["refused"]), ([], [], []))
+        self.assertEqual((line["gone"], line["refused"]), (0, 0))
         self.assertFalse(self.hub.paths("shields"), "badges are never requested")
         self.assertEqual(sorted(self.hub.paths("resolve")), sorted([f"/test/one/resolve/{ONE}/images/kld.png", f"/test/one/resolve/{ONE}/ppl.png"]))
         self.assertTrue(all(auth == "Bearer synthetic-token" for _, auth in self.hub.requests), "the token goes to the Hub origin")
@@ -178,30 +180,58 @@ class ImageTests(unittest.TestCase):
         self.assertEqual(self.hub.paths("images/kld.png"), [f"/test/one/resolve/{ONE}/images/kld.png"] * 2)
         self.assertEqual((self.model / self.ledger()["images"][self.url("test/one", ONE, "images/kld.png")]["file"]).read_bytes(), PNG)
 
-    def test_404_is_unresolved_and_strict_fails_loudly(self):
+    def test_404_is_gone_with_evidence_and_strict_passes(self):
         del self.hub.files[("test/one", "ppl.png")]
-        line = self.run_images("--strict", code=1)
-        self.assertEqual((line["referenced"], line["pinned"], line["unresolved"]), (3, 2, 1))
+        line = self.run_images("--strict", code=0)   # a definitive answer is not a failure of this run
+        self.assertEqual((line["referenced"], line["pinned"], line["unresolved"], line["gone"], line["refused"]), (3, 2, 0, 1, 0))
         audit = self.audit()
-        self.assertEqual(audit["unresolved"], [{"url": self.url("test/one", ONE, "ppl.png"), "repo": "test/one", "L": 6, "references": 1,
-                                                "status": 404, "attempts": 1, "reason": "HTTP 404"}])
+        self.assertEqual(audit["gone"], [{"url": self.url("test/one", ONE, "ppl.png"), "repo": "test/one", "L": 6, "references": 1,
+                                          "status": 404, "attempts": 1, "reason": "HTTP 404"}])
+        self.assertEqual((audit["unresolved"], audit["refused"]), ([], []))
+        before = tree_hashes(self.root)
+        line = self.run_images("--strict", code=0)
+        self.assertEqual((line["gone"], line["new"]), (1, 0))
+        self.assertEqual(tree_hashes(self.root), before, "a persistent 404 changes no file between runs")
+        self.assertFalse(list((self.model / "cache/images").glob("*.tmp")))
+        self.cdn.routes["/chart.jpg"] = (403, b"gated", {})   # a gated repository answers 403: gone too, once pinned files are dropped
+        for p in (self.model / "cache/images").glob("*"): p.unlink()
+        line = self.run_images("--strict", code=0)
+        self.assertEqual((line["pinned"], line["gone"], line["unresolved"]), (1, 2, 0))
+        self.assertEqual([(g["status"], g["reason"]) for g in self.audit()["gone"]], [(403, "HTTP 403"), (404, "HTTP 404")])
+
+    def test_503_on_every_attempt_is_unresolved_and_strict_fails_loudly(self):
+        self.cdn.routes["/chart.jpg"] = (503, b"down", {})
+        line = self.run_images("--strict", code=1)
+        self.assertEqual((line["referenced"], line["pinned"], line["unresolved"], line["gone"], line["refused"]), (3, 2, 1, 0, 0))
+        audit = self.audit()
+        self.assertEqual(audit["unresolved"], [{"url": f"{self.cdn.base}/chart.jpg", "repo": "test/two", "L": 2, "references": 1,
+                                                "status": None, "attempts": 3, "reason": "gave up after 3 tries"}])
+        self.assertEqual((audit["gone"], audit["refused"]), ([], []))
+        self.assertEqual(self.cdn.paths("chart.jpg"), ["/chart.jpg"] * 3, "every attempt was made before giving up")
         before = tree_hashes(self.root)
         line = self.run_images()   # without --strict the run reports and exits zero
         self.assertEqual(line["unresolved"], 1)
-        self.assertEqual(tree_hashes(self.root), before, "a persistent 404 changes no file between runs")
+        self.assertEqual(tree_hashes(self.root), before, "a persistent outage changes no file between runs")
         self.assertFalse(list((self.model / "cache/images").glob("*.tmp")))
 
-    def test_non_image_and_oversize_files_are_refused_and_reported(self):
+    def test_non_image_and_oversize_files_are_refused_with_evidence(self):
         self.hub.cards["test/two"] = f"# Two\n![page]({self.cdn.base}/page.html)\n![big]({self.cdn.base}/big.png)\n".encode()
         self.pin_cards()
-        line = self.run_images("--max-bytes", "100")
-        self.assertEqual((line["referenced"], line["pinned"], line["unresolved"]), (4, 2, 2))
-        bad = {u["url"]: u for u in self.audit()["unresolved"]}
+        line = self.run_images("--strict", "--max-bytes", "100", code=0)   # a policy refusal is not a failure of this run
+        self.assertEqual((line["referenced"], line["pinned"], line["unresolved"], line["gone"], line["refused"]), (4, 2, 0, 0, 2))
+        audit = self.audit()
+        self.assertEqual((audit["unresolved"], audit["gone"]), ([], []))
+        bad = {u["url"]: u for u in audit["refused"]}
         self.assertEqual(bad[f"{self.cdn.base}/page.html"]["reason"], "not an image: content type text/html")
         self.assertEqual(bad[f"{self.cdn.base}/big.png"]["reason"], f"larger than --max-bytes: {len(BIG)} > 100 bytes")
+        self.assertEqual((bad[f"{self.cdn.base}/page.html"]["bytes"], bad[f"{self.cdn.base}/page.html"]["content_type"]), (len(b"<html>login</html>"), "text/html"))
+        self.assertEqual((bad[f"{self.cdn.base}/big.png"]["bytes"], bad[f"{self.cdn.base}/big.png"]["content_type"]), (len(BIG), "image/png"))
         self.assertTrue(all(u["status"] == 200 and u["attempts"] == 1 and u["repo"] == "test/two" for u in bad.values()))
         stored = {p.read_bytes() for p in (self.model / "cache/images").glob("*") if p.suffix != ".json"}
         self.assertEqual(stored, {PNG, PNG2}, "a refused file is never stored")
+        before = tree_hashes(self.root)
+        self.run_images("--strict", "--max-bytes", "100", code=0)
+        self.assertEqual(tree_hashes(self.root), before, "a persistent refusal changes no file between runs")
 
     def test_rate_limit_is_recorded_without_spinning(self):
         del self.hub.files[("test/one", "ppl.png")]
@@ -209,8 +239,14 @@ class ImageTests(unittest.TestCase):
         t0 = time.time(); line = self.run_images("--workers", "1"); elapsed = time.time() - t0
         self.assertEqual(line["rate_limited"]["retry_after"], "120")
         self.assertGreaterEqual(line["unresolved"], 1); self.assertLess(elapsed, 20, "Retry-After is recorded, not slept on")
-        self.assertEqual(self.audit()["rate_limited"]["retry_after"], "120")
+        self.assertEqual((line["gone"], line["refused"]), (0, 0), "a 429 is retryable: it stays unresolved")
+        audit = self.audit()
+        self.assertEqual(audit["rate_limited"]["retry_after"], "120")
+        self.assertEqual({(u["status"], u["reason"]) for u in audit["unresolved"] if u["url"].endswith("ppl.png")},
+                         {(429, "HTTP 429: the batch stopped; Retry-After recorded, resume a later run")})
+        self.assertTrue(all(u["status"] in (429, None) for u in audit["unresolved"]), "the URLs not requested after the 429 are unresolved too")
         self.assertEqual(self.hub.paths("ppl.png"), [f"/test/one/resolve/{ONE}/ppl.png"], "one request, no retry on 429")
+        self.run_images("--strict", "--workers", "1", code=1)   # retryable, so a strict run fails until a later run gets through
 
     def test_data_uri_is_decoded_in_place_and_a_dropped_image_is_pruned(self):
         inline = base64.b64encode(PNG2).decode()
@@ -282,15 +318,24 @@ class ImageTests(unittest.TestCase):
         self.assertFalse(self.hub.paths("resolve") + self.cdn.paths())
         path.write_text(json.dumps(lines[0]))
         self.assertEqual(subprocess.run([sys.executable, str(COLLECT), "--summary", str(path)], capture_output=True, text=True).stdout.strip(), "no card changed; images 3/3 pinned")
-        self.hub.sha["test/two"] = "4" * 40; self.hub.cards["test/two"] = f"# Two\n![results]({self.cdn.base}/chart2.jpg)\n".encode()   # the CDN has no chart2
+        self.hub.sha["test/two"] = "4" * 40; self.hub.cards["test/two"] = f"# Two\n![results]({self.cdn.base}/chart2.jpg)\n".encode()
+        self.cdn.routes["/chart2.jpg"] = (503, b"down", {})   # the CDN is down for chart2 on every attempt
         code, lines, _ = collect("--strict-images")
-        self.assertEqual(code, 1, "an unresolved image fails a strict run loudly")
-        self.assertEqual((lines[0]["changed"], lines[0]["images"]["unresolved"], lines[0]["images"]["pinned"]), (1, 1, 2))
+        self.assertEqual(code, 1, "an unresolved (retryable) image fails a strict run loudly")
+        self.assertEqual((lines[0]["changed"], lines[0]["images"]["unresolved"], lines[0]["images"]["gone"], lines[0]["images"]["pinned"]), (1, 1, 0, 2))
         path.write_text(json.dumps(lines[0]))
         self.assertEqual(subprocess.run([sys.executable, str(COLLECT), "--summary", str(path)], capture_output=True, text=True).stdout.strip(),
                          f"{SLUG} ~1 1 img unresolved; images 2/3 pinned")
         code, lines, _ = collect()
         self.assertEqual(code, 0, "without --strict-images the run only reports")
+        del self.cdn.routes["/chart2.jpg"]   # now the CDN answers 404: the file is gone, which is evidence, not a failure
+        code, lines, _ = collect("--strict-images")
+        self.assertEqual(code, 0, "a gone image does not fail a strict run")
+        self.assertEqual((lines[0]["images"]["unresolved"], lines[0]["images"]["gone"], lines[0]["images"]["pinned"]), (0, 1, 2))
+        self.assertEqual(self.audit()["gone"][0]["status"], 404)
+        path.write_text(json.dumps(lines[0]))
+        self.assertEqual(subprocess.run([sys.executable, str(COLLECT), "--summary", str(path)], capture_output=True, text=True).stdout.strip(),
+                         f"{SLUG} 1 img gone; images 2/3 pinned")
         code, lines, _ = collect("--no-images")
         self.assertEqual(code, 0); self.assertNotIn("images", lines[0])
 
