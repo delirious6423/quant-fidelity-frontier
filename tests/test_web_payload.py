@@ -25,11 +25,12 @@ class BrowserPayloadTests(unittest.TestCase):
             self.assertEqual(data['sets'],original)
             for before,after in zip(original,projected['sets']):
                 self.assertEqual(set(before)-set(after),{'comparison'})
-                for key in set(before)-{'points','comparison','comparisons'}:
+                for key in set(before)-{'points','unsized','comparison','comparisons'}:
                     self.assertEqual(before[key],after[key])
-                self.assertEqual(len(before['points']),len(after['points']))
-                for point,visible in zip(before['points'],after['points']):
-                    self.assertEqual({k:v for k,v in point.items() if k!='protocol'},visible)
+                for group in ('points','unsized'):   # size-less overview claims get the same projection as plotted ones
+                    self.assertEqual(len(before.get(group,[])),len(after.get(group,[])))
+                    for point,visible in zip(before.get(group,[]),after.get(group,[])):
+                        self.assertEqual({k:v for k,v in point.items() if k!='protocol'},visible)
                 for metric,comparison in before['comparisons'].items():
                     self.assertEqual({k:v for k,v in comparison.items() if k!='failure_examples'},after['comparisons'][metric])
             html=(path.parent/'index.html').read_text()

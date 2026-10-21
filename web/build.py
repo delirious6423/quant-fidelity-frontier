@@ -345,32 +345,34 @@ def build_sets(rows, repos):
                   (len(aq & {p["qid"] for p in o["points"]}) >= 0.7 * len(aq) or repeats(o) >= max(2, 0.6 * len(avals))) for o in out)
         if not dup: out.append(a)
     # all self-reported claims (not comparable)
-    allp = []
+    allp, unsized = [], []   # a claim whose card publishes no size has no x position: it goes beside the chart, not on it
     for r in rows:
-        if r["size_gb"] is None or r.get("copied_from"): continue
+        if r.get("copied_from"): continue
         if r["kind"] == "quoted": continue
         ms = metric_series(r)
         fam = {}
         for c, k in ms.items():   # the overview plots one value per family: the plain series, else the first per-corpus one
             f = c.split(":")[0]
-            if f in ("kld", "top1", "ppl") and (f not in fam or c == f): fam[f] = k
+            if f in ("kld", "top1", "ppl", "ppl_delta") and (f not in fam or c == f): fam[f] = k
         p = pt(r, fam, "size_gb")
         for f_, k_ in fam.items():   # say which per-corpus series stood in for the family
             if k_ != f_ and f_ in p["m"]: p["m"][f_]["series"] = k_
         if not p["m"]: continue
-        p["qid"] = p["qid"] + "@" + owner(r["measured_by"]).lower()
-        allp.append(p)
-    all_metrics = ["kld", "top1", "ppl"]   # families only: per-corpus series belong in their own measurement sets
+        p["qid"] = p["qid"] + "@" + owner(r["measured_by"]).lower() + ("" if r["size_gb"] is not None else "#nosize")   # never shares a highlight or pin with a sized twin
+        (allp if r["size_gb"] is not None else unsized).append(p)
+    all_metrics = ["kld", "top1", "ppl", "ppl_delta"]   # families only: per-corpus series belong in their own measurement sets
     # the overview opens on the metric most cards report (a model whose publishers mostly quote perplexity opens on it)
-    _n = collections.Counter(k for p in allp for k in p["m"])
-    all_metrics = sorted([k for k in all_metrics if _n.get(k)] or all_metrics[:1], key=lambda k: (-_n.get(k, 0), all_metrics.index(k)))
+    _n = collections.Counter(k for p in allp for k in p["m"])   # the default follows the plotted claims; size-less ones only add metrics
+    _u = collections.Counter(k for p in unsized for k in p["m"])
+    all_metrics = sorted([k for k in all_metrics if _n.get(k) or _u.get(k)] or all_metrics[:1], key=lambda k: (-_n.get(k, 0), -_u.get(k, 0), all_metrics.index(k)))
     if "kld" in all_metrics and _n.get(all_metrics[0], 0) < 1.5 * _n.get("kld", 0):   # KLD stays the default unless another metric is far more common
         all_metrics = ["kld"] + [k for k in all_metrics if k != "kld"]
     out.append({"id": "all", "title": "Every claim together (mixed protocols)", "reference": "Mixed", "data": "Mixed",
                 "x": {"field": "size_gb", "label": "Size, GB as published (download, GPU or resident; see each point)", "unit": "GB"},
-                "note": "Every KLD, top-1 and perplexity figure with a size, from every card. Protocols may differ or remain unverified. Use an evidence-verified measurement set for direct ranking, including sets with different quant publishers.",
-                "refs": {}, "metrics": all_metrics, "points": allp, "comparable": False})
+                "note": "Every KLD, top-1, perplexity and perplexity-change figure from every card; claims whose card publishes no size are listed beside and under the chart. Protocols may differ or remain unverified. Use an evidence-verified measurement set for direct ranking, including sets with different quant publishers.",
+                "refs": {}, "metrics": all_metrics, "points": allp, "unsized": unsized, "comparable": False})
     metrics = dict(ns["METRICS"])
+    if "ppl_delta" in all_metrics: metrics.setdefault("ppl_delta", dict(label="PPL change", unit="%", log=False, better="lower"))
     if CFG.get("named_metric_series"):
         definitions = {"kld": dict(label="Mean KLD", unit="nats", log=True, better="lower"),
                        "top1": dict(label="Top-1 agreement", unit="%", log=False, better="higher"),
@@ -659,7 +661,7 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
   <p class="ex-scope" id="exscope"></p>
   <div class="ex-meta" id="exmeta"></div>
   <div class="ex-body">
-    <div class="ex-chart"><div id="exsvg" class="chartbox"><noscript>The interactive chart needs JavaScript. All numbers are in the ledger below.</noscript></div><div id="extip" class="ex-tip" role="tooltip" hidden></div><p class="ex-chartnote dim" id="exchartnote"></p><div class="legend" id="exlegend" aria-label="Show or hide a repository"></div></div>
+    <div class="ex-chart"><div id="exsvg" class="chartbox"><noscript>The interactive chart needs JavaScript. All numbers are in the ledger below.</noscript></div><div id="extip" class="ex-tip" role="tooltip" hidden></div><p class="ex-chartnote dim" id="exchartnote"></p><div class="legend" id="exlegend" aria-label="Show or hide a repository"></div><div id="exunsized" class="ex-unsized-box" hidden></div></div>
     <aside class="ex-picker" aria-label="Choose quants">
       <section id="exdetail" class="quant-detail" hidden aria-label="Selected quant"></section>
       <details id="quant-picker"><summary>Choose quants <span id="excount" class="count" aria-live="polite"></span></summary><div class="ex-pick-head"><button type="button" id="exexpand" class="tiny" aria-pressed="false">Expand list</button></div>

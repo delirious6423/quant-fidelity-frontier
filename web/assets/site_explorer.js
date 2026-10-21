@@ -8,7 +8,7 @@
   var state = { set: (SETS.some(function (x) { return x.id === 'all'; }) ? 'all' : SETS[0].id), metric: null, picked: {}, q: '', fmts: {}, sort: null, focus: null, pinned: null, xmax: null, ylim: null, onlyFront: false, basis: '', lin: false };
 
   // stable colour per publisher across all sets
-  var pubs = []; SETS.forEach(function (s) { s.points.forEach(function (p) { if (pubs.indexOf(p.pub) < 0) pubs.push(p.pub); }); });
+  var pubs = []; SETS.forEach(function (s) { s.points.concat(s.unsized || []).forEach(function (p) { if (pubs.indexOf(p.pub) < 0) pubs.push(p.pub); }); });
   pubs.sort(function (a, b) { return a.toLowerCase() < b.toLowerCase() ? -1 : 1; });
   function colour(pub) { return 'var(--s' + (pubs.indexOf(pub) % 8) + ')'; }
   var DASH = ['', '6 3', '2 3', '8 3 2 3'];
@@ -179,6 +179,10 @@
     return true;
   }
   function base(S) { return S.points.filter(function (p) { return matches(p) && isPicked(p) && inRange(p); }); }
+  // claims whose card publishes no size: beside the chart and in a table under it; an unknown size never meets a size limit or size type
+  // a repository hidden in the legend or picker hides its size-less claims too
+  function repoOn(S, repo) { var ps = S.points.filter(function (p) { return p.repo === repo; }); return !ps.length || ps.some(isPicked); }
+  function unsized(S) { return state.xmax != null || state.basis ? [] : (S.unsized || []).filter(function (p) { return matches(p) && inRange(p) && repoOn(S, p.repo); }); }
   function shown(S) {
     var b = base(S); if (!(state.onlyFront && comparable(S))) return b;
     var k = state.metric, F = frontier(b.filter(function (p) { return p.m[k] && p.m[k].v != null; }), k);
@@ -349,7 +353,24 @@
     renderBody();
     restoreFocus(focus, $('explorer'));
   }
-  function renderBody() { var S = setById(state.set), focus = rememberFocus($('explorer')); picker(S); drawChart(); table(S); renderDetail(); restoreFocus(focus, $('explorer')); }
+  function renderBody() { var S = setById(state.set), focus = rememberFocus($('explorer')); picker(S); drawChart(); unsizedTable(S); table(S); renderDetail(); restoreFocus(focus, $('explorer')); }
+  var unsizedOpen = true, SHORT = { kld: 'KLD', top1: 'Top-1 %', ppl: 'PPL', ppl_delta: 'PPL Δ %' };
+  function unsizedTable(S) {
+    var box = $('exunsized'); if (!box) return;
+    var all = S.unsized || [], us = unsized(S); box.hidden = !all.length; box.innerHTML = ''; if (!all.length) return;
+    var title = all.length + ' claim' + (all.length === 1 ? '' : 's') + ' without a published size';
+    if (!us.length) { box.innerHTML = '<p class="dim">' + title + (state.xmax != null || state.basis ? ': hidden while a size limit or size type is set, since an unknown size cannot meet it.' : ': none matches the current filters.') + '</p>'; return; }
+    var ks = S.metrics.filter(function (m) { return MET[m] && us.some(function (p) { return p.m[m]; }); }), k = state.metric;
+    var rows = us.slice().sort(function (a, b) { var av = a.m[k] ? a.m[k].v : null, bv = b.m[k] ? b.m[k].v : null; if (av == null || bv == null) return av == null ? (bv == null ? 0 : 1) : -1; return MET[k].better === 'lower' ? av - bv : bv - av; }).map(function (p) {
+      return '<tr data-qid="' + esc(p.qid) + '"><td><b>' + esc(p.variant) + '</b><br><small>' + esc(p.repo) + (p.fmt ? ' · ' + esc(p.fmt) : '') + '</small></td>' +
+        ks.map(function (m) { return '<td class="n">' + (p.m[m] ? esc(p.m[m].raw) : '—') + '</td>'; }).join('') +
+        '<td><a href="' + esc(p.src) + '">' + esc(p.src_label) + '</a><br><small>' + esc(measurementOwner(p)) + '</small></td></tr>';
+    }).join('');
+    var d = h('details', { class: 'ex-unsized' }, '<summary>' + (us.length === all.length ? title : us.length + ' of ' + title) + '</summary>' +
+      '<p class="dim">Not on the size axis: the card publishes no file size for these quants. Values exactly as published; protocols may differ.</p>' +
+      '<div class="tablebox"><table><thead><tr><th>Quant</th>' + ks.map(function (m) { return '<th class="n" title="' + esc(MET[m].label) + '">' + esc(SHORT[m] || MET[m].label) + '</th>'; }).join('') + '<th>Source</th></tr></thead><tbody>' + rows + '</tbody></table></div>');
+    d.open = unsizedOpen; d.addEventListener('toggle', function () { unsizedOpen = d.open; }); box.appendChild(d);
+  }
 
   function picker(S) {
     var box = $('expick'); box.innerHTML = '';
@@ -397,17 +418,19 @@
     var S = setById(state.set), k = state.metric, M = MET[k], legendFocus = rememberFocus($('exlegend'));
     var candidates = shown(S).filter(function (p) { return p.m[k] && p.m[k].v != null; });
     var useLog = usesLog(k), pts = candidates.filter(function (p) { return !useLog || p.m[k].v > 0; });
-    var omitted = candidates.length - pts.length;
+    var uc = unsized(S).filter(function (p) { return p.m[k] && p.m[k].v != null; }), us = uc.filter(function (p) { return !useLog || p.m[k].v > 0; });
+    var omitted = candidates.length - pts.length + uc.length - us.length;
     var note = omitted ? [omitted + ' zero or negative ' + M.label + ' value' + (omitted === 1 ? '' : 's') + ' cannot appear on a log axis; switch to Linear to view ' + (omitted === 1 ? 'it.' : 'them.')] : [];
     $('exchartnote').textContent = note.join(' ');
     lastPts = pts; host.innerHTML = ''; hideTip(true);
     var cw = Math.max(300, (host.clientWidth || 760) - 24), narrow = cw < 560;
     var W = cw, H = narrow ? Math.round(cw * 0.95) : Math.min(500, Math.round(cw * 0.6)), ml = narrow ? 48 : 62, mr = narrow ? 10 : 18, mt = 34, mb = narrow ? 44 : 50;
-    var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, class: 'chart', role: 'img', 'aria-label': M.label + ' against ' + S.x.label + ' for ' + pts.length + ' quants in ' + S.title });
+    var sw = us.length ? (narrow ? 54 : 72) : 0; mr += sw;
+    var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, class: 'chart', role: 'img', 'aria-label': M.label + ' against ' + S.x.label + ' for ' + pts.length + ' quants in ' + S.title + (us.length ? ', plus ' + us.length + ' without a published size beside the size axis' : '') });
     host.appendChild(svg);
     var lg = $('exlegend'); lg.innerHTML = '';
-    if (pts.length === 0) { legend(S, svg); svg.appendChild(el('text', { x: W / 2, y: H / 2, class: 'axis', 'text-anchor': 'middle' }, omitted ? 'These values need Linear scale.' : S.points.some(function (p) { return p.m[k]; }) ? 'No values match the current filters.' : 'No quant in this set has this metric.')); restoreFocus(legendFocus, $('exlegend')); return; }
-    var xs = pts.map(function (p) { return p.x; }), ys = pts.map(function (p) { return p.m[k].v; });
+    if (pts.length === 0) { legend(S, svg); svg.appendChild(el('text', { x: W / 2, y: H / 2, class: 'axis', 'text-anchor': 'middle' }, omitted ? 'These values need Linear scale.' : us.length ? (S.points.some(function (p) { return p.m[k]; }) ? 'No sized values match the current filters. ' : '') + us.length + ' claim' + (us.length === 1 ? '' : 's') + ' with this metric publish no size: see the table below.' : S.points.some(function (p) { return p.m[k]; }) ? 'No values match the current filters.' : 'No quant in this set has this metric.')); restoreFocus(legendFocus, $('exlegend')); return; }
+    var xs = pts.map(function (p) { return p.x; }), ys = pts.map(function (p) { return p.m[k].v; }).concat(us.map(function (p) { return p.m[k].v; }));
     var ref = S.refs[k]; if (ref && useLog && ref[0] <= 0) ref = null;
     if (ref) ys.push(ref[0]);
     var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs); var xp = (x1 - x0) * 0.08 || Math.max(1, x0 * 0.05); x0 -= xp; x1 += xp;
@@ -469,6 +492,25 @@
       });
       svg.appendChild(c); boxes.push({ x0: cx - r - 1, x1: cx + r + 1, y0: cy - r - 1, y1: cy + r + 1 });
     });
+    if (us.length) {
+      var sx = W - sw + 6, scx = sx + (sw - 6) / 2, cols = narrow ? 3 : 4, gap = narrow ? 11 : 12;
+      svg.appendChild(el('rect', { x: sx, y: mt, width: sw - 6, height: H - mt - mb, class: 'ustrip' }));
+      svg.appendChild(el('line', { x1: sx, x2: sx, y1: mt, y2: H - mb, class: 'usep' }));
+      svg.appendChild(el('text', { x: scx, y: H - mb + 15, class: 'tick', 'text-anchor': 'middle' }, narrow ? 'no' : 'size not'));
+      svg.appendChild(el('text', { x: scx, y: H - mb + 27, class: 'tick', 'text-anchor': 'middle' }, narrow ? 'size' : 'published'));
+      us.slice().sort(function (a, b) { return a.m[k].v - b.m[k].v; }).forEach(function (p, i) {
+        var cx = scx + ((i % cols) - (cols - 1) / 2) * gap, cy = Y(p.m[k].v);
+        var c = el('circle', { cx: cx.toFixed(1), cy: cy.toFixed(1), r: r - 0.6, class: 'umk', 'data-qid': p.qid, style: 'stroke:' + colour(p.pub), tabindex: '0', role: 'button',
+          'aria-label': p.variant + ' from ' + p.repo + ': ' + M.label + ' ' + p.m[k].raw + ', size not published' });
+        c.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { showTip(p, c); hl(p.qid, true); } });
+        c.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') { hl(p.qid, false); if (state.pinned !== p.qid) hideTip(); } });
+        c.addEventListener('focus', function () { showTip(p, c); hl(p.qid, true); });
+        c.addEventListener('blur', function () { hl(p.qid, false); if (state.pinned !== p.qid) hideTip(); });
+        c.addEventListener('click', function () { state.pinned = state.pinned === p.qid ? null : p.qid; dismissedQid = null; if (state.pinned) showTip(p, c, true); else hideTip(true); });
+        c.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); state.pinned = p.qid; showTip(p, c, true); } if (e.key === 'Escape') { state.pinned = null; hideTip(true); } });
+        svg.appendChild(c);
+      });
+    }
     var maxLab = narrow ? 14 : 36;
     var labelPts = labelsCb.checked && pts.length <= maxLab ? pts : pts.filter(function (p) { return detailPoint === p; });
     if (labelPts.length) {
@@ -547,9 +589,9 @@
     var metrics = S.metrics.filter(function (m) { return p.m[m]; });
     box.innerHTML = '<button type="button" class="quant-close tiny" aria-label="Close selected quant">Close ×</button>' +
       '<p class="dim">Selected quant</p><h3>' + esc(p.variant) + '</h3><p class="tt-repo">' + esc(p.repo) + (p.fmt ? ' · ' + esc(p.fmt) : '') + '</p>' +
-      '<div class="tt-grid"><div><span>' + esc(S.x.label) + '</span><b>' + fmt(p.x) + ' ' + esc(S.x.unit) + '</b></div>' +
+      '<div class="tt-grid"><div><span>' + esc(S.x.label) + '</span><b>' + (p.x == null ? 'not published' : fmt(p.x) + ' ' + esc(S.x.unit)) + '</b></div>' +
       metrics.map(function (m) { return '<div><span>' + esc(MET[m].label) + (p.m[m].series ? ' · ' + esc(p.m[m].series.split(':').slice(1).join(':')) : '') + '</span><b>' + esc(p.m[m].raw) + '</b></div>'; }).join('') + '</div>' +
-      (shown(S).indexOf(p) < 0 ? '<p class="dim">This selected quant is outside the current chart filters.</p>' : '') +
+      (p.x == null ? '<p class="dim">The card publishes no size for this quant, so it sits beside the size axis.</p>' : shown(S).indexOf(p) < 0 ? '<p class="dim">This selected quant is outside the current chart filters.</p>' : '') +
       '<p class="dim">Reference: ' + esc(S.reference) + '</p>' +
       (p.basis ? '<p class="dim">Size type: ' + esc(p.basis) + '</p>' : '') +
       '<p class="dim">Quant publisher: ' + esc(quantizationOwner(p)) + '<br>Measurement publisher: ' + esc(measurementOwner(p)) + '</p>' +
@@ -580,7 +622,7 @@
     var others = S.metrics.filter(function (m) { return m !== k && p.m[m]; }).map(function (m) { return '<div><span>' + esc(MET[m].label) + (p.m[m].series ? ' · ' + esc(p.m[m].series.split(':').slice(1).join(':')) : '') + '</span><b>' + esc(p.m[m].raw) + '</b></div>'; }).join('');
     tip.innerHTML = '<p class="tt-name">' + esc(p.variant) + '</p><p class="tt-repo">' + esc(p.repo) + (p.fmt ? ' · ' + esc(p.fmt) : '') + '</p>' +
       '<div class="tt-grid"><div><span>' + esc(M.label) + (p.m[k].series ? ' · ' + esc(p.m[k].series.split(':').slice(1).join(':')) : '') + '</span><b>' + esc(p.m[k].raw) + '</b></div>' + others +
-      '<div><span>' + esc(S.x.unit) + '</span><b>' + fmt(p.x) + (p.size_raw && String(p.size_raw) !== fmt(p.x) ? ' <small>(card: ' + esc(p.size_raw) + ')</small>' : '') + '</b></div></div>' +
+      '<div><span>' + esc(S.x.unit) + '</span><b>' + (p.x == null ? 'not published' : fmt(p.x)) + (p.size_raw && String(p.size_raw) !== fmt(p.x) ? ' <small>(card: ' + esc(p.size_raw) + ')</small>' : '') + '</b></div></div>' +
       '<p class="tt-by">Quant publisher: ' + esc(quantizationOwner(p)) + '<br>Measurement publisher: ' + esc(measurementOwner(p)) + '</p>' +
       (p.inferred ? '<p class="tt-by">The card names this file but not its repository; attributed from the file name.</p>' : '') +
       (p.is_ref ? '<p class="tt-by">This is the measurement\u2019s reference, so it is not ranked for efficiency.</p>' : '') +
@@ -597,7 +639,7 @@
   }
   function hideTip(force) { if (force || !state.pinned) { tip.hidden = true; tip.classList.remove('pinned'); } }
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && state.pinned) { state.pinned = null; hideTip(true); } });
-  document.addEventListener('click', function (e) { if (state.pinned && document.contains(e.target) && !e.target.closest('#extip') && !e.target.closest('#exdetail') && !e.target.closest('#exdetailopen') && !e.target.closest('#exfindres') && !e.target.closest('.jump') && !e.target.closest('circle.mk') && !e.target.closest('#extable')) { state.pinned = null; hideTip(true); } });
+  document.addEventListener('click', function (e) { if (state.pinned && document.contains(e.target) && !e.target.closest('#extip') && !e.target.closest('circle.umk') && !e.target.closest('#exdetail') && !e.target.closest('#exdetailopen') && !e.target.closest('#exfindres') && !e.target.closest('.jump') && !e.target.closest('circle.mk') && !e.target.closest('#extable')) { state.pinned = null; hideTip(true); } });
 
   function hl(qid, on) {
     var svg = host.querySelector('svg'); if (!svg) return;

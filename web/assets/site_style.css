@@ -336,7 +336,7 @@ section[id]{scroll-margin-top:72px}
 .quant-detail dt{color:var(--muted)}
 .quant-detail dd{margin:0;text-align:right;font-family:var(--f-mono);font-size:12px;font-weight:600;max-width:18ch;overflow-wrap:anywhere}
 .quant-detail a{font-size:13px;font-weight:600}
-.quant-close{float:right;border:1px solid var(--line);border-radius:50%;width:32px;height:32px;background:var(--panel);color:var(--fg);cursor:pointer;font:inherit}
+.quant-close{float:right;border:1px solid var(--line);border-radius:16px;min-width:32px;height:32px;padding:0 12px;white-space:nowrap;background:var(--panel);color:var(--fg);cursor:pointer;font:inherit;margin-left:8px}
 .quant-detail .tt-grid{margin:12px 0;gap:8px}
 .quant-detail .tt-src{margin-top:14px;flex-wrap:wrap}
 .measurement-details{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:11px 14px}
@@ -465,3 +465,8 @@ input[type=checkbox]{accent-color:var(--accent)}
 .section-disclosure>summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 
 .msw-panel .msw-benchmarks{border-bottom:1px solid var(--line2);border-radius:0;padding-bottom:12px;margin-bottom:3px;color:var(--accent);font-weight:600}
+
+.chart .ustrip{fill:var(--accent);opacity:.06;pointer-events:none} .chart .usep{stroke:var(--muted);stroke-dasharray:4 3}
+.chart .umk{fill:none;pointer-events:all;stroke-width:2;stroke-dasharray:3 2;cursor:pointer;transition:opacity .15s} .chart.dimmed .umk:not(.hl){opacity:.18} .chart .umk.hl{stroke-width:3} .umk:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ex-unsized-box{margin-top:12px} .ex-unsized summary{cursor:pointer;font-weight:600} .ex-unsized td.n,.ex-unsized th.n{text-align:right;font-variant-numeric:tabular-nums} .ex-unsized small{color:var(--muted)}
+.ex-unsized table{width:100%;border-collapse:collapse;font-size:13px} .ex-unsized th,.ex-unsized td{padding:6px 8px;vertical-align:top;border-bottom:1px solid var(--line);text-align:left} .ex-unsized th{white-space:nowrap} .ex-unsized td small{display:block} .ex-unsized td:first-child{min-width:11em} .ex-unsized td:first-child small{overflow-wrap:anywhere} .ex-unsized td:last-child{min-width:10em}

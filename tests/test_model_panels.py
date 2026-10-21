@@ -72,6 +72,22 @@ class ModelPanels(unittest.TestCase):
                  "src": "https://example.test/card", "src_label": "L1", **overrides}
                 for i in (2, 3)]
 
+    def test_overview_keeps_sizeless_and_ppl_change_claims(self):
+        build = self.module()
+        rows = self.rows()   # two sized KLD claims decide the default metric
+        rows += [dict(r, variant="U" + r["variant"], size_gb=None, size_raw=None) for r in self.rows(
+            metrics={"ppl": {"v": 7.0, "raw": "7.00"}, "ppl_delta_pct": {"v": 1.5, "raw": "+1.5%"}})]
+        rows += [dict(rows[0], variant="quoted", size_gb=None, kind="quoted")]
+        sets, definitions = build.build_sets(rows, [{"repo": "publisher/model", "fmt": "EXL3", "methodology": {}}])
+        overview = next(st for st in sets if st["id"] == "all")
+        self.assertEqual([p["variant"] for p in overview["points"]], ["Q2", "Q3"])
+        self.assertEqual(sorted(p["variant"] for p in overview["unsized"]), ["UQ2", "UQ3"])   # quoted claims stay out
+        self.assertTrue(all(p["x"] is None and p["size_gb"] is None for p in overview["unsized"]))
+        self.assertEqual({k: v["raw"] for k, v in overview["unsized"][0]["m"].items()}, {"ppl": "7.00", "ppl_delta": "+1.5%"})
+        self.assertEqual(overview["metrics"][0], "kld")   # size-less claims add metrics but never change the default
+        self.assertEqual(set(overview["metrics"]), {"kld", "ppl", "ppl_delta"})
+        self.assertEqual(definitions["ppl_delta"]["better"], "lower")
+
     def test_overlapping_quant_ids_survive_separate_panels(self):
         build = self.module()
         method = {"reference": "native", "dataset": "held-out", "ctx": "2048", "tool": "runner"}
