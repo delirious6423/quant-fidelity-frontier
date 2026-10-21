@@ -284,8 +284,16 @@ for r in R:
             bad = [i for i in m["L"] if not (0 < i <= len(doc))]
             if bad: fails.append(f"{name}: methodology line refs out of range {bad}")
 
-missing = sorted(set(IDX) - seen)
-print(f"repos covered: {len(seen)}/{len(IDX)}" + (f"  MISSING: {missing}" if missing else ""))
+# A repository the collector installed (pipeline/qcl_collect.py) that no mapping run has read yet is pending, not missing:
+# it has nothing to publish and is left off the site until the next live-updates cycle maps it. A repository that was
+# mapped (maps/mapped.json) and still has no entry is a gap in the data and fails the gate as before.
+try:
+    MAPPED = set(json.load(open(f"{ROOT}/maps/mapped.json")))
+except (OSError, ValueError):
+    MAPPED = set()
+pending = sorted((set(IDX) - seen) - MAPPED)
+missing = sorted(set(IDX) - seen - set(pending))
+print(f"repos covered: {len(seen)}/{len(IDX)}" + (f"  PENDING MAPPING: {len(pending)}" if pending else "") + (f"  MISSING: {missing}" if missing else ""))
 print(f"values verified verbatim: {passes}")
 print(f"image-sourced values (see verify_images.py): {image_claims}")
 print(f"signed values checked for sign: {sign_checked} (sign failures: {sign_fails})")

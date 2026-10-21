@@ -101,7 +101,7 @@ class WorkflowSecurityTests(unittest.TestCase):
         self.assertNotRegex(self.verify, r"(?m)^\s+ref:", "checkout must use the caller's SHA, not a mutable branch")
 
     def test_live_model_enumeration_failure_is_not_hidden_in_a_shell_loop(self):
-        self.assertIn("python3 pipeline/qcl_live.py > live-models.txt", self.verify)
+        self.assertIn("python3 pipeline/qcl_live.py > \"$RUNNER_TEMP/live-models.txt\"", self.verify)
         self.assertNotIn("for d in $(python3 pipeline/qcl_live.py)", self.verify)
 
     def test_failed_fetch_keeps_completed_ledger_checkpoints(self):
@@ -157,7 +157,7 @@ class WorkflowSecurityTests(unittest.TestCase):
 
     def test_model_matrix_comes_from_the_live_model_list_and_tested_sites_round_trip(self):
         verify_jobs = jobs(self.verify)
-        self.assertIn("python3 pipeline/qcl_live.py > live-models.txt", verify_jobs["plan"])
+        self.assertIn("python3 pipeline/qcl_live.py > \"$RUNNER_TEMP/live-models.txt\"", verify_jobs["plan"])
         self.assertIn("outputs:\n      matrix: ${{ steps.live.outputs.matrix }}", verify_jobs["plan"])
         model = verify_jobs["model"]
         self.assertRegex(model, r"(?m)^    needs: plan$")
@@ -170,7 +170,7 @@ class WorkflowSecurityTests(unittest.TestCase):
         self.assertIn("if-no-files-found: error", model)
         site = verify_jobs["site"]
         self.assertIn("pattern: site-*", site)
-        self.assertLess(site.index("actions/download-artifact"), site.index("python3 pipeline/qcl_live.py > live-models.txt"))
+        self.assertLess(site.index("actions/download-artifact"), site.index("python3 pipeline/qcl_live.py > \"$RUNNER_TEMP/live-models.txt\""))
         self.assertLess(site.index("no tested site artifact"), site.index("tests/test_"),
                         "every live model's tested site is restored, or the job fails, before any suite runs")
         self.assertLess(site.index("tests/test_disclosures_ui.py"), site.index("web/assemble.py _site"))

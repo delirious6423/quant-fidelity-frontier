@@ -31,13 +31,12 @@ QFF lines up every Hugging Face quant of a model by its publisher's own claims (
 - Claims only: never type a number into `verified/`. Values are copied by code (`pipeline/qcl_map.py apply`, `pipeline/qcl_watch.py merge`) from card text. A gate failure means the entry is quarantined, never "fixed" by hand-editing a number.
 - Never rebuild a card from memory or a truncated tool result. Cards are saved byte-for-byte by `pipeline/qcl_mcpsave.py` and pinned by SHA-256.
 - Data roots: every model lives in `models/<slug>/`. Flash-Next is the default when `QCL_ROOT` is unset. Code lives in `gates/`, `pipeline/`, `web/` and `tests/`; the layout is in `docs/reference/DEVELOPING.md`.
-- Before committing, run the build and the tests:
+- Before committing, run CI locally. One command runs every step of `.github/workflows/verify.yml` on this machine, in the workflow's order, from the workflow file itself (so it cannot drift):
   ```bash
-  for d in $(python3 pipeline/qcl_live.py); do QCL_ROOT=$d python3 web/build.py; done   # every live model (models still ingesting are never built)
-  python3 web/assemble.py _site
-  python3 pipeline/readme_sync.py --check
+  python3 pipeline/ci_local.py                 # plan, safety, every live model's build + UI tests, then the site suites; exit 1 on any failure
+  python3 pipeline/ci_local.py --only safety   # or: --models SLUG ..., --only site --from "MCP", --receipt ci.json, --list
   ```
-  then the test suites with the commands exactly as listed in `.github/workflows/verify.yml`. At minimum: `tests/test_gates.py`, `tests/test_claims.py`, `tests/test_ui.py` (each site via `QCL_SITE=models/<slug>/site`), `tests/test_mcp.py` (with `QFF_DATA=_site`), `tests/test_discovery.py`.
+  It needs `pillow`, `numpy`, `playwright` (with its Chromium) and `mcp` installed (`--pip` installs them the way the workflow does). The same battery runs on GitHub Actions for every pull request and push to `main` when Actions minutes are available; a green local run with its receipt is the evidence when they are not.
 - The repo is public: commit no secrets, tokens, personal data, local paths or scratch files.
 - Pages deploys (`deploy-pages` workflow) are approved by the owner. Publishing the Hugging Face MCP Space needs the owner's explicit go-ahead in chat.
 - Agent fan-out: at most 20 concurrent workers. Mapping workers claim queues only with `pipeline/qcl_claim.py` (atomic) and write only their claimed names.
