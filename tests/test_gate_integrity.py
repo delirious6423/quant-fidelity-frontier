@@ -171,7 +171,7 @@ class GateIntegrity(unittest.TestCase):
     def test_valid_current_image_claims_still_verify(self):
         result = self.run_gate("verify_images.py")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn("image claims checked: 19, failures: 0", result.stdout)
+        self.assertIn("image claims checked: 20, failures: 0", result.stdout)
 
     def test_hf_branch_size_unit_cannot_change_without_converting_value(self):
         file = self.root / "verified/part3_images.py"
@@ -232,10 +232,26 @@ class GateIntegrity(unittest.TestCase):
 
     def test_ppl_score_requires_its_own_marker(self):
         file = self.root / "verified/part3_images.py"
-        file.write_text(file.read_text() + "\nR[0]['variants'][0]['m']['ppl'] = '1.43'\nR[0]['variants'][0]['px']['ppl_y'] = 897.875\n")
+        file.write_text(file.read_text() + "\nR[0]['variants'][0]['m']['ppl'] = '1.43'\nR[0]['variants'][0]['px']['ppl_y'] = 1038.6\n")
         result = self.run_gate("verify_images.py")
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("no ppl marker", result.stdout)
+
+    def test_ppl_score_cannot_be_read_off_another_quants_marker(self):
+        # The PPL chart has its own x axis (GiB), so ppl_x is free: pointing it at a neighbouring series' marker with
+        # that marker's label must fail on the series colour and on the quant's size.
+        file = self.root / "verified/part3_images.py"
+        original = file.read_text()
+        attacks = ("for e in R[0]['cross']:\n    if e['name'] == 'UD-Q4_K_XL': e['m']['ppl'] = '1.3964'; e['px'].update(ppl_x=1526.0, ppl_y=1195.9)",
+                   "for e in R[0]['variants']:\n    if e['name'].startswith('4.18'): e['m']['ppl'] = '1.3897'; e['px'].update(ppl_x=1237.0, ppl_y=1228.6)")
+        for attack in attacks:
+            with self.subTest(attack=attack.splitlines()[1][:40]):
+                file.write_text(original + "\n" + attack + "\n")
+                result = self.run_gate("verify_images.py")
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn("marker series differs between the KLD and PPL charts", result.stdout)
+                self.assertIn("PPL marker size does not match the quant's bpw", result.stdout)
+        file.write_text(original)
 
     def test_changed_external_docs_fail_even_when_claim_values_remain(self):
         file = self.root / "snapshots/unsloth.ai__docs__qwen3.8-next.md"
