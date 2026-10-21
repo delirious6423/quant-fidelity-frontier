@@ -1,0 +1,125 @@
+{
+ "repo": "pipenetwork/GLM-5.3-MLX-6bit",
+ "source_sha256": "d341ba6bd979ca5b31e7f10a42dd0b5cca7e2dfea4668998497e61d34f7c229e",
+ "candidates_sha256": "9163c24933215f7731cf72c6f53422542d235c790ce9d4ac6d6c264289350570",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "bf16 release for per-layer divergence; perplexity reference not stated",
+  "dataset": "wikitext-2 test (perplexity: 288,627 tokens, 141 windows; per-layer: 16,384 tokens)",
+  "ctx": "2048 (perplexity windows)",
+  "tool": "scripts/eval_ladder.py (per-layer divergence); perplexity tool not stated",
+  "L": [
+   64,
+   79,
+   80,
+   91
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "6bit",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "No perplexity or KLD for this build on the card [L72]",
+    "Ladder rows (8bit to fp8) give per-layer relative L2 error and cosine only; not a mapped metric [L69-77]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "4bit",
+   "metrics": {
+    "ppl": "c34"
+   },
+   "size": "c33",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "mixed-4_8bit",
+   "metrics": {
+    "ppl": "c36"
+   },
+   "size": "c35",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Recommended 512 GB build [L91]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "mixed-3_6bit",
+   "metrics": {
+    "ppl": "c38"
+   },
+   "size": "c37",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "+10.6% over mixed-4_8bit also stated [L91]; not mapped (one delta per entry)"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "REAP25-4bit",
+   "metrics": {
+    "ppl": "c40"
+   },
+   "size": "c39",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "REAP37-4bit",
+   "metrics": {
+    "ppl": "c42"
+   },
+   "size": "c41",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "ladder",
+   "name": "REAP50-4bit",
+   "metrics": {
+    "ppl": "c44"
+   },
+   "size": "c43",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  }
+ ],
+ "prose": [
+  {
+   "entry": "mixed-4_8bit",
+   "key": "ppl_ratio",
+   "L": 91,
+   "raw": "ratio 0.9575"
+  },
+  {
+   "entry": "mixed-3_6bit",
+   "key": "ppl_delta_pct",
+   "L": 91,
+   "raw": "+5.9% over 4-bit"
+  }
+ ]
+}

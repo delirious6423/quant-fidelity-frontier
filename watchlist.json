@@ -1,7 +1,7 @@
 {
  "about": "Models the hourly scan keeps current. status: live = on the site, deltas every hour; queued = ingested one after another (no wait between models; min_hours_between_ingests), in this order. Queue is maintained by the weekly discovery job (pipeline/qcl_discover.py).",
  "min_hours_between_ingests": 0,
- "last_ingest_at": "2026-10-20T17:14:17.740557+00:00",
+ "last_ingest_at": "2026-10-21T07:01:51.279252+00:00",
  "models": [
   {
    "model": "Qwen/Qwen3.8-Flash-Next",
@@ -72,10 +72,11 @@
   {
    "model": "zai-org/GLM-5.3",
    "slug": "glm-5.3",
-   "status": "queued",
+   "status": "review",
    "released": "2026-08-28",
    "quants": 80,
-   "quants_1k": 17
+   "quants_1k": 17,
+   "last_scan_at": "2026-10-21T06:40:03.000Z"
   },
   {
    "model": "google/gemma-4-31B-it",

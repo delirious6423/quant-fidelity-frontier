@@ -1,0 +1,83 @@
+{
+ "repo": "gpustack/GLM-5.3-W4A8",
+ "source_sha256": "149d859661fae753a16e67c2649b7f692e94660c98001e763344966dd5cd3eef",
+ "candidates_sha256": "8b3084565beb63e8f863bf8a43901f86b6fd9b95a736c421e08f347d87647a3f",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "Official FP8 under identical prompts, option shuffles and sampling [L60]",
+   "dataset": "GPQA-Diamond (198 × 4 samples); 64×2048-token held-out text for NLL; perplexity text not stated",
+   "ctx": "temperature 1.0, top_p 0.95, thinking on by default [L60]",
+   "tool": "vLLM on 8×H20, TP8, --kv-cache-dtype fp8_ds_mla [L60]",
+   "L": [60, 62, 73]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "GLM-5.3-W4A8 (local)",
+     "metrics": {
+       "bench:GPQA-Diamond pass@1": "c7",
+       "bench:Teacher-forced NLL": "c11",
+       "ppl": "c14"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "majority@4 cell is not a candidate; copied as prose [L65]",
+       "NLL is in nats and is filed under a bench key [L66]"
+     ]
+   },
+   {
+     "role": "cross",
+     "name": "GLM-5.3 (FP8, local)",
+     "of": "not named on card",
+     "metrics": {
+       "bench:GPQA-Diamond pass@1": "c6",
+       "bench:GPQA-Diamond majority@4": "c9",
+       "bench:Teacher-forced NLL": "c10",
+       "ppl": "c13"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "Official FP8 release measured locally under the same protocol [L60]",
+       "NLL is in nats and is filed under a bench key [L66]"
+     ]
+   },
+   {
+     "role": "quoted",
+     "name": "PhalaCloud W4AFP8 (reported)",
+     "of": "PhalaCloud/GLM-5.3-W4AFP8",
+     "methodology": {
+       "reference": "not stated",
+       "dataset": "not stated",
+       "ctx": "truncation-retry protocol [L75]",
+       "tool": "SGLang, from PhalaCloud's card [L60]",
+       "L": [60, 75]
+     },
+     "metrics": {
+       "bench:GPQA-Diamond pass@1": "c8",
+       "bench:AA-LCR": "c15",
+       "bench:BFCL": "c16",
+       "bench:deepswe1.1": "c18"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "Figures reported by PhalaCloud; different engine and protocol, not directly comparable [L60, L75]",
+       "NLL is shown only as +0.282 nats vs BF16, a different quantity; not mapped [L66]",
+       "NIAH 3/3 is a pass count, not a percentage; not mapped [L70]"
+     ]
+   }
+ ],
+ "prose": [
+   {"entry": "GLM-5.3-W4A8 (local)", "key": "bench:GPQA-Diamond majority@4", "L": 65, "raw": "90.91% | 90.91%"}
+ ]
+}

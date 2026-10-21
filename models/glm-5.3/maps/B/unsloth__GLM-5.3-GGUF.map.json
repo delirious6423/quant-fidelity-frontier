@@ -1,0 +1,11 @@
+{"repo": "unsloth/GLM-5.3-GGUF",
+ "source_sha256": "99bedbc8ef940ead10eaaab9b106e47b4db761e0ca463dff268549a496ca29f9",
+ "candidates_sha256": "03ad79e516db0106928c2b83a9941fd7618ef8d7805e40516935f685e6143185",
+ "no_quality_claims": true,
+ "no_claims_reason": "the benchmark table [L49-68] covers the upstream GLM-5.3 model and other models, not any quant in this repo",
+ "weights_modified": false,
+ "method": {"reference": "upstream GLM-5.3 full model and other models (not quants of this repo)", "dataset": "upstream benchmark suite; per-benchmark settings in footnotes [L77-91]", "ctx": "not stated per row; footnotes give context lengths", "tool": "per-benchmark harnesses in footnotes (Claude Code 2.1.207, mini-swe-agent, and others)", "L": [49, 51, 53, 77, 78, 79, 80]},
+ "entries": [
+   {"role": "own", "name": "GGUF quants", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["Benchmark table [L51-68] reports the upstream GLM-5.3 model and competitors (Kimi K3, DeepSeek-V4, Qwen3.8-Max, Opus 4.8, Fable 5, GPT-5.6 Sol); not measurements of this repo's quants, so not mapped", "Points to Unsloth Dynamic quantization benchmarks on another page [L19]: not in this card, not mapped"]}
+ ],
+ "prose": []}

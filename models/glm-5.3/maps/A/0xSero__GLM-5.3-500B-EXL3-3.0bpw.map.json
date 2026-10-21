@@ -1,0 +1,84 @@
+{
+ "repo": "0xSero/GLM-5.3-500B-EXL3-3.0bpw",
+ "source_sha256": "96d7e564220eea1a31c064093271af4e613062451941d8c8e1d5cecc5e98e594",
+ "candidates_sha256": "83aa85e9a30f8c9e638455e5c8a9fcbf1ee962547559b4ce8158ea794627b27a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "full BF16 model (GLM-5.3)", "dataset": "sealed 25-prompt panel, full 154k-token vocabulary, token-by-token", "ctx": "not stated", "tool": "not stated", "L": [42, 44]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "500B (this)",
+   "panel": "Which size should I pick?",
+   "methodology": {"reference": "full BF16 model (GLM-5.3)", "dataset": "sealed 25-prompt panel, full 154k-token vocabulary, token-by-token", "ctx": "not stated", "tool": "not stated", "L": [42, 44]},
+   "metrics": {"mean_kld": "c17"},
+   "size": "c16",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": ["REAP expert pruning, 168 of 256 experts kept; the 3.0 bpw width is in the title and not in a table cell [L17, L23]"]
+  },
+  {
+   "role": "ladder",
+   "name": "base (unpruned)",
+   "panel": "Which size should I pick?",
+   "methodology": {"reference": "full BF16 model (GLM-5.3)", "dataset": "sealed 25-prompt panel, full 154k-token vocabulary, token-by-token", "ctx": "not stated", "tool": "not stated", "L": [42, 44]},
+   "metrics": {"mean_kld": "c2"},
+   "size": "c1",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": ["measured the same way as the other cuts [L44]"]
+  },
+  {
+   "role": "ladder",
+   "name": "661B",
+   "panel": "Which size should I pick?",
+   "methodology": {"reference": "full BF16 model (GLM-5.3)", "dataset": "sealed 25-prompt panel, full 154k-token vocabulary, token-by-token", "ctx": "not stated", "tool": "not stated", "L": [42, 44]},
+   "metrics": {"mean_kld": "c5"},
+   "size": "c4",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": ["measured the same way as the other cuts [L44]"]
+  },
+  {
+   "role": "ladder",
+   "name": "615B",
+   "panel": "Which size should I pick?",
+   "methodology": {"reference": "full BF16 model (GLM-5.3)", "dataset": "sealed 25-prompt panel, full 154k-token vocabulary, token-by-token", "ctx": "not stated", "tool": "not stated", "L": [42, 44]},
+   "metrics": {"mean_kld": "c8"},
+   "size": "c7",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": ["measured the same way as the other cuts [L44]"]
+  },
+  {
+   "role": "ladder",
+   "name": "569B",
+   "panel": "Which size should I pick?",
+   "methodology": {"reference": "full BF16 model (GLM-5.3)", "dataset": "sealed 25-prompt panel, full 154k-token vocabulary, token-by-token", "ctx": "not stated", "tool": "not stated", "L": [42, 44]},
+   "metrics": {"mean_kld": "c11"},
+   "size": "c10",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": ["measured the same way as the other cuts [L44]"]
+  },
+  {
+   "role": "ladder",
+   "name": "533B",
+   "panel": "Which size should I pick?",
+   "methodology": {"reference": "full BF16 model (GLM-5.3)", "dataset": "sealed 25-prompt panel, full 154k-token vocabulary, token-by-token", "ctx": "not stated", "tool": "not stated", "L": [42, 44]},
+   "metrics": {"mean_kld": "c14"},
+   "size": "c13",
+   "unit": "GB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": ["measured the same way as the other cuts [L44]"]
+  }
+ ],
+ "prose": []
+}

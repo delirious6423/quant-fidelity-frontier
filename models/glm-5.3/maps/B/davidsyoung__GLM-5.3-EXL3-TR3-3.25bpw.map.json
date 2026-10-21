@@ -1,0 +1,19 @@
+{"repo": "davidsyoung/GLM-5.3-EXL3-TR3-3.25bpw",
+ "source_sha256": "407352c77f395c6628167a2f5985c12b324a66e1e0462dba39563c7d8c073e3b",
+ "candidates_sha256": "662f0e58ef49b2b297b0304a375aac7e7af75a21f6a20d1c7a46f4020c02bed1",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "sealed BF16 GLM-5.3 teacher logits (brandonmusic/GLM-5.3-BF16-full-logits, confirmation lane)", "dataset": "held-out confirmation windows, 4 x 2,047 positions x 154,880 vocabulary", "ctx": "2,047 positions per window", "tool": "vllm.LLM (r17 serving image), TP4, teacher-forced prefill; fp32 log-softmax", "L": [22, 23, 66, 67, 68, 108, 109, 111, 112, 113]},
+ "entries": [
+   {"role": "own", "name": "3.25 bpw, fp8 KV", "metrics": {"mean_kld": "c8"}, "size": null, "unit": null, "basis": null, "bpw": "c6",
+    "flags": ["Full-vocabulary teacher-forced KL, this work [L74]", "3.42 bpw rows (L73, L76-77) are a different checkpoint; not mapped"]},
+   {"role": "quoted", "name": "3.25 bpw, fp8 KV", "metrics": {"mean_kld": "c9"}, "of": "davidsyoung/GLM-5.3-EXL3-TR3-3.25bpw", "size": null, "unit": null, "basis": null, "bpw": "c6",
+    "flags": ["Independent CN3 reproduction by dareposte, reported on this card [L71, L74]"]},
+   {"role": "own", "name": "3.25 bpw, nvfp4 KV", "metrics": {"mean_kld": "c13"}, "size": null, "unit": null, "basis": null, "bpw": "c11", "flags": []},
+   {"role": "quoted", "name": "3.25 bpw, nvfp4 KV", "metrics": {"mean_kld": "c14"}, "of": "davidsyoung/GLM-5.3-EXL3-TR3-3.25bpw", "size": null, "unit": null, "basis": null, "bpw": "c11",
+    "flags": ["Independent CN3 reproduction by dareposte, reported on this card [L71, L75]"]},
+   {"role": "quoted", "name": "3.25 bpw, nvfp4+rope8 KV", "metrics": {"mean_kld": "c28"}, "of": "davidsyoung/GLM-5.3-EXL3-TR3-3.25bpw", "size": null, "unit": null, "basis": null, "bpw": "c26",
+    "flags": ["CN3 reproduction only; no own measurement for this row [L78]", "3.42 bpw nvfp4+rope8 row (L77) is a different checkpoint; not mapped"]}
+ ],
+ "prose": []}

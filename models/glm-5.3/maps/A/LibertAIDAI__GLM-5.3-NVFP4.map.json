@@ -1,0 +1,9 @@
+{"repo": "LibertAIDAI/GLM-5.3-NVFP4",
+ "source_sha256": "972cdb50f7016919b0d7c4790ad6829df1656542c24db7a4f00d6caee0dcee9c",
+ "candidates_sha256": "b342eab2b3b9c51478b0a17835b9f7aacc2c7ab938265664e99dc96b9af38a8d",
+ "no_quality_claims": true,
+ "no_claims_reason": "no KLD, perplexity, top-1 or benchmark figure; only a round-trip weight cosine (0.9961) and size, which are weight-fidelity and storage figures, not model quality [L31, L143]",
+ "weights_modified": false,
+ "method": {"reference": "BF16 source weights (zai-org/GLM-5.3-BF16)", "dataset": "sampled expert tensors", "ctx": "not stated", "tool": "dequantize back to BF16, then cosine similarity against the source weights", "L": [141, 143]},
+ "entries": [],
+ "prose": []}

@@ -1,0 +1,24 @@
+{
+ "repo": "destr8803/GLM-5.3-224E-FP8-MAN",
+ "source_sha256": "9d0a3612c848768de6e5876bf45b61bb0f969015d3b2d877bed91123f4e3723f",
+ "candidates_sha256": "2d83bc685fc1f920e0aaf02295368f7d260db595556c43608681885aaf27a6d0",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "GPQA Diamond deterministic 40-question subset", "ctx": "131,072-token context, maximum output 120,000 tokens", "tool": "not stated", "L": [89, 90, 91]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "224E FP8 MAN",
+   "panel": "Validation",
+   "methodology": {"reference": "not stated", "dataset": "GPQA Diamond deterministic 40-question subset (OpenAI simple-evals CSV, one permutation per question, seed 0)", "ctx": "131,072-token context, maximum output 120,000 tokens", "tool": "not stated; temperature 1.0, top_p 0.95", "L": [87, 89, 90, 91]},
+   "metrics": {"bench:GPQA Diamond (40-question subset)": "c14"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["a 40-question evaluation, not the full benchmark [L92-93]", "the clustered bootstrap 95% interval 92.5%-100% is in prose and not mapped [L92]", "pruned checkpoint: 224 of 256 routed experts kept per sparse layer [L23-24]"]
+  }
+ ],
+ "prose": []
+}

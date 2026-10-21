@@ -1,0 +1,23 @@
+{"at": "2026-10-21T06:38:35Z", "cmd": "lock", "exit": 0, "locked": false}
+{"at": "2026-10-21T06:38:35Z", "cmd": "plan", "exit": 0, "delta": ["qwen3.8-flash-next", "qwen3.8-27b", "deepseek-v4.1-flash", "glm-5.3-flash", "deepseek-v4-flash-0731", "lfm2.5-24b-a2b", "deepseek-v4.1-flash-1017", "ornith-1.5-35b-a3b", "gemma-4-26b-a4b-it"], "ingest": "glm-5.3", "resume": false}
+{"at": "2026-10-21T06:38:37Z", "cmd": "elapsed 999", "exit": 0, "minutes": 0.0}
+{"at": "2026-10-21T06:38:37Z", "cmd": "plan", "exit": 0, "delta": ["qwen3.8-flash-next", "qwen3.8-27b", "deepseek-v4.1-flash", "glm-5.3-flash", "deepseek-v4-flash-0731", "lfm2.5-24b-a2b", "deepseek-v4.1-flash-1017", "ornith-1.5-35b-a3b", "gemma-4-26b-a4b-it"], "ingest": "glm-5.3", "resume": false}
+{"at": "2026-10-21T06:38:38Z", "cmd": "ingest-state glm-5.3", "exit": 0, "slug": "glm-5.3", "phase": "catalogue"}
+{"at": "2026-10-21T06:38:38Z", "cmd": "search-ops glm-5.3", "exit": 0, "slug": "glm-5.3", "calls": 28}
+{"at": "2026-10-21T06:40:03Z", "cmd": "catalogue glm-5.3", "exit": 0, "search_entries": 510, "catalogue": 85, "in_index": 0, "delta": 82, "gated": 3, "shards": ["2026102106a"]}
+{"at": "2026-10-21T06:40:03Z", "cmd": "checkpoint glm-5.3", "exit": 0, "slug": "glm-5.3", "status": "ingesting"}
+{"at": "2026-10-21T06:40:06Z", "cmd": "elapsed 999", "exit": 0, "minutes": 1.5}
+{"at": "2026-10-21T06:40:06Z", "cmd": "ingest-state glm-5.3", "exit": 0, "slug": "glm-5.3", "phase": "fetch", "shards": ["2026102106a"]}
+{"at": "2026-10-21T06:40:06Z", "cmd": "elapsed 999", "exit": 0, "minutes": 1.5}
+{"at": "2026-10-21T06:43:53Z", "cmd": "fetched glm-5.3", "exit": 0, "slug": "glm-5.3"}
+{"at": "2026-10-21T06:43:53Z", "cmd": "checkpoint glm-5.3", "exit": 0, "slug": "glm-5.3", "status": "ingesting"}
+{"at": "2026-10-21T06:43:56Z", "cmd": "ingest-state glm-5.3", "exit": 0, "slug": "glm-5.3", "phase": "map"}
+{"at": "2026-10-21T06:43:56Z", "cmd": "elapsed 999", "exit": 0, "minutes": 5.3}
+{"at": "2026-10-21T06:43:56Z", "cmd": "elapsed 999", "exit": 0, "minutes": 5.4}
+{"at": "2026-10-21T06:43:56Z", "cmd": "prepare glm-5.3", "exit": 0, "todo": 61, "cards": 54, "queues": 10}
+{"at": "2026-10-21T06:54:23Z", "cmd": "checkpoint glm-5.3", "exit": 0, "slug": "glm-5.3", "status": "ingesting"}
+{"at": "2026-10-21T06:54:26Z", "cmd": "finish glm-5.3", "exit": 3, "merge": "merged 61 repos, 217 values; resolved 0 repos; tie-broken 0 values; quarantined 24 entries; held 80 disagreements; 2.2s"}
+{"at": "2026-10-21T06:54:30Z", "cmd": "elapsed 999", "exit": 0, "minutes": 15.9}
+{"at": "2026-10-21T07:01:48Z", "cmd": "finish glm-5.3", "exit": 0, "merge": "merged 61 repos, 232 values; resolved 0 repos; tie-broken 23 values; quarantined 24 entries; held 73 disagreements; 1.3s"}
+{"at": "2026-10-21T07:01:51Z", "cmd": "stage --review", "exit": 0}
+{"at": "2026-10-21T07:01:55Z", "cmd": "elapsed 999", "exit": 0, "minutes": 23.3}

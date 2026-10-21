@@ -1,0 +1,90 @@
+{
+ "repo": "drowzeys/keys-GLM-5.3-EXL3-2.75BPW",
+ "source_sha256": "4d82bd1d6207cb87010b4f3fb6c9773476adf4101b0a9890ad047c0b10719360",
+ "candidates_sha256": "7417505c2762c5f0d887922127d5f8af10cd16797972c8fe71fb2a59dc685804",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "BF16 checkpoint, exllamav3 model_diff [L121]",
+   "dataset": "prose 12,223 tokens and code 3,882 tokens; KL over 32 × 2048 = 65,536 tokens [L118-121]",
+   "ctx": "not stated",
+   "tool": "exllamav3 model_diff [L121]",
+   "L": [118, 121, 122]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "keys-GLM-5.3-EXL3-2.75BPW",
+     "panel": "Quality",
+     "metrics": {
+       "ppl:prose": "c2",
+       "ppl:code": "c3",
+       "ppl": "c4"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "Perplexity on the same tokens: BF16 2.750 is not mapped [L123]",
+       "Label in top-5 91.2% has no metric key; not mapped [L124]",
+       "The 5-bit non-expert FP8 variant (3.567 / 2.911) is a different config; not mapped [L120]"
+     ]
+   },
+   {
+     "role": "own",
+     "name": "bf16 head",
+     "panel": "6-bit output head (optional, added 2026-10-12)",
+     "methodology": {
+       "reference": "BF16 checkpoint [L162]",
+       "dataset": "137,490 positions [L162]",
+       "ctx": "not stated",
+       "tool": "as served on four DGX Sparks [L161-162]",
+       "L": [161, 162, 166]
+     },
+     "metrics": {
+       "kld:all sets": "c16",
+       "kld:tool calls": "c18",
+       "top1_pct": "c20"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "Default bf16 lm_head in the checkpoint [L161]",
+       "Head launch time is not a quality metric; not mapped [L166]"
+     ]
+   },
+   {
+     "role": "own",
+     "name": "6-bit head",
+     "panel": "6-bit output head (optional, added 2026-10-12)",
+     "methodology": {
+       "reference": "BF16 checkpoint [L162]",
+       "dataset": "137,490 positions [L162]",
+       "ctx": "not stated",
+       "tool": "as served on four DGX Sparks [L161-162]",
+       "L": [155, 156, 161, 162]
+     },
+     "metrics": {
+       "kld:all sets": "c17",
+       "kld:tool calls": "c19",
+       "top1_pct": "c21"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": null,
+     "flags": [
+       "lm_head quantized to EXL3 at 6.0 bits, optional 714 MB file [L156]",
+       "Head launch time is not a quality metric; not mapped [L166]"
+     ]
+   }
+ ],
+ "prose": [
+   {"entry": "keys-GLM-5.3-EXL3-2.75BPW", "panel": "Quality", "key": "mean_kld", "L": 121, "raw": "0.124 nats"},
+   {"entry": "keys-GLM-5.3-EXL3-2.75BPW", "panel": "Quality", "key": "top1_pct", "L": 122, "raw": "89.6 %"}
+ ]
+}

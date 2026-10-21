@@ -1,0 +1,18 @@
+{"repo": "0xSero/GLM-5.3-500B-EXL3-3.0bpw",
+ "source_sha256": "96d7e564220eea1a31c064093271af4e613062451941d8c8e1d5cecc5e98e594",
+ "candidates_sha256": "83aa85e9a30f8c9e638455e5c8a9fcbf1ee962547559b4ce8158ea794627b27a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "full BF16 GLM-5.3 (unpruned)", "dataset": "sealed 25-prompt panel", "ctx": "not stated", "tool": "not stated; token-by-token, full 154k-token vocabulary", "L": [42, 44]},
+ "entries": [
+   {"role": "own", "name": "500B (this)", "metrics": {"mean_kld": "c17"}, "size": "c16", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["REAP keep-168: 168 of 256 experts kept per layer [L36]", "Loads in 197 GB per card text [L19]"]},
+   {"role": "ladder", "name": "base (unpruned)", "metrics": {"mean_kld": "c2"}, "size": "c1", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["Unpruned base row of the same publisher's table [L31]"]},
+   {"role": "ladder", "name": "661B", "metrics": {"mean_kld": "c5"}, "size": "c4", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["224 of 256 experts kept [L32]"]},
+   {"role": "ladder", "name": "615B", "metrics": {"mean_kld": "c8"}, "size": "c7", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["208 of 256 experts kept [L33]"]},
+   {"role": "ladder", "name": "569B", "metrics": {"mean_kld": "c11"}, "size": "c10", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["192 of 256 experts kept [L34]"]},
+   {"role": "ladder", "name": "533B", "metrics": {"mean_kld": "c14"}, "size": "c13", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["180 of 256 experts kept [L35]"]}
+ ],
+ "prose": [
+   {"entry": "500B (this)", "key": "top1_pct", "L": 42, "raw": "about 78% of the time"}
+ ]}

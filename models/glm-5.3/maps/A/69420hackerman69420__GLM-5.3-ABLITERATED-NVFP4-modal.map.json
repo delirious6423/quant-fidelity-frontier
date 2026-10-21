@@ -1,0 +1,37 @@
+{
+ "repo": "69420hackerman69420/GLM-5.3-ABLITERATED-NVFP4-modal",
+ "source_sha256": "434be454ab60982a51270475d2f63035148323dba3cab88d5616eee2c7d009ba",
+ "candidates_sha256": "66899a995278f1247af492b052239cf5d4e1a1d86ab6f16a70e0294d8ada5cd7",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "MMLU, 1,026 questions", "ctx": "not stated", "tool": "logit-mode scoring (argmax over A/B/C/D)", "L": [104, 108]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "CRACK Abliterated",
+   "panel": "Capability Preserved — MMLU-logit",
+   "methodology": {"reference": "Base (unmodified GLM-5.3) in the same table", "dataset": "MMLU, 1,026 questions", "ctx": "not stated", "tool": "logit-mode scoring (argmax over A/B/C/D)", "L": [104, 106, 108]},
+   "metrics": {"bench:MMLU": "c11"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["delta -1.47 pp is not mapped: no metric key [L108]", "per-subject MMLU table and HarmBench refusal counts have no metric key and are not mapped [L77-79, L115-173]"]
+  },
+  {
+   "role": "cross",
+   "name": "Base",
+   "panel": "Capability Preserved — MMLU-logit",
+   "of": "zai-org/GLM-5.3",
+   "methodology": {"reference": "not stated", "dataset": "MMLU, 1,026 questions", "ctx": "not stated", "tool": "logit-mode scoring (argmax over A/B/C/D)", "L": [104, 106, 108]},
+   "metrics": {"bench:MMLU": "c10"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["the unmodified GLM-5.3 base named in the card [L51]"]
+  }
+ ],
+ "prose": []
+}

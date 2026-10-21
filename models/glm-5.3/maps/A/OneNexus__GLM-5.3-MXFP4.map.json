@@ -1,0 +1,114 @@
+{
+ "repo": "OneNexus/GLM-5.3-MXFP4",
+ "source_sha256": "63d8456d24c3fa1732a6fdb2950d1d48fd8884ccf32e69b53c342e69e819f00a",
+ "candidates_sha256": "984146d0456595ca6051f55467b6079900408b77790c4c62493c66316520e760",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 oracle (zai-org/GLM-5.3-BF16)", "dataset": "GSM8K, MMLU and GPQA (sgl-eval); DeepSWE v1.1; Terminal-Bench 4.0", "ctx": "16,384-token max output (SGL-eval)", "tool": "sgl-eval", "L": [163]},
+ "entries": [
+  {
+   "role": "quoted",
+   "name": "DataCurve official",
+   "panel": "DeepSWE v1.1",
+   "of": "not named on card",
+   "methodology": {"reference": "not stated", "dataset": "DeepSWE v1.1", "ctx": "400K context limit", "tool": "official mini-swe-agent harness, temperature 0.95, top_p 1.0, 6-hour task timeout", "L": [146]},
+   "metrics": {"bench:DeepSWE v1.1": "c1"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["row label does not name a model; it sits under the GLM-5.3 rows of the table [L148-150]", "the +/- spread is part of the candidate cell [L150]"]
+  },
+  {
+   "role": "cross",
+   "name": "GLM-5.3 FP8",
+   "panel": "DeepSWE v1.1",
+   "of": "not named on card",
+   "methodology": {"reference": "not stated", "dataset": "DeepSWE v1.1", "ctx": "400K context limit", "tool": "official mini-swe-agent harness, temperature 0.95, top_p 1.0, 6-hour task timeout", "L": [146]},
+   "metrics": {"bench:DeepSWE v1.1": "c2"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["the official FP8 checkpoint is named but no repo id is given [L36]", "the +/- spread is part of the candidate cell [L151]"]
+  },
+  {
+   "role": "own",
+   "name": "GLM-5.3 MXFP4",
+   "panel": "DeepSWE v1.1",
+   "methodology": {"reference": "not stated", "dataset": "DeepSWE v1.1", "ctx": "400K context limit", "tool": "official mini-swe-agent harness, temperature 0.95, top_p 1.0, 6-hour task timeout", "L": [146]},
+   "metrics": {"bench:DeepSWE v1.1": "c3"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["the +/- spread is part of the candidate cell [L152]"]
+  },
+  {
+   "role": "cross",
+   "name": "Official GLM-5.3 API",
+   "panel": "Terminal-Bench 4.0",
+   "of": "not named on card",
+   "methodology": {"reference": "not stated", "dataset": "Terminal-Bench 4.0", "ctx": "not stated", "tool": "official benchmark harness and sampling settings, per the agentic section [L142]", "L": [142, 158]},
+   "metrics": {"bench:Terminal-Bench 4.0": "c4"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["an API endpoint, not a file; the row is an official endpoint measured by the card author [L158]"]
+  },
+  {
+   "role": "own",
+   "name": "GLM-5.3 MXFP4",
+   "panel": "Terminal-Bench 4.0",
+   "methodology": {"reference": "not stated", "dataset": "Terminal-Bench 4.0", "ctx": "not stated", "tool": "official benchmark harness and sampling settings, per the agentic section [L142]", "L": [142, 159]},
+   "metrics": {"bench:Terminal-Bench 4.0": "c5"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": []
+  },
+  {
+   "role": "cross",
+   "name": "BF16 oracle",
+   "panel": "SGL-eval accuracy (16K output cap)",
+   "of": "zai-org/GLM-5.3-BF16",
+   "methodology": {"reference": "not stated", "dataset": "GSM8K flexible extract (1,319), MMLU (500), GPQA (198)", "ctx": "16,384-token max output", "tool": "sgl-eval, temperature 0, seed 0, reasoning_effort max", "L": [163, 177, 179, 181]},
+   "metrics": {
+    "bench:GSM8K, flexible extract": "c8",
+    "bench:GSM8K, flexible extract (excl. truncation)": "c10.2",
+    "bench:MMLU": "c19",
+    "bench:MMLU (excl. truncation)": "c21.2",
+    "bench:GPQA": "c30",
+    "bench:GPQA (excl. truncation)": "c32.2"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["source checkpoint named in the overview [L27]"]
+  },
+  {
+   "role": "own",
+   "name": "MXFP4",
+   "panel": "SGL-eval accuracy (16K output cap)",
+   "methodology": {"reference": "BF16 oracle (zai-org/GLM-5.3-BF16)", "dataset": "GSM8K flexible extract (1,319), MMLU (500), GPQA (198)", "ctx": "16,384-token max output", "tool": "sgl-eval, temperature 0, seed 0, reasoning_effort max", "L": [163, 177, 178, 179, 180, 181, 182]},
+   "metrics": {
+    "bench:GSM8K, flexible extract": "c13",
+    "bench:GSM8K, flexible extract (excl. truncation)": "c15.2",
+    "bench:MMLU": "c24",
+    "bench:MMLU (excl. truncation)": "c26.2",
+    "bench:GPQA": "c35",
+    "bench:GPQA (excl. truncation)": "c37.2"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["recovery ratios (for example 99.84 %, 99.33 %, 98.13 %) are derived ratios and are not mapped [L178, L180, L182]", "completed, correct and truncated counts have no metric key and are not mapped [L177-182]"]
+  }
+ ],
+ "prose": []
+}

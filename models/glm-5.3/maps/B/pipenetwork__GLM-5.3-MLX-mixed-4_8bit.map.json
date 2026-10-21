@@ -1,0 +1,16 @@
+{"repo": "pipenetwork/GLM-5.3-MLX-mixed-4_8bit",
+ "source_sha256": "a9717f75d87ee0862bf302fa0d3cf8b4fda37ab8ffe460841a90f86f30f35f4f",
+ "candidates_sha256": "20071ab925111af3cecd21c0e73412736987a9f69f43fa0deaa62cfc84254767",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "wikitext-2 (test), 288,627 tokens in 141 windows", "ctx": "2048-token windows", "tool": "not stated; identical windows for all builds that fit the machine", "L": [79, 82, 84, 85, 86, 87, 88, 89]},
+ "entries": [
+   {"role": "own", "name": "mixed-4_8bit", "metrics": {"ppl:wikitext": "c36"}, "size": "c35", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["Card says these files are modified: converted from bf16 to MLX and quantized, architecture unchanged [L23-24]", "Per-layer divergence table (relative L2 error, no metric key) [L69-77] not mapped"]},
+   {"role": "ladder", "name": "4bit", "metrics": {"ppl:wikitext": "c34"}, "size": "c33", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["Uniform 4-bit build [L84]"]},
+   {"role": "ladder", "name": "mixed-3_6bit", "metrics": {"ppl:wikitext": "c38"}, "size": "c37", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["Mixed 3/6-bit build [L86]"]},
+   {"role": "ladder", "name": "REAP25-4bit", "metrics": {"ppl:wikitext": "c40"}, "size": "c39", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["REAP variant; pruning not explained on this card [L87]"]},
+   {"role": "ladder", "name": "REAP37-4bit", "metrics": {"ppl:wikitext": "c42"}, "size": "c41", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["REAP variant; pruning not explained on this card [L88]"]},
+   {"role": "ladder", "name": "REAP50-4bit", "metrics": {"ppl:wikitext": "c44"}, "size": "c43", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["REAP variant; pruning not explained on this card [L89]"]}
+ ],
+ "prose": []}

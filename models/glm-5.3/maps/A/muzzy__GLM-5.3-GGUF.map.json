@@ -1,0 +1,34 @@
+{
+ "repo": "muzzy/GLM-5.3-GGUF",
+ "source_sha256": "54ba0a215e96a65a7e8dbadf80f7056e90e3eebe120461ef4db80bd5f0755e0f",
+ "candidates_sha256": "a767cdfbbfe3cfa9531600e176b7f5e34ea552416f6e0a6fdcbdbc89de8d26dd",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "wikitext-103 test split (289,280 tokens / 565 chunks)", "ctx": "512", "tool": "llama-perplexity (ik_llama.cpp per card tags)", "L": [23, 40]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "IQ1_KT",
+   "methodology": {"reference": "not stated", "dataset": "wikitext-103 test split (289,280 tokens / 565 chunks)", "ctx": "512, ubatch 512, flash attention on", "tool": "llama-perplexity (ik_llama.cpp per card tags)", "L": [23, 40]},
+   "metrics": {"ppl:wikitext-103": "c2"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["the +/- column (0.02803) is not mapped: no metric key and the uncertainty type is not stated [L27]", "other quants have no perplexity yet [L17, L29-36]"]
+  },
+  {
+   "role": "own",
+   "name": "IQ2_KS",
+   "methodology": {"reference": "not stated", "dataset": "wikitext-103 test split (289,280 tokens / 565 chunks)", "ctx": "512, ubatch 512, flash attention on", "tool": "llama-perplexity (ik_llama.cpp per card tags)", "L": [23, 40]},
+   "metrics": {"ppl:wikitext-103": "c5"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["the +/- column (0.02232) is not mapped: no metric key and the uncertainty type is not stated [L28]", "other quants have no perplexity yet [L17, L29-36]"]
+  }
+ ],
+ "prose": []
+}

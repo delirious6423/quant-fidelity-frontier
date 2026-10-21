@@ -1,0 +1,17 @@
+{
+ "repo": "bot-lab-21/GLM-5.3-Int4-Int8Mix-Pollard-GPTQ-MTP-Draft",
+ "source_sha256": "dff0409a823ef80a4f5f48bf0e19ddbf0c4ed3a8fb66772622daeea44970f052",
+ "candidates_sha256": "6faeee79d3fff439eb326b346e4e49ba4b54db45536dc19fe1c56dea1a679be4",
+ "no_quality_claims": true,
+ "no_claims_reason": "speed only: accepted draft tokens per step and size [L27-37]",
+ "weights_modified": false,
+ "method": {
+   "reference": "stock bf16 draft layer for comparison [L33]",
+   "dataset": "replay of real traffic [L27]",
+   "ctx": "not stated",
+   "tool": "vLLM, 8 × DGX Spark, k = 5 adaptive [L27]",
+   "L": [27, 29, 36]
+ },
+ "entries": [],
+ "prose": []
+}

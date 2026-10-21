@@ -1,0 +1,25 @@
+{"repo": "taurusduan/GLM-5.3-GGUF-DGX-Spark",
+ "source_sha256": "5045c40b5661e00dd4f8c954f5d4d00a5c7f056b4571439d8e1da3e8b37c26fd",
+ "candidates_sha256": "cb2fb8990042b9c5383c0e48be2ceb675b53c35f2149bc77827142f40f1d1716",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "held-out agent-trace, SWE-trace and code sets [L135]", "ctx": "not stated", "tool": "not stated", "L": [135]},
+ "entries": [
+   {"role": "own",
+    "name": "GLM-5.3-SLIM-E192-IQ2_XXS",
+    "metrics": {"ppl:agent-traces": "c53.0", "ppl:swe-traces": "c53.2"},
+    "size": null, "unit": null, "basis": null,
+    "bpw": null,
+    "flags": ["Held-out PPL for this file, the left-hand value of each pair [L135]", "Code PPL 2.96 for this file taken from the same sentence [L135]", "Flash PPL values (12.4, 4.6, 3.17) omitted: measured on a different model, GLM-5.3-Flash [L135]", "Q-stage pass/wrong/out-of-budget counts omitted: counts, not a comparable score [L125-131]", "SLIM-stage A/B and perplexity vs original are for the pruned FP8 base, not this file: omitted [L121]", "Routed experts at 2.06 bits/weight, not a table cell [L154]"]},
+   {"role": "ladder",
+    "name": "GLM-5.3-SLIM-E160",
+    "metrics": {},
+    "size": null, "unit": null, "basis": null,
+    "bpw": null,
+    "flags": ["Companion build, 128 GiB in the card's own sentence [L137]", "PPL delta is relative to this file [L137]"]}
+ ],
+ "prose": [
+   {"entry": "GLM-5.3-SLIM-E192-IQ2_XXS", "key": "ppl:code", "L": 135, "raw": "2.96"},
+   {"entry": "GLM-5.3-SLIM-E160", "key": "ppl_delta_pct", "L": 137, "raw": "+3.6 %"}
+ ]}

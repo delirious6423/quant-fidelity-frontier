@@ -1,0 +1,62 @@
+{
+ "repo": "Mia-AiLab/GLM-5.3-EXL3-2.75bpw-TensorFold",
+ "source_sha256": "2d88312ffc522db615e4c51956ab61d4db43cbe45aade6b845da6f23d6e23db9",
+ "candidates_sha256": "b9855c00e4a599d4f1f91fbaca59d78582a66c652035634c58eb3e6aac62eeef",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "unquantized GLM-5.3-BF16 (rev 9d2398f4), full vocabulary, temperature 1", "dataset": "wikitext-2 test (16 rows) and math, code, tool-call and chat sets (12 rows each)", "ctx": "64 x 2,048 tokens", "tool": "not stated", "L": [67, 68, 69, 70, 71]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "as served",
+   "panel": "Fidelity",
+   "methodology": {"reference": "unquantized GLM-5.3-BF16 (rev 9d2398f4), full vocabulary, temperature 1", "dataset": "wikitext-2 test (16 rows) and math, code, tool-call and chat sets (12 rows each)", "ctx": "64 x 2,048 tokens", "tool": "not stated", "L": [67, 68, 69, 70, 71]},
+   "metrics": {
+    "kld:Math (thinking)": "c3",
+    "top1:Math (thinking)": "c4",
+    "kld:Code (thinking)": "c7",
+    "top1:Code (thinking)": "c8",
+    "kld:Chat": "c11",
+    "top1:Chat": "c12",
+    "kld:Wiki": "c15",
+    "top1:Wiki": "c16",
+    "kld:Tool calls": "c19",
+    "top1:Tool calls": "c20",
+    "kld:All sets": "c23",
+    "top1:All sets": "c24"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["TensorFold quantizes the BF16 dense layers to 4 bits at load, per the fit section [L93]", "2.75 bpw is in the title only, not in a table cell [L14]"]
+  },
+  {
+   "role": "own",
+   "name": "experts only",
+   "panel": "Fidelity",
+   "methodology": {"reference": "unquantized GLM-5.3-BF16 (rev 9d2398f4), full vocabulary, temperature 1", "dataset": "wikitext-2 test (16 rows) and math, code, tool-call and chat sets (12 rows each)", "ctx": "64 x 2,048 tokens", "tool": "not stated", "L": [67, 68, 69, 70, 71]},
+   "metrics": {
+    "kld:Math (thinking)": "c1",
+    "top1:Math (thinking)": "c2",
+    "kld:Code (thinking)": "c5",
+    "top1:Code (thinking)": "c6",
+    "kld:Chat": "c9",
+    "top1:Chat": "c10",
+    "kld:Wiki": "c13",
+    "top1:Wiki": "c14",
+    "kld:Tool calls": "c17",
+    "top1:Tool calls": "c18",
+    "kld:All sets": "c21",
+    "top1:All sets": "c22"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["diagnostic column for expert-only quantization, not the served configuration [L56]", "prose headline top-1 figures 96.7 %, 95.4 % and 92.8 % are this experts-only column [L53-54]"]
+  }
+ ],
+ "prose": []
+}

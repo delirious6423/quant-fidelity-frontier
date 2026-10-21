@@ -1,0 +1,18 @@
+{"repo": "vcruz305/GLM-5.3-EXL3-3.38bpw",
+ "source_sha256": "eeca733a94ae5246f1e05c30d778a4c896d1940c82cc12c71e1ce751f53238c5",
+ "candidates_sha256": "bbe7e1912971a37fde33c8d1ad434aef801f399bf74da550eeff7af8d5b9ffce",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "original BF16 weights run through the same ExLlamaV3 runtime", "dataset": "held-out set: 10 sequences x 1,024 tokens (10,240 scored positions) from WikiText-103 (4), HumanEval (2), GSM8K (2), UltraChat-200k (2)", "ctx": "1,024 tokens per sequence, full-sequence forward passes", "tool": "ExLlamaV3 fork used for evaluation", "L": [61, 63, 64, 65, 66, 67, 85, 86, 102]},
+ "entries": [
+   {"role": "own",
+    "name": "GLM-5.3 MixedK EXL3 3.38 bpw",
+    "metrics": {"top1_pct": "c2", "mean_kld": "c4", "kld_99": "c6", "ppl_delta_pct": "c9"},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": "c13",
+    "flags": ["3.38 bpw nominal; 3.39 bpw including scales [L38]", "held-out set mixes four sources and is not split per corpus [L63-67]", "BF16 top-1 within quant top-5 (c3), median KL (c5), top-5 overlap (c7) and mean NLL (c8) have no metric key; not mapped [L76, L78, L80-81]", "weights 319.0 GB [L43, L92] sit outside the quality table; no size attached", "evaluation uses an ExLlamaV3 fork, not stock ExLlamaV3 [L102]"]}
+ ],
+ "prose": []}

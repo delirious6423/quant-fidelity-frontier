@@ -1,0 +1,29 @@
+{
+ "repo": "AxionML/GLM-5.3-NVFP4",
+ "source_sha256": "7caf31a62609f61c36963016f6227eae5c259fe7b96e0ac726feab3d5f71e9d2",
+ "candidates_sha256": "21290bcbb87a7e7dfa606b7f24b6590a585760f570fa014d82ab4acb3eae79ee",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "GSM8K full 1,319-example split; Terminal-Bench 2.1; DeepSWE; AIME 2026 (30 problems x 16)", "ctx": "not stated", "tool": "terminus-2 and mini-swe-agent harnesses, per the table", "L": [46, 47, 48, 49, 50, 51]},
+ "entries": [
+  {
+   "role": "quoted",
+   "name": "NVFP4",
+   "panel": "Evaluation Results",
+   "of": "RadixArk/GLM-5.3-NVFP4",
+   "methodology": {"reference": "not stated", "dataset": "GSM8K full 1,319-example split; Terminal-Bench 2.1; DeepSWE; AIME 2026 (30 problems x 16)", "ctx": "not stated", "tool": "terminus-2 harness (Terminal-Bench 2.1); mini-swe-agent harness (DeepSWE)", "L": [46, 48, 49, 50, 51, 53]},
+   "metrics": {
+    "bench:GSM8K": "c4",
+    "bench:Terminal-Bench 2.1": "c5",
+    "bench:DeepSWE": "c6"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["scores are reported by RadixArk for this checkpoint, not re-measured by the card author [L53]", "this card is an unmodified copy of RadixArk/GLM-5.3-NVFP4 [L25]", "DeepSWE protocol is given as the mini-swe-agent harness with no version stated [L50]", "AIME 2026 pass@1 94.17 is taken from prose only (prose entry); its maj@16 figure is not mapped [L51]"]
+  }
+ ],
+ "prose": [{"entry": "NVFP4", "panel": "Evaluation Results", "key": "bench:AIME 2026", "L": 51, "raw": "94.17"}]
+}

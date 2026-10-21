@@ -1,0 +1,18 @@
+{"repo": "0xSero/GLM-5.3-EXL3-4.0bpw",
+ "source_sha256": "cd3554f73297b9efd10f690be92a32fc3fb397e18a10434cdf297530dcedda95",
+ "candidates_sha256": "146e045e43a3766662cd453790c30608138437211bd506bf0ede2db5623f07bf",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 (zai-org/GLM-5.3-BF16)", "dataset": "sealed 25-prompt panel, full 154k vocab", "ctx": "not stated", "tool": "not stated", "L": [32]},
+ "entries": [
+   {"role": "own",
+    "name": "EXL3 4.0bpw",
+    "metrics": {"mean_kld": "c3"},
+    "size": "c1",
+    "unit": "GB",
+    "basis": null,
+    "bpw": "c4",
+    "flags": ["card WARNING: known KL regression, 'do not use this checkpoint yet'; clean re-encode pending [L12-13]", "256 of 256 experts kept (unpruned) [L30]", "median token KL 0.33 has no metric key; not mapped [L13]", "size basis not stated [L31]", "card cites a target KL of about 0.024 for another build; not mapped [L32]"]}
+ ],
+ "prose": []}

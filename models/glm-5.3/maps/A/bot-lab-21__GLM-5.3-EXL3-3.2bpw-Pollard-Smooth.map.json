@@ -1,0 +1,47 @@
+{
+ "repo": "bot-lab-21/GLM-5.3-EXL3-3.2bpw-Pollard-Smooth",
+ "source_sha256": "da6584a0342f680d8cedb038ae7728dd85d05caeae2c80c6908579ee74b19de9",
+ "candidates_sha256": "98aad23a93f103aacc57bd77f83088ae7b668f1dd33e92df4f8feeb930608960",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "6 fixed held-out texts (4,079 tokens) for perplexity; HumanEval / HumanEval+ and MBPP / MBPP+", "ctx": "not stated", "tool": "vLLM 0.28 with EXL3 runtime plugin; EvalPlus", "L": [40, 41, 42, 45, 59]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "this model, 4 nodes",
+   "panel": "Measured quality (same fleet, same probes, same day; \"int4 TP8\" = our production int4/int8 GPTQ build of the same model)",
+   "methodology": {"reference": "not stated", "dataset": "6 fixed held-out texts (4,079 tokens) for perplexity, excluded from calibration by content hash; HumanEval / HumanEval+ and MBPP / MBPP+ greedy", "ctx": "not stated", "tool": "vLLM 0.28 with EXL3 runtime plugin; EvalPlus", "L": [40, 41, 42, 45, 59, 67, 68]},
+   "metrics": {
+    "ppl:held-out-texts": "c3",
+    "bench:HumanEval": "c5.0",
+    "bench:HumanEval+": "c5.1",
+    "bench:MBPP": "c7.0",
+    "bench:MBPP+": "c7.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["bpw 3.21 average is stated in prose, not in a table cell [L17, L33]", "size 292 GB is stated in prose, not in the measurement table [L32]", "drowzeys keys-GLM-5.3-EXL3 baseline 'KL 0.10 vs bf16' is cited in prose [L111]; not mapped because the KL basis is not stated"]
+  },
+  {
+   "role": "ladder",
+   "name": "int4 TP8, 8 nodes",
+   "panel": "Measured quality (same fleet, same probes, same day; \"int4 TP8\" = our production int4/int8 GPTQ build of the same model)",
+   "methodology": {"reference": "not stated", "dataset": "HumanEval / HumanEval+ and MBPP / MBPP+ greedy", "ctx": "not stated", "tool": "vLLM 0.28 with EXL3 runtime plugin; EvalPlus", "L": [41, 42, 45]},
+   "metrics": {
+    "bench:HumanEval": "c6.0",
+    "bench:HumanEval+": "c6.1",
+    "bench:MBPP": "c8.0",
+    "bench:MBPP+": "c8.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["perplexity is given as the range 4.82 – 4.84 [L40]; not mapped because the range is ambiguous"]
+  }
+ ],
+ "prose": []
+}

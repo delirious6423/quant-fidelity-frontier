@@ -1,0 +1,15 @@
+{"repo": "vcruz305/GLM-5.3-EXL3-3.38bpw",
+ "source_sha256": "eeca733a94ae5246f1e05c30d778a4c896d1940c82cc12c71e1ce751f53238c5",
+ "candidates_sha256": "bbe7e1912971a37fde33c8d1ad434aef801f399bf74da550eeff7af8d5b9ffce",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "original BF16 weights run through the same ExLlamaV3 runtime, not the vendor's implementation [L85]", "dataset": "held-out set: 10 sequences of 1,024 tokens (10,240 scored positions) from WikiText-103 (4), HumanEval (2), GSM8K (2), UltraChat-200k (2) [L63-67]", "ctx": "1,024 tokens, full-sequence forward passes [L86]", "tool": "ExLlamaV3 evaluation fork, commit affc194d5476710f167f30729e2508e577759612 [L102]", "L": [61, 63, 71, 85, 86, 102]},
+ "entries": [
+   {"role": "own",
+    "name": "GLM-5.3 MixedK EXL3 3.38 bpw",
+    "metrics": {"top1_pct": "c2", "mean_kld": "c4", "kld_99": "c6", "ppl_delta_pct": "c9"},
+    "size": null, "unit": null, "basis": null,
+    "bpw": "c13",
+    "flags": ["Top-1 agreement over 10,240 scored positions [L75]", "Full 154,880-token vocabulary comparison, float64 [L71]", "Mean NLL 1.0092 to 1.0300 has no metric key: omitted [L81]", "Top-5 agreement (99.38%), median KL, and top-5 set overlap have no metric key: omitted [L76, L78, L80]", "Quality table carries no size; sizes are in the memory budget table [L92-94]"]}
+ ]}

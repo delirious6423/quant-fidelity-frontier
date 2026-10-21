@@ -1,0 +1,11 @@
+{"repo": "fiore-lab/GLM-5.3-EXL3-4x-DGX-Sparks",
+ "source_sha256": "d0f70a869cc9a6f3740e2ded975c7f25f6ed6925d25b4261680dfe8cbd1af6d5",
+ "candidates_sha256": "4c10f9406e7664b96b2cdf3c200079686918ae63667c4b5ff226dd7dddf5a517",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "official BF16 GLM-5.3 weights run by the official implementation (transformers, FP32)", "dataset": "four 8,192-token windows, reported by position range", "ctx": "8,192-token windows", "tool": "transformers, FP32 log-softmax; recipe on four nodes in a deterministic configuration", "L": [71, 72, 73]},
+ "entries": [
+   {"role": "own", "name": "EXL3 3 / 4 / 5 bits, for four DGX Sparks", "metrics": {}, "size": null, "unit": null, "basis": null, "bpw": null, "flags": ["KL vs BF16 by position range, FP4 KV 0.0190 to 0.0316, FP8 KV 0.0156 to 0.0258, sister 4-bit 0.0120 to 0.0208 [L77-80]: no single mean is stated, so not mapped", "Top-1 agreement 94.0 to 95.7 % with FP4 KV is a range over positions, not mapped [L82]", "Sister repo (4 bits throughout) is fiore-lab/GLM-5.3-EXL3-8x-DGX-Sparks [L24-26]; its values are in the same unmapped table", "Speed table [L91-95] has no quality metric; not mapped", "Sizes stated in text only, 344.6 GB total, 323.2 GB routed experts [L41]; no metric row, so not mapped as size"]}
+ ],
+ "prose": []}

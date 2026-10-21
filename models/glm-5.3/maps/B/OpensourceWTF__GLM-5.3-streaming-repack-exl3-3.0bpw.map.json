@@ -1,0 +1,18 @@
+{"repo": "OpensourceWTF/GLM-5.3-streaming-repack-exl3-3.0bpw",
+ "source_sha256": "d26a667bbca13caa90cf7d1e826780900bdfba05c640b02acb8e885be3553ade",
+ "candidates_sha256": "348f5282e9f54988fb1c2161cfb77e76a8bf3dbc8fc70a0d2003945a95e249dd",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not BF16: the 3.42 bpw sibling pack on the same machine", "dataset": "128 positions of two 1,024-token texts (code and prose)", "ctx": "1,024 tokens", "tool": "not stated", "L": [52, 53, 54]},
+ "entries": [
+   {"role": "own",
+    "name": "GLM-5.3 streaming repack, EXL3 3.0 bpw experts (uniform K3)",
+    "metrics": {},
+    "size": null,
+    "unit": null,
+    "basis": null,
+    "bpw": null,
+    "flags": ["KL figures (code 0.0285 mean, prose 0.073 mean) are measured against the 3.42 bpw sibling pack, not BF16; omitted as a different reference [L52-54]", "source-card expectation of KLD 0.04 to 0.05 from BF16 is a range; not mapped [L55]", "experts 278.6 GB and non-experts 20.1 GB [L38, L40] not in a metric row; not attached", "decode speed and SSD read rows [L46-50] have no metric key; not mapped"]}
+ ],
+ "prose": []}

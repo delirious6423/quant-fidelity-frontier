@@ -1,0 +1,95 @@
+{
+ "repo": "pipenetwork/GLM-5.3-MLX-4bit",
+ "source_sha256": "b5ca0a82fe8ef43d8e1abceb5aa6f3667ff488628199582c6e4981d8317ca34a",
+ "candidates_sha256": "af3d392b80022ce22d8e706ab4da2cb3003311621dbff1d99f924f621d1fac77",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "not stated",
+   "dataset": "wikitext-2 (test), 288,627 tokens in 141 windows of 2048 [L79]",
+   "ctx": "2048-token windows [L79]",
+   "tool": "not stated",
+   "L": [79, 82]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "4bit",
+     "metrics": {
+       "ppl:wikitext": "c34"
+     },
+     "size": "c33",
+     "unit": "GB",
+     "basis": "disk",
+     "bpw": null,
+     "flags": [
+       "Per-layer divergence table (relative L2 and cosine) has no metric key; not mapped [L69-77]"
+     ]
+   },
+   {
+     "role": "ladder",
+     "name": "mixed-4_8bit",
+     "metrics": {
+       "ppl:wikitext": "c36"
+     },
+     "size": "c35",
+     "unit": "GB",
+     "basis": "disk",
+     "bpw": null,
+     "flags": [
+       "Recommendation prose gives 427.7 GB; the table value 427.8 is used [L85, L91]",
+       "Paired 4.3% gain vs uniform 4-bit is a different reference than ppl_delta_pct; not mapped [L91]"
+     ]
+   },
+   {
+     "role": "ladder",
+     "name": "mixed-3_6bit",
+     "metrics": {
+       "ppl:wikitext": "c38"
+     },
+     "size": "c37",
+     "unit": "GB",
+     "basis": "disk",
+     "bpw": null,
+     "flags": []
+   },
+   {
+     "role": "ladder",
+     "name": "REAP25-4bit",
+     "metrics": {
+       "ppl:wikitext": "c40"
+     },
+     "size": "c39",
+     "unit": "GB",
+     "basis": "disk",
+     "bpw": null,
+     "flags": []
+   },
+   {
+     "role": "ladder",
+     "name": "REAP37-4bit",
+     "metrics": {
+       "ppl:wikitext": "c42"
+     },
+     "size": "c41",
+     "unit": "GB",
+     "basis": "disk",
+     "bpw": null,
+     "flags": []
+   },
+   {
+     "role": "ladder",
+     "name": "REAP50-4bit",
+     "metrics": {
+       "ppl:wikitext": "c44"
+     },
+     "size": "c43",
+     "unit": "GB",
+     "basis": "disk",
+     "bpw": null,
+     "flags": []
+   }
+ ],
+ "prose": []
+}

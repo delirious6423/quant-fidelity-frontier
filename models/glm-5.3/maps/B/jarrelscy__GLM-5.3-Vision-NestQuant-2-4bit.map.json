@@ -1,0 +1,680 @@
+{
+ "repo": "jarrelscy/GLM-5.3-Vision-NestQuant-2-4bit",
+ "source_sha256": "965c70ac2c37a9f4eeaf0f1a7bf78e67f082a69c69c6ed30a025671fbbaf0872",
+ "candidates_sha256": "8c8f370b5462c97c392fd168e63c936de8f260b45a3d1a524e9d084450c807aa",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "GLM-5.3 BF16 (teacher windows and registry panel reference)",
+  "dataset": "4 BF16-teacher confirmation windows; 25-context quant-fidelity registry panel",
+  "ctx": "2,047 positions per window",
+  "tool": "sm120 eval harness (nestquant); live server for served values",
+  "L": [
+   40,
+   62,
+   116,
+   142,
+   164,
+   176,
+   178,
+   336,
+   344,
+   345
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "default (0 fixed, 77 floating)",
+   "panel": "Recommended for reasoning: 26 fixed + 51 floating",
+   "methodology": {
+    "reference": "BF16 teacher (brandonmusic/GLM-5.3-BF16-full-logits confirmation windows 0000-0003)",
+    "dataset": "4 confirmation windows (w0-w3)",
+    "ctx": "2,047 predicted positions per window",
+    "tool": "forced decode on the serving stack, fp8 KV",
+    "L": [
+     137,
+     138,
+     142,
+     150
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c30"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Decode KLD vs BF16, mean of 4 windows [L137]",
+    "Per-window values not mapped [L144-150]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "NQ_JOINT_FIXED=1 (26 fixed, 51 floating)",
+   "panel": "Recommended for reasoning: 26 fixed + 51 floating",
+   "methodology": {
+    "reference": "BF16 teacher (brandonmusic/GLM-5.3-BF16-full-logits confirmation windows 0000-0003)",
+    "dataset": "4 confirmation windows (w0-w3)",
+    "ctx": "2,047 predicted positions per window",
+    "tool": "forced decode on the serving stack, fp8 KV",
+    "L": [
+     137,
+     138,
+     142,
+     150
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c32"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Decode KLD vs BF16, mean of 4 windows [L138]",
+    "Per-window values not mapped [L144-150]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "NestQuant 2/4, live server",
+   "panel": "KLD on the quant-fidelity-registry panel",
+   "methodology": {
+    "reference": "GLM-5.3 BF16 (registry panel reference)",
+    "dataset": "panel--glm53.malaiwah.corpus5x5-v1 (25 contexts x 2,047 positions = 51,175 tokens)",
+    "ctx": "2,047 decode tokens per context",
+    "tool": "sm120/eval/reg_live.py (live), sm120/eval/eval_reg.py (offline)",
+    "L": [
+     164,
+     170,
+     178,
+     180,
+     191
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c92",
+    "top1_pct": "c56",
+    "kld:code": "c57",
+    "kld:encyclopedic": "c58",
+    "kld:literary": "c59",
+    "kld:multilingual": "c60",
+    "kld:scientific": "c61"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c91",
+   "flags": [
+    "Live decode with waits on, as served [L176]",
+    "Routed-expert average held in VRAM; 4-bit residual streamed [L189]"
+   ]
+  },
+  {
+   "role": "cross",
+   "name": "FP8 source",
+   "of": "zai-org/GLM-5.3-FP8",
+   "panel": "KLD on the quant-fidelity-registry panel",
+   "methodology": {
+    "reference": "GLM-5.3 BF16 (registry panel reference)",
+    "dataset": "panel--glm53.malaiwah.corpus5x5-v1 (25 contexts x 2,047 positions = 51,175 tokens)",
+    "ctx": "2,047 decode tokens per context",
+    "tool": "sm120/eval/reg_live.py (live), sm120/eval/eval_reg.py (offline)",
+    "L": [
+     164,
+     170,
+     178,
+     180,
+     191
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c63",
+    "top1_pct": "c64"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c62",
+   "flags": [
+    "Offline reference arm; the FP8 checkpoint supplies all non-expert weights [L178, L346]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "NestQuant 2/4, every expert at 4 bit",
+   "panel": "KLD on the quant-fidelity-registry panel",
+   "methodology": {
+    "reference": "GLM-5.3 BF16 (registry panel reference)",
+    "dataset": "panel--glm53.malaiwah.corpus5x5-v1 (25 contexts x 2,047 positions = 51,175 tokens)",
+    "ctx": "2,047 decode tokens per context",
+    "tool": "sm120/eval/reg_live.py (live), sm120/eval/eval_reg.py (offline)",
+    "L": [
+     164,
+     170,
+     178,
+     180,
+     191
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c66",
+    "top1_pct": "c67"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c65",
+   "flags": [
+    "Offline single pass [L183]",
+    "4-bit share of expert calls (100%) not mapped [L183]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "2/4, oracle: each 16-token block's own top 77 at 4 bit",
+   "panel": "KLD on the quant-fidelity-registry panel",
+   "methodology": {
+    "reference": "GLM-5.3 BF16 (registry panel reference)",
+    "dataset": "panel--glm53.malaiwah.corpus5x5-v1 (25 contexts x 2,047 positions = 51,175 tokens)",
+    "ctx": "2,047 decode tokens per context",
+    "tool": "sm120/eval/reg_live.py (live), sm120/eval/eval_reg.py (offline)",
+    "L": [
+     164,
+     170,
+     178,
+     180,
+     191
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c70",
+    "top1_pct": "c71"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c69",
+   "flags": [
+    "Offline single pass [L184]",
+    "4-bit share of expert calls (98.7%) not mapped [L184]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "2/4, previous block's top 77",
+   "panel": "KLD on the quant-fidelity-registry panel",
+   "methodology": {
+    "reference": "GLM-5.3 BF16 (registry panel reference)",
+    "dataset": "panel--glm53.malaiwah.corpus5x5-v1 (25 contexts x 2,047 positions = 51,175 tokens)",
+    "ctx": "2,047 decode tokens per context",
+    "tool": "sm120/eval/reg_live.py (live), sm120/eval/eval_reg.py (offline)",
+    "L": [
+     164,
+     170,
+     178,
+     180,
+     191
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c74",
+    "top1_pct": "c75"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c73",
+   "flags": [
+    "Offline single pass [L185]",
+    "4-bit share of expert calls (62.8%) not mapped [L185]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "zai-org/GLM-5.3 FP8",
+   "of": "zai-org/GLM-5.3",
+   "panel": "KLD on the quant-fidelity-registry panel",
+   "methodology": {
+    "reference": "GLM-5.3 BF16 (registry panel reference)",
+    "dataset": "panel--glm53.malaiwah.corpus5x5-v1 (25 contexts x 2,047 positions = 51,175 tokens)",
+    "ctx": "2,047 decode tokens per context",
+    "tool": "sm120/eval/reg_live.py (live), sm120/eval/eval_reg.py (offline)",
+    "L": [
+     164,
+     170,
+     178,
+     180,
+     191
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c78"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c77",
+   "flags": [
+    "Registry single-pass figure, copied [L191-206]",
+    "bpw is the registry's declared nominal value [L189]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "unsloth/GLM-5.3-GGUF UD-Q4_K_XL",
+   "of": "unsloth/GLM-5.3-GGUF",
+   "panel": "KLD on the quant-fidelity-registry panel",
+   "methodology": {
+    "reference": "GLM-5.3 BF16 (registry panel reference)",
+    "dataset": "panel--glm53.malaiwah.corpus5x5-v1 (25 contexts x 2,047 positions = 51,175 tokens)",
+    "ctx": "2,047 decode tokens per context",
+    "tool": "sm120/eval/reg_live.py (live), sm120/eval/eval_reg.py (offline)",
+    "L": [
+     164,
+     170,
+     178,
+     180,
+     191
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c80"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c79",
+   "flags": [
+    "Registry single-pass figure, copied [L191-206]",
+    "bpw is the registry's declared nominal value [L189]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "wrldsuksgo2mars/GLM-5.3-EXL3-K4-v1",
+   "of": "wrldsuksgo2mars/GLM-5.3-EXL3-K4-v1",
+   "panel": "KLD on the quant-fidelity-registry panel",
+   "methodology": {
+    "reference": "GLM-5.3 BF16 (registry panel reference)",
+    "dataset": "panel--glm53.malaiwah.corpus5x5-v1 (25 contexts x 2,047 positions = 51,175 tokens)",
+    "ctx": "2,047 decode tokens per context",
+    "tool": "sm120/eval/reg_live.py (live), sm120/eval/eval_reg.py (offline)",
+    "L": [
+     164,
+     170,
+     178,
+     180,
+     191
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c86"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c85",
+   "flags": [
+    "Registry single-pass figure, copied [L191-206]",
+    "bpw is the registry's declared nominal value [L189]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "RadixArk/GLM-5.3-NVFP4",
+   "of": "RadixArk/GLM-5.3-NVFP4",
+   "panel": "KLD on the quant-fidelity-registry panel",
+   "methodology": {
+    "reference": "GLM-5.3 BF16 (registry panel reference)",
+    "dataset": "panel--glm53.malaiwah.corpus5x5-v1 (25 contexts x 2,047 positions = 51,175 tokens)",
+    "ctx": "2,047 decode tokens per context",
+    "tool": "sm120/eval/reg_live.py (live), sm120/eval/eval_reg.py (offline)",
+    "L": [
+     164,
+     170,
+     178,
+     180,
+     191
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c88"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c87",
+   "flags": [
+    "Registry single-pass figure, copied [L191-206]",
+    "bpw is the registry's declared nominal value [L189]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "incoai/GLM-5.3-NVFP4",
+   "of": "incoai/GLM-5.3-NVFP4",
+   "panel": "KLD on the quant-fidelity-registry panel",
+   "methodology": {
+    "reference": "GLM-5.3 BF16 (registry panel reference)",
+    "dataset": "panel--glm53.malaiwah.corpus5x5-v1 (25 contexts x 2,047 positions = 51,175 tokens)",
+    "ctx": "2,047 decode tokens per context",
+    "tool": "sm120/eval/reg_live.py (live), sm120/eval/eval_reg.py (offline)",
+    "L": [
+     164,
+     170,
+     178,
+     180,
+     191
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c90"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c89",
+   "flags": [
+    "Registry single-pass figure, copied [L191-206]",
+    "bpw is the registry's declared nominal value [L189]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "davidsyoung/GLM-5.3-EXL3-TR3-3.42bpw",
+   "of": "davidsyoung/GLM-5.3-EXL3-TR3-3.42bpw",
+   "panel": "KLD on the quant-fidelity-registry panel",
+   "methodology": {
+    "reference": "GLM-5.3 BF16 (registry panel reference)",
+    "dataset": "panel--glm53.malaiwah.corpus5x5-v1 (25 contexts x 2,047 positions = 51,175 tokens)",
+    "ctx": "2,047 decode tokens per context",
+    "tool": "sm120/eval/reg_live.py (live), sm120/eval/eval_reg.py (offline)",
+    "L": [
+     164,
+     170,
+     178,
+     180,
+     191
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c94"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c93",
+   "flags": [
+    "Registry single-pass figure, copied [L191-206]",
+    "bpw is the registry's declared nominal value [L189]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "davidsyoung/GLM-5.3-EXL3-TR3-3.25bpw",
+   "of": "davidsyoung/GLM-5.3-EXL3-TR3-3.25bpw",
+   "panel": "KLD on the quant-fidelity-registry panel",
+   "methodology": {
+    "reference": "GLM-5.3 BF16 (registry panel reference)",
+    "dataset": "panel--glm53.malaiwah.corpus5x5-v1 (25 contexts x 2,047 positions = 51,175 tokens)",
+    "ctx": "2,047 decode tokens per context",
+    "tool": "sm120/eval/reg_live.py (live), sm120/eval/eval_reg.py (offline)",
+    "L": [
+     164,
+     170,
+     178,
+     180,
+     191
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c96"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c95",
+   "flags": [
+    "Registry single-pass figure, copied [L191-206]",
+    "bpw is the registry's declared nominal value [L189]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "Inferact/GLM-5.3-NVFP4",
+   "of": "Inferact/GLM-5.3-NVFP4",
+   "panel": "KLD on the quant-fidelity-registry panel",
+   "methodology": {
+    "reference": "GLM-5.3 BF16 (registry panel reference)",
+    "dataset": "panel--glm53.malaiwah.corpus5x5-v1 (25 contexts x 2,047 positions = 51,175 tokens)",
+    "ctx": "2,047 decode tokens per context",
+    "tool": "sm120/eval/reg_live.py (live), sm120/eval/eval_reg.py (offline)",
+    "L": [
+     164,
+     170,
+     178,
+     180,
+     191
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c98"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c97",
+   "flags": [
+    "Registry single-pass figure, copied [L191-206]",
+    "bpw is the registry's declared nominal value [L189]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "davidsyoung/GLM-5.3-EXL3-TR3-3.0bpw",
+   "of": "davidsyoung/GLM-5.3-EXL3-TR3-3.0bpw",
+   "panel": "KLD on the quant-fidelity-registry panel",
+   "methodology": {
+    "reference": "GLM-5.3 BF16 (registry panel reference)",
+    "dataset": "panel--glm53.malaiwah.corpus5x5-v1 (25 contexts x 2,047 positions = 51,175 tokens)",
+    "ctx": "2,047 decode tokens per context",
+    "tool": "sm120/eval/reg_live.py (live), sm120/eval/eval_reg.py (offline)",
+    "L": [
+     164,
+     170,
+     178,
+     180,
+     191
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c100"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c99",
+   "flags": [
+    "Registry single-pass figure, copied [L191-206]",
+    "bpw is the registry's declared nominal value [L189]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "drowzeys/keys-GLM-5.3-EXL3",
+   "of": "drowzeys/keys-GLM-5.3-EXL3",
+   "panel": "KLD on the quant-fidelity-registry panel",
+   "methodology": {
+    "reference": "GLM-5.3 BF16 (registry panel reference)",
+    "dataset": "panel--glm53.malaiwah.corpus5x5-v1 (25 contexts x 2,047 positions = 51,175 tokens)",
+    "ctx": "2,047 decode tokens per context",
+    "tool": "sm120/eval/reg_live.py (live), sm120/eval/eval_reg.py (offline)",
+    "L": [
+     164,
+     170,
+     178,
+     180,
+     191
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c102"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c101",
+   "flags": [
+    "Registry single-pass figure, copied [L191-206]",
+    "bpw is the registry's declared nominal value [L189]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "NestQuant 2/4, 173 floating (3.46 bpw)",
+   "panel": "Floating-set predictor",
+   "methodology": {
+    "reference": "BF16 teacher (4 confirmation windows)",
+    "dataset": "4 BF16-teacher windows",
+    "ctx": "2,047 positions per window",
+    "tool": "jF predictor, teacher-forced; live server for the served value",
+    "L": [
+     336
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c141.0"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "3.46 bpw stated in prose [L336]"
+   ]
+  },
+  {
+   "role": "quoted",
+   "name": "EXL3 TR3 3.42 bpw",
+   "of": "not named on card",
+   "panel": "Floating-set predictor",
+   "methodology": {
+    "reference": "BF16 teacher (4 confirmation windows)",
+    "dataset": "4 BF16-teacher windows",
+    "ctx": "2,047 positions per window",
+    "tool": "jF predictor, teacher-forced; live server for the served value",
+    "L": [
+     336
+    ]
+   },
+   "metrics": {
+    "mean_kld": "c141.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Reported in prose for EXL3 TR3 3.42 bpw on the same windows [L336]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "NestQuant 2/4, 77 floating, offline jF",
+   "panel": "Floating-set predictor",
+   "methodology": {
+    "reference": "BF16 teacher (4 confirmation windows)",
+    "dataset": "4 BF16-teacher windows",
+    "ctx": "2,047 positions per window",
+    "tool": "jF predictor, teacher-forced; live server for the served value",
+    "L": [
+     336
+    ]
+   },
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "2.66 bpw stated in prose [L336]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "NestQuant 2/4, 77 floating, live served",
+   "panel": "Floating-set predictor",
+   "methodology": {
+    "reference": "BF16 teacher (4 confirmation windows)",
+    "dataset": "4 BF16-teacher windows",
+    "ctx": "2,047 positions per window",
+    "tool": "jF predictor, teacher-forced; live server for the served value",
+    "L": [
+     336
+    ]
+   },
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": "c91",
+   "flags": [
+    "Served value matches the live row [L36-50, L176]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "NestQuant 2/4, served (Terminal-Bench runs)",
+   "panel": "Terminal-Bench 4.0 (running)",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "Terminal-Bench 4.0 (harbor terminus-2)",
+    "ctx": "8 h agent timeout",
+    "tool": "harbor",
+    "L": [
+     222,
+     224,
+     226
+    ]
+   },
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Running: 41 of 66 tasks graded [L226]",
+    "Layouts differ across runs: default before 2026-10-05, 26 fixed + 51 floating after [L222-224]"
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "NestQuant 2/4, 77 floating, offline jF",
+   "panel": "Floating-set predictor",
+   "key": "mean_kld",
+   "L": 336,
+   "raw": "0.0261 offline at 2.66 bpw"
+  },
+  {
+   "entry": "NestQuant 2/4, 77 floating, live served",
+   "panel": "Floating-set predictor",
+   "key": "mean_kld",
+   "L": 336,
+   "raw": "0.0256 served live"
+  },
+  {
+   "entry": "NestQuant 2/4, served (Terminal-Bench runs)",
+   "panel": "Terminal-Bench 4.0 (running)",
+   "key": "bench:Terminal-Bench 4.0",
+   "L": 226,
+   "raw": "12/39 = 30.8% excluding timeouts"
+  }
+ ]
+}

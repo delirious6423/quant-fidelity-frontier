@@ -1,0 +1,48 @@
+{
+ "repo": "bot-lab-21/GLM-5.3-Int4-Int8Mix-Pollard-GPTQ",
+ "source_sha256": "0acab132e2a536da382647de21d64c6f82fec930eeae02a07b444bac0de90d75",
+ "candidates_sha256": "f7c5c6f9eeaffe3ae7623815a47a88618f57441873dd37d2d6e404cc7a168bf4",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "fixed held-out texts (perplexity); HumanEval+ and MBPP+ (base / plus)", "ctx": "not stated", "tool": "not stated", "L": [38, 42, 43, 44]},
+ "entries": [
+  {
+   "role": "own",
+   "name": "v4-fast (this repo)",
+   "panel": "Measured quality (same battery, same fleet; \"v2\" = the int4/int8 round-to-nearest production quant it replaced)",
+   "methodology": {"reference": "not stated", "dataset": "fixed held-out texts (perplexity, excluded from calibration by content hash); HumanEval+ and MBPP+ (base / plus)", "ctx": "not stated", "tool": "not stated", "L": [38, 42, 43, 44, 58]},
+   "metrics": {
+    "ppl:held-out-texts": "c2",
+    "bench:HumanEval": "c4.0",
+    "bench:HumanEval+": "c4.1",
+    "bench:MBPP": "c6.0",
+    "bench:MBPP+": "c6.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["throughput and speculative acceptance have no metric key and are not mapped [L46-47]", "the 396 GB total is stated in prose, not in the measurement table [L35]"]
+  },
+  {
+   "role": "ladder",
+   "name": "v2 (RTN, attention int8)",
+   "panel": "Measured quality (same battery, same fleet; \"v2\" = the int4/int8 round-to-nearest production quant it replaced)",
+   "methodology": {"reference": "not stated", "dataset": "fixed held-out texts (perplexity, excluded from calibration by content hash); HumanEval+ and MBPP+ (base / plus)", "ctx": "not stated", "tool": "not stated", "L": [38, 42, 43, 44, 58]},
+   "metrics": {
+    "ppl:held-out-texts": "c1",
+    "bench:HumanEval": "c3.0",
+    "bench:HumanEval+": "c3.1",
+    "bench:MBPP": "c5.0",
+    "bench:MBPP+": "c5.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["the previous production quant, round-to-nearest, replaced by v4-fast [L38]", "throughput has no metric key and is not mapped [L46]"]
+  }
+ ],
+ "prose": []
+}

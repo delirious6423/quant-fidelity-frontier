@@ -1,0 +1,40 @@
+{
+ "repo": "vcruz305/GLM-5.3-EXL3-3.38bpw",
+ "source_sha256": "eeca733a94ae5246f1e05c30d778a4c896d1940c82cc12c71e1ce751f53238c5",
+ "candidates_sha256": "bbe7e1912971a37fde33c8d1ad434aef801f399bf74da550eeff7af8d5b9ffce",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "original BF16 weights run through the same ExLlamaV3 runtime [L85]",
+   "dataset": "10 × 1,024-token held-out sequences (10,240 positions) from WikiText-103, HumanEval, GSM8K and UltraChat-200k test splits [L63-67]",
+   "ctx": "full-sequence forward passes at 1,024 tokens [L86]",
+   "tool": "ExLlamaV3 evaluation fork, commit affc194 [L102]",
+   "L": [63, 71, 85, 86, 102]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "GLM-5.3 MixedK EXL3 3.38 bpw",
+     "metrics": {
+       "top1_pct": "c2",
+       "mean_kld": "c4",
+       "kld_99": "c6",
+       "ppl_delta_pct": "c9",
+       "bench:Mean NLL": "c8.1"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": "c13",
+     "flags": [
+       "Scoring is over the full 154,880-token vocabulary in float64 [L71]",
+       "3.39 bpw including scales is also stated [L38]",
+       "Median KL, top-5 overlap and BF16 top-1 within quant top-5 have no metric key; not mapped [L76, L78, L80]",
+       "BF16 NLL value 1.0092 is the reference, not mapped; the quant value is filed as bench:Mean NLL [L81]",
+       "Total size 319.0 GB is in the summary table, not on the metrics table; no size mapped [L43]"
+     ]
+   }
+ ],
+ "prose": []
+}

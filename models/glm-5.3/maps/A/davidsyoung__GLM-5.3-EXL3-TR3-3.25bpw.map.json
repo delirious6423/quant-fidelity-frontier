@@ -1,0 +1,179 @@
+{
+ "repo": "davidsyoung/GLM-5.3-EXL3-TR3-3.25bpw",
+ "source_sha256": "407352c77f395c6628167a2f5985c12b324a66e1e0462dba39563c7d8c073e3b",
+ "candidates_sha256": "662f0e58ef49b2b297b0304a375aac7e7af75a21f6a20d1c7a46f4020c02bed1",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "sealed BF16 GLM-5.3 logits (brandonmusic teacher) [L66, L108]",
+   "dataset": "4 held-out windows × 2,047 positions, 154,880-token vocabulary [L67]",
+   "ctx": "2,047-position windows, teacher-forced prefill [L67, L113]",
+   "tool": "digest-pinned r17 serving image, vLLM offline, TP4 [L111-113]",
+   "L": [64, 66, 67, 111, 113]
+ },
+ "entries": [
+   {
+     "role": "own",
+     "name": "3.25 bpw, fp8 KV",
+     "metrics": {
+       "mean_kld": "c8"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": "c6",
+     "flags": [
+       "Full-vocabulary, teacher-forced KL(teacher || student) [L66]",
+       "Headline KLD of the 3.25 release [L144]"
+     ]
+   },
+   {
+     "role": "own",
+     "name": "3.25 bpw, nvfp4 KV",
+     "metrics": {
+       "mean_kld": "c13"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": "c11",
+     "flags": [
+       "Full-vocabulary, teacher-forced KL(teacher || student) [L66]"
+     ]
+   },
+   {
+     "role": "quoted",
+     "name": "3.25 bpw, fp8 KV (CN3 reproduction)",
+     "of": "davidsyoung/GLM-5.3-EXL3-TR3-3.25bpw",
+     "metrics": {
+       "mean_kld": "c9"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": "c6",
+     "flags": [
+       "Independent reproduction by dareposte on separate hardware [L69, L134-136]"
+     ]
+   },
+   {
+     "role": "quoted",
+     "name": "3.25 bpw, nvfp4 KV (CN3 reproduction)",
+     "of": "davidsyoung/GLM-5.3-EXL3-TR3-3.25bpw",
+     "metrics": {
+       "mean_kld": "c14"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": "c11",
+     "flags": [
+       "Independent reproduction by dareposte on separate hardware [L69, L134-136]"
+     ]
+   },
+   {
+     "role": "quoted",
+     "name": "3.25 bpw, nvfp4+rope8 KV (CN3 reproduction)",
+     "of": "davidsyoung/GLM-5.3-EXL3-TR3-3.25bpw",
+     "metrics": {
+       "mean_kld": "c28"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": "c26",
+     "flags": [
+       "Independent reproduction by dareposte; no this-work value for this row [L78]"
+     ]
+   },
+   {
+     "role": "ladder",
+     "name": "3.42 bpw, fp8 KV",
+     "metrics": {
+       "mean_kld": "c3"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": "c1",
+     "flags": [
+       "Sibling 3.42 build, measured by this card's author [L73]"
+     ]
+   },
+   {
+     "role": "ladder",
+     "name": "3.42 bpw, nvfp4 KV",
+     "metrics": {
+       "mean_kld": "c18"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": "c16",
+     "flags": [
+       "Sibling 3.42 build, measured by this card's author [L76]"
+     ]
+   },
+   {
+     "role": "ladder",
+     "name": "3.42 bpw, nvfp4+rope8 KV",
+     "metrics": {
+       "mean_kld": "c23"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": "c21",
+     "flags": [
+       "Sibling 3.42 build, measured by this card's author [L77]"
+     ]
+   },
+   {
+     "role": "quoted",
+     "name": "3.42 bpw, fp8 KV (CN3 reproduction)",
+     "of": "not named on card",
+     "metrics": {
+       "mean_kld": "c4"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": "c1",
+     "flags": [
+       "Independent reproduction by dareposte [L73, L134-136]"
+     ]
+   },
+   {
+     "role": "quoted",
+     "name": "3.42 bpw, nvfp4 KV (CN3 reproduction)",
+     "of": "not named on card",
+     "metrics": {
+       "mean_kld": "c19"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": "c16",
+     "flags": [
+       "Independent reproduction by dareposte [L76, L134-136]"
+     ]
+   },
+   {
+     "role": "quoted",
+     "name": "3.42 bpw, nvfp4+rope8 KV (CN3 reproduction)",
+     "of": "not named on card",
+     "metrics": {
+       "mean_kld": "c24"
+     },
+     "size": null,
+     "unit": null,
+     "basis": null,
+     "bpw": "c21",
+     "flags": [
+       "Independent reproduction by dareposte [L77, L134-136]"
+     ]
+   }
+ ],
+ "prose": []
+}
