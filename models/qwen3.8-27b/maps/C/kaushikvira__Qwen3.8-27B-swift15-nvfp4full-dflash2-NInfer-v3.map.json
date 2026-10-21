@@ -1,0 +1,166 @@
+{
+ "repo": "kaushikvira/Qwen3.8-27B-swift15-nvfp4full-dflash2-NInfer-v3",
+ "source_sha256": "aa97c144c90e918c39f6b36bf16c6bc018841f11842abee402691a5a624065ef",
+ "candidates_sha256": "8e87416215324d0b0d0ec37f2cc2846907666db1873e0e604f7d12b4811960ed",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+  "reference": "not stated (same-session A/B against Swift-1.0-abliterated)",
+  "dataset": "IFBench (prompt-strict n=300, prompt-loose, instr-strict, instr-loose); GSM8K-200",
+  "ctx": "not stated",
+  "tool": "NInfer engine on RTX 5090, temp 0, no cache reuse",
+  "L": [
+   111,
+   113,
+   114,
+   118,
+   122
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "Swift-1.5 (this artifact)",
+   "panel": "Benchmarks — same-session A/B vs our Swift-1.0-based production",
+   "metrics": {
+    "bench:IFBench-prompt-strict": "c2",
+    "bench:IFBench-prompt-loose": "c5",
+    "bench:IFBench-instr-strict": "c8",
+    "bench:IFBench-instr-loose": "c11",
+    "bench:GSM8K-200": "c14"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L118-122] Delta column not mapped: differences, not benchmark values",
+    "[L122] GSM8K-200 difference of -0.5 pp is described by the card as n=200 noise",
+    "[L120] per-mode deltas are marked * in the card; no effect on values"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Swift-1.0-abliterated (prev. prod)",
+   "panel": "Benchmarks — same-session A/B vs our Swift-1.0-based production",
+   "metrics": {
+    "bench:IFBench-prompt-strict": "c1",
+    "bench:IFBench-prompt-loose": "c4",
+    "bench:IFBench-instr-strict": "c7",
+    "bench:IFBench-instr-loose": "c10",
+    "bench:GSM8K-200": "c13"
+   },
+   "size": "c18",
+   "unit": "GiB",
+   "basis": "disk",
+   "bpw": null,
+   "flags": [
+    "[L118-122] Delta column not mapped: differences, not benchmark values",
+    "[L126] Weights in VRAM (18.0 GiB, c17) is a VRAM figure and is not mapped as size"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "nvfp4full-dflash2.v3",
+   "panel": "kaushikvira Qwen3.8-27B artifact family (single-RTX-5090 serving)",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "IFBench prompt-strict; GSM8K-200",
+    "ctx": "not stated",
+    "tool": "same-session A/B against swift-abliterated v3 (family table)",
+    "L": [
+     182
+    ]
+   },
+   "metrics": {
+    "bench:IFBench-prompt-strict": "c33",
+    "bench:GSM8K-200": "c34"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L182] values marked * come from a paired A/B with swift-abliterated v3, not an independent run"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "swift-abliterated v3",
+   "panel": "kaushikvira Qwen3.8-27B artifact family (single-RTX-5090 serving)",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "IFBench prompt-strict; GSM8K-200",
+    "ctx": "not stated",
+    "tool": "family table; cross-card rows are from different sessions",
+    "L": [
+     183
+    ]
+   },
+   "metrics": {
+    "bench:IFBench-prompt-strict": "c37",
+    "bench:GSM8K-200": "c38"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L176-177] family-table rows are from different sessions; treat small deltas as indicative"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "thinkingcap v3",
+   "panel": "kaushikvira Qwen3.8-27B artifact family (single-RTX-5090 serving)",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "IFBench prompt-strict; GSM8K-200",
+    "ctx": "not stated",
+    "tool": "family table; cross-card rows are from different sessions",
+    "L": [
+     185
+    ]
+   },
+   "metrics": {
+    "bench:IFBench-prompt-strict": "c45",
+    "bench:GSM8K-200": "c46"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L176-177] family-table rows are from different sessions; treat small deltas as indicative"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "swift15-uncensored-ajgazin v3",
+   "panel": "kaushikvira Qwen3.8-27B artifact family (single-RTX-5090 serving)",
+   "methodology": {
+    "reference": "not stated",
+    "dataset": "IFBench prompt-strict; GSM8K-200",
+    "ctx": "not stated",
+    "tool": "family table; cross-card rows are from different sessions",
+    "L": [
+     186
+    ]
+   },
+   "metrics": {
+    "bench:IFBench-prompt-strict": "c49",
+    "bench:GSM8K-200": "c50"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "[L176-177] family-table rows are from different sessions; treat small deltas as indicative",
+    "[L186] card describes this artifact as ukisai Swift-1.5 plus an ajgazin/orcarouter ablation"
+   ]
+  }
+ ],
+ "prose": []
+}

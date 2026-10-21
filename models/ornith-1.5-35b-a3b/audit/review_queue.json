@@ -1,39 +1,9 @@
 {
  "quarantined": [
   {
-   "repo": "primitive-ai/Ornith-1.5-35B-A3B-agentic-NVFP4-FP8",
-   "kind": "cross",
-   "entry": "ornith-ai NVFP4",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "TSalpha/Ornith-1.5-Reap50-12Gcard_mixQuant",
-   "kind": "ladder",
-   "entry": "Q3_K",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "primitive-ai/Ornith-1.5-35B-A3B-agentic-NVFP4-FP8",
-   "kind": "variants",
-   "entry": "this repo (tool-calling build)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "primitive-ai/Ornith-1.5-35B-A3B-agentic-NVFP4-FP8",
-   "kind": "cross",
-   "entry": "ornith-ai FP8",
-   "reason": "failed a gate"
-  },
-  {
    "repo": "IsValorum/Ornith-1.5-35B-A3B-APEX-I-MiniPlus-V2.1-GGUF",
    "kind": "variants",
    "entry": "APEX-I-MiniPlus V2.1 (IsValorum)",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "primitive-ai/Ornith-1.5-35B-A3B-agentic-NVFP4-FP8",
-   "kind": "ladder",
-   "entry": "our general build",
    "reason": "failed a gate"
   },
   {
@@ -49,27 +19,45 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "primitive-ai/Ornith-1.5-35B-A3B-agentic-NVFP4-FP8",
-   "kind": "cross",
-   "entry": "BF16 reference",
-   "reason": "failed a gate"
-  },
-  {
    "repo": "TSalpha/Ornith-1.5-Reap50-12Gcard_mixQuant",
    "kind": "ladder",
    "entry": "24IQ2+16IQ4",
    "reason": "failed a gate"
   },
   {
-   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "repo": "TSalpha/Ornith-1.5-Reap50-12Gcard_mixQuant",
+   "kind": "ladder",
+   "entry": "Q3_K",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-agentic-NVFP4-FP8",
+   "kind": "cross",
+   "entry": "BF16 reference",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-agentic-NVFP4-FP8",
+   "kind": "cross",
+   "entry": "ornith-ai FP8",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-agentic-NVFP4-FP8",
    "kind": "cross",
    "entry": "ornith-ai NVFP4",
    "reason": "failed a gate"
   },
   {
-   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-agentic-NVFP4-FP8",
+   "kind": "ladder",
+   "entry": "our general build",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-agentic-NVFP4-FP8",
    "kind": "variants",
-   "entry": "this repo",
+   "entry": "this repo (tool-calling build)",
    "reason": "failed a gate"
   },
   {
@@ -82,6 +70,18 @@
    "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
    "kind": "cross",
    "entry": "ornith-ai FP8",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "kind": "cross",
+   "entry": "ornith-ai NVFP4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "kind": "variants",
+   "entry": "this repo",
    "reason": "failed a gate"
   }
  ],
@@ -693,30 +693,6 @@
    "raw": "16.7"
   },
   {
-   "repo": "rdtand/Ornith-1.5-35B-A3B-PrismaQuant-AQUA-25GB-vllm",
-   "entry": "PrismaQuant allocation",
-   "key": "kld:held_out_calibration",
-   "raw": "0.0721"
-  },
-  {
-   "repo": "rdtand/Ornith-1.5-35B-A3B-PrismaQuant-AQUA-25GB-vllm",
-   "entry": "PrismaQuant allocation (shipped)",
-   "key": "kld:held_out_calibration",
-   "raw": "0.0554"
-  },
-  {
-   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
-   "entry": "BF16 reference",
-   "key": "bench:call",
-   "raw": "78.6"
-  },
-  {
-   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
-   "entry": "BF16 reference",
-   "key": "bench:abstain",
-   "raw": "61.3"
-  },
-  {
    "repo": "IsValorum/Ornith-1.5-35B-A3B-APEX-I-NanoPlus-GGUF",
    "entry": "APEX-I-MiniPlus V2.1",
    "key": "ppl:wikitext",
@@ -727,96 +703,6 @@
    "entry": "APEX-I-MiniPlus V2.1",
    "key": "ppl_delta_pct",
    "raw": "+0.75%"
-  },
-  {
-   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
-   "entry": "JANG_4M",
-   "key": "kld:neutral_held_out",
-   "raw": "0.1504 nats"
-  },
-  {
-   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
-   "entry": "JANG_4M",
-   "key": "bench:MMLU-STEM",
-   "raw": "74.2%"
-  },
-  {
-   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
-   "entry": "JANG_4M",
-   "key": "bench:MMLU-Humanities",
-   "raw": "80.8%"
-  },
-  {
-   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
-   "entry": "JANG_4M",
-   "key": "bench:MMLU-Social-Sciences",
-   "raw": "85.8%"
-  },
-  {
-   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
-   "entry": "JANG_4M",
-   "key": "bench:MMLU-Other",
-   "raw": "75.4%"
-  },
-  {
-   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
-   "entry": "JANG_4M",
-   "key": "bench:MMLU-STEM",
-   "raw": "74.2%"
-  },
-  {
-   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
-   "entry": "JANG_4M",
-   "key": "bench:MMLU-Humanities",
-   "raw": "80.8%"
-  },
-  {
-   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
-   "entry": "JANG_4M",
-   "key": "bench:MMLU-Social-Sciences",
-   "raw": "85.8%"
-  },
-  {
-   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
-   "entry": "JANG_4M",
-   "key": "bench:MMLU-Other",
-   "raw": "75.4%"
-  },
-  {
-   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
-   "entry": "ornith-ai NVFP4",
-   "key": "bench:call",
-   "raw": "76.1"
-  },
-  {
-   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
-   "entry": "ornith-ai NVFP4",
-   "key": "bench:abstain",
-   "raw": "61.3"
-  },
-  {
-   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
-   "entry": "ornith-ai FP8",
-   "key": "bench:call",
-   "raw": "79.1"
-  },
-  {
-   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
-   "entry": "ornith-ai FP8",
-   "key": "bench:abstain",
-   "raw": "58.1"
-  },
-  {
-   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
-   "entry": "this repo",
-   "key": "bench:call",
-   "raw": "74.4"
-  },
-  {
-   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
-   "entry": "this repo",
-   "key": "bench:abstain",
-   "raw": "60.0"
   },
   {
    "repo": "IsValorum/Tiel-Coder-35B-A3B-APEX-I-NanoPlus-GGUF",
@@ -883,6 +769,120 @@
    "entry": "JANG_2L",
    "key": "bench:MMLU_Other",
    "raw": "79.6%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "JANG_4M",
+   "key": "kld:neutral_held_out",
+   "raw": "0.1504 nats"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "JANG_4M",
+   "key": "bench:MMLU-STEM",
+   "raw": "74.2%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "JANG_4M",
+   "key": "bench:MMLU-Humanities",
+   "raw": "80.8%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "JANG_4M",
+   "key": "bench:MMLU-Social-Sciences",
+   "raw": "85.8%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "JANG_4M",
+   "key": "bench:MMLU-Other",
+   "raw": "75.4%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "JANG_4M",
+   "key": "bench:MMLU-STEM",
+   "raw": "74.2%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "JANG_4M",
+   "key": "bench:MMLU-Humanities",
+   "raw": "80.8%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "JANG_4M",
+   "key": "bench:MMLU-Social-Sciences",
+   "raw": "85.8%"
+  },
+  {
+   "repo": "dealignai/Ornith-1.5-35B-A3B-UNCENSORED-JANG_4M",
+   "entry": "JANG_4M",
+   "key": "bench:MMLU-Other",
+   "raw": "75.4%"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "entry": "BF16 reference",
+   "key": "bench:call",
+   "raw": "78.6"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "entry": "BF16 reference",
+   "key": "bench:abstain",
+   "raw": "61.3"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "entry": "ornith-ai FP8",
+   "key": "bench:call",
+   "raw": "79.1"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "entry": "ornith-ai FP8",
+   "key": "bench:abstain",
+   "raw": "58.1"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "entry": "ornith-ai NVFP4",
+   "key": "bench:call",
+   "raw": "76.1"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "entry": "ornith-ai NVFP4",
+   "key": "bench:abstain",
+   "raw": "61.3"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "entry": "this repo",
+   "key": "bench:call",
+   "raw": "74.4"
+  },
+  {
+   "repo": "primitive-ai/Ornith-1.5-35B-A3B-mixed-NVFP4-FP8",
+   "entry": "this repo",
+   "key": "bench:abstain",
+   "raw": "60.0"
+  },
+  {
+   "repo": "rdtand/Ornith-1.5-35B-A3B-PrismaQuant-AQUA-25GB-vllm",
+   "entry": "PrismaQuant allocation",
+   "key": "kld:held_out_calibration",
+   "raw": "0.0721"
+  },
+  {
+   "repo": "rdtand/Ornith-1.5-35B-A3B-PrismaQuant-AQUA-25GB-vllm",
+   "entry": "PrismaQuant allocation (shipped)",
+   "key": "kld:held_out_calibration",
+   "raw": "0.0554"
   }
  ],
  "resolved_disagreements": [],

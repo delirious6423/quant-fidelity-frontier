@@ -1,0 +1,27 @@
+{
+ "repo": "Frosty40/Qwen3.8-27B-GGUF",
+ "source_sha256": "305bcd132f786d365a451876ffd50e0011e53b1ccf067b9270e1d5cb222f58db",
+ "candidates_sha256": "3bc4e8c96e5a24fb639ee93860c352fc51e8c89f7e43a70f8193047c2e3fe578",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "full bf16 model", "dataset": "wikitext-2 prose, real code, real agent transcripts", "ctx": "512-token windows x 8", "tool": "not stated", "L": [46, 47, 48, 52]},
+ "entries": [
+  {"role": "own",
+   "name": "Q6_K-QKV8(-MTP)",
+   "metrics": {"kld:prose": "c9.0", "top1:prose": "c9.1", "kld:code": "c10.0", "top1:code": "c10.2", "kld:agentic": "c11.0", "top1:agentic": "c11.2"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L52] tail (99.9th percentile per-token KLD) values c10.1 and c11.1 not mapped: no matching key", "[L57] card states the -MTP file carries byte-identical backbone tensors to the non-MTP file"]},
+  {"role": "own",
+   "name": "Q6_K-OQ8(-MTP)",
+   "metrics": {"kld:prose": "c12.0", "top1:prose": "c12.1", "kld:code": "c13.0", "top1:code": "c13.2", "kld:agentic": "c14.0", "top1:agentic": "c14.2"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L53] tail (99.9th percentile per-token KLD) values c13.1 and c14.1 not mapped: no matching key"]},
+  {"role": "ladder",
+   "name": "Q8_0 (reference ceiling, not published)",
+   "metrics": {"kld:code": "c15.0", "top1:code": "c15.2", "kld:agentic": "c16.0", "top1:agentic": "c16.2"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L54] Q8_0 is a reference ceiling, not a published file; no prose-corpus value is given for it", "[L54] tail (99.9th percentile per-token KLD) values c15.1 and c16.1 not mapped: no matching key"]}
+ ],
+ "prose": []
+}

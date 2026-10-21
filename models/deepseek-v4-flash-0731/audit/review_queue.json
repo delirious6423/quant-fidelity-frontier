@@ -51,6 +51,12 @@
   {
    "repo": "anoane/DeepSeek-V4-Flash-0731-exl3-hybrid-2.72bpw",
    "kind": "variants",
+   "entry": "2.72 bpw hybrid",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "anoane/DeepSeek-V4-Flash-0731-exl3-hybrid-2.72bpw",
+   "kind": "variants",
    "entry": "2.72 bpw hybrid, --fp4-prefill",
    "reason": "failed a gate"
   },
@@ -61,9 +67,9 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP25",
+   "repo": "ox-ox/DeepSeek-V4-Flash-0731-gguf-ds4",
    "kind": "variants",
-   "entry": "REAP25",
+   "entry": "imatrix",
    "reason": "failed a gate"
   },
   {
@@ -73,9 +79,15 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "anoane/DeepSeek-V4-Flash-0731-exl3-hybrid-2.72bpw",
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP25",
    "kind": "variants",
-   "entry": "2.72 bpw hybrid",
+   "entry": "REAP25",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP37",
+   "kind": "ladder",
+   "entry": "6bit",
    "reason": "failed a gate"
   },
   {
@@ -88,18 +100,6 @@
    "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP50",
    "kind": "variants",
    "entry": "REAP50",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP37",
-   "kind": "ladder",
-   "entry": "6bit",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "ox-ox/DeepSeek-V4-Flash-0731-gguf-ds4",
-   "kind": "variants",
-   "entry": "imatrix",
    "reason": "failed a gate"
   }
  ],
@@ -591,30 +591,6 @@
    "raw": "scored 83/100"
   },
   {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
-   "entry": "REAP50",
-   "key": "ppl:wikitext-2",
-   "raw": "7.7520"
-  },
-  {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
-   "entry": "REAP50",
-   "key": "ppl_delta_pct",
-   "raw": "+26.5%"
-  },
-  {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
-   "entry": "REAP37",
-   "key": "ppl:wikitext-2",
-   "raw": "6.9634"
-  },
-  {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
-   "entry": "REAP37",
-   "key": "ppl_delta_pct",
-   "raw": "+13.7%"
-  },
-  {
    "repo": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
    "entry": "deepseek-ai/DeepSeek-V4-Flash-0731 (Base)",
    "key": "bench:GPQA Platinum",
@@ -643,12 +619,6 @@
    "entry": "deepseek-ai/DeepSeek-V4-Flash-0731 (Base)",
    "key": "bench:Average",
    "raw": "0.6683"
-  },
-  {
-   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP50",
-   "entry": "6bit",
-   "key": "ppl_delta_pct",
-   "raw": "+0.6"
   },
   {
    "repo": "RedHatAI/DeepSeek-V4-Flash-0731-NVFP4",
@@ -712,6 +682,36 @@
   },
   {
    "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
+   "entry": "REAP37",
+   "key": "ppl:wikitext-2",
+   "raw": "6.9634"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
+   "entry": "REAP37",
+   "key": "ppl_delta_pct",
+   "raw": "+13.7%"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
+   "entry": "REAP50",
+   "key": "ppl:wikitext-2",
+   "raw": "7.7520"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
+   "entry": "REAP50",
+   "key": "ppl_delta_pct",
+   "raw": "+26.5%"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-6bit",
+   "entry": "6bit",
+   "key": "ppl_delta_pct",
+   "raw": "+0.6"
+  },
+  {
+   "repo": "pipenetwork/DeepSeek-V4-Flash-MLX-REAP50",
    "entry": "6bit",
    "key": "ppl_delta_pct",
    "raw": "+0.6"

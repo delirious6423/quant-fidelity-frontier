@@ -1,0 +1,176 @@
+{
+ "repo": "easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.5bpw",
+ "source_sha256": "2d7b347cc59da8dd30050f35579f66236be09c4c5a4cb7769ed0ba94daa2483a",
+ "candidates_sha256": "6850a64a0b87a6d0c84cff2304ef429433d3331690e46927f06752339efd36dc",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "DeepSeek's FP8 1017 checkpoint (KL); benchmarks scored by greedy decoding over HTTP",
+   "dataset": "100 rows × 2,048 tokens per KL set; full MMLU and GSM8K (thinking off), BFCL v3, needle tests",
+   "ctx": "2,048 tokens per KL row",
+   "tool": "exllamav3 eval/model_diff.py; simplified AST checker for BFCL v3",
+   "L": [43, 44, 45, 65, 66, 67, 68]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "This quant (3.5 bpw)",
+   "panel": "Fidelity to the original model",
+   "methodology": {
+     "reference": "DeepSeek's FP8 1017 checkpoint",
+     "dataset": "100 rows × 2,048 tokens per set, same tokens for every quant",
+     "ctx": "2,048 tokens per row",
+     "tool": "exllamav3 eval/model_diff.py",
+     "L": [43, 44, 45, 47, 48, 49, 50, 51, 52, 53]
+   },
+   "metrics": {
+     "kld:wikitext-2": "c1.0",
+     "top1:wikitext-2": "c1.1",
+     "kld:fineweb-edu": "c4.0",
+     "top1:fineweb-edu": "c4.1",
+     "kld:aya": "c7.0",
+     "top1:aya": "c7.1",
+     "kld:toucan": "c10.0",
+     "top1:toucan": "c10.1",
+     "kld:agentic-heldout": "c13.0",
+     "top1:agentic-heldout": "c13.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+     "FineWeb-Edu, Aya and Toucan are not in the calibration mix; the held-out agentic set comes from the calibration datasets [L57-58]",
+     "same recipe on exllamav3's default text, a different measurement, not mapped [L59-60]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Our 2.9 bpw",
+   "panel": "Fidelity to the original model",
+   "methodology": {
+     "reference": "DeepSeek's FP8 1017 checkpoint",
+     "dataset": "100 rows × 2,048 tokens per set, same tokens for every quant",
+     "ctx": "2,048 tokens per row",
+     "tool": "exllamav3 eval/model_diff.py",
+     "L": [43, 44, 45, 47, 48, 49, 50, 51, 52, 53]
+   },
+   "metrics": {
+     "kld:wikitext-2": "c2.0",
+     "top1:wikitext-2": "c2.1",
+     "kld:fineweb-edu": "c5.0",
+     "top1:fineweb-edu": "c5.1",
+     "kld:aya": "c8.0",
+     "top1:aya": "c8.1",
+     "kld:toucan": "c11.0",
+     "top1:toucan": "c11.1",
+     "kld:agentic-heldout": "c14.0",
+     "top1:agentic-heldout": "c14.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+     "this publisher's 2.9 bpw comparison quant [L18]"
+   ]
+  },
+  {
+   "role": "cross",
+   "of": "not named on card",
+   "name": "LibertAIDAI 2.9 bpw",
+   "panel": "Fidelity to the original model",
+   "methodology": {
+     "reference": "DeepSeek's FP8 1017 checkpoint",
+     "dataset": "100 rows × 2,048 tokens per set, same tokens for every quant",
+     "ctx": "2,048 tokens per row",
+     "tool": "exllamav3 eval/model_diff.py",
+     "L": [43, 44, 45, 47, 48, 49, 50, 51, 52, 53, 173]
+   },
+   "metrics": {
+     "kld:wikitext-2": "c3.0",
+     "top1:wikitext-2": "c3.1",
+     "kld:fineweb-edu": "c6.0",
+     "top1:fineweb-edu": "c6.1",
+     "kld:aya": "c9.0",
+     "top1:aya": "c9.1",
+     "kld:toucan": "c12.0",
+     "top1:toucan": "c12.1",
+     "kld:agentic-heldout": "c15.0",
+     "top1:agentic-heldout": "c15.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+     "another 1017 EXL3 quant at 2.9 bpw, measured by this card's author for comparison only [L173]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "This quant (3.5 bpw)",
+   "panel": "Benchmarks",
+   "methodology": {
+     "reference": "not stated",
+     "dataset": "full MMLU (14,042) and GSM8K (1,319) with thinking off; thinking-on fixed seeded subsets of 200 and 100; BFCL v3 prompts (3,473)",
+     "ctx": "not stated",
+     "tool": "greedy decoding over HTTP; TensorFold TP3 on three GB10",
+     "L": [65, 66, 67, 68, 70, 71, 72, 73, 74, 75, 76]
+   },
+   "metrics": {
+     "bench:GSM8K thinking off": "c16",
+     "bench:MMLU thinking off": "c19",
+     "bench:BFCL v3": "c22",
+     "bench:GSM8K thinking on": "c25",
+     "bench:MMLU thinking on": "c27"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+     "paired differences (McNemar p) not mapped: no matching metric key [L72-76]",
+     "Needle 12/12 is a pass count, not mapped [L77]",
+     "81 of 14,042 MMLU replies cut by the 16-token answer limit, counted wrong [L80-81]",
+     "card states no difference is significant [L79]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Our 2.9 bpw",
+   "panel": "Benchmarks",
+   "methodology": {
+     "reference": "not stated",
+     "dataset": "full MMLU (14,042) and GSM8K (1,319) with thinking off; thinking-on fixed seeded subsets of 200 and 100; BFCL v3 prompts (3,473)",
+     "ctx": "not stated",
+     "tool": "greedy decoding over HTTP; TensorFold TP2 on two GB10",
+     "L": [65, 66, 67, 68, 70, 71, 72, 73, 74, 75, 76]
+   },
+   "metrics": {
+     "bench:GSM8K thinking off": "c17",
+     "bench:MMLU thinking off": "c20",
+     "bench:BFCL v3": "c23",
+     "bench:MMLU thinking on": "c28"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+     "measured on TensorFold TP2 (two GB10) [L67-68]",
+     "MMLU thinking off: 4 replies cut by the 16-token answer limit for this quant [L81]"
+   ]
+  }
+ ],
+ "prose": [
+  {
+   "entry": "Our 2.9 bpw",
+   "panel": "Benchmarks",
+   "key": "bench:GSM8K thinking on",
+   "L": 75,
+   "raw": "| GSM8K, thinking on | 98.0% | 98.0%"
+  }
+ ]
+}

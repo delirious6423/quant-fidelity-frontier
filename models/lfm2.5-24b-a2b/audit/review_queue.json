@@ -7,39 +7,21 @@
    "reason": "review hold: QA review 2026-10-20: ppl_delta_pct: reviewer unsure: The 0.37% \u0394PPL all value is on the cited row [L99], but that row is a fake-quant ablation from the recipe table [L91-94], not a published build, so the ladder role is ambiguous."
   },
   {
-   "repo": "marchfederico/LFM2.5-24B-A2B-4bit-GPTQ-GGUF",
-   "kind": "cross",
-   "entry": "LiquidAI Q4_K_M",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
-   "kind": "cross",
-   "entry": "infinity-ai-institute NVFP4, W4A4",
-   "reason": "failed a gate"
-  },
-  {
-   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
-   "kind": "cross",
-   "entry": "myroslavtryhubets NVFP4A16, W4A16",
-   "reason": "failed a gate"
-  },
-  {
    "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit",
    "kind": "variants",
    "entry": "4-bit DWQ (this model)",
    "reason": "failed a gate"
   },
   {
-   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "repo": "marchfederico/LFM2.5-24B-A2B-4bit-GPTQ-GGUF",
    "kind": "cross",
-   "entry": "LFM2.5-24B-A2B-FP8, FP8 release",
+   "entry": "LiquidAI Q4_K_M",
    "reason": "failed a gate"
   },
   {
-   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "repo": "marchfederico/LFM2.5-24B-A2B-4bit-GPTQ-GGUF",
    "kind": "cross",
-   "entry": "LFM2.5-24B-A2B, BF16 release",
+   "entry": "unsloth UD-Q4_K_XL",
    "reason": "failed a gate"
   },
   {
@@ -55,15 +37,33 @@
    "reason": "failed a gate"
   },
   {
-   "repo": "marchfederico/LFM2.5-24B-A2B-4bit-GPTQ-GGUF",
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
    "kind": "cross",
-   "entry": "unsloth UD-Q4_K_XL",
+   "entry": "LFM2.5-24B-A2B, BF16 release",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "kind": "cross",
+   "entry": "LFM2.5-24B-A2B-FP8, FP8 release",
    "reason": "failed a gate"
   },
   {
    "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
    "kind": "cross",
    "entry": "cloudnathan5 NVFP4-W4A4, W4A4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "kind": "cross",
+   "entry": "infinity-ai-institute NVFP4, W4A4",
+   "reason": "failed a gate"
+  },
+  {
+   "repo": "primitive-ai/LFM2.5-24B-A2B-NVFP4A16",
+   "kind": "cross",
+   "entry": "myroslavtryhubets NVFP4A16, W4A16",
    "reason": "failed a gate"
   },
   {
@@ -1041,6 +1041,306 @@
    "raw": "1923"
   },
   {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:multi-step tool agent",
+   "raw": "86.3%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:tool use (single turn)",
+   "raw": "88.9%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: cpp",
+   "raw": "91.1%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: go",
+   "raw": "94.6%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: javascript",
+   "raw": "91.0%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: python",
+   "raw": "93.5%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: rust",
+   "raw": "89.3%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: shell",
+   "raw": "89.0%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: swift",
+   "raw": "89.8%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: typescript",
+   "raw": "90.8%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:creative writing",
+   "raw": "85.8%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:cybersecurity",
+   "raw": "83.4%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:finance",
+   "raw": "90.1%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:general / multilingual / structured output",
+   "raw": "87.9%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:coding agent (native tools)",
+   "raw": "93.7%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:coding agent, next turn",
+   "raw": "93.5%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:long documents",
+   "raw": "87.6%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:math",
+   "raw": "92.6%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:networking",
+   "raw": "91.9%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:office tasks",
+   "raw": "91.8%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:PyTorch code",
+   "raw": "90.4%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:science",
+   "raw": "90.9%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:SWE-agent",
+   "raw": "84.7%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:terminal agent (shell)",
+   "raw": "90.5%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:turn after a tool result",
+   "raw": "87.7%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:multi-step tool agent",
+   "raw": "86.3%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:tool use (single turn)",
+   "raw": "88.9%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: cpp",
+   "raw": "91.1%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: go",
+   "raw": "94.6%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: javascript",
+   "raw": "91.0%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: python",
+   "raw": "93.5%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: rust",
+   "raw": "89.3%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: shell",
+   "raw": "89.0%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: swift",
+   "raw": "89.8%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:code: typescript",
+   "raw": "90.8%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:creative writing",
+   "raw": "85.8%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:cybersecurity",
+   "raw": "83.4%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:finance",
+   "raw": "90.1%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:general / multilingual / structured output",
+   "raw": "87.9%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:coding agent (native tools)",
+   "raw": "93.7%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:coding agent, next turn",
+   "raw": "93.5%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:long documents",
+   "raw": "87.6%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:math",
+   "raw": "92.6%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:networking",
+   "raw": "91.9%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:office tasks",
+   "raw": "91.8%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:PyTorch code",
+   "raw": "90.4%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:science",
+   "raw": "90.9%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:SWE-agent",
+   "raw": "84.7%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:terminal agent (shell)",
+   "raw": "90.5%"
+  },
+  {
+   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+   "entry": "JANGH2",
+   "key": "top1:turn after a tool result",
+   "raw": "87.7%"
+  },
+  {
    "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
    "entry": "JANG_8M",
    "key": "mean_kld",
@@ -1195,306 +1495,6 @@
    "entry": "JANG_8M",
    "key": "top1:turn after a tool result",
    "raw": "97.5%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:multi-step tool agent",
-   "raw": "86.3%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:tool use (single turn)",
-   "raw": "88.9%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:code: cpp",
-   "raw": "91.1%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:code: go",
-   "raw": "94.6%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:code: javascript",
-   "raw": "91.0%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:code: python",
-   "raw": "93.5%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:code: rust",
-   "raw": "89.3%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:code: shell",
-   "raw": "89.0%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:code: swift",
-   "raw": "89.8%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:code: typescript",
-   "raw": "90.8%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:creative writing",
-   "raw": "85.8%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:cybersecurity",
-   "raw": "83.4%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:finance",
-   "raw": "90.1%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:general / multilingual / structured output",
-   "raw": "87.9%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:coding agent (native tools)",
-   "raw": "93.7%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:coding agent, next turn",
-   "raw": "93.5%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:long documents",
-   "raw": "87.6%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:math",
-   "raw": "92.6%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:networking",
-   "raw": "91.9%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:office tasks",
-   "raw": "91.8%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:PyTorch code",
-   "raw": "90.4%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:science",
-   "raw": "90.9%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:SWE-agent",
-   "raw": "84.7%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:terminal agent (shell)",
-   "raw": "90.5%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:turn after a tool result",
-   "raw": "87.7%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:multi-step tool agent",
-   "raw": "86.3%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:tool use (single turn)",
-   "raw": "88.9%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:code: cpp",
-   "raw": "91.1%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:code: go",
-   "raw": "94.6%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:code: javascript",
-   "raw": "91.0%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:code: python",
-   "raw": "93.5%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:code: rust",
-   "raw": "89.3%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:code: shell",
-   "raw": "89.0%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:code: swift",
-   "raw": "89.8%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:code: typescript",
-   "raw": "90.8%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:creative writing",
-   "raw": "85.8%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:cybersecurity",
-   "raw": "83.4%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:finance",
-   "raw": "90.1%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:general / multilingual / structured output",
-   "raw": "87.9%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:coding agent (native tools)",
-   "raw": "93.7%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:coding agent, next turn",
-   "raw": "93.5%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:long documents",
-   "raw": "87.6%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:math",
-   "raw": "92.6%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:networking",
-   "raw": "91.9%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:office tasks",
-   "raw": "91.8%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:PyTorch code",
-   "raw": "90.4%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:science",
-   "raw": "90.9%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:SWE-agent",
-   "raw": "84.7%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:terminal agent (shell)",
-   "raw": "90.5%"
-  },
-  {
-   "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
-   "entry": "JANGH2",
-   "key": "top1:turn after a tool result",
-   "raw": "87.7%"
   },
   {
    "repo": "hermitdave/LFM2.5-24B-A2B-MLX-DWQ-4bit",

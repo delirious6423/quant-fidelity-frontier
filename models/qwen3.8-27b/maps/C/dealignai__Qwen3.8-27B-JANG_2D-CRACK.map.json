@@ -1,0 +1,120 @@
+{
+ "repo": "dealignai/Qwen3.8-27B-JANG_2D-CRACK",
+ "source_sha256": "320f4baa35cde256ff9696e194f0faa65c28d597bfa3134c5c1844e46c40ae02",
+ "candidates_sha256": "8dc960d52733004a3fc94492ca46d4644d7272e82ba872a962d2159d03428db2",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {
+  "reference": "base model on the identical harness [L113] [L114]",
+  "dataset": "HarmBench harm-240 and MMLU 57-subject [L112] [L113]",
+  "ctx": "not stated",
+  "tool": "MLX runtime [L79]",
+  "L": [
+   79,
+   112,
+   113,
+   114
+  ]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "JANG_2D CRACK",
+   "panel": "Benchmarks — all quant levels",
+   "metrics": {
+    "bench:MMLU (57-subject, logit)": "c6",
+    "bench:HarmBench-240": "c8"
+   },
+   "size": "c4",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Abliterated CRACK weights, MLX JANG affine bundle [L71] [L73]",
+    "Size is the bundle size as stated in the row [L118]",
+    "Delta MMLU column has no schema key, not mapped [L118]",
+    "MXFP8 row has one MMLU cell for two columns, row not mapped [L121]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Base (2D row)",
+   "panel": "Benchmarks — all quant levels",
+   "metrics": {
+    "bench:MMLU (57-subject, logit)": "c5"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Base column of the 2D row, same harness [L118]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "4D",
+   "panel": "Benchmarks — all quant levels",
+   "metrics": {
+    "bench:MMLU (57-subject, logit)": "c11",
+    "bench:HarmBench-240": "c13"
+   },
+   "size": "c9",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Separate repo, CRACK column of the all-quant table [L119]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Base (4D row)",
+   "panel": "Benchmarks — all quant levels",
+   "metrics": {
+    "bench:MMLU (57-subject, logit)": "c10"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Base column of the 4D row [L119]",
+    "Base value differs from the 2D row base [L118] [L119]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "6D",
+   "panel": "Benchmarks — all quant levels",
+   "metrics": {
+    "bench:MMLU (57-subject, logit)": "c16",
+    "bench:HarmBench-240": "c18"
+   },
+   "size": "c14",
+   "unit": "GB",
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Separate repo, CRACK column of the all-quant table [L120]"
+   ]
+  },
+  {
+   "role": "ladder",
+   "name": "Base (6D row)",
+   "panel": "Benchmarks — all quant levels",
+   "metrics": {
+    "bench:MMLU (57-subject, logit)": "c15"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+    "Base column of the 6D row [L120]"
+   ]
+  }
+ ],
+ "prose": []
+}

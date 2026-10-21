@@ -1,0 +1,11 @@
+{
+ "repo": "jialinyyzz/Qwen3.8-27B-abliterated-MLX-8bit",
+ "source_sha256": "38262074f72821f5a574a0d8e1792fc12395e5d4d7a3d66fe9048e2b41f1b83e",
+ "candidates_sha256": "21e27ee45dce25ea10cc7c849a56e5268ff011d484e9a576edaf65e52c7633ac",
+ "no_quality_claims": true,
+ "no_claims_reason": "KL, refusal and benchmark numbers are for the abliterated weights (variant w177), not stated for the 8-bit file [L44, L53-78]; speed table only for this file [L82-87]",
+ "weights_modified": true,
+ "method": {"reference": "original Qwen/Qwen3.8-27B (for the benchmark comparison)", "dataset": "lm-eval-harness (ARC-Challenge, HellaSwag, Winogrande, OpenBookQA, GSM8K CoT); keyword refusal scorer on mlabonne/harmful_behaviors test[:100]", "ctx": "not stated", "tool": "lm-eval-harness; Heretic keyword-refusal scorer", "L": [51, 64, 66, 77]},
+ "entries": [],
+ "prose": []
+}

@@ -12,20 +12,19 @@ tags:
 ---
 
 
-> ## ⛔ Known issue (2026-10-18): do not use yet
-> First GPU test (2× RTX PRO 6000, the bundled llama.cpp build) loads fine but **generates garbage** (repetition loops) on normal chat/Q&A. Root cause (quantization vs. runtime kernels) is under investigation. This card will be updated with results; until then please do not download.
+> [!NOTE]
+> **Fixed on 2026-10-19. If you downloaded before that, re-download shards 1–7.** The first upload (2026-10-18)
+> loaded fine but generated garbage (repetition loops; wikitext-2 perplexity 16.5). The routed-expert shards
+> `00001`–`00007` have been requantized. Shards `00008`–`00010`, `imatrix.gguf`, `run.sh` and `bin/` did not
+> change, so running the same `hf download` again fetches only the 7 new shards.
+> Cause and fix: [below](#2026-10-19-fix-why-the-first-upload-produced-garbage).
 
 # DeepSeek-V4.1-Flash-1017 · UD-IQ2XS GGUF (experimental)
 
 > [!WARNING]
-> **⚠ Experimental: this quant has not been evaluated on GPU yet.** It was produced and checked offline only.
->
-> **Checked:** every tensor's type and size, the GGUF headers of all 10 shards (architecture `deepseek41`,
-> 1046 tensors, all engram keys present), and the importance-matrix statistics (379 chunks × 512 tokens,
-> routed-expert coverage ≥ 97 %).
->
-> **Not checked yet:** perplexity, speed, memory use at run time, output quality. The numbers further down
-> come from a *different* quant (Q2_K) and are a reference only. Expect rough edges, and please report what you see.
+> **Experimental.** Tested on one machine (2× RTX PRO 6000 Blackwell Max-Q) with the bundled build: wikitext-2
+> perplexity, a chat sanity check (arithmetic, Chinese, code, thinking on), and speed up to 14K context. No
+> benchmark suite (MMLU, GSM8K, ...) has been run on this quant yet. Please report what you see.
 
 GGUF quants of [deepseek-ai/DeepSeek-V4.1-Flash-1017](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017).
 This is a dynamic mix in the style of "UD" quants: routed experts at about 2.3–2.5 bits, everything that is small
@@ -97,7 +96,9 @@ out of tokens. Use `temperature 0.6 / top_p 0.95`, or turn thinking off with
 
 Source: the Q8_0 GGUF of [mrfakename/DeepSeek-V4.1-Flash-1017-GGUF](https://huggingface.co/mrfakename/DeepSeek-V4.1-Flash-1017-GGUF).
 In that file the routed experts are native MXFP4 and the small tensors are F32/BF16. It was requantized with
-`llama-quantize --allow-requantize --imatrix imatrix.gguf --tensor-type-file ...`.
+`llama-quantize --allow-requantize --imatrix imatrix.gguf --exclude-weights attn_output_a --tensor-type-file ...`,
+with the zero-sign dithering described [below](#2026-10-19-fix-why-the-first-upload-produced-garbage)
+(`LLAMA_QUANT_DITHER_ZEROS=1`) for the IQ2 expert tensors.
 
 | tensors | type | size |
 |---|---|---|
@@ -149,6 +150,53 @@ To build it yourself:
 git clone -b dsv41-1017-longctx https://github.com/cliecy/llama.cpp && cd llama.cpp
 cmake -B build -DGGML_CUDA=ON && cmake --build build -j --target llama-server
 ```
+
+## Measured with this file
+
+On 2× RTX PRO 6000 Blackwell Max-Q (PCIe), with the bundled build and the `run.sh` settings:
+
+| | this file (fixed) | first upload (2026-10-18) | Q2_K 1017 |
+|---|---|---|---|
+| wikitext-2 perplexity, 2 × 2048 | **1.62** | 16.54 | 4.69 (same build) |
+| wikitext-2 perplexity, 6 × 2048 | **2.044 ± 0.045** | – | 4.749 ± 0.137 (earlier run, see below) |
+
+- Decode: 74–75 tok/s on short chats, 71 tok/s after a 14K-token prompt. Prompt processing: 678 tok/s at 14K.
+- Memory with the `run.sh` defaults (`CTX=131072`): 81.0 GiB and 81.2 GiB VRAM on the two cards, about 105 GiB
+  RAM for the engram tables. Loading took 30 minutes from a hard disk.
+- `LOW_RAM=1` gives the same perplexity as the default mode.
+
+The perplexity of this file is much lower than Q2_K's. The difference comes from the tensors outside the routed
+experts (attention, shared expert, hyper-connections, compressor, indexer), which are kept at higher precision
+here. The IQ2 experts themselves are slightly worse than Q2_K's: on the first 2048-token chunk this file measures
+1.79, and 1.72 with the Q2_K experts swapped in.
+
+## 2026-10-19 fix: why the first upload produced garbage
+
+- The routed experts of the source are MXFP4, and about 11.6 % of their weights are exactly 0.
+- IQ2_XS and IQ2_S have no zero level in their codebooks, and `llama-quantize` gives a weight of exactly 0 a
+  positive sign. So every zero became the smallest positive grid value.
+- Per weight, the error was normal: relative RMS error 0.31 for `gate`/`up`, the same as Q2_K. Within each row,
+  though, the zeros all erred the same way, so the errors added up along every row instead of cancelling. Summed
+  over a row, the error came out at +3.6 standard deviations for `gate`/`up` and +8 for `down`, positive in 100 % of
+  rows. Independent errors would give about ±0.8, with half the rows positive.
+- The damage sits in the deeper layers. Swapping expert shards against the Q2_K file showed that IQ2 experts in
+  layers 0–23 cost about 3 % perplexity, while IQ2 experts in layers 24–39 raised it from 1.72 to 6.46 (first
+  2048-token chunk of wikitext-2).
+- **Fix.** Before quantizing, every exact zero gets a tiny pseudo-random sign. The tensor types, file size and
+  per-weight error stay the same; only the row bias is gone. The runtime and `bin/` did not change.
+- The fix is a small patch to `llama-quant.cpp`, included here as
+  [`llama-quant-dither-zeros.patch`](llama-quant-dither-zeros.patch). It is off unless `LLAMA_QUANT_DITHER_ZEROS=1`
+  is set. The environment variable is not part of upstream llama.cpp, and the `llama-quantize` in `bin/` does not
+  include the patch, so requantizing with that binary reproduces the problem.
+- Ruled out along the way:
+  - the CUDA kernels: `test-backend-ops` passes, including `MUL_MAT_ID` with this model's matrix shapes and the
+    fused MoE paths
+  - the engram tables, and the `LOW_RAM` path
+  - the GGUF metadata and the imatrix weighting
+  - the bundled binary: Q2_K runs correctly with it
+- Measured here for IQ2_XS and IQ2_S only. Other IQ types without a zero level (IQ2_XXS, IQ3_XXS, IQ3_S) are
+  probably affected the same way but were not checked. When requantizing MXFP4 weights (DeepSeek V4, gpt-oss) to
+  such types, check the per-row error sum, not only the RMS error.
 
 ## Reference numbers (different quant: Q2_K, not this file)
 

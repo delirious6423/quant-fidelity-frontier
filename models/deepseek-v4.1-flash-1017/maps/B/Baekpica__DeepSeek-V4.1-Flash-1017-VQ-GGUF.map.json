@@ -1,17 +1,10 @@
-{
- "repo": "Baekpica/DeepSeek-V4.1-Flash-1017-VQ-GGUF",
- "source_sha256": "b9f85bae000a8aa0e270555d17b1f9bd859a79bc3f5f2d7fde7eb00607cc990f",
- "candidates_sha256": "3fa9a2650abd5fdc82d59dd6595c6bb24d1e77182f22f523af76f68d212dc1fd",
+{"repo": "Baekpica/DeepSeek-V4.1-Flash-1017-VQ-GGUF",
+ "source_sha256": "3ac750eec475a96568d3907565ab4e77ca88b43ef1c1ae1d24a40037d33e42c4",
+ "candidates_sha256": "284e7d5b8d75f702dc1da1b4ae2eaf1b2fb348da0c39af29bee488176f3659e0",
  "no_quality_claims": true,
- "no_claims_reason": "quality tables are for V4.1 Flash, a different model, not this 1017 artifact [L218-262]; 1017 benchmark scores are the FP8 source model [L269-282]; no 1017 quality measurement yet [L289]",
+ "no_claims_reason": "fidelity tables are for V4.1 Flash, a different model, and 1017 fidelity is not yet measured [L239-244, L288, L310]; DeepSeek's source-model scores and the cosine table are not quant quality [L230-237, L292-303]",
  "weights_modified": false,
- "method": {
-  "reference": "not stated",
-  "dataset": "not stated",
-  "ctx": "not stated",
-  "tool": "not stated",
-  "L": []
- },
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": []},
  "entries": [],
  "prose": []
 }

@@ -1,0 +1,23 @@
+{
+ "repo": "ProCreations/bonsai-2-27b-gsq-rco-gguf",
+ "source_sha256": "a6588078a5751b8d0a1306aadba76cfbd79ab05b097a9065fd55858bac156029",
+ "candidates_sha256": "3ab309ccc53173bb39286f3a7497b736c25c29ae708275eeffe7604e56a9f938",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "WikiText-2 raw test (PPL); ARC-C 1,172, ARC-E 2,376, HellaSwag 2,000 (fixed random validation), Winogrande 1,267 (validation)", "ctx": "2048 (WikiText-2); zero-shot continuation likelihood (tasks)", "tool": "native perplexity tool; custom zero-shot continuation likelihood harness", "L": [57, 58, 60, 62]},
+ "entries": [
+  {"role": "own",
+   "name": "Bonsai GSQ + RCO",
+   "metrics": {"ppl:wikitext": "c6", "ppl_delta_pct": "c28", "bench:ARC-Challenge": "c7", "bench:ARC-Easy": "c8", "bench:HellaSwag": "c9", "bench:Winogrande": "c10"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L35] ppl_delta_pct (c28) is the 5.84 % PPL reduction versus original Bonsai, stated in words as 'lower'", "[L44] absolute perplexity change -0.5063 (c29) not mapped: no matching key", "[L36] paired accuracy changes and their intervals (c16-c23) not mapped: they are differences, not benchmark values", "[L42] BF16 reference row (Original Qwen3.8 BF16) is the teacher model, not a quant; not entered"]},
+  {"role": "cross",
+   "name": "Original Bonsai PTQ1_0",
+   "of": "prism-ml/Ternary-Bonsai-2-27B-gguf",
+   "metrics": {"ppl:wikitext": "c1", "bench:ARC-Challenge": "c2", "bench:ARC-Easy": "c3", "bench:HellaSwag": "c4", "bench:Winogrande": "c5"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L40] Prism's Bonsai 2 27B file, measured by this card's author under the same harness"]}
+ ],
+ "prose": []
+}

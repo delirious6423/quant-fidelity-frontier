@@ -1,0 +1,20 @@
+{"repo": "vultr/DeepSeek-V4-Flash-0731-GGUF",
+ "source_sha256": "c93bb073924cde073cfef31d8e77c202ed18d422f6a892d79b2d0a00c41aaddf",
+ "candidates_sha256": "3197d122a63a34e178dfa9f5c01ee763ae1acd6689e7546332273e74c9fae5ea",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "the original model as released (its routed experts are already in 4-bit MXFP4)", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [201, 205]},
+ "entries": [
+   {"role": "own", "name": "DeepSeek-V4-Flash-0731-MXFP4-*.gguf (2 parts)", "metrics": {}, "size": "c1", "unit": "GB", "basis": "disk", "bpw": null,
+    "flags": ["file set is 2 parts; size as printed in the table row [L148-150]"]},
+   {"role": "own", "name": "DeepSeek-V4-Flash-0731-IQ3_M.gguf", "metrics": {}, "size": "c6", "unit": "GB", "basis": "disk", "bpw": null,
+    "flags": []},
+   {"role": "own", "name": "DeepSeek-V4-Flash-0731-IQ3_S.gguf", "metrics": {}, "size": "c11", "unit": "GB", "basis": "disk", "bpw": null,
+    "flags": []}
+ ],
+ "prose": [
+   {"entry": "DeepSeek-V4-Flash-0731-MXFP4-*.gguf (2 parts)", "key": "mean_kld", "L": 151, "raw": "0.0132"},
+   {"entry": "DeepSeek-V4-Flash-0731-IQ3_M.gguf", "key": "mean_kld", "L": 157, "raw": "0.1423"},
+   {"entry": "DeepSeek-V4-Flash-0731-IQ3_S.gguf", "key": "mean_kld", "L": 163, "raw": "0.1445"}
+ ]}

@@ -1,0 +1,146 @@
+{
+ "repo": "diffbot/DeepSeek-V4.1-Flash-EXL3-3bpw-2x-RTX-PRO-6000",
+ "source_sha256": "a86ff195bd62d71e566a1a8e654cd210cdf073e3cd3d750a44cce599c4411423",
+ "candidates_sha256": "8ae4ec8acc23a7e0c8bc8d7ce9088ab0266bd8a27c9624e0caed13d3e2b89a2b",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {
+   "reference": "original DeepSeek-V4.1-Flash-1017 checkpoint run by the author (vLLM, exact FP4 expert weights); kyuz0 short100 full-vocabulary FP32 logits from DeepSeek reference code",
+   "dataset": "AtomicChat neutral text, code and agentic corpora; kyuz0 short100 panel (100 cases)",
+   "ctx": "4,096-token windows (AtomicChat); 8K context window for logprob capture as served",
+   "tool": "recipe/kl/ (vLLM)",
+   "L": [44, 46, 51, 55, 63, 64, 65]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "This pack, as served",
+   "panel": "AtomicChat's corpora, our 1017 reference",
+   "methodology": {
+     "reference": "original DeepSeek-V4.1-Flash-1017 checkpoint run by the author (vLLM, exact FP4 expert weights)",
+     "dataset": "AtomicChat neutral text, code and agentic corpora, 24 windows of 4,096 tokens, second half scored, top-512 logprobs",
+     "ctx": "8K context window, no prefix cache for logprob capture",
+     "tool": "recipe/kl/ (vLLM)",
+     "L": [46, 47, 48, 49, 50, 63, 64, 65]
+   },
+   "metrics": {
+     "kld:neutral": "c4.0",
+     "top1:neutral": "c4.1",
+     "kld:code": "c5.0",
+     "top1:code": "c5.1",
+     "kld:agentic": "c6.0",
+     "top1:agentic": "c6.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+     "as served: FP8 lm_head, host-RAM experts, CPU runtime, CUDA graphs, speculative decoding off [L63-65]",
+     "noise-floor row (original 1017 second run) [L59] not mapped: the original checkpoint is not a file of this repo",
+     "previous release's scores against V4.1-Flash reference [L66] omitted: different model"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "This pack, as served",
+   "panel": "kyuz0's short100 panel",
+   "methodology": {
+     "reference": "original 1017, full-vocabulary FP32 logits from DeepSeek's reference code",
+     "dataset": "kyuz0 short100 panel, 100 cases, 6,159 scored positions",
+     "ctx": "not stated",
+     "tool": "not stated",
+     "L": [51, 52, 53, 63, 64, 65]
+   },
+   "metrics": {
+     "kld:short100": "c7.0",
+     "top1:short100": "c7.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+     "full-vocabulary KL, not comparable to the top-512 AtomicChat panel [L51-53]",
+     "as served configuration [L63-65]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "This pack on the previous release's serving stack",
+   "panel": "AtomicChat's corpora, our 1017 reference",
+   "methodology": {
+     "reference": "original DeepSeek-V4.1-Flash-1017 checkpoint run by the author (vLLM, exact FP4 expert weights)",
+     "dataset": "AtomicChat neutral text, code and agentic corpora, 24 windows of 4,096 tokens, second half scored, top-512 logprobs",
+     "ctx": "not stated",
+     "tool": "recipe/kl/ (vLLM)",
+     "L": [46, 47, 48, 49, 50, 61]
+   },
+   "metrics": {
+     "kld:neutral": "c8.0",
+     "top1:neutral": "c8.1",
+     "kld:code": "c9.0",
+     "top1:code": "c9.1",
+     "kld:agentic": "c10.0",
+     "top1:agentic": "c10.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+     "same pack measured on the previous release's serving stack [L61]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "This pack on the previous release's serving stack",
+   "panel": "kyuz0's short100 panel",
+   "methodology": {
+     "reference": "original 1017, full-vocabulary FP32 logits from DeepSeek's reference code",
+     "dataset": "kyuz0 short100 panel, 100 cases, 6,159 scored positions",
+     "ctx": "not stated",
+     "tool": "not stated",
+     "L": [51, 52, 53, 61]
+   },
+   "metrics": {
+     "kld:short100": "c11.0",
+     "top1:short100": "c11.1"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+     "full-vocabulary KL, not comparable to the top-512 AtomicChat panel [L51-53]",
+     "same pack measured on the previous release's serving stack [L61]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "This pack",
+   "panel": "Quality probes with thinking off and greedy decoding",
+   "methodology": {
+     "reference": "not stated",
+     "dataset": "GSM8K-200, HumanEval",
+     "ctx": "not stated",
+     "tool": "not stated",
+     "L": [70, 72, 74]
+   },
+   "metrics": {
+     "bench:GSM8K-200": "c12",
+     "bench:HumanEval": "c13"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+     "thinking off, greedy decoding [L70]",
+     "previous release (V4.1-Flash) probe row [L75] omitted: different model"
+   ]
+  }
+ ],
+ "prose": []
+}

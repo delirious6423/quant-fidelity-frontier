@@ -1,0 +1,25 @@
+{
+ "repo": "vultr/GLM-5.3-Flash-GGUF",
+ "source_sha256": "31db85fb3087ecfa3a213bbb5ab022a08061197d96d4db3c71d5a11fc018a7e5",
+ "candidates_sha256": "f294043c8e30a3c7de9043dc32601077568050234546714fc87ea374da88a3c7",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "original bf16 model", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [146, 218, 222]},
+ "entries": [
+  {"role": "own", "name": "Q5_K_M", "metrics": {}, "size": "c2", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["mean KLD value is not in the candidate list; copied as prose [L154]"]},
+  {"role": "own", "name": "Q4_K_M", "metrics": {}, "size": "c7", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["mean KLD value is not in the candidate list; copied as prose [L160]"]},
+  {"role": "own", "name": "IQ3_M", "metrics": {}, "size": "c12", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["mean KLD value is not in the candidate list; copied as prose [L166]"]},
+  {"role": "own", "name": "IQ3_S", "metrics": {}, "size": "c17", "unit": "GB", "basis": "disk", "bpw": null,
+   "flags": ["mean KLD value is not in the candidate list; copied as prose [L172]"]}
+ ],
+ "prose": [
+  {"entry": "Q5_K_M", "key": "mean_kld", "L": 154, "raw": "0.0265"},
+  {"entry": "Q4_K_M", "key": "mean_kld", "L": 160, "raw": "0.0468"},
+  {"entry": "IQ3_M", "key": "mean_kld", "L": 166, "raw": "0.1506"},
+  {"entry": "IQ3_S", "key": "mean_kld", "L": 172, "raw": "0.1611"}
+ ]
+}

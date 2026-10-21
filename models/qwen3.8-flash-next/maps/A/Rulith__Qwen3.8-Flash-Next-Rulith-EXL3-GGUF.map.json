@@ -1,16 +1,30 @@
-{
- "repo": "Rulith/Qwen3.8-Flash-Next-Rulith-EXL3-GGUF",
- "source_sha256": "69badaf83c178b757f7577cbb12c698f980361ddfb5a8a0d8f06b0eef68f0ca0",
- "candidates_sha256": "586bc0ac4e5fc63e6b03983381bb4dc4e7d26724ced3796fd6047f94d2b871f4",
+{"repo": "Rulith/Qwen3.8-Flash-Next-Rulith-EXL3-GGUF",
+ "source_sha256": "82598859dbfc009617cb38767339ae0e9a71d385bee7f4b2fcded19a30586177",
+ "candidates_sha256": "4ffe56f72d3a76acafc23df335453beb365bca7d2f43906e670192904b053ed6",
  "no_quality_claims": false,
  "no_claims_reason": "",
  "weights_modified": false,
- "method": {"reference": "BF16 model", "dataset": "mixed corpus (Rulith evaluation set)", "ctx": "1024", "tool": "not stated", "L": [45]},
+ "method": {"reference": "BF16 model", "dataset": "six kinds of text: wikitext, C4, multilingual, chat, code, math", "ctx": "1024", "tool": "Rulith Inference 0.6.0 at its defaults on Ryzen AI Max+ 395 (64 GB GPU setting); speed: reading a 16.9K-token prompt and one conversation with MTP on", "L": [72, 73, 74, 75]},
  "entries": [
-  {"role": "own", "name": "EXL3 4.05 bpw",
-   "metrics": {"mean_kld": "c4", "kld_99": "c5", "top1_pct": "c6"},
-   "size": null, "unit": null, "basis": null, "bpw": "c8",
-   "flags": ["Re-packed from turboderp 4.05bpw_h6_ng6; quantization credited to turboderp [L21-22]", "Folder size table not on the metrics row [L28]"]}
- ],
- "prose": []
+   {"role": "own",
+    "name": "EXL3 4.05 bpw (this repository)",
+    "panel": "Compared with the GGUF quantizations",
+    "metrics": {"mean_kld": "c17", "kld_99": "c18", "top1_pct": "c19", "bench:prompt_reading_tok_s": "c20", "bench:one_conversation_tok_s": "c21"},
+    "size": "c16", "unit": "GB", "basis": "disk", "bpw": "c35",
+    "flags": ["Size is the whole GGUF total, including the n-gram table [L79]", "Per-domain KLD line [L83] does not name a file; not mapped", "Memory table [L62-L65] has no metric keys; not mapped"]},
+   {"role": "cross",
+    "name": "unsloth UD-Q4_K_XL",
+    "of": "unsloth/Qwen3.8-Flash-Next-GGUF",
+    "panel": "Compared with the GGUF quantizations",
+    "metrics": {"mean_kld": "c23", "kld_99": "c24", "top1_pct": "c25", "bench:prompt_reading_tok_s": "c26", "bench:one_conversation_tok_s": "c27"},
+    "size": "c22", "unit": "GB", "basis": "disk", "bpw": null,
+    "flags": ["Measured by this card's author on the same machine and evaluation set [L72-L75]"]},
+   {"role": "cross",
+    "name": "unsloth UD-IQ4_XS",
+    "of": "unsloth/Qwen3.8-Flash-Next-GGUF",
+    "panel": "Compared with the GGUF quantizations",
+    "metrics": {"mean_kld": "c29", "kld_99": "c30", "top1_pct": "c31", "bench:prompt_reading_tok_s": "c32", "bench:one_conversation_tok_s": "c33"},
+    "size": "c28", "unit": "GB", "basis": "disk", "bpw": null,
+    "flags": ["Measured by this card's author on the same machine and evaluation set [L72-L75]"]}
+ ]
 }

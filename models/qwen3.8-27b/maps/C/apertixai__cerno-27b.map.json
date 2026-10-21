@@ -1,0 +1,33 @@
+{
+ "repo": "apertixai/cerno-27b",
+ "source_sha256": "8131a6f5f5d7bac7233af83ed28000df596ac6cc95262cd832403cbbac5da068",
+ "candidates_sha256": "622220252ca541bf11a99c812bcb7fac383d7cb4e64fcf5941f3eae82a942300",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "bf16 weights, same suite [L96]", "dataset": "Decision Index 0.3 public suite [L18] [L68]", "ctx": "not stated", "tool": "vLLM via decision_index engine_vllm [L111]", "L": [18, 68, 96, 111]},
+ "entries": [
+  {"role": "own",
+   "name": "Cerno 27B",
+   "metrics": {"bench:Decision Index 0.3 public index": "c2"},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["FP8 W8A8 submitted run, lm_head in bf16 [L96] [L115]",
+             "Fine-tuned from the base model, then FP8 quantised [L191]",
+             "Cerno 9B and 4B rows measure other models, omitted [L65] [L66]",
+             "Jev 1.13 rows measure another model, omitted [L81] [L86]",
+             "Temperature, rank, latency, ECE and OOD rows have no schema key, not mapped [L62] [L83] [L84]"]},
+  {"role": "ladder",
+   "name": "bf16 weights",
+   "metrics": {},
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": ["Reference build not published in this repo, score is in prose [L96]",
+             "Answer identity with bf16 on a sample, not a mapped metric [L186]"]}
+ ],
+ "prose": [{"entry": "bf16 weights", "key": "bench:Decision Index 0.3 public index", "L": 96, "raw": "65.12"}]
+}

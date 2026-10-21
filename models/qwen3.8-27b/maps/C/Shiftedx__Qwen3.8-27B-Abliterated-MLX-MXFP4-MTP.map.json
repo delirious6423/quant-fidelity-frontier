@@ -1,0 +1,17 @@
+{"repo": "Shiftedx/Qwen3.8-27B-Abliterated-MLX-MXFP4-MTP",
+ "source_sha256": "5be0b90391028a3c47f9c18057586332f4da49a24cd938b658b8f1f3f6bec882",
+ "candidates_sha256": "0c53a9147dffc618b9c64ef88e065641b7334409d4665b789e844b721144450a",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "not stated", "dataset": "Shiftedx Bench lanes (frozen lightweight quant gate)", "ctx": "context lengths listed on the card [L62]", "tool": "MTPLX runtime with Hermes hybrid routing", "L": [50, 62, 63]},
+ "entries": [
+  {"role": "own",
+   "name": "Qwen3.8-27B Abliterated MLX MXFP4 + Native MTP",
+   "methodology": {"reference": "not stated", "dataset": "Shiftedx Bench lanes (frozen lightweight quant gate)", "ctx": "context lengths listed on the card [L62]", "tool": "MTPLX runtime with Hermes hybrid routing", "L": [50, 60, 61, 62, 63]},
+   "metrics": {"bench:Quality accuracy": "c2", "bench:Long context accuracy": "c7", "bench:Tool calling accuracy": "c12", "bench:Agentic accuracy": "c17", "bench:Vision accuracy": "c20"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["[L54-L58] pass counts against totals are not mapped, since a single candidate cannot carry the total", "[L54-L58] speed and memory columns are not quality keys and are not mapped", "[L27] refusal-marker counts against totals in the summary are not mapped", "[L22] the edit is an abliteration on modified language-model weights; the vision tower is unchanged"]}
+ ],
+ "prose": []
+}

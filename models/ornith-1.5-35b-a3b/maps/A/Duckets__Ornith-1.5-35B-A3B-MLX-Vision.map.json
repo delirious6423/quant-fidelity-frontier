@@ -1,0 +1,13 @@
+{
+ "repo": "Duckets/Ornith-1.5-35B-A3B-MLX-Vision",
+ "source_sha256": "87beaf8e9440ee452bdb7cb4f55f6d0001dd5dbb03e06d7b28dc6827eb0a0e3d",
+ "candidates_sha256": "d35ca94e6eefead63d259b732cb6b3ff6f071c0db52b0a987712fc5467d633b5",
+ "no_quality_claims": true,
+ "no_claims_reason": "size and pass/fail vision read-back only [L22-L28]",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "mlx_vlm.convert -q (mlx-vlm), affine 4-bit, group size 64", "L": [21]},
+ "entries": [
+  {"role": "own", "name": "MLX 4-bit (Vision)", "metrics": {}, "size": "c1", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["4.649 bits per weight stated, not a candidate cell [L22]"]}
+ ],
+ "prose": []
+}

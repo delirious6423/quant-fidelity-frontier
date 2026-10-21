@@ -1,0 +1,21 @@
+{
+ "repo": "vultr/Ornith-1.5-35B-A3B-GGUF",
+ "source_sha256": "f413d6b65c213a24d952e3b8dccf7999ce08b9a80792b6b584cfd27f3d5e13c7",
+ "candidates_sha256": "37d9f08766570a6a0c01380f9e5eb15d6c0cd424e51437492cce68639d3e35c5",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "original bf16 model", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [215, 219]},
+ "entries": [
+  {"role": "own", "name": "Ornith-1.5-35B-A3B-Q5_K_M.gguf", "metrics": {}, "size": "c2", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["Per-layer hybrid quantization [L17]"]},
+  {"role": "own", "name": "Ornith-1.5-35B-A3B-Q4_K_M.gguf", "metrics": {}, "size": "c6", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["Per-layer hybrid quantization [L17]"]},
+  {"role": "own", "name": "Ornith-1.5-35B-A3B-IQ3_M.gguf", "metrics": {}, "size": "c10", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["Per-layer hybrid quantization [L17]"]},
+  {"role": "own", "name": "Ornith-1.5-35B-A3B-IQ3_S.gguf", "metrics": {}, "size": "c14", "unit": "GB", "basis": "disk", "bpw": null, "flags": ["Per-layer hybrid quantization [L17]"]}
+ ],
+ "prose": [
+  {"entry": "Ornith-1.5-35B-A3B-Q5_K_M.gguf", "key": "mean_kld", "L": 151, "raw": "0.0349"},
+  {"entry": "Ornith-1.5-35B-A3B-Q4_K_M.gguf", "key": "mean_kld", "L": 157, "raw": "0.0595"},
+  {"entry": "Ornith-1.5-35B-A3B-IQ3_M.gguf", "key": "mean_kld", "L": 163, "raw": "0.1399"},
+  {"entry": "Ornith-1.5-35B-A3B-IQ3_S.gguf", "key": "mean_kld", "L": 169, "raw": "0.1504"}
+ ]
+}

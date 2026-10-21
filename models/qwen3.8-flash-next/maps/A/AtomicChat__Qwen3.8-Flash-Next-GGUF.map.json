@@ -1,0 +1,25 @@
+{"repo": "AtomicChat/Qwen3.8-Flash-Next-GGUF",
+ "source_sha256": "e382cefb05454683bba7e241e65cc4e0d60e075c6bfc2fd098e1b58087b90b53",
+ "candidates_sha256": "12c432158ad6e65d6506e527730dd2860b040ce69d7366c259bc8b4263e1917f",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "BF16 model's own logits (BF16 PPL 4.0445 ± 0.0216)", "dataset": "held-out neutral set, 87 chunks", "ctx": "4096", "tool": "not stated", "L": [95, 96, 97]},
+ "entries": [
+   {"role": "own",
+    "name": "AD-3.84bpw-IQ4_XS-M64",
+    "metrics": {"mean_kld": "c5", "top1_pct": "c6", "ppl_ratio": "c7"},
+    "size": "c2", "unit": "GB", "basis": "excl_engram", "bpw": "c34",
+    "flags": ["In-memory size excludes the n-gram table, as stated [L92]", "Total 84.9 GB [L83] not used as size", "Speed figures (36 tok/s [L44]) have no candidate id and an unclear build; not mapped", "Qwen-reported base-model benchmark scores [L243, L267] are for the BF16 base, not these quants; not mapped", "BF16 reference PPL [L97] and imatrix calibration-set PPL [L138] are not quant results; not mapped"]},
+   {"role": "own",
+    "name": "AD-4.27bpw-Q4_K_M-M64",
+    "metrics": {"mean_kld": "c12", "top1_pct": "c13", "ppl_ratio": "c14"},
+    "size": "c9", "unit": "GB", "basis": "excl_engram", "bpw": "c35",
+    "flags": ["In-memory size excludes the n-gram table, as stated [L92]", "Total 94.5 GB [L84] not used as size", "Speed figures (pp512, tg128 [L126]) have no candidate id; not mapped", "Imatrix calibration-set PPL [L138] is not a quant result; not mapped"]},
+   {"role": "own",
+    "name": "AD-5.00bpw-Q5_K_M-M64",
+    "metrics": {"mean_kld": "c19", "top1_pct": "c20", "ppl_ratio": "c21"},
+    "size": "c16", "unit": "GB", "basis": "excl_engram", "bpw": "c36",
+    "flags": ["In-memory size excludes the n-gram table, as stated [L92]", "Total 110.5 GB [L85] not used as size"]}
+ ]
+}

@@ -1,0 +1,22 @@
+{"repo": "webmp3/Sakura-Qwen3.8-Flash-Next-Compact-47.6GiB-K512-CP2-v1-GGUF",
+ "source_sha256": "b1ad996b1ad6bd84ac8cc284c00f4515857f2d009d4bbbf6bba452727315da1a",
+ "candidates_sha256": "a57ac22112820ed32a41bb3589cf6a675d508377820ea2c9a20df588a773e3f5",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "original ISTA Q2_0 model (comparison baseline)", "dataset": "fixed text slices: English, code, German", "ctx": "512-token chunks", "tool": "not stated", "L": [160, 169]},
+ "entries": [
+  {"role": "own",
+   "name": "Compact CP2",
+   "metrics": {"ppl:english-8": "c2", "ppl_delta_pct:english-8": "c3", "ppl:code-8": "c5", "ppl_delta_pct:code-8": "c6", "ppl:german-8": "c8", "ppl_delta_pct:german-8": "c9", "ppl:german-40": "c11", "ppl_delta_pct:german-40": "c12"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["German perplexity rose on both slices; card says these deviations are retained and documented [L169]", "Token lookup table is lossy-compressed; other tensors are stated as byte-identical to the source quant [L89, L187]"]},
+  {"role": "cross",
+   "name": "Original Q2_0",
+   "of": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+   "metrics": {"ppl:english-8": "c1", "ppl:code-8": "c4", "ppl:german-8": "c7", "ppl:german-40": "c10"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Source file of the Compact conversion, measured by this card's author on the same slices [L160-169]"]}
+ ],
+ "prose": []
+}

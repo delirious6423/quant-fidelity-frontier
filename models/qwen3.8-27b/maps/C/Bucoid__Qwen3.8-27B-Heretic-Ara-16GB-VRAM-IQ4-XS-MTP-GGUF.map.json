@@ -1,0 +1,27 @@
+{
+ "repo": "Bucoid/Qwen3.8-27B-Heretic-Ara-16GB-VRAM-IQ4-XS-MTP-GGUF",
+ "source_sha256": "e4a691e14194fe3ac8c88c4fdf66e0fc52f2420ff1f12a5db8f5ac5fee95619c",
+ "candidates_sha256": "c6c65d0b9d028dcf30097cbf14e985d2f4bad9b85bf14c257f1217c02c8c0265",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": true,
+ "method": {"reference": "Heretic-Ara BF16 (base) column [L60]", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [29, 60]},
+ "entries": [
+  {"role": "own",
+   "name": "IQ4_XS-3.0",
+   "metrics": {"ppl": "c9", "mean_kld": "c17", "top1_pct": "c30"},
+   "size": null, "unit": "GiB", "basis": "disk", "bpw": "c6",
+   "flags": ["[L31] size cell gives 13 GiB without MTP and 13.3 GiB with MTP; size left out as ambiguous", "[L36-37] Max KLD and 99.9% KL quantile not mapped: no matching metric key", "[L34] PPL correlation with base not mapped: no matching metric key"]},
+  {"role": "ladder",
+   "name": "IQ4_XS-2.0",
+   "metrics": {"ppl": "c10", "mean_kld": "c18", "top1_pct": "c31"},
+   "size": "c3", "unit": "GiB", "basis": "disk", "bpw": null,
+   "flags": ["[L36-37] Max KLD and 99.9% KL quantile not mapped: no matching metric key", "[L34] PPL correlation with base not mapped: no matching metric key"]},
+  {"role": "ladder",
+   "name": "Heretic-Ara-Q3_K_M",
+   "metrics": {"ppl": "c11", "mean_kld": "c19", "top1_pct": "c32"},
+   "size": "c4", "unit": "GiB", "basis": "disk", "bpw": "c7",
+   "flags": ["[L36-37] Max KLD and 99.9% KL quantile not mapped: no matching metric key", "[L34] PPL correlation with base not mapped: no matching metric key"]}
+ ],
+ "prose": []
+}

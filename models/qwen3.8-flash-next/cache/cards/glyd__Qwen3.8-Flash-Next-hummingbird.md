@@ -53,19 +53,20 @@ resumes if it stops), and opens a chat app at `http://127.0.0.1:8080`. Apps and 
 | Folder | What it holds | Size |
 |---|---|--:|
 | `model/` | Qwen's tokenizer, chat template and configs, and the weights outside the experts (attention, embeddings, n-gram table) | 37 GB |
-| `precise/` | the experts for **precise mode** (the default; calibrated since v0.2) | 45 GB |
-| `best/` | the experts for **best mode** (v0.2.1) | 52 GB |
+| `precise-v2/` | the experts for **precise mode** (the default; v0.2.4 on) | 45 GB |
+| `best-v2/` | the experts for **best mode** (v0.2.4 on) | 53 GB |
 | `fast/` | the experts for **fast mode** (v0.2.2 on; `pack/` is the same mode for engines before v0.2.2) | 29 GB |
+| `precise/`, `best/` | precise and best for engines before v0.2.4 | 45 / 52 GB |
 
-You need `model/` and one of the three expert folders: **82 GB for precise mode, 89 GB for best, 66 GB for fast.**
+You need `model/` and one of the three expert folders: **82 GB for precise mode, 90 GB for best, 66 GB for fast.**
 
-- **Precise** keeps more detail in the experts (about 3 bits per weight, calibrated against the original's activations) and its other
-  weights at 6 bits, so its answers stay closer to the original model: KL divergence vs bf16 0.22 on wikitext-2 (0.40 in v0.1). It is
-  the better choice for code.
-- **Best** keeps about 30% of the experts at 4 bits and the rest at 3, calibrated the same way: KL 0.165 vs bf16, the closest of the
-  three. About 10% slower than precise on short prompts, about the same on long ones.
+- **Precise** keeps most experts at 3 bits per weight (by how much each is used) and the rest at 2, its other weights at 6 bits, so its
+  answers stay close to the original model: KL divergence vs bf16 0.15 on wikitext-2 (0.22 in v0.2.0-v0.2.3, 0.40 in v0.1). It is the
+  better choice for code.
+- **Best** keeps the experts that carry about 80% of the work at 4 bits and the rest at 3: KL 0.12 vs bf16, the closest of the three.
+  A little slower than precise.
 - **Fast** stores every expert at 2 bits per weight; since v0.2.2 those bits are packed to stay closer to the original: KL divergence vs
-  bf16 0.39 on wikitext-2 (0.53 before). It writes 15-20% faster than precise, with less accuracy.
+  bf16 0.39 on wikitext-2 (0.53 before). It writes about 25% faster than precise, with less accuracy.
 
 The experts (120.8B of the parameters) are compressed according to use: the experts the model routes to most keep the most detail. The
 GPU holds the busiest experts, RAM holds all of them, and the CPU computes the rest while the GPU works.
@@ -78,12 +79,11 @@ On one RTX 4080 SUPER (16 GB), a Ryzen 9 7950X3D and 64 GB of RAM:
 
 | | Precise | Best | Fast |
 |---|--:|--:|--:|
-| Writing, short / 4K / 30K prompt (greedy) | 118 / 110 / 96 tokens/s | 104 / 92 / 97 tokens/s | 124 / 116 / 125 tokens/s |
-| Writing, top speed (a short prompt, greedy) | about 130 tokens/s | about 105 tokens/s | about 169 tokens/s |
-| Reading a 30,000-token prompt | 7.5 s | 7.5 s | 7.4 s |
+| Writing, short / 4K / 30K prompt (greedy) | 91 / 86 / 91 tokens/s | 79 / 71 / 76 tokens/s | 113 / 115 / 131 tokens/s |
+| First token, short / 4K / 30K prompt | 0.26 / 1.9 / 7.3 s | 0.33 / 2.1 / 7.4 s | 0.16 / 1.3 / 7.5 s |
 | Reading a 261,577-token prompt | | | 66 s |
 
-Contexts up to 262,144 tokens (the model's native length). Follow-up messages reuse the conversation, so they start in under a second.
+v0.2.4's build, 2026-10-21, the median of three runs each. Contexts up to 262,144 tokens (the model's native length). Follow-up messages reuse the conversation, so they start in under a second.
 
 ## Quality
 
@@ -91,17 +91,20 @@ Contexts up to 262,144 tokens (the model's native length). Follow-up messages re
 
 | | Precise | Best | Fast |
 |---|--:|--:|--:|
-| GSM8K | 148 / 150 | 149 / 150 | 149 / 150 |
-| MMLU-Pro | 126 / 150 | 128 / 150 | 121 / 150 |
+| GSM8K | 148 / 150 | 147 / 150 | 149 / 150 |
+| MMLU-Pro | 127 / 150 | 131 / 150 | 121 / 150 |
 | A full game in one prompt ([Star Drift](https://github.com/surya-koritala/condor/tree/main/examples/star-drift)) | 3 of 6 playable (v0.1) | not run | 1 of 6 (v0.1) |
 
 The logs and the scripts that produced them are in the GitHub repository (`results/`, `bench/`).
+
+**Since v0.2.4:** precise and best at 3 and 4 bits a weight (`precise-v2/`, `best-v2/`), long prompts read faster (fast mode: a 4K
+prompt's first token 1.70 -> 1.30 s), and a named `tool_choice` gets one call.
 
 **Since v0.2.3:** images (PNG and JPEG through the OpenAI and Anthropic APIs, up to 1,024 tokens an image by default), up to 4
 requests at once, and the layers split over two cards (`GLYD_GPUS=0,1`; on 2x4090 the same output as one card, byte for byte).
 
 **Limits of this release:** NVIDIA GPUs only (RTX 30 series or newer); total speed with several users stays near one user's; no video.
-Windows is tested on one machine so far; 12 GB cards and 32 GB of RAM were measured on a 4080 held back to those sizes.
+Windows is tested on AWS L4 machines (Windows Server 2022, only NVIDIA's driver installed); 12 GB cards and 32 GB of RAM were measured on a 4080 held back to those sizes.
 
 ---
 

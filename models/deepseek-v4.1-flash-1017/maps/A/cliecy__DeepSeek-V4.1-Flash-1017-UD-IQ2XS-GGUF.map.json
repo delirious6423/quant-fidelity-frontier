@@ -1,9 +1,132 @@
-{"repo": "cliecy/DeepSeek-V4.1-Flash-1017-UD-IQ2XS-GGUF",
- "source_sha256": "442b372994cf14e50bed16db425704b25084c76e7f05384a4fe01d188625939d",
- "candidates_sha256": "961279c7655182b85e8d28e6a91dde99439ac3ce6d3168b3b257784c787c4afa",
- "no_quality_claims": true,
- "no_claims_reason": "quality not checked for this file [L27]; the only perplexity figure is for a different quant (Q2_K), omitted [L153,L171]",
+{
+ "repo": "cliecy/DeepSeek-V4.1-Flash-1017-UD-IQ2XS-GGUF",
+ "source_sha256": "634a5449798bfeb9937ec00bf5cb325d2a21ba02c3eb8dd9908ca2f9523887e5",
+ "candidates_sha256": "afd2db030795583e55b295b589120aabdbd1f611c62ee853be753544125b835d",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
  "weights_modified": false,
- "method": {"reference": "not stated", "dataset": "not stated", "ctx": "not stated", "tool": "not stated", "L": [27]},
- "entries": [],
- "prose": []}
+ "method": {
+   "reference": "not stated",
+   "dataset": "wikitext-2",
+   "ctx": "2 × 2048 and 6 × 2048 chunks",
+   "tool": "bundled llama.cpp build (bin/) with run.sh settings",
+   "L": [156, 158, 160, 161]
+ },
+ "entries": [
+  {
+   "role": "own",
+   "name": "this file (fixed)",
+   "panel": "wikitext-2 perplexity, 2 × 2048",
+   "methodology": {
+     "reference": "not stated",
+     "dataset": "wikitext-2, 2 × 2048",
+     "ctx": "2048 per chunk",
+     "tool": "bundled llama.cpp build (bin/) with run.sh settings",
+     "L": [156, 160]
+   },
+   "metrics": {
+     "ppl:wikitext": "c22"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+     "single-chunk perplexity (1.79, and 1.72 with Q2_K experts swapped in) [L170-171] omitted: one chunk, different panel"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "this file (fixed)",
+   "panel": "wikitext-2 perplexity, 6 × 2048",
+   "methodology": {
+     "reference": "not stated",
+     "dataset": "wikitext-2, 6 × 2048",
+     "ctx": "2048 per chunk",
+     "tool": "bundled llama.cpp build (bin/) with run.sh settings",
+     "L": [156, 161]
+   },
+   "metrics": {
+     "ppl:wikitext": "c25"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+     "value shown with ± 0.045 as stated [L161]"
+   ]
+  },
+  {
+   "role": "own",
+   "name": "first upload (2026-10-18)",
+   "panel": "wikitext-2 perplexity, 2 × 2048",
+   "methodology": {
+     "reference": "not stated",
+     "dataset": "wikitext-2, 2 × 2048",
+     "ctx": "2048 per chunk",
+     "tool": "bundled llama.cpp build (bin/) with run.sh settings",
+     "L": [16, 17, 156, 160]
+   },
+   "metrics": {
+     "ppl:wikitext": "c23"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+     "earlier upload that produced garbage output, requantized 2026-10-19 [L16-19]"
+   ]
+  },
+  {
+   "role": "cross",
+   "of": "not named on card",
+   "name": "Q2_K 1017",
+   "panel": "wikitext-2 perplexity, 2 × 2048",
+   "methodology": {
+     "reference": "not stated",
+     "dataset": "wikitext-2, 2 × 2048",
+     "ctx": "2048 per chunk",
+     "tool": "bundled llama.cpp build (bin/) with run.sh settings",
+     "L": [156, 160, 201, 203, 204, 205]
+   },
+   "metrics": {
+     "ppl:wikitext": "c24"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+     "different quant (Q2_K), reference only, not a measurement of this file [L201-205]",
+     "measured with the same build [L160]"
+   ]
+  },
+  {
+   "role": "cross",
+   "of": "not named on card",
+   "name": "Q2_K 1017",
+   "panel": "wikitext-2 perplexity, 6 × 2048",
+   "methodology": {
+     "reference": "not stated",
+     "dataset": "wikitext-2, 6 × 2048",
+     "ctx": "2048 per chunk",
+     "tool": "bundled llama.cpp build (bin/) with run.sh settings",
+     "L": [156, 161, 201, 203, 204, 205, 219]
+   },
+   "metrics": {
+     "ppl:wikitext": "c26"
+   },
+   "size": null,
+   "unit": null,
+   "basis": null,
+   "bpw": null,
+   "flags": [
+     "different quant (Q2_K), reference only, not a measurement of this file [L201-205]",
+     "earlier run per the card [L161]"
+   ]
+  }
+ ],
+ "prose": []
+}
