@@ -31,6 +31,19 @@ def test(name, fn):
     try: fn(); results.append((name, "PASS", ""))
     except AssertionError as e: results.append((name, "FAIL", str(e)))
 
+def t_collected_unmapped_repo_is_pending_not_missing():
+    # The collector installs a card before any mapping run reads it: the gate reports it as pending and passes;
+    # the same repository recorded in maps/mapped.json without an entry is a gap and fails as before.
+    p = fresh(); ip = f"{p}/{FN}/snapshots/index.json"; idx = json.load(open(ip))
+    donor = next(k for k, v in idx["repos"].items() if v.get("file"))
+    idx["repos"]["test-collector/just-collected"] = dict(idx["repos"][donor]); json.dump(idx, open(ip, "w"))
+    rc, out = run(p, "python3 gates/verify.py")
+    assert rc == 0 and "PENDING MAPPING: 1" in out and "MISSING" not in out, out[-600:]
+    mp = f"{p}/{FN}/maps/mapped.json"; os.makedirs(os.path.dirname(mp), exist_ok=True)
+    mapped = json.load(open(mp)) if os.path.exists(mp) else {}; mapped["test-collector/just-collected"] = {"A": "x", "B": "x"}; json.dump(mapped, open(mp, "w"))
+    rc, out = run(p, "python3 gates/verify.py")
+    assert rc != 0 and "MISSING: ['test-collector/just-collected']" in out and "PENDING" not in out, out[-600:]
+
 def t_absent_value_blocks_build():
     p = fresh()
     edit(f"{p}/{FN}/verified/part1.py", 'mean_kld="0.020218 ± 0.000145"', 'mean_kld="0.1234567 ± 0.000145"')
@@ -147,7 +160,8 @@ for name, fn in [("gate cache never masks an edited card", t_gate_cache_never_ma
                  ("pivoted-table column swap caught (perkel Tiny/Small)", t_pivot_column_swap), ("sign flip caught (PaoAI)", t_sign_flip),
                  ("GiB->GB unit flip caught (AesSedai)", t_unit_flip), ("variant-name swap keeping L caught (AesSedai)", t_variant_name_swap),
                  ("quoted-context entry without measured= caught (mensaprodigy)", t_quoted_without_measured),
-                 ("size without unit caught (AesSedai)", t_size_without_unit)]:
+                 ("size without unit caught (AesSedai)", t_size_without_unit),
+                 ("collected but unmapped repo is pending, mapped without entry is missing", t_collected_unmapped_repo_is_pending_not_missing)]:
     test(name, fn)
 for n, st, msg in results: print(f"[{st}] {n}" + (f" — {msg}" if msg else ""))
 sys.exit(0 if all(st == "PASS" for _, st, _ in results) else 1)
