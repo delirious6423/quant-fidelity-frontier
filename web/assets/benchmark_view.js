@@ -67,7 +67,7 @@
     });
     var coverage = document.createElement('p');
     var missing = data.models.filter(function (m) { return view().models.indexOf(m.slug) < 0; }).map(function (m) { return m.name; });
-    coverage.textContent = 'Score unit: ' + (view().unit === 'as published' ? 'not stated by the sources' : view().unit) + '. ' + (missing.length ? 'No reviewed result with a matched file size for this variant: ' + missing.join(', ') + '.' : 'All indexed models have matching results.');
+    coverage.textContent = 'Score unit: ' + (view().unit === 'as published' ? 'not stated by the sources' : view().unit) + '. ' + (missing.length ? 'No reviewed result with a matched file size for this benchmark: ' + missing.join(', ') + '.' : 'All indexed models have matching results.');
     box.appendChild(coverage);
   }
   function detail() {
@@ -75,7 +75,7 @@
     if (!p) return;
     var title = document.createElement('h2'); title.textContent = p.model_name; box.appendChild(title);
     var score = document.createElement('p'); score.className = 'point-score'; score.textContent = p.raw + ' score · ' + p.size + ' GB'; box.appendChild(score);
-    [p.variant, 'Evaluation: ' + p.source_label].forEach(function (s) { var n = document.createElement('p'); n.textContent = s; box.appendChild(n); });
+    [p.variant, 'Benchmark, as published: ' + p.metric, 'Evaluation: ' + p.source_label].forEach(function (s) { var n = document.createElement('p'); n.textContent = s; box.appendChild(n); });
     var source = document.createElement('a'); source.href = p.src; source.textContent = 'Score source · line ' + p.line; source.target = '_blank'; source.rel = 'noopener'; box.appendChild(source);
     var size = document.createElement('a'); size.href = p.size_src; size.textContent = 'Size source · line ' + p.size_line; size.target = '_blank'; size.rel = 'noopener'; box.appendChild(document.createTextNode(' · ')); box.appendChild(size);
     var model = document.createElement('p'), link = document.createElement('a'); link.href = '../' + p.slug + '/#benchmarks'; link.textContent = 'Explore this model →'; model.appendChild(link); box.appendChild(model);
@@ -116,11 +116,11 @@
     if (!ps.length) svg.appendChild(node('text',{x:(L+R)/2,y:(T+B)/2,'text-anchor':'middle','class':'empty-label'},'No results match these filters.'));
     ps.forEach(function (p) {
       var cx=X(p.size),cy=Y(p.score),r=p.id===selected?8:6;
-      var a=node('a',{href:'#shared-inspect','data-point':p.id,'aria-label':p.model_name+', '+p.variant+', '+p.raw+', '+p.size+' GB, '+p.source_label});
+      var a=node('a',{href:'#shared-inspect','data-point':p.id,'aria-label':p.model_name+', '+p.variant+', '+p.metric+', '+p.raw+', '+p.size+' GB, '+p.source_label});
       a.appendChild(node('circle',{cx:cx,cy:cy,r:22,fill:'transparent'}));
       var shape=p.reference?node('path',{d:'M'+cx+' '+(cy-r)+'l'+r+' '+r+'l-'+r+' '+r+'l-'+r+' -'+r+'Z'}):node('circle',{cx:cx,cy:cy,r:r});
       shape.setAttribute('class','shared-dot');shape.style.fill=data.colors[p.slug];shape.setAttribute('data-model',p.slug);a.appendChild(shape);
-      a.appendChild(node('title',{},p.model_name+' · '+p.variant+': '+p.raw+' at '+p.size+' GB · '+p.source_label));
+      a.appendChild(node('title',{},p.model_name+' · '+p.variant+' · '+p.metric+': '+p.raw+' at '+p.size+' GB · '+p.source_label));
       a.addEventListener('click',function(e){e.preventDefault();selected=p.id;pick.value=p.id;detail();draw();});svg.appendChild(a);
       if(p.id===selected)svg.appendChild(node('text',{x:Math.max(L+18,Math.min(R-18,cx)),y:Math.max(T+15,cy-17),'text-anchor':'middle','class':'point-label'},p.raw));
     });
@@ -128,7 +128,7 @@
   }
   function render() {
     var ps=points();if(!ps.some(function(p){return p.id===selected;}))selected=ps.length?ps[0].id:null;
-    pick.replaceChildren();ps.forEach(function(p){pick.appendChild(option(p.id,p.model_name+' · '+p.variant+' · '+p.size+' GB · '+p.source_label));});if(selected)pick.value=selected;
+    pick.replaceChildren();ps.forEach(function(p){pick.appendChild(option(p.id,p.model_name+' · '+p.variant+(view().metrics.length>1?' · '+p.metric:'')+' · '+p.size+' GB · '+p.source_label));});if(selected)pick.value=selected;
     $('shared-inspect').hidden=!ps.length;
     var modelCount=new Set(ps.map(function(p){return p.slug;})).size;
     $('shared-status').textContent=modelCount+(modelCount===1?' model':' models')+' · '+ps.length+' of '+view().points.length+' results'+(limits.size != null || limits.score != null?' within limits':'');
@@ -138,6 +138,8 @@
   data.views.forEach(function(v,i){selector.appendChild(option(i,v.name+(data.views.some(function(o){return o!==v&&o.name===v.name;})?' · '+v.unit:'')));});
   zero.checked=true;
   var q=new URLSearchParams(location.search), initial=data.views.findIndex(function(v){return v.name===q.get('benchmark')&&(!q.has('unit')||v.unit===q.get('unit'));});
+  // a link made before naming variants shared a chart names one published benchmark name
+  if(initial<0)initial=data.views.findIndex(function(v){return v.metrics.indexOf(q.get('benchmark'))>=0&&(!q.has('unit')||v.unit===q.get('unit'));});
   selector.value=initial>=0?initial:0;
   if(q.has('models')){var enabled=q.get('models').split(',');view().models.forEach(function(slug){hidden[slug]=enabled.indexOf(slug)<0;});}
   resetLimits();
