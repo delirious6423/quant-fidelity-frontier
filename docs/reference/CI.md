@@ -46,7 +46,7 @@ layout 26 s; the MCP steps about 30 s together; everything else under 10 s each.
 | Layout | Total wall time | Critical path | Setup per job |
 |---|---|---|---|
 | Single job (before) | 7 min 25 s | one job: 7 min 25 s | 31 s |
-| Parallel jobs (after) | _to be filled from the first run_ | `plan` -> slowest `model` -> `site` | _cache hit / miss_ |
+| Parallel jobs (after) | 4 min 23 s (run 39555698237, 21 Oct 2026) | `plan` 8 s -> slowest `model` 79 s (qwen3.8-27b) -> `site` 2 min 46 s | browser cache miss in the model jobs, hit in `site` |
 
 Expected after: `plan` about 20 s, the slowest `model` job about 70 s (setup, a 4 s build, a 19 s UI run and the
 upload), and `site` about 3 min 45 s (setup, artifact download and the 188 s of suites that followed the builds), so

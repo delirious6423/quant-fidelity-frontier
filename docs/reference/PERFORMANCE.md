@@ -88,6 +88,17 @@ min of interpreter wall clock and 15 s of orchestration.
 | W4 CI wall time | 7 min 25 s | 4.4 s is not reachable: a browser suite alone takes 14 s; stretch 2.5 min critical path | parallel jobs, cached setup |
 | W5 full ingest | 5 h policy, 40-min slices | interpreter-bound; orchestration 15 s | the loop runs all prompts at once through any interpreter |
 
-## After
+## After (measured on PR #18, 21 Oct 2026)
 
-Filled from measurements on the merged changes.
+| Workload | Before | After | Target | Status |
+|---|---:|---:|---:|---|
+| W4 CI wall time | 7 min 25 s | 4 min 23 s (run 39555698237: `plan` 8 s, slowest `model` job 79 s, `site` 2 min 46 s; browser cache missed in the model jobs on this first run) | stretch 2.5 min | 1.7×, not reached; what remains is the `site` job's serial browser suites (benchmarks 31 s, homepage 19 s, model page 20 s, benchmark view 16 s, MCP 21 s), which can be split into parallel jobs for about 1.5 min more |
+| W1 code and collection share | 2.3 min | the connector catalogue (0.65 min) and the FETCH worker round (2.9 min) no longer run inside the cycle: `collect.yml` does them over HTTP before the hour starts, and `qcl_next.py --part A --collected` begins at `prepare`. The in-cycle script time is the merge and stage steps (about 1.5 min on the delta run) | 1.4 s | measured in test only (12 loopback tests, 2.8 s); the first scheduled runs give the production figure |
+| W2 no-change cycle | 2 to 3 min of agent session, 0.25 min script | a scheduled HTTP catalogue that commits nothing when no card changed; no agent session is needed for an unchanged hour | 2 s | measured on the first unchanged hour of `collect.yml` (checkout plus one catalogue call per model) |
+| W3 deterministic path | 45 s | unchanged by this PR (build 13 s, assemble 5 s, gates suite 21 s) | 0.45 s | not attempted here: the next lever is per-model verification receipts so an unchanged model is neither rebuilt nor retested |
+| W5 full ingest | 5 h policy, 40-min slices | the portable loop plus `publish` runs every prompt at once through any interpreter and lands the result with one command; orchestration 15 s | interpreter-bound | ready; throughput depends on the interpreter's parallelism |
+
+Honest summary: the 100× figures were reached nowhere yet. The connector round trips (3.5 min per delta cycle)
+and the hourly agent session for an unchanged hour are gone from the code path, and CI is 1.7× faster. The two
+largest remaining levers are parallelizing the `site` job's browser suites and skipping unchanged models in CI
+with receipts; both are code, and both are measurable on the same workloads.
