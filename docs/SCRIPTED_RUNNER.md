@@ -72,6 +72,29 @@ adapter, batch API, live model quality evaluation or paid call is included here.
 The synthetic `fake_response` in `runner_replay.py` is only a fixture adapter and
 must never be connected to production acceptance.
 
+A live adapter turns journal tasks into Messages API calls, one call per task,
+with the same validation and journal contract as the file adapter:
+
+```bash
+pip install anthropic   # optional dependency, only for the live adapter
+python3 pipeline/runner_adapter.py --workspace /tmp/qff-shadow --model claude-opus-5-5 \
+    --workers 4 --max-usd 5 --responses /tmp/qff-responses
+```
+
+Credentials come from the SDK's normal resolution (`ANTHROPIC_API_KEY`,
+`ANTHROPIC_AUTH_TOKEN` or an `ant auth login` profile) and are never printed.
+Each call sends only that task's bundle (mapping prompt plus the complete
+numbered source, or the claim, its cited lines and the source with the verdict
+schema of `docs/agents/REVIEW.md`); the reply must be one JSON object and goes
+through `qcl_runner.complete` before the lease is released. Usage (tokens,
+request id, model, outcome) is recorded as a journal event per call and summed
+against `--max-usd`; the adapter stops claiming once recorded spend reaches the
+cap, including across restarts. Rate limits and server errors back the task off
+through the journal's bounded retry; malformed, truncated or declined replies
+block the task with a reason. Server-side refusal fallbacks are on by default
+(`--no-fallbacks` turns them off). `tests/test_runner_adapter.py` exercises all
+of this against a local fake endpoint and skips when the SDK is not installed.
+
 External workers can claim and submit independently:
 
 ```bash
