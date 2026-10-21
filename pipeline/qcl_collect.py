@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Collect the model cards of every live model straight from the public Hugging Face API: no connector, no agent.
 
-  python3 pipeline/qcl_collect.py [--models SLUG ...] [--all-live] [--workers 8] [--base URL] [--root DIR]
+  python3 pipeline/qcl_collect.py [--models SLUG ...] [--all-live] [--workers 8] [--wait-429 SECONDS] [--base URL] [--root DIR]
   python3 pipeline/qcl_collect.py --summary LINES.jsonl      # one line for a commit message, from the JSON lines of a run
 
 For each model (default: every live model, as pipeline/qcl_live.py lists them; the model id comes from models/<slug>/model.json,
@@ -11,7 +11,10 @@ snapshots/index.json. When no card or tree changed, the ledger and catalogue kee
 skipped; Hub metadata that moved (downloads, likes) is taken over at most once a day. One JSON line per model on stdout: slug, catalogue, new, changed, unchanged, unresolved, seconds (plus
 rate_limited / failed / error when something did not complete). Safe to run every hour: a model with no change on the Hub
 leaves every file byte-identical. HF_TOKEN from the environment raises the rate limit; it is never printed or saved, and HTTP
-error bodies never reach stdout. A rate limit (cache/rate_limit.json) is reported for that model and the others continue.
+error bodies never reach stdout. A rate limit (cache/rate_limit.json) is reported for that model and the others continue; with --wait-429 the run sleeps the
+Retry-After (within that budget per run) and resumes the model, so one limit does not cost the hour. A ledger the connector
+path wrote (no model identity, no pinned commits) is replaced by an empty HTTP ledger bound to the model: the snapshot index
+pins those cards already, and the HTTP path re-collects them at their current commit.
 .github/workflows/collect.yml runs this hourly and commits models/*/cache and models/*/snapshots/index.json."""
 import argparse, contextlib, glob, io, json, os, re, subprocess, sys, time
 from types import SimpleNamespace
@@ -90,6 +93,22 @@ def refresh_metadata(index, cat):
             if k in m or k in rec: rec[k] = m.get(k)
 
 
+def connector_era(ledger):
+    """A cache ledger written by the connector path (pipeline/qcl_mcpsave.py): no model identity and no pinned commits."""
+    if not isinstance(ledger, dict) or "model" in ledger or not isinstance(ledger.get("repos"), dict): return False
+    recs = list(ledger["repos"].values())
+    return all(isinstance(r, dict) and "sha" not in r for r in recs)
+
+
+def resume(first, again, waited):
+    """The record of a model whose collection resumed after a rate limit: counts add up, the rest is the resumed run's."""
+    rec = dict(again)
+    for k in ("new", "changed"): rec[k] = (first.get(k) or 0) + (again.get(k) or 0)
+    rec["seconds"] = round((first.get("seconds") or 0) + (again.get("seconds") or 0), 1)
+    rec["waited"] = round(waited, 1)
+    return rec
+
+
 def collect_one(root, slug, workers, base, token):
     """Fetch one model's ledger, then merge it into the snapshot. Returns the JSON record for that model."""
     t0 = time.time()
@@ -103,6 +122,11 @@ def collect_one(root, slug, workers, base, token):
     try:
         model = model_id(root, slug)
         rec["model"] = model
+        if connector_era(read_json(index_path)):
+            # Cards the connector saved carry no pinned commit, so nothing in that ledger resumes over HTTP; the snapshot
+            # index already pins them. Start the HTTP ledger for this model, bound to its identity.
+            fetch.write_json(index_path, {"model": model, "repos": {}}); rec["ledger"] = "connector-era ledger replaced"
+            before = {}
         args = SimpleNamespace(model=model, out=out, include_repo=[], workers=workers, base=base)
         with contextlib.redirect_stdout(log), contextlib.redirect_stderr(log):
             try:
@@ -186,6 +210,8 @@ def main():
     ap.add_argument("--workers", type=int, default=8); ap.add_argument("--base", default="https://huggingface.co")
     ap.add_argument("--root", default=CODE, help="repository root holding models/ and watchlist.json (tests use a copy)")
     ap.add_argument("--summary", metavar="LINES", help="print one summary line from a file of this script's JSON lines, then exit")
+    ap.add_argument("--wait-429", type=float, default=0, metavar="SECONDS",
+                    help="after a rate limit, wait its Retry-After and resume that model, up to this many seconds per run (default: never wait)")
     a = ap.parse_args()
     if a.summary:
         print(summary([json.loads(l) for l in open(a.summary) if l.strip()])); return 0
@@ -198,8 +224,16 @@ def main():
     os.chdir(root)   # the ledger records card paths relative to here (models/<slug>/cache/cards/...), like fetch.yml
     token = os.environ.get("HF_TOKEN") or None
     records = []
+    waited = 0.0
     for slug in slugs:
         rec = collect_one(root, slug, a.workers, a.base, token)
+        while rec.get("rate_limited") and a.wait_429 > 0:
+            secs = (rec["rate_limited"].get("retry_after_seconds") or 60.0) + 1.0
+            if waited + secs > a.wait_429:
+                print(f"  {slug}: rate limited; the wait budget of {a.wait_429:g}s is spent, resume next run", file=sys.stderr, flush=True); break
+            print(f"  {slug}: rate limited; waiting {secs:.0f}s before resuming", file=sys.stderr, flush=True)
+            time.sleep(secs); waited += secs
+            rec = resume(rec, collect_one(root, slug, a.workers, a.base, token), waited)
         records.append(rec); print(json.dumps(rec), flush=True)
     return 1 if any("error" in r for r in records) else 0
 

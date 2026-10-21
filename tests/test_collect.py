@@ -38,6 +38,7 @@ class FakeHub:
         self.modified = {rid: "2026-10-20T10:00:00.000Z" for rid in self.sha}
         self.downloads, self.likes = 10, 3
         self.limited, self.denied, self.requests = set(), set(), []
+        self.limited_once = set()   # paths that answer 429 (Retry-After 1) to their first request only
         hub = self
         class Handler(http.server.BaseHTTPRequestHandler):
             def do_GET(self):
@@ -61,6 +62,8 @@ class FakeHub:
 
     def respond(self, path):
         if path in self.limited: return 429, b"slow down", {"Retry-After": "120"}
+        if path in self.limited_once:
+            self.limited_once.discard(path); return 429, b"slow down", {"Retry-After": "1"}
         if path in self.denied: return 403, b"private response body", {}
         for base in self.bases:
             if path == catalogue_path(base): return 200, json.dumps(self.catalogue(base)).encode(), {}
@@ -198,6 +201,41 @@ class CollectTests(unittest.TestCase):
         self.assertEqual(lines[0]["changed"], 1); self.assertNotIn("rate_limited", lines[0])
         self.assertFalse((self.model / "cache/rate_limit.json").exists())
         self.assertEqual(self.snapshot()["repos"]["test/three"]["sha"], "5" * 40)
+
+    def test_wait_429_resumes_the_model_within_its_budget(self):
+        self.hub.limited_once.add(f"/test/two/raw/{'2' * 40}/README.md")
+        code, lines, err = self.run_collect("--wait-429", "10")
+        self.assertEqual(code, 0)
+        self.assertNotIn("rate_limited", lines[0], "the model resumed after the Retry-After and completed")
+        self.assertEqual((lines[0]["new"], lines[0]["unresolved"]), (3, 0), "counts add up across the first run and the resumed run")
+        self.assertGreaterEqual(lines[0]["waited"], 2.0)
+        self.assertIn("waiting 2s before resuming", err)
+        self.assertEqual(sorted(self.snapshot()["repos"]), ["test/one", "test/three", "test/two"])
+        self.assertFalse((self.model / "cache/rate_limit.json").exists())
+        # A budget smaller than the Retry-After is not spent: the limit is reported as before and the model resumes next run.
+        self.hub.sha["test/two"] = "7" * 40
+        self.hub.limited_once.add(f"/test/two/raw/{'7' * 40}/README.md")
+        code, lines, err = self.run_collect("--wait-429", "1")
+        self.assertEqual(code, 0)
+        self.assertEqual(lines[0]["rate_limited"]["retry_after"], "1"); self.assertNotIn("waited", lines[0])
+        self.assertIn("wait budget of 1s is spent", err)
+
+    def test_connector_era_ledger_is_replaced_by_an_http_ledger_bound_to_the_model(self):
+        (self.model / "cache/cards").mkdir(parents=True)
+        (self.model / "cache/cards/test__one.md").write_bytes(b"old connector card\n")
+        (self.model / "cache/index.json").write_text(json.dumps({"repos": {"test/one": {
+            "file": "cards/test__one.md", "bytes": 19, "sha256": hashlib.sha256(b"old connector card\n").hexdigest(),
+            "size_checked": True, "fetched_at": "2026-10-17T19:15:41Z", "via": "hf-connector"}}}))
+        code, lines, _ = self.run_collect()
+        self.assertEqual(code, 0, lines)
+        self.assertEqual(lines[0]["ledger"], "connector-era ledger replaced")
+        self.assertEqual((lines[0]["new"], lines[0]["unresolved"]), (3, 0), "every card is collected over HTTP at its pinned commit")
+        ledger = json.loads((self.model / "cache/index.json").read_text())
+        self.assertEqual(ledger["model"], MODEL); self.assertEqual(ledger["repos"]["test/one"]["sha"], "1" * 40)
+        self.assertEqual(sorted(self.snapshot()["repos"]), ["test/one", "test/three", "test/two"])
+        # The replacement happens once: the next run reuses the HTTP ledger and changes nothing.
+        code, lines, _ = self.run_collect()
+        self.assertEqual(code, 0); self.assertNotIn("ledger", lines[0]); self.assertEqual(lines[0]["unchanged"], 3)
 
     def test_denied_card_is_counted_without_printing_the_response_body(self):
         self.hub.denied.add(f"/test/one/raw/{'1' * 40}/README.md")
