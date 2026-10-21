@@ -223,6 +223,40 @@ class Runner(unittest.TestCase):
         self.assertIn('<circle', chart)
         self.assertNotIn('nan', chart)
 
+    def test_orchestration_never_scans_the_whole_journal_per_task(self):
+        """Completion and enqueue look tasks up by id/slot; a reconcile loads bounded listings."""
+        with patch.object(State, 'tasks', autospec=True, side_effect=State.tasks) as listing:
+            self.prepare()
+            per_reconcile = listing.call_count
+            self.assertLessEqual(per_reconcile, 12)
+            self.assertTrue(all(call.kwargs.get('with_payload', True) is False or call.kwargs.get('states') or call.kwargs.get('model') or call.kwargs.get('stage')
+                                for call in listing.call_args_list), 'every listing is filtered or payload-free')
+            requests = self.w.path / 'requests'
+            before = {p.name: p.stat().st_mtime_ns for p in requests.glob('*.json')}
+            self.assertTrue(before)
+            self.prepare()  # unchanged inputs: exported requests are not rewritten
+            self.assertEqual({p.name: p.stat().st_mtime_ns for p in requests.glob('*.json')}, before)
+            listing.reset_mock()
+            n = 0
+            while c := self.s.claim(limit=3):
+                R.complete(self.w, self.s, c, fake_response(c['payload'])); n += 1
+            self.assertGreater(n, 3)
+            self.assertEqual(listing.call_count, 0)
+        self.prepare()
+        done = {t['id'] for t in self.s.tasks(states=('succeeded',), with_payload=False)}
+        self.assertFalse(done & {p.stem for p in requests.glob('*.json')}, 'completed requests are withdrawn')
+
+    def test_content_identity_matches_prior_definition_and_shares_evidence(self):
+        import json
+        self.prepare()
+        bundles = R.review_bundles(self.w.model('fixture')) or [t['payload'] for t in self.s.tasks()]
+        for b in bundles:
+            prior = json.loads(json.dumps(b)); prior.pop('fingerprint', None); prior['source'].pop('revision', None)
+            self.assertEqual(R.content_identity(b), R.digest(prior))
+            self.assertIn('revision', b['source'])
+        evidence = [t['payload']['source'] for t in self.s.tasks() if t['stage'] == 'map-A']
+        self.assertTrue(all('text' in e and e['lines'][0]['L'] == 1 for e in evidence))
+
     def test_gated_build_receipt_is_not_publication_receipt(self):
         self.finish()
         receipt = R.verify(self.w, self.s)

@@ -23,6 +23,39 @@ def write(path, value):
     write_json(path, value)
 
 
+def write_text(path, text):
+    """Atomic text write (temporary file, fsync, rename) for already-encoded JSON."""
+    import tempfile
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, temporary = tempfile.mkstemp(prefix='.' + path.name + '.', dir=path.parent)
+    try:
+        with os.fdopen(fd, 'w') as out:
+            out.write(text)
+            out.flush()
+            os.fsync(out.fileno())
+        os.replace(temporary, path)
+    finally:
+        if os.path.exists(temporary):
+            os.unlink(temporary)
+
+
+def install(path, value):
+    """Write a validated output unless the file already holds exactly this value.
+
+    Materialization re-installs every succeeded result on each reconcile; an
+    unchanged map must not cost a rewrite and fsync per task per round.
+    """
+    path = Path(path)
+    try:
+        if path.exists() and read(path) == value:
+            return False
+    except (OSError, ValueError):
+        pass  # unreadable or partial: replace it
+    write(path, value)
+    return True
+
+
 def safe_tree(path):
     path = Path(path)
     if path.is_symlink() or any(p.is_symlink() for p in path.rglob('*')):

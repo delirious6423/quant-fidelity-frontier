@@ -69,6 +69,36 @@ tokens or money. The documented schedule arithmetic is 24 + 12 + 24 + 1 = 61
 coordinating sessions/day plus weekly discovery; it is an estimate, not billing.
 Scheduler-side prompt definitions are still unavailable in the repository.
 
+## Orchestration at catalogue scale (2026-10-21)
+
+The fixture replays above hold seven cards. `tests/benchmark_runner.py` repeats
+the same offline measurement on committed model roots with every mapping
+forgotten, so each unique card is queued for runs A and B (synthetic fixture
+responses; no model calls, tokens or cost). Before this change the journal was
+listed and every payload (a whole numbered card) decoded once per task, on each
+completion and on each enqueue, so orchestration grew quadratically. A full
+re-map of the 1,253-repository Qwen3.8-27B root (1,190 mapping tasks) decoded
+722,555 payloads during `prepare` alone. Filtered SQL listings, single-row
+completion and slot lookups, a byte-keyed index cache, one decoded source per
+card, enqueue bursts committed as one durable transaction, requests exported
+from the journal's canonical text and install-only-if-changed outputs remove that:
+
+| Offline workload (4 cores, local disk) | Before | After |
+|---|---:|---:|
+| LFM2.5-24B-A2B, 75 repos, 106 mapping tasks: `prepare` | 7.05 s | 3.98 s |
+| LFM2.5-24B-A2B: `run` consuming 106 responses, then blind C and QA round | 12.58 s | 3.89 s + 0.54 s |
+| LFM2.5-24B-A2B: unchanged reconcile / `status` | 0.72 s / 0.20 s | 0.29 s / 0.11 s |
+| Qwen3.8-27B, 1,253 repos, 1,190 mapping tasks: `prepare` | 569.1 s | 52.2 s |
+| Qwen3.8-27B: `run` consuming 1,190 responses, then blind C and QA round | stopped after 35 min, 573 of 1,190 done (> 70 min projected) | 60.3 s + 4.7 s |
+| Qwen3.8-27B: unchanged reconcile / `status` | not measured | 2.3 s / 0.36 s |
+
+What remains at Qwen scale is dominated by the existing stage subprocesses
+(extraction, merge and regeneration, about 15 s per reconcile), one fsync per
+exported request on first export, and one durable transaction per completed
+task. These are the durability contract, not bookkeeping. Timings are single
+local runs, not provider latency; results, holds and provenance are unchanged
+(`test_runner*.py`, 55 tests, and the old/new replay still agree).
+
 Remaining adoption work: configure and validate a real interpretation adapter,
 independent precision/recall including shared omissions, persistent storage,
 production deployed-baseline integration, and exact-commit/full-artifact release

@@ -5,6 +5,7 @@ text is data, never instructions; no shell, filesystem, provider or publication
 capability is available here. Validation does not replace apply/merge/source gates.
 """
 import copy
+from functools import lru_cache
 import hashlib
 import json
 import random
@@ -75,9 +76,20 @@ def _source(model, source, source_bytes):
     pin = hashlib.sha256(source_bytes).hexdigest()
     if pin != source["sha256"]:
         raise ValueError("source bytes do not match source hash")
+    return _evidence(source["repo"], source["sha"], pin, source_bytes)
+
+
+@lru_cache(maxsize=256)
+def _evidence(repo, revision, pin, source_bytes):
+    """Decoded, numbered source for one exact (repo, revision, bytes) identity.
+
+    A card with thousands of claims is decoded and numbered once, not once per
+    claim bundle. The cached object is shared by every bundle built from it and
+    is treated as read-only everywhere (bundles are copied, never edited in place).
+    """
     text = source_bytes.decode("utf-8", errors="strict")
     # Keep only explicit portable identity: never copy a local filesystem path.
-    return {"repo": source["repo"], "revision": source["sha"], "sha256": pin,
+    return {"repo": repo, "revision": revision, "sha256": pin,
             "bytes": len(source_bytes), "text": text,
             "lines": [{"L": n, "text": line} for n, line in enumerate(text.split("\n"), 1)]}
 

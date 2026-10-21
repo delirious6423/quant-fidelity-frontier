@@ -166,9 +166,21 @@ re-execution. Do not run both restored and original workspaces as writers.
 python3 pipeline/runner_baseline.py
 python3 -m unittest discover -s tests -p 'test_runner*.py'
 python3 pipeline/runner_replay.py --out /tmp/qff-replay-new-run
+python3 tests/benchmark_runner.py --model qwen3.8-27b --out /tmp/qff-runner-bench
 python3 -m unittest discover -s tests -p 'test_workflow_security.py'
 git diff --exit-code -- models
 ```
+
+`benchmark_runner.py` measures orchestration at real catalogue scale: it copies
+one committed model into a new external workspace, forgets every mapping, and
+times `prepare`, a `run` fed with synthetic fixture responses, and an unchanged
+reconcile. It measures scheduling and bookkeeping only (no model calls, tokens
+or cost) and is the harness behind the scale table in
+[RESULTS.md](scripted-runner/RESULTS.md). Journal listings are filtered in SQL
+and decode a payload only when it is needed; completion and slot lookups are
+single-row queries; a reconcile reinstalls a map or re-exports a request only
+when its bytes would change. A full re-map of a 1,253-repository model therefore
+costs about a minute of orchestration per round rather than ten.
 
 The replay output directory must be new. It contains old/new complete output JSON,
 SQLite journals and measured results. The baseline executes AST-selected legacy
