@@ -258,9 +258,10 @@ class CollectTests(unittest.TestCase):
         path = self.root / "lines.jsonl"
         path.write_text("\n".join(json.dumps(r) for r in [
             {"slug": "a", "new": 2, "changed": 1, "unchanged": 5}, {"slug": "b", "new": 0, "changed": 0, "unchanged": 9},
-            {"slug": "c", "new": 0, "changed": 0, "unchanged": 1, "rate_limited": {"retry_after": "9"}}, {"slug": "d", "failed": 2}]))
+            {"slug": "c", "new": 0, "changed": 0, "unchanged": 1, "rate_limited": {"retry_after": "9"}}, {"slug": "d", "failed": 2},
+            {"slug": "e", "images": {"referenced": 5, "pinned": 2, "new": 1, "unresolved": 1, "gone": 1, "refused": 1}}]))
         p = subprocess.run([sys.executable, str(COLLECT), "--summary", str(path)], capture_output=True, text=True)
-        self.assertEqual(p.stdout.strip(), "a +2 ~1; c rate-limited; d 2 failed")
+        self.assertEqual(p.stdout.strip(), "a +2 ~1; c rate-limited; d 2 failed; e img +1 1 img unresolved 1 img gone 1 img refused; images 2/5 pinned")
         path.write_text(json.dumps({"slug": "b", "new": 0, "changed": 0}))
         self.assertEqual(subprocess.run([sys.executable, str(COLLECT), "--summary", str(path)], capture_output=True, text=True).stdout.strip(), "no card changed")
 

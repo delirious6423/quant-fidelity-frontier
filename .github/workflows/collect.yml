@@ -2,7 +2,8 @@ name: collect-cards
 # Hourly collection of every live model's cards straight from the public Hugging Face API (pipeline/qcl_collect.py):
 # no connector and no agent. After the cards, pipeline/qcl_images.py pins every content image the cards embed (charts and
 # tables with benchmark numbers) into models/*/cache/images, with the coverage in models/*/audit/images.json; an unresolved
-# image fails the step (--strict-images) so coverage under 100 % is loud. Commits models/*/cache, models/*/snapshots/index.json
+# image (a retryable failure; a gone 401/403/404/410 or a refused size or type does not count) fails the step (--strict-images)
+# so a regression is loud. Commits models/*/cache, models/*/snapshots/index.json
 # and models/*/audit/images.json only when a card or an image changed.
 # The live-updates scan then runs `python3 pipeline/qcl_next.py --part A --collected` (docs/runbooks/HOURLY.md).
 on:

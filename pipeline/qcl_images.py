@@ -11,12 +11,22 @@ models/<slug>/cache/images/index.json keyed by URL ({sha256, bytes, content_type
 Resumable: a URL whose ledger entry has its file present with the recorded SHA-256 is never requested again; a URL no card
 references any more leaves the ledger (and its file, when nothing else pins it). The HTTP helper is pipeline/qcl_fetch.py get
 (3 attempts with backoff on 5xx, timeouts and connection errors; a 429 stops the batch and its Retry-After is recorded,
-never slept on). Anything that is not an image, or larger than --max-bytes, is refused and the reason recorded. Bytes are
-stored exactly as received. HF_TOKEN is sent to the Hub origin only (--base) and is never printed or saved; no response
-body reaches stdout. Coverage per model: models/<slug>/audit/images.json (referenced, pinned, unresolved: [{url, repo, L,
-status, attempts, reason}]) and one JSON line on stdout (slug, cards, referenced, pinned, new, unresolved, seconds).
---strict exits non-zero when any model has an unresolved image, so a scheduled run fails loudly rather than silently
-under 100 % coverage. pipeline/qcl_collect.py runs this step after the cards of a model are installed."""
+never slept on). Bytes are stored exactly as received. HF_TOKEN is sent to the Hub origin only (--base) and is never
+printed or saved; no response body reaches stdout.
+Coverage per model: models/<slug>/audit/images.json (cards, references, referenced, pinned). Every URL that is not pinned
+is classified, with evidence, into exactly one of three lists there (entries {url, repo, L, references, status, attempts,
+reason}, sorted by URL, no timestamp, so an unchanged situation writes identical bytes hour to hour):
+- unresolved: a retryable failure, the only class --strict fails on: the helper gave up (5xx, timeout or connection error
+  on every attempt), a 429 stopped the batch (that URL and the ones not requested after it), any other HTTP answer, or
+  an unexpected exception;
+- gone: a definitive HTTP 401, 403, 404 or 410: the file is not available to anyone with this access (deleted, or a gated
+  repository);
+- refused: by this repository's policy: not an image content type, or larger than --max-bytes (bytes and content_type of
+  the response are recorded, the body is never stored), a URL with credentials or a non-HTTP(S) scheme, a redirect the
+  helper refuses, or a data: URI that does not decode.
+One JSON line on stdout (slug, cards, referenced, pinned, new, unresolved, gone, refused, seconds). --strict exits non-zero
+only when a model has an unresolved image: a scheduled run stays red for what a later run may still fetch, never for a
+file nobody can fetch. pipeline/qcl_collect.py runs this step after the cards of a model are installed."""
 import argparse, base64, binascii, concurrent.futures as cf, glob, hashlib, json, os, re, sys, threading, time, urllib.parse
 
 CODE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,6 +37,7 @@ import card_images
 HUB = "https://huggingface.co"
 TRIES = 3                      # attempts per URL inside qcl_fetch.get (5xx, timeouts, connection errors)
 DEFAULT_MAX_BYTES = 8_000_000
+GONE = frozenset({401, 403, 404, 410})   # a definitive answer: the file is not available with this access
 EXT = {"png": "png", "jpeg": "jpg", "jpg": "jpg", "gif": "gif", "webp": "webp", "svg+xml": "svg", "bmp": "bmp", "avif": "avif",
        "tiff": "tiff", "x-icon": "ico", "vnd.microsoft.icon": "ico"}
 MAGIC = ((b"\x89PNG\r\n\x1a\n", "image/png"), (b"\xff\xd8\xff", "image/jpeg"), (b"GIF87a", "image/gif"), (b"GIF89a", "image/gif"),
@@ -176,8 +187,9 @@ def decode_data_uri(url):
 
 
 def fetch_image(url, base, token, max_bytes, stop):
-    """One image: ("pinned", body, content_type, sniffed) or ("refused" | "http", status, reason). Raises RateLimited /
-    FetchStopped (429 stops the batch) and RuntimeError (the helper gave up after TRIES attempts)."""
+    """One image: ("pinned", body, content_type, sniffed) or ("refused" | "http", status, reason, evidence), where evidence
+    carries the bytes and content_type of a response this policy refused. Raises RateLimited / FetchStopped (429 stops the
+    batch) and RuntimeError (the helper gave up after TRIES attempts, or refused a redirect)."""
     if url.lower().startswith("data:"):
         ct, body = decode_data_uri(url)
         headers = {"Content-Type": ct or "application/octet-stream"}
@@ -186,15 +198,16 @@ def fetch_image(url, base, token, max_bytes, stop):
         try:
             same_origin = fetch.origin(url) == fetch.origin(base)
         except RuntimeError as error:
-            return "refused", None, str(error)
+            return "refused", None, str(error), {}
         status, body, headers = fetch.get(url, token if same_origin else None, tries=TRIES, stop=stop)
         if status != 200:
-            return "http", status, f"HTTP {status}"
+            return "http", status, f"HTTP {status}", {}
     ct, sniffed = image_type(headers, body)
+    evidence = {"bytes": len(body), **({"content_type": ct} if ct else {})}
     if not ct.startswith("image/") and sniffed is None:
-        return "refused", status, f"not an image: content type {ct or 'missing'}"
+        return "refused", status, f"not an image: content type {ct or 'missing'}", evidence
     if len(body) > max_bytes:
-        return "refused", status, f"larger than --max-bytes: {len(body)} > {max_bytes} bytes"
+        return "refused", status, f"larger than --max-bytes: {len(body)} > {max_bytes} bytes", evidence
     return "pinned", body, ct, sniffed
 
 
@@ -203,7 +216,7 @@ def collect_images(root, slug, workers=8, base=HUB, token=None, max_bytes=DEFAUL
     """Pin every content image the model's cards reference. Returns the stdout record (without the slug)."""
     t0 = time.time()
     model_dir = os.path.join(root, "models", slug)
-    rec = {"cards": 0, "referenced": 0, "pinned": 0, "new": 0, "unresolved": 0, "seconds": None}
+    rec = {"cards": 0, "referenced": 0, "pinned": 0, "new": 0, "unresolved": 0, "gone": 0, "refused": 0, "seconds": None}
     index = read_json(os.path.join(model_dir, "snapshots", "index.json"))
     if not isinstance(index, dict):
         rec["error"] = "no snapshot index"; rec["seconds"] = round(time.time() - t0, 1); return rec
@@ -218,7 +231,7 @@ def collect_images(root, slug, workers=8, base=HUB, token=None, max_bytes=DEFAUL
     images_dir = os.path.join(model_dir, "cache", "images")
     lock = threading.Lock()
     stop = threading.Event()
-    unresolved, rate_limited = {}, None
+    failures, rate_limited = {"unresolved": {}, "gone": {}, "refused": {}}, None   # every URL not pinned lands in exactly one
 
     def uses(url):
         rs = groups[url]
@@ -239,8 +252,8 @@ def collect_images(root, slug, workers=8, base=HUB, token=None, max_bytes=DEFAUL
     def one(url):
         return url, fetch_image(url, base, token, max_bytes, stop)
 
-    def record_unresolved(url, status, attempts, reason):
-        unresolved[url] = {"status": status, "attempts": attempts, "reason": reason}
+    def record(cls, url, status, attempts, reason, **evidence):
+        failures[cls][url] = {"status": status, "attempts": attempts, "reason": reason, **evidence}
 
     with cf.ThreadPoolExecutor(max(1, workers)) as ex:
         futures = {ex.submit(one, url): url for url in todo}
@@ -250,23 +263,26 @@ def collect_images(root, slug, workers=8, base=HUB, token=None, max_bytes=DEFAUL
                 _, result = fut.result()
             except fetch.RateLimited as error:
                 rate_limited = rate_limited or error
-                record_unresolved(url, 429, 1, "HTTP 429: the batch stopped; Retry-After recorded, resume a later run")
+                record("unresolved", url, 429, 1, "HTTP 429: the batch stopped; Retry-After recorded, resume a later run")
                 continue
             except fetch.FetchStopped:
-                record_unresolved(url, None, 0, "not requested: the batch stopped after HTTP 429")
+                record("unresolved", url, None, 0, "not requested: the batch stopped after HTTP 429")
                 continue
             except RuntimeError as error:   # the helper gave up (5xx, timeouts or connection errors on every attempt), or refused a redirect
                 reason = re.sub(r":\s*\S+$", "", str(error)) or "gave up"
-                record_unresolved(url, None, TRIES if reason.startswith("gave up") else 1, reason)
+                if reason.startswith("refusing"): record("refused", url, None, 1, reason)   # policy: no request can change it
+                else: record("unresolved", url, None, TRIES if reason.startswith("gave up") else 1, reason)
                 continue
-            except ValueError as error:     # a data: URI that does not decode
-                record_unresolved(url, None, 0, str(error))
+            except ValueError as error:     # a data: URI that does not decode: no request can change it
+                record("refused", url, None, 0, str(error))
                 continue
             except Exception as error:      # noqa: BLE001 - one image must never stop the others
-                record_unresolved(url, None, None, f"{type(error).__name__}")
+                record("unresolved", url, None, None, f"{type(error).__name__}")
                 continue
-            if result[0] != "pinned":
-                record_unresolved(url, result[1], 1, result[2]); continue
+            if result[0] == "http":         # a definitive answer is gone; any other status may still change, so it stays unresolved
+                record("gone" if result[1] in GONE else "unresolved", url, result[1], 1, result[2]); continue
+            if result[0] == "refused":
+                record("refused", url, result[1], 1 if result[1] is not None else 0, result[2], **result[3]); continue
             _, body, ct, sniffed = result
             digest = hashlib.sha256(body).hexdigest()
             file = f"cache/images/{digest}.{extension(ct if ct.startswith('image/') else sniffed)}"
@@ -292,14 +308,17 @@ def collect_images(root, slug, workers=8, base=HUB, token=None, max_bytes=DEFAUL
                 os.remove(path)
     checkpoint()
     rec["pinned"] = len(ledger["images"])
+    def entries(cls):
+        return [{"url": url, "repo": groups[url][0]["repo"], "L": groups[url][0]["L"], "references": len(groups[url]), **failures[cls][url]}
+                for url in sorted(failures[cls])]
+
     report = {"model": model, "cards": rec["cards"], "references": rec["references"], "referenced": rec["referenced"], "pinned": rec["pinned"],
-              "unresolved": [{"url": url, "repo": groups[url][0]["repo"], "L": groups[url][0]["L"], "references": len(groups[url]), **unresolved[url]}
-                             for url in sorted(unresolved)]}
+              **{cls: entries(cls) for cls in ("unresolved", "gone", "refused")}}
     if rate_limited:
         report["rate_limited"] = {k: rate_limited.record.get(k) for k in ("url", "retry_after")}
         rec["rate_limited"] = {k: rate_limited.record.get(k) for k in ("retry_after", "retry_after_seconds", "observed_at")}
     write_if_changed(os.path.join(model_dir, "audit", "images.json"), report)
-    rec["unresolved"] = len(unresolved)
+    for cls, found in failures.items(): rec[cls] = len(found)
     rec["seconds"] = round(time.time() - t0, 1)
     return rec
 
@@ -308,7 +327,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--models", nargs="*", default=[], help="slugs under models/ (default: every live model)")
     ap.add_argument("--all-live", action="store_true", help="every live model (the default when --models is not given)")
-    ap.add_argument("--workers", type=int, default=8); ap.add_argument("--strict", action="store_true", help="exit 1 when any image is unresolved")
+    ap.add_argument("--workers", type=int, default=8); ap.add_argument("--strict", action="store_true", help="exit 1 when any image is unresolved (retryable); gone and refused images do not fail")
     ap.add_argument("--max-bytes", type=int, default=DEFAULT_MAX_BYTES); ap.add_argument("--base", default=HUB, help="the Hub origin (tests use a local server)")
     ap.add_argument("--root", default=CODE, help="repository root holding models/ and watchlist.json (tests use a copy)")
     a = ap.parse_args()

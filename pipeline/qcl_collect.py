@@ -11,8 +11,9 @@ snapshots/index.json. When no card or tree changed, the ledger and catalogue kee
 skipped; Hub metadata that moved (downloads, likes) is taken over at most once a day. One JSON line per model on stdout: slug, catalogue, new, changed, unchanged, unresolved, seconds (plus
 rate_limited / failed / error when something did not complete). After a model's cards are installed, pipeline/qcl_images.py
 pins the content images its cards embed (models/<slug>/cache/images, coverage in models/<slug>/audit/images.json); the
-record carries them under "images" (cards, referenced, pinned, new, unresolved, seconds) and --strict-images makes the run
-exit non-zero when any image is unresolved. Safe to run every hour: a model with no change on the Hub leaves every file
+record carries them under "images" (cards, referenced, pinned, new, unresolved, gone, refused, seconds): unresolved is a
+retryable failure, gone a definitive 401/403/404/410, refused this repository's policy (not an image, over --max-bytes), and
+--strict-images makes the run exit non-zero only when any image is unresolved. Safe to run every hour: a model with no change on the Hub leaves every file
 byte-identical. HF_TOKEN from the environment raises the rate limit; it is never printed or saved, and HTTP
 error bodies never reach stdout. A rate limit (cache/rate_limit.json) is reported for that model and the others continue; with
 --wait-429 the run sleeps the Retry-After (within that budget per run) and resumes the model, so one limit does not cost the
@@ -209,6 +210,8 @@ def summary(records):
             img.append(i)
             if i.get("new"): bits.append(f"img +{i['new']}")
             if i.get("unresolved"): bits.append(f"{i['unresolved']} img unresolved")
+            if i.get("gone"): bits.append(f"{i['gone']} img gone")
+            if i.get("refused"): bits.append(f"{i['refused']} img refused")
             if i.get("rate_limited"): bits.append("img rate-limited")
             if i.get("error"): bits.append("img error")
         if bits: parts.append(f"{r['slug']} {' '.join(bits)}")
@@ -225,7 +228,7 @@ def main():
     ap.add_argument("--root", default=CODE, help="repository root holding models/ and watchlist.json (tests use a copy)")
     ap.add_argument("--summary", metavar="LINES", help="print one summary line from a file of this script's JSON lines, then exit")
     ap.add_argument("--no-images", action="store_true", help="cards only: skip the image step (pipeline/qcl_images.py)")
-    ap.add_argument("--strict-images", action="store_true", help="exit 1 when any model has an unresolved image")
+    ap.add_argument("--strict-images", action="store_true", help="exit 1 when any model has an unresolved (retryable) image; gone and refused images do not fail")
     ap.add_argument("--max-bytes", type=int, default=images.DEFAULT_MAX_BYTES, help="largest image accepted (pipeline/qcl_images.py)")
     ap.add_argument("--wait-429", type=float, default=0, metavar="SECONDS",
                     help="after a rate limit, wait its Retry-After and resume that model, up to this many seconds per run (default: never wait)")
