@@ -129,6 +129,31 @@ def image_flag(lines, has_claims):
     return (f"{lead} {len(imgs)} image{'s' if len(imgs) != 1 else ''} [{where}]{(' (' + names + ')') if names else ''} that may show quant results or details; "
             "image contents are not read by the mapper, so anything shown only in them is not on this site")
 
+# A card is read by two mapping workers only when it can state a quality claim. Code files the "no claims" map for a card
+# that has no numeric candidates at all, or whose text never names a quality metric (KL, perplexity, top-1 agreement, a
+# benchmark, accuracy or an evaluation corpus): on every committed run-A map (20 Oct 2026, 9 models, 1,445 cards) every
+# card with a quality metric matched this vocabulary, and 84 of the 452 cards the workers read and found nothing on did not.
+QUALITY = re.compile(
+    r"\bkld?\b|kl[- ]?div|divergence|\bkl_|\bmnats?\b"                                   # KL divergence
+    r"|perplexit|\bppl\b"                                                                 # perplexity
+    r"|\btop[- ]?[15k]\b|top-?1|token[- ]agreement|argmax|\bagreement\b"                  # top-1 / token agreement
+    r"|\bmmlu|gsm8k|humaneval|hellaswag|\barc[- ]?[ce]?\b|winogrande|truthfulqa|ifeval|gpqa|\bmath(?:-?500)?\b|\bbbh\b"
+    r"|mbpp|livecodebench|aime|swe-?bench|\bpiqa|boolq|lambada|\bmgsm|ceval|cmmlu|\bbenchmark|\bleaderboard"   # benchmarks
+    r"|\baccurac|\bacc\b|\bscore|exact[- ]match|pass@|win[- ]rate|\brecover"              # accuracy and scores
+    r"|wikitext|\bc4\b|\bptb\b|calib", re.I)                                             # evaluation corpora
+CODE_FILED = "(detected by code)"
+
+def skip_reason(candidates, text):
+    """Why code, not a worker, files this card's 'no claims' map; None when a worker has to read it."""
+    if not candidates: return f"the card has no numbers in tables or text {CODE_FILED}"
+    if not QUALITY.search(text): return f"the card's numbers are not quality metrics: no KL, perplexity, top-1, benchmark, accuracy or evaluation term in its text {CODE_FILED}"
+    return None
+
+def no_claims_map(repo, cands):
+    """The map both runs would have written for a card code decided not to send to workers (no numbers are typed)."""
+    return {"repo": repo, "source_sha256": cands["source_sha256"], "candidates_sha256": cands["candidates_sha256"],
+            "no_quality_claims": True, "no_claims_reason": "", "entries": [], "prose": []}
+
 def apply(mapping, cands, *, source_sha256=None):
     """-> repo(...) dict in the verified/ schema. Raw strings come from the candidate cells, never from the LLM."""
     ent = {"variants": [], "ladder": [], "cross": []}
@@ -186,7 +211,7 @@ def apply(mapping, cands, *, source_sha256=None):
                 elif p["L"] != tgt["L"] and p["L"] not in tgt.get("L_extra", []): tgt.setdefault("L_extra", []).append(p["L"])
     return {"repo": mapping["repo"], "methodology": mapping.get("method"), "weights_modified": mapping.get("weights_modified"), **ent,
             **({"source_sha256": source_sha256} if source_sha256 is not None else {}),
-            "flags": ([f"No quality claims for the quant (card read in full): {mapping.get('no_claims_reason','')}"] if mapping.get("no_quality_claims") else [])}
+            "flags": ([f"No quality claims for the quant ({'checked by code' if CODE_FILED in (mapping.get('no_claims_reason') or '') else 'card read in full'}): {mapping.get('no_claims_reason','')}"] if mapping.get("no_quality_claims") else [])}
 
 _lc = {}
 def source_pin(repo):

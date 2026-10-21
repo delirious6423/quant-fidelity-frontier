@@ -8,11 +8,11 @@ permission for a new production deployment.
 | Task | Schedule (UTC) | Entry point | Outcome |
 |---|---|---|---|
 | Live updates | Hourly at :03 | `qcl_next.py --part A` | Fetch, map, merge and gate changed cards; commit staged data |
-| New model | Every 2 hours at :33 | `qcl_next.py --part B` | Resume the next ingest; checkpoint progress; hand completed models to QA as `review` |
-| QA and publish | Hourly at :45 | `qcl_qa.py` | Review new values, run all tests, request Pages verification; record deployment only after exact-commit success |
+| New model | Every 2 hours at :37 | `qcl_next.py --part B` | Resume the next ingest; checkpoint progress; hand completed models to QA as `review` |
+| QA and publish | Hourly at :55 | `qcl_qa.py` | Review new values, run all tests, request Pages verification; record deployment only after exact-commit success |
 | README check | Daily at 00:58 | `docs/agents/README_CHECK.md` | Check generated counts, links and prose; no site deployment |
 
-Only QA requests a site deployment. A scan's successful build or commit is not a
+QA runs at :55 so that a live-updates run (workers stop at 45 minutes) has finished before QA synchronizes to main; an earlier :15 slot made QA race the scan's push. Only QA requests a site deployment. A scan's successful build or commit is not a
 publication. Each task uses its own lock (`scan.lock`, `ingest.lock`, `qa.lock`) and
 records step logs under `logs/scan/`.
 
