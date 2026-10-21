@@ -125,10 +125,13 @@ async def check_model(browser, base, model):
     assert await page.locator('.quant-shortlist li').count() == 0
     assert not await page.locator('#exdetail').is_visible()
 
-    # Existing priority: query > legacy hash > valid saved choice > fresh all.
+    # Priority: query > legacy hash > fresh all. A set chosen on an earlier visit is never reopened.
     await page.evaluate('(id) => localStorage.setItem("qff.set", id)', first['id'])
     await visit()
-    assert await page.input_value('#exset') == first['id']
+    assert await page.input_value('#exset') == 'all'
+    await page.select_option('#exset', first['id'])
+    await visit()
+    assert await page.input_value('#exset') == 'all'
     await visit('#set-' + second['id'])
     assert await page.input_value('#exset') == second['id']
     await visit('?set=all#set-' + second['id'])

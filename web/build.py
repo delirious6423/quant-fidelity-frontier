@@ -640,7 +640,7 @@ def render(rows, repos, stats, verify_counts, highlights, exdata=''):
 <section id="chart"><h2>Fidelity vs. size</h2>
 <div class="explorer" id="explorer">
   <div class="ex-top">
-    <div class="ex-field"><label for="exset">Measurement set</label><input id="exsetsearch" type="search" placeholder="Search publisher, method or metric…" aria-label="Search measurement sets" aria-controls="exset"><select id="exset"></select></div>
+    <div class="ex-field"><label for="exset">Measurement set</label><input id="exsetsearch" type="search" placeholder="Search publisher, method or metric…" aria-label="Search measurement sets" aria-controls="exset"><select id="exset" autocomplete="off"></select></div>
     <div class="ex-field ex-find"><label for="exfind">Find a quant in any set</label><input id="exfind" type="search" placeholder="e.g. UD-Q4_K_XL, nvfp4, bartowski   ( / )" autocomplete="off" aria-controls="exfindres"><div id="exfindres" class="ex-findres" hidden aria-live="polite"></div></div>
   </div>
   <div class="ex-bar">

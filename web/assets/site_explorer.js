@@ -127,14 +127,14 @@
     Array.prototype.forEach.call(selSet.querySelectorAll('optgroup'), function (g) { g.hidden = Array.prototype.every.call(g.children, function (o) { return o.hidden; }); });
   }
   if (setSearch) setSearch.addEventListener('input', filterSets);
-  var saved = load('qff.set'); if (saved && setById(saved)) state.set = saved;
+  // every visit opens on the overview of every claim; only a link (?set= or #set-) chooses another set
   if (/^#set-[a-z0-9-]+$/.test(location.hash) && setById(location.hash.slice(5))) state.set = location.hash.slice(5);
   selSet.value = state.set;
   function goSet(id, focusQid) {
     try { if (window.umami && id !== state.set) window.umami.track('set', { id: id }); } catch (e) {}   // which comparisons people open (cookie-free stats)
     state.set = id; selSet.value = id; state.metric = null; state.q = ''; qIn.value = ''; state.fmts = {}; state.sort = null; state.xmax = null; state.ylim = null; state.basis = ''; state.focus = focusQid || null; state.pinned = focusQid || null;
     detailPoint = null; shortlist = []; detailOpen = false; filterSets();
-    store('qff.set', id); render();
+    render();
   }
   selSet.addEventListener('change', function () { goSet(selSet.value); });
   labelsCb.addEventListener('change', function () { store('qcl.labels', labelsCb.checked ? '1' : '0'); drawChart(); });
