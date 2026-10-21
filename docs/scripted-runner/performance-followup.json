@@ -1,0 +1,177 @@
+{
+  "reviewed_qwen": {
+    "model": "qwen3.8-27b",
+    "repos": 1253,
+    "mapping_tasks": 1190,
+    "init_seconds": 2.75,
+    "prepare_seconds": 61.2,
+    "run_rounds_seconds": [
+      76.35,
+      8.73
+    ],
+    "noop_reconcile_seconds": 4.55,
+    "status_seconds": 0.99,
+    "final_tasks": {
+      "succeeded": 1210
+    },
+    "measurement": "offline orchestration with synthetic fixture responses; no model calls, tokens or cost"
+  },
+  "followup_qwen": {
+    "model": "qwen3.8-27b",
+    "repos": 1253,
+    "mapping_tasks": 1190,
+    "init_seconds": 0.96,
+    "prepare_seconds": 35.88,
+    "run_rounds_seconds": [
+      54.1,
+      5.25
+    ],
+    "noop_reconcile_seconds": 2.95,
+    "status_seconds": 0.4,
+    "final_tasks": {
+      "succeeded": 1210
+    },
+    "measurement": "offline orchestration with synthetic fixture responses; no model calls, tokens or cost"
+  },
+  "initial_io_before": {
+    "measurement": "offline synthetic HTTP; actual fsyncs; no model calls/tokens/cost",
+    "repos": 1253,
+    "tasks": 1190,
+    "enqueue_seconds": 2.174961,
+    "claim_complete_seconds": 9.512575,
+    "collection": [
+      {
+        "seconds": 167.143886,
+        "http_requests": 2509,
+        "checkpoint_writes": 2507,
+        "checkpoint_bytes": 999725851
+      },
+      {
+        "seconds": 94.284214,
+        "http_requests": 2,
+        "checkpoint_writes": 1254,
+        "checkpoint_bytes": 1000550298
+      }
+    ],
+    "completed": {
+      "succeeded": 1190
+    }
+  },
+  "initial_io_after": {
+    "measurement": "offline synthetic HTTP; actual fsyncs; no model calls/tokens/cost",
+    "repos": 1253,
+    "tasks": 1190,
+    "enqueue_seconds": 0.16675,
+    "claim_complete_seconds": 8.016703,
+    "collection": [
+      {
+        "seconds": 4.196765,
+        "http_requests": 2509,
+        "checkpoint_writes": 2508,
+        "checkpoint_bytes": 2161029
+      },
+      {
+        "seconds": 4.138223,
+        "http_requests": 2
+      }
+    ],
+    "completed": {
+      "succeeded": 1190
+    }
+  },
+  "sequential_io_before": {
+    "measurement": "offline synthetic HTTP; actual fsyncs; no model calls/tokens/cost",
+    "repos": 1253,
+    "tasks": 1190,
+    "mapping_model_requests": 0,
+    "source_output_sha256": "36b06d1d43afda7bc458e9b4e28f5aea5dbb789cc43cc2caa6fa806d24b15da9",
+    "enqueue_seconds": 1.943948,
+    "claim_complete_seconds": 8.061671,
+    "collection": [
+      {
+        "seconds": 31.453147,
+        "http_requests": 2509,
+        "checkpoint_writes": 2507,
+        "checkpoint_bytes": 999767442
+      },
+      {
+        "seconds": 49.887542,
+        "http_requests": 2,
+        "checkpoint_writes": 1254,
+        "checkpoint_bytes": 1000550298
+      }
+    ],
+    "completed": {
+      "succeeded": 1190
+    }
+  },
+  "sequential_io_after": {
+    "measurement": "offline synthetic HTTP; actual fsyncs; no model calls/tokens/cost",
+    "repos": 1253,
+    "tasks": 1190,
+    "mapping_model_requests": 0,
+    "source_output_sha256": "aec548a5b270850e183dd1b9a87daf32059133a6249671e318a70d2a7399cdcd",
+    "enqueue_seconds": 0.104726,
+    "claim_complete_seconds": 5.357764,
+    "collection": [
+      {
+        "seconds": 5.863352,
+        "http_requests": 2509,
+        "checkpoint_writes": 2508,
+        "checkpoint_bytes": 2161029
+      },
+      {
+        "seconds": 3.533711,
+        "http_requests": 2,
+        "checkpoint_writes": 0,
+        "checkpoint_bytes": 0
+      }
+    ],
+    "completed": {
+      "succeeded": 1190
+    }
+  },
+  "full_model_comparison": {
+    "equal": true,
+    "sha256": [
+      "cc76388616fa44d19bc4204f64cc2915d5c89c4333624ffb5d9157929c43e1f9",
+      "cc76388616fa44d19bc4204f64cc2915d5c89c4333624ffb5d9157929c43e1f9"
+    ],
+    "sections": {
+      "records": true,
+      "holds": true,
+      "review_queue": true,
+      "sources": true,
+      "maps": true,
+      "tasks": true
+    },
+    "records": 614,
+    "tasks": 1210
+  },
+  "collection_comparison": {
+    "full_index_equal": false,
+    "differences": {
+      "captured_at": {
+        "before": "2026-10-21T02:09:29Z",
+        "after": "2026-10-21T02:10:31Z"
+      },
+      "updated_at": {
+        "before": "2026-10-21T02:10:19Z",
+        "after": "2026-10-21T02:10:34Z"
+      }
+    },
+    "base_and_all_repo_records_exactly_equal": true
+  },
+  "environment": {
+    "python": "3.12.14",
+    "sqlite": "3.53.1",
+    "system": "Linux",
+    "machine": "x86_64",
+    "timing_limit": "single local runs; initial pairs overlapped other test activity; sequential repeat avoids competing benchmark processes"
+  },
+  "code": {
+    "reviewed_pr": "4ad4b570a636b62bc9c3d267a21a319ae2f4734e",
+    "input_main": "77c157c39d6db6e026dae1891510c758acbef1a8",
+    "candidate_patch_sha256": "69d54bcbd6317f4365f28fc487e0fe5b842821ae4cd92f82ad0c9da1523d36d1"
+  }
+}

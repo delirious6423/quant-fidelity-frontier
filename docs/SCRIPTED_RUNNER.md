@@ -244,3 +244,53 @@ A synthetic small-model build exposed a pre-existing static-chart division by
 zero below/equal 20 GB or on a single exact log decade. Two axis-degeneracy guards
 and a focused regression fix that ingestion failure. All existing 40 model-site
 files and 30 assembled artifacts remain byte-identical; no claim data was changed.
+
+## PR #14 performance follow-up
+
+The file adapter loads its available-response IDs once into a connection-local
+SQLite temporary table. Each claim still commits independently; the temporary
+table grants no lease and is reconstructed after restart. Selection considers the
+oldest eligible task in each model/stage group and then the least recently served
+group. Metadata-only queries exclude the evidence column from SQL entirely. Large
+eligibility sets no longer depend on SQLite's bound-variable limit.
+
+Direct collection stores each successful card/tree record in a small, atomic
+`ledgers/<slug>/checkpoints/<identity-hash>.json` before proceeding. It compacts
+these records into `index.json` once the worker round ends, including a round with
+partial failures. The index is durably replaced before checkpoint records are
+removed. Restart overlays any surviving records; both sides of an interrupted
+compaction are safe to replay. A malformed ledger blocks freshness before it is
+read. Existing index-only ledgers remain supported. Unchanged, validated records
+need no checkpoint write. Cards, trees and checkpoint directories are created
+and their parent entries synced before concurrent workers start.
+
+Transfer the **whole** workspace using `backup`/`restore`, including checkpoint
+records left by an interrupted collector. Copying only `index.json` can omit
+successful partial work. Downgrading to the earlier runner requires letting a
+collector finish/compact first or restoring a backup made by that version.
+Do not delete checkpoint records to repair a malformed ledger; restore a verified
+backup or explicitly refetch in a fresh shadow workspace.
+
+Exported requests are checked against journal bytes and repaired if altered;
+unchanged files are not rewritten. Installed map comparisons preserve JSON types
+(`false` and `0` differ). Completion checks current base-model identity as well as
+source bytes and interpretation-code version. Evidence preparation snapshots the
+code version once per call, never across calls, and completion rechecks it.
+
+Additional offline benchmark, including real local fsyncs and mocked HTTP:
+
+```bash
+python3 tests/benchmark_runner_io.py --out /tmp/qff-io-current
+# Reproduce the reviewed PR baseline on the identical synthetic workload:
+git worktree add --detach /tmp/qff-reviewed-code 4ad4b570a636b62bc9c3d267a21a319ae2f4734e
+python3 tests/benchmark_runner_io.py --implementation /tmp/qff-reviewed-code --out /tmp/qff-io-reviewed
+```
+
+Use fresh external output directories. Run benchmarks sequentially on the same
+host. `results.json` includes request counts, checkpoint bytes/writes, actual
+runtime and a source-output digest. The full-model benchmark also saves complete
+semantic `output.json` (records, holds, review queue, source pins, maps and task
+results) for exact comparisons. These fixture responses do not evaluate model
+precision/recall or real upstream latency. See
+[PERFORMANCE_FOLLOWUP.md](scripted-runner/PERFORMANCE_FOLLOWUP.md) for measured
+results, independent review findings and scope limits.

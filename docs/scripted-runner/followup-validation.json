@@ -1,0 +1,164 @@
+{
+  "checks": [
+    {
+      "name": "build-deepseek-v4-flash-0731",
+      "returncode": 0,
+      "seconds": 0.625
+    },
+    {
+      "name": "build-deepseek-v4.1-flash-1017",
+      "returncode": 0,
+      "seconds": 0.887
+    },
+    {
+      "name": "build-deepseek-v4.1-flash",
+      "returncode": 0,
+      "seconds": 1.093
+    },
+    {
+      "name": "build-gemma-4-26b-a4b-it",
+      "returncode": 0,
+      "seconds": 1.229
+    },
+    {
+      "name": "build-glm-5.3-flash",
+      "returncode": 0,
+      "seconds": 0.752
+    },
+    {
+      "name": "build-lfm2.5-24b-a2b",
+      "returncode": 0,
+      "seconds": 0.593
+    },
+    {
+      "name": "build-ornith-1.5-35b-a3b",
+      "returncode": 0,
+      "seconds": 0.918
+    },
+    {
+      "name": "build-qwen3.8-27b",
+      "returncode": 0,
+      "seconds": 5.992
+    },
+    {
+      "name": "build-qwen3.8-flash-next",
+      "returncode": 0,
+      "seconds": 3.275
+    },
+    {
+      "name": "assemble",
+      "returncode": 0,
+      "seconds": 10.973
+    },
+    {
+      "name": "ui-deepseek-v4-flash-0731",
+      "returncode": 0,
+      "seconds": 45.54
+    },
+    {
+      "name": "ui-deepseek-v4.1-flash-1017",
+      "returncode": 0,
+      "seconds": 41.71
+    },
+    {
+      "name": "ui-deepseek-v4.1-flash",
+      "returncode": 0,
+      "seconds": 31.6
+    },
+    {
+      "name": "ui-gemma-4-26b-a4b-it",
+      "returncode": 0,
+      "seconds": 25.678
+    },
+    {
+      "name": "ui-glm-5.3-flash",
+      "returncode": 0,
+      "seconds": 30.491
+    },
+    {
+      "name": "ui-lfm2.5-24b-a2b",
+      "returncode": 0,
+      "seconds": 27.189
+    },
+    {
+      "name": "ui-ornith-1.5-35b-a3b",
+      "returncode": 0,
+      "seconds": 26.533
+    },
+    {
+      "name": "ui-qwen3.8-27b",
+      "returncode": 0,
+      "seconds": 105.574
+    },
+    {
+      "name": "ui-qwen3.8-flash-next",
+      "returncode": 0,
+      "seconds": 66.121
+    },
+    {
+      "name": "test_gates",
+      "returncode": 0,
+      "seconds": 55.127
+    },
+    {
+      "name": "test_claims",
+      "returncode": 0,
+      "seconds": 0.29
+    },
+    {
+      "name": "test_mcp",
+      "returncode": 0,
+      "seconds": 9.12
+    },
+    {
+      "name": "test_discovery",
+      "returncode": 0,
+      "seconds": 3.493
+    },
+    {
+      "name": "test_fetch_security",
+      "returncode": 0,
+      "seconds": 0.852
+    },
+    {
+      "name": "test_gate_integrity",
+      "returncode": 0,
+      "seconds": 29.003
+    },
+    {
+      "name": "test_source_pins",
+      "returncode": 0,
+      "seconds": 0.567
+    },
+    {
+      "name": "test_mapping_provenance",
+      "returncode": 0,
+      "seconds": 4.617
+    },
+    {
+      "name": "test_qa_release",
+      "returncode": 0,
+      "seconds": 0.438
+    },
+    {
+      "name": "test_assembly_safety",
+      "returncode": 0,
+      "seconds": 0.497
+    },
+    {
+      "name": "test_workflow_security",
+      "returncode": 0,
+      "seconds": 7.055
+    }
+  ],
+  "counts": {
+    "live_builds": 9,
+    "ui_checks": 886,
+    "runner_tests": 66,
+    "fetch_tests_after_final_directory_sync_change": 18
+  },
+  "runner_log": "..................................................................\n----------------------------------------------------------------------\nRan 66 tests in 96.779s\n\nOK\n",
+  "final_fetch_log": "..................\n----------------------------------------------------------------------\nRan 18 tests in 3.028s\n\nOK\n",
+  "authoritative_inputs": "git diff origin/main -- models watchlist.json audit README.md qa.lock: empty",
+  "scope": "offline/local build, browser, MCP and fault tests; no provider calls or production workflow"
+}

@@ -73,3 +73,23 @@ Full exact-commit/exact-artifact release verification and an authorized provider
 trial remain necessary before cutover. Existing regression, real frozen-source
 and public read-only evidence are reported separately in `verification.md` and
 its linked records.
+
+## PR #14 performance follow-up (2026-10-21)
+
+A fresh reviewer examined the incoming `4ad4b57` changes and follow-up SQL,
+checkpoint/recovery, export and source-binding changes. It reproduced and helped
+close three correctness findings: stale complete freshness after malformed ledger
+recovery; Python equality hiding a malformed `0`/`false` map field; delayed task
+acceptance after base-model identity changes. Export bytes, explicit UTF-8 and
+parent-directory syncs were also checked. Focused regressions cover each finding.
+
+Independent checks: 16 state tests and 18 fetch tests passed. After final fixes,
+the reviewer reran the changed-model delayed-result and process-death/restored
+checkpoint counterfactuals and checked the diff. Final finding: no remaining
+blocker for local shadow operation. Fair scheduling, independent durable claims,
+source validation and publication boundaries remain intact. No workflow,
+deployment, qcl_next or qcl_qa modification was introduced in this follow-up.
+
+Live-provider quality, hosted persistence and production cutover were not tested
+or approved by this review. Independent-machine performance repetitions are being
+handed off separately; reported local results are not substitutes for them.

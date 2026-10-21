@@ -45,3 +45,12 @@ Starting default-branch commit: `670acdfb0c84e4ebf609d656ac06912dfaba8f2a`.
 No production commands, schedules, data edits, paid calls, merge or deployment.
 A draft PR triggers `verify.yml` (`pull_request` has no filter); retain local
 review branch until opening a PR and its Actions run are explicitly authorized.
+
+## PR #14 follow-up review and performance (2026-10-21)
+- [x] Read owner review and updated commit `4ad4b57`; integrate into local branch without discarding prior main integration.
+- [x] Reproduce focused tests and fixed catalogue-scale benchmark before optimization.
+- [x] Measure and reduce remaining task-selection/payload I/O and collection checkpoint costs without relaxing durability or validation.
+- [x] Add fault/scale regressions, compare exact claims/holds/provenance, run required local checks and obtain independent review.
+- [x] Record measurements, review findings and remaining provider/cutover limits.
+
+Runtime stretch target remains 100× on identical frozen inputs, recorded before this round of optimization. Report actual improvements; do not trade away source validation, independent requests, review coverage or per-result durability. Production state machines, schedules and publication remain unchanged. The previous integration push was blocked by automatic review; this turn performs local review/testing and improvements.
