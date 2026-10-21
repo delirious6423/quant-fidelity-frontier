@@ -4,7 +4,7 @@ from playwright.async_api import async_playwright
 import os
 SRC = "file://" + os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), os.environ.get("QCL_SITE", "models/qwen3.8-flash-next/site"), "index.html")
 def ranking_allowed(s, metric=None):
-    return s['id'] != 'all' and s.get('comparisons', {}).get(metric or s['metrics'][0], {}).get('ranking_permitted') is True
+    return s['id'] != 'all' and bool(s.get('metrics')) and s.get('comparisons', {}).get(metric or s['metrics'][0], {}).get('ranking_permitted') is True
 
 fails, oks = [], []
 def check(c, name):

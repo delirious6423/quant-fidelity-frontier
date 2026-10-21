@@ -4,6 +4,7 @@ Each test mutates a throwaway copy of the project and asserts the gates react. E
 import os, shutil, subprocess, tempfile, json, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # repo root
+sys.path.insert(0, os.path.join(ROOT, "tests")); import frozen
 _BASE = shutil.ignore_patterns("dist", "site", "claims", "data", "__pycache__", ".git", "_site", "work", "maps")
 def IGNORE(d, names):   # copy only the Flash-Next data root (the tests mutate it); skip every other model
     skip = set(_BASE(d, names))
@@ -15,6 +16,7 @@ results = []
 def fresh():
     d = tempfile.mkdtemp(prefix="qcl-test-")
     shutil.copytree(ROOT, f"{d}/p", ignore=IGNORE)
+    frozen.freeze(f"{d}/p/{FN}")   # the reviewed cards, not the live model's drifted ones (tests/frozen.py)
     return f"{d}/p"
 
 def run(p, cmd):
