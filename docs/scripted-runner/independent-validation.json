@@ -1,0 +1,830 @@
+{
+  "archive_sha256": "69ca02a1c9a6318e24ae919eb401b3fdbe2d30502738351de148c1dcdb7bc882",
+  "patch_sha256": "69d54bcbd6317f4365f28fc487e0fe5b842821ae4cd92f82ad0c9da1523d36d1",
+  "verified_manifest_entries": 343,
+  "candidate_code_files_matching_local": 93,
+  "frozen_input_files_matching_local": 3790,
+  "timed_runs": 18,
+  "pairs": [
+    {
+      "repetition": 1,
+      "model": "lfm2.5-24b-a2b",
+      "output_sha256": "e0819099d6e744306ff4d3d57d777edac05a5049b88ce01e8208b9fa43b8e88e",
+      "task_evidence_sha256": "5a508e69ddb9869a8cf20d70ae3b5d0ec30b8bd80aa70af1e558e097c673e921",
+      "records": 61,
+      "succeeded_tasks": 108
+    },
+    {
+      "repetition": 1,
+      "model": "qwen3.8-27b",
+      "output_sha256": "68d9a6e23ed6979d01d2332309acf80e367d8c83fed65b9a5f3338669219f905",
+      "task_evidence_sha256": "292d0a5e0ee8984b86700f484e63a67101d059c2ae5e15797801e80de0aafccf",
+      "records": 614,
+      "succeeded_tasks": 1210
+    },
+    {
+      "repetition": 2,
+      "model": "lfm2.5-24b-a2b",
+      "output_sha256": "e0819099d6e744306ff4d3d57d777edac05a5049b88ce01e8208b9fa43b8e88e",
+      "task_evidence_sha256": "5a508e69ddb9869a8cf20d70ae3b5d0ec30b8bd80aa70af1e558e097c673e921",
+      "records": 61,
+      "succeeded_tasks": 108
+    },
+    {
+      "repetition": 2,
+      "model": "qwen3.8-27b",
+      "output_sha256": "68d9a6e23ed6979d01d2332309acf80e367d8c83fed65b9a5f3338669219f905",
+      "task_evidence_sha256": "292d0a5e0ee8984b86700f484e63a67101d059c2ae5e15797801e80de0aafccf",
+      "records": 614,
+      "succeeded_tasks": 1210
+    },
+    {
+      "repetition": 3,
+      "model": "lfm2.5-24b-a2b",
+      "output_sha256": "e0819099d6e744306ff4d3d57d777edac05a5049b88ce01e8208b9fa43b8e88e",
+      "task_evidence_sha256": "5a508e69ddb9869a8cf20d70ae3b5d0ec30b8bd80aa70af1e558e097c673e921",
+      "records": 61,
+      "succeeded_tasks": 108
+    },
+    {
+      "repetition": 3,
+      "model": "qwen3.8-27b",
+      "output_sha256": "68d9a6e23ed6979d01d2332309acf80e367d8c83fed65b9a5f3338669219f905",
+      "task_evidence_sha256": "292d0a5e0ee8984b86700f484e63a67101d059c2ae5e15797801e80de0aafccf",
+      "records": 614,
+      "succeeded_tasks": 1210
+    }
+  ],
+  "tests": [
+    {
+      "side": "baseline",
+      "suite": "test_runnerall.py",
+      "passed": 55
+    },
+    {
+      "side": "baseline",
+      "suite": "test_workflow_security.py",
+      "passed": 9
+    },
+    {
+      "side": "candidate",
+      "suite": "test_runnerall.py",
+      "passed": 66
+    },
+    {
+      "side": "candidate",
+      "suite": "test_workflow_security.py",
+      "passed": 9
+    }
+  ],
+  "medians": [
+    {
+      "model": "lfm2.5-24b-a2b",
+      "metric": "prepare_seconds",
+      "baseline": 1.7,
+      "candidate": 1.46,
+      "speedup": 1.1643835616438356
+    },
+    {
+      "model": "lfm2.5-24b-a2b",
+      "metric": "noop_reconcile_seconds",
+      "baseline": 0.16,
+      "candidate": 0.14,
+      "speedup": 1.1428571428571428
+    },
+    {
+      "model": "lfm2.5-24b-a2b",
+      "metric": "status_seconds",
+      "baseline": 0.06,
+      "candidate": 0.06,
+      "speedup": 1.0
+    },
+    {
+      "model": "lfm2.5-24b-a2b",
+      "metric": "response_rounds_total_seconds",
+      "baseline": 2.17,
+      "candidate": 2.08,
+      "speedup": 1.0432692307692306
+    },
+    {
+      "model": "lfm2.5-24b-a2b",
+      "metric": "measured_stages_total_seconds",
+      "baseline": 4.1,
+      "candidate": 3.74,
+      "speedup": 1.0962566844919786
+    },
+    {
+      "model": "qwen3.8-27b",
+      "metric": "prepare_seconds",
+      "baseline": 25.4,
+      "candidate": 15.27,
+      "speedup": 1.6633922724296004
+    },
+    {
+      "model": "qwen3.8-27b",
+      "metric": "noop_reconcile_seconds",
+      "baseline": 1.28,
+      "candidate": 0.97,
+      "speedup": 1.3195876288659794
+    },
+    {
+      "model": "qwen3.8-27b",
+      "metric": "status_seconds",
+      "baseline": 0.2,
+      "candidate": 0.12,
+      "speedup": 1.6666666666666667
+    },
+    {
+      "model": "qwen3.8-27b",
+      "metric": "response_rounds_total_seconds",
+      "baseline": 33.65,
+      "candidate": 29.39,
+      "speedup": 1.14494726097312
+    },
+    {
+      "model": "qwen3.8-27b",
+      "metric": "measured_stages_total_seconds",
+      "baseline": 60.529999999999994,
+      "candidate": 45.56,
+      "speedup": 1.3285776997366108
+    },
+    {
+      "model": "IO",
+      "metric": "enqueue_seconds",
+      "baseline": 0.649092,
+      "candidate": 0.083455,
+      "speedup": 7.777748487208675
+    },
+    {
+      "model": "IO",
+      "metric": "claim_complete_seconds",
+      "baseline": 6.556914,
+      "candidate": 6.355607,
+      "speedup": 1.0316739219401074
+    },
+    {
+      "model": "IO",
+      "metric": "initial_seconds",
+      "baseline": 19.719813,
+      "candidate": 9.01274,
+      "speedup": 2.1879931075344454
+    },
+    {
+      "model": "IO",
+      "metric": "unchanged_seconds",
+      "baseline": 15.03376,
+      "candidate": 5.881229,
+      "speedup": 2.5562276184110497
+    }
+  ],
+  "io_snapshot_differences_only": [
+    "captured_at",
+    "updated_at"
+  ],
+  "verification": "Archive/file hashes, saved logs, all paired output/task bytes, raw result consistency, and median calculations rechecked locally; external experiments were not rerun.",
+  "measurement_runs": [
+    {
+      "repetition": 1,
+      "kind": "catalogue",
+      "side": "baseline",
+      "results": {
+        "model": "lfm2.5-24b-a2b",
+        "repos": 75,
+        "mapping_tasks": 106,
+        "init_seconds": 0.11,
+        "prepare_seconds": 1.87,
+        "run_rounds_seconds": [
+          2.19,
+          0.27
+        ],
+        "noop_reconcile_seconds": 0.16,
+        "status_seconds": 0.07,
+        "final_tasks": {
+          "succeeded": 108
+        },
+        "measurement": "offline orchestration with synthetic fixture responses; no model calls, tokens or cost"
+      },
+      "model": "lfm2.5-24b-a2b",
+      "returncode": 0,
+      "interrupted": false
+    },
+    {
+      "repetition": 1,
+      "kind": "catalogue",
+      "side": "candidate",
+      "results": {
+        "model": "lfm2.5-24b-a2b",
+        "repos": 75,
+        "mapping_tasks": 106,
+        "init_seconds": 0.11,
+        "prepare_seconds": 1.67,
+        "run_rounds_seconds": [
+          2.34,
+          0.24
+        ],
+        "noop_reconcile_seconds": 0.15,
+        "status_seconds": 0.08,
+        "final_tasks": {
+          "succeeded": 108
+        },
+        "measurement": "offline orchestration with synthetic fixture responses; no model calls, tokens or cost",
+        "output_sha256": "01bff6fb32ae37cd6b3276cc6b08afd03ee8cc5bfa7ffa9a852afaf0c8491c3c",
+        "unresolved": []
+      },
+      "model": "lfm2.5-24b-a2b",
+      "returncode": 0,
+      "interrupted": false
+    },
+    {
+      "repetition": 1,
+      "kind": "catalogue",
+      "side": "baseline",
+      "results": {
+        "model": "qwen3.8-27b",
+        "repos": 1253,
+        "mapping_tasks": 1190,
+        "init_seconds": 0.48,
+        "prepare_seconds": 25.4,
+        "run_rounds_seconds": [
+          31.13,
+          2.52
+        ],
+        "noop_reconcile_seconds": 1.28,
+        "status_seconds": 0.2,
+        "final_tasks": {
+          "succeeded": 1210
+        },
+        "measurement": "offline orchestration with synthetic fixture responses; no model calls, tokens or cost"
+      },
+      "model": "qwen3.8-27b",
+      "returncode": 0,
+      "interrupted": false
+    },
+    {
+      "repetition": 1,
+      "kind": "catalogue",
+      "side": "candidate",
+      "results": {
+        "model": "qwen3.8-27b",
+        "repos": 1253,
+        "mapping_tasks": 1190,
+        "init_seconds": 0.4,
+        "prepare_seconds": 14.9,
+        "run_rounds_seconds": [
+          27.5,
+          1.89
+        ],
+        "noop_reconcile_seconds": 0.97,
+        "status_seconds": 0.12,
+        "final_tasks": {
+          "succeeded": 1210
+        },
+        "measurement": "offline orchestration with synthetic fixture responses; no model calls, tokens or cost",
+        "output_sha256": "f6aa8aa6110937b1c4c8769541d469e7c407895b8046f2b8613fd93d4c194e50",
+        "unresolved": []
+      },
+      "model": "qwen3.8-27b",
+      "returncode": 0,
+      "interrupted": false
+    },
+    {
+      "repetition": 1,
+      "kind": "io",
+      "side": "baseline",
+      "results": {
+        "measurement": "offline synthetic HTTP; actual fsyncs; no model calls/tokens/cost",
+        "repos": 1253,
+        "tasks": 1190,
+        "mapping_model_requests": 0,
+        "source_output_sha256": "5b41db9ce89d3c92443f604df3d9aaf7ac13d0c72bb5a3402d2c7e389a28f4fa",
+        "enqueue_seconds": 0.649092,
+        "claim_complete_seconds": 6.447708,
+        "collection": [
+          {
+            "seconds": 19.582996,
+            "http_requests": 2509,
+            "checkpoint_writes": 2507,
+            "checkpoint_bytes": 999770270
+          },
+          {
+            "seconds": 14.883844,
+            "http_requests": 2,
+            "checkpoint_writes": 1254,
+            "checkpoint_bytes": 1000550298
+          }
+        ],
+        "completed": {
+          "succeeded": 1190
+        }
+      },
+      "model": null,
+      "returncode": 0,
+      "interrupted": false
+    },
+    {
+      "repetition": 1,
+      "kind": "io",
+      "side": "candidate",
+      "results": {
+        "measurement": "offline synthetic HTTP; actual fsyncs; no model calls/tokens/cost",
+        "repos": 1253,
+        "tasks": 1190,
+        "mapping_model_requests": 0,
+        "source_output_sha256": "3ac5e62fefec06058cbdcff7f1c325ef8125ec1f4819dcc4b0b83d82adbdf225",
+        "enqueue_seconds": 0.095026,
+        "claim_complete_seconds": 6.087977,
+        "collection": [
+          {
+            "seconds": 7.960772,
+            "http_requests": 2509,
+            "checkpoint_writes": 2508,
+            "checkpoint_bytes": 2161029
+          },
+          {
+            "seconds": 5.881229,
+            "http_requests": 2,
+            "checkpoint_writes": 0,
+            "checkpoint_bytes": 0
+          }
+        ],
+        "completed": {
+          "succeeded": 1190
+        }
+      },
+      "model": null,
+      "returncode": 0,
+      "interrupted": false
+    },
+    {
+      "repetition": 2,
+      "kind": "catalogue",
+      "side": "candidate",
+      "results": {
+        "model": "lfm2.5-24b-a2b",
+        "repos": 75,
+        "mapping_tasks": 106,
+        "init_seconds": 0.08,
+        "prepare_seconds": 1.41,
+        "run_rounds_seconds": [
+          1.79,
+          0.25
+        ],
+        "noop_reconcile_seconds": 0.13,
+        "status_seconds": 0.06,
+        "final_tasks": {
+          "succeeded": 108
+        },
+        "measurement": "offline orchestration with synthetic fixture responses; no model calls, tokens or cost",
+        "output_sha256": "01bff6fb32ae37cd6b3276cc6b08afd03ee8cc5bfa7ffa9a852afaf0c8491c3c",
+        "unresolved": []
+      },
+      "model": "lfm2.5-24b-a2b",
+      "returncode": 0,
+      "interrupted": false
+    },
+    {
+      "repetition": 2,
+      "kind": "catalogue",
+      "side": "baseline",
+      "results": {
+        "model": "lfm2.5-24b-a2b",
+        "repos": 75,
+        "mapping_tasks": 106,
+        "init_seconds": 0.12,
+        "prepare_seconds": 1.55,
+        "run_rounds_seconds": [
+          1.82,
+          0.27
+        ],
+        "noop_reconcile_seconds": 0.16,
+        "status_seconds": 0.06,
+        "final_tasks": {
+          "succeeded": 108
+        },
+        "measurement": "offline orchestration with synthetic fixture responses; no model calls, tokens or cost"
+      },
+      "model": "lfm2.5-24b-a2b",
+      "returncode": 0,
+      "interrupted": false
+    },
+    {
+      "repetition": 2,
+      "kind": "catalogue",
+      "side": "candidate",
+      "results": {
+        "model": "qwen3.8-27b",
+        "repos": 1253,
+        "mapping_tasks": 1190,
+        "init_seconds": 0.37,
+        "prepare_seconds": 15.27,
+        "run_rounds_seconds": [
+          27.1,
+          2.12
+        ],
+        "noop_reconcile_seconds": 0.95,
+        "status_seconds": 0.12,
+        "final_tasks": {
+          "succeeded": 1210
+        },
+        "measurement": "offline orchestration with synthetic fixture responses; no model calls, tokens or cost",
+        "output_sha256": "f6aa8aa6110937b1c4c8769541d469e7c407895b8046f2b8613fd93d4c194e50",
+        "unresolved": []
+      },
+      "model": "qwen3.8-27b",
+      "returncode": 0,
+      "interrupted": false
+    },
+    {
+      "repetition": 2,
+      "kind": "catalogue",
+      "side": "baseline",
+      "results": {
+        "model": "qwen3.8-27b",
+        "repos": 1253,
+        "mapping_tasks": 1190,
+        "init_seconds": 0.3,
+        "prepare_seconds": 23.65,
+        "run_rounds_seconds": [
+          30.12,
+          2.72
+        ],
+        "noop_reconcile_seconds": 1.23,
+        "status_seconds": 0.23,
+        "final_tasks": {
+          "succeeded": 1210
+        },
+        "measurement": "offline orchestration with synthetic fixture responses; no model calls, tokens or cost"
+      },
+      "model": "qwen3.8-27b",
+      "returncode": 0,
+      "interrupted": false
+    },
+    {
+      "repetition": 2,
+      "kind": "io",
+      "side": "candidate",
+      "results": {
+        "measurement": "offline synthetic HTTP; actual fsyncs; no model calls/tokens/cost",
+        "repos": 1253,
+        "tasks": 1190,
+        "mapping_model_requests": 0,
+        "source_output_sha256": "be923edc75110378e8f58e73a76ba28142794ba6433c6428fce470717c417980",
+        "enqueue_seconds": 0.083455,
+        "claim_complete_seconds": 6.759651,
+        "collection": [
+          {
+            "seconds": 9.01274,
+            "http_requests": 2509,
+            "checkpoint_writes": 2508,
+            "checkpoint_bytes": 2161029
+          },
+          {
+            "seconds": 5.908613,
+            "http_requests": 2,
+            "checkpoint_writes": 0,
+            "checkpoint_bytes": 0
+          }
+        ],
+        "completed": {
+          "succeeded": 1190
+        }
+      },
+      "model": null,
+      "returncode": 0,
+      "interrupted": false
+    },
+    {
+      "repetition": 2,
+      "kind": "io",
+      "side": "baseline",
+      "results": {
+        "measurement": "offline synthetic HTTP; actual fsyncs; no model calls/tokens/cost",
+        "repos": 1253,
+        "tasks": 1190,
+        "mapping_model_requests": 0,
+        "source_output_sha256": "a75af2edd3eb01a46bc1b6794ef9056c0a69df971a1785a7d351d764e4ec081c",
+        "enqueue_seconds": 0.684187,
+        "claim_complete_seconds": 6.686524,
+        "collection": [
+          {
+            "seconds": 19.719813,
+            "http_requests": 2509,
+            "checkpoint_writes": 2507,
+            "checkpoint_bytes": 999771013
+          },
+          {
+            "seconds": 15.03376,
+            "http_requests": 2,
+            "checkpoint_writes": 1254,
+            "checkpoint_bytes": 1000550298
+          }
+        ],
+        "completed": {
+          "succeeded": 1190
+        }
+      },
+      "model": null,
+      "returncode": 0,
+      "interrupted": false
+    },
+    {
+      "repetition": 3,
+      "kind": "catalogue",
+      "side": "baseline",
+      "results": {
+        "model": "lfm2.5-24b-a2b",
+        "repos": 75,
+        "mapping_tasks": 106,
+        "init_seconds": 0.08,
+        "prepare_seconds": 1.7,
+        "run_rounds_seconds": [
+          1.92,
+          0.25
+        ],
+        "noop_reconcile_seconds": 0.17,
+        "status_seconds": 0.06,
+        "final_tasks": {
+          "succeeded": 108
+        },
+        "measurement": "offline orchestration with synthetic fixture responses; no model calls, tokens or cost"
+      },
+      "model": "lfm2.5-24b-a2b",
+      "returncode": 0,
+      "interrupted": false
+    },
+    {
+      "repetition": 3,
+      "kind": "catalogue",
+      "side": "candidate",
+      "results": {
+        "model": "lfm2.5-24b-a2b",
+        "repos": 75,
+        "mapping_tasks": 106,
+        "init_seconds": 0.12,
+        "prepare_seconds": 1.46,
+        "run_rounds_seconds": [
+          1.87,
+          0.21
+        ],
+        "noop_reconcile_seconds": 0.14,
+        "status_seconds": 0.06,
+        "final_tasks": {
+          "succeeded": 108
+        },
+        "measurement": "offline orchestration with synthetic fixture responses; no model calls, tokens or cost",
+        "output_sha256": "01bff6fb32ae37cd6b3276cc6b08afd03ee8cc5bfa7ffa9a852afaf0c8491c3c",
+        "unresolved": []
+      },
+      "model": "lfm2.5-24b-a2b",
+      "returncode": 0,
+      "interrupted": false
+    },
+    {
+      "repetition": 3,
+      "kind": "catalogue",
+      "side": "baseline",
+      "results": {
+        "model": "qwen3.8-27b",
+        "repos": 1253,
+        "mapping_tasks": 1190,
+        "init_seconds": 0.53,
+        "prepare_seconds": 26.01,
+        "run_rounds_seconds": [
+          33.09,
+          2.77
+        ],
+        "noop_reconcile_seconds": 1.46,
+        "status_seconds": 0.2,
+        "final_tasks": {
+          "succeeded": 1210
+        },
+        "measurement": "offline orchestration with synthetic fixture responses; no model calls, tokens or cost"
+      },
+      "model": "qwen3.8-27b",
+      "returncode": 0,
+      "interrupted": false
+    },
+    {
+      "repetition": 3,
+      "kind": "catalogue",
+      "side": "candidate",
+      "results": {
+        "model": "qwen3.8-27b",
+        "repos": 1253,
+        "mapping_tasks": 1190,
+        "init_seconds": 0.31,
+        "prepare_seconds": 15.94,
+        "run_rounds_seconds": [
+          27.39,
+          2.09
+        ],
+        "noop_reconcile_seconds": 1.02,
+        "status_seconds": 0.12,
+        "final_tasks": {
+          "succeeded": 1210
+        },
+        "measurement": "offline orchestration with synthetic fixture responses; no model calls, tokens or cost",
+        "output_sha256": "f6aa8aa6110937b1c4c8769541d469e7c407895b8046f2b8613fd93d4c194e50",
+        "unresolved": []
+      },
+      "model": "qwen3.8-27b",
+      "returncode": 0,
+      "interrupted": false
+    },
+    {
+      "repetition": 3,
+      "kind": "io",
+      "side": "baseline",
+      "results": {
+        "measurement": "offline synthetic HTTP; actual fsyncs; no model calls/tokens/cost",
+        "repos": 1253,
+        "tasks": 1190,
+        "mapping_model_requests": 0,
+        "source_output_sha256": "5fe9b4bdc73853580601ff1608dd1620e98fe10bde961136d0b11805a32fc2f7",
+        "enqueue_seconds": 0.590075,
+        "claim_complete_seconds": 6.556914,
+        "collection": [
+          {
+            "seconds": 20.401147,
+            "http_requests": 2509,
+            "checkpoint_writes": 2507,
+            "checkpoint_bytes": 999770627
+          },
+          {
+            "seconds": 16.095032,
+            "http_requests": 2,
+            "checkpoint_writes": 1254,
+            "checkpoint_bytes": 1000550298
+          }
+        ],
+        "completed": {
+          "succeeded": 1190
+        }
+      },
+      "model": null,
+      "returncode": 0,
+      "interrupted": false
+    },
+    {
+      "repetition": 3,
+      "kind": "io",
+      "side": "candidate",
+      "results": {
+        "measurement": "offline synthetic HTTP; actual fsyncs; no model calls/tokens/cost",
+        "repos": 1253,
+        "tasks": 1190,
+        "mapping_model_requests": 0,
+        "source_output_sha256": "9cc58eb7e88f43b3bcf4b3303a789d3e0814f7e6b7153c86dde062eb2a6ecb35",
+        "enqueue_seconds": 0.079809,
+        "claim_complete_seconds": 6.355607,
+        "collection": [
+          {
+            "seconds": 9.173439,
+            "http_requests": 2509,
+            "checkpoint_writes": 2508,
+            "checkpoint_bytes": 2161029
+          },
+          {
+            "seconds": 5.481856,
+            "http_requests": 2,
+            "checkpoint_writes": 0,
+            "checkpoint_bytes": 0
+          }
+        ],
+        "completed": {
+          "succeeded": 1190
+        }
+      },
+      "model": null,
+      "returncode": 0,
+      "interrupted": false
+    }
+  ],
+  "io_comparisons": [
+    {
+      "repetition": 1,
+      "kind": "io",
+      "baseline_file": "runs/r1-io-baseline/shadow/snapshots/index.json",
+      "candidate_file": "runs/r1-io-candidate/shadow/snapshots/index.json",
+      "baseline_file_sha256": "5b41db9ce89d3c92443f604df3d9aaf7ac13d0c72bb5a3402d2c7e389a28f4fa",
+      "candidate_file_sha256": "3ac5e62fefec06058cbdcff7f1c325ef8125ec1f4819dcc4b0b83d82adbdf225",
+      "exact_json_equal": false,
+      "difference_count": 2,
+      "clock_differences": [
+        {
+          "path": "/captured_at",
+          "baseline": "2026-10-21T02:36:58Z",
+          "candidate": "2026-10-21T02:37:27Z",
+          "reason": "value"
+        },
+        {
+          "path": "/updated_at",
+          "baseline": "2026-10-21T02:37:12Z",
+          "candidate": "2026-10-21T02:37:33Z",
+          "reason": "value"
+        }
+      ],
+      "nonclock_differences": [],
+      "base_equal": true,
+      "repos_equal": true,
+      "coverage_equal": true
+    },
+    {
+      "repetition": 2,
+      "kind": "io",
+      "baseline_file": "runs/r2-io-baseline/shadow/snapshots/index.json",
+      "candidate_file": "runs/r2-io-candidate/shadow/snapshots/index.json",
+      "baseline_file_sha256": "a75af2edd3eb01a46bc1b6794ef9056c0a69df971a1785a7d351d764e4ec081c",
+      "candidate_file_sha256": "be923edc75110378e8f58e73a76ba28142794ba6433c6428fce470717c417980",
+      "exact_json_equal": false,
+      "difference_count": 2,
+      "clock_differences": [
+        {
+          "path": "/captured_at",
+          "baseline": "2026-10-21T02:40:20Z",
+          "candidate": "2026-10-21T02:39:47Z",
+          "reason": "value"
+        },
+        {
+          "path": "/updated_at",
+          "baseline": "2026-10-21T02:40:35Z",
+          "candidate": "2026-10-21T02:39:53Z",
+          "reason": "value"
+        }
+      ],
+      "nonclock_differences": [],
+      "base_equal": true,
+      "repos_equal": true,
+      "coverage_equal": true
+    },
+    {
+      "repetition": 3,
+      "kind": "io",
+      "baseline_file": "runs/r3-io-baseline/shadow/snapshots/index.json",
+      "candidate_file": "runs/r3-io-candidate/shadow/snapshots/index.json",
+      "baseline_file_sha256": "5fe9b4bdc73853580601ff1608dd1620e98fe10bde961136d0b11805a32fc2f7",
+      "candidate_file_sha256": "9cc58eb7e88f43b3bcf4b3303a789d3e0814f7e6b7153c86dde062eb2a6ecb35",
+      "exact_json_equal": false,
+      "difference_count": 2,
+      "clock_differences": [
+        {
+          "path": "/captured_at",
+          "baseline": "2026-10-21T02:43:08Z",
+          "candidate": "2026-10-21T02:43:40Z",
+          "reason": "value"
+        },
+        {
+          "path": "/updated_at",
+          "baseline": "2026-10-21T02:43:24Z",
+          "candidate": "2026-10-21T02:43:46Z",
+          "reason": "value"
+        }
+      ],
+      "nonclock_differences": [],
+      "base_equal": true,
+      "repos_equal": true,
+      "coverage_equal": true
+    }
+  ],
+  "independent_faults": [
+    {
+      "case": "before_compaction_index_install",
+      "passed": true,
+      "small_records": 3,
+      "resumed_requests": {
+        "https://example.test/api/models?filter=base_model%3Aquantized%3Atest%2Fbase&limit=1000&full=true&expand[]=sha&expand[]=createdAt&expand[]=lastModified&expand[]=downloads&expand[]=tags": 1,
+        "https://example.test/api/models/test/base": 1
+      },
+      "resumed": {
+        "status": "complete",
+        "changed": [
+          "test/one",
+          "test/two"
+        ],
+        "unresolved": [],
+        "repos": 2
+      }
+    },
+    {
+      "case": "process_death_after_first_checkpoint_unlink",
+      "passed": true,
+      "exitcode": 31,
+      "checkpoints_remaining_at_death": 2,
+      "resumed_requests": {
+        "https://example.test/api/models?filter=base_model%3Aquantized%3Atest%2Fbase&limit=1000&full=true&expand[]=sha&expand[]=createdAt&expand[]=lastModified&expand[]=downloads&expand[]=tags": 1,
+        "https://example.test/api/models/test/base": 1
+      },
+      "resumed": {
+        "status": "complete",
+        "changed": [
+          "test/one",
+          "test/two"
+        ],
+        "unresolved": [],
+        "repos": 2
+      }
+    }
+  ],
+  "methodology_correction": "An initial 18-run set exported candidate-helper evidence after each side, including between paired timings. The corrected coordinator exports evidence only after BOTH timed sides complete. All three repetitions were rerun from fresh output directories. No candidate implementation, input, worker count, test, fixture or timing function changed. The initial set is preserved in the separately supplied superseded-evidence archive and is not selected into the final performance summaries.",
+  "runtime_scope": "Named stages only: prepare + response rounds + unchanged reconcile + status. Init, fixture generation and evidence export excluded. Mocked HTTP and synthetic model responses; no model APIs."
+}

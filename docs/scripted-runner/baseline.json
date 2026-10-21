@@ -1,0 +1,50 @@
+{
+  "measurement": "offline dispatch replay; stub workers, no model calls",
+  "stretch_target": "100x runtime on this fixed replay; no optimization or saving claimed",
+  "baseline": {
+    "eligible_mapping_requests": 24,
+    "logical_model_requests": 24,
+    "simulated_worker_launches": 24,
+    "coordinator_handoffs": 2,
+    "first_dispatch": 8,
+    "first_dispatch_unstarted": 16,
+    "completed": 24,
+    "completed_repeated": 0,
+    "scan_operations": 48,
+    "runtime_seconds": 0.0038803799999982402,
+    "actual_agent_launches": 0,
+    "tokens": null,
+    "cost": null
+  },
+  "historical_log_observations": {
+    "20261020T1412Z-live": {
+      "records": 48,
+      "prepare_calls": 6,
+      "finish_calls": 17,
+      "connector_op_lists_requested": 7,
+      "last_reported_minutes": 35.8
+    },
+    "20261020T1621Z-live": {
+      "records": 33,
+      "prepare_calls": 3,
+      "finish_calls": 6,
+      "connector_op_lists_requested": 8,
+      "last_reported_minutes": 16.5
+    },
+    "20261020T1713Z-live": {
+      "records": 30,
+      "prepare_calls": 3,
+      "finish_calls": 3,
+      "connector_op_lists_requested": 8,
+      "last_reported_minutes": 8.8
+    },
+    "20261020T1714Z-ingest": {
+      "records": 11,
+      "prepare_calls": 1,
+      "finish_calls": 1,
+      "connector_op_lists_requested": 0,
+      "last_reported_minutes": 0.4
+    }
+  },
+  "schedule_estimate": "24 + 12 + 24 + 1 = 61 coordinating sessions/day, plus weekly discovery; not billing telemetry"
+}

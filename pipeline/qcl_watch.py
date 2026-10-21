@@ -182,9 +182,14 @@ def build_failing(entries):
     return bad
 
 def failing(entries):
+    """Entries named by a source or column gate failure. The gates run through gates/gatecache.py: in parallel, and
+    reused only when every input is byte-identical, so the build.py pass that follows a clean check hits the cache
+    instead of running the same gates a second time on the same claims file."""
+    sys.path.insert(0, f"{CODE}/gates"); import gatecache
+    results = gatecache.run_all()
     bad = set()
     for g in ("verify.py", "verify_columns.py"):
-        out = subprocess.run(["python3", f"{CODE}/gates/{g}"], capture_output=True, text=True).stdout
+        out = results[g][1]
         for l in out.splitlines():
             if re.search(r"FAIL|MISMATCH|ROWLABEL", l):
                 for rp, a in entries.items():
@@ -246,7 +251,7 @@ def merge(dirs):
     for _ in range(6):   # tie-broken values may need a pass of their own
         bad = failing(entries) or build_failing(entries)   # source/column gates first, then the build's sign/plausibility checks
         if not bad: break
-        for rp, k, nm in bad:
+        for rp, k, nm in sorted(bad):   # a fixed order: the audit file must not change with the hash seed
             # an entry that fails only after tie-broken values were added to it: drop those values (held again), keep the
             # values A and B agreed on; the next pass re-checks the entry as it was
             tbk = {(h[2], h[3]) for h in tiebroken if h[0] == rp and str(h[1]) == nm}

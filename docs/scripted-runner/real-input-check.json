@@ -1,0 +1,266 @@
+{
+  "kind": "offline real repository input smoke test",
+  "model": "lfm2.5-24b-a2b",
+  "authoritative_input_unchanged": true,
+  "input_files_checked": 335,
+  "model_requests_executed": 0,
+  "commands": [
+    {
+      "command": "init --models lfm2.5-24b-a2b",
+      "exit": 0,
+      "seconds": 0.593,
+      "result": {
+        "mode": "shadow",
+        "tasks": {},
+        "publication": "unavailable",
+        "ready_for_release": false,
+        "review": "requires exact-commit release verification separately",
+        "unresolved": []
+      }
+    },
+    {
+      "command": "prepare",
+      "exit": 0,
+      "seconds": 6.2681,
+      "result": {
+        "mode": "shadow",
+        "tasks": {},
+        "publication": "unavailable",
+        "ready_for_release": false,
+        "review": "requires exact-commit release verification separately",
+        "unresolved": []
+      }
+    },
+    {
+      "command": "status",
+      "exit": 0,
+      "seconds": 0.1211,
+      "result": {
+        "mode": "shadow",
+        "tasks": {},
+        "publication": "unavailable",
+        "ready_for_release": false,
+        "review": "requires exact-commit release verification separately",
+        "unresolved": []
+      }
+    },
+    {
+      "command": "prepare",
+      "exit": 0,
+      "seconds": 0.8654,
+      "result": {
+        "mode": "shadow",
+        "tasks": {},
+        "publication": "unavailable",
+        "ready_for_release": false,
+        "review": "requires exact-commit release verification separately",
+        "unresolved": []
+      }
+    },
+    {
+      "command": "status",
+      "exit": 0,
+      "seconds": 0.1065,
+      "result": {
+        "mode": "shadow",
+        "tasks": {},
+        "publication": "unavailable",
+        "ready_for_release": false,
+        "review": "requires exact-commit release verification separately",
+        "unresolved": []
+      }
+    }
+  ],
+  "starting_commit": "670acdfb0c84e4ebf609d656ac06912dfaba8f2a",
+  "accepted_machine_records_identical": false,
+  "machine_repositories_before": 61,
+  "machine_repositories_after": 61,
+  "provenance_comparison": "All complete machine entry records; only repository ordering canonicalized.",
+  "source_input_digest": "e3ba3374517d5524f6118e31574b5868be2d1f982364c9765ef82aea5b4a489f",
+  "stage_subprocess_operations": 8,
+  "current_old_merge_operations": [
+    {
+      "script": "qcl_watch.py",
+      "exit": 0
+    },
+    {
+      "script": "gen_auto.py",
+      "exit": 0
+    }
+  ],
+  "current_old_merge_seconds": 3.9316,
+  "current_old_merge_vs_runner_machine_records_identical": true,
+  "committed_vs_rebuilt_differences": [
+    {
+      "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5",
+      "field": "flags",
+      "before": [],
+      "after": [
+        "Card embeds 3 images [L46, L48, L50] (Chat KL and same top token for every size; Chat speed against quality for every size; The lookup drafter on edit and copy asks) that may show quant results or details; image contents are not read by the mapper, so anything shown only in them is not on this site"
+      ]
+    },
+    {
+      "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0",
+      "field": "flags",
+      "before": [],
+      "after": [
+        "Card embeds 3 images [L46, L48, L50] (Chat KL and same top token for every size; Chat speed against quality for every size; The lookup drafter on edit and copy asks) that may show quant results or details; image contents are not read by the mapper, so anything shown only in them is not on this site"
+      ]
+    },
+    {
+      "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5",
+      "field": "flags",
+      "before": [],
+      "after": [
+        "Card embeds 3 images [L46, L48, L50] (Chat KL and same top token for every size; Chat speed against quality for every size; The lookup drafter on edit and copy asks) that may show quant results or details; image contents are not read by the mapper, so anything shown only in them is not on this site"
+      ]
+    },
+    {
+      "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0",
+      "field": "flags",
+      "before": [],
+      "after": [
+        "Card embeds 3 images [L46, L48, L50] (Chat KL and same top token for every size; Chat speed against quality for every size; The lookup drafter on edit and copy asks) that may show quant results or details; image contents are not read by the mapper, so anything shown only in them is not on this site"
+      ]
+    },
+    {
+      "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5",
+      "field": "flags",
+      "before": [],
+      "after": [
+        "Card embeds 3 images [L46, L48, L50] (Chat KL and same top token for every size; Chat speed against quality for every size; The lookup drafter on edit and copy asks) that may show quant results or details; image contents are not read by the mapper, so anything shown only in them is not on this site"
+      ]
+    },
+    {
+      "repo": "0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0",
+      "field": "flags",
+      "before": [],
+      "after": [
+        "Card embeds 3 images [L46, L48, L50] (Chat KL and same top token for every size; Chat speed against quality for every size; The lookup drafter on edit and copy asks) that may show quant results or details; image contents are not read by the mapper, so anything shown only in them is not on this site"
+      ]
+    },
+    {
+      "repo": "AtomicChat/LFM2.5-24B-A2B-GGUF",
+      "field": "flags",
+      "before": [],
+      "after": [
+        "Card embeds 3 images [L38, L39, L40] that may show quant results or details; image contents are not read by the mapper, so anything shown only in them is not on this site"
+      ]
+    },
+    {
+      "repo": "GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16",
+      "field": "flags",
+      "before": [],
+      "after": [
+        "Card embeds 5 images [L14, L37, L49, L82, L180] that may show quant results or details; image contents are not read by the mapper, so anything shown only in them is not on this site"
+      ]
+    },
+    {
+      "repo": "IsValorum/LFM2.5-24B-A2B-APEX-I-MiniPlus-V2.1-GGUF",
+      "field": "flags",
+      "before": [
+        "No quality claims for the quant (card read in full): size, memory and tensor tables only [L79-85, L149-151]; the LiveClaw and BFCL figures are base-model results, not measured on this quant [L99]; benchmark charts are images [L96, L103]"
+      ],
+      "after": [
+        "No quality claims for the quant (card read in full): size, memory and tensor tables only [L79-85, L149-151]; the LiveClaw and BFCL figures are base-model results, not measured on this quant [L99]; benchmark charts are images [L96, L103]",
+        "No numbers in the card text, but it embeds 3 images [L96, L103, L195] (Edge and GPU Inference Speed; LFM2.5-24B-A2B Benchmarks) that may show quant results or details; image contents are not read by the mapper, so anything shown only in them is not on this site"
+      ]
+    },
+    {
+      "repo": "IsValorum/LFM2.5-24B-A2B-APEX-I-NanoPlus-GGUF",
+      "field": "flags",
+      "before": [
+        "No quality claims for the quant (card read in full): size, memory and tensor-format tables only; the 'Quality Comparison' section has no quality number [L75-L83] [L155]"
+      ],
+      "after": [
+        "No quality claims for the quant (card read in full): size, memory and tensor-format tables only; the 'Quality Comparison' section has no quality number [L75-L83] [L155]",
+        "No numbers in the card text, but it embeds 3 images [L96, L103, L199] (Edge and GPU Inference Speed; LFM2.5-24B-A2B Benchmarks) that may show quant results or details; image contents are not read by the mapper, so anything shown only in them is not on this site"
+      ]
+    },
+    {
+      "repo": "OS-Software/LFM2.5-24B-A2B-Uncensored-Heretic-GGUF",
+      "field": "flags",
+      "before": [],
+      "after": [
+        "Card embeds 13 images [L137, L216, L230, L231, L233, L344 \u2026] (LFM2.5-24B-A2B GPU inference; LFM2.5-24B-A2B benchmarks; LFM2.5-24B-A2B edge inference; LFM2.5-24B-A2B post-training recipe) that may show quant results or details; image contents are not read by the mapper, so anything shown only in them is not on this site"
+      ]
+    },
+    {
+      "repo": "OsaurusAI/LFM2.5-24B-A2B-JANGH2",
+      "field": "flags",
+      "before": [],
+      "after": [
+        "Card embeds 1 image [L33] that may show quant results or details; image contents are not read by the mapper, so anything shown only in them is not on this site"
+      ]
+    },
+    {
+      "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_4M",
+      "field": "flags",
+      "before": [],
+      "after": [
+        "Card embeds 1 image [L33] that may show quant results or details; image contents are not read by the mapper, so anything shown only in them is not on this site"
+      ]
+    },
+    {
+      "repo": "OsaurusAI/LFM2.5-24B-A2B-JANG_8M",
+      "field": "flags",
+      "before": [],
+      "after": [
+        "Card embeds 1 image [L33] that may show quant results or details; image contents are not read by the mapper, so anything shown only in them is not on this site"
+      ]
+    },
+    {
+      "repo": "m9ter1a/LFM2.5-24B-A2B-GGUF",
+      "field": "flags",
+      "before": [],
+      "after": [
+        "Card embeds 1 image [L20] (Top-1 token agreement with BF16 against file size, for these files and the other public GGUFs of this model) that may show quant results or details; image contents are not read by the mapper, so anything shown only in them is not on this site"
+      ]
+    },
+    {
+      "repo": "mradermacher/LFM2.5-24B-A2B-GGUF",
+      "field": "flags",
+      "before": [
+        "No quality claims for the quant (card read in full): size table only; the quality graph is an external image with no numbers in the card [L58-L77]"
+      ],
+      "after": [
+        "No quality claims for the quant (card read in full): size table only; the quality graph is an external image with no numbers in the card [L58-L77]",
+        "No numbers in the card text, but it embeds 1 image [L77] (image.png) that may show quant results or details; image contents are not read by the mapper, so anything shown only in them is not on this site"
+      ]
+    },
+    {
+      "repo": "mradermacher/LFM2.5-24B-A2B-i1-GGUF",
+      "field": "flags",
+      "before": [
+        "No quality claims for the quant (card read in full): size table with qualitative notes only, no numbers [L58-85]; graph image has no values [L87-90]"
+      ],
+      "after": [
+        "No quality claims for the quant (card read in full): size table with qualitative notes only, no numbers [L58-85]; graph image has no values [L87-90]",
+        "No numbers in the card text, but it embeds 1 image [L90] (image.png) that may show quant results or details; image contents are not read by the mapper, so anything shown only in them is not on this site"
+      ]
+    },
+    {
+      "repo": "ngquocvinh/LFM2.5-24B-A2B-GGUF",
+      "field": "flags",
+      "before": [
+        "No quality claims for the quant (card read in full): size table only; the card states no fixed hold-out fidelity comparison is published [L77] [L100]"
+      ],
+      "after": [
+        "No quality claims for the quant (card read in full): size table only; the card states no fixed hold-out fidelity comparison is published [L77] [L100]",
+        "No numbers in the card text, but it embeds 1 image [L51] (LFM2.5-24B-A2B benchmarks) that may show quant results or details; image contents are not read by the mapper, so anything shown only in them is not on this site"
+      ]
+    },
+    {
+      "repo": "onnx-community/LFM2.5-24B-A2B-ONNX",
+      "field": "flags",
+      "before": [
+        "No quality claims for the quant (card read in full): the card has no numbers in tables or text (detected by code)"
+      ],
+      "after": [
+        "No quality claims for the quant (card read in full): the card has no numbers in tables or text (detected by code)",
+        "No numbers in the card text, but it embeds 13 images [L55, L134, L148, L149, L151, L266 \u2026] (LFM2.5-24B-A2B GPU inference; LFM2.5-24B-A2B benchmarks; LFM2.5-24B-A2B edge inference; LFM2.5-24B-A2B post-training recipe) that may show quant results or details; image contents are not read by the mapper, so anything shown only in them is not on this site"
+      ]
+    }
+  ],
+  "difference_explanation": "Existing qcl_watch.write adds image evidence warnings during regeneration; both current old merge and runner produce the identical warnings. No source numbers or interpretation fields are normalized away."
+}
