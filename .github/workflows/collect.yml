@@ -32,7 +32,9 @@ jobs:
           set -o pipefail
           python3 pipeline/qcl_collect.py --all-live --workers 8 --wait-429 900 --strict-images | tee "$RUNNER_TEMP/collect.jsonl"
       - name: Commit the changed ledgers, snapshots and images
-        if: ${{ !cancelled() && (steps.collect.outcome == 'success' || steps.collect.outcome == 'failure') }}
+        # Also after a cancellation or the job timeout: the ledgers and image files are written atomically and every
+        # completed model is already merged, so what was collected is valid and resumes from here next hour.
+        if: ${{ always() && (steps.collect.outcome == 'success' || steps.collect.outcome == 'failure' || steps.collect.outcome == 'cancelled') }}
         run: |
           git config user.name "quant-claims-bot"
           git config user.email "quant-claims-bot@users.noreply.github.com"
