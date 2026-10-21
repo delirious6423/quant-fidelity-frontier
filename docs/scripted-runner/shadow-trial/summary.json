@@ -1,0 +1,67 @@
+{
+ "model": "lfm2.5-24b-a2b",
+ "input_commit": "28e08005823266cd2d01a9915ea7866767474a0e",
+ "repos": 75,
+ "unique_cards_mapped": 53,
+ "tasks_by_stage": {
+  "map-A": 53,
+  "map-B": 53,
+  "map-C": 16,
+  "review": 20
+ },
+ "journal_events": {
+  "blocked": 1,
+  "claimed": 143,
+  "enqueued": 142,
+  "manual retry": 1,
+  "succeeded": 142
+ },
+ "rejected_replies": {
+  "map-A": 1,
+  "reason": "metric must identify an existing candidate",
+  "resolution": "explicit retry, fresh worker"
+ },
+ "merge": {
+  "quarantined": 7,
+  "disagreements": 100,
+  "resolved_disagreements": 0,
+  "resolved_repos": 0,
+  "tiebroken": 33
+ },
+ "holds": [
+  {
+   "repo": "Lottolabs/LFM2.5-24B-A2B-TT-Mixed-BFP4-BFP8-P150",
+   "entry": "BF16 experts, BFP8 dense/head only",
+   "reason": "QA review 2026-10-20: ppl_delta_pct: reviewer unsure: The 0.37% \u0394PPL all value is on the cited row [L99], but that row is a fake-quant ablation from the recipe table [L91-94], not a published build, so the ladder role is ambiguous."
+  }
+ ],
+ "qa_sample": {
+  "items": 20,
+  "ok": 20,
+  "wrong": 0,
+  "unsure": 0
+ },
+ "workers": {
+  "mapping_A_B": 18,
+  "retry": 1,
+  "blind_C": 4,
+  "qa": 4,
+  "model": "claude-sonnet (Claude Code subagents, file adapter contract)"
+ },
+ "subagent_tokens_total_approx": 2850000,
+ "orchestration_seconds": {
+  "prepare": 7.0,
+  "run_rounds": [
+   3.7,
+   3.5,
+   2.9,
+   2.4
+  ],
+  "verify": 1.2
+ },
+ "wall_clock_minutes_approx": {
+  "mapping_round": 3,
+  "blind_C_round": 3,
+  "qa_round": 1
+ }
+}

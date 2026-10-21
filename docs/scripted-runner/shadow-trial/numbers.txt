@@ -1,0 +1,63 @@
+{
+ "trial_numbers": 625,
+ "committed_numbers": 485,
+ "in_both": 432,
+ "precision_vs_committed": 0.691,
+ "recall_of_committed": 0.891,
+ "repos_trial_only": [
+  "CanadaApollo6/LFM2.5-24B-A2B-M3TiS-3090"
+ ],
+ "repos_committed_only": [
+  "myroslavtryhubets/LFM2.5-24B-A2B-NVFP4A16"
+ ],
+ "trial_phrase_values": 27,
+ "committed_phrase_values": 23
+}
+
+== trial phrase-shaped values
+  ('0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5', 'ppl:wikitext', 'perplexity is 21.00 on the wikitext rows')
+  ('0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5', 'ppl:wikitext', 'perplexity is 21.00 on the wikitext rows')
+  ('0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0', 'ppl:wikitext', 'perplexity is 21.00 on the wikitext rows')
+  ('0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5', 'ppl:wikitext', 'perplexity is 21.00 on the wikitext rows')
+  ('GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16', 'kld:c4', '0.1339 (0.1255–0.1424)')
+  ('GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16', 'kld:wikitext', '0.0849 (0.0793–0.0911)')
+  ('OS-Software/LFM2.5-24B-A2B-Uncensored-Heretic-GGUF', 'bench:HumanEval', '87.20% (−1.21, p = 0.79)')
+  ('OS-Software/LFM2.5-24B-A2B-Uncensored-Heretic-GGUF', 'bench:MMLU', '55.35% (−0.62, p = 0.004)')
+  ('Omega-Factory/LFM2.5-24B-A2B-GGUF', 'bench:ARC-MC', '88.0% (Δ +0.0 pp)')
+  ('Omega-Factory/LFM2.5-24B-A2B-GGUF', 'bench:GSM8K', '77.0% (Δ -1.5 pp)')
+  ('Omega-Factory/LFM2.5-24B-A2B-GGUF', 'bench:MATH-500', '54.5% (Δ -4.0 pp)')
+  ('Omega-Factory/LFM2.5-24B-A2B-GGUF', 'bench:ARC-MC', '89.0% (Δ +1.0 pp)')
+  ('Omega-Factory/LFM2.5-24B-A2B-GGUF', 'bench:GSM8K', '78.5% (Δ +0.0 pp)')
+  ('Omega-Factory/LFM2.5-24B-A2B-GGUF', 'bench:MATH-500', '50.5% (Δ -8.0 pp)')
+  ('Omega-Factory/LFM2.5-24B-A2B-GGUF', 'bench:ARC-MC', '70.5% (Δ -17.5 pp)')
+  ('Omega-Factory/LFM2.5-24B-A2B-GGUF', 'bench:GSM8K', '54.5% (Δ -24.0 pp)')
+  ('Omega-Factory/LFM2.5-24B-A2B-GGUF', 'bench:MATH-500', '37.5% (Δ -21.0 pp)')
+  ('Omega-Factory/LFM2.5-24B-A2B-GGUF', 'bench:ARC-MC', '88.0% (176/200)')
+  ('Omega-Factory/LFM2.5-24B-A2B-GGUF', 'bench:GSM8K', '78.5% (157/200)')
+  ('Omega-Factory/LFM2.5-24B-A2B-GGUF', 'bench:MATH-500', '58.5% (117/200)')
+
+== committed numbers missing from trial, by repo
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5: 12 missing; trial extra 3; trial total 15
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5: 12 missing; trial extra 3; trial total 15
+  mlx-community/LFM2.5-24B-A2B-OptiQ-4bit: 9 missing; trial extra 1; trial total 5
+  OS-Software/LFM2.5-24B-A2B-Uncensored-Heretic-GGUF: 5 missing; trial extra 12; trial total 14
+  myroslavtryhubets/LFM2.5-24B-A2B-NVFP4A16: 4 missing; trial extra 0; trial total 0
+  hermitdave/LFM2.5-24B-A2B-MLX-DWQ-3bit-v2: 3 missing; trial extra 0; trial total 15
+  Omega-Factory/LFM2.5-24B-A2B-GGUF: 2 missing; trial extra 2; trial total 13
+  hermitdave/LFM2.5-24B-A2B-MLX-DWQ-3bit: 2 missing; trial extra 0; trial total 17
+  notfakerv/LFM2.5-24B-A2B-MLX-Q4_K_S: 1 missing; trial extra 1; trial total 3
+  primitive-ai/LFM2.5-24B-A2B-NVFP4A16: 1 missing; trial extra 34; trial total 39
+  sapidlabs/LFM2.5-24B-A2B-NVFP4-W4A16: 1 missing; trial extra 3; trial total 4
+  bartowski/LiquidAI_LFM2.5-24B-A2B-GGUF: 1 missing; trial extra 2; trial total 7
+
+== repos where the trial adds numbers the committed data lacks
+  primitive-ai/LFM2.5-24B-A2B-NVFP4A16: +34 (committed has 6)
+  OsaurusAI/LFM2.5-24B-A2B-JANGH2: +27 (committed has 3)
+  GestaltLabs/LFM2.5-24B-A2B-NVFP4-W4A16: +22 (committed has 1)
+  OsaurusAI/LFM2.5-24B-A2B-JANG_8M: +20 (committed has 2)
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0: +15 (committed has 12)
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0: +13 (committed has 12)
+  OS-Software/LFM2.5-24B-A2B-Uncensored-Heretic-GGUF: +12 (committed has 7)
+  infinity-ai-institute/LFM2.5-24B-A2B-NVFP4: +6 (committed has 10)
+  0xzknw/LFM2.5-24B-A2B-EXL3-4bpw: +6 (committed has 25)
+  PollardWeights/LFM2.5-24B-A2B-Pollard: +4 (committed has 40)
