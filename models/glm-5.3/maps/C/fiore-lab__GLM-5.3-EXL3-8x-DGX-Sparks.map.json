@@ -1,0 +1,18 @@
+{"repo": "fiore-lab/GLM-5.3-EXL3-8x-DGX-Sparks",
+ "source_sha256": "6d8c1984436f00551a20b198a06476a85589aca1a087a70e04e9103e993dd1ac",
+ "candidates_sha256": "ef47bd1c9eb2fe7b69bef22f16807d1f19132d3e91389dcfdb5254cfadaf9ad1",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "official BF16 weights run by the official implementation, computed in FP32 [L50-51]", "dataset": "four 2,048-token texts (dialogue, legal, prose, reasoning), last 1,023 positions each, five runs [L54]", "ctx": "2,048 tokens per text [L54]", "tool": "transformers, FP32 reference; recipe serving configuration with FP8 KV cache [L51-52]", "L": [50, 51, 52, 54, 55]},
+ "entries": [
+   {"role": "own",
+    "name": "GLM-5.3, EXL3 4 / 5 bits, for eight DGX Sparks",
+    "metrics": {"top1_pct": "c18.1"},
+    "size": null, "unit": null, "basis": null,
+    "bpw": null,
+    "flags": ["Routed experts 4 bits, other linear layers 5 bits; no single bpw stated [L41-43]", "Mean KL over five runs of four texts [L54]; run range 0.0128 to 0.0146 [L54]", "Top-1 agreement stated as about 96% [L55]", "KL vocabulary coverage not stated [L50-52]", "8,192-token texts give KL 0.012 to 0.019 by position range, not one value: omitted [L56]", "BF16-computed-in-BF16 differences (0.007 to 0.010) concern the unquantized reference model: omitted [L56-57]"]}
+ ],
+ "prose": [
+   {"entry": "GLM-5.3, EXL3 4 / 5 bits, for eight DGX Sparks", "key": "mean_kld", "L": 54, "raw": "0.0133"}
+ ]}

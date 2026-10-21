@@ -1,0 +1,20 @@
+{"repo": "bot-lab-21/GLM-5.3-EXL3-3.2bpw-Pollard-Smooth",
+ "source_sha256": "da6584a0342f680d8cedb038ae7728dd85d05caeae2c80c6908579ee74b19de9",
+ "candidates_sha256": "98aad23a93f103aacc57bd77f83088ae7b668f1dd33e92df4f8feeb930608960",
+ "no_quality_claims": false,
+ "no_claims_reason": "",
+ "weights_modified": false,
+ "method": {"reference": "not stated", "dataset": "6 fixed held-out texts (4,079 tokens) for perplexity; HumanEval / HumanEval+ and MBPP / MBPP+", "ctx": "not stated", "tool": "served API (vLLM 0.28); EvalPlus greedy pass@1", "L": [36, 40, 41, 42, 45]},
+ "entries": [
+  {"role": "own", "name": "this model, 4 nodes",
+   "methodology": {"reference": "not stated", "dataset": "6 fixed held-out texts (4,079 tokens) for perplexity; HumanEval / HumanEval+ and MBPP / MBPP+ (EvalPlus)", "ctx": "not stated", "tool": "served API (vLLM 0.28); probes teacher-forced or greedy", "L": [40, 41, 42, 45]},
+   "metrics": {"ppl": "c3", "bench:HumanEval": "c5.0", "bench:HumanEval+": "c5.1", "bench:MBPP": "c7.0", "bench:MBPP+": "c7.1"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Speed and memory table has no metric key, omitted [L49-55]", "Correctness probe is pass or fail text with no metric key [L43]", "KL 0.10 vs bf16 quoted for the drowzeys build is left out: the KL definition is not stated [L111]"]},
+  {"role": "ladder", "name": "int4 TP8, 8 nodes",
+   "methodology": {"reference": "not stated", "dataset": "HumanEval / HumanEval+ and MBPP / MBPP+ (EvalPlus)", "ctx": "not stated", "tool": "served API (vLLM 0.28); EvalPlus greedy pass@1", "L": [36, 41, 42]},
+   "metrics": {"bench:HumanEval": "c6.0", "bench:HumanEval+": "c6.1", "bench:MBPP": "c8.0", "bench:MBPP+": "c8.1"},
+   "size": null, "unit": null, "basis": null, "bpw": null,
+   "flags": ["Perplexity is given as a range (4.82 - 4.84) and is not recorded as one value [L40]"]}
+ ],
+ "prose": []}
