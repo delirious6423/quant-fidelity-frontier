@@ -25,6 +25,9 @@ INSTRUCTIONS = (
 # families). Preserve that open vocabulary; schema checks syntax, while the
 # existing source/column/semantic gates retain responsibility for meaning.
 METRIC = re.compile(r"[A-Za-z][A-Za-z0-9_]*(?::[^\r\n]+)?\Z")
+PROSE_VALUE = re.compile(
+    r"(?:(?:~|≈|∼|<|>|≤|≥|±|about|around|approx(?:imately|\.)?|roughly|up to|under|over|nearly|almost)\s*)?"
+    r"[-−+]?\d[\d,]*(?:\.\d+)?(?:\s*(?:%|±\s*\d[\d.]*|[A-Za-z/]{1,6}))?", re.I)
 QUALIFIER = re.compile(
     r"(?:(?:^|[\s(|:=,])(?:<|>|≤|≥)=?|~|≈|∼|±|\babout|\baround|"
     r"\bapprox(?:imately|\.)?|\broughly|\bup to|\bunder|\bover|\bnearly|\balmost)\s*$",
@@ -244,6 +247,10 @@ def validate_mapping(bundle, response):
         line = _line(item["L"], source)
         if not re.search(r"\d", item["raw"]) or not _exact_in(item["raw"], line):
             raise ValueError("prose value is not an exact whole source value")
+        # A prose value is one number with at most a qualifier before it and a unit after it. A shadow
+        # trial mapped "perplexity is 21.00 on the wikitext rows" as a ppl value: verbatim, so no gate caught it.
+        if not PROSE_VALUE.fullmatch(item["raw"].strip()):
+            raise ValueError("prose value must be a single number, not a sentence")
         if any(c["L"] == item["L"] and c["raw"] == item["raw"] for c in candidates.values()):
             raise ValueError("use a candidate ID for a candidate value")
         key = (item["entry"], item.get("panel"), item["key"])

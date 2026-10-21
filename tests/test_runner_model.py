@@ -31,6 +31,21 @@ class ModelBoundary(unittest.TestCase):
                                 extractor_version=versions.get("extractor_version", "v1"),
                                 policy_version=versions.get("policy_version", M.REVIEW_POLICY))
 
+    def test_prose_value_is_one_number_not_a_sentence(self):
+        raw = b"# Quant\n| Quant | Mean KLD |\n| --- | --- |\n| Q4 | 0.1250 |\nThe wikitext perplexity reads 7.43 after this build.\nSize 9.68 GB on disk.\n"
+        source = {"repo": "publisher/model", "sha": "a" * 40, "sha256": hashlib.sha256(raw).hexdigest()}
+        task = dict(self.task, source_sha256=source["sha256"])
+        bundle = M.prepare_mapping("base/model", source, raw, task, "A", "v1")
+        def answer(prose_raw, key="ppl:wikitext", line=5):
+            return {**{k: task[k] for k in ("repo", "source_sha256", "candidates_sha256")},
+                    "entries": [{"role": "own", "name": "Q4", "metrics": {"mean_kld": "c1"}}],
+                    "prose": [{"entry": "Q4", "key": key, "L": line, "raw": prose_raw}]}
+        self.assertEqual(M.validate_mapping(bundle, answer("7.43"))["prose"][0]["raw"], "7.43")
+        self.assertEqual(M.validate_mapping(bundle, answer("9.68 GB", "size_gb", 6))["prose"][0]["raw"], "9.68 GB")
+        for sentence in ("perplexity reads 7.43", "7.43 after this build", "wikitext perplexity reads 7.43 after this build"):
+            with self.assertRaisesRegex(ValueError, "single number"):
+                M.validate_mapping(bundle, answer(sentence))
+
     def test_complete_blind_source_in_each_run(self):
         for run in ("A", "B", "C"):
             bundle = M.prepare_mapping("base/model", self.source, self.raw, self.task, run, "v1")

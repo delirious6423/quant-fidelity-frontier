@@ -1,0 +1,151 @@
+{
+ "trial_values": 685,
+ "committed_values": 511,
+ "identical": 279,
+ "same_key_different_value": 12,
+ "only_in_trial": 394,
+ "only_in_committed": 220,
+ "precision_vs_committed": 0.4073,
+ "recall_of_committed": 0.546,
+ "repos_with_values_trial": 30,
+ "repos_with_values_committed": 30,
+ "index_repos_equal": true
+}
+
+== same key, different value (12)
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5 | ladder | 2.5 | top1:chat = 78.9  (committed 78.9 %)
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5 | ladder | 2.5 | top1:wikitext = 70.4  (committed 70.4 %)
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5 | ladder | 3.0 | top1:chat = 83.6  (committed 83.6 %)
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5 | ladder | 3.0 | top1:wikitext = 75.2  (committed 75.2 %)
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5 | ladder | 4.0 | top1:chat = 88.5  (committed 88.5 %)
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5 | ladder | 4.0 | top1:wikitext = 80.7  (committed 80.7 %)
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5 | ladder | 4.5 | top1:chat = 91.2  (committed 91.2 %)
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5 | ladder | 4.5 | top1:wikitext = 85.4  (committed 85.4 %)
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5 | ladder | 6.0 | top1:chat = 93.4  (committed 93.4 %)
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5 | ladder | 6.0 | top1:wikitext = 88.2  (committed 88.2 %)
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5 | variants | 3.5 | top1:chat = 86.7  (committed 86.7 %)
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5 | variants | 3.5 | top1:wikitext = 79.0  (committed 79.0 %)
+
+== only in trial (394)
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5 | cross | BF16 | ppl:chat = 7.43
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5 | cross | BF16 | ppl:wikitext = perplexity is 21.00 on the wikitext rows
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5 | variants | 2.5 | size = 8.2 GB
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0 | ladder | 2.5 | kld:wikitext = 0.463
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0 | ladder | 3.5 | kld:wikitext = 0.226
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0 | ladder | 4.0 | kld:wikitext = 0.201
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0 | ladder | 4.5 | kld:wikitext = 0.113
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0 | ladder | 6.0 | kld:wikitext = 0.080
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0 | variants | 3.0 | kld:wikitext = 0.335
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0 | variants | 3.0 | size = 9.68 GB
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5 | cross | BF16 | ppl:chat = 7.43
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5 | cross | BF16 | ppl:wikitext = perplexity is 21.00 on the wikitext rows
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.5 | variants | 3.5 | size = 11.16 GB
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | cross | BF16 | ppl:chat = 7.43
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | cross | BF16 | ppl:wikitext = perplexity is 21.00 on the wikitext rows
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | EXL3 2.5 bpw | kld:chat = 0.313
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | EXL3 2.5 bpw | kld:wikitext = 0.463
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | EXL3 2.5 bpw | top1:chat = 78.9
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | EXL3 2.5 bpw | top1:wikitext = 70.4
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | EXL3 3.0 bpw | kld:chat = 0.195
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | EXL3 3.0 bpw | kld:wikitext = 0.335
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | EXL3 3.0 bpw | top1:chat = 83.6
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | EXL3 3.0 bpw | top1:wikitext = 75.2
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | EXL3 3.5 bpw | kld:chat = 0.136
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | EXL3 3.5 bpw | kld:wikitext = 0.226
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | EXL3 3.5 bpw | top1:chat = 86.7
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | EXL3 3.5 bpw | top1:wikitext = 79.0
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | EXL3 4.5 bpw | kld:chat = 0.063
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | EXL3 4.5 bpw | kld:wikitext = 0.113
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | EXL3 4.5 bpw | top1:chat = 91.2
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | EXL3 4.5 bpw | top1:wikitext = 85.4
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | EXL3 6.0 bpw | kld:chat = 0.039
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | EXL3 6.0 bpw | kld:wikitext = 0.080
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | EXL3 6.0 bpw | top1:chat = 93.4
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | EXL3 6.0 bpw | top1:wikitext = 88.2
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | variants | EXL3 4.0 bpw | kld:chat = 0.098
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | variants | EXL3 4.0 bpw | kld:wikitext = 0.201
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | variants | EXL3 4.0 bpw | size = 12.64 GB
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | variants | EXL3 4.0 bpw | top1:chat = 88.5
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | variants | EXL3 4.0 bpw | top1:wikitext = 80.7
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5 | cross | BF16 | ppl:chat = 7.43
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5 | cross | BF16 | ppl:wikitext = perplexity is 21.00 on the wikitext rows
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5 | variants | 4.5 | size = 14.12 GB
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | EXL3 2.5 bpw | kld:chat = 0.313
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | EXL3 2.5 bpw | kld:wikitext = 0.463
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | EXL3 2.5 bpw | top1:chat = 78.9 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | EXL3 2.5 bpw | top1:wikitext = 70.4 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | EXL3 3.0 bpw | kld:chat = 0.195
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | EXL3 3.0 bpw | kld:wikitext = 0.335
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | EXL3 3.0 bpw | top1:chat = 83.6 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | EXL3 3.0 bpw | top1:wikitext = 75.2 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | EXL3 3.5 bpw | kld:chat = 0.136
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | EXL3 3.5 bpw | kld:wikitext = 0.226
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | EXL3 3.5 bpw | top1:chat = 86.7 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | EXL3 3.5 bpw | top1:wikitext = 79.0 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | EXL3 4.0 bpw | kld:chat = 0.098
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | EXL3 4.0 bpw | kld:wikitext = 0.201
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | EXL3 4.0 bpw | top1:chat = 88.5 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | EXL3 4.0 bpw | top1:wikitext = 80.7 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | EXL3 4.5 bpw | kld:chat = 0.063
+
+== only in committed (220)
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5 | ladder | 3.0 | top1:chat = 83.6 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5 | ladder | 3.0 | top1:wikitext = 75.2 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5 | ladder | 3.5 | top1:chat = 86.7 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5 | ladder | 3.5 | top1:wikitext = 79.0 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5 | ladder | 4.0 | top1:chat = 88.5 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5 | ladder | 4.0 | top1:wikitext = 80.7 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5 | ladder | 4.5 | top1:chat = 91.2 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5 | ladder | 4.5 | top1:wikitext = 85.4 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5 | ladder | 6.0 | top1:chat = 93.4 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5 | ladder | 6.0 | top1:wikitext = 88.2 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5 | variants | 2.5 | top1:chat = 78.9 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-2.5 | variants | 2.5 | top1:wikitext = 70.4 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0 | ladder | 2.5 | kld:wikitext-2 = 0.463
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0 | ladder | 3.5 | kld:wikitext-2 = 0.226
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0 | ladder | 4.0 | kld:wikitext-2 = 0.201
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0 | ladder | 4.5 | kld:wikitext-2 = 0.113
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0 | ladder | 6.0 | kld:wikitext-2 = 0.080
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-3.0 | variants | 3.0 | kld:wikitext-2 = 0.335
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | 2.5 | kld:chat = 0.313
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | 2.5 | kld:wikitext-2 = 0.463
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | 3.0 | kld:chat = 0.195
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | 3.0 | kld:wikitext-2 = 0.335
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | 3.5 | kld:chat = 0.136
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | 3.5 | kld:wikitext-2 = 0.226
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | 4.5 | kld:chat = 0.063
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | 4.5 | kld:wikitext-2 = 0.113
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | 6.0 | kld:chat = 0.039
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | ladder | 6.0 | kld:wikitext-2 = 0.080
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | variants | 4.0 | kld:chat = 0.098
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.0 | variants | 4.0 | kld:wikitext-2 = 0.201
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5 | ladder | 2.5 | top1:chat = 78.9 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5 | ladder | 2.5 | top1:wikitext = 70.4 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5 | ladder | 3.0 | top1:chat = 83.6 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5 | ladder | 3.0 | top1:wikitext = 75.2 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5 | ladder | 3.5 | top1:chat = 86.7 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5 | ladder | 3.5 | top1:wikitext = 79.0 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5 | ladder | 4.0 | top1:chat = 88.5 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5 | ladder | 4.0 | top1:wikitext = 80.7 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5 | ladder | 6.0 | top1:chat = 93.4 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5 | ladder | 6.0 | top1:wikitext = 88.2 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5 | variants | 4.5 | top1:chat = 91.2 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-4.5 | variants | 4.5 | top1:wikitext = 85.4 %
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | 2.5 | kld:chat = 0.313
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | 2.5 | kld:wikitext = 0.463
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | 3.0 | kld:chat = 0.195
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | 3.0 | kld:wikitext = 0.335
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | 3.5 | kld:chat = 0.136
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | 3.5 | kld:wikitext = 0.226
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | 4.0 | kld:chat = 0.098
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | 4.0 | kld:wikitext = 0.201
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | 4.5 | kld:chat = 0.063
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | ladder | 4.5 | kld:wikitext = 0.113
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | variants | 6.0 | kld:chat = 0.039
+  0xBakeer/TandemLLM-LFM2.5-24B-A2B-EXL3-6.0 | variants | 6.0 | kld:wikitext = 0.080
+  0xzknw/LFM2.5-24B-A2B-EXL3-4bpw | cross | BF16 teacher | ppl:WikiText test,BOS/8×1024,positions512–1022 = 17.55602
+  0xzknw/LFM2.5-24B-A2B-EXL3-4bpw | cross | UD-Q4_K_XL | kld:WikiText test,8×1024,no BOS,all positions = 0.134553
+  0xzknw/LFM2.5-24B-A2B-EXL3-4bpw | cross | UD-Q4_K_XL | kld:WikiText test,BOS/8×1024,positions512–1022 = 0.085507
+  0xzknw/LFM2.5-24B-A2B-EXL3-4bpw | cross | UD-Q4_K_XL | ppl:WikiText test,8×1024,no BOS,all positions = 28.199009
+  0xzknw/LFM2.5-24B-A2B-EXL3-4bpw | cross | UD-Q4_K_XL | ppl:WikiText test,BOS/8×1024,positions512–1022 = 18.346692
+  0xzknw/LFM2.5-24B-A2B-EXL3-4bpw | ladder | v1 | kld:French technical text,2×512,no BOS = 0.226630
