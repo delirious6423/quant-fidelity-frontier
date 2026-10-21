@@ -33,7 +33,7 @@ repo(repo='turboderp/Qwen3.8-Flash-Next-exl3', sha='main', source_sha256='a2b606
     {'of': 'NVFP4 (checkpoint not named)', 'name': 'NVFP4 W4A4', 'bpw': 4.77, 'bpw_note': 'digitized from chart (bpw excl. embeddings and output head)', 'm': {'mean_kld': '0.0244', 'ppl': '1.4201'}, 'src': 'chart_image', 'img': [IMG_KLD, IMG_PPL], 'px': {'x': 1506.0, 'kld_y': 743.0, 'ppl_x': 1526.0, 'ppl_y': 1084.8}, 'L': 39, 'L_extra': [40]},
   ],
   baseline={'ppl': '1.38474', 'src': 'chart_image', 'L': 40},
-  flags=['Results exist only as chart images; values here are transcribed from the printed labels and checked against marker positions [L33-34]',
+  flags=['Results exist only as chart images; values here are transcribed from the printed labels and checked against marker positions [L39-40]',
          'Chart images are the card\'s own CDN files, pinned by SHA-256 (cache/images and snapshots/images are byte-identical)',
          'Eval text is a self-generated in-domain trace, so absolute KLD is much lower than on held-out corpora; e.g. unsloth UD-Q4_K_XL is 0.0084 here vs 0.046893 on unsloth\'s own table',
          'The NVFP4 checkpoint measured is not named; W4A16 and W4A4 are two execution modes of the same weights',

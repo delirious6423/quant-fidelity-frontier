@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Gate 1 for image-sourced claims: re-digitize pinned chart images and check each transcribed label against
 its marker position. Axis calibration is detected from gridlines in the image itself."""
-import hashlib, json, os, glob, math, sys
+import colorsys, hashlib, json, os, glob, math, sys
 from pathlib import Path
 import numpy as np
 from PIL import Image
@@ -95,7 +95,17 @@ kld = lambda y: 10 ** (-1 - (y - ky[0]) / (ky[1] - ky[0]))
 ppl = lambda y: 1.60 - (y - py[0]) / ((py[-1] - py[0]) / 5) * 0.05
 
 X = {"kld": "x", "ppl": "ppl_x"}                    # each chart has its own x axis: bpw (KLD chart), GiB (PPL chart)
+gib = lambda x: 20 + (x - px_grid[0]) / ((px_grid[-1] - px_grid[0]) / 7) * 10
+
+def hue(chart, x, y):
+    """Hue of the saturated pixels around a marker (the series colour), or None when there are none."""
+    win = chart[int(y)-3:int(y)+4, int(x)-3:int(x)+4].reshape(-1, 3)
+    win = win[win.std(axis=1) > 20]
+    if not len(win): return None
+    return colorsys.rgb_to_hsv(*(win.mean(axis=0) / 255))[0] * 360
+
 fails = n = 0
+sizes = []   # (bpw, GiB at ppl_x): the two x axes must describe the same quant
 for r, points in records:
     for e in points:
         px = e["px"]; n += 1
@@ -119,6 +129,19 @@ for r, points in records:
             saturation = float(win.std(axis=2).mean()) if win.shape == (7, 7, 3) else float("nan")
             if not math.isfinite(saturation) or saturation < 20:
                 fails += 1; print("FAIL no", key, "marker at", e["name"])
+        # The two charts no longer share an x axis, so a PPL score could be read off another quant's marker. The PPL
+        # marker must be the same series (colour) as the KLD marker, and sit where this quant's size puts it.
+        if valid_coordinates:
+            hk, hp = hue(im["kld"], px["x"], px["kld_y"]), hue(im["ppl"], px["ppl_x"], px["ppl_y"])
+            if hk is None or hp is None or min(abs(hk - hp), 360 - abs(hk - hp)) > 10:
+                fails += 1; print("FAIL marker series differs between the KLD and PPL charts:", e["name"], hk, hp)
+            sizes.append((e["name"], e["bpw"], gib(px["ppl_x"])))
+if len(sizes) >= 3:   # weight size grows linearly with bpw (same parameter count): a PPL marker of another quant falls off the line
+    xs, ys = np.array([b for _, b, _ in sizes]), np.array([g for _, _, g in sizes])
+    slope, intercept = np.polyfit(xs, ys, 1)
+    for (name, b, g) in sizes:
+        if abs(slope * b + intercept - g) > 1.5:
+            fails += 1; print("FAIL PPL marker size does not match the quant's bpw:", name, round(g, 2), "GiB at", b, "bpw")
 # reference lines printed on the charts: BF16 PPL (ppl chart) and noise floor (kld chart)
 def dotted_row(img, y_pred, win=6):
     best = None
