@@ -1,4 +1,4 @@
-# Handoff (21 Oct 2026, 08:10 UTC)
+# Handoff (21 Oct 2026, 08:20 UTC)
 
 Written for the next session that takes this work over (any agent, any machine). Everything below is on `main`
 or in the two open pull requests; nothing lives only in a session. Read `AGENTS.md` first, then this file, then
@@ -6,10 +6,11 @@ or in the two open pull requests; nothing lives only in a session. Read `AGENTS.
 
 ## State of `main`
 
-- `main` is **red** since the first collection backfill (commits 923dec4 and fea47ca, 07:47 UTC): `collect-cards`
-  installed cards for repositories the connector catalogue had never listed, and `gates/verify.py` refused every
-  model that has such a repository (`MISSING: [...]`, run 39564738422). The fix is in PR #23 (below): a collected
-  but unmapped repository is `PENDING MAPPING`, left off the site, and the next live-updates cycle maps it.
+- PR #23 and PR #24 are **merged** (main 17378f6, 08:18 UTC). `main` had been red since the first collection
+  backfill (commits 923dec4 and fea47ca, 07:47 UTC): `collect-cards` installed cards for repositories the connector
+  catalogue had never listed, and `gates/verify.py` refused every model that has such a repository
+  (`MISSING: [...]`, run 39564738422). Since #23 a collected but unmapped repository is `PENDING MAPPING`, left off
+  the site, and the next live-updates cycle maps it; confirm `verify-claims` is green on the merge commit.
 - Hourly `collect-cards` (`.github/workflows/collect.yml`, :01 UTC) works against the live Hub: the backfill of
   2,946 cards took 14.5 min (12 of them waiting out anonymous 429s), and the run with nothing changed takes about
   half a second per model and commits nothing. Card images: 814 of 836 URLs pinned; the 22 others are 10 oversize
@@ -26,14 +27,10 @@ or in the two open pull requests; nothing lives only in a session. Read `AGENTS.
 
 ## Open pull requests
 
-| PR | Branch | What | State |
-|---|---|---|---|
-| #23 | `auto/ci-local` | `pipeline/ci_local.py` (runs `verify.yml` locally from the workflow file), `$RUNNER_TEMP` for the workflow's scratch files, `pyyaml` in the safety job, the `PENDING MAPPING` gate, tests and docs | local battery through the runner: 35 steps, all green except the site job still finishing at the time of writing; Actions re-running after the pyyaml fix (427b2b1) |
-| #24 | `auto/images-classify` | unpinned image URLs classified as `unresolved` / `gone` / `refused`; strict fails only on `unresolved`; 9 image tests | carries #23 (merged in as 7e3cbfd); Actions re-running |
-
-Merge order: #23 first (it turns `main` green), then #24. Merge method `merge`, as for every PR so far. After #23
-merges, the next `collect-cards` run and the next live-updates cycle map the pending repositories; `main`'s
-verify goes green on the merge commit.
+None open. Merged today, in order: #19 (frozen fixtures), #20 (collect hotfix), #21 (card images), #22 (commit on
+cancel), #23 (local CI runner, `$RUNNER_TEMP`, `pyyaml`, the `PENDING MAPPING` gate), #24 (image URL classes).
+Every PR was merged with method `merge` once its run was green; #23 also passed the full battery through the local
+runner (35 steps, 8.2 min on a 4-core container, one false failure from the venv check that is now skipped).
 
 ## Run CI on any machine
 
@@ -65,7 +62,7 @@ with `git checkout -- models` unless a QA publish is meant to commit it.
 
 ## Plan, in order
 
-1. Merge #23 when its battery is green (local receipt or Actions), then #24.
+1. Confirm `verify-claims` is green on main 17378f6 and that the 08:03 live-updates cycle mapped the pending repositories.
 2. Point the "QFF live updates" scheduled task at `--part A --collected` (`docs/runbooks/HOURLY.md` has the
    prompt); watch the next cycle: it should map the pending repositories and the cycle should lose the catalogue
    and fetch minutes.
