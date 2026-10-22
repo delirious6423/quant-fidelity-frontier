@@ -1486,14 +1486,14 @@
    "total_bytes": 198912125294
   },
   "infosave/DeepSeek-V4.1-Flash-1017-cmf": {
-   "sha": "f3aadaf68db7e61f200909284685ffdb6e32fb11",
-   "file": "models/deepseek-v4.1-flash-1017/cache/cards/infosave__DeepSeek-V4.1-Flash-1017-cmf@f3aadaf68db7.md",
-   "sha256": "9a0073e84f85e37a1230fd19b378da83125d6d60622c405583b7da06256f9d8f",
-   "bytes": 8606,
+   "sha": "6d9ee25e52995331102cfdb08be0f43f08c1248a",
+   "file": "models/deepseek-v4.1-flash-1017/cache/cards/infosave__DeepSeek-V4.1-Flash-1017-cmf@6d9ee25e5299.md",
+   "sha256": "42ff05962e33a780b7cd8faaefbe0df974f0dd416f11914bb1fc03d1ef80ddf8",
+   "bytes": 11751,
    "readme_status": 200,
    "catalogue_source": "base_model:quantized",
    "createdAt": "2026-10-18T21:00:39.000Z",
-   "lastModified": "2026-10-19T04:06:50.000Z",
+   "lastModified": "2026-10-22T05:41:34.000Z",
    "downloads": 62,
    "tags": [
     "cortiq",
@@ -1519,7 +1519,7 @@
    "tree_complete": true,
    "tree_pages": 1,
    "total_bytes_complete": true,
-   "total_bytes": 1401485951360
+   "total_bytes": 1401485954505
   },
   "brandonmusic/DeepSeek-V4.1-Flash-1017-TrellisMX-K4": {
    "sha": "9aa18d080bc600fe97832230685018faf7f1a314",
@@ -3050,6 +3050,102 @@
    "tree_pages": 1,
    "total_bytes_complete": true,
    "total_bytes": 270327090532
+  },
+  "JERRYNPC/deepseek-v4.1-flash-int3-v100": {
+   "sha": "6c44f259110279f986c4c33e0c7e9ed4562c927e",
+   "file": "models/deepseek-v4.1-flash-1017/cache/cards/JERRYNPC__deepseek-v4.1-flash-int3-v100@6c44f2591102.md",
+   "sha256": "624a81cc540b1bbfd8fd673d1c6a5f9e82c54597aef9981af0106b1528828667",
+   "bytes": 9926,
+   "readme_status": 200,
+   "catalogue_source": "base_model:quantized",
+   "createdAt": "2026-10-22T06:07:43.000Z",
+   "lastModified": "2026-10-22T06:11:39.000Z",
+   "downloads": 0,
+   "tags": [
+    "pytorch",
+    "deepseek",
+    "moe",
+    "quantized",
+    "int3",
+    "int8",
+    "v100",
+    "custom-code",
+    "text-generation",
+    "zh",
+    "en",
+    "base_model:deepseek-ai/DeepSeek-V4.1-Flash-1017",
+    "base_model:quantized:deepseek-ai/DeepSeek-V4.1-Flash-1017",
+    "license:other",
+    "region:us"
+   ],
+   "tree_file": "models/deepseek-v4.1-flash-1017/cache/trees/JERRYNPC__deepseek-v4.1-flash-int3-v100.json",
+   "tree_complete": true,
+   "tree_pages": 1,
+   "total_bytes_complete": true,
+   "total_bytes": 7161086
+  },
+  "inferencerlabs/DeepSeek-V4.1-Flash-1017-MLXs": {
+   "sha": "a3d5b4d6af021654927fd4f303b28bb8fa8021de",
+   "file": "models/deepseek-v4.1-flash-1017/cache/cards/inferencerlabs__DeepSeek-V4.1-Flash-1017-MLXs@a3d5b4d6af02.md",
+   "sha256": "a66b8fc0af35b16bbc75593ac0fd0e945438e060db5e53b801a45afe0d1840ce",
+   "bytes": 1636,
+   "readme_status": 200,
+   "catalogue_source": "base_model:quantized",
+   "createdAt": "2026-10-17T14:36:27.000Z",
+   "lastModified": "2026-10-22T05:41:49.000Z",
+   "downloads": 725,
+   "tags": [
+    "mlx",
+    "deepseek_v41",
+    "quantized",
+    "image-text-to-text",
+    "conversational",
+    "en",
+    "base_model:deepseek-ai/DeepSeek-V4.1-Flash-1017",
+    "base_model:quantized:deepseek-ai/DeepSeek-V4.1-Flash-1017",
+    "8-bit",
+    "region:us"
+   ],
+   "tree_file": "models/deepseek-v4.1-flash-1017/cache/trees/inferencerlabs__DeepSeek-V4.1-Flash-1017-MLXs.json",
+   "tree_complete": true,
+   "tree_pages": 1,
+   "total_bytes_complete": true,
+   "total_bytes": 502753158823
+  },
+  "JERRYNPC/deepseek-v4.1-flash-nano-v100": {
+   "sha": "13f0fbb28347f99b1b638fd347b4684411ba9427",
+   "file": "models/deepseek-v4.1-flash-1017/cache/cards/JERRYNPC__deepseek-v4.1-flash-nano-v100@13f0fbb28347.md",
+   "sha256": "8dc29b68e32995533bd0ecd8e0114a3bdf9e00d8ccecb3af05458e35c774b83a",
+   "bytes": 7986,
+   "readme_status": 200,
+   "catalogue_source": "base_model:quantized",
+   "createdAt": "2026-10-22T06:07:44.000Z",
+   "lastModified": "2026-10-22T06:12:27.000Z",
+   "downloads": 0,
+   "tags": [
+    "pytorch",
+    "deepseek",
+    "moe",
+    "quantized",
+    "int3",
+    "reap",
+    "pruning",
+    "v100",
+    "custom-code",
+    "experimental",
+    "text-generation",
+    "zh",
+    "en",
+    "base_model:deepseek-ai/DeepSeek-V4.1-Flash-1017",
+    "base_model:quantized:deepseek-ai/DeepSeek-V4.1-Flash-1017",
+    "license:other",
+    "region:us"
+   ],
+   "tree_file": "models/deepseek-v4.1-flash-1017/cache/trees/JERRYNPC__deepseek-v4.1-flash-nano-v100.json",
+   "tree_complete": true,
+   "tree_pages": 1,
+   "total_bytes_complete": true,
+   "total_bytes": 7204736
   }
  },
  "base": {
@@ -3061,5 +3157,5 @@
   "bytes": 5231,
   "readme_status": 200
  },
- "captured_at": "2026-10-22T05:20:42Z"
+ "captured_at": "2026-10-22T06:21:39Z"
 }
