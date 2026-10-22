@@ -3,7 +3,7 @@
   "_id": "6ac7c2c196215933e6db4535",
   "id": "nvidia/Qwen3.8-Flash-Next-FP4-Local",
   "lastModified": "2026-10-15T19:45:54.000Z",
-  "trendingScore": 283,
+  "trendingScore": 284,
   "sha": "b9ce18a6887e18c089fdea8509a33e63429a3300",
   "downloads": 9340,
   "tags": [
@@ -67,7 +67,7 @@
   "_id": "6a9e86d1dab7f88030e2af20",
   "id": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
   "lastModified": "2026-09-29T10:28:23.000Z",
-  "trendingScore": 79,
+  "trendingScore": 80,
   "sha": "ed59f92082b1e93c0e96d60a8b11aab089b52f09",
   "downloads": 6316537,
   "tags": [
@@ -128,7 +128,7 @@
   "_id": "6abd4d5f29b577735c208e79",
   "id": "agentionai/Qwen3.8-Flash-Next-Gyro-GGUF",
   "lastModified": "2026-10-21T15:01:21.000Z",
-  "trendingScore": 55,
+  "trendingScore": 56,
   "sha": "273edc1d2ffae5241fe3cab69568d682dad4c718",
   "downloads": 151233,
   "tags": [
@@ -529,34 +529,6 @@
   "createdAt": "2026-10-10T14:18:44.000Z"
  },
  {
-  "_id": "6a8ee7c9cee02e94f11eb54d",
-  "id": "AtomicChat/Qwen3.8-Flash-Next-GGUF",
-  "lastModified": "2026-10-20T17:19:22.000Z",
-  "trendingScore": 6,
-  "sha": "c4f844865189c05eeaa05406576a8d7d4931df5c",
-  "downloads": 656151,
-  "tags": [
-   "gguf",
-   "atomic-chat",
-   "qwen",
-   "qwen3.8",
-   "flash-next",
-   "moe",
-   "multimodal",
-   "imatrix",
-   "quantized",
-   "llama.cpp",
-   "text-generation",
-   "base_model:Qwen/Qwen3.8-Flash-Next",
-   "base_model:quantized:Qwen/Qwen3.8-Flash-Next",
-   "license:other",
-   "endpoints_compatible",
-   "region:us",
-   "conversational"
-  ],
-  "createdAt": "2026-08-26T13:19:05.000Z"
- },
- {
   "_id": "6a9cea389d04f655f2d624e4",
   "id": "huihui-ai/Huihui-Qwen3.8-Flash-Next-abliterated-GGUF",
   "lastModified": "2026-10-11T17:17:52.000Z",
@@ -612,6 +584,34 @@
    "conversational"
   ],
   "createdAt": "2026-10-20T06:09:21.000Z"
+ },
+ {
+  "_id": "6a8ee7c9cee02e94f11eb54d",
+  "id": "AtomicChat/Qwen3.8-Flash-Next-GGUF",
+  "lastModified": "2026-10-20T17:19:22.000Z",
+  "trendingScore": 5,
+  "sha": "c4f844865189c05eeaa05406576a8d7d4931df5c",
+  "downloads": 656151,
+  "tags": [
+   "gguf",
+   "atomic-chat",
+   "qwen",
+   "qwen3.8",
+   "flash-next",
+   "moe",
+   "multimodal",
+   "imatrix",
+   "quantized",
+   "llama.cpp",
+   "text-generation",
+   "base_model:Qwen/Qwen3.8-Flash-Next",
+   "base_model:quantized:Qwen/Qwen3.8-Flash-Next",
+   "license:other",
+   "endpoints_compatible",
+   "region:us",
+   "conversational"
+  ],
+  "createdAt": "2026-08-26T13:19:05.000Z"
  },
  {
   "_id": "6ac2a8427ea4932331381382",
@@ -1262,9 +1262,9 @@
  {
   "_id": "6a9fe55eeb552bea1164fd01",
   "id": "halt95/Qwen3.8-Flash-Next-W4A16-Merlin",
-  "lastModified": "2026-10-12T15:01:35.000Z",
+  "lastModified": "2026-10-22T01:31:53.000Z",
   "trendingScore": 2,
-  "sha": "cec53e9f90e5995b81691604ec0b32191debf797",
+  "sha": "5d28e903ae20dce5256730f0cd6383f54abc6889",
   "downloads": 1299,
   "tags": [
    "vllm",
@@ -1272,12 +1272,14 @@
    "qwen4_exp",
    "qwen3.8",
    "flash-next",
+   "merlin",
    "w4a16",
    "autoround",
    "mtp",
    "speculative-decoding",
    "fp8-kv",
    "long-context",
+   "vision",
    "rtx-3090",
    "ampere",
    "sm86",
@@ -1799,6 +1801,28 @@
    "conversational"
   ],
   "createdAt": "2026-08-28T12:37:49.000Z"
+ },
+ {
+  "_id": "6a91813e0c8f30f5379face4",
+  "id": "cyankiwi/Qwen3.8-Flash-Next-AWQ-INT4",
+  "lastModified": "2026-10-19T16:14:02.000Z",
+  "trendingScore": 1,
+  "sha": "07af8c4a56c0e3620ed70069916be044282654f9",
+  "downloads": 3202,
+  "tags": [
+   "transformers",
+   "safetensors",
+   "qwen4_exp",
+   "image-text-to-text",
+   "conversational",
+   "base_model:Qwen/Qwen3.8-Flash-Next",
+   "base_model:quantized:Qwen/Qwen3.8-Flash-Next",
+   "license:other",
+   "endpoints_compatible",
+   "compressed-tensors",
+   "region:us"
+  ],
+  "createdAt": "2026-08-28T12:38:22.000Z"
  },
  {
   "_id": "6a919485074496b6c970d2ea",
@@ -5376,28 +5400,6 @@
    "conversational"
   ],
   "createdAt": "2026-08-28T12:21:10.000Z"
- },
- {
-  "_id": "6a91813e0c8f30f5379face4",
-  "id": "cyankiwi/Qwen3.8-Flash-Next-AWQ-INT4",
-  "lastModified": "2026-10-19T16:14:02.000Z",
-  "trendingScore": 0,
-  "sha": "07af8c4a56c0e3620ed70069916be044282654f9",
-  "downloads": 3202,
-  "tags": [
-   "transformers",
-   "safetensors",
-   "qwen4_exp",
-   "image-text-to-text",
-   "conversational",
-   "base_model:Qwen/Qwen3.8-Flash-Next",
-   "base_model:quantized:Qwen/Qwen3.8-Flash-Next",
-   "license:other",
-   "endpoints_compatible",
-   "compressed-tensors",
-   "region:us"
-  ],
-  "createdAt": "2026-08-28T12:38:22.000Z"
  },
  {
   "_id": "6a918c6578688890f0d764df",
