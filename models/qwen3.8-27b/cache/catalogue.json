@@ -24,7 +24,7 @@
   "_id": "6a832587e74e9a9edfb67ff9",
   "id": "HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF",
   "lastModified": "2026-08-17T22:02:10.000Z",
-  "trendingScore": 119,
+  "trendingScore": 117,
   "sha": "993a5971fda8f30dd1b7eb2654792ba4415c7460",
   "downloads": 2354693,
   "tags": [
@@ -53,7 +53,7 @@
   "_id": "6a91d58bed327671e1699008",
   "id": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
   "lastModified": "2026-09-02T09:11:34.000Z",
-  "trendingScore": 94,
+  "trendingScore": 97,
   "sha": "d562806dbafae37109975e970aae91b43e73b440",
   "downloads": 1287941,
   "tags": [
@@ -111,7 +111,7 @@
   "_id": "6abb35648a5ba01dff2721a5",
   "id": "DavidAU/Qwen3.8-27B-Turbo-Brilliance-50X-Reasoning-Instruct-NEO-MAX-MTP-GGUF",
   "lastModified": "2026-10-17T22:46:13.000Z",
-  "trendingScore": 73,
+  "trendingScore": 72,
   "sha": "6e965b816f3d204ab15845562637f5d5d3cafdd0",
   "downloads": 289646,
   "tags": [
@@ -684,6 +684,33 @@
   "createdAt": "2026-10-15T12:00:00.000Z"
  },
  {
+  "_id": "6ad919d0cc77ad9989ae6c56",
+  "id": "kaitchup/Qwen3.8-27B-SLQ-EAR98",
+  "lastModified": "2026-10-21T20:52:59.000Z",
+  "trendingScore": 6,
+  "sha": "1165bcbb96ef55e11689388e44691ceec46016fd",
+  "downloads": 0,
+  "tags": [
+   "safetensors",
+   "qwen3_5",
+   "slq",
+   "mixed-precision",
+   "humming",
+   "vllm",
+   "gptq",
+   "autoround",
+   "quantization",
+   "text-generation",
+   "conversational",
+   "arxiv:2605.02404",
+   "base_model:Qwen/Qwen3.8-27B",
+   "base_model:quantized:Qwen/Qwen3.8-27B",
+   "license:apache-2.0",
+   "region:us"
+  ],
+  "createdAt": "2026-10-21T20:00:16.000Z"
+ },
+ {
   "_id": "6a7eaa8364a4fe2da593079c",
   "id": "RadixArk/Qwen3.8-27B-NVFP4",
   "lastModified": "2026-08-22T07:38:11.000Z",
@@ -877,33 +904,6 @@
    "region:us"
   ],
   "createdAt": "2026-10-15T16:29:45.000Z"
- },
- {
-  "_id": "6ad919d0cc77ad9989ae6c56",
-  "id": "kaitchup/Qwen3.8-27B-SLQ-EAR98",
-  "lastModified": "2026-10-21T20:52:59.000Z",
-  "trendingScore": 5,
-  "sha": "1165bcbb96ef55e11689388e44691ceec46016fd",
-  "downloads": 0,
-  "tags": [
-   "safetensors",
-   "qwen3_5",
-   "slq",
-   "mixed-precision",
-   "humming",
-   "vllm",
-   "gptq",
-   "autoround",
-   "quantization",
-   "text-generation",
-   "conversational",
-   "arxiv:2605.02404",
-   "base_model:Qwen/Qwen3.8-27B",
-   "base_model:quantized:Qwen/Qwen3.8-27B",
-   "license:apache-2.0",
-   "region:us"
-  ],
-  "createdAt": "2026-10-21T20:00:16.000Z"
  },
  {
   "_id": "6a744198df74ece46cab38a6",
@@ -3126,35 +3126,6 @@
    "region:us"
   ],
   "createdAt": "2026-09-25T00:58:20.000Z"
- },
- {
-  "_id": "6ab8f81bd68b15896841d649",
-  "id": "EliovpAI/Qwen3.8-27B-W3Rot-INT3-Paiton-RDNA4",
-  "lastModified": "2026-10-12T21:50:26.000Z",
-  "trendingScore": 1,
-  "sha": "395c0b559b4d2fed7a82e80397402d605aa18666",
-  "downloads": 1134,
-  "tags": [
-   "paiton",
-   "vllm",
-   "amd",
-   "rocm",
-   "rdna4",
-   "gfx1201",
-   "int3",
-   "3-bit",
-   "gptq",
-   "hadamard",
-   "w3a4",
-   "dflash2",
-   "speculative-decoding",
-   "text-generation",
-   "base_model:Qwen/Qwen3.8-27B",
-   "base_model:quantized:Qwen/Qwen3.8-27B",
-   "license:apache-2.0",
-   "region:us"
-  ],
-  "createdAt": "2026-09-27T11:03:55.000Z"
  },
  {
   "_id": "6ab9a91d0ee90a881d7a707b",
@@ -33813,6 +33784,35 @@
   "createdAt": "2026-09-27T10:56:12.000Z"
  },
  {
+  "_id": "6ab8f81bd68b15896841d649",
+  "id": "EliovpAI/Qwen3.8-27B-W3Rot-INT3-Paiton-RDNA4",
+  "lastModified": "2026-10-12T21:50:26.000Z",
+  "trendingScore": 0,
+  "sha": "395c0b559b4d2fed7a82e80397402d605aa18666",
+  "downloads": 1134,
+  "tags": [
+   "paiton",
+   "vllm",
+   "amd",
+   "rocm",
+   "rdna4",
+   "gfx1201",
+   "int3",
+   "3-bit",
+   "gptq",
+   "hadamard",
+   "w3a4",
+   "dflash2",
+   "speculative-decoding",
+   "text-generation",
+   "base_model:Qwen/Qwen3.8-27B",
+   "base_model:quantized:Qwen/Qwen3.8-27B",
+   "license:apache-2.0",
+   "region:us"
+  ],
+  "createdAt": "2026-09-27T11:03:55.000Z"
+ },
+ {
   "_id": "6ab90742a13bdc0c6f7a69ad",
   "id": "jaakkomoller/Qwen3.8-27B-q3mix-NInfer",
   "lastModified": "2026-09-27T12:15:14.000Z",
@@ -40066,6 +40066,28 @@
   "createdAt": "2026-10-19T01:38:53.000Z"
  },
  {
+  "_id": "6ad5845af3bd06768ca4473c",
+  "id": "basecompute/Qwen3.8-27B-BaseQuant-V1",
+  "lastModified": "2026-10-21T23:52:41.000Z",
+  "trendingScore": 0,
+  "sha": "aa1843abfc431dae66fe6d9c84559f55acc253bf",
+  "downloads": 2,
+  "tags": [
+   "gguf",
+   "basert",
+   "llama.cpp",
+   "quantized",
+   "text-generation",
+   "base_model:Qwen/Qwen3.8-27B",
+   "base_model:quantized:Qwen/Qwen3.8-27B",
+   "license:apache-2.0",
+   "endpoints_compatible",
+   "region:us",
+   "conversational"
+  ],
+  "createdAt": "2026-10-19T02:45:46.000Z"
+ },
+ {
   "_id": "6ad59c7b6b88b346e156d9f2",
   "id": "ws1433223/Bonsai-2-27B-1bit-CRACK-GGUF",
   "lastModified": "2026-10-19T04:28:43.000Z",
@@ -40780,9 +40802,9 @@
  {
   "_id": "6ad939b74913aa4ba6a5d888",
   "id": "muna-ai/Qwen3.8-27B-muna-x86_64-sm100",
-  "lastModified": "2026-10-21T22:54:34.000Z",
+  "lastModified": "2026-10-21T23:36:28.000Z",
   "trendingScore": 0,
-  "sha": "c7e2c7ad4af6021829d5807c11c46167508c067c",
+  "sha": "9e09de091c2210291f255bed5c2396a7270d3cce",
   "downloads": 0,
   "tags": [
    "muna",
