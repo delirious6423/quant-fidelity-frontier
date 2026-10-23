@@ -1,0 +1,98 @@
+---
+license: apache-2.0
+base_model: Qwen/Qwen3.8-27B
+tags:
+  - litert
+  - litert-lm
+  - litertlm
+  - on-device
+  - edge
+  - hybrid
+  - gated-deltanet
+  - qwen3_5
+pipeline_tag: text-generation
+library_name: litert-lm
+base_model_relation: quantized
+---
+
+# Qwen3.8-27B — LiteRT-LM
+
+This repository is a community conversion of [Qwen/Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B) to the LiteRT-LM (`.litertlm`) format, made with litert-torch (commit 115a1360 with the Qwen3.5 hybrid patch of [hf-to-litertlm](https://github.com/john-rocky/hf-to-litertlm)) for Google's [LiteRT-LM](https://github.com/google-ai-edge/LiteRT-LM) runtime 0.18.1. On a Mac Studio M4 Max the Mixed INT4 file prefills 1,024 tokens at 175.5 tok/s and decodes at 18.2 tok/s on the GPU (measured 2026-10-22). It is one 15.4 GB file holding the text decoder, for desktop-class machines: it was measured on a Mac only.
+
+Qwen introduces Qwen3.8 as "the most capable generation in the Qwen open-model family to date", built "on the architectural foundation of Qwen3.5", and Qwen3.8-27B as "a compact, deployment-friendly dense model: a native vision-language model that understands images and videos, with flexible thinking control". Qwen's card reports GPQA Diamond 89.2 and IFBench 79.5 for it (vendor-reported, not run here) and recommends sampling with temperature 1.0, top_p 0.95 and top_k 20 in the thinking mode and temperature 0.7, top_p 0.8, top_k 20 and presence_penalty 1.5 in the non-thinking mode.
+
+The architecture is Qwen3.5's hybrid at 27B: 64 layers in 16 groups of three GatedDeltaNet linear-attention layers and one gated full-attention layer, each with a dense FFN; hidden size 5120, FFN size 17,408, 24 attention heads with 4 KV heads of 256 (rotary position on 64 of the 256 dimensions), linear attention with 16 query/key heads and 48 value heads of 128, a 248,320-token vocabulary with untied embeddings. The upstream checkpoint is multimodal and has a multi-token-prediction head; this file holds the **text decoder only** (26,895,998,464 of the release's 27,781,427,952 parameters, the same text-only load as transformers' `Qwen3_5ForCausalLM`), so the image and video input of Qwen3.8-27B and its multi-token prediction are not available here. Only the 16 attention layers keep a growing KV cache (a 4,096-token budget in this file); the 48 linear-attention layers carry a constant-size conv and recurrent state.
+
+Qwen3.8 thinks by default. **This file runs with thinking off only**: its chat template writes Qwen's chat format with an empty `<think>\n\n</think>\n\n` block at every generation prompt (it does not read `enable_thinking` or `reasoning_effort`), the bundle declares no thought channel, and `supports_thinking` is false. Thinking on is left out because it broke multi-turn conversations at litert-lm 0.18.1's default settings: with a thinking switch in the same file (thinking on, `thinking_token_budget=300`, Mac GPU), the third turn of "My name is Kenji." / "What is 17 times 23?" / "What is my name?" came back empty in 3 of 3 runs, while with the conversation setting `filter_channel_content_from_kv_cache` turned off (it is on by default) the same file answered "Your name is Kenji." (one run, 2026-10-23), as the bf16 model in transformers did.
+
+| File | Recipe | Size | sha256 |
+|---|---|---|---|
+| `Qwen3.8-27B_mixed_int4.litertlm` | **Mixed INT4**: int4 blockwise-128 (min-max) on the linear layers, int8 on the lm_head and the embedding, the 96 GatedDeltaNet decay/gate projections (`in_proj_a` / `in_proj_b`) float; fp32 GPU activations declared; thinking off only | 15.38 GB (15,379,451,056 bytes) | `7396292ecec0741f166fb57ed65198c34a3f854b40e01951310e0b94f79d449f` |
+
+Time for a 1024-token prefill plus 256 decoded tokens at context 2048, computed from the rates in the Performance table below: **19.87 s on the Mac GPU**, 92.74 s on the Mac CPU (with the CPU weight cache, see Usage). On GSM8K (thinking off, 2,048 output tokens, table in Accuracy) the file scored 97 on the Mac GPU against 96 for the bf16 model in transformers.
+
+## Correctness
+
+Unless a line names the published file, the checks and the benchmarks on this card ran on an earlier build of this file that still carried a thinking switch in its metadata; the published file differs from it only in the LlmMetadata section (the template, the channel and supports_thinking), with the TFLite, tokenizer and executor sections byte for byte the same, and the published template renders the same thinking-off prompts as the earlier one, byte for byte, in nine conversation shapes (216 of 216 renders). On the published file itself, on the Mac GPU: the 8 questions below 8/8 with the same answers, and the three-turn conversation with thinking off ("Give me one word that means 'very big'." / "Use it in a short sentence." / "Now make that sentence a question.") answered "Enormous" / "The elephant was enormous." / "Was the elephant enormous?" with no chat marker in the text.
+
+8-question check on the Mac M4 Max ([the questions](https://github.com/john-rocky/hf-to-litertlm/blob/main/scripts/verify_quality.py) with "Answer briefly." appended, `--temperature 0`, one `litert-lm run` process each, thinking unset): 8/8 on the CPU and 8/8 on the GPU, no degenerate answer (none empty, none a run of one repeated word or character) (42 / Tokyo / Cold / 7 / Merci / 56 / 0.9 / blue). With the runtime's default fp16 GPU activations instead of the declared fp32 ones, the same weights answered the first question with a run of `!` to the token cap (one run, 2026-10-22; the check stops at its first failure), which is why the file declares fp32 activations.
+
+Decode walk against the bf16 model (transformers 5.14.1 `Qwen3_5ForCausalLM`, bf16 on the CPU; teacher-forced over the first 24 positions of a GSM8K question in the chat format, both models fed the same prompt tokens one at a time; this file's TFLite section through LiteRT's CompiledModel API on the CPU): the top token is the same at 23 of 24 positions and within the top 5 at all 24; the one miss is a near tie in the reference (its top two logits 0.25 apart). Mean KL divergence 0.0356, mean Pearson correlation of the logits 0.973 (lowest 0.935), largest logit difference 4.81.
+
+A multi-digit multiplication check on the CPU (six questions, three fresh processes each, thinking off, greedy, 400-token cap) ran on the block-32 int4 file of the same export, which is not published here: 18 of 18 right, every run ending by itself with no repeated line. On this file the CPU checks are the 8 questions above and the decode walk.
+
+The three-turn conversation with thinking off (Correctness, first paragraph) also passed on the earlier file: on the Mac GPU with the same three replies, which are the bf16 model's in transformers word for word, and on the Mac CPU (with the weight cache) with "Huge" / "The house was huge." / "Was the house huge?".
+
+## Accuracy
+
+GSM8K: test questions 0–99 with a step-by-step instruction and a final `#### <number>` line, the bundle's template (thinking off), greedy, at most 2,048 output tokens, a 4096-token KV budget, a fresh process per question with at most 3 at once (litert-lm 0.18.1 Python API, Mac GPU, on the earlier file with the same thinking-off prompts). The bf16 reference is transformers 5.14.1 on MPS with Qwen's template at `enable_thinking=False`, the same prompts, greedy, 2,048 new tokens. The answer is the number after the last `####`, else the reader script's next rules (`\boxed{}`, "answer is", the last number). IFBench and GPQA were not run; Qwen's own table reports them above.
+
+| Configuration | GSM8K | wrong questions |
+|---|---|---|
+| bf16 reference (transformers, MPS) | 96 / 100 | 12, 62, 85, 93 |
+| Mixed INT4, litert-lm Mac GPU | 97 / 100 | 62, 85, 93 |
+
+Question by question the two give the same answer on 98 of 100. Question 12 is counted right only in this file, and its reply is not a clean one: it reached the 2,048-token cap without a final line after writing "answer is 13" and "answer is 12" twice each, and the reader script read the last of these, 13. Question 62 is wrong in both, with different answers. 15 of this file's replies ended without the final line and were read by the next rules, all of them counted right; question 12 is the only one of its 100 replies that reached the cap, and none of the 100 processes logged a WebGPU validation error. Three bf16 replies (45, 62 and 93) reached the cap.
+
+## Usage
+
+```bash
+litert-lm run ./Qwen3.8-27B_mixed_int4.litertlm --prompt "What is 17 + 25? Answer briefly." --backend gpu --cache no
+litert-lm run ./Qwen3.8-27B_mixed_int4.litertlm --prompt "What is 17 + 25? Answer briefly." --backend cpu --cache disk
+litert-lm benchmark ./Qwen3.8-27B_mixed_int4.litertlm -p 1024 -d 256 --max-num-tokens 2048 --runs 3 --cache no --backend gpu
+```
+
+Run as printed on the Mac M4 Max with the file under this name (litert-lm 0.18.1, 2026-10-23), the two `run` commands printed `42` and exited 0, and the benchmark exited 0 with prefill 176.99 and decode 18.42 tok/s.
+
+- **The GPU engine takes 3½ to 4 minutes to build** on the Mac M4 Max: the first command above took 217 s from start to answer, and a benchmark process spends 214–247 s per engine (three processes, from their wall times); the CLI prints about twice that as its init time because it adds up overlapping init phases ([LiteRT-LM issue 4057](https://github.com/google-ai-edge/LiteRT-LM/issues/4057)). Build it once and keep it for the conversation.
+- **The CPU needs the weight cache.** Without it (`--cache no`) the CPU engine packs the int4 weights once for each of the 7 signatures: on the block-32 file of the same export the benchmark's memory footprint grew from 5.8 GB to 91 GB in 48 s during the engine build on the 128 GiB Mac, with swap growing, and the run was stopped (one run, 2026-10-22). A CPU decode walk of the block-32 file's TFLite model through LiteRT's CompiledModel API (2026-10-21) peaked at 101.8 GB without the cache and at 5.2 GB with it. With `--cache disk` the first CPU run writes a 14.0 GB XNNPACK weight cache next to the model (14,047,805,808 bytes) and later runs read it: the second command above, run in a directory without the cache, took 120 s at a 4.2 GB peak memory footprint while it wrote the cache; with the cache in place the benchmark's peak was 4.1 GB and its engine build 122–125 s.
+- **One Engine per conversation.** [LiteRT-LM issue 3165](https://github.com/google-ai-edge/LiteRT-LM/issues/3165) (open): a new Conversation on an Engine that already ran another conversation can continue from the earlier conversation's recurrent state. The probe on this file (a pirate-persona conversation, then one told to answer in one word, on the same Engine and on a fresh Engine; litert-lm 0.18.1, CPU, greedy) kept the one-word rule 3 of 3 times in each of 3 shared-Engine runs and in the fresh-Engine run, so the effect did not show here; create a new Engine for each conversation all the same.
+- **One Engine per process on the Mac GPU.** The benchmark builds 4 engines one after another in one process. Across 11 such processes on this file and on variants of it, WebGPU validation errors appeared in 2 of the 44 engines, each time in the third engine of its process (on the block-32 file and on a copy without the fp32 declaration). No error appeared in this file's 12 benchmark engines, in 115 single-engine processes on this file (the 100 GSM8K questions among them) or in 15 single-engine processes on the variants.
+- Without `--backend`, `run` uses the bundle's default backend, the CPU. The bundle sets no sampler and the checks on this card ran greedy; to sample as Qwen recommends for the non-thinking mode, pass `--top-k`, `--top-p` and `--temperature` together (`--top-k 20 --top-p 0.8 --temperature 0.7`).
+- Tool calling: the template renders a tool list in Qwen's format and a `tool` message as a `<tool_response>`, but `supports_function_calling` is false, and in litert-lm 0.18.1 the bundle's model type (`generic_model`) has no parser for Qwen's XML tool call: a call the model writes comes back as text, and an app that needs the calls parses that text itself. LiteRT-LM's main branch added a regex tool-call configuration to the bundle metadata on 2026-10-20 ([the fix for issue 3927](https://github.com/google-ai-edge/LiteRT-LM/commit/ce42d882bde880a5ef28afd68544457e5140027a), not in 0.18.1); this file carries none. Tool calling was not tried on this file.
+
+## Performance
+
+Mac Studio M4 Max (128 GiB), litert-lm 0.18.1: the benchmark command above with `--backend gpu` or `cpu` (1024-token prefill, 256-token decode, context 2048), one warmup, then the mean of 3 iterations; two benchmark processes per backend, each in a measurement window of its own (the other jobs on the Mac held back), the mean of the two. GPU is WebGPU on Metal with `--cache no`; the CPU row is `--cache disk` with the weight cache already written (Usage). Engine build = the process's wall time minus 4 × the time of one 1024 + 256 workload (from the printed rates), divided by the 4 engines a benchmark process builds (one per run, the warmup included); peak = the process's peak memory footprint.
+
+| Mac M4 Max | Prefill 1024 (tok/s) | Decode 256 (tok/s) | TTFT (s) | Engine build (s) | Peak memory (GB) |
+|---|---|---|---|---|---|
+| Mixed INT4 GPU | 175.50 | 18.24 | 5.89 | 246.8 | 24.9 |
+| Mixed INT4 CPU (weight cache) | 21.82 | 5.59 | 47.13 | 123.8 | 4.1 |
+
+The two GPU processes measured 19.75 and 19.99 s for the workload, the two CPU processes 92.96 and 92.51 s. The block size was chosen on this Mac: the block-32 file of the same export (16.52 GB) took 21.31 s on the GPU and 103.34 s on the CPU, and both files answered the 8 questions 8/8 on both backends and matched the bf16 model's top token at 23 of 24 walk positions. The runtime's default fp16 GPU activations ran the workload in 17.32 s (one benchmark process) but broke the answers (Correctness). A three-signature variant (prefill 1024, 256 and 1) built its GPU engine in 134–139 s at the same speed (20.00 s) and is not published: LiteRT-LM's prefill planner hands a remainder under half of a prefill size to the next smaller one, so with those sizes a remainder under 128 tokens would run one token per call.
+
+- Not run on a phone or on iOS: the file alone (15.38 GB) does not fit in the memory of the phones we test (MemTotal 11,389,756 kB on a Galaxy S26, 7,754,700 kB on a Pixel 8a); it was measured on a desktop only.
+- Not run on an NPU: LiteRT has no NPU accelerator on macOS.
+
+## Conversion notes
+
+- **Source and stack:** Qwen/Qwen3.8-27B at revision 1d4bf0f2 (every file of the revision checked against the Hub's record); litert-torch at commit 115a1360 with the Qwen3.5 hybrid patch of [hf-to-litertlm](https://github.com/john-rocky/hf-to-litertlm), transformers 5.14.1, torch 2.12.1, ai-edge-quantizer 0.8.0; packed and checked with litert-lm 0.18.1. `qwen35_work/convert_qwen38_27b.sh` in hf-to-litertlm is the conversion as one command; run from the download to the checks on 2026-10-22 and 10-23 for Qwen/Qwen3.5-2B, a smaller checkpoint of the same architecture, it finished with exit 0 and its file's metadata section came out byte for byte this file's.
+- **Export:** the text decoder through litert-torch's lightweight conversion (constants of 1e8 bytes and more stay lazy), 6 prefill signatures (1024, 256, 64, 16, 4, 1) plus decode over a 4096-position KV budget, 128 state buffers (16 key and 16 value caches, 96 linear-attention states). transformers loads a bf16 checkpoint for a float32 export by making a float32 copy of every weight in RAM (about 108 GB here). The export read an exact F32 copy of the checkpoint through a memory map instead. litert-torch's in-place clamp of every float constant would have written into that map, so it was replaced by a read-only ±inf check (no constant held ±inf, so the constants are the same). The export took 66 minutes with an 11.8 GB peak memory footprint on the 128 GiB Mac and wrote only the 107.7 GB float TFLite, no float `.litertlm`.
+- **Quantization after the export:** int4 blockwise-128 min-max on the 400 linear layers of the 64 blocks, the lm_head and the embedding int8 channelwise, the 96 decay/gate projections of the 48 linear-attention layers kept float (as in the smaller Qwen3.5 files, where these small heads did not take the CPU backend's run-time int8 quantization of their input). 694 of the 190,054,400 block scales were raised to a floor of 2^-14; every scale is a normal float (none zero or subnormal). The quantizer wrote the model into the output file's memory map: 18 minutes and a 46.2 GB peak memory footprint.
+- **Metadata:** the template (4,749 bytes) is Qwen's chat format with thinking off: an empty think block at the generation prompt, past assistant turns with their think block as Qwen's template writes them with `preserve_thinking` at its default, and Qwen's tool-call layout. Rendered with minijinja 2.14.0 set up as the runtime sets it up (LiteRT-LM's own template rewrites included), it gives byte for byte what transformers gives with Qwen's template at `enable_thinking=False` in nine conversation shapes (a single question, with a system message, two and three turns, a system message and three turns, past turns with reasoning, a tool list, a tool response, and the runtime's own tool-response part); it does not follow `preserve_thinking=False` (past think blocks are always kept). No thought channel, supports_thinking false, supports_function_calling false; no start token; stop ids 248044 (`<|endoftext|>`) and 248046 (`<|im_end|>`), both already declared by the exporter (the repo's generation config lists both as eos); `generic_model`; fp32 GPU activations declared; max_num_tokens 4096. The tokenizer section is the repo's `tokenizer.json` byte for byte: the exporter's bundle had carried the tokenizer as transformers writes it for the tokenizer class, which tokenizes Hindi, Thai, Tamil and Arabic with harakat differently (49, 24, 29 and 30 tokens on four test strings against the repo file's 36, 12, 16 and 29); the runtime's tokenizer matches the `tokenizers` library on the repo file in 292 of 292 strings.
+- **Not in this file:** the vision tower and the multi-token-prediction head (on litert-lm 0.18.1 a smaller Qwen3.5 file with such a head did not build a Mac GPU engine, and on the CPU the turn's stop token is not committed with speculative decoding on, [LiteRT-LM issue 3439](https://github.com/google-ai-edge/LiteRT-LM/issues/3439)).
+
+## License and changes
+
+Apache-2.0, inherited from [Qwen/Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B) (the repo's metadata and its LICENSE file, "Copyright 2026 Alibaba Cloud"); this repository carries a copy of that LICENSE. **Changes from the original work:** the text decoder of the multimodal checkpoint exported (the vision tower and the multi-token-prediction head not loaded), weights converted from safetensors bf16 to LiteRT flatbuffers and quantized as described above with the 96 decay/gate projections float; the chat template replaced by a thinking-off form of Qwen's template; the tokenizer repackaged unmodified; stop ids 248044 and 248046, fp32 GPU activations and a 4096-token KV budget declared. This repository is a community conversion and is not affiliated with Qwen or Alibaba Cloud.
