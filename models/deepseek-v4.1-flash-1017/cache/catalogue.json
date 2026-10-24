@@ -3,7 +3,7 @@
   "_id": "6adb2c295bc18ea51c31083b",
   "id": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
   "lastModified": "2026-10-23T23:26:25.000Z",
-  "trendingScore": 181,
+  "trendingScore": 185,
   "sha": "cb02422c900df489cea5833e8a92171224059b3c",
   "downloads": 32479,
   "tags": [
@@ -627,6 +627,28 @@
   "createdAt": "2026-10-20T16:29:52.000Z"
  },
  {
+  "_id": "6ad33a29fccdebd3c36b1913",
+  "id": "mlx-community/DeepSeek-V4.1-Flash-1017-oQ4e-mtp",
+  "lastModified": "2026-10-17T09:11:51.000Z",
+  "trendingScore": 6,
+  "sha": "8080db68c4d9323ad69e0e8c2496b0d673a336bc",
+  "downloads": 3496,
+  "tags": [
+   "mlx",
+   "safetensors",
+   "deepseek_v41",
+   "oq",
+   "quantized",
+   "mtp",
+   "image-text-to-text",
+   "base_model:deepseek-ai/DeepSeek-V4.1-Flash-1017",
+   "base_model:quantized:deepseek-ai/DeepSeek-V4.1-Flash-1017",
+   "license:mit",
+   "region:us"
+  ],
+  "createdAt": "2026-10-17T09:04:41.000Z"
+ },
+ {
   "_id": "6ad36315ac6e8706d3452904",
   "id": "pqhaz/DeepSeek-V4.1-Flash-1017-heretic",
   "lastModified": "2026-10-17T12:04:05.000Z",
@@ -681,26 +703,33 @@
   "createdAt": "2026-10-17T12:12:15.000Z"
  },
  {
-  "_id": "6ad33a29fccdebd3c36b1913",
-  "id": "mlx-community/DeepSeek-V4.1-Flash-1017-oQ4e-mtp",
-  "lastModified": "2026-10-17T09:11:51.000Z",
+  "_id": "6aa3cb9e69e4a03c619e0987",
+  "id": "diffbot/DeepSeek-V4.1-Flash-EXL3-3bpw-2x-RTX-PRO-6000",
+  "lastModified": "2026-10-24T06:54:26.000Z",
   "trendingScore": 5,
-  "sha": "8080db68c4d9323ad69e0e8c2496b0d673a336bc",
-  "downloads": 3496,
+  "sha": "4e691b368c9cb06855c058e80f244b251fed050b",
+  "downloads": 2369,
   "tags": [
-   "mlx",
    "safetensors",
    "deepseek_v41",
-   "oq",
-   "quantized",
-   "mtp",
-   "image-text-to-text",
+   "exl3",
+   "exllamav3",
+   "vllm",
+   "deepseek",
+   "deepseek-v4.1-flash",
+   "deepseek-v4.1-flash-1017",
+   "mixture-of-experts",
+   "3-bit",
+   "rtx-pro-6000",
+   "blackwell",
+   "sm120",
+   "text-generation",
    "base_model:deepseek-ai/DeepSeek-V4.1-Flash-1017",
    "base_model:quantized:deepseek-ai/DeepSeek-V4.1-Flash-1017",
    "license:mit",
    "region:us"
   ],
-  "createdAt": "2026-10-17T09:04:41.000Z"
+  "createdAt": "2026-09-11T09:36:30.000Z"
  },
  {
   "_id": "6ad395a9ad7a2f0c5fa329db",
@@ -805,35 +834,6 @@
    "region:us"
   ],
   "createdAt": "2026-10-19T02:40:50.000Z"
- },
- {
-  "_id": "6aa3cb9e69e4a03c619e0987",
-  "id": "diffbot/DeepSeek-V4.1-Flash-EXL3-3bpw-2x-RTX-PRO-6000",
-  "lastModified": "2026-10-24T06:54:26.000Z",
-  "trendingScore": 4,
-  "sha": "4e691b368c9cb06855c058e80f244b251fed050b",
-  "downloads": 2369,
-  "tags": [
-   "safetensors",
-   "deepseek_v41",
-   "exl3",
-   "exllamav3",
-   "vllm",
-   "deepseek",
-   "deepseek-v4.1-flash",
-   "deepseek-v4.1-flash-1017",
-   "mixture-of-experts",
-   "3-bit",
-   "rtx-pro-6000",
-   "blackwell",
-   "sm120",
-   "text-generation",
-   "base_model:deepseek-ai/DeepSeek-V4.1-Flash-1017",
-   "base_model:quantized:deepseek-ai/DeepSeek-V4.1-Flash-1017",
-   "license:mit",
-   "region:us"
-  ],
-  "createdAt": "2026-09-11T09:36:30.000Z"
  },
  {
   "_id": "6ad3661ab5a5d3139a7f4872",
@@ -1121,6 +1121,34 @@
    "region:us"
   ],
   "createdAt": "2026-10-19T03:21:50.000Z"
+ },
+ {
+  "_id": "6ad8342f6f476c0c66d0923d",
+  "id": "philbert440/DeepSeek-V4.1-Flash-1017-EXL3-franken-v100",
+  "lastModified": "2026-10-21T04:40:13.000Z",
+  "trendingScore": 3,
+  "sha": "99d85a463b446e4ff07e173be6a8faf9b920b97d",
+  "downloads": 30,
+  "tags": [
+   "vllm",
+   "safetensors",
+   "deepseek_v41",
+   "exl3",
+   "exllamav3",
+   "quantized",
+   "moe",
+   "deepseek",
+   "v100",
+   "sm70",
+   "1cat-vllm",
+   "speculative-decoding",
+   "base_model:deepseek-ai/DeepSeek-V4.1-Flash-1017",
+   "base_model:quantized:deepseek-ai/DeepSeek-V4.1-Flash-1017",
+   "license:mit",
+   "fp8",
+   "region:us"
+  ],
+  "createdAt": "2026-10-21T03:40:31.000Z"
  },
  {
   "_id": "6ada6fb8c9e6fb018f347a86",
@@ -1512,34 +1540,6 @@
    "region:us"
   ],
   "createdAt": "2026-10-20T13:37:49.000Z"
- },
- {
-  "_id": "6ad8342f6f476c0c66d0923d",
-  "id": "philbert440/DeepSeek-V4.1-Flash-1017-EXL3-franken-v100",
-  "lastModified": "2026-10-21T04:40:13.000Z",
-  "trendingScore": 2,
-  "sha": "99d85a463b446e4ff07e173be6a8faf9b920b97d",
-  "downloads": 30,
-  "tags": [
-   "vllm",
-   "safetensors",
-   "deepseek_v41",
-   "exl3",
-   "exllamav3",
-   "quantized",
-   "moe",
-   "deepseek",
-   "v100",
-   "sm70",
-   "1cat-vllm",
-   "speculative-decoding",
-   "base_model:deepseek-ai/DeepSeek-V4.1-Flash-1017",
-   "base_model:quantized:deepseek-ai/DeepSeek-V4.1-Flash-1017",
-   "license:mit",
-   "fp8",
-   "region:us"
-  ],
-  "createdAt": "2026-10-21T03:40:31.000Z"
  },
  {
   "_id": "6ad976521d54f71d99342428",
@@ -3056,9 +3056,9 @@
  {
   "_id": "6add0b793357f45be8c55b74",
   "id": "flaviodelgrosso/deepseek-v4.1-flash-1017-dspark-gguf",
-  "lastModified": "2026-10-24T19:55:50.000Z",
+  "lastModified": "2026-10-24T21:25:30.000Z",
   "trendingScore": 0,
-  "sha": "b114d5715fbf03d3db3106bde522af7a08fb5982",
+  "sha": "5ab8175aef40da342b8c36787f4605ce75d8c467",
   "downloads": 0,
   "tags": [
    "gguf",
