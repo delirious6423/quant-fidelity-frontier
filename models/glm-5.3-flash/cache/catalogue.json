@@ -3,7 +3,7 @@
   "_id": "6ac7c2ada4cc3304ff38a812",
   "id": "nvidia/GLM-5.3-Flash-FP4-Local",
   "lastModified": "2026-10-16T20:28:36.000Z",
-  "trendingScore": 90,
+  "trendingScore": 84,
   "sha": "76348ddb2be2e35e39ecfc00e75dc07703f4f3d5",
   "downloads": 4243,
   "tags": [
@@ -398,6 +398,29 @@
   "createdAt": "2026-10-02T04:40:07.000Z"
  },
  {
+  "_id": "6a8f3b0c3d53f487487b6ae4",
+  "id": "pipenetwork/GLM-5.3-Flash-MLX-mixed-4_8bit",
+  "lastModified": "2026-08-28T23:53:05.000Z",
+  "trendingScore": 2,
+  "sha": "d43ea8b407ce4e9c25e6ac9baec3feab70d9f5f3",
+  "downloads": 5142,
+  "tags": [
+   "mlx",
+   "safetensors",
+   "glm5_next",
+   "apple-silicon",
+   "mixture-of-experts",
+   "4-bit",
+   "image-text-to-text",
+   "conversational",
+   "base_model:zai-org/GLM-5.3-Flash",
+   "base_model:quantized:zai-org/GLM-5.3-Flash",
+   "license:mit",
+   "region:us"
+  ],
+  "createdAt": "2026-08-26T19:14:20.000Z"
+ },
+ {
   "_id": "6a8f7494622c3b955b64470a",
   "id": "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
   "lastModified": "2026-10-16T11:32:05.000Z",
@@ -420,55 +443,6 @@
    "region:us"
   ],
   "createdAt": "2026-08-26T23:19:48.000Z"
- },
- {
-  "_id": "6aaf5b13d43a267bae22713a",
-  "id": "autotrust/GLM-5.3-Flash-GGUF-DGX-Spark",
-  "lastModified": "2026-10-11T03:49:39.000Z",
-  "trendingScore": 2,
-  "sha": "e1599a6bc0ea2bce3caa994a8c1efba706937f0d",
-  "downloads": 39325,
-  "tags": [
-   "gguf",
-   "llama.cpp",
-   "dgx-spark",
-   "gb10",
-   "glm5-next",
-   "moe",
-   "expert-pruned",
-   "iq2_xxs",
-   "text-generation",
-   "en",
-   "zh",
-   "base_model:zai-org/GLM-5.3-Flash",
-   "base_model:quantized:zai-org/GLM-5.3-Flash",
-   "license:mit",
-   "endpoints_compatible",
-   "region:us",
-   "conversational"
-  ],
-  "createdAt": "2026-09-20T04:03:31.000Z"
- },
- {
-  "_id": "6ab66f2f78bbc6ee27ffcff4",
-  "id": "mlx-community/GLM-5.3-Flash-4bit",
-  "lastModified": "2026-09-25T19:15:14.000Z",
-  "trendingScore": 2,
-  "sha": "fa04cbc3622b16aa7475404060b05e506d81bd4e",
-  "downloads": 2966,
-  "tags": [
-   "mlx",
-   "safetensors",
-   "glm5_next",
-   "image-text-to-text",
-   "conversational",
-   "base_model:zai-org/GLM-5.3-Flash",
-   "base_model:quantized:zai-org/GLM-5.3-Flash",
-   "license:mit",
-   "4-bit",
-   "region:us"
-  ],
-  "createdAt": "2026-09-25T12:55:11.000Z"
  },
  {
   "_id": "6ac017e55a648930af7265bf",
@@ -607,29 +581,6 @@
    "region:us"
   ],
   "createdAt": "2026-08-26T17:38:40.000Z"
- },
- {
-  "_id": "6a8f3b0c3d53f487487b6ae4",
-  "id": "pipenetwork/GLM-5.3-Flash-MLX-mixed-4_8bit",
-  "lastModified": "2026-08-28T23:53:05.000Z",
-  "trendingScore": 1,
-  "sha": "d43ea8b407ce4e9c25e6ac9baec3feab70d9f5f3",
-  "downloads": 5142,
-  "tags": [
-   "mlx",
-   "safetensors",
-   "glm5_next",
-   "apple-silicon",
-   "mixture-of-experts",
-   "4-bit",
-   "image-text-to-text",
-   "conversational",
-   "base_model:zai-org/GLM-5.3-Flash",
-   "base_model:quantized:zai-org/GLM-5.3-Flash",
-   "license:mit",
-   "region:us"
-  ],
-  "createdAt": "2026-08-26T19:14:20.000Z"
  },
  {
   "_id": "6a8fc7fe86ded69fb7f4e283",
@@ -820,6 +771,55 @@
    "conversational"
   ],
   "createdAt": "2026-09-05T16:42:32.000Z"
+ },
+ {
+  "_id": "6aaf5b13d43a267bae22713a",
+  "id": "autotrust/GLM-5.3-Flash-GGUF-DGX-Spark",
+  "lastModified": "2026-10-11T03:49:39.000Z",
+  "trendingScore": 1,
+  "sha": "e1599a6bc0ea2bce3caa994a8c1efba706937f0d",
+  "downloads": 39325,
+  "tags": [
+   "gguf",
+   "llama.cpp",
+   "dgx-spark",
+   "gb10",
+   "glm5-next",
+   "moe",
+   "expert-pruned",
+   "iq2_xxs",
+   "text-generation",
+   "en",
+   "zh",
+   "base_model:zai-org/GLM-5.3-Flash",
+   "base_model:quantized:zai-org/GLM-5.3-Flash",
+   "license:mit",
+   "endpoints_compatible",
+   "region:us",
+   "conversational"
+  ],
+  "createdAt": "2026-09-20T04:03:31.000Z"
+ },
+ {
+  "_id": "6ab66f2f78bbc6ee27ffcff4",
+  "id": "mlx-community/GLM-5.3-Flash-4bit",
+  "lastModified": "2026-09-25T19:15:14.000Z",
+  "trendingScore": 1,
+  "sha": "fa04cbc3622b16aa7475404060b05e506d81bd4e",
+  "downloads": 2966,
+  "tags": [
+   "mlx",
+   "safetensors",
+   "glm5_next",
+   "image-text-to-text",
+   "conversational",
+   "base_model:zai-org/GLM-5.3-Flash",
+   "base_model:quantized:zai-org/GLM-5.3-Flash",
+   "license:mit",
+   "4-bit",
+   "region:us"
+  ],
+  "createdAt": "2026-09-25T12:55:11.000Z"
  },
  {
   "_id": "6ab7b4b4af19ca84df1f5450",
@@ -1029,9 +1029,9 @@
  {
   "_id": "6adae9d5a517b426dedbeedf",
   "id": "mradermacher/GLM-5.3-Flash-GGUF",
-  "lastModified": "2026-10-23T21:17:48.000Z",
+  "lastModified": "2026-10-24T06:56:36.000Z",
   "trendingScore": 1,
-  "sha": "5ba744a79ce6d6fb1bc11413a2482eed585bc373",
+  "sha": "b092345512ad9165c6bbaae2956b402118758f52",
   "downloads": 55,
   "tags": [
    "transformers",
@@ -1050,7 +1050,7 @@
   "_id": "6ac57af68498f1ac2028ae72",
   "id": "autotrust/GLM5.3-Flash-E224-DGX-Spark",
   "lastModified": "2026-10-11T03:49:55.000Z",
-  "trendingScore": 0.03,
+  "trendingScore": 0.02,
   "sha": "45d23633aaabc0920835bf4e10ff39966d70ce06",
   "downloads": 23370,
   "tags": [
@@ -1083,7 +1083,7 @@
   "_id": "6ac9728d6fa844eabe38bbd3",
   "id": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
   "lastModified": "2026-10-11T03:49:51.000Z",
-  "trendingScore": 0.03,
+  "trendingScore": 0.02,
   "sha": "ef3f9cff8ad6c5db6fefdcbcb2414c30cb86bf9f",
   "downloads": 14002,
   "tags": [
@@ -1116,7 +1116,7 @@
   "_id": "6ac93b6d1aeb4a9775639673",
   "id": "autotrust/GLM5.3-Flash-E256-DGX-Spark",
   "lastModified": "2026-10-11T03:49:59.000Z",
-  "trendingScore": 0.02,
+  "trendingScore": 0.01,
   "sha": "83fa8fe0495a3bee40adb4e46e6a47c7d9bf353f",
   "downloads": 6013,
   "tags": [
@@ -5271,9 +5271,9 @@
  {
   "_id": "6adc3b5450d985721d8572c7",
   "id": "mradermacher/GLM-5.3-Flash-i1-GGUF",
-  "lastModified": "2026-10-24T05:10:49.000Z",
+  "lastModified": "2026-10-24T07:01:58.000Z",
   "trendingScore": 0,
-  "sha": "f06ee303390b4da1b495e5b182461bcdff9577e5",
+  "sha": "d3fd9a70f81443f99707a1235746dcfe4be7a56d",
   "downloads": 0,
   "tags": [
    "transformers",
