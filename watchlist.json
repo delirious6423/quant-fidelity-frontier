@@ -79,68 +79,108 @@
    "last_scan_at": "2026-10-21T06:40:03.000Z"
   },
   {
-   "model": "google/gemma-4-31B-it",
-   "slug": "gemma-4-31b-it",
+   "model": "google/gemma-4-12B-it",
+   "slug": "gemma-4-12b-it",
    "status": "queued",
-   "released": "2026-07-15",
-   "quants": 80,
-   "quants_1k": 25
+   "released": "2026-06-03",
+   "quants": 375,
+   "quants_1k": 38
   },
   {
    "model": "google/gemma-4-E4B-it",
    "slug": "gemma-4-e4b-it",
    "status": "queued",
-   "released": "2026-07-15",
-   "quants": 80,
-   "quants_1k": 22
-  },
-  {
-   "model": "ornith-ai/Ornith-1.5-9B",
-   "slug": "ornith-1.5-9b",
-   "status": "queued",
-   "released": "2026-08-23",
-   "quants": 80,
-   "quants_1k": 15
-  },
-  {
-   "model": "google/gemma-4-12B-it",
-   "slug": "gemma-4-12b-it",
-   "status": "queued",
-   "released": "2026-07-15",
-   "quants": 80,
-   "quants_1k": 20
+   "released": "2026-04-03",
+   "quants": 417,
+   "quants_1k": 50
   },
   {
    "model": "google/gemma-4-E2B-it",
    "slug": "gemma-4-e2b-it",
    "status": "queued",
-   "released": "2026-07-15",
-   "quants": 80,
-   "quants_1k": 14
+   "released": "2026-04-02",
+   "quants": 413,
+   "quants_1k": 33
   },
   {
-   "model": "XiaomiMiMo/MiMo-V2.6-Flash-RL",
-   "slug": "mimo-v2.6-flash-rl",
+   "model": "google/gemma-4-31B-it",
+   "slug": "gemma-4-31b-it",
    "status": "queued",
-   "released": "2026-10-09",
-   "quants": 37,
-   "quants_1k": 13
+   "released": "2026-04-02",
+   "quants": 344,
+   "quants_1k": 38
   },
   {
-   "model": "moonshotai/Kimi-K3",
-   "slug": "kimi-k3",
+   "model": "openbmb/MiniCPM5-2B",
+   "slug": "minicpm5-2b",
    "status": "queued",
-   "released": "2026-09",
-   "quants": 57,
-   "quants_1k": 8
+   "quants": 112,
+   "quants_1k": 17,
+   "released": "2026-09-07"
+  },
+  {
+   "model": "ornith-ai/Ornith-1.5-9B",
+   "slug": "ornith-1.5-9b",
+   "status": "queued",
+   "released": "2026-08-19",
+   "quants": 97,
+   "quants_1k": 16
+  },
+  {
+   "model": "ornith-ai/Ornith-1.5-122B",
+   "slug": "ornith-1.5-122b",
+   "status": "queued",
+   "quants": 40,
+   "quants_1k": 5,
+   "released": "2026-10-20"
+  },
+  {
+   "model": "nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-BF16",
+   "slug": "nvidia-nemotron-3.5-bolt-74b-a9b-bf16",
+   "status": "queued",
+   "quants": 43,
+   "quants_1k": 8,
+   "released": "2026-10-15"
+  },
+  {
+   "model": "openbmb/MiniCPM5-1B",
+   "slug": "minicpm5-1b",
+   "status": "queued",
+   "quants": 102,
+   "quants_1k": 9,
+   "released": "2026-05-25"
   },
   {
    "model": "meta-models/Muse-Spark-Open-816B-A42B",
    "slug": "muse-spark-open",
    "status": "queued",
    "released": "2026-10-15",
-   "quants": 20,
-   "quants_1k": 5
+   "quants": 22,
+   "quants_1k": 11
+  },
+  {
+   "model": "XiaomiMiMo/MiMo-V2.6-Flash-RL",
+   "slug": "mimo-v2.6-flash-rl",
+   "status": "queued",
+   "released": "2026-09-22",
+   "quants": 38,
+   "quants_1k": 11
+  },
+  {
+   "model": "moonshotai/Kimi-K3",
+   "slug": "kimi-k3",
+   "status": "queued",
+   "released": "2026-07-27",
+   "quants": 59,
+   "quants_1k": 8
+  },
+  {
+   "model": "google/gemma-4-12B",
+   "slug": "gemma-4-12b",
+   "status": "queued",
+   "quants": 50,
+   "quants_1k": 4,
+   "released": "2026-06-03"
   },
   {
    "model": "Qwen/Qwen3.8-2.4T-A95B",
@@ -154,9 +194,9 @@
    "model": "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
    "slug": "nemotron-3-ultra",
    "status": "queued",
-   "released": "2026-08-24",
-   "quants": 17,
-   "quants_1k": 4
+   "released": "2026-06-04",
+   "quants": 18,
+   "quants_1k": 3
   }
  ],
  "queue_policy": "Latest model family of each lab only (discovery.json), released in the last 6 months, at least 40 quant repos. Order: pipeline/qcl_rank.py with the weights in discovery.json (score = (quants + used_weight x quants used 1k+) x half-life freshness x early-growth boost under 2 weeks). Full queue: docs/QUEUE.md."
