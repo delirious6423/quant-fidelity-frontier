@@ -3,7 +3,7 @@
   "_id": "6ac7c2ada4cc3304ff38a812",
   "id": "nvidia/GLM-5.3-Flash-FP4-Local",
   "lastModified": "2026-10-16T20:28:36.000Z",
-  "trendingScore": 53,
+  "trendingScore": 48,
   "sha": "76348ddb2be2e35e39ecfc00e75dc07703f4f3d5",
   "downloads": 5036,
   "tags": [
@@ -26,6 +26,30 @@
    "region:us"
   ],
   "createdAt": "2026-10-08T16:19:57.000Z"
+ },
+ {
+  "_id": "6a8ef65b58482bb8b9d2a681",
+  "id": "unsloth/GLM-5.3-Flash-GGUF",
+  "lastModified": "2026-10-05T22:23:39.000Z",
+  "trendingScore": 19,
+  "sha": "a38483c8cd5df544f53d70fb281afe97369d5ab6",
+  "downloads": 848787,
+  "tags": [
+   "gguf",
+   "unsloth",
+   "glm5_next",
+   "text-generation",
+   "en",
+   "zh",
+   "arxiv:2602.15763",
+   "base_model:zai-org/GLM-5.3-Flash",
+   "base_model:quantized:zai-org/GLM-5.3-Flash",
+   "license:mit",
+   "endpoints_compatible",
+   "region:us",
+   "conversational"
+  ],
+  "createdAt": "2026-08-26T14:21:15.000Z"
  },
  {
   "_id": "6ab74f96122ef418c3a08839",
@@ -59,7 +83,7 @@
   "_id": "6ac5f3fd20fe183e8274a45b",
   "id": "peasantsmith/GLM-5.3-Flash-Maya-GGUF",
   "lastModified": "2026-10-09T22:52:28.000Z",
-  "trendingScore": 18,
+  "trendingScore": 17,
   "sha": "f16ee4ba50d8fd2bb726ea1862ca6ca14ba188da",
   "downloads": 294261,
   "tags": [
@@ -80,34 +104,10 @@
   "createdAt": "2026-10-07T07:25:49.000Z"
  },
  {
-  "_id": "6a8ef65b58482bb8b9d2a681",
-  "id": "unsloth/GLM-5.3-Flash-GGUF",
-  "lastModified": "2026-10-05T22:23:39.000Z",
-  "trendingScore": 16,
-  "sha": "a38483c8cd5df544f53d70fb281afe97369d5ab6",
-  "downloads": 848787,
-  "tags": [
-   "gguf",
-   "unsloth",
-   "glm5_next",
-   "text-generation",
-   "en",
-   "zh",
-   "arxiv:2602.15763",
-   "base_model:zai-org/GLM-5.3-Flash",
-   "base_model:quantized:zai-org/GLM-5.3-Flash",
-   "license:mit",
-   "endpoints_compatible",
-   "region:us",
-   "conversational"
-  ],
-  "createdAt": "2026-08-26T14:21:15.000Z"
- },
- {
   "_id": "6a954c3292de0e20d7c5bc1c",
   "id": "orcarouter/GLM-5.3-Flash-Uncensored-GGUF",
   "lastModified": "2026-10-12T03:47:40.000Z",
-  "trendingScore": 9,
+  "trendingScore": 11,
   "sha": "8bd0d5368ad26b22b1ca5d77dbb58147e8062e76",
   "downloads": 16396,
   "tags": [
@@ -140,57 +140,6 @@
   "createdAt": "2026-08-31T09:41:06.000Z"
  },
  {
-  "_id": "6acd955b81901cf66e21d3b4",
-  "id": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
-  "lastModified": "2026-10-24T08:53:37.000Z",
-  "trendingScore": 8,
-  "sha": "4b41a463574524fd0b15ddc365c0e6793ff3f2ee",
-  "downloads": 23352,
-  "tags": [
-   "gguf",
-   "moe",
-   "expert-pruning",
-   "rco",
-   "code",
-   "agentic",
-   "llama.cpp",
-   "text-generation",
-   "base_model:zai-org/GLM-5.3-Flash",
-   "base_model:quantized:zai-org/GLM-5.3-Flash",
-   "license:mit",
-   "endpoints_compatible",
-   "region:us",
-   "conversational"
-  ],
-  "createdAt": "2026-10-13T02:20:11.000Z"
- },
- {
-  "_id": "6a8f5600e8e799f3299d529f",
-  "id": "dealignai/GLM-5.3-Flash-UNCENSORED-FP8",
-  "lastModified": "2026-09-19T16:32:29.000Z",
-  "trendingScore": 7,
-  "sha": "d5822b068da8ddb301665b48c58718e6e18a2c3a",
-  "downloads": 14762,
-  "tags": [
-   "safetensors",
-   "glm5_next",
-   "abliterated",
-   "uncensored",
-   "crack",
-   "glm",
-   "moe",
-   "fp8",
-   "vision",
-   "mtp",
-   "en",
-   "base_model:zai-org/GLM-5.3-Flash",
-   "base_model:quantized:zai-org/GLM-5.3-Flash",
-   "license:mit",
-   "region:us"
-  ],
-  "createdAt": "2026-08-26T21:09:20.000Z"
- },
- {
   "_id": "6ad93f6916dc06b532d7ece9",
   "id": "cafonez/GLM-5.3-Flash-Strix-128GB-GGUF",
   "lastModified": "2026-10-22T10:48:51.000Z",
@@ -221,10 +170,61 @@
   "createdAt": "2026-10-21T22:40:41.000Z"
  },
  {
+  "_id": "6a8f5600e8e799f3299d529f",
+  "id": "dealignai/GLM-5.3-Flash-UNCENSORED-FP8",
+  "lastModified": "2026-09-19T16:32:29.000Z",
+  "trendingScore": 6,
+  "sha": "d5822b068da8ddb301665b48c58718e6e18a2c3a",
+  "downloads": 14762,
+  "tags": [
+   "safetensors",
+   "glm5_next",
+   "abliterated",
+   "uncensored",
+   "crack",
+   "glm",
+   "moe",
+   "fp8",
+   "vision",
+   "mtp",
+   "en",
+   "base_model:zai-org/GLM-5.3-Flash",
+   "base_model:quantized:zai-org/GLM-5.3-Flash",
+   "license:mit",
+   "region:us"
+  ],
+  "createdAt": "2026-08-26T21:09:20.000Z"
+ },
+ {
+  "_id": "6acd955b81901cf66e21d3b4",
+  "id": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
+  "lastModified": "2026-10-24T08:53:37.000Z",
+  "trendingScore": 6,
+  "sha": "4b41a463574524fd0b15ddc365c0e6793ff3f2ee",
+  "downloads": 23352,
+  "tags": [
+   "gguf",
+   "moe",
+   "expert-pruning",
+   "rco",
+   "code",
+   "agentic",
+   "llama.cpp",
+   "text-generation",
+   "base_model:zai-org/GLM-5.3-Flash",
+   "base_model:quantized:zai-org/GLM-5.3-Flash",
+   "license:mit",
+   "endpoints_compatible",
+   "region:us",
+   "conversational"
+  ],
+  "createdAt": "2026-10-13T02:20:11.000Z"
+ },
+ {
   "_id": "6a94f224e9c40d15b705a308",
   "id": "orcarouter/GLM-5.3-Flash-Uncensored-NVFP4",
   "lastModified": "2026-10-12T03:47:50.000Z",
-  "trendingScore": 4,
+  "trendingScore": 5,
   "sha": "0d5b22fd1d31d3162a41106db1c2daa6efbe3695",
   "downloads": 2140,
   "tags": [
@@ -560,56 +560,6 @@
   "createdAt": "2026-10-11T14:00:37.000Z"
  },
  {
-  "_id": "6a8ef2ac4d0ee5cdc2f6229a",
-  "id": "unsloth/GLM-5.3-Flash-FP8",
-  "lastModified": "2026-08-26T14:13:12.000Z",
-  "trendingScore": 1,
-  "sha": "a160e2291674d9e3e92e98fd82faa2544a2867a3",
-  "downloads": 1073,
-  "tags": [
-   "transformers",
-   "safetensors",
-   "glm5_next",
-   "image-text-to-text",
-   "text-generation",
-   "conversational",
-   "en",
-   "zh",
-   "arxiv:2602.15763",
-   "base_model:zai-org/GLM-5.3-Flash",
-   "base_model:quantized:zai-org/GLM-5.3-Flash",
-   "license:mit",
-   "endpoints_compatible",
-   "fp8",
-   "region:us"
-  ],
-  "createdAt": "2026-08-26T14:05:32.000Z"
- },
- {
-  "_id": "6a8efb53225d22c0ee118201",
-  "id": "aj9o9/GLM-5.3-Flash-GGUF",
-  "lastModified": "2026-09-01T20:10:54.000Z",
-  "trendingScore": 1,
-  "sha": "07c62fcdeaf1c05d22bd123c3da8058a1b1e63e2",
-  "downloads": 11423,
-  "tags": [
-   "gguf",
-   "llama.cpp",
-   "moe",
-   "text-generation",
-   "en",
-   "zh",
-   "base_model:zai-org/GLM-5.3-Flash",
-   "base_model:quantized:zai-org/GLM-5.3-Flash",
-   "license:mit",
-   "endpoints_compatible",
-   "region:us",
-   "imatrix",
-   "conversational"
-  ],
-  "createdAt": "2026-08-26T14:42:27.000Z"
- },
- {
   "_id": "6a8f24a0cee02e94f1220118",
   "id": "orcarouter/GLM-5.3-Flash-MLX",
   "lastModified": "2026-10-12T03:47:26.000Z",
@@ -737,45 +687,6 @@
    "region:us"
   ],
   "createdAt": "2026-08-27T08:49:42.000Z"
- },
- {
-  "_id": "6a9074abd7d95ea3eeaadd73",
-  "id": "canada-quant/GLM-5.3-Flash-W4A16-MTP",
-  "lastModified": "2026-10-04T22:28:05.000Z",
-  "trendingScore": 1,
-  "sha": "5681f7c2dc6436d63f82ab6fb892b4f5062b8304",
-  "downloads": 7731,
-  "tags": [
-   "transformers",
-   "safetensors",
-   "glm5_next",
-   "image-text-to-text",
-   "glm-5.3",
-   "quantized",
-   "w4a16",
-   "int4",
-   "gptq",
-   "compressed-tensors",
-   "mtp",
-   "speculative-decoding",
-   "dflash2",
-   "vision",
-   "multimodal",
-   "vllm",
-   "dgx-spark",
-   "1m-context",
-   "blackwell",
-   "hopper",
-   "conversational",
-   "en",
-   "zh",
-   "base_model:zai-org/GLM-5.3-Flash",
-   "base_model:quantized:zai-org/GLM-5.3-Flash",
-   "license:mit",
-   "endpoints_compatible",
-   "region:us"
-  ],
-  "createdAt": "2026-08-27T17:32:27.000Z"
  },
  {
   "_id": "6a911f1b42ada9f254ac6449",
@@ -1109,7 +1020,7 @@
   "_id": "6ac57af68498f1ac2028ae72",
   "id": "autotrust/GLM5.3-Flash-E224-DGX-Spark",
   "lastModified": "2026-10-11T03:49:55.000Z",
-  "trendingScore": 0.02,
+  "trendingScore": 0.01,
   "sha": "45d23633aaabc0920835bf4e10ff39966d70ce06",
   "downloads": 23943,
   "tags": [
@@ -1137,39 +1048,6 @@
    "region:us"
   ],
   "createdAt": "2026-10-06T22:49:26.000Z"
- },
- {
-  "_id": "6ac9728d6fa844eabe38bbd3",
-  "id": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
-  "lastModified": "2026-10-11T03:49:51.000Z",
-  "trendingScore": 0.02,
-  "sha": "ef3f9cff8ad6c5db6fefdcbcb2414c30cb86bf9f",
-  "downloads": 15136,
-  "tags": [
-   "vllm",
-   "safetensors",
-   "glm5_next",
-   "autotrust",
-   "moe",
-   "nvfp4",
-   "modelopt",
-   "dgx-spark",
-   "gb10",
-   "blackwell",
-   "neural-architecture-search",
-   "mtp",
-   "speculative-decoding",
-   "image-text-to-text",
-   "conversational",
-   "en",
-   "zh",
-   "base_model:zai-org/GLM-5.3-Flash",
-   "base_model:quantized:zai-org/GLM-5.3-Flash",
-   "license:mit",
-   "8-bit",
-   "region:us"
-  ],
-  "createdAt": "2026-10-09T23:02:37.000Z"
  },
  {
   "_id": "6ac93b6d1aeb4a9775639673",
@@ -1205,6 +1083,65 @@
   "createdAt": "2026-10-09T19:07:25.000Z"
  },
  {
+  "_id": "6ac9728d6fa844eabe38bbd3",
+  "id": "autotrust/GLM5.3-Flash-E192-DGX-Spark",
+  "lastModified": "2026-10-11T03:49:51.000Z",
+  "trendingScore": 0.01,
+  "sha": "ef3f9cff8ad6c5db6fefdcbcb2414c30cb86bf9f",
+  "downloads": 15136,
+  "tags": [
+   "vllm",
+   "safetensors",
+   "glm5_next",
+   "autotrust",
+   "moe",
+   "nvfp4",
+   "modelopt",
+   "dgx-spark",
+   "gb10",
+   "blackwell",
+   "neural-architecture-search",
+   "mtp",
+   "speculative-decoding",
+   "image-text-to-text",
+   "conversational",
+   "en",
+   "zh",
+   "base_model:zai-org/GLM-5.3-Flash",
+   "base_model:quantized:zai-org/GLM-5.3-Flash",
+   "license:mit",
+   "8-bit",
+   "region:us"
+  ],
+  "createdAt": "2026-10-09T23:02:37.000Z"
+ },
+ {
+  "_id": "6a8ef2ac4d0ee5cdc2f6229a",
+  "id": "unsloth/GLM-5.3-Flash-FP8",
+  "lastModified": "2026-08-26T14:13:12.000Z",
+  "trendingScore": 0,
+  "sha": "a160e2291674d9e3e92e98fd82faa2544a2867a3",
+  "downloads": 1073,
+  "tags": [
+   "transformers",
+   "safetensors",
+   "glm5_next",
+   "image-text-to-text",
+   "text-generation",
+   "conversational",
+   "en",
+   "zh",
+   "arxiv:2602.15763",
+   "base_model:zai-org/GLM-5.3-Flash",
+   "base_model:quantized:zai-org/GLM-5.3-Flash",
+   "license:mit",
+   "endpoints_compatible",
+   "fp8",
+   "region:us"
+  ],
+  "createdAt": "2026-08-26T14:05:32.000Z"
+ },
+ {
   "_id": "6a8ef5998748889317646c34",
   "id": "AtomicChat/GLM-5.3-Flash-GGUF",
   "lastModified": "2026-08-26T14:18:20.000Z",
@@ -1231,6 +1168,30 @@
    "region:us"
   ],
   "createdAt": "2026-08-26T14:18:01.000Z"
+ },
+ {
+  "_id": "6a8efb53225d22c0ee118201",
+  "id": "aj9o9/GLM-5.3-Flash-GGUF",
+  "lastModified": "2026-09-01T20:10:54.000Z",
+  "trendingScore": 0,
+  "sha": "07c62fcdeaf1c05d22bd123c3da8058a1b1e63e2",
+  "downloads": 11423,
+  "tags": [
+   "gguf",
+   "llama.cpp",
+   "moe",
+   "text-generation",
+   "en",
+   "zh",
+   "base_model:zai-org/GLM-5.3-Flash",
+   "base_model:quantized:zai-org/GLM-5.3-Flash",
+   "license:mit",
+   "endpoints_compatible",
+   "region:us",
+   "imatrix",
+   "conversational"
+  ],
+  "createdAt": "2026-08-26T14:42:27.000Z"
  },
  {
   "_id": "6a8f0248901c02a88814962b",
@@ -1793,6 +1754,45 @@
    "conversational"
   ],
   "createdAt": "2026-08-27T16:22:48.000Z"
+ },
+ {
+  "_id": "6a9074abd7d95ea3eeaadd73",
+  "id": "canada-quant/GLM-5.3-Flash-W4A16-MTP",
+  "lastModified": "2026-10-04T22:28:05.000Z",
+  "trendingScore": 0,
+  "sha": "5681f7c2dc6436d63f82ab6fb892b4f5062b8304",
+  "downloads": 7731,
+  "tags": [
+   "transformers",
+   "safetensors",
+   "glm5_next",
+   "image-text-to-text",
+   "glm-5.3",
+   "quantized",
+   "w4a16",
+   "int4",
+   "gptq",
+   "compressed-tensors",
+   "mtp",
+   "speculative-decoding",
+   "dflash2",
+   "vision",
+   "multimodal",
+   "vllm",
+   "dgx-spark",
+   "1m-context",
+   "blackwell",
+   "hopper",
+   "conversational",
+   "en",
+   "zh",
+   "base_model:zai-org/GLM-5.3-Flash",
+   "base_model:quantized:zai-org/GLM-5.3-Flash",
+   "license:mit",
+   "endpoints_compatible",
+   "region:us"
+  ],
+  "createdAt": "2026-08-27T17:32:27.000Z"
  },
  {
   "_id": "6a907d4d3ef778aa9882c471",
@@ -5271,9 +5271,9 @@
  {
   "_id": "6adc3b5450d985721d8572c7",
   "id": "mradermacher/GLM-5.3-Flash-i1-GGUF",
-  "lastModified": "2026-10-24T16:35:22.000Z",
+  "lastModified": "2026-10-25T08:12:25.000Z",
   "trendingScore": 0,
-  "sha": "93d19bb2206f1f386bd80a477cfbd3f6b825000e",
+  "sha": "e94f2d3ad5162e5ab1f1da92f5cc7e0d90f96ade",
   "downloads": 8,
   "tags": [
    "transformers",
