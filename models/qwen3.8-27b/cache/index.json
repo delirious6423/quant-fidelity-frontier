@@ -4573,29 +4573,26 @@
    "total_bytes": 19472972706
   },
   "intel-ai/Qwen3.8-27B-MXFP4-AutoRound": {
-   "sha": "5b8ae06e9f571fd4faa5463a49114d9eb67e52fd",
-   "file": "models/qwen3.8-27b/cache/cards/intel-ai__Qwen3.8-27B-MXFP4-AutoRound@5b8ae06e9f57.md",
-   "sha256": "e153bc7d92d6a153c38eb3eae7c8ba28146be37e93021da7020df545e74e826f",
-   "bytes": 12368,
+   "sha": "5b233700b6f379a8737fd329b71f758496312278",
+   "file": "models/qwen3.8-27b/cache/cards/intel-ai__Qwen3.8-27B-MXFP4-AutoRound@5b233700b6f3.md",
+   "sha256": "22b411d6f88a41c5912d6666456d9615d5cc1f77b94cbeb35c83ff9f558dda73",
+   "bytes": 2854,
    "readme_status": 200,
    "catalogue_source": "base_model:quantized",
    "createdAt": "2026-10-19T15:19:14.000Z",
-   "lastModified": "2026-10-19T15:19:40.000Z",
+   "lastModified": "2026-10-27T04:41:32.000Z",
    "downloads": 38,
    "tags": [
     "transformers",
     "safetensors",
     "qwen3_5",
     "image-text-to-text",
-    "quantized",
-    "mxfp8",
-    "mxfp4",
-    "mixed-precision",
-    "compressed-tensors",
     "auto-round",
-    "vllm",
-    "text-generation-inference",
+    "mxfp4",
+    "compressed-tensors",
+    "text-generation",
     "conversational",
+    "arxiv:2309.05516",
     "base_model:Qwen/Qwen3.8-27B",
     "base_model:quantized:Qwen/Qwen3.8-27B",
     "license:apache-2.0",
@@ -4607,7 +4604,7 @@
    "tree_complete": true,
    "tree_pages": 1,
    "total_bytes_complete": true,
-   "total_bytes": 21592779542
+   "total_bytes": 21592770028
   },
   "sigmanih/Qwen-Qwen3.8-27B-GGUF-Q5_K_M": {
    "sha": "9a0816822defa0afa5842040a06b0d90b5211fff",
@@ -48100,29 +48097,26 @@
    "total_bytes": 16810718976
   },
   "intel-ai/Qwen3.8-27B-MXFP8-MXFP8MTP-CT-AutoRound": {
-   "sha": "a54b1083b438b27214101e741643950b5a4f34c1",
-   "file": "models/qwen3.8-27b/cache/cards/intel-ai__Qwen3.8-27B-MXFP8-MXFP8MTP-CT-AutoRound@a54b1083b438.md",
-   "sha256": "5f2e54b78477ebca9654586c2e44dd7dbbbac600f9fb05371d603883d16127ad",
-   "bytes": 13799,
+   "sha": "60cdc57c65d31fa39dc2355e82287d4cd41b3737",
+   "file": "models/qwen3.8-27b/cache/cards/intel-ai__Qwen3.8-27B-MXFP8-MXFP8MTP-CT-AutoRound@60cdc57c65d3.md",
+   "sha256": "3da761b2eaeb8bd82930f0b97aba818054f3cc5a8cd3198246d18e3f14b1f4b0",
+   "bytes": 2769,
    "readme_status": 200,
    "catalogue_source": "base_model:quantized",
    "createdAt": "2026-10-12T08:33:20.000Z",
-   "lastModified": "2026-10-12T08:33:34.000Z",
+   "lastModified": "2026-10-27T04:41:36.000Z",
    "downloads": 517,
    "tags": [
     "transformers",
     "safetensors",
     "qwen3_5",
     "image-text-to-text",
-    "quantized",
+    "auto-round",
     "mxfp8",
     "compressed-tensors",
-    "auto-round",
-    "vllm",
-    "mtp",
-    "speculative-decoding",
-    "text-generation-inference",
+    "text-generation",
     "conversational",
+    "arxiv:2309.05516",
     "base_model:Qwen/Qwen3.8-27B",
     "base_model:quantized:Qwen/Qwen3.8-27B",
     "license:apache-2.0",
@@ -48133,7 +48127,7 @@
    "tree_complete": true,
    "tree_pages": 1,
    "total_bytes_complete": true,
-   "total_bytes": 31658829791
+   "total_bytes": 31658818761
   },
   "jksdfosd/Qwen3.8-27B-INT4-mtpq": {
    "sha": "16f6876771c6b62f579ef35020da8be83bc8deed",
@@ -53177,6 +53171,29 @@
    "tree_pages": 1,
    "total_bytes_complete": true,
    "total_bytes": 63277299166
+  },
+  "KingsonHO/Qwen3.8-27B-w8a8-v2": {
+   "sha": "24b7aa0b843b167979a180d7c5df6240b62be6ed",
+   "file": "models/qwen3.8-27b/cache/cards/KingsonHO__Qwen3.8-27B-w8a8-v2@24b7aa0b843b.md",
+   "sha256": "0816c489fd57fda50d36d8235b5218fa99755a58c94bf0580aae48b1b06d01c3",
+   "bytes": 1323,
+   "readme_status": 200,
+   "catalogue_source": "base_model:quantized",
+   "createdAt": "2026-10-27T04:44:43.000Z",
+   "lastModified": "2026-10-27T05:01:00.000Z",
+   "downloads": 0,
+   "tags": [
+    "qwen3_5",
+    "base_model:Qwen/Qwen3.8-27B",
+    "base_model:quantized:Qwen/Qwen3.8-27B",
+    "license:apache-2.0",
+    "region:us"
+   ],
+   "tree_file": "models/qwen3.8-27b/cache/trees/KingsonHO__Qwen3.8-27B-w8a8-v2.json",
+   "tree_complete": true,
+   "tree_pages": 1,
+   "total_bytes_complete": true,
+   "total_bytes": 30389968872
   }
  },
  "base": {
@@ -53188,5 +53205,5 @@
   "bytes": 65012,
   "readme_status": 200
  },
- "captured_at": "2026-10-27T01:32:18Z"
+ "captured_at": "2026-10-27T05:21:24Z"
 }
