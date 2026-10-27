@@ -32,7 +32,7 @@
   "_id": "6ad1f6c83da1d9c6c6140403",
   "id": "orcarouter/OrcaCyber-Nano-1.0",
   "lastModified": "2026-10-27T06:56:23.000Z",
-  "trendingScore": 121,
+  "trendingScore": 120,
   "sha": "97140f3ff7e2034feaef16e04f417f9a69619a7f",
   "downloads": 33004,
   "tags": [
@@ -62,7 +62,7 @@
   "_id": "6a7d8038d813eea1a14a8db4",
   "id": "unsloth/Qwen3.8-27B-GGUF",
   "lastModified": "2026-08-20T12:04:25.000Z",
-  "trendingScore": 120,
+  "trendingScore": 118,
   "sha": "4ca720788d1e01f1bff70c033e0d0028fd02e502",
   "downloads": 6009562,
   "tags": [
@@ -392,6 +392,31 @@
   "createdAt": "2026-10-19T02:45:46.000Z"
  },
  {
+  "_id": "6adff07278c82fc8ea6abdc4",
+  "id": "kaitchup/Qwen3.8-27B-SLQ-GGUF",
+  "lastModified": "2026-10-27T00:40:25.000Z",
+  "trendingScore": 23,
+  "sha": "8528ce42479c946842d7b5868dfb592fb7d4a52b",
+  "downloads": 239,
+  "tags": [
+   "gguf",
+   "qwen3_5",
+   "slq",
+   "mixed-precision",
+   "llama.cpp",
+   "quantization",
+   "text-generation",
+   "arxiv:2605.02404",
+   "base_model:Qwen/Qwen3.8-27B",
+   "base_model:quantized:Qwen/Qwen3.8-27B",
+   "license:apache-2.0",
+   "endpoints_compatible",
+   "region:us",
+   "conversational"
+  ],
+  "createdAt": "2026-10-27T00:29:38.000Z"
+ },
+ {
   "_id": "6ad91ae9f967b677bcb18b83",
   "id": "kaitchup/Qwen3.8-27B-SLQ-EAR99",
   "lastModified": "2026-10-26T18:14:46.000Z",
@@ -417,31 +442,6 @@
    "region:us"
   ],
   "createdAt": "2026-10-21T20:04:57.000Z"
- },
- {
-  "_id": "6adff07278c82fc8ea6abdc4",
-  "id": "kaitchup/Qwen3.8-27B-SLQ-GGUF",
-  "lastModified": "2026-10-27T00:40:25.000Z",
-  "trendingScore": 22,
-  "sha": "8528ce42479c946842d7b5868dfb592fb7d4a52b",
-  "downloads": 239,
-  "tags": [
-   "gguf",
-   "qwen3_5",
-   "slq",
-   "mixed-precision",
-   "llama.cpp",
-   "quantization",
-   "text-generation",
-   "arxiv:2605.02404",
-   "base_model:Qwen/Qwen3.8-27B",
-   "base_model:quantized:Qwen/Qwen3.8-27B",
-   "license:apache-2.0",
-   "endpoints_compatible",
-   "region:us",
-   "conversational"
-  ],
-  "createdAt": "2026-10-27T00:29:38.000Z"
  },
  {
   "_id": "6a83166a2d112a3a129032c3",
@@ -482,7 +482,7 @@
   "_id": "6a7d79f66c7b74d953ca055e",
   "id": "Qwen/Qwen3.8-27B-FP8",
   "lastModified": "2026-08-14T14:44:41.000Z",
-  "trendingScore": 15,
+  "trendingScore": 16,
   "sha": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
   "downloads": 4465330,
   "tags": [
@@ -856,27 +856,6 @@
   "createdAt": "2026-08-15T03:52:51.000Z"
  },
  {
-  "_id": "6a7f335ba7c5971df278f36a",
-  "id": "mlx-community/Qwen3.8-27B-8bit",
-  "lastModified": "2026-08-14T16:16:16.000Z",
-  "trendingScore": 5,
-  "sha": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
-  "downloads": 27595,
-  "tags": [
-   "mlx",
-   "safetensors",
-   "qwen3_5",
-   "image-text-to-text",
-   "conversational",
-   "base_model:Qwen/Qwen3.8-27B",
-   "base_model:quantized:Qwen/Qwen3.8-27B",
-   "license:apache-2.0",
-   "8-bit",
-   "region:us"
-  ],
-  "createdAt": "2026-08-14T15:25:15.000Z"
- },
- {
   "_id": "6a838b56859b6056ecfa5667",
   "id": "cdiamond/Qwen3.8-27B-iMatrix-NVFP4-MTP-GGUF",
   "lastModified": "2026-08-17T22:40:35.000Z",
@@ -1176,6 +1155,27 @@
    "region:us"
   ],
   "createdAt": "2026-08-14T15:14:21.000Z"
+ },
+ {
+  "_id": "6a7f335ba7c5971df278f36a",
+  "id": "mlx-community/Qwen3.8-27B-8bit",
+  "lastModified": "2026-08-14T16:16:16.000Z",
+  "trendingScore": 4,
+  "sha": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+  "downloads": 27595,
+  "tags": [
+   "mlx",
+   "safetensors",
+   "qwen3_5",
+   "image-text-to-text",
+   "conversational",
+   "base_model:Qwen/Qwen3.8-27B",
+   "base_model:quantized:Qwen/Qwen3.8-27B",
+   "license:apache-2.0",
+   "8-bit",
+   "region:us"
+  ],
+  "createdAt": "2026-08-14T15:25:15.000Z"
  },
  {
   "_id": "6a7f6e43bfab0eca4303dc00",
@@ -16303,9 +16303,9 @@
  {
   "_id": "6a835cda091ead00e669d3f8",
   "id": "KikoCis/Qwen3.8-27B-GGUF",
-  "lastModified": "2026-10-25T15:47:23.000Z",
+  "lastModified": "2026-10-27T15:59:57.000Z",
   "trendingScore": 0,
-  "sha": "861d66e725b9e705f3233b8701d43b65b3d37f2a",
+  "sha": "b046ce4b093a45bb7df8e933f0ba574bb992bd72",
   "downloads": 10301,
   "tags": [
    "gguf",
@@ -41482,30 +41482,6 @@
    "conversational"
   ],
   "createdAt": "2026-10-22T23:08:41.000Z"
- },
- {
-  "_id": "6adaa924c9fff2f6dbca09e9",
-  "id": "michaelDinelle/chrysalis",
-  "lastModified": "2026-10-27T15:32:24.000Z",
-  "trendingScore": 0,
-  "sha": "8d231e005637dc5dd58fbec72964df55516b3b9a",
-  "downloads": 51,
-  "tags": [
-   "gguf",
-   "qwen3_5",
-   "chrysalis",
-   "cuda",
-   "rocm",
-   "metal",
-   "base_model:Qwen/Qwen3.8-27B",
-   "base_model:quantized:Qwen/Qwen3.8-27B",
-   "license:other",
-   "endpoints_compatible",
-   "region:us",
-   "imatrix",
-   "conversational"
-  ],
-  "createdAt": "2026-10-23T00:24:04.000Z"
  },
  {
   "_id": "6adb22fe73a8706da7f73858",
