@@ -3,7 +3,7 @@
   "_id": "6ab74f96122ef418c3a08839",
   "id": "huihui-ai/Huihui-GLM-5.3-Flash-abliterated-GGUF",
   "lastModified": "2026-10-09T11:24:45.000Z",
-  "trendingScore": 22,
+  "trendingScore": 23,
   "sha": "c43a994637c10f5c376b7a471b3afc7663f80b9b",
   "downloads": 49132,
   "tags": [
@@ -26,6 +26,30 @@
    "conversational"
   ],
   "createdAt": "2026-09-26T04:52:38.000Z"
+ },
+ {
+  "_id": "6a8ef65b58482bb8b9d2a681",
+  "id": "unsloth/GLM-5.3-Flash-GGUF",
+  "lastModified": "2026-10-05T22:23:39.000Z",
+  "trendingScore": 20,
+  "sha": "a38483c8cd5df544f53d70fb281afe97369d5ab6",
+  "downloads": 836909,
+  "tags": [
+   "gguf",
+   "unsloth",
+   "glm5_next",
+   "text-generation",
+   "en",
+   "zh",
+   "arxiv:2602.15763",
+   "base_model:zai-org/GLM-5.3-Flash",
+   "base_model:quantized:zai-org/GLM-5.3-Flash",
+   "license:mit",
+   "endpoints_compatible",
+   "region:us",
+   "conversational"
+  ],
+  "createdAt": "2026-08-26T14:21:15.000Z"
  },
  {
   "_id": "6ac7c2ada4cc3304ff38a812",
@@ -54,30 +78,6 @@
    "region:us"
   ],
   "createdAt": "2026-10-08T16:19:57.000Z"
- },
- {
-  "_id": "6a8ef65b58482bb8b9d2a681",
-  "id": "unsloth/GLM-5.3-Flash-GGUF",
-  "lastModified": "2026-10-05T22:23:39.000Z",
-  "trendingScore": 19,
-  "sha": "a38483c8cd5df544f53d70fb281afe97369d5ab6",
-  "downloads": 836909,
-  "tags": [
-   "gguf",
-   "unsloth",
-   "glm5_next",
-   "text-generation",
-   "en",
-   "zh",
-   "arxiv:2602.15763",
-   "base_model:zai-org/GLM-5.3-Flash",
-   "base_model:quantized:zai-org/GLM-5.3-Flash",
-   "license:mit",
-   "endpoints_compatible",
-   "region:us",
-   "conversational"
-  ],
-  "createdAt": "2026-08-26T14:21:15.000Z"
  },
  {
   "_id": "6a954c3292de0e20d7c5bc1c",
@@ -303,6 +303,34 @@
   "createdAt": "2026-08-31T06:49:20.000Z"
  },
  {
+  "_id": "6a9888fd292fb073925549dc",
+  "id": "nvidia/GLM-5.3-Flash-NVFP4",
+  "lastModified": "2026-10-28T06:23:03.000Z",
+  "trendingScore": 5,
+  "sha": "1d00738646cbb0c6d0a9eb403dac5f366f1473a7",
+  "downloads": 132428,
+  "tags": [
+   "Model Optimizer",
+   "safetensors",
+   "glm5_next",
+   "nvidia",
+   "ModelOpt",
+   "GLM-5",
+   "quantized",
+   "FP4",
+   "fp4",
+   "image-text-to-text",
+   "conversational",
+   "base_model:zai-org/GLM-5.3-Flash",
+   "base_model:quantized:zai-org/GLM-5.3-Flash",
+   "license:mit",
+   "8-bit",
+   "modelopt",
+   "region:us"
+  ],
+  "createdAt": "2026-09-02T20:37:17.000Z"
+ },
+ {
   "_id": "6a8f5600e8e799f3299d529f",
   "id": "dealignai/GLM-5.3-Flash-UNCENSORED-FP8",
   "lastModified": "2026-09-19T16:32:29.000Z",
@@ -327,34 +355,6 @@
    "region:us"
   ],
   "createdAt": "2026-08-26T21:09:20.000Z"
- },
- {
-  "_id": "6a9888fd292fb073925549dc",
-  "id": "nvidia/GLM-5.3-Flash-NVFP4",
-  "lastModified": "2026-10-28T06:23:03.000Z",
-  "trendingScore": 3,
-  "sha": "1d00738646cbb0c6d0a9eb403dac5f366f1473a7",
-  "downloads": 132428,
-  "tags": [
-   "Model Optimizer",
-   "safetensors",
-   "glm5_next",
-   "nvidia",
-   "ModelOpt",
-   "GLM-5",
-   "quantized",
-   "FP4",
-   "fp4",
-   "image-text-to-text",
-   "conversational",
-   "base_model:zai-org/GLM-5.3-Flash",
-   "base_model:quantized:zai-org/GLM-5.3-Flash",
-   "license:mit",
-   "8-bit",
-   "modelopt",
-   "region:us"
-  ],
-  "createdAt": "2026-09-02T20:37:17.000Z"
  },
  {
   "_id": "6ac017e55a648930af7265bf",
@@ -3628,9 +3628,9 @@
  {
   "_id": "6ab1c45c7e63e97474807db2",
   "id": "intel-ai/GLM-5.3-Flash-MXFP8-CT-AutoRound",
-  "lastModified": "2026-10-26T08:55:16.000Z",
+  "lastModified": "2026-10-28T07:03:29.000Z",
   "trendingScore": 0,
-  "sha": "44d9241f83d179973801a8cae25cef398618fa3b",
+  "sha": "6e85aaa46d91261a04cfb208c17306cf993cf14a",
   "downloads": 155,
   "tags": [
    "transformers",
@@ -5064,9 +5064,9 @@
  {
   "_id": "6ad10fadaa78e37583fd163e",
   "id": "intel-ai/GLM-5.3-Flash-MXFP4-Mixed-CT-AutoRound",
-  "lastModified": "2026-10-27T01:43:22.000Z",
+  "lastModified": "2026-10-28T07:05:21.000Z",
   "trendingScore": 0,
-  "sha": "465b389e12bde10ff84a705daf05b138e896674d",
+  "sha": "1d7ea5c0d19de2c9a6876548b0d289acb9018218",
   "downloads": 237,
   "tags": [
    "transformers",
