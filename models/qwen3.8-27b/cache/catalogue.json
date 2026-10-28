@@ -32,7 +32,7 @@
   "_id": "6a7d8038d813eea1a14a8db4",
   "id": "unsloth/Qwen3.8-27B-GGUF",
   "lastModified": "2026-08-20T12:04:25.000Z",
-  "trendingScore": 127,
+  "trendingScore": 125,
   "sha": "4ca720788d1e01f1bff70c033e0d0028fd02e502",
   "downloads": 6009562,
   "tags": [
@@ -53,7 +53,7 @@
   "_id": "6ad1f6c83da1d9c6c6140403",
   "id": "orcarouter/OrcaCyber-Nano-1.0",
   "lastModified": "2026-10-27T06:56:23.000Z",
-  "trendingScore": 113,
+  "trendingScore": 112,
   "sha": "97140f3ff7e2034feaef16e04f417f9a69619a7f",
   "downloads": 33004,
   "tags": [
@@ -112,7 +112,7 @@
   "_id": "6a81b8bfa514d4eed962e012",
   "id": "huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF",
   "lastModified": "2026-10-10T04:51:31.000Z",
-  "trendingScore": 105,
+  "trendingScore": 107,
   "sha": "1c69098e9c32db6dc06fc48f1d6cc75ad07da89e",
   "downloads": 2730322,
   "tags": [
@@ -146,7 +146,7 @@
   "_id": "6a7e8ee8b77fccb497299fb3",
   "id": "JonathanColetti/Qwen3.8-27B-Uncensored-GGUF",
   "lastModified": "2026-08-29T04:18:18.000Z",
-  "trendingScore": 84,
+  "trendingScore": 82,
   "sha": "45d0fc0ad6cfcf9eeee6008ddaea925536409b18",
   "downloads": 2463788,
   "tags": [
@@ -254,7 +254,7 @@
   "_id": "6a7f62fadca4ab8bcc0a546e",
   "id": "0bserverx/Qwen3.8-27B-Heretic-Abliterated-Uncensored-GGUF",
   "lastModified": "2026-09-20T13:42:25.000Z",
-  "trendingScore": 51,
+  "trendingScore": 52,
   "sha": "ab8d7bd81d03117501e4da60cccdff4c80f0eea0",
   "downloads": 1130049,
   "tags": [
@@ -538,7 +538,7 @@
   "_id": "6a7f2f68690f1dca70192078",
   "id": "lmstudio-community/Qwen3.8-27B-MLX-4bit",
   "lastModified": "2026-08-14T15:08:37.000Z",
-  "trendingScore": 14,
+  "trendingScore": 13,
   "sha": "6067b15cf581666a4aecf6af3afaba4bb5efc20c",
   "downloads": 3586440,
   "tags": [
@@ -695,7 +695,7 @@
   "_id": "6a7f31a8d0b754daf3d51692",
   "id": "ggml-org/Qwen3.8-27B-GGUF",
   "lastModified": "2026-10-19T15:35:52.000Z",
-  "trendingScore": 8,
+  "trendingScore": 9,
   "sha": "a316ea527fde32c12487be7574e2db5ac2ad2a7e",
   "downloads": 2266925,
   "tags": [
@@ -2070,6 +2070,31 @@
   "createdAt": "2026-08-14T15:19:39.000Z"
  },
  {
+  "_id": "6a7f33008049980e707a8d1b",
+  "id": "lokeshe09/Qwen3.8-27B-INT8",
+  "lastModified": "2026-08-14T15:27:11.000Z",
+  "trendingScore": 1,
+  "sha": "3791ecd382ddbbae3f15bb3597091a7d58717d8c",
+  "downloads": 320,
+  "tags": [
+   "safetensors",
+   "qwen3_5",
+   "qwen3",
+   "quantized",
+   "int8",
+   "llmcompressor",
+   "image-text-to-text",
+   "conversational",
+   "base_model:Qwen/Qwen3.8-27B",
+   "base_model:quantized:Qwen/Qwen3.8-27B",
+   "license:apache-2.0",
+   "8-bit",
+   "compressed-tensors",
+   "region:us"
+  ],
+  "createdAt": "2026-08-14T15:23:44.000Z"
+ },
+ {
   "_id": "6a7f33b16f77b79c398f8b57",
   "id": "scottlowry/Qwen3.8-27B-oQ6e-mtp",
   "lastModified": "2026-10-25T21:37:30.000Z",
@@ -2313,51 +2338,6 @@
    "region:us"
   ],
   "createdAt": "2026-08-14T18:38:44.000Z"
- },
- {
-  "_id": "6a7f63316313e73d7a515fc1",
-  "id": "nicosuter/Qwen3.8-27B-AWQ",
-  "lastModified": "2026-08-24T14:38:38.000Z",
-  "trendingScore": 1,
-  "sha": "6918041e51da39125154efd3d987607c5d2bd287",
-  "downloads": 31206,
-  "tags": [
-   "transformers",
-   "safetensors",
-   "qwen3_5",
-   "image-text-to-text",
-   "qwen3_6",
-   "qwen3_8",
-   "awq",
-   "w4a16",
-   "4-bit",
-   "int4",
-   "int8",
-   "mixed-precision",
-   "quantized",
-   "compressed-tensors",
-   "llm-compressor",
-   "multimodal",
-   "tool-use",
-   "vllm",
-   "hermes-agent",
-   "mtp",
-   "speculative-decoding",
-   "long-context",
-   "conversational",
-   "dataset:nvidia/Open-SWE-Traces",
-   "dataset:nvidia/Nemotron-Post-Training-Dataset-v1",
-   "dataset:lambda/hermes-agent-reasoning-traces",
-   "dataset:HuggingFaceM4/the_cauldron",
-   "dataset:HuggingFaceFW/fineweb-edu",
-   "base_model:Qwen/Qwen3.8-27B",
-   "base_model:quantized:Qwen/Qwen3.8-27B",
-   "license:apache-2.0",
-   "eval-results",
-   "endpoints_compatible",
-   "region:us"
-  ],
-  "createdAt": "2026-08-14T18:49:21.000Z"
  },
  {
   "_id": "6a7f6765aabd64f38e3c944b",
@@ -3278,6 +3258,42 @@
    "conversational"
   ],
   "createdAt": "2026-09-11T18:05:48.000Z"
+ },
+ {
+  "_id": "6aa983512f380c084fa07220",
+  "id": "RonnieOps/Qwen3.8-27B-uncensored-IQ4_XS",
+  "lastModified": "2026-09-21T11:45:20.000Z",
+  "trendingScore": 1,
+  "sha": "f2ecf6fd13bd8879e080a76ba1d139dc3e0dfb61",
+  "downloads": 300,
+  "tags": [
+   "gguf",
+   "qwen3.8",
+   "qwen3.5",
+   "quantized",
+   "iq4-xs",
+   "mtp",
+   "multi-token-prediction",
+   "llama-cpp",
+   "uncensored",
+   "abliterated",
+   "domain-calibrated",
+   "vocab-pruned",
+   "ascii",
+   "finance",
+   "sec-filings",
+   "trading",
+   "text-generation",
+   "en",
+   "base_model:Qwen/Qwen3.8-27B",
+   "base_model:quantized:Qwen/Qwen3.8-27B",
+   "license:apache-2.0",
+   "endpoints_compatible",
+   "region:us",
+   "imatrix",
+   "conversational"
+  ],
+  "createdAt": "2026-09-15T17:41:37.000Z"
  },
  {
   "_id": "6aaa191063d79b1fcd3d0d05",
@@ -4817,31 +4833,6 @@
    "conversational"
   ],
   "createdAt": "2026-08-14T15:23:29.000Z"
- },
- {
-  "_id": "6a7f33008049980e707a8d1b",
-  "id": "lokeshe09/Qwen3.8-27B-INT8",
-  "lastModified": "2026-08-14T15:27:11.000Z",
-  "trendingScore": 0,
-  "sha": "3791ecd382ddbbae3f15bb3597091a7d58717d8c",
-  "downloads": 320,
-  "tags": [
-   "safetensors",
-   "qwen3_5",
-   "qwen3",
-   "quantized",
-   "int8",
-   "llmcompressor",
-   "image-text-to-text",
-   "conversational",
-   "base_model:Qwen/Qwen3.8-27B",
-   "base_model:quantized:Qwen/Qwen3.8-27B",
-   "license:apache-2.0",
-   "8-bit",
-   "compressed-tensors",
-   "region:us"
-  ],
-  "createdAt": "2026-08-14T15:23:44.000Z"
  },
  {
   "_id": "6a7f333c6f77b79c398f843a",
@@ -7532,6 +7523,51 @@
    "region:us"
   ],
   "createdAt": "2026-08-14T18:44:47.000Z"
+ },
+ {
+  "_id": "6a7f63316313e73d7a515fc1",
+  "id": "nicosuter/Qwen3.8-27B-AWQ",
+  "lastModified": "2026-08-24T14:38:38.000Z",
+  "trendingScore": 0,
+  "sha": "6918041e51da39125154efd3d987607c5d2bd287",
+  "downloads": 31206,
+  "tags": [
+   "transformers",
+   "safetensors",
+   "qwen3_5",
+   "image-text-to-text",
+   "qwen3_6",
+   "qwen3_8",
+   "awq",
+   "w4a16",
+   "4-bit",
+   "int4",
+   "int8",
+   "mixed-precision",
+   "quantized",
+   "compressed-tensors",
+   "llm-compressor",
+   "multimodal",
+   "tool-use",
+   "vllm",
+   "hermes-agent",
+   "mtp",
+   "speculative-decoding",
+   "long-context",
+   "conversational",
+   "dataset:nvidia/Open-SWE-Traces",
+   "dataset:nvidia/Nemotron-Post-Training-Dataset-v1",
+   "dataset:lambda/hermes-agent-reasoning-traces",
+   "dataset:HuggingFaceM4/the_cauldron",
+   "dataset:HuggingFaceFW/fineweb-edu",
+   "base_model:Qwen/Qwen3.8-27B",
+   "base_model:quantized:Qwen/Qwen3.8-27B",
+   "license:apache-2.0",
+   "eval-results",
+   "endpoints_compatible",
+   "region:us"
+  ],
+  "createdAt": "2026-08-14T18:49:21.000Z"
  },
  {
   "_id": "6a7f63d4dca4ab8bcc0a6b19",
@@ -30099,42 +30135,6 @@
   "createdAt": "2026-09-15T17:40:41.000Z"
  },
  {
-  "_id": "6aa983512f380c084fa07220",
-  "id": "RonnieOps/Qwen3.8-27B-uncensored-IQ4_XS",
-  "lastModified": "2026-09-21T11:45:20.000Z",
-  "trendingScore": 0,
-  "sha": "f2ecf6fd13bd8879e080a76ba1d139dc3e0dfb61",
-  "downloads": 300,
-  "tags": [
-   "gguf",
-   "qwen3.8",
-   "qwen3.5",
-   "quantized",
-   "iq4-xs",
-   "mtp",
-   "multi-token-prediction",
-   "llama-cpp",
-   "uncensored",
-   "abliterated",
-   "domain-calibrated",
-   "vocab-pruned",
-   "ascii",
-   "finance",
-   "sec-filings",
-   "trading",
-   "text-generation",
-   "en",
-   "base_model:Qwen/Qwen3.8-27B",
-   "base_model:quantized:Qwen/Qwen3.8-27B",
-   "license:apache-2.0",
-   "endpoints_compatible",
-   "region:us",
-   "imatrix",
-   "conversational"
-  ],
-  "createdAt": "2026-09-15T17:41:37.000Z"
- },
- {
   "_id": "6aa99968a4d45d1048137882",
   "id": "npario/Qwen3.8-27B-GSQ-RCO-GGUF",
   "lastModified": "2026-09-15T19:15:53.000Z",
@@ -42933,6 +42933,25 @@
    "conversational"
   ],
   "createdAt": "2026-10-28T00:59:38.000Z"
+ },
+ {
+  "_id": "6ae1592e1b5a32ac5c187a9c",
+  "id": "mashbox-labs/Qwen3.8-27B-TPU",
+  "lastModified": "2026-10-28T07:38:30.000Z",
+  "trendingScore": 0,
+  "sha": "0c9dd4437aae3bbfee52245f9cc282795d7e0c0c",
+  "downloads": 0,
+  "tags": [
+   "tpu",
+   "jax",
+   "mashbox",
+   "text-generation",
+   "base_model:Qwen/Qwen3.8-27B",
+   "base_model:quantized:Qwen/Qwen3.8-27B",
+   "license:apache-2.0",
+   "region:us"
+  ],
+  "createdAt": "2026-10-28T02:08:46.000Z"
  },
  {
   "_id": "6ae1857ecbfcbb0111b02db5",
