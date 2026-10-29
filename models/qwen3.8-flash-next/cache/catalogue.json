@@ -3,7 +3,7 @@
   "_id": "6a9e86d1dab7f88030e2af20",
   "id": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
   "lastModified": "2026-09-29T10:28:23.000Z",
-  "trendingScore": 101,
+  "trendingScore": 102,
   "sha": "ed59f92082b1e93c0e96d60a8b11aab089b52f09",
   "downloads": 7440394,
   "tags": [
@@ -33,7 +33,7 @@
   "_id": "6a8ecac19808154a6906b9bd",
   "id": "orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
   "lastModified": "2026-10-27T06:57:06.000Z",
-  "trendingScore": 97,
+  "trendingScore": 98,
   "sha": "98eb3357afd966c25cadd082c7f830eafde7aa52",
   "downloads": 1107633,
   "tags": [
@@ -100,7 +100,7 @@
   "_id": "6ac7c2c196215933e6db4535",
   "id": "nvidia/Qwen3.8-Flash-Next-FP4-Local",
   "lastModified": "2026-10-15T19:45:54.000Z",
-  "trendingScore": 58,
+  "trendingScore": 57,
   "sha": "b9ce18a6887e18c089fdea8509a33e63429a3300",
   "downloads": 24777,
   "tags": [
@@ -323,6 +323,28 @@
   "createdAt": "2026-08-27T08:56:41.000Z"
  },
  {
+  "_id": "6a8bfff357482d2b4bb219de",
+  "id": "Qwen/Qwen3.8-Flash-Next-FP8",
+  "lastModified": "2026-08-31T08:19:15.000Z",
+  "trendingScore": 9,
+  "sha": "236dfdf285828023ca3bcd3f37366c58a3469b13",
+  "downloads": 148761,
+  "tags": [
+   "transformers",
+   "safetensors",
+   "qwen4_exp",
+   "image-text-to-text",
+   "conversational",
+   "base_model:Qwen/Qwen3.8-Flash-Next",
+   "base_model:quantized:Qwen/Qwen3.8-Flash-Next",
+   "license:other",
+   "endpoints_compatible",
+   "fp8",
+   "region:us"
+  ],
+  "createdAt": "2026-08-24T08:25:23.000Z"
+ },
+ {
   "_id": "6a96270dc4422c95ad9cbfcb",
   "id": "peonist-ai/halogen-qwen3.8-flash-next",
   "lastModified": "2026-10-29T00:23:05.000Z",
@@ -377,28 +399,6 @@
    "region:us"
   ],
   "createdAt": "2026-10-01T13:45:12.000Z"
- },
- {
-  "_id": "6a8bfff357482d2b4bb219de",
-  "id": "Qwen/Qwen3.8-Flash-Next-FP8",
-  "lastModified": "2026-08-31T08:19:15.000Z",
-  "trendingScore": 8,
-  "sha": "236dfdf285828023ca3bcd3f37366c58a3469b13",
-  "downloads": 148761,
-  "tags": [
-   "transformers",
-   "safetensors",
-   "qwen4_exp",
-   "image-text-to-text",
-   "conversational",
-   "base_model:Qwen/Qwen3.8-Flash-Next",
-   "base_model:quantized:Qwen/Qwen3.8-Flash-Next",
-   "license:other",
-   "endpoints_compatible",
-   "fp8",
-   "region:us"
-  ],
-  "createdAt": "2026-08-24T08:25:23.000Z"
  },
  {
   "_id": "6a90585c4929c824f2120742",
@@ -927,56 +927,6 @@
    "region:us"
   ],
   "createdAt": "2026-08-27T18:27:53.000Z"
- },
- {
-  "_id": "6a91338861afd6001ed32b41",
-  "id": "Youssofal/Qwen3.8-Flash-Next-MTPLX-Optimized-Speed",
-  "lastModified": "2026-09-27T01:51:25.000Z",
-  "trendingScore": 2,
-  "sha": "34ae535f2c817737a9c73c364fd6f20629f9a8f7",
-  "downloads": 11645,
-  "tags": [
-   "mtplx",
-   "safetensors",
-   "qwen4_exp",
-   "mlx",
-   "apple-silicon",
-   "macos",
-   "speculative-decoding",
-   "multi-token-prediction",
-   "qwen",
-   "qwen3.8-flash-next",
-   "moe",
-   "mtp",
-   "local-ai",
-   "chat",
-   "qwen3.8",
-   "qwen3-8",
-   "qwen-3.8",
-   "local-llm",
-   "llm",
-   "vision",
-   "m5",
-   "m5-max",
-   "m4",
-   "m3",
-   "macbook-pro",
-   "mac-studio",
-   "opencode",
-   "claude-code",
-   "flash-next",
-   "qwen3-8-flash-next",
-   "qwen4",
-   "125b",
-   "image-text-to-text",
-   "conversational",
-   "base_model:Qwen/Qwen3.8-Flash-Next",
-   "base_model:quantized:Qwen/Qwen3.8-Flash-Next",
-   "license:other",
-   "4-bit",
-   "region:us"
-  ],
-  "createdAt": "2026-08-28T07:06:48.000Z"
  },
  {
   "_id": "6a917d36353ae3d2f0bca822",
@@ -1695,6 +1645,56 @@
   "createdAt": "2026-08-28T04:02:34.000Z"
  },
  {
+  "_id": "6a91338861afd6001ed32b41",
+  "id": "Youssofal/Qwen3.8-Flash-Next-MTPLX-Optimized-Speed",
+  "lastModified": "2026-09-27T01:51:25.000Z",
+  "trendingScore": 1,
+  "sha": "34ae535f2c817737a9c73c364fd6f20629f9a8f7",
+  "downloads": 11645,
+  "tags": [
+   "mtplx",
+   "safetensors",
+   "qwen4_exp",
+   "mlx",
+   "apple-silicon",
+   "macos",
+   "speculative-decoding",
+   "multi-token-prediction",
+   "qwen",
+   "qwen3.8-flash-next",
+   "moe",
+   "mtp",
+   "local-ai",
+   "chat",
+   "qwen3.8",
+   "qwen3-8",
+   "qwen-3.8",
+   "local-llm",
+   "llm",
+   "vision",
+   "m5",
+   "m5-max",
+   "m4",
+   "m3",
+   "macbook-pro",
+   "mac-studio",
+   "opencode",
+   "claude-code",
+   "flash-next",
+   "qwen3-8-flash-next",
+   "qwen4",
+   "125b",
+   "image-text-to-text",
+   "conversational",
+   "base_model:Qwen/Qwen3.8-Flash-Next",
+   "base_model:quantized:Qwen/Qwen3.8-Flash-Next",
+   "license:other",
+   "4-bit",
+   "region:us"
+  ],
+  "createdAt": "2026-08-28T07:06:48.000Z"
+ },
+ {
   "_id": "6a91813e0c8f30f5379face4",
   "id": "cyankiwi/Qwen3.8-Flash-Next-AWQ-INT4",
   "lastModified": "2026-10-19T16:14:02.000Z",
@@ -2168,39 +2168,6 @@
    "conversational"
   ],
   "createdAt": "2026-09-19T18:32:33.000Z"
- },
- {
-  "_id": "6ab1c7ffe66b6ff2dec817e1",
-  "id": "densohax/Qwen3.8-Flash-Next-heretic2-W4A16-FP8PLE",
-  "lastModified": "2026-09-22T13:44:02.000Z",
-  "trendingScore": 1,
-  "sha": "705a2ce7f529f61bcd94723bcde66866e0b63286",
-  "downloads": 1361,
-  "tags": [
-   "safetensors",
-   "qwen4_exp",
-   "qwen3.8",
-   "autoround",
-   "int4",
-   "fp8",
-   "vllm",
-   "speculative-decoding",
-   "256k-context",
-   "rtx-3090",
-   "dual-gpu",
-   "cpu-offload",
-   "local-llm",
-   "w4a16",
-   "text-generation",
-   "conversational",
-   "base_model:Qwen/Qwen3.8-Flash-Next",
-   "base_model:quantized:Qwen/Qwen3.8-Flash-Next",
-   "license:other",
-   "4-bit",
-   "auto-round",
-   "region:us"
-  ],
-  "createdAt": "2026-09-22T00:12:47.000Z"
  },
  {
   "_id": "6ab25e472d3b0c92a073b546",
@@ -2731,9 +2698,9 @@
  {
   "_id": "6acbb348e431a8f2d5aed0bb",
   "id": "Jundot/Qwen3.8-Flash-Next-oQ2.5e-mtp",
-  "lastModified": "2026-10-25T01:00:34.000Z",
+  "lastModified": "2026-10-29T06:55:06.000Z",
   "trendingScore": 1,
-  "sha": "423220f9a1c56d32cbb6dea012a9e99fbec3b2f4",
+  "sha": "f53f2f3af651a5b5a06ac01c2be007c144928472",
   "downloads": 716,
   "tags": [
    "mlx",
@@ -2755,9 +2722,9 @@
  {
   "_id": "6acc68b140d3356db858b87e",
   "id": "Jundot/Qwen3.8-Flash-Next-oQ3e-fp16-mtp",
-  "lastModified": "2026-10-25T01:45:00.000Z",
+  "lastModified": "2026-10-29T06:32:34.000Z",
   "trendingScore": 1,
-  "sha": "4a325e24b43ee0bfa359508b3b816f72b8c8d22b",
+  "sha": "5d4c1caf1952fe475d9ed063a6063b024270758d",
   "downloads": 575,
   "tags": [
    "mlx",
@@ -2979,32 +2946,6 @@
    "conversational"
   ],
   "createdAt": "2026-10-20T19:15:06.000Z"
- },
- {
-  "_id": "6ad9708768b76d07c3bef232",
-  "id": "baa-ai/Qwen3.8-Flash-Next-RAM-91GB-GGUF",
-  "lastModified": "2026-10-22T07:02:29.000Z",
-  "trendingScore": 1,
-  "sha": "0b97f793b9e4c24f5998a14a1983691b33b5a94f",
-  "downloads": 704,
-  "tags": [
-   "gguf",
-   "quantized",
-   "llama.cpp",
-   "mixed-precision",
-   "imatrix",
-   "qwen",
-   "qwen3.8",
-   "moe",
-   "image-text-to-text",
-   "conversational",
-   "base_model:Qwen/Qwen3.8-Flash-Next",
-   "base_model:quantized:Qwen/Qwen3.8-Flash-Next",
-   "license:other",
-   "endpoints_compatible",
-   "region:us"
-  ],
-  "createdAt": "2026-10-22T02:10:15.000Z"
  },
  {
   "_id": "6ad99361a9f73c30febd2389",
@@ -8793,6 +8734,39 @@
   "createdAt": "2026-09-21T16:21:54.000Z"
  },
  {
+  "_id": "6ab1c7ffe66b6ff2dec817e1",
+  "id": "densohax/Qwen3.8-Flash-Next-heretic2-W4A16-FP8PLE",
+  "lastModified": "2026-09-22T13:44:02.000Z",
+  "trendingScore": 0,
+  "sha": "705a2ce7f529f61bcd94723bcde66866e0b63286",
+  "downloads": 1361,
+  "tags": [
+   "safetensors",
+   "qwen4_exp",
+   "qwen3.8",
+   "autoround",
+   "int4",
+   "fp8",
+   "vllm",
+   "speculative-decoding",
+   "256k-context",
+   "rtx-3090",
+   "dual-gpu",
+   "cpu-offload",
+   "local-llm",
+   "w4a16",
+   "text-generation",
+   "conversational",
+   "base_model:Qwen/Qwen3.8-Flash-Next",
+   "base_model:quantized:Qwen/Qwen3.8-Flash-Next",
+   "license:other",
+   "4-bit",
+   "auto-round",
+   "region:us"
+  ],
+  "createdAt": "2026-09-22T00:12:47.000Z"
+ },
+ {
   "_id": "6ab22ab6646258c918fa657d",
   "id": "vcruz305/Qwen3.8-Flash-Next-EXL3-SAGE-4.15bpw",
   "lastModified": "2026-09-25T15:38:06.000Z",
@@ -11508,9 +11482,9 @@
  {
   "_id": "6acc47ea0fdd3575a62e3517",
   "id": "Jundot/Qwen3.8-Flash-Next-oQ2.7e-mtp",
-  "lastModified": "2026-10-25T01:00:35.000Z",
+  "lastModified": "2026-10-29T06:43:53.000Z",
   "trendingScore": 0,
-  "sha": "d0e02a0d7c33508de3d76cbd2166b81077e75f24",
+  "sha": "bd926afcead9513467a63a73921e390622cb6ddd",
   "downloads": 694,
   "tags": [
    "mlx",
@@ -11554,9 +11528,9 @@
  {
   "_id": "6acc665e5e4fc69acd09107a",
   "id": "Jundot/Qwen3.8-Flash-Next-oQ2.5e-fp16-mtp",
-  "lastModified": "2026-10-25T01:00:34.000Z",
+  "lastModified": "2026-10-29T07:06:11.000Z",
   "trendingScore": 0,
-  "sha": "95fa89486378095a420009ab9a18f1007d192e0c",
+  "sha": "94f5eb8ed2fe9e6bfe39231e01771ef46b85f3c5",
   "downloads": 627,
   "tags": [
    "mlx",
@@ -13215,6 +13189,32 @@
    "conversational"
   ],
   "createdAt": "2026-10-21T22:33:11.000Z"
+ },
+ {
+  "_id": "6ad9708768b76d07c3bef232",
+  "id": "baa-ai/Qwen3.8-Flash-Next-RAM-91GB-GGUF",
+  "lastModified": "2026-10-22T07:02:29.000Z",
+  "trendingScore": 0,
+  "sha": "0b97f793b9e4c24f5998a14a1983691b33b5a94f",
+  "downloads": 704,
+  "tags": [
+   "gguf",
+   "quantized",
+   "llama.cpp",
+   "mixed-precision",
+   "imatrix",
+   "qwen",
+   "qwen3.8",
+   "moe",
+   "image-text-to-text",
+   "conversational",
+   "base_model:Qwen/Qwen3.8-Flash-Next",
+   "base_model:quantized:Qwen/Qwen3.8-Flash-Next",
+   "license:other",
+   "endpoints_compatible",
+   "region:us"
+  ],
+  "createdAt": "2026-10-22T02:10:15.000Z"
  },
  {
   "_id": "6ad9cbbf8134d6b5039a0ce7",
