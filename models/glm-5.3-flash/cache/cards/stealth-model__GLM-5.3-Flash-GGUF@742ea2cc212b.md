@@ -1,0 +1,63 @@
+---
+base_model: zai-org/GLM-5.3-Flash
+base_model_relation: quantized
+license: mit
+pipeline_tag: text-generation
+library_name: gguf
+tags:
+  - gguf
+  - llama.cpp
+  - glm
+  - glm-5.3-flash
+  - ox-alpha
+  - stealth-model
+  - stealthmark
+thumbnail: https://stealthmodels.com/ox-alpha/assets/ox-concept-v1.png
+---
+
+<a href="https://stealthmodels.com/ox-alpha/?utm_source=huggingface&utm_medium=referral&utm_campaign=glm-5.3-flash-gguf-card"><img src="https://huggingface.co/stealth-model/GLM-5.3-Flash-GGUF/resolve/main/panels/hero.webp" alt="A friendly jade ox with ivory and gold horns and a gold alpha forelock. Ox Alpha. Revealed: GLM-5.3-Flash by Z.ai. The stealth model that became open weights."></a>
+
+**GLM-5.3-Flash was Ox Alpha. Two GGUF files, ready for llama.cpp.**
+
+By [Stealth Models](https://stealthmodels.com/?utm_source=huggingface&utm_medium=referral&utm_campaign=glm-5.3-flash-gguf-card), who tracked it as Ox Alpha before Z.ai revealed it.
+
+<a href="https://huggingface.co/stealth-model/GLM-5.3-Flash-GGUF/tree/main"><img src="https://huggingface.co/stealth-model/GLM-5.3-Flash-GGUF/resolve/main/panels/downloads.webp" alt="Downloads. Q5_K_XL, 240 GB: near full quality, for machines with 256 GB or more. IQ2_XXS, 102 GB: the smallest we recommend, fits 128 GB machines. Image input: mmproj-F16.gguf, 1.1 GB."></a>
+
+StealthMark results for GLM-5.3-Flash (Ox Alpha):
+
+<a href="https://stealthmodels.com/benchmarks/models/glm-5.3-flash?utm_source=huggingface&utm_medium=referral&utm_campaign=glm-5.3-flash-gguf-card"><img src="https://huggingface.co/stealth-model/GLM-5.3-Flash-GGUF/resolve/main/panels/verdict.webp" alt="StealthMark 1.8.8 results for Ox Alpha (GLM-5.3-Flash): benchmark score 48.5 out of 100, General Intelligence 42.3, Visual Intelligence 59.4. Open weights, and strongest at composing a whole scene: 77.7 on Beach."></a>
+
+<a href="https://stealthmodels.com/benchmarks/models/glm-5.3-flash?utm_source=huggingface&utm_medium=referral&utm_campaign=glm-5.3-flash-gguf-card"><img src="https://huggingface.co/stealth-model/GLM-5.3-Flash-GGUF/resolve/main/panels/results.webp" alt="Every StealthMark result of Ox Alpha (GLM-5.3-Flash): Beach 77.7, Selfie 76.6, Ground Truth 63.8, Raccoon 55.1, Mona Lisa 49.5, Foresight 47.0, Newton's Mirror 27.6, Latch 4.0 (partial run, 3 of 5 levels)."></a>
+
+[Compare it with Qwen3.8-27B, the best local model in our tests](https://stealthmodels.com/compare/glm-5.3-flash-vs-qwen3.8-27b?utm_source=huggingface&utm_medium=referral&utm_campaign=glm-5.3-flash-gguf-card)
+
+<details><summary>Files as text</summary>
+
+| File | Size | Pick it for |
+|---|---|---|
+| `Q5_K_XL/` | 240 GB in 6 parts | Near full quality, on machines with 256 GB or more of combined memory |
+| `IQ2_XXS/` | 102 GB in 4 parts | The smallest size we recommend: 128 GB machines such as a 128 GB Mac, DGX Spark or Strix Halo, or a 32 GB GPU with 96 GB of RAM |
+| `mmproj-F16.gguf` | 1.1 GB | Image input, full precision |
+| `mmproj-Q8_0.gguf` | 0.62 GB | Image input, near lossless |
+| `mmproj-Q6_K.gguf` | 0.49 GB | Image input, smaller |
+| `mmproj-Q4_K.gguf` | 0.34 GB | Image input, smallest |
+
+</details>
+
+## Run it
+Download one size:
+```
+hf download stealth-model/GLM-5.3-Flash-GGUF --include "IQ2_XXS/*" "mmproj-Q8_0.gguf" --local-dir GLM-5.3-Flash
+```
+Point llama.cpp at the first part; it loads the rest:
+```
+llama-server -m GLM-5.3-Flash/IQ2_XXS/GLM-5.3-Flash-IQ2_XXS-00001-of-00004.gguf --mmproj GLM-5.3-Flash/mmproj-Q8_0.gguf --jinja
+```
+If the model is larger than your GPU, keep its expert layers in system RAM with `--n-cpu-moe`.
+
+## License
+MIT, from Z.ai's [GLM-5.3-Flash](https://huggingface.co/zai-org/GLM-5.3-Flash). The license file is included.
+
+---
+[Ox Alpha card](https://huggingface.co/stealth-model/ox-alpha) · [StealthMark leaderboard](https://huggingface.co/spaces/stealth-model/stealthmark) · [Follow us](https://huggingface.co/stealth-model)<br>
+Text and images: CC BY 4.0, stealthmodels.com.
