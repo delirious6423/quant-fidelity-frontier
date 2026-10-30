@@ -1,0 +1,33 @@
+name: watchdog
+# Hourly, independent of the scheduled agent tasks it watches: pipeline/qcl_watchdog.py reports reviewed values that a
+# changed card withdrew and nothing restored, live updates without a recent log, and changes on main that QA has not
+# published for hours. While anything is overdue one issue titled "Watchdog: withdrawn values or stalled tasks" is open;
+# it gets a comment only when the set of problems changes and is closed when all is clear. Read-only on the repository.
+on:
+  schedule:
+    - cron: "20 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: watchdog
+  cancel-in-progress: true
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0         # QA is judged on main's commits since the deployed one: history, but no file contents
+          filter: blob:none
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Report withdrawn values and stalled tasks; open, update or close the watchdog issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -o pipefail
+          python3 pipeline/qcl_watchdog.py --issue | tee -a "$GITHUB_STEP_SUMMARY"
