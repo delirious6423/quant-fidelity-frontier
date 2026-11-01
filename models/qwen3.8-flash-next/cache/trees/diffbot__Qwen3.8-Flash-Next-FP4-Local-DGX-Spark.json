@@ -1,25 +1,25 @@
 [
  {
   "type": "directory",
-  "oid": "33ea34fee1b055118ba013c76fdc29e118d7f502",
+  "oid": "e696639ae1ced3fdff2c5e1ac410853d060a4390",
   "size": 0,
   "path": "recipe"
  },
  {
   "type": "directory",
-  "oid": "8e3311fb82a328a7c1d01be43dc0839c8e5f3dd9",
+  "oid": "79d2fb57a6d41814ec411b5476af4bc26fbca887",
   "size": 0,
   "path": "recipe/bench"
  },
  {
   "type": "directory",
-  "oid": "58309a99104f1a4fd80e69aad47972c2f20f7519",
+  "oid": "18d265307aca24927129e38f8358ddfb5e0a2416",
   "size": 0,
   "path": "recipe/kl"
  },
  {
   "type": "directory",
-  "oid": "3189b9e4279ca06210d2d16cb352cbc1e4cd5789",
+  "oid": "0f0639e3820370d09cca94279fa98b1fd4d679cc",
   "size": 0,
   "path": "recipe/patches"
  },
@@ -79,6 +79,30 @@
  },
  {
   "type": "directory",
+  "oid": "1e789d594ad5f76f3bede9ffcc1855f0aaed23c7",
+  "size": 0,
+  "path": "recipe/patches/ple-lookahead-r1"
+ },
+ {
+  "type": "directory",
+  "oid": "16c916d7cd9729a7ae59c2590a33982645e911a3",
+  "size": 0,
+  "path": "recipe/patches/prefill-1030"
+ },
+ {
+  "type": "directory",
+  "oid": "e1bd5fe6361e5a464acdc340e1465947a1146967",
+  "size": 0,
+  "path": "recipe/patches/prefill-bundle-r2"
+ },
+ {
+  "type": "directory",
+  "oid": "eb831ccbdc7543a9a568aa2244214cba1dea8c79",
+  "size": 0,
+  "path": "recipe/patches/qpmoe-r18"
+ },
+ {
+  "type": "directory",
   "oid": "b1cd12d5205c15f9c4530c951ed556a2e65c02f9",
   "size": 0,
   "path": "recipe/patches/qwen4_exp"
@@ -133,13 +157,13 @@
  },
  {
   "type": "directory",
-  "oid": "f7a8009a382fda9242edbfd2ff2b31a6de93bd68",
+  "oid": "0c00e854e33fbfe64e9c0ce188de392c5c7979a3",
   "size": 0,
   "path": "recipe/results"
  },
  {
   "type": "directory",
-  "oid": "9089501a23453dbf2513ce6cde9cbcdc97463d15",
+  "oid": "00fae22bf2fe4bd92de6fd2937940b9169eea717",
   "size": 0,
   "path": "recipe/serve"
  },
@@ -151,8 +175,8 @@
  },
  {
   "type": "file",
-  "oid": "a09db2ea4d1bd1fc1c09f6fca45e8e4054953535",
-  "size": 1635,
+  "oid": "b0956c267e2f9a6806a4ddff8315d0c1f326f1d5",
+  "size": 1712,
   "path": ".gitattributes"
  },
  {
@@ -181,8 +205,8 @@
  },
  {
   "type": "file",
-  "oid": "8b76cc0b6df028f5b5dab5885fee01713562c3b4",
-  "size": 10474,
+  "oid": "10a64d28761ae9d38ba5731151461f7aca9cce21",
+  "size": 14992,
   "path": "README.md"
  },
  {
@@ -235,14 +259,14 @@
  },
  {
   "type": "file",
-  "oid": "987bb3eb6ce276f3f97d25220fd772c5851031ed",
-  "size": 6038,
+  "oid": "3af28c82e3fd0b22060fe1a5fad6e4afd725106e",
+  "size": 12257,
   "path": "recipe/README.md"
  },
  {
   "type": "file",
-  "oid": "7901cd774a500632a1de846316575efee81cc10d",
-  "size": 2925,
+  "oid": "f802e903e8e97af62eb640f01c4f2cd635ad11a9",
+  "size": 4690,
   "path": "recipe/THIRD_PARTY_NOTICES.md"
  },
  {
@@ -250,6 +274,12 @@
   "oid": "02300b1ccf78d21ada58623a13df83aba4ea5d42",
   "size": 2573,
   "path": "recipe/bench/bench-sbs.py"
+ },
+ {
+  "type": "file",
+  "oid": "86e2cb6fab3caf09562d672efdd001f0b01b866b",
+  "size": 5075,
+  "path": "recipe/bench/c1bench.py"
  },
  {
   "type": "file",
@@ -286,6 +316,18 @@
   "oid": "a5870aed18a8cb5b8b994f5720ed5678204a6106",
   "size": 6560,
   "path": "recipe/kl/atomic_kld.py"
+ },
+ {
+  "type": "file",
+  "oid": "29f4c5956b9683fb4104bdd8f4de3f92da4f7bf5",
+  "size": 2177,
+  "path": "recipe/kl/atomic_kld_save.py"
+ },
+ {
+  "type": "file",
+  "oid": "ebfe01202a30a9b8aa49f918af1b89c95750747b",
+  "size": 1127,
+  "path": "recipe/kl/kld_paired_exact.py"
  },
  {
   "type": "file",
@@ -328,6 +370,162 @@
   "oid": "d3d45ab65f7d829b5b4591eefcda6903636bea7a",
   "size": 16945,
   "path": "recipe/patches/b12x/sequence/_shared/disk_table.py"
+ },
+ {
+  "type": "file",
+  "oid": "d5a23c43f8380aea7b746e9645b164169db5d222",
+  "size": 159,
+  "path": "recipe/patches/ple-lookahead-r1/SHA256SUMS"
+ },
+ {
+  "type": "file",
+  "oid": "a7bd596e171d2d434d6b2a6aeb24a45976e9cdcf",
+  "size": 53322,
+  "path": "recipe/patches/ple-lookahead-r1/b12x_ple.py"
+ },
+ {
+  "type": "file",
+  "oid": "812b331c0f4f503658bf941d72a1d111fe28654b",
+  "size": 25645,
+  "path": "recipe/patches/ple-lookahead-r1/model_state.py"
+ },
+ {
+  "type": "file",
+  "oid": "1801ed3de9babdc96e851bcf64354fcfba6ee65c",
+  "size": 514,
+  "path": "recipe/patches/prefill-1030/SHA256SUMS"
+ },
+ {
+  "type": "file",
+  "oid": "5857da00f23417979707987b8facf44497834e0e",
+  "size": 13956,
+  "path": "recipe/patches/prefill-1030/b12x_gdn_metadata.py"
+ },
+ {
+  "type": "file",
+  "oid": "c261a7c941c8b285dfb68948ae67842dc0da3448",
+  "size": 429503,
+  "path": "recipe/patches/prefill-1030/dense_gemm.py"
+ },
+ {
+  "type": "file",
+  "oid": "ef02224e7d1a0803bbb11c3aa4f59ca5febb926f",
+  "size": 31471,
+  "path": "recipe/patches/prefill-1030/hyperconnection.py"
+ },
+ {
+  "type": "file",
+  "oid": "a8252fe0fad4835d162de479481b81242768ef38",
+  "size": 9599,
+  "path": "recipe/patches/prefill-1030/mtp_feedback_kernels.py"
+ },
+ {
+  "type": "file",
+  "oid": "5dc8b4141e54bea42c3aba043125af7d0810cb5c",
+  "size": 3173,
+  "path": "recipe/patches/prefill-1030/qp_hc_upgate.py"
+ },
+ {
+  "type": "file",
+  "oid": "0c6bafbf499f622bcdd9b56c38a37301b107dabe",
+  "size": 130058,
+  "path": "recipe/patches/prefill-1030/qwen_gdn_linear_attn.py"
+ },
+ {
+  "type": "file",
+  "oid": "70281afdfef6ab8da080866c441256234a01c28e",
+  "size": 506,
+  "path": "recipe/patches/prefill-bundle-r2/SHA256SUMS"
+ },
+ {
+  "type": "file",
+  "oid": "8cd9c228772fe75896ded60596b61103afc3c1b6",
+  "size": 21465,
+  "path": "recipe/patches/prefill-bundle-r2/_sparse_gqa.py"
+ },
+ {
+  "type": "file",
+  "oid": "743d3f620d45156c8cc95a2302f4a4be13fa9781",
+  "size": 430250,
+  "path": "recipe/patches/prefill-bundle-r2/dense_gemm.py"
+ },
+ {
+  "type": "file",
+  "oid": "82e5e4b9bbd0d464bcbfa59124b8aa0b400bfd08",
+  "size": 34318,
+  "path": "recipe/patches/prefill-bundle-r2/hyperconnection.py"
+ },
+ {
+  "type": "file",
+  "oid": "a24b4e356aa134be1257638eb49cf8e9418c34bb",
+  "size": 10928,
+  "path": "recipe/patches/prefill-bundle-r2/qn_hc_fused.py"
+ },
+ {
+  "type": "file",
+  "oid": "1de16bc6ab884509d7641f7df9411892fc8a28c2",
+  "size": 32888,
+  "path": "recipe/patches/prefill-bundle-r2/qn_selected_forward.py"
+ },
+ {
+  "type": "file",
+  "oid": "6604266934df89ca14db0502d7023fc24595ea37",
+  "size": 133418,
+  "path": "recipe/patches/prefill-bundle-r2/qwen_gdn_linear_attn.py"
+ },
+ {
+  "type": "file",
+  "oid": "575b4c091307b95912ea14d4dc6b8e8b176c1b0f",
+  "size": 112,
+  "path": "recipe/patches/qpmoe-r18/BUILD.txt"
+ },
+ {
+  "type": "file",
+  "oid": "211c6131b3aa9a589b622cfb7af4832d369fc3f1",
+  "size": 559,
+  "path": "recipe/patches/qpmoe-r18/SHA256SUMS"
+ },
+ {
+  "type": "file",
+  "oid": "87368e7ef37ee065a5f79eff0380d8db661f374c",
+  "size": 46220,
+  "path": "recipe/patches/qpmoe-r18/b12x_hooked.py"
+ },
+ {
+  "type": "file",
+  "oid": "4635d7bc2a89b641215a0b3bbd214191f7a9bfc2",
+  "size": 206208,
+  "lfs": {
+   "oid": "93364ad889be10b08283d02842c362b2f65f3f1b55af4d34560b66796e1b603d",
+   "size": 206208,
+   "pointerSize": 131
+  },
+  "xetHash": "9b725378aed11c47c55115a81350ace9bc5dc2592d86fc88760eec5371ad0cd4",
+  "path": "recipe/patches/qpmoe-r18/libqpmoe_r18.so"
+ },
+ {
+  "type": "file",
+  "oid": "639c8246c4016dcbc10fce1396f30d18c4c40abb",
+  "size": 50635,
+  "path": "recipe/patches/qpmoe-r18/moe_qn.cu"
+ },
+ {
+  "type": "file",
+  "oid": "61ac89afb8d69d55fd276cf875d4741ec7a40b41",
+  "size": 19230,
+  "path": "recipe/patches/qpmoe-r18/nvfp4_csf_hooked.py"
+ },
+ {
+  "type": "file",
+  "oid": "3080fd50b47c820388f508690070560ca65d63ea",
+  "size": 8091,
+  "path": "recipe/patches/qpmoe-r18/qpmoe.py"
+ },
+ {
+  "type": "file",
+  "oid": "6f49b5b35d0416faf60dff4d6bc1101f71abe828",
+  "size": 8568,
+  "path": "recipe/patches/qpmoe-r18/qs_qpmoe_hook.py"
  },
  {
   "type": "file",
@@ -421,9 +619,33 @@
  },
  {
   "type": "file",
+  "oid": "891add5979ecb0ebef16ff955a0f6648d42b0e25",
+  "size": 24680,
+  "path": "recipe/results/abba-1101.json"
+ },
+ {
+  "type": "file",
+  "oid": "95e43d27af888c41a1f89106a153115b3ae506fd",
+  "size": 1539,
+  "path": "recipe/results/abba-1101.txt"
+ },
+ {
+  "type": "file",
   "oid": "ff2c657c4239f4e2d17f0409df1069b849d7c725",
   "size": 620,
   "path": "recipe/results/bench-sbs.txt"
+ },
+ {
+  "type": "file",
+  "oid": "6a25981d00a5f3d7442eaf91aff0dda5539f48e3",
+  "size": 1611,
+  "path": "recipe/results/c1-as-served-1101.json"
+ },
+ {
+  "type": "file",
+  "oid": "8a0c3379d286f762fbc52c0120cb1a652018c27c",
+  "size": 1793,
+  "path": "recipe/results/c1-release-config-1030.json"
  },
  {
   "type": "file",
@@ -436,6 +658,24 @@
   "oid": "d08d482659ab34b943d2a56141513a6847e76179",
   "size": 292,
   "path": "recipe/results/cjk-draftvocab-en.json"
+ },
+ {
+  "type": "file",
+  "oid": "04c740fba8e2c3ba018deefec6515aa5aea27c2a",
+  "size": 415,
+  "path": "recipe/results/kl-neutral-24ch-as-served.json"
+ },
+ {
+  "type": "file",
+  "oid": "e62b9632ea9ca99224c939c6265ab1541555d7a8",
+  "size": 413,
+  "path": "recipe/results/kl-neutral-24ch-hc-off.json"
+ },
+ {
+  "type": "file",
+  "oid": "40b1c7cbfea651d2f512fa2ce6434e25e1896c91",
+  "size": 1250,
+  "path": "recipe/results/kl-neutral-24ch-paired.txt"
  },
  {
   "type": "file",
@@ -457,9 +697,27 @@
  },
  {
   "type": "file",
+  "oid": "d10d2cc79167d3ad46bcea95fac86bcbae646925",
+  "size": 2516,
+  "path": "recipe/results/memory-1101.txt"
+ },
+ {
+  "type": "file",
   "oid": "6086f5e2de45f93764bb1635425e85ab7d198707",
   "size": 271,
   "path": "recipe/results/needle.txt"
+ },
+ {
+  "type": "file",
+  "oid": "b09afd3c0e5f64ed5dd585d6512832d1f269e796",
+  "size": 34242,
+  "path": "recipe/results/quality-probe-1101.jsonl"
+ },
+ {
+  "type": "file",
+  "oid": "779011a37714bb5e3f94665d415b7e3596b9e936",
+  "size": 861,
+  "path": "recipe/results/quality-probe-1101.txt"
  },
  {
   "type": "file",
@@ -469,8 +727,8 @@
  },
  {
   "type": "file",
-  "oid": "30211dad63b9defd2bb4bd39c3278611ebe2e0cb",
-  "size": 241,
+  "oid": "0ecce0c8fca13a22313b11bc9478e9672a472b00",
+  "size": 207,
   "path": "recipe/results/quality-probe.txt"
  },
  {
@@ -478,6 +736,12 @@
   "oid": "17430bd06595c1e706c63974c84abcbdf0cf63ac",
   "size": 340,
   "path": "recipe/results/toolcall.txt"
+ },
+ {
+  "type": "file",
+  "oid": "d5eab13dd24572efa7f61653852d65bdbab18755",
+  "size": 2972,
+  "path": "recipe/serve/build-qpmoe.sh"
  },
  {
   "type": "file",
@@ -499,8 +763,8 @@
  },
  {
   "type": "file",
-  "oid": "0dfd5beab0696182ec7f3d853f332bea2e4129a7",
-  "size": 17096,
+  "oid": "75a8dbd455c154d8aafbaa1f50739ecbad8cd3fe",
+  "size": 24275,
   "path": "recipe/serve/serve.sh"
  },
  {
