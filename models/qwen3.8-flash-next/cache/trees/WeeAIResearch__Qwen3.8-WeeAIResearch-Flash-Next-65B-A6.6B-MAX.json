@@ -1,14 +1,68 @@
 [
  {
   "type": "directory",
-  "oid": "212bff953e2564eaa335b01b56d16c7c8663c7ca",
+  "oid": "50d0bcb08a189cd9e67ebcab31a1d782f98a1771",
+  "size": 0,
+  "path": "evaluation"
+ },
+ {
+  "type": "directory",
+  "oid": "b2125d03ee61974b76fccfcd96a9730f088e0cf0",
+  "size": 0,
+  "path": "evaluation/generated"
+ },
+ {
+  "type": "directory",
+  "oid": "990d3802c9fbb0033f2c82b06879cc6052566437",
+  "size": 0,
+  "path": "evaluation/generated/csharp"
+ },
+ {
+  "type": "directory",
+  "oid": "429eafd36cca517b3b758a36bd0c499d15d17bbe",
+  "size": 0,
+  "path": "evaluation/generated/fresh_squares"
+ },
+ {
+  "type": "directory",
+  "oid": "aca9664273bfe45845d0d7a491ad4bd3d8946e04",
+  "size": 0,
+  "path": "evaluation/generated/python"
+ },
+ {
+  "type": "directory",
+  "oid": "dd6c5fd6037eb5f8a683b79e0a5b71428423833e",
+  "size": 0,
+  "path": "evaluation/generated/reverse"
+ },
+ {
+  "type": "directory",
+  "oid": "18509a35e16abf9648fcc5b1f420c481982a3e07",
+  "size": 0,
+  "path": "evaluation/generated/typescript"
+ },
+ {
+  "type": "directory",
+  "oid": "aef0dc13e9a8b04440e9cc85a06c9849c09180d2",
+  "size": 0,
+  "path": "graphs"
+ },
+ {
+  "type": "directory",
+  "oid": "ffaaf2f3144f03aecd281d59a2b577af764520ab",
+  "size": 0,
+  "path": "provenance"
+ },
+ {
+  "type": "directory",
+  "oid": "5696cc326af81864f9090833b9b20cb0422cbdb9",
   "size": 0,
   "path": "runtime"
  },
  {
   "type": "file",
-  "oid": "f5e5dd54e424935d657ba3c2838dffc3286741e3",
-  "size": 1692,
+  "oid": "21bf7287c85002be9a623a105ec2e3f7165c2a15",
+  "size": 1783,
   "path": ".gitattributes"
  },
  {
@@ -19,51 +73,327 @@
  },
  {
   "type": "file",
-  "oid": "0ed32f1b67d498179671c40d2a9868cbab2fc580",
-  "size": 63896212704,
+  "oid": "c53fa3a4d39b36dea2818acff6c4b383db1a3f10",
+  "size": 65157775584,
   "lfs": {
-   "oid": "5784b4ad0c0adc91b17ba2a4e64e216643f076a4a2bf4c1dfdd662199f150382",
-   "size": 63896212704,
+   "oid": "70a99659373f37386ea9055f54964c07d005ba05c99d9535e35b6aae1c5ea82a",
+   "size": 65157775584,
    "pointerSize": 136
   },
-  "xetHash": "8df51587ed78bfb0d34c2695d1b58eeb8b1196ae60abc2db80a431adedbd7571",
-  "path": "Qwen3.8-WeeAIResearch-Flash-Next-65B-A6.6B-MAX.gguf"
+  "xetHash": "4968653c43da45bcee35c74a7429fee72cd73e04f2d4a778a77757f79dc342db",
+  "path": "Qwen3.8-WeeAIResearch-Flash-Next-69B-A6.6B-MAX-v2.gguf"
  },
  {
   "type": "file",
-  "oid": "7f69e3fb9b0d94577c3d0bdaf2e01eca7abf95ae",
-  "size": 3472,
+  "oid": "e0f46ff1cee86edf5b74872b4a114734d748e792",
+  "size": 10523,
   "path": "README.md"
  },
  {
   "type": "file",
-  "oid": "ec43e1616a3df8f716abd4cd2412fe7cd283a359",
-  "size": 118,
+  "oid": "2cd59f372b08e9525bb8122d0187721eb4a9e669",
+  "size": 121,
   "path": "SHA256SUMS"
  },
  {
   "type": "file",
-  "oid": "99a634e3aaec3dcabd6c02548655af838cb7c910",
-  "size": 133,
+  "oid": "0244da5ade0bfc86b02a95d018e6d7ca28de5bfb",
+  "size": 251,
   "path": "cpu-benchmark.json"
  },
  {
   "type": "file",
-  "oid": "4cd1f616a49c978880385bbe76470e4b20030c4f",
-  "size": 2135,
+  "oid": "27566449717fca25bbcc752536a43f990e52dede",
+  "size": 3403,
+  "path": "evaluation/README.md"
+ },
+ {
+  "type": "file",
+  "oid": "6b4993db2947c7b4dec758475ef23a9a850a65e9",
+  "size": 1245,
+  "path": "evaluation/fit-report.json"
+ },
+ {
+  "type": "file",
+  "oid": "fe8de5ca3834a0286d9eb53844284f422ee0d763",
+  "size": 171,
+  "path": "evaluation/generated/csharp/App.csproj"
+ },
+ {
+  "type": "file",
+  "oid": "4389f89ce53b3b112ec2f1f9f12f056ef1706e67",
+  "size": 722,
+  "path": "evaluation/generated/csharp/Program.cs"
+ },
+ {
+  "type": "file",
+  "oid": "5904dd78835a02917f750d36a0c70dbb30cd6c3b",
+  "size": 362,
+  "path": "evaluation/generated/csharp/build.log"
+ },
+ {
+  "type": "file",
+  "oid": "078e1f3ac3381aebd273489003df9cd554f66f4a",
+  "size": 735,
+  "path": "evaluation/generated/csharp/output.txt"
+ },
+ {
+  "type": "file",
+  "oid": "bef3aa8e3d1a0713d680a85565e9d2ce06d438ad",
+  "size": 634,
+  "path": "evaluation/generated/csharp/prompt.txt"
+ },
+ {
+  "type": "file",
+  "oid": "3a992d6a92312eb5a788183ad2c9b0958a7f0935",
+  "size": 961,
+  "path": "evaluation/generated/csharp/result.json"
+ },
+ {
+  "type": "file",
+  "oid": "b20b05e20aba166c894e67c61f98804785afc86e",
+  "size": 1167,
+  "path": "evaluation/generated/csharp/validation.json"
+ },
+ {
+  "type": "file",
+  "oid": "25272d76230fe35143257d274b88e68cb28a8c39",
+  "size": 185,
+  "path": "evaluation/generated/fresh_squares/output.txt"
+ },
+ {
+  "type": "file",
+  "oid": "22ffe91d31db2ce216295af559ec6eb829b62ddc",
+  "size": 172,
+  "path": "evaluation/generated/fresh_squares/program.py"
+ },
+ {
+  "type": "file",
+  "oid": "b5f436f21bc130591b850e4e48fe88f69c7ede29",
+  "size": 327,
+  "path": "evaluation/generated/fresh_squares/prompt.txt"
+ },
+ {
+  "type": "file",
+  "oid": "91f528d0aa955af6750886f9c7a23a51dcd623c6",
+  "size": 371,
+  "path": "evaluation/generated/fresh_squares/result.json"
+ },
+ {
+  "type": "file",
+  "oid": "c122b8a51973feb5f19547abe7427e888215afa6",
+  "size": 845,
+  "path": "evaluation/generated/fresh_squares/validation.json"
+ },
+ {
+  "type": "file",
+  "oid": "87ed3f01090345f2a1e68df67aa4cd56cfe4399e",
+  "size": 712,
+  "path": "evaluation/generated/python/output.txt"
+ },
+ {
+  "type": "file",
+  "oid": "02d2a87cbf165e6d18242f5871ab87944574fd07",
+  "size": 699,
+  "path": "evaluation/generated/python/program.py"
+ },
+ {
+  "type": "file",
+  "oid": "61ae4c65490eec1aab062b673b327f34949cec64",
+  "size": 628,
+  "path": "evaluation/generated/python/prompt.txt"
+ },
+ {
+  "type": "file",
+  "oid": "24cfce0d3191b937d57bb94f993f1379871c958a",
+  "size": 933,
+  "path": "evaluation/generated/python/result.json"
+ },
+ {
+  "type": "file",
+  "oid": "b20b05e20aba166c894e67c61f98804785afc86e",
+  "size": 1167,
+  "path": "evaluation/generated/python/validation.json"
+ },
+ {
+  "type": "file",
+  "oid": "4a56ed6856af769aae3d5a9d76afce067c7a3268",
+  "size": 142,
+  "path": "evaluation/generated/reverse/output.txt"
+ },
+ {
+  "type": "file",
+  "oid": "8d51868b43b674647fe5f844d099c0c5ab5ae79b",
+  "size": 129,
+  "path": "evaluation/generated/reverse/program.py"
+ },
+ {
+  "type": "file",
+  "oid": "c2c9fde336182ce89b00bcbf7963a4c75c527eb0",
+  "size": 295,
+  "path": "evaluation/generated/reverse/prompt.txt"
+ },
+ {
+  "type": "file",
+  "oid": "0e92091db789230af82eafd09c4dfd08a12a0b90",
+  "size": 327,
+  "path": "evaluation/generated/reverse/result.json"
+ },
+ {
+  "type": "file",
+  "oid": "19119685c03058d58e6e671eff4a1de7f3a514f2",
+  "size": 796,
+  "path": "evaluation/generated/reverse/validation.json"
+ },
+ {
+  "type": "file",
+  "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+  "size": 0,
+  "path": "evaluation/generated/typescript/build.log"
+ },
+ {
+  "type": "file",
+  "oid": "6cd9eb938295a36760662824217799be92dc2db0",
+  "size": 861,
+  "path": "evaluation/generated/typescript/output.txt"
+ },
+ {
+  "type": "file",
+  "oid": "7117a3ad5f0459acd8f905c5bfbcc661e28814aa",
+  "size": 844,
+  "path": "evaluation/generated/typescript/program.ts"
+ },
+ {
+  "type": "file",
+  "oid": "455265c7e1b39a394036e44bbcfa67b35aa5af3a",
+  "size": 659,
+  "path": "evaluation/generated/typescript/prompt.txt"
+ },
+ {
+  "type": "file",
+  "oid": "0db4441a9d4aae15464e078e2111002eb35b3899",
+  "size": 1081,
+  "path": "evaluation/generated/typescript/result.json"
+ },
+ {
+  "type": "file",
+  "oid": "b20b05e20aba166c894e67c61f98804785afc86e",
+  "size": 1167,
+  "path": "evaluation/generated/typescript/validation.json"
+ },
+ {
+  "type": "file",
+  "oid": "4e93a11ebe8b64e42108914a13f148c76a0bdba7",
+  "size": 160,
+  "path": "evaluation/prior-app-tests.json"
+ },
+ {
+  "type": "file",
+  "oid": "ad73c7837ecfb89f9912baf44f4d897707dd4174",
+  "size": 4580,
+  "path": "evaluation/render_graphs.py"
+ },
+ {
+  "type": "file",
+  "oid": "e5ebcff5b8293f546f3aa636352ea29922c4143c",
+  "size": 2162,
+  "path": "evaluation/summary.json"
+ },
+ {
+  "type": "file",
+  "oid": "66220b0ff046f7e7aa7f1a822a24829d3a493940",
+  "size": 412,
+  "path": "evaluation/teacher-validation.json"
+ },
+ {
+  "type": "file",
+  "oid": "9604893d7480b36f1b00deddfcee52161f7f5c00",
+  "size": 1203,
+  "path": "evaluation/validate-apps.py"
+ },
+ {
+  "type": "file",
+  "oid": "5e8da2942d6ef914628ec73aa608f4820a144e22",
+  "size": 634,
+  "path": "evaluation/weight-storage.json"
+ },
+ {
+  "type": "file",
+  "oid": "d7f8c5fefad7706a1ac3eafa8c01afc3f98ce2b0",
+  "size": 1254,
   "path": "experiment-report.md"
  },
  {
   "type": "file",
-  "oid": "288a70764f9b7735a24424eabab35876c93adc3c",
-  "size": 443414,
+  "oid": "91b711ef63cceb5d119a6e6ec550060ffdeef490",
+  "size": 71771,
+  "path": "graphs/coding-recovery.png"
+ },
+ {
+  "type": "file",
+  "oid": "a11e3068b8bddc59ff294f5db232691451f64655",
+  "size": 50355,
+  "path": "graphs/coding-recovery.svg"
+ },
+ {
+  "type": "file",
+  "oid": "542170c441c3e1c4500ff75d255dce27781ec840",
+  "size": 76004,
+  "path": "graphs/functional-results.png"
+ },
+ {
+  "type": "file",
+  "oid": "53c5af7442691e7ff20bcf7d1bcb3f3882983fe4",
+  "size": 54973,
+  "path": "graphs/functional-results.svg"
+ },
+ {
+  "type": "file",
+  "oid": "b5c375ee1b7c60e9a67be688b757410d447c872c",
+  "size": 96217,
+  "path": "graphs/og-agreement.png"
+ },
+ {
+  "type": "file",
+  "oid": "0cc2ce83a5320c12a8e4d05aa1086163537ebd93",
+  "size": 66760,
+  "path": "graphs/og-agreement.svg"
+ },
+ {
+  "type": "file",
+  "oid": "c4a31bf99500077c83e232132c59b55555c50858",
+  "size": 65383,
+  "path": "graphs/weight-storage.png"
+ },
+ {
+  "type": "file",
+  "oid": "adfd04ce38897e1b2ffa4919b9dba90ea108b2bb",
+  "size": 53638,
+  "path": "graphs/weight-storage.svg"
+ },
+ {
+  "type": "file",
+  "oid": "88a93ea7c3888ca6e32bd0a2fcbe1dac418c0e1d",
+  "size": 459183,
   "path": "model-manifest.json"
  },
  {
   "type": "file",
-  "oid": "4cc6d1515437c6ecc172d472b79a51a9f30905f3",
-  "size": 1056,
+  "oid": "a422fb532184cc6dbb19e221c26ab78ad85969ff",
+  "size": 1394,
   "path": "parameter-count.json"
+ },
+ {
+  "type": "file",
+  "oid": "7634ade23cbbbc1898ef4d6a46ae5ddd2d2fa4a5",
+  "size": 143807,
+  "path": "provenance/initial-pruning-plan.json"
+ },
+ {
+  "type": "file",
+  "oid": "252a295bb42411984bb312bc344d969095c3e878",
+  "size": 737,
+  "path": "provenance/training-summary.json"
  },
  {
   "type": "file",
@@ -73,8 +403,8 @@
  },
  {
   "type": "file",
-  "oid": "c6c1103609293bebb5ad1b7ac49d780759dcb58e",
-  "size": 1553,
+  "oid": "ea7edd1cb8757630722504454d8dc9235ed54171",
+  "size": 1556,
   "path": "runtime/README.md"
  },
  {
@@ -97,8 +427,8 @@
  },
  {
   "type": "file",
-  "oid": "7634ade23cbbbc1898ef4d6a46ae5ddd2d2fa4a5",
-  "size": 143807,
+  "oid": "21adb48362cb384c785a145bfebea19a1e6afccf",
+  "size": 175988,
   "path": "selection-plan.json"
  }
 ]
