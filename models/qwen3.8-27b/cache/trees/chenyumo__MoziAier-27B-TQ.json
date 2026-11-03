@@ -3,12 +3,12 @@
   "type": "directory",
   "oid": "89ffb00e40978a8e8406389662c1291bac9b9015",
   "size": 0,
-  "path": "engine"
+  "path": "Llama-TQ"
  },
  {
   "type": "file",
-  "oid": "9ef886be3a65a954fccf4db9ff4bb79f54ee8b5b",
-  "size": 329,
+  "oid": "845c78829e66089bcde59448ca14a9dda8d120c8",
+  "size": 623,
   "path": ".gitattributes"
  },
  {
@@ -31,13 +31,91 @@
  },
  {
   "type": "file",
-  "oid": "b886b466376aa16f95c90cf42be68688c697b3f6",
+  "oid": "c297f3c2178e6eea0980a8b88c6f578ff7092981",
+  "size": 65818,
+  "path": "Llama-TQ/AUTHORS"
+ },
+ {
+  "type": "file",
+  "oid": "e7dca554bcb802f98408383a864404e3aa4eacca",
+  "size": 1078,
+  "path": "Llama-TQ/LICENSE"
+ },
+ {
+  "type": "file",
+  "oid": "c99bab965131a53ef4b3eb7695786e27cc893416",
+  "size": 2446,
+  "path": "Llama-TQ/NOTICE"
+ },
+ {
+  "type": "file",
+  "oid": "d2ccb7b98a4fc5ae5dc0be6841ab9f8da032c4c7",
+  "size": 4301,
+  "path": "Llama-TQ/README.md"
+ },
+ {
+  "type": "file",
+  "oid": "981bf98001b203798f287aaf17d58ffa4fe27a68",
+  "size": 991,
+  "path": "Llama-TQ/SHA256SUMS.txt"
+ },
+ {
+  "type": "file",
+  "oid": "058a496b03f6c6b5089af77ccd3d7d8bfd1912df",
+  "size": 20125864,
+  "lfs": {
+   "oid": "39c628e7c8a17f07f48c683e14140b2dda5402dd53387b8a2761314bb68e7be1",
+   "size": 20125864,
+   "pointerSize": 133
+  },
+  "xetHash": "62f2524073ffa6812d3473a22bbc3009b4fcd0bfde771c93de302a186dadb26c",
+  "path": "Llama-TQ/llama-tq-cpu-win-x64.zip"
+ },
+ {
+  "type": "file",
+  "oid": "31e779a13867404884b8ef3e260f5d118c14a33a",
+  "size": 729819942,
+  "lfs": {
+   "oid": "1362fdf0807ce1b6c220a26c9c84ff35cd52e9c6b6fc79531a1ece828ca9b754",
+   "size": 729819942,
+   "pointerSize": 134
+  },
+  "xetHash": "1070834dde1858dd854d10a8c1e0ac6943fdd4e0e3a060637da270681d4c862c",
+  "path": "Llama-TQ/llama-tq-cuda-12.4-win-x64-full.zip"
+ },
+ {
+  "type": "file",
+  "oid": "03af5447a97fe31ffc4c4fe359c0fd2c47e440d2",
+  "size": 350364687,
+  "lfs": {
+   "oid": "bdcd8afd3e8b42820d530da53e11fbaa4de87d6f97698f39d0dc12dc45de0796",
+   "size": 350364687,
+   "pointerSize": 134
+  },
+  "xetHash": "1bc7a9245041cf01c401ca9f7b6257cf83af051a28016a12ce567440900d369a",
+  "path": "Llama-TQ/llama-tq-hip-win-x64.zip"
+ },
+ {
+  "type": "file",
+  "oid": "c4f6a4da6053d6c60affe727639f41dd66fa948e",
+  "size": 32733176,
+  "lfs": {
+   "oid": "f9aadd213fee4a099a912cb4df8ab0d4c2139dc96b24bf09b2b34016a4b44c6c",
+   "size": 32733176,
+   "pointerSize": 133
+  },
+  "xetHash": "12854c97e20deca4d96f59ecdab7209a3f922fa6e95476d1da7ff0b500758290",
+  "path": "Llama-TQ/llama-tq-vulkan-win-x64.zip"
+ },
+ {
+  "type": "file",
+  "oid": "69d50bab79778e0b4d6c4567dc013fd923bfdf73",
   "size": 7204,
   "path": "MODEL_CARD.md"
  },
  {
   "type": "file",
-  "oid": "845f3b78c8b15ab2ec5a8583da023f806fa52068",
+  "oid": "17a2bacd54af68a439c5c722a3958165490afe81",
   "size": 6876,
   "path": "MODEL_CARD.zh.md"
  },
@@ -55,92 +133,110 @@
  },
  {
   "type": "file",
-  "oid": "80716563e56e4e029be024f1910b5458331f278e",
-  "size": 22716,
+  "oid": "592cc495d7b79f8fa45bf0ba6ba4c61991222cd0",
+  "size": 32591,
+  "path": "README.ar.md"
+ },
+ {
+  "type": "file",
+  "oid": "cda082a859cf4eb443f295106f4292ceec32ed03",
+  "size": 25363,
+  "path": "README.de.md"
+ },
+ {
+  "type": "file",
+  "oid": "c59049d36832001f436916b0259b220b259aaee3",
+  "size": 23196,
   "path": "README.en.md"
  },
  {
   "type": "file",
-  "oid": "8a78e8349dee58288cba7a4e364e51bf6809d410",
-  "size": 21614,
+  "oid": "bc3e0fe1169f0e12bde85b291fa57c149c8e0079",
+  "size": 26949,
+  "path": "README.es.md"
+ },
+ {
+  "type": "file",
+  "oid": "15b8bea38387236e80f708d75c2403db8b769a2f",
+  "size": 27565,
+  "path": "README.fr.md"
+ },
+ {
+  "type": "file",
+  "oid": "48f643aa116edb8145095af7b62992234f5f0bd7",
+  "size": 45126,
+  "path": "README.hi.md"
+ },
+ {
+  "type": "file",
+  "oid": "a208551a10288e3d46fb434c2243b635ff3de17f",
+  "size": 25664,
+  "path": "README.id.md"
+ },
+ {
+  "type": "file",
+  "oid": "3a34e3f8e9bd19236a1520a02d5607683516a594",
+  "size": 26537,
+  "path": "README.it.md"
+ },
+ {
+  "type": "file",
+  "oid": "b0735c49450cd9116d1530e0047366c75cd0741f",
+  "size": 28327,
+  "path": "README.ja.md"
+ },
+ {
+  "type": "file",
+  "oid": "f1a411300c76c0f1e9224effcb61b3664ce26f73",
+  "size": 26097,
+  "path": "README.ko.md"
+ },
+ {
+  "type": "file",
+  "oid": "d99ca4c438bde102d259a586d8a02ade7012c4f8",
+  "size": 22097,
   "path": "README.md"
  },
  {
   "type": "file",
-  "oid": "c297f3c2178e6eea0980a8b88c6f578ff7092981",
-  "size": 65818,
-  "path": "engine/AUTHORS"
+  "oid": "8b3e10602b2a0cf3c3a973f10039ca7493e4fd85",
+  "size": 25746,
+  "path": "README.nl.md"
  },
  {
   "type": "file",
-  "oid": "e7dca554bcb802f98408383a864404e3aa4eacca",
-  "size": 1078,
-  "path": "engine/LICENSE"
+  "oid": "da3138c1997ac6f0f3a71e68c68c65b601ba6db8",
+  "size": 26294,
+  "path": "README.pl.md"
  },
  {
   "type": "file",
-  "oid": "c99bab965131a53ef4b3eb7695786e27cc893416",
-  "size": 2446,
-  "path": "engine/NOTICE"
+  "oid": "4190b2ed9d7956daf7091efc04a159cdeeb41d55",
+  "size": 26671,
+  "path": "README.pt.md"
  },
  {
   "type": "file",
-  "oid": "d2ccb7b98a4fc5ae5dc0be6841ab9f8da032c4c7",
-  "size": 4301,
-  "path": "engine/README.md"
+  "oid": "e9a3869a7108066ca848d7ac8471e788f9a6aa4f",
+  "size": 39051,
+  "path": "README.ru.md"
  },
  {
   "type": "file",
-  "oid": "981bf98001b203798f287aaf17d58ffa4fe27a68",
-  "size": 991,
-  "path": "engine/SHA256SUMS.txt"
+  "oid": "e30edd1b1c61e31f7f98232e868eafe9abff41aa",
+  "size": 26328,
+  "path": "README.tr.md"
  },
  {
   "type": "file",
-  "oid": "058a496b03f6c6b5089af77ccd3d7d8bfd1912df",
-  "size": 20125864,
-  "lfs": {
-   "oid": "39c628e7c8a17f07f48c683e14140b2dda5402dd53387b8a2761314bb68e7be1",
-   "size": 20125864,
-   "pointerSize": 133
-  },
-  "xetHash": "62f2524073ffa6812d3473a22bbc3009b4fcd0bfde771c93de302a186dadb26c",
-  "path": "engine/llama-tq-cpu-win-x64.zip"
+  "oid": "77b20060d263bf003e4b95f40e7abc68c6e52809",
+  "size": 28578,
+  "path": "README.vi.md"
  },
  {
   "type": "file",
-  "oid": "31e779a13867404884b8ef3e260f5d118c14a33a",
-  "size": 729819942,
-  "lfs": {
-   "oid": "1362fdf0807ce1b6c220a26c9c84ff35cd52e9c6b6fc79531a1ece828ca9b754",
-   "size": 729819942,
-   "pointerSize": 134
-  },
-  "xetHash": "1070834dde1858dd854d10a8c1e0ac6943fdd4e0e3a060637da270681d4c862c",
-  "path": "engine/llama-tq-cuda-12.4-win-x64-full.zip"
- },
- {
-  "type": "file",
-  "oid": "03af5447a97fe31ffc4c4fe359c0fd2c47e440d2",
-  "size": 350364687,
-  "lfs": {
-   "oid": "bdcd8afd3e8b42820d530da53e11fbaa4de87d6f97698f39d0dc12dc45de0796",
-   "size": 350364687,
-   "pointerSize": 134
-  },
-  "xetHash": "1bc7a9245041cf01c401ca9f7b6257cf83af051a28016a12ce567440900d369a",
-  "path": "engine/llama-tq-hip-win-x64.zip"
- },
- {
-  "type": "file",
-  "oid": "c4f6a4da6053d6c60affe727639f41dd66fa948e",
-  "size": 32733176,
-  "lfs": {
-   "oid": "f9aadd213fee4a099a912cb4df8ab0d4c2139dc96b24bf09b2b34016a4b44c6c",
-   "size": 32733176,
-   "pointerSize": 133
-  },
-  "xetHash": "12854c97e20deca4d96f59ecdab7209a3f922fa6e95476d1da7ff0b500758290",
-  "path": "engine/llama-tq-vulkan-win-x64.zip"
+  "oid": "468148d2b83582ec42f0fa00ecd1da6496d47ae2",
+  "size": 22156,
+  "path": "README.zh-hant.md"
  }
 ]

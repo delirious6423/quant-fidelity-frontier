@@ -1,7 +1,7 @@
 [
  {
   "type": "directory",
-  "oid": "fa15da7e3f403d5f2e6d25f0fbc27ae89070d249",
+  "oid": "5974a9b386a0dbc14f40a3f618082a4a46d8979a",
   "size": 0,
   "path": "assets"
  },
@@ -19,14 +19,26 @@
  },
  {
   "type": "directory",
+  "oid": "4ae497f69d47530b98a4c4e9b0157748acb52420",
+  "size": 0,
+  "path": "runtime"
+ },
+ {
+  "type": "directory",
+  "oid": "19baca5a65b2aab88e717d88d5672d38f90cf605",
+  "size": 0,
+  "path": "runtime/rope"
+ },
+ {
+  "type": "directory",
   "oid": "3bc92054285935e7e93e97e1f0da414beb035c17",
   "size": 0,
   "path": "tp3"
  },
  {
   "type": "file",
-  "oid": "d1a01730013afa3c21791af3cfe5b6bb8f089c17",
-  "size": 1935,
+  "oid": "3e87bda293090e9e1adf63f6f9d9cb5b2bf86bcf",
+  "size": 2217,
   "path": ".gitattributes"
  },
  {
@@ -37,20 +49,20 @@
  },
  {
   "type": "file",
-  "oid": "0caa77b2eb00915eedb82dcb3d62ff8777b04496",
-  "size": 14930,
+  "oid": "9d5114f5ae47880c3f1f60972b71e2e136209ddc",
+  "size": 15934,
   "path": "README.md"
  },
  {
   "type": "file",
-  "oid": "41e3ea73ab68e75f9e49c99fe99f23f3d703f9da",
-  "size": 554670,
+  "oid": "7427481fc64f6a779c717fc3d2dd9038e91ea87c",
+  "size": 554917,
   "lfs": {
-   "oid": "23288041537ddc9c2f8f68688a136cc6d6ccbaa8d8ace03715d997ad61b17602",
-   "size": 554670,
+   "oid": "358491974be34b83dfa71fee3c412d858f246b39c657860fab66f2c99fc7277f",
+   "size": 554917,
    "pointerSize": 131
   },
-  "xetHash": "ba25231f95281bde0ceaacb215ea10b3589060e78fec605631d8e66cbe3c433a",
+  "xetHash": "b18da988245a3bb399a66a255ce30f98cbff68368a0d7f1f65aa047129b93ec6",
   "path": "assets/chart-decode.png"
  },
  {
@@ -67,26 +79,26 @@
  },
  {
   "type": "file",
-  "oid": "48f7ffbd55bea1f37f274ba6085599fb26dc585b",
-  "size": 530277,
+  "oid": "1efbf5b6c336eccca69349d33b214aacce13974b",
+  "size": 525047,
   "lfs": {
-   "oid": "0c2269bd68a3e9133e385ca618d892e9f7af8c610ca1c94901753e176f7895bc",
-   "size": 530277,
+   "oid": "fbecf00afd629c2be02ed8b15a5ed21c3f57bcb5c4bfd6f689d6fb612572bf58",
+   "size": 525047,
    "pointerSize": 131
   },
-  "xetHash": "2dfd996c5558856844325ce1129c9e57afdd2708609beb0cedd4b24e9a953b85",
+  "xetHash": "bcba5069523d17b7a752f4d70921334cbddf0947565f23df9cc32e95cfdd6907",
   "path": "assets/chart-prefill.png"
  },
  {
   "type": "file",
-  "oid": "511fa9d1e08fddca10cb80ad0b581002f5d0cb69",
-  "size": 525944,
+  "oid": "ec4b7164ec0a01cb186f74b5c7a6066a496ec0c5",
+  "size": 530228,
   "lfs": {
-   "oid": "140896ec93cd4cf666de0e67211fffb5465a8b959afde9beb8204f41806c846c",
-   "size": 525944,
+   "oid": "bdae8793df73c1069c754471a5927ab5d4ed60f69141638aa88cf594c4f5f154",
+   "size": 530228,
    "pointerSize": 131
   },
-  "xetHash": "15b6600c64bc1d73ef4473268d691bd620d95ec3ac9e1578545f592dcad2d1b5",
+  "xetHash": "63dd5cb3ec65168e712444f072ebcc5d2d2df2ab7fa5dc66d8ecbe3f29593e3a",
   "path": "assets/chart-quality.png"
  },
  {
@@ -634,6 +646,78 @@
   },
   "xetHash": "87548ae0e3f0a6e9eb79ca30fc899ffe8737d2187f5125caee89ba4cd661fdae",
   "path": "quantization_config.json"
+ },
+ {
+  "type": "file",
+  "oid": "43e7373c899657ac7ca24054725cf941d989cdf9",
+  "size": 3015,
+  "path": "runtime/README.md"
+ },
+ {
+  "type": "file",
+  "oid": "260590f0cf99dde8c7188a0d6f0490e6d440c162",
+  "size": 869,
+  "path": "runtime/rope/RECEIPT.json"
+ },
+ {
+  "type": "file",
+  "oid": "a67e4bb307be2775f2b9ea159ca5e3fb4e44148e",
+  "size": 422576128,
+  "lfs": {
+   "oid": "e02d894c119fc61a26d2aea51488b87d35e4b33f4e266b8335e75aca5155b921",
+   "size": 422576128,
+   "pointerSize": 134
+  },
+  "xetHash": "b53fad792ae436bca0e0eb956ba4d45937a3e95440933d694fbe7360f853d20c",
+  "path": "runtime/rope/rope-compressed-cos.f32"
+ },
+ {
+  "type": "file",
+  "oid": "f6e16b4ec817d2aa7ca8cbadeff0528a5112cc38",
+  "size": 422576128,
+  "lfs": {
+   "oid": "d3a39e5b47a1d36ba9c20bfacbdf8803f3df4b7fcf7a0f947e6ef008f0a0aa2b",
+   "size": 422576128,
+   "pointerSize": 134
+  },
+  "xetHash": "c9a955f8a1e523ba4c39b18a254589eb0ffe67a29b755d8433ca79cf4bcca437",
+  "path": "runtime/rope/rope-compressed-sin.f32"
+ },
+ {
+  "type": "file",
+  "oid": "5a2c2e553627ed0c10a0114c30805da2a8f52b5b",
+  "size": 422576128,
+  "lfs": {
+   "oid": "66a47d6f185bdb2962ca0ffe13952ab70409dc15ea52f721a8e09189e5f26fe6",
+   "size": 422576128,
+   "pointerSize": 134
+  },
+  "xetHash": "3779a0bf6f0660211362bd06530abac69148a452d367c764994200070719804a",
+  "path": "runtime/rope/rope-plain-cos.f32"
+ },
+ {
+  "type": "file",
+  "oid": "dbb3d64aa7e384bc42635731b2c6546621bb701f",
+  "size": 422576128,
+  "lfs": {
+   "oid": "4ca39e36077fced64beab67b879470deb8f641a1cc26b5d227835c8c09812ecb",
+   "size": 422576128,
+   "pointerSize": 134
+  },
+  "xetHash": "2e058d52323b1eca1ae87cb411742bbd0c8e32bce7aaa3d6abf767bc8a4d5b80",
+  "path": "runtime/rope/rope-plain-sin.f32"
+ },
+ {
+  "type": "file",
+  "oid": "8a33d362bbf2b3eb024be360b61c0d239d616cfe",
+  "size": 39844643,
+  "lfs": {
+   "oid": "3e94bac39a953165b05930fc9ef91c905f6238e92640fab3dd984973d761f341",
+   "size": 39844643,
+   "pointerSize": 133
+  },
+  "xetHash": "1ddbd9dba0171cd56a32c862b4d7058a911c86a063eaec9f2dd7e7dc6298be75",
+  "path": "runtime/tensorfold-kernels.tar.gz"
  },
  {
   "type": "file",
