@@ -13,13 +13,13 @@
  },
  {
   "type": "directory",
-  "oid": "e57a7bffb06d361fe489b3d12bb8b1f32976824f",
+  "oid": "63a70697f4b4535277d15501e1ff01764bf414f5",
   "size": 0,
   "path": "chronos_1t"
  },
  {
   "type": "directory",
-  "oid": "ba458c581b502a38e6bcdb0ace2b25f360baeb42",
+  "oid": "d9216c7bb33a09157add907ac025f1b364b174ae",
   "size": 0,
   "path": "chronos_1t/converter"
  },
@@ -31,7 +31,7 @@
  },
  {
   "type": "directory",
-  "oid": "5c5a19a7ffb9f1a2b24289a0f150aa3046dbb0b9",
+  "oid": "4c0f35d819fd2670df1b92a4d0e51bc7bba9846c",
   "size": 0,
   "path": "chronos_1t/models"
  },
@@ -49,13 +49,13 @@
  },
  {
   "type": "directory",
-  "oid": "77b7b94973a8d7877d90c53d4577bdf18501ae85",
+  "oid": "d4af810a64d0a0f780e2ceed0bb38a77d60f008b",
   "size": 0,
   "path": "pb27_vllm"
  },
  {
   "type": "directory",
-  "oid": "cbbfc12409c7dd7759af01c55f82e6df73937440",
+  "oid": "5ce97d00d96577ed26011aff87912c085caea1ac",
   "size": 0,
   "path": "pb27_vllm/chronos_patches"
  },
@@ -823,6 +823,12 @@
  },
  {
   "type": "file",
+  "oid": "da94805a4a7a56386d52d11f7840ecd0bd0bee95",
+  "size": 31213,
+  "path": "chronos_1t/converter/convert_glm53_chronos.py"
+ },
+ {
+  "type": "file",
   "oid": "89638de91ed548c888dfb53fbf74a0bb8fa43b6f",
   "size": 47253,
   "path": "chronos_1t/converter/convert_glm53_flash_colab.py"
@@ -847,8 +853,8 @@
  },
  {
   "type": "file",
-  "oid": "37f265ba805976e1715ce1986973eb31185e1f35",
-  "size": 8646,
+  "oid": "f4d53b783371ed2d43b00853f75fc6275dee9277",
+  "size": 43730,
   "path": "chronos_1t/models/antiloop_think_breaker.py"
  },
  {
@@ -871,9 +877,45 @@
  },
  {
   "type": "file",
+  "oid": "fcfe8fa53fab0ee8215bd080fdce7884beb918bb",
+  "size": 23669,
+  "path": "chronos_1t/models/glm53_chronos_moe.py"
+ },
+ {
+  "type": "file",
+  "oid": "bf4a7abc9760dcf4e6e836dc5a4ff00875ff4076",
+  "size": 22035,
+  "path": "chronos_1t/models/glm53_chronos_spec.py"
+ },
+ {
+  "type": "file",
+  "oid": "870ee991d196ad17d35ca015dc2fcfaeba06f7cb",
+  "size": 19768,
+  "path": "chronos_1t/models/glm53_engine.py"
+ },
+ {
+  "type": "file",
+  "oid": "b49561c53adbfbc32cf823b92bcd9d7eb32e911e",
+  "size": 18542,
+  "path": "chronos_1t/models/glm53_holo.py"
+ },
+ {
+  "type": "file",
+  "oid": "ea7b2a62438c1d0d09ae79b437501d0f8fbb58d2",
+  "size": 18248,
+  "path": "chronos_1t/models/glm53_tiers.py"
+ },
+ {
+  "type": "file",
   "oid": "c733fa61a4533d9f4c378dfe1f7feb695f0a14bc",
   "size": 29080,
   "path": "chronos_1t/models/glm5_chronos_moe.py"
+ },
+ {
+  "type": "file",
+  "oid": "19df9177237a3ab0ea3cc4d093e14ab98945e3e4",
+  "size": 10090,
+  "path": "chronos_1t/models/patch_glm53_vllm.py"
  },
  {
   "type": "file",
@@ -1045,8 +1087,8 @@
  },
  {
   "type": "file",
-  "oid": "fc9262a8a9ec18daf97f21d5f8cc5b7a5eacf669",
-  "size": 29994,
+  "oid": "372d8179286bdc2225c3b4377b799942f5b15cd3",
+  "size": 30058,
   "path": "pb27_vllm/__init__.py"
  },
  {
@@ -1054,6 +1096,36 @@
   "oid": "0fdb5cd0be35853aae789449741627dd80a1a2e2",
   "size": 13333,
   "path": "pb27_vllm/chronos_patches/antiloop_think_breaker.py"
+ },
+ {
+  "type": "file",
+  "oid": "7dcd43ada2658a0acfc8c036f0a3bd783c6d29ca",
+  "size": 12622,
+  "path": "pb27_vllm/chronos_patches/compressed_tensors_moe_w4a4_nvfp4.py"
+ },
+ {
+  "type": "file",
+  "oid": "dc71082da4f123176e82500dc03bc657d6429500",
+  "size": 29168,
+  "path": "pb27_vllm/chronos_patches/fused_topk_bias_router.py"
+ },
+ {
+  "type": "file",
+  "oid": "dc42891eaa43f601b4fd5c53a96f4db30caf3342",
+  "size": 53526,
+  "path": "pb27_vllm/chronos_patches/glm5next_model.py"
+ },
+ {
+  "type": "file",
+  "oid": "29500f0461f7ba339573ec9e6ad2118c0c1ad049",
+  "size": 20701,
+  "path": "pb27_vllm/chronos_patches/glm5next_mtp.py"
+ },
+ {
+  "type": "file",
+  "oid": "66260a5b1d4044c8c3f821f039e3772bc3dacd5e",
+  "size": 13376,
+  "path": "pb27_vllm/chronos_patches/grouped_topk_router.py"
  },
  {
   "type": "file",
