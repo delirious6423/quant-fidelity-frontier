@@ -12,6 +12,7 @@ permission for a new production deployment.
 | Live updates | Hourly at :03 | `qcl_next.py --part A --collected` | Map, merge and gate changed cards; commit staged data |
 | New model | Every 2 hours at :37 | `qcl_next.py --part B` | Resume the next ingest; checkpoint progress; hand completed models to QA as `review` |
 | QA and publish | Hourly at :55 | `qcl_qa.py` | Review new values, run all tests, request Pages verification; record deployment only after exact-commit success |
+| Watchdog | Hourly at :20 (GitHub Actions, `watchdog.yml`) | `qcl_watchdog.py --issue` | Open, update or close one issue for withdrawn values not restored and stalled tasks (section "Watchdog") |
 | README check | Daily at 00:58 | `docs/runbooks/agents/README_CHECK.md` | Check generated counts, links and prose; no site deployment |
 
 QA runs at :55 so that a live-updates run (workers stop at 45 minutes) has finished before QA synchronizes to main; an earlier :15 slot made QA race the scan's push. Only QA requests a site deployment. A scan's successful build or commit is not a
@@ -147,6 +148,40 @@ A failed run permits a new attempt; an unavailable or malformed status response
 leaves the existing receipt unchanged. The report includes the workflow URL when
 success is established. The public MCP Space is a separate, explicitly approved
 deployment; publishing Pages does not publish the MCP server.
+
+## Watchdog
+
+Two failures used to be silent: a scheduled task that stops running (no run fails, the logs just stop), and reviewed
+values that a changed card withdrew and nothing brought back. A card edit withdraws every value reviewed against the old
+bytes (`gates/current.py`); the live-updates task re-maps the card, but a mapping can return fewer values than the hand
+review it replaces, and nothing re-reads values that exist only in chart images. On 21 Oct 2026 that had removed 35
+turboderp values (redrawn charts) and left 256 other hand-reviewed Flash-Next values withdrawn, some for three days,
+while the scheduled tasks themselves had silently disappeared.
+
+`.github/workflows/watchdog.yml` runs `python3 pipeline/qcl_watchdog.py --issue` every hour at :20 on GitHub Actions,
+independent of the tasks it watches. It reports:
+
+- **Stalled tasks**: live updates when the newest `logs/scan/*-live.jsonl` is older than 3 hours (every run logs);
+  QA and publish when main has held a publication change newer than `audit/deployed.json` for more than 4 hours (an
+  idle QA run writes no log, so its log age says nothing).
+- **Withdrawn values**: per live model, every repo whose reviewed entries hold more values than its current entries
+  (`Reviewed`, `Now`, `Lost`; quality values and sizes, as the site counts them), marked `chart images`, `hand review`
+  or `machine mapping`. A repo is overdue 6 hours after it was first seen withdrawn, so a card that changed this hour is
+  left to the live-updates task first; the first-seen times are kept in the issue, so a card's metadata refresh cannot
+  restart the clock.
+
+While anything is overdue, one issue titled "Watchdog: withdrawn values or stalled tasks", opened by the workflow, is open. Its body is the
+current report; it gets a comment only when the set of problems changes, and it is closed when all is clear. Run
+`python3 pipeline/qcl_watchdog.py` (or `--json`, `--strict`) locally for the same report.
+
+What to do:
+
+| Report | Response |
+|---|---|
+| A task is stalled | Check that the scheduled task exists and is enabled, then read its newest log under `logs/scan/`. For QA, a manual Pages deploy does not count: only a QA run advances `audit/deployed.json` |
+| `chart images` | Re-read the charts of the new card: pin the card's images in `snapshots/images/`, re-digitize every marker, update `verified/part3_images.py` (values, `px`, `source_sha256`, line refs) and make `gates/verify_images.py` pass. A redrawn chart can need a new calibration in the gate |
+| `hand review` | Compare the new card with the reviewed one. If the cited lines are unchanged, re-pin the entry to the new card (line numbers may move); otherwise review the changed values again. Never copy a value the new card no longer shows |
+| `machine mapping` | The re-mapping has not happened or failed: read the newest live-updates log for that model |
 
 ## Recovery
 
