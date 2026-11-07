@@ -59,7 +59,7 @@
   "_id": "6ac5f3fd20fe183e8274a45b",
   "id": "peasantsmith/GLM-5.3-Flash-Maya-GGUF",
   "lastModified": "2026-11-03T00:10:21.000Z",
-  "trendingScore": 14,
+  "trendingScore": 15,
   "sha": "a1c2a554ea72a7e8e66cc28b3eaf5036c9313860",
   "downloads": 1063696,
   "tags": [
@@ -80,10 +80,34 @@
   "createdAt": "2026-10-07T07:25:49.000Z"
  },
  {
+  "_id": "6a8ef65b58482bb8b9d2a681",
+  "id": "unsloth/GLM-5.3-Flash-GGUF",
+  "lastModified": "2026-10-05T22:23:39.000Z",
+  "trendingScore": 7,
+  "sha": "a38483c8cd5df544f53d70fb281afe97369d5ab6",
+  "downloads": 823345,
+  "tags": [
+   "gguf",
+   "unsloth",
+   "glm5_next",
+   "text-generation",
+   "en",
+   "zh",
+   "arxiv:2602.15763",
+   "base_model:zai-org/GLM-5.3-Flash",
+   "base_model:quantized:zai-org/GLM-5.3-Flash",
+   "license:mit",
+   "endpoints_compatible",
+   "region:us",
+   "conversational"
+  ],
+  "createdAt": "2026-08-26T14:21:15.000Z"
+ },
+ {
   "_id": "6a954c3292de0e20d7c5bc1c",
   "id": "orcarouter/GLM-5.3-Flash-Uncensored-GGUF",
   "lastModified": "2026-10-27T06:55:33.000Z",
-  "trendingScore": 7,
+  "trendingScore": 6,
   "sha": "7c5e75e9ca84eff66b73130bf525090e040abc3e",
   "downloads": 19693,
   "tags": [
@@ -116,34 +140,10 @@
   "createdAt": "2026-08-31T09:41:06.000Z"
  },
  {
-  "_id": "6a8ef65b58482bb8b9d2a681",
-  "id": "unsloth/GLM-5.3-Flash-GGUF",
-  "lastModified": "2026-10-05T22:23:39.000Z",
-  "trendingScore": 6,
-  "sha": "a38483c8cd5df544f53d70fb281afe97369d5ab6",
-  "downloads": 823345,
-  "tags": [
-   "gguf",
-   "unsloth",
-   "glm5_next",
-   "text-generation",
-   "en",
-   "zh",
-   "arxiv:2602.15763",
-   "base_model:zai-org/GLM-5.3-Flash",
-   "base_model:quantized:zai-org/GLM-5.3-Flash",
-   "license:mit",
-   "endpoints_compatible",
-   "region:us",
-   "conversational"
-  ],
-  "createdAt": "2026-08-26T14:21:15.000Z"
- },
- {
   "_id": "6acd955b81901cf66e21d3b4",
   "id": "lapadatbogdan/GLM-5.3-Flash-Coder-RCO-152E-GGUF",
   "lastModified": "2026-10-31T10:17:56.000Z",
-  "trendingScore": 5,
+  "trendingScore": 6,
   "sha": "22b67db7dc99aa82e45e32042f933181067bb6cf",
   "downloads": 32900,
   "tags": [
@@ -217,47 +217,6 @@
    "conversational"
   ],
   "createdAt": "2026-08-30T06:10:34.000Z"
- },
- {
-  "_id": "6a94f224e9c40d15b705a308",
-  "id": "orcarouter/GLM-5.3-Flash-Uncensored-NVFP4",
-  "lastModified": "2026-10-27T06:55:44.000Z",
-  "trendingScore": 3,
-  "sha": "7014b88535c4cec6ba9a000cff961034968adae1",
-  "downloads": 1740,
-  "tags": [
-   "transformers",
-   "safetensors",
-   "glm5_next",
-   "image-text-to-text",
-   "abliterated",
-   "uncensored",
-   "glm",
-   "glm5",
-   "glm-5.3-flash",
-   "glm5-next",
-   "moe",
-   "nvfp4",
-   "fp4",
-   "compressed-tensors",
-   "vllm",
-   "vision-language",
-   "function-calling",
-   "reasoning",
-   "mtp",
-   "ai-red-team",
-   "red-teaming",
-   "conversational",
-   "en",
-   "zh",
-   "base_model:zai-org/GLM-5.3-Flash",
-   "base_model:quantized:zai-org/GLM-5.3-Flash",
-   "license:mit",
-   "endpoints_compatible",
-   "8-bit",
-   "region:us"
-  ],
-  "createdAt": "2026-08-31T03:16:52.000Z"
  },
  {
   "_id": "6a9888fd292fb073925549dc",
@@ -390,6 +349,47 @@
    "region:us"
   ],
   "createdAt": "2026-08-30T19:27:33.000Z"
+ },
+ {
+  "_id": "6a94f224e9c40d15b705a308",
+  "id": "orcarouter/GLM-5.3-Flash-Uncensored-NVFP4",
+  "lastModified": "2026-10-27T06:55:44.000Z",
+  "trendingScore": 2,
+  "sha": "7014b88535c4cec6ba9a000cff961034968adae1",
+  "downloads": 1740,
+  "tags": [
+   "transformers",
+   "safetensors",
+   "glm5_next",
+   "image-text-to-text",
+   "abliterated",
+   "uncensored",
+   "glm",
+   "glm5",
+   "glm-5.3-flash",
+   "glm5-next",
+   "moe",
+   "nvfp4",
+   "fp4",
+   "compressed-tensors",
+   "vllm",
+   "vision-language",
+   "function-calling",
+   "reasoning",
+   "mtp",
+   "ai-red-team",
+   "red-teaming",
+   "conversational",
+   "en",
+   "zh",
+   "base_model:zai-org/GLM-5.3-Flash",
+   "base_model:quantized:zai-org/GLM-5.3-Flash",
+   "license:mit",
+   "endpoints_compatible",
+   "8-bit",
+   "region:us"
+  ],
+  "createdAt": "2026-08-31T03:16:52.000Z"
  },
  {
   "_id": "6aaf5b13d43a267bae22713a",
@@ -583,44 +583,6 @@
   "createdAt": "2026-08-27T12:42:19.000Z"
  },
  {
-  "_id": "6a9523f04e161efba951c3d9",
-  "id": "orcarouter/GLM-5.3-Flash-Uncensored-MLX",
-  "lastModified": "2026-10-27T06:55:37.000Z",
-  "trendingScore": 1,
-  "sha": "535221c44de0007835c663cc098cc70e075f6a4b",
-  "downloads": 224,
-  "tags": [
-   "mlx",
-   "safetensors",
-   "glm5_next",
-   "abliterated",
-   "uncensored",
-   "glm",
-   "glm5",
-   "glm-5.3-flash",
-   "glm5-next",
-   "moe",
-   "vision-language",
-   "function-calling",
-   "reasoning",
-   "mtp",
-   "apple-silicon",
-   "4bit",
-   "ai-red-team",
-   "red-teaming",
-   "image-text-to-text",
-   "conversational",
-   "en",
-   "zh",
-   "base_model:zai-org/GLM-5.3-Flash",
-   "base_model:quantized:zai-org/GLM-5.3-Flash",
-   "license:mit",
-   "4-bit",
-   "region:us"
-  ],
-  "createdAt": "2026-08-31T06:49:20.000Z"
- },
- {
   "_id": "6aadc5994a43a3fea0715e98",
   "id": "genevera/GLM-5.3-Flash-Uncensored-EXL3-2.5bpw",
   "lastModified": "2026-09-19T05:05:28.000Z",
@@ -775,6 +737,37 @@
    "region:us"
   ],
   "createdAt": "2026-11-05T03:03:02.000Z"
+ },
+ {
+  "_id": "6aee44299106bbd0f773cd77",
+  "id": "GRRNMAKE/GLM5.3Flash_symb",
+  "lastModified": "2026-11-07T02:39:00.000Z",
+  "trendingScore": 1,
+  "sha": "80619236c7b07618a5b098743a9d54ef17530661",
+  "downloads": 0,
+  "tags": [
+   "axim-os",
+   "glm5_next",
+   "symb",
+   "cognitus-lab",
+   "synaxim",
+   "glm-5.3-flash",
+   "moe",
+   "mla",
+   "kda",
+   "hyper-connections",
+   "agentic-coding",
+   "text-generation",
+   "en",
+   "zh",
+   "multilingual",
+   "base_model:zai-org/GLM-5.3-Flash",
+   "base_model:quantized:zai-org/GLM-5.3-Flash",
+   "license:other",
+   "fp8",
+   "region:us"
+  ],
+  "createdAt": "2026-11-06T21:18:33.000Z"
  },
  {
   "_id": "6ac57af68498f1ac2028ae72",
@@ -1596,9 +1589,9 @@
  {
   "_id": "6a90d8ee1f0f2f0e60b62545",
   "id": "patrickbdevaney/GLM-5.3-Flash-REAP50-FP8",
-  "lastModified": "2026-11-07T00:56:58.000Z",
+  "lastModified": "2026-11-07T01:30:26.000Z",
   "trendingScore": 0,
-  "sha": "4f10856665e6cb85fc564af0ae6d483b90822d7e",
+  "sha": "3e09bb1586e10186c99b3ce2d2ac72599357cad8",
   "downloads": 67,
   "tags": [
    "transformers",
@@ -1929,9 +1922,9 @@
  {
   "_id": "6a925d9bdd2120a777a7dd18",
   "id": "patrickbdevaney/GLM-5.3-Flash-REAP50-FP8-v2",
-  "lastModified": "2026-11-07T00:57:20.000Z",
+  "lastModified": "2026-11-07T01:30:22.000Z",
   "trendingScore": 0,
-  "sha": "4b60458f848e397985967610305083cab46ffb8b",
+  "sha": "9231c2413345b55f725e91de563cec06046959ca",
   "downloads": 180,
   "tags": [
    "transformers",
@@ -2374,6 +2367,44 @@
    "region:us"
   ],
   "createdAt": "2026-08-31T06:08:56.000Z"
+ },
+ {
+  "_id": "6a9523f04e161efba951c3d9",
+  "id": "orcarouter/GLM-5.3-Flash-Uncensored-MLX",
+  "lastModified": "2026-10-27T06:55:37.000Z",
+  "trendingScore": 0,
+  "sha": "535221c44de0007835c663cc098cc70e075f6a4b",
+  "downloads": 224,
+  "tags": [
+   "mlx",
+   "safetensors",
+   "glm5_next",
+   "abliterated",
+   "uncensored",
+   "glm",
+   "glm5",
+   "glm-5.3-flash",
+   "glm5-next",
+   "moe",
+   "vision-language",
+   "function-calling",
+   "reasoning",
+   "mtp",
+   "apple-silicon",
+   "4bit",
+   "ai-red-team",
+   "red-teaming",
+   "image-text-to-text",
+   "conversational",
+   "en",
+   "zh",
+   "base_model:zai-org/GLM-5.3-Flash",
+   "base_model:quantized:zai-org/GLM-5.3-Flash",
+   "license:mit",
+   "4-bit",
+   "region:us"
+  ],
+  "createdAt": "2026-08-31T06:49:20.000Z"
  },
  {
   "_id": "6a953ac31169a8e0a99db2d4",
@@ -5840,9 +5871,9 @@
  {
   "_id": "6ae88992d9e5b6769ab85c6b",
   "id": "zephel01/GLM-5.3-Flash-32G96G-GGUF",
-  "lastModified": "2026-11-07T01:10:30.000Z",
+  "lastModified": "2026-11-07T02:32:02.000Z",
   "trendingScore": 0,
-  "sha": "cb57d1a99fb4b7efbc4c7204fc3cb2dccf7cebfb",
+  "sha": "4e50c40e0d11186a764963375bab4182391a9afe",
   "downloads": 0,
   "tags": [
    "gguf",
@@ -5994,37 +6025,6 @@
   "createdAt": "2026-11-06T15:46:35.000Z"
  },
  {
-  "_id": "6aee44299106bbd0f773cd77",
-  "id": "GRRNMAKE/GLM5.3Flash_symb",
-  "lastModified": "2026-11-07T00:31:46.000Z",
-  "trendingScore": 0,
-  "sha": "784209053587f2a20c97358adb6fb1b72e8026dd",
-  "downloads": 0,
-  "tags": [
-   "axim-os",
-   "glm5_next",
-   "symb",
-   "cognitus-lab",
-   "synaxim",
-   "glm-5.3-flash",
-   "moe",
-   "mla",
-   "kda",
-   "hyper-connections",
-   "agentic-coding",
-   "text-generation",
-   "en",
-   "zh",
-   "multilingual",
-   "base_model:zai-org/GLM-5.3-Flash",
-   "base_model:quantized:zai-org/GLM-5.3-Flash",
-   "license:other",
-   "fp8",
-   "region:us"
-  ],
-  "createdAt": "2026-11-06T21:18:33.000Z"
- },
- {
   "_id": "6aee61839cd91f015e40c2ca",
   "id": "zephel01/GLM-5.3-Flash-32G128G-GGUF",
   "lastModified": "2026-11-07T01:10:33.000Z",
@@ -6050,9 +6050,9 @@
  {
   "_id": "6aee632498a541401ba3ba35",
   "id": "zephel01/GLM-5.3-Flash-DGX-Spark-GGUF",
-  "lastModified": "2026-11-07T01:10:37.000Z",
+  "lastModified": "2026-11-07T02:31:58.000Z",
   "trendingScore": 0,
-  "sha": "6b9f98f72a9334a3345bba0fddd08e4b6d3e062c",
+  "sha": "ba48daf468ee29ae413536d147ff010c43c289d8",
   "downloads": 0,
   "tags": [
    "gguf",
@@ -6071,5 +6071,33 @@
    "conversational"
   ],
   "createdAt": "2026-11-06T23:30:44.000Z"
+ },
+ {
+  "_id": "6aee81092abb4cb6044e1680",
+  "id": "Leohdgheftt/Huihui-GLM-5.3-Flash-abliterated-GGUF",
+  "lastModified": "2026-11-07T01:43:34.000Z",
+  "trendingScore": 0,
+  "sha": "3261c13fbbb4718f6577d075f76d74e539b1ddef",
+  "downloads": 0,
+  "tags": [
+   "transformers",
+   "gguf",
+   "abliterated",
+   "uncensored",
+   "huihui",
+   "unsloth",
+   "glm5_next",
+   "image-text-to-text",
+   "en",
+   "zh",
+   "base_model:zai-org/GLM-5.3-Flash",
+   "base_model:quantized:zai-org/GLM-5.3-Flash",
+   "license:mit",
+   "endpoints_compatible",
+   "region:us",
+   "imatrix",
+   "conversational"
+  ],
+  "createdAt": "2026-11-07T01:38:17.000Z"
  }
 ]
