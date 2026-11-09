@@ -67,6 +67,7 @@ jobs:
           python3 tests/test_collect.py
           python3 tests/test_images.py
           python3 tests/test_ci_local.py
+          python3 tests/test_watchdog.py
   model:
     needs: plan
     name: model ${{ matrix.slug }}

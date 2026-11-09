@@ -58,6 +58,7 @@ Ingestion and scan scripts, indexed by stage. Each description is the first sent
 | `qcl_next.py` | The hourly scan as a state machine: the coordinating session only does what this prints, then runs it again. | `python3 pipeline/qcl_next.py` |
 | `qcl_scan.py` | Deterministic steps of the hourly scan (docs/runbooks/HOURLY.md). | `python3 pipeline/qcl_scan.py lock` |
 | `qcl_qa.py` | QA worker: the only job that publishes the site. | `python3 pipeline/qcl_qa.py` |
+| `qcl_watchdog.py` | Report reviewed values a changed card withdrew and nothing restored, and stalled scheduled tasks; keeps one GitHub issue open while anything is overdue (`watchdog.yml`, hourly). | `python3 pipeline/qcl_watchdog.py [--json] [--strict] [--issue]` |
 
 ## Scripted runner
 
