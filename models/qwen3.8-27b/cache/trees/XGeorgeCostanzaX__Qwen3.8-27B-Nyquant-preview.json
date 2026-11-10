@@ -13,13 +13,19 @@
  },
  {
   "type": "directory",
-  "oid": "d7a70fcfe6b7707d1806e0006e870c663ccdae28",
+  "oid": "181c38b2a8aa6f1fe2ac851da554656a4cbb8668",
+  "size": 0,
+  "path": "RC3Y-v2-K"
+ },
+ {
+  "type": "directory",
+  "oid": "9c1e57449d1088deb8967a016ae5dbc1ae86eab1",
   "size": 0,
   "path": "RC3Y"
  },
  {
   "type": "directory",
-  "oid": "7c2dcb245f4d232f67b3b8de16d7ec68e4d2642c",
+  "oid": "2e776e39916bb03cb6bcbacec13630408d7b9096",
   "size": 0,
   "path": "RC3Y/llama.cpp-p100-patches"
  },
@@ -37,8 +43,8 @@
  },
  {
   "type": "file",
-  "oid": "bb50d66822b33c9075f88271c8f138b39775d110",
-  "size": 2203,
+  "oid": "6dbd90d8fa4c901970016916a351ccecf0d76305",
+  "size": 2281,
   "path": ".gitattributes"
  },
  {
@@ -73,8 +79,8 @@
  },
  {
   "type": "file",
-  "oid": "ac5dbb07c606e2ec224943a93e816c78c8a80e7d",
-  "size": 1789,
+  "oid": "c7bbaabc8e4b3a72808b58180ae7bc12075155c8",
+  "size": 2849,
   "path": "NOTICE"
  },
  {
@@ -229,6 +235,42 @@
  },
  {
   "type": "file",
+  "oid": "b21279671ac3140d82ecaecefc7cfa38558a60f3",
+  "size": 3282,
+  "path": "RC3Y-v2-K/MANIFEST.json"
+ },
+ {
+  "type": "file",
+  "oid": "3ad92322a34eb2ef49b02719d838de3a78b446e5",
+  "size": 154061,
+  "path": "RC3Y-v2-K/MANIFEST.tsv"
+ },
+ {
+  "type": "file",
+  "oid": "2d2ef3b700644675fac4e2e9fe4867248ff406b5",
+  "size": 2652,
+  "path": "RC3Y-v2-K/NOTICE"
+ },
+ {
+  "type": "file",
+  "oid": "568ffe68f14a79f6b7fce1cbcbf51eb09a56c12b",
+  "size": 11648340000,
+  "lfs": {
+   "oid": "20b67c53b1451be0563c7a4be7c2c660b887b4e581596063a37313a5b6c0160a",
+   "size": 11648340000,
+   "pointerSize": 136
+  },
+  "xetHash": "98367029eed2fda34d8477c34c750529e231020224eb1465507aba45f07394ea",
+  "path": "RC3Y-v2-K/Qwen3.8-27B-RC3Y-v2-K-P100.gguf"
+ },
+ {
+  "type": "file",
+  "oid": "632eef19685dbf83c322e2dba9a8abc10211d3a8",
+  "size": 330,
+  "path": "RC3Y-v2-K/SHA256SUMS"
+ },
+ {
+  "type": "file",
   "oid": "b3b428cedc60438e435a437a64d1c7798a154eb0",
   "size": 11650719040,
   "lfs": {
@@ -307,14 +349,116 @@
  },
  {
   "type": "file",
-  "oid": "f3448f4e081f430a15cd39cfb3a82987d533d3e2",
-  "size": 1543,
+  "oid": "f20b16b7525e73f2c10f2ea5c2bc33833335a798",
+  "size": 15299,
+  "path": "RC3Y/llama.cpp-p100-patches/0012-delta-net-conv-state-at-n-K-1-p100-gemv-I60-write-mi.patch"
+ },
+ {
+  "type": "file",
+  "oid": "e97226222305e41c36e52623f578fdd8f35ce12f",
+  "size": 11039,
+  "path": "RC3Y/llama.cpp-p100-patches/0013-cuda-use-column-major-NQ-dequant-and-HGEMM-NN-for-P1.patch"
+ },
+ {
+  "type": "file",
+  "oid": "7157942194560be622fc5f91802d06f2222a75f9",
+  "size": 1868,
+  "path": "RC3Y/llama.cpp-p100-patches/0014-cuda-add-optional-P100-graph-replay-for-measured-dec.patch"
+ },
+ {
+  "type": "file",
+  "oid": "8a2b12b654a89acd11befca1211ff248b5ee0efb",
+  "size": 17712,
+  "path": "RC3Y/llama.cpp-p100-patches/0015-cuda-read-P100-GDN-state-directly-from-recurrent-cac.patch"
+ },
+ {
+  "type": "file",
+  "oid": "396d2d3a969a3ab2116cdfc01f53703c15097c38",
+  "size": 17663,
+  "path": "RC3Y/llama.cpp-p100-patches/0016-cuda-add-default-off-I54-verifier-quality-probe-for-.patch"
+ },
+ {
+  "type": "file",
+  "oid": "ada09002e423cfb753456fbab63c33e3f2f71b2d",
+  "size": 4311,
+  "path": "RC3Y/llama.cpp-p100-patches/0017-cuda-tune-selected-P100-NQ-prefill-GEMMs-without-cha.patch"
+ },
+ {
+  "type": "file",
+  "oid": "d58713e5888208678774bf9002f9f070f736c9e5",
+  "size": 1653,
+  "path": "RC3Y/llama.cpp-p100-patches/0018-speculative-simple-honor-the-requested-generation-to.patch"
+ },
+ {
+  "type": "file",
+  "oid": "6baa911b9b25e514475273afc3e9f0835c52ea97",
+  "size": 1707,
+  "path": "RC3Y/llama.cpp-p100-patches/0019-test-backend-ops-NQ_AR3-AR4-MUL_MAT-at-decode-widths.patch"
+ },
+ {
+  "type": "file",
+  "oid": "024eddda7fddacbb7d24437cbafe89b944952361",
+  "size": 5863,
+  "path": "RC3Y/llama.cpp-p100-patches/0020-CUDA-NQ-multi-sequence-decode-on-the-NQ-kernels-mu-d.patch"
+ },
+ {
+  "type": "file",
+  "oid": "ec73c6d817a0423cae0e7da0774e1c5f3199c567",
+  "size": 1803,
+  "path": "RC3Y/llama.cpp-p100-patches/0021-CUDA-NQ-GGML_CUDA_NQ_MC_R1_NC-tuning-knob-for-the-mu.patch"
+ },
+ {
+  "type": "file",
+  "oid": "a5cf65e4076c1f37c045d3ff5519b94333732592",
+  "size": 2616,
+  "path": "RC3Y/llama.cpp-p100-patches/0022-CUDA-P100-9-16-columns-on-small-quantized-weights-as.patch"
+ },
+ {
+  "type": "file",
+  "oid": "3c8e6f936fdacdd64c779d0753e91ede03f3793e",
+  "size": 1798,
+  "path": "RC3Y/llama.cpp-p100-patches/0023-speculative-stop-MTP-passes-at-each-sequence-draft-l.patch"
+ },
+ {
+  "type": "file",
+  "oid": "333fc4b83d9bd0d1d812300a81b0e1806464406c",
+  "size": 19565,
+  "path": "RC3Y/llama.cpp-p100-patches/0024-CUDA-GDN-read-multi-sequence-state-rows-straight-fro.patch"
+ },
+ {
+  "type": "file",
+  "oid": "28aac2de03ce972cfdc6ab471c1b8bc0fdeea69f",
+  "size": 13908,
+  "path": "RC3Y/llama.cpp-p100-patches/0025-speculative-add-opt-in-P100-adaptive-K-and-draft-hea.patch"
+ },
+ {
+  "type": "file",
+  "oid": "8ff2c5c7fef3c8d991307cc0a5402c8481b93034",
+  "size": 5657,
+  "path": "RC3Y/llama.cpp-p100-patches/0026-speculative-size-recurrent-rollback-for-every-stacke.patch"
+ },
+ {
+  "type": "file",
+  "oid": "316253f62a146b988071a37e5b8a10218327b3e6",
+  "size": 13794,
+  "path": "RC3Y/llama.cpp-p100-patches/0027-CUDA-H2-NQ-I43-activation-producers-for-2-8-rows-rea.patch"
+ },
+ {
+  "type": "file",
+  "oid": "4ed78e63861ca41a56f95b6f770f43cc016a9941",
+  "size": 7640,
+  "path": "RC3Y/llama.cpp-p100-patches/0028-speculative-add-opt-in-P100-c1-proposer-selection.patch"
+ },
+ {
+  "type": "file",
+  "oid": "2de487632badac2ea88f2d456ed56fb373a4b131",
+  "size": 5968,
   "path": "RC3Y/llama.cpp-p100-patches/BUILD.md"
  },
  {
   "type": "file",
-  "oid": "6d51a51f4dc3d10ebd8dcfc9ea3409acb6f28ca0",
-  "size": 47534,
+  "oid": "757d773f254ab278a12699e9ae9d4f5d3a3d10c3",
+  "size": 68016,
   "path": "README.md"
  },
  {
