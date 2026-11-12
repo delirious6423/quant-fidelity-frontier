@@ -3,7 +3,7 @@
   "_id": "6aeb5d12812ed14d9f44cc92",
   "id": "webAI-Official/Air-26B-A4B-gguf",
   "lastModified": "2026-11-09T14:46:16.000Z",
-  "trendingScore": 45,
+  "trendingScore": 38,
   "sha": "580f6ec8b0e1ab105749b5e62c34e625228be9e3",
   "downloads": 20364,
   "tags": [
@@ -27,7 +27,7 @@
   "_id": "6a3c6bacea38e2f7f216ce43",
   "id": "HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP",
   "lastModified": "2026-06-25T00:22:39.000Z",
-  "trendingScore": 20,
+  "trendingScore": 18,
   "sha": "f9093662a2e7ae0503f637088bc96f77a1a70c83",
   "downloads": 485903,
   "tags": [
@@ -57,7 +57,7 @@
   "_id": "69cd2ed58fcb50f877e8912d",
   "id": "unsloth/gemma-4-26B-A4B-it-GGUF",
   "lastModified": "2026-07-17T13:00:49.000Z",
-  "trendingScore": 15,
+  "trendingScore": 16,
   "sha": "c099eb48e663fd284577b04978a94ffccb261841",
   "downloads": 1909602,
   "tags": [
@@ -81,7 +81,7 @@
   "_id": "6aef62709ba5237bda342a09",
   "id": "AmSach/Gemma-4-26B-A4B-MAPLE-Sub5GB-GGUF",
   "lastModified": "2026-11-08T20:56:53.000Z",
-  "trendingScore": 6,
+  "trendingScore": 7,
   "sha": "18ea7f6b2ab93454048455765018464fccc8ff2c",
   "downloads": 1397,
   "tags": [
@@ -163,35 +163,10 @@
   "createdAt": "2026-11-06T08:45:50.000Z"
  },
  {
-  "_id": "69d3bd6fbbf83b1a4bd536b1",
-  "id": "RedHatAI/gemma-4-26B-A4B-it-FP8-dynamic",
-  "lastModified": "2026-08-13T13:09:29.000Z",
-  "trendingScore": 2,
-  "sha": "ed35d7abe5d940da41b4ff06eb482feb0be8cb44",
-  "downloads": 1282557,
-  "tags": [
-   "transformers",
-   "safetensors",
-   "gemma4",
-   "image-text-to-text",
-   "fp8",
-   "vllm",
-   "llm-compressor",
-   "compressed-tensors",
-   "conversational",
-   "base_model:google/gemma-4-26B-A4B-it",
-   "base_model:quantized:google/gemma-4-26B-A4B-it",
-   "license:apache-2.0",
-   "endpoints_compatible",
-   "region:us"
-  ],
-  "createdAt": "2026-04-06T14:04:31.000Z"
- },
- {
   "_id": "69da2a69720752e4db99417d",
   "id": "Jiunsong/supergemma4-26b-uncensored-gguf-v2",
   "lastModified": "2026-04-12T13:42:43.000Z",
-  "trendingScore": 2,
+  "trendingScore": 3,
   "sha": "3ea8c452a2b136875c0c8b529612bed39c81e27a",
   "downloads": 21389,
   "tags": [
@@ -215,6 +190,31 @@
    "region:us"
   ],
   "createdAt": "2026-04-11T11:03:05.000Z"
+ },
+ {
+  "_id": "69d3bd6fbbf83b1a4bd536b1",
+  "id": "RedHatAI/gemma-4-26B-A4B-it-FP8-dynamic",
+  "lastModified": "2026-08-13T13:09:29.000Z",
+  "trendingScore": 2,
+  "sha": "ed35d7abe5d940da41b4ff06eb482feb0be8cb44",
+  "downloads": 1282557,
+  "tags": [
+   "transformers",
+   "safetensors",
+   "gemma4",
+   "image-text-to-text",
+   "fp8",
+   "vllm",
+   "llm-compressor",
+   "compressed-tensors",
+   "conversational",
+   "base_model:google/gemma-4-26B-A4B-it",
+   "base_model:quantized:google/gemma-4-26B-A4B-it",
+   "license:apache-2.0",
+   "endpoints_compatible",
+   "region:us"
+  ],
+  "createdAt": "2026-04-06T14:04:31.000Z"
  },
  {
   "_id": "6acfeb69c47a6b70e2b148fe",
@@ -272,26 +272,6 @@
    "conversational"
   ],
   "createdAt": "2026-11-10T05:12:25.000Z"
- },
- {
-  "_id": "69ccf47089c66121f3470bbf",
-  "id": "ggml-org/gemma-4-26B-A4B-it-GGUF",
-  "lastModified": "2026-10-19T10:57:49.000Z",
-  "trendingScore": 1,
-  "sha": "9cf8c8db0f83fb4582f15381f8fb1a7c1b0b9ca2",
-  "downloads": 325977,
-  "tags": [
-   "gguf",
-   "quantized",
-   "image-text-to-text",
-   "base_model:google/gemma-4-26B-A4B-it",
-   "base_model:quantized:google/gemma-4-26B-A4B-it",
-   "license:apache-2.0",
-   "endpoints_compatible",
-   "region:us",
-   "conversational"
-  ],
-  "createdAt": "2026-04-01T10:33:20.000Z"
  },
  {
   "_id": "69ce92b82542452497883ece",
@@ -535,11 +515,36 @@
   "createdAt": "2026-08-22T09:24:06.000Z"
  },
  {
+  "_id": "6aa40218873a8f8157de43aa",
+  "id": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-heretic-japanese-pruned-GGUF",
+  "lastModified": "2026-09-11T14:10:23.000Z",
+  "trendingScore": 1,
+  "sha": "b58aca87d1f8b198b4f3d38b4aae5fcb3a0e07b4",
+  "downloads": 2529,
+  "tags": [
+   "transformers",
+   "gguf",
+   "heretic",
+   "uncensored",
+   "decensored",
+   "abliterated",
+   "image-text-to-text",
+   "arxiv:2607.02770",
+   "base_model:google/gemma-4-26B-A4B-it",
+   "base_model:quantized:google/gemma-4-26B-A4B-it",
+   "license:apache-2.0",
+   "endpoints_compatible",
+   "region:us",
+   "conversational"
+  ],
+  "createdAt": "2026-09-11T13:28:56.000Z"
+ },
+ {
   "_id": "6abc3560e0244831941618c5",
   "id": "fraQtl/Gemma-4-26B-A4B-it-Nano-GGUF",
-  "lastModified": "2026-10-25T20:19:58.000Z",
+  "lastModified": "2026-11-12T03:43:42.000Z",
   "trendingScore": 1,
-  "sha": "dfb0834cda5f7fa4815d841dee4742a3b5b15221",
+  "sha": "cf567cec52bea0a1daf266cb90574fdd8afffcd1",
   "downloads": 457,
   "tags": [
    "gguf",
@@ -672,6 +677,26 @@
    "region:us"
   ],
   "createdAt": "2026-11-11T07:10:45.000Z"
+ },
+ {
+  "_id": "69ccf47089c66121f3470bbf",
+  "id": "ggml-org/gemma-4-26B-A4B-it-GGUF",
+  "lastModified": "2026-10-19T10:57:49.000Z",
+  "trendingScore": 0,
+  "sha": "9cf8c8db0f83fb4582f15381f8fb1a7c1b0b9ca2",
+  "downloads": 325977,
+  "tags": [
+   "gguf",
+   "quantized",
+   "image-text-to-text",
+   "base_model:google/gemma-4-26B-A4B-it",
+   "base_model:quantized:google/gemma-4-26B-A4B-it",
+   "license:apache-2.0",
+   "endpoints_compatible",
+   "region:us",
+   "conversational"
+  ],
+  "createdAt": "2026-04-01T10:33:20.000Z"
  },
  {
   "_id": "69ce59ac5ee550f774ed3e3d",
@@ -8146,9 +8171,9 @@
  {
   "_id": "6a5fc01d2032d26fd604de91",
   "id": "fraQtl/Gemma-4-26B-A4B-it-Hi-Fi-GGUF",
-  "lastModified": "2026-10-25T20:19:54.000Z",
+  "lastModified": "2026-11-12T03:43:39.000Z",
   "trendingScore": 0,
-  "sha": "9d91d42d9b38a83ba705d2d08778e0101a862b84",
+  "sha": "12ea8dd520e25b8cfcd57c4a810802da738b2416",
   "downloads": 100,
   "tags": [
    "gguf",
@@ -9292,31 +9317,6 @@
    "region:us"
   ],
   "createdAt": "2026-09-09T11:01:04.000Z"
- },
- {
-  "_id": "6aa40218873a8f8157de43aa",
-  "id": "OS-Software/gemma-4-26B-A4B-it-qat-q4_0-heretic-japanese-pruned-GGUF",
-  "lastModified": "2026-09-11T14:10:23.000Z",
-  "trendingScore": 0,
-  "sha": "b58aca87d1f8b198b4f3d38b4aae5fcb3a0e07b4",
-  "downloads": 2529,
-  "tags": [
-   "transformers",
-   "gguf",
-   "heretic",
-   "uncensored",
-   "decensored",
-   "abliterated",
-   "image-text-to-text",
-   "arxiv:2607.02770",
-   "base_model:google/gemma-4-26B-A4B-it",
-   "base_model:quantized:google/gemma-4-26B-A4B-it",
-   "license:apache-2.0",
-   "endpoints_compatible",
-   "region:us",
-   "conversational"
-  ],
-  "createdAt": "2026-09-11T13:28:56.000Z"
  },
  {
   "_id": "6aa5267e5dfd597285f59b05",

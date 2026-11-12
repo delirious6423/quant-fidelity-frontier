@@ -1,0 +1,734 @@
+---
+license: apache-2.0
+base_model: Qwen/Qwen3.8-27B
+base_model_relation: quantized
+library_name: transformers
+pipeline_tag: text-generation
+language:
+- en
+tags:
+- quantized
+- nyquant
+- mixed-precision
+- int4
+- int3
+- int2
+- gguf
+- awq
+- vllm
+- pascal
+- p100
+- qwen3.8
+quantized_by: XGeorgeCostanzaX
+---
+
+# Qwen3.8-27B — Nyquant quantisations (preview)
+
+Nyquant makes mixed-precision weight quantisations that balance model quality, size and hardware-specific inference. These variants share [Qwen/Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B) (revision `1d4bf0f2`). This is a **public preview**: the downloads are early releases, so read each variant's limitations before relying on it. Quality is measured against the BF16 model. Five downloadable variants are in this repository (RC3Y-v2-K is new); two research results, q2lite and B3, are reported without downloads.
+
+## At a glance
+
+Bits per weight (bpw) for NQ4MAX-B70 and RC3Y are for the **body**, not the whole file; the RC3Y-v2-K, U-X and KD-B figures are for the complete file.
+
+| File | Size | Target hardware and runtime | Quality headline | Note |
+|---|---:|---|---|---|
+| `NQ4MAX-B70-AWQ/` (4-bit, 4.30 body bpw) | 20.1 GB (18.7 GiB), 5 shards | Intel Arc B70 with vLLM; safetensors, AWQ-compatible export, no patches | +0.012 nats vs BF16; tested tasks within stated SEs | 58–59 t/s single-stream chat with MTP |
+| `RC3Y/Qwen3.8-27B-RC3Y-P100.gguf` (3-bit, 3.29 body bpw) | 11.65 GB GGUF | Tesla P100 16 GB; custom GGUF, needs the included llama.cpp patch set | Original-file D4 macro KLD 0.143355; behind AP-IQ3_S | 38.9 t/s with MTP K=2 (development build) |
+| `RC3Y-v2-K/Qwen3.8-27B-RC3Y-v2-K-P100.gguf` (3-bit, 3.465 complete bpw) | 11,648,340,000 bytes (11.65 GB) | Tesla P100 16 GB; custom GGUF, needs the included llama.cpp patch set (0001 to 0028) | GPQA Diamond 82.3 at a 64k output cap, 86.4 with the capped answers continued to 131k; IFBench 81.0 ([benchmarks](#standard-settings-benchmarks-measured-thinking-mode)). Paired vs RC3Y-default on the P100 board: macro KLD −0.0144 [−0.0181, −0.0111]; passed the unseen-task check vs RC3Y-default | Same bytes as RC3Y-default; 33.4 t/s plain decode, 50.5 t/s with MTP K=3 (release build, short context) |
+| `U-X/Qwen3.8-27B-U-X.gguf` (2-bit class) | 7,998,312,448 bytes complete (2.38 bpw) | CPU or any GPU llama.cpp supports; standard GGUF types | Same-board paired vs its base UD-IQ2_XXS (the base is 732 MB smaller): geometric ratio 0.9003 [0.8879, 0.9118] on the 44 windows not used for selection | Larger than its base; 55.4 t/s single stream on A100 (information only) |
+| `KD-B/Qwen3.8-27B-KD-B.gguf` (2-bit class, recommended 8 GB file) | 7,998,312,448 bytes complete (2.38 bpw), same as U-X | CPU or any GPU llama.cpp supports; standard GGUF types | Same-board paired vs U-X: macro KLD 0.2898 vs 0.3457, difference −0.0559 [−0.0659, −0.0477]; coding: HumanEval 63.4% vs BF16 78.0% (A100 bench, thinking off, n=164) | Same bytes as U-X; 55.4 t/s single stream on A100 (information only) |
+
+Research results without downloads (q2lite and B3) are in [Research results](#research-results-no-download). They are not in this table.
+
+- **Intel Arc B70 with vLLM:** use the AWQ-compatible export in `NQ4MAX-B70-AWQ/`. It is the higher-quality option here.
+- **Tesla P100 16 GB:** use `RC3Y-v2-K/Qwen3.8-27B-RC3Y-v2-K-P100.gguf` (the newer file: lower KLD than RC3Y-default at the same size, see [its section](#rc3y-v2-k-new-116-gb-one-p100)) or `RC3Y/Qwen3.8-27B-RC3Y-P100.gguf` (the original, 2,379,040 bytes larger). Build llama.cpp with the patch set in `RC3Y/llama.cpp-p100-patches/`; upstream llama.cpp cannot load their custom tensor types.
+- **About 8 GB, 2-bit class, any llama.cpp backend:** use **KD-B**, the recommended 8 GB file: same size as U-X, lower KLD to BF16, no task significantly worse in our tests. U-X remains available. It uses only standard GGUF types and loads in upstream llama.cpp, but it is larger than its base, unsloth's UD-IQ2_XXS, and no equal-size claim is made for it.
+- **Tesla P40 or other GPUs:** use standard community GGUFs today, for example [unsloth](https://huggingface.co/unsloth/Qwen3.8-27B-GGUF) or [bartowski](https://huggingface.co/bartowski), choosing a size that fits your memory. IQ3_S and Q3_K_XL have better 3-bit quality on our board. RC3Y's fast path is P100-only; P40 and newer GPU fallbacks are untested and expected to be slow.
+- **CPU:** U-X or a standard community GGUF. RC3Y has a slow reference path, not a practical CPU speed target.
+
+**Contents.** [At a glance](#at-a-glance) · **RC3Y-v2-K:** [benchmarks](#standard-settings-benchmarks-measured-thinking-mode), [evidence](#evidence-behind-the-file-measured), [speed](#speed-tesla-p100-16-gb-one-card-measured), [quickstart](#quickstart-patch-llamacpp-build-run), [limits](#limits-of-rc3y-v2-k) · **Other files:** [NQ4MAX-B70-AWQ](#nq4max-b70-awq-4-bit-intel-arc-b70), [RC3Y](#rc3y-3-bit-tesla-p100), [U-X](#u-x-2-bit-class), [KD-B](#kd-b-2-bit-class-distilled-from-u-x), [layout](#repository-layout) · **Boards:** [how we measure](#how-the-numbers-are-measured), [2-bit](#2-bit-class-d4-frozen-board), [3.5 bpw](#around-35-bpw-d4-frozen-board) · [Research results](#research-results-no-download) · [Speed](#speed) · [Method](#method) · [Roadmap](#roadmap) · [Licence](#licence-and-acknowledgements) · [Changelog](#changelog)
+
+## RC3Y-v2-K (new, 11.6 GB, one P100)
+
+**Status.** Public preview, downloadable in `RC3Y-v2-K/`. A development-exposed result; not independently replicated. Every number in this section is either **measured** (we ran it, on the hardware and build stated) or **published** (copied from another party's card, and labelled so). Nothing here is projected.
+
+**What it is.** `RC3Y-v2-K/Qwen3.8-27B-RC3Y-v2-K-P100.gguf` is a 3-bit-class quantisation of Qwen3.8-27B (revision `1d4bf0f2`) for one Tesla P100 16 GB: **11,648,340,000 bytes** (11.65 GB; 10.85 GiB; 3.465 complete bpw on the 26,896,000,107-parameter basis of AP-IQ3_S's 3.581464), with the MTP layer and a 64k-token draft head included. It uses the custom `NQ_AR3` / `NQ_AR4` tensor types of RC3Y, so it needs the patched llama.cpp in `RC3Y/llama.cpp-p100-patches/` (patches 0001 to 0028 on upstream b11551). Being a GGUF does **not** make it loadable by upstream llama.cpp.
+
+**In short** (measured; details below):
+
+- **Benchmarks, thinking mode:** GPQA Diamond avg@4 **82.3** with a 64k output cap (**86.4** when the capped answers are continued to 131k, a secondary run); IFBench prompt-level loose **81.0**. Qwen's card reports 89.2 and 79.5 for the full-precision model on its own harness.
+- **Closer to BF16 than its parent at the same size:** macro KLD −0.0144 [−0.0181, −0.0111] against RC3Y-default, lower on every corpus.
+- **Speed on one P100 (release build):** 33.4 tokens/s plain decode, 50.5 with MTP K=3; prompt processing 205.1 tokens/s at 512 tokens.
+
+**Size and checksum.** 11,648,340,000 bytes. SHA-256 `20b67c53b1451be0563c7a4be7c2c660b887b4e581596063a37313a5b6c0160a`. `RC3Y-v2-K/MANIFEST.tsv` lists all 868 tensors with type, bytes, payload SHA-256, origin, and whether each differs from RC3Y-default; `RC3Y-v2-K/MANIFEST.json` has the lineage; `RC3Y-v2-K/NOTICE` carries the attributions. The file is 2,379,040 bytes smaller than the `RC3Y/` file and 392,542,016 bytes (3.2%) smaller than AP-IQ3_S.
+
+<details>
+<summary><b>How it was made: distilled scales from RC3Y-default</b></summary>
+
+It starts from **RC3Y-default**, our working P100 build of RC3Y (11,648,340,000 bytes, SHA-256 `ed3c1fb5…4e42`). That is not the `RC3Y/` file in this repository: its output head, MTP layer and a 64k-token draft head were re-fitted from the BF16 weights as `NQ_AR4`, where the repository's RC3Y keeps unsloth's Q4_K head. One step turns RC3Y-default into RC3Y-v2-K, **distilled scales, zero bytes**: 188,470,844 fp16 block scales (`d`) in 401 NQ tensors were trained by knowledge distillation from the BF16 Qwen3.8-27B (revision `1d4bf0f2`), one log multiplier per output row, bounded to [0.95, 1.05] and folded into the scales. Codes, tensor types, header and file size are RC3Y-default's, and the MTP layer and draft head are not touched. We compared the two files byte by byte on 10 November 2026: 467 of the 868 tensors are identical and, in the other 401, only the two scale bytes of each block differ. Training pool: 128 public documents of 1,024 tokens (94 train, 34 held-out) that share no 12-gram with any of our KLD evaluation windows or their source documents (it was not checked against the GPQA Diamond or IFBench items used below). Adam, 120 steps, learning rate 0.0005, seed 20261024, one Tesla P40, 3.1 GPU-hours. The distillation code, the learned multipliers and Nyquant's code-fitting code are not published here; the file and its per-tensor manifest are.
+
+</details>
+
+<details>
+<summary><b>Provenance and credits</b></summary>
+
+**Provenance.** 457 of the 868 tensors (452,931,584 bytes, 3.89% of the file) are unsloth's UD-IQ3_XXS values, unchanged: 360 F32 norm and state tensors, 96 Q8_0 GDN `a`/`b` tensors and the Q2_K token embedding. The GGUF header, tokenizer and chat template are also unsloth's apart from the `nyquant.*` keys, so the inherited fields `general.quantized_by = "Unsloth"` and `quantize.imatrix.*` describe that file, **not** how the other tensors were made (see `RC3Y-v2-K/NOTICE`). The other 411 tensors were produced by Nyquant from the BF16 weights; the codes of the 401 weight matrices were fitted with Nyquant's own implementation of the AutoRound method. RC3Y-v2-K is not endorsed by unsloth or the Qwen Team.
+
+**Credits.** Base model: Qwen Team, [Qwen/Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B) (Apache-2.0). Inherited tensors, header, tokenizer and chat template: [unsloth/Qwen3.8-27B-GGUF](https://huggingface.co/unsloth/Qwen3.8-27B-GGUF), UD-IQ3_XXS (Apache-2.0 per the repository card, checked 10 November 2026). Runtime: llama.cpp and ggml (MIT, Copyright (c) the ggml authors); our patches are derivative of it and stay MIT. Credit, not endorsement.
+
+</details>
+
+### Standard-settings benchmarks (measured, thinking mode)
+
+GPQA Diamond and IFBench, the two benchmarks on Qwen's model card that we could run on one 16 GB card. Scored on 10 November 2026 with the protocol frozen before the first scored generation (our pre-registration of 7 November 2026, not published). The columns are **separate** and are **not pooled**: different harnesses, runtimes and precisions. The second column is a secondary run (see [Generation cap](#generation-cap-and-the-131k-continuation)); the registered result is the first.
+
+![Grouped bar chart of GPQA Diamond and IFBench scores (higher is better). RC3Y-v2-K on one P100 with a 64k output cap, and with the capped answers continued to 131k, both with 95% intervals; Qwen's published full-precision figures and ISTA-DASLab's published GSQ-RCO IQ3_S figure for comparison, from different harnesses.](assets/qwen-k-bench-20261111.png)
+
+| Benchmark | **Ours, measured:** RC3Y-v2-K (11.6 GB GGUF), P100, our harness, 64k output cap | **Ours, measured, secondary:** the same generations, capped ones continued to 131k | **Published by Qwen:** official card, Qwen's harness (details not published), full precision | **Published by ISTA-DASLab:** GSQ-RCO IQ3_S (11.8 GB GGUF), their harness (not stated) |
+|---|---|---|---|---|
+| GPQA Diamond, avg@4 | **82.3** (95% CI [77.7, 86.8]) | **86.4** (95% CI [82.4, 90.3]) | 89.2 | 89.39 (BF16 on the same card: 89.90) |
+| IFBench, prompt-level loose, avg@1 | **81.0** (95% CI [76.3, 85.4]) | **81.6** (95% CI [77.0, 86.0]) | 79.5 (metric not stated on the card) | not reported |
+| IFBench, prompt-level strict | 77.0 | 77.6 | not stated | not reported |
+| IFBench, instruction-level loose / strict | 82.2 / 78.7 | 83.1 / 79.6 | not stated | not reported |
+
+Our numbers: 198 GPQA Diamond questions × 4 samples (792 generations), accuracy averaged over all generations; per-sample accuracy 80.8, 82.3, 83.8, 82.3 (standard deviation 1.24); the interval is a question-clustered bootstrap (2,000 resamples, seed 1234). IFBench: all 300 test prompts, one generation each, scored with the official AI2 scorer (`allenai/IFBench`, commit `cd189a9c`) unmodified; the interval is a bootstrap over prompts. The card of Qwen does not say which IFBench variant it reports; AI2's own materials treat prompt-level loose as the headline, so that row comes first, and all four variants are shown. Our scores round down, interval bounds round outward, cap-hit rates round up. The scorer output is `results.json`, SHA-256 `62520cacf375dce36e81abbd33bb7c20c685d5634993f3d8e460c610a9ab9459`.
+
+#### Generation cap and the 131k continuation
+
+The output budget is the 65,536-token slot minus the prompt (the official card recommends up to 262,144 tokens for reasoning); one P100 cannot hold more. 8.4% of the GPQA generations (66 of 792) and 3.0% of the IFBench generations (9 of 300) hit the cap before a final answer. Those items have no answer and are scored as wrong; none was regenerated with a larger cap. This lowers our scores; the secondary run below measures by how much. Mean generation length: 22879 tokens (GPQA), 14652 (IFBench); 13 IFBench generations ended with an empty final answer.
+
+**Secondary run: the capped answers continued to 131k** (11 November 2026, pre-registered on 8 November 2026 before any continuation, not published). Every generation that hit the 64k cap (66 GPQA, 9 IFBench) was continued from its own token prefix in one `llama-server` spread over both P100s (`-c 131072`, layer split, otherwise the same flags and sampling); the re-tokenised prefix matched the original within 0.19% in every item. Nothing else was regenerated. 34 of the 66 continued GPQA answers are correct, which raises GPQA Diamond avg@4 from 82.3 to **86.4** (+4.1 points; per-sample 85.8, 85.8, 87.3, 86.8, standard deviation 0.76). IFBench moves from 81.0 to 81.6. At 131k, 0.4% of the GPQA generations (3 of 792) and 1.4% of the IFBench generations (4 of 300) still hit the cap. Cost: 50.4 P100-hours on top of the main run. Same scorer, rounding and intervals as the first column.
+
+<details>
+<summary><b>Settings, data and the server command</b></summary>
+
+**Settings.** Thinking on, `reasoning_effort` xhigh (the chat template's default); temperature 1.0, top_p 0.95, top_k 20, min_p 0.0, presence penalty 0, repetition penalty 1.0 (the thinking-mode settings of Qwen's card; `min_p` is sent explicitly because the server default is 0.05). One request in flight per server, a fixed seed per request, two Tesla P100 cards with one server each. Only the text after the thinking block is scored. GPQA uses the 198-question Diamond set from the OpenAI simple-evals copy (the gated Hugging Face dataset was not available to us) and that repository's multiple-choice prompt; each of the four samples of a question shuffles the four options differently; the answer is the last `Answer: X` line, with fallback extractors. GPQA questions and answers are not included in this repository. The server command:
+
+```bash
+build/bin/llama-server -m "$GGUF" -ngl 99 -fa on -np 1 -c 65536 -ctk f16 -ctv f16 -no-kvu -bs -t 4 \
+  -b 1024 -ub 256 --jinja -cram 0 --timeout 36000 --spec-type draft-mtp --spec-draft-n-max 1 --host 127.0.0.1
+```
+
+MTP speculation is meant to leave the output distribution unchanged. A check on 400 short non-thinking draws found identical answers for the same seed with and without MTP K=1 and with and without backend sampling (`-bs`).
+
+</details>
+
+**How to read this table.** The gap between the columns is not a measure of quantisation loss. We have no BF16 run on our harness (BF16 does not fit a 16 GB P100), so we cannot say how much of any difference comes from the quantisation, from the 64k output cap, from the prompts and answer extraction, or from run-to-run variation. The secondary run measures one of these: continuing the capped answers to 131k adds 4.1 points on GPQA Diamond, and Qwen's 89.2 lies inside its interval; the remaining 2.8 points cannot be split between quantisation, harness and chance without a BF16 run. ISTA-DASLab's card does not state its sampling, thinking mode, output length or number of samples, and its GPQA figures are for a different quantisation at a similar size. One run, one seed per item: no repeat of the whole benchmark.
+
+### Evidence behind the file (measured)
+
+**Quality against BF16 (KLD).** Paired comparison with RC3Y-default on the Tesla P100 native board (60 windows of 2,048 tokens per corpus, scored positions 1,024 to 2,046, BF16 teacher; K minus RC3Y-default; 95% paired window bootstrap, 2,000 draws, seed 20261024; protocol in [How the numbers are measured](#how-the-numbers-are-measured)):
+
+![Bar chart of the paired difference in KL divergence from BF16, RC3Y-v2-K minus RC3Y-default, for wiki, web, code, chat and their average, with 95% intervals. Every value is below zero (K closer to BF16); the chat difference is by far the largest.](assets/qwen-k-vs-default-20261111.png)
+
+| Corpus (60 windows each) | RC3Y-default KLD | RC3Y-v2-K KLD | K − RC3Y-default [95% CI] |
+|---|---:|---:|---|
+| wiki | 0.0829 | 0.0820 | −0.0010 [−0.0017, −0.0005] |
+| fineweb (held-out) | 0.0632 | 0.0623 | −0.0010 [−0.0014, −0.0006] |
+| code (held-out) | 0.0384 | 0.0376 | −0.0009 [−0.0014, −0.0005] |
+| chat (held-out) | 0.3863 | 0.3317 | −0.0546 [−0.0692, −0.0413] |
+| Arithmetic macro | 0.1427 | 0.1284 | −0.0144 [−0.0181, −0.0111] |
+| Geometric mean of the four | 0.0939 | 0.0893 | ratio 0.950 (point estimate; no paired interval computed) |
+
+K is lower on every corpus and every interval excludes zero: 10.0% lower macro KLD at identical file size. The gain is largest on chat (14.1%) and small on the text corpora (1.2% to 2.4%). This is a comparison with RC3Y-default, not with the `RC3Y/` file in this repository (a different file, scored on a different board).
+
+K does not catch up with the 12 GB class on KLD. For orientation only, from separate jobs on the same kind of board and **not** a paired comparison: AP-IQ3_S (12,040,882,016 bytes, a larger file) scored a macro KLD of about 0.1090 on the P100 board run of 4 November 2026, and K scored 0.1284 on the run of 3 November 2026.
+
+**Unseen-task check against RC3Y-default (our gate G2).** Pre-registered before generation: frozen items, generator, scorers and analysis (greedy, non-thinking, our llama.cpp on P100, 10,000-draw paired bootstrap; no BF16 run, because the 27B BF16 model does not fit a 16 GB P100). It ran on a registered, time-capped common prefix, 406 of 697 items (58%), taken in order and not chosen by outcome:
+
+| Task | n | RC3Y-default | K | K − RC3Y-default [95% CI] |
+|---|---:|---:|---:|---|
+| GSM8K (exact match) | 117 | 89.8% | 91.4% | +1.7 pp [−1.8, +5.2] |
+| MMLU-Pro (multiple choice) | 116 | 62.1% | 64.6% | +2.5 pp [−2.6, +7.8] |
+| IFEval (strict prompt) | 93 | 75.3% | 78.4% | +3.2 pp [−2.2, +8.7] |
+| MBPP (pass@1) | 66 | 80.4% | 86.3% | +6.0 pp [+1.5, +12.2] |
+| Retrieval (4,096 tokens) | 14 | 100.0% | 100.0% | 0.0 pp [0.0, 0.0] |
+| **Macro of 5 tasks** |  | 81.5% | 84.1% | +2.7 pp [+0.8, +4.8] |
+
+The gate passed: no task significantly worse, macro lower bound above −3 pp, every task lower bound above −8 pp. Power is that of 58% of the set: effects under about 5 pp are not resolvable per task. Answer length and the share of generations that hit the token cap did not change measurably.
+
+<details>
+<summary><b>Unseen-task scores of K alone on the full pool (697 items)</b></summary>
+
+The same task set run to completion (697 items, greedy, non-thinking, P100; the long-context 16k items are excluded as registered), in the later comparison of K with a sibling file. Our scores round down, cap-hit rates up:
+
+| Task | n | K | K generations that hit the cap |
+|---|---:|---:|---:|
+| GSM8K (exact match) | 200 | 91.5% | 3.0% |
+| MMLU-Pro (multiple choice) | 200 | 67.0% | 18.5% |
+| IFEval (strict prompt) | 160 | 81.2% | 2.5% |
+| MBPP (pass@1) | 113 | 85.8% | 1.8% |
+| Retrieval (4,096 tokens) | 24 | 100.0% | 0.0% |
+| **Macro of 5 tasks** |  | 85.1% |  |
+
+About 18.5% of the MMLU-Pro generations hit the generation cap, which depresses that row. This is **not** the thinking-mode benchmark below; the two use different prompts, decoding and caps and are not comparable. The sibling file compared there (K plus a Q6_K token embedding, 625,766,400 bytes larger) scored −1.3 pp macro against K (95% interval [−2.8, +0.2]): inconclusive under the registered rule, and not a pass. We keep K and do not publish the sibling.
+
+</details>
+
+### Speed (Tesla P100 16 GB, one card; measured)
+
+Two sets of measurements follow. They use different builds and settings and are not pooled.
+
+**Release build.** Upstream b11551 plus the 28 patches, exported without git history and built for CUDA architecture 60 on 4 November 2026. `llama-bench -p 512,8192 -n 128 -r 2 -ngl 99 -fa 1`, and `llama-speculative-simple` on a fixed set of 24 prompts × 192 tokens (temperature 0, seed 1, MTP K=3, adaptive-K and P100-proposer options off). Two repetitions of each metric, in a session that also ran another file. Tokens per second; the mean of the two repetitions is rounded down, and the two repetitions are shown beside it:
+
+| Metric | Mean | The two repetitions |
+|---|---:|---|
+| Prompt processing, 512 tokens | 205.1 | 203.9, 206.3 |
+| Prompt processing, 8,192 tokens | 193.0 | 193.1, 193.0 |
+| Plain decode (`llama-bench` tg128) | 33.4 | 33.4, 33.4 |
+| MTP K=3 decode (speculative driver) | 50.5 | 49.9, 51.2 |
+| Plain decode in the same driver (no draft) | 31.8 | 30.8, 32.7 |
+| MTP draft acceptance (deterministic, same prompts both repetitions) | 0.6728 | |
+
+<details>
+<summary><b>Peak memory and the exact MTP command</b></summary>
+
+Peak GPU memory (`nvidia-smi`): 11,983 MiB in `llama-bench` and 12,551 MiB in the speculative driver (context 4,096). The command as run for the MTP row (the prompt file is not published):
+
+```bash
+env LLAMA_MTP_ADAPTIVE_K=0 LLAMA_SPEC_P100_PROPOSER=0 LLAMA_SPEC_MULTI=1 LLAMA_SPEC_TRACE=1 LLAMA_SPEC_PLAIN=0 \
+  llama-speculative-simple -m "$GGUF" -f prompts.txt -n 192 -c 4096 -ngl 99 --temp 0 --seed 1 \
+  --spec-type draft-mtp --spec-draft-n-max 3 --spec-draft-p-min 0
+```
+
+</details>
+
+Single-card timings vary by a few percent between sessions (the two MTP repetitions differ by about 3%). We publish the lower figures.
+
+**Benchmark configuration.** `llama-server` of fork commit `035094c7f` (the tree that b11551 plus the 28 patches gives), one slot of 65,536 tokens, F16 KV cache, MTP K=1, thinking mode; the command is in [Standard-settings benchmarks](#standard-settings-benchmarks-measured-thinking-mode) below. Decode speed measured with that command (one measurement each): 45.2 tokens/s at about 2.4k tokens of context, 37.8 at about 21.7k and 27.5 at about 64k. Over the whole benchmark run the average was 38.1 tokens/s per GPU on the GPQA Diamond items and 41.3 on the IFBench items (wall-weighted), with MTP draft acceptance 0.745 and 0.753. Memory: with that command the card holds the model at 15,815 MiB after loading and 16,199 MiB at the peak (after a 64,243-token prompt), which leaves about 185 MiB of the 16,384 MiB. MTP K=2 and K=3 ran out of GPU memory at the first request with a 64k F16 cache (measured), so K=1 was used for the benchmark; K=3 is for shorter contexts.
+
+### Quickstart: patch llama.cpp, build, run
+
+`RC3Y/llama.cpp-p100-patches/BUILD.md` has the full notes: apply all 28 patches to upstream b11551 and build for CUDA architecture 60.
+
+```bash
+hf download XGeorgeCostanzaX/Qwen3.8-27B-Nyquant-preview --include "RC3Y/llama.cpp-p100-patches/*" --local-dir qwen38-nyquant
+hf download XGeorgeCostanzaX/Qwen3.8-27B-Nyquant-preview --include "RC3Y-v2-K/*" --local-dir qwen38-nyquant
+git clone https://github.com/ggml-org/llama.cpp llama.cpp-p100
+cd llama.cpp-p100
+git checkout 69f201a2051ea9b9e9b50c3cc56afd9e2ae64414
+git am ../qwen38-nyquant/RC3Y/llama.cpp-p100-patches/*.patch      # all 28 patches
+git rev-parse 'HEAD^{tree}'                                         # expect eb276f8d0a516d6e5333bbf2726a41e2246bef9f
+cmake -B build -DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=60 \
+  -DCMAKE_BUILD_TYPE=Release -DLLAMA_CURL=OFF \
+  "-DGGML_CUDA_FA_QUANTS=q4_0-q4_0;q8_0-q8_0;f16-f16;bf16-bf16"
+cmake --build build -j --target llama-cli llama-server llama-bench llama-perplexity llama-speculative-simple
+
+export GGUF=../qwen38-nyquant/RC3Y-v2-K/Qwen3.8-27B-RC3Y-v2-K-P100.gguf
+(cd ../qwen38-nyquant/RC3Y-v2-K && sha256sum -c SHA256SUMS)
+build/bin/llama-cli -m "$GGUF" -ngl 99 -fa on -c 8192 -st -p "The capital of France is"
+```
+
+Use `-st` for a single turn. The chat template is embedded in the GGUF; use Qwen's recommended sampling settings. For long thinking-mode generations use the `llama-server` command in the benchmark settings above.
+
+### Limits of RC3Y-v2-K
+
+- **One GPU, one setting.** The Tesla P100 (compute capability 6.0) is the only measured fast path. On other GPUs the NQ tensors stay in GGUF blocks and run slowly (0.07 tokens/s measured on a Tesla P40); P40, Volta and newer are untested for quality and unsupported for speed.
+- **64k output cap and F16 cache.** All benchmark numbers come from a 65,536-token slot with an F16 KV cache and MTP K=1. Longer reasoning does not fit this card, and its cost is shown in the cap-hit rates above; the secondary 131k column needed two P100s in one server.
+- **Quantised against full precision.** The official-card column is for the full-precision model. We have no BF16 measurement on our harness, so no figure here says how much the quantisation costs on GPQA Diamond or IFBench.
+- **Different harnesses.** Our harness, Qwen's, and ISTA-DASLab's differ in prompts, extraction, sampling, output length and runtime. They are shown in separate columns and never combined.
+- **Development-exposed, unreplicated.** The KLD windows (D4) were used earlier in this project, and the unseen-task check ran on a 58% prefix. Nothing here has been reproduced by anyone outside this project. Long-context quality beyond 64k, tool calling, vision, LoRA, partial offload and multi-GPU split are untested.
+- **Behind the 12 GB class on KLD.** See the AP-IQ3_S figures above; no best-at-size claim is made. The 12 GB class on Hugging Face holds files we have not scored (census of 22 October 2026: 26 repositories).
+- **Distillation scope.** Only fp16 block scales were trained, on a small pool of public documents (128); chat gains most. The token embedding is Unsloth's Q2_K and lives in host memory, so allow for it beside the roughly 10 GiB of GPU weights.
+- **Build.** The numbers come from fork commit `035094c7f` (build b11580) and from the release build described in `RC3Y/llama.cpp-p100-patches/BUILD.md`; both are b11551 plus the 28 patches. Other toolchains than gcc 13.3 with CUDA 12.0 are untested.
+
+## Quality
+
+Every board below is scored against BF16 except the unseen-task check, which has no BF16 run (see [KD-B](#kd-b-2-bit-class-distilled-from-u-x)).
+
+### How the numbers are measured
+
+| Board | Used for | Hardware and runtime | Windows or items | Intervals |
+|---|---|---|---|---|
+| Frozen D4 board | [2-bit](#2-bit-class-d4-frozen-board) and [3-bit](#around-35-bpw-d4-frozen-board) tables; q2lite and B3 | A800 80 GB PCIe, BF16 teacher; public controls in llama.cpp from their original GGUFs; 22 October rows on an A100 80 GB | 4 corpora x 60 windows, context 2048, scored positions 1024-2046 | 95%, stratified window bootstrap (protocol below) |
+| U-X vs its base | [U-X](#u-x-2-bit-class) | Tesla P100 build of our llama.cpp fork | 4 corpora x 60 windows; selection on the first 16 windows per corpus | 95% paired window bootstrap, 2000 draws |
+| KD-B vs U-X | [KD-B](#kd-b-2-bit-class-distilled-from-u-x) | Tesla P100 native board; U-X re-scored in the same job | 4 corpora x 60 windows | 95% paired window bootstrap, 2000 draws, seed 20261024 |
+| KD-B unseen tasks | [KD-B](#kd-b-2-bit-class-distilled-from-u-x) | Tesla P100, our llama.cpp; greedy, non-thinking; no BF16 run | Same items for both files (n in the table) | Paired bootstrap, 10,000 draws |
+| KD-B runtime bench | [KD-B](#kd-b-2-bit-class-distilled-from-u-x) | One A100: BF16 on vLLM; quantised files on llama-server with CUDA | Fixed-seed subsets (n in the table) | 95% intervals |
+| B3 vs AP-IQ3_S | [B3](#b3-3-bit-research) | Upstream llama.cpp at commit `69f201a2` | The same 240 windows | 95% paired bootstrap; the pre-registered rule is in the B3 section |
+| NQ4MAX-B70 vs BF16 | [NQ4MAX-B70-AWQ](#nq4max-b70-awq-4-bit-intel-arc-b70) | Same machine for all rows; held-out evaluation | Per task (see the section) | Standard errors; paired bootstrap not run |
+
+<details>
+<summary><b>Protocol, rounding, rival links and sources</b></summary>
+
+**Frozen D4 protocol.** BF16 reference; wiki, web, code and chat (the tables label the web corpus as fineweb); 60 independent windows per domain; context 2048; scored positions 1024–2046; teacher log-p > -16. The frozen macro is the equal-weight mean of the four domain KLDs. Intervals use 1000 stratified window bootstrap replicates, seeds 0/1/2/3 by corpus. Native GGUF source revision: `69f201a2051ea9b9e9b50c3cc56afd9e2ae64414`.
+
+**22 October rows** use the same frozen teacher, token windows, scorer and llama.cpp commit as the 16 October board, run on an A100 80 GB; AP-IQ3_S re-scored there reproduces its 16 October value (0.105547321 vs 0.105547324). Their intervals were recomputed from the stored per-window arrays with the frozen convention above, which reproduces the 16 October AP-IQ3_S interval.
+
+**Paired comparisons** (U-X and KD-B) use 60 windows per corpus on the Tesla P100 board, with the intervals in the table above; the U-X comparison uses the same context and scoring settings as the frozen protocol. They are reported in the file sections.
+
+**Bytes and rounding.** Sizes count the whole artifact, including embeddings, head, metadata, padding and any MTP tensors. Table points display round our KLD upward and public KLD downward; interval displays round outward. The chart uses the unrounded source values for bar lengths and intervals.
+
+**Rival files.** AP = [agentionai/Qwen3.8-27B-AP-GGUF](https://huggingface.co/agentionai/Qwen3.8-27B-AP-GGUF), UD = [unsloth/Qwen3.8-27B-GGUF](https://huggingface.co/unsloth/Qwen3.8-27B-GGUF), bartowski = [bartowski/Qwen3.8-27B-GGUF](https://huggingface.co/bartowski/Qwen3.8-27B-GGUF), ISTA GSQ-RCO = [ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF](https://huggingface.co/ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF), ByteShape = [byteshape/Qwen3.8-27B-GGUF](https://huggingface.co/byteshape/Qwen3.8-27B-GGUF).
+
+**Source.** `overseer/gsqboard-20261016@2a100b4f`, `evidence/gsqboard_20261016/{REPORT.md,SUMMARY.json,ROWS.json,metadata/PROTOCOL_IDENTITY.json}`. 22 October rows and B3: qboard `cloud-rows/q3sota-*-canonical-original-v1.json` (cohort `canonical-D4-original-frozen-teacher-native-A100-v1`), paired analysis `quant-supervisor-20261022/PAIR_REPORT_B3ALL_2327.txt`. Original RC3Y: `overseer/q3lite-20261016@0d70b131d22e61a8a28755dde278fc97021962b1`, `evidence/q3lite_20261016/REPORT.md`, original Q4_K-head row.
+
+</details>
+
+### 2-bit class (D4 frozen board)
+
+Public 2-bit controls and the q2lite research row, on the frozen D4 board.
+
+![Bar chart of KL divergence from BF16 (lower is better) for 2-bit files, sorted best to worst, with 95% intervals and complete file sizes. The hatched Nyquant q2lite bar is a research result with no download; the grey bars are public files from other publishers.](assets/qwen-2bit-board-20261102.png)
+
+| Quant | Complete artifact bytes | Macro KLD ↓ | 95% window-bootstrap CI | Runtime |
+|---|---:|---:|---|---|
+| q2lite-native-late50 (research, no download) | 9,299,294,112 | 0.189467226 | [0.171098225, 0.210809274] | packed FP32 reference |
+| AP-IQ2_S | 9,607,980,896 | 0.205070357 | [0.186003907, 0.226723904] | native GGUF / llama.cpp |
+| UD-Q2_K_XL | 9,828,981,664 | 0.208431916 | [0.184685052, 0.235335855] | native GGUF / llama.cpp |
+| bartowski-IQ2_M | 10,522,248,928 | 0.223455428 | [0.203403342, 0.244315571] | native GGUF / llama.cpp |
+| ISTA GSQ-RCO-IQ2_S | 9,259,510,912 | 0.224526124 | [0.203575330, 0.247890046] | native GGUF / llama.cpp |
+| UD-IQ2_S | 8,371,970,048 | 0.275715745 | [0.252054192, 0.302576649] | native GGUF / llama.cpp |
+| bartowski-IQ2_S | 9,684,043,488 | 0.277955272 | [0.255661678, 0.301899920] | native GGUF / llama.cpp |
+| bartowski-IQ2_XS | 9,088,526,048 | 0.316145283 | [0.291040614, 0.343021908] | native GGUF / llama.cpp |
+| ByteShape-IQ2_XXS-2.56 | 8,843,953,536 | 0.332769478 | [0.308324662, 0.358405218] | native GGUF / llama.cpp |
+
+### Around 3.5 bpw (D4 frozen board)
+
+![Bar chart of KL divergence from BF16 (lower is better) for files around 3.5 bits per weight, sorted best to worst, with 95% intervals and complete file sizes. Nyquant RC3Y is downloadable; the hatched Nyquant B3 bar is a research result with no download; the grey bars are public files.](assets/qwen-3bit-board-20261102.png)
+
+| Quant | Complete artifact bytes | Macro KLD ↓ | 95% window-bootstrap CI | Scored |
+|---|---:|---:|---|---|
+| unsloth UD-Q3_K_XL | 13,146,393,504 | 0.083593631 | [0.071831769, 0.096703128] | 22 Oct |
+| **Nyquant B3 (research splice, no download)** | **12,035,434,112** | **0.099020051** | [0.087641131, 0.112176225] | 22 Oct |
+| AP-IQ3_S | 12,040,882,016 | 0.105547323 | [0.093673296, 0.118701684] | 16 Oct; 22 Oct re-score 0.105547321 |
+| ISTA GSQ-RCO-IQ3_S | 11,771,546,784 | 0.112602871 | [0.099541383, 0.128040858] | 16 Oct |
+| AP-IQ3_XS | 11,489,008,096 | 0.116936116 | [0.103669694, 0.132281515] | 22 Oct |
+| RC3Y-original | 11,650,719,040 | 0.143354810 | [0.127917392, 0.160995765] | 16 Oct |
+| AP-IQ3_XXS | 10,737,389,536 | 0.150239165 | [0.134722953, 0.167560170] | 22 Oct |
+| unsloth UD-IQ3_XXS | 10,934,860,704 | 0.154338009 | [0.136850540, 0.174640700] | 22 Oct |
+| ISTA GSQ-RCO-IQ3_XXS | 10,094,357,632 | 0.171362531 | [0.153632617, 0.191704861] | 16 Oct |
+
+B3, our research splice, has the lowest macro KLD among these files at or below AP-IQ3_S's size; the paired comparison is in [Research results](#b3-3-bit-research). unsloth UD-Q3_K_XL is 9.2% larger and lower still, on every corpus. RC3Y remains behind AP-IQ3_S on quality. AP-IQ3_S's full file is **3.581464 complete bpw**, so it is not within a strict 3.5-bpw cap. No 16-GB capacity claim follows from this quality board.
+
+## Files
+
+### Repository layout
+
+```
+LICENSE
+NOTICE
+assets/                       charts (PNG and SVG): qwen-2bit-board, qwen-3bit-board, qwen-kdb-tasks, qwen-kdb-vs-ux (20261102)
+                              and qwen-k-bench, qwen-k-vs-default (20261111)
+NQ4MAX-B70-AWQ/               safetensors shards, tokenizer and config files,
+                              LICENSE, SHA256SUMS, nq_vllm_export.json, vllm_export_check.py
+RC3Y/
+  Qwen3.8-27B-RC3Y-P100.gguf
+  llama.cpp-p100-patches/     patches 0001 to 0028 (*.patch) and BUILD.md
+RC3Y-v2-K/
+  Qwen3.8-27B-RC3Y-v2-K-P100.gguf
+  MANIFEST.tsv, MANIFEST.json, NOTICE, SHA256SUMS
+U-X/
+  Qwen3.8-27B-U-X.gguf
+  MANIFEST.tsv
+KD-B/
+  Qwen3.8-27B-KD-B.gguf
+  MANIFEST.tsv
+  NOTICE
+```
+
+### NQ4MAX-B70-AWQ (4-bit, Intel Arc B70)
+
+**What it is.** Public preview. Safetensors weights, as an AWQ-compatible vLLM export with no Nyquant patches. Target hardware is Intel Arc B70 with vLLM.
+
+**Size and checksum.** 20,085,536,800 bytes (20.1 GB; 18.7 GiB) in 5 safetensors shards, plus tokenizer and config files. SHA-256 list: `NQ4MAX-B70-AWQ/SHA256SUMS`. The folder also holds `LICENSE`, `nq_vllm_export.json` and `vllm_export_check.py`.
+
+**Quality.** Held-out loss is +0.012 nats over BF16. Every task we ran is within the stated standard errors of BF16; this is not proof of identical quality. All rows use the same protocol on the same machine. Q8 and NVFP4 are round-to-nearest evaluation references, not releases. Task scores and acceptance below are fractions.
+
+| Model | bits/weight (body) | FineWeb NLL (dNLL vs BF16) | WikiText-2 PPL | GSM8K | ARC-e | ARC-c acc / norm | HellaSwag acc / norm | MATH-long | Tool calls | Agentic | MTP acceptance |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| BF16 | 16 | 1.994 | 7.051 | 0.824 | 0.826 | 0.568 / 0.592 | 0.647 / 0.814 | 0.828 | 0.972 | 0.929 | - |
+| Q8 (RTN, reference) | 8 | 1.994 (+0.000) | 7.085 | 0.820 | 0.826 | 0.567 / 0.590 | 0.649 / 0.815 | - | 0.972 | 0.929 | 0.924 |
+| NVFP4 (RTN, reference) | about 4.5 | 2.011 (+0.017) | 7.397 | 0.848 | 0.827 | 0.567 / 0.607 | 0.651 / 0.812 | - | 0.972 | 0.929 | 0.926 |
+| **NQ4MAX-B70** | **4.30** | **2.006 (+0.012)** | **7.147** | **0.792** | **0.827** | **0.558 / 0.583** | **0.645 / 0.814** | **0.813** | **1.000** | **0.929** | **0.882** |
+
+<details>
+<summary><b>Evaluation conditions (held-out evaluation, not a quantisation recipe)</b></summary>
+
+- FineWeb-Edu NLL: 64 held-out documents × 2048 tokens, not used during quantisation. WikiText-2 uses the same tokenizer.
+- GSM8K: first 250 problems, thinking off; standard error about ±0.025. ARC-e/c: full sets; ARC-c SE about ±0.015.
+- HellaSwag: fixed subset of 1000. MATH-long: first 64 problems, thinking on, 2048-token limit; SE about ±0.047.
+- Tool calls: 36 single-turn cases. Agentic: 14 multi-step episodes.
+- MTP acceptance: the model's own head, 2 speculative tokens, vLLM 0.19.1. This is separate from RC3Y's tokens-per-verify metric.
+- GSM8K and MATH-long gaps are within the stated SEs; paired bootstrap significance tests have not been run.
+- A like-for-like comparison against community 4-bit quants is still pending. These references do not establish a community ranking.
+
+</details>
+
+**Quickstart: vLLM.** Requires a vLLM installation with Intel XPU support. This export uses the standard AWQ int4 path **without Nyquant patches**. Budget for about 18.7 GiB of weights **plus** KV cache and runtime buffers.
+
+```bash
+hf download XGeorgeCostanzaX/Qwen3.8-27B-Nyquant-preview --include "NQ4MAX-B70-AWQ/*" --local-dir qwen38-nyquant
+vllm serve qwen38-nyquant/NQ4MAX-B70-AWQ --quantization awq
+```
+
+Use the base model's recommended sampling settings and the supplied tokenizer/chat template. This is a plain-serving example, not the exact benchmark or MTP configuration. Validated XPU installation and MTP instructions will follow.
+
+**Caveats.**
+
+- Preview; no like-for-like community 4-bit quality board yet.
+- Task samples are limited, with no paired significance test or run-to-run variance measured.
+- Vision quality was not separately evaluated; MTP was evaluated through acceptance and throughput, not a separate quality suite.
+- B70 timings do not establish performance on other GPUs, and peak context/VRAM use still need release measurements.
+
+### RC3Y (3-bit, Tesla P100)
+
+**What it is.** Public preview; release checks still open. Custom GGUF, for Tesla P100 16 GB. Its custom `NQ_AR3` / `NQ_AR4` tensor types require the patched llama.cpp below; being a GGUF does **not** make this file upstream-compatible. The file includes the MTP layer.
+
+**Size and checksum.** 11,650,719,040 bytes (11.65 GB; 10.85 GiB), including the MTP layer. SHA-256 `668faf132b4fcadcf6c36ebf834d83adac44ef621a2d3879342a793976f945ed`.
+
+**Quality.** The original RC3Y file (with Q4_K head) scores macro KLD 0.143354810, in the [3-bit table](#around-35-bpw-d4-frozen-board). AP-IQ3_S scores 0.10554732360886131 at 12,040,882,016 bytes. RC3Y is behind on quality. The original-file result supersedes the older 0.1325 simulation; it does not qualify a rebuilt or changed-head candidate. The scored file has the same byte count as this upload; a SHA-256 receipt binding the score to this exact file is still to be published.
+
+**Quickstart: patch llama.cpp, build, run.**
+
+**Preview instructions.** The patch set for RC3Y (patches 0001 to 0011 in `RC3Y/llama.cpp-p100-patches/`, details in its `BUILD.md`) applies to upstream llama.cpp b11551, commit `69f201a2`. The folder now holds patches 0001 to 0028: 0012 to 0028 were added on 10 November 2026 for [RC3Y-v2-K](#rc3y-v2-k-new-116-gb-one-p100), and the commands below apply only 0001 to 0011. The CUDA build was tested for compute capability 6.0 with llama-bench, llama-perplexity and the speculative example; **llama-cli and llama-server have not yet been built or smoke-tested on the 0001 to 0011 set.** CUDA toolkit required; these examples use a Bash shell.
+
+```bash
+hf download XGeorgeCostanzaX/Qwen3.8-27B-Nyquant-preview --include "RC3Y/*" --local-dir qwen38-nyquant
+git clone https://github.com/ggml-org/llama.cpp llama.cpp-p100
+cd llama.cpp-p100
+git checkout 69f201a2051ea9b9e9b50c3cc56afd9e2ae64414
+git am ../qwen38-nyquant/RC3Y/llama.cpp-p100-patches/00{01..11}-*.patch
+cmake -B build -DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=60 \
+  -DCMAKE_BUILD_TYPE=Release -DLLAMA_CURL=OFF \
+  "-DGGML_CUDA_FA_QUANTS=q4_0-q4_0;q8_0-q8_0;f16-f16;bf16-bf16"
+cmake --build build -j --target llama-cli llama-server llama-bench llama-perplexity
+
+export GGUF=../qwen38-nyquant/RC3Y/Qwen3.8-27B-RC3Y-P100.gguf
+build/bin/llama-cli -m "$GGUF" -ngl 99 -fa on -c 8192 -p "The capital of France is"
+build/bin/llama-server -m "$GGUF" -ngl 99 -fa on -c 8192 --port 8080
+```
+
+Use Qwen's recommended sampling settings; the chat template is embedded in the GGUF. The example context is **not** a validated maximum for 16 GB: reduce it if necessary. These commands illustrate plain decoding; a validated MTP invocation will follow.
+
+**Caveats.**
+
+- P100 (compute capability 6.0) is the only measured fast path. P40 correctness and speed are unverified; do not treat it as supported. Other GPUs are unverified too.
+- About **10.1 GiB** of weights reside on the GPU, with token embeddings in host memory; allow additional space for KV cache and buffers. Maximum context on 16 GB remains unmeasured.
+- Task benchmarks, long-context quality, tool calling, vision, LoRA, partial offload and multi-GPU split need testing. Server/chat sampling paths need smoke tests.
+- CUDA graphs are off on compute capability 6.0.
+- Measurements are from one card in a shared server; run-to-run variance is not established.
+
+### U-X (2-bit class)
+
+**What it is.** Public preview, downloadable in `U-X/`. A development-exposed result; not independently replicated. Not an equal-size or best-at-size claim.
+
+U-X starts from [unsloth's UD-IQ2_XXS](https://huggingface.co/unsloth/Qwen3.8-27B-GGUF) layout and values and applies **82 measured tensor exchanges** (the [method](#2-measured-tensor-exchange)). The exchanges re-quantise 48 linear-attention (GDN) `ssm_out` tensors, 16 attention K/V tensors, 3 attention output tensors and 15 further tensors to IQ4_XS, using an importance matrix we computed. The other 769 tensors are unsloth's bytes unchanged. All tensor types are standard GGUF types. The complete file is **7,998,312,448 bytes**, which is **732,241,920 bytes (10.1%) larger** than UD-IQ2_XXS (7,266,070,528 bytes). **This is not an equal-bytes comparison.** The table shows what the extra bytes buy over the same file without them, nothing more.
+
+**Size and checksum.** 7,998,312,448 bytes. SHA-256 `bf9ccab4b57615afa5b17baf4c49b08278aef43b82152a8fdf7d69cbc3e63f12`. `U-X/MANIFEST.tsv` lists every tensor (851 tensors) with its type, bytes, payload SHA-256 and origin (unsloth or Nyquant exchange), and marks which 82 differ from unsloth's file.
+
+**Quality.** Paired comparison with its own base, on the Tesla P100 board, using the protocol in [How the numbers are measured](#how-the-numbers-are-measured). The exchanges were chosen using the **first 16 windows of each corpus**. The headline is therefore the **44 windows that were not used for selection** (windows 17-60 of each corpus, 176 windows in all):
+
+| Corpus (44 windows each) | UD-IQ2_XXS KLD | U-X KLD | U-X − UD-IQ2_XXS [95% CI] |
+|---|---:|---:|---|
+| wiki | 0.220469 | 0.198112 | −0.022357 [−0.024678, −0.019847] |
+| fineweb (held-out) | 0.242444 | 0.213451 | −0.028993 [−0.032332, −0.025830] |
+| code (held-out) | 0.106074 | 0.091465 | −0.014610 [−0.017870, −0.011636] |
+| chat (held-out) | 0.942803 | 0.907925 | −0.034878 [−0.073991, +0.005980] |
+| Arithmetic macro | 0.377947 | 0.352739 | −0.025209 [−0.035056, −0.014947] |
+| Geometric mean of the four | 0.270394 | 0.243432 | ratio **0.900284** [0.887918, 0.911806] |
+
+On the non-selection windows U-X is lower on wiki, fineweb and code with intervals that exclude zero, and lower on the macro and geometric mean. **On chat the interval includes zero**: we cannot say U-X is better on chat there.
+
+<details>
+<summary><b>Other window sets (selection windows and all 60)</b></summary>
+
+| Window set | Macro delta [95% CI] | Geometric ratio [95% CI] |
+|---|---|---|
+| 44 windows not used for selection (headline) | −0.025209 [−0.035056, −0.014947] | 0.900284 [0.887918, 0.911806] |
+| 16 selection windows per corpus (optimistic: exposed to selection) | −0.034636 [−0.046017, −0.024704] | 0.893002 [0.879210, 0.906556] |
+| All 60 windows | −0.027723 [−0.035865, −0.019678] | 0.899114 [0.888586, 0.908812] |
+
+The all-60 row is reported for completeness; because 16 of its windows were used for selection, it is more favourable than the headline. All 60-window values are 0.373404 (UD-IQ2_XXS) and 0.345682 (U-X) arithmetic macro; geometric means 0.272695 and 0.245185.
+
+</details>
+
+**Runtime and scope.** These scores come from one board: a Tesla P100 build of our llama.cpp fork (commit `c6e7ddc`, upstream b11551 plus our unpublished patches), with the same frozen windows, teacher caches and scoring code for both files. U-X uses only standard GGUF types and was **not re-scored in upstream llama.cpp**; the UD-IQ2_XXS re-score on this board reproduced our earlier per-window values exactly. This board is not the A800 board used for the quality charts above, and U-X does not appear in those charts. We compare U-X with its own base only; no other file is compared here. The D4 windows were also used in earlier work in this project, so the result is development-exposed even on the 44 windows that did not choose the exchanges.
+
+**Quickstart: upstream llama.cpp.**
+
+```bash
+hf download XGeorgeCostanzaX/Qwen3.8-27B-Nyquant-preview --include "U-X/*" --local-dir qwen38-nyquant
+llama-cli -m qwen38-nyquant/U-X/Qwen3.8-27B-U-X.gguf -c 8192 -p "The capital of France is"
+llama-server -m qwen38-nyquant/U-X/Qwen3.8-27B-U-X.gguf -c 8192 --port 8080
+```
+
+No patches are needed. Use Qwen's recommended sampling settings; the chat template is embedded in the GGUF.
+
+<details>
+<summary><b>CPU smoke test in upstream llama.cpp (not a benchmark)</b></summary>
+
+upstream llama.cpp `3f03b17` (b1-3f03b17), CPU only, 8 threads, one prompt, 32 new tokens, greedy. The command as run:
+
+```bash
+llama-cli -m U-X.gguf -t 8 -ngl 0 -c 512 -n 32 --temp 0 --seed 1 -st --simple-io --no-warmup -p "The capital of France is"
+```
+
+The file loaded (the loader prints its file type as `IQ2_XXS`, the base file's label) and generated a coherent answer to the prompt: it began a reasoning block that restated the question, then stopped at the 32-token limit. We did not measure speed.
+
+</details>
+
+**Caveats.**
+
+- U-X is 10.1% larger than its base. At equal size it has not been compared with anything.
+- The exchange list was chosen on 16 windows per corpus; the 44-window headline is a retrospective split of a development board, not a fresh-source replication.
+- Chat on the non-selection windows is not significantly different from the base.
+- No speed, memory, long-context, task, tool-calling, vision or MTP-quality measurements. Upstream-runtime KLD is not measured. The U-X speed number in this card is the A100 single-stream figure from the KD-B runtime bench (information, not a speed benchmark; see [Speed](#speed)).
+
+### KD-B (2-bit class, distilled from U-X)
+
+**What it is.** Public preview, downloadable in `KD-B/`. It has the same size and GGUF layout as U-X (7,998,312,448 bytes): lower KLD to BF16 on all four corpora of our board; no task significantly worse in our tests. U-X stays in this repository. A development-exposed result; not independently replicated.
+
+KD-B starts from U-X and changes **only stored scale values**; nothing else is trained or re-quantised. 469 of the 851 tensors differ from U-X, in their existing FP16 scale (`d`) fields only. We trained one log multiplier per output row of each of those 469 matrices (3,907,584 multipliers, bounded to [0.95, 1.05]) and folded them into the scale fields. The other payload bytes, tensor types and shapes, metadata, header and the file size are U-X's exactly: the other 382 tensors have the same payload SHA-256 as in U-X (see `KD-B/MANIFEST.tsv`). No bytes were added, so this is an equal-bytes comparison with U-X.
+
+<details>
+<summary><b>How KD-B was trained</b></summary>
+
+The training signal is knowledge distillation from the BF16 Qwen3.8-27B (revision `1d4bf0f2`) on a pool of 131,072 public tokens, 12-gram-decontaminated against all of our evaluation corpora and tasks. Teacher parity was 0.00062 KL (gate 0.001). The fit is Adam, 120 steps, learning rate 0.0005, seed 20261024, on one A100, with the held-out split sealed and no checkpoint selection (the final step is the model). A sibling arm that trained the norm gains instead (KD-A) was also scored; it is not released.
+
+</details>
+
+**Size and checksum.** 7,998,312,448 bytes. SHA-256 `0225fee3f4a3a754f7f6342c4b93987c6ef03e46582faf2740cfa76a232a357b`. `KD-B/MANIFEST.tsv` lists every tensor (851 tensors) with its type, bytes, payload SHA-256 and whether it differs from U-X (469 yes, 382 no). `KD-B/NOTICE` carries the attributions for KD-B.
+
+**Quality.**
+
+Paired comparison with U-X on the Tesla P100 native board (U-X re-scored in the same job; KD-B minus U-X; protocol in [How the numbers are measured](#how-the-numbers-are-measured)):
+
+![Bar chart of the paired difference in KL divergence from BF16, KD-B minus U-X, for wiki, web, code, chat and their average, with 95% intervals. Negative values mean KD-B is closer to BF16, and all five intervals lie below zero.](assets/qwen-kdb-vs-ux-20261102.png)
+
+| Corpus (60 windows each) | U-X KLD | KD-B KLD | KD-B − U-X [95% CI] |
+|---|---:|---:|---|
+| wiki | 0.1968 | 0.1834 | −0.0134 [−0.0149, −0.0122] |
+| fineweb (held-out) | 0.2057 | 0.1838 | −0.0219 [−0.0231, −0.0207] |
+| code (held-out) | 0.1016 | 0.0962 | −0.0054 [−0.0064, −0.0045] |
+| chat (held-out) | 0.8786 | 0.6957 | −0.1829 [−0.2226, −0.1505] |
+| Arithmetic macro | 0.3457 | 0.2898 | −0.0559 [−0.0659, −0.0477] |
+
+The geometric mean of the four corpus KLDs is 0.2452 for U-X and 0.2179 for KD-B (ratio 0.8888). On the 44 windows per corpus that were not used to choose U-X's exchanges (FRESH44) the macro difference is −0.0573 [−0.0713, −0.0466], and every corpus interval is below zero there too. The chat gain is the largest and its interval is wide; the code gain is the smallest.
+
+**Unseen-task check against U-X** (greedy, non-thinking, our llama.cpp on P100; same items for both files; items excluded from the training pool and from every KL window; no BF16 run, because the 27B BF16 model does not fit a 16 GB P100):
+
+| Task | n | U-X | KD-B | KD-B − U-X [95% CI] |
+|---|---:|---:|---:|---|
+| GSM8K (exact match) | 200 | 73.5% | 84.5% | +11.0 pp [+5.5, +16.5] |
+| MMLU-Pro (multiple choice) | 200 | 58.0% | 59.0% | +1.0 pp [−3.5, +5.5] |
+| MBPP (pass@1) | 113 | 77.9% | 78.8% | +0.9 pp [−4.4, +6.2] |
+| Retrieval (24 at 4k, 8 at 16k) | 32 | 100% | 100% | 0.0 pp (tie, both at ceiling) |
+| IFEval, original 160 items | 160 | 72.5% | 71.25% | −1.25 pp [−8.13, +5.0] |
+| IFEval, 109 new items (pre-registered extension) | 109 | 69.7% | 78.9% | +9.2 pp [+3.7, +15.6] |
+| IFEval, all 269 items | 269 | 71.4% | 74.3% | +3.0 pp [−1.5, +7.4] |
+| Macro of 5 tasks (IFEval = original 160) | | 76.4% | 78.7% | +2.3 pp [+0.2, +4.6] |
+
+The pre-registered gate passed, but not on the first run. With the original 160 IFEval items the IFEval lower bound (−8.13 pp) missed the pre-registered −8.00 pp margin, so the verdict was "inconclusive". We then ran the pre-registered extension on the 109 remaining unseen IFEval items; its lower bound (+3.7 pp) cleared the margin and the verdict became PASS. IFEval is therefore a mixed result: a small loss that is not significant on the first 160 items, a gain on the next 109, and no clear difference overall (+3.0 pp, interval spans zero).
+
+Only GSM8K shows a significant gain. About 24% of MMLU-Pro generations hit the 1,536-token cap for both files, which depresses both scores. HumanEval was not part of this gate (it was kept sealed); it appears in the bench below.
+
+**Runtime bench against BF16** (one A100; BF16 on vLLM; the quantised files on upstream llama.cpp `llama-server` with CUDA; same raw prompts, no chat template, greedy, `<think>` suppressed for all three; end-of-turn tokens suppressed on every task except HumanEval; fixed-seed subsets; 95% intervals):
+
+![Grouped bar chart of task scores (higher is better) for BF16, KD-B and U-X on GSM8K, MMLU, HumanEval and ARC-Challenge, measured on one A100 with 95% intervals. KD-B's score as a share of the BF16 score is shown beside each task.](assets/qwen-kdb-tasks-20261102.png)
+
+| Task | n | BF16 | KD-B | U-X | KD-B − U-X [95% CI] | KD-B recovery of BF16 [95% CI] |
+|---|---:|---:|---:|---:|---|---|
+| GSM8K | 250 | 92.0 [88.0, 94.8] | 83.6 [78.5, 87.7] | 81.2 [75.9, 85.6] | +2.4 pp [−0.8, +5.6] | 90.9% [86.7, 94.8] |
+| MMLU | 500 | 84.0 [80.5, 87.0] | 75.8 [71.9, 79.3] | 75.8 [71.9, 79.3] | 0.0 pp [−1.6, +1.4] | 90.2% [86.5, 94.0] |
+| HumanEval | 164 | 78.0 [71.1, 83.7] | 63.4 [55.8, 70.4] | 63.4 [55.8, 70.4] | 0.0 pp [−4.9, +4.9] | 81.2% [72.4, 90.5] |
+| ARC-Challenge | 300 | 96.7 [94.0, 98.2] | 95.0 [91.9, 96.9] | 95.3 [92.3, 97.2] | −0.3 pp [−2.0, +1.0] | 98.3% [96.2, 100.3] |
+
+In this bench every KD-B − U-X difference is within noise. KD-B stays below BF16 by 8.4 points on GSM8K, 8.2 on MMLU, 14.6 on HumanEval and 1.7 on ARC-Challenge, recovering 81% to 98% of BF16's score. This bench also served as a smoke test of KD-B in upstream llama.cpp with CUDA (build: upstream llama.cpp master of 2026-10-27; exact commit not recorded).
+
+#### Coding: where KD-B stands
+
+HumanEval and HumanEval+ (EvalPlus), 164 problems, greedy, raw completion with thinking off, pass@1 with 95% Wilson interval. The two public rows are unsloth GGUFs of the same base model.
+
+| model file | size (bytes) | HumanEval | HumanEval+ |
+|---|---|---|---|
+| Qwen3.8-27B BF16 | n/a | 78.1 [71.1, 83.7] | 69.6 [62.1, 76.0] |
+| unsloth UD-IQ3_XXS | 10,934,860,704 | 73.8 [66.6, 79.9] | 65.3 [57.7, 72.1] |
+| **KD-B** | 7,998,312,448 | 63.4 [55.8, 70.4] | 56.0 [48.4, 63.5] |
+| unsloth UD-IQ2_XXS | 7,266,070,528 | 59.2 [51.5, 66.4] | 53.1 [45.4, 60.5] |
+
+KD-B and the two unsloth rows were run on a Tesla P100 with upstream llama.cpp (commit 3f03b17); BF16 is a vLLM run on an A100. On the A100 setup KD-B scored 63.4 and 55.4, and 132 of 164 completions were identical across the two machines. KD-B is ahead of UD-IQ2_XXS by 4.3 points on HumanEval and 3.0 on HumanEval+, but the paired 95% intervals include zero, so we do not claim a coding win over it. UD-IQ3_XXS, 2.9 GB larger, is about 10 points ahead of KD-B, and KD-B trails BF16 by about 14 points; coding is the task where KD-B loses the most relative to BF16. These are single greedy runs on 164 problems with thinking disabled, so intervals are wide (about +-7 points) and thinking-mode results may differ. A public 4-bit row (unsloth UD-Q4_K_XL) is queued and will be added when it has run.
+
+**Quickstart: upstream llama.cpp.**
+
+```bash
+hf download XGeorgeCostanzaX/Qwen3.8-27B-Nyquant-preview --include "KD-B/*" --local-dir qwen38-nyquant
+llama-cli -m qwen38-nyquant/KD-B/Qwen3.8-27B-KD-B.gguf -c 8192 -p "The capital of France is"
+llama-server -m qwen38-nyquant/KD-B/Qwen3.8-27B-KD-B.gguf -c 8192 --port 8080
+```
+
+No patches are needed. Use Qwen's recommended sampling settings; the chat template is embedded in the GGUF.
+
+**Caveats.**
+
+- All development screens (KLD board, task check) ran on our own harness; the KLD board is development-exposed and not independently replicated.
+- Task results are greedy and non-thinking only. No thinking-mode evaluation was done.
+- No long-context evaluation beyond a 32-item retrieval check at 4k and 16k, where both files were at ceiling.
+- Task sample sizes are small (113 to 500 items); most per-task intervals include zero. Only GSM8K in the unseen-task check shows a significant gain.
+- IFEval is a mixed result (see above): the first 160 items missed the margin, and the PASS verdict relies on a pre-registered extension.
+- HumanEval was not part of the unseen-task gate; it was measured only in the A100 bench, where KD-B equals U-X.
+- KD-B remains well below BF16 on GSM8K, MMLU and HumanEval in the A100 bench.
+- Speed was measured only as single-stream decode on one A100. Memory, tool calling, vision and MTP quality were not measured. Upstream-runtime KLD was not measured.
+
+## Research results (no download)
+
+Research sizes are targets, not releases. Neither result below can be downloaded from this repository.
+
+### q2lite (2-bit research)
+
+**Status:** research; K3 fails; no download. Deployment target unqualified; runtime parity pending; not release-qualified. Its row is in the [2-bit table](#2-bit-class-d4-frozen-board).
+
+**Quality.** **Research result, with an open runtime gate.** q2lite's four-domain macro KLD is **0.18946722593101104** at **9,299,294,112 complete bytes**. It was scored in its **own packed FP32 reference runtime**; the public controls were scored in llama.cpp using their original GGUFs. An equal-runtime check is pending. These scores do not establish a best-quant claim or a working low-memory deployment.
+
+**K3 fails:** the upper macro confidence bound is **0.21080927346309444**, above the required **0.205**. Passing paired comparisons in this cross-runtime board does not waive that gate.
+
+q2lite's reference-runtime fidelity remains unresolved. The frozen intervals supersede its original receipt's differently seeded intervals.
+
+### B3 (3-bit research)
+
+**Status:** research result, **provisional** (no independent replication yet). **Not downloadable yet.** Not a best-at-size claim.
+
+**What it is.** B3 is a **splice of public tensors, not a new quantisation format**. It keeps 835 of the 866 tensors of agentionai's AP-IQ3_S unchanged (92.3% of tensor bytes, values untouched), takes 23 later-layer FFN gate/up tensors from basecompute's BaseQuant-V1-Small (6.5%), and re-quantises the 8-tensor MTP layer (`blk.64`) to Q2_K (1.2%). The complete file is **12,035,434,112 bytes** (12.04 GB; 3.58 bpw complete), 5,447,904 bytes smaller than AP-IQ3_S. All tensor types are standard GGUF types, and it was scored in upstream llama.cpp at commit `69f201a2`.
+
+**Quality.** Paired comparison with AP-IQ3_S at equal size (the same 240 windows; B3 minus AP-IQ3_S, 95% paired bootstrap CI):
+
+| Corpus | B3 KLD | AP-IQ3_S KLD | B3 − AP-IQ3_S [95% CI] |
+|---|---:|---:|---|
+| wiki | 0.0386 | 0.0403 | −0.0018 [−0.0029, −0.0009] |
+| fineweb (held-out) | 0.0311 | 0.0336 | −0.0026 [−0.0031, −0.0021] |
+| code (held-out) | 0.0203 | 0.0207 | −0.0004 [−0.0008, −0.0001] |
+| chat (held-out) | 0.3063 | 0.3274 | −0.0211 [−0.0305, −0.0121] |
+| Arithmetic macro | 0.0991 | 0.1055 | −0.0065 [−0.0089, −0.0042] |
+| Geometric mean of the four | 0.0523 | 0.0551 | ratio **0.9471** [0.9362, 0.9571] |
+
+B3 is lower on every corpus and every interval excludes zero. That meets our **-Balanced** rule: the upper bound of the geometric-mean ratio is below 0.99 and no corpus is worse.
+
+**It does not meet the stricter rule the build run pre-registered.** That rule requires both the four-corpus macro and the on-policy panel to improve on every eligible smaller file, using intervals corrected for 200 comparisons (Bonferroni, 20,000 draws). Against one smaller public file, B3's panel improvement is significant at the ordinary 95% level but not after that correction, so B3 does not qualify under the original rule. We report both verdicts.
+
+**Against other files** (same board, paired windows):
+
+- **unsloth UD-Q3_K_XL** (13,146,393,504 bytes, 9.2% larger) beats B3 on every corpus: geometric ratio 1.2916 [1.2559, 1.3266].
+- **Smaller public files** from unsloth, bartowski and agentionai that we scored with per-window arrays (AP-IQ3_XS, AP-IQ3_XXS, UD-IQ3_XXS, UD-Q2_K_XL, UD-IQ2_S, UD-IQ2_XXS, AP-IQ2_S and bartowski Q2_K, IQ2_M, IQ2_S, IQ2_XXS): B3 is lower on every corpus, with geometric ratios from 0.20 to 0.75. These files are 0.5–4.8 GB smaller, so this is expected from size. bartowski IQ2_XS has not been scored in this cohort yet.
+- **Not yet scored:** a Hugging Face metadata census on 22 October found 26 more repositories with Qwen3.8-27B GGUFs at or below B3's size, for example byteshape IQ3_S-3.23bpw and AtomicChat AD-IQ2_S. Until they are scored there is no "best at 12 GB" claim. ISTA GSQ-RCO-IQ3_S is on the board above without a paired test.
+
+**Chat and tool use (-Chat rule):** on our 45-prompt on-policy chat/tool panel, B3 and AP-IQ3_S **tie**: B3 − AP-IQ3_S is +0.0011 [−0.0035, +0.0061] (mean of six source means; the mean over prompts is 0.03756 vs 0.03758). The panel cannot resolve differences smaller than about 14%; a larger held-out panel is pending. We make no chat-specific claim.
+
+**Caveats.**
+
+- The MTP (speculative-decoding) layer is Q2_K in B3. The board does not exercise it, so draft acceptance and MTP speed are unmeasured.
+- Decode speed, prefill speed and memory use were not measured.
+- The D4 windows were used in earlier allocation work in this project. B3's tensor exchange was pre-registered before final scoring and screened on separate development windows, but treat the result as provisional until it is replicated on fresh windows.
+- A release would ship with a per-tensor provenance MANIFEST and a NOTICE crediting agentionai and basecompute.
+
+## Speed
+
+### Tesla P100 16 GB (RC3Y)
+
+The two measurements below are separate, and both need release-build validation.
+
+**Earlier comparison:** decode, llama-bench **tg128**, flash attention on, same card/settings. The RC3Y fork is based on upstream b11551; the measured run predates the final release build.
+
+| Model | Runtime | tg128 (tokens/s) | GPU memory (weights) | Status |
+|---|---|---:|---|---|
+| **RC3Y** | Our fork, P100 kernels | **30.6** | 10.1 GiB | **To be re-measured on the release build** |
+| UD-IQ3_XXS (unsloth) | Upstream llama.cpp b11551 | 10.45 | 10.2 GiB | Control to be re-measured alongside RC3Y |
+
+That is **2.93×** faster in this comparison. IQ3_S and Q3_K_XL speeds on P100 have **not** been measured. The P100 kernels' KLD against the exact quantised weights is **1.9e-5**; this measures kernel fidelity, not quantisation quality against BF16.
+
+**Latest MTP update:** one P100, our **development fork build**, plain decoding versus the included MTP head at different speculative draft lengths K. These are not the earlier tg128 run above. Exact benchmark settings and repeated trials must accompany the release measurements; do not treat them as a matched upstream comparison.
+
+| RC3Y mode | Tokens/s | Status |
+|---|---:|---|
+| Plain (no speculation) | 29.1 | Development build; re-measure on release build |
+| MTP K=1 | 37.6 | Development build; re-measure on release build |
+| **MTP K=2** | **38.9** | **Development build; re-measure on release build** |
+| MTP K=3 | 38.0 | Development build; re-measure on release build |
+
+Mean MTP acceptance is about **3.0 tokens per verify step at K=3**. This is a tokens-per-step metric, not a percentage. K=2 is the fastest measured setting in this development series; further P100 MTP speedups are on the roadmap.
+
+**RC3Y-v2-K:** its speed (release build and benchmark configuration) is in its [section](#rc3y-v2-k-new-116-gb-one-p100). Those numbers are for a different file and build from the RC3Y rows above and are not pooled with them.
+
+### Intel Arc B70 (NQ4MAX-B70)
+
+vLLM, AWQ int4 path; test window **2026-10-11**, **one card**, not multi-card throughput. c1/c8 are the reported concurrency labels. The source provides the following aggregate and per-stream summaries:
+
+| Configuration | c1 chat (t/s) | c1 code (t/s) | c8 aggregate (t/s) | c8 per stream (t/s) |
+|---|---:|---:|---:|---:|
+| With MTP speculation | 58–59 | 60–65 | 135–173 | 37–41 |
+| Without speculation | 27 | 27 | 178–180 | 23 |
+
+The c8 aggregate/per-stream summaries still need reconciliation; do not infer aggregate throughput by multiplying the per-stream range. Prompt/output lengths, cache settings and the exact serving configuration will be documented with release measurements. MTP improves single-stream speed here, but not the reported c8 aggregate, and MTP is not always better for aggregate throughput.
+
+### A100 (KD-B and U-X; information only)
+
+Single-stream decode on the A100 was about 55 tokens/s for both KD-B and U-X (55.4 each; information only, not a speed benchmark). This is the speed number reported for both U-X and KD-B.
+
+## Method
+
+### 1. Mixed precision by measured sensitivity
+
+Nyquant balances weight precision against measured model sensitivity and a size budget, with runtime support chosen for the target hardware. Mixed precision preserves more capacity where it matters while reducing weight storage elsewhere. A small file or fast kernel is not by itself evidence of better model quality; release claims must be checked on the actual downloadable weights and runtime.
+
+### 2. Measured tensor exchange
+
+For the 12 GB class we did not build a new format. The procedure:
+
+1. **Start from the strongest public file at the size**, here agentionai's AP-IQ3_S, measured against BF16 in the same runtime on the four-corpus board.
+2. **Keep its tensors and values**, including its importance-matrix rounding; change only a small, pre-registered set of tensors.
+3. **Count complete bytes**: every tensor, the MTP layer, metadata and padding. The result never exceeds the starting file.
+4. **Move bytes to where they buy the most.** For B3, the MTP layer (which the board does not use) was re-quantised to Q2_K, and the freed bytes bought higher-precision payloads for 23 later-layer FFN gate/up tensors, taken from another public quantisation (basecompute's BaseQuant-V1-Small). Attention K/V/O and linear-attention (GDN) tensors stay as AP shipped them.
+5. **Judge the whole model only:** paired per-window KLD against BF16 on the same four-corpus windows (wiki, fineweb, code and chat), plus an on-policy chat/tool panel. Block-level proxies never promote a candidate; in our tests they over-predicted whole-model gains several-fold.
+6. **Two products per size.** A **-Balanced** candidate must lower the geometric mean of the four corpus KLDs (95% CI upper bound of the ratio below 0.99) with no corpus worse; a **-Chat** candidate must win on the on-policy chat/tool panel. B3 is a -Balanced candidate; its -Chat verdict is open.
+
+The result is a splice: 31 of 866 tensors differ from AP-IQ3_S, and the credit for the underlying tensors belongs to their publishers. What we add is the measurement and the choice of exchange.
+
+**U-X uses the same method at the 2-bit class**, with one difference: its exchanges **add** bytes. It starts from unsloth's UD-IQ2_XXS and re-quantises a set of its tensors, so the file is compared with its own base only, never as an equal-size result (see [U-X](#u-x-2-bit-class)).
+
+### 3. Distillation of stored scales
+
+KD-B starts from U-X and changes only the existing FP16 scale (`d`) fields of a subset of its tensors, by training one log multiplier per output row against the BF16 Qwen3.8-27B as teacher. All other bytes, the header and the file size are U-X's, so it is compared with U-X at equal size. Details and results are in [KD-B](#kd-b-2-bit-class-distilled-from-u-x).
+
+### 4. How we report
+
+- BF16 is the only quality reference. Sizes are complete file bytes. Rivals that beat us stay on the charts.
+- Our numbers round against us: our KLD, sizes and interval bounds round up or outward; rival values round down.
+- Results without independent replication are labelled provisional.
+
+## Roadmap
+
+- **Further MTP speedups on P100:** validate the improvement on a fresh patched build and publish reproducible commands.
+- **B3 (12 GB class):** score the census files that could beat it (for example byteshape IQ3_S-3.23bpw and AtomicChat AD-IQ2_S), replicate on fresh windows, measure MTP and speed, then release with a per-tensor provenance MANIFEST and NOTICE.
+- **U-X:** replicate the 44-window result on windows from a new source, score it on the card's A800 board and in upstream llama.cpp, and measure speed and memory.
+- **KD-B:** replicate on windows and tasks from a new source, run thinking-mode and long-context checks, score in upstream llama.cpp, and measure speed and memory.
+- **Improved 3-bit and 2-bit formats:** in research; evaluate quality and hardware support before committing to releases.
+- **NQ4MAX:** compare with community 4-bit quants of similar size on the same board.
+- **RC3Y release checks:** bind the original-file KLD receipt to the selected release artifact; any changed file needs a new score. Complete a fresh patched build, CLI/server smoke tests, repeat decode/prefill benchmarks, validated context/memory limits, checksums and packaging. P40 claims require actual hardware testing.
+
+## Licence and acknowledgements
+
+- **Model weights and card:** Apache-2.0, inherited from Qwen/Qwen3.8-27B. `LICENSE` and `NOTICE` are included.
+- **llama.cpp patches:** MIT; retain the ggml authors' copyright and licence.
+- **Base model:** Qwen Team, [Qwen/Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B).
+- **Quantisation:** Nyquant / XGeorgeCostanzaX.
+- **RC3Y and RC3Y-v2-K reused tensors and metadata:** [unsloth/Qwen3.8-27B-GGUF](https://huggingface.co/unsloth/Qwen3.8-27B-GGUF), UD-IQ3_XXS (Apache-2.0); in RC3Y-v2-K that is 457 tensors (3.89% of the bytes: 360 F32, 96 Q8_0 and the Q2_K token embedding) plus the header, tokenizer and chat template, which is why its GGUF metadata still names Unsloth as the quantizer.
+- **RC3Y-v2-K distillation data:** 128 public documents of 1,024 tokens from [HuggingFaceH4/ultrachat_200k](https://huggingface.co/datasets/HuggingFaceH4/ultrachat_200k) (MIT), [codeparrot/github-code-clean](https://huggingface.co/datasets/codeparrot/github-code-clean) (Python files under MIT, Apache-2.0, BSD-2/3-Clause or ISC only) and [HuggingFaceFW/fineweb-edu](https://huggingface.co/datasets/HuggingFaceFW/fineweb-edu) (ODC-By 1.0); revisions in `RC3Y-v2-K/NOTICE`. No source text is distributed.
+- **Comparisons:** unsloth, bartowski, agentionai (AP), ISTA-DASLab (GSQ-RCO) and byteshape; links in [Quality](#quality).
+- **U-X base layout and tensor values:** [unsloth/Qwen3.8-27B-GGUF](https://huggingface.co/unsloth/Qwen3.8-27B-GGUF), UD-IQ2_XXS (repository revision `4ca72078`; the repository card declares Apache-2.0, checked 24 October 2026). 769 of U-X's 851 tensors are unsloth's bytes unchanged. The 82 exchanged tensors are re-quantised by us from the BF16 weights. Credit, not endorsement.
+- **KD-B:** derived from U-X (above), with the BF16 Qwen3.8-27B as distillation teacher (Qwen Team, Apache-2.0). Credit, not endorsement.
+- **B3 tensors (research build, not distributed here):** [agentionai/Qwen3.8-27B-AP-GGUF](https://huggingface.co/agentionai/Qwen3.8-27B-AP-GGUF) (AP-IQ3_S) and [basecompute/Qwen3.8-27B-BaseQuant-V1](https://huggingface.co/basecompute/Qwen3.8-27B-BaseQuant-V1) (BaseQuant-V1-Small), both Apache-2.0. Credit, not endorsement.
+- **Runtime:** vLLM, llama.cpp and the ggml authors.
+
+## Citation
+
+Formal citation details will follow. For now, cite the Qwen base model and this card as "Nyquant Qwen3.8-27B quantisations" by XGeorgeCostanzaX, recording the chosen variant and repository revision.
+
+## Changelog
+
+Dated results and releases.
+
+- **16 October 2026:** frozen D4 board (the rows marked 16 Oct above).
+- **22 October 2026:** B3 research result (not downloadable) and the 3-bit rows marked 22 Oct above; first public preview of this repository with NQ4MAX-B70-AWQ and RC3Y.
+- **24 October 2026:** U-X (2-bit class) result and public preview download.
+- **27 October 2026:** KD-B (2-bit class, distilled from U-X) result and public preview download.
+- **10 November 2026:** RC3Y-v2-K (3-bit, Tesla P100) result and public preview download, with GPQA Diamond and IFBench in thinking mode; runtime patch series extended to 0001 to 0028.
+- **11 November 2026:** RC3Y-v2-K secondary benchmark column (GPQA Diamond and IFBench with the capped answers continued to 131k). Card reorganised: an at-a-glance table and contents at the top, benchmark and KLD charts for RC3Y-v2-K, longer evidence folded into expandable sections. No model file changed.
