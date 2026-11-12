@@ -1,0 +1,28 @@
+---
+license: mit
+pipeline_tag: text-generation
+tags:
+- gguf
+- quantized
+base_model:
+- deepseek-ai/DeepSeek-V4-Flash-0731
+---
+
+# DeepSeek-V4-Flash-0731
+
+Run it in the Llama app: https://llama.app
+
+Or from the terminal:
+
+```bash
+llama serve -hf ggml-org/DeepSeek-V4-Flash-0731-GGUF
+```
+
+### Source models
+- https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731
+
+### Notes
+- Currently, the Q2 models do not use an imatrix calibration due to lack of one.
+
+> [!IMPORTANT]
+> This model is automatically converted using https://github.com/ggml-org/convert

@@ -25,7 +25,7 @@
  },
  {
   "type": "directory",
-  "oid": "e4e4c0af254527dba431fce6b0571ce3012fe2fd",
+  "oid": "57cafd175b1431adffebc8beb26b61dda757ca1b",
   "size": 0,
   "path": "charts"
  },
@@ -55,14 +55,20 @@
  },
  {
   "type": "directory",
-  "oid": "8d940d59525ee82026c764ae7d1e0995d1c257da",
+  "oid": "f7a0f60c2da5107cdc4661921e9dad9d2639b5e1",
   "size": 0,
   "path": "serve"
  },
  {
+  "type": "directory",
+  "oid": "5723ab788f93f1483ec7a0a7ba550cea228201a9",
+  "size": 0,
+  "path": "tier_maps"
+ },
+ {
   "type": "file",
-  "oid": "eecdea0f2b91aecbf3301954ccb33aefc78ea1fa",
-  "size": 2148,
+  "oid": "5924f9ae70a8cd9a901e1be3315dd485fd91c6ba",
+  "size": 2299,
   "path": ".gitattributes"
  },
  {
@@ -97,14 +103,14 @@
  },
  {
   "type": "file",
-  "oid": "a80888a978eb3deebb074b410aaa8f2622daae7d",
-  "size": 34415,
+  "oid": "c6e11efbca930c7275f62474349d85c7be4233c5",
+  "size": 42270,
   "path": "README.md"
  },
  {
   "type": "file",
-  "oid": "08208ff8248ab0a0f4ad17918df1450a70aadc54",
-  "size": 18622,
+  "oid": "15e0e70b78d7f70b6dc69527ba3ddbd97475252b",
+  "size": 19599,
   "path": "SHA256SUMS"
  },
  {
@@ -238,6 +244,30 @@
   },
   "xetHash": "137c482965a8a4f167b46d825df88db3b8b115154be8c4542499068080c59aa9",
   "path": "charts/decode-by-length-dark.png"
+ },
+ {
+  "type": "file",
+  "oid": "74446ce88a95ff5e3d7cdd9d31d1a9c87c0fd1d4",
+  "size": 262505,
+  "lfs": {
+   "oid": "209a5b5ece9b095fd2c742d79a434ab11019f970a0e8e849492c6308586c8202",
+   "size": 262505,
+   "pointerSize": 131
+  },
+  "xetHash": "9350bcc581706c22338313aa1ddb57c54b03c58c928b2fcbdc3d1cb909594139",
+  "path": "charts/decode-by-length-final-dark.png"
+ },
+ {
+  "type": "file",
+  "oid": "3c76a08484a494c796f2664a3b1ace9dab92874a",
+  "size": 265508,
+  "lfs": {
+   "oid": "961aa988e09c06adada4b58f1c6156f6eed86411b3666c4e585219b4c6f44e3a",
+   "size": 265508,
+   "pointerSize": 131
+  },
+  "xetHash": "b801a098331a23549c0b8fa82f84aa2b81c4c6034860957b3ba258df4a083a68",
+  "path": "charts/decode-by-length-final-light.png"
  },
  {
   "type": "file",
@@ -2287,14 +2317,38 @@
  },
  {
   "type": "file",
-  "oid": "24302f75f5851409f4dec4e9473a8662b8d63e1a",
-  "size": 30972,
+  "oid": "e86c260c1ddcebfe7964b3f68e29e1f0b34be4cc",
+  "size": 32507,
   "path": "manifest.json"
  },
  {
   "type": "file",
-  "oid": "feee57a0908250ae86d4a104369e281e65a1ce01",
-  "size": 2164,
+  "oid": "f85d0bac431df577b49e0618985ae5d6e0f15ee7",
+  "size": 2397,
+  "path": "serve/hot_iq-native-slots1.yaml.template"
+ },
+ {
+  "type": "file",
+  "oid": "2ccae3faf883632ede7faf031a06841e3e678f99",
+  "size": 2377,
+  "path": "serve/hot_iq-slots1.yaml.template"
+ },
+ {
+  "type": "file",
+  "oid": "3bf56f4c8b4e9203df1fbec460609e53b03e9ffa",
+  "size": 2377,
+  "path": "serve/hot_iq-slots2.yaml.template"
+ },
+ {
+  "type": "file",
+  "oid": "538612a02c328f4d0127b524d98ee7a7ea549e42",
+  "size": 2377,
+  "path": "serve/hot_iq-slots3.yaml.template"
+ },
+ {
+  "type": "file",
+  "oid": "3bf56f4c8b4e9203df1fbec460609e53b03e9ffa",
+  "size": 2377,
   "path": "serve/hot_iq.yaml.template"
  },
  {
@@ -2302,5 +2356,29 @@
   "oid": "7759a852e7d18dd7fcb5e66daf5f563d97d9aff1",
   "size": 23564,
   "path": "tier_map.json"
+ },
+ {
+  "type": "file",
+  "oid": "d1ae01aa6841d78b4e48fe09a824f0b6404d947f",
+  "size": 24320,
+  "path": "tier_maps/native-slots1.json"
+ },
+ {
+  "type": "file",
+  "oid": "22dbe4f33a7fce325f14dece3ff9fc6e875f42fd",
+  "size": 24037,
+  "path": "tier_maps/slots1.json"
+ },
+ {
+  "type": "file",
+  "oid": "6daa3f24446362ca5001161d7a97ae4a46501220",
+  "size": 23057,
+  "path": "tier_maps/slots2.json"
+ },
+ {
+  "type": "file",
+  "oid": "57d454fe1598d6381d25c5734d9ca1005f5855f2",
+  "size": 21992,
+  "path": "tier_maps/slots3.json"
  }
 ]
