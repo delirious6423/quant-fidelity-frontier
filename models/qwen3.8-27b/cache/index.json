@@ -53917,14 +53917,14 @@
    "total_bytes": 12005589895
   },
   "Plaguekind/Qwen3.8-27B-FrostDFlash-GGUF": {
-   "sha": "ad06f9b1f191f2a7a63faf0e37d3cf1d8aec701e",
-   "file": "models/qwen3.8-27b/cache/cards/Plaguekind__Qwen3.8-27B-FrostDFlash-GGUF@ad06f9b1f191.md",
-   "sha256": "9cac519bc37c860c5cd391b1f7a145e19d396cc74aba724b7e1f1e66585f012b",
-   "bytes": 13247,
+   "sha": "0ca757b003dca0d28cd52473bcd14b418635a807",
+   "file": "models/qwen3.8-27b/cache/cards/Plaguekind__Qwen3.8-27B-FrostDFlash-GGUF@0ca757b003dc.md",
+   "sha256": "5068faf1dda1e3ce62e44c0a62d056d1b169bb4fb704bd7e6ce9f60063754259",
+   "bytes": 17281,
    "readme_status": 200,
    "catalogue_source": "base_model:quantized",
    "createdAt": "2026-10-10T17:08:26.000Z",
-   "lastModified": "2026-10-27T22:05:44.000Z",
+   "lastModified": "2026-11-13T22:07:55.000Z",
    "downloads": 695,
    "tags": [
     "gguf",
@@ -53938,6 +53938,7 @@
     "llama.cpp",
     "mixed-quantization",
     "mixedlow",
+    "parasyte",
     "text-generation",
     "en",
     "base_model:Qwen/Qwen3.8-27B",
@@ -53951,7 +53952,7 @@
    "tree_complete": true,
    "tree_pages": 1,
    "total_bytes_complete": true,
-   "total_bytes": 3742033665
+   "total_bytes": 5261089226
   },
   "tashfene/Overbrilliant-27B-Air-GGUF": {
    "sha": "762dfa6e59042424ae3cd30ab19796ce7b7cfe94",
@@ -61754,27 +61755,31 @@
    "total_bytes": 57270914725
   },
   "Anbeeld/Qwen3.8-27B-GGUF-Bartowski-SINQ": {
-   "sha": "efc7635f7ef1ae6f995727819c1a3636df1664cd",
-   "file": "models/qwen3.8-27b/cache/cards/Anbeeld__Qwen3.8-27B-GGUF-Bartowski-SINQ@efc7635f7ef1.md",
-   "sha256": "8cf2fe3f086e0ea4800cde9a9b4157a305ff53cf821cac50ab31bcf0f51e9ab7",
-   "bytes": 29520,
+   "sha": "f12b634a3a9b9d60d49fc15683cebefe16201643",
+   "file": "models/qwen3.8-27b/cache/cards/Anbeeld__Qwen3.8-27B-GGUF-Bartowski-SINQ@f12b634a3a9b.md",
+   "sha256": "d1ea5ea25f7d8c8ebcef76531b47a3a4ec7ef7f2a8696a8c087a810484cce420",
+   "bytes": 30639,
    "readme_status": 200,
    "catalogue_source": "base_model:quantized",
-   "createdAt": "2026-11-13T12:50:15.000Z",
-   "lastModified": "2026-11-13T14:48:22.000Z",
+   "createdAt": "2026-11-13T13:03:50.000Z",
+   "lastModified": "2026-11-13T22:09:37.000Z",
    "downloads": 0,
    "tags": [
+    "gguf",
     "image-text-to-text",
     "base_model:Qwen/Qwen3.8-27B",
     "base_model:quantized:Qwen/Qwen3.8-27B",
     "license:apache-2.0",
-    "region:us"
+    "endpoints_compatible",
+    "region:us",
+    "imatrix",
+    "conversational"
    ],
    "tree_file": "models/qwen3.8-27b/cache/trees/Anbeeld__Qwen3.8-27B-GGUF-Bartowski-SINQ.json",
    "tree_complete": true,
    "tree_pages": 1,
    "total_bytes_complete": true,
-   "total_bytes": 350696
+   "total_bytes": 68092859285
   },
   "yasakani-dev/Qwen3.8-27B-YASAKANI-speed": {
    "sha": "cd78f90d205677f8b3d2ce95eae82a64e278b910",
@@ -61965,6 +61970,34 @@
    "tree_pages": 1,
    "total_bytes_complete": true,
    "total_bytes": 919937075944
+  },
+  "trymirai/Qwen3.8-27B-S": {
+   "sha": "a21692480165362dcfb5e373ee93eb8fe7e415a4",
+   "file": "models/qwen3.8-27b/cache/cards/trymirai__Qwen3.8-27B-S@a21692480165.md",
+   "sha256": "347b1a892d7d6f9fe712df7271885a595936a8a407e2aed67f2178e743f64d69",
+   "bytes": 2544,
+   "readme_status": 200,
+   "catalogue_source": "base_model:quantized",
+   "createdAt": "2026-09-22T14:57:01.000Z",
+   "lastModified": "2026-11-13T18:22:28.000Z",
+   "downloads": 670,
+   "tags": [
+    "uzu",
+    "safetensors",
+    "mirai",
+    "2-bit",
+    "text-generation",
+    "base_model:Qwen/Qwen3.8-27B",
+    "base_model:quantized:Qwen/Qwen3.8-27B",
+    "license:apache-2.0",
+    "8-bit",
+    "region:us"
+   ],
+   "tree_file": "models/qwen3.8-27b/cache/trees/trymirai__Qwen3.8-27B-S.json",
+   "tree_complete": true,
+   "tree_pages": 1,
+   "total_bytes_complete": true,
+   "total_bytes": 9856517960
   }
  },
  "base": {
@@ -61976,5 +62009,5 @@
   "bytes": 65056,
   "readme_status": 200
  },
- "captured_at": "2026-11-13T18:17:56Z"
+ "captured_at": "2026-11-14T00:02:33Z"
 }
