@@ -1,7 +1,7 @@
 [
  {
   "type": "directory",
-  "oid": "bfb751732c1e7354537e138a4dac95922e9d0b7d",
+  "oid": "b33900ba73c48e2cff5b4a03b80b8d877b05c383",
   "size": 0,
   "path": "recipe"
  },
@@ -19,7 +19,7 @@
  },
  {
   "type": "directory",
-  "oid": "42309117e4a34e1ed169b18068656a93778c3e3b",
+  "oid": "aed39c9b7dbb26d86cef79ee237ea5abfd0673c9",
   "size": 0,
   "path": "recipe/patches"
  },
@@ -79,6 +79,12 @@
  },
  {
   "type": "directory",
+  "oid": "575f11333a64a489f4621af17a6829e2190a3fda",
+  "size": 0,
+  "path": "recipe/patches/dense-cublaslt-r1"
+ },
+ {
+  "type": "directory",
   "oid": "337be2ecde3c1239c6489c86aad547ee8805cb9e",
   "size": 0,
   "path": "recipe/patches/gdn-fused-r1"
@@ -112,6 +118,18 @@
   "oid": "f7106581d13f8bcdc1a929f098e3028914eda5f1",
   "size": 0,
   "path": "recipe/patches/prefill-bundle-r4"
+ },
+ {
+  "type": "directory",
+  "oid": "5c651cec8885b321a698edffbe91ba14d6fbdbaf",
+  "size": 0,
+  "path": "recipe/patches/prefill-bundle-r5"
+ },
+ {
+  "type": "directory",
+  "oid": "0fd83d1b468ee3304cd645035076d6217a835933",
+  "size": 0,
+  "path": "recipe/patches/qpmoe-p5"
  },
  {
   "type": "directory",
@@ -151,7 +169,7 @@
  },
  {
   "type": "directory",
-  "oid": "27719d01121429ee75b3dd6e66ac4556fc7249aa",
+  "oid": "7914061e3591b374f55d152ef57a1624149f99d3",
   "size": 0,
   "path": "recipe/patches/vllm_core"
  },
@@ -163,13 +181,13 @@
  },
  {
   "type": "directory",
-  "oid": "c993ab1f299717d0a44eb349fa9ccd21050b06ba",
+  "oid": "b6a550069e6cad3721e07f771f8b518bbfb05d62",
   "size": 0,
   "path": "recipe/patches/vllm_core/v1"
  },
  {
   "type": "directory",
-  "oid": "888ed6521b70e8d008c97c83beee03a6f60b56f4",
+  "oid": "89a267efba57bd7d5828c6c2b4100ff048f604ed",
   "size": 0,
   "path": "recipe/patches/vllm_core/v1/core"
  },
@@ -178,6 +196,18 @@
   "oid": "8aaf38a8c9797f2ce2d3ad21664051bcfd22052e",
   "size": 0,
   "path": "recipe/patches/vllm_core/v1/core/sched"
+ },
+ {
+  "type": "directory",
+  "oid": "98b68c7cf793f8991a60b76e8496dbd4770bf4e9",
+  "size": 0,
+  "path": "recipe/patches/vllm_core/v1/worker"
+ },
+ {
+  "type": "directory",
+  "oid": "61724e006d6d5ebc6efa7b21b3d16f07cb8c79e0",
+  "size": 0,
+  "path": "recipe/patches/vllm_core/v1/worker/gpu"
  },
  {
   "type": "directory",
@@ -199,13 +229,13 @@
  },
  {
   "type": "directory",
-  "oid": "e03612841acdeac1c8aaa9e603c96ed7a85352c7",
+  "oid": "ca54580285700d47ff05eea1291541cb4bec2d69",
   "size": 0,
   "path": "recipe/results"
  },
  {
   "type": "directory",
-  "oid": "74aaa835e4140c4ddf85ae5bd01dd004b15196e1",
+  "oid": "849c9b9c4c6ba1e87934f49a467e0a6183b8356a",
   "size": 0,
   "path": "recipe/serve"
  },
@@ -217,8 +247,8 @@
  },
  {
   "type": "file",
-  "oid": "aff63d17ab67165d32beeecdea34ca399b9750b0",
-  "size": 1872,
+  "oid": "cafa388e9f17e0ea10fd41bf605ac88f0db93fba",
+  "size": 2027,
   "path": ".gitattributes"
  },
  {
@@ -247,8 +277,8 @@
  },
  {
   "type": "file",
-  "oid": "d239d153ee6180b5e2082c3c0e523d7e3056978c",
-  "size": 18043,
+  "oid": "45cdf0c50435bbbd30e4d407fa916628affb5a1a",
+  "size": 22923,
   "path": "README.md"
  },
  {
@@ -301,14 +331,14 @@
  },
  {
   "type": "file",
-  "oid": "1004cb39d3350ee52e4fd1135be6abd1d49ca8c3",
-  "size": 19312,
+  "oid": "7836d4747a5d284f3f49e8004b435587384394b0",
+  "size": 22848,
   "path": "recipe/README.md"
  },
  {
   "type": "file",
-  "oid": "2d3f1cc3a54d6e790feec8a6fad7a61803b339ba",
-  "size": 6655,
+  "oid": "d10dda4aeb620de7287f8bb72ecf824de7d9be23",
+  "size": 8076,
   "path": "recipe/THIRD_PARTY_NOTICES.md"
  },
  {
@@ -424,6 +454,24 @@
   "oid": "d3d45ab65f7d829b5b4591eefcda6903636bea7a",
   "size": 16945,
   "path": "recipe/patches/b12x/sequence/_shared/disk_table.py"
+ },
+ {
+  "type": "file",
+  "oid": "bd816510ebf08c1b1bd2e68c43d5a026deec0be6",
+  "size": 152,
+  "path": "recipe/patches/dense-cublaslt-r1/SHA256SUMS"
+ },
+ {
+  "type": "file",
+  "oid": "aebdebebbf2eb23513ed7ad59bd1b8be0b382a69",
+  "size": 22668,
+  "path": "recipe/patches/dense-cublaslt-r1/b12x.py"
+ },
+ {
+  "type": "file",
+  "oid": "c740ea7ffd467febb6a8da859b4ae980eda20a01",
+  "size": 6365,
+  "path": "recipe/patches/dense-cublaslt-r1/n76_cbmx.py"
  },
  {
   "type": "file",
@@ -673,6 +721,126 @@
  },
  {
   "type": "file",
+  "oid": "141dc5ddbb87c825b136f159e47e72467a5cf443",
+  "size": 1809,
+  "path": "recipe/patches/prefill-bundle-r5/BUILD.txt"
+ },
+ {
+  "type": "file",
+  "oid": "fd39a45687fd6c8592023d933174ae506eb430ad",
+  "size": 734,
+  "path": "recipe/patches/prefill-bundle-r5/SHA256SUMS"
+ },
+ {
+  "type": "file",
+  "oid": "8cd9c228772fe75896ded60596b61103afc3c1b6",
+  "size": 21465,
+  "path": "recipe/patches/prefill-bundle-r5/_sparse_gqa.py"
+ },
+ {
+  "type": "file",
+  "oid": "743d3f620d45156c8cc95a2302f4a4be13fa9781",
+  "size": 430250,
+  "path": "recipe/patches/prefill-bundle-r5/dense_gemm.py"
+ },
+ {
+  "type": "file",
+  "oid": "82e5e4b9bbd0d464bcbfa59124b8aa0b400bfd08",
+  "size": 34318,
+  "path": "recipe/patches/prefill-bundle-r5/hyperconnection.py"
+ },
+ {
+  "type": "file",
+  "oid": "7e3fd2f31b0659c280db13aeb5efcfc86e4dbb33",
+  "size": 602272,
+  "lfs": {
+   "oid": "bd56a22f559939a9073de34f2fd05183a9e6ffce6336731e705735e096f224f3",
+   "size": 602272,
+   "pointerSize": 131
+  },
+  "xetHash": "7e696525fb99c3958c2f0049dd195331d62ee33e6e91541e55e078dcde135178",
+  "path": "recipe/patches/prefill-bundle-r5/libqhhc.so"
+ },
+ {
+  "type": "file",
+  "oid": "e2a2625c03603c059e6b095934019cd5fa931ab7",
+  "size": 32597,
+  "path": "recipe/patches/prefill-bundle-r5/qh_hc.cu"
+ },
+ {
+  "type": "file",
+  "oid": "ae2d9da115406b1ecafc10ae776e8694b0f3c721",
+  "size": 18808,
+  "path": "recipe/patches/prefill-bundle-r5/qn_hc_fused.py"
+ },
+ {
+  "type": "file",
+  "oid": "351a136c923b74b4661f72b6e6afb2d3eb8ddad5",
+  "size": 62775,
+  "path": "recipe/patches/prefill-bundle-r5/qn_selected_forward.py"
+ },
+ {
+  "type": "file",
+  "oid": "a9cb9f3f7993f4c51380302940b6eaf2a542848f",
+  "size": 148821,
+  "path": "recipe/patches/prefill-bundle-r5/qwen_gdn_linear_attn.py"
+ },
+ {
+  "type": "file",
+  "oid": "60f4a5b08c8b298d9595d876c5f6f3711457562f",
+  "size": 1563,
+  "path": "recipe/patches/qpmoe-p5/BUILD.txt"
+ },
+ {
+  "type": "file",
+  "oid": "e68df41dc2e5d97119b79dcb2a130e1f8450d663",
+  "size": 559,
+  "path": "recipe/patches/qpmoe-p5/SHA256SUMS"
+ },
+ {
+  "type": "file",
+  "oid": "87368e7ef37ee065a5f79eff0380d8db661f374c",
+  "size": 46220,
+  "path": "recipe/patches/qpmoe-p5/b12x_hooked.py"
+ },
+ {
+  "type": "file",
+  "oid": "a51d29b67a6afeebfb1baa438bde13a2b6590ff5",
+  "size": 271752,
+  "lfs": {
+   "oid": "6473f72ef239bc16551b0282701c5fbf1f04ec96deaf49764305cdc2725f6b5f",
+   "size": 271752,
+   "pointerSize": 131
+  },
+  "xetHash": "193b2bbf6d824a5ff12ce9b9baf65fa95b8928444f7c21bcd9e0e1b6571015a6",
+  "path": "recipe/patches/qpmoe-p5/libqpmoe_p5.so"
+ },
+ {
+  "type": "file",
+  "oid": "753627bb0e8d4f2edf85f8ac4d5bd5233d5336d6",
+  "size": 71539,
+  "path": "recipe/patches/qpmoe-p5/moe_l88.cu"
+ },
+ {
+  "type": "file",
+  "oid": "61ac89afb8d69d55fd276cf875d4741ec7a40b41",
+  "size": 19230,
+  "path": "recipe/patches/qpmoe-p5/nvfp4_csf_hooked.py"
+ },
+ {
+  "type": "file",
+  "oid": "3080fd50b47c820388f508690070560ca65d63ea",
+  "size": 8091,
+  "path": "recipe/patches/qpmoe-p5/qpmoe.py"
+ },
+ {
+  "type": "file",
+  "oid": "6f49b5b35d0416faf60dff4d6bc1101f71abe828",
+  "size": 8568,
+  "path": "recipe/patches/qpmoe-p5/qs_qpmoe_hook.py"
+ },
+ {
+  "type": "file",
   "oid": "575b4c091307b95912ea14d4dc6b8e8b176c1b0f",
   "size": 112,
   "path": "recipe/patches/qpmoe-r18/BUILD.txt"
@@ -871,8 +1039,8 @@
  },
  {
   "type": "file",
-  "oid": "9e4e447aa7bc4a47e05cc30093fee9e8c3c2b7cb",
-  "size": 17806,
+  "oid": "6ae3e4d796472d8b62508e7fd29a1ed5c2ae50a2",
+  "size": 18093,
   "path": "recipe/patches/vllm_core/v1/core/boundary_checkpoint.py"
  },
  {
@@ -880,6 +1048,12 @@
   "oid": "1d6b15843087c045bc1586154ca8e30dbc95eaa4",
   "size": 217691,
   "path": "recipe/patches/vllm_core/v1/core/sched/scheduler.py"
+ },
+ {
+  "type": "file",
+  "oid": "0ece5d46e6478f190fcc25eb08cd149e4d992e7c",
+  "size": 37488,
+  "path": "recipe/patches/vllm_core/v1/worker/gpu/boundary_checkpoint.py"
  },
  {
   "type": "file",
@@ -904,6 +1078,12 @@
   "oid": "cdc7f6c5d327d840a1ef480f103ab55aeb0e5905",
   "size": 2478,
   "path": "recipe/results/agentic-1113.txt"
+ },
+ {
+  "type": "file",
+  "oid": "33f548fe66bf35ba31c8a7833cb4d67429228884",
+  "size": 3765,
+  "path": "recipe/results/agentic-1114.txt"
  },
  {
   "type": "file",
@@ -1081,8 +1261,8 @@
  },
  {
   "type": "file",
-  "oid": "1f7ce6fc18c19ac2032540eb69bc278a95cd3497",
-  "size": 35461,
+  "oid": "ad4fd65edc344f694aea8388e1325ffa188b0084",
+  "size": 38765,
   "path": "recipe/serve/serve.sh"
  },
  {

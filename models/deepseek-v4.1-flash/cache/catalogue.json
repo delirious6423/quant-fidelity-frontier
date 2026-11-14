@@ -30,56 +30,10 @@
   "createdAt": "2026-09-10T21:02:04.000Z"
  },
  {
-  "_id": "6aa49210e29d415b0d586896",
-  "id": "antirez/deepseek-v4.1-flash-gguf",
-  "lastModified": "2026-10-19T09:15:23.000Z",
-  "trendingScore": 2,
-  "sha": "9dcee51692e6540f697141fc98b097e3c96492a3",
-  "downloads": 808948,
-  "tags": [
-   "gguf",
-   "deepseek",
-   "metal",
-   "base_model:deepseek-ai/DeepSeek-V4.1-Flash",
-   "base_model:quantized:deepseek-ai/DeepSeek-V4.1-Flash",
-   "license:mit",
-   "region:us",
-   "imatrix"
-  ],
-  "createdAt": "2026-09-11T23:43:12.000Z"
- },
- {
-  "_id": "6aaafe16381ccf4e5e515ffa",
-  "id": "nvidia/DeepSeek-V4.1-Flash-NVFP4",
-  "lastModified": "2026-10-14T16:40:46.000Z",
-  "trendingScore": 2,
-  "sha": "c48dca0146b56d64c8116dbb6fcace8b7cc835f8",
-  "downloads": 33307,
-  "tags": [
-   "Model Optimizer",
-   "safetensors",
-   "deepseek_v41",
-   "nvidia",
-   "ModelOpt",
-   "DeepSeekV4",
-   "quantized",
-   "FP4",
-   "fp4",
-   "image-text-to-text",
-   "base_model:deepseek-ai/DeepSeek-V4.1-Flash",
-   "base_model:quantized:deepseek-ai/DeepSeek-V4.1-Flash",
-   "license:mit",
-   "8-bit",
-   "fp8",
-   "region:us"
-  ],
-  "createdAt": "2026-09-16T20:37:42.000Z"
- },
- {
   "_id": "6aa2b4fbf52b6f585fba1bc2",
   "id": "msuiche/DeepSeek-V4.1-Flash-abliterated-cyber-GLP-39-L1-39-a0.5",
   "lastModified": "2026-09-10T14:02:02.000Z",
-  "trendingScore": 1,
+  "trendingScore": 2,
   "sha": "3a278522b127db0645c67e6327a41776c4eac71f",
   "downloads": 37,
   "tags": [
@@ -101,6 +55,25 @@
    "region:us"
   ],
   "createdAt": "2026-09-10T13:47:39.000Z"
+ },
+ {
+  "_id": "6aa49210e29d415b0d586896",
+  "id": "antirez/deepseek-v4.1-flash-gguf",
+  "lastModified": "2026-10-19T09:15:23.000Z",
+  "trendingScore": 2,
+  "sha": "9dcee51692e6540f697141fc98b097e3c96492a3",
+  "downloads": 808948,
+  "tags": [
+   "gguf",
+   "deepseek",
+   "metal",
+   "base_model:deepseek-ai/DeepSeek-V4.1-Flash",
+   "base_model:quantized:deepseek-ai/DeepSeek-V4.1-Flash",
+   "license:mit",
+   "region:us",
+   "imatrix"
+  ],
+  "createdAt": "2026-09-11T23:43:12.000Z"
  },
  {
   "_id": "6aa3ffe05bf664c96161a1d4",
@@ -125,6 +98,61 @@
    "region:us"
   ],
   "createdAt": "2026-09-11T13:19:28.000Z"
+ },
+ {
+  "_id": "6aa4b9d80ba6502850efac36",
+  "id": "drowzeys/DeepSeek-V4.1-Flash-TR3-Hybrid",
+  "lastModified": "2026-09-13T15:43:11.000Z",
+  "trendingScore": 1,
+  "sha": "74aa7dfeb4edc2d59df71abda01470d795394a26",
+  "downloads": 196,
+  "tags": [
+   "transformers",
+   "safetensors",
+   "deepseek_v41",
+   "text-generation",
+   "deepseek",
+   "moe",
+   "exl3",
+   "mxfp4",
+   "hybrid-quant",
+   "dgx-spark",
+   "image-text-to-text",
+   "base_model:deepseek-ai/DeepSeek-V4.1-Flash",
+   "base_model:quantized:deepseek-ai/DeepSeek-V4.1-Flash",
+   "license:mit",
+   "endpoints_compatible",
+   "fp8",
+   "region:us"
+  ],
+  "createdAt": "2026-09-12T02:32:56.000Z"
+ },
+ {
+  "_id": "6aaafe16381ccf4e5e515ffa",
+  "id": "nvidia/DeepSeek-V4.1-Flash-NVFP4",
+  "lastModified": "2026-10-14T16:40:46.000Z",
+  "trendingScore": 1,
+  "sha": "c48dca0146b56d64c8116dbb6fcace8b7cc835f8",
+  "downloads": 33307,
+  "tags": [
+   "Model Optimizer",
+   "safetensors",
+   "deepseek_v41",
+   "nvidia",
+   "ModelOpt",
+   "DeepSeekV4",
+   "quantized",
+   "FP4",
+   "fp4",
+   "image-text-to-text",
+   "base_model:deepseek-ai/DeepSeek-V4.1-Flash",
+   "base_model:quantized:deepseek-ai/DeepSeek-V4.1-Flash",
+   "license:mit",
+   "8-bit",
+   "fp8",
+   "region:us"
+  ],
+  "createdAt": "2026-09-16T20:37:42.000Z"
  },
  {
   "_id": "6ad39cef986e74a84ca19e0c",
@@ -194,9 +222,9 @@
  {
   "_id": "6af45deb756c4d246fea04b7",
   "id": "elisepaul/Qwen3.8-Flash-Reasoning-NVFP4-One-Spark",
-  "lastModified": "2026-11-14T03:04:42.000Z",
+  "lastModified": "2026-11-14T16:56:15.000Z",
   "trendingScore": 1,
-  "sha": "f952e8242ad03da6d0d2020e02439a5aefae465c",
+  "sha": "cbea7fb70290a3c2c8283ce414022c99f459c00a",
   "downloads": 157,
   "tags": [
    "vllm",
@@ -249,6 +277,7 @@
    "en",
    "zh",
    "dataset:princeton-nlp/SWE-bench_Lite",
+   "dataset:HuggingFaceH4/MATH-500",
    "arxiv:2412.19437",
    "arxiv:2409.19606",
    "arxiv:2404.19737",
@@ -259,6 +288,7 @@
    "base_model:deepseek-ai/DeepSeek-V4.1-Flash",
    "base_model:quantized:deepseek-ai/DeepSeek-V4.1-Flash",
    "license:other",
+   "model-index",
    "8-bit",
    "region:us"
   ],
@@ -965,34 +995,6 @@
    "region:us"
   ],
   "createdAt": "2026-09-12T00:06:55.000Z"
- },
- {
-  "_id": "6aa4b9d80ba6502850efac36",
-  "id": "drowzeys/DeepSeek-V4.1-Flash-TR3-Hybrid",
-  "lastModified": "2026-09-13T15:43:11.000Z",
-  "trendingScore": 0,
-  "sha": "74aa7dfeb4edc2d59df71abda01470d795394a26",
-  "downloads": 196,
-  "tags": [
-   "transformers",
-   "safetensors",
-   "deepseek_v41",
-   "text-generation",
-   "deepseek",
-   "moe",
-   "exl3",
-   "mxfp4",
-   "hybrid-quant",
-   "dgx-spark",
-   "image-text-to-text",
-   "base_model:deepseek-ai/DeepSeek-V4.1-Flash",
-   "base_model:quantized:deepseek-ai/DeepSeek-V4.1-Flash",
-   "license:mit",
-   "endpoints_compatible",
-   "fp8",
-   "region:us"
-  ],
-  "createdAt": "2026-09-12T02:32:56.000Z"
  },
  {
   "_id": "6aa53b5bb8bb46f300b28f68",
