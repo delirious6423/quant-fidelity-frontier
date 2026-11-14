@@ -1,0 +1,59 @@
+---
+tags:
+- uzu
+- mirai
+- 2-bit
+library_name: uzu
+license: apache-2.0
+license_link: https://huggingface.co/Qwen/Qwen3.8-27B/blob/main/LICENSE
+pipeline_tag: text-generation
+base_model:
+- Qwen/Qwen3.8-27B
+base_model_relation: quantized
+---
+
+<div style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+  <div style="flex:1;min-width:260px">
+    <h1 style="margin:0 0 12px">Mirai's Qwen3.8-27B Extra-Small Quantization</h1>
+    <p style="margin:0">An extra-small, high-quality quantization of Qwen3.8-27B prepared for efficient local inference on Apple silicon.</p>
+  </div>
+  <img src="https://assets.trymirai.com/images/logo/ml_small_logo.svg" alt="Mirai Labs" width="64" height="64" style="width:80px;height:80px;object-fit:contain;flex:0 0 auto">
+</div>
+
+![Evaluation pending](assets/kl-vs-size.svg)
+
+### Quickstart
+
+If you are on macOS, the easiest way is to install the `mirai` Homebrew package and then run the CLI:
+
+```sh
+brew install mirai
+mirai --model trymirai/Qwen3.8-27B-XS
+```
+
+Currently only Apple silicon inference is supported. If you want to build things from source, read this [overview](https://github.com/trymirai/uzu/blob/how-to/docs/how-to-run-uzu.md).
+
+---
+
+### Method
+
+Mirai Extra-Small uses QTIP-style trellis-coded quantization with 8, 7 or 6 transition bits per group of four weights, chosen per matrix by measured cost (about 2 bits per weight). Kronecker-structured random rotations are used to reduce weight outliers. The input embedding uses a 2-bit D4 lattice code, and the output head uses 4-bit integers with group size 64. The checkpoint was fit against a calibration set with reasoning and agent text, then prepared with two rounds of quantization-aware distillation and a long-context round that retrains only the row and norm scales on the model's own long agent sessions.
+
+### Citation
+
+If you find our work helpful, feel free to give us a cite.
+
+```bibtex
+@misc{mirai-quant,
+    title  = {{Mirai Quantization}: Redefining the speed-quality frontier for local LLMs on Apple silicon},
+    author = {Artur Chakhvadze and Ryan Mathieu and Roman Knyazhitskiy and Nikolai Voinilenko and Chen-Chen Yeh and Artur Mullakhmetov and Eugene Bokhan and others},
+    note   = {In collaboration with others at Mirai Labs},
+    month  = {June},
+    year   = {2026},
+    url    = {https://trymirai.com/blog/quantization}
+}
+```
+
+### Original model
+
+This is a quantized version of [Qwen/Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B). For architecture details, intended use, evaluations, and limitations, see the [original model card](https://huggingface.co/Qwen/Qwen3.8-27B/blob/main/README.md).
