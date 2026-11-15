@@ -1,7 +1,7 @@
 [
  {
   "type": "directory",
-  "oid": "36a8907b0d6eff8f4bd25f3210464d894be75f79",
+  "oid": "9a63fda8d96663a04cc46ef6d048ca5be84df213",
   "size": 0,
   "path": "docs"
  },
@@ -49,7 +49,7 @@
  },
  {
   "type": "directory",
-  "oid": "20071dee7183669ab86b5859e629551df0706986",
+  "oid": "8ac69c23171b167e1281a43e0c4b134ae3da4154",
   "size": 0,
   "path": "recipe"
  },
@@ -61,7 +61,7 @@
  },
  {
   "type": "directory",
-  "oid": "c7037a6eabec420c94b6dbdcf210d64b43b421d3",
+  "oid": "ec9b60412e7748312121959d554aafafd1005b36",
   "size": 0,
   "path": "recipe/cpuexp"
  },
@@ -73,9 +73,15 @@
  },
  {
   "type": "directory",
-  "oid": "8a11c3839dc64998624f2fba3f6a17df9b3e0992",
+  "oid": "7a810b618d5db819ea0257263391319aef49151b",
   "size": 0,
   "path": "recipe/kernels"
+ },
+ {
+  "type": "directory",
+  "oid": "4fc12a2bd01a4d38c1776edf6019425f7e516006",
+  "size": 0,
+  "path": "recipe/kernels/actq_strided"
  },
  {
   "type": "directory",
@@ -103,6 +109,12 @@
  },
  {
   "type": "directory",
+  "oid": "5f1d91957ed7c36c96696aab3be51f0c2041ae4b",
+  "size": 0,
+  "path": "recipe/kernels/prefill_overlap"
+ },
+ {
+  "type": "directory",
   "oid": "9241a9df3554da5e56df20b63c7d5c96d7a1f982",
   "size": 0,
   "path": "recipe/kernels/rowtopk"
@@ -127,6 +139,24 @@
  },
  {
   "type": "directory",
+  "oid": "a9ccc12a15b94b05f72f4f4f2875f3e543829ea5",
+  "size": 0,
+  "path": "recipe/kernels/xmoe_bulk"
+ },
+ {
+  "type": "directory",
+  "oid": "d107e74d5a932c1a3916b0eb55c940e525f6d168",
+  "size": 0,
+  "path": "recipe/kernels/xmoe_bulk/quant"
+ },
+ {
+  "type": "directory",
+  "oid": "a1c7a73c4c368d87b1ae1ef8a6f7c24b89be27aa",
+  "size": 0,
+  "path": "recipe/kernels/xmoe_bulk/quant/comp_units"
+ },
+ {
+  "type": "directory",
   "oid": "baabb883f0e0b2e9cbb943a0b24f7e89fbd9058a",
   "size": 0,
   "path": "recipe/kernels/xmoe_do"
@@ -145,19 +175,19 @@
  },
  {
   "type": "directory",
-  "oid": "22c38548fa1a4ae7bf10a90221dd355eb3693345",
+  "oid": "4b6661c0f2ffa515ec3d4786fabe527e862644ab",
   "size": 0,
   "path": "recipe/patches"
  },
  {
   "type": "directory",
-  "oid": "56fbf0e97a6c65f69758289601ad3c42d2cf7602",
+  "oid": "d72d1f9d3170d1b47f255c87065346dc3354c717",
   "size": 0,
   "path": "recipe/patches/vllm-exl3"
  },
  {
   "type": "directory",
-  "oid": "27b427943c894a717f7b284effa73134c97cc7f1",
+  "oid": "aea302154471f32c8f23149f6d2734a0a657c095",
   "size": 0,
   "path": "recipe/patches/vllm"
  },
@@ -181,19 +211,19 @@
  },
  {
   "type": "directory",
-  "oid": "aad2affe855636c30631038c36a89827ba8e91c5",
+  "oid": "78a167cb12715bc6138ae07c3864ee8000a6a01b",
   "size": 0,
   "path": "recipe/results"
  },
  {
   "type": "directory",
-  "oid": "ad1e5a551ddef9234d81e26bba71f22a1ac717c9",
+  "oid": "35103fa20c40c70b3e87b7c1ea78cb56b157415c",
   "size": 0,
   "path": "recipe/results/raw"
  },
  {
   "type": "directory",
-  "oid": "6f65c694ad3698b94781f2395c8df5c28056c661",
+  "oid": "655674ff8770d613041320f266b61b600f3ae528",
   "size": 0,
   "path": "recipe/serve"
  },
@@ -211,8 +241,8 @@
  },
  {
   "type": "file",
-  "oid": "7e477b3fabcd4cc49d21bd0585c6cf5533a53eae",
-  "size": 9023,
+  "oid": "70e64a66efc66b8c58689f2805cf29113d1e4797",
+  "size": 9884,
   "path": "README.md"
  },
  {
@@ -223,8 +253,8 @@
  },
  {
   "type": "file",
-  "oid": "d184e7133a571ef735bc930350ce0869cdc6fc1f",
-  "size": 8724,
+  "oid": "43ea26530f5bc8326d9b91501655148d2bc735c6",
+  "size": 12219,
   "path": "docs/CHANGELOG.md"
  },
  {
@@ -235,8 +265,8 @@
  },
  {
   "type": "file",
-  "oid": "0b3b1dec923c610849c290b4eb54f07b1dac0cbc",
-  "size": 5566,
+  "oid": "868d0c11e7b2ee84cfe256ebba057dac03532804",
+  "size": 5785,
   "path": "docs/FIDELITY.md"
  },
  {
@@ -253,8 +283,8 @@
  },
  {
   "type": "file",
-  "oid": "a41cb91f79246b09361d7ab053591d0cd5abd9bc",
-  "size": 11377,
+  "oid": "c3ef9d76f4d061d52c575cf6af2104e988c4da71",
+  "size": 13775,
   "path": "docs/SPEED.md"
  },
  {
@@ -1153,20 +1183,20 @@
  },
  {
   "type": "file",
-  "oid": "3d646111937880be61cbdbf808ef83414958f64f",
-  "size": 8647,
+  "oid": "70e64a66efc66b8c58689f2805cf29113d1e4797",
+  "size": 9884,
   "path": "recipe/MODEL_CARD.md"
  },
  {
   "type": "file",
-  "oid": "732d1b10a39d972f6b983c11d06fc1a7f076efec",
-  "size": 36438,
+  "oid": "6664b842e021ffa7e82c42c0dc95992638586b9a",
+  "size": 39381,
   "path": "recipe/README.md"
  },
  {
   "type": "file",
-  "oid": "6bbd238ee5f0517d2449ae10d41ff5aa04a2f1c2",
-  "size": 4336,
+  "oid": "c96b1277d996a80d848f4e01bcabe229b7f41e5f",
+  "size": 5088,
   "path": "recipe/THIRD_PARTY_NOTICES.md"
  },
  {
@@ -1309,8 +1339,8 @@
  },
  {
   "type": "file",
-  "oid": "3cbe83281952140a648ed020278ed426e34d280d",
-  "size": 8156,
+  "oid": "08d09071ff4f1afc0d49cb328a87e52c65f3408c",
+  "size": 8658,
   "path": "recipe/cpuexp/README.md"
  },
  {
@@ -1351,8 +1381,8 @@
  },
  {
   "type": "file",
-  "oid": "89f98269979a407c374e90b1458a0d7d1bd9d178",
-  "size": 28677,
+  "oid": "4658f51b3929ed9e61879bc4d0c313311dcabca2",
+  "size": 34107,
   "path": "recipe/cpuexp/cpuexp_pf.cpp"
  },
  {
@@ -1393,6 +1423,12 @@
  },
  {
   "type": "file",
+  "oid": "abaa696fa84d84e26c1aec61d8a380fd3fe50c4c",
+  "size": 3557,
+  "path": "recipe/kernels/actq_strided/actq_strided.py"
+ },
+ {
+  "type": "file",
   "oid": "eb29b130234e518cef42576266f5defd389bf3ee",
   "size": 17145,
   "path": "recipe/kernels/ar8tp4/ar8_tp4.py"
@@ -1417,8 +1453,8 @@
  },
  {
   "type": "file",
-  "oid": "23ad305935a39848cde4934ce5730c76c7323d5b",
-  "size": 2347,
+  "oid": "555f143d8575bf37664ff6a33389efe7859fc4b5",
+  "size": 2849,
   "path": "recipe/kernels/build.sh"
  },
  {
@@ -1441,8 +1477,8 @@
  },
  {
   "type": "file",
-  "oid": "8032b2a27a05524df598229759e8593aadb3d789",
-  "size": 1618,
+  "oid": "929700df5815db9df014c1dff918c87fc753b646",
+  "size": 1727,
   "path": "recipe/kernels/build_xmoe.py"
  },
  {
@@ -1516,6 +1552,24 @@
   "oid": "065c27b7c1a93fba53594c7070b8b91e8b72c5e6",
   "size": 6994,
   "path": "recipe/kernels/fp8arg/make_fp8arg.py"
+ },
+ {
+  "type": "file",
+  "oid": "4b5f408caa84a3054b7ff72fe5a32922b91a5016",
+  "size": 2611,
+  "path": "recipe/kernels/prefill_overlap/mhc_row.cu"
+ },
+ {
+  "type": "file",
+  "oid": "a8f64aa6ad605d56991aaf38be015980d26dc297",
+  "size": 6949,
+  "path": "recipe/kernels/prefill_overlap/pf_boundary.py"
+ },
+ {
+  "type": "file",
+  "oid": "66297f7bb443f6fdf62959e6ad2ca06b5846b078",
+  "size": 5906,
+  "path": "recipe/kernels/prefill_overlap/pf_overlap.py"
  },
  {
   "type": "file",
@@ -1771,6 +1825,252 @@
  },
  {
   "type": "file",
+  "oid": "b40e3294c2cd30839e56636a3d2ccfaaa2c0f6e6",
+  "size": 1065,
+  "path": "recipe/kernels/xmoe_bulk/LICENSE.exllamav3"
+ },
+ {
+  "type": "file",
+  "oid": "0d7234611698cbc00adc0835359b3f8e2b7f2f08",
+  "size": 1311,
+  "path": "recipe/kernels/xmoe_bulk/bindings.cpp"
+ },
+ {
+  "type": "file",
+  "oid": "9a0e549dc55f21b59f584d28c82bfd86218f04f8",
+  "size": 642,
+  "path": "recipe/kernels/xmoe_bulk/compat.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "45f33c996e03c7534fa85ada04808b7cdb03a9f3",
+  "size": 2976,
+  "path": "recipe/kernels/xmoe_bulk/graph.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "be50a689f5781a3579e5f8a06c81dd7413cf77e5",
+  "size": 9623,
+  "path": "recipe/kernels/xmoe_bulk/ptx.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "fad7559c4341a6a43aa6922e9f00de01a2a4c1b3",
+  "size": 5865,
+  "path": "recipe/kernels/xmoe_bulk/quant/codebook.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "8b301a6dd027f63ada912583b18e608b2594c7e6",
+  "size": 654,
+  "path": "recipe/kernels/xmoe_bulk/quant/comp_units/exl3_moe_inst_k2_cb1.cu"
+ },
+ {
+  "type": "file",
+  "oid": "c548ec0eb1840926e02eeb44b4b6764d588b7371",
+  "size": 654,
+  "path": "recipe/kernels/xmoe_bulk/quant/comp_units/exl3_moe_inst_k3_cb1.cu"
+ },
+ {
+  "type": "file",
+  "oid": "2ff58d58a3671596dd99aface2fdf33a23fa7396",
+  "size": 576,
+  "path": "recipe/kernels/xmoe_bulk/quant/comp_units/exl3_moe_inst_k3_cb2.cu"
+ },
+ {
+  "type": "file",
+  "oid": "a2d3a20e8fe4cd4b4e306f94ba6c561caeefa5dc",
+  "size": 414,
+  "path": "recipe/kernels/xmoe_bulk/quant/comp_units/exl3_moe_inst_pb_s3.cu"
+ },
+ {
+  "type": "file",
+  "oid": "73e16d54c1b1c348d21f63204c2f744212209152",
+  "size": 414,
+  "path": "recipe/kernels/xmoe_bulk/quant/comp_units/exl3_moe_inst_pb_s4.cu"
+ },
+ {
+  "type": "file",
+  "oid": "9bf4f1ffff4a05f2161ee17d3fd5d65f6401cadf",
+  "size": 414,
+  "path": "recipe/kernels/xmoe_bulk/quant/comp_units/exl3_moe_inst_pb_s6.cu"
+ },
+ {
+  "type": "file",
+  "oid": "688fd2b98114058fa92b42d2445e08a85072f2a0",
+  "size": 414,
+  "path": "recipe/kernels/xmoe_bulk/quant/comp_units/exl3_moe_inst_pb_s8.cu"
+ },
+ {
+  "type": "file",
+  "oid": "e4b0ed8ee9ba6adfdc627e10ccf4812cb21918e7",
+  "size": 1730,
+  "path": "recipe/kernels/xmoe_bulk/quant/comp_units/exl3_moe_instances.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "02125634433e513384cb577cd13c6fc1cf11f7eb",
+  "size": 8113,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_dense_flat.cu"
+ },
+ {
+  "type": "file",
+  "oid": "b109f78864fcf5212f120aaced21e6612fcd71fb",
+  "size": 2904,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_devctx.cu"
+ },
+ {
+  "type": "file",
+  "oid": "311380af20d71eb6d50afc911140e9d7ae33f383",
+  "size": 1610,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_devctx.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "2cf103654abe7f7e4e63b2db271a9eeee87f9adb",
+  "size": 10324,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_dq.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "075f816a22438ac6fb8ba3eee62dd33c4215aeb4",
+  "size": 9334,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_flat128_helpers.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "1033eb60a3e1d0a3403a836bba7adacc7795ea70",
+  "size": 2001,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_flat128_jobs.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "ac6e005e3c78bca11232816dd561125c51af6a1a",
+  "size": 2211,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_gemm.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "ce83d7fc2615dff7e2838d928f0e3a488f4aee72",
+  "size": 23873,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_gemm_inner.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "01de4d5260b9263fc4fa56fd4a4941911b9819ed",
+  "size": 14147,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_gemm_inner_flat.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "373d9306ca64efe237630b82b7ddc3f78cb6d0e6",
+  "size": 13385,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_gemm_inner_flat_dense.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "5b744cb79bc425d67c6ce092aa5c3dcbaaf69892",
+  "size": 31749,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_gemm_inner_flat_p.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "d40b423f49462bab447a18edcf8ece2b8e5f1868",
+  "size": 26092,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_gemm_inner_flat_t.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "3a6a1421e6fa049c8d3d7b257d82731b9ffef006",
+  "size": 24024,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_gemm_inner_mt.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "86c9e27166b8af3a233d4fa2f1dbbe8bb59d65cd",
+  "size": 25811,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_gemm_inner_mt_pb.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "78d5ee483e67225912a0f4ee0d29efdb95dd1c44",
+  "size": 25138,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_gemm_inner_transfer.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "c5841249f3dcc25109b1243cbf554268a6958f03",
+  "size": 4883,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_kernel_map.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "b25ed2881f455d4094df00b7019271d80456f9cc",
+  "size": 19153,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_moe.cu"
+ },
+ {
+  "type": "file",
+  "oid": "1b9a717a8dd0d6b2f01909d24d9def0b8ae53001",
+  "size": 1341,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_moe.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "a390cbbcebc10197bc9db2f84ae204a53fbf6fa5",
+  "size": 2428,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_moe_common.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "e7befc935ecd9ed3035cd33519ec396256ff7611",
+  "size": 9124,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_moe_flat_kernel.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "591252a0a57a4865fa8160e9015794c63034e3a1",
+  "size": 14429,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_moe_kernel.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "b2dd31cfb58a08e88514caefdc5f9ec446840587",
+  "size": 12737,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_moe_kernel_pb.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "0ccf760ab2703179c727a732c9bd9ef8a8671c92",
+  "size": 395,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_moe_transfer.cu"
+ },
+ {
+  "type": "file",
+  "oid": "4f1dc9ca9ff86bcd0708867c1e2423bcb17e941b",
+  "size": 9571,
+  "path": "recipe/kernels/xmoe_bulk/quant/exl3_moe_transfer_kernel.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "9f85c256919cdc43f11d2a394529eed898ccf245",
+  "size": 12839,
+  "path": "recipe/kernels/xmoe_bulk/quant/hadamard_inner.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "8a9f70604fcd88a3be1e8e4f313b6b2bbcd6aac5",
+  "size": 4686,
+  "path": "recipe/kernels/xmoe_bulk/util.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "cb61b94a2f50b2255daac29c81412183accda12f",
+  "size": 8762,
+  "path": "recipe/kernels/xmoe_bulk/util.h"
+ },
+ {
+  "type": "file",
   "oid": "f356c1ac341b5ed92f78b4d590d456765c3ba0ea",
   "size": 12227,
   "path": "recipe/kernels/xmoe_do/do_gemm.cu"
@@ -1813,8 +2113,8 @@
  },
  {
   "type": "file",
-  "oid": "99c18328abd939c1af671c1bc8f8830075eefbf2",
-  "size": 3825,
+  "oid": "6913a32834751b8d481de6e9b0822423b08343b7",
+  "size": 5007,
   "path": "recipe/patches/vllm-exl3/README.md"
  },
  {
@@ -1822,6 +2122,12 @@
   "oid": "4f1ab9c86cd81cf5b7137d7c3513868ec6a71214",
   "size": 147341,
   "path": "recipe/patches/vllm-exl3/exl3-sm120.patch"
+ },
+ {
+  "type": "file",
+  "oid": "f89786b18ae8ed9cb804088624d645c54ae688de",
+  "size": 261054,
+  "path": "recipe/patches/vllm-exl3/exl3_cpu_speedups.py"
  },
  {
   "type": "file",
@@ -1873,8 +2179,8 @@
  },
  {
   "type": "file",
-  "oid": "e2d45202395061635fbdd75e3653dc73dc3c3aee",
-  "size": 143631,
+  "oid": "384fe7170a44da62d01df8f25beb890b71f56375",
+  "size": 144761,
   "path": "recipe/patches/vllm/sitecustomize.py"
  },
  {
@@ -2023,8 +2329,8 @@
  },
  {
   "type": "file",
-  "oid": "5876bce51fd00c421fda7e53f366ca42bc341311",
-  "size": 40031,
+  "oid": "fc3440a28f355ca394815df008dff76c7b540857",
+  "size": 42697,
   "path": "recipe/results/RESULTS.md"
  },
  {
@@ -2044,6 +2350,12 @@
   "oid": "15909d2e15dde952a6cefee79f683a4b0a7089c3",
   "size": 639,
   "path": "recipe/results/raw/agentic-4stream-1001.txt"
+ },
+ {
+  "type": "file",
+  "oid": "d1924314158c342aa08226cbf39a358a8206f194",
+  "size": 9467,
+  "path": "recipe/results/raw/cpu-runtime-1114.txt"
  },
  {
   "type": "file",
@@ -2191,8 +2503,8 @@
  },
  {
   "type": "file",
-  "oid": "1a7138ba1c9b3e949bcc3513e8770e326f6db355",
-  "size": 21779,
+  "oid": "b9745792df4c1ab9b921ef7fcbd7099f58924b7c",
+  "size": 24092,
   "path": "recipe/serve/serve.sh"
  },
  {
