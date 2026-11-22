@@ -83,23 +83,23 @@
    "slug": "gemma-4-12b-it",
    "status": "queued",
    "released": "2026-06-03",
-   "quants": 406,
-   "quants_1k": 48
+   "quants": 415,
+   "quants_1k": 49
   },
   {
    "model": "google/gemma-4-E4B-it",
    "slug": "gemma-4-e4b-it",
    "status": "queued",
    "released": "2026-04-03",
-   "quants": 457,
-   "quants_1k": 57
+   "quants": 466,
+   "quants_1k": 54
   },
   {
    "model": "google/gemma-4-E2B-it",
    "slug": "gemma-4-e2b-it",
    "status": "queued",
    "released": "2026-04-02",
-   "quants": 465,
+   "quants": 479,
    "quants_1k": 42
   },
   {
@@ -107,15 +107,15 @@
    "slug": "gemma-4-31b-it",
    "status": "queued",
    "released": "2026-04-02",
-   "quants": 365,
-   "quants_1k": 44
+   "quants": 373,
+   "quants_1k": 48
   },
   {
    "model": "openbmb/MiniCPM5-2B",
    "slug": "minicpm5-2b",
    "status": "queued",
-   "quants": 136,
-   "quants_1k": 21,
+   "quants": 144,
+   "quants_1k": 20,
    "released": "2026-09-07"
   },
   {
@@ -123,14 +123,14 @@
    "slug": "ornith-1.5-9b",
    "status": "queued",
    "released": "2026-08-19",
-   "quants": 103,
-   "quants_1k": 16
+   "quants": 114,
+   "quants_1k": 12
   },
   {
    "model": "ornith-ai/Ornith-1.5-122B",
    "slug": "ornith-1.5-122b",
    "status": "queued",
-   "quants": 55,
+   "quants": 57,
    "quants_1k": 15,
    "released": "2026-10-20"
   },
@@ -146,25 +146,17 @@
    "model": "openbmb/MiniCPM5-1B",
    "slug": "minicpm5-1b",
    "status": "queued",
-   "quants": 106,
-   "quants_1k": 11,
+   "quants": 108,
+   "quants_1k": 7,
    "released": "2026-05-25"
-  },
-  {
-   "model": "meta-models/Muse-Spark-Open-816B-A42B",
-   "slug": "muse-spark-open",
-   "status": "queued",
-   "released": "2026-10-15",
-   "quants": 26,
-   "quants_1k": 14
   },
   {
    "model": "moonshotai/Kimi-K3",
    "slug": "kimi-k3",
    "status": "queued",
    "released": "2026-07-27",
-   "quants": 58,
-   "quants_1k": 10
+   "quants": 57,
+   "quants_1k": 9
   },
   {
    "model": "XiaomiMiMo/MiMo-V2.6-Flash-RL",
@@ -172,22 +164,30 @@
    "status": "queued",
    "released": "2026-09-22",
    "quants": 39,
-   "quants_1k": 10
+   "quants_1k": 8
+  },
+  {
+   "model": "meta-models/Muse-Spark-Open-816B-A42B",
+   "slug": "muse-spark-open",
+   "status": "queued",
+   "released": "2026-10-15",
+   "quants": 25,
+   "quants_1k": 9
   },
   {
    "model": "zai-org/GLM-5.3-Flash-BF16",
    "slug": "glm-5.3-flash-bf16",
    "status": "queued",
-   "quants": 41,
-   "quants_1k": 7,
+   "quants": 40,
+   "quants_1k": 6,
    "released": "2026-08-26"
   },
   {
    "model": "google/gemma-4-12B",
    "slug": "gemma-4-12b",
    "status": "queued",
-   "quants": 54,
-   "quants_1k": 3,
+   "quants": 55,
+   "quants_1k": 5,
    "released": "2026-06-03"
   },
   {
@@ -204,7 +204,7 @@
    "status": "queued",
    "released": "2026-06-04",
    "quants": 17,
-   "quants_1k": 4
+   "quants_1k": 3
   }
  ],
  "queue_policy": "Latest model family of each lab only (discovery.json), released in the last 6 months, at least 40 quant repos. Order: pipeline/qcl_rank.py with the weights in discovery.json (score = (quants + used_weight x quants used 1k+) x half-life freshness x early-growth boost under 2 weeks). Full queue: docs/QUEUE.md."
