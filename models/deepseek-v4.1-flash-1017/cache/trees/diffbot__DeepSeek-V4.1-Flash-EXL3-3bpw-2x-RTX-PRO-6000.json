@@ -1,7 +1,7 @@
 [
  {
   "type": "directory",
-  "oid": "2fcef125ee171db29d8b2f61a0bb4631e30cf5f4",
+  "oid": "39301c1ebb5c01a21aecfd48d8e479740e0fcb0e",
   "size": 0,
   "path": "docs"
  },
@@ -49,7 +49,7 @@
  },
  {
   "type": "directory",
-  "oid": "77944f13b8955d67c306e91a4f08223839c3c40d",
+  "oid": "53283a8c35e1b15911e31785dbb757408e620d88",
   "size": 0,
   "path": "recipe"
  },
@@ -61,7 +61,7 @@
  },
  {
   "type": "directory",
-  "oid": "ec9b60412e7748312121959d554aafafd1005b36",
+  "oid": "2e5927f2dac96b4a1ffeb5844fef5ab26bd71ddd",
   "size": 0,
   "path": "recipe/cpuexp"
  },
@@ -73,7 +73,7 @@
  },
  {
   "type": "directory",
-  "oid": "7a810b618d5db819ea0257263391319aef49151b",
+  "oid": "48ca98f446bd57460f8ef0986c062b73ab0dc9a5",
   "size": 0,
   "path": "recipe/kernels"
  },
@@ -109,6 +109,12 @@
  },
  {
   "type": "directory",
+  "oid": "9aaae34d2588bafe10bd27e74e0a1edafc6e2b3f",
+  "size": 0,
+  "path": "recipe/kernels/mxfp8_pingpong"
+ },
+ {
+  "type": "directory",
   "oid": "5f1d91957ed7c36c96696aab3be51f0c2041ae4b",
   "size": 0,
   "path": "recipe/kernels/prefill_overlap"
@@ -118,6 +124,12 @@
   "oid": "9241a9df3554da5e56df20b63c7d5c96d7a1f982",
   "size": 0,
   "path": "recipe/kernels/rowtopk"
+ },
+ {
+  "type": "directory",
+  "oid": "21c6e5070f541aa43760539a834c08b31e4afd9e",
+  "size": 0,
+  "path": "recipe/kernels/sparse_mla_epilogue"
  },
  {
   "type": "directory",
@@ -175,25 +187,37 @@
  },
  {
   "type": "directory",
-  "oid": "4b6661c0f2ffa515ec3d4786fabe527e862644ab",
+  "oid": "bf1870d92f505bdb409d695fa5c62856f5392b65",
   "size": 0,
   "path": "recipe/patches"
  },
  {
   "type": "directory",
-  "oid": "d72d1f9d3170d1b47f255c87065346dc3354c717",
+  "oid": "968337c3c180d6c8397bebe977ab26066382814d",
   "size": 0,
   "path": "recipe/patches/vllm-exl3"
  },
  {
   "type": "directory",
-  "oid": "aea302154471f32c8f23149f6d2734a0a657c095",
+  "oid": "95c0d5e0ca5c09c55497f40d5f01a9f4a8fcfbe2",
   "size": 0,
   "path": "recipe/patches/vllm"
  },
  {
   "type": "directory",
-  "oid": "d27684e1fec2a302420e29667bd945b2560e1f14",
+  "oid": "ceea3ab97ba0f474dbc120c67033209641eb7253",
+  "size": 0,
+  "path": "recipe/patches/vllm/dspark"
+ },
+ {
+  "type": "directory",
+  "oid": "dfecfbc004b253be17a67b6d1025e4e65f4455ad",
+  "size": 0,
+  "path": "recipe/patches/vllm/kv_layout"
+ },
+ {
+  "type": "directory",
+  "oid": "b22752efe34621b19c16a95eeddb2f90c19460d4",
   "size": 0,
   "path": "recipe/plans"
  },
@@ -211,19 +235,19 @@
  },
  {
   "type": "directory",
-  "oid": "905cef0f485b8fabac720a0e40238527243517b2",
+  "oid": "a26fa194541d9ecc5fe47ba3cc7179060a981325",
   "size": 0,
   "path": "recipe/results"
  },
  {
   "type": "directory",
-  "oid": "02905cebba6a8f7523541bfc0141787079a41747",
+  "oid": "378aefd65802fa9e27d2fa03a0a6d789d4a0435d",
   "size": 0,
   "path": "recipe/results/raw"
  },
  {
   "type": "directory",
-  "oid": "655674ff8770d613041320f266b61b600f3ae528",
+  "oid": "b34fe041795873b05bdc4e1f1bc411dea7db682f",
   "size": 0,
   "path": "recipe/serve"
  },
@@ -241,8 +265,8 @@
  },
  {
   "type": "file",
-  "oid": "70e64a66efc66b8c58689f2805cf29113d1e4797",
-  "size": 9884,
+  "oid": "e49ff2238b9eeb412d450f2567c7e744e4fb7681",
+  "size": 9239,
   "path": "README.md"
  },
  {
@@ -253,8 +277,8 @@
  },
  {
   "type": "file",
-  "oid": "43ea26530f5bc8326d9b91501655148d2bc735c6",
-  "size": 12219,
+  "oid": "3fa5958b68311607f47bba092b4411f882400fd7",
+  "size": 17003,
   "path": "docs/CHANGELOG.md"
  },
  {
@@ -265,8 +289,8 @@
  },
  {
   "type": "file",
-  "oid": "868d0c11e7b2ee84cfe256ebba057dac03532804",
-  "size": 5785,
+  "oid": "f33b8ddcd00750110ace41b81cb5dad930769f4a",
+  "size": 8105,
   "path": "docs/FIDELITY.md"
  },
  {
@@ -283,8 +307,8 @@
  },
  {
   "type": "file",
-  "oid": "2e4587350e2d7c7983b8b8481fcf00a93d2befc4",
-  "size": 13911,
+  "oid": "fb6bc8bb30f0c8efa0a1616c7f66f85eaf758b66",
+  "size": 17438,
   "path": "docs/SPEED.md"
  },
  {
@@ -1183,20 +1207,20 @@
  },
  {
   "type": "file",
-  "oid": "70e64a66efc66b8c58689f2805cf29113d1e4797",
-  "size": 9884,
+  "oid": "e49ff2238b9eeb412d450f2567c7e744e4fb7681",
+  "size": 9239,
   "path": "recipe/MODEL_CARD.md"
  },
  {
   "type": "file",
-  "oid": "586821b44bf2851ac48851deab3cdd307bd029d8",
-  "size": 39428,
+  "oid": "3d577fd6353c8f70178933730813d829670f68cf",
+  "size": 44031,
   "path": "recipe/README.md"
  },
  {
   "type": "file",
-  "oid": "c96b1277d996a80d848f4e01bcabe229b7f41e5f",
-  "size": 5088,
+  "oid": "a1d6617b044332f73b76e2ec954ea107b1013b5e",
+  "size": 7008,
   "path": "recipe/THIRD_PARTY_NOTICES.md"
  },
  {
@@ -1339,8 +1363,8 @@
  },
  {
   "type": "file",
-  "oid": "08d09071ff4f1afc0d49cb328a87e52c65f3408c",
-  "size": 8658,
+  "oid": "64c774f44a381086df038921dec3e90476476e6b",
+  "size": 9659,
   "path": "recipe/cpuexp/README.md"
  },
  {
@@ -1351,8 +1375,8 @@
  },
  {
   "type": "file",
-  "oid": "c48e20f8d9a875dd1dc72b870decdfad5b083e00",
-  "size": 4736,
+  "oid": "3eabe27695f6bcbe94c6e8c909a2feb7be6e423f",
+  "size": 5206,
   "path": "recipe/cpuexp/build_inner.sh"
  },
  {
@@ -1396,6 +1420,12 @@
   "oid": "8d36daadd76e532dd0aa3422d2b4843b78721282",
   "size": 8352,
   "path": "recipe/cpuexp/cpuexp_pf_gpu.cu"
+ },
+ {
+  "type": "file",
+  "oid": "56a0d4b138bcb7951c35e465556a61213e2a88f3",
+  "size": 2591,
+  "path": "recipe/cpuexp/cpuexp_pfcap.cpp"
  },
  {
   "type": "file",
@@ -1453,8 +1483,8 @@
  },
  {
   "type": "file",
-  "oid": "555f143d8575bf37664ff6a33389efe7859fc4b5",
-  "size": 2849,
+  "oid": "b59d3324a710048e8a25bd623c5c4a8e66f3f98d",
+  "size": 3706,
   "path": "recipe/kernels/build.sh"
  },
  {
@@ -1471,9 +1501,21 @@
  },
  {
   "type": "file",
+  "oid": "f1ad5ec294b3f99e6972ddab24bb3b4fe9648d55",
+  "size": 1378,
+  "path": "recipe/kernels/build_mxfp8_pingpong.py"
+ },
+ {
+  "type": "file",
   "oid": "8c56b1d16a0c5ccb06609a3d2b51c2712606bfab",
   "size": 944,
   "path": "recipe/kernels/build_rowtopk.py"
+ },
+ {
+  "type": "file",
+  "oid": "cb9f9c0eff228bc9aed17b4a4097db0489951611",
+  "size": 4133,
+  "path": "recipe/kernels/build_sparse_mla_epilogue.py"
  },
  {
   "type": "file",
@@ -1555,6 +1597,48 @@
  },
  {
   "type": "file",
+  "oid": "91ccdc81806cd4d768cb97b25618790ca23fb8af",
+  "size": 1902,
+  "path": "recipe/kernels/mxfp8_pingpong/bind.cpp"
+ },
+ {
+  "type": "file",
+  "oid": "693879e5143504f297773b225612644591f399d8",
+  "size": 564,
+  "path": "recipe/kernels/mxfp8_pingpong/mx_coop128.cu"
+ },
+ {
+  "type": "file",
+  "oid": "5bfd1ed976c3d94286b9552a0283c9a0c945696a",
+  "size": 541,
+  "path": "recipe/kernels/mxfp8_pingpong/mx_cos128.cu"
+ },
+ {
+  "type": "file",
+  "oid": "ab2327d598477c16f7d0bb9c5f4cc5c0ae2682d8",
+  "size": 498,
+  "path": "recipe/kernels/mxfp8_pingpong/mx_pp128.cu"
+ },
+ {
+  "type": "file",
+  "oid": "4965bcd0cf9039b8d8d1d710f264897dbbebaf75",
+  "size": 543,
+  "path": "recipe/kernels/mxfp8_pingpong/mx_pps128.cu"
+ },
+ {
+  "type": "file",
+  "oid": "3013f9dbe7e04e4ff8e6dd28c469e07682e66cf3",
+  "size": 4706,
+  "path": "recipe/kernels/mxfp8_pingpong/mxk.cuh"
+ },
+ {
+  "type": "file",
+  "oid": "96c9a1997968608613468c539557c75113c30ec5",
+  "size": 5894,
+  "path": "recipe/kernels/mxfp8_pingpong/n154_hook.py"
+ },
+ {
+  "type": "file",
   "oid": "4b5f408caa84a3054b7ff72fe5a32922b91a5016",
   "size": 2611,
   "path": "recipe/kernels/prefill_overlap/mhc_row.cu"
@@ -1606,6 +1690,36 @@
   "oid": "46f830f2b5c7615bef3686ef5ffc26c04c25e8e0",
   "size": 1466,
   "path": "recipe/kernels/sm120_dense_table_v2.json"
+ },
+ {
+  "type": "file",
+  "oid": "ab0a4bd235c87098842eff88e8f0ef82baf0c358",
+  "size": 1388,
+  "path": "recipe/kernels/sm120_dense_table_v3.json"
+ },
+ {
+  "type": "file",
+  "oid": "b995c48616ea561d7d95411ccc948b97338dc09b",
+  "size": 1794,
+  "path": "recipe/kernels/sparse_mla_epilogue/LICENSE.flashinfer-sparse_mla_sm120"
+ },
+ {
+  "type": "file",
+  "oid": "b7edac97f243ff85cf3eb94855d9312634a49bd6",
+  "size": 10381,
+  "path": "recipe/kernels/sparse_mla_epilogue/flashinfer-0.7.0.post1-sparse_mla_sm120-epilogue.patch"
+ },
+ {
+  "type": "file",
+  "oid": "27e212e5e6a2983608867971a11e97ad63571a2d",
+  "size": 6820,
+  "path": "recipe/kernels/sparse_mla_epilogue/n114_attn.py"
+ },
+ {
+  "type": "file",
+  "oid": "f40411bf602ac0f69228fb4d24e6ae795938de14",
+  "size": 7158,
+  "path": "recipe/kernels/sparse_mla_epilogue/n114_firq.py"
  },
  {
   "type": "file",
@@ -2113,8 +2227,8 @@
  },
  {
   "type": "file",
-  "oid": "6913a32834751b8d481de6e9b0822423b08343b7",
-  "size": 5007,
+  "oid": "5b20acfa11b86bd30e54dd984ee8a70a8130250b",
+  "size": 6143,
   "path": "recipe/patches/vllm-exl3/README.md"
  },
  {
@@ -2131,6 +2245,12 @@
  },
  {
   "type": "file",
+  "oid": "d5332b5f4242dfe81377dc96c0914f4070f3e805",
+  "size": 271579,
+  "path": "recipe/patches/vllm-exl3/exl3_cpu_speedups3.py"
+ },
+ {
+  "type": "file",
   "oid": "6e84bc357214677c5bab4785a9dbbdb96b469b21",
   "size": 6397,
   "path": "recipe/patches/vllm/decoder_replay_layers_skip.py"
@@ -2143,9 +2263,81 @@
  },
  {
   "type": "file",
+  "oid": "b64425c188b746f28ad5cb4c18af50e11a173612",
+  "size": 10845,
+  "path": "recipe/patches/vllm/dspark/n207_kernels.py"
+ },
+ {
+  "type": "file",
+  "oid": "463a0d28842c8e2f1eab68c842ab218809011bc4",
+  "size": 26724,
+  "path": "recipe/patches/vllm/dspark/n216_hooks.py"
+ },
+ {
+  "type": "file",
+  "oid": "95101aafc0e10f5dbbc7273ba82b433a3af53214",
+  "size": 38102,
+  "path": "recipe/patches/vllm/dspark/n219_hooks.py"
+ },
+ {
+  "type": "file",
+  "oid": "236c5d9f1b3fb15285b498855473f7f8ce7cd4bb",
+  "size": 3156,
+  "path": "recipe/patches/vllm/dspark/n219_kernels.py"
+ },
+ {
+  "type": "file",
+  "oid": "98f3a5fe6749bd38b24a0f1fe669a3fe8e957125",
+  "size": 12745,
+  "path": "recipe/patches/vllm/dspark/speculator.py"
+ },
+ {
+  "type": "file",
+  "oid": "c8fa0f42bec0c89cdc6666a66ff1aded5b6e9818",
+  "size": 7984,
+  "path": "recipe/patches/vllm/kv_layout/n197eng.py"
+ },
+ {
+  "type": "file",
+  "oid": "24b8cf0963a480f053f5610d5b8248c311d2839e",
+  "size": 17539,
+  "path": "recipe/patches/vllm/kv_layout/n197hook.py"
+ },
+ {
+  "type": "file",
+  "oid": "eff9f084b372999c3c88c3592e089833bdb7240d",
+  "size": 2781,
+  "path": "recipe/patches/vllm/kv_layout/n197plan.py"
+ },
+ {
+  "type": "file",
+  "oid": "e3469a7ecab25d7b730be8d837e2f4fcd1a7a94c",
+  "size": 7598,
+  "path": "recipe/patches/vllm/kv_layout/n197shadow.py"
+ },
+ {
+  "type": "file",
+  "oid": "c1335ab5a8bac7c21c5a488e807cd140df60d32b",
+  "size": 61,
+  "lfs": {
+   "oid": "dfa172fbe684d6eba431da9727eedbca5ef742b437cc4d868f5c2af1d5777928",
+   "size": 61,
+   "pointerSize": 127
+  },
+  "xetHash": "21cc06cf70e7c93c9fa936abb92c3875de9c76f624d64c470683f669a59507e0",
+  "path": "recipe/patches/vllm/kv_layout/zz_n197.pth"
+ },
+ {
+  "type": "file",
   "oid": "1d47c482aad02241599d2118c95c20958e4c7dd1",
   "size": 38623,
   "path": "recipe/patches/vllm/model_state_skip.py"
+ },
+ {
+  "type": "file",
+  "oid": "fa7753afb8d7d153b6e225ac255bf30d3b45b8ca",
+  "size": 40669,
+  "path": "recipe/patches/vllm/moe_runner_glue.py"
  },
  {
   "type": "file",
@@ -2179,8 +2371,8 @@
  },
  {
   "type": "file",
-  "oid": "384fe7170a44da62d01df8f25beb890b71f56375",
-  "size": 144761,
+  "oid": "ac9e9692c88f986605daf23f9d9a4bca5173935b",
+  "size": 147928,
   "path": "recipe/patches/vllm/sitecustomize.py"
  },
  {
@@ -2188,6 +2380,12 @@
   "oid": "e5d7b879c24a8d0a6fcdfa8687a12c5f414abcd5",
   "size": 14218,
   "path": "recipe/patches/vllm/sm120-fixes.diff"
+ },
+ {
+  "type": "file",
+  "oid": "31d77046d970137a9faf6f8fa48ff0a2f778e536",
+  "size": 60461,
+  "path": "recipe/patches/vllm/sparse_attn_indexer_early_release.py"
  },
  {
   "type": "file",
@@ -2233,8 +2431,8 @@
  },
  {
   "type": "file",
-  "oid": "4d24cd40b1e83fd5c9cc0242e6a3e3a2a658db8c",
-  "size": 3260,
+  "oid": "3a3e63daea52b9c06b1d13a33ea1fb7fe0fa553e",
+  "size": 3423,
   "path": "recipe/plans/README.md"
  },
  {
@@ -2329,8 +2527,8 @@
  },
  {
   "type": "file",
-  "oid": "f2caf8c65ebb84263d48906c19dea1407a8c8d3b",
-  "size": 43176,
+  "oid": "019780ee3e7c96128237a58360470eba84b488b2",
+  "size": 47320,
   "path": "recipe/results/RESULTS.md"
  },
  {
@@ -2356,6 +2554,12 @@
   "oid": "bb38d49ef463068ef65c2a0b673a2cfcb99884a9",
   "size": 9896,
   "path": "recipe/results/raw/cpu-runtime-1114.txt"
+ },
+ {
+  "type": "file",
+  "oid": "6ada87fcdb1c12416452898b7023527a950c897e",
+  "size": 6810,
+  "path": "recipe/results/raw/cpu-runtime-1123.txt"
  },
  {
   "type": "file",
@@ -2503,8 +2707,8 @@
  },
  {
   "type": "file",
-  "oid": "b9745792df4c1ab9b921ef7fcbd7099f58924b7c",
-  "size": 24092,
+  "oid": "4bba7fb5c51081be4f508fd9295b9b517e512eef",
+  "size": 30326,
   "path": "recipe/serve/serve.sh"
  },
  {
