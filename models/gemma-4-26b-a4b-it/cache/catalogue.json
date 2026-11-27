@@ -3,7 +3,7 @@
   "_id": "69cd2ed58fcb50f877e8912d",
   "id": "unsloth/gemma-4-26B-A4B-it-GGUF",
   "lastModified": "2026-07-17T13:00:49.000Z",
-  "trendingScore": 21,
+  "trendingScore": 19,
   "sha": "c099eb48e663fd284577b04978a94ffccb261841",
   "downloads": 4342670,
   "tags": [
@@ -27,7 +27,7 @@
   "_id": "6a3c6bacea38e2f7f216ce43",
   "id": "HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP",
   "lastModified": "2026-06-25T00:22:39.000Z",
-  "trendingScore": 7.699999999999999,
+  "trendingScore": 6.3,
   "sha": "f9093662a2e7ae0503f637088bc96f77a1a70c83",
   "downloads": 544928,
   "tags": [
@@ -545,6 +545,34 @@
   "createdAt": "2026-11-07T17:22:59.000Z"
  },
  {
+  "_id": "6aef62709ba5237bda342a09",
+  "id": "AmSach/Gemma-4-26B-A4B-MAPLE-Sub5GB-GGUF",
+  "lastModified": "2026-11-18T14:29:24.000Z",
+  "trendingScore": 1,
+  "sha": "a4a8e256ba7c0f605576163d9b807224bb0d5300",
+  "downloads": 4943,
+  "tags": [
+   "gguf",
+   "moe",
+   "mixture-of-experts",
+   "pruning",
+   "gemma-4",
+   "llama.cpp",
+   "edge-ai",
+   "model-compression",
+   "text-generation",
+   "en",
+   "base_model:google/gemma-4-26B-A4B-it",
+   "base_model:quantized:google/gemma-4-26B-A4B-it",
+   "license:apache-2.0",
+   "endpoints_compatible",
+   "region:us",
+   "imatrix",
+   "conversational"
+  ],
+  "createdAt": "2026-11-07T17:40:00.000Z"
+ },
+ {
   "_id": "6af3610d01754088dbf749ef",
   "id": "StillDeadcode/gemma4-26b-a4b-dflash-i8",
   "lastModified": "2026-11-10T19:12:55.000Z",
@@ -683,34 +711,6 @@
    "region:us"
   ],
   "createdAt": "2026-04-05T20:47:47.000Z"
- },
- {
-  "_id": "6aef62709ba5237bda342a09",
-  "id": "AmSach/Gemma-4-26B-A4B-MAPLE-Sub5GB-GGUF",
-  "lastModified": "2026-11-18T14:29:24.000Z",
-  "trendingScore": 0.5,
-  "sha": "a4a8e256ba7c0f605576163d9b807224bb0d5300",
-  "downloads": 4943,
-  "tags": [
-   "gguf",
-   "moe",
-   "mixture-of-experts",
-   "pruning",
-   "gemma-4",
-   "llama.cpp",
-   "edge-ai",
-   "model-compression",
-   "text-generation",
-   "en",
-   "base_model:google/gemma-4-26B-A4B-it",
-   "base_model:quantized:google/gemma-4-26B-A4B-it",
-   "license:apache-2.0",
-   "endpoints_compatible",
-   "region:us",
-   "imatrix",
-   "conversational"
-  ],
-  "createdAt": "2026-11-07T17:40:00.000Z"
  },
  {
   "_id": "69ce59ac5ee550f774ed3e3d",
@@ -11036,9 +11036,9 @@
  {
   "_id": "6af414f50011fec9f47e7ad8",
   "id": "Xylolabs/gemma-4-26B-A4B-it-Tenstorrent-Tensix-BFP4",
-  "lastModified": "2026-11-25T17:16:12.000Z",
+  "lastModified": "2026-11-27T04:40:01.000Z",
   "trendingScore": 0,
-  "sha": "ebacaaa5f32a8fd0a496d58c0ab70f909c48b465",
+  "sha": "ca31dd6b8b182ab29075b61ec06add8a5cd9fdda",
   "downloads": 225,
   "tags": [
    "transformers",
@@ -11066,9 +11066,9 @@
  {
   "_id": "6af48e0eb3306a0f96a091b0",
   "id": "Xylolabs/gemma-4-26B-A4B-it-Tenstorrent-Tensix-BFP8",
-  "lastModified": "2026-11-25T17:16:16.000Z",
+  "lastModified": "2026-11-27T04:40:17.000Z",
   "trendingScore": 0,
-  "sha": "2c4a4dabd13b85f6cd0cfda7cf4ce3adf3bd65fe",
+  "sha": "3cb07b2d507cfd1115b469d90285185e18da8a0b",
   "downloads": 215,
   "tags": [
    "transformers",
@@ -11563,12 +11563,14 @@
  },
  {
   "_id": "6b05e88e19749bb64a09ee7e",
-  "id": "McSlyver/gemma-4-26B-A4B-it-FuxMul",
-  "lastModified": "2026-11-26T22:46:48.000Z",
+  "id": "McSlyver/gemma-4-26B-A4B-it-FuxMul-7.5GiB",
+  "lastModified": "2026-11-27T04:44:47.000Z",
   "trendingScore": 0,
-  "sha": "7d079c643d6af9e1beec71f838f1c6c47093b37b",
+  "sha": "99119a6a4a563efc7a79ebe832a29219e164e40d",
   "downloads": 0,
   "tags": [
+   "7.5GiB",
+   "2.5-bit",
    "gemma4",
    "gemma-4",
    "moe",
@@ -11741,5 +11743,71 @@
    "conversational"
   ],
   "createdAt": "2026-11-26T18:45:21.000Z"
+ },
+ {
+  "_id": "6b08f7fd43193d89742ef192",
+  "id": "Xylolabs/gemma-4-26B-A4B-it-MLX-8bit",
+  "lastModified": "2026-11-27T03:25:28.000Z",
+  "trendingScore": 0,
+  "sha": "4767a46abff5da92d71eb7447bc8b2a6f4df8d83",
+  "downloads": 0,
+  "tags": [
+   "mlx",
+   "safetensors",
+   "gemma4",
+   "quantized",
+   "text-generation",
+   "conversational",
+   "base_model:google/gemma-4-26B-A4B-it",
+   "base_model:quantized:google/gemma-4-26B-A4B-it",
+   "license:apache-2.0",
+   "8-bit",
+   "region:us"
+  ],
+  "createdAt": "2026-11-27T03:24:45.000Z"
+ },
+ {
+  "_id": "6b08f7fdc3cd23c501fc705f",
+  "id": "Xylolabs/gemma-4-26B-A4B-it-MLX-4bit",
+  "lastModified": "2026-11-27T03:25:23.000Z",
+  "trendingScore": 0,
+  "sha": "966bed5972cd896484e96b2edd5177e0f841be65",
+  "downloads": 0,
+  "tags": [
+   "mlx",
+   "safetensors",
+   "gemma4",
+   "quantized",
+   "text-generation",
+   "conversational",
+   "base_model:google/gemma-4-26B-A4B-it",
+   "base_model:quantized:google/gemma-4-26B-A4B-it",
+   "license:apache-2.0",
+   "4-bit",
+   "region:us"
+  ],
+  "createdAt": "2026-11-27T03:24:45.000Z"
+ },
+ {
+  "_id": "6b09058e06e083c253e048e4",
+  "id": "Xylolabs/gemma-4-26B-A4B-it-GGUF",
+  "lastModified": "2026-11-27T05:29:01.000Z",
+  "trendingScore": 0,
+  "sha": "120e64cf31397d24d9d50c5e5a15989d2b2e085d",
+  "downloads": 0,
+  "tags": [
+   "gguf",
+   "llama-cpp",
+   "quantized",
+   "text-generation",
+   "base_model:google/gemma-4-26B-A4B-it",
+   "base_model:quantized:google/gemma-4-26B-A4B-it",
+   "license:apache-2.0",
+   "endpoints_compatible",
+   "region:us",
+   "imatrix",
+   "conversational"
+  ],
+  "createdAt": "2026-11-27T04:22:38.000Z"
  }
 ]
