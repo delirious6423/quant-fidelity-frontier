@@ -3,7 +3,7 @@
   "_id": "6b05bc141cc89aec613fe5c5",
   "id": "prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
   "lastModified": "2026-11-24T21:12:50.000Z",
-  "trendingScore": 519,
+  "trendingScore": 540,
   "sha": "28a7093cc25bc151cc2b284c5570f12ce343fdcf",
   "downloads": 382546,
   "tags": [
@@ -36,7 +36,7 @@
   "_id": "6affa1f3a20ff6e9d312a69b",
   "id": "nari-labs/Qwen3.8-27B-NariQ-GGUF",
   "lastModified": "2026-11-25T04:13:20.000Z",
-  "trendingScore": 164,
+  "trendingScore": 84,
   "sha": "f886dfa7581169661d218f22fc83a186b78e385a",
   "downloads": 30849,
   "tags": [
@@ -62,7 +62,7 @@
   "_id": "6a81b8bfa514d4eed962e012",
   "id": "huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF",
   "lastModified": "2026-11-15T22:14:39.000Z",
-  "trendingScore": 67,
+  "trendingScore": 66,
   "sha": "c4b90228246aef7ecc6cb2be9d80575a911a0f3a",
   "downloads": 4694969,
   "tags": [
@@ -96,7 +96,7 @@
   "_id": "6a7d8038d813eea1a14a8db4",
   "id": "unsloth/Qwen3.8-27B-GGUF",
   "lastModified": "2026-11-12T02:15:52.000Z",
-  "trendingScore": 50,
+  "trendingScore": 49,
   "sha": "4af51b3542f775b0a8e4b310bfb3f17e01c306c9",
   "downloads": 8450803,
   "tags": [
@@ -118,7 +118,7 @@
   "_id": "6b00a53503544ba6e2a339ed",
   "id": "CaryPalmer/Kintsugi-27B",
   "lastModified": "2026-11-27T14:07:51.000Z",
-  "trendingScore": 41,
+  "trendingScore": 42,
   "sha": "774301bfbe2fa3f33ae62ea4b44b9422b530f101",
   "downloads": 21665,
   "tags": [
@@ -142,10 +142,39 @@
   "createdAt": "2026-11-20T19:53:25.000Z"
  },
  {
+  "_id": "6adfc3b74fac0847ae3d6ebf",
+  "id": "nvidia/Qwen3.8-27B-NVFP4-QAD",
+  "lastModified": "2026-11-20T09:19:45.000Z",
+  "trendingScore": 33,
+  "sha": "cd46ab575a5a687f0bc3e54251016fc2cc1a6aef",
+  "downloads": 4204,
+  "tags": [
+   "Model Optimizer",
+   "safetensors",
+   "qwen3_5",
+   "nvidia",
+   "ModelOpt",
+   "Qwen3.8",
+   "quantized",
+   "NVFP4",
+   "nvfp4",
+   "QAD",
+   "text-generation",
+   "conversational",
+   "base_model:Qwen/Qwen3.8-27B",
+   "base_model:quantized:Qwen/Qwen3.8-27B",
+   "license:other",
+   "8-bit",
+   "modelopt",
+   "region:us"
+  ],
+  "createdAt": "2026-10-26T21:18:47.000Z"
+ },
+ {
   "_id": "6a8167f07e5b0adb68f9fcf0",
   "id": "orcarouter/Qwen3.8-27B-Uncensored-GGUF",
   "lastModified": "2026-10-27T06:56:40.000Z",
-  "trendingScore": 32.5,
+  "trendingScore": 31.5,
   "sha": "b2e5cef033c0832fff1cc8c4937865abab9455f4",
   "downloads": 138063,
   "tags": [
@@ -180,7 +209,7 @@
   "_id": "6a91d58bed327671e1699008",
   "id": "ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF",
   "lastModified": "2026-09-02T09:11:34.000Z",
-  "trendingScore": 30,
+  "trendingScore": 31,
   "sha": "d562806dbafae37109975e970aae91b43e73b440",
   "downloads": 1323329,
   "tags": [
@@ -261,35 +290,6 @@
    "conversational"
   ],
   "createdAt": "2026-09-16T23:40:56.000Z"
- },
- {
-  "_id": "6adfc3b74fac0847ae3d6ebf",
-  "id": "nvidia/Qwen3.8-27B-NVFP4-QAD",
-  "lastModified": "2026-11-20T09:19:45.000Z",
-  "trendingScore": 18,
-  "sha": "cd46ab575a5a687f0bc3e54251016fc2cc1a6aef",
-  "downloads": 4204,
-  "tags": [
-   "Model Optimizer",
-   "safetensors",
-   "qwen3_5",
-   "nvidia",
-   "ModelOpt",
-   "Qwen3.8",
-   "quantized",
-   "NVFP4",
-   "nvfp4",
-   "QAD",
-   "text-generation",
-   "conversational",
-   "base_model:Qwen/Qwen3.8-27B",
-   "base_model:quantized:Qwen/Qwen3.8-27B",
-   "license:other",
-   "8-bit",
-   "modelopt",
-   "region:us"
-  ],
-  "createdAt": "2026-10-26T21:18:47.000Z"
  },
  {
   "_id": "6a85c354733ca524c25bd6b5",
@@ -430,41 +430,6 @@
   "createdAt": "2026-10-16T10:04:56.000Z"
  },
  {
-  "_id": "6a83166a2d112a3a129032c3",
-  "id": "orcarouter/Qwen3.8-27B-Uncensored-MLX",
-  "lastModified": "2026-10-27T06:56:47.000Z",
-  "trendingScore": 7,
-  "sha": "a92a9d3492320048ca96924262d158f75ab5ce8b",
-  "downloads": 54275,
-  "tags": [
-   "mlx",
-   "safetensors",
-   "qwen3_5",
-   "abliterated",
-   "qwen3.8",
-   "uncensored",
-   "ai-red-team",
-   "red-teaming",
-   "apple-silicon",
-   "quantized",
-   "4-bit",
-   "8-bit",
-   "vision-language",
-   "image-text-to-text",
-   "multimodal",
-   "function-calling",
-   "reasoning",
-   "conversational",
-   "en",
-   "zh",
-   "base_model:Qwen/Qwen3.8-27B",
-   "base_model:quantized:Qwen/Qwen3.8-27B",
-   "license:apache-2.0",
-   "region:us"
-  ],
-  "createdAt": "2026-08-17T14:10:50.000Z"
- },
- {
   "_id": "6a83593d98411618d686d175",
   "id": "Jundot/Qwen3.8-27B-oQ4e-mtp",
   "lastModified": "2026-11-19T03:18:58.000Z",
@@ -580,31 +545,39 @@
   "createdAt": "2026-11-26T11:22:07.000Z"
  },
  {
-  "_id": "6a8372c58c11b21143395fbe",
-  "id": "RedHatAI/Qwen3.8-27B-INT4",
-  "lastModified": "2026-11-19T10:16:07.000Z",
-  "trendingScore": 5,
-  "sha": "71dface38d4cbfa34121f1d446d4a0fa1025f13c",
-  "downloads": 200754,
+  "_id": "6a83166a2d112a3a129032c3",
+  "id": "orcarouter/Qwen3.8-27B-Uncensored-MLX",
+  "lastModified": "2026-10-27T06:56:47.000Z",
+  "trendingScore": 5.6,
+  "sha": "a92a9d3492320048ca96924262d158f75ab5ce8b",
+  "downloads": 54275,
   "tags": [
-   "transformers",
+   "mlx",
    "safetensors",
    "qwen3_5",
+   "abliterated",
+   "qwen3.8",
+   "uncensored",
+   "ai-red-team",
+   "red-teaming",
+   "apple-silicon",
+   "quantized",
+   "4-bit",
+   "8-bit",
+   "vision-language",
    "image-text-to-text",
-   "int4",
-   "vllm",
-   "llm-compressor",
-   "compressed-tensors",
+   "multimodal",
+   "function-calling",
+   "reasoning",
    "conversational",
    "en",
    "zh",
    "base_model:Qwen/Qwen3.8-27B",
    "base_model:quantized:Qwen/Qwen3.8-27B",
    "license:apache-2.0",
-   "endpoints_compatible",
    "region:us"
   ],
-  "createdAt": "2026-08-17T20:44:53.000Z"
+  "createdAt": "2026-08-17T14:10:50.000Z"
  },
  {
   "_id": "6a9b3b68729a72fd7750c63f",
@@ -996,6 +969,58 @@
   "createdAt": "2026-08-15T16:56:36.000Z"
  },
  {
+  "_id": "6a8372c58c11b21143395fbe",
+  "id": "RedHatAI/Qwen3.8-27B-INT4",
+  "lastModified": "2026-11-19T10:16:07.000Z",
+  "trendingScore": 2,
+  "sha": "71dface38d4cbfa34121f1d446d4a0fa1025f13c",
+  "downloads": 200754,
+  "tags": [
+   "transformers",
+   "safetensors",
+   "qwen3_5",
+   "image-text-to-text",
+   "int4",
+   "vllm",
+   "llm-compressor",
+   "compressed-tensors",
+   "conversational",
+   "en",
+   "zh",
+   "base_model:Qwen/Qwen3.8-27B",
+   "base_model:quantized:Qwen/Qwen3.8-27B",
+   "license:apache-2.0",
+   "endpoints_compatible",
+   "region:us"
+  ],
+  "createdAt": "2026-08-17T20:44:53.000Z"
+ },
+ {
+  "_id": "6a838b56859b6056ecfa5667",
+  "id": "cdiamond/Qwen3.8-27B-iMatrix-NVFP4-MTP-GGUF",
+  "lastModified": "2026-08-17T22:40:35.000Z",
+  "trendingScore": 2,
+  "sha": "ac343e8f44caef0896f79d372ecc07ef7ab34ec8",
+  "downloads": 3252212,
+  "tags": [
+   "gguf",
+   "qwen",
+   "qwen3.8",
+   "nvfp4",
+   "imatrix",
+   "mtp",
+   "llama.cpp",
+   "multimodal",
+   "256k-context",
+   "image-text-to-text",
+   "base_model:Qwen/Qwen3.8-27B",
+   "base_model:quantized:Qwen/Qwen3.8-27B",
+   "license:apache-2.0",
+   "region:us"
+  ],
+  "createdAt": "2026-08-17T22:29:42.000Z"
+ },
+ {
   "_id": "6a847eeca7cc17d7962813a4",
   "id": "incoai/Qwen3.8-27B-DFlash2-GGUF",
   "lastModified": "2026-10-20T06:23:17.000Z",
@@ -1136,6 +1161,61 @@
    "region:us"
   ],
   "createdAt": "2026-11-25T08:12:24.000Z"
+ },
+ {
+  "_id": "6b09e9c3bfcdff3cb69e8c0e",
+  "id": "prithivMLmods/Qwen3.8-27B-NVFP4-QAD-GGUF",
+  "lastModified": "2026-11-27T21:05:11.000Z",
+  "trendingScore": 2,
+  "sha": "0bf7a791bb84039dd07beaa946382e3c7b2c2d26",
+  "downloads": 0,
+  "tags": [
+   "transformers",
+   "gguf",
+   "mtp",
+   "text-generation-inference",
+   "QAD",
+   "qwen3_5",
+   "stable",
+   "Model Optimizer",
+   "ModelOpt",
+   "llama-cpp",
+   "nvfp4",
+   "nvidia",
+   "llama-cli",
+   "speculative-decoding",
+   "nvidia-blackwell",
+   "rtx-pro-6000",
+   "SM120",
+   "GB202",
+   "B200",
+   "B300",
+   "FP4",
+   "blackwell",
+   "Qwen3.5",
+   "Qwen3.6",
+   "Qwen3.8",
+   "27B",
+   "multimodal",
+   "mixed-precision",
+   "conversational",
+   "quantized",
+   "hf-bucket",
+   "vLLM",
+   "Quantization-Aware-Distillation",
+   "Alibaba",
+   "Nemotron",
+   "SFT",
+   "image-text-to-text",
+   "en",
+   "dataset:nvidia/Nemotron-Cascade-2-SFT-Data",
+   "base_model:Qwen/Qwen3.8-27B",
+   "base_model:quantized:Qwen/Qwen3.8-27B",
+   "license:other",
+   "endpoints_compatible",
+   "region:us"
+  ],
+  "createdAt": "2026-11-27T20:36:19.000Z"
  },
  {
   "_id": "6a7f364cccffc05984ed3c4f",
@@ -1712,6 +1792,41 @@
   "createdAt": "2026-08-14T19:36:37.000Z"
  },
  {
+  "_id": "6a7f7278d3deff5abcbda4e6",
+  "id": "kingjones777/Qwen3.8-27B-ROCmFP4-STRIX-MTP-GGUF",
+  "lastModified": "2026-10-25T21:32:37.000Z",
+  "trendingScore": 1,
+  "sha": "dcba5906c7a86d4af2b2edcfbc7940a250eebed4",
+  "downloads": 8166,
+  "tags": [
+   "gguf",
+   "llama.cpp",
+   "rocm",
+   "amd",
+   "rocmfp4",
+   "rocmfpx",
+   "strix-halo",
+   "amd-strix-halo",
+   "gfx1151",
+   "ryzen-ai-max",
+   "ryzen-ai-max-395",
+   "radeon-8060s",
+   "mtp",
+   "speculative-decoding",
+   "reasoning",
+   "qwen3.5",
+   "quantized",
+   "text-generation",
+   "base_model:Qwen/Qwen3.8-27B",
+   "base_model:quantized:Qwen/Qwen3.8-27B",
+   "license:apache-2.0",
+   "endpoints_compatible",
+   "region:us",
+   "conversational"
+  ],
+  "createdAt": "2026-08-14T19:54:32.000Z"
+ },
+ {
   "_id": "6a7f7b5f37353d885acbfd05",
   "id": "ddalcu/Qwen3.8-27B-MLX-Serve-8bit",
   "lastModified": "2026-09-29T14:34:20.000Z",
@@ -1792,39 +1907,6 @@
    "region:us"
   ],
   "createdAt": "2026-08-15T03:39:16.000Z"
- },
- {
-  "_id": "6a8076cedec2241021b96942",
-  "id": "empero-ai/Qwen3.8-27B-Ridge-GGUF",
-  "lastModified": "2026-08-15T23:51:41.000Z",
-  "trendingScore": 1,
-  "sha": "486faa5f2032ff99bdc8993ade1b8fff13d1464c",
-  "downloads": 279931,
-  "tags": [
-   "gguf",
-   "llama.cpp",
-   "quantized",
-   "qwen3.8",
-   "qwen3.5",
-   "ridge",
-   "gated-deltanet",
-   "imatrix",
-   "reasoning",
-   "multimodal",
-   "vision",
-   "mtp",
-   "long-context",
-   "image-text-to-text",
-   "en",
-   "zh",
-   "base_model:Qwen/Qwen3.8-27B",
-   "base_model:quantized:Qwen/Qwen3.8-27B",
-   "license:apache-2.0",
-   "endpoints_compatible",
-   "region:us",
-   "conversational"
-  ],
-  "createdAt": "2026-08-15T14:25:18.000Z"
  },
  {
   "_id": "6a809131c94159ca6be825eb",
@@ -2132,6 +2214,32 @@
    "region:us"
   ],
   "createdAt": "2026-09-16T13:08:14.000Z"
+ },
+ {
+  "_id": "6aad93b196dfe31da494cd7b",
+  "id": "RedHatAI/Qwen3.8-27B-NVFP4",
+  "lastModified": "2026-11-19T10:18:39.000Z",
+  "trendingScore": 1,
+  "sha": "5dd2bd1fffbfced02b863d69542514509c312b10",
+  "downloads": 6462,
+  "tags": [
+   "transformers",
+   "safetensors",
+   "qwen3_5",
+   "image-text-to-text",
+   "fp4",
+   "fp8",
+   "vllm",
+   "llm-compressor",
+   "compressed-tensors",
+   "conversational",
+   "base_model:Qwen/Qwen3.8-27B",
+   "base_model:quantized:Qwen/Qwen3.8-27B",
+   "license:apache-2.0",
+   "endpoints_compatible",
+   "region:us"
+  ],
+  "createdAt": "2026-09-18T19:40:33.000Z"
  },
  {
   "_id": "6ab2973d6a77c9a31920caa7",
@@ -2532,31 +2640,6 @@
   "createdAt": "2026-10-15T16:29:45.000Z"
  },
  {
-  "_id": "6ad5c387c6a81846df30adf1",
-  "id": "anemll/anemll-forge-qwen3.8-27B-192K",
-  "lastModified": "2026-10-20T01:33:15.000Z",
-  "trendingScore": 1,
-  "sha": "f60450aa40508c5b7f79eddff29e0e601d66b193",
-  "downloads": 117,
-  "tags": [
-   "anemll-forge",
-   "qwen3_5",
-   "coreai",
-   "ane",
-   "quantized",
-   "speculative-decoding",
-   "dflash2",
-   "kv-cache",
-   "long-context",
-   "text-generation",
-   "base_model:Qwen/Qwen3.8-27B",
-   "base_model:quantized:Qwen/Qwen3.8-27B",
-   "license:apache-2.0",
-   "region:us"
-  ],
-  "createdAt": "2026-10-19T07:15:19.000Z"
- },
- {
   "_id": "6adde779ee0f5545fa34f0c9",
   "id": "turintech/Qwen3.8-27B-Artemis-GGUF",
   "lastModified": "2026-11-16T12:09:23.000Z",
@@ -2705,35 +2788,6 @@
   "createdAt": "2026-11-05T09:41:27.000Z"
  },
  {
-  "_id": "6af2e430da0df3faab0ac2bd",
-  "id": "StillDeadcode/qwen3.8-27b-iq8r-dflash",
-  "lastModified": "2026-11-10T10:48:19.000Z",
-  "trendingScore": 1,
-  "sha": "c127a34140e4cbc5c7c1a1925810f323b3f10920",
-  "downloads": 0,
-  "tags": [
-   "radiance",
-   "rocm",
-   "amd",
-   "rdna4",
-   "int8",
-   "w8a8",
-   "iq8r",
-   "gptq",
-   "hadamard",
-   "speculative-decoding",
-   "dflash2",
-   "vision",
-   "image-text-to-text",
-   "dataset:StillDeadcode/qwen3.8-27b-quant-challenge",
-   "base_model:Qwen/Qwen3.8-27B",
-   "base_model:quantized:Qwen/Qwen3.8-27B",
-   "license:apache-2.0",
-   "region:us"
-  ],
-  "createdAt": "2026-11-10T09:30:24.000Z"
- },
- {
   "_id": "6af8a28d7e1722683586b96a",
   "id": "aikexue170/rewrite3-27b-iq4xs",
   "lastModified": "2026-11-21T12:06:08.000Z",
@@ -2762,35 +2816,6 @@
    "conversational"
   ],
   "createdAt": "2026-11-14T18:03:57.000Z"
- },
- {
-  "_id": "6afbd9950eceab9c79f59e3e",
-  "id": "anemll/anemll-forge-qwen3.8-27B-V8-96K",
-  "lastModified": "2026-11-23T05:25:22.000Z",
-  "trendingScore": 1,
-  "sha": "d97d46a909c293de97e04e01ec9faecb40551010",
-  "downloads": 806,
-  "tags": [
-   "anemll-forge",
-   "qwen3_5",
-   "coreai",
-   "ane",
-   "metal",
-   "quantized",
-   "speculative-decoding",
-   "dflash2",
-   "kv-cache",
-   "long-context",
-   "gpu-ane-prefill",
-   "hybrid",
-   "tree-verification",
-   "text-generation",
-   "base_model:Qwen/Qwen3.8-27B",
-   "base_model:quantized:Qwen/Qwen3.8-27B",
-   "license:apache-2.0",
-   "region:us"
-  ],
-  "createdAt": "2026-11-17T04:35:33.000Z"
  },
  {
   "_id": "6b0004ff49e3032e2f859e86",
@@ -2978,9 +3003,9 @@
  {
   "_id": "6b071b6e03e80bdd0bcd88af",
   "id": "hif1000/Qwen3.8-27B-SQ4-GGUF",
-  "lastModified": "2026-11-27T03:29:43.000Z",
+  "lastModified": "2026-11-28T01:07:38.000Z",
   "trendingScore": 1,
-  "sha": "0c354044a2ac2c3e6e05c80aad573ea9416c030b",
+  "sha": "a01e4cf8b4b79d77097ed66ba5e3ad6b63046c04",
   "downloads": 152,
   "tags": [
    "gguf",
@@ -3398,6 +3423,39 @@
   "createdAt": "2026-08-15T03:11:24.000Z"
  },
  {
+  "_id": "6a8076cedec2241021b96942",
+  "id": "empero-ai/Qwen3.8-27B-Ridge-GGUF",
+  "lastModified": "2026-08-15T23:51:41.000Z",
+  "trendingScore": 0.5,
+  "sha": "486faa5f2032ff99bdc8993ade1b8fff13d1464c",
+  "downloads": 279931,
+  "tags": [
+   "gguf",
+   "llama.cpp",
+   "quantized",
+   "qwen3.8",
+   "qwen3.5",
+   "ridge",
+   "gated-deltanet",
+   "imatrix",
+   "reasoning",
+   "multimodal",
+   "vision",
+   "mtp",
+   "long-context",
+   "image-text-to-text",
+   "en",
+   "zh",
+   "base_model:Qwen/Qwen3.8-27B",
+   "base_model:quantized:Qwen/Qwen3.8-27B",
+   "license:apache-2.0",
+   "endpoints_compatible",
+   "region:us",
+   "conversational"
+  ],
+  "createdAt": "2026-08-15T14:25:18.000Z"
+ },
+ {
   "_id": "6a84291ba878c84a652eb37c",
   "id": "Bucoid/Qwen3.8-27B-Heretic-Ara-16GB-VRAM-IQ4-XS-MTP-GGUF",
   "lastModified": "2026-08-23T12:38:52.000Z",
@@ -3598,6 +3656,35 @@
    "conversational"
   ],
   "createdAt": "2026-11-04T16:21:25.000Z"
+ },
+ {
+  "_id": "6af2e430da0df3faab0ac2bd",
+  "id": "StillDeadcode/qwen3.8-27b-iq8r-dflash",
+  "lastModified": "2026-11-10T10:48:19.000Z",
+  "trendingScore": 0.5,
+  "sha": "c127a34140e4cbc5c7c1a1925810f323b3f10920",
+  "downloads": 0,
+  "tags": [
+   "radiance",
+   "rocm",
+   "amd",
+   "rdna4",
+   "int8",
+   "w8a8",
+   "iq8r",
+   "gptq",
+   "hadamard",
+   "speculative-decoding",
+   "dflash2",
+   "vision",
+   "image-text-to-text",
+   "dataset:StillDeadcode/qwen3.8-27b-quant-challenge",
+   "base_model:Qwen/Qwen3.8-27B",
+   "base_model:quantized:Qwen/Qwen3.8-27B",
+   "license:apache-2.0",
+   "region:us"
+  ],
+  "createdAt": "2026-11-10T09:30:24.000Z"
  },
  {
   "_id": "6af2fb7c709eddbf237aacf7",
@@ -7844,41 +7931,6 @@
    "region:us"
   ],
   "createdAt": "2026-08-14T19:50:12.000Z"
- },
- {
-  "_id": "6a7f7278d3deff5abcbda4e6",
-  "id": "kingjones777/Qwen3.8-27B-ROCmFP4-STRIX-MTP-GGUF",
-  "lastModified": "2026-10-25T21:32:37.000Z",
-  "trendingScore": 0,
-  "sha": "dcba5906c7a86d4af2b2edcfbc7940a250eebed4",
-  "downloads": 8166,
-  "tags": [
-   "gguf",
-   "llama.cpp",
-   "rocm",
-   "amd",
-   "rocmfp4",
-   "rocmfpx",
-   "strix-halo",
-   "amd-strix-halo",
-   "gfx1151",
-   "ryzen-ai-max",
-   "ryzen-ai-max-395",
-   "radeon-8060s",
-   "mtp",
-   "speculative-decoding",
-   "reasoning",
-   "qwen3.5",
-   "quantized",
-   "text-generation",
-   "base_model:Qwen/Qwen3.8-27B",
-   "base_model:quantized:Qwen/Qwen3.8-27B",
-   "license:apache-2.0",
-   "endpoints_compatible",
-   "region:us",
-   "conversational"
-  ],
-  "createdAt": "2026-08-14T19:54:32.000Z"
  },
  {
   "_id": "6a7f72bf9bba3b403fc126cb",
@@ -16476,31 +16528,6 @@
    "conversational"
   ],
   "createdAt": "2026-08-17T21:57:27.000Z"
- },
- {
-  "_id": "6a838b56859b6056ecfa5667",
-  "id": "cdiamond/Qwen3.8-27B-iMatrix-NVFP4-MTP-GGUF",
-  "lastModified": "2026-08-17T22:40:35.000Z",
-  "trendingScore": 0,
-  "sha": "ac343e8f44caef0896f79d372ecc07ef7ab34ec8",
-  "downloads": 3252212,
-  "tags": [
-   "gguf",
-   "qwen",
-   "qwen3.8",
-   "nvfp4",
-   "imatrix",
-   "mtp",
-   "llama.cpp",
-   "multimodal",
-   "256k-context",
-   "image-text-to-text",
-   "base_model:Qwen/Qwen3.8-27B",
-   "base_model:quantized:Qwen/Qwen3.8-27B",
-   "license:apache-2.0",
-   "region:us"
-  ],
-  "createdAt": "2026-08-17T22:29:42.000Z"
  },
  {
   "_id": "6a8392a68ff72bd7d4cd7fce",
@@ -31690,32 +31717,6 @@
   "createdAt": "2026-09-18T18:53:08.000Z"
  },
  {
-  "_id": "6aad93b196dfe31da494cd7b",
-  "id": "RedHatAI/Qwen3.8-27B-NVFP4",
-  "lastModified": "2026-11-19T10:18:39.000Z",
-  "trendingScore": 0,
-  "sha": "5dd2bd1fffbfced02b863d69542514509c312b10",
-  "downloads": 6462,
-  "tags": [
-   "transformers",
-   "safetensors",
-   "qwen3_5",
-   "image-text-to-text",
-   "fp4",
-   "fp8",
-   "vllm",
-   "llm-compressor",
-   "compressed-tensors",
-   "conversational",
-   "base_model:Qwen/Qwen3.8-27B",
-   "base_model:quantized:Qwen/Qwen3.8-27B",
-   "license:apache-2.0",
-   "endpoints_compatible",
-   "region:us"
-  ],
-  "createdAt": "2026-09-18T19:40:33.000Z"
- },
- {
   "_id": "6aade16ad43a267baedcc050",
   "id": "parsimo2010/Qwen3.8-27B-Q4_0_ROCMFP4_STRIX-GGUF",
   "lastModified": "2026-09-19T02:20:42.000Z",
@@ -41066,6 +41067,31 @@
   "createdAt": "2026-10-19T04:28:43.000Z"
  },
  {
+  "_id": "6ad5c387c6a81846df30adf1",
+  "id": "anemll/anemll-forge-qwen3.8-27B-192K",
+  "lastModified": "2026-10-20T01:33:15.000Z",
+  "trendingScore": 0,
+  "sha": "f60450aa40508c5b7f79eddff29e0e601d66b193",
+  "downloads": 117,
+  "tags": [
+   "anemll-forge",
+   "qwen3_5",
+   "coreai",
+   "ane",
+   "quantized",
+   "speculative-decoding",
+   "dflash2",
+   "kv-cache",
+   "long-context",
+   "text-generation",
+   "base_model:Qwen/Qwen3.8-27B",
+   "base_model:quantized:Qwen/Qwen3.8-27B",
+   "license:apache-2.0",
+   "region:us"
+  ],
+  "createdAt": "2026-10-19T07:15:19.000Z"
+ },
+ {
   "_id": "6ad5c57bd4c5702e6c5276ca",
   "id": "hotdogs/Ternary-Bonsai-2-27B-Uncensored-Heretic-swift_unc",
   "lastModified": "2026-10-19T14:59:49.000Z",
@@ -48898,9 +48924,9 @@
  {
   "_id": "6af858d602014765d7e8de82",
   "id": "Xylolabs/Qwen3.8-27B-GGUF",
-  "lastModified": "2026-11-27T11:35:30.000Z",
+  "lastModified": "2026-11-28T00:31:27.000Z",
   "trendingScore": 0,
-  "sha": "b17cebe644379a8b360aec644d07365c86ab1d55",
+  "sha": "984d22bd7bd8c209c1bba2288d05e5a1eb41323f",
   "downloads": 15534,
   "tags": [
    "gguf",
@@ -50018,6 +50044,35 @@
    "conversational"
   ],
   "createdAt": "2026-11-17T04:25:36.000Z"
+ },
+ {
+  "_id": "6afbd9950eceab9c79f59e3e",
+  "id": "anemll/anemll-forge-qwen3.8-27B-V8-96K",
+  "lastModified": "2026-11-23T05:25:22.000Z",
+  "trendingScore": 0,
+  "sha": "d97d46a909c293de97e04e01ec9faecb40551010",
+  "downloads": 806,
+  "tags": [
+   "anemll-forge",
+   "qwen3_5",
+   "coreai",
+   "ane",
+   "metal",
+   "quantized",
+   "speculative-decoding",
+   "dflash2",
+   "kv-cache",
+   "long-context",
+   "gpu-ane-prefill",
+   "hybrid",
+   "tree-verification",
+   "text-generation",
+   "base_model:Qwen/Qwen3.8-27B",
+   "base_model:quantized:Qwen/Qwen3.8-27B",
+   "license:apache-2.0",
+   "region:us"
+  ],
+  "createdAt": "2026-11-17T04:35:33.000Z"
  },
  {
   "_id": "6afbdec28c4018fdb07584f5",
@@ -52252,9 +52307,9 @@
  {
   "_id": "6b071b3436d0c7bc9ecc5893",
   "id": "hif1000/Qwen3.8-27B-SHI2-GGUF",
-  "lastModified": "2026-11-27T02:07:53.000Z",
+  "lastModified": "2026-11-28T01:07:37.000Z",
   "trendingScore": 0,
-  "sha": "cd436f3f06a2ba97ac8d364f2280668ce3c54fdf",
+  "sha": "fa0598130f8c1b3cb6e6b4a6d6be9e69458e31b4",
   "downloads": 98,
   "tags": [
    "gguf",
@@ -52272,9 +52327,9 @@
  {
   "_id": "6b071b34579f3a0893bb7fd2",
   "id": "hif1000/Qwen3.8-27B-SHI4-GGUF",
-  "lastModified": "2026-11-27T02:09:04.000Z",
+  "lastModified": "2026-11-28T01:07:37.000Z",
   "trendingScore": 0,
-  "sha": "d7b7564eee36ced4d82974ad03238aae1785d4d8",
+  "sha": "04d0d3acc8f56fb3500076fcc6604006321793d8",
   "downloads": 100,
   "tags": [
    "gguf",
@@ -52292,9 +52347,9 @@
  {
   "_id": "6b071b6e2a168857c8bc82de",
   "id": "hif1000/Qwen3.8-27B-SQ2-GGUF",
-  "lastModified": "2026-11-27T02:08:49.000Z",
+  "lastModified": "2026-11-28T01:07:38.000Z",
   "trendingScore": 0,
-  "sha": "63d546c35c043f06bf7ecd1b2596d5dcae27e455",
+  "sha": "e0455c102830e577530a9c2718d1b265e34131cf",
   "downloads": 91,
   "tags": [
    "gguf",
@@ -52312,9 +52367,9 @@
  {
   "_id": "6b071b854d52db17c17ff224",
   "id": "hif1000/Qwen3.8-27B-SQ8-GGUF",
-  "lastModified": "2026-11-27T02:10:13.000Z",
+  "lastModified": "2026-11-28T01:07:39.000Z",
   "trendingScore": 0,
-  "sha": "91f63ef3b36ef5831e0e5206a082d7180728d154",
+  "sha": "7fb4eef2b39e022ec71930b87fe89621b524d9a2",
   "downloads": 102,
   "tags": [
    "gguf",
@@ -52425,9 +52480,9 @@
  {
   "_id": "6b07b1f0309758df2da86091",
   "id": "asf0/Qwen3.8-27B-opencode-adapted-IQ8R-DFlash2-rad",
-  "lastModified": "2026-11-27T05:47:42.000Z",
+  "lastModified": "2026-11-27T20:27:54.000Z",
   "trendingScore": 0,
-  "sha": "bdac83dec12281efdbcc5a8d713d5a950cf42544",
+  "sha": "2d09c3e87001a8a84b0d5870296c645a64b723a9",
   "downloads": 0,
   "tags": [
    "radiance",
@@ -52918,9 +52973,9 @@
  {
   "_id": "6b09b6f119c4f9cecef9c6f8",
   "id": "SergiioB/Qwen3.8-27B-HF-INT4-G16-GPTQ",
-  "lastModified": "2026-11-27T17:14:01.000Z",
+  "lastModified": "2026-11-27T23:19:25.000Z",
   "trendingScore": 0,
-  "sha": "953042f7d0c8f10de9174b4934e603c56b284710",
+  "sha": "7d606f1cc7a8659ae0b152dbf4baf591e1b3dc3f",
   "downloads": 0,
   "tags": [
    "safetensors",
@@ -52930,7 +52985,7 @@
    "intel-xpu",
    "vllm",
    "hf-int4-g16",
-   "qwen3.5",
+   "qwen3.8",
    "battlemage",
    "base_model:Qwen/Qwen3.8-27B",
    "base_model:quantized:Qwen/Qwen3.8-27B",
@@ -52939,5 +52994,25 @@
    "region:us"
   ],
   "createdAt": "2026-11-27T16:59:29.000Z"
+ },
+ {
+  "_id": "6b09e5c329c5c9116347b939",
+  "id": "drjoshcsimmons/Qwen3.8-27B-Evil-GGUF",
+  "lastModified": "2026-11-27T20:32:53.000Z",
+  "trendingScore": 0,
+  "sha": "c72a9eba6c3fe36c7acd7acb2dcfd7743f869530",
+  "downloads": 0,
+  "tags": [
+   "gguf",
+   "llama.cpp",
+   "activation-steering",
+   "persona-neurons",
+   "qwen3_5",
+   "base_model:Qwen/Qwen3.8-27B",
+   "base_model:quantized:Qwen/Qwen3.8-27B",
+   "license:apache-2.0",
+   "region:us"
+  ],
+  "createdAt": "2026-11-27T20:19:15.000Z"
  }
 ]
